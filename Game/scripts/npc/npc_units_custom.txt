@@ -114972,6 +114972,102 @@
         "RoshpitColorRenderB"   "20"   
         "EnemyTier"             "3"
     }
+
+    "winterblight_castle_star_miniboss"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/windrunner/windrunner.vmdl"
+        "ModelScale"    "2.50"
+        "Level" "1"
+        "HealthBarOffset"   "360"
+        "HasInventory"  "0"
+        "SelectionGroup"    "forest_boss"
+        "SoundSet"          "Hero_Windrunner"
+        "precache"
+        {
+             "soundfile"       "soundevents/game_sounds_heroes/game_sounds_windrunner.vsndevts"
+             "particle"        "particles/units/heroes/hero_void_spirit/debut/void_spirit_portal_debut.vpcf"
+             "model"            "models/winterblight/castle_star.vmdl"
+             "particle"         "particles/status_fx/status_effect_void_spirit_aether_remnant.vpcf" 
+             "particle"         "particles/units/heroes/hero_winter_wyvern/wyvern_arctic_burn_start.vpcf"
+             "particle"         "particles/econ/items/axe/axe_cinder/axe_cinder_battle_hunger_c.vpcf"
+             "particle"         "particles/roshpit/redfall/autumn_mage_starfall_attack.vpcf"
+        }
+        "DefaultState"  "Invade"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "1110"
+        "AttackDamageMax"   "1115"
+        "AttackRate"    "1"
+        "AttackAnimationPoint"  "0.25"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "950"
+        "ProjectileModel"   "particles/units/heroes/hero_windrunner/windrunner_base_attack.vpcf"
+        "ProjectileSpeed"   "1600"
+        "BountyGoldMin" "200"
+        "BountyGoldMax" "300"
+        "BountyXP"  "1500"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "40"
+        "CollisionSize" "100"
+
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "550"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "28890"
+        "StatusHealthRegen" "0"
+        "StatusMana"    "400"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Ability1"          "winterblight_star_boss_passive"
+        "Ability2"          "winterblight_starwatcher_passive"
+        "Ability3"          "winter_star_boss_red_star_attack"
+        "Ability4"          "creature_pure_strike"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+                //shoulders
+                "Wearable1"
+                {
+                    "ItemDef"   "5279"
+                }
+                //arms
+                "Wearable2"
+                {
+                    "ItemDef"   "4559"
+                }
+                //haed
+                "Wearable3"
+                {
+                    "ItemDef"   "8257"
+                }
+                "Wearable4"
+                {
+                    "ItemDef"   "8582"
+                }
+            }
+
+        }
+        "RoshpitArmor"          "510"
+        "RoshpitArmorPierce"    "1150"
+        "RoshpitSpellPierce"    "670"
+        "RoshpitMagicArmor"     "710"
+        "RoshpitLevel"          "39"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "3" 
+        "RoshpitAggroSound"     "Winterblight.Castle.Starboss.Aggro"
+        "RoshpitDeathSound"     "Winterblight.Castle.Starboss.Death"
+        "RoshpitAIFlee"         "1"
+        "AIFleeRange"           "500"
+        "AIFleeDistance"        "300"
+    }
     
 
     "tutorial_master"

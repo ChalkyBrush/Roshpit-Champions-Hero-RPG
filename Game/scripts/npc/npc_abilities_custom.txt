@@ -90338,6 +90338,20 @@
 					}
 				}
 			}
+			"modifier_diviner_star_dummy_thinker"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.2"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"star_dummy_think"
+						"target"		"TARGET"
+					}
+				}
+			}
 		}
 	}
 
@@ -95022,6 +95036,120 @@
 						"Function"		"bishop_of_hades_dot_damage"
 						"target"		"TARGET"
 						"damage"		"%damage"
+					}
+				}
+			}
+		}
+	}
+
+	"winterblight_star_boss_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"mirana_starfall"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"respawn_delay"			"3"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_winter_star_boss_passive"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName" 		"particles/status_fx/status_effect_void_spirit_aether_remnant.vpcf" 	   
+				"StatusEffectPriority"  "100"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "300"
+				}
+			}
+			"modifier_winter_boss_intro"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_FROZEN"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVULNERABLE"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+
+	"winter_star_boss_red_star_attack"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"invoker_chaos_meteor"
+		"MaxLevel"	"3"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"magic_resist_loss"			"-100 -500 -4000"
+			}
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"80 300 2000"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_autumn_mage_passive"
+			{
+				"IsPurgable"		"0"
+				"Passive" 			"1"
+				"IsHidden" 			"1"
+				"IsBuff"			"0"
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"star_boss_attack_hit"
+						"damage"		"%damage"
+					}
+				}
+			}
+			"modifier_autumn_mage_debuff"
+			{
+				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"        "particles/econ/items/axe/axe_cinder/axe_cinder_battle_hunger_c.vpcf"
+						"EffectAttachType"  "attach_hitloc"
+						"Target"            "TARGET"
+					}
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
 					}
 				}
 			}

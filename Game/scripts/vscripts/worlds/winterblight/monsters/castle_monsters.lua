@@ -149,6 +149,9 @@ function diviner_think(event)
 			else
 				Winterblight:CastleNextRoomInit()
 			end
+			if Winterblight.CastleTarot["name"] == "star" then
+				Winterblight:InitCastleStarQuest()
+			end
 			StartSoundEvent("Winterblight.HorusHYPE", caster)
 		end)
 		Timers:CreateTimer(6.0, function()
@@ -4944,3 +4947,46 @@ function temperance_death(event)
 	Winterblight.TemperanceChest = false
 end
 
+function star_dummy_think(event)
+	local ability = event.ability
+	local caster = event.caster
+	local target = event.target
+	if target.lock then
+		return false
+	end
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 120, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+	if #enemies > 0 then
+		target.lock = true
+		target:RemoveModifierByName("modifier_diviner_star_dummy_thinker")
+		if not Winterblight.CastleStarQuestCount then
+			Winterblight.CastleStarQuestCount = 0
+		end
+		EmitSoundOnLocationWithCaster(target:GetAbsOrigin(), "Winterblight.Castle.StartActivate", target)
+		local colorVector = Vector(147, 151, 54)
+		Events:smoothColorTransition(target, target.colorVector, colorVector, 15)
+		target.colorVector = colorVector
+		Winterblight.CastleStarQuestCount = Winterblight.CastleStarQuestCount + 1
+		if Winterblight.CastleStarQuestCount == 5 then
+			Winterblight:StarQuestBossSpawn(target:GetAbsOrigin())
+		end
+		CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_winter_wyvern/wyvern_arctic_burn_start.vpcf", target:GetAbsOrigin(), 3)
+	end
+end
+
+function star_boss_attack_hit(event)
+	local damage = event.damage
+	local target = event.target
+	local ability = event.ability
+	local attacker = event.attacker
+	local key = target:GetEntityIndex() .. '_autumn_mage_attack_hit'
+	Util.Common:LimitPerTime(4, 1, key .. '_sound_particles',function()
+	CustomAbilities:QuickAttachParticle("particles/roshpit/redfall/autumn_mage_starfall_attack.vpcf", target, 0.8)
+	EmitSoundOn("Redfall.AutumnMage.StarStart", target)
+		Timers:CreateTimer(0.6, function()
+			EmitSoundOn("Redfall.FireballPassive", target)
+			ApplyDamage({victim = target, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability})
+			ability:ApplyDataDrivenModifier(attacker, target, "modifier_autumn_mage_debuff", {duration = 3})
+
+		end)
+	end)
+end

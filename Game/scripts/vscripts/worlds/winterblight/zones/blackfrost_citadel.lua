@@ -2933,6 +2933,8 @@ function Winterblight:PrecacheTarotAssets()
 			
 		end
 		PrecacheUnitByNameAsync("winterblight_star_watcher", precache_function)	
+		PrecacheUnitByNameAsync("winterblight_castle_star_miniboss", precache_function)	
+
 	elseif Winterblight.CastleTarot["name"] == "moon" then
 		local function precache_function()
 		end
@@ -3983,5 +3985,66 @@ function Winterblight:TemperanceChestSpawn(position, fv)
 			UTIL_Remove(pfx_dummy)
 		end)
 		CustomAbilities:QuickAttachParticle("particles/econ/items/earthshaker/earthshaker_arcana/earthshaker_arcana_death.vpcf", chest, 8)
+	end)
+end
+
+function Winterblight:InitCastleStarQuest()
+	local positionTable = {Vector(14976, 13312), Vector(14154, 8282), Vector(9064, 2755), Vector(13282, 2207), Vector(10721, 613), Vector(11072, -1052), Vector(11711, -346),
+	Vector(12354, -1016), Vector(13848, -798), Vector(12975, 754), Vector(9088, 1664), Vector(9088, 2079), Vector(13383, 3596), Vector(12875, 3749), Vector(11946, 7268),
+	Vector(13058, 7268), Vector(13609, 8206), Vector(15159, 8716), Vector(13936, 11434), Vector(13401, 12092), Vector(13397, 13912), Vector(14081, 13938), Vector(15108, 13938),
+	Vector(15525, 13283)}
+
+	local shuffledTable = WallPhysics:ShuffleTable(positionTable)
+	for i = 1, 5, 1 do
+		local star_tile = CreateUnitByName("npc_dummy_unit", shuffledTable[i], false, nil, nil, DOTA_TEAM_NEUTRALS)
+		local master_ability = Winterblight.CastleDungeonMaster:FindAbilityByName("winterblight_the_diviner_passive")
+		master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, star_tile, "modifier_diviner_star_dummy_thinker", {})
+		star_tile:FindAbilityByName("dummy_unit"):SetLevel(1)	
+		star_tile:SetForwardVector(RandomVector(1))
+		local colorVector = Vector(30,30,30)
+		star_tile:SetRenderColor(colorVector.x, colorVector.y, colorVector.z)
+		star_tile.colorVector = colorVector
+		star_tile:SetModel("models/winterblight/castle_star.vmdl")
+		star_tile:SetOriginalModel("models/winterblight/castle_star.vmdl")
+		star_tile:SetAbsOrigin(star_tile:GetAbsOrigin() + Vector(0,0,8))
+	end
+end
+
+function Winterblight:StarQuestBossSpawn(position)
+	position = position + Vector(0,100,0)
+
+	local pfx_dummy = CreateUnitByName("npc_dummy_unit", position, true, nil, nil, DOTA_TEAM_GOODGUYS)
+	pfx_dummy:FindAbilityByName("dummy_unit"):SetLevel(1)
+	pfx_dummy:SetAbsOrigin(pfx_dummy:GetAbsOrigin()+Vector(0,0,200))
+	pfx_dummy:SetForwardVector(Vector(0,-1))
+	local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_void_spirit/debut/void_spirit_portal_debut.vpcf", PATTACH_ABSORIGIN_FOLLOW, pfx_dummy)
+	ParticleManager:SetParticleControlEnt(pfx, 0, pfx_dummy, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", pfx_dummy:GetAbsOrigin(), true)
+	ParticleManager:SetParticleControlEnt(pfx, 1, pfx_dummy, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", pfx_dummy:GetAbsOrigin(), true)
+	ParticleManager:SetParticleControlEnt(pfx, 2, pfx_dummy, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", pfx_dummy:GetAbsOrigin(), true)
+	Timers:CreateTimer(8, function()
+		ParticleManager:DestroyParticle(pfx, false)
+		EmitSoundOnLocationWithCaster(position, "Winterblight.Castle.Starboss.Intro3", Events.GameMaster)
+	end)
+	-- local pfx = CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_void_spirit/debut/void_spirit_portal_debut.vpcf", position, 10)
+	ParticleManager:SetParticleControl(pfx, 1, position)
+	Timers:CreateTimer(2, function()
+		local miniboss = Winterblight:SpawnCastleRoomUnit(0, "winterblight_castle_star_miniboss", position, Vector(0,-1), false, true)
+		miniboss:SetAbsOrigin(miniboss:GetAbsOrigin()+Vector(0,100,100))
+		local miniboss_ability = miniboss:FindAbilityByName("winterblight_star_boss_passive")
+		Timers:CreateTimer(0, function()
+			EmitSoundOn("Winterblight.Castle.Starboss.Intro", miniboss)
+		end)
+		miniboss_ability:ApplyDataDrivenModifier(miniboss, miniboss, "modifier_winter_boss_intro", {duration = 5})
+		Events:smoothSizeChange(miniboss, 0.3, 2.5, 95)
+		Events:smoothTranslate(miniboss, Vector(0,-4,0), 90, Vector(0,0), nil)
+		miniboss.cantAggro = true
+		Timers:CreateTimer(3, function()
+			EmitSoundOn("Winterblight.Castle.Starboss.Intro2", miniboss)
+		end)
+		Timers:CreateTimer(5, function()
+			CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_winter_wyvern/wyvern_arctic_burn_start.vpcf", miniboss:GetAbsOrigin(), 3)
+			miniboss.cantAggro = false
+			Dungeons:AggroUnit(miniboss)
+		end)
 	end)
 end
