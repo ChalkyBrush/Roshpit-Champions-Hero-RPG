@@ -2844,7 +2844,9 @@ function Winterblight:PostCastleBossEvents()
 		Winterblight:TemperanceBossChests()
 	elseif Winterblight.CastleTarot["name"] == "world" then
 		Timers:CreateTimer(10, function()
-			Winterblight:WorldBossSpawn()
+			if GameState:GetDifficultyFactor() >= 3 then
+				Winterblight:WorldBossSpawn()
+			end
 		end)
 	end
 end

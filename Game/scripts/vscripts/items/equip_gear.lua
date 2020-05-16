@@ -1578,6 +1578,16 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 		if socket_type == "ruby" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_ZOMBIEGRIP_GAUNTLET_GEM_RUBY1, hero, "element_undead", RPC_GEAR_SLOT_GLOVES)
 		end
+	elseif item:GetAbilityName() == "item_rpc_world_commander_gloves" then
+		if socket_type == "ruby" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_WORLD_COMMANDER_GLOVES_GEM_RUBY, hero, "rune_q_4", RPC_GEAR_SLOT_GLOVES)
+		elseif socket_type == "emerald" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_WORLD_COMMANDER_GLOVES_GEM_EMERALD, hero, "rune_e_4", RPC_GEAR_SLOT_GLOVES)
+		elseif socket_type == "sapphire" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_WORLD_COMMANDER_GLOVES_GEM_SAPPHIRE, hero, "rune_w_4", RPC_GEAR_SLOT_GLOVES)
+		elseif socket_type == "amethyst" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_WORLD_COMMANDER_GLOVES_GEM_AMETHYST, hero, "rune_r_4", RPC_GEAR_SLOT_GLOVES)
+		end
 	end
 end
 

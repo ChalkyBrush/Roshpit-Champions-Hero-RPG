@@ -14422,6 +14422,16 @@
 		"item_rpc_exodia_gloves_sapphire1"			"Increases the damage against the initial target by @sapphire_property1%"
 		"item_rpc_exodia_gloves_amethyst1"			"Increases the enemy search range for split attacks by @amethyst_property1 and increases the projectile speed by @amethyst_property2%"
 
+		"DOTA_Tooltip_ability_item_rpc_world_commander_gloves"			"World Commander Gloves"
+
+		"item_property_world_commander_gloves"							"Universal Might"
+		"property_world_commander_gloves_description"					"Each point of Armor Pierce and Spell Pierce increase Attack Power by <font color='#ccff66'>0.01</font>%"
+
+		"item_rpc_world_commander_gloves_ruby1"				"Increases [Q4] Rune by @ruby_property1"
+		"item_rpc_world_commander_gloves_emerald1"			"Increases [E4] Rune by @emerald_property1"
+		"item_rpc_world_commander_gloves_sapphire1"			"Increases [W4] Rune by @sapphire_property1"
+		"item_rpc_world_commander_gloves_amethyst1"			"Increases [R4] Rune by @amethyst_property1"
+
     	"DOTA_Tooltip_ability_item_rpc_adamantine_samurai_helmet"						"Adamantine Samurai Helmet"
 		"item_property_samurai_helmet"				"Critical Strike"
 		"property_samurai_helmet_description"		"Your attacks have a <font color='#ccff66'>20</font>% chance to deal <font color='#ccff66'>300</font>% increased damage."

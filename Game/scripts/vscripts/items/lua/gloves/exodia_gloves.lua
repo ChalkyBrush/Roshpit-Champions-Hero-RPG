@@ -15,7 +15,7 @@ function itemClass:GetClassName()
 end
 
 function itemClass:GetName()
-    return 'Swiftspike Bracer'
+    return 'Exodia Gloves'
 end
 
 function itemClass:GetModifierName()
