@@ -768,3 +768,12 @@
 		"item_rpc_iron_tower_barbute_emerald1"	"On death, place your respawn flag at your current position. @emerald_property1 second cooldown"
 		"item_rpc_iron_tower_barbute_sapphire1" 	"When there are <% ITEM_RPC_IRON_TOWER_BARBUTE_SAPPHIRE_ENEMIES %> enemies (or 1 boss) within <% ITEM_RPC_IRON_TOWER_BARBUTE_SAPPHIRE_RANGE %> range, gain @sapphire_property1% increased attack power."
 		"item_rpc_iron_tower_barbute_amethyst1" 	"Iron Tower effect sticks for @amethyst_property1 seconds after moving"
+
+    	"DOTA_Tooltip_ability_item_rpc_lich_kings_gaze"						"Lich King's Gaze"
+		"item_property_lich_kings_gaze"						"Frost Wrath"
+		"property_lich_kings_gaze_description"				"Targets up to <% ITEM_RPC_LICH_KINGS_GAZE_BASE_MAX_TARGETS %> enemies within a <% ITEM_RPC_LICH_KINGS_GAZE_CIRCLE_RANGE %> length <% ITEM_RPC_LICH_KINGS_GAZE_ANGLE_RANGE %>° cone in front of the wearer every <% ITEM_RPC_LICH_KINGS_GAZE_BASE_INTERVAL %> seconds. Struck targets take <% ITEM_RPC_LICH_KINGS_GAZE_DAMAGE_PCT_ATK_POWER %>% of attack power as damage and have their movespeed slowed by <% ITEM_RPC_LICH_KINGS_GAZE_MOVE_SLOW %>% for <% ITEM_RPC_LICH_KINGS_GAZE_SLOW_DURATION %> seconds."
+
+		"item_rpc_lich_kings_gaze_ruby1"		"Increases the cone length by @ruby_property1 and range by @ruby_property2°"
+		"item_rpc_lich_kings_gaze_emerald1"	"Reduces the interval in between Frost Wrath attacks by @emerald_property1 seconds"
+		"item_rpc_lich_kings_gaze_sapphire1" 	"Increases the max targets by @sapphire_property1"
+		"item_rpc_lich_kings_gaze_amethyst1" 	"If only 1 enemy is within Frost Wrath's range, target that enemy with @amethyst_property1 additional Frost Wrath attacks"

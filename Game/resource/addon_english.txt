@@ -15193,6 +15193,15 @@
 		"item_rpc_iron_tower_barbute_sapphire1" 	"When there are <font color='#ccff66'>4</font> enemies (or 1 boss) within <font color='#ccff66'>360</font> range, gain @sapphire_property1% increased attack power."
 		"item_rpc_iron_tower_barbute_amethyst1" 	"Iron Tower effect sticks for @amethyst_property1 seconds after moving"
 
+    	"DOTA_Tooltip_ability_item_rpc_lich_kings_gaze"						"Lich King's Gaze"
+		"item_property_lich_kings_gaze"						"Frost Wrath"
+		"property_lich_kings_gaze_description"				"Targets up to <font color='#ccff66'>5</font> enemies within a <font color='#ccff66'>700</font> length <font color='#ccff66'>60</font>° cone in front of the wearer every <font color='#ccff66'>1.2</font> seconds. Struck targets take <font color='#ccff66'>30</font>% of attack power as damage and have their movespeed slowed by <font color='#ccff66'>-25</font>% for <font color='#ccff66'>3</font> seconds."
+
+		"item_rpc_lich_kings_gaze_ruby1"		"Increases the cone length by @ruby_property1 and range by @ruby_property2°"
+		"item_rpc_lich_kings_gaze_emerald1"	"Reduces the interval in between Frost Wrath attacks by @emerald_property1 seconds"
+		"item_rpc_lich_kings_gaze_sapphire1" 	"Increases the max targets by @sapphire_property1"
+		"item_rpc_lich_kings_gaze_amethyst1" 	"If only 1 enemy is within Frost Wrath's range, target that enemy with @amethyst_property1 additional Frost Wrath attacks"
+
         "DOTA_Tooltip_ability_item_rpc_aeriths_tear"                                    "Aerith's Tear"
 
         "item_property_aeriths_tear"                            "Last Wish"
