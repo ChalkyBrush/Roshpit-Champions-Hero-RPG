@@ -142,6 +142,11 @@
 	"DOTA_Tooltip_ability_jex_lightning_lightning_w_mana_cost"					"MANA COST:"
 	"DOTA_Tooltip_ability_jex_lightning_lightning_w_attack_speed"				"BONUS ATTACK SPEED:"
 	"DOTA_Tooltip_ability_jex_lightning_lightning_w_w_4_agility_added_to_lightning_damage"	"<font color=\"#7DFF12\">[W4] Agility added to chain lightning base damage</font>:"
+	
+	"DOTA_Tooltip_modifier_jex_lightning_lightning_w"								"Vortex Weapon"
+	"DOTA_Tooltip_modifier_jex_lightning_lightning_w_Description"					"Attacks release chain lighnings."
+	"DOTA_Tooltip_modifier_jex_lightning_lightning_w_damage_buff"					"Vortex Weapon - Bonus Attack Damage"
+	"DOTA_Tooltip_modifier_jex_lightning_lightning_w_damage_buff_Description"		"Caster's bonus attack damage increased."
 
 	"DOTA_Tooltip_ability_jex_lightning_nature_w"				"Thunderleaf Petals"
 	"DOTA_Tooltip_ability_jex_lightning_nature_w_Description"	"Element: <font color=\"#5CCDF9\">Lightning</font> / <font color=\"#69BC71\">Nature</font><br>Unleashes a quick spray of electrified Thunderleaf Petals directly in front of jex. Enemies hit by the leaves are paralyzed for a short duration. Enemies who have been paralyzed 5 times in a row become immune for 4 seconds."
@@ -212,7 +217,7 @@
 	"DOTA_Tooltip_ability_jex_lightning_nature_e_damage_pct_atk_power"	"% LIGHTNING DAMAGE AS % OF BLOSSOM'S ATTACK POWER:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_e_attack_range_base"		"BASE ATTACK RANGE:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_e_cast_range"			"CAST RANGE:"
-	"DOTA_Tooltip_ability_jex_lightning_nature_e_q_4_blossom_magic_resistance"	"<font color=\"#7DFF12\">[Q4] Blossom Bonus Magic Armor</font>:"
+	"DOTA_Tooltip_ability_jex_lightning_nature_e_q_4_blossom_magic_armor"	"<font color=\"#7DFF12\">[Q4] Blossom Bonus Magic Armor</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_e_w_4_damage_increase_pct"		"%<font color=\"#7DFF12\">[W4] Lightning bolt damage increase</font>:"
 
 	"DOTA_Tooltip_ability_thunder_blossom_teleport"				"Lightning Tract"

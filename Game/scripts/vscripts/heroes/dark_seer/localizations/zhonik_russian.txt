@@ -173,11 +173,11 @@
 
   		"DOTA_Tooltip_ability_zonik_rune_e_3_arcana1"						"[E3] Time Dilation"
     	"DOTA_Tooltip_ability_zonik_rune_e_3_arcana1_Description"  		"Пока герой находится в области действия поля, он получает заряды этой руны каждые 0.03 секунды. Каждый заряд увеличивает Базовый Урон @Ability3. Максимум 1000 зарядов."
-    	"DOTA_Tooltip_ability_zonik_rune_e_3_arcana1_property_one"			"Увеличение урона способностей"	
+    	"DOTA_Tooltip_ability_zonik_rune_e_3_arcana1_property_one"			"Увеличение урона способности Warp Field"	
     	"DOTA_Tooltip_ability_zonik_rune_e_3_arcana1_suffix"				"% за каждый заряд"
 
     	"DOTA_Tooltip_modifier_zhonic_arcana_c_c_visible"					"Time Dilation"
-    	"DOTA_Tooltip_modifier_zhonic_arcana_c_c_visible_Description"		"Увеличивает исходящий пост-резистный урон за каждый заряд."
+    	"DOTA_Tooltip_modifier_zhonic_arcana_c_c_visible_Description"		"Увеличивает урон способности Warp Field за каждый заряд."
 
     	"DOTA_Tooltip_ability_zonik_rune_e_4_arcana1"								"[E4] Supersonic"
     	"DOTA_Tooltip_ability_zonik_rune_e_4_arcana1_Description"					"Увеличивает весь урон стихии <font color=\"#B5FFB7\">Времени</font>. Дополнительно, Zhonik ненадолго сохраняет бонус к скорости передвижения после того, как покинет область действия @Ability3."

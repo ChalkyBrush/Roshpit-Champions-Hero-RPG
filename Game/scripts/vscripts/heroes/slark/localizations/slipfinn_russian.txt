@@ -46,7 +46,7 @@
     	"DOTA_Tooltip_ability_slipfinn_rune_w_2_suffix"								""
 
     	"DOTA_Tooltip_modifier_slipfinn_gloomshade_visible"							"Gloomshade"
-    	"DOTA_Tooltip_modifier_slipfinn_gloomshade_visible_Description"				"Получает дополнительный пост-резистный урон от Slipfinn"
+    	"DOTA_Tooltip_modifier_slipfinn_gloomshade_visible_Description"				"Получает дополнительный урон от Slipfinn"
 
     	"DOTA_Tooltip_ability_slipfinn_rune_w_3"									"[W3] Agitated Spring"
     	"DOTA_Tooltip_ability_slipfinn_rune_w_3_Description"						"Прыгая по вражеским головам, герой получает % бонус к урону. Длительность эффекта: <% SLIPFINN_W3_DURATION %> секунд. Последующие прыжки обновляют время действия."

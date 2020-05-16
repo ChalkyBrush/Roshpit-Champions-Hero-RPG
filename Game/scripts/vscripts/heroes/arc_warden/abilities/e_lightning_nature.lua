@@ -46,7 +46,7 @@ function jex_activate_thunder_blossom(event)
 
 	local q_4_level = caster:GetRuneValue("q", 4)
 	if q_4_level > 0 then
-		local new_magic_armor = shroom.roshpit_attributes.roshpit_magic_armor + q_4_blossom_magic_armor*q_4_level
+		local new_magic_armor = shroom.roshpit_attributes.roshpit_magic_armor + event.q_4_blossom_magic_armor*q_4_level
 		shroom:SetBaseRoshpitMagicArmor(new_magic_armor)
 	end
 	shroom.summoner = caster

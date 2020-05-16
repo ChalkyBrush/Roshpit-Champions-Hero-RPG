@@ -457,8 +457,8 @@
 		"DOTA_Tooltip_modifier_stun_regen_applied_Description"		"Сильная регенерация здоровья."
 
 		"DOTA_Tooltip_ability_seafortress_heart_spike"					"Heart Piercer"
-		"DOTA_Tooltip_ability_seafortress_heart_spike_Description"		"Атаки наносят пост-резистный урон, зависящий от максимального здоровья цели."
-		"DOTA_Tooltip_ability_seafortress_heart_spike_damage_percent"	"ДОП. ПОСТ-РЕЗИСТНЫЙ УРОН ОТ МАКС. ЗДОРОВЬЯ, %:"
+		"DOTA_Tooltip_ability_seafortress_heart_spike_Description"		"Атаки наносят урон по здоровью, зависящий от максимального здоровья цели."
+		"DOTA_Tooltip_ability_seafortress_heart_spike_damage_percent"	"ПОНИЖЕНИЕ ЗДОРОВЬЯ ОТ МАКС. ЗДОРОВЬЯ, %:"
 
 		"DOTA_Tooltip_ability_seafortress_illusory_orb"					"Illusory Orb"
 		"DOTA_Tooltip_ability_seafortress_illusory_orb_Description"		"Волшебная сфера медленно движется вперед, нанося урон всем задетым на своём пути врагам. Сказочный дракончик может телепортироваться к сфере, пока она не исчезла."

@@ -191,10 +191,10 @@
     	"DOTA_Tooltip_ability_spirit_warrior_rune_r_3_arcana1_suffix_two"			"%"
 
     	"DOTA_Tooltip_ability_spirit_warrior_waterheart_weapon"					"Waterheart Weapon"
-    	"DOTA_Tooltip_ability_spirit_warrior_waterheart_weapon_Description"		"Зачаровывает своё оружие или оружие выбранного союзного героя, позволяя наносить дополнительный чистый урон, зависящий от текущего значения здоровья. На время действия усиления, весь пост-резистный урон увеличен."
+    	"DOTA_Tooltip_ability_spirit_warrior_waterheart_weapon_Description"		"Зачаровывает своё оружие или оружие выбранного союзного героя, позволяя наносить дополнительный чистый урон, зависящий от текущего значения здоровья. На время действия усиления Пробитие Брони увеличено."
 
     	"DOTA_Tooltip_modifier_waterheart_weapon"								"[R3] Waterheart Weapon"
-    	"DOTA_Tooltip_modifier_waterheart_weapon_Description"					"Вместе с атаками наносится дополнительный чистый урон в зависимости от текущего здоровья,а весь пост-резистный урон увеличен."
+    	"DOTA_Tooltip_modifier_waterheart_weapon_Description"					"Вместе с атаками наносится дополнительный чистый урон в зависимости от текущего здоровья, Пробитие Брони увеличено."
 
     	"spirit_warrior_arcana1_r"												"Ancient Rain и Waterheart Weapon"
 

@@ -4159,6 +4159,7 @@
 
 			"modifier_devotion_aura_buff"
 			{
+				"TextureName"	"itemicons/devotion_aura"
 				"IsBuff"				"1"
 				"IsHidden"				"0"
 				"IsPurgable"			"0"
