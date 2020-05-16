@@ -7831,3 +7831,9 @@ function RPCItems:RollAndDropImmortalByLevel(position, item_level, item_name)
     RPCItems:BasicDropItem(position, immortal)
     return immortal
 end
+
+function RPCItems:RollImmortalByLevel(item_level, item_name)
+    local item_level = RPCItems:RollItemLevelFromUnit(item_level)
+    local immortal = RPCItems:RollImmortalByName(item_name, item_level)
+    return immortal
+end

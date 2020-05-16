@@ -247,7 +247,11 @@ function Winterblight:Debug2()
   -- RPCItems:CreateBasicConsumable(MAIN_HERO_TABLE[1]:GetAbsOrigin(), "item_rpc_elynas_feather", "Galren's Skull", "mythical", true)
   -- Winterblight.CastleTarot = Winterblight.CASTLE_DATA["tarot"][1]
   -- Winterblight:CastleSunPhoenixSequence()
-  Winterblight:StarQuestBossSpawn(Vector(-15424,-2560))
+  -- Winterblight:SpawnEmpressBoss()
+
+  RPCItems:DropSynthesisVessel(MAIN_HERO_TABLE[1]:GetAbsOrigin())
+  Winterblight:DropEmperorQuestItem("emperor", MAIN_HERO_TABLE[1]:GetAbsOrigin())
+  Winterblight:DropEmperorQuestItem("empress", MAIN_HERO_TABLE[1]:GetAbsOrigin())
       -- local xelethar = Winterblight:SpawnCastleRoomUnit(0, "winterblight_high_priest_xelethar", Vector(12285, 163), Vector(0,-1), false, true)
       -- local groundHeight = GetGroundHeight(Vector(11393, 163), xelethar)
       -- xelethar:SetAbsOrigin(Vector(12285, 163) + Vector(0,0,groundHeight))

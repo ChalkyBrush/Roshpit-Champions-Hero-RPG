@@ -122,6 +122,9 @@ function RPCItems:RecordGearBonusToHeroBySlot(item, hero, property_name, propert
 	if hero:HasModifier("modifier_puzzlers_locket") or item:GetAbilityName() == "item_rpc_puzzlers_locket" then
 		property_name = RPCItems:AdjustPropertyNameForPuzzler(hero, item, property_value, property_name)
 	end
+	if hero:HasModifier("modifier_monarch_ring") or item:GetAbilityName() == "item_rpc_monarch_ring" then
+		property_name, property_value = RPCItems:AdjustPropertyForMonarchRing(hero, item, property_value, property_name)
+	end
 	if property_name == "immortal_weapon_3" and hero:GetUnitName() == "npc_dota_hero_skywrath_mage" then
 		property_name = "all_t4_runes"
 		property_value = SEPHYR_IMMORTAL_WEAPON_3_T4_RUNES
@@ -1762,4 +1765,70 @@ function RPCItems:GetMultStoneOfGordon(hero, item, property_value, property_name
 		mult = hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_STONE_OF_GORDON_GEM_AMETHYST)/100
 	end
 	return mult
+end
+
+function RPCItems:AdjustPropertyForMonarchRing(hero, item, property_value, property_name)
+	local property_name_to_return = property_name
+	if property_name == "all_t1_runes" then
+		property_name_to_return = "all_attributes"
+		property_value = property_value * ITEM_RPC_MONARCH_RING_STAT_PER_RUNE * Runes.COST_TO_LEVEL_T1
+	elseif property_name == "all_t2_runes" then
+		property_name_to_return = "all_attributes"
+		property_value = property_value * ITEM_RPC_MONARCH_RING_STAT_PER_RUNE * Runes.COST_TO_LEVEL_T2
+	elseif property_name == "all_t3_runes" then
+		property_name_to_return = "all_attributes"
+		property_value = property_value * ITEM_RPC_MONARCH_RING_STAT_PER_RUNE * Runes.COST_TO_LEVEL_T3
+	elseif property_name == "all_t4_runes" then
+		property_name_to_return = "all_attributes"
+		property_value = property_value * ITEM_RPC_MONARCH_RING_STAT_PER_RUNE * Runes.COST_TO_LEVEL_T4
+	elseif property_name == "rune_q_1" or property_name == "rune_q_2" then
+		property_name_to_return = "strength"
+		property_value = property_value * ITEM_RPC_MONARCH_RING_STAT_PER_RUNE * Runes.COST_TO_LEVEL_T1
+	elseif property_name == "rune_q_3" then
+		property_name_to_return = "strength"
+		property_value = property_value * ITEM_RPC_MONARCH_RING_STAT_PER_RUNE * Runes.COST_TO_LEVEL_T3
+	elseif property_name == "rune_q_4" then
+		property_name_to_return = "strength"
+		property_value = property_value * ITEM_RPC_MONARCH_RING_STAT_PER_RUNE * Runes.COST_TO_LEVEL_T4
+	elseif property_name == "rune_w_1" or property_name == "rune_w_2" then
+		property_name_to_return = "agility"
+		property_value = property_value * ITEM_RPC_MONARCH_RING_STAT_PER_RUNE * Runes.COST_TO_LEVEL_T1
+	elseif property_name == "rune_w_3" then
+		property_name_to_return = "agility"
+		property_value = property_value * ITEM_RPC_MONARCH_RING_STAT_PER_RUNE * Runes.COST_TO_LEVEL_T3
+	elseif property_name == "rune_w_4" then
+		property_name_to_return = "agility"
+		property_value = property_value * ITEM_RPC_MONARCH_RING_STAT_PER_RUNE * Runes.COST_TO_LEVEL_T4
+	elseif property_name == "rune_e_1" or property_name == "rune_e_2" then
+		property_name_to_return = "intelligence"
+		property_value = property_value * ITEM_RPC_MONARCH_RING_STAT_PER_RUNE * Runes.COST_TO_LEVEL_T1
+	elseif property_name == "rune_e_3" then
+		property_name_to_return = "intelligence"
+		property_value = property_value * ITEM_RPC_MONARCH_RING_STAT_PER_RUNE * Runes.COST_TO_LEVEL_T3
+	elseif property_name == "rune_e_4" then
+		property_name_to_return = "intelligence"
+		property_value = property_value * ITEM_RPC_MONARCH_RING_STAT_PER_RUNE * Runes.COST_TO_LEVEL_T4
+	elseif property_name == "rune_r_1" or property_name == "rune_r_2" then
+		property_name_to_return = "spirit"
+		property_value = property_value * ITEM_RPC_MONARCH_RING_STAT_PER_RUNE * Runes.COST_TO_LEVEL_T1
+	elseif property_name == "rune_r_3" then
+		property_name_to_return = "spirit"
+		property_value = property_value * ITEM_RPC_MONARCH_RING_STAT_PER_RUNE * Runes.COST_TO_LEVEL_T3
+	elseif property_name == "rune_r_4" then
+		property_name_to_return = "spirit"
+		property_value = property_value * ITEM_RPC_MONARCH_RING_STAT_PER_RUNE * Runes.COST_TO_LEVEL_T4
+	end
+	local ring = hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]
+	if ring then
+		if property_name == "strength" then
+			property_value = property_value*(1 + ring:GetFinalGemPropertyValue("ruby", ITEM_RPC_MONARCH_RING_GEM_RUBY)/100)
+		elseif property_name == "agility" then
+			property_value = property_value*(1 + ring:GetFinalGemPropertyValue("emerald", ITEM_RPC_MONARCH_RING_GEM_EMERALD)/100)
+		elseif property_name == "intelligence" then
+			property_value = property_value*(1 + ring:GetFinalGemPropertyValue("sapphire", ITEM_RPC_MONARCH_RING_GEM_SAPPHIRE)/100)
+		elseif property_name == "spirit" then
+			property_value = property_value*(1 + ring:GetFinalGemPropertyValue("amethyst", ITEM_RPC_MONARCH_RING_GEM_AMETHYST)/100)
+		end
+	end
+	return property_name_to_return, property_value
 end

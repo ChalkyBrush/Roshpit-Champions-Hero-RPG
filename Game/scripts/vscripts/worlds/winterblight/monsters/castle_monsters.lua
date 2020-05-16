@@ -4991,3 +4991,52 @@ function star_boss_attack_hit(event)
 		end)
 	end)
 end
+
+function empress_emasz_init(event)
+	local caster = event.caster
+	local ability = event.ability
+	Timers:CreateTimer(2, function()
+		caster:AddNewModifier(caster, ability, "modifier_persistent_invisibility", {})
+	end)
+end
+
+function empress_emasz_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	if caster.aggro then
+		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 800, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
+		if #enemies > 0 then
+			caster:MoveToTargetToAttack(enemies[1])
+		end
+		-- caster:RemoveModifierByName("modifier_persistent_invisibility")
+	end
+end
+
+function empress_emasz_attack_start(event)
+	local caster = event.caster
+	local ability = event.ability
+	caster:RemoveModifierByName("modifier_persistent_invisibility")
+	Timers:CreateTimer(0.35, function()
+		caster:AddNewModifier(caster, ability, "modifier_persistent_invisibility", {})
+		SpecialFX:ColoredPop(caster:GetAbsOrigin()+Vector(0,0,150), Vector(255, 120, 120))
+	end)
+	SpecialFX:ColoredPop(caster:GetAbsOrigin()+Vector(0,0,150), Vector(255, 120, 120))
+	local luck = RandomInt(1, 8)
+	if luck == 1 then
+		EmitSoundOn("Winterblight.Castle.Emasz.AtkVO", caster)
+	end
+end
+
+function empress_emasz_die(event)
+	local caster = event.caster
+	Timers:CreateTimer(0.5, function()
+		SpecialFX:ColoredSpotlight(caster:GetAbsOrigin(), Vector(245, 120, 60))
+	end)
+	Timers:CreateTimer(1.25, function()
+		Events:smoothTranslate(caster, Vector(0,0,3), 140, Vector(0,0,0.1), nil)
+	end)
+	Timers:CreateTimer(2, function()
+		Winterblight:DropEmperorQuestItem("empress", caster:GetAbsOrigin())
+		-- Events:unitFVSpin(caster, 60, 120, -0.08, false)
+	end)
+end

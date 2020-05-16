@@ -987,6 +987,10 @@ function Winterblight:CastleLobbySpawn1()
 				xelethar:AddLootDrop("special", "item_rpc_winterblight_tarot_card", 100)
 				xelethar:AddLootDrop("immortal", "item_rpc_glove_of_the_hierophant", 100)
 			end
+		elseif Winterblight.CastleTarot["name"] == "empress" then
+			if GameState:GetDifficultyFactor() > 2 then
+				Winterblight:SpawnEmpressBoss()
+			end
 		end
 	end)
 end
@@ -1020,7 +1024,10 @@ function Winterblight:SpawnCastleRoomByIndex(index, variant)
 	if Winterblight.CastleTarot["name"] == "empress" then
 		local key_positions = Winterblight.CASTLE_DATA["rooms"][index]["key_positions"]
 		local position = key_positions[RandomInt(1, #key_positions)] + RandomVector(200)
-		Winterblight:SpawnArcaneCrystalMine(position)
+		local luck = RandomInt(1, 2)
+		if luck == 1 then
+			Winterblight:SpawnArcaneCrystalMine(position)
+		end
 	elseif Winterblight.CastleTarot["name"] == "emperor" then
 		if not Winterblight.CastleEmperorChests then
 			Winterblight.CastleEmperorChests = 3
@@ -1087,7 +1094,7 @@ function Winterblight:SpawnArcaneCrystalMine(position)
 	crystal_mine.jumpLock = true
 	crystal_mine:SetForwardVector(Vector (0, 1))
 	crystal_mine:SetModelScale(4.0)
-	crystal_mine.resource_mult = 6
+	crystal_mine.resource_mult = 12
 	crystal_mine:AddAbility("dummy_unit_can_be_attacked_cant_die"):SetLevel(1)
 	crystal_mine:AddAbility("redfall_arcane_crystal_mine"):SetLevel(1)
 	crystal_mine:RemoveAbility("dummy_unit")
@@ -2693,6 +2700,8 @@ function Winterblight:CastleBossDeath(boss)
 	Timers:CreateTimer(2, function()
 		if Winterblight.CastleTarot["name"] == "death" then
 			RPCItems:RollAndDropUniqueItem(enemy, "item_rpc_mortuary_charm")
+		elseif Winterblight.CastleTarot["name"] == "emperor" and GameState:GetDifficultyFactor() >= 3 then
+			Winterblight:DropEmperorQuestItem("emperor", boss:GetAbsOrigin())
 		end
 	end)
 	for j = 1, 3 + GameState:GetPlayerPremiumStatusCount() * 2, 1 do
@@ -2860,6 +2869,7 @@ function Winterblight:PrecacheTarotAssets()
 				
 		end	
 		PrecacheUnitByNameAsync("winter_castle_faceless_empress", precache_function)
+		PrecacheUnitByNameAsync("winterblight_empress_emasz", precache_function)
 	elseif Winterblight.CastleTarot["name"] == "emperor" then
 		local function precache_function()
 
@@ -4048,4 +4058,25 @@ function Winterblight:StarQuestBossSpawn(position)
 		end)
 		miniboss:AddLootDrop("immortal", "item_rpc_exodia_gloves", 100)
 	end)
+end
+
+function Winterblight:SpawnEmpressBoss()
+	local positionTable = {Vector(11264, 896), Vector(13312, 896), Vector(13312, -640), Vector(11264, -640)}
+    local unit = Winterblight:SpawnCastleRoomUnit(0, "winterblight_empress_emasz", positionTable[RandomInt(1, #positionTable)], Vector(0,-1), false, true)
+    Winterblight:AddPatrolArguments(unit, 5, 20, 400, positionTable)
+    -- unit:AddLootDrop("immortal", "item_rpc_cloak_of_the_cimmerian_priesthood", 100)
+
+	local pfx = CustomAbilities:QuickAttachParticle("particles/econ/items/earthshaker/earthshaker_arcana/earthshaker_arcana_death.vpcf", unit, 8)
+	ParticleManager:SetParticleControl(pfx, 1, unit:GetAbsOrigin())
+	Timers:CreateTimer(0.5, function()
+		EmitSoundOnLocationWithCaster(unit:GetAbsOrigin(), "Winterblight.Magician.ChestSpawn", Events.GameMaster)
+	end)
+end
+
+function Winterblight:DropEmperorQuestItem(drop_type, position)
+	if drop_type == "emperor" then
+		RPCItems:CreateBasicConsumable(position, "item_rpc_emperors_band", "Emperor's Band", "mythical", true)
+	elseif drop_type == "empress" then
+		RPCItems:CreateBasicConsumable(position, "item_rpc_empress_jewel", "Empress' Jewel", "mythical", true)
+	end
 end

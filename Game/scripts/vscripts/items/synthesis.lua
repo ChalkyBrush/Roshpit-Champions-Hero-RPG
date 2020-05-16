@@ -334,6 +334,10 @@ function RPCItems:SynthCheckCombination(item1, item2, position)
 			else
 				return false
 			end
+		elseif (item1:GetAbilityName() == "item_rpc_emperors_band" and item2:GetAbilityName() == "item_rpc_empress_jewel") or (item1:GetAbilityName() == "item_rpc_empress_jewel" and item2:GetAbilityName() == "item_rpc_emperors_band") then
+			local newItem = RPCItems:RollImmortalByLevel(100, "item_rpc_monarch_ring")
+			newItem.pickedUp = true
+			return newItem
 		else
 			return false
 		end

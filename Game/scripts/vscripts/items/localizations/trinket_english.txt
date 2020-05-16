@@ -717,3 +717,13 @@
         "item_rpc_baphomets_cursed_necklace_emerald1"                              "Reduces the cooldown by @emerald_property1 seconds"
         "item_rpc_baphomets_cursed_necklace_sapphire1"                             "@sapphire_property1% chance when landing an attack to gain the Ruin effect"
         "item_rpc_baphomets_cursed_necklace_amethyst1"                             "Gain @amethyst_property1% increased Attack power while Ruin is active"
+
+       "DOTA_Tooltip_ability_item_rpc_monarch_ring"                              "Monarch Ring"
+
+        "item_property_monarch_ring"                  "Attribute Supremacy"
+        "property_monarch_ring_description"           "Rune Bonuses from gear increase stats instead of runes. [Q] Runes increase Strength, [W] Runes increase Agility, [E] Runes increase Intelligence, and [R] Runes increase Spirit. T1 and T2 runes increase the attribute by <% ITEM_RPC_MONARCH_RING_STAT_PER_RUNE %>, T3 by <% ITEM_RPC_MONARCH_RING_STAT_PER_RUNE * 2 %> and T4 by <% ITEM_RPC_MONARCH_RING_STAT_PER_RUNE * 4 %>"
+
+        "item_rpc_monarch_ring_ruby1"                                 "Increases Strength bonus from runes by @ruby_property1%"
+        "item_rpc_monarch_ring_emerald1"                              "Increases Agility bonus from runes by @emerald_property1%"
+        "item_rpc_monarch_ring_sapphire1"                             "Increases Intelligence bonus from runes by @sapphire_property1%"
+        "item_rpc_monarch_ring_amethyst1"                             "Increases Spirit bonus from runes by @amethyst_property1%"
