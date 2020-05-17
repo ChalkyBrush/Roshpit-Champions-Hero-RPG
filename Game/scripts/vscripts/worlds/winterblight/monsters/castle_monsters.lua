@@ -4259,10 +4259,18 @@ function vorthrex_passive_think(event)
 					Timers:CreateTimer(3, function()
 						ParticleManager:DestroyParticle(particle1, false)
 					end)
+					local immortal_luck = RandomInt(1, 3)
 					local position = caster:GetAbsOrigin()
 					Timers:CreateTimer(3, function()
 						Winterblight:MithrilReward(position, "world_commander")
 					end)
+					if immortal_luck == 1 then
+						RPCItems:RollAndDropUniqueItem(caster, "item_rpc_dissimilation_greaves")
+					elseif immortal_luck == 2 then
+						RPCItems:RollAndDropUniqueItem(caster, "item_rpc_lich_kings_gaze")
+					elseif immortal_luck == 3 then
+						RPCItems:RollAndDropUniqueItem(caster, "item_rpc_world_commander_gloves")
+					end
 					UTIL_Remove(caster)
 				end)
 			end)
