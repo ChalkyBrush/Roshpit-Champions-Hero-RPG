@@ -2703,14 +2703,41 @@ function Winterblight:CastleBossDeath(boss)
 		elseif Winterblight.CastleTarot["name"] == "emperor" and GameState:GetDifficultyFactor() >= 3 then
 			Winterblight:DropEmperorQuestItem("emperor", boss:GetAbsOrigin())
 		end
+		local immortals_luck = RandomInt(1, 200)
+		local chance_min = 50 + GameState:GetPlayerPremiumStatusCount()*10
+		if immortals_luck <= chance_min then
+			local luck = RandomInt(1, 4)
+			if luck == 1 then
+				RPCItems:RollAndDropUniqueItem(boss, "item_rpc_musty_crypt_armor")
+			elseif luck == 2 then
+				RPCItems:RollAndDropUniqueItem(boss, "item_rpc_shadowguard_helm")
+			elseif luck == 3 then
+				RPCItems:RollAndDropUniqueItem(boss, "item_rpc_zombiegrip_gauntlet")
+			elseif luck == 4 then
+				RPCItems:RollAndDropUniqueItem(boss, "item_rpc_gravewalkers")
+			end
+		end
+		Timers:CreateTimer(1, function()
+			local lich_king_gaze_luck = RandomInt(1, 200)
+			local chance_min = 10 + GameState:GetPlayerPremiumStatusCount()*10
+			if lich_king_gaze_luck < chance_min then
+				RPCItems:RollAndDropUniqueItem(boss, "item_rpc_lich_kings_gaze")
+			end
+		end)
+		for i = 1, 1 + Winterblight.Stones, 1 do
+			Timers:CreateTimer(i*0.5, function()
+				local glyph = RPCItems:RebornGlyph()
+				RPCItems:BasicDropItem(boss:GetAbsOrigin(), glyph)
+			end)
+		end
 	end)
-	for j = 1, 3 + GameState:GetPlayerPremiumStatusCount() * 2, 1 do
+	for j = 1, 4 + GameState:GetPlayerPremiumStatusCount() * 2, 1 do
 		Timers:CreateTimer(j * 0.3, function()
 			Winterblight:DropGlacierStone(boss:GetAbsOrigin())
 		end)
 	end
 	Timers:CreateTimer(6, function()
-		for j = 1, Winterblight.Stones, 1 do
+		for j = 1, Winterblight.Stones + 2, 1 do
 			Timers:CreateTimer(j, function()
 				RPCItems:DropSynthesisVessel(boss:GetAbsOrigin())
 			end)
