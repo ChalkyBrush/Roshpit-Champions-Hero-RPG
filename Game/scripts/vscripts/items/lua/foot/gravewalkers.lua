@@ -287,7 +287,8 @@ function sapphire_skeleton_projectile_modifier:OnDestroy()
 	end
 	local hero = self:GetParent()
 	local ability = self:GetAbility()
-	FindClearSpaceForUnit(hero, ability.sapphire_point, false)
+	local appear_position = WallPhysics:WallSearch(hero:GetAbsOrigin(), ability.sapphire_point, hero)
+	FindClearSpaceForUnit(hero, appear_position, false)
 	CustomAbilities:QuickParticleAtPoint("particles/roshpit/items/musty_crypt_transform.vpcf", hero:GetAbsOrigin(), 3)
 	if hero:HasModifier("modifier_gravewalker_dancing_skeleton") then
 		local pfx = ParticleManager:CreateParticle("particles/roshpit/items/gravekeeper_revealed_dancing_skeleton.vpcf", PATTACH_CUSTOMORIGIN, nil)

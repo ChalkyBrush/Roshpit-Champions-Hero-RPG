@@ -615,3 +615,16 @@
         "item_rpc_gravewalkers_emerald1"                                     "Issuing a move order while feigning as a dancing skeleton will case you to charge toward the target location in a cluster of bones. Travel speed is @emerald_property1 and max distance is @emerald_property2"
         "item_rpc_gravewalkers_sapphire1"                                        "Reduces the cooldown by @sapphire_property1 seconds"
         "item_rpc_gravewalkers_amethyst1"                                        "Reduces any stray damage that hits you as a dancing skeleton by @amethyst_property1%"
+
+        "DOTA_Tooltip_ability_item_rpc_dissimilation_greaves"                                "Dissimilation Greaves"
+
+        "item_property_dissimilation_greaves"                    "Dissimilate"
+        "property_dissimilation_greaves_description"         "Issuing a Stop or Hold position order hides the wearer for 2 seconds and creates 7 <% ITEM_RPC_DISSIMILATION_GREAVES_PORTAL_RADIUS %> radius portals near the cast point. Right clicking on a portal will activate it, teleporting the hero to that portal after the duration is over. Upon reappearing, deal <% ITEM_RPC_DISSIMILATION_GREAVES_DAMAGE_PCT_ATK_POWER %>% of Attack Power as damage to enemies within the portal's radius, and slow their movespeed by <% ITEM_RPC_DISSIMILATION_GREAVES_MS_SLOW_PCT %>% for <% ITEM_RPC_DISSIMILATION_GREAVES_SLOW_DURATION %> seconds. <% ITEM_RPC_DISSIMILATION_GREAVES_COOLDOWN %> second cooldown."
+
+        "item_rpc_dissimilation_greaves_ruby1"                                        "Increases the portal radius by @ruby_property1"
+        "item_rpc_dissimilation_greaves_emerald1"                                     "Increases Rune [E4] by @emerald_property1"
+        "item_rpc_dissimilation_greaves_sapphire1"                                        "Reduces the cooldown by @sapphire_property1 seconds"
+        "item_rpc_dissimilation_greaves_amethyst1"                                        "Increases the damage by an additional @amethyst_property1% of Attack Power and increases the slow duration by @amethyst_property2"
+
+        "DOTA_Tooltip_modifier_grey_domain_slow"            "Dissimilation"
+        "DOTA_Tooltip_modifier_grey_domain_slow_Description"    "Slowed"

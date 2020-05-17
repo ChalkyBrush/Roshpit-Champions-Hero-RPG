@@ -12963,6 +12963,19 @@
         "item_rpc_gravewalkers_sapphire1"                                        "Reduces the cooldown by @sapphire_property1 seconds"
         "item_rpc_gravewalkers_amethyst1"                                        "Reduces any stray damage that hits you as a dancing skeleton by @amethyst_property1%"
 
+        "DOTA_Tooltip_ability_item_rpc_dissimilation_greaves"                                "Dissimilation Greaves"
+
+        "item_property_dissimilation_greaves"                    "Dissimilate"
+        "property_dissimilation_greaves_description"         "Issuing a Stop or Hold position order hides the wearer for 2 seconds and creates 7 <font color='#ccff66'>275</font> radius portals near the cast point. Right clicking on a portal will activate it, teleporting the hero to that portal after the duration is over. Upon reappearing, deal <font color='#ccff66'>125</font>% of Attack Power as damage to enemies within the portal's radius, and slow their movespeed by <font color='#ccff66'>-50</font>% for <font color='#ccff66'>4</font> seconds. <font color='#ccff66'>6</font> second cooldown."
+
+        "item_rpc_dissimilation_greaves_ruby1"                                        "Increases the portal radius by @ruby_property1"
+        "item_rpc_dissimilation_greaves_emerald1"                                     "Increases Rune [E4] by @emerald_property1"
+        "item_rpc_dissimilation_greaves_sapphire1"                                        "Reduces the cooldown by @sapphire_property1 seconds"
+        "item_rpc_dissimilation_greaves_amethyst1"                                        "Increases the damage by an additional @amethyst_property1% of Attack Power and increases the slow duration by @amethyst_property2"
+
+        "DOTA_Tooltip_modifier_grey_domain_slow"            "Dissimilation"
+        "DOTA_Tooltip_modifier_grey_domain_slow_Description"    "Slowed"
+
 		"DOTA_Tooltip_ability_item_rpc_alien_armor"		"Alien Armor"
 		"property_alien_armor"							"Simulation"
 		"property_alien_armor_description"				"Casting @Ability4 creates an illusion of you whose damage is attributed to the caster and considered item damage. The illusion has <font color='#ccff66'>2</font>x the caster's attack power, takes <font color='#ccff66'>50</font>% reduced damage, and lasts <font color='#ccff66'>10</font> seconds. If the wearer dies while an illusion is active, they respawn in the place of a random illusion after a <font color='#ccff66'>3</font> second delay as long as the chosen illusion is still alive at that time. Max <font color='#ccff66'>1</font> active illusion."
