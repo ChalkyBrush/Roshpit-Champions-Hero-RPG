@@ -1247,6 +1247,9 @@ function Runes:EquipArcana(hero, index)
 		if index == 1 then
 			Runes:EasySwapArcanaSkills(hero, 1, "piercing_gale", "icewind_gale", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 			hero:RemoveModifierByName("modifier_sephyr_gale_passive")
+		elseif index == 2 then
+			hero:RemoveModifierByName("modifier_sephyr_passive")
+			Runes:EasySwapArcanaSkills(hero, 0, "sephyr_lightbomb", "sephyr_hurricane", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_winter_wyvern" then
 		if index == 1 then
@@ -2003,6 +2006,9 @@ function Runes:UnequipArcana(hero, index)
 		if index == 1 then
 			Runes:EasyRevertArcanaSkills(hero, 1, "piercing_gale", "icewind_gale", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 			hero:RemoveModifierByName("modifier_icewind_passive")
+		elseif index == 2 then
+			hero:RemoveModifierByName("modifier_sephyr_hurricane_passive")
+			Runes:EasyRevertArcanaSkills(hero, 0, "sephyr_lightbomb", "sephyr_hurricane", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_winter_wyvern" then
 		if index == 1 then

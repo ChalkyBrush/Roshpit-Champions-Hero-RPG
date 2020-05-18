@@ -174,8 +174,15 @@ function modifier_attack_land_basic:OnAttackLanded(event)
 				damageType = damageType,
 				elements = elements}
 
-		Util.Modifier:SimpleEvent(parent, 'BasicAttackOverride', { MODIFIER_ROSHPIT_OVERRIDE_ATTACK_EVENT }, {target = event.target}, nil)
-		if not parent.attackOverride then
+		local override = false
+		Util.Modifier:SimpleEvent(parent, 'BasicAttackOverride', { MODIFIER_ROSHPIT_OVERRIDE_ATTACK_EVENT }, {target = event.target}, 
+			function(result, data)
+				if result == 1 then
+					override = true
+				end
+			end
+		)
+		if not override then
 			Damage:Apply(damageTable)
 		end
 

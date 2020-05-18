@@ -1,0 +1,158 @@
+
+	"sephyr_hurricane"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/skywrath_mage/arcana/sephyr_hurricane.lua"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_CHANNEL"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"sephyr/sephyr_hurricane"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
+		"LevelsBetweenUpgrades"  "0"
+		"MaxLevel"				 "7"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+
+		// Precache
+		//-------------------------------------------------------
+		"precache"
+		{
+			"particle"		"particles/econ/events/fall_major_2016/blink_dagger_start_fm06.vpcf"
+			"particle"		"particles/econ/events/fall_major_2016/blink_dagger_end_fm06.vpcf"
+			"particle"		"particles/items/hurricane_vest_projectile.vpcf"
+			"particle"		"particles/roshpit/sephyr/arcana2_q1_buff.vpcf"
+		}
+
+		// Special
+		//-------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"disarm_duration"			"1.4 1.5 1.6 1.7 1.8 1.9 2.0"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"wind_range"			"900 950 1000 1050 1100 1150 1200"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"wind_speed"			"900 950 1000 1050 1100 1150 1200"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"cast_range_base"			"800"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"cooldown_base"			"11"
+			}
+		}
+	}
+
+	"sephyr_rune_q_1_arcana2"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"sephyr/sephyr_rune_q_1_arcana2"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"<% SEPHYR_ARCANA2_Q1_MS %>"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"<% SEPHYR_ARCANA2_Q1_AGI %>"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"<% RPC_ELEMENT_WIND %>"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"1"
+			}
+		}
+	}
+
+	"sephyr_rune_q_2_arcana2"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"sephyr/sephyr_rune_q_2_arcana2"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"<% SEPHYR_ARCANA2_Q2_CAST_RANGE %>"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"<% SEPHYR_ARCANA2_Q2_CD_REDUCTION %>"
+			}
+		}
+	}
+
+	"sephyr_rune_q_3_arcana2"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"sephyr/sephyr_rune_q_3_arcana2"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"<%SEPHYR_ARCANA2_Q3_SPLIT_CHANCE %>"
+			}
+		}
+	}
+
+	"sephyr_rune_q_4_arcana2"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"sephyr/sephyr_rune_q_4_arcana2"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"<% SEPHYR_ARCANA2_Q4_AGI_TO_ATK_PCT %>"
+			}
+		}
+	}
+

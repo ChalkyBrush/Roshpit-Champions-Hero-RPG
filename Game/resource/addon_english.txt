@@ -9656,6 +9656,47 @@
     	"DOTA_Tooltip_ability_sephyr_rune_w_4_arcana1_Description"				"Increases all <font color=\"#7AE2A7\">Wind</font> damage."
     	"DOTA_Tooltip_ability_sephyr_rune_w_4_arcana1_property_one"				"Wind Damage Bonus"
     	"DOTA_Tooltip_ability_sephyr_rune_w_4_arcana1_suffix"					"% for every 10 points of Attributes"
+
+        //Arcana2
+        "DOTA_Tooltip_ability_item_rpc_sephyr_arcana2"                      "Unity Crown"
+
+        "item_property_sephyr_arcana2"                                      "Hurricane"
+        "property_sephyr_arcana2_description"                               "Replaces @Ability1 and all of its runes with Hurricane."
+
+        "DOTA_Tooltip_ability_sephyr_hurricane"                     "Hurricane"
+        "DOTA_Tooltip_ability_sephyr_hurricane_Description"         "Sephyr teleports to the target location and unleashes a hurricane around the cast point. Enemies caught in the hurricane are disarmed."
+        "DOTA_Tooltip_ability_sephyr_hurricane_disarm_duration"     "DISARM DURATION:"
+        "DOTA_Tooltip_ability_sephyr_hurricane_wind_range"             "WIND RANGE:"
+        "DOTA_Tooltip_ability_sephyr_hurricane_wind_speed"             "WIND SPEED:"
+        "DOTA_Tooltip_ability_sephyr_hurricane_cast_range_base"         "BASE CAST RANGE:"
+        "DOTA_Tooltip_ability_sephyr_hurricane_cooldown_base"         "BASE COOLDOWN:"
+
+        "DOTA_Tooltip_ability_sephyr_rune_q_1_arcana2"                      "[Q1] Concordia"
+        "DOTA_Tooltip_ability_sephyr_rune_q_1_arcana2_Description"          "Gain Movespeed, Max Movespeed and Agility for <font color='#ccff66'>10</font> seconds after casting hurricane. While the buff is active, regular attacks deal Magical <font color=\"#7AE2A7\">Wind</font> damage"
+        "DOTA_Tooltip_ability_sephyr_rune_q_1_arcana2_property_one"         "Movespeed and Max Movespeed Bonus"
+        "DOTA_Tooltip_ability_sephyr_rune_q_1_arcana2_suffix"               ""      
+        "DOTA_Tooltip_ability_sephyr_rune_q_1_arcana2_property_two"         "Agility Bonus"
+        "DOTA_Tooltip_ability_sephyr_rune_q_1_arcana2_suffix_two"           ""   
+
+        "DOTA_Tooltip_modifier_sephyr_hurricane_q1"                         "Concordia"
+        "DOTA_Tooltip_modifier_sephyr_hurricane_q1_Description"             "Increased Movespeed and Agility"
+
+        "DOTA_Tooltip_ability_sephyr_rune_q_2_arcana2"                          "[Q2] Squall"
+        "DOTA_Tooltip_ability_sephyr_rune_q_2_arcana2_Description"              "Increases Hurricane's Cast Range and reduces its cooldown."
+        "DOTA_Tooltip_ability_sephyr_rune_q_2_arcana2_property_one"             "Cast Range"
+        "DOTA_Tooltip_ability_sephyr_rune_q_2_arcana2_suffix"                   ""
+        "DOTA_Tooltip_ability_sephyr_rune_q_2_arcana2_property_two"             "Cooldown Reduction"
+        "DOTA_Tooltip_ability_sephyr_rune_q_2_arcana2_suffix_two"               " seconds"
+
+        "DOTA_Tooltip_ability_sephyr_rune_q_3_arcana2"                          "[Q3] Aero Storm"
+        "DOTA_Tooltip_ability_sephyr_rune_q_3_arcana2_Description"              "Regular attacks have a chance to split and hit additional enemies near their target."
+        "DOTA_Tooltip_ability_sephyr_rune_q_3_arcana2_property_one"             "Attack Split Chance"
+        "DOTA_Tooltip_ability_sephyr_rune_q_3_arcana2_suffix"                   "%"
+
+        "DOTA_Tooltip_ability_sephyr_rune_q_4_arcana2"                          "[Q4] Windforce"
+        "DOTA_Tooltip_ability_sephyr_rune_q_4_arcana2_Description"              "Agility increases Attack Power."
+        "DOTA_Tooltip_ability_sephyr_rune_q_4_arcana2_property_one"             "Attack Power Bonus"
+        "DOTA_Tooltip_ability_sephyr_rune_q_4_arcana2_suffix"                   "% per Agility"
 		
 		//Glyphs
 		
@@ -13759,10 +13800,10 @@
 		"item_rpc_cloak_of_isolation_amethyst1"									"Issuing a stop order disjoints incoming projectiles and applies @amethyst_property1 seconds of persistent invisibility. <font color='#ccff66'>10</font> second cooldown"
 
 		"DOTA_Tooltip_ability_item_rpc_breastplate_of_abjudication"		"Breastplate of Abjudication"
-		"item_property_breastplate_of_abjudication"				"Abjudicator"
+		"item_property_breastplate_of_abjudication"				"Judgement"
 		"property_breastplate_of_abjudication_description"		"When an enemy begins an attack on you, if their armor pierce is higher than your armor, gain bonus armor equal to <font color='#ccff66'>100</font>% of the difference between your armor and their armor pierce for <font color='#ccff66'>5</font> seconds."
 
-		"DOTA_Tooltip_modifier_abjudication_base_effect_armor"	"Abjudicator"
+		"DOTA_Tooltip_modifier_abjudication_base_effect_armor"	"Judgement"
 		"DOTA_Tooltip_modifier_abjudication_base_effect_armor_Description"	"Increased Armor"
 
 		"item_rpc_breastplate_of_abjudication_ruby1"									"When beginning an attack on an enemy, if their armor is higher than your armor pierce, gain Armor Pierce equal to <font color='#ccff66'>100</font>% of the difference between your Armor Pierce and their Armor for @ruby_property1 seconds"
@@ -13770,10 +13811,10 @@
 		"item_rpc_breastplate_of_abjudication_sapphire1"									"Increases all attributes by @sapphire_property1%"
 		"item_rpc_breastplate_of_abjudication_amethyst1"									"After taking an instance of Magic or Pure damage, if the caster's Spell Pierce is higher than your Magic Armor, gain Magic Armor equal to <font color='#ccff66'>100</font>% of the difference between your Magic Armor and their Spell Pierce for @amethyst_property1 seconds"
 
-		"DOTA_Tooltip_modifier_abjudication_ruby_armor_pierce"	"Abjudicator (Ruby)"
+		"DOTA_Tooltip_modifier_abjudication_ruby_armor_pierce"	"Judgement (Ruby)"
 		"DOTA_Tooltip_modifier_abjudication_ruby_armor_pierce_Description"	"Increased Armor Pierce"
 
-		"DOTA_Tooltip_modifier_abjudication_amethyst_magic_armor" "Abjudicator (Amethyst)"
+		"DOTA_Tooltip_modifier_abjudication_amethyst_magic_armor" "Judgement (Amethyst)"
 		"DOTA_Tooltip_modifier_abjudication_amethyst_magic_armor_Description" "Increased Magic Armor"
 
 

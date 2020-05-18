@@ -2917,7 +2917,7 @@ function lover_quest_spawn_think(event)
 					UTIL_Remove(lover)
 					UTIL_Remove(lover.other_lover)
 					UTIL_Remove(lover.heart)
-					local arcana = RPCItems:RollAndDropArcanaByLevel(position, 120, "item_rpc_flamewaker_arcana1")
+					local arcana = RPCItems:RollAndDropArcanaByLevel(position, GameState:GetDifficultyFactor()*40, "item_rpc_sephyr_arcana2")
 					arcana.pickedUp = true
 					Timers:CreateTimer(2, function()
 						Winterblight.FinalLoverPop = nil
