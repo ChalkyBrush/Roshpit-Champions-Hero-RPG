@@ -1946,6 +1946,23 @@ function RPCItems:CreateBasicConsumable(position, itemName, fullName, rarity, bD
 	return item
 end
 
+function RPCItems:CreateBasicConsumableWithProperty1(position, itemName, fullName, rarity, bDrop, property1name, property1value, property1color)
+	local item = RPCItems:CreateConsumable(itemName, rarity, fullName, "consumable", false, "Consumable", itemName.."_desc")
+	item.newItemTable.stashable = true
+	item.newItemTable.consumable = true
+	item.newItemTable.basicConsumable = true
+
+	item.newItemTable.property1name = property1name
+	item.newItemTable.property1tooltip = property1name
+	item.newItemTable.property1color = property1color
+	item.newItemTable.property1 = property1value
+	RPCItems:ItemUpdateCustomNetTables(item)
+	if bDrop then
+		RPCItems:BasicDropItem(position, item)
+	end
+	return item
+end
+
 function RPCItems:GetEquippedItemsBelowRarity(hero, rarity)
 	local count = 0
 	if hero.body and IsValidEntity(hero.body) then

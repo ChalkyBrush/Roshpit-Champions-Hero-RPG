@@ -116,5 +116,7 @@ end
 function ai_loot_drop_special(unit, loot)
 	if loot["item"] == "item_rpc_winterblight_tarot_card" then
 		Winterblight:CreateCastleTarotCard(unit:GetAbsOrigin(), nil)
+	elseif loot["item"] == "item_rpc_winterblight_dragon_scale" then
+		RPCItems:CreateBasicConsumableWithProperty1(unit:GetAbsOrigin(), "item_rpc_winterblight_dragon_scale", "Winterblight Dragon Scale", "immortal", true, "winterblight_dragon_scale_property", 1, "#80a4ff")
 	end
 end

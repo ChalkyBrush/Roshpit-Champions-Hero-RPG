@@ -1460,6 +1460,30 @@ function RPCItems:RollSephyrArcana2(item_level)
     return item
 end
 
+function RPCItems:RollDinathArcana2(item_level)
+    local item_slot = RPC_GEAR_SLOT_BODY
+    local rarity = RPC_ITEMS_RARITY_ARCANA
+
+    local item = RPCItems:CreateArcanaBasic("item_rpc_dinath_arcana2", "arcana", "Dinath Arcana 2", "body", true, "Slot: Body", "npc_dota_hero_winter_wyvern", 0)
+    local maxFactor = RPCItems:GetMaxFactor()
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "arcana2"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_dinath_arcana2", "#64c7f5", 1, "#property_dinath_arcana2_description")
+
+    local rune_property = RPCItems:RollArcanaRuneForSlot("r")
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_property, 1.5)
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "all_attributes", 3)
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    item.newItemTable.slot = RPC_GEAR_SLOT_NAMES[item_slot]
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 1.5)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.5)
+    RPCItems:SetBaseItemValues(item, item_name, false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
 function RPCItems:PreacheArcanaResources(item)
     Timers:CreateTimer(0.05, function()
         PrecacheItemByNameAsync(item:GetAbilityName(), function(...) end)
@@ -1547,6 +1571,7 @@ function RPCItems:GetAvailableArcanaData(hero)
         table.insert(arcanaData, {1, 2})
     elseif unitName == "npc_dota_hero_skywrath_mage" then
         table.insert(arcanaData, {1, 1})
+        table.insert(arcanaData, {2, 0})
     elseif unitName == "npc_dota_hero_winter_wyvern" then
         table.insert(arcanaData, {1, 1})
     elseif unitName == "npc_dota_hero_arc_warden" then
@@ -1714,6 +1739,8 @@ function RPCItems:RollArcanaByName(arcana_name, item_level)
         arcana = RPCItems:RollEkkanArcana2c(item_level)
     elseif arcana_name == "item_rpc_sephyr_arcana2" then
         arcana = RPCItems:RollSephyrArcana2(item_level)
+    elseif arcana_name == "item_rpc_dinath_arcana2" then
+        arcana = RPCItems:RollDinathArcana2(item_level)
     end
     return arcana
 end

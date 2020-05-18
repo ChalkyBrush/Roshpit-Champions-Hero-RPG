@@ -1540,6 +1540,17 @@ function GameState:OrderFilter(orderTable)
 				else
 					return true
 				end
+			elseif unit:HasModifier("modifier_dinath_arcana2") then
+				local orderAbility = EntIndexToHScript(orderTable.entindex_ability)
+				if IsValidEntity(orderAbility) then
+					if orderAbility:GetAbilityName() == "dinath_frost_wyrm" then
+						return VectorTarget:OrderFilter(orderTable)
+					else
+						return true
+					end
+				else
+					return true
+				end
 			else
 				return true
 			end

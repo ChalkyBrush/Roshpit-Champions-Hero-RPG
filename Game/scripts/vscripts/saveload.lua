@@ -462,7 +462,7 @@ function SaveLoad:AttachItemToURL(url, hero, is_stash, stash_slot, playerID, gea
 
 		local affixCount = 0
 		--print("TU78A")
-		if item:GetAbilityName() == "item_rpc_web_premium_token" or string.match(item:GetAbilityName(), "galactic_arcana_cache") or string.match(item:GetAbilityName(), "item_serengaard_hyperstone") or string.match(item:GetAbilityName(), "item_rpc_unrefined_gemstones") or string.match(item:GetAbilityName(), "item_rpc_winterblight_tarot_card") then
+		if item:GetAbilityName() == "item_rpc_web_premium_token" or string.match(item:GetAbilityName(), "galactic_arcana_cache") or string.match(item:GetAbilityName(), "item_serengaard_hyperstone") or string.match(item:GetAbilityName(), "item_rpc_unrefined_gemstones") or string.match(item:GetAbilityName(), "item_rpc_winterblight_tarot_card") or string.match(item:GetAbilityName(), "item_rpc_winterblight_dragon_scale")  then
 			--print("TU78B")
 			local affixCount = 1
 			for i = 1, affixCount, 1 do
@@ -1001,11 +1001,19 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 			end
 			return item
 		elseif string.match(gearTable.item_variant, "item_rpc_winterblight_tarot_card") then
-			DeepPrintTable(gearTable)
 			local item = Winterblight:CreateCastleTarotCard(nil, string.gsub(gearTable.property1name, "tarot_", ""))
 			if gearTable.validator then
 				item.newItemTable.validator = gearTable.validator
 			end
+			return item
+		elseif gearTable.item_variant == "item_rpc_winterblight_dragon_scale" then
+			DeepPrintTable(gearTable)
+			local item = RPCItems:CreateBasicConsumableWithProperty1(nil, gearTable.item_variant, gearTable.item_name, RPCItems:GetRarityNameFromFactor(gearTable.rarity), false, gearTable.property1name, gearTable.property1, gearTable.property1color)
+			item.pickedUp = true
+			if gearTable.validator then
+				item.newItemTable.validator = gearTable.validator
+			end
+			RPCItems:ItemUpdateCustomNetTables(item)
 			return item
 		end
 	end

@@ -4754,6 +4754,27 @@ function use_winterblight_tarot_card(event)
 		ScreenShake(Vector(11808, 13046, 1767), 800, 1, 1, 9000, 0, true)
 	end)
 
+	-- REPEATED CODE DOWN HERE
+	Timers:CreateTimer(1, function()
+		local model_name = "models/winterblight/tarot/"..Winterblight.CastleTarot["index"].."-"..Winterblight.CastleTarot["name"]..".vmdl"
+		local function precache_function()
+			
+		end
+		PrecacheUnitByNameAsync(model_name, precache_function)
+	end)
+	Timers:CreateTimer(2, function()
+		Winterblight:PrecacheTarotAssets()
+	end)
+	if Winterblight.CastleTarot["name"] == "hanged_man" then
+		Winterblight:HangedManPrepareHashMap()
+	elseif Winterblight.CastleTarot["name"] == "temperance" then
+		Winterblight:TemperanceWaterProps()
+		Winterblight.TemperanceDungeonStartTime = GameRules:GetGameTime()
+	elseif Winterblight.CastleTarot["name"] == "devil" then
+		Winterblight:DevilBloodProps()
+	elseif Winterblight.CastleTarot["name"] == "moon" then
+		Winterblight:CastleMoonProps()
+	end
 end
 
 function xelethar_thinker(event)

@@ -65,7 +65,7 @@ function dinath_dive_precast_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	caster:SetAbsOrigin(caster:GetAbsOrigin() + ability.fv * 10)
-	local zStacks = math.min(caster:GetModifierStackCount("modifier_dinath_postflight_zheight", caster) + 10, 480)
+	local zStacks = math.min(caster:GetModifierStackCount("modifier_dinath_postflight_zheight", caster) + 10, DINATH_MAX_FLY_HEIGHT)
 	caster:SetModifierStackCount("modifier_dinath_postflight_zheight", caster, zStacks)
 	if not ability:IsInAbilityPhase() then
 		caster:RemoveModifierByName("modifier_dinath_dive_precast")
@@ -89,7 +89,7 @@ function dinath_diving_think(event)
 	ability.straightVector = ability.straightVector + ability.fv * moveVelocity
 
 	local afterWallPosition = WallPhysics:WallSearch(beforeWallPosition, ability.straightVector + ability.fv * moveVelocity, caster)
-	local maxHeight = 480
+	local maxHeight = DINATH_MAX_FLY_HEIGHT
 	if caster:HasModifier("modifier_dinath_glyph_2_1") then
 		maxHeight = maxHeight + DINATH_GLYPH_2_1_FLY_HEIGHT_INCREASE
 	end

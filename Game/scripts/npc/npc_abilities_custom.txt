@@ -68047,6 +68047,173 @@
 
 
 
+	"dinath_frost_wyrm"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_AOE"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/winter_wyvern/arcana/dinath_frost_wyrm.lua"
+		"AbilityTextureName"			"dinath/dinath_frost_wyrm"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCastRange"				"1000"
+		"AOERadius"						"300"
+		"AbilityCastAnimation"			"ACT_DOTA_TELEPORT"
+		"AbilityType"            		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"VectorTarget"      			"1"
+		"precache"
+		{
+
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage_mult"			"30 60 90 120 150 180 210"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"cast_range"			"1000"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"cooldown"			"9"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"projectile_range"			"800 850 900 950 1000 1050 1100"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"projectile_count"			"1"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"explode_radius"			"300"
+			}
+			"07"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ms_slow"			"-16 -20 -24 -28 -32 -36 -40"
+			}
+			"08"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"as_slow"			"-20 -40 -60 -80 -100 -120 -140"
+			}
+			"09"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"slow_duration"			"4"
+			}
+		}
+	}
+
+
+	"dinath_rune_r_1_arcana2"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"dinath/dinath_rune_r_1_arcana2"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"10"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"10"
+			}
+		}
+	}
+
+	"dinath_rune_r_2_arcana2"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"dinath/dinath_rune_r_2_arcana2"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"5"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"3"
+			}
+		}
+	}
+
+	"dinath_rune_r_3_arcana2"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"dinath/dinath_rune_r_3_arcana2"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"10"
+			}
+		}
+	}
+
+	"dinath_rune_r_4_arcana2"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"dinath/dinath_rune_r_4_arcana2"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"-0.4"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"-0.1"
+			}
+		}
+	}
+
+
+
 
 	"dinath_dragon_dive"
 	{

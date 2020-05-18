@@ -1304,6 +1304,10 @@
 		"DOTA_Tooltip_ability_item_rpc_empress_jewel"		"Empress' Jewel"
 		"item_rpc_empress_jewel_desc"						"Synthesizes with Emperor's Band to create an <font color='#E4AE33'>Immortal</font> item."
 
+		"DOTA_Tooltip_ability_item_rpc_winterblight_dragon_scale" "Winterblight Dragon Scale"
+		"item_rpc_winterblight_dragon_scale_desc"			"Synthesize with other Dragon Scales to stack them. When the property reaches 20, create an <font color='#ADE55C'>Arcana</font> item."
+		"winterblight_dragon_scale_property"				"Scales"
+
 		"DOTA_Tooltip_ability_item_rpc_winterblight_tarot_card" "Winterblight Tarot Card"
 		"item_rpc_winterblight_tarot_card_desc"				    "Use at the entrace of Winterblight Castle to select this fate."
 

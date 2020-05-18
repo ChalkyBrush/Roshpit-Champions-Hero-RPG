@@ -34,7 +34,8 @@ function Winterblight:OpenWinterblightCastle()
 			Winterblight.CastleDungeonMaster = wraith
 		end)
 		Dungeons.respawnPoint = Vector(11812, 13652)
-
+		Winterblight.TarotCardTable = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22}
+		Winterblight.TarotCardTable = WallPhysics:ShuffleTable(Winterblight.TarotCardTable)
 	end
 end
 
@@ -684,7 +685,8 @@ function Winterblight:TarotCardSelect(msg)
 	EmitSoundOn("Winterblight.TarotCardSelect", Winterblight.CastleDungeonMaster)
 	EmitSoundOn("Winterblight.TarotCardSelect.Ping", Winterblight.CastleDungeonMaster)
 
-	Winterblight.CastleTarot = Winterblight.CASTLE_DATA["tarot"][selection+1]
+	local actualTarot = Winterblight.TarotCardTable[selection + 1]
+	Winterblight.CastleTarot = Winterblight.CASTLE_DATA["tarot"][actualTarot]
 
 	local x_distance_between_card_props = 19
 	local y_distance_between_card_props = 33
@@ -1199,6 +1201,13 @@ function Winterblight:SpawnCastleRoomUnit(room_index, unit_name, position, fv, a
 		end
 	end
 	local enemy = Enemies:SpawnEnemyUnit(unit_name, position, fv, aggro)
+	if unit_name == "winterblight_temple_sun_crow" then
+		enemy:AddLootDrop("special", "item_rpc_winterblight_dragon_scale", 0.1)
+	elseif unit_name == "winterblight_dual_drake" then
+		enemy:AddLootDrop("special", "item_rpc_winterblight_dragon_scale", 0.3)
+	elseif unit_name == "winterblight_castle_strength_spine_drake" then
+		enemy:AddLootDrop("special", "item_rpc_winterblight_dragon_scale", 4)
+	end
 	master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, enemy, "modifier_winter_castle_room_unit", {})
 	enemy.room_index = room_index
 
