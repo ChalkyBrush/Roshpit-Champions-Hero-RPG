@@ -1207,6 +1207,8 @@ function Winterblight:SpawnCastleRoomUnit(room_index, unit_name, position, fv, a
 		enemy:AddLootDrop("special", "item_rpc_winterblight_dragon_scale", 0.3)
 	elseif unit_name == "winterblight_castle_strength_spine_drake" then
 		enemy:AddLootDrop("special", "item_rpc_winterblight_dragon_scale", 4)
+	elseif unit_name == "winterblight_ice_harbor_mini_boss" then
+		enemy:AddLootDrop("special", "item_rpc_winterblight_dragon_scale", 10)
 	end
 	master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, enemy, "modifier_winter_castle_room_unit", {})
 	enemy.room_index = room_index

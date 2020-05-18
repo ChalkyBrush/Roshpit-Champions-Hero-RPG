@@ -3051,7 +3051,7 @@ function strength_charge_after_warp_falling(event)
 		if #enemies > 0 then
 			for _, enemy in pairs(enemies) do
 				Enemies:ApplyDamageToPlayer(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, ability)
-				enemy:AddNewModifier(caster, event.ability, "modifier_stunned", {duration = 2})
+				enemy:AddNewModifier(caster, event.ability, "modifier_stunned", {duration = event.stun_duration})
 			end
 		end
 	end
@@ -4053,6 +4053,7 @@ function diviner_sun_event_egg_think(event)
 		if egg.giga_egg then
 			phoenix.min_stacks = 240
 			phoenix:AddLootDrop("immortal", "item_rpc_sun_gods_visage", 100)
+			phoenix:AddLootDrop("special", "item_rpc_winterblight_dragon_scale", 25)
 		end
 		Dungeons:AggroUnit(phoenix)
 		local master_ability = Winterblight.CastleDungeonMaster:FindAbilityByName("winterblight_the_diviner_passive")

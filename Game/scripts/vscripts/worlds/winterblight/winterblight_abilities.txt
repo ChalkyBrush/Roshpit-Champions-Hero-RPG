@@ -14576,7 +14576,7 @@
 
 	"winterblight_rubble_passive"
 	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"winterblight/p2/tiamat_crystal_breath"
 		"MaxLevel"	"3"
@@ -15322,7 +15322,7 @@
 
 	"winterblight_grave_ghost_passive"
 	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"winterblight/p2/ultimate_predator"
 		"MaxLevel"	"3"
@@ -15719,7 +15719,7 @@
 
 	"winterblight_sonder_passive"
 	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE  | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"winterblight/source_revenant"
 		"MaxLevel"	"3"
@@ -16809,7 +16809,7 @@
 
 	"elite_ghoul_ai"
 	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"tiny_craggy_exterior"
 		"MaxLevel"	"1"
@@ -17236,7 +17236,7 @@
 
 	"ground_blade_passive"
 	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"rpc/axe_throw_ice"
 		"MaxLevel"	"3"
@@ -17564,7 +17564,7 @@
 
 	"winterblight_armory_rock_ability"
 	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"skeleton_king_reincarnation"
 		"MaxLevel"	"3"
@@ -17654,7 +17654,6 @@
 			}
 			"modifier_ice_bear_attack_buff"
 			{
-				//Adds 30s to E cooldown
 				"Passive"			"0"
 				"IsHidden"			"0"
 			
@@ -17672,7 +17671,7 @@
 
 	"winterblight_treasure_tower_ability"
 	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"skeleton_king_reincarnation"
 		"MaxLevel"	"3"
@@ -17712,7 +17711,7 @@
 
 	"winterblight_treasure_chest_ability"
 	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"skeleton_king_reincarnation"
 		"MaxLevel"	"3"
@@ -17785,7 +17784,7 @@
 			"modifier_moon_warden_passive"
 			{
 				"Passive"			"1"
-				"IsHidden"			"0"
+				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"ThinkInterval"  	"1.0"
 				"OnIntervalThink"
@@ -18923,7 +18922,7 @@
 
 	"winterblight_lover_heart_ability"
 	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"skeleton_king_reincarnation"
 		"MaxLevel"	"3"
@@ -19126,6 +19125,11 @@
 				"var_type"				"FIELD_INTEGER"
 				"damage"				"500 3000 20000"
 			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stun_duration"				"2"
+			}
 		}
 
 		"OnSpellStart"
@@ -19181,6 +19185,7 @@
 						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
 						"Function"		"strength_charge_after_warp_falling"
 						"damage"		"%damage"
+						"stun_duration"	"%stun_duration"
 					}
 				}
 			}
@@ -19922,7 +19927,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"tick_damage"	"80 240 3000"
+				"tick_damage"	"160 440 5000"
 			}
 		}
 
@@ -19968,7 +19973,7 @@
 
 	"winterblight_hanged_slayer_passive"
 	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"skeleton_king_reincarnation"
 		"MaxLevel"	"3"
@@ -20180,7 +20185,7 @@
 		}
 		"Modifiers"
 		{
-		"modifier_winterblight_doom"
+			"modifier_winterblight_doom"
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
@@ -20369,7 +20374,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"		"80 270 1000"
+				"damage"		"80 270 1500"
 			}
 			"02"
 			{
@@ -20963,7 +20968,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"200 1200 10000"
+				"damage"				"200 3200 25000"
 			}
 			"04"
 			{
@@ -21039,6 +21044,7 @@
 				{
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%atk_power_loss"
 					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE"		"%health_regen_loss"
+					"MODIFIER_PROPERTY_DISABLE_HEALING"				"1"
 				}
 			}
 		}
@@ -21397,7 +21403,7 @@
 
 	"winterblight_star_boss_passive"
 	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"mirana_starfall"
 		"MaxLevel"	"3"
@@ -21448,7 +21454,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"magic_resist_loss"			"-100 -500 -4000"
+				"magic_resist_loss"			"-100 -500 -5000"
 			}
 			"01"
 			{
