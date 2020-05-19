@@ -14680,7 +14680,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_AOE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"winterblight/megmus_explosion"
+		"AbilityTextureName"	"winterblight/castle/mountain_rubble_ice_burst"
 		"AbilityCastPoint"	"0.0"
 		"AbilityCooldown"	"9"
 		"AbilityChannelTime"	"0.8"
@@ -14835,7 +14835,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"winterblight/p2/tiamat_crystal_breath"
+		"AbilityTextureName"	"winterblight/castle/owl_sentry_passive"
 		"MaxLevel"	"3"
 		"Modifiers"
 		{
@@ -15021,7 +15021,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"winterblight/p2/ultimate_predator"
+		"AbilityTextureName"	"winterblight/castle/demonoid_passive"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
@@ -15051,7 +15051,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"winterblight/p2/ultimate_predator"
+		"AbilityTextureName"	"winterblight/castle/glint_of_onu"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
@@ -15103,7 +15103,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"winterblight/zefnar_passive"
+		"AbilityTextureName"	"winterblight/castle/mountain_tombstone"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
@@ -15324,7 +15324,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"winterblight/p2/ultimate_predator"
+		"AbilityTextureName"	"winterblight/castle/ghost_blink"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
@@ -15415,7 +15415,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"winterblight/summoner_blink"
+		"AbilityTextureName"			"winterblight/castle/ghost_blink"
 		"RequiredLevel"          		"0"
 		"LevelsBetweenUpgrades"  		"0"
 		"MaxLevel"				 		"3"
@@ -15472,7 +15472,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"winterblight/source_revenant"
+		"AbilityTextureName"	"winterblight/castle/defiler_passive"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
@@ -15545,7 +15545,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"winterblight/p2/phantom_spark"
+		"AbilityTextureName"			"winterblight/castle/ghost_spark"
 		"AbilityCastAnimation"			"ACT_DOTA_FLAIL"
 		"LevelsBetweenUpgrades"  "0"
 		"MaxLevel"				 "7"
@@ -15631,7 +15631,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"winterblight/p2/phantom_spark"
+		"AbilityTextureName"			"winterblight/castle/asyria_passive"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
 		"LevelsBetweenUpgrades"  "0"
 		"MaxLevel"				 "7"
@@ -15772,7 +15772,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"winterblight/source_revenant"
+		"AbilityTextureName"	"winterblight/castle/accursed_passive"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"AbilitySpecial"
@@ -15836,7 +15836,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"winterblight/source_revenant"
+		"AbilityTextureName"	"winterblight/castle/life_drain"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"AbilitySpecial"
@@ -16207,6 +16207,7 @@
 			}
 			"modifier_room_7_in_goo"
 			{
+				"TextureName"		"winterblight/castle/inside_green_goo"
 				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/green.vpcf"	   
 				"StatusEffectPriority"  "100"
 				"IsHidden"	"0"
@@ -16222,6 +16223,7 @@
 			}
 			"modifier_room_7_in_blue_goo"
 			{
+				"TextureName"		"winterblight/castle/inside_blue_goo"
 				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/blue.vpcf"	   
 				"StatusEffectPriority"  "100"
 				"IsHidden"	"0"
@@ -16258,6 +16260,7 @@
 			}
 			"modifier_diviner_high_priestess_heal"
 			{
+				"TextureName"		"winterblight/castle/scryer"
 				"IsHidden"	"0"
 				"EffectName"		"particles/econ/events/ti7/fountain_regen_ti7.vpcf"
 				"EffectAttachType"	"attach_origin"
@@ -16274,6 +16277,7 @@
 			}
 			"modifier_diviner_empress_speed_boost"
 			{
+				"TextureName"		"winterblight/castle/scryer"
 				"IsHidden"	"0"
 				"EffectName"	"particles/generic_gameplay/rune_haste_owner.vpcf"
 				"EffectAttachType"	"attach_origin"
@@ -16284,6 +16288,7 @@
 			}
 			"modifier_diviner_hierophant_spirit_buff"
 			{
+				"TextureName"		"winterblight/castle/scryer"
 				"IsHidden"	"0"
 				"EffectName"	"particles/roshpit/winterblight/purple_buff.vpcf"
 				"EffectAttachType"	"attach_origin"
@@ -16346,6 +16351,7 @@
 			}
 			"modifier_chariot_speed"
 			{
+				"TextureName"		"winterblight/castle/scryer"
 				"IsHidden"	"0"
 				"Properties"
 				{
@@ -16354,6 +16360,7 @@
 			}
 			"modifier_strength_attack_power_enemy"
 			{
+				"TextureName"		"winterblight/castle/scryer"
 				"IsHidden"	"0"
 				"Properties"
 				{
@@ -16362,6 +16369,7 @@
 			}
 			"modifier_strength_attack_power_player"
 			{
+				"TextureName"		"winterblight/castle/scryer"
 				"IsHidden"	"0"
 				"EffectName"	"particles/roshpit/winterblight/red_buff.vpcf"
 				"EffectAttachType"	"attach_origin"
@@ -16384,7 +16392,7 @@
 			"modifier_diviner_hermit_buff"
 			{
 				"IsHidden"	"0"
-				"TextureName"	"nightstalker_void"
+				"TextureName"		"winterblight/castle/scryer"
 				"IsDebuff"	"0"
 				"EffectName"	 "particles/roshpit/winterblight/hermit_torch_overhead.vpcf"
 				"EffectAttachType"	"follow_overhead"
@@ -16430,16 +16438,19 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"TextureName"		"winterblight/castle/scryer"
 			}
 			"modifier_diviner_demons_slain"
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"0"
+				"TextureName"		"winterblight/castle/scryer"
 			}
 			"modifier_diviner_justice_imbalance"
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
+				"TextureName"		"winterblight/castle/scryer"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%justice_as_per_stack"
@@ -16452,6 +16463,7 @@
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
+				"TextureName"		"winterblight/castle/scryer"
 				"Properties"
 				{
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%temperance_ms_debuff_pct" 
@@ -16464,6 +16476,7 @@
 				"IsDebuff"	"1"
 				"EffectName"	"particles/units/heroes/hero_skywrath_mage/skywrath_mage_concussive_shot_slow_debuff.vpcf"
 				"EffectAttachType"	"attach_origin"
+				"TextureName"		"winterblight/castle/scryer"
 				"Properties"
 				{
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-50" 
@@ -16476,6 +16489,7 @@
 				"IsStunDebuff"	"1"
 				"EffectName"	"particles/roshpit/winterblight/blue_doom.vpcf"
 				"EffectAttachType"	"attach_origin"
+				"TextureName"		"winterblight/castle/blue_doom"
 				"States"
 				{
 					"MODIFIER_STATE_SILENCED"			"MODIFIER_STATE_VALUE_ENABLED"
@@ -16515,6 +16529,7 @@
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
+				"TextureName"		"winterblight/castle/scryer"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%tower_atk_buff_pct"
@@ -16523,6 +16538,7 @@
 			"modifier_diviner_star_all_stats_buff"
 			{
 				"IsHidden"	"0"
+				"TextureName"		"winterblight/castle/scryer"
 				"EffectName"	"particles/roshpit/winterblight/star_buff.vpcf"
 				"EffectAttachType"	"attach_origin"
 			}
@@ -16620,6 +16636,7 @@
 				"Duration"			"3"
 				"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
 				"EffectAttachType" 	"attach_origin"
+				"TextureName"		"winterblight/castle/scryer"
 				"ThinkInterval"  "0.5"
 				"OnIntervalThink"
 				{
@@ -16712,7 +16729,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"skeleton_king_reincarnation"
+		"AbilityTextureName"	"winterblight/castle/reincarnation"
 		"MaxLevel"	"3"
 		"AbilityCooldown"				"60 45 30"
 		"AbilitySpecial"
@@ -16760,7 +16777,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"skeleton_king_reincarnation"
+		"AbilityTextureName"	"winterblight/castle/reaper_swipe"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
@@ -16811,7 +16828,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"tiny_craggy_exterior"
+		"AbilityTextureName"	"winterblight/castle/elite_ghoul"
 		"MaxLevel"	"1"
 		"Modifiers"
 		{
@@ -16876,7 +16893,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"skeleton_king_reincarnation"
+		"AbilityTextureName"	"winterblight/castle/venomous_bite"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
@@ -16956,7 +16973,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"skeleton_king_reincarnation"
+		"AbilityTextureName"	"winterblight/castle/egg_sack"
 		"MaxLevel"	"3"
 		"OnOwnerDied"
 		{
@@ -16973,7 +16990,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"rpc/axe_throw_ice"
+		"AbilityTextureName"	"winterblight/castle/frost_wyrm_passive"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"AbilitySpecial"
@@ -17143,7 +17160,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"rpc/axe_throw_ice"
+		"AbilityTextureName"	"winterblight/castle/spike_trap_passive"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"AbilitySpecial"
@@ -17366,7 +17383,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"ancient_apparition_chilling_touch"
+		"AbilityTextureName"	"winterblight/castle/chilling_bite_aura"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"AOERadius"				"300 550 800"
 		"MaxLevel"	"3"
@@ -17542,7 +17559,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"pudge_rot"
+		"AbilityTextureName"	"winterblight/castle/shield_block"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
@@ -17605,7 +17622,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"winterblight/ankle_breaker"
+		"AbilityTextureName"	"winterblight/castle/rabid"
 		"AOERadius"				"1000"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
@@ -17758,7 +17775,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"skeleton_king_reincarnation"
+		"AbilityTextureName"	"winterblight/castle/moon_warden_passive"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
@@ -17837,7 +17854,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"morphling_adaptive_strike"
+		"AbilityTextureName"	"winterblight/castle/blue_slime"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"AbilitySpecial"
@@ -17931,7 +17948,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"morphling_adaptive_strike"
+		"AbilityTextureName"	"winterblight/castle/blue_slime"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"AbilitySpecial"
@@ -17995,7 +18012,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"morphling_adaptive_strike"
+		"AbilityTextureName"	"winterblight/castle/cruxys"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"AbilitySpecial"
@@ -18179,7 +18196,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"morphling_adaptive_strike"
+		"AbilityTextureName"	"winterblight/castle/cruxys"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
@@ -18220,7 +18237,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT| DOTA_ABILITY_BEHAVIOR_CHANNELLED"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"winterblight/megmus_explosion"
+		"AbilityTextureName"	"dragon_knight_breate_fire"
 		"AbilityCastPoint"	"0.0"
 		"AbilityCooldown"	"9"
 		"AbilityChannelTime"	"1.0"
@@ -18312,7 +18329,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"morphling_adaptive_strike"
+		"AbilityTextureName"	"winterblight/castle/red_mage_attack"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
@@ -18373,7 +18390,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"venomancer_poison_sting"
+		"AbilityTextureName"			"venomancer_venomous_gale"
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"3"
@@ -18477,7 +18494,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"morphling_adaptive_strike"
+		"AbilityTextureName"	"venomancer_poison_sting"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
@@ -18538,7 +18555,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"venomancer_poison_sting"
+		"AbilityTextureName"			"crystal_maiden_crystal_nova"
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"3"
@@ -18625,7 +18642,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"morphling_adaptive_strike"
+		"AbilityTextureName"	"winterblight/castle/chilling_bite_aura"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
@@ -18711,7 +18728,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"necrolyte_death_pulse"
+		"AbilityTextureName"			"winterblight/castle/death_coil"
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"3"
@@ -18793,7 +18810,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"ancient_apparition_chilling_touch"
+		"AbilityTextureName"	"winterblight/castle/slime_emperor_passive"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"AOERadius"				"300 550 800"
 		"MaxLevel"	"3"
@@ -18887,9 +18904,8 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"skeleton_king_reincarnation"
+		"AbilityTextureName"	"winterblight/castle/necro_knight"
 		"MaxLevel"	"3"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilitySpecial"
 		{
@@ -19089,7 +19105,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"winterblight/p2/spirit_warp"
+		"AbilityTextureName"			"winterblight/castle/strength_boss_charge"
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"
@@ -19224,7 +19240,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"redfall/autumn_spawner"
+		"AbilityTextureName"	"winterblight/castle/hermit_eye_ability"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
 		"OnOwnerDied"
@@ -19367,7 +19383,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"skeleton_king_reincarnation"
+		"AbilityTextureName"	"winterblight/castle/hermit_hoodling_ability"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
@@ -19432,7 +19448,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"sorceress/glacial_vortex"
+		"AbilityTextureName"	"winterblight/castle/hermit_miniboss_shadow_tornado"
 		"AbilityCastPoint"	"0.0"
 		"AbilityCooldown"	"0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
@@ -19605,7 +19621,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"pudge_rot"
+		"AbilityTextureName"	"winterblight/castle/shadow_mist"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"AOERadius"				"240"
 		"MaxLevel"	"3"
@@ -19711,7 +19727,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"storm_spirit_ball_lightning"
+		"AbilityTextureName"			"winterblight/castle/blue_slime"
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"
@@ -19893,7 +19909,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"crystal_maiden_crystal_nova"
+		"AbilityTextureName"			"winterblight/castle/blue_shrapnel"
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"
@@ -19951,7 +19967,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"skeleton_king_reincarnation"
+		"AbilityTextureName"	"winterblight/castle/demon_lifesteal"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
@@ -20129,7 +20145,7 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"			"doom_bringer_doom"
+		"AbilityTextureName"			"winterblight/castle/blue_doom"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 
@@ -20232,7 +20248,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"jakiro_dual_breath"
+		"AbilityTextureName"	"winterblight/castle/dual_blade"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
@@ -20307,7 +20323,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"jakiro_dual_breath"
+		"AbilityTextureName"	"winterblight/castle/face_ripper"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
@@ -20412,7 +20428,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"mirana_starfall"
+		"AbilityTextureName"	"winterblight/castle/lumos_king"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"AOERadius"				"800"
 		"MaxLevel"	"3"
@@ -20485,7 +20501,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"mirana_starfall"
+		"AbilityTextureName"	"winterblight/castle/claws_of_terror"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"AOERadius"				"800"
 		"MaxLevel"	"3"
@@ -20527,7 +20543,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"morphling_adaptive_strike"
+		"AbilityTextureName"	"winterblight/castle/sun_phoenix"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
@@ -20679,7 +20695,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"winterblight/summoner_blink"
+		"AbilityTextureName"			"winterblight/castle/fire_blink"
 		"RequiredLevel"          		"0"
 		"LevelsBetweenUpgrades"  		"0"
 		"MaxLevel"				 		"3"
@@ -20736,7 +20752,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"lina_dragon_slave"
+		"AbilityTextureName"	"winterblight/castle/solos_passive"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"AbilitySpecial"
@@ -20830,7 +20846,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"morphling_adaptive_strike"
+		"AbilityTextureName"	"winterblight/castle/vorethrex_passive"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
@@ -20926,7 +20942,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"rpc/paladin_crusader_dash"
+		"AbilityTextureName"			"winterblight/castle/vorethrex_dash"
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"
@@ -21055,7 +21071,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"clinkz_searing_arrow"
+		"AbilityTextureName"	"winterblight/castle/judgement_bash"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
@@ -21105,7 +21121,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"winterblight/p2/phantom_spark"
+		"AbilityTextureName"			"winterblight/castle/judgement_spark"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
 		"LevelsBetweenUpgrades"  "0"
 		"MaxLevel"				 "7"
@@ -21202,7 +21218,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"rpc/axe_throw_ice"
+		"AbilityTextureName"	"winterblight/castle/xelethar_passive"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"AbilitySpecial"
@@ -21304,7 +21320,7 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"worlds/winterblight/abilities/bishop_of_hades_passive.lua"
-		"AbilityTextureName"			"arkimus/arkimus_archon_form"
+		"AbilityTextureName"			"winterblight/castle/bishop_passive"
 		"MaxLevel"				 		"3"
 		"Level"							"1"
 		"precache"
@@ -21329,7 +21345,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_AOE"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"winterblight/p2/spirit_warp"
+		"AbilityTextureName"			"winterblight/castle/bishop_dot"
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"
@@ -21405,7 +21421,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"mirana_starfall"
+		"AbilityTextureName"	"winterblight/castle/red_star_attack"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
@@ -21519,7 +21535,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"mirana_starfall"
+		"AbilityTextureName"	"templar_assassin_meld"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{

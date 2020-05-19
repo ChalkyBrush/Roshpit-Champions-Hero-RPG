@@ -22992,7 +22992,7 @@
 		"DOTA_Tooltip_modifier_dual_blade_effect"				"Dual Blade"
 		"DOTA_Tooltip_modifier_dual_blade_effect_Description"	"Slowed and taking Burn Damage"
 
-		"DOTA_Tooltip_ability_winterblight_faceripper_passive"	"Face Rip"
+		"DOTA_Tooltip_ability_winterblight_faceripper_passive"	"Impalement"
 		"DOTA_Tooltip_ability_winterblight_faceripper_passive_Description"	"Attacks deal additional instances of Physical Damage"
 		"DOTA_Tooltip_ability_winterblight_faceripper_passive_instance_count"	"DAMAGE INSTANCE COUNT:"
 		"DOTA_Tooltip_ability_winterblight_faceripper_passive_damage"			"DAMAGE PER INSTANCE:"
