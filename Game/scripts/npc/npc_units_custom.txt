@@ -104336,9 +104336,9 @@
             "model"         "models/items/tiny/frozen_stonehenge/frozen_stonehenge_lvl_03.vmdl"
             "model"         "models/items/tiny/frozen_stonehenge/frozen_stonehenge_lvl_04.vmdl"
         }
-        "Ability1"  "winterblight_rubble_passive"
-        "Ability2"  "winterblight_mountain_rubble_ice_burst"
-        "Ability3"  "normal_steadfast"
+        "Ability1"  "winterblight_mountain_rubble_ice_burst"
+        "Ability2"  "normal_steadfast"
+        "Ability3"  "winterblight_rubble_passive"
         "Ability4"  "dungeon_creep"
         "ArmorPhysical" "0"
         "MagicalResistance" "0"
