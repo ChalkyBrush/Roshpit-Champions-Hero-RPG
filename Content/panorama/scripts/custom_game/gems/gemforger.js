@@ -346,6 +346,9 @@ function CloseGemforger(){
 	if (GameUI.CustomUIConfig().gemforge == 1){
 		clearGearHighlighter()
 	}
+	if (GameUI.CustomUIConfig().gem_salvage == 1){
+		clearGearHighlighter()
+	}
 	mTooltipPanel = null
 }
 
@@ -452,6 +455,7 @@ function clearGearHighlighter()
     amuletPanel.RemoveClass("chiselable_gear");
     weaponPanel.RemoveClass("chiselable_gear");
     GameUI.CustomUIConfig().gemforge = 0
+    GameUI.CustomUIConfig().gem_salvage = 0
 }
 
 function ItemShowTooltipInit()

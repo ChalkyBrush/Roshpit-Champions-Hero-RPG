@@ -740,6 +740,8 @@ function Gems:CanItemBeSalvaged(item, hero)
 	if IsValidEntity(item) and Gems:CanItemProceedToGemMenu(item) then
 		if item:GetAbilityName() == "item_rpc_ring_of_nobility_augmented" then
 			return false
+		elseif item:IsSoulbound() then
+			return false
 		else
 			if hero.equipped_gear[item.newItemTable.gear_slot] == item or Challenges:CheckIfHeroHasItemByItemIndex(hero, item:GetEntityIndex()) then
 				if item.newItemTable.socket1 and item.newItemTable.socket1value > 0 then

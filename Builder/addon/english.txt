@@ -1260,12 +1260,13 @@
 	    //------------------------
 		// Soul Binding
 		//------------------------
+		"item_soulbound"			"SOULBOUND"
 
 		"the_soulbinder"			"The Soulbinder"
 		"soulbinder_item_search"	"Search Items"
 		"soulbinder_item_search_button"	"Search"
 		"soulbinder_item_search_results"	"Search Results"
-		"soulbinder_search_help_text"	"Search items by English, Russian or Chinese name, or by internal name."
+		"soulbinder_search_help_text"	"Search items by English, Russian or Chinese name, or by internal name.<br><br>Alternatively, click on an equipped item to bring up the Soulbind menu for that item."
 		"soulbinder_no_search_query_entered"	"Please Enter a Search Term"
 		"soulbinder_slot"	"Soulbind Slot"
 		"soulbinder_slot_select"	"Select"

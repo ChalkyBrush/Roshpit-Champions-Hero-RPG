@@ -73,8 +73,14 @@ function OnDragDrop( panelId, draggedPanel )
 function ItemShowTooltipInit()
 {
 	var item = m_Item
-	if ( item == -1 )
-		return;
+
+	if ( item == -1 ){
+		if ($.GetContextPanel().GetAttributeInt("item", item) > 0){
+			item = $.GetContextPanel().GetAttributeInt("item", item)
+		}else{
+			return false
+		}
+	}
 	var itemName = Abilities.GetAbilityName( item );
 	var queryUnit = Players.GetLocalPlayerPortraitUnit();
 	$.GetContextPanel().SetAttributeInt( "item", item)

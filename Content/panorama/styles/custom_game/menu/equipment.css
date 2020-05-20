@@ -144,3 +144,22 @@
 {
 	visibility: visible;
 }
+
+.equipment_soulbound {
+	box-shadow: fill #8132a8FF 0px 0px 12px 0px;
+}
+
+.equipment_soulbound.chiselable_gear{
+	box-shadow: fill #8132a8FF 0px 0px 12px 0px;
+	brightness: 1;
+}
+
+.soulbindable_gear{
+	box-shadow: 0px 0px 10px white;
+	brightness: 3;
+}
+
+.soulbindable_gear:hover{
+	box-shadow: 0px 0px 10px red;
+	brightness: 5;
+}

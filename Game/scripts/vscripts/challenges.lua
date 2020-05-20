@@ -44,6 +44,9 @@ function Challenges:ChiselItem(msg)
 	else
 		return false
 	end
+	if item:IsSoulbound() then
+		return false
+	end
 	if hero:HasModifier("modifier_cant_equip") then
 		return false
 	end

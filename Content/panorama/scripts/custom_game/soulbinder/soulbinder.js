@@ -1,4 +1,3 @@
-soulbind_item = -1
 mTooltipPanel = null
 
 SOULBINDER_SLOT_COUNT = 3
@@ -6,6 +5,11 @@ SOULBINDER_PREMIUM_SLOTS = [2, 3]
 
 mCurrentItemName = ""
 mCurrentItemImage = ""
+
+mSoulbinderState = 0
+mSoulbindSlotSelected = 0
+
+mSoulbindViewPage = ""
 
 function OpenSoulbinder(msg){
 	//$.Msg("GEM FORGER")
@@ -48,6 +52,14 @@ function soulbinder_item_search_setup(soulbinder_main){
     soulbinder_item_start.BLoadLayoutSnippet("soulbinder_item_search");
     // soulbinder_item_start.FindChildTraverse('forge_gems_item_attacher').BLoadLayout( "file://{resources}/layout/custom_game/gems/soulbinder_item_slot.xml", false, false );    
 
+    addSoulbindHighlight()
+
+    var search_button = soulbinder_item_start.FindChildTraverse('soulbinder_item_search_button')
+    setup_search_button(search_button, soulbinder_item_start)
+    mSoulbinderState = 1
+}
+
+function addSoulbindHighlight(){
     var mainParent = GameUI.CustomUIConfig().equipmentContainer;
     var helmPanel = mainParent.FindChild("helm_main_container").FindChild("helm_container");
     var chestPanel = mainParent.FindChild("armor_main_container").FindChild("armor_container");
@@ -62,16 +74,12 @@ function soulbinder_item_search_setup(soulbinder_main){
     GameUI.CustomUIConfig().gem_salvage = 0;
     GameUI.CustomUIConfig().soulbind = 1;
 
-    helmPanel.AddClass("chiselable_gear");
-    chestPanel.AddClass("chiselable_gear");
-    glovePanel.AddClass("chiselable_gear");
-    bootPanel.AddClass("chiselable_gear");
-    amuletPanel.AddClass("chiselable_gear");
-    weaponPanel.AddClass("chiselable_gear");
-
-    var search_button = soulbinder_item_start.FindChildTraverse('soulbinder_item_search_button')
-    setup_search_button(search_button, soulbinder_item_start)
-
+    helmPanel.AddClass("soulbindable_gear");
+    chestPanel.AddClass("soulbindable_gear");
+    glovePanel.AddClass("soulbindable_gear");
+    bootPanel.AddClass("soulbindable_gear");
+    amuletPanel.AddClass("soulbindable_gear");
+    weaponPanel.AddClass("soulbindable_gear");	
 }
 
 function setup_search_button(search_button, soulbinder_item_start){
@@ -146,11 +154,12 @@ function SoulBinderItemPageLoad(msg)
 {
 	$.Msg("SELECTED")
 	$.Msg(msg)
+	mSoulbinderState = 2
 	var attach_point = $.GetContextPanel().FindChildTraverse('soulbinder_attach_contents')
 	attach_point.RemoveAndDeleteChildren(0)
     var soulbinder_item_start = $.CreatePanel("Panel", attach_point, "soulbinder-item-view")
     soulbinder_item_start.BLoadLayoutSnippet("soulbinder_item_view");
-
+    clearGearHighlighter()
     if (msg.item_variant){
     	mCurrentItemName = msg.item_variant
     	mCurrentItemImage = msg.image_name
@@ -248,6 +257,7 @@ function soulbind_slot_click(index, slot_data, item){
 				equip_button.AddClass("final_button_disabled")
 				GameEvents.SendCustomGameEventToServer( "soulbinder", {event_type: "equip_bind", item_name: mCurrentItemName, slot: index});			
 			});
+			clearGearHighlighter()
 		}else{
 		    var soulbinder_empty_options = $.CreatePanel("Panel", attach_area, "empty-soulbind-options")
 		    soulbinder_empty_options.BLoadLayoutSnippet("soulbinder_item_slot_options_empty");
@@ -258,6 +268,8 @@ function soulbind_slot_click(index, slot_data, item){
 			var item_slot_input = $.GetContextPanel().FindChildTraverse('soulbind_slot_item_attacher')
 			item_slot_input.SetAttributeString( "item_name", mCurrentItemName)
 			item_slot_input.SetAttributeInt( "soulbind_slot", index)
+			mSoulbindSlotSelected = index
+			addSoulbindHighlight()
 		}
 	}
 }
@@ -308,13 +320,14 @@ function clearGearHighlighter()
     var amuletPanel = mainParent.FindChild("boot_amulet_main_container").FindChild("amulet_container");
     var weaponPanel = mainParent.FindChild("weapon_glove_main_container").FindChild("weapon_container");
 
-    helmPanel.RemoveClass("chiselable_gear");
-    chestPanel.RemoveClass("chiselable_gear");
-    glovePanel.RemoveClass("chiselable_gear");
-    bootPanel.RemoveClass("chiselable_gear");
-    amuletPanel.RemoveClass("chiselable_gear");
-    weaponPanel.RemoveClass("chiselable_gear");
+    helmPanel.RemoveClass("soulbindable_gear");
+    chestPanel.RemoveClass("soulbindable_gear");
+    glovePanel.RemoveClass("soulbindable_gear");
+    bootPanel.RemoveClass("soulbindable_gear");
+    amuletPanel.RemoveClass("soulbindable_gear");
+    weaponPanel.RemoveClass("soulbindable_gear");
     GameUI.CustomUIConfig().soulbind = 0
+    mSoulbindSlotSelected = 0
 }
 
 function ItemShowTooltipSoulbinder(item_panel)
@@ -332,6 +345,28 @@ function ItemHideTooltipSoulbinder(item_panel)
 	$.DispatchEvent("UIHideCustomLayoutTooltip", "ItemTooltipEquip");
 }
 
+function GearClickResult(msg){
+	if (mSoulbinderState == 1){
+		Game.EmitSound("UI.Soulbinder.Search")
+		GameEvents.SendCustomGameEventToServer( "soulbinder", {event_type: "item_select", item_variant: msg.item_name, image_name: msg.item_texture});
+	}else if (mSoulbinderState == 2){
+		if (mSoulbindSlotSelected > 0){
+			var soul_bind_slot = mSoulbindSlotSelected
+			var item = msg.item
+			if (!(mCurrentItemName == Abilities.GetAbilityName(item))){
+				Game.EmitSound("General.Cancel")
+				return false
+			}
+
+			Game.EmitSound("ui.crafting_pulse")
+			GameEvents.SendCustomGameEventToServer( "soulbinder", {itemIndex: item, slot: soul_bind_slot, event_type: "item_up_for_binding"});
+			$.GetContextPanel().FindChildTraverse('socket_item_slot').contextEntityIndex = item;
+			$.GetContextPanel().FindChildTraverse('socket_item_slot').SetAttributeInt("item", item)
+			$.GetContextPanel().FindChildTraverse("soulbind_slot_item_attacher").SetAttributeInt("item", item)
+		}			
+	}
+}
+
 (function()
 {
 	GameEvents.Subscribe( "open_soulbinder", OpenSoulbinder );
@@ -339,5 +374,6 @@ function ItemHideTooltipSoulbinder(item_panel)
 	GameEvents.Subscribe( "soulbinder_item_page_load", SoulBinderItemPageLoad );
 	GameEvents.Subscribe( "soulbinder_item_up_for_soulbind", SoulbinderItemUpForSoulbind )
 	GameEvents.Subscribe( "close_soulbinder", CloseSoulbinder )
+	GameEvents.Subscribe( "soulbinder_gear_click_result", GearClickResult )
 
 })();

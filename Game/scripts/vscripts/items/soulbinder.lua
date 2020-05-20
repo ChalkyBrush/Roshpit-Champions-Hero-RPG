@@ -29,6 +29,8 @@ function Soulbinder:SoulbinderInput(msg)
 		Soulbinder:DeleteSoulboundItem(msg)
 	elseif msg.event_type == "equip_bind" then
 		Soulbinder:EquipSoulboundItem(msg)
+	elseif msg.event_type == "click_equipment" then
+		Soulbinder:EquipmentClicked(msg)
 	end
 end
 
@@ -107,7 +109,6 @@ function Soulbinder:RemovePreviewItems(hero)
 end
 
 function Soulbinder:ItemUpForBinding(msg)
-	DeepPrintTable(msg)
 	local playerID = msg.PlayerID
 	local player = PlayerResource:GetPlayer(playerID)
 	local hero = GameState:GetHeroByPlayerID(playerID)
@@ -152,6 +153,9 @@ function Soulbinder:SoulbindItem(msg)
 		else
 			hero:TakeItem(item_to_bind)
 		end
+	else
+		item_to_bind.newItemTable.soulbound = 1
+		RPCItems:ItemUpdateCustomNetTables(item_to_bind)
 	end
 	-- item.newItemTable.validator = RPCItems:GetRandomKey(13)
 	local url = ROSHPIT_URL.."/soulbinder/soulbind_item?"
@@ -267,7 +271,8 @@ function Soulbinder:EquipSoulboundItem(msg)
 	CustomGameEventManager:Send_ServerToPlayer(player, "close_soulbinder", {})
 
 	Soulbinder:RemovePreviewItems(hero)
-
+	newGear.newItemTable.soulbound = 1
+	RPCItems:ItemUpdateCustomNetTables(newGear)
 	local premium_allowed = true
 	if hero.saveSlot and hero.saveSlot > 0 then
 		if hero.saveSlot > 8 then
@@ -280,4 +285,24 @@ function Soulbinder:EquipSoulboundItem(msg)
 		end
 	end
 
+end
+
+function Soulbinder:EquipmentClicked(msg)
+	local playerID = msg.PlayerID
+	local player = PlayerResource:GetPlayer(playerID)
+	local hero = GameState:GetHeroByPlayerID(playerID)
+	local item = EntIndexToHScript(msg.itemIndex)
+
+	local gear_slot = item.newItemTable.item_slot
+	local item_name = item:GetAbilityName()
+	local item_texture = item:GetKeyValue("AbilityTextureName", 1)
+	CustomGameEventManager:Send_ServerToPlayer(player, "soulbinder_gear_click_result", {item = item:GetEntityIndex(), gear_slot = gear_slot, item_name = item_name, item_texture = item_texture})
+end
+
+function CDOTABaseAbility:IsSoulbound()
+	if self.newItemTable.soulbound and self.newItemTable.soulbound == 1 then
+		return true
+	else
+		return false
+	end
 end

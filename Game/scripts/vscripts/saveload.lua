@@ -442,6 +442,12 @@ function SaveLoad:AttachItemToURL(url, hero, is_stash, stash_slot, playerID, gea
 			url = url.."&socket2"..gearSlot.."=".."none"
 			url = url.."&socket2value"..gearSlot.."="..0
 		end
+		if item.newItemTable.soulbound then
+			url = url.."&soulbound"..gearSlot.."="..item.newItemTable.soulbound
+			print(url)
+		else
+			url = url.."&soulbound"..gearSlot.."="..0
+		end
 		--print(url)
 		-- url = url.."&min_level"..gearSlot.."="..itemTable.minLevel
 	elseif itemTable.stashable then
@@ -791,6 +797,12 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 			item.newItemTable.xp = gearTable.current_xp
 			item.newItemTable.level = gearTable.level
 			item.newItemTable.maxLevel = gearTable.max_level
+		end
+		-- SOULBIND
+		if gearTable.soulbound then
+			item.newItemTable.soulbound = gearTable.soulbound
+		else
+			item.newItemTable.soulbound = 0
 		end
 		item.expiryTime = nil
 		item.pickedUp = true

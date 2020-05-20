@@ -54,6 +54,10 @@ function EquipmentClick(slot)
 			Game.EmitSound("General.Cancel")
 			return			
 		}
+		if (itemPanel.BHasClass("equipment_soulbound")){
+			Game.EmitSound("General.Cancel")
+			return				
+		}
 
 		GameEvents.SendCustomGameEventToServer( "clicked_chisel_gear", {playerID: Game.GetLocalPlayerID(), itemIndex: item, slot: slot, chisel: 1});
 	}
@@ -108,12 +112,34 @@ function EquipmentClick(slot)
 			Game.EmitSound("General.Cancel")
 			return
 		}
+		if (itemPanel.BHasClass("equipment_soulbound")){
+			Game.EmitSound("General.Cancel")
+			return				
+		}
 		if (!(itemPanel.BHasClass('chiselable_gear'))){
 			Game.EmitSound("General.Cancel")
 			return			
 		}
 
 		GameEvents.SendCustomGameEventToServer( "gems", {itemIndex: item, slot: slot, event_type: "item_up_for_salvaging"});		
+	}else if(GameUI.CustomUIConfig().soulbind == 1){
+		var itemPanel = getSlot(slot)
+		var item = itemPanel.GetAttributeInt( "item", -1 );
+		var ownerID = itemPanel.GetAttributeInt( "ownerID", -10 );
+		if (!(Players.GetLocalPlayer() == ownerID)){
+			Game.EmitSound("General.Cancel")
+			//$.Msg("YOU DONT MATCH PLAYER ID")
+			return			
+		}
+		if (item == -1){
+			Game.EmitSound("General.Cancel")
+			return
+		}
+		if (!(itemPanel.BHasClass("soulbindable_gear"))){
+			Game.EmitSound("General.Cancel")
+			return			
+		}
+		GameEvents.SendCustomGameEventToServer( "soulbinder", {itemIndex: item, event_type: "click_equipment"});		
 	}
 }
 
@@ -164,8 +190,18 @@ function UpdateItem()
 		itemImage.contextEntityIndex = item;
 		if (item == -1){
 			itemImage.SetImage("file://{images}/custom_game/ui/empty-inventory-slot.png");
+			itemPanel.SetHasClass( "equipment_soulbound", false )
+		}else{
+			var item_table = CustomNetTables.GetTableValue( "item_basics", item.toString() );
+
+			if ((item_table.soulbound) && (item_table.soulbound == 1)){
+				itemPanel.SetHasClass( "equipment_soulbound", true )
+			}else{
+				itemPanel.SetHasClass( "equipment_soulbound", false )
+			}
 		}
 		manageSocketsEquipment(gemsContainer, item, i)
+
 
 		if ( item == -1 || Abilities.IsCooldownReady( item ) )
 		{
