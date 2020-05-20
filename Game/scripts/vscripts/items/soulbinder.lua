@@ -39,7 +39,7 @@ function Soulbinder:ItemSearch(msg)
 	if not hero.soulbinder_search then
 		hero.soulbinder_search = true
 		local url = ROSHPIT_URL.."/soulbinder/item_search?"
-		url = url.."query="..msg.query
+		url = url.."query="..Curator:urlencode(msg.query)
 		CreateHTTPRequestScriptVM("GET", url):Send(function(result)
 			if result.StatusCode == 200 then
 				local resultTable = JSON:decode(result.Body)
@@ -146,6 +146,8 @@ function Soulbinder:SoulbindItem(msg)
 
 	if not isItemEquipped then
 		if not Challenges:CheckIfHeroHasItemByItemIndex(hero, item_to_bind:GetEntityIndex()) then
+			Notifications:Top(hero:GetPlayerOwnerID(), {text = "Soulbind Failed. Not Holding Item.", duration = 2, style = {color = "red"}, continue = true})
+			CustomGameEventManager:Send_ServerToPlayer(player, "close_soulbinder", {})
 			return false
 		else
 			hero:TakeItem(item_to_bind)
