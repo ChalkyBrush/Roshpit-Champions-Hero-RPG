@@ -471,12 +471,12 @@
 	text-align: center;
 	font-size:18px;	
 	width:100%;	
-	line-height:30px;	
+	vertical-align: center;
 }
 
 #soulbind_final_equip_button{
 	horizontal-align:center;
-	height:40px;
+	height:80px;
 	
 	border:1px solid #444444;
 	margin-top:10px;
@@ -502,7 +502,7 @@
 	margin-top:10px;
 	width:400px;
 	border-radius:4px;
-	margin-top:160px;
+	margin-top:180px;
 }
 
 

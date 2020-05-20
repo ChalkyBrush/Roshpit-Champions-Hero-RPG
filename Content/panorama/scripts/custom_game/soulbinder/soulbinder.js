@@ -179,6 +179,7 @@ function SoulBinderItemPageLoad(msg)
 				item_parent_panel.SetAttributeInt("item", slot_data.entityIndex)
 				setup_item_image_tooltip(item_parent_panel)
 			}
+		    setup_soulbind_slot_button(item_parent_panel, i, slot_data, slot_data.entityIndex)
 		    setup_soulbind_slot_button(soulbind_slot_button, i, slot_data, slot_data.entityIndex)
 		}
     }
@@ -318,14 +319,17 @@ function clearGearHighlighter()
 
 function ItemShowTooltipSoulbinder(item_panel)
 {
+
 	item_panel.AddClass("soulbind_item_highlighted")
-	ItemShowTooltipOnPanel(item_panel)
+
+	GameUI.CustomUIConfig.itemTooltip = item_panel.GetAttributeInt("item", -1)
+	$.DispatchEvent("UIShowCustomLayoutTooltip", item_panel, "ItemTooltipEquip", "file://{resources}/layout/custom_game/equipment/item_tooltip.xml");
 }
 
 function ItemHideTooltipSoulbinder(item_panel)
 {
 	item_panel.RemoveClass("soulbind_item_highlighted")
-	ItemHideTooltipByPanel(item_panel)
+	$.DispatchEvent("UIHideCustomLayoutTooltip", "ItemTooltipEquip");
 }
 
 (function()
