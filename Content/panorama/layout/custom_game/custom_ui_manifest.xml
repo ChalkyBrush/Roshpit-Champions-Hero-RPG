@@ -94,5 +94,6 @@
     <CustomUIElement type="Hud"             layoutfile="file://{resources}/layout/custom_game/challenges/elder_rai.xml" />
     <CustomUIElement type="Hud"             layoutfile="file://{resources}/layout/custom_game/gems/gemforger.xml" />
     <CustomUIElement type="Hud"             layoutfile="file://{resources}/layout/custom_game/challenges/crusader.xml" />
+    <CustomUIElement type="Hud"             layoutfile="file://{resources}/layout/custom_game/soulbinder/soulbinder.xml" />
   </Panel>
 </root>

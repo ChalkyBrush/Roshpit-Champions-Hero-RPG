@@ -984,7 +984,23 @@ function CustomAbilities:ClickOpenDialogue(msg)
 				Notifications:Top(playerID, {text="Too Far", duration=4, style={color="#FFDDAA"}, continue=true})
 				CustomGameEventManager:Send_ServerToPlayer(player, "grey_dialogue", {player=playerID} )
 			end
-		end		
+		end	
+	elseif msg.unit_name == "the_soulbinder" then
+		local distance_cap = 700
+		local playerID = msg.PlayerID
+		local player = PlayerResource:GetPlayer(playerID)
+		if player then
+			local hero = GameState:GetHeroByPlayerID(playerID)
+			local queryUnit = EntIndexToHScript(msg.queryUnit)
+			local distance = WallPhysics:GetDistance2d(hero:GetAbsOrigin(), queryUnit:GetAbsOrigin())
+			if distance <= distance_cap then
+				CustomGameEventManager:Send_ServerToPlayer(player, "open_soulbinder", {} )
+				CustomGameEventManager:Send_ServerToPlayer(player, "select_hero", {})
+			else
+				Notifications:Top(playerID, {text = "Too Far", duration = 4, style = {color = "#FFDDAA"}, continue = true})
+				CustomGameEventManager:Send_ServerToPlayer(player, "grey_dialogue", {player = playerID})
+			end
+		end	
 	end
 end
 

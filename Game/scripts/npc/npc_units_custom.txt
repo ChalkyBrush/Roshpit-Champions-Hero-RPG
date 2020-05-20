@@ -7543,6 +7543,91 @@
         }
     }
 
+    "the_soulbinder"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/void_spirit/void_spirit.vmdl"
+        "SoundSet"  "Creep_Good_Range"
+        "Level" "1"
+        "UnitLabel" "healing_ward"
+        "ModelScale"    "1.05"
+        "Ability1"  "town_unit"
+        "Ability2"  "npc_dialogue"
+        "Ability3"  ""
+        "Ability4"  ""
+        "Ability5"  ""
+        "Ability6"  ""
+        "Ability7"  ""
+        "Ability8"  ""
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_NO_ATTACK"
+        "AttackDamageMin"   "0"
+        "AttackDamageMax"   "0"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackRate"    "1"
+        "AttackAnimationPoint"  "0"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "100"
+        "ProjectileModel"   ""
+        "ProjectileSpeed"   "900"
+        "AttributePrimary"  "DOTA_ATTRIBUTE_STRENGTH"
+        "AttributeBaseStrength" "0"
+        "AttributeStrengthGain" "0"
+        "AttributeBaseIntelligence" "0"
+        "AttributeIntelligenceGain" "0"
+        "AttributeBaseAgility"  "0"
+        "AttributeAgilityGain"  "0"
+        "BountyXP"  "0"
+        "BountyGoldMin" "0"
+        "BountyGoldMax" "0"
+        "RingRadius"    "0"
+        "HasInventory"  "0"
+        "CollisionSize" "0"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "180"
+        "MovementTurnRate"  "2"
+        "FollowRange"   "0"
+        "StatusHealth"  "1"
+        "StatusHealthRegen" "0"
+        "StatusMana"    "0"
+        "StatusManaRegen"   "0"
+        "TeamName"  "DOTA_TEAM_GOODGUYS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
+        "VisionDaytimeRange"    "0"
+        "VisionNighttimeRange"  "0"
+        "AttackDesire"  "1.5"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "686"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "687"
+                }
+                "Wearable3"
+                {
+                    "ItemDef"   "688"
+                }
+                "Wearable4"
+                {
+                    "ItemDef"   "689"
+                }
+                "Wearable5"
+                {
+                    "ItemDef"   "690"
+                }
+            }
+        }
+    }
+
     "explosive_mine"
     {
         "BaseClass" "npc_dota_base_additive"

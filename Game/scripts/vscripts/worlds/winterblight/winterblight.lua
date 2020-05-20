@@ -83,7 +83,7 @@ function Winterblight:InitCamp()
     
   Timers:CreateTimer(2, function()
     Challenges:SpawnElderRai(Vector(-15940, -2552), Vector(1,0))
-    -- Events:SpawnCurator(Vector(-15744, -15488), Vector(1,0.7))
+    Soulbinder:SpawnSoulbinder(Vector(-13952, -1519), Vector(0,-1))
   end)
   Events.TownPosition = Vector(-15197, -2924)
   Events.isTownActive = true

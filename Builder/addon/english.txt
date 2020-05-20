@@ -1258,6 +1258,26 @@
 		"rpc_items_basic_amethyst" "Increases Spirit by @amethyst_property1"
 
 	    //------------------------
+		// Soul Binding
+		//------------------------
+
+		"the_soulbinder"			"The Soulbinder"
+		"soulbinder_item_search"	"Search Items"
+		"soulbinder_item_search_button"	"Search"
+		"soulbinder_item_search_results"	"Search Results"
+		"soulbinder_search_help_text"	"Search items by English, Russian or Chinese name, or by internal name."
+		"soulbinder_no_search_query_entered"	"Please Enter a Search Term"
+		"soulbinder_slot"	"Soulbind Slot"
+		"soulbinder_slot_select"	"Select"
+		"soulbinder_item_view_first_tip"	"Select a Soulbind Slot to view options"
+		"soulbinder_empty_slot_instructions"	"This Soulbind Slot is empty.<br>Drag a @item_name into the slot below,<br>or click an equipped @item_name to bind to this slot.<br><br><font color=\"#EAA017\"><b>ONCE AN ITEM IS SOULBOUND, IT CAN NEVER BE TRADED AGAIN!</b></font>"
+		"soulbinder_final_bind_button"		"Soulbind this item to Slot @slot_number"
+		"soulbinder_slot_exists_instructions"	"Equipping this item will overwrite any existing item in this gear slot."
+		"soulbinder_final_equip_button"		"Equip Item"
+		"soulbinder_final_equip_delete_button"	"Delete Item"
+		"soulbinder_final_equip_delete_button_confirm"	"Confirm Delete. Item will be gone forever."
+
+	    //------------------------
 		// World
 		//------------------------
 

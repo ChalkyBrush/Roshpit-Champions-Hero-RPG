@@ -246,6 +246,7 @@ function GameMode:_InitGameMode()
   CustomGameEventManager:RegisterListener("challenges", Dynamic_Wrap(Challenges, "PanoramaInput"))
 
   CustomGameEventManager:RegisterListener("inscription", Dynamic_Wrap(Gems, "InscriptionInput"))
+  CustomGameEventManager:RegisterListener("soulbinder", Dynamic_Wrap(Soulbinder, "SoulbinderInput"))
   -- GameMode:SetTrackingProjectileFilter( Dynamic_Wrap( Attacks, "FilterProjectile" ), self )
   --ListenToGameEvent("dota_tutorial_shop_toggled", Dynamic_Wrap(GameMode, 'OnShopToggled'), self)
 
