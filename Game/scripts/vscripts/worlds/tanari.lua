@@ -695,7 +695,7 @@ function Tanari:InitCamp()
         StartAnimation(blacksmith, {duration = 99999, activity = ACT_DOTA_IDLE, rate = 1.0})
         local oracle = Events:SpawnOracle(Vector(-4160, 1408), Vector(-0.7, 1))
         Events.GlyphEnchanter = Events:SpawnGlyphEnchanter(Vector(-5184, 1521), Vector(1, 1))
-
+        Soulbinder:SpawnSoulbinder(Vector(-5752, 1885), Vector(1,0.4))
         Tanari:SpawnTrainingDummy(Vector(-5192, 523))
     end)
     Timers:CreateTimer(5, function()

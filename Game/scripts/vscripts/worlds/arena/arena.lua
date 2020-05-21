@@ -195,6 +195,7 @@ function Arena:Init()
 	end)
 	Timers:CreateTimer(4, function()
 		Challenges:SpawnElderRai(Vector(704, -7360), Vector(0.5,1))
+		Soulbinder:SpawnSoulbinder(Vector(-2112, -9408), Vector(0, -1))
 	end)
 
 	Arena.NumPlayers = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS)

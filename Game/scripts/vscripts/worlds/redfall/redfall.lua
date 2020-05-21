@@ -410,6 +410,7 @@ function Redfall:InitCamp()
   Timers:CreateTimer(2, function()
     Challenges:SpawnElderRai(Vector(-12928, -14336), Vector(0, -1))
     Events:SpawnCurator(Vector(-15744, -15488), Vector(1, 0.7))
+    Soulbinder:SpawnSoulbinder(Vector(-13560, -15168), Vector(0, 1))
   end)
   Events.TownPosition = Vector(-15168, -14976)
   Events.isTownActive = true
