@@ -74,7 +74,11 @@ function Soulbinder:GetPlayerSoulbindItems(msg)
 	CreateHTTPRequestScriptVM("GET", url):Send(function(result)
 		if result.StatusCode == 200 then
 			Soulbinder:ConvertResponseToItemPreviews(hero, result, playerID)
-			CustomGameEventManager:Send_ServerToPlayer(player, "soulbinder_item_page_load", {result = hero.soul_bind_preview_items, item_variant = msg.item_variant, image_name = msg.image_name})
+			local premium = 0
+			if GameState:GetPlayerPremiumStatus(playerID) then
+				premium = 1
+			end
+			CustomGameEventManager:Send_ServerToPlayer(player, "soulbinder_item_page_load", {result = hero.soul_bind_preview_items, item_variant = msg.item_variant, image_name = msg.image_name, premium = premium})
 		else
 
 		end
@@ -155,7 +159,11 @@ function Soulbinder:SoulbindItem(msg)
 		local crystal_debit = cost*-1
 		Glyphs:ModifyArcaneCrystals(hero, crystal_debit)
 	end
-
+	if hero.item_up_for_soulbinding["slot"] > 1 then
+		if not GameState:GetPlayerPremiumStatus(playerID) then
+			return false
+		end
+	end
 	local isItemEquipped = false
 	if hero.equipped_gear then
 		if hero.equipped_gear[RPC_GEAR_SLOT_HEAD] and hero.equipped_gear[RPC_GEAR_SLOT_HEAD] == item_to_bind then
@@ -195,7 +203,11 @@ function Soulbinder:SoulbindItem(msg)
 			print("ITEM BOUND")
 			EmitSoundOn("UI.Soulbinder.SoulbindItem", hero)
 			Soulbinder:ConvertResponseToItemPreviews(hero, result, playerID)
-			CustomGameEventManager:Send_ServerToPlayer(player, "soulbinder_item_page_load", {result = hero.soul_bind_preview_items})
+			local premium = 0
+			if GameState:GetPlayerPremiumStatus(playerID) then
+				premium = 1
+			end
+			CustomGameEventManager:Send_ServerToPlayer(player, "soulbinder_item_page_load", {result = hero.soul_bind_preview_items, premium = premium})
 		else
 			print("ITEM BIND FAILED?")
 		end
@@ -220,7 +232,11 @@ function Soulbinder:DeleteSoulboundItem(msg)
 			print("ITEM DELETED")
 
 			Soulbinder:ConvertResponseToItemPreviews(hero, result, playerID)
-			CustomGameEventManager:Send_ServerToPlayer(player, "soulbinder_item_page_load", {result = hero.soul_bind_preview_items})
+			local premium = 0
+			if GameState:GetPlayerPremiumStatus(playerID) then
+				premium = 1
+			end
+			CustomGameEventManager:Send_ServerToPlayer(player, "soulbinder_item_page_load", {result = hero.soul_bind_preview_items, premium = premium})
 		else
 			print("ITEM DELETE FAILED?")
 		end

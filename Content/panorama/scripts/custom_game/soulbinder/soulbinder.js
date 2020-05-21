@@ -181,6 +181,7 @@ function SoulBinderItemPageLoad(msg)
     
     var items_attacher = soulbinder_item_start.FindChildTraverse('soulbinder_item_view_attacher')
     for (i = 1; i <= 3; i++) {
+    	var allowButton = true
     	if (msg.result[i]){
 		    var soulbound_item_panel = $.CreatePanel("Panel", items_attacher, "soulbinder-item-"+i)
 		    soulbound_item_panel.BLoadLayoutSnippet("soulbinder_item_slot");    	
@@ -198,9 +199,16 @@ function SoulBinderItemPageLoad(msg)
 				manageSocketsWithRoot(item_parent_panel, slot_data.entityIndex)
 				item_parent_panel.SetAttributeInt("item", slot_data.entityIndex)
 				setup_item_image_tooltip(item_parent_panel)
+			}else{
+				if ((msg.premium == 0) && (i > 1)){
+					allowButton = false
+					soulbind_slot_button.AddClass("none")
+				}
 			}
-		    setup_soulbind_slot_button(item_parent_panel, i, slot_data, slot_data.entityIndex)
-		    setup_soulbind_slot_button(soulbind_slot_button, i, slot_data, slot_data.entityIndex)
+			if (allowButton){
+			    setup_soulbind_slot_button(item_parent_panel, i, slot_data, slot_data.entityIndex)
+			    setup_soulbind_slot_button(soulbind_slot_button, i, slot_data, slot_data.entityIndex)
+			}
 		}
     }
 
