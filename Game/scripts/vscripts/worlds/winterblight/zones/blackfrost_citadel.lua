@@ -2608,6 +2608,7 @@ function Winterblight:WinterCastleBossSpawn()
 
 		
 	end)
+	boss.posLock = boss:GetAbsOrigin()
 	Timers:CreateTimer(2, function()
 		local vision_guy = CreateUnitByName("npc_flying_dummy_vision", boss:GetAbsOrigin(), false, nil, nil, DOTA_TEAM_GOODGUYS)
 		vision_guy:SetAbsOrigin(boss:GetAbsOrigin())

@@ -1578,6 +1578,9 @@ function castle_boss_rotator(event)
 			caster:SetForwardVector(newFV)
 		end
 	end
+	if caster:GetAbsOrigin() ~= caster.posLock then
+		caster:SetAbsOrigin(caster.posLock)
+	end
 	if caster.dying then
 		return false
 	end

@@ -173,16 +173,7 @@ end
 
 function Winterblight:SpawnMountainTombstones()
 	local positionTable = {Vector(698, 1978), Vector(-852, 1434), Vector(2560, -442), Vector(3116, 2666), Vector(2408, 7243), Vector(-424, 6939), Vector(-599, 3128), Vector(5484, 4139), Vector(3873, 6854)}
-	local pos1 = RandomInt(1, #positionTable)
-	local pos2 = RandomInt(1, #positionTable)
-	local pos3 = RandomInt(1, #positionTable)
-	while pos1 == pos2 do
-		pos2 = RandomInt(1, #positionTable)
-	end
-	while pos3 == pos1 or pos3 == pos2 do
-		pos3 = RandomInt(1, #positionTable)
-	end
-	local shuffleTableTomb = {positionTable[pos1], positionTable[pos2], positionTable[pos3]}
+	local shuffleTableTomb = WallPhysics:ShuffleTable(positionTable)
 	for i = 1, 3, 1 do
 		local tombstone = Enemies:SpawnEnemyUnit("winterblight_mountain_tombstone", shuffleTableTomb[i], RandomVector(1), false)
 		tombstone.index = i
@@ -196,6 +187,7 @@ function Winterblight:SpawnMountainTombstones()
 		tombstone:SetBaseMaxHealth(health)
 		tombstone:SetHealth(health)
 		tombstone:SetRenderColor(134, 158, 255)
+		tombstone.pushLock = true
 	end
 end
 
