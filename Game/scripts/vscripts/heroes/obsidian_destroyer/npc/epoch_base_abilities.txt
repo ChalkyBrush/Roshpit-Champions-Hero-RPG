@@ -1079,7 +1079,7 @@
 			"02"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"damage"						"55 105 155 205 255 305 355"
+				"damage"						"<% EPOCH_W_BASE_DAMAGE %>"
 			}
 			"03"
 			{

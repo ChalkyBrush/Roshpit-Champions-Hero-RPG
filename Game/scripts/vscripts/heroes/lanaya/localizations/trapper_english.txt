@@ -189,6 +189,7 @@
     	"DOTA_Tooltip_ability_trapper_arcana_venom_whip_range"				"RANGE:"
     	"DOTA_Tooltip_ability_trapper_arcana_venom_whip_move_slow_per_stack"		"MOVE SLOW PER STACK:"
     	"DOTA_Tooltip_ability_trapper_arcana_venom_whip_attack_mult_per_stack"	"% DAMAGE PER STACK AS A % OF ATTACK DAMAGE:"
+		"DOTA_Tooltip_ability_trapper_arcana_venom_whip_max_stacks"			"MAX POISON STACKS:"
 
     	"DOTA_Tooltip_modifier_poison_whip"							"Venom Whip"
     	"DOTA_Tooltip_modifier_poison_whip_Description"				"Taking <font color=\"#37DD3D\">Poison</font> damage and reduced movespeed."	

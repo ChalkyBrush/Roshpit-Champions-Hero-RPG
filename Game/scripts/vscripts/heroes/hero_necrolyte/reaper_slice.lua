@@ -30,9 +30,9 @@ function slice_start(event)
 	local r3_level = caster:GetRuneValue("r", 3)
 	local target
 
-	if caster:IsFrozen() or caster:IsStunned() or caster:IsSilenced() then
-		return
-	end
+	--if caster:IsFrozen() or caster:IsStunned() or caster:IsSilenced() then
+	--	return
+	--end
 
 	if r2_level > 0 then
 		radius = radius + VENOMORT_ARCANA_1_R2_RADIUS * r2_level

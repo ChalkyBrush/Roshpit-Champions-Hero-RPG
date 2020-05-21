@@ -117,7 +117,7 @@ function trapper_poison_whip_start(event)
 				ParticleManager:ReleaseParticleIndex(pfx)
 			end)
 			ability:ApplyDataDrivenModifier(caster, enemy, "modifier_poison_whip", {duration = 20})
-			local newStacks = enemy:GetModifierStackCount("modifier_poison_whip", caster) + 1
+			local newStacks = math.min(enemy:GetModifierStackCount("modifier_poison_whip", caster) + 1, TRAPPER_ARCANA_W_MAX_STACKS)
 			enemy:SetModifierStackCount("modifier_poison_whip", caster, newStacks)
 			EmitSoundOn("Trapper.Venomwhip.Impact", enemy)
 		end

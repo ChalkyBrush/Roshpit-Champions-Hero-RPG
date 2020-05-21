@@ -71,7 +71,7 @@ function genesis_orb_impact(event)
 	if caster:HasModifier("modifier_time_warp_buff") then
 		damage = damage * 2
 	end
-	damage = damage * ability.damageAmp
+	damage = damage + ability.damageBonus
 	if caster:HasModifier("modifier_epoch_glyph_3_1") then
 		damage = damage + caster:GetMana() * EPOCH_GLYPH_3_1_MANA_X_ABILITYLVL_TO_W_PCT/100 * ability:GetLevel()
 	end
@@ -193,8 +193,8 @@ function epoch_w_4(caster, ability)
 			manaDrain = caster:GetMana()
 		end
 		caster:ReduceMana(manaDrain)
-		ability.damageAmp = manaDrain * EPOCH_W4_DMG_MULTI_PCT * w_4_level / 100 + 1
+		ability.damageBonus = manaDrain * EPOCH_W4_DMG_MULTI_PCT * w_4_level / 100
 	else
-		ability.damageAmp = 1
+		ability.damageBonus = 0
 	end
 end

@@ -110,7 +110,7 @@
 		"DOTA_Tooltip_ability_trapper_rune_e_3"						"[E3] Psi Blades"
     	"DOTA_Tooltip_ability_trapper_rune_e_3_Description"			"Атаки Trapper пробивают противника насквозь, позволяя задеть стоящих позади врагов. Также увеличивает пассивно дальность атаки."
     	"DOTA_Tooltip_ability_trapper_rune_e_3_property_one"		"Проникающий урон"
-    	"DOTA_Tooltip_ability_trapper_rune_e_3_suffix"				"% от основного урона"	
+    	"DOTA_Tooltip_ability_trapper_rune_e_3_suffix"				"% от урона атаки"	
     	"DOTA_Tooltip_ability_trapper_rune_e_3_property_two"		"Дальность атаки"
     	"DOTA_Tooltip_ability_trapper_rune_e_3_suffix_two"			""
 		
@@ -181,6 +181,7 @@
     	"DOTA_Tooltip_ability_trapper_arcana_venom_whip_range"				"ДАЛЬНОСТЬ:"
     	"DOTA_Tooltip_ability_trapper_arcana_venom_whip_move_slow_per_stack"		"ЗАМЕДЛЕНИЕ ЗА ЗАРЯД:"
     	"DOTA_Tooltip_ability_trapper_arcana_venom_whip_attack_mult_per_stack"	"УРОН ЗА ЗАРЯД, % ОТ УРОНА ГЕРОЯ"
+		"DOTA_Tooltip_ability_trapper_arcana_venom_whip_max_stacks"			"МАКСИМУМ ЗАРЯДОВ:"
 
     	"DOTA_Tooltip_modifier_poison_whip"							"Venom Whip"
     	"DOTA_Tooltip_modifier_poison_whip_Description"				"Получает урон от <font color=\"#37DD3D\">Яда</font> и теряет скорость передвижения."	
@@ -194,7 +195,7 @@
   		"DOTA_Tooltip_ability_trapper_rune_w_1_arcana1"						"[W1] Deadly Poison"
     	"DOTA_Tooltip_ability_trapper_rune_w_1_arcana1_Description"			"Заряды (W) Venom Whip снижают Магическую Броню жертвы. Максимум <% TRAPPER_ARCANA_W_W1_MAX_STACKS %> стаков."
     	"DOTA_Tooltip_ability_trapper_rune_w_1_arcana1_property_one"		"Снижение Магической Брони"
-    	"DOTA_Tooltip_ability_trapper_rune_w_1_arcana1_suffix"				"%"
+    	"DOTA_Tooltip_ability_trapper_rune_w_1_arcana1_suffix"				""
 
   		"DOTA_Tooltip_ability_trapper_rune_w_2_arcana1"						"[W2] Dexterity"
     	"DOTA_Tooltip_ability_trapper_rune_w_2_arcana1_Description"			"Увеличивает весь <font color=\"#FFFFFF\">Нормальный</font> урон."

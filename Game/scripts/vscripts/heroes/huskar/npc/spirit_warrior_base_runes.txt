@@ -136,7 +136,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SPIRIT_WARRIOR_W1_BASE_DMG_PER_MANA %>"
+				"property_one"			"<% SPIRIT_WARRIOR_W1_BASE_DMG_PER_MANA_PCT_MISSING %>"
 			}
 		}
 		"Modifiers"

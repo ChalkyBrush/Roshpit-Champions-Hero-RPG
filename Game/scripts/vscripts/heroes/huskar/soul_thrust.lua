@@ -164,13 +164,13 @@ end
 
 function spirit_warrior_thinking(event)
 	local caster = event.caster
-	local manaDifferential = caster:GetMaxMana() - caster:GetMana()
-	if manaDifferential > 33 then
-		local w_1_level = Runes:GetTotalRuneLevel(caster, 1, "w_1", "spirit_warrior")
+	local manaPct = caster:GetManaPercent()
+	local w_1_level = caster:GetRuneValue("w", 1)
+	if manaPct < 100 then
 		if w_1_level > 0 then
 			local runeAbility = caster.runeUnit:FindAbilityByName("spirit_warrior_rune_w_1")
 			runeAbility:ApplyDataDrivenModifier(caster.runeUnit, caster, "modifier_spirit_warrior_rune_w_1", {})
-			local damageStacks = math.floor(manaDifferential * SPIRIT_WARRIOR_W1_BASE_DMG_PER_MANA * w_1_level)
+			local damageStacks = math.floor((100-manaPct) * SPIRIT_WARRIOR_W1_BASE_DMG_PER_MANA_PCT_MISSING * w_1_level)
 			caster:SetModifierStackCount("modifier_spirit_warrior_rune_w_1", caster.runeUnit, damageStacks)
 		end
 	else
