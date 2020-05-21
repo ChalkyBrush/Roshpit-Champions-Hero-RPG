@@ -143,6 +143,10 @@ function Soulbinder:SoulbindItem(msg)
 
 	local item_to_bind = hero.item_up_for_soulbinding["item"]
 
+	local rarity = item_to_bind.newItemTable.rarity
+	if rarity ~= "immortal" and rarity == "arcana" then
+		return false
+	end
 	local cost = Soulbinder:GetSoulbindCost(item_to_bind)
 	local currentCrystals = CustomNetTables:GetTableValue("player_stats", tostring(playerID) .. "-resources").arcane
 	if cost > currentCrystals then
@@ -322,9 +326,12 @@ function Soulbinder:EquipmentClicked(msg)
 	local item = EntIndexToHScript(msg.itemIndex)
 
 	local gear_slot = item.newItemTable.item_slot
-	local item_name = item:GetAbilityName()
-	local item_texture = item:GetKeyValue("AbilityTextureName", 1)
-	CustomGameEventManager:Send_ServerToPlayer(player, "soulbinder_gear_click_result", {item = item:GetEntityIndex(), gear_slot = gear_slot, item_name = item_name, item_texture = item_texture})
+	local rarity = item.newItemTable.rarity
+	if rarity == "immortal" or rarity == "arcana" then
+		local item_name = item:GetAbilityName()
+		local item_texture = item:GetKeyValue("AbilityTextureName", 1)
+		CustomGameEventManager:Send_ServerToPlayer(player, "soulbinder_gear_click_result", {item = item:GetEntityIndex(), gear_slot = gear_slot, item_name = item_name, item_texture = item_texture})
+	end
 end
 
 function CDOTABaseAbility:IsSoulbound()

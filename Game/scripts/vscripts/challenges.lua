@@ -118,6 +118,9 @@ function Challenges:FinalReroll(msg)
 	if (msg.lock1 + msg.lock2 + msg.lock3 + msg.lock4) > 2 then
 		return false
 	end
+	if item:IsSoulbound() then
+		return false
+	end
 	local costMult = math.max(1, (msg.lock1 + msg.lock2 + msg.lock3 + msg.lock4) * 2)
 	local cost = minLevel * 3 * costMult
 	local amount = math.min(cost * (-1), -1)

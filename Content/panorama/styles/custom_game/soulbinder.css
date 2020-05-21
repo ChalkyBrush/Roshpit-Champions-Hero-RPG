@@ -551,3 +551,49 @@
 	flow-children:right;
 	horizontal-align:center;
 }
+
+/*TIPS*/
+
+.soulbinder_tips_root{
+	width:100%;
+	flow-children:down;
+}
+
+#soulbinder_tip_title{
+	horizontal-align:center;
+	font-family: Radiance, FZLanTingHei-R-GBK, TH Sarabun New, Gulim,MingLiU;	
+	color:white;
+	font-size:32px;		
+	margin-top:15px;
+	margin-bottom:25px;
+}
+
+.soulbinder_tip{
+	margin-left:40px;
+	font-family: Radiance, FZLanTingHei-R-GBK, TH Sarabun New, Gulim,MingLiU;	
+	color:#e6e8ac;
+	font-size:20px;		
+	margin-top:15px;
+}
+
+#soulbind_back_button{
+	horizontal-align:center;
+	height:40px;
+	background-color: #0f2154;
+	border:1px solid #999999;
+	margin-top:100px;
+	width:260px;
+	border-radius:4px;
+}
+
+#soulbind_back_button:hover{
+	background-color: #223e94;
+}
+
+#soulbind_back_button_label{
+	font-family: Radiance, FZLanTingHei-R-GBK, TH Sarabun New, Gulim,MingLiU;	
+	color:#e6e8ac;
+	font-size:20px;		
+	horizontal-align:center;
+	vertical-align: center;
+}
