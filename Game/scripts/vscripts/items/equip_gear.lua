@@ -63,6 +63,7 @@ function CDOTA_BaseNPC_Hero:UnequipItem(item)
 	local hero = self
 	local slot = item.newItemTable.gear_slot
 	hero:ResetGearBonusesForSlot(slot)
+
 	CustomNetTables:SetTableValue("equipment", tostring(hero:GetPlayerOwnerID()) .. "-"..tostring(slot), {itemIndex = -1})
 	-- if slot == 1 then
 	-- 	hero.weapon = nil
@@ -120,7 +121,7 @@ function RPCItems:RecordGearBonusToHeroBySlot(item, hero, property_name, propert
 	-- --print("PROPERTY NAME: "..property_name)
 	-- PROPERTY TYPE MODIFIERS:
 	if hero:HasModifier("modifier_puzzlers_locket") or item:GetAbilityName() == "item_rpc_puzzlers_locket" then
-		property_name = RPCItems:AdjustPropertyNameForPuzzler(hero, item, property_value, property_name)
+		property_name, property_value = RPCItems:AdjustPropertyNameForPuzzler(hero, item, property_value, property_name)
 	end
 	if hero:HasModifier("modifier_monarch_ring") or item:GetAbilityName() == "item_rpc_monarch_ring" then
 		property_name, property_value = RPCItems:AdjustPropertyForMonarchRing(hero, item, property_value, property_name)
@@ -1743,28 +1744,39 @@ end
 
 function RPCItems:AdjustPropertyNameForPuzzler(hero, item, property_value, property_name)
 	local property_name_to_return = property_name
+	local value_to_return = property_value
 	if property_name == "all_t2_runes" then
 		property_name_to_return = "all_t3_runes"
+		value_to_return = property_value*0.5
 	elseif property_name == "all_t3_runes" then
 		property_name_to_return = "all_t2_runes"
+		value_to_return = property_value*2
 	elseif property_name == "rune_q_2" then
 		property_name_to_return = "rune_q_3"
+		value_to_return = property_value*0.5
 	elseif property_name == "rune_w_2" then
 		property_name_to_return = "rune_w_3"
+		value_to_return = property_value*0.5
 	elseif property_name == "rune_e_2" then
 		property_name_to_return = "rune_e_3"
+		value_to_return = property_value*0.5
 	elseif property_name == "rune_r_2" then
 		property_name_to_return = "rune_r_3"
+		value_to_return = property_value*0.5
 	elseif property_name == "rune_q_3" then
 		property_name_to_return = "rune_q_2"
+		value_to_return = property_value*2
 	elseif property_name == "rune_w_3" then
 		property_name_to_return = "rune_w_2"
+		value_to_return = property_value*2
 	elseif property_name == "rune_e_3" then
 		property_name_to_return = "rune_e_2"
+		value_to_return = property_value*2
 	elseif property_name == "rune_r_3" then
 		property_name_to_return = "rune_r_2"
+		value_to_return = property_value*2
 	end
-	return property_name_to_return
+	return property_name_to_return, value_to_return
 end
 
 function RPCItems:GetMultStoneOfGordon(hero, item, property_value, property_name)

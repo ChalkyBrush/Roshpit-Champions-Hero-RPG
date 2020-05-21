@@ -430,7 +430,7 @@
 
         "DOTA_Tooltip_ability_item_rpc_puzzlers_locket"             "Puzzler's Locket"
         "item_property_puzzler"                                     "Anagram"
-        "property_puzzler_description"                              "Tier 2 rune bonuses provided by equipment are swapped with Tier 3 rune bonuses."
+        "property_puzzler_description"                              "Tier 2 rune bonuses provided by equipment are swapped with Tier 3 rune bonuses. Tier 2 bonuses are reduced by 50%, and Tier 3 bonuses are increased by 100%"
 
         "item_rpc_puzzlers_locket_ruby1"                "Increases Rune [Q2] by @ruby_property1"
         "item_rpc_puzzlers_locket_emerald1"             "Increases Rune [E2] by @emerald_property1"
