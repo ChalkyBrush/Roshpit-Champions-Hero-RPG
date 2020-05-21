@@ -10219,3 +10219,267 @@ function umbral_sentinel_init(event)
 		ability:ApplyDataDrivenModifier(caster, hero, "modifier_umbral_sentinel_aura", {})
 	end
 end
+
+function plague_emperor_armor_think(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = caster.hero
+	if not ability.interval then
+		ability.interval = 0
+	end
+	ability.interval = ability.interval + 1
+	local cast_delay = ITEM_RPC_PLAGUE_EMPEROR_ARMOR_INTERVAL - ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_PLAGUE_EMPEROR_ARMOR_GEM_RUBY3)
+	if ability.interval % (cast_delay/0.05) == 0 then
+		ability.interval = 0
+		Filters:PlagueEmperorBombSetup(hero, "standard", nil)
+	end
+end
+
+function plague_emperor_emerald_poison_think(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = caster.hero
+	local target = event.target
+
+    local damage = OverflowProtectedGetAverageTrueAttackDamage(hero)*(ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_PLAGUE_EMPEROR_ARMOR_GEM_EMERALD2)/100)
+    Filters:ApplyItemDamage(target, hero, damage, DAMAGE_TYPE_PHYSICAL, ability, RPC_ELEMENT_POISON, RPC_ELEMENT_NONE)
+end
+
+function plague_emperor_amethyst_poison_think(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = caster.hero
+	local target = event.target
+
+    local damage = OverflowProtectedGetAverageTrueAttackDamage(hero)*(ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_PLAGUE_EMPEROR_ARMOR_GEM_AMETHYST2)/100)
+    Filters:ApplyItemDamage(target, hero, damage, DAMAGE_TYPE_PHYSICAL, ability, RPC_ELEMENT_POISON, RPC_ELEMENT_NONE)
+end
+
+function plague_emperor_amethyst_poison_pool_enter(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = caster.hero
+	local target = event.target
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_plague_emperor_amethyst_slow", {})
+	local slow_stacks = ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_PLAGUE_EMPEROR_ARMOR_GEM_AMETHYST1)*-1
+	target:SetModifierStackCount("modifier_plague_emperor_amethyst_slow", caster, slow_stacks)
+end
+
+function plague_emperor_amethyst_poison_pool_thinker_end(event)
+	local target = event.target
+	ParticleManager:DestroyParticle(target.pfx, false)
+	UTIL_Remove(target)
+end
+
+function ring_of_mysteries_thinker(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = caster.hero
+	local target = event.target
+
+	if not hero.runes_bonus_ring_of_mysteries then
+		hero.runes_bonus_ring_of_mysteries = {}
+	end
+
+	ability.base_runes_hash = {}
+
+	ability.total_rune_levels = 0
+
+	local lowest_t3 = 10000
+	local lowest_t3_name = nil
+	local lowest_t4 = 10000
+	local lowest_t4_name = nil
+	local rune_letters = {"q", "w", "e", "r"}
+	for i = 1, 4, 1 do
+		for j = 1, #rune_letters, 1 do
+			local rune_name = rune_letters[j].."_"..i
+			local rune_level = hero:GetRuneValue(rune_letters[j], i)
+			if hero.runes_bonus_ring_of_mysteries[rune_name] then
+				rune_level = rune_level - hero.runes_bonus_ring_of_mysteries[rune_name]
+				hero.runes_bonus_ring_of_mysteries[rune_name] = nil
+			end
+			if i < 3 then
+				table.insert(ability.base_runes_hash, {rune_name, rune_level})
+			elseif i == 3 then
+				if rune_level < lowest_t3 then
+					lowest_t3 = rune_level
+					lowest_t3_name = rune_name
+				end
+			elseif i == 4 then
+				if rune_level < lowest_t4 then
+					lowest_t4 = rune_level
+					lowest_t4_name = rune_name
+				end
+			end
+			ability.total_rune_levels = ability.total_rune_levels + rune_level
+		end
+	end
+	local emerald_bonus = ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_RING_OF_MYSTERIES_GEM_EMERALD)
+
+	table.sort(ability.base_runes_hash, ring_of_mysteries_compare)
+	for k = 1, 3, 1 do
+		hero.runes_bonus_ring_of_mysteries[ability.base_runes_hash[k][1]] = ITEM_RPC_RING_OF_MYSTERIES_T1_AND_T2_BONUS + emerald_bonus
+	end
+
+	if ability:GetGemValue("ruby") > 0 then
+		hero.runes_bonus_ring_of_mysteries[lowest_t3_name] = ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_RING_OF_MYSTERIES_GEM_RUBY)
+	end
+	if ability:GetGemValue("sapphire") > 0 then
+		hero.runes_bonus_ring_of_mysteries[lowest_t4_name] = ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_RING_OF_MYSTERIES_GEM_SAPPHIRE)
+	end
+	DeepPrintTable(hero.runes_bonus_ring_of_mysteries)
+	hero:UpdateRuneBonusesFromGear()
+end
+
+function ring_of_mysteries_compare(a, b)
+  return a[2] < b[2]
+end
+
+function ring_of_mysteries_end(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = caster.hero
+	local target = event.target
+	hero.runes_bonus_ring_of_mysteries = nil
+end
+
+function justice_greaves_think(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = caster.hero
+
+	local highest_armor = 0
+	local highest_armor_pierce = 0
+	local highest_magic_armor = 0
+	local highest_spell_pierce = 0
+
+	local stat_pct = ITEM_RPC_JUSTICE_GREAVES_PCT_STAT + ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_JUSTICE_GREAVES_GEM_SAPPHIRE)
+	local search_range = ITEM_RPC_JUSTICE_GREAVES_RANGE + ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_JUSTICE_GREAVES_GEM_AMETHYST)
+	local search_flags = DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
+	if ability:GetGemValue("amethyst") > 0 then
+		search_flags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
+	end
+	local enemies = FindUnitsInRadius(hero:GetTeamNumber(), hero:GetAbsOrigin(), nil, search_range, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, search_flags, FIND_ANY_ORDER, false)
+	if #enemies > 0 then
+		for _, enemy in pairs(enemies) do
+			highest_armor = math.max(highest_armor, enemy:GetRoshpitArmor())
+			highest_armor_pierce = math.max(highest_armor_pierce, enemy:GetRoshpitArmorPierce())
+			highest_magic_armor = math.max(highest_magic_armor, enemy:GetRoshpitMagicArmor())
+			highest_spell_pierce = math.max(highest_spell_pierce, enemy:GetRoshpitSpellPierce())
+		end
+	end
+	if highest_armor > 0 then
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_justice_greaves_armor", {})
+		hero:SetModifierStackCount("modifier_justice_greaves_armor", caster, highest_armor*(stat_pct/100))
+	else
+		hero:RemoveModifierByName("modifier_justice_greaves_armor")
+	end
+	if highest_magic_armor > 0 then
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_justice_greaves_magic_armor", {})
+		hero:SetModifierStackCount("modifier_justice_greaves_magic_armor", caster, highest_magic_armor*(stat_pct/100))
+	else
+		hero:RemoveModifierByName("modifier_justice_greaves_magic_armor")
+	end
+	if highest_armor_pierce > 0 then
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_justice_greaves_armor_pierce", {})
+		hero:SetModifierStackCount("modifier_justice_greaves_armor_pierce", caster, highest_armor_pierce*(stat_pct/100))
+	else
+		hero:RemoveModifierByName("modifier_justice_greaves_armor_pierce")
+	end
+	if highest_spell_pierce > 0 then
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_justice_greaves_spell_pierce", {})
+		hero:SetModifierStackCount("modifier_justice_greaves_spell_pierce", caster, highest_spell_pierce*(stat_pct/100))
+	else
+		hero:RemoveModifierByName("modifier_justice_greaves_spell_pierce")
+	end
+end
+
+function justice_greaves_end(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = caster.hero
+
+	hero:RemoveModifierByName("modifier_justice_greaves_armor")
+	hero:RemoveModifierByName("modifier_justice_greaves_magic_armor")
+	hero:RemoveModifierByName("modifier_justice_greaves_armor_pierce")
+	hero:RemoveModifierByName("modifier_justice_greaves_spell_pierce")
+end
+
+function angelic_judiciary_think(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = caster.hero
+	
+	local stat_item_str = {"strength", hero:GetStrength()}
+	local stat_item_agi = {"agility", hero:GetAgility()}
+	local stat_item_int = {"intelligence", hero:GetIntellect()}
+	local stat_item_spr = {"spirit", hero:GetSpirit()}
+
+	local stats_table = {stat_item_str, stat_item_agi, stat_item_int, stat_item_spr}
+	table.sort(stats_table, judiciary_compare)
+
+	ability:ApplyDataDrivenModifier(caster, hero, "modifier_angelic_gloves_of_the_judiciary_bad", {})
+	hero:SetModifierStackCount("modifier_angelic_gloves_of_the_judiciary_bad", caster, stats_table[1][2])
+end
+
+function judiciary_compare(a, b)
+  return a[2] < b[2]
+end
+
+function angelic_judiciary_attacked(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = caster.hero
+	if ability:GetGemValue("ruby") > 0 then
+		local heal_amount = hero:GetMaxHealth()*(ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_ANGELIC_GLOVES_OF_THE_JUDICIARY_GEM_RUBY)/100)
+		Filters:ApplyHeal(hero, hero, heal_amount, true, false, ability)
+	    local limitKey = hero:GetEntityIndex() .. '_judiciary_particle'
+	    Util.Common:LimitPerTime(2, 1, limitKey, function()
+			local pfx = ParticleManager:CreateParticle("particles/roshpit/winterblight/lifesteal_colorable.vpcf", PATTACH_CUSTOMORIGIN, hero)
+			ParticleManager:SetParticleControlEnt(pfx, 0, hero, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", hero:GetAbsOrigin(), true)
+			ParticleManager:SetParticleControlEnt(pfx, 1, hero, PATTACH_POINT_FOLLOW, "attach_hitloc", hero:GetAbsOrigin() + Vector(0, 0, 70), true)
+			ParticleManager:SetParticleControl(pfx, 3, Vector(60, 100, 255)/255)
+			Timers:CreateTimer(1, function()
+				ParticleManager:DestroyParticle(pfx, false)
+			end)
+		end)
+	end
+end
+
+
+function demonic_judiciary_think(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = caster.hero
+	
+	local stat_item_str = {"strength", hero:GetStrength()}
+	local stat_item_agi = {"agility", hero:GetAgility()}
+	local stat_item_int = {"intelligence", hero:GetIntellect()}
+	local stat_item_spr = {"spirit", hero:GetSpirit()}
+
+	local stats_table = {stat_item_str, stat_item_agi, stat_item_int, stat_item_spr}
+	table.sort(stats_table, judiciary_compare)
+
+	ability:ApplyDataDrivenModifier(caster, hero, "modifier_demonic_gloves_of_the_judiciary_attack", {})
+	hero:SetModifierStackCount("modifier_demonic_gloves_of_the_judiciary_attack", caster, stats_table[1][2]*ITEM_RPC_DEMONIC_GLOVES_OF_THE_JUDICIARY_ATTACK_PER_ATTR)
+end
+
+function demonic_judiciary_attack_land(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = caster.hero
+	if ability:GetGemValue("ruby") > 0 then
+		local heal_amount = hero:GetMaxHealth()*(ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_DEMONIC_GLOVES_OF_THE_JUDICIARY_GEM_RUBY)/100)
+		Filters:ApplyHeal(hero, hero, heal_amount, true, false, ability)
+	    local limitKey = hero:GetEntityIndex() .. '_judiciary_particle'
+	    Util.Common:LimitPerTime(2, 1, limitKey, function()
+			local pfx = ParticleManager:CreateParticle("particles/roshpit/winterblight/red_lifesteal.vpcf", PATTACH_CUSTOMORIGIN, hero)
+			ParticleManager:SetParticleControlEnt(pfx, 0, hero, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", hero:GetAbsOrigin(), true)
+			ParticleManager:SetParticleControlEnt(pfx, 1, hero, PATTACH_POINT_FOLLOW, "attach_hitloc", hero:GetAbsOrigin() + Vector(0, 0, 70), true)
+			Timers:CreateTimer(1, function()
+				ParticleManager:DestroyParticle(pfx, false)
+			end)
+		end)
+		
+	end
+end

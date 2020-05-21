@@ -62,7 +62,7 @@ function SetMapImage(){
 	}
 	if(mapName === "winterblight"){
 		//$.Msg("SET IMAGE SEAFORT!!")
-		$('#seq_bg').SetImage("file://{images}/custom_game/loading_screen/descent_of_winterblight_load.jpg")
+		$('#seq_bg').SetImage("file://{images}/custom_game/loading_screen/winterblight_load.jpg")
 		status = 1
 	}
 	if(mapName === "tutorial"){

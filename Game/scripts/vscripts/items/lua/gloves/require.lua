@@ -1,3 +1,7 @@
 local prefix = 'items/lua/gloves/'
 require(prefix..'spellfire_gloves')
 require(prefix..'swiftspike_bracer')
+require(prefix..'zombiegrip_gauntlet')
+require(prefix..'stonebreaker_gauntlet')
+require(prefix..'exodia_gloves')
+require(prefix..'world_commander_gloves')

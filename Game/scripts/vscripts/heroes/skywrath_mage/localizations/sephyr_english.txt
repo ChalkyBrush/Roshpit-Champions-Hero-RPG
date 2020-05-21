@@ -177,6 +177,47 @@
     	"DOTA_Tooltip_ability_sephyr_rune_w_4_arcana1_Description"				"Increases all <font color=\"#7AE2A7\">Wind</font> damage."
     	"DOTA_Tooltip_ability_sephyr_rune_w_4_arcana1_property_one"				"Wind Damage Bonus"
     	"DOTA_Tooltip_ability_sephyr_rune_w_4_arcana1_suffix"					"% for every 10 points of Attributes"
+
+        //Arcana2
+        "DOTA_Tooltip_ability_item_rpc_sephyr_arcana2"                      "Unity Crown"
+
+        "item_property_sephyr_arcana2"                                      "Hurricane"
+        "property_sephyr_arcana2_description"                               "Replaces @Ability1 and all of its runes with Hurricane."
+
+        "DOTA_Tooltip_ability_sephyr_hurricane"                     "Hurricane"
+        "DOTA_Tooltip_ability_sephyr_hurricane_Description"         "Sephyr teleports to the target location and unleashes a hurricane around the cast point. Enemies caught in the hurricane are disarmed."
+        "DOTA_Tooltip_ability_sephyr_hurricane_disarm_duration"     "DISARM DURATION:"
+        "DOTA_Tooltip_ability_sephyr_hurricane_wind_range"             "WIND RANGE:"
+        "DOTA_Tooltip_ability_sephyr_hurricane_wind_speed"             "WIND SPEED:"
+        "DOTA_Tooltip_ability_sephyr_hurricane_cast_range_base"         "BASE CAST RANGE:"
+        "DOTA_Tooltip_ability_sephyr_hurricane_cooldown_base"         "BASE COOLDOWN:"
+
+        "DOTA_Tooltip_ability_sephyr_rune_q_1_arcana2"                      "[Q1] Concordia"
+        "DOTA_Tooltip_ability_sephyr_rune_q_1_arcana2_Description"          "Gain Movespeed, Max Movespeed and Agility for <% SEPHYR_ARCANA2_Q1_DURATION %> seconds after casting hurricane. While the buff is active, regular attacks deal Magical <font color=\"#7AE2A7\">Wind</font> damage"
+        "DOTA_Tooltip_ability_sephyr_rune_q_1_arcana2_property_one"         "Movespeed and Max Movespeed Bonus"
+        "DOTA_Tooltip_ability_sephyr_rune_q_1_arcana2_suffix"               ""      
+        "DOTA_Tooltip_ability_sephyr_rune_q_1_arcana2_property_two"         "Agility Bonus"
+        "DOTA_Tooltip_ability_sephyr_rune_q_1_arcana2_suffix_two"           ""   
+
+        "DOTA_Tooltip_modifier_sephyr_hurricane_q1"                         "Concordia"
+        "DOTA_Tooltip_modifier_sephyr_hurricane_q1_Description"             "Increased Movespeed and Agility"
+
+        "DOTA_Tooltip_ability_sephyr_rune_q_2_arcana2"                          "[Q2] Squall"
+        "DOTA_Tooltip_ability_sephyr_rune_q_2_arcana2_Description"              "Increases Hurricane's Cast Range and reduces its cooldown."
+        "DOTA_Tooltip_ability_sephyr_rune_q_2_arcana2_property_one"             "Cast Range"
+        "DOTA_Tooltip_ability_sephyr_rune_q_2_arcana2_suffix"                   ""
+        "DOTA_Tooltip_ability_sephyr_rune_q_2_arcana2_property_two"             "Cooldown Reduction"
+        "DOTA_Tooltip_ability_sephyr_rune_q_2_arcana2_suffix_two"               " seconds"
+
+        "DOTA_Tooltip_ability_sephyr_rune_q_3_arcana2"                          "[Q3] Aero Storm"
+        "DOTA_Tooltip_ability_sephyr_rune_q_3_arcana2_Description"              "Regular attacks have a chance to split and hit additional enemies near their target."
+        "DOTA_Tooltip_ability_sephyr_rune_q_3_arcana2_property_one"             "Attack Split Chance"
+        "DOTA_Tooltip_ability_sephyr_rune_q_3_arcana2_suffix"                   "%"
+
+        "DOTA_Tooltip_ability_sephyr_rune_q_4_arcana2"                          "[Q4] Windforce"
+        "DOTA_Tooltip_ability_sephyr_rune_q_4_arcana2_Description"              "Agility increases Attack Power."
+        "DOTA_Tooltip_ability_sephyr_rune_q_4_arcana2_property_one"             "Attack Power Bonus"
+        "DOTA_Tooltip_ability_sephyr_rune_q_4_arcana2_suffix"                   "% per Agility"
 		
 		//Glyphs
 		

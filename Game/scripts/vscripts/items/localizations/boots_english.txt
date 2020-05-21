@@ -571,5 +571,60 @@
         "item_rpc_yasha_boots_sapphire1"                                        "Increases Movespeed by @sapphire_property1%"
         "item_rpc_yasha_boots_amethyst1"                                        "Each point of Strength increases Base Attack Damage by @amethyst_property1"
 
- 
-		
+        "DOTA_Tooltip_ability_item_rpc_justice_greaves"                                "Justice Greaves"
+
+        "item_property_justice_greaves"                    "Equity"
+        "property_justice_greaves_description"         "Armor, Magic Armor, Armor Pierce and Spell Pierce are increased by <% ITEM_RPC_JUSTICE_GREAVES_PCT_STAT %>% of the highest statted enemy within <% ITEM_RPC_JUSTICE_GREAVES_RANGE %> range"
+
+        "item_rpc_justice_greaves_ruby1"                                        "Increases Strength by @ruby_property1 and Max Health by @ruby_property2"
+        "item_rpc_justice_greaves_emerald1"                                     "Damage taken from the front (<% ITEM_RPC_JUSTICE_GREAVES_EMERALD_ANGLE %> degree range) is reduced by @emerald_property1"
+        "item_rpc_justice_greaves_sapphire1"                                        "Increases the Stat Gain from highest statted nearby enemy by an additional @sapphire_property1%"
+        "item_rpc_justice_greaves_amethyst1"                                        "Increases the enemy search range by @amethyst_property1 and also works from enemies who are not visible"
+
+        "DOTA_Tooltip_ability_item_rpc_hangman_slippers"                                "Hangman Slippers"
+
+        "item_property_hangman_slippers"                    "Perspective Trick"
+        "property_hangman_slippers_description"         "Issuing an attack order makes your hero lob towards the target location. While travelling, you are disabled but completely invulnerable. Enemies within <% ITEM_RPC_HANGMAN_SLIPPERS_AOE %> range of the landing point are disarmed for <% ITEM_RPC_HANGMAN_SLIPPERS_DISARM_DURATION %> seconds. Cooldown of <% ITEM_RPC_HANGMAN_SLIPPERS_CD %> seconds and Max Distance of <% ITEM_RPC_HANGMAN_SLIPPERS_MAX_DISTANCE %>. "
+
+        "item_rpc_hangman_slippers_ruby1"                                        "Increases the Maximum Distance by @ruby_property1 and the Disarm AOE by @ruby_property2"
+        "item_rpc_hangman_slippers_emerald1"                                     "Increases the Travel Speed by @emerald_property1%"
+        "item_rpc_hangman_slippers_sapphire1"                                        "Reduces the cooldown by @sapphire_property1 seconds"
+        "item_rpc_hangman_slippers_amethyst1"                                        "Increases the Disarm duration by @amethyst_property1"
+
+        "DOTA_Tooltip_ability_item_rpc_boots_of_temperance"                                "Boots of Temperance"
+
+        "item_property_boots_of_temperance"                    "Temperance"
+        "property_boots_of_temperance_description"         "Base Ability Damage bonus cannot exceed <% ITEM_RPC_BOOTS_OF_TEMPERANCE_BAD_CAP %>%. All damage taken is reduced by <% ITEM_RPC_BOOTS_OF_TEMPERANCE_DMG_REDUCTION %>%."
+
+        "item_rpc_boots_of_temperance_ruby1"                                        "Reduces Attack Power bonus by @ruby_property1%. Increase Max Health by @ruby_property2 and Max Mana by @ruby_property3"
+        "item_rpc_boots_of_temperance_emerald1"                                     "Reduces Armor Pierce and Spell Pierce by @emerald_property1. Increase Armor and Magic Armor by @emerald_property2"
+        "item_rpc_boots_of_temperance_sapphire1"                                        "Issuing an attack order on an enemy within @sapphire_property1 range swaps position with them. Swapped enemies have @sapphire_property2% reduced movement speed for <% ITEM_RPC_BOOTS_OF_TEMPERANCE_SAPPHIRE_SLOW_DURATION %> seconds. <% ITEM_RPC_BOOTS_OF_TEMPERANCE_SAPPHIRE_CD %> second cooldown."
+        "item_rpc_boots_of_temperance_amethyst1"                                        "Enemies who attack you have a @amethyst_property1% chance to be disarmed for <% ITEM_RPC_BOOTS_OF_TEMPERANCE_AMETHYST_DISARM_DURATION %> seconds"
+
+        "DOTA_Tooltip_modifier_temperance_disarm"                   "Disarmed"
+
+        "DOTA_Tooltip_modifier_temperance_sapphire_slow"            "Temperance (Sapphire)"
+        "DOTA_Tooltip_modifier_temperance_sapphire_slow_Description"    "Reduced movespeed"
+
+        "DOTA_Tooltip_ability_item_rpc_gravewalkers"                                "Gravewalkers"
+
+        "item_property_gravewalkers"                    "Skeletal Pomp"
+        "property_gravewalkers_description"         "Issuing a Stop or Hold Position order transforms you into a dancing skeleton for <% ITEM_RPC_GRAVEWALKERS_BASE_DURATION %> seconds or until you move. At the time of transformation, enemies in a <% ITEM_RPC_GRAVEWALKERS_RANGE %> range will de-aggro and walk <% ITEM_RPC_GRAVEWALKERS_WALKWAY_DISTANCE %> distance away from you. Other enemies will consider you harmless and won't attack you. Cannot attack or use spells while dancing. <% ITEM_RPC_GRAVEWALKERS_COOLDOWN %> second cooldown."
+
+        "item_rpc_gravewalkers_ruby1"                                        "Increases the maximum transformation duration by @ruby_property1, the walk way distance by @ruby_property2 and the de-aggro range by @ruby_property3"
+        "item_rpc_gravewalkers_emerald1"                                     "Issuing a move order while feigning as a dancing skeleton will case you to charge toward the target location in a cluster of bones. Travel speed is @emerald_property1 and max distance is @emerald_property2"
+        "item_rpc_gravewalkers_sapphire1"                                        "Reduces the cooldown by @sapphire_property1 seconds"
+        "item_rpc_gravewalkers_amethyst1"                                        "Reduces any stray damage that hits you as a dancing skeleton by @amethyst_property1%"
+
+        "DOTA_Tooltip_ability_item_rpc_dissimilation_greaves"                                "Dissimilation Greaves"
+
+        "item_property_dissimilation_greaves"                    "Dissimilate"
+        "property_dissimilation_greaves_description"         "Issuing a Stop or Hold position order hides the wearer for 2 seconds and creates 7 <% ITEM_RPC_DISSIMILATION_GREAVES_PORTAL_RADIUS %> radius portals near the cast point. Right clicking on a portal will activate it, teleporting the hero to that portal after the duration is over. Upon reappearing, deal <% ITEM_RPC_DISSIMILATION_GREAVES_DAMAGE_PCT_ATK_POWER %>% of Attack Power as damage to enemies within the portal's radius, and slow their movespeed by <% ITEM_RPC_DISSIMILATION_GREAVES_MS_SLOW_PCT %>% for <% ITEM_RPC_DISSIMILATION_GREAVES_SLOW_DURATION %> seconds. <% ITEM_RPC_DISSIMILATION_GREAVES_COOLDOWN %> second cooldown."
+
+        "item_rpc_dissimilation_greaves_ruby1"                                        "Increases the portal radius by @ruby_property1"
+        "item_rpc_dissimilation_greaves_emerald1"                                     "Increases Rune [E4] by @emerald_property1"
+        "item_rpc_dissimilation_greaves_sapphire1"                                        "Reduces the cooldown by @sapphire_property1 seconds"
+        "item_rpc_dissimilation_greaves_amethyst1"                                        "Increases the damage by an additional @amethyst_property1% of Attack Power and increases the slow duration by @amethyst_property2"
+
+        "DOTA_Tooltip_modifier_grey_domain_slow"            "Dissimilation"
+        "DOTA_Tooltip_modifier_grey_domain_slow_Description"    "Slowed"

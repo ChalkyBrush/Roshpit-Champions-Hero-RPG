@@ -1,0 +1,428 @@
+
+	"ekkan_rune_w_1_arcana2a"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"ekkan/arcana2/ekkan_rune_w_1_arcana2a"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one_base"			"<% EKKAN_ARCANA_W1A_BASE_DURATION %>"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"<% EKKAN_ARCANA_W1A_DURATION %>"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"<% EKKAN_ARCANA_W1A_DAMAGE_PCT_ARMOR %>"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"1"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"<% RPC_ELEMENT_UNDEAD %>"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_two"			"<% RPC_ELEMENT_POISON %>"
+			}
+		}
+	}
+
+	"ekkan_rune_w_2_arcana2a"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"ekkan/arcana2/ekkan_rune_w_2_arcana2a"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"<% EKKAN_ARCANA_W2A_DAMAGE_PCT_MAX_HEALTH %>"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"<% EKKAN_ARCANA_W2A_MOVESLOW %>"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"1"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"<% RPC_ELEMENT_UNDEAD %>"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_two"			"<% RPC_ELEMENT_POISON %>"
+			}
+		}
+	}
+
+	"ekkan_rune_w_3_arcana2a"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"ekkan/arcana2/ekkan_rune_w_3_arcana2a"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"<% EKKAN_ARCANA_W3A_DAMAGE_PCT_ARMOR_PIERCE %>"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"<% EKKAN_ARCANA_W3A_ARMOR_REDUCTION %>"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"1"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"<% RPC_ELEMENT_UNDEAD %>"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_two"			"<% RPC_ELEMENT_POISON %>"
+			}
+		}
+	}
+
+	"ekkan_rune_w_4_arcana2a"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"ekkan/arcana2/ekkan_rune_w_4_arcana2a"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"<% EKKAN_ARCANA_W4A_DURATION_INCREASE %>"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"<% EKKAN_ARCANA_W4A_ELEMENTAL_AMP %>"
+			}
+
+		}
+	}
+
+
+	"ekkan_rune_w_1_arcana2b"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"ekkan/arcana2/ekkan_rune_w_1_arcana2b"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one_base"			"<% EKKAN_ARCANA_W1B_BASE_DURATION %>"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"<% EKKAN_ARCANA_W1B_ROOT_DURATION %>"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"<% EKKAN_ARCANA_W1B_DAMAGE_PCT_MAGIC_ARMOR %>"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"1"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"<% RPC_ELEMENT_UNDEAD %>"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_two"			"<% RPC_ELEMENT_ICE %>"
+			}
+		}
+	}
+
+	"ekkan_rune_w_2_arcana2b"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"ekkan/arcana2/ekkan_rune_w_2_arcana2b"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"<% EKKAN_ARCANA_W2B_DMG_PCT_ATK_POWER %>"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"<% EKKAN_ARCANA_W2B_RADIUS %>"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two_base"		"<% EKKAN_ARCANA_W2B_BASE_RADIUS %>"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"1"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"<% RPC_ELEMENT_UNDEAD %>"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_two"			"<% RPC_ELEMENT_ICE %>"
+			}
+		}
+	}
+
+	"ekkan_rune_w_3_arcana2b"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"ekkan/arcana2/ekkan_rune_w_3_arcana2b"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"<% EKKAN_ARCANA_W3A_DAMAGE_PCT_ARMOR_PIERCE %>"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"<% EKKAN_ARCANA_W3B_PCT_MOVE_SLOW %>"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"1"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"<% RPC_ELEMENT_UNDEAD %>"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_two"			"<% RPC_ELEMENT_POISON %>"
+			}
+		}
+	}
+
+	"ekkan_rune_w_4_arcana2b"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"ekkan/arcana2/ekkan_rune_w_4_arcana2b"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"<% EKKAN_ARCANA_W4B_DURATION_INCREASE %>"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"<% EKKAN_ARCANA_W4B_ELEMENTAL_AMP %>"
+			}
+
+		}
+	}
+
+	"ekkan_rune_w_1_arcana2c"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"ekkan/arcana2/ekkan_rune_w_1_arcana2c"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"<% EKKAN_ARCANA_W1C_ATTACK_DAMAGE %>"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"<% EKKAN_ARCANA_W1C_ATTACK_SPEED %>"
+			}
+		}
+	}
+
+	"ekkan_rune_w_2_arcana2c"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"ekkan/arcana2/ekkan_rune_w_2_arcana2c"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"<% EKKAN_ARCANA_W2C_BURN_DAMAGE %>"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"<% EKKAN_ARCANA_W2C_BONUS_ARMOR %>"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"1"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"<% RPC_ELEMENT_UNDEAD %>"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_two"			"<% RPC_ELEMENT_FIRE %>"
+			}
+		}
+	}
+
+	"ekkan_rune_w_3_arcana2c"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"ekkan/arcana2/ekkan_rune_w_3_arcana2c"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"<% EKKAN_ARCANA_W3C_IMPACT_DMG %>"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"<% EKKAN_ARCANA_W3C_RANGE %>"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two_base"			"<% EKKAN_ARCANA_W3C_RANGE_BASE %>"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"1"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"<% RPC_ELEMENT_UNDEAD %>"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_two"			"<% RPC_ELEMENT_FIRE %>"
+			}
+		}
+	}
+
+	"ekkan_rune_w_4_arcana2c"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"ekkan/arcana2/ekkan_rune_w_4_arcana2c"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"<% EKKAN_ARCANA_W4B_DURATION_INCREASE %>"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"<% EKKAN_ARCANA_W4B_ELEMENTAL_AMP %>"
+			}
+
+		}
+	}

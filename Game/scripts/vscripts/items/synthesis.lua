@@ -334,6 +334,24 @@ function RPCItems:SynthCheckCombination(item1, item2, position)
 			else
 				return false
 			end
+		elseif (item1:GetAbilityName() == "item_rpc_emperors_band" and item2:GetAbilityName() == "item_rpc_empress_jewel") or (item1:GetAbilityName() == "item_rpc_empress_jewel" and item2:GetAbilityName() == "item_rpc_emperors_band") then
+			local newItem = RPCItems:RollImmortalByLevel(100, "item_rpc_monarch_ring")
+			newItem.pickedUp = true
+			return newItem
+		elseif (item1:GetAbilityName() == "item_rpc_winterblight_dragon_scale" and item2:GetAbilityName() == "item_rpc_winterblight_dragon_scale") then
+			local scale_sum = item1.newItemTable.property1 + item2.newItemTable.property1
+			local newItem = nil
+			if scale_sum < 20 then
+				newItem = RPCItems:CreateBasicConsumableWithProperty1(nil, "item_rpc_winterblight_dragon_scale", "Winterblight Dragon Scale", "immortal", false, "winterblight_dragon_scale_property", scale_sum, "#80a4ff")
+				return newItem
+			else
+				local item_level = RPCItems:RollItemLevelFromUnit(120)
+				newItem = RPCItems:RollDinathArcana2(item_level)
+				if IsValidEntity(newItem:GetContainer()) then
+					UTIL_Remove(newItem:GetContainer())
+				end
+				return newItem
+			end
 		else
 			return false
 		end

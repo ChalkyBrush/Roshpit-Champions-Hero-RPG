@@ -169,6 +169,54 @@
     	"DOTA_Tooltip_ability_dinath_rune_w_4_arcana1_suffix"					""
     	"DOTA_Tooltip_ability_dinath_rune_w_4_arcana1_property_two"				"Chance to Acquire Additional Target"
     	"DOTA_Tooltip_ability_dinath_rune_w_4_arcana1_suffix_two"					"%"
+
+        //Arcana2
+        "DOTA_Tooltip_ability_item_rpc_dinath_arcana2"                      "Frost Wyrm Carapace"
+
+        "item_property_dinath_arcana2"                                      "Wrath of the Frost Wyrm"
+        "property_dinath_arcana2_description"                               "Replaces @Ability4 and all of its runes with Wrath of the Frost Wyrm."
+
+        "DOTA_Tooltip_ability_dinath_frost_wyrm"                       "Wrath of the Frost Wyrm"
+        "DOTA_Tooltip_ability_dinath_frost_wyrm_Description"           "Element: <font color=\"#3289C7\">Dragon</font> / <font color=\"#87D9FF\">Ice</font><br>After a 2 second channel, charge toward the cast point and elevate to max fly height. Dinath breathes Ice projectiles toward the Vector Target position that damage and slow enemies in the radius."
+        "DOTA_Tooltip_ability_dinath_frost_wyrm_damage_mult"               "% DAMAGE BASED ON ATTACK POWER:"
+        "DOTA_Tooltip_ability_dinath_frost_wyrm_cast_range"             "CAST RANGE:"
+        "DOTA_Tooltip_ability_dinath_frost_wyrm_cooldown"               "COOLDOWN:"
+        "DOTA_Tooltip_ability_dinath_frost_wyrm_projectile_range"               "PROJECTILE MAX RANGE:"
+        "DOTA_Tooltip_ability_dinath_frost_wyrm_projectile_count"               "PROJECTILE COUNT:"
+        "DOTA_Tooltip_ability_dinath_frost_wyrm_explode_radius"               "EXPLOSION RADIUS:"
+        "DOTA_Tooltip_ability_dinath_frost_wyrm_ms_slow"               "MOVESPEED SLOW:"
+        "DOTA_Tooltip_ability_dinath_frost_wyrm_as_slow"               "ATTACKSPEED SLOW:"
+        "DOTA_Tooltip_ability_dinath_frost_wyrm_slow_duration"               "SLOW DURATION:"
+
+        "DOTA_Tooltip_modifier_dinath_frost_wyrm_slow"                  "Wrath of the Frost Wyrm"
+        "DOTA_Tooltip_modifier_dinath_frost_wyrm_slow_Description"      "Slowed"
+
+
+        "DOTA_Tooltip_ability_dinath_rune_r_1_arcana2"                      "[R1] Dragon Reach"
+        "DOTA_Tooltip_ability_dinath_rune_r_1_arcana2_Description"          "Increases Wrath of the Frost Wyrm's cast range and the max projectile range."
+        "DOTA_Tooltip_ability_dinath_rune_r_1_arcana2_property_one"         "Cast Range"
+        "DOTA_Tooltip_ability_dinath_rune_r_1_arcana2_suffix"               ""
+        "DOTA_Tooltip_ability_dinath_rune_r_1_arcana2_property_two"         "Projectile Range"
+        "DOTA_Tooltip_ability_dinath_rune_r_1_arcana2_suffix_two"           ""
+
+        "DOTA_Tooltip_ability_dinath_rune_r_2_arcana2"                          "[R2] Devastation"
+        "DOTA_Tooltip_ability_dinath_rune_r_2_arcana2_Description"              "Increases the AOE radius of Frosty Wyrm explosions and further increases the damage based on attack power."
+        "DOTA_Tooltip_ability_dinath_rune_r_2_arcana2_property_one"             "Radius Increase"
+        "DOTA_Tooltip_ability_dinath_rune_r_2_arcana2_suffix"                   ""
+        "DOTA_Tooltip_ability_dinath_rune_r_2_arcana2_property_two"             "Additional Damage"
+        "DOTA_Tooltip_ability_dinath_rune_r_2_arcana2_suffix_two"               "% of Attack Power"
+
+        "DOTA_Tooltip_ability_dinath_rune_r_3_arcana2"                          "[R3] Volbeat"
+        "DOTA_Tooltip_ability_dinath_rune_r_3_arcana2_Description"              "Grants a chance to fire additional projectiles upon reaching the cast point."
+        "DOTA_Tooltip_ability_dinath_rune_r_3_arcana2_property_one"             "Additional Projectile Chance"
+        "DOTA_Tooltip_ability_dinath_rune_r_3_arcana2_suffix"                   "%"
+
+        "DOTA_Tooltip_ability_dinath_rune_r_4_arcana2"                          "[R4] Endless Wrath"
+        "DOTA_Tooltip_ability_dinath_rune_r_4_arcana2_Description"              "Reduces the cooldown and channel time of Wrath of the Frost Wyrm"
+        "DOTA_Tooltip_ability_dinath_rune_r_4_arcana2_property_one"             "Cooldown Reduction"
+        "DOTA_Tooltip_ability_dinath_rune_r_4_arcana2_suffix"                   " seconds"
+        "DOTA_Tooltip_ability_dinath_rune_r_4_arcana2_property_two"             "Channel Time Reduction"
+        "DOTA_Tooltip_ability_dinath_rune_r_4_arcana2_suffix_two"               " seconds"
 		
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_1_1"		"[T1-1] Glyph of Cryogenation"

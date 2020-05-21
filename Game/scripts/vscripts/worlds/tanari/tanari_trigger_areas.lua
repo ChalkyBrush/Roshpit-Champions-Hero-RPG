@@ -928,7 +928,9 @@ function respawn_flag_succeed(event)
 	--print(ability.color)
 	CustomAbilities:QuickAttachParticle("particles/roshpit/solunia/eclipse_sparks.vpcf", caster, 3)
 	EmitSoundOn("RPCItem.RespawnFlagCast", caster)
-	caster:RemoveAbility("rpc_respawn_flag")
+	if caster:HasAbility("rpc_respawn_flag") then
+		caster:RemoveAbility("rpc_respawn_flag")
+	end
 	-- StopSoundEvent("RPCItem.RespawnFlagLP", caster)
 	Timers:CreateTimer(0.05, function()
 		StartAnimation(caster, {duration = 1, activity = ACT_DOTA_ATTACK, rate = 1})

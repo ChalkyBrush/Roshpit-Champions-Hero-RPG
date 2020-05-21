@@ -314,8 +314,6 @@ function CDOTA_BaseNPC_Hero:GetBaseSpirit()
 		spirit = spirit - modifier:GetStackCount()
 	end
 
-
-
 	return spirit
 end
 
@@ -449,6 +447,14 @@ function CDOTA_BaseNPC_Hero:SetRoshpitStrengthForLevel()
 	elseif hero:HasModifier("modifier_blue_divinex_amulet") then
 		strength = hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_BLUE_DIVINEX_AMULET_GEM_RUBY)
 	end
+	local str_mult = 1
+	Util.Modifier:SimpleEvent(hero, 'GetRoshpitStrengthPctBonus', { MODIFIER_ROSHPIT_STRENGTH_PCT_BONUS }, { }, 
+		function(result, data)
+			str_mult = str_mult + result/100
+		end
+	)
+	strength = strength*str_mult
+
 	hero.strength_custom = math.floor(strength)
 end
 
@@ -465,6 +471,14 @@ function CDOTA_BaseNPC_Hero:SetRoshpitAgilityForLevel()
 	elseif hero:HasModifier("modifier_blue_divinex_amulet") then
 		agility = hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_BLUE_DIVINEX_AMULET_GEM_EMERALD)
 	end
+	local agi_mult = 1
+	Util.Modifier:SimpleEvent(hero, 'GetRoshpitAgilityPctBonus', { MODIFIER_ROSHPIT_AGILITY_PCT_BONUS }, { }, 
+		function(result, data)
+			agi_mult = agi_mult + result/100
+		end
+	)
+	agility = agility*agi_mult
+
 	hero.agility_custom = math.floor(agility)
 end
 
@@ -481,6 +495,15 @@ function CDOTA_BaseNPC_Hero:SetRoshpitIntelligenceForLevel()
 	elseif hero:HasModifier("modifier_green_divinex_amulet") then
 		intellect = hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_GREEN_DIVINEX_AMULET_GEM_SAPPHIRE)
 	end
+
+	local int_mult = 1
+	Util.Modifier:SimpleEvent(hero, 'GetRoshpitIntelligencePctBonus', { MODIFIER_ROSHPIT_INTELLIGENCE_PCT_BONUS }, { }, 
+		function(result, data)
+			int_mult = int_mult + result/100
+		end
+	)
+	intellect = intellect*int_mult
+
 	hero.intellect_custom = math.floor(intellect)
 end
 
@@ -492,6 +515,15 @@ function CDOTA_BaseNPC_Hero:SetRoshpitSpiritForLevel()
 		spirit_per_level = spirit_per_level * (1 + self.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_TATTERED_NOVICE_ARMOR_GEM_EMERALD)/100)
 	end
 	spirit = spirit + self:GetLevel()*spirit_per_level
+
+	local spr_mult = 1
+	Util.Modifier:SimpleEvent(hero, 'GetRoshpitSpiritPctBonus', { MODIFIER_ROSHPIT_SPIRIT_PCT_BONUS }, { }, 
+		function(result, data)
+			spr_mult = spr_mult + result/100
+		end
+	)
+	spirit = spirit*spr_mult
+
 	hero.spirit_custom = math.floor(spirit)
 end
 
@@ -555,8 +587,11 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitAttributes()
 		self:CalculateAndSaveCooldownModifier()
 		self:CalculateAndSaveManacostModifier()
 		self:CalculateAndSaveChanneltimeModifier()
+		self:CalculateAndSaveMasterAttackSpeedBuff()
+		self:CalculateAndSaveMasterBaseDamageBuff()
 		self:GetTooltips()
 	end
+	self:CalculateAndSaveMasterGreenDamageBuff()
 end
 
 function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
@@ -1135,6 +1170,22 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	end
 	if unit:HasModifier("modifier_winterblight_searing_arrow_armor_loss") then
 		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_loss", "modifier_winterblight_searing_arrow_armor_loss")	
+	end
+	if unit:HasModifier("plague_bearer_acid_spray_effect") then
+		local caster = unit:FindModifierByName("plague_bearer_acid_spray_effect"):GetCaster()
+		armor_modify = armor_modify + caster.w_3_level*EKKAN_ARCANA_W3A_ARMOR_REDUCTION
+	end
+	if unit:HasModifier("modifier_burning_legionnaire_cloak_of_flame_aura") then
+		local caster = unit:FindModifierByName("modifier_burning_legionnaire_cloak_of_flame_aura"):GetCaster()
+		armor_modify = armor_modify + caster.w_2_level*EKKAN_ARCANA_W2C_BONUS_ARMOR
+	end
+	if unit:HasModifier("modifier_justice_greaves_armor") then
+		armor_modify = armor_modify + unit:GetModifierStackCount("modifier_justice_greaves_armor", unit.InventoryUnit)
+	end
+	if unit:HasModifier("modifier_angelic_gloves_of_the_judiciary") then
+		if unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetGemValue("emerald") > 0 then
+			armor_modify = armor_modify + unit:GetHealth()*unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("emerald", ITEM_RPC_ANGELIC_GLOVES_OF_THE_JUDICIARY_GEM_EMERALD)
+		end
 	end
 
 	-- FINAL STEP: DEFILER | HOOD OF BLACK MAGE | NIGHTMARE RIDER
@@ -1758,6 +1809,15 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	if unit:HasModifier("modifier_rubilash_glyph_4_1") then
 		magic_armor_modify = magic_armor_modify + RUBILASH_GLYPH_4_1_MAGIC_ARMOR
 	end
+	if unit:HasModifier("modifier_justice_greaves_magic_armor") then
+		magic_armor_modify = magic_armor_modify + unit:GetModifierStackCount("modifier_justice_greaves_magic_armor", unit.InventoryUnit)
+	end
+	if unit:HasModifier("modifier_angelic_gloves_of_the_judiciary") then
+		if unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetGemValue("emerald") > 0 then
+			magic_armor_modify = magic_armor_modify + unit:GetHealth()*unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("emerald", ITEM_RPC_ANGELIC_GLOVES_OF_THE_JUDICIARY_GEM_EMERALD)
+		end
+	end
+
 	-- FINAL STEP DEFILER | NIGHTMARE RIDER MANTLE | ROOTED FEET
 
 	if unit:HasModifier("modifier_hood_of_defiler_effect_visible") then
@@ -2136,6 +2196,14 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 	end
 	if unit:HasModifier("modifier_brazen_kabuto_channeling") then
 		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("ruby", KABUTO_RUBY)
+	end
+	if unit:HasModifier("modifier_justice_greaves_armor_pierce") then
+		armor_pierce_modify = armor_pierce_modify + unit:GetModifierStackCount("modifier_justice_greaves_armor_pierce", unit.InventoryUnit)
+	end
+	if unit:HasModifier("modifier_demonic_gloves_of_the_judiciary") then
+		if unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetGemValue("emerald") > 0 then
+			armor_pierce_modify = armor_pierce_modify + unit:GetMana()*unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("emerald", ITEM_RPC_DEMONIC_GLOVES_OF_THE_JUDICIARY_GEM_EMERALD)
+		end
 	end
 
 
@@ -2573,6 +2641,14 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	if unit:HasModifier("modifier_umbral_sentinel_aura_effect") then
 		local aura_holder = unit:FindModifierByName("modifier_umbral_sentinel_aura_effect"):GetCaster().hero
 		spell_pierce_modify = spell_pierce_modify + (spell_pierce + spell_pierce_modify)*(aura_holder.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("ruby", UMBRAL_SENTINEL_RUBY)/100)
+	end
+	if unit:HasModifier("modifier_justice_greaves_spell_pierce") then
+		spell_pierce_modify = spell_pierce_modify + unit:GetModifierStackCount("modifier_justice_greaves_spell_pierce", unit.InventoryUnit)
+	end
+	if unit:HasModifier("modifier_demonic_gloves_of_the_judiciary") then
+		if unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetGemValue("emerald") > 0 then
+			spell_pierce_modify = spell_pierce_modify + unit:GetMana()*unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("emerald", ITEM_RPC_DEMONIC_GLOVES_OF_THE_JUDICIARY_GEM_EMERALD)
+		end
 	end
 
 	-- PERCENTAGE OF OTHER ATTRIBUTES - **COULD CAUSE PROBLEMS BE WARY**
@@ -3023,6 +3099,9 @@ function CustomAttributes:SetAttributes(hero)
 		local ability = hero:FindModifierByName("modifier_diviner_hierophant_spirit_buff"):GetAbility()
 		spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_diviner_hierophant_spirit_buff", ability:GetSpecialValueFor("hierophant_spirit"))
 	end
+	if hero:HasModifier("modifier_glove_of_the_hierophant_spirit_buff") then
+		spr_bonus = spr_bonus + hero.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_GLOVE_OF_THE_HIEROPHANT_GEM_AMETHYST)
+	end
 	if hero:HasModifier("modifier_strength_attack_power_player") then
 		local ability = hero:FindModifierByName("modifier_strength_attack_power_player"):GetAbility()
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_strength_attack_power_player", ability:GetSpecialValueFor("hierophant_spirit"))
@@ -3204,6 +3283,11 @@ function CustomAttributes:SetAttributes(hero)
 	if hero:HasModifier("modifier_mountain_protector_glyph_5_a") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_mountain_protector_glyph_5_a", CustomAttributes.MOUNTAIN_PROTECTOR_GLYPH_5_A)
 	end
+	if hero:HasModifier("modifier_ring_of_mysteries") then
+		if hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetGemValue("amethyst") > 0 then
+			spr_bonus = spr_bonus + hero.equipped_gear[RPC_GEAR_SLOT_TRINKET].total_rune_levels*hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_RING_OF_MYSTERIES_GEM_AMETHYST)
+		end
+	end
 	if hero:HasModifier("modifier_red_divinex_amulet") then
 		local stat_bonus = hero:GetBaseStrength()*ITEM_RPC_RED_DIVINEX_AMULET_STR_PCT/100
 		local modifier = hero:FindModifierByName('modifier_red_divinex_amulet')
@@ -3232,6 +3316,36 @@ function CustomAttributes:SetAttributes(hero)
 		agility = hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_BLUE_DIVINEX_AMULET_GEM_EMERALD)
 		agi_bonus = 0
 	end
+
+	local str_mult = 1
+	local agi_mult = 1
+	local int_mult = 1
+	local spr_mult = 1
+	Util.Modifier:SimpleEvent(hero, 'GetRoshpitStrengthPctBonus', { MODIFIER_ROSHPIT_STRENGTH_PCT_BONUS }, { }, 
+		function(result, data)
+			str_mult = str_mult + result/100
+		end
+	)
+	Util.Modifier:SimpleEvent(hero, 'GetRoshpitAgilityPctBonus', { MODIFIER_ROSHPIT_AGILITY_PCT_BONUS }, { }, 
+		function(result, data)
+			agi_mult = agi_mult + result/100
+		end
+	)
+	Util.Modifier:SimpleEvent(hero, 'GetRoshpitIntelligencePctBonus', { MODIFIER_ROSHPIT_INTELLIGENCE_PCT_BONUS }, { }, 
+		function(result, data)
+			int_mult = int_mult + result/100
+		end
+	)
+	Util.Modifier:SimpleEvent(hero, 'GetRoshpitSpiritPctBonus', { MODIFIER_ROSHPIT_SPIRIT_PCT_BONUS }, { }, 
+		function(result, data)
+			spr_mult = spr_mult + result/100
+		end
+	)
+
+	str_bonus = math.floor(str_bonus*str_mult)
+	agi_bonus = math.floor(agi_bonus*agi_mult)
+	int_bonus = math.floor(int_bonus*int_mult)
+	spr_bonus = math.floor(spr_bonus*spr_mult)
 
 	strength = math.max(strength + str_bonus, 0)
 	agility = math.max(agility + agi_bonus, 0)
@@ -3300,7 +3414,7 @@ function CustomAttributes:ApplyStatBonusesToHero(hero)
 	local agility = hero:GetAgility()
 	local intelligence = hero:GetIntellect()
 	if hero:HasModifier("modifier_frozen_heart") then
-		hero:RemoveModifierByName("modifier_strength_health")
+		hero:RemoveModifierByName("modifier_strength_health")	
 	else
 		if not hero:HasModifier("modifier_strength_health") then
 			ability:ApplyDataDrivenModifier(caster, hero, "modifier_strength_health", {})
@@ -3367,8 +3481,12 @@ function CustomAttributes:GetMaxHealth(hero, excludedModifier)
 	--100 hp base hp, base hp cant be changed with Code thats why its substracted again
 	local baseHealth = CustomAttributes:GetBaseHealth(hero, excludedModifier)
 	local healthMultiplier = CustomAttributes:GetPercentHealthMutliplier(hero, excludedModifier)
-	if hero:HasModifier("modifier_frozen_heart") then
-		return 100
+	if hero:HasModifier("modifier_frozen_heart") or hero:HasModifier("modifier_musty_crypt_skeleton_transform") then
+		if hero:HasModifier("modifier_musty_crypt_skeleton_transform") then
+			return ITEM_RPC_MUSTY_CRYPT_ARMOR_SKELETON_HP - 100 + hero.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_MUSTY_CRYPT_ARMOR_GEM_SAPPHIRE2)
+		elseif hero:HasModifier("modifier_frozen_heart") then
+			return 100
+		end
 	else
 		return baseHealth * healthMultiplier - 100 
 	end
@@ -3453,6 +3571,9 @@ function CustomAttributes:GetBaseHealth(hero, excludedModifier)
 	if excludedModifier ~= "modifier_rubilash_e_4_max_health" and hero:HasModifier("modifier_rubilash_e_4_max_health") then
 		flatHealthBonus = flatHealthBonus + hero:GetSumOfAllAttributes()*hero:GetRuneValue("e", 4)*RUBILASH_RUNE_E4_HEALTH_PER_ATTR
 	end
+	if excludedModifier ~= "modifier_angelic_gloves_of_the_judiciary" and hero:HasModifier("modifier_angelic_gloves_of_the_judiciary") then
+		flatHealthBonus = flatHealthBonus + hero.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_ANGELIC_GLOVES_OF_THE_JUDICIARY_GEM_AMETHYST)*hero:GetSumOfAllAttributes()
+	end
 	
 	Util.Modifier:SimpleEvent(hero, 'GetFlatHealthBonus', { MODIFIER_ROSHPIT_FLAT_HEALTH_BONUS }, { }, 
 		function(result, data)
@@ -3520,6 +3641,9 @@ function CustomAttributes:GetBaseMana(hero, excludedModifier)
 	end
 	if excludedModifier ~= "modifier_weapon_max_mana" and hero:HasModifier("modifier_weapon_max_mana") then
 		flatManaBonus = flatManaBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_weapon_max_mana", 1)
+	end
+	if excludedModifier ~= "modifier_demonic_gloves_of_the_judiciary" and hero:HasModifier("modifier_demonic_gloves_of_the_judiciary") then
+		flatManaBonus = flatManaBonus + hero.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_DEMONIC_GLOVES_OF_THE_JUDICIARY_GEM_AMETHYST)*hero:GetSumOfAllAttributes()
 	end
 	Util.Modifier:SimpleEvent(hero, 'GetFlatManaBonus', { MODIFIER_ROSHPIT_FLAT_MANA_BONUS }, { }, 
 		function(result, data)
@@ -3762,6 +3886,59 @@ end
 function CDOTA_BaseNPC_Hero:GetSumOfAllAttributes()
 	return self:GetStrength() + self:GetAgility() + self:GetIntellect() + self:GetSpirit()
 end
+
+function CDOTA_BaseNPC:CalculateAndSaveMasterAttackSpeedBuff()
+	local as_buff = 0
+	Util.Modifier:SimpleEvent(self, 'GetRoshpitMasterAS', { MODIFIER_ROSHPIT_MASTER_AS }, { }, 
+		function(result, data)
+			as_buff = as_buff + result
+		end
+	)
+	if as_buff > 0 then
+		Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_master_as_buff", {})
+		self:SetModifierStackCount("modifier_master_as_buff", self, as_buff)
+	else
+		self:RemoveModifierByName("modifier_master_as_buff")
+	end
+end
+
+function CDOTA_BaseNPC:CalculateAndSaveMasterBaseDamageBuff()
+	local base_atk_buff = 0
+	Util.Modifier:SimpleEvent(self, 'GetRoshpitMasterBaseDMG', { MODIFIER_ROSHPIT_MASTER_BASE_ATTACK_DMG }, { }, 
+		function(result, data)
+			base_atk_buff = base_atk_buff + result
+		end
+	)
+	if base_atk_buff > 0 then
+		Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_master_base_damage_buff", {})
+		self:SetModifierStackCount("modifier_master_base_damage_buff", self, base_atk_buff)
+	else
+		self:RemoveModifierByName("modifier_master_base_damage_buff")
+	end
+end
+
+function CDOTA_BaseNPC:CalculateAndSaveMasterGreenDamageBuff()
+	local atk_power_buff = 0
+	Util.Modifier:SimpleEvent(self, 'GetRoshpitMasterGreenDMG', { MODIFIER_ROSHPIT_MASTER_GREEN_DMG }, { }, 
+		function(result, data)
+			atk_power_buff = atk_power_buff + result
+		end
+	)
+	if atk_power_buff > 0 then
+		Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_master_green_damage_buff", {})
+		self:SetModifierStackCount("modifier_master_green_damage_buff", self, atk_power_buff)
+		self:RemoveModifierByName("modifier_master_green_damage_negative_buff")
+	elseif atk_power_buff < 0 then
+		Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_master_green_damage_negative_buff", {})
+		self:SetModifierStackCount("modifier_master_green_damage_negative_buff", self, atk_power_buff*-1)
+		self:RemoveModifierByName("modifier_master_green_damage_buff")
+	else
+		self:RemoveModifierByName("modifier_master_green_damage_negative_buff")
+		self:RemoveModifierByName("modifier_master_green_damage_buff")
+	end
+end
+
+
 
 function CDOTA_BaseNPC_Hero:CalculateAndSaveCooldownModifier()
 	local q_ability = self:GetAbilityByIndex(DOTA_Q_SLOT)
@@ -4228,4 +4405,12 @@ function CDOTA_BaseNPC:SetVisualFlyHeight(height)
 		Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, self, "modifier_visual_fly_height", {})
 	end
 	self:SetModifierStackCount("modifier_visual_fly_height", Events.GameMaster, height)
+end
+
+function CDOTA_BaseNPC:EntityExistsAndIsAlive()
+	if self and IsValidEntity(self) and self:IsAlive() then
+		return true
+	else
+		return false
+	end
 end

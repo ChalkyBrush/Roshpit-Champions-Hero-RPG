@@ -1258,6 +1258,50 @@
 		"rpc_items_basic_amethyst" "Increases Spirit by @amethyst_property1"
 
 	    //------------------------
+		// Soul Binding
+		//------------------------
+		"item_soulbound"			"SOULBOUND"
+
+		"the_soulbinder"			"The Soulbinder"
+		"soulbinder_item_search"	"Search Items"
+		"soulbinder_item_search_button"	"Search"
+		"soulbinder_item_search_results"	"Search Results"
+		"soulbinder_search_help_text"	"Search items by English, Russian or Chinese name, or by internal name.<br><br>Alternatively, click on an equipped item to bring up the Soulbind menu for that item."
+		"soulbinder_no_search_query_entered"	"Please Enter a Search Term"
+		"soulbinder_slot"	"Soulbind Slot"
+		"soulbinder_slot_select"	"Select"
+		"soulbinder_item_view_first_tip"	"Select a Soulbind Slot to view options"
+		"soulbinder_empty_slot_instructions"	"This Soulbind Slot is empty.<br>Drag a @item_name into the slot below,<br>or click an equipped @item_name to bind to this slot.<br><br><font color=\"#EAA017\"><b>ONCE AN ITEM IS SOULBOUND, IT CAN NEVER BE TRADED AGAIN!</b></font>"
+		"soulbinder_empty_slot_weapon_warning"	"Weapons are reduced back to Level 1 when soulbound!"
+		"soulbinder_final_bind_button"		"Soulbind this item to Slot @slot_number"
+		"soulbinder_slot_exists_instructions"	"Equipping this item will overwrite any existing equipped item that is in the same slot."
+		"soulbinder_final_equip_button"		"Equip Item"
+		"soulbinder_final_equip_delete_button"	"Delete Item"
+		"soulbinder_final_equip_delete_button_confirm"	"Confirm Delete. Item will be gone forever."
+		"soulbinder_cost_to_soulbind"		"Soulbind Cost"
+
+		"soulbind_tips_title"				"Soulbinder Tips"
+		"soulbinder_tip_1"					"1. Soulbound items cannot be chiseled, rerolled, or traded. Once an item is soulbound it can never be unbound."
+		"soulbinder_tip_2"					"2. Players can have up to 3 soulbound copies of EVERY single immortal and arcana equipment item in the game."
+		"soulbinder_tip_3"					"3. Soulbind Slots 2 & 3 can only be saved into by Premium Pass holders. If your pass expires, you can still summon a Soulbound item from those slots."
+		"soulbinder_tip_4"					"4. Soulbinding an item into an empty slot costs Arcane Crystals, but resummoning an item is free."
+		"soulbinder_tip_5"					"5. Soulbound items are shared across characters, and can be reloaded infinitely as desired."
+		"soulbinder_tip_6"					"6. Soulbound items CAN have gems and sockets added. Soulbound items CAN NOT have their gems salvaged."
+		"soulbinder_tip_7"					"7. Soulbound items can be soulbound again in the same slot or in other slots."
+
+		"soulbinder_library_button_title"	"Browse Library"
+		"soulbinder_library"		"Soul Library"
+		"soulbinder_library_loading"		"Loading Library..."
+
+		"soulbinder_library_helms"		"Helms"
+		"soulbinder_library_bodies"		"Chests"
+		"soulbinder_library_weapons"	"Weapons"
+		"soulbinder_library_gloves"		"Gloves"
+		"soulbinder_library_boots"		"Boots"
+		"soulbinder_library_trinkets"		"Trinkets"
+		"soulbinder_library_arcanas"		"Arcanas"
+
+	    //------------------------
 		// World
 		//------------------------
 
@@ -1906,7 +1950,9 @@
 
 		"star_wb_cavern_master_description"									"Clear all @dungeon_name chambers with an average clear level of @level as @heroname"
 
-
+		"star_wb_castle_description"									"Defeat @bossname on @mapname as @heroname on Normal Difficulty."
+		"star_wb_castle_description2"									"Defeat @bossname on @mapname as @heroname on Legend Difficulty."
+		"star_wb_castle_description3"									"Defeat @bossname on @mapname as @heroname on Legend Difficulty with 3 active Glacier Stones."
 
 		//SERENGAARD
 
@@ -4666,6 +4712,54 @@
     	"DOTA_Tooltip_ability_dinath_rune_w_4_arcana1_suffix"					""
     	"DOTA_Tooltip_ability_dinath_rune_w_4_arcana1_property_two"				"Chance to Acquire Additional Target"
     	"DOTA_Tooltip_ability_dinath_rune_w_4_arcana1_suffix_two"					"%"
+
+        //Arcana2
+        "DOTA_Tooltip_ability_item_rpc_dinath_arcana2"                      "Frost Wyrm Carapace"
+
+        "item_property_dinath_arcana2"                                      "Wrath of the Frost Wyrm"
+        "property_dinath_arcana2_description"                               "Replaces @Ability4 and all of its runes with Wrath of the Frost Wyrm."
+
+        "DOTA_Tooltip_ability_dinath_frost_wyrm"                       "Wrath of the Frost Wyrm"
+        "DOTA_Tooltip_ability_dinath_frost_wyrm_Description"           "Element: <font color=\"#3289C7\">Dragon</font> / <font color=\"#87D9FF\">Ice</font><br>After a 2 second channel, charge toward the cast point and elevate to max fly height. Dinath breathes Ice projectiles toward the Vector Target position that damage and slow enemies in the radius."
+        "DOTA_Tooltip_ability_dinath_frost_wyrm_damage_mult"               "% DAMAGE BASED ON ATTACK POWER:"
+        "DOTA_Tooltip_ability_dinath_frost_wyrm_cast_range"             "CAST RANGE:"
+        "DOTA_Tooltip_ability_dinath_frost_wyrm_cooldown"               "COOLDOWN:"
+        "DOTA_Tooltip_ability_dinath_frost_wyrm_projectile_range"               "PROJECTILE MAX RANGE:"
+        "DOTA_Tooltip_ability_dinath_frost_wyrm_projectile_count"               "PROJECTILE COUNT:"
+        "DOTA_Tooltip_ability_dinath_frost_wyrm_explode_radius"               "EXPLOSION RADIUS:"
+        "DOTA_Tooltip_ability_dinath_frost_wyrm_ms_slow"               "MOVESPEED SLOW:"
+        "DOTA_Tooltip_ability_dinath_frost_wyrm_as_slow"               "ATTACKSPEED SLOW:"
+        "DOTA_Tooltip_ability_dinath_frost_wyrm_slow_duration"               "SLOW DURATION:"
+
+        "DOTA_Tooltip_modifier_dinath_frost_wyrm_slow"                  "Wrath of the Frost Wyrm"
+        "DOTA_Tooltip_modifier_dinath_frost_wyrm_slow_Description"      "Slowed"
+
+
+        "DOTA_Tooltip_ability_dinath_rune_r_1_arcana2"                      "[R1] Dragon Reach"
+        "DOTA_Tooltip_ability_dinath_rune_r_1_arcana2_Description"          "Increases Wrath of the Frost Wyrm's cast range and the max projectile range."
+        "DOTA_Tooltip_ability_dinath_rune_r_1_arcana2_property_one"         "Cast Range"
+        "DOTA_Tooltip_ability_dinath_rune_r_1_arcana2_suffix"               ""
+        "DOTA_Tooltip_ability_dinath_rune_r_1_arcana2_property_two"         "Projectile Range"
+        "DOTA_Tooltip_ability_dinath_rune_r_1_arcana2_suffix_two"           ""
+
+        "DOTA_Tooltip_ability_dinath_rune_r_2_arcana2"                          "[R2] Devastation"
+        "DOTA_Tooltip_ability_dinath_rune_r_2_arcana2_Description"              "Increases the AOE radius of Frosty Wyrm explosions and further increases the damage based on attack power."
+        "DOTA_Tooltip_ability_dinath_rune_r_2_arcana2_property_one"             "Radius Increase"
+        "DOTA_Tooltip_ability_dinath_rune_r_2_arcana2_suffix"                   ""
+        "DOTA_Tooltip_ability_dinath_rune_r_2_arcana2_property_two"             "Additional Damage"
+        "DOTA_Tooltip_ability_dinath_rune_r_2_arcana2_suffix_two"               "% of Attack Power"
+
+        "DOTA_Tooltip_ability_dinath_rune_r_3_arcana2"                          "[R3] Volbeat"
+        "DOTA_Tooltip_ability_dinath_rune_r_3_arcana2_Description"              "Grants a chance to fire additional projectiles upon reaching the cast point."
+        "DOTA_Tooltip_ability_dinath_rune_r_3_arcana2_property_one"             "Additional Projectile Chance"
+        "DOTA_Tooltip_ability_dinath_rune_r_3_arcana2_suffix"                   "%"
+
+        "DOTA_Tooltip_ability_dinath_rune_r_4_arcana2"                          "[R4] Endless Wrath"
+        "DOTA_Tooltip_ability_dinath_rune_r_4_arcana2_Description"              "Reduces the cooldown and channel time of Wrath of the Frost Wyrm"
+        "DOTA_Tooltip_ability_dinath_rune_r_4_arcana2_property_one"             "Cooldown Reduction"
+        "DOTA_Tooltip_ability_dinath_rune_r_4_arcana2_suffix"                   " seconds"
+        "DOTA_Tooltip_ability_dinath_rune_r_4_arcana2_property_two"             "Channel Time Reduction"
+        "DOTA_Tooltip_ability_dinath_rune_r_4_arcana2_suffix_two"               " seconds"
 		
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_1_1"		"[T1-1] Glyph of Cryogenation"
@@ -5690,6 +5784,193 @@
 
     	"DOTA_Tooltip_modifier_black_dominion_shield"							"Gravekeeper Shield"
     	"DOTA_Tooltip_modifier_black_dominion_shield_Description"				"Absorbing Damage."
+
+        //ARCANA 2 - a
+
+        "DOTA_Tooltip_ability_item_rpc_ekkan_arcana2a"                      "Wretched Grasp of Cruxys"
+
+        "item_property_ekkan_arcana2a"                                       "Abyssal Reanimation (Poison)"
+        "property_ekkan_arcana2a_description"                                "Replaces @Ability2 and all of its runes with Summon Plaguebearer."
+
+        "DOTA_Tooltip_ability_ekkan_arcana2_plague_bearer"                        "Summon Plaguebearer"
+        "DOTA_Tooltip_ability_ekkan_arcana2_plague_bearer_Description"            "Element: <font color=\"#5C776E\">Undead</font> / <font color=\"#37DD3D\">Poison</font><br>Enemies that die within 1500 of Ekkan leave a pile of their bones at their point of death. Ekkan can target an area containing corpses to summon Plague Bearers that fight for him. Plaguebearers have a poison attack."
+        "DOTA_Tooltip_ability_ekkan_arcana2_plague_bearer_max_skeletons"          "MAX SKELETONS:"
+        "DOTA_Tooltip_ability_ekkan_arcana2_plague_bearer_skeleton_duration"      "SKELETON LIFE DURATION:"
+        "DOTA_Tooltip_ability_ekkan_arcana2_plague_bearer_armor_mult"             "SKELETON ARMOR AND MAGIC ARMOR MULTIPLE OF EKKAN'S:"
+        "DOTA_Tooltip_ability_ekkan_arcana2_plague_bearer_attack_mult"            "SKELETON ATTACK POWER MULTIPLE OF EKKAN'S:"
+        "DOTA_Tooltip_ability_ekkan_arcana2_plague_bearer_skeleton_health"        "% SKELETON HEALTH AS PERCENT OF EKKAN'S:"
+        "DOTA_Tooltip_ability_ekkan_arcana2_plague_bearer_poison_duration"        "POISON ATTACK DURATION:"
+        "DOTA_Tooltip_ability_ekkan_arcana2_plague_bearer_poison_damage_interval"          "POISON DAMAGE INTERVAL:"
+        "DOTA_Tooltip_ability_ekkan_arcana2_plague_bearer_poison_damage"          "POISON DAMAGE % OF SKELETON ATTACK POWER:" 
+
+        "DOTA_Tooltip_modifier_plaguebearer_basic_poison"                   "Plaguebearer Poison"
+        "DOTA_Tooltip_modifier_plaguebearer_basic_poison_Description"       "Taking damage every second"
+
+        "ekkan_plaguebearer"                                                        "Plaguebearer"
+
+        "DOTA_Tooltip_ability_ekkan_plaguebearer_passive"                   "Plaguebearer Attacks"
+        "DOTA_Tooltip_ability_ekkan_plaguebearer_passive_Description"       "Element: <font color=\"#5C776E\">Undead</font> / <font color=\"#37DD3D\">Poison</font><br>Attacks leave a poison effect that deals damage based on the Plaguebearer's Attack Power."   
+        "DOTA_Tooltip_ability_ekkan_plaguebearer_passive_poison_duration"        "POISON ATTACK DURATION:"
+        "DOTA_Tooltip_ability_ekkan_plaguebearer_passive_poison_damage_interval"          "POISON DAMAGE INTERVAL:"
+        "DOTA_Tooltip_ability_ekkan_plaguebearer_passive_poison_damage"          "POISON DAMAGE % ATTACK POWER:" 
+
+        "DOTA_Tooltip_ability_ekkan_rune_w_1_arcana2a"                               "[W1] Corrosive Armor"
+        "DOTA_Tooltip_ability_ekkan_rune_w_1_arcana2a_Description"                   "Enemies who attack a Plaguebearer are affected by an additional poison that deals damage every <font color='#ccff66'>1</font> second based on its armor."
+        "DOTA_Tooltip_ability_ekkan_rune_w_1_arcana2a_property_one"                  "Poison Duration"
+        "DOTA_Tooltip_ability_ekkan_rune_w_1_arcana2a_suffix"                        " seconds"
+        "DOTA_Tooltip_ability_ekkan_rune_w_1_arcana2a_property_two"                  "Poison Damage"
+        "DOTA_Tooltip_ability_ekkan_rune_w_1_arcana2a_suffix_two"                    "% of Plaguebearer's Armor"
+
+        "DOTA_Tooltip_modifier_plaguebearer_w_1_poison"                              "Corrosive Armor"
+        "DOTA_Tooltip_modifier_plaguebearer_w_1_poison_Description"                 "Taking Damage each second"  
+
+        "DOTA_Tooltip_ability_ekkan_rune_w_2_arcana2a"                               "[W2] Poison Cloud"
+        "DOTA_Tooltip_ability_ekkan_rune_w_2_arcana2a_Description"                   "A shroud of poison gas engulfs the Plaguebearers. Enemies within its <font color='#ccff66'>220</font> range are slowed and take damage every <font color='#ccff66'>0.5</font> seconds based on Plaguebearer's Max Health."
+        "DOTA_Tooltip_ability_ekkan_rune_w_2_arcana2a_property_one"                  "Poison Damage"
+        "DOTA_Tooltip_ability_ekkan_rune_w_2_arcana2a_suffix"                        "% of Max Health"
+        "DOTA_Tooltip_ability_ekkan_rune_w_2_arcana2a_property_two"                  "Movement Slow"
+        "DOTA_Tooltip_ability_ekkan_rune_w_2_arcana2a_suffix_two"                        ""
+
+        "DOTA_Tooltip_modifier_plaguebearer_rot_effect"                               "Poison Cloud"
+
+        "DOTA_Tooltip_ability_ekkan_rune_w_3_arcana2a"                               "[W3] Acid Pool"
+        "DOTA_Tooltip_ability_ekkan_rune_w_3_arcana2a_Description"                   "Plaguebearers have the ability to create <font color='#ccff66'>280</font> radius acid pools which deals damage every <font color='#ccff66'>1</font> second based on Plaguebearer's Armor Pierce. Enemies standing in the pools also have reduced Armor."
+        "DOTA_Tooltip_ability_ekkan_rune_w_3_arcana2a_property_one"                  "Poison Damage"
+        "DOTA_Tooltip_ability_ekkan_rune_w_3_arcana2a_suffix"                        "% of Plaguebearer's Armor Pierce"
+        "DOTA_Tooltip_ability_ekkan_rune_w_3_arcana2a_property_two"                  "Armor Reduction"
+        "DOTA_Tooltip_ability_ekkan_rune_w_3_arcana2a_suffix_two"                    ""
+
+        "DOTA_Tooltip_ability_ekkan_plaguebearer_poison_spray"                       "Acid Pool"
+        "DOTA_Tooltip_ability_ekkan_plaguebearer_poison_spray_Description"           "Element: <font color=\"#5C776E\">Undead</font> / <font color=\"#37DD3D\">Poison</font><br>Creates an area of poison that deals damage and reduces enemies' Armor and Magic Armor." 
+
+        "DOTA_Tooltip_plague_bearer_acid_spray_effect"                               "Acid Pool"
+
+        "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2a"                               "[W4] Endless Plague"
+        "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2a_Description"                   "Increases Plaguebearers' summon duration. Additionally enhances <font color=\"#5C776E\">Undead</font> and <font color=\"#37DD3D\">Poison</font> damage."
+        "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2a_property_one"                  "Plaguebearear Duration Increase"
+        "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2a_suffix"                        " seconds"
+        "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2a_property_two"                  "Undead and Poison Damage Amp"
+        "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2a_suffix_two"                    "%"
+
+        //ARCANA2 - b
+        "DOTA_Tooltip_ability_item_rpc_ekkan_arcana2b"                      "Wretched Grasp of Cruxys"
+
+        "item_property_ekkan_arcana2b"                                       "Abyssal Reanimation (Ice)"
+        "property_ekkan_arcana2b_description"                                "Replaces @Ability2 and all of its runes with Summon Frost Wraith."
+
+        "DOTA_Tooltip_ability_ekkan_arcana2_frost_wraith"                        "Summon Frost Wraith"
+        "DOTA_Tooltip_ability_ekkan_arcana2_frost_wraith_Description"            "Element: <font color=\"#5C776E\">Undead</font> / <font color=\"#87D9FF\">Ice</font><br>Enemies that die within 1500 of Ekkan leave a pile of their bones at their point of death. Ekkan can target an area containing corpses to summon Frost Wraiths that fight for him. Frost Wraiths have an ice attack that slows enemy attack and movespeed."
+        "DOTA_Tooltip_ability_ekkan_arcana2_frost_wraith_max_skeletons"          "MAX SKELETONS:"
+        "DOTA_Tooltip_ability_ekkan_arcana2_frost_wraith_skeleton_duration"      "SKELETON LIFE DURATION:"
+        "DOTA_Tooltip_ability_ekkan_arcana2_frost_wraith_armor_mult"             "SKELETON ARMOR AND MAGIC ARMOR MULTIPLE OF EKKAN'S:"
+        "DOTA_Tooltip_ability_ekkan_arcana2_frost_wraith_attack_mult"            "SKELETON ATTACK POWER MULTIPLE OF EKKAN'S:"
+        "DOTA_Tooltip_ability_ekkan_arcana2_frost_wraith_skeleton_health"        "% SKELETON HEALTH AS PERCENT OF EKKAN'S:"
+        "DOTA_Tooltip_ability_ekkan_arcana2_frost_wraith_cold_duration"        "COLD ATTACK DURATION:"
+        "DOTA_Tooltip_ability_ekkan_arcana2_frost_wraith_cold_ms_slow"          "COLD MOVESPEED SLOW:"
+        "DOTA_Tooltip_ability_ekkan_arcana2_frost_wraith_cold_as_slow"          "COLD ATTACKSPEED SLOW:" 
+
+        "DOTA_Tooltip_modifier_frost_wraith_basic_chilled"                   "Frost Wraith Chill"
+        "DOTA_Tooltip_modifier_frost_wraith_basic_chilled_Description"       "Slowed"
+
+        "ekkan_frost_wraith"                                                        "Frost Wraith"
+
+        "DOTA_Tooltip_ability_ekkan_frost_wraith_passive"                   "Frost Attacks"
+        "DOTA_Tooltip_ability_ekkan_frost_wraith_passive_Description"       "Attacks slow enemy movespeed and attack speed."  
+        "DOTA_Tooltip_ability_ekkan_frost_wraith_passive_cold_duration"        "COLD ATTACK DURATION:"
+        "DOTA_Tooltip_ability_ekkan_frost_wraith_passive_cold_ms_slow"          "COLD MOVESPEED SLOW:"
+        "DOTA_Tooltip_ability_ekkan_frost_wraith_passive_cold_as_slow"          "COLD ATTACKSPEED SLOW:" 
+
+        "DOTA_Tooltip_ability_ekkan_rune_w_1_arcana2b"                               "[W1] Ice Blast"
+        "DOTA_Tooltip_ability_ekkan_rune_w_1_arcana2b_Description"                   "Frost Wraith's have a <font color='#ccff66'>20</font>% chance on attack to damage and root enemies in a <font color='#ccff66'>320</font> range."
+        "DOTA_Tooltip_ability_ekkan_rune_w_1_arcana2b_property_one"                  "Root Duration"
+        "DOTA_Tooltip_ability_ekkan_rune_w_1_arcana2b_suffix"                        " seconds"
+        "DOTA_Tooltip_ability_ekkan_rune_w_1_arcana2b_property_two"                  "Ice Damage"
+        "DOTA_Tooltip_ability_ekkan_rune_w_1_arcana2b_suffix_two"                    "% of Frost Wraith's Magic Armor"
+
+        "DOTA_Tooltip_modifier_frost_wraith_w_1_root"                              "Ice Blast"
+        "DOTA_Tooltip_modifier_frost_wraith_w_1_root_Description"                 "Rooted"  
+
+        "DOTA_Tooltip_ability_ekkan_rune_w_2_arcana2b"                               "[W2] Icicle Spears"
+        "DOTA_Tooltip_ability_ekkan_rune_w_2_arcana2b_Description"                   "When Frost Wraiths take damage, there is a <font color='#ccff66'>12</font>% chance to throw <font color='#ccff66'>3</font> icicle spears at random targets within range. Enemies hit by Icicle Spears have Frost Wraith's basic slow applied to them."
+        "DOTA_Tooltip_ability_ekkan_rune_w_2_arcana2b_property_one"                  "Icicle Damage"
+        "DOTA_Tooltip_ability_ekkan_rune_w_2_arcana2b_suffix"                        "% of Frost Wraith's Attack Power"
+        "DOTA_Tooltip_ability_ekkan_rune_w_2_arcana2b_property_two"                  "Maximum Icicle Range"
+        "DOTA_Tooltip_ability_ekkan_rune_w_2_arcana2b_suffix_two"                    ""
+
+        "DOTA_Tooltip_ability_ekkan_rune_w_3_arcana2b"                               "[W3] Freezing Rain"
+        "DOTA_Tooltip_ability_ekkan_rune_w_3_arcana2b_Description"                   "Frost Wraiths have the ability to drop Freezing Rain on a <font color='#ccff66'>450</font> radius area which greatly slows movement speed for <font color='#ccff66'>5</font> seconds."
+        "DOTA_Tooltip_ability_ekkan_rune_w_3_arcana2b_property_one"                  "Damage"
+        "DOTA_Tooltip_ability_ekkan_rune_w_3_arcana2b_suffix"                        "% of Frost Wraith's Spell Pierce"
+        "DOTA_Tooltip_ability_ekkan_rune_w_3_arcana2b_property_two"                  "Movement Slow"
+        "DOTA_Tooltip_ability_ekkan_rune_w_3_arcana2b_suffix_two"                    "%"
+
+        "DOTA_Tooltip_ability_ekkan_frost_wraith_freezing_rain"                       "Freezing Rain"
+        "DOTA_Tooltip_ability_ekkan_frost_wraith_freezing_rain_Description"           "Element: <font color=\"#5C776E\">Undead</font> / <font color=\"#87D9FF\">Ice</font><br>Drops Freezing Rain on the target area, impacting enemies on a <font color='#ccff66'>0.35</font> second delay and slowing them for <font color='#ccff66'>5</font> seconds." 
+
+        "DOTA_Tooltip_frost_wraith_freezing_rain_effect"                               "Freezing Rain"
+        "DOTA_Tooltip_frost_wraith_freezing_rain_effect_Description"                   "Reduced movement speed"
+
+        "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2b"                               "[W4] Eternal Cold"
+        "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2b_Description"                   "Increases Frost Wraiths' summon duration. Additionally enhances <font color=\"#5C776E\">Undead</font> and <font color=\"#87D9FF\">Ice</font> damage."
+        "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2b_property_one"                  "Frost Wraith Duration Increase"
+        "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2b_suffix"                        " seconds"
+        "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2b_property_two"                  "Undead and Ice Damage Amp"
+        "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2b_suffix_two"                    "%"
+
+        //ARCANA2 - c
+        "DOTA_Tooltip_ability_item_rpc_ekkan_arcana2c"                      "Wretched Grasp of Cruxys"
+
+        "item_property_ekkan_arcana2c"                                       "Abyssal Reanimation (Fire)"
+        "property_ekkan_arcana2c_description"                                "Replaces @Ability2 and all of its runes with Summon Burning Legionnaire."
+
+        "DOTA_Tooltip_ability_ekkan_arcana2_burning_legionnaire"                        "Summon Burning Legionnaire"
+        "DOTA_Tooltip_ability_ekkan_arcana2_burning_legionnaire_Description"            "Element: <font color=\"#5C776E\">Undead</font> / <font color=\"#EF4126\">Fire</font><br>Enemies that die within 1500 of Ekkan leave a pile of their bones at their point of death. Ekkan can target an area containing corpses to summon Burning Legionnaires that fight for him. Burning Legionnaires have a fire attack that deals an additional instance of Pure damage."
+        "DOTA_Tooltip_ability_ekkan_arcana2_burning_legionnaire_max_skeletons"          "MAX SKELETONS:"
+        "DOTA_Tooltip_ability_ekkan_arcana2_burning_legionnaire_skeleton_duration"      "SKELETON LIFE DURATION:"
+        "DOTA_Tooltip_ability_ekkan_arcana2_burning_legionnaire_armor_mult"             "SKELETON ARMOR AND MAGIC ARMOR MULTIPLE OF EKKAN'S:"
+        "DOTA_Tooltip_ability_ekkan_arcana2_burning_legionnaire_attack_mult"            "SKELETON ATTACK POWER MULTIPLE OF EKKAN'S:"
+        "DOTA_Tooltip_ability_ekkan_arcana2_burning_legionnaire_skeleton_health"        "% SKELETON HEALTH AS PERCENT OF EKKAN'S:"
+        "DOTA_Tooltip_ability_ekkan_arcana2_burning_legionnaire_fire_damage"        "% FIRE ATTACK DAMAGE:"
+
+        "ekkan_burning_legionnaire"                                         "Burning Legionnaire"
+
+        "DOTA_Tooltip_ability_ekkan_burning_legionnaire_passive"                   "Burning Attacks"
+        "DOTA_Tooltip_ability_ekkan_burning_legionnaire_passive_Description"       "Attacks deal additional Pure damage."  
+        "DOTA_Tooltip_ability_ekkan_burning_legionnaire_passive_fire_damage"         "% FIRE ATTACK DAMAGE:"
+
+        "DOTA_Tooltip_ability_ekkan_rune_w_1_arcana2c"                               "[W1] Heat Frenzy"
+        "DOTA_Tooltip_ability_ekkan_rune_w_1_arcana2c_Description"                   "Burning Legionnaires gain permanent attack damage and attack speed from enemies who die within <font color='#ccff66'>1000</font> range."
+        "DOTA_Tooltip_ability_ekkan_rune_w_1_arcana2c_property_one"                  "Attack Damage per Stack"
+        "DOTA_Tooltip_ability_ekkan_rune_w_1_arcana2c_suffix"                        ""
+        "DOTA_Tooltip_ability_ekkan_rune_w_1_arcana2c_property_two"                  "Attack Speed per Stack"
+        "DOTA_Tooltip_ability_ekkan_rune_w_1_arcana2c_suffix_two"                    ""
+
+        "DOTA_Tooltip_modifier_burning_legionnaire_w_1_visible"                              "Heat Frenzy"
+        "DOTA_Tooltip_modifier_burning_legionnaire_w_1_visible_Description"                 "Permenantly increased Attack Damage and Attack Speed"  
+
+        "DOTA_Tooltip_ability_ekkan_rune_w_2_arcana2c"                               "[W2] Cloak of Flame"
+        "DOTA_Tooltip_ability_ekkan_rune_w_2_arcana2c_Description"                   "A Cloak of Flames surrounds Burning Legionnaires. Enemies within its <font color='#ccff66'>220</font> range take damage every <font color='#ccff66'>0.5</font> seconds based on Burning Legionnaire's Attack Damage. The flames also passively increase Burning Legionnaires' Armor."
+        "DOTA_Tooltip_ability_ekkan_rune_w_2_arcana2c_property_one"                  "Burn Damage"
+        "DOTA_Tooltip_ability_ekkan_rune_w_2_arcana2c_suffix"                        "% of Legionnaire Attack Power"
+        "DOTA_Tooltip_ability_ekkan_rune_w_2_arcana2c_property_two"                  "Bonus Armor"
+        "DOTA_Tooltip_ability_ekkan_rune_w_2_arcana2c_suffix_two"                    ""
+
+        "DOTA_Tooltip_ability_ekkan_rune_w_3_arcana2c"                               "[W3] Skeletal Mortar"
+        "DOTA_Tooltip_ability_ekkan_rune_w_3_arcana2c_Description"                   "Burning Legionnaires gain the ability to jump toward the target location and deal damage at the landing point in a <font color='#ccff66'>240</font> radius area."
+        "DOTA_Tooltip_ability_ekkan_rune_w_3_arcana2c_property_one"                  "Impact Damage"
+        "DOTA_Tooltip_ability_ekkan_rune_w_3_arcana2c_suffix"                        "% of Legionnaire Attack Power"
+        "DOTA_Tooltip_ability_ekkan_rune_w_3_arcana2c_property_two"                  "Maximum Jump Range"
+        "DOTA_Tooltip_ability_ekkan_rune_w_3_arcana2c_suffix_two"                    ""
+
+        "DOTA_Tooltip_ability_ekkan_burning_legionnaire_skeletal_mortar"                       "Skeletal Mortar"
+        "DOTA_Tooltip_ability_ekkan_burning_legionnaire_skeletal_mortar_Description"           "Element: <font color=\"#5C776E\">Undead</font> / <font color=\"#EF4126\">Fire</font><br>Jumps toward the target location and deals damage in <font color='#ccff66'>240</font> area." 
+
+        "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2c"                               "[W4] Enrapturing Flame"
+        "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2c_Description"                   "Increases Burning Legionnaires' summon duration. Additionally enhances <font color=\"#5C776E\">Undead</font> and <font color=\"#EF4126\">Fire</font> damage."
+        "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2c_property_one"                  "Burning Legionnaire Duration Increase"
+        "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2c_suffix"                        " seconds"
+        "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2c_property_two"                  "Undead and Fire Damage Amp"
+        "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2c_suffix_two"                    "%"
 		
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_1_1"		"[T1-1] Glyph of Undead Army"
@@ -9469,6 +9750,47 @@
     	"DOTA_Tooltip_ability_sephyr_rune_w_4_arcana1_Description"				"Increases all <font color=\"#7AE2A7\">Wind</font> damage."
     	"DOTA_Tooltip_ability_sephyr_rune_w_4_arcana1_property_one"				"Wind Damage Bonus"
     	"DOTA_Tooltip_ability_sephyr_rune_w_4_arcana1_suffix"					"% for every 10 points of Attributes"
+
+        //Arcana2
+        "DOTA_Tooltip_ability_item_rpc_sephyr_arcana2"                      "Unity Crown"
+
+        "item_property_sephyr_arcana2"                                      "Hurricane"
+        "property_sephyr_arcana2_description"                               "Replaces @Ability1 and all of its runes with Hurricane."
+
+        "DOTA_Tooltip_ability_sephyr_hurricane"                     "Hurricane"
+        "DOTA_Tooltip_ability_sephyr_hurricane_Description"         "Sephyr teleports to the target location and unleashes a hurricane around the cast point. Enemies caught in the hurricane are disarmed."
+        "DOTA_Tooltip_ability_sephyr_hurricane_disarm_duration"     "DISARM DURATION:"
+        "DOTA_Tooltip_ability_sephyr_hurricane_wind_range"             "WIND RANGE:"
+        "DOTA_Tooltip_ability_sephyr_hurricane_wind_speed"             "WIND SPEED:"
+        "DOTA_Tooltip_ability_sephyr_hurricane_cast_range_base"         "BASE CAST RANGE:"
+        "DOTA_Tooltip_ability_sephyr_hurricane_cooldown_base"         "BASE COOLDOWN:"
+
+        "DOTA_Tooltip_ability_sephyr_rune_q_1_arcana2"                      "[Q1] Concordia"
+        "DOTA_Tooltip_ability_sephyr_rune_q_1_arcana2_Description"          "Gain Movespeed, Max Movespeed and Agility for <font color='#ccff66'>10</font> seconds after casting hurricane. While the buff is active, regular attacks deal Magical <font color=\"#7AE2A7\">Wind</font> damage"
+        "DOTA_Tooltip_ability_sephyr_rune_q_1_arcana2_property_one"         "Movespeed and Max Movespeed Bonus"
+        "DOTA_Tooltip_ability_sephyr_rune_q_1_arcana2_suffix"               ""      
+        "DOTA_Tooltip_ability_sephyr_rune_q_1_arcana2_property_two"         "Agility Bonus"
+        "DOTA_Tooltip_ability_sephyr_rune_q_1_arcana2_suffix_two"           ""   
+
+        "DOTA_Tooltip_modifier_sephyr_hurricane_q1"                         "Concordia"
+        "DOTA_Tooltip_modifier_sephyr_hurricane_q1_Description"             "Increased Movespeed and Agility"
+
+        "DOTA_Tooltip_ability_sephyr_rune_q_2_arcana2"                          "[Q2] Squall"
+        "DOTA_Tooltip_ability_sephyr_rune_q_2_arcana2_Description"              "Increases Hurricane's Cast Range and reduces its cooldown."
+        "DOTA_Tooltip_ability_sephyr_rune_q_2_arcana2_property_one"             "Cast Range"
+        "DOTA_Tooltip_ability_sephyr_rune_q_2_arcana2_suffix"                   ""
+        "DOTA_Tooltip_ability_sephyr_rune_q_2_arcana2_property_two"             "Cooldown Reduction"
+        "DOTA_Tooltip_ability_sephyr_rune_q_2_arcana2_suffix_two"               " seconds"
+
+        "DOTA_Tooltip_ability_sephyr_rune_q_3_arcana2"                          "[Q3] Aero Storm"
+        "DOTA_Tooltip_ability_sephyr_rune_q_3_arcana2_Description"              "Regular attacks have a chance to split and hit additional enemies near their target."
+        "DOTA_Tooltip_ability_sephyr_rune_q_3_arcana2_property_one"             "Attack Split Chance"
+        "DOTA_Tooltip_ability_sephyr_rune_q_3_arcana2_suffix"                   "%"
+
+        "DOTA_Tooltip_ability_sephyr_rune_q_4_arcana2"                          "[Q4] Windforce"
+        "DOTA_Tooltip_ability_sephyr_rune_q_4_arcana2_Description"              "Agility increases Attack Power."
+        "DOTA_Tooltip_ability_sephyr_rune_q_4_arcana2_property_one"             "Attack Power Bonus"
+        "DOTA_Tooltip_ability_sephyr_rune_q_4_arcana2_suffix"                   "% per Agility"
 		
 		//Glyphs
 		
@@ -12731,8 +13053,63 @@
         "item_rpc_yasha_boots_sapphire1"                                        "Increases Movespeed by @sapphire_property1%"
         "item_rpc_yasha_boots_amethyst1"                                        "Each point of Strength increases Base Attack Damage by @amethyst_property1"
 
- 
-		
+        "DOTA_Tooltip_ability_item_rpc_justice_greaves"                                "Justice Greaves"
+
+        "item_property_justice_greaves"                    "Equity"
+        "property_justice_greaves_description"         "Armor, Magic Armor, Armor Pierce and Spell Pierce are increased by <font color='#ccff66'>20</font>% of the highest statted enemy within <font color='#ccff66'>750</font> range"
+
+        "item_rpc_justice_greaves_ruby1"                                        "Increases Strength by @ruby_property1 and Max Health by @ruby_property2"
+        "item_rpc_justice_greaves_emerald1"                                     "Damage taken from the front (<font color='#ccff66'>90</font> degree range) is reduced by @emerald_property1"
+        "item_rpc_justice_greaves_sapphire1"                                        "Increases the Stat Gain from highest statted nearby enemy by an additional @sapphire_property1%"
+        "item_rpc_justice_greaves_amethyst1"                                        "Increases the enemy search range by @amethyst_property1 and also works from enemies who are not visible"
+
+        "DOTA_Tooltip_ability_item_rpc_hangman_slippers"                                "Hangman Slippers"
+
+        "item_property_hangman_slippers"                    "Perspective Trick"
+        "property_hangman_slippers_description"         "Issuing an attack order makes your hero lob towards the target location. While travelling, you are disabled but completely invulnerable. Enemies within <font color='#ccff66'>280</font> range of the landing point are disarmed for <font color='#ccff66'>1.5</font> seconds. Cooldown of <font color='#ccff66'>3</font> seconds and Max Distance of <font color='#ccff66'>1200</font>. "
+
+        "item_rpc_hangman_slippers_ruby1"                                        "Increases the Maximum Distance by @ruby_property1 and the Disarm AOE by @ruby_property2"
+        "item_rpc_hangman_slippers_emerald1"                                     "Increases the Travel Speed by @emerald_property1%"
+        "item_rpc_hangman_slippers_sapphire1"                                        "Reduces the cooldown by @sapphire_property1 seconds"
+        "item_rpc_hangman_slippers_amethyst1"                                        "Increases the Disarm duration by @amethyst_property1"
+
+        "DOTA_Tooltip_ability_item_rpc_boots_of_temperance"                                "Boots of Temperance"
+
+        "item_property_boots_of_temperance"                    "Temperance"
+        "property_boots_of_temperance_description"         "Base Ability Damage bonus cannot exceed <font color='#ccff66'>0</font>%. All damage taken is reduced by <font color='#ccff66'>70</font>%."
+
+        "item_rpc_boots_of_temperance_ruby1"                                        "Reduces Attack Power bonus by @ruby_property1%. Increase Max Health by @ruby_property2 and Max Mana by @ruby_property3"
+        "item_rpc_boots_of_temperance_emerald1"                                     "Reduces Armor Pierce and Spell Pierce by @emerald_property1. Increase Armor and Magic Armor by @emerald_property2"
+        "item_rpc_boots_of_temperance_sapphire1"                                        "Issuing an attack order on an enemy within @sapphire_property1 range swaps position with them. Swapped enemies have @sapphire_property2% reduced movement speed for <font color='#ccff66'>3</font> seconds. <font color='#ccff66'>2</font> second cooldown."
+        "item_rpc_boots_of_temperance_amethyst1"                                        "Enemies who attack you have a @amethyst_property1% chance to be disarmed for <font color='#ccff66'>2.5</font> seconds"
+
+        "DOTA_Tooltip_modifier_temperance_disarm"                   "Disarmed"
+
+        "DOTA_Tooltip_modifier_temperance_sapphire_slow"            "Temperance (Sapphire)"
+        "DOTA_Tooltip_modifier_temperance_sapphire_slow_Description"    "Reduced movespeed"
+
+        "DOTA_Tooltip_ability_item_rpc_gravewalkers"                                "Gravewalkers"
+
+        "item_property_gravewalkers"                    "Skeletal Pomp"
+        "property_gravewalkers_description"         "Issuing a Stop or Hold Position order transforms you into a dancing skeleton for <font color='#ccff66'>5</font> seconds or until you move. At the time of transformation, enemies in a <font color='#ccff66'>500</font> range will de-aggro and walk <font color='#ccff66'>500</font> distance away from you. Other enemies will consider you harmless and won't attack you. Cannot attack or use spells while dancing. <font color='#ccff66'>12</font> second cooldown."
+
+        "item_rpc_gravewalkers_ruby1"                                        "Increases the maximum transformation duration by @ruby_property1, the walk way distance by @ruby_property2 and the de-aggro range by @ruby_property3"
+        "item_rpc_gravewalkers_emerald1"                                     "Issuing a move order while feigning as a dancing skeleton will case you to charge toward the target location in a cluster of bones. Travel speed is @emerald_property1 and max distance is @emerald_property2"
+        "item_rpc_gravewalkers_sapphire1"                                        "Reduces the cooldown by @sapphire_property1 seconds"
+        "item_rpc_gravewalkers_amethyst1"                                        "Reduces any stray damage that hits you as a dancing skeleton by @amethyst_property1%"
+
+        "DOTA_Tooltip_ability_item_rpc_dissimilation_greaves"                                "Dissimilation Greaves"
+
+        "item_property_dissimilation_greaves"                    "Dissimilate"
+        "property_dissimilation_greaves_description"         "Issuing a Stop or Hold position order hides the wearer for 2 seconds and creates 7 <font color='#ccff66'>275</font> radius portals near the cast point. Right clicking on a portal will activate it, teleporting the hero to that portal after the duration is over. Upon reappearing, deal <font color='#ccff66'>125</font>% of Attack Power as damage to enemies within the portal's radius, and slow their movespeed by <font color='#ccff66'>-50</font>% for <font color='#ccff66'>4</font> seconds. <font color='#ccff66'>6</font> second cooldown."
+
+        "item_rpc_dissimilation_greaves_ruby1"                                        "Increases the portal radius by @ruby_property1"
+        "item_rpc_dissimilation_greaves_emerald1"                                     "Increases Rune [E4] by @emerald_property1"
+        "item_rpc_dissimilation_greaves_sapphire1"                                        "Reduces the cooldown by @sapphire_property1 seconds"
+        "item_rpc_dissimilation_greaves_amethyst1"                                        "Increases the damage by an additional @amethyst_property1% of Attack Power and increases the slow duration by @amethyst_property2"
+
+        "DOTA_Tooltip_modifier_grey_domain_slow"            "Dissimilation"
+        "DOTA_Tooltip_modifier_grey_domain_slow_Description"    "Slowed"
 
 		"DOTA_Tooltip_ability_item_rpc_alien_armor"		"Alien Armor"
 		"property_alien_armor"							"Simulation"
@@ -13181,6 +13558,8 @@
 		"item_rpc_robe_of_the_erudite_teacher_emerald1"		"Reduces the apprentice's respawn time by @emerald_property1 seconds"
 		"item_rpc_robe_of_the_erudite_teacher_sapphire1"		"Increases the Apprentice's attack damage by an additional @sapphire_property1"
 		"item_rpc_robe_of_the_erudite_teacher_amethyst1"		"Increases Item Damage by @amethyst_property1%"
+		
+		"rubick_apprentice"									"Rubick Apprentice"
 
 		"DOTA_Tooltip_ability_apprentice_spell_steal_1"					"Spell Steal"
 		"DOTA_Tooltip_ability_apprentice_spell_steal_1_Description"		"Copies a random ability from the target dominatable enemy. The ability fails if the target has no copyable abilities, or if the Apprentice already knew the chosen ability."
@@ -13469,6 +13848,70 @@
 		"item_rpc_energizing_quest_gear_sapphire1"							"No effect"
 		"item_rpc_energizing_quest_gear_amethyst1"							"No effect"
 		
+
+		"DOTA_Tooltip_ability_item_rpc_plague_emperor_armor"							"Plague Emperor Armor"
+		"item_property_plague_emperor"												"Poison Globs"
+		"property_plague_emperor_description"										"Every <font color='#ccff66'>2</font> seconds, throw a Poison Glob at a random enemy within <font color='#ccff66'>1000</font> range. On impact, deal <font color='#ccff66'>100</font>% of attack power as damage in a <font color='#ccff66'>320</font> radius."
+		"item_rpc_plague_emperor_armor_ruby1"							"Increases <font color=\"#37DD3D\">Poison</font> Elemental Damage by @ruby_property1%, increases the projectile speed of Poison Globs by @ruby_property2, and reduces the delay between Poison Globs by @ruby_property3. "
+		"item_rpc_plague_emperor_armor_emerald1"							"Enemies in the impact radius are poisoned for <font color='#ccff66'>7</font> seconds, slowing attack speed by @emerald_property1 and taking @emerald_property2% of Attack Power as damage every <font color='#ccff66'>0.5</font> seconds."
+		"item_rpc_plague_emperor_armor_sapphire1"							"Casting [Q] throws @sapphire_property1 poison globs forward. Casting [R] throws @sapphire_property2 poison globs in all directions. Distance thrown is <font color='#ccff66'>500</font> or the distance between you and the closest enemy. Can only trigger <font color='#ccff66'>1</font> time per second."
+		"item_rpc_plague_emperor_armor_amethyst1"							"Poison Globs leave a pile of slime at the impact point that lasts for <font color='#ccff66'>5</font> seconds. Enemies standing inside have @amethyst_property1% reduced movespeed and take @amethyst_property2% of Attack Power as damage every <font color='#ccff66'>0.5</font> seconds"
+
+		"DOTA_Tooltip_modifier_plague_emperor_armor_emerald"					"Poison Glob"
+		"DOTA_Tooltip_modifier_plague_emperor_armor_emerald_Description"		"Reduced Attack Speed and taking damage"
+
+		"DOTA_Tooltip_ability_item_rpc_musty_crypt_armor"				"Musty Crypt Armor"
+		"item_property_musty_crypt_armor"				"Crypt Warrior"
+		"property_musty_crypt_armor_description"		"Casting @Ability1 transforms you into a melee skeleton warrior with <font color='#ccff66'>1000</font> Max Health. Any instance of damage taken while in Skeleton Form deals exactly <font color='#ccff66'>50</font> damage. While in skeleton form you cannot heal. Lasts <font color='#ccff66'>15</font> seconds or is removed when casting @Ability1 again."
+
+		"DOTA_Tooltip_modifier_musty_crypt_skeleton_transform"		"Crypt Warrior"
+		
+		"item_rpc_musty_crypt_armor_ruby1"									"Gain @ruby_property1 Attack Speed and @ruby_property2 movement speed while in skeleton form. Damage taken while in skeleton form is reduced by @ruby_property3"
+		"item_rpc_musty_crypt_armor_emerald1"									"Restore @emerald_property1 health in skeleton form every <font color='#ccff66'>0.1</font> seconds even while healing is disabled. While in Skeleton Form, each point of current health increases Base Attack Damage by @emerald_property2"
+		"item_rpc_musty_crypt_armor_sapphire1"									"Gain @sapphire_property1% increased attack power and @sapphire_property2 additional health while in skeleton form"
+		"item_rpc_musty_crypt_armor_amethyst1"									"Attacks in skeleton form leave a debuff on enemies for @amethyst_property1 seconds that makes them unable to heal. Attacks in skeleton form also restore @amethyst_property2 health, even when healing is disabled."
+
+		"DOTA_Tooltip_modifier_musty_crypt_amethyst_debuff"			"Crypt Warrior (Amethyst)"
+		"DOTA_Tooltip_modifier_musty_crypt_amethyst_debuff_Description"	"Healing Disabled"	
+
+
+		"DOTA_Tooltip_ability_item_rpc_spellcrafter_coat"		"Spellcrafter Coat"
+		"item_property_spellcrafter_coat"				"Custom Spell"
+		"property_spellcrafter_coat_description"		"Casting @Ability2 throws a <font color='#ccff66'>800</font> speed projectile towards the nearest enemy within <font color='#ccff66'>1000</font> range in front of the caster. The spell deals <font color='#ccff66'>60</font>% of Attack Power as Magical Damage."
+
+		"item_rpc_spellcrafter_coat_ruby1"									"Magic Spell deals <font color=\"#EF4126\">Fire</font> damage in a @ruby_property1 radius around the target. Magic Spell's damage is increased by @ruby_property2x Strength"
+		"item_rpc_spellcrafter_coat_emerald1"									"Magic Spell deals <font color=\"#7AE2A7\">Wind</font> damage and travels @emerald_property1 faster. Magic Spell's damage is increased by @emerald_property2x Agility"
+		"item_rpc_spellcrafter_coat_sapphire1"									"Magic Spell deals <font color=\"#87D9FF\">Ice</font> damage and the primary projectile fractures and hits up to @sapphire_property1 additional enemies within <font color='#ccff66'>600</font> range. Magic Spell's damage is increased by @sapphire_property2x Intelligence"
+		"item_rpc_spellcrafter_coat_amethyst1"									"Magic Spell deals  <font color=\"#E1A2E8\">Arcane</font> damage and the spell can bounce up to @amethyst_property1 times toward enemies within <font color='#ccff66'>600</font> range. Magic Spell's damage is increased by @amethyst_property2x Spirit"
+
+		"DOTA_Tooltip_ability_item_rpc_cloak_of_isolation"		"Cloak of Isolation"
+		"item_property_cloak_of_isolation"				"Isolation"
+		"property_cloak_of_isolation_description"		"Enemies within <font color='#ccff66'>600</font> range are pushed away with <font color='#ccff66'>16</font> force and have <font color='#ccff66'>-20</font>% reduced movespeed."
+
+		"item_rpc_cloak_of_isolation_ruby1"									"Increases isolation's range by @ruby_property1"
+		"item_rpc_cloak_of_isolation_emerald1"									"Increases isolation's push force by @emerald_property1%"
+		"item_rpc_cloak_of_isolation_sapphire1"									"Gain @sapphire_property1 Armor and Magic Armor while there are no enemies within <font color='#ccff66'>500</font> range"
+		"item_rpc_cloak_of_isolation_amethyst1"									"Issuing a stop order disjoints incoming projectiles and applies @amethyst_property1 seconds of persistent invisibility. <font color='#ccff66'>10</font> second cooldown"
+
+		"DOTA_Tooltip_ability_item_rpc_breastplate_of_abjudication"		"Breastplate of Abjudication"
+		"item_property_breastplate_of_abjudication"				"Judgement"
+		"property_breastplate_of_abjudication_description"		"When an enemy begins an attack on you, if their armor pierce is higher than your armor, gain bonus armor equal to <font color='#ccff66'>100</font>% of the difference between your armor and their armor pierce for <font color='#ccff66'>5</font> seconds."
+
+		"DOTA_Tooltip_modifier_abjudication_base_effect_armor"	"Judgement"
+		"DOTA_Tooltip_modifier_abjudication_base_effect_armor_Description"	"Increased Armor"
+
+		"item_rpc_breastplate_of_abjudication_ruby1"									"When beginning an attack on an enemy, if their armor is higher than your armor pierce, gain Armor Pierce equal to <font color='#ccff66'>100</font>% of the difference between your Armor Pierce and their Armor for @ruby_property1 seconds"
+		"item_rpc_breastplate_of_abjudication_emerald1"									"Increases the base effect's duration by @emerald_property1 seconds"
+		"item_rpc_breastplate_of_abjudication_sapphire1"									"Increases all attributes by @sapphire_property1%"
+		"item_rpc_breastplate_of_abjudication_amethyst1"									"After taking an instance of Magic or Pure damage, if the caster's Spell Pierce is higher than your Magic Armor, gain Magic Armor equal to <font color='#ccff66'>100</font>% of the difference between your Magic Armor and their Spell Pierce for @amethyst_property1 seconds"
+
+		"DOTA_Tooltip_modifier_abjudication_ruby_armor_pierce"	"Judgement (Ruby)"
+		"DOTA_Tooltip_modifier_abjudication_ruby_armor_pierce_Description"	"Increased Armor Pierce"
+
+		"DOTA_Tooltip_modifier_abjudication_amethyst_magic_armor" "Judgement (Amethyst)"
+		"DOTA_Tooltip_modifier_abjudication_amethyst_magic_armor_Description" "Increased Magic Armor"
+
+
 
     	"DOTA_Tooltip_ability_item_rpc_aquasteel_bracers"								"Aquasteel Bracers"
 		"item_property_aquasteel"								"Water Jet"
@@ -14052,6 +14495,91 @@
 		"item_rpc_swiftspike_bracer_sapphire1"			"Increases Max Movement Speed by @sapphire_property1"
 		"item_rpc_swiftspike_bracer_amethyst1"			"Increases Movement Speed by @amethyst_property1%"
 
+		"DOTA_Tooltip_ability_item_rpc_angelic_gloves_of_the_judiciary"			"Angelic Gloves of the Judiciary"
+
+		"item_property_angelic_gloves_of_the_judiciary"							"Divine Balance"
+		"property_angelic_gloves_of_the_judiciary_description"					"Each point of your lowest Attribute increases Base Ability Damage by <font color='#ccff66'>0.25</font>%."
+
+		"item_rpc_angelic_gloves_of_the_judiciary_ruby1"			"Restore @ruby_property1% of Max Health when attacked"
+		"item_rpc_angelic_gloves_of_the_judiciary_emerald1"			"Each point of Current Health increases Armor and Magic Armor by @emerald_property1"
+		"item_rpc_angelic_gloves_of_the_judiciary_sapphire1"			"Increases Intelligence and Spirit by @sapphire_property1"
+		"item_rpc_angelic_gloves_of_the_judiciary_amethyst1"			"All Attributes increase Max Health by @amethyst_property1"
+
+		"DOTA_Tooltip_ability_item_rpc_demonic_gloves_of_the_judiciary"			"Demonic Gloves of the Judiciary"
+
+		"item_property_demonic_gloves_of_the_judiciary"							"Infernal Balance"
+		"property_demonic_gloves_of_the_judiciary_description"					"Each point of your lowest Attribute increases Base Attack Damage by <font color='#ccff66'>5</font>."
+
+		"item_rpc_demonic_gloves_of_the_judiciary_ruby1"			"Restore @ruby_property1% of Max Health when landing an attack."
+		"item_rpc_demonic_gloves_of_the_judiciary_emerald1"			"Each point of Current Mana increases Armor Pierce and Spell Pierce by @emerald_property1"
+		"item_rpc_demonic_gloves_of_the_judiciary_sapphire1"			"Increases Strength and Agility by @sapphire_property1"
+		"item_rpc_demonic_gloves_of_the_judiciary_amethyst1"			"All Attributes increase Max Mana by @amethyst_property1"
+
+		"DOTA_Tooltip_ability_item_rpc_glove_of_the_hierophant"			"Glove of the Hierophant"
+
+		"item_property_glove_of_the_hierophant"							"Spirit Snap"
+		"property_glove_of_the_hierophant_description"					"Whenever you are heal yourself or an ally, deal <font color='#ccff66'>100</font>% of the heal amount as pure damage in <font color='#ccff66'>400</font> radius around the heal target. Can trigger a maximum of <font color='#ccff66'>5</font> times per second."
+
+		"DOTA_Tooltip_modifier_glove_of_the_hierophant_sapphire_blind"	"Spirit Snap (Sapphire)"
+		"DOTA_Tooltip_modifier_glove_of_the_hierophant_sapphire_blind_Description"	"Reduced Accuracy"
+
+		"DOTA_Tooltip_modifier_glove_of_the_hierophant_spirit_buff"	"Spirit Snap (Amethyst)"
+		"DOTA_Tooltip_modifier_glove_of_the_hierophant_spirit_buff_Description"	"Increased Spirit"
+
+		"item_rpc_glove_of_the_hierophant_ruby1"			"Increases the potency of your healing effects by @ruby_property1%"
+		"item_rpc_glove_of_the_hierophant_emerald1"			"Increases the damage radius by @emerald_property1"
+		"item_rpc_glove_of_the_hierophant_sapphire1"			"Spirit Snap reduces nearby enemy accuracy by @sapphire_property1% for <font color='#ccff66'>0.6</font> seconds and its damage is increased by @sapphire_property2x your Spirit"
+		"item_rpc_glove_of_the_hierophant_amethyst1"			"When you heal yourself or an ally, the heal target gains a buff that increases spirit by @amethyst_property1 for <font color='#ccff66'>30</font> seconds"
+
+		"DOTA_Tooltip_ability_item_rpc_zombiegrip_gauntlet"			"Zombiegrip Gauntlet"
+
+		"item_property_zombiegrip_gauntlet"							"Zombie Wall"
+		"property_zombiegrip_gauntlet_description"					"Casting @Ability1 summons an impassible wall made up of <font color='#ccff66'>5</font> zombies perpendicular to the caster. Enemies standing within <font color='#ccff66'>260</font> range near the wall are attacked by the zombies. Zombies have Attack Power based on <font color='#ccff66'>100</font>% of the caster's Attack Power. Zombies die after <font color='#ccff66'>6</font> attacks or <font color='#ccff66'>12</font> seconds. Zomibe Wall has a <font color='#ccff66'>3</font> second cooldown, and creating a wall while another wall exists kills all other zombies."
+
+		"item_rpc_zombiegrip_gauntlet_ruby1"			"Increases Undead Elemental damage by @ruby_property1%, zombies have @ruby_property2 increased Attack Speed and @ruby_property3% additional attack damage."
+		"item_rpc_zombiegrip_gauntlet_emerald1"			"When a Zombie dies it explodes and deals @emerald_property1% of Attack Power in a <font color='#ccff66'>300</font> radius. The explosion leaves a puddle of acid that deals @emerald_property2% of attack power every 0.5 seconds and lowers armor by @emerald_property3. The puddle lasts for <font color='#ccff66'>7</font> seconds"
+		"item_rpc_zombiegrip_gauntlet_sapphire1"			"Summon @sapphire_property1 additonal zombies. Zombies last for @sapphire_property2 seconds more and take an additional @sapphire_property3 attacks to destroy"
+		"item_rpc_zombiegrip_gauntlet_amethyst1"			"Zombies are surrounded in a poison cloud that slows nearby enemies' attack speed within <font color='#ccff66'>260</font> range by @amethyst_property1 and movement speed by @amethyst_property2"
+
+		"DOTA_Tooltip_modifier_zombiegrip_standing_in_acid_pile"	"Zombie Wall Acid"
+		"DOTA_Tooltip_modifier_zombiegrip_standing_in_acid_pile_Description"	"Armor Reduced and taking damage"
+
+		"DOTA_Tooltip_modifier_zombiegrip_in_poison_cloud"			"Zombie Wall Poison Cloud"
+		"DOTA_Tooltip_modifier_zombiegrip_in_poison_cloud_Description"	"Reduced Attackspeed and Movespeed"
+
+		"DOTA_Tooltip_ability_item_rpc_stonebreaker_gauntlet"			"Stonebreaker Gauntlet"
+
+		"item_property_stonebreaker_gauntlet"							"Stonebreaker"
+		"property_stonebreaker_gauntlet_description"					"Issuing an attack order on an enemy within <font color='#ccff66'>1000</font> range throws a rock that deals <font color='#ccff66'>100</font>% of Attack Power + <font color='#ccff66'>5</font>x Strength on impact. The boulder also stuns for <font color='#ccff66'>1.5</font> seconds. <font color='#ccff66'>2.5</font> second cooldown."
+
+		"item_rpc_stonebreaker_gauntlet_ruby1"			"When you land an attack or hit an enemy with a boulder, gain @ruby_property1 strength for <font color='#ccff66'>1</font> second"
+		"item_rpc_stonebreaker_gauntlet_emerald1"			"On impact, the rock crumbles into @emerald_property1 additional boulders that will target the nearest enemies within <font color='#ccff66'>600</font> range from the original target. Also increases the stun duration by @emerald_property2 seconds"
+		"item_rpc_stonebreaker_gauntlet_sapphire1"			"Each point of Strength increases Bonus Attack Power by @sapphire_property1%"
+		"item_rpc_stonebreaker_gauntlet_amethyst1"			"While channeling [R], throw a boulder at a random enemy within <font color='#ccff66'>900</font> range every @amethyst_property1 seconds"
+
+		"DOTA_Tooltip_modifier_stonebreaker_ruby"			"Stonebreaker (Ruby)"
+		"DOTA_Tooltip_modifier_stonebreaker_ruby_Description"	"Increased Strength"
+
+		"DOTA_Tooltip_ability_item_rpc_exodia_gloves"			"Exodia Gloves"
+
+		"item_property_exodia_gloves"							"Nebular Comet"
+		"property_exodia_gloves_description"					"Attacks deal an additional instance of magic damage based on <font color='#ccff66'>50</font>% of attack power. The effect splits and hits up to 2 additional enemies within <font color='#ccff66'>500</font> range, and each of those will split and hit up to 2 more enemies within range."
+
+		"item_rpc_exodia_gloves_ruby1"			"@ruby_property1% chance for the original impact to split a 3rd time"
+		"item_rpc_exodia_gloves_emerald1"			"Each 1% of missing mana increases attack power by @emerald_property1%"
+		"item_rpc_exodia_gloves_sapphire1"			"Increases the damage against the initial target by @sapphire_property1%"
+		"item_rpc_exodia_gloves_amethyst1"			"Increases the enemy search range for split attacks by @amethyst_property1 and increases the projectile speed by @amethyst_property2%"
+
+		"DOTA_Tooltip_ability_item_rpc_world_commander_gloves"			"World Commander Gloves"
+
+		"item_property_world_commander_gloves"							"Universal Might"
+		"property_world_commander_gloves_description"					"Each point of Armor Pierce and Spell Pierce increase Attack Power by <font color='#ccff66'>0.01</font>%"
+
+		"item_rpc_world_commander_gloves_ruby1"				"Increases [Q4] Rune by @ruby_property1"
+		"item_rpc_world_commander_gloves_emerald1"			"Increases [E4] Rune by @emerald_property1"
+		"item_rpc_world_commander_gloves_sapphire1"			"Increases [W4] Rune by @sapphire_property1"
+		"item_rpc_world_commander_gloves_amethyst1"			"Increases [R4] Rune by @amethyst_property1"
+
     	"DOTA_Tooltip_ability_item_rpc_adamantine_samurai_helmet"						"Adamantine Samurai Helmet"
 		"item_property_samurai_helmet"				"Critical Strike"
 		"property_samurai_helmet_description"		"Your attacks have a <font color='#ccff66'>20</font>% chance to deal <font color='#ccff66'>300</font>% increased damage."
@@ -14525,7 +15053,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_mask_of_tyrius"									"Mask of Tyrius"
 		"item_property_tyrius"						"Might of Tyrius"
-		"property_tyrius_description"				"Each point of Strength additionally increases max health by <font color='#ccff66'>12</font> and max mana by <font color='#ccff66'>2</font>."
+		"property_tyrius_description"				"Each point of Strength additionally increases max health by <font color='#ccff66'>20</font> and max mana by <font color='#ccff66'>2</font>."
 
 		"item_rpc_mask_of_tyrius_ruby1"		"Increases Max Health per Strength by an additional @ruby_property1"
 		"item_rpc_mask_of_tyrius_emerald1"	"Increases Base Attack Damage per Strength by @emerald_property1"
@@ -14778,6 +15306,59 @@
 		"item_rpc_wraith_hunters_steel_helm_emerald1"	"Each point of Agility increases Spell Pierce by @emerald_property1"
 		"item_rpc_wraith_hunters_steel_helm_sapphire1" 	"Increases Armor Pierce by @sapphire_property1"
 		"item_rpc_wraith_hunters_steel_helm_amethyst1" 	"Each point of Spirit increases Spell Pierce by @amethyst_property1"	
+
+    	"DOTA_Tooltip_ability_item_rpc_shadowguard_helm"						"Shadowguard Helm"
+		"item_property_shadowguard_helm"						"Mind Block"
+		"property_shadowguard_helm_description"				"When an enemy begins an attack on you, throw a <font color='#ccff66'>1000</font> speed projectile toward the attacker. On impact, deal <font color='#ccff66'>30</font>% of attack power as damage and disarm the target for <font color='#ccff66'>2</font> seconds. Can trigger a maximum of <font color='#ccff66'>10</font> times per second."
+
+		"item_rpc_shadowguard_helm_ruby1"		"Increases the impact damage by an additional @ruby_property1% of attack power and increases the maximum procs per second by @ruby_property2"
+		"item_rpc_shadowguard_helm_emerald1"	"Increases the projectile travel speed by @emerald_property1"
+		"item_rpc_shadowguard_helm_sapphire1" 	"Increases the disarm duration by @sapphire_property1 seconds"
+		"item_rpc_shadowguard_helm_amethyst1" 	"Enemies affected by the disarm additionally have @amethyst_property1 reduced Magic Armor and Spell Pierce"
+
+    	"DOTA_Tooltip_ability_item_rpc_sun_gods_visage"						"Sun God's Visage"
+		"item_property_sun_gods_visage"						"Burning Rejuvenation"
+		"property_sun_gods_visage_description"				"Lose <font color='#ccff66'>7</font>% of current health and heal <font color='#ccff66'>5</font>% of missing health every <font color='#ccff66'>0.3</font> seconds."
+
+		"item_rpc_sun_gods_visage_ruby1"		"Increases the health drain and heal by an additional @ruby_property1%"
+		"item_rpc_sun_gods_visage_emerald1"	"Gain @emerald_property1 Agility and Spirit while between <font color='#ccff66'>40</font>% and <font color='#ccff66'>60</font>% health"
+		"item_rpc_sun_gods_visage_sapphire1" 	"Each point of current health increases Magic Armor by @sapphire_property1, and each point of missing health increases Spell Pierce by @sapphire_property2"
+		"item_rpc_sun_gods_visage_amethyst1" 	"Increases Max Health by @amethyst_property1 and <font color=\"#EF4126\">Fire</font> Elemental Damage by @amethyst_property2%"
+
+    	"DOTA_Tooltip_ability_item_rpc_cloak_of_the_cimmerian_priesthood"						"Cloak of the Cimmerian Priesthood"
+		"item_property_cloak_of_the_cimmerian_priesthood"						"Shadow Priest"
+		"property_cloak_of_the_cimmerian_priesthood_description"				"Attacks deal an additional instance of Magical <font color=\'#7F4F84\'>Shadow</font>/<font color=\'#F6FFB5\'>Holy</font> damage based on <font color='#ccff66'>10</font>% of target's current health, and heals you for <font color='#ccff66'>10</font>% of the base damage."
+
+		"item_rpc_cloak_of_the_cimmerian_priesthood_ruby1"		"Enemies hit by [Q] take <font color='#ccff66'>100</font>% of the original damage every @ruby_property1 seconds for @ruby_property2 seconds"
+		"item_rpc_cloak_of_the_cimmerian_priesthood_emerald1"	"Enemies hit by [W] heal nearby allies within <font color='#ccff66'>360</font> range for @emerald_property1% of base damage"
+		"item_rpc_cloak_of_the_cimmerian_priesthood_sapphire1" 	"Casting [E] applies a shield that absorbs @sapphire_property1% of Max Health. Shield lasts <font color='#ccff66'>15</font> seconds"
+		"item_rpc_cloak_of_the_cimmerian_priesthood_amethyst1" 	"Casting [R] fears all enemies in <font color='#ccff66'>900</font> radius for @amethyst_property1 seconds"
+
+		"DOTA_Tooltip_modifier_cimmerian_priest_q_dot"			"Shadow Priest (Ruby)"
+
+		"DOTA_Tooltip_modifier_cimmerian_priest_e_shield"		"Shadow Priest (Sapphire)"
+		"DOTA_Tooltip_modifier_cimmerian_priest_e_shield_Description"	"Absorbing Damage"
+
+    	"DOTA_Tooltip_ability_item_rpc_iron_tower_barbute"						"Iron Tower Barbute"
+		"item_property_iron_tower_barbute"						"Iron Tower"
+		"property_iron_tower_barbute_description"				"Issuing a Stop or Hold Position order adds <font color='#ccff66'>12</font> strength per hero level. Moving ends the effect."
+
+		"DOTA_Tooltip_modifier_iron_tower_effect"				"Iron Tower"
+		"DOTA_Tooltip_modifier_iron_tower_effect_Description"	"Increased Strength"
+
+		"item_rpc_iron_tower_barbute_ruby1"		"While Iron Tower is active, each point of Strength provides an additional @ruby_property1 Armor and Armor Pierce"
+		"item_rpc_iron_tower_barbute_emerald1"	"On death, place your respawn flag at your current position. @emerald_property1 second cooldown"
+		"item_rpc_iron_tower_barbute_sapphire1" 	"When there are <font color='#ccff66'>4</font> enemies (or 1 boss) within <font color='#ccff66'>360</font> range, gain @sapphire_property1% increased attack power."
+		"item_rpc_iron_tower_barbute_amethyst1" 	"Iron Tower effect sticks for @amethyst_property1 seconds after moving"
+
+    	"DOTA_Tooltip_ability_item_rpc_lich_kings_gaze"						"Lich King's Gaze"
+		"item_property_lich_kings_gaze"						"Frost Wrath"
+		"property_lich_kings_gaze_description"				"Targets up to <font color='#ccff66'>5</font> enemies within a <font color='#ccff66'>700</font> length <font color='#ccff66'>60</font>° cone in front of the wearer every <font color='#ccff66'>1.2</font> seconds. Struck targets take <font color='#ccff66'>30</font>% of attack power as damage and have their movespeed slowed by <font color='#ccff66'>-25</font>% for <font color='#ccff66'>3</font> seconds."
+
+		"item_rpc_lich_kings_gaze_ruby1"		"Increases the cone length by @ruby_property1 and range by @ruby_property2°"
+		"item_rpc_lich_kings_gaze_emerald1"	"Reduces the interval in between Frost Wrath attacks by @emerald_property1 seconds"
+		"item_rpc_lich_kings_gaze_sapphire1" 	"Increases the max targets by @sapphire_property1"
+		"item_rpc_lich_kings_gaze_amethyst1" 	"If only 1 enemy is within Frost Wrath's range, target that enemy with @amethyst_property1 additional Frost Wrath attacks"
 
         "DOTA_Tooltip_ability_item_rpc_aeriths_tear"                                    "Aerith's Tear"
 
@@ -15211,7 +15792,7 @@
 
         "DOTA_Tooltip_ability_item_rpc_puzzlers_locket"             "Puzzler's Locket"
         "item_property_puzzler"                                     "Anagram"
-        "property_puzzler_description"                              "Tier 2 rune bonuses provided by equipment are swapped with Tier 3 rune bonuses."
+        "property_puzzler_description"                              "Tier 2 rune bonuses provided by equipment are swapped with Tier 3 rune bonuses. Tier 2 bonuses are reduced by 50%, and Tier 3 bonuses are increased by 100%"
 
         "item_rpc_puzzlers_locket_ruby1"                "Increases Rune [Q2] by @ruby_property1"
         "item_rpc_puzzlers_locket_emerald1"             "Increases Rune [E2] by @emerald_property1"
@@ -15227,6 +15808,15 @@
         "item_rpc_raven_idol_emerald1"                                      "Healing effects that are applied to you are @emerald_property1% less effective. Increase Base Ability Damage by @emerald_property2% and Attack Power by @emerald_property3"
         "item_rpc_raven_idol_sapphire1"                                     "Reduces Spirit by @sapphire_property1 and increases Strength by @sapphire_property2"
         "item_rpc_raven_idol_amethyst1"                                     "Increases Item and <font color=\"#7F4F84\">Shadow</font> Elemental Damage by @amethyst_property1%"
+
+        "DOTA_Tooltip_ability_item_rpc_ring_of_mysteries"             "Ring of Mysteries"
+        "item_property_ring_of_mysteries"                                     "Resplendence"
+        "property_ring_of_mysteries_description"                              "Your 3 lowest Tier 1 or Tier 2 runes are increased by a bonus of +<font color='#ccff66'>30</font>."
+
+        "item_rpc_ring_of_mysteries_ruby1"                "Your lowest Tier 3 rune is increased by a bonus of +@ruby_property1"
+        "item_rpc_ring_of_mysteries_emerald1"             "The rune bonus for the 3 lowest Tier 1 or Tier 2 runes is increased by an additional +@emerald_property1"
+        "item_rpc_ring_of_mysteries_sapphire1"                "Your lowest Tier 4 rune is increased by a bonus of +@sapphire_property1"
+        "item_rpc_ring_of_mysteries_amethyst1"                "Each rune level increases Spirit by @amethyst_property1"
 
         "DOTA_Tooltip_ability_item_rpc_ring_of_nobility"                                "Ring of Nobility"
         "item_rpc_ring_of_nobility_ruby1"                               "When this ring upgrades, upgrade this Ruby to Tier @ruby_property1, which will increase all Tier 1 runes by @ruby_property2."
@@ -15427,12 +16017,6 @@
         "item_rpc_world_trees_flower_cache_emerald1"                        "Reduces New Bloom's Cooldown by @emerald_property1 seconds"
         "item_rpc_world_trees_flower_cache_sapphire1"                       "Increases New Bloom's buff duration by @sapphire_property1 seconds"
         "item_rpc_world_trees_flower_cache_amethyst1"                       "Increases Item and <font color=\"#69BC71\">Nature</font> Elemental Damage by @amethyst_property1%"
-        
-		
-	
-		
-		
-
 		
 		"DOTA_Tooltip_ability_item_rpc_sparkling_sea_crystal"					"Sparkling Sea Crystal"	
 		"item_rpc_sparkling_sea_crystal_ruby1"					"No Effect"
@@ -15443,12 +16027,68 @@
 		"property_sea_crystal_Description"									"Casting @Ability4 summons a permanent Giga Ocean Elemental, gifted with @special_property1% of your total attack power and immense knockback with each attack. Casting @Ability4 again will re-summon or replace your existing Elemental."
 
 
+	   "DOTA_Tooltip_ability_item_rpc_moon_shard"                              "Moon Shard"
+
+        "item_property_moon_shard"                  "Lumos Celerity"
+        "property_moon_shard_description"           "Each 1% of missing mana reduces all cooldowns by <font color='#ccff66'>0.7</font>%."
+
+        "item_rpc_moon_shard_ruby1"                             "Gain @ruby_property1 attack speed for each 1% of missing mana."
+        "item_rpc_moon_shard_emerald1"                              "Gain @emerald_property1 movespeed and max movespeed for each 1% of current mana."
+        "item_rpc_moon_shard_sapphire1"                             "Every @sapphire_property1 seconds, gain a buff that makes your next spell cast have 100% reduced cooldown."
+        "DOTA_Tooltip_modifier_moon_shard_sapphire"                 "Lumos Celerity (Sapphire)"
+        "DOTA_Tooltip_modifier_moon_shard_sapphire_Description"     "Next spell cast has 100% reduced cooldown" 
+        "item_rpc_moon_shard_amethyst1"                             "Travelling <font color='#ccff66'>500</font> distance throws up to @amethyst_property1 icicles at the nearest enemies within <font color='#ccff66'>800</font> range. Deals @amethyst_property2 damage for each point of Max Mana."
 	
-	
-		
+       "DOTA_Tooltip_ability_item_rpc_horn_of_the_triumphant"                              "Horn of the Triumphant"
+
+        "item_property_horn_of_the_triumphant"                  "Bastion"
+        "property_horn_of_the_triumphant_description"           "Issuing a Hold Position order places a <font color='#ccff66'>160</font> size area at your position that buffs up to 1 single ally or weakens 1 single enemy that is standing inside. If an ally or the wearer activates a Bastion, they gain <font color='#ccff66'>75</font>% attack power and take <font color='#ccff66'>50</font>% reduced damage from all sources. If an enemy activates a Bastion, they are rooted and pulled to the center. Bastions do not expire and they cannot stack. You can have up to <font color='#ccff66'>12</font> bastions active at a time."
+
+        "DOTA_Tooltip_modifier_horn_of_triumphant_inside_bastion_friendly"  "Bastion"
+        "DOTA_Tooltip_modifier_horn_of_triumphant_inside_bastion_friendly_Description"  "Gaining attack power and damage resistance"
 
 
+        "DOTA_Tooltip_modifier_horn_of_triumphant_inside_bastion_enemy"  "Bastion"
+        "DOTA_Tooltip_modifier_horn_of_triumphant_inside_bastion_enemy_Description"  "Rooted"
 
+        "item_rpc_horn_of_the_triumphant_ruby1"                             "Enemies standing in a Bastion lose @ruby_property1 Armor Pierce and Spell Pierce and have @ruby_property2 reduced attack range"
+        "item_rpc_horn_of_the_triumphant_emerald1"                              "Allies standing in a Bastion are healed by @emerald_property1% of their Max Health every <font color='#ccff66'>0.3</font> seconds"
+        "item_rpc_horn_of_the_triumphant_sapphire1"                             "Allies standing in a Bastion have @sapphire_property1% increased Max Health"
+        "item_rpc_horn_of_the_triumphant_amethyst1"                             "Allies standing in a Bastion gain @amethyst_property1 Armor and Magic Armor. Enemies standing in a Bastion lose @amethyst_property2 Armor and Magic Armor."
+
+       "DOTA_Tooltip_ability_item_rpc_mortuary_charm"                              "Mortuary Charm"
+
+        "item_property_mortuary_charm"                  "Exsufflation"
+        "property_mortuary_charm_description"           "<font color='#ccff66'>3</font> ghosts follow you and attack enemies within <font color='#ccff66'>650</font> range. When attacked, enemies take <font color='#ccff66'>30</font>% of the owner's Attack Power as damage and are paralyzed for <font color='#ccff66'>0.2</font> seconds."
+
+       "DOTA_Tooltip_modifier_mortuary_paralyze"        "Exsufflation"
+       "DOTA_Tooltip_modifier_mortuary_paralyze_Description"    "Paralyzed"
+
+        "item_rpc_mortuary_charm_ruby1"                             "Gain @ruby_property1 additional ghosts"
+        "item_rpc_mortuary_charm_emerald1"                              "Increases ghosts attack range by @emerald_property1"
+        "item_rpc_mortuary_charm_sapphire1"                             "Gain @sapphire_property1 additional ghosts"
+        "item_rpc_mortuary_charm_amethyst1"                             "Ghost attacks have a @amethyst_property1% chance to bounce and hit an additional target. Subsequent hits also have the same chance to bounce"
+
+
+       "DOTA_Tooltip_ability_item_rpc_baphomets_cursed_necklace"                              "Baphomet's Cursed Necklace"
+
+        "item_property_baphomets_cursed_necklace"                  "Ruin"
+        "property_baphomets_cursed_necklace_description"           "When you cast @Ability4, refresh its cooldown and gain a buff that makes its next cast not require a channel. <font color='#ccff66'>12</font> second cooldown."
+
+        "item_rpc_baphomets_cursed_necklace_ruby1"                                 "All attributes increase Base Attack Damage by @ruby_property1"
+        "item_rpc_baphomets_cursed_necklace_emerald1"                              "Reduces the cooldown by @emerald_property1 seconds"
+        "item_rpc_baphomets_cursed_necklace_sapphire1"                             "@sapphire_property1% chance when landing an attack to gain the Ruin effect"
+        "item_rpc_baphomets_cursed_necklace_amethyst1"                             "Gain @amethyst_property1% increased Attack power while Ruin is active"
+
+       "DOTA_Tooltip_ability_item_rpc_monarch_ring"                              "Monarch Ring"
+
+        "item_property_monarch_ring"                  "Attribute Supremacy"
+        "property_monarch_ring_description"           "Rune Bonuses from gear increase stats instead of runes. [Q] Runes increase Strength, [W] Runes increase Agility, [E] Runes increase Intelligence, and [R] Runes increase Spirit. T1 and T2 runes increase the attribute by <font color='#ccff66'>10</font>, T3 by <font color='#ccff66'>20</font> and T4 by <font color='#ccff66'>40</font>"
+
+        "item_rpc_monarch_ring_ruby1"                                 "Increases Strength bonus from runes by @ruby_property1%"
+        "item_rpc_monarch_ring_emerald1"                              "Increases Agility bonus from runes by @emerald_property1%"
+        "item_rpc_monarch_ring_sapphire1"                             "Increases Intelligence bonus from runes by @sapphire_property1%"
+        "item_rpc_monarch_ring_amethyst1"                             "Increases Spirit bonus from runes by @amethyst_property1%"
 
 		//Tier 1
 
@@ -20890,6 +21530,8 @@
 		"DOTA_Tooltip_ability_winterblight_soulfire_storm_Description"	"Creates waves of soul piercing ice at the target location. Enemies who are affected take damage over time. Casting an ability or being hit by a wave adds an additional stack. Damage is multiplied by the stack count."
 		"DOTA_Tooltip_ability_winterblight_soulfire_storm_wave_damage"	"IMPACT DAMAGE:"
 		"DOTA_Tooltip_ability_winterblight_soulfire_storm_burn_damage"	"DOT DAMAGE:"
+		"DOTA_Tooltip_ability_winterblight_soulfire_storm_max_stacks"	"MAX STACKS:"
+		"DOTA_Tooltip_ability_winterblight_soulfire_storm_tick_rate"	"TICK RATE, SECONDS:"
 		
 		"DOTA_Tooltip_modifier_cold_seer_wave_burn"				"Soulfrost"
 		"DOTA_Tooltip_modifier_cold_seer_wave_burn_Description"	"Taking damage over time. Casting an ability increases the stack count."
@@ -21900,9 +22542,670 @@
 		"cavern_ui_completed"										"Complete"	
 		"cavern_ui_no_record"										"No Record"	
 
-		//MOUNTAIN ASCENT
+		//MOUNTAIN ASCENT + CASTLE UNITS
 
-		//CASTLE
+		"winterblight_snowvil_brute"								"Snowvil Brute"
+		"winterblight_mountain_tree"								"Aggressive Pine"
+		"winterblight_snowvil_shaman"			"Snowvil Shaman"
+		"winterblight_snowvil_chieftain"		"Snowvil Chieftain"
+		"winterblight_composed_rubble"			"Composed Rubble"
+		"winterblight_owl_sentry"			"Winterblight Owl Sentry"
+		"winterblight_haunter"				"Haunter"
+		"winterblight_hinterlands_guardian"		"Hinterlands Guardian"
+		"winterblight_demonoid"				"Winterblight Demonoid"
+		"winterblight_yozario"				"Yazario"
+		"winterblight_mountain_tombstone"		"Winterblight Mountain Tombstone"
+		"winterblight_snowvil_bloodeater"		"Snowvil Bloodeater"
+		"winterblight_frozen_soul"			"Frozen Soul"
+		"winterblight_wraithguard"			"Wraithguard"
+		"winterblight_wraithguard_elite"		"Wraithguard Elite"
+		"winterblight_grave_ghost"			"Grave Ghost"
+		"winterblight_frozen_phantom"			"Frozen Phantom"
+		"winterblight_frozen_cage"			"Frozen Cage"
+		"winterblight_frozen_mage"			"Frozen Mage"
+		"winterblight_skeleton_archer"			"Winterblight Skeleton Archer"
+		"winterblight_defiler"				"Defiler"
+		"winterblight_baron_moredi"			"Baron Moredi"
+		"winterblight_lich_king_sonder"			"Lich King Sonder"
+		"winterblight_wrath_queen_asyria"		"Wrath Queen Asyria"
+		"winterblight_accursed"				"Accursed"
+		"winterblight_mountain_spirit"			"Mountain Spirit"
+		"winterblight_ancient_mountain_spirit"		"Ancient Mountain Spirit"
+		"winterblight_soul_fletcher"			"Soul Fletcher"
+		"winterblight_black_gargoyle"			"Winterblight Black Gargoyle"
+		"winterblight_draugr"				"Winterblight Draugr"
+		"winterblight_diviner_horus"			"Diviner Horus"
+		"winterblight_castle_warrior"			"Castle Warrior"
+		"winterblight_castle_watchman"			"Castle Watchman"
+		"winterblight_skull_ripper"			"Skull Ripper"
+		"winterblight_suffering_spirit"			"Suffering Spirit"
+		"winterblight_elite_ghoul"			"Elite Ghoul"
+		"winterblight_elite_castle_warrior"		"Elite Castle Warrior"
+		"winterblight_cellar_spider_mother"		"Broodmother"
+		"winterblight_spider_egg_sack"			"Egg Sack"
+		"winterblight_egg_spider"			"Venomous Spider"
+		"winterblight_invading_spider"			"Invading Spider"
+		"winterblight_ice_harbor_mini_boss"		"Winterblight Frost Wyrm"
+		"winterblight_spike_trap"			"Spike Trap"
+		"winterblight_ground_blade"			"Spiral Blade"
+		"winterblight_corrupted_corpse"			"Corrupted Corpse"
+		"winterblight_bloodripper"			"Bloodripper"
+		"winterblight_torturer"				"Vicious Torturor"
+		"winterblight_ghost_pirate"			"Winterblight Ghost Pirate"
+		"winterblight_castle_shadow_of_saturn"		"Shadow of Saturn"
+		"winterblight_saturn_zealot"			"Saturn Zealot"
+		"winterblight_slime_goblin"			"Slime Goblin"
+		"winterblight_fallen_one"			"Fallen One"
+		"winterblight_armory_rock"			"Armory Rock"
+		"winterblight_sun_rubble"			"Solar Rubble"
+		"winterblight_ice_bear"				"Boreal Ursan"
+		"winterblight_gold_fanatic"			"Winterblight Gold Fanatic"
+		"winterblight_treasure_room_tower"		"Golden Tower"
+		"winterblight_treasure_zombie"			"Treasure Zombie"
+		"winterblight_treasure_chest"			"Treasure Chest"
+		"winterblight_castle_graviton"			"Graviton"
+		"winterblight_moon_warden"			"Moon Warden"
+		"winterblight_blue_slime_monster"		"Blue Slime Manifest"
+		"winterblight_slime_zombie"			"Slime Zombie"
+		"winterblight_castle_boss"			"Lich King Cruxys"
+		"winterblight_castle_boss_surrogate"		"Cruxys"
+		"winterblight_castle_boss_surrogate_hanged"	"Flipped Avatar of Cruxys"
+		"winterblight_haunt_magician"			"Winterblight Haunt Magician"
+		"winterblight_red_magician"			"Winterblight Red Magician"
+		"winterblight_green_magician"			"Winterblight Green Magician"
+		"winterblight_blue_magician"			"Winterblight Blue Magician"
+		"winterblight_shadow_priestess"			"Shadow Priestess"
+		"winter_castle_faceless_empress"		"Faceless Empress"
+		"winterblight_emperors_servant"			"Emperor's Servant"
+		"winterblight_slime_emperor"			"Slime Emperor"
+		"winterblight_necro_knight"			"Necromancer Knight"
+		"winterblight_lovers_heart_path"		"Lovers"
+		"winterblight_dual_drake"			"Dual Drake"
+		"winterblight_galren"				"Galren"
+		"winterblight_elyna"				"Elyna"
+		"winterblight_serpent_nachash"			"Serpent Nakhash"
+		"winterblight_castle_strength_spine_drake"	"Mighty Spine Drake"
+		"winterblight_lost_gladiator"			"Lost Gladiator"
+		"winterblight_hermit_eye"			"Hermit's Eye"
+		"winterblight_castle_hermit_hoodling"		"Hoodling"
+		"winterblight_castle_elite_hermit_hoodling"	"Elite Hoodling"
+		"winterblight_lonely_hermit"			"Lonely Hermit"
+		"winterblight_shadow_wanderer"			"Shadow Wanderer"
+		"winterblight_blue_goo_gunman"			"Ghost Hunter Keenes"
+		"winterblight_castle_justice_angel"		"Angel of Justice"
+		"winterblight_castle_justice_demon"		"Demon of Justice"
+		"winterblight_castle_justice_arch_angel_matheus" "Arch-Angel Matheus"
+		"winterblight_castle_justice_arch_demon_hellmouth"	"Arch-Demon Hellmouth"
+		"winterblight_castle_justice_balance"		"Avatar of Balance"
+		"winterblight_hanging_slayer"			"Hanging Slayer"
+		"winterblight_water_bearer"			"Winterblight Water Bearer"
+		"winterblight_winterblight_devil_watcher"	"Devil Watcher"
+		"winterblight_winterblight_devil_warrior"	"Devil Warrior"
+		"winterblight_winterblight_elite_devil_warrior"	"Elite Devil Warrior"
+		"winterblight_devil_baphomet"			"Baphomet"
+		"winterblight_bloody_faceripper"		"Bloody Faceripper"
+		"winterblight_star_watcher"			"Star Gazer"
+		"winterblight_lumos_king"			"Lumos King"
+		"winterblight_castle_werewolf"			"Winterblight Castle Werewolf"
+		"winterblight_elite_castle_werewolf"		"Winterblight Elite Castle Werewolf"
+		"winterblight_temple_sun_crow"			"Temple Sun Crow"
+		"winterblight_heat_fletcher"			"Heat Fletcher"
+		"winterblight_elite_heat_fletcher"		"Elite Heat Fletcher"
+		"winterblight_iron_sun_warrior"			"Iron Sun Warrior"
+		"winterblight_aspect_of_solos"			"Aspect of Solos"
+		"winterblight_judgement_fallen"			"Fallen"
+		"winterblight_judgement_judge"			"Judge Berethar"
+		"winterblight_world_commander_vorethrex"	"World Commander Vorethrex"
+		"winterblight_paragon_of_judgement"		"Paragon of Judgement"
+		"winterblight_high_priest_xelethar"		"High Priest Xelethar"
+		"winterblight_bishop_of_hades"			"Bishop of Hades"
+		"winterblight_castle_star_miniboss"		"Countess of Exodia"
+		"winterblight_empress_emasz"			"Empress Emasz"
+
+		//MOUNTAIN ASCENT + CASTLE ABILITIES
+
+		"DOTA_Tooltip_ability_winterblight_mountain_rubble_ice_burst"	"Rubble Ice Burst"
+		"DOTA_Tooltip_ability_winterblight_mountain_rubble_ice_burst_Description"	"After a 0.8 second channel time, unleash a burst of ice that damage, slows and stuns enemies in the radius"
+		"DOTA_Tooltip_ability_winterblight_mountain_rubble_ice_burst_stun_duration"	"STUN DURATION:"
+		"DOTA_Tooltip_ability_winterblight_mountain_rubble_ice_burst_damage"		"DAMAGE:"
+		"DOTA_Tooltip_ability_winterblight_mountain_rubble_ice_burst_as_slow"		"ATTACK SPEED SLOW:"
+		"DOTA_Tooltip_ability_winterblight_mountain_rubble_ice_burst_ms_slow"		"MOVESPEED SLOW:"
+
+		"DOTA_Tooltip_modifier_mountain_rubble_slow"					"Ice Burst Slow"
+
+		"DOTA_Tooltip_ability_winterblight_owl_sentry_passive"				"Winterblight Sentry"
+		"DOTA_Tooltip_ability_winterblight_owl_sentry_passive_Description"		"Scouting for Trespassers"
+
+		"DOTA_Tooltip_ability_winterblight_ice_lance"				"Winterblight Ice Lance"
+		"DOTA_Tooltip_ability_winterblight_ice_lance_Description"		"Throws a frosty projectile at the target location that deals damage on impact"
+		"DOTA_Tooltip_ability_winterblight_ice_lance_damage"			"DAMAGE:"
+
+		"DOTA_Tooltip_modifier_ice_lance_cold"						"Ice Lance Cold"
+
+		"DOTA_Tooltip_ability_winterblight_demonoid_passive"			"Ardent Hunter"
+		"DOTA_Tooltip_ability_winterblight_demonoid_passive_Description"	"Passively increases Attack Power"
+		"DOTA_Tooltip_ability_winterblight_demonoid_passive_attack_power_bonus"	"% ATTACK POWER BONUS:"
+
+		"DOTA_Tooltip_modifier_demonoid_passive"					"Ardent Hunter"
+		"DOTA_Tooltip_modifier_demonoid_passive_Description"		"Increased Attack Power"
+
+		"DOTA_Tooltip_ability_winterblight_glint_of_onu"			"Onu Technique"
+		"DOTA_Tooltip_ability_winterblight_glint_of_onu_Description"		"Attacks have a chance to teleport behind the target enemy and gain bonus attack speed for a short duration."
+		"DOTA_Tooltip_ability_winterblight_glint_of_onu_attack_speed_bonus"		"ATTACK SPEED BONUS:"
+		"DOTA_Tooltip_ability_winterblight_glint_of_onu_proc_chance"		"PROC CHANCE:"
+
+		"DOTA_Tooltip_ability_mountain_tombstone_ability"			"Horrifying Screams"
+		"DOTA_Tooltip_ability_mountain_tombstone_ability_Description"		"The Tombstone writhes in pain"
+		"DOTA_Tooltip_ability_mountain_tombstone_ability_petrify_duration"	"PETRIFY DURATION:"
+		"DOTA_Tooltip_ability_mountain_tombstone_ability_damage"		"SCREAM DAMAGE:"
+
+		"DOTA_Tooltip_modifier_looking_at_tombstone_stacks"			"Empty Stare"
+
+		"DOTA_Tooltip_ability_winterblight_wraithfire_blast"			"Wraithfire Bullet"
+		"DOTA_Tooltip_ability_winterblight_wraithfire_blast_Description"	"Throws a ghastly skull toward the target location. The impacted target is stunned"
+		"DOTA_Tooltip_ability_winterblight_wraithfire_blast_range"		"RANGE:"
+		"DOTA_Tooltip_ability_winterblight_wraithfire_blast_damage"		"DAMAGE:"
+		"DOTA_Tooltip_ability_winterblight_wraithfire_blast_stun_duration"	"STUN DURATION:"
+
+		"DOTA_Tooltip_modifier_hellfire_burn"							"Wraithfire Burn"
+
+		"DOTA_Tooltip_ability_winterblight_winterblight_ghost_blink"			"Ghost Blink"
+		"DOTA_Tooltip_ability_winterblight_winterblight_ghost_blink_Description"	"Teleports to target location"
+
+		"DOTA_Tooltip_ability_winterblight_defiler_passive"			"Defile"
+		"DOTA_Tooltip_ability_winterblight_defiler_passive_Description"	"Attacks leave a stacking debuff on enemies that lower their attack damage. Also adds stacks of a buff to the caster which adds attack damage."
+		"DOTA_Tooltip_ability_winterblight_defiler_passive_max_stacks"		"MAX STACKS:"
+		"DOTA_Tooltip_ability_winterblight_defiler_passive_duration"		"DEFILE DURATION:"
+		"DOTA_Tooltip_ability_winterblight_defiler_passive_damage_gain_per_stack"	"% DAMAGE GAIN PER STACK (SELF):"
+		"DOTA_Tooltip_ability_winterblight_defiler_passive_damage_loss_per_stack"	"% DAMAGE LOSS PER STACK (ENEMY):"
+
+		"DOTA_Tooltip_modifier_defiler_attack_power_gain"				"Defile"
+		"DOTA_Tooltip_modifier_defiler_attack_power_gain_Description"	"Increased Attack Power"
+
+		"DOTA_Tooltip_modifier_defiler_attack_power_drain"				"Defile"
+		"DOTA_Tooltip_modifier_defiler_attack_power_drain_Description"	"Reduced Attack Power"
+
+		"DOTA_Tooltip_ability_winter_grave_ghost_spark"			"Ghost Spark"
+		"DOTA_Tooltip_ability_winter_grave_ghost_spark_Description"	"Throws haunting sparks in all directions that damage and paralyze enemies."
+		"DOTA_Tooltip_ability_winter_grave_ghost_spark_base_damage"		"DAMAGE:"
+		"DOTA_Tooltip_ability_winter_grave_ghost_spark_paralyze_duration"		"PARALYZE DURATION:"
+
+		"DOTA_Tooltip_ability_winterblight_asyria_passive"					"Midnight Huntress"
+		"DOTA_Tooltip_ability_winterblight_asyria_passive_Description"		"When performing an attack, shoot additional arrow forward that deal AOE damage and slow."
+		"DOTA_Tooltip_ability_winterblight_asyria_passive_base_damage"		"ARROW BASE DAMAGE:"
+		"DOTA_Tooltip_ability_winterblight_asyria_passive_percent_attack_power"	"% ADDITIONAL ARROW DAMAGE AS % OF ATTACK POWER:"
+		"DOTA_Tooltip_ability_winterblight_asyria_passive_movespeed_slow"	"MOVESPEED SLOW:"
+		"DOTA_Tooltip_ability_winterblight_asyria_passive_movespeed_slow_duration"	"SLOW DURATION:"
+		"DOTA_Tooltip_ability_winterblight_asyria_passive_number_of_arrows"	"NUMBER OF ARROWS:"
+
+		"DOTA_Tooltip_modifier_asyria_arrow_slow"						"Chilled"
+
+		"DOTA_Tooltip_ability_winterblight_accursed_passive"			"Execration"
+		"DOTA_Tooltip_ability_winterblight_accursed_passive_Description"	"Attacks deal bonus pure damage and root. Also passively provides HP regen."
+		"DOTA_Tooltip_ability_winterblight_accursed_passive_bonus_pure_damage"		"BONUS PURE DAMAGE:"
+		"DOTA_Tooltip_ability_winterblight_accursed_passive_root_duration"			"ROOT DURATION:"
+		"DOTA_Tooltip_ability_winterblight_accursed_passive_health_regen_pct"		"% HEALTH REGEN:"
+
+		"DOTA_Tooltip_modifier_accursed_effect"							"Execration"
+		"DOTA_Tooltip_modifier_accursed_effect_Description"				"Rooted"		
+
+		"DOTA_Tooltip_ability_winterblight_life_drain"					"Siphon Life"
+		"DOTA_Tooltip_ability_winterblight_life_drain_Description"		"Latches on to all enemies in range, slowing them and draining HP"
+		"DOTA_Tooltip_ability_winterblight_life_drain_life_drain"		"LIFE DRAIN:"
+		"DOTA_Tooltip_ability_winterblight_life_drain_life_drain_heal_mult"	"HEAL MULTIPLIER OF DAMAGE DEALT:"
+		"DOTA_Tooltip_ability_winterblight_life_drain_life_movement_slow"	"% MOVEMENT SLOW:"
+
+		"DOTA_Tooltip_modifier_life_drain_effect"						"Siphon Life"
+
+		"DOTA_Tooltip_ability_winterblight_reincarnation"				"Reincarnation"
+		"DOTA_Tooltip_ability_winterblight_reincarnation_Description"	"Respawns after a short delay. Does not activate while on Cooldown."	
+		"DOTA_Tooltip_ability_winterblight_reincarnation_respawn_delay"	"RESPAWN DELAY:"
+
+		"DOTA_Tooltip_ability_winterblight_reaper_swipe"				"Reaper Swipe"
+		"DOTA_Tooltip_ability_winterblight_reaper_swipe_Description"	"Attacks summon a Grim Reaper that deals additional pure damage based on attack power and the target's Max Health"
+		"DOTA_Tooltip_ability_winterblight_reaper_swipe_damage_pct_atk_power"	"% DAMAGE % OF ATTACK POWER:"
+		"DOTA_Tooltip_ability_winterblight_reaper_swipe_damage_pct_max_healthr"	"% DAAMGE % OF TARGET MAX HEALTH:"
+
+		"DOTA_Tooltip_ability_elite_ghoul_ai"							"Spark Throw"
+		"DOTA_Tooltip_ability_elite_ghoul_ai_Description"				"A ghastly spark damages and stuns impacted enemies"
+		"DOTA_Tooltip_ability_elite_ghoul_ai_base_damage"				"DAMAGE:"
+		"DOTA_Tooltip_ability_elite_ghoul_ai_base_paralyze_duration"	"PARALYZE_DURATION:"
+
+		"DOTA_Tooltip_ability_winterblight_venomous_bite"				"Venomous Bite"
+		"DOTA_Tooltip_ability_winterblight_venomous_bite_Description"	"Attacks leave a stacking poison debuff that deals damage and slows movement speed"	
+		"DOTA_Tooltip_ability_winterblight_venomous_bite_damage_per_tick_per_stack"	"DAMAGE PER STACK:"
+		"DOTA_Tooltip_ability_winterblight_venomous_bite_move_slow_per_stack"		"% MOVEMENT SLOW PER STACK:"
+		"DOTA_Tooltip_ability_winterblight_venomous_bite_max_stacks"			"MAX STACKS:"
+		"DOTA_Tooltip_ability_winterblight_venomous_bite_duration"				"DURATION:"
+		"DOTA_Tooltip_ability_winterblight_venomous_bite_damage_interval"		"DAMAGE INTERVAL:"
+
+		"DOTA_Tooltip_modifier_winterblight_venomous_bite_effect"		"Venomous Bite"
+		"DOTA_Tooltip_modifier_winterblight_venomous_bite_effect_Description"	"Taking poison damage and slowed"
+
+		"DOTA_Tooltip_winterblight_egg_sack_ability"					"Egg Sack"
+		"DOTA_Tooltip_winterblight_egg_sack_ability_Description"		"Full of Spiders"
+
+		"DOTA_Tooltip_ability_winterblight_frost_wyrm_passive"			"Frost Breath"
+		"DOTA_Tooltip_ability_winterblight_frost_wyrm_passive_Description"	"Attacks deal additional pure damage in an area and slow enemies"
+		"DOTA_Tooltip_ability_winterblight_frost_wyrm_passive_damage"		"DAMAGE:"
+		"DOTA_Tooltip_ability_winterblight_frost_wyrm_passive_ms_loss"		"MOVESPEED LOSS:"
+
+		"DOTA_Tooltip_ability_winterblight_soulfire_storm_big"			"Mega Soulfire Storm"
+		"DOTA_Tooltip_ability_winterblight_soulfire_storm_big_Description"	"Covers a large area in Soulfire Storms that deal impact damage and leave a burning debuff."
+		"DOTA_Tooltip_ability_winterblight_soulfire_storm_big_wave_damage"	"WAVE DAMAGE:"
+		"DOTA_Tooltip_ability_winterblight_soulfire_storm_big_burn_damage"	"BURN DAMAGE:"
+
+		"DOTA_Tooltip_ability_winterblight_spike_trap_passive"			"Spike Trap"
+		"DOTA_Tooltip_ability_winterblight_spike_trap_passive_Description"	"Enemies caught by the Spike trap take massive Pure Damage"
+		"DOTA_Tooltip_ability_winterblight_spike_trap_passive_damage_base"		"BASE DAMAGE:"
+		"DOTA_Tooltip_ability_winterblight_spike_trap_passive_damage_pct_max_health"	"% DAMAGE % OF TARGET MAX HEALTH:"
+
+		"DOTA_Tooltip_ability_winterblight_torturor_passive"			"Rend"
+		"DOTA_Tooltip_ability_winterblight_torturor_passive_Description"	"Attacking an enemy leaves a bleeding debuff for 3.5 seconds."
+		"DOTA_Tooltip_ability_winterblight_torturor_passive_bleed_damage"	"BLEED DAMAGE:"
+
+		"DOTA_Tooltip_ability_winterblight_chilling_bite_aura"			"Chilling Bite Aura"
+		"DOTA_Tooltip_ability_winterblight_chilling_bite_aura_Description"	"Enemies within the range are targetted by icicles that deal damage and slow on impact."
+		"DOTA_Tooltip_ability_winterblight_chilling_bite_aura_as_loss"		"ATTACK SPEED SLOW:"
+		"DOTA_Tooltip_ability_winterblight_chilling_bite_aura_ms_loss"		"MOVESPEED SLOW:"
+		"DOTA_Tooltip_ability_winterblight_chilling_bite_aura_aoe_radius"	"AURA RADIUS:"
+		"DOTA_Tooltip_ability_winterblight_chilling_bite_aura_dmg_pct_atk_power"	"% DAMAGE AS % OF ATTACK POWER:"
+		"DOTA_Tooltip_ability_winterblight_chilling_bite_aura_slow_duration"	"SLOW DURATION:"
+
+		"DOTA_Tooltip_modifier_winterblight_chilling_bite_aura_chilled"		"Chilling Bite"
+
+		"DOTA_Tooltip_ability_winterblight_rot"			"Rot"
+		"DOTA_Tooltip_ability_winterblight_rot_Description"	"Nearby enemies are slowed by poisonous gasses."
+		"DOTA_Tooltip_ability_winterblight_rot_as_loss"		"ATTACK SPEED SLOW:"
+		"DOTA_Tooltip_ability_winterblight_rot_ms_loss"		"MOVESPEED SLOW:"
+		"DOTA_Tooltip_ability_winterblight_rot_aoe_radius"	"ROT RADIUS:"
+		"DOTA_Tooltip_ability_winterblight_rot_dps"	"DAMAGE PER SECOND:"
+
+		"DOTA_Tooltip_modifier_rot_effect"				"Rot"
+
+		"DOTA_Tooltip_ability_winterblight_shield_block"	"Shield Block"
+		"DOTA_Tooltip_ability_winterblight_shield_block_Description"	"Damage taken from the front is greatly reduced."
+		"DOTA_Tooltip_ability_winterblight_shield_block_front_damage_block"	"% DAMAGE BLOCK:"
+
+		"DOTA_Tooltip_modifier_shield_block"				"Shield Block"
+		"DOTA_Tooltip_modifier_shield_block_Description"	"Blocking Damage from the front"
+
+		"DOTA_Tooltip_ability_winterblight_ice_bear_passive"	"Rabid"
+		"DOTA_Tooltip_ability_winterblight_ice_bear_passive_Description"	"Landing an attack provides a stacking temporary buff that increases Base Attack Damage and Attack Speed."
+		"DOTA_Tooltip_ability_winterblight_ice_bear_passive_duration"		"BUFF DURATION:"
+		"DOTA_Tooltip_ability_winterblight_ice_bear_passive_max_stacks"		"MAX STACKS:"
+		"DOTA_Tooltip_ability_winterblight_ice_bear_passive_base_attack_per_stack"	"BASE ATTACK DAMAGE PER STACK:"
+		"DOTA_Tooltip_ability_winterblight_ice_bear_passive_bonus_as_per_stack"		"ATTACK SPEED PER STACK:"
+
+		"DOTA_Tooltip_modifier_ice_bear_attack_buff"			"Rabid"
+		"DOTA_Tooltip_modifier_ice_bear_attack_buff_Description"	"Increased Base Attack damage and Attack Speed"
+
+		"DOTA_Tooltip_ability_winterblight_moon_warden_passive"		"Lunar Cascade"
+		"DOTA_Tooltip_ability_winterblight_moon_warden_passive_Description"	"Areas around the caster pop, silencing and damaging enemies within"
+		"DOTA_Tooltip_ability_winterblight_moon_warden_passive_damage"		"DAMAGE:"	
+		"DOTA_Tooltip_ability_winterblight_moon_warden_passive_silence_duration"	"SILENCE DURATION:"	
+
+		"DOTA_Tooltip_ability_blue_slimeling_passive"				"Slime Thrower"
+		"DOTA_Tooltip_ability_blue_slimeling_passive_Description"	"Attacks deal AOE magic damage and apply a sticky slow debuff"	
+		"DOTA_Tooltip_ability_blue_slimeling_passive_attack_speed_loss" 	"ATTACK SPEED SLOW:"
+		"DOTA_Tooltip_ability_blue_slimeling_passive_movespeed_loss"			"MOVESPEED SLOW:"
+		"DOTA_Tooltip_ability_blue_slimeling_passive_bonus_aoe_magic_damage"	"AOE MAGIC DAMAGE:"
+		"DOTA_Tooltip_ability_blue_slimeling_passive_sticky_duration"			"STICKY DURATION:"
+
+		"DOTA_Tooltip_modifier_sticky_blue"							"Sticky Blue Slime"
+		"DOTA_Tooltip_modifier_sticky_blue_Description"				"Slowed"	
+
+		"DOTA_Tooltip_ability_blue_slime_ghoul_passive"				"Slime Slapper"
+		"DOTA_Tooltip_ability_blue_slime_ghoul_passive_Description"	"Attacks deal AOE magic damage and apply a sticky slow debuff"	
+		"DOTA_Tooltip_ability_blue_slime_ghoul_passive_attack_speed_loss" 	"ATTACK SPEED SLOW:"
+		"DOTA_Tooltip_ability_blue_slime_ghoul_passive_movespeed_loss"			"MOVESPEED SLOW:"
+		"DOTA_Tooltip_ability_blue_slime_ghoul_passive_bonus_aoe_magic_damage"	"AOE MAGIC DAMAGE:"
+		"DOTA_Tooltip_ability_blue_slime_ghoul_passive_sticky_duration"			"STICKY DURATION:"
+
+		"DOTA_Tooltip_ability_winterblight_castle_boss_passive"		"Wrath of Cruxys"
+		"DOTA_Tooltip_ability_winterblight_castle_boss_passive_Description"	"Lich King Cruxys has multiple weapons in his arsenal."
+		"DOTA_Tooltip_ability_winterblight_castle_boss_passive_nuke_damage"		"NUKE DAMAGE:"
+		"DOTA_Tooltip_ability_winterblight_castle_boss_passive_slow_duration"	"SLOW DURATION:"
+		"DOTA_Tooltip_ability_winterblight_castle_boss_passive_burn_damage"		"NUKE BURN DAMAGE:"
+		"DOTA_Tooltip_ability_winterblight_castle_boss_passive_chain_frost_damage"	"CHAIN FROST DAMAGE:"	
+		"DOTA_Tooltip_ability_winterblight_castle_boss_passive_chain_frost_ms_loss_pct"	"% CHAIN FROST MS SLOW:"
+
+		"DOTA_Tooltip_modifier_castle_boss_burning_slow"			"Wrath of Cruxys"
+		"DOTA_Tooltip_modifier_castle_boss_burning_slow_Description"	"Burning and slowed"
+
+		"DOTA_Tooltip_ability_winterblight_castle_boss_surrogate_passive"	"Surrogate"
+		"DOTA_Tooltip_ability_winterblight_castle_boss_surrogate_passive_Description"	"An Avatar of Cruxys"
+
+		"DOTA_Tooltip_ability_winterblight_red_mage_flamethrower"			"Red Magician Flamethrower"
+		"DOTA_Tooltip_ability_winterblight_red_mage_flamethrower_Description"	"While channeling shoot flames every 0.1 seconds"
+		"DOTA_Tooltip_ability_winterblight_red_mage_flamethrower_damage"		"FLAME DAMAGE:"
+
+		"DOTA_Tooltip_ability_winterblight_red_mage_attack_passive"			"Red Magician Burning Attacks"
+		"DOTA_Tooltip_ability_winterblight_red_mage_attack_passive_Description"	"Attacks leave a burning debuff that deals damage every second"
+		"DOTA_Tooltip_ability_winterblight_red_mage_attack_passive_burn_damage"		"BURN DAMAGE:"
+		"DOTA_Tooltip_ability_winterblight_red_mage_attack_passive_burn_duration"	"BURN DURATION:"
+
+		"DOTA_Tooltip_modifier_red_mage_burn"								"Burning"
+
+		"DOTA_Tooltip_ability_winterblight_green_mage_poison_spray"			"Green Magician Poison Spray"
+		"DOTA_Tooltip_ability_winterblight_green_mage_poison_spray_Description"	"Spits a poison glob at the target position. Impacted enemies receive a DOT effect with a decaying slow."	
+		"DOTA_Tooltip_ability_winterblight_green_mage_poison_spray_impact_damage"	"IMPACT DAMAGE:"
+		"DOTA_Tooltip_ability_winterblight_green_mage_poison_spray_dot_damage"		"DOT DAMAGE:"	
+		"DOTA_Tooltip_ability_winterblight_green_mage_poison_spray_slow_ms_stacks"		"MOVESPEED SLOW STACKS (DECAYING):"
+
+		"DOTA_Tooltip_modifier_green_mage_poison_slow"							"Poison Spray"
+		"DOTA_Tooltip_modifier_green_mage_poison_slow_Description"				"Slowed and taking damage"
+
+		"DOTA_Tooltip_ability_winterblight_green_mage_attack_passive"			"Green Magician Poison Attacks"
+		"DOTA_Tooltip_ability_winterblight_green_mage_attack_passive_Description"	"Attacks leave a short DOT poison debuff on the target that deals damage every 0.1 seconds."
+		"DOTA_Tooltip_ability_winterblight_green_mage_attack_passive_burn_damage"		"POISON DAMAGE:"
+		"DOTA_Tooltip_ability_winterblight_green_mage_attack_passive_burn_duration"	"POISON DURATION:"
+
+		"DOTA_Tooltip_modifier_green_mage_attack_poison"					"Poisoned"
+
+		"DOTA_Tooltip_ability_winterblight_blue_mage_frost_nova"			"Blue Magician Frost Nova"
+		"DOTA_Tooltip_ability_winterblight_blue_mage_frost_nova_Description"	"Conjures an area of biting frost that damages and roots enemies."
+		"DOTA_Tooltip_ability_winterblight_blue_mage_frost_nova_nova_damage"		"DAMAGE:"
+		"DOTA_Tooltip_ability_winterblight_blue_mage_frost_nova_root_duration"	"ROOT DURATION:"
+
+		"DOTA_Tooltip_modifier_blue_mage_root"								"Frost Nova"
+		"DOTA_Tooltip_modifier_blue_mage_root_Description"					"Rooted"
+
+		"DOTA_Tooltip_ability_winterblight_blue_damage_attack_passive"			"Blue Magician Frost Attacks"
+		"DOTA_Tooltip_ability_winterblight_blue_damage_attack_passive_Description"	"Attacks leave a slowing debuff on affected enemies."
+		"DOTA_Tooltip_ability_winterblight_blue_damage_attack_passive_ms_slow"		"MOVESPEED SLOW:"
+		"DOTA_Tooltip_ability_winterblight_blue_damage_attack_passive_as_slow"	"ATTACK SPEED SLOW:"
+		"DOTA_Tooltip_ability_winterblight_blue_damage_attack_passive_slow_duration"	"SLOW DURATION:"
+
+		"DOTA_Tooltip_modifier_blue_mage_attack_slow"						"Chilled"
+
+		"DOTA_Tooltip_ability_winterblight_death_coil"						"Death Coil"
+		"DOTA_Tooltip_ability_winterblight_death_coil_Description"			"Targets an ally to heal them for a % of their Max Health"
+		"DOTA_Tooltip_ability_winterblight_death_coil_heal_pct_max_health"	"% HEAL % OF MAX HEALTH:"
+
+		"DOTA_Tooltip_ability_winterblight_slime_emperor_passive"			"Green Slime Avalanche"
+		"DOTA_Tooltip_ability_winterblight_slime_emperor_passive_Description"	"Spits Slime at all enemies in the radius that slow and remove mana regen. The slime stacks infinitely."
+		"DOTA_Tooltip_ability_winterblight_slime_emperor_passive_as_loss"	"ATTACK SPEED SLOW PER STACK:"
+		"DOTA_Tooltip_ability_winterblight_slime_emperor_passive_ms_loss"	"MOVESPEED SLOW PER STACK:"
+		"DOTA_Tooltip_ability_winterblight_slime_emperor_passive_mana_regen_loss"	"MANA REGEN LOSS PER STACK:"
+		"DOTA_Tooltip_ability_winterblight_slime_emperor_passive_aoe_radius"		"RANGE:"
+		"DOTA_Tooltip_ability_winterblight_slime_emperor_passive_slow_duration"		"SLOW DURATION:"
+
+		"DOTA_Tooltip_modifier_winterblight_slime_emperor_slowed"			"Green Slime"
+		"DOTA_Tooltip_modifier_winterblight_slime_emperor_slowed_Description"	"Silenced and reduced mana regen"	
+
+		"DOTA_Tooltip_ability_winterblight_necro_knight_attack"				"Necromancy"
+		"DOTA_Tooltip_ability_winterblight_necro_knight_attack_Description"	"Landing an attack summons a Castle Warrior to fight for the caster."	
+		"DOTA_Tooltip_ability_winterblight_necro_knight_attack_max_summons"	"MAX SKELETONS:"
+
+		"DOTA_Tooltip_ability_winterblight_dragon_dual_burn"				"Dual Burn"
+		"DOTA_Tooltip_ability_winterblight_dragon_dual_burn_Description"	"Attacks leave a burning DOT on enemies and also slow"
+		"DOTA_Tooltip_ability_winterblight_dragon_dual_burn_ms_slow"		"MOVESPEED SLOW:"
+		"DOTA_Tooltip_ability_winterblight_dragon_dual_burn_as_slow"		"ATTACKSPEED SLOW:"
+		"DOTA_Tooltip_ability_winterblight_dragon_dual_burn_slow_duration"	"DUAL BURN DURATION:"
+		"DOTA_Tooltip_ability_winterblight_dragon_dual_burn_burn_damage"	"BURN DAMAGE:"
+
+		"DOTA_Tooltip_modifier_dragon_dual_burn_effect"						"Dual Burn"
+		"DOTA_Tooltip_modifier_dragon_dual_burn_effect_Description"			"Slowed and taking burn DPS"	
+
+		"DOTA_Tooltip_ability_strength_boss_charge"							"Triumphant Charge"
+		"DOTA_Tooltip_ability_strength_boss_charge_Description"				"Charge toward the target position and damage and stun enemies at the landing point."
+		"DOTA_Tooltip_ability_strength_boss_charge_damage"					"DAMAGE:"
+		"DOTA_Tooltip_ability_strength_boss_charge_stun_duration"			"STUN DURATION:"
+
+		"DOTA_Tooltip_ability_winterblight_hermit_eye_ability"				"Murky Gaze"
+		"DOTA_Tooltip_ability_winterblight_hermit_eye_ability_Description"		"Slow nearby enemies and reduce their vision range. Tracked enemies are hit by a projectile that deals magic damage"
+		"DOTA_Tooltip_ability_winterblight_hermit_eye_ability_movement_slow"	"% MOVEMENT SLOW:"
+		"DOTA_Tooltip_ability_winterblight_hermit_eye_ability_vision_loss"		"VISION LOSS:"
+		"DOTA_Tooltip_ability_winterblight_hermit_eye_ability_damage"			"DAMAGE:"
+
+		"DOTA_Tooltip_modifier_hermit_eye_range"							"Murky Gaze"
+		"DOTA_Tooltip_modifier_hermit_eye_range_Description"				"Slowed with reduced vision"	
+
+		"DOTA_Tooltip_ability_winterblight_hermit_hoodling_ability"				"Blinding Shadows"
+		"DOTA_Tooltip_ability_winterblight_hermit_hoodling_ability_Description"	"Attacks leave a debuff on enemies that reduces their mana regen and makes their attacks miss."
+		"DOTA_Tooltip_ability_winterblight_hermit_hoodling_ability_miss_chance"		"% MISS CHANCE:"
+		"DOTA_Tooltip_ability_winterblight_hermit_hoodling_ability_mana_regen_loss"	"MANA REGEN LOSS:"
+		"DOTA_Tooltip_ability_winterblight_hermit_hoodling_ability_duration"		"BLIND DURATION:"
+
+		"DOTA_Tooltip_modifier_hermit_hoodling_effect"						"Blinding Shadows"
+		"DOTA_Tooltip_modifier_hermit_hoodling_effect_Description"			"Increased Miss Chance"
+
+		"DOTA_Tooltip_ability_winterblight_hermit_miniboss_shadow_tornado"		"Void Tornado"
+		"DOTA_Tooltip_ability_winterblight_hermit_miniboss_shadow_tornado_Description"	"Throws a tornado at the target location that slows and suctions nearby enemies. The tornados also throw shadow projectiles that deal additional damage."
+		"DOTA_Tooltip_ability_winterblight_hermit_miniboss_shadow_tornado_damage"		"TORNADO DAMAGE:"
+		"DOTA_Tooltip_ability_winterblight_hermit_miniboss_shadow_tornado_move_slow"	"% MOVEMENT SLOW:"	
+		"DOTA_Tooltip_ability_winterblight_hermit_miniboss_shadow_tornado_max_tornads"	"MAX TORNADO COUNT:"
+		"DOTA_Tooltip_ability_winterblight_hermit_miniboss_shadow_tornado_splinter_damage"	"PROJECTILE DAMAGE:"
+		"DOTA_Tooltip_ability_winterblight_hermit_miniboss_shadow_tornado_miss_chance"	"% INSIDE TORNADO MISS CHANCE:"
+
+		"DOTA_Tooltip_modifier_enemy_inside_tornado"							"Void Tornado"
+
+		"DOTA_Tooltip_ability_winterblight_shadow_mist"							"Shadow Mist"
+		"DOTA_Tooltip_ability_winterblight_shadow_mist_Description"				"Nearby enemies are slowed. If they cast a spell while inside this effect, they are silenced."	
+		"DOTA_Tooltip_ability_winterblight_shadow_mist_silence_duration"		"SILENCE DURATION:"
+		"DOTA_Tooltip_ability_winterblight_shadow_mist_ms_loss"					"MOVESPEED LOSS:"
+		"DOTA_Tooltip_ability_winterblight_shadow_mist_aoe_radius"				"RADIUS:"
+		"DOTA_Tooltip_ability_winterblight_shadow_mist_dps"						"DPS:"
+
+		"DOTA_Tooltip_modifier_shadow_mist_effect"								"Shadow Mist"
+		"DOTA_Tooltip_modifier_shadow_mist_effect_Description"					"Slowed. Will be silenced if casting a spell."
+
+		"DOTA_Tooltip_ability_winterblight_blue_gunman_main_ability"			"Blue Slime Gunner"
+		"DOTA_Tooltip_ability_winterblight_blue_gunman_main_ability_Description"	"Attacks leave a sticking slow debuff. Jumping and landing at a position creates a puddle of slime that slows."
+		"DOTA_Tooltip_ability_winterblight_blue_gunman_main_ability_land_slow_duration"	"SLOW DURATION (JUMP):"
+		"DOTA_Tooltip_ability_winterblight_blue_gunman_main_ability_land_radius"		"SLIME RADIUS (JUMP):"
+		"DOTA_Tooltip_ability_winterblight_blue_gunman_main_ability_land_damage"		"DAMAGE (JUMP):"
+		"DOTA_Tooltip_ability_winterblight_blue_gunman_main_ability_attack_speed_loss"	"SLIME ATTACK SPEED LOSS:"
+		"DOTA_Tooltip_ability_winterblight_blue_gunman_main_ability_movespeed_loss"		"SLIME MOVESPEED LOSS:"
+		"DOTA_Tooltip_ability_winterblight_blue_gunman_main_ability_sticky_duration"	"STICKY DURATION (GUN):"	
+		"DOTA_Tooltip_ability_winterblight_blue_gunman_main_ability_bonus_aoe_magic_damage"	"AOE MAGIC DAMAGE (GUN):"
+
+		"DOTA_Tooltip_ability_winterblight_blue_goo_shrapnel"					"Blue Slime Shrapnel"
+		"DOTA_Tooltip_ability_winterblight_blue_goo_shrapnel_Description"		"Creates a persistent downpour of blue slime bullets that damage enemies in the area."
+		"DOTA_Tooltip_ability_winterblight_blue_goo_shrapnel_tick_damage"		"DAMAGE:"
+
+		"DOTA_Tooltip_ability_winterblight_justice_demon_lifesteal"				"Vampiric"
+		"DOTA_Tooltip_ability_winterblight_justice_demon_lifesteal_Description"	"Attacks heal the caster."	
+		"DOTA_Tooltip_ability_winterblight_justice_demon_lifesteal_lifesteal"	"% ATTACK LIFESTEAL:"
+
+		"DOTA_Tooltip_ability_winterblight_hanged_slayer_passive"				"Slayer"
+		"DOTA_Tooltip_ability_winterblight_hanged_slayer_passive_Description"	""
+
+		"DOTA_Tooltip_ability_winterblight_water_bearer_passive"				"Jetstream"
+		"DOTA_Tooltip_ability_winterblight_water_bearer_passive_Description"	"Attacks shoot a wave of water that damage and slow impacted enemies."
+		"DOTA_Tooltip_ability_winterblight_water_bearer_passive_moveslow"		"% MOVESPEED SLOW:"
+		"DOTA_Tooltip_ability_winterblight_water_bearer_passive_attack_slow"	"ATTACK SPEED SLOW:"
+		"DOTA_Tooltip_ability_winterblight_water_bearer_passive_damage"			"DAMAGE:"
+
+		"DOTA_Tooltip_modifier_water_bearer_soak_soak"							"Drenched"
+
+		"DOTA_Tooltip_ability_winterblight_doom"				"Doom"
+		"DOTA_Tooltip_ability_winterblight_doom_Description"	"Dooms the target, silencing them for the duration and dealing damage."
+		"DOTA_Tooltip_ability_winterblight_doom_damage"		"DAMAGE PER TICK:"
+		"DOTA_Tooltip_ability_winterblight_doom_duration"	"DURATION:"
+
+		"DOTA_Tooltip_modifier_winterblight_doom"				"Doom"
+		"DOTA_Tooltip_modifier_winterblight_doom_Description"	"Silencec"
+
+		"DOTA_Tooltip_ability_winterblight_doom_warrior_searing_blade"	"Dual Blade"
+		"DOTA_Tooltip_ability_winterblight_doom_warrior_searing_blade_Description"	"Attacks have a frostfire effect that slow enemies and make them burn with a DOT effect."
+		"DOTA_Tooltip_ability_winterblight_doom_warrior_searing_blade_ms_slow"	"MOVESPEED SLOW:"
+		"DOTA_Tooltip_ability_winterblight_doom_warrior_searing_blade_as_slow"	"ATTACK SPEED SLOW:"
+		"DOTA_Tooltip_ability_winterblight_doom_warrior_searing_blade_slow_duration"	"SLOW DURATION:"
+		"DOTA_Tooltip_ability_winterblight_doom_warrior_searing_blade_burn_damage"	"BURN DAMAGE:"
+
+		"DOTA_Tooltip_modifier_dual_blade_effect"				"Dual Blade"
+		"DOTA_Tooltip_modifier_dual_blade_effect_Description"	"Slowed and taking Burn Damage"
+
+		"DOTA_Tooltip_ability_winterblight_faceripper_passive"	"Impalement"
+		"DOTA_Tooltip_ability_winterblight_faceripper_passive_Description"	"Attacks deal additional instances of Physical Damage"
+		"DOTA_Tooltip_ability_winterblight_faceripper_passive_instance_count"	"DAMAGE INSTANCE COUNT:"
+		"DOTA_Tooltip_ability_winterblight_faceripper_passive_damage"			"DAMAGE PER INSTANCE:"
+
+		"DOTA_Tooltip_ability_winterblight_starwatcher_passive"		"Starfall Aura"
+		"DOTA_Tooltip_ability_winterblight_starwatcher_passive_Description"	"All enemies in range are hit by a Star on an interval"	
+		"DOTA_Tooltip_ability_winterblight_starwatcher_passive_damage"		"DAMAGE:"
+		"DOTA_Tooltip_ability_winterblight_starwatcher_passive_star_interval"	"STARFALL INTERVAL:"
+		"DOTA_Tooltip_ability_winterblight_starwatcher_passive_radius"		"RADIUS:"
+
+		"DOTA_Tooltip_ability_winterblight_lumos_king_passive"		"Moonlight Aura"
+		"DOTA_Tooltip_ability_winterblight_lumos_king_passive_Description"	"Enemies in range are hit by a moonbeam that deals damage and ministuns"
+		"DOTA_Tooltip_ability_winterblight_lumos_king_passive_damage"		"DAMAGE:"
+		"DOTA_Tooltip_ability_winterblight_lumos_king_passive_beam_interval"	"BEAM INTERVAL:"
+		"DOTA_Tooltip_ability_winterblight_lumos_king_passive_radius"		"RADIUS:"
+
+		"DOTA_Tooltip_ability_winterblight_claws_of_terror"			"Claws of Terror"
+		"DOTA_Tooltip_ability_winterblight_claws_of_terror_Description"	"Attacks have a chance to fear the target."
+		"DOTA_Tooltip_ability_winterblight_claws_of_terror_fear_chance"	"FEAR CHANCE:"
+		"DOTA_Tooltip_ability_winterblight_claws_of_terror_fear_duration"	"FEAR DURATION:"
+
+		"DOTA_Tooltip_ability_winterblight_sun_phoenix_passive"		"Fires of the Sun Phoenix"
+		"DOTA_Tooltip_ability_winterblight_sun_phoenix_passive_Description"	"Attacks leave a burning debuff that slows attack speed and deals DOT damage."
+		"DOTA_Tooltip_ability_winterblight_sun_phoenix_passive_burn_damage"		"BURN DAMAGE:"
+		"DOTA_Tooltip_ability_winterblight_sun_phoenix_passive_burn_duration"		"BURN DURATION:"
+		"DOTA_Tooltip_ability_winterblight_sun_phoenix_passive_attack_speed_loss"		"ATTACK SPEED LOSS:"
+
+		"DOTA_Tooltip_modifier_sun_phoenix_burn"					"Fires of the Sun Phoenix"
+		"DOTA_Tooltip_modifier_sun_phoenix_burn_Description"		"Reduced Attack Damage and taking damage"
+
+		"DOTA_Tooltip_ability_winterblight_searing_arrow"			"Searing Arrow"
+		"DOTA_Tooltip_ability_winterblight_searing_arrow_Description"	"Attacks deal additional pure damage and lower their target's Armor."
+		"DOTA_Tooltip_ability_winterblight_searing_arrow_impact_damage"		"IMPACT DAMAGE:"
+		"DOTA_Tooltip_ability_winterblight_searing_arrow_armor_loss_duration"	"ARMOR LOSS DURATION:"
+		"DOTA_Tooltip_ability_winterblight_searing_arrow_armor_loss"		"ARMOR LOSS:"
+
+		"DOTA_Tooltip_modifier_winterblight_searing_arrow_armor_loss"	"Searing Arrow"
+		"DOTA_Tooltip_modifier_winterblight_searing_arrow_armor_loss_Description"	"Reduced Armor"
+
+		"DOTA_Tooltip_ability_winterblight_fire_blink"				"Fire Blink"
+		"DOTA_Tooltip_ability_winterblight_fire_blink_Description"	"Teleport to the target position in a burst of fire."	
+
+		"DOTA_Tooltip_ability_winterblight_aspect_of_solos_passive"	"Sun Bird's Flamethrower"
+		"DOTA_Tooltip_ability_winterblight_aspect_of_solos_passive_Description"	"A spirial of flame emits from the Sun Bird."
+		"DOTA_Tooltip_ability_winterblight_aspect_of_solos_passive_burn_dps"		"BURN DPS:"
+		"DOTA_Tooltip_ability_winterblight_aspect_of_solos_passive_impact_damage"	"IMPACT DAMAGE:"
+
+		"DOTA_Tooltip_modifier_aspect_of_solo_burn"					"Burning"
+
+		"DOTA_Tooltip_ability_winterblight_vorethrex_passive"			"World Commander"
+		"DOTA_Tooltip_ability_winterblight_vorethrex_passive_Description"	"Champion of the Legions of Winterblight"
+
+		"DOTA_Tooltip_modifier_vorethrex_phase_2"						"World Commander's Fury"
+
+		"DOTA_Tooltip_ability_winterblight_vorethrex_dash"				"Commanding Sprint"
+		"DOTA_Tooltip_ability_winterblight_vorethrex_dash_Description"	"Dash toward the target location. A floating skull travels with the dash, and impacted enemies receive a debuff and take damage."
+		"DOTA_Tooltip_ability_winterblight_vorethrex_dash_debuff_duration"	"DEBUFF DURATION:"
+		"DOTA_Tooltip_ability_winterblight_vorethrex_dash_atk_power_loss"	"ATTACK POWER LOSS:"
+		"DOTA_Tooltip_ability_winterblight_vorethrex_dash_damage"			"IMPACT DAMAGE:"
+		"DOTA_Tooltip_ability_winterblight_vorethrex_dash_health_regen_loss"	"% HEALTH REGEN LOSS:"
+
+		"DOTA_Tooltip_modifier_vorethrex_dash_debuff"					"Morale Break"
+		"DOTA_Tooltip_modifier_vorethrex_dash_debuff_Description"		"Reduced Attack Power and Health Regen"
+
+		"DOTA_Tooltip_ability_winterblight_paragon_of_judgement_bash"	"Gavel Bash"
+		"DOTA_Tooltip_ability_winterblight_paragon_of_judgement_bash_Description"	"Attacks haVE a chance to stun and deal additional Pure damage"
+		"DOTA_Tooltip_ability_winterblight_paragon_of_judgement_bash_impact_damage"	"BASH DAMAGE:"
+		"DOTA_Tooltip_ability_winterblight_paragon_of_judgement_bash_stun_duration"	"STUN DURATION:"
+		"DOTA_Tooltip_ability_winterblight_paragon_of_judgement_bash_stun_chance"	"% BASH CHANCE:"
+
+		"DOTA_Tooltip_ability_paragon_of_judgement_spark"				"Judgement Spark"
+		"DOTA_Tooltip_ability_paragon_of_judgement_spark_Description"	"A large projectile damages based on attack power and paralyzes enemies."	
+		"DOTA_Tooltip_ability_paragon_of_judgement_spark_base_damage"	"BASE DAMAGE:"
+		"DOTA_Tooltip_ability_paragon_of_judgement_spark_paralyze_duration"	"PARALYZE DURATION:"
+		"DOTA_Tooltip_ability_paragon_of_judgement_spark_percent_attack_power"	"% ADDITIONAL DAMAGE % OF ATTACK POWER:"
+
+		"DOTA_Tooltip_modifier_judgement_spark_paralyze"				"Judgement Spark"
+		"DOTA_Tooltip_modifier_judgement_spark_paralyze_Description"	"Paralyzed"	
+
+		"DOTA_Tooltip_ability_high_priest_xelethar_passive"				"Lightshot"
+		"DOTA_Tooltip_ability_high_priest_xelethar_passive_Description"	"Throws Orbs of intense photon energy that damage and slow enemies."
+		"DOTA_Tooltip_ability_high_priest_xelethar_passive_damage_base"	"BASE ATTACK DAMAGE:"
+		"DOTA_Tooltip_ability_high_priest_xelethar_passive_damage_pct_max_health"	"% BASE ATTACK DAMAGE % OF MAX HEALTH:"
+		"DOTA_Tooltip_ability_high_priest_xelethar_passive_orb_damage"			"LIGHTSHOT DAMAGE:"
+		"DOTA_Tooltip_ability_high_priest_xelethar_passive_slow_duration"		"LIGHTSHOT SLOW DURATION:"
+		"DOTA_Tooltip_ability_high_priest_xelethar_passive_ms_slow"				"LIGHTSHOT MOVESPEED SLOW:"
+		"DOTA_Tooltip_ability_high_priest_xelethar_passive_as_slow"				"LIGHTSHOT ATTACK SPEED SLOW:"
+
+		"DOTA_Tooltip_modifier_xelethar_slow"							"Lightshot"
+		"DOTA_Tooltip_modifier_xelethar_slow_Description"				"Slowed"	
+
+		"DOTA_Tooltip_ability_bishop_of_hades_passive"					"Cimmerian Chant"
+		"DOTA_Tooltip_ability_bishop_of_hades_passive_Description"		"The Bishop fears all enemies within the Cast Range."
+		"DOTA_Tooltip_ability_bishop_of_hades_passive_fear_duration"	"FEAR DURATION:"
+
+		"DOTA_Tooltip_ability_bishop_of_hades_dot"						"Shadow Word: Pain"
+		"DOTA_Tooltip_ability_bishop_of_hades_dot_Description"			"Applies a debuff to all enemies in the cast area that deals damage every 4 seconds."
+		"DOTA_Tooltip_ability_bishop_of_hades_dot_damage"				"DAMAGE:"	
+
+		"DOTA_Tooltip_modifier_bishop_of_hades_dot"						"Shadow Word: Pain"
+		"DOTA_Tooltip_modifier_bishop_of_hades_dot_Description"			"Taking damage every 4 seconds"	
+
+		"DOTA_Tooltip_ability_winter_star_boss_red_star_attack"			"Red Starfall"
+		"DOTA_Tooltip_ability_winter_star_boss_red_star_attack_Description"	"Attacks drop stars on the target enemy which lower their Magic Armor."
+		"DOTA_Tooltip_ability_winter_star_boss_red_star_attack_magic_resist_loss"	"MAGIC ARMOR LOSS:"
+		"DOTA_Tooltip_ability_winter_star_boss_red_star_attack_damage"				"DAMAGE:"
+
+		"DOTA_Tooltip_ability_winterblight_empress_emasz_passive"		"Elusive Empress"
+		"DOTA_Tooltip_ability_winterblight_empress_emasz_passive_Description"	"Persistent Invisibility"
+
+		"DOTA_Tooltip_modifier_room_7_in_goo"							"Green Slime"
+		"DOTA_Tooltip_modifier_room_7_in_goo_Description"				"Slowed"	
+
+		"DOTA_Tooltip_modifier_room_7_in_blue_goo"						"Blue Slime"
+		"DOTA_Tooltip_modifier_room_7_in_blue_goo_Description"			"Slowed"			
+
+		"DOTA_Tooltip_modifier_diviner_high_priestess_heal"				"High Priestess"
+		"DOTA_Tooltip_modifier_diviner_high_priestess_heal_Description"	"Restoring Health"	
+
+		"DOTA_Tooltip_modifier_diviner_empress_speed_boost"				"Empress"
+		"DOTA_Tooltip_modifier_diviner_empress_speed_boost_Description"	"Increased Movement Speed"	
+
+		"DOTA_Tooltip_modifier_diviner_hierophant_spirit_buff"			"Hierophant"
+		"DOTA_Tooltip_modifier_diviner_hierophant_spirit_buff_Description"	"Increased Spirit and Mana Regen"
+
+		"DOTA_Tooltip_modifier_chariot_speed"							"Chariot"
+		"DOTA_Tooltip_modifier_chariot_speed_Description"				"Increased Movement Speed"	
+
+		"DOTA_Tooltip_modifier_strength_attack_power_enemy"				"Strength"
+		"DOTA_Tooltip_modifier_strength_attack_power_enemy_Description"	"Increased Attack Power"
+
+		"DOTA_Tooltip_modifier_strength_attack_power_player"				"Strength"
+		"DOTA_Tooltip_modifier_strength_attack_power_player_Description"	"Increased Attack Power"
+
+		"DOTA_Tooltip_modifier_diviner_hermit_debuff"					"Hermit"
+		"DOTA_Tooltip_modifier_diviner_hermit_debuff_Description"		"Reduced Vision"	
+
+		"DOTA_Tooltip_modifier_diviner_hermit_buff"						"Hermit's Lantern"
+		"DOTA_Tooltip_modifier_diviner_hermit_buff_Description"			"Increased Vision Range"	
+
+		"DOTA_Tooltip_modifier_diviner_angels_slain"					"Bad Karma"
+		"DOTA_Tooltip_modifier_diviner_demons_slain"					"Good Karma"
+
+		"DOTA_Tooltip_modifier_diviner_justice_imbalance"				"Imbalanced Justice"
+
+		"DOTA_Tooltip_modifier_temperance_enemy_buff"					"Temperance"
+		"DOTA_Tooltip_modifier_temperance_enemy_buff_Description"		"Reduced Movement Speed and Attack Power"	
+
+		"DOTA_Tooltip_modifier_temperance_scryer_debuff"				"Temperance"
+		"DOTA_Tooltip_modifier_temperance_scryer_debuff_Description"	"Slowed"
+
+		"DOTA_Tooltip_modifier_diviner_scryer_doom"						"Devil"
+
+		"DOTA_Tooltip_modifier_tower_attack_buff"						"Tower"
+		"DOTA_Tooltip_modifier_tower_attack_buff_Description"			"Increased Attack Power and Upgraded Steadfast"	
+
+		"DOTA_Tooltip_modifier_diviner_star_all_stats_buff"				"Star"
+		"DOTA_Tooltip_modifier_diviner_star_all_stats_buff_Description"	"All Attributes increased"	
+
+		"DOTA_Tooltip_modifier_diviner_sun_immolation"					"Sun"
+		"DOTA_Tooltip_modifier_diviner_sun_immolation_Description"		"Burning nearby enemies"	
+
+		"DOTA_Tooltip_modifier_diviner_sun_immolation_effect"			"Sun Burn"
+
+		//CASTLE STUFF
+
+		"winterblight_castle"										"Winterblight Castle"
 
 		"winterblight_tarot_title"									"Choose your Fate"
 		"winterblight_tarot_leave_text"								"Leave"
@@ -21910,7 +23213,7 @@
 		"DOTA_Tooltip_ability_item_rpc_winterblight_scryers_stone"	"Scryer's Stone"
 		"winterblight_scryers_stone_desc"							"Reveals the path ahead"
 
-		//QUESTS
+		//CASTLE QUESTS
 
 		"lovers_quest_item_use_fail"						"Must use near Apple Tree"
 
@@ -21919,6 +23222,22 @@
 
 		"DOTA_Tooltip_ability_item_rpc_elynas_feather"		"Elyna's Feather"
 		"item_rpc_elynas_feather_desc"						"Use near an Apple Tree in Winterblight Castle to summon the spirit of Elyna."
+
+		"DOTA_Tooltip_ability_item_rpc_emperors_band"		"Emperor's Band"
+		"item_rpc_emperors_band_desc"						"Synthesizes with Empress' Jewel to create an <font color='#E4AE33'>Immortal</font> item."
+
+		"DOTA_Tooltip_ability_item_rpc_empress_jewel"		"Empress' Jewel"
+		"item_rpc_empress_jewel_desc"						"Synthesizes with Emperor's Band to create an <font color='#E4AE33'>Immortal</font> item."
+
+		"DOTA_Tooltip_ability_item_rpc_winterblight_dragon_scale" "Winterblight Dragon Scale"
+		"item_rpc_winterblight_dragon_scale_desc"			"Synthesize with other Dragon Scales to stack them. When the property reaches 20, create an <font color='#ADE55C'>Arcana</font> item."
+		"winterblight_dragon_scale_property"				"Scales"
+
+		"DOTA_Tooltip_ability_item_rpc_winterblight_tarot_card" "Winterblight Tarot Card"
+		"item_rpc_winterblight_tarot_card_desc"				    "Use at the entrace of Winterblight Castle to select this fate."
+
+		"winterblight_tarot_card_use_fail_1"				"Castle Is Already Open"
+		"winterblight_tarot_card_use_fail_2"				"Diviner is too far away"
 
 		//tarot
 
@@ -21982,7 +23301,10 @@
 		"tarot_sun"												"The Sun"
 		"tarot_sun_description"									"Burning Energy..."
 
-		"tarot_judgement"												"The Judgement"
+		"tarot_judgement"												"Judgement"
 		"tarot_judgement_description"									"Evaluation and Awakening..."
+
+		"tarot_world"												"The World"
+		"tarot_world_description"									"Everything..."
 	}	
 }

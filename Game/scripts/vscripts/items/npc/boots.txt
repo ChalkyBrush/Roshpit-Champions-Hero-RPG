@@ -1,3 +1,399 @@
+	"item_rpc_dissimilation_greaves"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_lua"
+        "ScriptFile" "items/lua/foot/dissimilation_greaves.lua"
+		"AbilityTextureName"	"winterblight/castle/dissimilation_greaves"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"precache"
+		{
+			"particle"		"particles/roshpit/items/grey_domain.vpcf"
+			"particle"		"particles/roshpit/winterblight/colorable_pop.vpcf"
+			"particle"		"particles/units/heroes/hero_arc_warden/arc_warden_tempest_cast.vpcf"
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"element_one"				"<% RPC_ELEMENT_UNDEAD %>"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"element_two"				"<% RPC_ELEMENT_ICE %>"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby1"				"<% ITEM_RPC_DISSIMILATION_GREAVES_GEM_RUBY %>"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"emerald1"			"<% ITEM_RPC_DISSIMILATION_GREAVES_GEM_EMERALD %>"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire1"			"<% ITEM_RPC_DISSIMILATION_GREAVES_GEM_SAPPHIRE %>"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst1"			"<% ITEM_RPC_DISSIMILATION_GREAVES_GEM_AMETHYST1 %>"
+			}
+			"07"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst2"			"<% ITEM_RPC_DISSIMILATION_GREAVES_GEM_AMETHYST2 %>"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+	}
+
+	"item_rpc_gravewalkers"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_lua"
+        "ScriptFile" "items/lua/foot/gravewalkers.lua"
+		"AbilityTextureName"	"winterblight/castle/gravewalkers"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"precache"
+		{
+
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby1"				"<% ITEM_RPC_GRAVEWALKERS_GEM_RUBY1 %>"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby2"				"<% ITEM_RPC_GRAVEWALKERS_GEM_RUBY2 %>"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby3"				"<% ITEM_RPC_GRAVEWALKERS_GEM_RUBY3 %>"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"emerald1"				"<% ITEM_RPC_GRAVEWALKERS_GEM_EMERALD1 %>"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"emerald2"				"<% ITEM_RPC_GRAVEWALKERS_GEM_EMERALD2 %>"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire1"			"<% ITEM_RPC_GRAVEWALKERS_GEM_SAPPHIRE %>"
+			}
+			"07"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst1"			"<% ITEM_RPC_GRAVEWALKERS_GEM_AMETHYST %>"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+	}
+
+	"item_rpc_boots_of_temperance"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_lua"
+        "ScriptFile" "items/lua/foot/boots_of_temperance.lua"
+		"AbilityTextureName"	"winterblight/castle/boots_of_temperance"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"precache"
+		{
+			"particle"	"particles/items2_fx/heavens_halberd.vpcf"
+			"particle"	"particles/units/heroes/hero_vengeful/vengeful_nether_swap.vpcf"
+			"particle"	"particles/roshpit/winterblight/colorable_pop.vpcf"
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby1"				"<% ITEM_RPC_BOOTS_OF_TEMPERANCE_GEM_RUBY1 %>"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby2"				"<% ITEM_RPC_BOOTS_OF_TEMPERANCE_GEM_RUBY2 %>"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby3"				"<% ITEM_RPC_BOOTS_OF_TEMPERANCE_GEM_RUBY3 %>"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"emerald1"				"<% ITEM_RPC_BOOTS_OF_TEMPERANCE_GEM_EMERALD1 %>"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"emerald2"				"<% ITEM_RPC_BOOTS_OF_TEMPERANCE_GEM_EMERALD2 %>"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire1"			"<% ITEM_RPC_BOOTS_OF_TEMPERANCE_GEM_SAPPHIRE1 %>"
+			}
+			"07"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire2"			"<% ITEM_RPC_BOOTS_OF_TEMPERANCE_GEM_SAPPHIRE2 %>"
+			}
+			"08"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst1"			"<% ITEM_RPC_BOOTS_OF_TEMPERANCE_GEM_AMETHYST %>"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+	}
+
+	"item_rpc_hangman_slippers"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_lua"
+        "ScriptFile" "items/lua/foot/hangman_slippers.lua"
+		"AbilityTextureName"	"winterblight/castle/hangman_slippers"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"precache"
+		{
+
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby1"				"<% ITEM_RPC_HANGMAN_SLIPPERS_GEM_RUBY1 %>"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby2"				"<% ITEM_RPC_HANGMAN_SLIPPERS_GEM_RUBY2 %>"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"emerald1"			"<% ITEM_RPC_HANGMAN_SLIPPERS_GEM_EMERALD %>"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire1"			"<% ITEM_RPC_HANGMAN_SLIPPERS_GEM_SAPPHIRE %>"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst1"			"<% ITEM_RPC_HANGMAN_SLIPPERS_GEM_AMETHYST %>"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+	}
+
+
+	"item_rpc_justice_greaves"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"winterblight/castle/justice_greaves"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"precache"
+		{
+			"particle"  "particles/units/heroes/hero_mars/mars_shield_of_mars.vpcf"
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby1"				"<% ITEM_RPC_JUSTICE_GREAVES_GEM_RUBY1 %>"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby2"				"<% ITEM_RPC_JUSTICE_GREAVES_GEM_RUBY2 %>"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"emerald1"			"<% ITEM_RPC_JUSTICE_GREAVES_GEM_EMERALD %>"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire1"			"<% ITEM_RPC_JUSTICE_GREAVES_GEM_SAPPHIRE %>"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst1"			"<% ITEM_RPC_JUSTICE_GREAVES_GEM_AMETHYST %>"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_rpc_justice_greaves"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"ThinkInterval"  "0.3"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"justice_greaves_think"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"justice_greaves_end"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_justice_greaves_armor"
+			{
+				"IsHidden"	"1"
+			}
+			"modifier_justice_greaves_magic_armor"
+			{
+				"IsHidden"	"1"
+			}
+			"modifier_justice_greaves_armor_pierce"
+			{
+				"IsHidden"	"1"
+			}
+			"modifier_justice_greaves_spell_pierce"
+			{
+				"IsHidden"	"1"
+			}
+		}
+	}
+
+
+
 	"item_rpc_yasha_boots"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"

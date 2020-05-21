@@ -9,14 +9,14 @@ require('worlds/winterblight/zones/winter_cave')
 require('worlds/winterblight/zones/mountain')
 require('worlds/winterblight/zones/blackfrost_citadel')
 
-Winterblight.Winter3Enabled = false
+Winterblight.Winter3Enabled = true
 
 function Winterblight:Debug()
     local item = RPCItems:CreateItem("item_debug_blink", nil, nil)
     local drop = CreateItemOnPositionSync( Vector(-15424,-2560), item )
     local position = Vector(-15424,-2560)
     RPCItems:DropItem(item, Vector(-15424,-2560))
-    Winterblight:OpenWinterblightCastle()
+    -- Winterblight:OpenWinterblightCastle()
     -- Gems:SpawnGemForger(Vector(-14424,-2560), Vector(-1,0))
     -- Winterblight:InitGraveGhost(1)
     -- Winterblight:InitGraveGhost(2)
@@ -83,7 +83,7 @@ function Winterblight:InitCamp()
     
   Timers:CreateTimer(2, function()
     Challenges:SpawnElderRai(Vector(-15940, -2552), Vector(1,0))
-    -- Events:SpawnCurator(Vector(-15744, -15488), Vector(1,0.7))
+    Soulbinder:SpawnSoulbinder(Vector(-13952, -1519), Vector(0,-1))
   end)
   Events.TownPosition = Vector(-15197, -2924)
   Events.isTownActive = true
@@ -246,7 +246,16 @@ function Winterblight:Debug2()
   -- RPCItems:CreateBasicConsumable(MAIN_HERO_TABLE[1]:GetAbsOrigin(), "item_rpc_galrens_skull", "Galren's Skull", "mythical", true)
   -- RPCItems:CreateBasicConsumable(MAIN_HERO_TABLE[1]:GetAbsOrigin(), "item_rpc_elynas_feather", "Galren's Skull", "mythical", true)
   -- Winterblight.CastleTarot = Winterblight.CASTLE_DATA["tarot"][1]
-  Winterblight:CastleSunPhoenixSequence()
+  -- Winterblight:CastleSunPhoenixSequence()
+  -- Winterblight:SpawnEmpressBoss()
+  RPCItems:CreateBasicConsumableWithProperty1(MAIN_HERO_TABLE[1]:GetAbsOrigin(), "item_rpc_winterblight_dragon_scale", "Winterblight Dragon Scale", "immortal", true, "winterblight_dragon_scale_property", 1, "#80a4ff")
+  RPCItems:DropSynthesisVessel(MAIN_HERO_TABLE[1]:GetAbsOrigin())
+  -- Winterblight:DropEmperorQuestItem("emperor", MAIN_HERO_TABLE[1]:GetAbsOrigin())
+  -- Winterblight:DropEmperorQuestItem("empress", MAIN_HERO_TABLE[1]:GetAbsOrigin())
+      -- local xelethar = Winterblight:SpawnCastleRoomUnit(0, "winterblight_high_priest_xelethar", Vector(12285, 163), Vector(0,-1), false, true)
+      -- local groundHeight = GetGroundHeight(Vector(11393, 163), xelethar)
+      -- xelethar:SetAbsOrigin(Vector(12285, 163) + Vector(0,0,groundHeight))
+      -- Dungeons:AggroUnit(xelethar)
   -- Winterblight:WinterCastleBossSpawn()
   -- Enemies:SpawnEnemyUnit("winterblight_hanging_slayer", Vector(-15424,-2560), RandomVector(1), false)
 
@@ -901,6 +910,9 @@ function Winterblight:MithrilReward(position, code)
         if code == "cruxys" then
           reward = WINTERBLIGHT_MITHRIL_CASTLE_REWARD
           stonesReward = WINTERBLIGHT_MITHRIL_CASTLE_REWARD_STONE
+        elseif code == "world_commander" then
+          reward = WINTERBLIGHT_MITHRIL_WORLD_COMMANDER_REWARD
+          stonesReward = WINTERBLIGHT_MITHRIL_WORLD_COMMANDER_REWARD_STONE
         end
         if GameState:GetDifficultyFactor() == 2 then
           reward = reward * WINTERBLIGHT_MITHRIL_MULT_ELITE

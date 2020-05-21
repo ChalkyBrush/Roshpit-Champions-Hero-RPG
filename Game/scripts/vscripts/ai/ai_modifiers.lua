@@ -93,3 +93,30 @@ function ai_climb_think(event)
 		Dungeons:AggroUnit(unit)
 	end
 end
+
+function ai_loot_table_drop(event)
+	local unit = event.unit
+	print("LOOT DROP")
+	if not unit.loot_table then
+		return false
+	end
+	local percentage_mult = 1000
+	for _, loot in pairs(unit.loot_table) do
+		local luck = RandomInt(1, 100*percentage_mult)
+		if luck <= loot["chance"]*percentage_mult then
+			if loot["type"] == "immortal" then
+				RPCItems:RollAndDropUniqueItem(unit, loot["item"])
+			elseif loot["type"] == "special" then
+				ai_loot_drop_special(unit, loot)
+			end
+		end
+	end
+end
+
+function ai_loot_drop_special(unit, loot)
+	if loot["item"] == "item_rpc_winterblight_tarot_card" then
+		Winterblight:CreateCastleTarotCard(unit:GetAbsOrigin(), nil)
+	elseif loot["item"] == "item_rpc_winterblight_dragon_scale" then
+		RPCItems:CreateBasicConsumableWithProperty1(unit:GetAbsOrigin(), "item_rpc_winterblight_dragon_scale", "Winterblight Dragon Scale", "immortal", true, "winterblight_dragon_scale_property", 1, "#80a4ff")
+	end
+end

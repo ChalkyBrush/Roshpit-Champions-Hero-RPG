@@ -1,0 +1,165 @@
+	"dinath_frost_wyrm"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_AOE"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/winter_wyvern/arcana/dinath_frost_wyrm.lua"
+		"AbilityTextureName"			"dinath/dinath_frost_wyrm"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCastRange"				"1000"
+		"AOERadius"						"<% DINATH_ARCANA2_EXPLOSION_RADIUS %>"
+		"AbilityCastAnimation"			"ACT_DOTA_TELEPORT"
+		"AbilityType"            		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"VectorTarget"      			"1"
+		"precache"
+		{
+
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage_mult"			"<% DINATH_ARCANA2_DAMAGE_MULT %>"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"cast_range"			"<% DINATH_ARCANA2_CAST_RANGE %>"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"cooldown"			"<% DINATH_ARCANA2_COOLDOWN %>"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"projectile_range"			"<% DINATH_ARCANA2_PROJECTILE_MAX_RANGE %>"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"projectile_count"			"<% DINATH_ARCANA2_PROJECTILE_COUNT %>"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"explode_radius"			"<% DINATH_ARCANA2_EXPLOSION_RADIUS %>"
+			}
+			"07"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ms_slow"			"<% DINATH_ARCANA2_MOVESPEED_SLOW %>"
+			}
+			"08"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"as_slow"			"<% DINATH_ARCANA2_AS_SLOW %>"
+			}
+			"09"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"slow_duration"			"<% DINATH_ARCANA2_SLOW_DURATION %>"
+			}
+		}
+	}
+
+
+	"dinath_rune_r_1_arcana2"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"dinath/dinath_rune_r_1_arcana2"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"<% DINATH_ARCANA2_RUNE_R1_CAST_RANGE %>"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"<% DINATH_ARCANA2_RUNE_R1_PROJECTILE_RANGE %>"
+			}
+		}
+	}
+
+	"dinath_rune_r_2_arcana2"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"dinath/dinath_rune_r_2_arcana2"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"<% DINATH_ARCANA2_RUNE_R2_RADIUS_INCREASE %>"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"<% DINATH_ARCANA2_RUNE_R2_DAMAGE_INCREASE %>"
+			}
+		}
+	}
+
+	"dinath_rune_r_3_arcana2"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"dinath/dinath_rune_r_3_arcana2"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"<% DINATH_ARCANA2_RUNE_R3_MULTI_CHANCE %>"
+			}
+		}
+	}
+
+	"dinath_rune_r_4_arcana2"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"dinath/dinath_rune_r_4_arcana2"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"<% DINATH_ARCANA2_RUNE_R4_COOLDOWN_REDUCTION %>"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"<% DINATH_ARCANA2_RUNE_R4_CHANNEL_TIME_REDUCTION %>"
+			}
+		}
+	}
+

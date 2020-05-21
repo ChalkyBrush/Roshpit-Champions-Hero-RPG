@@ -100,6 +100,7 @@ function salvage_gems_step_1(gemforger_main){
     GameUI.CustomUIConfig().chisel = 0;
     GameUI.CustomUIConfig().gemforge = 0;
     GameUI.CustomUIConfig().gem_salvage = 1;
+    GameUI.CustomUIConfig().soulbind = 0;
 
     helmPanel.AddClass("chiselable_gear");
     chestPanel.AddClass("chiselable_gear");
@@ -128,6 +129,7 @@ function forge_gem_step_1(gemforger_main){
     GameUI.CustomUIConfig().chisel = 0;
     GameUI.CustomUIConfig().gemforge = 1;
     GameUI.CustomUIConfig().gem_salvage = 0;
+    GameUI.CustomUIConfig().soulbind = 0;
 
     helmPanel.AddClass("chiselable_gear");
     chestPanel.AddClass("chiselable_gear");
@@ -344,6 +346,9 @@ function CloseGemforger(){
 	if (GameUI.CustomUIConfig().gemforge == 1){
 		clearGearHighlighter()
 	}
+	if (GameUI.CustomUIConfig().gem_salvage == 1){
+		clearGearHighlighter()
+	}
 	mTooltipPanel = null
 }
 
@@ -450,6 +455,7 @@ function clearGearHighlighter()
     amuletPanel.RemoveClass("chiselable_gear");
     weaponPanel.RemoveClass("chiselable_gear");
     GameUI.CustomUIConfig().gemforge = 0
+    GameUI.CustomUIConfig().gem_salvage = 0
 }
 
 function ItemShowTooltipInit()

@@ -3,6 +3,41 @@
 		<include src="file://{resources}/styles/custom_game/equipment.css" />
 	</styles>
 	<Panel class="ItemLoaderRoot">
+
+      <!-- <Image id="seq_bg" class="SeqBg" src="file://{images}/items/winterblight/castle/angelic_gloves_of_the_judiciary.png"/>
+      <Image id="seq_bg" class="SeqBg" src="file://{images}/items/winterblight/castle/baphomets_cursed_necklace.png"/>
+      <Image id="seq_bg" class="SeqBg" src="file://{images}/items/winterblight/castle/boots_of_temperance.png"/>
+      <Image id="seq_bg" class="SeqBg" src="file://{images}/items/winterblight/castle/breastplate_of_abjudication.png"/>
+      <Image id="seq_bg" class="SeqBg" src="file://{images}/items/winterblight/castle/cloak_of_isolation.png"/>
+      <Image id="seq_bg" class="SeqBg" src="file://{images}/items/winterblight/castle/cloak_of_the_cimmerian_priesthood.png"/>
+      <Image id="seq_bg" class="SeqBg" src="file://{images}/items/winterblight/castle/demonic_gloves_of_the_judiciary.png"/>
+      <Image id="seq_bg" class="SeqBg" src="file://{images}/items/winterblight/castle/dissimilation_greaves.png"/>
+      <Image id="seq_bg" class="SeqBg" src="file://{images}/items/winterblight/castle/elynas_feather.png"/>
+      <Image id="seq_bg" class="SeqBg" src="file://{images}/items/winterblight/castle/emperors_band.png"/>
+      <Image id="seq_bg" class="SeqBg" src="file://{images}/items/winterblight/castle/empress_jewel.png"/>
+      <Image id="seq_bg" class="SeqBg" src="file://{images}/items/winterblight/castle/exodia_gloves.png"/>
+      <Image id="seq_bg" class="SeqBg" src="file://{images}/items/winterblight/castle/galrens_skull.png"/>
+      <Image id="seq_bg" class="SeqBg" src="file://{images}/items/winterblight/castle/glove_of_the_hierophant.png"/>
+      <Image id="seq_bg" class="SeqBg" src="file://{images}/items/winterblight/castle/gravewalkers.png"/>
+      <Image id="seq_bg" class="SeqBg" src="file://{images}/items/winterblight/castle/hangman_slippers.png"/>
+      <Image id="seq_bg" class="SeqBg" src="file://{images}/items/winterblight/castle/horn_of_the_triumphant.png"/>
+      <Image id="seq_bg" class="SeqBg" src="file://{images}/items/winterblight/castle/iron_tower_barbute.png"/>
+      <Image id="seq_bg" class="SeqBg" src="file://{images}/items/winterblight/castle/justice_greaves.png"/>
+      <Image id="seq_bg" class="SeqBg" src="file://{images}/items/winterblight/castle/lich_kings_gaze.png"/>
+      <Image id="seq_bg" class="SeqBg" src="file://{images}/items/winterblight/castle/monarch_ring.png"/>
+      <Image id="seq_bg" class="SeqBg" src="file://{images}/items/winterblight/castle/moon_shard.png"/>
+      <Image id="seq_bg" class="SeqBg" src="file://{images}/items/winterblight/castle/mortuary_charm.png"/>
+      <Image id="seq_bg" class="SeqBg" src="file://{images}/items/winterblight/castle/musty_crypt_armor.png"/>
+      <Image id="seq_bg" class="SeqBg" src="file://{images}/items/winterblight/castle/plague_emperor_armor.png"/>
+      <Image id="seq_bg" class="SeqBg" src="file://{images}/items/winterblight/castle/ring_of_mysteries.png"/>
+      <Image id="seq_bg" class="SeqBg" src="file://{images}/items/winterblight/castle/shadowguard_helm.png"/>
+      <Image id="seq_bg" class="SeqBg" src="file://{images}/items/winterblight/castle/spellcrafter_coat.png"/>
+      <Image id="seq_bg" class="SeqBg" src="file://{images}/items/winterblight/castle/stonebreaker_gauntlet.png"/>
+      <Image id="seq_bg" class="SeqBg" src="file://{images}/items/winterblight/castle/sun_gods_visage.png"/>
+      <Image id="seq_bg" class="SeqBg" src="file://{images}/items/winterblight/castle/tarot_card.png"/>
+      <Image id="seq_bg" class="SeqBg" src="file://{images}/items/winterblight/castle/winterblight_dragon_scale.png"/>
+      <Image id="seq_bg" class="SeqBg" src="file://{images}/items/winterblight/castle/world_commander_gloves.png"/>
+      <Image id="seq_bg" class="SeqBg" src="file://{images}/items/winterblight/castle/zombiegrip_gauntlet.png"/> -->
       <!-- <Image id="seq_bg" class="SeqBg" src="file://{images}/spellicons/redfall/enemy_weak_creep.png"/>
       <Image id="seq_bg" class="SeqBg" src="file://{images}/spellicons/redfall/enemy_normal_creep.png"/>
       <Image id="seq_bg" class="SeqBg" src="file://{images}/spellicons/redfall/enemy_elite.png"/>
@@ -1268,6 +1303,5 @@
  -->
 
 
-		</Panel>
 	</Panel>
 </root>

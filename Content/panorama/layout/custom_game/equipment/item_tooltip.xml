@@ -16,6 +16,7 @@
 				<Label id="tooltip_title" text="HIGH THIS IS CUSTOM" html="true">
 
 				</Label>
+				<Label id="soulbound_label" class="invisible" text=""/>
 			</Panel>
 			<Panel class="class-splitter"/>
 			<Panel id="tooltip_slot_container">

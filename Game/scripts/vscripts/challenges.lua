@@ -44,6 +44,9 @@ function Challenges:ChiselItem(msg)
 	else
 		return false
 	end
+	if item:IsSoulbound() then
+		return false
+	end
 	if hero:HasModifier("modifier_cant_equip") then
 		return false
 	end
@@ -113,6 +116,9 @@ function Challenges:FinalReroll(msg)
 	Events.reroll = true
 	local newItem = nil
 	if (msg.lock1 + msg.lock2 + msg.lock3 + msg.lock4) > 2 then
+		return false
+	end
+	if item:IsSoulbound() then
 		return false
 	end
 	local costMult = math.max(1, (msg.lock1 + msg.lock2 + msg.lock3 + msg.lock4) * 2)

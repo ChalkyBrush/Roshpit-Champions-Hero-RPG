@@ -20,6 +20,8 @@
 
 	##EKKAN_ARCANA_1_ABILITIES##
 	##EKKAN_ARCANA_1_RUNES##
+	##EKKAN_ARCANA_2_ABILITIES##
+	##EKKAN_ARCANA_2_RUNES##
 	##EKKAN_BASE_ABILITIES##
 	##EKKAN_BASE_RUNES##
 
@@ -157,6 +159,7 @@
 	##SEPHYR_ARCANA_1_RUNES##
 	##SEPHYR_BASE_ABILITIES##
 	##SEPHYR_BASE_RUNES##
+	##SEPHYR_ARCANA_2##
 
 	##HYDROXIS_ARCANA_1_ABILITIES##
 	##HYDROXIS_ARCANA_1_RUNES##
@@ -185,6 +188,7 @@
 
 	##DINATH_ARCANA_1_ABILITIES##
 	##DINATH_ARCANA_1_RUNES##
+	##DINATH_ARCANA_2##
 	##DINATH_BASE_ABILITIES##
 	##DINATH_BASE_RUNES##
 
@@ -12639,6 +12643,46 @@
 						"target"		"TARGET"
 					}
 				}
+			}
+			"modifier_master_as_buff"
+			{
+				"IsHidden"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "1"
+				}
+			}
+			"modifier_master_base_damage_buff"
+			{
+				"IsHidden"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
+				}				
+			}
+			"modifier_master_green_damage_buff"
+			{
+				"IsHidden"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "1"
+				}				
+			}
+			"modifier_master_green_damage_negative_buff"
+			{
+				"IsHidden"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "-1"
+				}				
+			}
+			"modifier_take_1_damage_only"
+			{
+				"IsHidden"	"1"
 			}
 		}
 		"AbilitySpecial"
@@ -50667,6 +50711,12 @@
 						"Type"			"DAMAGE_TYPE_PURE"
 						"Damage"		"%damage"
 					}
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/arena/pit_of_trials/pit_of_trials_ai.lua"
+						"Function"		"arena_doom_think"
+						"target"		"TARGET"
+					}
 				}
 				"OnDestroy"
 				{
@@ -70617,7 +70667,61 @@
 					}
 				}
 			}
+			"ai_loot_table"
+			{
+				"IsHidden"	"1"
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"ai/ai_modifiers.lua"
+						"Function"		"ai_loot_table_drop"
+					}
+				}
+			}
 		}
 	}
 
+	"spellcrafter_dummy_ability"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"items/lua/body/spellcrafter_coat.lua"
+		"AbilityTextureName"		"earthshaker_aftershock"
+		"MaxLevel"					"1"
+			
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilitySpecial"
+		{
+
+		}
+	}
+
+	"stonebreaker_dummy_ability"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"items/lua/gloves/stonebreaker_gauntlet.lua"
+		"AbilityTextureName"		"earthshaker_aftershock"
+		"MaxLevel"					"1"
+			
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilitySpecial"
+		{
+
+		}
+	}
+
+	"exodia_gloves_dummy_ability"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"items/lua/gloves/exodia_gloves.lua"
+		"AbilityTextureName"		"earthshaker_aftershock"
+		"MaxLevel"					"1"
+			
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilitySpecial"
+		{
+
+		}
+	}
 }
+

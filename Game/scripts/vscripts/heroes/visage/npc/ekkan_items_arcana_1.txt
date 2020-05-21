@@ -69,3 +69,206 @@
 		}
 	}
 
+
+	"item_rpc_ekkan_arcana2a"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"arcana/ekkan_arcana2a"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"ItemKillable" "0"
+		"precache"
+		{
+			"model"			"models/creeps/ice_biome/undeadtusk/undead_tuskskeleton_armor01.vmdl"
+			"particle"		"particles/units/heroes/hero_venomancer/venomancer_gale_poison_debuff.vpcf"
+			"particle"		"particles/units/heroes/hero_pudge/pudge_rot.vpcf"
+			"particle"		"particles/units/heroes/hero_alchemist/alchemist_acid_spray.vpcf"
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_ekkan_arcana2a"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/equipment.lua"
+						"Function"		"equip_arcana"
+						"target"		"TARGET"
+						"index"			"2"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/equipment.lua"
+						"Function"		"unequip_arcana"
+						"target"		"TARGET"
+						"index"			"2"
+					}
+				}
+			}
+		}
+	}
+
+	"item_rpc_ekkan_arcana2b"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"arcana/ekkan_arcana2b"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"ItemKillable" "0"
+		"precache"
+		{
+			"model"		"models/creeps/ice_biome/undeadtusk/undead_tuskskeleton01.vmdl"
+			"particle"	"particles/units/heroes/hero_crystalmaiden/maiden_crystal_nova.vpcf"
+			"particle"	"particles/units/heroes/hero_winter_wyvern/wyvern_splinter_blast.vpcf"
+			"particle"	"particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
+			"particle"	"particles/roshpit/ekkan/frost_wraith_cold_effect.vpcf"
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_ekkan_arcana2b"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/equipment.lua"
+						"Function"		"equip_arcana"
+						"target"		"TARGET"
+						"index"			"3"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/equipment.lua"
+						"Function"		"unequip_arcana"
+						"target"		"TARGET"
+						"index"			"3"
+					}
+				}
+			}
+		}
+	}
+
+	"item_rpc_ekkan_arcana2c"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"arcana/ekkan_arcana2c"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"ItemKillable" "0"
+		"precache"
+		{	
+			"model"		"models/items/wraith_king/wk_ti8_creep/wk_ti8_creep_crimson.vmdl"
+			"particle"	"particles/roshpit/ekkan/burning_legionnaire_attack.vpcf"
+			"particle"	"particles/units/heroes/hero_ogre_magi/ogre_magi_bloodlust_buff.vpcf"
+			"particle"	"particles/roshpit/ekkan/burning_legionnaire_cloak_of_flames.vpcf"
+			"particle"	"particles/units/heroes/hero_snapfire/snapfire_lizard_blobs_arced.vpcf"
+			"particle"	"particles/roshpit/ekkan/burning_legionnaire_mortar_ground.vpcf"
+			"particle"	"particles/neutral_fx/roshan_slam.vpcf"
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_ekkan_arcana2c"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/equipment.lua"
+						"Function"		"equip_arcana"
+						"target"		"TARGET"
+						"index"			"4"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/equipment.lua"
+						"Function"		"unequip_arcana"
+						"target"		"TARGET"
+						"index"			"4"
+					}
+				}
+			}
+		}
+	}
+

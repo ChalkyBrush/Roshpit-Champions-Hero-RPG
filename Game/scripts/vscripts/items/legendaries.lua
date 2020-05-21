@@ -2475,6 +2475,35 @@ function RPCItems:RollOutlandStoneCuirass(item_level)
     return item
 end
 
+function RPCItems:RollPlagueEmperorArmor(item_level)
+    local item_slot = RPC_GEAR_SLOT_BODY
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_plague_emperor_armor", "immortal", "Plague Emperor Armor", "body", true, "Slot: Body")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_plague_emperor_armor"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_plague_emperor", "#34EB5B", 1, "#property_plague_emperor_description")
+
+    local luck = RandomInt(1, 3)
+    if luck == 1 then
+        local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 50, tier2 = 100})
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1.75)
+    elseif luck == 2 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "element_poison", 2.5)
+    elseif luck == 3 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "attack_damage", 2)
+    end
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 3)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.5)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
 function RPCItems:RollRadiantRuinsLeather(item_level)
     local item_slot = RPC_GEAR_SLOT_BODY
     local rarity = RPC_ITEMS_RARITY_IMMORTAL
@@ -4459,7 +4488,96 @@ function RPCItems:RollStormclothBracer(item_level)
     return item
 end
 
+function RPCItems:RollAngelicGlovesOfTheJudiciary(item_level)
+    local item_slot = RPC_GEAR_SLOT_GLOVES
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
 
+    local item = RPCItems:CreateVariant("item_rpc_angelic_gloves_of_the_judiciary", "immortal", "Angelic Gloves of the Judiciary", "hands", true, "Slot: Hands")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_angelic_gloves_of_the_judiciary"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_angelic_gloves_of_the_judiciary", "#7CE6F2", 1, "#property_angelic_gloves_of_the_judiciary_description")
+
+    local luck = RandomInt(1, 4)
+    if luck == 1 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "max_health", 1.5)
+    elseif luck == 2 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "element_holy", 1)
+    elseif luck == 3 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, nil, 1.5)
+    else
+        local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 50, tier2 = 100})
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1.25)
+    end
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "all_attributes", 2)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 1.5)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
+function RPCItems:RollDemonicGlovesOfTheJudiciary(item_level)
+    local item_slot = RPC_GEAR_SLOT_GLOVES
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_demonic_gloves_of_the_judiciary", "immortal", "Demonic Gloves of the Judiciary", "hands", true, "Slot: Hands")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_demonic_gloves_of_the_judiciary"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_demonic_gloves_of_the_judiciary", "#F74639", 1, "#property_demonic_gloves_of_the_judiciary_description")
+
+    local luck = RandomInt(1, 4)
+    if luck == 1 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "max_mana", 1.5)
+    elseif luck == 2 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "element_demon", 1)
+    elseif luck == 3 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, nil, 1.5)
+    else
+        local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 50, tier2 = 100})
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1.25)
+    end
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "all_attributes", 2)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 1.5)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
+function RPCItems:RollGloveOfTheHierophant(item_level)
+    local item_slot = RPC_GEAR_SLOT_GLOVES
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_glove_of_the_hierophant", "immortal", "Demonic Gloves of the Judiciary", "hands", true, "Slot: Hands")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_glove_of_the_hierophant"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_glove_of_the_hierophant", "#99B6FF", 1, "#property_glove_of_the_hierophant_description")
+
+    local luck = RandomInt(1, 4)
+    if luck == 1 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "spirit", 3)
+    elseif luck == 2 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "all_attributes", 1.5)
+    else
+        local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 40, tier2 = 80, tier3 = 100})
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1.5)
+    end
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 1)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
 -- BOOTS
 
 function RPCItems:RollAblecoreGreaves(item_level)
@@ -5458,7 +5576,6 @@ function RPCItems:RollTranquilBoots(item_level)
     return item
 end
 
-
 function RPCItems:RollYashaBoots(item_level)
     local item_slot = RPC_GEAR_SLOT_BOOTS
     local rarity = RPC_ITEMS_RARITY_IMMORTAL
@@ -5480,6 +5597,32 @@ function RPCItems:RollYashaBoots(item_level)
 
     RPCItems:GrantItemBaseArmor(item, item_level, 1.5)
     RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.5)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
+function RPCItems:RollJusticeGreaves(item_level)
+    local item_slot = RPC_GEAR_SLOT_BOOTS
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_justice_greaves", "immortal", "Justice Greaves", "feet", true, "Slot: Feet")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_rpc_justice_greaves"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_justice_greaves", "#A87732", 1, "#property_justice_greaves_description")
+
+    local luck = RandomInt(1, 3)
+    if luck < 3 then
+        local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 45, tier2 = 90, tier3 = 100})
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1.5)
+    else
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, nil, 1.5)
+    end
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "all_attributes", 3)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 3.5)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1)
     RPCItems:SocketsChance(item)
     RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
     return item
@@ -6425,6 +6568,29 @@ function RPCItems:RollRavenIdol(item_level)
 
     RPCItems:GrantItemBaseArmor(item, item_level, 1)
     RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.75)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
+function RPCItems:RollRingOfMysteries(item_level)
+    local item_slot = RPC_GEAR_SLOT_TRINKET
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_ring_of_mysteries", "immortal", "Ring of Mysteries", "amulet", true, "Slot: Trinket")
+    item.newItemTable.property1name = "!immortal!_modifier_ring_of_mysteries"
+    item.newItemTable.property1 = 1
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_ring_of_mysteries", "#c5f046", 1, "#property_ring_of_mysteries_description")
+
+
+    local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 50, tier2 = 100})
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 2)
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 0)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2.25)
     RPCItems:SocketsChance(item)
     RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
     return item
@@ -7410,6 +7576,18 @@ function RPCItems:RollImmortalByName(itemName, item_level)
         newItem = RPCItems:RollStargazersSphere(item_level)
     elseif itemName == "item_rpc_ruptholds_helm_of_gluttony" then
         newItem = RPCItems:RollRuptholdsHelmOfGluttony(item_level)
+    elseif itemName == "item_rpc_plague_emperor_armor" then
+        newItem = RPCItems:RollPlagueEmperorArmor(item_level)
+    elseif itemName == "item_rpc_ring_of_mysteries" then
+        newItem = RPCItems:RollRingOfMysteries(item_level)
+    elseif itemName == "item_rpc_justice_greaves" then
+        newItem = RPCItems:RollJusticeGreaves(item_level)
+    elseif itemName == "item_rpc_angelic_gloves_of_the_judiciary" then
+        newItem = RPCItems:RollAngelicGlovesOfTheJudiciary(item_level)
+    elseif itemName == "item_rpc_demonic_gloves_of_the_judiciary" then
+        newItem = RPCItems:RollDemonicGlovesOfTheJudiciary(item_level)
+    elseif itemName == "item_rpc_glove_of_the_hierophant" then
+        newItem = RPCItems:RollGloveOfTheHierophant(item_level)
     end
     return newItem
 end
@@ -7651,5 +7829,11 @@ function RPCItems:RollAndDropImmortalByLevel(position, item_level, item_name)
     local item_level = RPCItems:RollItemLevelFromUnit(item_level)
     local immortal = RPCItems:RollImmortalByName(item_name, item_level)
     RPCItems:BasicDropItem(position, immortal)
+    return immortal
+end
+
+function RPCItems:RollImmortalByLevel(item_level, item_name)
+    local item_level = RPCItems:RollItemLevelFromUnit(item_level)
+    local immortal = RPCItems:RollImmortalByName(item_name, item_level)
     return immortal
 end

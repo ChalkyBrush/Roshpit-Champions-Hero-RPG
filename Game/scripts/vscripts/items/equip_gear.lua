@@ -63,6 +63,7 @@ function CDOTA_BaseNPC_Hero:UnequipItem(item)
 	local hero = self
 	local slot = item.newItemTable.gear_slot
 	hero:ResetGearBonusesForSlot(slot)
+
 	CustomNetTables:SetTableValue("equipment", tostring(hero:GetPlayerOwnerID()) .. "-"..tostring(slot), {itemIndex = -1})
 	-- if slot == 1 then
 	-- 	hero.weapon = nil
@@ -120,7 +121,10 @@ function RPCItems:RecordGearBonusToHeroBySlot(item, hero, property_name, propert
 	-- --print("PROPERTY NAME: "..property_name)
 	-- PROPERTY TYPE MODIFIERS:
 	if hero:HasModifier("modifier_puzzlers_locket") or item:GetAbilityName() == "item_rpc_puzzlers_locket" then
-		property_name = RPCItems:AdjustPropertyNameForPuzzler(hero, item, property_value, property_name)
+		property_name, property_value = RPCItems:AdjustPropertyNameForPuzzler(hero, item, property_value, property_name)
+	end
+	if hero:HasModifier("modifier_monarch_ring") or item:GetAbilityName() == "item_rpc_monarch_ring" then
+		property_name, property_value = RPCItems:AdjustPropertyForMonarchRing(hero, item, property_value, property_name)
 	end
 	if property_name == "immortal_weapon_3" and hero:GetUnitName() == "npc_dota_hero_skywrath_mage" then
 		property_name = "all_t4_runes"
@@ -296,6 +300,9 @@ function CDOTA_BaseNPC_Hero:UpdateRuneBonusesFromGear()
 			if hero:HasModifier(modifier_name) then
 				rune_bonus = rune_bonus + hero:GetModifierStackCount(modifier_name, hero.InventoryUnit)
 			end	
+		end
+		if hero.runes_bonus_ring_of_mysteries and hero.runes_bonus_ring_of_mysteries[rune_name] then
+			rune_bonus = rune_bonus + hero.runes_bonus_ring_of_mysteries[rune_name]
 		end
 		hero.runes_bonus_table[rune_name] = rune_bonus
 	end
@@ -1543,7 +1550,49 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 		if socket_type == "amethyst" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_WORLD_TREES_FLOWER_CACHE_GEM_AMETHYST, hero, "element_nature", RPC_GEAR_SLOT_TRINKET)
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_WORLD_TREES_FLOWER_CACHE_GEM_AMETHYST, hero, "item_damage", RPC_GEAR_SLOT_TRINKET)
-		end			
+		end		
+	elseif item:GetAbilityName() == "item_rpc_plague_emperor_armor" then
+		if socket_type == "ruby" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_PLAGUE_EMPEROR_ARMOR_GEM_RUBY1, hero, "element_poison", RPC_GEAR_SLOT_BODY)
+		end	
+	elseif item:GetAbilityName() == "item_rpc_justice_greaves" then
+		if socket_type == "ruby" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_JUSTICE_GREAVES_GEM_RUBY1, hero, "strength", RPC_GEAR_SLOT_BOOTS)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_JUSTICE_GREAVES_GEM_RUBY2, hero, "max_health", RPC_GEAR_SLOT_BOOTS)
+		end	
+	elseif item:GetAbilityName() == "item_rpc_angelic_gloves_of_the_judiciary" then
+		if socket_type == "sapphire" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_ANGELIC_GLOVES_OF_THE_JUDICIARY_GEM_SAPPHIRE, hero, "intelligence", RPC_GEAR_SLOT_GLOVES)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_ANGELIC_GLOVES_OF_THE_JUDICIARY_GEM_SAPPHIRE, hero, "spirit", RPC_GEAR_SLOT_GLOVES)
+		end	
+	elseif item:GetAbilityName() == "item_rpc_demonic_gloves_of_the_judiciary" then
+		if socket_type == "sapphire" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_DEMONIC_GLOVES_OF_THE_JUDICIARY_GEM_SAPPHIRE, hero, "strength", RPC_GEAR_SLOT_GLOVES)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_DEMONIC_GLOVES_OF_THE_JUDICIARY_GEM_SAPPHIRE, hero, "agility", RPC_GEAR_SLOT_GLOVES)
+		end	
+	elseif item:GetAbilityName() == "item_rpc_sun_gods_visage" then
+		if socket_type == "amethyst" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_SUN_GODS_VISAGE_AMETHYST1, hero, "max_health", RPC_GEAR_SLOT_HEAD)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_SUN_GODS_VISAGE_AMETHYST2, hero, "element_fire", RPC_GEAR_SLOT_HEAD)
+		end		
+	elseif item:GetAbilityName() == "item_rpc_zombiegrip_gauntlet" then
+		if socket_type == "ruby" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_ZOMBIEGRIP_GAUNTLET_GEM_RUBY1, hero, "element_undead", RPC_GEAR_SLOT_GLOVES)
+		end
+	elseif item:GetAbilityName() == "item_rpc_world_commander_gloves" then
+		if socket_type == "ruby" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_WORLD_COMMANDER_GLOVES_GEM_RUBY, hero, "rune_q_4", RPC_GEAR_SLOT_GLOVES)
+		elseif socket_type == "emerald" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_WORLD_COMMANDER_GLOVES_GEM_EMERALD, hero, "rune_e_4", RPC_GEAR_SLOT_GLOVES)
+		elseif socket_type == "sapphire" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_WORLD_COMMANDER_GLOVES_GEM_SAPPHIRE, hero, "rune_w_4", RPC_GEAR_SLOT_GLOVES)
+		elseif socket_type == "amethyst" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_WORLD_COMMANDER_GLOVES_GEM_AMETHYST, hero, "rune_r_4", RPC_GEAR_SLOT_GLOVES)
+		end
+	elseif item:GetAbilityName() == "item_rpc_grey_domain_greaves" then
+		if socket_type == "emerald" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_GREY_DOMAIN_GREAVES_GEM_EMERALD, hero, "rune_e_4", RPC_GEAR_SLOT_BOOTS)
+		end
 	end
 end
 
@@ -1695,28 +1744,39 @@ end
 
 function RPCItems:AdjustPropertyNameForPuzzler(hero, item, property_value, property_name)
 	local property_name_to_return = property_name
+	local value_to_return = property_value
 	if property_name == "all_t2_runes" then
 		property_name_to_return = "all_t3_runes"
+		value_to_return = property_value*0.5
 	elseif property_name == "all_t3_runes" then
 		property_name_to_return = "all_t2_runes"
+		value_to_return = property_value*2
 	elseif property_name == "rune_q_2" then
 		property_name_to_return = "rune_q_3"
+		value_to_return = property_value*0.5
 	elseif property_name == "rune_w_2" then
 		property_name_to_return = "rune_w_3"
+		value_to_return = property_value*0.5
 	elseif property_name == "rune_e_2" then
 		property_name_to_return = "rune_e_3"
+		value_to_return = property_value*0.5
 	elseif property_name == "rune_r_2" then
 		property_name_to_return = "rune_r_3"
+		value_to_return = property_value*0.5
 	elseif property_name == "rune_q_3" then
 		property_name_to_return = "rune_q_2"
+		value_to_return = property_value*2
 	elseif property_name == "rune_w_3" then
 		property_name_to_return = "rune_w_2"
+		value_to_return = property_value*2
 	elseif property_name == "rune_e_3" then
 		property_name_to_return = "rune_e_2"
+		value_to_return = property_value*2
 	elseif property_name == "rune_r_3" then
 		property_name_to_return = "rune_r_2"
+		value_to_return = property_value*2
 	end
-	return property_name_to_return
+	return property_name_to_return, value_to_return
 end
 
 function RPCItems:GetMultStoneOfGordon(hero, item, property_value, property_name)
@@ -1731,4 +1791,70 @@ function RPCItems:GetMultStoneOfGordon(hero, item, property_value, property_name
 		mult = hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_STONE_OF_GORDON_GEM_AMETHYST)/100
 	end
 	return mult
+end
+
+function RPCItems:AdjustPropertyForMonarchRing(hero, item, property_value, property_name)
+	local property_name_to_return = property_name
+	if property_name == "all_t1_runes" then
+		property_name_to_return = "all_attributes"
+		property_value = property_value * ITEM_RPC_MONARCH_RING_STAT_PER_RUNE * Runes.COST_TO_LEVEL_T1
+	elseif property_name == "all_t2_runes" then
+		property_name_to_return = "all_attributes"
+		property_value = property_value * ITEM_RPC_MONARCH_RING_STAT_PER_RUNE * Runes.COST_TO_LEVEL_T2
+	elseif property_name == "all_t3_runes" then
+		property_name_to_return = "all_attributes"
+		property_value = property_value * ITEM_RPC_MONARCH_RING_STAT_PER_RUNE * Runes.COST_TO_LEVEL_T3
+	elseif property_name == "all_t4_runes" then
+		property_name_to_return = "all_attributes"
+		property_value = property_value * ITEM_RPC_MONARCH_RING_STAT_PER_RUNE * Runes.COST_TO_LEVEL_T4
+	elseif property_name == "rune_q_1" or property_name == "rune_q_2" then
+		property_name_to_return = "strength"
+		property_value = property_value * ITEM_RPC_MONARCH_RING_STAT_PER_RUNE * Runes.COST_TO_LEVEL_T1
+	elseif property_name == "rune_q_3" then
+		property_name_to_return = "strength"
+		property_value = property_value * ITEM_RPC_MONARCH_RING_STAT_PER_RUNE * Runes.COST_TO_LEVEL_T3
+	elseif property_name == "rune_q_4" then
+		property_name_to_return = "strength"
+		property_value = property_value * ITEM_RPC_MONARCH_RING_STAT_PER_RUNE * Runes.COST_TO_LEVEL_T4
+	elseif property_name == "rune_w_1" or property_name == "rune_w_2" then
+		property_name_to_return = "agility"
+		property_value = property_value * ITEM_RPC_MONARCH_RING_STAT_PER_RUNE * Runes.COST_TO_LEVEL_T1
+	elseif property_name == "rune_w_3" then
+		property_name_to_return = "agility"
+		property_value = property_value * ITEM_RPC_MONARCH_RING_STAT_PER_RUNE * Runes.COST_TO_LEVEL_T3
+	elseif property_name == "rune_w_4" then
+		property_name_to_return = "agility"
+		property_value = property_value * ITEM_RPC_MONARCH_RING_STAT_PER_RUNE * Runes.COST_TO_LEVEL_T4
+	elseif property_name == "rune_e_1" or property_name == "rune_e_2" then
+		property_name_to_return = "intelligence"
+		property_value = property_value * ITEM_RPC_MONARCH_RING_STAT_PER_RUNE * Runes.COST_TO_LEVEL_T1
+	elseif property_name == "rune_e_3" then
+		property_name_to_return = "intelligence"
+		property_value = property_value * ITEM_RPC_MONARCH_RING_STAT_PER_RUNE * Runes.COST_TO_LEVEL_T3
+	elseif property_name == "rune_e_4" then
+		property_name_to_return = "intelligence"
+		property_value = property_value * ITEM_RPC_MONARCH_RING_STAT_PER_RUNE * Runes.COST_TO_LEVEL_T4
+	elseif property_name == "rune_r_1" or property_name == "rune_r_2" then
+		property_name_to_return = "spirit"
+		property_value = property_value * ITEM_RPC_MONARCH_RING_STAT_PER_RUNE * Runes.COST_TO_LEVEL_T1
+	elseif property_name == "rune_r_3" then
+		property_name_to_return = "spirit"
+		property_value = property_value * ITEM_RPC_MONARCH_RING_STAT_PER_RUNE * Runes.COST_TO_LEVEL_T3
+	elseif property_name == "rune_r_4" then
+		property_name_to_return = "spirit"
+		property_value = property_value * ITEM_RPC_MONARCH_RING_STAT_PER_RUNE * Runes.COST_TO_LEVEL_T4
+	end
+	local ring = hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]
+	if ring then
+		if property_name == "strength" then
+			property_value = property_value*(1 + ring:GetFinalGemPropertyValue("ruby", ITEM_RPC_MONARCH_RING_GEM_RUBY)/100)
+		elseif property_name == "agility" then
+			property_value = property_value*(1 + ring:GetFinalGemPropertyValue("emerald", ITEM_RPC_MONARCH_RING_GEM_EMERALD)/100)
+		elseif property_name == "intelligence" then
+			property_value = property_value*(1 + ring:GetFinalGemPropertyValue("sapphire", ITEM_RPC_MONARCH_RING_GEM_SAPPHIRE)/100)
+		elseif property_name == "spirit" then
+			property_value = property_value*(1 + ring:GetFinalGemPropertyValue("amethyst", ITEM_RPC_MONARCH_RING_GEM_AMETHYST)/100)
+		end
+	end
+	return property_name_to_return, property_value
 end

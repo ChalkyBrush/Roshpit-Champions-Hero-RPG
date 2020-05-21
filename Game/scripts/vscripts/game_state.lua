@@ -1540,6 +1540,17 @@ function GameState:OrderFilter(orderTable)
 				else
 					return true
 				end
+			elseif unit:HasModifier("modifier_dinath_arcana2") then
+				local orderAbility = EntIndexToHScript(orderTable.entindex_ability)
+				if IsValidEntity(orderAbility) then
+					if orderAbility:GetAbilityName() == "dinath_frost_wyrm" then
+						return VectorTarget:OrderFilter(orderTable)
+					else
+						return true
+					end
+				else
+					return true
+				end
 			else
 				return true
 			end
@@ -1963,7 +1974,19 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 			end
 		end
 	end
-
+	if victim:HasModifier("modifier_rpc_justice_greaves") then
+		if shouldConsumeShields and victim.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetGemValue("emerald") > 0 then
+			local angle1 = victim:GetForwardVector()
+			local angle2 = ((victim:GetAbsOrigin() - attacker:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+			local angle_between = WallPhysics:angle_between_vectors(angle1, angle2)
+			if (angle_between > (180 - ITEM_RPC_JUSTICE_GREAVES_EMERALD_ANGLE/2)) and (angle_between < (180 + ITEM_RPC_JUSTICE_GREAVES_EMERALD_ANGLE/2)) then
+				CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_mars/mars_shield_of_mars.vpcf", victim, 1)
+				EmitSoundOn("RPCItems.JusticeGreaves.Block", victim)
+				local reduction = victim.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_JUSTICE_GREAVES_GEM_EMERALD)
+				damage = damage * (100-reduction)/100
+			end
+		end
+	end
 	if victim:HasModifier("modifier_chitinous_skin_stack") then
 		local stacks = victim:GetModifierStackCount("modifier_chitinous_skin_stack", victim.InventoryUnit)
 		local reduction = 1 - stacks * ITEM_RPC_CHITINOUS_LOBSTER_CLAW_DMG_RED_PER_STACK
@@ -2785,6 +2808,7 @@ function GameState:FilterDamage(filterTable)
 		Timers:CreateTimer(1, function()
 			ParticleManager:DestroyParticle(pfx, false)
 		end)
+		Filters:ApplyHeal(attacker, attacker, lifesteal, true, false, nil)
 	end
 	if victim:HasModifier("modifier_starseeker_passive") then
 		if damagetype == DAMAGE_TYPE_MAGICAL then
@@ -3080,6 +3104,11 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_epoch_glyph_5_a_little_shield") then
 		filterTable["damage"] = 0
 	end
+	Util.Modifier:SimpleEvent(victim, 'HPShieldTakeDamage', { MODIFIER_ROSHPIT_HP_SHIELD }, { damage = filterTable["damage"], victim = victim }, 
+        function(result, data)
+            filterTable["damage"] = math.max(filterTable["damage"] - result, 0)
+        end
+    )
 	if victim:HasModifier("modifier_white_mage_shield") then
 		local shieldUsage = math.min(filterTable["damage"], victim.whiteMageShield)
 		filterTable["damage"] = filterTable["damage"] - shieldUsage
@@ -3214,6 +3243,9 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_no_damage") then
 		filterTable["damage"] = 0
 	end
+	if victim:HasModifier("modifier_ekkan_skeleton_corpse") then
+		filterTable["damage"] = 0
+	end
 	if victim:HasModifier("modifier_surrogate_ai") then
 		if not attacker:HasModifier("modifier_aura_can_attack_castle_boss") then
 			filterTable["damage"] = 0
@@ -3262,7 +3294,9 @@ function GameState:FilterDamage(filterTable)
 			filterTable["damage"] = 1
 		end
 	end
-
+	if victim:HasModifier("modifier_musty_crypt_skeleton_transform") and filterTable["damage"] > 0 then
+		filterTable["damage"] = ITEM_RPC_MUSTY_CRYPT_ARMOR_DAMAGE_TAKEN - victim.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("ruby", ITEM_RPC_MUSTY_CRYPT_ARMOR_GEM_RUBY3)
+	end
 	if victim:HasModifier("modifier_frozen_heart") then
 		if victim:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
 			if not victim.equipped_gear then
@@ -3299,7 +3333,11 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_paladin_rune_e_1_invulnerable") then
 		filterTable["damage"] = 0
 	end
-
+	Util.Modifier:SimpleEvent(victim, 'RoshpitEventFinalTakeDamage', { MODIFIER_ROSHPIT_EVENT_FINAL_TAKE_DAMAGE }, {attacker = attacker, victim = victim, damage = filterTable["damage"], damageType = filterTable["damagetype_const"]}, 
+		function(result, data)
+			filterTable["damage"] = result
+		end
+	)	
 	--LETHAL CHECK
 	if filterTable["damage"] >= victim:GetHealth() then
 		local death_prevented = false

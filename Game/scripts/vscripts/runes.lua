@@ -1144,6 +1144,15 @@ function Runes:EquipArcana(hero, index)
 				end
 			end
 			Runes:EasySwapArcanaSkills(hero, 0, "ekkan_dominion", "ekkan_arcana_black_dominion", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+		elseif index == 2 then
+			hero:RemoveModifierByName("modifier_ekkan_passive_aura")
+			Runes:EasySwapArcanaSkills(hero, 1, "ekkan_summon_skeleton", "ekkan_arcana2_plague_bearer", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2a")
+		elseif index == 3 then
+			hero:RemoveModifierByName("modifier_ekkan_passive_aura")
+			Runes:EasySwapArcanaSkills(hero, 1, "ekkan_summon_skeleton", "ekkan_arcana2_frost_wraith", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2b")
+		elseif index == 4 then
+			hero:RemoveModifierByName("modifier_ekkan_passive_aura")
+			Runes:EasySwapArcanaSkills(hero, 1, "ekkan_summon_skeleton", "ekkan_arcana2_burning_legionnaire", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2c")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_antimage" then
 		if index == 1 then
@@ -1238,6 +1247,9 @@ function Runes:EquipArcana(hero, index)
 		if index == 1 then
 			Runes:EasySwapArcanaSkills(hero, 1, "piercing_gale", "icewind_gale", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 			hero:RemoveModifierByName("modifier_sephyr_gale_passive")
+		elseif index == 2 then
+			hero:RemoveModifierByName("modifier_sephyr_passive")
+			Runes:EasySwapArcanaSkills(hero, 0, "sephyr_lightbomb", "sephyr_hurricane", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_winter_wyvern" then
 		if index == 1 then
@@ -1249,6 +1261,18 @@ function Runes:EquipArcana(hero, index)
 			end
 			Runes:EasySwapArcanaSkills(hero, 1, "dinath_drake_ring", "dinath_dragon_fire", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 			hero:RemoveModifierByName("modifier_drake_ring_passive")
+		elseif index == 2 then
+			local hyperbeam = hero:FindAbilityByName("dinath_hyper_beam")
+			if hyperbeam.hyperbeamTable then
+				for i = 1, #hyperbeam.hyperbeamTable, 1 do
+					local beam = hyperbeam.hyperbeamTable[i]
+					if IsValidEntity(beam) then
+						ParticleManager:DestroyParticle(beam.pfx)
+						UTIL_Remove(beam)
+					end
+				end
+			end
+			Runes:EasySwapArcanaSkills(hero, 3, "dinath_hyper_beam", "dinath_frost_wyrm", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_arc_warden" then
 		local element
@@ -1885,14 +1909,23 @@ function Runes:UnequipArcana(hero, index)
 			Runes:EasyRevertArcanaSkills(hero, 0, new_ability_name, abilityCheck:GetAbilityName(), HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_visage" then
-		local dominionAbility = hero:FindAbilityByName("ekkan_arcana_black_dominion")
-		if dominionAbility.dominionTable then
-			for i = 1, #dominionAbility.dominionTable, 1 do
-				dominionAbility.dominionTable[1]:ForceKill(false)
-			end
-		end
 		if index == 1 then
+			local dominionAbility = hero:FindAbilityByName("ekkan_arcana_black_dominion")
+			if dominionAbility.dominionTable then
+				for i = 1, #dominionAbility.dominionTable, 1 do
+					dominionAbility.dominionTable[1]:ForceKill(false)
+				end
+			end
 			Runes:EasyRevertArcanaSkills(hero, 0, "ekkan_dominion", "ekkan_arcana_black_dominion", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+		elseif index == 2 then
+			hero:RemoveModifierByName("modifier_ekkan_passive_aura_arcana")
+			Runes:EasyRevertArcanaSkills(hero, 1, "ekkan_summon_skeleton", "ekkan_arcana2_plague_bearer", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2a")
+		elseif index == 3 then
+			hero:RemoveModifierByName("modifier_ekkan_passive_aura_arcana")
+			Runes:EasyRevertArcanaSkills(hero, 1, "ekkan_summon_skeleton", "ekkan_arcana2_frost_wraith", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2b")
+		elseif index == 4 then
+			hero:RemoveModifierByName("modifier_ekkan_passive_aura_arcana")
+			Runes:EasyRevertArcanaSkills(hero, 1, "ekkan_summon_skeleton", "ekkan_arcana2_burning_legionnaire", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2c")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_antimage" then
 		if index == 1 then
@@ -1985,6 +2018,9 @@ function Runes:UnequipArcana(hero, index)
 		if index == 1 then
 			Runes:EasyRevertArcanaSkills(hero, 1, "piercing_gale", "icewind_gale", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 			hero:RemoveModifierByName("modifier_icewind_passive")
+		elseif index == 2 then
+			hero:RemoveModifierByName("modifier_sephyr_hurricane_passive")
+			Runes:EasyRevertArcanaSkills(hero, 0, "sephyr_lightbomb", "sephyr_hurricane", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_winter_wyvern" then
 		if index == 1 then
@@ -1993,6 +2029,8 @@ function Runes:UnequipArcana(hero, index)
 			hero:RemoveModifierByName("modifier_spire_breath")
 			hero:RemoveModifierByName("modifier_spire_breath_a_b_buff")
 			hero:RemoveModifierByName("modifier_dinath_passive_ms_cap")
+		elseif index == 2 then
+			Runes:EasyRevertArcanaSkills(hero, 3, "dinath_hyper_beam", "dinath_frost_wyrm", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_arc_warden" then
 		local oldElement

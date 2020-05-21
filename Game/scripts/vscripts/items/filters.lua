@@ -772,6 +772,9 @@ function Filters:ApplyHeal(caster, target, healAmount, bCap, doPopUp, optional_a
             PopupMana(target, manaRestore)
         end
     end
+    if caster:HasModifier("modifier_glove_of_the_hierophant") then
+        healAmount = Filters:GloveOfTheHierophant(caster, target, healAmount)
+    end
     target:Heal(healAmount, caster)
     if doPopUp and healAmount > 0 then
         PopupHealing(target, healAmount)
@@ -886,13 +889,15 @@ function Filters:CastSkillArguments(slot, caster)
     elseif slot == BASE_ABILITY_R then
         Filters:ApplyRskills(caster)
         Util.Modifier:SimpleEvent(caster, 'OnCastRAbility', { MODIFIER_SPECIAL_TYPE_CAST_R_ABILITY }, {}, nil)
-
     end
     if caster:HasModifier("modifier_torch_of_gengar_effect") then
         Filters:GengarCast(caster)
     end
     if caster:HasModifier("modifier_beryl_ring_of_intuiton") or caster:HasModifier("modifier_auric_ring_of_inspiration") then
         Filters:InpsirationRing(caster, slot)
+    end
+    if caster:HasModifier("modifier_plague_emperor_armor") then
+        Filters:PlagueEmperorBombSetup(caster, slot, nil)
     end
     if caster:HasModifier("modifier_depth_demon_claw_sapphire") then
         local mana_drain = caster:GetMaxMana()*(caster.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_DEPTH_DEMON_CLAW_GEM_SAPPHIRE3))/100
@@ -968,7 +973,7 @@ function Filters:BeginRChannel(caster)
         return false
     end
     local baseCd = ability:GetCooldownTimeRemaining()
-    if not ability.BaseClass and caster:HasModifier("modifier_iron_treads_of_destruction") then
+    if not ability.BaseClass and (caster:HasModifier("modifier_iron_treads_of_destruction") or caster:HasModifier("modifier_baphomets_cursed_necklace_ruin_effect")) then
         ability:OnChannelFinish(false)
         Timers:CreateTimer(0.03, function()
             ability:EndChannel(true)
@@ -980,6 +985,11 @@ function Filters:BeginRChannel(caster)
             caster:AddNewModifier(caster.InventoryUnity, caster.equipped_gear[RPC_GEAR_SLOT_GLOVES], "modifier_spellfire_gloves_channeling_think", {duration = ability:GetChannelTime()})
         end
     end
+    Util.Modifier:SimpleEvent(caster, 'OnRChannelStart', { MODIFIER_SPECIAL_TYPE_R_CHANNEL_START }, {caster = caster}, 
+        function(result, data)
+            
+        end
+    )
     local baseCd = ability:GetCooldownTimeRemaining()
     Filters:ReduceRCooldown(caster, ability, baseCd, false)
     if caster:HasModifier("modifier_galaxy_orb") then
@@ -1025,6 +1035,11 @@ function Filters:BeginRChannel(caster)
 end
 
 function Filters:EndRChannel(caster)
+    Util.Modifier:SimpleEvent(caster, 'OnRChannelEnd', { MODIFIER_SPECIAL_TYPE_R_CHANNEL_END }, {caster = caster}, 
+        function(result, data)
+            
+        end
+    )
     if caster:HasModifier("modifier_galaxy_orb") then
         caster:RemoveModifierByName("modifier_galaxy_orb_channel")
     end
@@ -1560,8 +1575,17 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:HasModifier("modifier_eternal_forest_striders") and slot == BASE_ABILITY_E then
             Filters:EternalForestStriders(attacker, victim, damage)
         end
+        if slot == BASE_ABILITY_Q then
+            Util.Modifier:SimpleEvent(attacker, 'OnHitQAbility', { MODIFIER_SPECIAL_TYPE_ON_HIT_Q_ABILITY }, {victim = victim, attacker = attacker, damage = damage, damage_type = damage_type}, nil)
+        elseif slot == BASE_ABILITY_W then
+            Util.Modifier:SimpleEvent(attacker, 'OnHitWAbility', { MODIFIER_SPECIAL_TYPE_ON_HIT_W_ABILITY }, {victim = victim, attacker = attacker, damage = damage, damage_type = damage_type}, nil)
+        elseif slot == BASE_ABILITY_E then
+            Util.Modifier:SimpleEvent(attacker, 'OnHitEAbility', { MODIFIER_SPECIAL_TYPE_ON_HIT_E_ABILITY }, {victim = victim, attacker = attacker, damage = damage, damage_type = damage_type}, nil)
+        elseif slot == BASE_ABILITY_R then
+            Util.Modifier:SimpleEvent(attacker, 'OnHitRAbility', { MODIFIER_SPECIAL_TYPE_ON_HIT_R_ABILITY }, {victim = victim, attacker = attacker, damage = damage, damage_type = damage_type}, nil)
+        end
     end
-
+    -- damage = Filters:AdjustBaseAbilityDamage(victim, attacker, damage, damage_type, slot, element1, element2, ignore_effects, ability)
     local damageData = attacker._damage_data or {}
 
     local attackerName = attacker:GetUnitName()
@@ -1761,6 +1785,9 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:HasModifier("modifier_claw_of_azinoth") then
             damageMult = damageMult + attacker.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_CLAW_OF_AZINOTH_GEM_SAPPHIRE2)/100
         end
+        if attacker:HasModifier("modifier_angelic_gloves_of_the_judiciary_bad") then
+            damageMult = damageMult + attacker:GetModifierStackCount("modifier_angelic_gloves_of_the_judiciary_bad", attacker.InventoryUnit) * (ITEM_RPC_ANGELIC_GLOVES_OF_THE_JUDICIARY_BAD_PER_ATTR/100)
+        end
         if attacker:HasModifier("modifier_space_tech_buff_invisible") then
             damageMult = damageMult + 0.01 * attacker:GetModifierStackCount("modifier_space_tech_buff_invisible", attacker.InventoryUnit)
         end
@@ -1865,6 +1892,11 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             local current_stack = attacker:GetModifierStackCount("modifier_royal_wristguards_stack_effect", attacker.InventoryUnit)
             damageMult = damageMult + (ITEM_RPC_ROYAL_WRISTGUARDS_Q_BAD/100) * current_stack
         end
+        Util.Modifier:SimpleEvent(attacker, 'GetRoshpitQBADMaxOverride', { MODIFIER_ROSHPIT_Q_BASE_ABILITY_MAX_OVERRIDE }, { }, 
+            function(result, data)
+                damageMult = math.min(damageMult, result/100)
+            end
+        )
         damage = damage * (1 + damageMult)
         if not ignore_effects then
             Filters:ApplyQdamage(victim, attacker, damage, damage_type)
@@ -1948,6 +1980,11 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
                 damageMult = damageMult + TRAPPER_W4_AMPLIFY_PERCENT*attacker:GetRuneValue("w", 4)
             end
         end
+        Util.Modifier:SimpleEvent(attacker, 'GetRoshpitWBADMaxOverride', { MODIFIER_ROSHPIT_W_BASE_ABILITY_MAX_OVERRIDE }, { }, 
+            function(result, data)
+                damageMult = math.min(damageMult, result/100)
+            end
+        )
         damage = damage * (1 + damageMult)
         if not ignore_effects then
             Filters:ApplyWdamage(victim, attacker, damage, damage_type)
@@ -1999,6 +2036,11 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
                 damageMult = damageMult + CONJUROR_IMMORTAL_WEAPON_2_BAD_PER_ATTRIBUTES_PCT/100 * (attacker:GetAgility())
             end
         end
+        Util.Modifier:SimpleEvent(attacker, 'GetRoshpitEBADMaxOverride', { MODIFIER_ROSHPIT_E_BASE_ABILITY_MAX_OVERRIDE }, { }, 
+            function(result, data)
+                damageMult = math.min(damageMult, result/100)
+            end
+        )
         damage = damage * (1 + damageMult)
         if not ignore_effects then
             Filters:ApplyEdamage(victim, attacker, damage, damage_type)
@@ -2031,8 +2073,11 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:HasModifier("modifier_brazen_kabuto") then
             damageMult = damageMult + attacker.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("emerald", KABUTO_EMERALD)/100
         end
-
-
+        Util.Modifier:SimpleEvent(attacker, 'GetRoshpitRBADMaxOverride', { MODIFIER_ROSHPIT_R_BASE_ABILITY_MAX_OVERRIDE }, { }, 
+            function(result, data)
+                damageMult = math.min(damageMult, result/100)
+            end
+        )
         damage = damage * (1 + damageMult)
 
         if not ignore_effects then
@@ -2079,6 +2124,19 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
     return damage
 end
 
+function Filters:AdjustBaseAbilityDamage(victim, attacker, damage, damage_type, slot, element1, element2, ignore_effects, ability)
+    if attacker:HasModifier("modifier_angelic_gloves_of_the_judiciary") then
+        if not ignore_effects then
+            if slot == BASE_ABILITY_W then
+                if attacker.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetGemValue("emerald") > 0 then
+                    damage = damage + attacker:GetHealth()
+                end
+            end
+        end
+    end
+    return damage
+end
+
 function Filters:IsTouchingGround(unit)
     --print(GetGroundHeight(unit:GetAbsOrigin(), unit) - unit:GetAbsOrigin().z)
     if GetGroundHeight(unit:GetAbsOrigin(), unit) - unit:GetAbsOrigin().z < -12 or Filters:HasFlyingModifier(unit) then
@@ -2097,7 +2155,6 @@ function Filters:HasFlyingModifier(unit)
 end
 
 function Filters:ApplyQdamage(victim, attacker, damage, damage_type)
-    Util.Modifier:SimpleEvent(attacker, 'OnHitQAbility', { MODIFIER_SPECIAL_TYPE_ON_HIT_Q_ABILITY }, {victim = victim, attacker = attacker, damage = damage, damage_type = damage_type}, nil)
     if attacker:HasModifier("modifier_vampiric_breastplate") then
         Filters:VampiricBreastplate(attacker, damage, "q_ability", "modifier_vampiric_breastplate")
     end
@@ -2112,17 +2169,14 @@ function Filters:ApplyQdamage(victim, attacker, damage, damage_type)
 end
 
 function Filters:ApplyWdamage(victim, attacker, damage, damage_type)
-    Util.Modifier:SimpleEvent(attacker, 'OnHitWAbility', { MODIFIER_SPECIAL_TYPE_ON_HIT_W_ABILITY }, {victim = victim, attacker = attacker, damage = damage, damage_type = damage_type}, nil)
     Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, 1)
 end
 
 function Filters:ApplyEdamage(victim, attacker, damage, damage_type)
-    Util.Modifier:SimpleEvent(attacker, 'OnHitEAbility', { MODIFIER_SPECIAL_TYPE_ON_HIT_E_ABILITY }, {victim = victim, attacker = attacker, damage = damage, damage_type = damage_type}, nil)
     Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, 2)
 end
 
 function Filters:ApplyRdamage(victim, attacker, damage, damage_type)
-    Util.Modifier:SimpleEvent(attacker, 'OnHitRAbility', { MODIFIER_SPECIAL_TYPE_ON_HIT_R_ABILITY }, {victim = victim, attacker = attacker, damage = damage, damage_type = damage_type}, nil)
     Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, DOTA_R_SLOT)
 end
 
@@ -2350,6 +2404,11 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 end
             end
         end
+        if unitName == "npc_dota_hero_visage" then
+            if attacker:HasModifier("modifier_ekkan_arcana2c") then
+                mult = mult + attacker:GetRuneValue("w", 4)*EKKAN_ARCANA_W4C_ELEMENTAL_AMP/100
+            end
+        end
         if unitName == "npc_dota_hero_crystal_maiden" then
             if attacker.r_4_level and not attacker:HasModifier("modifier_sorceress_arcana1") then
                 fireMult = fireMult + SORCERESS_R4_FIRE_AMP * attacker.r_4_level
@@ -2499,6 +2558,11 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             if attacker:HasModifier("modifier_trapper_arcana1") then
                 local w_4_level = attacker:GetRuneValue("w", 4)
                 mult = mult + TRAPPER_ARCANA_W_W4_ELEMENTAL_AMP * w_4_level
+            end
+        end
+        if attacker:GetUnitName() == "npc_dota_hero_visage" then
+            if attacker:HasModifier("modifier_ekkan_arcana2a") then
+                mult = mult + attacker:GetRuneValue("w", 4)*EKKAN_ARCANA_W4A_ELEMENTAL_AMP/100
             end
         end
         mult = mult + (CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_head_element_poison", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_weapon_element_poison", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_hands_element_poison", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_feet_element_poison", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_body_element_poison", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_amulet_element_poison", 1))/100
@@ -2652,6 +2716,10 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             if attacker:HasModifier("modifier_solunia_arcana2") then
                 local d_d_level = attacker:GetRuneValue("r", 4)
                 mult = mult + SOLUNIA_ARCANA_R4_ELEM_AMP_PCT * d_d_level
+            end
+        elseif unitName == "npc_dota_hero_visage" then
+            if attacker:HasModifier("modifier_ekkan_arcana2b") then
+                mult = mult + attacker:GetRuneValue("w", 4)*EKKAN_ARCANA_W4B_ELEMENTAL_AMP/100
             end
         end
 
@@ -2853,6 +2921,9 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 if raise_skeletons.skeleTable then
                     mult = mult + #raise_skeletons.skeleTable * w_2_level * EKKAN_W2_UNDEAD_AMP
                 end
+            end
+            if attacker:HasModifier("modifier_ekkan_arcana2a") or attacker:HasModifier("modifier_ekkan_arcana2b") or attacker:HasModifier("modifier_ekkan_arcana2c") then
+                mult = mult + attacker:GetRuneValue("w", 4)*EKKAN_ARCANA_W4A_ELEMENTAL_AMP/100
             end
         end
         mult = mult + (CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_head_element_undead", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_weapon_element_undead", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_hands_element_undead", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_feet_element_undead", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_body_element_undead", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_amulet_element_undead", 1))/100
@@ -6788,4 +6859,141 @@ function Filters:WinterblightReincarnationDeath(hero, ability)
     ParticleManager:SetParticleControl(pfx, 12, Vector(10, 10, 10))
     ParticleManager:SetParticleControl(pfx, 15, Vector(1, 1, 1))
     StartSoundEvent("Winterblight.Reincarnation.Death", hero)
+end
+
+function Filters:PlagueEmperorBombSetup(hero, cast_type, optionalAbility)
+    print(cast_type)
+    if cast_type == "standard" then
+        local range = ITEM_RPC_PLAGUE_EMPEROR_ARMOR_RANGE
+        local enemies = FindUnitsInRadius(hero:GetTeamNumber(), hero:GetAbsOrigin(), nil, range, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+        if #enemies > 0 then
+            local target = enemies[1]
+            local position = GetGroundPosition(target:GetAbsOrigin(), target)
+            EmitSoundOn("RPCItems.PlagueEmperor.Throw", hero)
+            Filters:PlagueEmperorBomb(hero, position)
+        end
+    elseif cast_type == BASE_ABILITY_Q then
+        local limitKey = hero:GetEntityIndex().."_plague_emperor_q"
+        Util.Common:LimitPerTime(ITEM_RPC_PLAGUE_EMPEROR_ARMOR_SAPPHIRE_MAX_TRIGGERS_PER_SECOND, 1, limitKey, function()
+            EmitSoundOn("RPCItems.PlagueEmperor.Throw", hero)
+            local range = ITEM_RPC_PLAGUE_EMPEROR_ARMOR_SAPPHIRE_DEFAULT_DISTANCE
+            local enemies = FindUnitsInRadius(hero:GetTeamNumber(), hero:GetAbsOrigin(), nil, ITEM_RPC_PLAGUE_EMPEROR_ARMOR_RANGE*1.5, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
+            if #enemies > 0 then
+                range = math.max(ITEM_RPC_PLAGUE_EMPEROR_ARMOR_SAPPHIRE_MIN_THROW_DISTANCE, WallPhysics:GetDistance2d(enemies[1]:GetAbsOrigin(), hero:GetAbsOrigin()))
+            end
+            local projectile_count = hero.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_PLAGUE_EMPEROR_ARMOR_GEM_SAPPHIRE1)
+            for i = 1, projectile_count, 1 do
+                local bomb_fv = hero:GetForwardVector()
+                if i == 2 then
+                    bomb_fv = WallPhysics:rotateVector(hero:GetForwardVector(), 2*math.pi/12)
+                elseif i == 3 then
+                    bomb_fv = WallPhysics:rotateVector(hero:GetForwardVector(), -2*math.pi/12)
+                end
+                local bomb_position = hero:GetAbsOrigin() + bomb_fv*range
+                Filters:PlagueEmperorBomb(hero, bomb_position)
+            end
+        end)
+    elseif cast_type == BASE_ABILITY_R then
+        local limitKey = hero:GetEntityIndex().."_plague_emperor_r"
+        Util.Common:LimitPerTime(ITEM_RPC_PLAGUE_EMPEROR_ARMOR_SAPPHIRE_MAX_TRIGGERS_PER_SECOND, 1, limitKey, function()
+            EmitSoundOn("RPCItems.PlagueEmperor.Throw", hero)
+            local range = ITEM_RPC_PLAGUE_EMPEROR_ARMOR_SAPPHIRE_DEFAULT_DISTANCE
+            local enemies = FindUnitsInRadius(hero:GetTeamNumber(), hero:GetAbsOrigin(), nil, ITEM_RPC_PLAGUE_EMPEROR_ARMOR_RANGE*1.5, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
+            if #enemies > 0 then
+                range = math.max(ITEM_RPC_PLAGUE_EMPEROR_ARMOR_SAPPHIRE_MIN_THROW_DISTANCE, WallPhysics:GetDistance2d(enemies[1]:GetAbsOrigin(), hero:GetAbsOrigin()))
+            end        
+            local projectile_count = hero.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_PLAGUE_EMPEROR_ARMOR_GEM_SAPPHIRE2)
+            for i = 1, projectile_count, 1 do
+                local bomb_fv = WallPhysics:rotateVector(hero:GetForwardVector(), 2*math.pi*i/projectile_count)
+                local bomb_position = hero:GetAbsOrigin() + bomb_fv*range
+                Filters:PlagueEmperorBomb(hero, bomb_position)
+            end
+        end)
+    end
+end
+
+function Filters:PlagueEmperorBomb(hero, position)
+    local ability = hero.equipped_gear[RPC_GEAR_SLOT_BODY]
+    local projectile_speed = ITEM_RPC_PLAGUE_EMPEROR_ARMOR_PROJECTILE_SPEED + ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_PLAGUE_EMPEROR_ARMOR_GEM_RUBY2)
+    local pfx = ParticleManager:CreateParticle("particles/roshpit/items/plague_emperor/plague_emperor_projectile.vpcf", PATTACH_CUSTOMORIGIN, nil)
+    ParticleManager:SetParticleControl(pfx, 0, hero:GetAbsOrigin()+Vector(0,0,70))
+    ParticleManager:SetParticleControl(pfx, 1, position)
+    ParticleManager:SetParticleControl(pfx, 2, Vector(projectile_speed, projectile_speed, projectile_speed))
+
+    local travel_distance = WallPhysics:GetDistance2d(position, hero:GetAbsOrigin())
+    local delay = travel_distance/projectile_speed
+    local damage = OverflowProtectedGetAverageTrueAttackDamage(hero)*(ITEM_RPC_PLAGUE_EMPEROR_ARMOR_DMG_ATK_POWER/100)
+    local radius = ITEM_RPC_PLAGUE_EMPEROR_ARMOR_DAMAGE_RADIUS
+    Timers:CreateTimer(delay, function()
+        ParticleManager:DestroyParticle(pfx, false)
+        local pfx2 = CustomAbilities:QuickParticleAtPoint("particles/roshpit/items/plague_emperor/plague_emperor_impact_aoe.vpcf", position, 3)
+        for i = 1, 5, 1 do
+            ParticleManager:SetParticleControl(pfx2, i, Vector(radius, radius, radius))
+        end
+        local emerald_value = ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_PLAGUE_EMPEROR_ARMOR_GEM_EMERALD1)
+        EmitSoundOnLocationWithCaster(position, "RPCItems.PlagueEmperor.Impact", hero)
+        local impact_enemies = FindUnitsInRadius(hero:GetTeamNumber(), position, nil, ITEM_RPC_PLAGUE_EMPEROR_ARMOR_DAMAGE_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+        if #impact_enemies > 0 then
+            for _, enemy in pairs(impact_enemies) do
+                Filters:ApplyItemDamage(enemy, hero, damage, DAMAGE_TYPE_PHYSICAL, ability, RPC_ELEMENT_POISON, RPC_ELEMENT_NONE)
+                if emerald_value > 0 then
+                    ability:ApplyDataDrivenModifier(hero.InventoryUnit, enemy, "modifier_plague_emperor_armor_emerald", {duration = ITEM_RPC_PLAGUE_EMPEROR_ARMOR_EMERALD_DURATION})
+                    ability:ApplyDataDrivenModifier(hero.InventoryUnit, enemy, "modifier_plague_emperor_emerald_attackspeed_loss", {})
+                    enemy:SetModifierStackCount("modifier_plague_emperor_emerald_attackspeed_loss", hero.InventoryUnit, emerald_value)
+                end
+            end
+        end
+        if ability:GetGemValue("amethyst") > 0 then
+            local poison_goo_thinker = CreateUnitByName("npc_dummy_unit", position, false, nil, nil, hero:GetTeamNumber())
+            poison_goo_thinker:FindAbilityByName("dummy_unit"):SetLevel(1)
+            poison_goo_thinker:SetAbsOrigin(position)
+
+            local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_alchemist/alchemist_acid_spray.vpcf", PATTACH_CUSTOMORIGIN, nil)
+            ParticleManager:SetParticleControl(pfx, 0, poison_goo_thinker:GetAbsOrigin())
+            ParticleManager:SetParticleControl(pfx, 1, Vector(EKKAN_ARCANA_W3A_RADIUS, 1, 1))
+            ParticleManager:SetParticleControl(pfx, 15, Vector(40, 205, 40))
+            ParticleManager:SetParticleControl(pfx, 16, Vector(1, 1, 1))
+            poison_goo_thinker.pfx = pfx
+
+            local goo_pile_duration = ITEM_RPC_PLAGUE_EMPEROR_ARMOR_AMETHYST_DURATION
+            ability:ApplyDataDrivenModifier(hero.InventoryUnit, poison_goo_thinker, "modifier_plague_emperor_amethyst_aura", {duration = goo_pile_duration})
+        end
+    end)
+end
+
+function Filters:GloveOfTheHierophant(caster, target, healAmount)
+    local ability = caster.equipped_gear[RPC_GEAR_SLOT_GLOVES]
+
+
+    if ability:GetGemValue("ruby") > 0 then
+        healAmount = healAmount * (1 + (ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_GLOVE_OF_THE_HIEROPHANT_GEM_RUBY)/100))
+    end
+    local limitKey = caster:GetEntityIndex() .. '_hierophant_glove'
+    Util.Common:LimitPerTime(ITEM_RPC_GLOVE_OF_THE_HIEROPHANT_TRIGGERS_PER_SECOND, 1, limitKey, function()
+        local damage = healAmount * (ITEM_RPC_GLOVE_OF_THE_HIEROPHANT_HEAL_TO_DMG_PCT/100) + ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_GLOVE_OF_THE_HIEROPHANT_GEM_SAPPHIRE2)*caster:GetSpirit()
+        local radius = ITEM_RPC_GLOVE_OF_THE_HIEROPHANT_DMG_RADIUS + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_GLOVE_OF_THE_HIEROPHANT_GEM_EMERALD)
+
+        local pfx = CustomAbilities:QuickParticleAtPoint("particles/roshpit/items/glove_of_hierophant_aoe.vpcf", target:GetAbsOrigin(), 1)
+        ParticleManager:SetParticleControl(pfx, 1, Vector(radius, 2, radius/2))
+
+        local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+        if #enemies > 0 then
+            for _,enemy in pairs(enemies) do
+                Filters:ApplyItemDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, ability, RPC_ELEMENT_HOLY, RPC_ELEMENT_GHOST)
+                if ability:GetGemValue("sapphire") > 0 then
+                    ability:ApplyDataDrivenModifier(caster.InventoryUnit, enemy, "modifier_glove_of_the_hierophant_sapphire_blind", {duration = ITEM_RPC_GLOVE_OF_THE_HIEROPHANT_SAPPHIRE_DURATION})
+                    enemy:SetModifierStackCount("modifier_glove_of_the_hierophant_sapphire_blind", enemy, ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_GLOVE_OF_THE_HIEROPHANT_GEM_SAPPHIRE1))
+                end
+            end
+        end
+
+    end)
+    if ability:GetGemValue("amethyst") > 0 and target:IsHero() then
+        ability:ApplyDataDrivenModifier(caster.InventoryUnit, target, "modifier_glove_of_the_hierophant_spirit_buff", {duration = ITEM_RPC_GLOVE_OF_THE_HIEROPHANT_AMETHYST_DURATION})
+    end
+    return healAmount
+end
+
+function Filters:AdjustCooldownForDotaCooldownRate(cooldown)
+    return cooldown * DOTA_COOLDOWN_RATE_OUTSIDE_INVENTORY
 end

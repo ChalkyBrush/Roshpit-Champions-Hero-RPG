@@ -1,0 +1,723 @@
+.soulbinder_content{
+	width:100%;
+	height:100%;
+}
+
+#soulbinder_container{
+	width:100%;
+	height:100%;
+}
+
+.soulbinder_main{
+	vertical-align: center;
+	horizontal-align:center;
+	margin-bottom:10%;
+	border-radius: 4px;
+	border:1px solid #BBBBBB;
+}
+
+#soulbinder_bg{
+	background-color: gradient( linear, 0px 0%, 600px 0%, from( #222222 ), to( #000000 ) );
+	width:600px;
+	height:800px;
+	opacity:0.92;
+}
+
+
+.soulbinder_mega_container{
+	height:100%;
+	width:100%;
+	flow-children:down;
+}
+
+#soulbinder_header{
+	width:100%;
+	height:120px;
+	border-top-left-radius:4px;
+	border-top-right-radius:4px;
+	border-bottom:1px solid #444444;
+}
+
+#soulbinder_header_title{
+	horizontal-align:center;
+	vertical-align: center;
+	font-size:48px;
+	color:#FFFFFF;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+	padding-left:20px;
+	padding-right:20px;
+	text-shadow: 1px 1px 2px 3 #00000066;
+}
+
+#soulbinder_header_container{
+	horizontal-align:center;
+	vertical-align: center;	
+	padding-left:10px;
+	padding-right:10px;
+}
+
+#soulbinder_header_container_bg{
+	border-radius:4px;
+	background-color: #111111;
+	opacity: 0.98;
+	height:100%;
+	width:100%;
+	padding-left:10px;
+	padding-right:10px;
+}
+
+#close_button{
+	width:100%;
+	horizontal-align:center;
+	vertical-align: bottom;
+	height:50px;
+	background-color: #121212;
+	border:1px solid white;
+}
+
+#close_button:hover{
+	background-color: #333333;
+}
+
+#close_button_label{
+	width:100%;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;	
+	color:white;
+	text-align: center;
+	font-size:18px;
+	line-height: 35px;
+}
+
+.invisible{
+	transition-delay: .5s;
+	visibility: collapse;
+}
+
+.animateEaseClass{
+    animation-name: easeIn;
+    animation-duration: .2s;
+    animation-timing-function: linear;	
+}
+
+.animateEaseOutClass{
+    animation-name: easeOut;
+    animation-duration: .2s;
+    animation-timing-function: linear;	
+}
+
+@keyframes 'easeIn'{
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes 'easeOut'{
+  0%   { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.soulbinder_start_button_root{
+	width:100%;
+	height:80px;
+	
+	
+	margin-top:30px;
+	margin-left:30px;
+	margin-right:30px;
+}
+
+#soulbinder_start_button_collect{
+	height:100%;
+	width:100%;
+	background-color: gradient( linear, 0px 0%, 0px 100px, from( #121212 ), to( #0C0C0C ) );
+	border-radius:6px;
+}
+
+.soulbinder_start_button_active{
+	border:1px solid white;
+}
+
+#soulbinder_start_button_collect:hover{
+	background-color: #202020;
+
+}
+
+#soulbinder_start_label{
+	color:white;	
+	font-weight:lighter;
+	vertical-align: center;
+	horizontal-align:center;
+	font-size:28px;
+}
+
+#soulbinder_start_image{
+	height:44px;
+	width:44px;
+	vertical-align: center;
+	margin-left:16px;
+}
+
+#forge_gems_start_tip{
+	color:#e3cda1;
+	font-size:24px;
+	text-align: center;
+	horizontal-align:center;
+	margin-top:140px;
+	font-weight:lighter;
+	font-family: Radiance, FZLanTingHei-R-GBK, TH Sarabun New, Gulim,MingLiU;
+}
+
+#soulbinder_attach_contents{
+	flow-children:down;
+	width:100%;
+
+}
+
+.soulbinder_reward_active{
+	border:1px solid white;
+	box-shadow: 2px 2px 6px #000000;
+}
+
+
+/*ITEM SEARCH*/
+
+.soulbinder_item_search_root{
+	width:90%;
+	horizontal-align:center;
+	height:300px;
+	margin-top:10px;
+	flow-children:down;
+}
+
+#soulbinder_item_search_box{
+	width:90%;
+	height:40px;
+	horizontal-align:center;
+	background-color: #121212;
+	border-radius:4px;
+	color:white;
+	font-size:24px;
+	padding:8px;
+	padding-top:6px;
+	border:1px solid #888;
+	margin-top:10px;
+}
+
+#soulbinder_search_label{
+	color:#e3cda1;
+	font-size:16px;
+	text-align: center;
+	horizontal-align:center;
+	font-weight:lighter;
+	font-family: Radiance, FZLanTingHei-R-GBK, TH Sarabun New, Gulim,MingLiU;
+}
+
+#soulbinder_item_search_button{
+	horizontal-align:center;
+	height:30px;
+	background-color: #0f2154;
+	border:1px solid #999999;
+	margin-top:15px;
+	width:200px;
+	border-radius:4px;
+}
+
+#soulbinder_item_search_button:hover{
+	background-color: #223e94;
+}
+
+#soulbinder_item_search_label{
+	width:100%;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;	
+	color:white;
+	text-align: center;
+	font-size:18px;
+	vertical-align: center;
+}
+
+#soulbinder_search_results{
+	height:360px;
+	width:90%;
+	background-color: #080808;
+	border-radius:8px;
+	margin-top:20px;
+	horizontal-align:center;
+	border:1px solid #444444;
+	padding:10px;
+}
+
+#soulbinder-item-search-meta-container{
+	height:560px;
+}
+
+#search_results_title{
+	width:100%;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;	
+	color:white;
+	text-align: center;
+	font-size:18px;
+}
+
+#soulbinder_search_results_attacher{
+	margin-top:40px;
+	width:100%;
+	flow-children:down;
+}
+
+#search_results_help_text{
+	color:#e3cda1;
+	font-size:16px;
+	text-align: center;
+	horizontal-align:center;
+	font-weight:lighter;
+	font-family: Radiance, FZLanTingHei-R-GBK, TH Sarabun New, Gulim,MingLiU;	
+	margin-top:40px;
+}
+
+.soulbinder_search_result_root{
+	width:100%;
+	height:60px;
+	
+	border:1px solid #888888;
+}
+
+#search_result_item_image{
+	height:60px;
+	width:81px;
+}
+
+#soulbinder_search_result_button{
+	flow-children:right;
+	background-color: #111111;
+	width:100%;
+}
+
+#soulbinder_search_result_button:hover{
+	background-color: #222222;
+}
+
+.search_result_text{
+	color:#e3cda1;
+	font-size:18px;
+	text-align: center;
+	horizontal-align:center;
+	font-weight:lighter;
+	font-family: Radiance, FZLanTingHei-R-GBK, TH Sarabun New, Gulim,MingLiU;	
+	vertical-align: center;
+	margin-right:40px;
+}
+
+#soulbinder-item-view{
+	width:100%;
+	height:560px;	
+}
+
+.soulbinder_item_view_root{
+	width:100%;
+	height:100%;
+	flow-children:down;
+}
+
+#soulbinder_item_view_item_name{
+	color:#e3cda1;
+	font-size:18px;
+	text-align: center;
+	horizontal-align:center;
+	font-weight:lighter;
+	font-family: Radiance, FZLanTingHei-R-GBK, TH Sarabun New, Gulim,MingLiU;	
+	margin-top:10px;
+}
+
+#soulbinder_item_view_item_image{
+	horizontal-align:center;
+	margin-top:5px;	
+}
+
+#soulbinder_item_view_attacher{
+	width:90%;
+	height:180px;
+	flow-children:right;
+	margin-top:20px;
+	horizontal-align:center;
+}
+
+.soulbinder_item_slot_root{
+	width:33.3%;
+	flow-children:down;
+	/*border:1px solid #888;*/
+	border-radius:4px;
+}
+
+#soulbinder_item_slot_title{
+	color:#e3cda1;
+	font-size:18px;
+	text-align: center;
+	horizontal-align:center;
+	font-weight:lighter;
+	font-family: Radiance, FZLanTingHei-R-GBK, TH Sarabun New, Gulim,MingLiU;	
+	margin-top:10px;
+}
+
+#soulbind_item_slot{
+	margin-top:5px;
+	horizontal-align:center;
+	margin-bottom:5px;
+}
+
+#soulbind_slot_select_button{
+	horizontal-align:center;
+	height:30px;
+	background-color: #0f2154;
+	border:1px solid #999999;
+	margin-top:10px;
+	width:140px;
+	border-radius:4px;
+	margin-bottom:10px;
+}
+
+#soulbind_slot_select_button:hover{
+	background-color: #223e94;
+}
+
+#soulbind_slot_select_button_label{
+	width:100%;
+	font-family: Radiance, FZLanTingHei-R-GBK, TH Sarabun New, Gulim,MingLiU;	
+	color:white;
+	text-align: center;
+	font-size:18px;
+	font-weight:lighter;
+	line-height:24px;
+}
+
+#soulbinder_selection_area{
+	width:80%;
+	horizontal-align:center;
+	height:340px;
+}
+
+#soulbinder_selection_area_label{
+	font-family: Radiance, FZLanTingHei-R-GBK, TH Sarabun New, Gulim,MingLiU;	
+	color:white;	
+	text-align: center;
+	font-size:24px;
+	width:100%;
+	margin-top:40px;
+}
+
+.soulbinder_selected_slot{
+	background-color: rgba(120,120,70,0.7);
+}
+
+#soulbind_empty_slot_instructions{
+	font-family: Radiance, FZLanTingHei-R-GBK, TH Sarabun New, Gulim,MingLiU;	
+	color:white;	
+	text-align: center;
+	font-size:18px;	
+}
+
+#soulbind_empty_slot_weapon_warning{
+	font-family: Radiance, FZLanTingHei-R-GBK, TH Sarabun New, Gulim,MingLiU;	
+	color:#DD2222;	
+	text-align: center;
+	font-size:18px;
+	width:100%;		
+	margin-top:210px;
+}
+
+#soulbind_slot_item_attacher{
+	horizontal-align:center;
+	margin-top:130px;
+}
+
+.none{
+	visibility: collapse;
+}
+
+#soulbind_final_bind_button{
+	horizontal-align:center;
+	height:40px;
+	
+	border:1px solid #444444;
+	margin-top:10px;
+	width:400px;
+	border-radius:4px;
+	margin-top:220px;
+}
+
+
+.final_button_enabled{
+	background-color: #392242;
+}
+
+.final_button_enabled:hover{
+	background-color: #76438a;
+}
+
+
+.final_button_disabled{
+	background-color: #333;
+}
+
+.final_button_disabled:hover{
+	background-color: #333;
+}
+
+#soulbind_final_bind_label{
+	font-family: Radiance, FZLanTingHei-R-GBK, TH Sarabun New, Gulim,MingLiU;	
+	color:white;	
+	text-align: center;
+	font-size:18px;	
+	width:100%;	
+	line-height:30px;
+}
+
+.soulbind_item_highlighted{
+	box-shadow: 0px 0px 2px #DDFF22;
+}
+
+.soulbind_final_equip_button_label{
+	font-family: Radiance, FZLanTingHei-R-GBK, TH Sarabun New, Gulim,MingLiU;	
+	color:white;	
+	text-align: center;
+	font-size:18px;	
+	width:100%;	
+	vertical-align: center;
+}
+
+#soulbind_final_equip_button{
+	horizontal-align:center;
+	height:80px;
+	
+	border:1px solid #444444;
+	margin-top:10px;
+	width:400px;
+	border-radius:4px;
+	margin-top:80px;
+}
+
+
+.final_equip_button_enabled{
+	background-color: #392242;
+}
+
+.final_equip_button_enabled:hover{
+	background-color: #76438a;
+}
+
+#soulbind_final_delete_button{
+	horizontal-align:center;
+	height:40px;
+	
+	border:1px solid #444444;
+	margin-top:10px;
+	width:400px;
+	border-radius:4px;
+	margin-top:180px;
+}
+
+
+.final_delete_button_enabled{
+	background-color: #661b15;
+}
+
+.final_delete_button_enabled:hover{
+	background-color: #a3362e;
+}
+
+#soulbind-cost-container{
+	flow-children:down;
+	horizontal-align:center;
+	margin-top:280px;
+}
+
+#soulbind-cost-label{
+	font-family: Radiance, FZLanTingHei-R-GBK, TH Sarabun New, Gulim,MingLiU;	
+	color:white;
+	font-size:18px;	
+}
+
+#soulbind-cost-number{
+	font-family: Radiance, FZLanTingHei-R-GBK, TH Sarabun New, Gulim,MingLiU;	
+	color:white;
+	font-size:24px;	
+}
+
+#soulbind-cost-image{
+	width:20px;
+	height:20px;
+	margin-top:4px;
+}
+
+#soulbind-cost-number-and-image-container{
+	flow-children:right;
+	horizontal-align:center;
+}
+
+/*TIPS*/
+
+.soulbinder_tips_root{
+	width:100%;
+	flow-children:down;
+}
+
+#soulbinder_tip_title{
+	horizontal-align:center;
+	font-family: Radiance, FZLanTingHei-R-GBK, TH Sarabun New, Gulim,MingLiU;	
+	color:white;
+	font-size:32px;		
+	margin-top:15px;
+	margin-bottom:5px;
+}
+
+.soulbinder_tip{
+	margin-left:40px;
+	font-family: Radiance, FZLanTingHei-R-GBK, TH Sarabun New, Gulim,MingLiU;	
+	color:#e6e8ac;
+	font-size:18px;		
+	margin-top:15px;
+}
+
+#soulbind_back_button{
+	horizontal-align:center;
+	height:40px;
+	background-color: #0f2154;
+	border:1px solid #999999;
+	margin-top:40px;
+	width:260px;
+	border-radius:4px;
+}
+
+#soulbind_back_button:hover{
+	background-color: #223e94;
+}
+
+#soulbind_back_button_label{
+	font-family: Radiance, FZLanTingHei-R-GBK, TH Sarabun New, Gulim,MingLiU;	
+	color:#e6e8ac;
+	font-size:20px;		
+	horizontal-align:center;
+	vertical-align: center;
+}
+
+.soulbinder_library_start_root{
+	width:100%;
+	height:600px;
+	flow-children:down;
+}
+
+#soulbinder_library_results_attach{
+	width:90%;
+	horizontal-align:center;
+	height:440px;
+}
+
+#soulbinder_library_loading{
+	font-family: Radiance, FZLanTingHei-R-GBK, TH Sarabun New, Gulim,MingLiU;	
+	color:#e6e8ac;
+	font-size:16px;		
+	horizontal-align:center;
+	vertical-align: center;	
+}
+
+.soulbinder_library_start_root{
+	width:100%;
+	height:620px;
+	flow-children:down;
+	padding-top:30px;
+}
+
+.soulbinder_library_start_row{
+	width:100%;
+	flow-children:right;
+	height:90px;
+	margin-top:20px;
+
+}
+
+.soulbinder_library_button{
+	width:160px;
+	height:100%;
+	border-radius:16px;
+	background-color:rgba(0,0,0,0.9);
+	margin-left:10px;
+	margin-right:10px;
+	border:2px solid #000;
+	/*box-shadow:0px 0px 2px #222222;*/
+}
+
+.soulbinder_library_button:hover{
+	background-color: rgba(100, 100, 100, 0.5);
+}
+
+.library_button_centered{
+	horizontal-align:center;
+}
+
+.library_category_text{
+	font-family: Radiance, FZLanTingHei-R-GBK, TH Sarabun New, Gulim,MingLiU;	
+	color:#e6e8ac;
+	font-size:20px;		
+	horizontal-align:center;	
+	margin-top:10px;
+}
+
+.library_category_numbers{
+	font-family: Radiance, FZLanTingHei-R-GBK, TH Sarabun New, Gulim,MingLiU;	
+	color:#FFFFFF;
+	font-size:24px;		
+	horizontal-align:center;
+	margin-top:40px;
+}
+
+.soulbinder_library_category_view_root{
+	width:100%;
+	height:620px;
+	flow-children:down;
+	padding-top:20px;	
+}
+
+#soulbinder_library_category_scroll_container{
+	width:100%;
+	height:600px;
+	overflow: squish scroll;
+	flow-children:down;
+}
+
+.soulbinder_library_category_row_root{
+	width:100%;
+	flow-children:right;
+}
+
+#category_item_image{
+	width:43px;
+	height:32px;
+}
+
+#category_result_text{
+	font-family: Radiance, FZLanTingHei-R-GBK, TH Sarabun New, Gulim,MingLiU;	
+	color:#FFFFFF;
+	font-size:14px;		
+	vertical-align: center;
+	horizontal-align:center;
+	font-weight:lighter;
+	width:100%;
+	text-align: center;
+}
+
+#soulbinder_library_result_button{
+	flow-children:right;
+	background-color: #111111;
+	width:100%;
+	box-shadow:0px 0px 4px #000;
+	/*border:1px solid #000;*/
+}
+
+#soulbinder_library_result_button:hover{
+	background-color: #222222;
+}
+
+.soulbinder_category_result_root{
+	width:175px;
+	height:32px;
+		
+	/*border:1px solid #888888;	*/
+}

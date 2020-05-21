@@ -429,10 +429,10 @@ RPCItems.AttributesRolls[2]["health_regen"] = CustomAttributes.HEALTH_REGEN_PER_
 RPCItems.AttributesRolls[3]["health_regen"] = CustomAttributes.HEALTH_REGEN_PER_STR * RPCItems.AttributesRolls[3]["strength"] * 3.5
 RPCItems.AttributesRolls[4]["health_regen"] = CustomAttributes.HEALTH_REGEN_PER_STR * RPCItems.AttributesRolls[4]["strength"] * 3.5
 
-RPCItems.AttributesRolls[1]["armor"] = CustomAttributes.ARMOR_PER_STR * RPCItems.AttributesRolls[1]["strength"] * 3.5
-RPCItems.AttributesRolls[2]["armor"] = CustomAttributes.ARMOR_PER_STR * RPCItems.AttributesRolls[2]["strength"] * 3.5
-RPCItems.AttributesRolls[3]["armor"] = CustomAttributes.ARMOR_PER_STR * RPCItems.AttributesRolls[3]["strength"] * 3.5
-RPCItems.AttributesRolls[4]["armor"] = CustomAttributes.ARMOR_PER_STR * RPCItems.AttributesRolls[4]["strength"] * 3.5
+RPCItems.AttributesRolls[1]["armor"] = CustomAttributes.ARMOR_PER_STR * RPCItems.AttributesRolls[1]["strength"] * 5
+RPCItems.AttributesRolls[2]["armor"] = CustomAttributes.ARMOR_PER_STR * RPCItems.AttributesRolls[2]["strength"] * 5
+RPCItems.AttributesRolls[3]["armor"] = CustomAttributes.ARMOR_PER_STR * RPCItems.AttributesRolls[3]["strength"] * 5
+RPCItems.AttributesRolls[4]["armor"] = CustomAttributes.ARMOR_PER_STR * RPCItems.AttributesRolls[4]["strength"] * 5
 
 RPCItems.AttributesRolls[1]["attack_speed"] = CustomAttributes.ATTACKSPEED_PER_AGI * RPCItems.AttributesRolls[1]["agility"] * 3.5
 RPCItems.AttributesRolls[2]["attack_speed"] = CustomAttributes.ATTACKSPEED_PER_AGI * RPCItems.AttributesRolls[2]["agility"] * 3.5
@@ -444,10 +444,10 @@ RPCItems.AttributesRolls[2]["movespeed"] = CustomAttributes.MOVESPEED_PER_AGI * 
 RPCItems.AttributesRolls[3]["movespeed"] = CustomAttributes.MOVESPEED_PER_AGI * RPCItems.AttributesRolls[3]["agility"] * 10
 RPCItems.AttributesRolls[4]["movespeed"] = CustomAttributes.MOVESPEED_PER_AGI * RPCItems.AttributesRolls[4]["agility"] * 10
 
-RPCItems.AttributesRolls[1]["armor_pierce"] = CustomAttributes.ARMOR_PIERCE_PER_AGI * RPCItems.AttributesRolls[1]["agility"] * 3.5
-RPCItems.AttributesRolls[2]["armor_pierce"] = CustomAttributes.ARMOR_PIERCE_PER_AGI * RPCItems.AttributesRolls[2]["agility"] * 3.5
-RPCItems.AttributesRolls[3]["armor_pierce"] = CustomAttributes.ARMOR_PIERCE_PER_AGI * RPCItems.AttributesRolls[3]["agility"] * 3.5
-RPCItems.AttributesRolls[4]["armor_pierce"] = CustomAttributes.ARMOR_PIERCE_PER_AGI * RPCItems.AttributesRolls[4]["agility"] * 3.5
+RPCItems.AttributesRolls[1]["armor_pierce"] = CustomAttributes.ARMOR_PIERCE_PER_AGI * RPCItems.AttributesRolls[1]["agility"] * 5
+RPCItems.AttributesRolls[2]["armor_pierce"] = CustomAttributes.ARMOR_PIERCE_PER_AGI * RPCItems.AttributesRolls[2]["agility"] * 5
+RPCItems.AttributesRolls[3]["armor_pierce"] = CustomAttributes.ARMOR_PIERCE_PER_AGI * RPCItems.AttributesRolls[3]["agility"] * 5
+RPCItems.AttributesRolls[4]["armor_pierce"] = CustomAttributes.ARMOR_PIERCE_PER_AGI * RPCItems.AttributesRolls[4]["agility"] * 5
 
 RPCItems.AttributesRolls[1]["max_mana"] = CustomAttributes.MANA_PER_INT * RPCItems.AttributesRolls[1]["intelligence"] * 3.5
 RPCItems.AttributesRolls[2]["max_mana"] = CustomAttributes.MANA_PER_INT * RPCItems.AttributesRolls[2]["intelligence"] * 3.5
@@ -459,20 +459,20 @@ RPCItems.AttributesRolls[2]["mana_regen"] = CustomAttributes.MANA_REGEN_PER_INT 
 RPCItems.AttributesRolls[3]["mana_regen"] = CustomAttributes.MANA_REGEN_PER_INT * RPCItems.AttributesRolls[3]["intelligence"] * 3.5
 RPCItems.AttributesRolls[4]["mana_regen"] = CustomAttributes.MANA_REGEN_PER_INT * RPCItems.AttributesRolls[4]["intelligence"] * 3.5
 
-RPCItems.AttributesRolls[1]["spell_pierce"] = CustomAttributes.SPELL_PIERCE_PER_INT * RPCItems.AttributesRolls[1]["intelligence"] * 3.5
-RPCItems.AttributesRolls[2]["spell_pierce"] = CustomAttributes.SPELL_PIERCE_PER_INT * RPCItems.AttributesRolls[2]["intelligence"] * 3.5
-RPCItems.AttributesRolls[3]["spell_pierce"] = CustomAttributes.SPELL_PIERCE_PER_INT * RPCItems.AttributesRolls[3]["intelligence"] * 3.5
-RPCItems.AttributesRolls[4]["spell_pierce"] = CustomAttributes.SPELL_PIERCE_PER_INT * RPCItems.AttributesRolls[4]["intelligence"] * 3.5
+RPCItems.AttributesRolls[1]["spell_pierce"] = CustomAttributes.SPELL_PIERCE_PER_INT * RPCItems.AttributesRolls[1]["intelligence"] * 5
+RPCItems.AttributesRolls[2]["spell_pierce"] = CustomAttributes.SPELL_PIERCE_PER_INT * RPCItems.AttributesRolls[2]["intelligence"] * 5
+RPCItems.AttributesRolls[3]["spell_pierce"] = CustomAttributes.SPELL_PIERCE_PER_INT * RPCItems.AttributesRolls[3]["intelligence"] * 5
+RPCItems.AttributesRolls[4]["spell_pierce"] = CustomAttributes.SPELL_PIERCE_PER_INT * RPCItems.AttributesRolls[4]["intelligence"] * 5
 
 RPCItems.AttributesRolls[1]["base_ability"] = CustomAttributes.BAD_PER_SPIRIT * RPCItems.AttributesRolls[1]["spirit"] * 3.5
 RPCItems.AttributesRolls[2]["base_ability"] = CustomAttributes.BAD_PER_SPIRIT * RPCItems.AttributesRolls[2]["spirit"] * 3.5
 RPCItems.AttributesRolls[3]["base_ability"] = CustomAttributes.BAD_PER_SPIRIT * RPCItems.AttributesRolls[3]["spirit"] * 3.5
 RPCItems.AttributesRolls[4]["base_ability"] = CustomAttributes.BAD_PER_SPIRIT * RPCItems.AttributesRolls[4]["spirit"] * 3.5
 
-RPCItems.AttributesRolls[1]["magic_armor"] = CustomAttributes.MAGIC_ARMOR_PER_SPIRIT * RPCItems.AttributesRolls[1]["spirit"] * 3.5
-RPCItems.AttributesRolls[2]["magic_armor"] = CustomAttributes.MAGIC_ARMOR_PER_SPIRIT * RPCItems.AttributesRolls[2]["spirit"] * 3.5
-RPCItems.AttributesRolls[3]["magic_armor"] = CustomAttributes.MAGIC_ARMOR_PER_SPIRIT * RPCItems.AttributesRolls[3]["spirit"] * 3.5
-RPCItems.AttributesRolls[4]["magic_armor"] = CustomAttributes.MAGIC_ARMOR_PER_SPIRIT * RPCItems.AttributesRolls[4]["spirit"] * 3.5
+RPCItems.AttributesRolls[1]["magic_armor"] = CustomAttributes.MAGIC_ARMOR_PER_SPIRIT * RPCItems.AttributesRolls[1]["spirit"] * 5
+RPCItems.AttributesRolls[2]["magic_armor"] = CustomAttributes.MAGIC_ARMOR_PER_SPIRIT * RPCItems.AttributesRolls[2]["spirit"] * 5
+RPCItems.AttributesRolls[3]["magic_armor"] = CustomAttributes.MAGIC_ARMOR_PER_SPIRIT * RPCItems.AttributesRolls[3]["spirit"] * 5
+RPCItems.AttributesRolls[4]["magic_armor"] = CustomAttributes.MAGIC_ARMOR_PER_SPIRIT * RPCItems.AttributesRolls[4]["spirit"] * 5
 
 RPCItems.AttributesRolls[1]["attack_damage"] = CustomAttributes.ATK_DMG_PER_PRIMARY * 2
 RPCItems.AttributesRolls[2]["attack_damage"] = CustomAttributes.ATK_DMG_PER_PRIMARY * 2

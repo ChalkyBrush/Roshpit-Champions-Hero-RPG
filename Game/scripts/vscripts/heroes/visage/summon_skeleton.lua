@@ -18,6 +18,9 @@ function corpse_maker_die(event)
 				position = position + RandomVector(90)
 			end
 			local corpse = CreateUnitByName("ekkan_corpse", position, false, nil, nil, unit:GetTeamNumber())
+			if not ability then
+				ability = caster:GetAbilityByIndex(DOTA_W_SLOT)
+			end
 			ability:ApplyDataDrivenModifier(caster, corpse, "modifier_ekkan_skeleton_corpse", {duration = 30})
 			corpse:SetForwardVector(RandomVector(1))
 			corpse.hp = unit:GetMaxHealth()

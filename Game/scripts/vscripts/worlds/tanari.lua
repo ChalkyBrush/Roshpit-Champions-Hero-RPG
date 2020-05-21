@@ -64,19 +64,22 @@ function Tanari:Debug()
     -- RPCItems:DropSynthesisVessel(Vector(-4928, 2048))
 
     -- Weapons:RollLegendWeapon1WithDotaName("npc_dota_hero_phantom_assassin", Vector(-4928, 2048))
-    -- local arcana = RPCItems:RollArcanaByName("item_rpc_flamewaker_arcana2", 110)
+    -- local arcana = RPCItems:RollArcanaByName("item_rpc_ekkan_arcana2a", 1)
+    -- RPCItems:BasicDropItem(Vector(-4928, 2048), arcana)
+    -- local arcana = RPCItems:RollArcanaByName("item_rpc_ekkan_arcana2b", 1)
+    -- RPCItems:BasicDropItem(Vector(-4928, 2048), arcana)
+    -- local arcana = RPCItems:RollArcanaByName("item_rpc_ekkan_arcana2c", 1)
     -- RPCItems:BasicDropItem(Vector(-4928, 2048), arcana)
     Gems:SpawnGemForger(Vector(-5928, 2048), Vector(-1,-1), 10)
     -- Gems:DropSocketForger(Vector(-4928, 2048))
     MAIN_HERO_TABLE[1].roshpit_attributes.roshpit_level = 1
     -- RPCItems:RollAndDropUniqueItem(MAIN_HERO_TABLE[1], "item_rpc_winterblight_skull_ring")
 
-    local helm = RPCItems:RollAndDropImmortalByLevel(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 1, "item_rpc_crest_of_the_umbral_sentinel")
-
-    
+    local helm = RPCItems:RollAndDropImmortalByLevel(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 1, "item_rpc_stonebreaker_gauntlet")
 
     helm = Gems:AddSocket(helm)
     helm = Gems:AddSocket(helm)
+
 
     -- TreasureGoblins:SpawnTreasureGoblin(Vector(-5528, 2048))
     -- local helm = RPCItems:RollAndDropImmortalByLevel(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 80, "item_rpc_epsilons_eyeglass")
@@ -734,7 +737,7 @@ function Tanari:InitProps()
     Tanari.WaterTempleSpiritSwitch = Entities:FindByNameNearest("WaterSwitch", Vector(-13509, 15873), 1000)
     Tanari.WaterTempleSpiritSwitch:SetAbsOrigin(Tanari.WaterTempleSpiritSwitch:GetAbsOrigin()-Vector(0,0,300))
 
-    Tanari.FireTempleSpiritSwitch = Entities:FindByNameNearest("FireSwitch", Vector(-11481, -12206), 1000)
+    Tanari.FireTempleSpiritSwitch = Entities:FindByNameNearest("FireSwitch", Vector(-11481, -12206), 2000)
     Tanari.FireTempleSpiritSwitch:SetAbsOrigin(Tanari.FireTempleSpiritSwitch:GetAbsOrigin()-Vector(0,0,300))
     
 end

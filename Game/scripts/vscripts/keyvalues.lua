@@ -83,7 +83,7 @@ function LoadGameKeyValues()
     --                 UnitKV = {base="npc_units",custom="npc_units_custom"},
     --                 HeroKV = {base="npc_heroes",custom="npc_heroes_custom"}
     --               }
-    local files = {UnitKV = {base="npc_units",custom="npc_units_custom"}, HeroKV = {base="npc_heroes",custom="npc_heroes_custom"}, AbilityKV = {base="npc_abilities",custom="npc_abilities_custom"}}
+    local files = {UnitKV = {base="npc_units",custom="npc_units_custom"}, HeroKV = {base="npc_heroes",custom="npc_heroes_custom"}, AbilityKV = {base="npc_abilities",custom="npc_abilities_custom"}, ItemKV = {base="npc_items",custom="npc_items_custom"}}
 
     -- Load and validate the files
     for k,v in pairs(files) do

@@ -42,6 +42,13 @@ function initializeTooltip(func){
 
 	$('#tooltip_title').text = title
 
+	// SOULBINDER
+	if ((itemValues.soulbound) && (itemValues.soulbound == 1)){
+		$('#soulbound_label').SetHasClass( "invisible", false )
+		$('#soulbound_label').text = "*"+$.Localize("item_soulbound")+"*"
+	}else{
+		$('#soulbound_label').SetHasClass( "invisible", true )
+	}
 	//QUALITY AND SLOT
 
 	var tooltip = ""

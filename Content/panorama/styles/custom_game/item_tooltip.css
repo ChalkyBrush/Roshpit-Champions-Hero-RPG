@@ -28,6 +28,12 @@
 #tooltip_title_container{
 	width:100%;
 	text-align: center;
+	flow-children:down;
+}
+
+#soulbound_label{
+	horizontal-align:center;
+	color:#8132a8;
 }
 
 #tooltip_slot_container{

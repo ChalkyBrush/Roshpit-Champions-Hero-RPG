@@ -277,7 +277,7 @@ function Enemies:InitializeEnemy(unit)
 
 	local newSpellPierce = (unit.roshpit_attributes.roshpit_spell_pierce*Enemies.DIFFICULTY_ROSHPIT_ATTRIBUTE_ADJUST[difficulty][enemyTier]+Enemies:GetFlatRoshpitAttributeForDifficulty(unit, base_level))*Enemies.SPIRIT_REALM_CONSTANTS[spirit_realm]["roshpit_attribute"]
 	newSpellPierce = Enemies:AdjustAttributeForMapSpecial(unit, "roshpit_spell_pierce", newSpellPierce)
-	newSpellPierce = newArmorPierce*Enemies.DIFFICULTY_PIERCE_ADJUST[difficulty]
+	newSpellPierce = newSpellPierce*Enemies.DIFFICULTY_PIERCE_ADJUST[difficulty]
 	unit:SetBaseRoshpitSpellPierce(newSpellPierce, false)
 
 
@@ -781,3 +781,21 @@ function CDOTA_BaseNPC:MakeNoDropsOrEXP()
 	self.roshpit_attributes.deathXP = 0
 	self.disable_drops = true
 end
+
+function CDOTA_BaseNPC:AddLootDrop(loot_type, item_name, chance)
+	if not self.loot_table then
+		self.loot_table = {}
+	end
+	local new_loot_item = {}
+	new_loot_item["type"] = loot_type
+	new_loot_item["item"] = item_name
+	new_loot_item["chance"] = chance
+	table.insert(self.loot_table, new_loot_item)
+
+	Events.GameMasterAIAbility:ApplyDataDrivenModifier(Events.GameMaster, self, "ai_loot_table", {})
+end
+
+-- function CDOTA_BaseNPC:SetLootTable(loot_table)
+-- 	self.loot_table = loot_table
+-- 	Events.GameMasterAIAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "ai_loot_table", {})
+-- end

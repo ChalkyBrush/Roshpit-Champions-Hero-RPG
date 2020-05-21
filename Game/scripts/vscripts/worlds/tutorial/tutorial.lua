@@ -59,6 +59,7 @@ function Tutorial:SpawnAllTownNPCs()
 			Tutorial.Blacksmith = blacksmith
 			Events.GlyphEnchanter = Events:SpawnGlyphEnchanter(Vector(-1537, -1547), Vector(-0.2, -1))
 			Events:SpawnCurator(Vector(-320, -1472), Vector(0, -1))
+			Soulbinder:SpawnSoulbinder(Vector(-1580, -2612), Vector(-1,0.2))
 			Tutorial:BlacksmithSounds()
 			Challenges:SpawnElderRai(Vector(-576, -2368), Vector(0,1))
 			Gems:SpawnGemForger(Vector(-2496, -3456), Vector(-1,1), 0)

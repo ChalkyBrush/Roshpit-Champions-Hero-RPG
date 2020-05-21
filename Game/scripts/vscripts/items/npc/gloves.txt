@@ -1,3 +1,602 @@
+	"item_rpc_world_commander_gloves"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_lua"
+		"ScriptFile"	"items/lua/gloves/world_commander_gloves.lua"
+		"AbilityTextureName"	"winterblight/castle/world_commander_gloves"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"precache"
+		{
+
+		}
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby1"				"<% ITEM_RPC_WORLD_COMMANDER_GLOVES_GEM_RUBY %>"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"emerald1"			"<% ITEM_RPC_WORLD_COMMANDER_GLOVES_GEM_EMERALD %>"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire1"			"<% ITEM_RPC_WORLD_COMMANDER_GLOVES_GEM_SAPPHIRE %>"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst1"			"<% ITEM_RPC_WORLD_COMMANDER_GLOVES_GEM_AMETHYST %>"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+	}
+
+	"item_rpc_exodia_gloves"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_lua"
+		"ScriptFile"	"items/lua/gloves/exodia_gloves.lua"
+		"AbilityTextureName"	"winterblight/castle/exodia_gloves"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"precache"
+		{
+			"particle"	"particles/units/heroes/hero_void_spirit/void_spirit_wormhole_cast.vpcf"
+			"particle"	"particles/roshpit/items/exodia_projectile.vpcf"
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"element_one"				"<% RPC_ELEMENT_COSMOS %>"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"element_two"				"<% RPC_ELEMENT_SHADOW %>"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby1"				"<% ITEM_RPC_EXODIA_GLOVES_GEM_RUBY %>"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"emerald1"			"<% ITEM_RPC_EXODIA_GLOVES_GEM_EMERALD %>"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire1"			"<% ITEM_RPC_EXODIA_GLOVES_GEM_SAPPHIRE %>"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst1"			"<% ITEM_RPC_EXODIA_GLOVES_GEM_AMETHYST1 %>"
+			}
+			"07"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst2"			"<% ITEM_RPC_EXODIA_GLOVES_GEM_AMETHYST2 %>"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+	}
+
+	"item_rpc_stonebreaker_gauntlet"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_lua"
+		"ScriptFile"	"items/lua/gloves/stonebreaker_gauntlet.lua"
+		"AbilityTextureName"	"winterblight/castle/stonebreaker_gauntlet"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
+		"precache"
+		{
+			"particle"	"particles/neutral_fx/mud_golem_hurl_boulder.vpcf"
+			"particle"	"particles/roshpit/winterblight/red_buff.vpcf"
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"element_one"				"<% RPC_ELEMENT_EARTH %>"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"element_two"				"<% RPC_ELEMENT_NORMAL %>"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby1"				"<% ITEM_RPC_STONEBREAKER_GAUNTLET_GEM_RUBY %>"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"emerald1"			"<% ITEM_RPC_STONEBREAKER_GAUNTLET_GEM_EMERALD1 %>"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"emerald2"			"<% ITEM_RPC_STONEBREAKER_GAUNTLET_GEM_EMERALD2 %>"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire1"			"<% ITEM_RPC_STONEBREAKER_GAUNTLET_GEM_SAPPHIRE %>"
+			}
+			"07"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst1"			"<% ITEM_RPC_STONEBREAKER_GAUNTLET_GEM_AMETHYST %>"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+	}
+
+	"item_rpc_zombiegrip_gauntlet"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_lua"
+		"ScriptFile"	"items/lua/gloves/zombiegrip_gauntlet.lua"
+		"AbilityTextureName"	"winterblight/castle/zombiegrip_gauntlet"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
+		"precache"
+		{
+			"model"  "models/heroes/undying/undying_minion.vmdl"
+			"particle"	"particles/roshpit/items/musty_crypt_transform.vpcf"	
+			"particle"	"particles/roshpit/items/zombie_gauntlet_spawn.vpcf"
+			"particle"	"particles/units/heroes/hero_pudge/pudge_rot.vpcf"
+			"particle"	"particles/units/heroes/hero_alchemist/alchemist_acid_spray.vpcf"
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"element_one"				"<% RPC_ELEMENT_UNDEAD %>"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby1"				"<% ITEM_RPC_ZOMBIEGRIP_GAUNTLET_GEM_RUBY1 %>"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby2"				"<% ITEM_RPC_ZOMBIEGRIP_GAUNTLET_GEM_RUBY2 %>"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby3"				"<% ITEM_RPC_ZOMBIEGRIP_GAUNTLET_GEM_RUBY3 %>"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"emerald1"			"<% ITEM_RPC_ZOMBIEGRIP_GAUNTLET_GEM_EMERALD1 %>"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"emerald2"			"<% ITEM_RPC_ZOMBIEGRIP_GAUNTLET_GEM_EMERALD2 %>"
+			}
+			"07"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"emerald3"			"<% ITEM_RPC_ZOMBIEGRIP_GAUNTLET_GEM_EMERALD3 %>"
+			}
+			"08"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire1"			"<% ITEM_RPC_ZOMBIEGRIP_GAUNTLET_GEM_SAPPHIRE1 %>"
+			}
+			"09"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire2"			"<% ITEM_RPC_ZOMBIEGRIP_GAUNTLET_GEM_SAPPHIRE2 %>"
+			}
+			"10"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire3"			"<% ITEM_RPC_ZOMBIEGRIP_GAUNTLET_GEM_SAPPHIRE3 %>"
+			}
+			"11"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst1"			"<% ITEM_RPC_ZOMBIEGRIP_GAUNTLET_GEM_AMETHYST1 %>"
+			}
+			"12"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst2"			"<% ITEM_RPC_ZOMBIEGRIP_GAUNTLET_GEM_AMETHYST2 %>"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+	}
+
+
+	"item_rpc_glove_of_the_hierophant"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"winterblight/castle/glove_of_the_hierophant"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"precache"
+		{
+			"particle"	"particles/roshpit/items/glove_of_hierophant_aoe.vpcf"
+			"particle"	"particles/units/heroes/hero_keeper_of_the_light/keeper_of_the_light_blinding_light_debuff.vpcf"
+			"particle"	"particles/roshpit/winterblight/purple_buff.vpcf"
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"element_one"				"<% RPC_ELEMENT_HOLY %>"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"element_two"				"<% RPC_ELEMENT_GHOST %>"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby1"				"<% ITEM_RPC_GLOVE_OF_THE_HIEROPHANT_GEM_RUBY %>"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"emerald1"			"<% ITEM_RPC_GLOVE_OF_THE_HIEROPHANT_GEM_EMERALD %>"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire1"			"<% ITEM_RPC_GLOVE_OF_THE_HIEROPHANT_GEM_SAPPHIRE1 %>"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire2"			"<% ITEM_RPC_GLOVE_OF_THE_HIEROPHANT_GEM_SAPPHIRE2 %>"
+			}
+			"07"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst1"			"<% ITEM_RPC_GLOVE_OF_THE_HIEROPHANT_GEM_AMETHYST %>"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_glove_of_the_hierophant"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+			}
+			"modifier_glove_of_the_hierophant_sapphire_blind"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"EffectName"	"particles/units/heroes/hero_keeper_of_the_light/keeper_of_the_light_blinding_light_debuff.vpcf"
+				"EffectAttachType"	"follow_overhead"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MISS_PERCENTAGE" "1"
+				}
+			}
+			"modifier_glove_of_the_hierophant_spirit_buff"
+			{
+				"IsHidden"	"0"
+				"EffectName"	"particles/roshpit/winterblight/purple_buff.vpcf"
+				"EffectAttachType"	"attach_origin"
+			}
+		}
+	}
+
+	"item_rpc_demonic_gloves_of_the_judiciary"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"winterblight/castle/demonic_gloves_of_the_judiciary"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"precache"
+		{
+			"particle"		"particles/roshpit/winterblight/red_lifesteal.vpcf"
+		}
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby1"				"<% ITEM_RPC_DEMONIC_GLOVES_OF_THE_JUDICIARY_GEM_RUBY %>"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"emerald1"			"<% ITEM_RPC_DEMONIC_GLOVES_OF_THE_JUDICIARY_GEM_EMERALD %>"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire1"			"<% ITEM_RPC_DEMONIC_GLOVES_OF_THE_JUDICIARY_GEM_SAPPHIRE %>"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst1"			"<% ITEM_RPC_DEMONIC_GLOVES_OF_THE_JUDICIARY_GEM_AMETHYST %>"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_demonic_gloves_of_the_judiciary"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"ThinkInterval"  "0.3"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"demonic_judiciary_think"
+					}
+				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_demon_gloves_of_the_judiciary_attack"
+						"Target" 		"TARGET"
+					}
+				}
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"demonic_judiciary_attack_land"
+					}
+				}
+			}
+			"modifier_demonic_gloves_of_the_judiciary_attack"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
+				}
+			}
+		}
+	}
+
+	"item_rpc_angelic_gloves_of_the_judiciary"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"winterblight/castle/angelic_gloves_of_the_judiciary"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"precache"
+		{
+			"particle"		"particles/roshpit/winterblight/lifesteal_colorable.vpcf"
+		}
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby1"				"<% ITEM_RPC_ANGELIC_GLOVES_OF_THE_JUDICIARY_GEM_RUBY %>"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"emerald1"			"<% ITEM_RPC_ANGELIC_GLOVES_OF_THE_JUDICIARY_GEM_EMERALD %>"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire1"			"<% ITEM_RPC_ANGELIC_GLOVES_OF_THE_JUDICIARY_GEM_SAPPHIRE %>"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst1"			"<% ITEM_RPC_ANGELIC_GLOVES_OF_THE_JUDICIARY_GEM_AMETHYST %>"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_angelic_gloves_of_the_judiciary"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"ThinkInterval"  "0.3"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"angelic_judiciary_think"
+					}
+				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_angelic_gloves_of_the_judiciary_bad"
+						"Target" 		"TARGET"
+					}
+				}
+				"OnAttacked"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"angelic_judiciary_attacked"
+					}
+				}
+			}
+			"modifier_angelic_gloves_of_the_judiciary_bad"
+			{
+				"IsHidden"	"1"
+			}
+		}
+	}
+
 	"item_rpc_swiftspike_bracer"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"

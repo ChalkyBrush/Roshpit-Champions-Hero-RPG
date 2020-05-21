@@ -442,6 +442,12 @@ function SaveLoad:AttachItemToURL(url, hero, is_stash, stash_slot, playerID, gea
 			url = url.."&socket2"..gearSlot.."=".."none"
 			url = url.."&socket2value"..gearSlot.."="..0
 		end
+		if item.newItemTable.soulbound then
+			url = url.."&soulbound"..gearSlot.."="..item.newItemTable.soulbound
+			print(url)
+		else
+			url = url.."&soulbound"..gearSlot.."="..0
+		end
 		--print(url)
 		-- url = url.."&min_level"..gearSlot.."="..itemTable.minLevel
 	elseif itemTable.stashable then
@@ -462,7 +468,7 @@ function SaveLoad:AttachItemToURL(url, hero, is_stash, stash_slot, playerID, gea
 
 		local affixCount = 0
 		--print("TU78A")
-		if item:GetAbilityName() == "item_rpc_web_premium_token" or string.match(item:GetAbilityName(), "galactic_arcana_cache") or string.match(item:GetAbilityName(), "item_serengaard_hyperstone") or string.match(item:GetAbilityName(), "item_rpc_unrefined_gemstones") then
+		if item:GetAbilityName() == "item_rpc_web_premium_token" or string.match(item:GetAbilityName(), "galactic_arcana_cache") or string.match(item:GetAbilityName(), "item_serengaard_hyperstone") or string.match(item:GetAbilityName(), "item_rpc_unrefined_gemstones") or string.match(item:GetAbilityName(), "item_rpc_winterblight_tarot_card") or string.match(item:GetAbilityName(), "item_rpc_winterblight_dragon_scale")  then
 			--print("TU78B")
 			local affixCount = 1
 			for i = 1, affixCount, 1 do
@@ -792,6 +798,12 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 			item.newItemTable.level = gearTable.level
 			item.newItemTable.maxLevel = gearTable.max_level
 		end
+		-- SOULBIND
+		if gearTable.soulbound then
+			item.newItemTable.soulbound = gearTable.soulbound
+		else
+			item.newItemTable.soulbound = 0
+		end
 		item.expiryTime = nil
 		item.pickedUp = true
 		if gearTable.validator then
@@ -948,7 +960,7 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 			end
 			RPCItems:ItemUpdateCustomNetTables(item)
 			return item
-		elseif gearTable.item_variant == "item_rpc_boreal_granite_chunk" or gearTable.item_variant == "item_rpc_grimloks_soul_vessel" or gearTable.item_variant == "item_rpc_galrens_skull" or gearTable.item_variant == "item_rpc_elynas_feather" then
+		elseif gearTable.item_variant == "item_rpc_boreal_granite_chunk" or gearTable.item_variant == "item_rpc_grimloks_soul_vessel" or gearTable.item_variant == "item_rpc_galrens_skull" or gearTable.item_variant == "item_rpc_elynas_feather" or gearTable.item_variant == "item_rpc_emperors_band" or gearTable.item_variant == "item_rpc_empress_jewel" then
 			local item = RPCItems:CreateBasicConsumable(nil, gearTable.item_variant, gearTable.item_name, RPCItems:GetRarityNameFromFactor(gearTable.rarity), false)
 			item.pickedUp = true
 			if gearTable.validator then
@@ -999,6 +1011,21 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 			if gearTable.validator then
 				item.newItemTable.validator = gearTable.validator
 			end
+			return item
+		elseif string.match(gearTable.item_variant, "item_rpc_winterblight_tarot_card") then
+			local item = Winterblight:CreateCastleTarotCard(nil, string.gsub(gearTable.property1name, "tarot_", ""))
+			if gearTable.validator then
+				item.newItemTable.validator = gearTable.validator
+			end
+			return item
+		elseif gearTable.item_variant == "item_rpc_winterblight_dragon_scale" then
+			DeepPrintTable(gearTable)
+			local item = RPCItems:CreateBasicConsumableWithProperty1(nil, gearTable.item_variant, gearTable.item_name, RPCItems:GetRarityNameFromFactor(gearTable.rarity), false, gearTable.property1name, gearTable.property1, gearTable.property1color)
+			item.pickedUp = true
+			if gearTable.validator then
+				item.newItemTable.validator = gearTable.validator
+			end
+			RPCItems:ItemUpdateCustomNetTables(item)
 			return item
 		end
 	end
@@ -1407,7 +1434,7 @@ end
 		--print("DRAGGED TO STASH")
 		if itemEntity.cantStash then
 			Notifications:Top(playerID, {text = "Can't Stash This", duration = 2, style = {color = "red"}, continue = true})
-			EmitSoundOnClient("General.Cancel", caster:GetPlayerOwner())
+			EmitSoundOnClient("General.Cancel", hero:GetPlayerOwner())
 			return false
 		end
 		--SaveLoad:NewKey()

@@ -10002,6 +10002,1748 @@
 
 
 
+	"ekkan_arcana2_plague_bearer"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"FightRecapLevel"				"1"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AOERadius"						"100"
+		"AbilityTextureName"			"ekkan/arcana2/summon_plaguebearer"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"max_skeletons"			"4 4 5 5 6 6 7"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"skeleton_duration"		"45"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"armor_mult"			"4"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_mult"			"8"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"skeleton_health"		"5 10 15 20 25 30 35"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"poison_duration"		"3"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"poison_damage_interval"		"1"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"poison_damage"		"8 16 24 32 40 48 56"
+			}
+		}
+		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_4"
+		// Precache
+		//-------------------------------------------------------
+		"precache"
+		{
+
+		}
+
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastRange"				"800"
+		"AbilityCastPoint"				"0.3"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"0"
+
+		// Damage.
+		//-------------------------------------------------------
+		"AbilityDamage"					"0"
+
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"120 240 360 480 600 720 840"
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/visage/arcana/grasp_of_cruxys.lua"
+				"Function"		"cast_raise_skeleton_cruxys"
+				"target"		"POINT"
+				"max_skeletons"	"%max_skeletons"
+				"skeleton_duration"	"%skeleton_duration"
+				"armor_mult"	"%armor_mult"
+				"attack_mult"	"%attack_mult"
+				"skeleton_health"	"%skeleton_health"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_ekkan_passive_aura_arcana"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"Aura"          	"modifier_ekkan_corpsemaker_arcana"
+				"Aura_Radius"   	"1600"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				"ThinkInterval"  	"2.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/visage/arcana/grasp_of_cruxys.lua"
+						"Function"		"ekkan_think"
+					}
+				}
+			}
+			"modifier_ekkan_corpsemaker_arcana"
+			{
+				"IsHidden"	"1"
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/visage/arcana/grasp_of_cruxys.lua"
+						"Function"		"corpse_maker_die"
+					}
+				}
+			}
+			"modifier_ekkan_skeleton_corpse"
+			{
+				"IsHidden"	"1"
+				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NOT_ON_MINIMAP"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ROOTED"				"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_FROZEN"				"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/visage/arcana/grasp_of_cruxys.lua"
+						"Function"		"remove_corpse"
+						"target"		"TARGET"
+					}
+					"ApplyModifier"
+					{
+						"ModifierName"	"modifier_ekkan_corpse_disabled"
+						"Target" 		"TARGET"
+						"Duration"		"3"
+					}
+				}
+			}
+			"modifier_ekkan_corpse_disabled"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NOT_ON_MINIMAP"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ROOTED"				"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_FROZEN"				"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_UNSELECTABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVULNERABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_summon_skeleton_counter"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+			"modifier_skeleton_summon_unit"
+			{
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"IsHidden"			"0"
+				"IsBuff"			"1"
+				"ThinkInterval"  "4.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/visage/dominion.lua"
+						"Function"		"dominion_unit_think"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/visage/arcana/grasp_of_cruxys.lua"
+						"Function"		"skeleton_expire"
+						"target"		"TARGET"
+					}
+				}
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/visage/arcana/grasp_of_cruxys.lua"
+						"Function"		"skeleton_die"
+					}
+				}
+			}
+			"modifier_skeleton_spawning"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+
+		}
+	}
+
+	"ekkan_plaguebearer_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"ekkan/arcana2/plaguebearer_passive"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"poison_duration"		"3"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"poison_damage_interval"		"1"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"poison_damage"		"8 16 24 32 40 48 56"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_plaguebearer_passive"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/visage/arcana/grasp_of_cruxys.lua"
+						"Function"		"plaguebearer_attack_land"
+						"poison_duration" "%poison_duration"
+					}
+				}
+				"OnAttacked"
+				// "%attack_damage" is set to the damage value after mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/visage/arcana/grasp_of_cruxys.lua"
+						"Function"		"plaguebearer_attacked"
+					}
+				}
+				"ThinkInterval"  "1.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/visage/arcana/grasp_of_cruxys.lua"
+						"Function"		"plaguebearer_think"
+					}
+				}
+			}
+			"modifier_plaguebearer_basic_poison"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"EffectName"	"particles/units/heroes/hero_venomancer/venomancer_gale_poison_debuff.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"ThinkInterval"  "%poison_damage_interval"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/visage/arcana/grasp_of_cruxys.lua"
+						"Function"		"plaguebearer_basic_poison_think"
+						"target"		"TARGET"
+						"poison_damage"	"%poison_damage"
+					}
+				}
+			}
+			"modifier_plaguebearer_w_1_poison"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"EffectName"	"particles/units/heroes/hero_venomancer/venomancer_gale_poison_debuff.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"ThinkInterval"  "1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/visage/arcana/grasp_of_cruxys.lua"
+						"Function"		"plaguebearer_corrosive_skin_think"
+						"target"		"TARGET"
+					}
+				}				
+			}
+			"modifier_plaguebearer_rot_aura"
+			{
+				"IsPurgable"	"0"
+				"Passive" 		"0"
+				"IsHidden"		"1"
+				"IsBuff"		"1"
+				"Aura"          	"modifier_plaguebearer_rot_effect"
+				"Aura_Radius"   	"220"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
+				"Aura_ApplyToCaster" "0"
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"		"particles/units/heroes/hero_pudge/pudge_rot.vpcf"
+						"EffectAttachType"	"follow_origin"
+						"Target"			"TARGET"
+						"ControlPoints"
+						{
+							"00" "0 0 0"
+							"01" "220 1 2"
+						}
+					}
+				}
+			}
+			"modifier_plaguebearer_rot_effect"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"AbilityTextureName"	"ekkan/arcana2/ekkan_rune_w_2_arcana2a"
+				"ThinkInterval"  "1.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/visage/arcana/grasp_of_cruxys.lua"
+						"Function"		"plaguebearer_rot_think"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_plaguebearer_rot_ms_loss"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+			"modifier_plaguebearer_rot_ms_loss"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-1"
+				}
+			}
+		}
+	}
+
+	"ekkan_plaguebearer_poison_spray"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"ekkan/arcana2/ekkan_rune_w_3_arcana2a"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"3"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
+		"AbilityCastRange"				"600"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"AOERadius"						"280"			
+
+		// Precache
+		"precache"
+		{
+
+		}
+		//-------------------------------------------------------
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastPoint"				"0.2"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"4"
+
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------
+		"AbilitySpecial"
+		{
+
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+        		"ScriptFile"	"heroes/visage/arcana/grasp_of_cruxys.lua"
+        		"Function"		"plaguebearer_poison_spray_cast"
+        		"Target"		"POINT"
+			}
+		}
+		"Modifiers"
+		{
+			"plague_bearer_acid_spray_thinker"
+			{
+				"Aura"					"plague_bearer_acid_spray_effect"
+				"Aura_Radius"			"280"
+				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"			"DOTA_UNIT_TARGET_ALL"
+				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_NONE"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+		        		"ScriptFile"	"heroes/visage/arcana/grasp_of_cruxys.lua"
+		        		"Function"		"plaguebearer_poison_spray_thinker_end"
+		        		"Target"		"TARGET"
+					}
+				}
+			}
+			"plague_bearer_acid_spray_effect"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"AbilityTextureName"	"ekkan/arcana2/ekkan_rune_w_3_arcana2a"
+				"ThinkInterval"  "1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+		        		"ScriptFile"	"heroes/visage/arcana/grasp_of_cruxys.lua"
+		        		"Function"		"plaguebearer_poison_spray_think"
+		        		"Target"		"TARGET"
+					}
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+			}
+		}
+	}
+
+	"ekkan_arcana2_frost_wraith"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"FightRecapLevel"				"1"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AOERadius"						"100"
+		"AbilityTextureName"			"ekkan/arcana2/summon_frost_wraith"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"max_skeletons"			"4 4 5 5 6 6 7"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"skeleton_duration"		"45"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"armor_mult"			"4"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_mult"			"8"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"skeleton_health"		"5 10 15 20 25 30 35"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"cold_duration"			"5"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"cold_ms_slow"			"-80 -100 -120 -140 -160 -180 -200"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cold_as_slow"			"-20 -40 -60 -80 -100 -120 -140"
+			}
+		}
+		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_4"
+		// Precache
+		//-------------------------------------------------------
+		"precache"
+		{
+
+		}
+
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastRange"				"800"
+		"AbilityCastPoint"				"0.3"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"0"
+
+		// Damage.
+		//-------------------------------------------------------
+		"AbilityDamage"					"0"
+
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"120 240 360 480 600 720 840"
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/visage/arcana/grasp_of_cruxys.lua"
+				"Function"		"cast_raise_skeleton_cruxys"
+				"target"		"POINT"
+				"max_skeletons"	"%max_skeletons"
+				"skeleton_duration"	"%skeleton_duration"
+				"armor_mult"	"%armor_mult"
+				"attack_mult"	"%attack_mult"
+				"skeleton_health"	"%skeleton_health"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_ekkan_passive_aura_arcana"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"Aura"          	"modifier_ekkan_corpsemaker_arcana"
+				"Aura_Radius"   	"1600"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				"ThinkInterval"  	"2.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/visage/arcana/grasp_of_cruxys.lua"
+						"Function"		"ekkan_think"
+					}
+				}
+			}
+			"modifier_ekkan_corpsemaker_arcana"
+			{
+				"IsHidden"	"1"
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/visage/arcana/grasp_of_cruxys.lua"
+						"Function"		"corpse_maker_die"
+					}
+				}
+			}
+			"modifier_ekkan_skeleton_corpse"
+			{
+				"IsHidden"	"1"
+				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NOT_ON_MINIMAP"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ROOTED"				"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_FROZEN"				"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/visage/arcana/grasp_of_cruxys.lua"
+						"Function"		"remove_corpse"
+						"target"		"TARGET"
+					}
+					"ApplyModifier"
+					{
+						"ModifierName"	"modifier_ekkan_corpse_disabled"
+						"Target" 		"TARGET"
+						"Duration"		"3"
+					}
+				}
+			}
+			"modifier_ekkan_corpse_disabled"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NOT_ON_MINIMAP"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ROOTED"				"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_FROZEN"				"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_UNSELECTABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVULNERABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_summon_skeleton_counter"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+			"modifier_skeleton_summon_unit"
+			{
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"IsHidden"			"0"
+				"IsBuff"			"1"
+				"ThinkInterval"  "4.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/visage/dominion.lua"
+						"Function"		"dominion_unit_think"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/visage/arcana/grasp_of_cruxys.lua"
+						"Function"		"skeleton_expire"
+						"target"		"TARGET"
+					}
+				}
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/visage/arcana/grasp_of_cruxys.lua"
+						"Function"		"skeleton_die"
+					}
+				}
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/visage/arcana/grasp_of_cruxys.lua"
+						"Function"		"skeleton_attack_land"
+					}
+				}
+			}
+			"modifier_skeleton_spawning"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+
+		}
+	}
+
+	"ekkan_frost_wraith_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"ekkan/arcana2/frost_wraith_passive"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"cold_duration"			"5"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"cold_ms_slow"			"-80 -100 -120 -140 -160 -180 -200"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cold_as_slow"			"-20 -40 -60 -80 -100 -120 -140"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"1"
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/visage/arcana/grasp_of_cruxys.lua"
+				"Function"		"frost_wraith_w2_projectile_hit"
+				"target"		"TARGET"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_frost_wraith_passive"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"EffectName"	"particles/roshpit/ekkan/frost_wraith_cold_effect.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/visage/arcana/grasp_of_cruxys.lua"
+						"Function"		"frost_wraith_attack_land"
+						"cold_duration" "%cold_duration"
+					}
+				}
+				"OnTakeDamage"
+				// "%attack_damage" is set to the damage value after mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/visage/arcana/grasp_of_cruxys.lua"
+						"Function"		"frost_wraith_take_damage"
+					}
+				}
+				"ThinkInterval"  "1.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/visage/arcana/grasp_of_cruxys.lua"
+						"Function"		"frost_wraith_think"
+					}
+				}
+			}
+			"modifier_frost_wraith_basic_chilled"
+			{
+				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
+				"StatusEffectName" 		"particles/status_fx/status_effect_frost_lich.vpcf"
+				"StatusEffectPriority"  "20"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%cold_as_slow"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%cold_ms_slow"
+				}
+			}
+			"modifier_frost_wraith_w_1_root"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"EffectName"	"particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+
+	"ekkan_frost_wraith_freezing_rain"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"ekkan/arcana2/ekkan_rune_w_3_arcana2b"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"3"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
+		"AbilityCastRange"				"600"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AOERadius"						"450"			
+
+		// Precache
+		"precache"
+		{
+
+		}
+		//-------------------------------------------------------
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastPoint"				"0.2"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"4"
+
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------
+		"AbilitySpecial"
+		{
+
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+        		"ScriptFile"	"heroes/visage/arcana/grasp_of_cruxys.lua"
+        		"Function"		"frost_wraith_freezing_rain_cast"
+        		"Target"		"POINT"
+			}
+		}
+		"Modifiers"
+		{
+			"frost_wraith_freezing_rain_effect"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"AbilityTextureName"	"ekkan/arcana2/ekkan_rune_w_3_arcana2b"
+				"StatusEffectName" 		"particles/status_fx/status_effect_frost_lich.vpcf"
+				"StatusEffectPriority"  "20"
+				"Properties"
+				{
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-2.5" 
+				}
+			}
+		}
+	}
+
+	"ekkan_arcana2_burning_legionnaire"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"FightRecapLevel"				"1"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AOERadius"						"100"
+		"AbilityTextureName"			"ekkan/arcana2/summon_burning_legionnaire"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"max_skeletons"			"4 4 5 5 6 6 7"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"skeleton_duration"		"45"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"armor_mult"			"4"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_mult"			"8"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"skeleton_health"		"5 10 15 20 25 30 35"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"fire_damage"			"100"
+			}
+		}
+		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_4"
+		// Precache
+		//-------------------------------------------------------
+		"precache"
+		{
+
+		}
+
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastRange"				"800"
+		"AbilityCastPoint"				"0.3"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"0"
+
+		// Damage.
+		//-------------------------------------------------------
+		"AbilityDamage"					"0"
+
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"120 240 360 480 600 720 840"
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/visage/arcana/grasp_of_cruxys.lua"
+				"Function"		"cast_raise_skeleton_cruxys"
+				"target"		"POINT"
+				"max_skeletons"	"%max_skeletons"
+				"skeleton_duration"	"%skeleton_duration"
+				"armor_mult"	"%armor_mult"
+				"attack_mult"	"%attack_mult"
+				"skeleton_health"	"%skeleton_health"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_ekkan_passive_aura_arcana"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"Aura"          	"modifier_ekkan_corpsemaker_arcana"
+				"Aura_Radius"   	"1600"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				"ThinkInterval"  	"2.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/visage/arcana/grasp_of_cruxys.lua"
+						"Function"		"ekkan_think"
+					}
+				}
+			}
+			"modifier_ekkan_corpsemaker_arcana"
+			{
+				"IsHidden"	"1"
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/visage/arcana/grasp_of_cruxys.lua"
+						"Function"		"corpse_maker_die"
+					}
+				}
+			}
+			"modifier_ekkan_skeleton_corpse"
+			{
+				"IsHidden"	"1"
+				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NOT_ON_MINIMAP"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ROOTED"				"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_FROZEN"				"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/visage/arcana/grasp_of_cruxys.lua"
+						"Function"		"remove_corpse"
+						"target"		"TARGET"
+					}
+					"ApplyModifier"
+					{
+						"ModifierName"	"modifier_ekkan_corpse_disabled"
+						"Target" 		"TARGET"
+						"Duration"		"3"
+					}
+				}
+			}
+			"modifier_ekkan_corpse_disabled"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NOT_ON_MINIMAP"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ROOTED"				"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_FROZEN"				"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_UNSELECTABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVULNERABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_summon_skeleton_counter"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+			"modifier_skeleton_summon_unit"
+			{
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"IsHidden"			"0"
+				"IsBuff"			"1"
+				"ThinkInterval"  "4.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/visage/dominion.lua"
+						"Function"		"dominion_unit_think"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/visage/arcana/grasp_of_cruxys.lua"
+						"Function"		"skeleton_expire"
+						"target"		"TARGET"
+					}
+				}
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/visage/arcana/grasp_of_cruxys.lua"
+						"Function"		"skeleton_die"
+					}
+				}
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/visage/arcana/grasp_of_cruxys.lua"
+						"Function"		"skeleton_attack_land"
+					}
+				}
+			}
+			"modifier_skeleton_spawning"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+
+		}
+	}
+
+	"ekkan_burning_legionnaire_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"ekkan/arcana2/burning_legionnaire_passive"
+		"MaxLevel"	"3"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"fire_damage"			"100"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_burning_legionnaire_passive"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"EffectName"	"particles/roshpit/ekkan/burning_legionnaire_effect.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/visage/arcana/grasp_of_cruxys.lua"
+						"Function"		"burning_legionnaire_attack_land"
+						"fire_damage" "%fire_damage"
+					}
+				}
+				"ThinkInterval"  "1.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/visage/arcana/grasp_of_cruxys.lua"
+						"Function"		"burning_legionnaire_think"
+					}
+				}
+				"Aura"          	"modifier_burning_legionnaire_nearby_aura"
+				"Aura_Radius"   	"1000"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+			}
+			"modifier_burning_legionnaire_nearby_aura"
+			{
+				"IsHidden"	"1"
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/visage/arcana/grasp_of_cruxys.lua"
+						"Function"		"die_near_burning_legionnaire"
+					}
+				}
+			}
+			"modifier_burning_legionnaire_w_1_visible"
+			{
+				"IsHidden"	"0"
+				"EffectName"	"particles/units/heroes/hero_ogre_magi/ogre_magi_bloodlust_buff.vpcf"
+			}
+			"modifier_burning_legionnaire_w_1_effect"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0.1"
+				    "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "4" 
+				}
+			}
+			"modifier_burning_legionnaire_cloak_of_flame_aura"
+			{
+				"IsPurgable"	"0"
+				"Passive" 		"0"
+				"IsHidden"		"1"
+				"IsBuff"		"1"
+				"Aura"          	"modifier_burning_legionnaire_cloak_of_flame_effect"
+				"Aura_Radius"   	"220"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
+				"Aura_ApplyToCaster" "0"
+				"EffectName"		"particles/roshpit/ekkan/burning_legionnaire_cloak_of_flames.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_burning_legionnaire_cloak_of_flame_effect"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"AbilityTextureName"	"ekkan/arcana2/ekkan_rune_w_2_arcana2b"
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/visage/arcana/grasp_of_cruxys.lua"
+						"Function"		"burning_legionnaire_cloak_of_flames_burning_think"
+						"target"		"TARGET"
+					}
+				}
+			}
+		}
+	}
+
+	"ekkan_burning_legionnaire_skeletal_mortar"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"ekkan/arcana2/ekkan_rune_w_3_arcana2c"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"3"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
+		"AbilityCastRange"				"10000"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AOERadius"						"240"			
+
+		// Precache
+		"precache"
+		{
+
+		}
+		//-------------------------------------------------------
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastPoint"				"0.2"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"6"
+
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------
+		"AbilitySpecial"
+		{
+
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+        		"ScriptFile"	"heroes/visage/arcana/grasp_of_cruxys.lua"
+        		"Function"		"burning_legionnaire_skeletal_mortar_cast"
+        		"Target"		"POINT"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_skeletal_mortar_wait"
+			{
+				"IsHidden"	"1"
+				"IsDebuff"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_INVULNERABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ROOTED"				"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_SILENCED"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+
+
+	"ekkan_rune_w_1_arcana2a"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"ekkan/arcana2/ekkan_rune_w_1_arcana2a"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one_base"			"1"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"0.1"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"2"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"1"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"17"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_two"			"5"
+			}
+		}
+	}
+
+	"ekkan_rune_w_2_arcana2a"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"ekkan/arcana2/ekkan_rune_w_2_arcana2a"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"1"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"-2.5"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"1"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"17"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_two"			"5"
+			}
+		}
+	}
+
+	"ekkan_rune_w_3_arcana2a"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"ekkan/arcana2/ekkan_rune_w_3_arcana2a"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"8"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"-100"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"1"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"17"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_two"			"5"
+			}
+		}
+	}
+
+	"ekkan_rune_w_4_arcana2a"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"ekkan/arcana2/ekkan_rune_w_4_arcana2a"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"4"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"15"
+			}
+
+		}
+	}
+
+
+	"ekkan_rune_w_1_arcana2b"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"ekkan/arcana2/ekkan_rune_w_1_arcana2b"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one_base"			"0.3"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"0.01"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"2"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"1"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"17"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_two"			"9"
+			}
+		}
+	}
+
+	"ekkan_rune_w_2_arcana2b"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"ekkan/arcana2/ekkan_rune_w_2_arcana2b"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"2"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"5"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two_base"		"300"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"1"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"17"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_two"			"9"
+			}
+		}
+	}
+
+	"ekkan_rune_w_3_arcana2b"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"ekkan/arcana2/ekkan_rune_w_3_arcana2b"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"8"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"-2.5"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"1"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"17"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_two"			"5"
+			}
+		}
+	}
+
+	"ekkan_rune_w_4_arcana2b"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"ekkan/arcana2/ekkan_rune_w_4_arcana2b"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"4"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"15"
+			}
+
+		}
+	}
+
+	"ekkan_rune_w_1_arcana2c"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"ekkan/arcana2/ekkan_rune_w_1_arcana2c"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"4"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"0.1"
+			}
+		}
+	}
+
+	"ekkan_rune_w_2_arcana2c"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"ekkan/arcana2/ekkan_rune_w_2_arcana2c"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"1.5"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"120"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"1"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"17"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_two"			"2"
+			}
+		}
+	}
+
+	"ekkan_rune_w_3_arcana2c"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"ekkan/arcana2/ekkan_rune_w_3_arcana2c"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"8"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"10"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two_base"			"500"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"1"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"17"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_two"			"2"
+			}
+		}
+	}
+
+	"ekkan_rune_w_4_arcana2c"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"ekkan/arcana2/ekkan_rune_w_4_arcana2c"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"4"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"15"
+			}
+
+		}
+	}
+
+
 
 	"ekkan_dominion"
 	{
@@ -56521,6 +58263,166 @@
 
 
 
+	"sephyr_hurricane"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/skywrath_mage/arcana/sephyr_hurricane.lua"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_CHANNEL"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"sephyr/sephyr_hurricane"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
+		"LevelsBetweenUpgrades"  "0"
+		"MaxLevel"				 "7"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+
+		// Precache
+		//-------------------------------------------------------
+		"precache"
+		{
+			"particle"		"particles/econ/events/fall_major_2016/blink_dagger_start_fm06.vpcf"
+			"particle"		"particles/econ/events/fall_major_2016/blink_dagger_end_fm06.vpcf"
+			"particle"		"particles/items/hurricane_vest_projectile.vpcf"
+			"particle"		"particles/roshpit/sephyr/arcana2_q1_buff.vpcf"
+		}
+
+		// Special
+		//-------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"disarm_duration"			"1.4 1.5 1.6 1.7 1.8 1.9 2.0"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"wind_range"			"900 950 1000 1050 1100 1150 1200"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"wind_speed"			"900 950 1000 1050 1100 1150 1200"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"cast_range_base"			"800"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"cooldown_base"			"11"
+			}
+		}
+	}
+
+	"sephyr_rune_q_1_arcana2"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"sephyr/sephyr_rune_q_1_arcana2"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"4"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"15"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"12"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"1"
+			}
+		}
+	}
+
+	"sephyr_rune_q_2_arcana2"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"sephyr/sephyr_rune_q_2_arcana2"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"10"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"0.05"
+			}
+		}
+	}
+
+	"sephyr_rune_q_3_arcana2"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"sephyr/sephyr_rune_q_3_arcana2"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"15"
+			}
+		}
+	}
+
+	"sephyr_rune_q_4_arcana2"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"sephyr/sephyr_rune_q_4_arcana2"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.01"
+			}
+		}
+	}
+
+
+
+
 
 	"hydroxis_arcana_ability_1"
 	{
@@ -66139,6 +68041,173 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"property_two"			"20"
+			}
+		}
+	}
+
+
+
+	"dinath_frost_wyrm"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_AOE"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/winter_wyvern/arcana/dinath_frost_wyrm.lua"
+		"AbilityTextureName"			"dinath/dinath_frost_wyrm"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCastRange"				"1000"
+		"AOERadius"						"300"
+		"AbilityCastAnimation"			"ACT_DOTA_TELEPORT"
+		"AbilityType"            		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"VectorTarget"      			"1"
+		"precache"
+		{
+
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage_mult"			"30 60 90 120 150 180 210"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"cast_range"			"1000"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"cooldown"			"9"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"projectile_range"			"800 850 900 950 1000 1050 1100"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"projectile_count"			"1"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"explode_radius"			"300"
+			}
+			"07"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ms_slow"			"-16 -20 -24 -28 -32 -36 -40"
+			}
+			"08"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"as_slow"			"-20 -40 -60 -80 -100 -120 -140"
+			}
+			"09"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"slow_duration"			"4"
+			}
+		}
+	}
+
+
+	"dinath_rune_r_1_arcana2"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"dinath/dinath_rune_r_1_arcana2"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"10"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"10"
+			}
+		}
+	}
+
+	"dinath_rune_r_2_arcana2"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"dinath/dinath_rune_r_2_arcana2"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"5"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"3"
+			}
+		}
+	}
+
+	"dinath_rune_r_3_arcana2"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"dinath/dinath_rune_r_3_arcana2"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"10"
+			}
+		}
+	}
+
+	"dinath_rune_r_4_arcana2"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"dinath/dinath_rune_r_4_arcana2"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"-0.4"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"-0.1"
 			}
 		}
 	}
@@ -76476,6 +78545,21 @@
 				"var_type"			"FIELD_INTEGER"
 				"burn_damage"			"10 40 240"
 			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"max_stacks"			"30"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"tick_rate"			"1"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"burn_duration"			"4"
+			}
 		}
 		"OnAbilityPhaseStart"
 		{
@@ -76507,7 +78591,7 @@
 				"EffectName"		"particles/roshpit/winterblight/cold_seer_wave_burn.vpcf"
 				"EffectAttachType"	"follow_origin"
 			
-				"ThinkInterval"  "0.1"
+				"ThinkInterval"  "1"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -86466,7 +88550,7 @@
 
 	"winterblight_rubble_passive"
 	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"winterblight/p2/tiamat_crystal_breath"
 		"MaxLevel"	"3"
@@ -86570,7 +88654,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_AOE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"winterblight/megmus_explosion"
+		"AbilityTextureName"	"winterblight/castle/mountain_rubble_ice_burst"
 		"AbilityCastPoint"	"0.0"
 		"AbilityCooldown"	"9"
 		"AbilityChannelTime"	"0.8"
@@ -86725,7 +88809,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"winterblight/p2/tiamat_crystal_breath"
+		"AbilityTextureName"	"winterblight/castle/owl_sentry_passive"
 		"MaxLevel"	"3"
 		"Modifiers"
 		{
@@ -86911,7 +88995,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"winterblight/p2/ultimate_predator"
+		"AbilityTextureName"	"winterblight/castle/demonoid_passive"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
@@ -86941,7 +89025,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"winterblight/p2/ultimate_predator"
+		"AbilityTextureName"	"winterblight/castle/glint_of_onu"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
@@ -86993,7 +89077,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"winterblight/zefnar_passive"
+		"AbilityTextureName"	"winterblight/castle/mountain_tombstone"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
@@ -87212,9 +89296,9 @@
 
 	"winterblight_grave_ghost_passive"
 	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"winterblight/p2/ultimate_predator"
+		"AbilityTextureName"	"winterblight/castle/ghost_blink"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
@@ -87305,7 +89389,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"winterblight/summoner_blink"
+		"AbilityTextureName"			"winterblight/castle/ghost_blink"
 		"RequiredLevel"          		"0"
 		"LevelsBetweenUpgrades"  		"0"
 		"MaxLevel"				 		"3"
@@ -87362,7 +89446,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"winterblight/source_revenant"
+		"AbilityTextureName"	"winterblight/castle/defiler_passive"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
@@ -87435,7 +89519,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"winterblight/p2/phantom_spark"
+		"AbilityTextureName"			"winterblight/castle/ghost_spark"
 		"AbilityCastAnimation"			"ACT_DOTA_FLAIL"
 		"LevelsBetweenUpgrades"  "0"
 		"MaxLevel"				 "7"
@@ -87521,7 +89605,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"winterblight/p2/phantom_spark"
+		"AbilityTextureName"			"winterblight/castle/asyria_passive"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
 		"LevelsBetweenUpgrades"  "0"
 		"MaxLevel"				 "7"
@@ -87609,7 +89693,7 @@
 
 	"winterblight_sonder_passive"
 	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE  | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"winterblight/source_revenant"
 		"MaxLevel"	"3"
@@ -87662,7 +89746,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"winterblight/source_revenant"
+		"AbilityTextureName"	"winterblight/castle/accursed_passive"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"AbilitySpecial"
@@ -87726,7 +89810,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"winterblight/source_revenant"
+		"AbilityTextureName"	"winterblight/castle/life_drain"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"AbilitySpecial"
@@ -87763,6 +89847,7 @@
 			"modifier_life_drain_effect"
 			{
 				"IsHidden"	"0"
+				"IsDebuff"	"1"
 				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Properties"
 				{
@@ -88097,6 +90182,7 @@
 			}
 			"modifier_room_7_in_goo"
 			{
+				"TextureName"		"winterblight/castle/inside_green_goo"
 				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/green.vpcf"	   
 				"StatusEffectPriority"  "100"
 				"IsHidden"	"0"
@@ -88112,6 +90198,7 @@
 			}
 			"modifier_room_7_in_blue_goo"
 			{
+				"TextureName"		"winterblight/castle/inside_blue_goo"
 				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/blue.vpcf"	   
 				"StatusEffectPriority"  "100"
 				"IsHidden"	"0"
@@ -88148,6 +90235,7 @@
 			}
 			"modifier_diviner_high_priestess_heal"
 			{
+				"TextureName"		"winterblight/castle/scryer"
 				"IsHidden"	"0"
 				"EffectName"		"particles/econ/events/ti7/fountain_regen_ti7.vpcf"
 				"EffectAttachType"	"attach_origin"
@@ -88164,6 +90252,7 @@
 			}
 			"modifier_diviner_empress_speed_boost"
 			{
+				"TextureName"		"winterblight/castle/scryer"
 				"IsHidden"	"0"
 				"EffectName"	"particles/generic_gameplay/rune_haste_owner.vpcf"
 				"EffectAttachType"	"attach_origin"
@@ -88174,6 +90263,7 @@
 			}
 			"modifier_diviner_hierophant_spirit_buff"
 			{
+				"TextureName"		"winterblight/castle/scryer"
 				"IsHidden"	"0"
 				"EffectName"	"particles/roshpit/winterblight/purple_buff.vpcf"
 				"EffectAttachType"	"attach_origin"
@@ -88236,6 +90326,7 @@
 			}
 			"modifier_chariot_speed"
 			{
+				"TextureName"		"winterblight/castle/scryer"
 				"IsHidden"	"0"
 				"Properties"
 				{
@@ -88244,6 +90335,7 @@
 			}
 			"modifier_strength_attack_power_enemy"
 			{
+				"TextureName"		"winterblight/castle/scryer"
 				"IsHidden"	"0"
 				"Properties"
 				{
@@ -88252,6 +90344,7 @@
 			}
 			"modifier_strength_attack_power_player"
 			{
+				"TextureName"		"winterblight/castle/scryer"
 				"IsHidden"	"0"
 				"EffectName"	"particles/roshpit/winterblight/red_buff.vpcf"
 				"EffectAttachType"	"attach_origin"
@@ -88274,7 +90367,7 @@
 			"modifier_diviner_hermit_buff"
 			{
 				"IsHidden"	"0"
-				"TextureName"	"nightstalker_void"
+				"TextureName"		"winterblight/castle/scryer"
 				"IsDebuff"	"0"
 				"EffectName"	 "particles/roshpit/winterblight/hermit_torch_overhead.vpcf"
 				"EffectAttachType"	"follow_overhead"
@@ -88320,16 +90413,19 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"TextureName"		"winterblight/castle/scryer"
 			}
 			"modifier_diviner_demons_slain"
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"0"
+				"TextureName"		"winterblight/castle/scryer"
 			}
 			"modifier_diviner_justice_imbalance"
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
+				"TextureName"		"winterblight/castle/scryer"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%justice_as_per_stack"
@@ -88342,6 +90438,7 @@
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
+				"TextureName"		"winterblight/castle/scryer"
 				"Properties"
 				{
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%temperance_ms_debuff_pct" 
@@ -88354,6 +90451,7 @@
 				"IsDebuff"	"1"
 				"EffectName"	"particles/units/heroes/hero_skywrath_mage/skywrath_mage_concussive_shot_slow_debuff.vpcf"
 				"EffectAttachType"	"attach_origin"
+				"TextureName"		"winterblight/castle/scryer"
 				"Properties"
 				{
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-50" 
@@ -88366,6 +90464,7 @@
 				"IsStunDebuff"	"1"
 				"EffectName"	"particles/roshpit/winterblight/blue_doom.vpcf"
 				"EffectAttachType"	"attach_origin"
+				"TextureName"		"winterblight/castle/blue_doom"
 				"States"
 				{
 					"MODIFIER_STATE_SILENCED"			"MODIFIER_STATE_VALUE_ENABLED"
@@ -88405,6 +90504,7 @@
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
+				"TextureName"		"winterblight/castle/scryer"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%tower_atk_buff_pct"
@@ -88413,6 +90513,7 @@
 			"modifier_diviner_star_all_stats_buff"
 			{
 				"IsHidden"	"0"
+				"TextureName"		"winterblight/castle/scryer"
 				"EffectName"	"particles/roshpit/winterblight/star_buff.vpcf"
 				"EffectAttachType"	"attach_origin"
 			}
@@ -88510,6 +90611,7 @@
 				"Duration"			"3"
 				"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
 				"EffectAttachType" 	"attach_origin"
+				"TextureName"		"winterblight/castle/scryer"
 				"ThinkInterval"  "0.5"
 				"OnIntervalThink"
 				{
@@ -88535,6 +90637,66 @@
 					}
 				}
 			}
+			"modifier_diviner_world_pad_think"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"world_pad_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_diviner_judge_invincible"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_DISARMED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVULNERABLE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"ThinkInterval"  "0.7"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"winter_castle_judge_think"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_diviner_temperance_death_tracker"
+			{
+				"IsHidden"	"1"
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"temperance_death"
+					}
+				}
+			}
+			"modifier_diviner_star_dummy_thinker"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.2"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"star_dummy_think"
+						"target"		"TARGET"
+					}
+				}
+			}
 		}
 	}
 
@@ -88542,7 +90704,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"skeleton_king_reincarnation"
+		"AbilityTextureName"	"winterblight/castle/reincarnation"
 		"MaxLevel"	"3"
 		"AbilityCooldown"				"60 45 30"
 		"AbilitySpecial"
@@ -88590,7 +90752,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"skeleton_king_reincarnation"
+		"AbilityTextureName"	"winterblight/castle/reaper_swipe"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
@@ -88625,15 +90787,23 @@
 						"damage_pct_max_health"	"%damage_pct_max_health"
 					}
 				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"reaper_swipe_init"
+					}
+				}
 			}
 		}
 	}
 
 	"elite_ghoul_ai"
 	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"tiny_craggy_exterior"
+		"AbilityTextureName"	"winterblight/castle/elite_ghoul"
 		"MaxLevel"	"1"
 		"Modifiers"
 		{
@@ -88698,7 +90868,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"skeleton_king_reincarnation"
+		"AbilityTextureName"	"winterblight/castle/venomous_bite"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
@@ -88778,7 +90948,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"skeleton_king_reincarnation"
+		"AbilityTextureName"	"winterblight/castle/egg_sack"
 		"MaxLevel"	"3"
 		"OnOwnerDied"
 		{
@@ -88795,7 +90965,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"rpc/axe_throw_ice"
+		"AbilityTextureName"	"winterblight/castle/frost_wyrm_passive"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"AbilitySpecial"
@@ -88965,7 +91135,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"rpc/axe_throw_ice"
+		"AbilityTextureName"	"winterblight/castle/spike_trap_passive"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"AbilitySpecial"
@@ -89058,7 +91228,7 @@
 
 	"ground_blade_passive"
 	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"rpc/axe_throw_ice"
 		"MaxLevel"	"3"
@@ -89078,7 +91248,7 @@
 		}
 		"Modifiers"
 		{
-			"modifier_spike_trap_passive"
+			"modifier_ground_blade_passive"
 			{
 				"IsPurgable"	"0"
 				"Passive" 		"1"
@@ -89188,7 +91358,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"ancient_apparition_chilling_touch"
+		"AbilityTextureName"	"winterblight/castle/chilling_bite_aura"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"AOERadius"				"300 550 800"
 		"MaxLevel"	"3"
@@ -89364,7 +91534,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"pudge_rot"
+		"AbilityTextureName"	"winterblight/castle/shield_block"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
@@ -89386,7 +91556,7 @@
 
 	"winterblight_armory_rock_ability"
 	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"skeleton_king_reincarnation"
 		"MaxLevel"	"3"
@@ -89427,7 +91597,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"winterblight/ankle_breaker"
+		"AbilityTextureName"	"winterblight/castle/rabid"
 		"AOERadius"				"1000"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
@@ -89476,7 +91646,6 @@
 			}
 			"modifier_ice_bear_attack_buff"
 			{
-				//Adds 30s to E cooldown
 				"Passive"			"0"
 				"IsHidden"			"0"
 			
@@ -89494,7 +91663,7 @@
 
 	"winterblight_treasure_tower_ability"
 	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"skeleton_king_reincarnation"
 		"MaxLevel"	"3"
@@ -89534,7 +91703,7 @@
 
 	"winterblight_treasure_chest_ability"
 	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"skeleton_king_reincarnation"
 		"MaxLevel"	"3"
@@ -89581,7 +91750,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"skeleton_king_reincarnation"
+		"AbilityTextureName"	"winterblight/castle/moon_warden_passive"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
@@ -89607,7 +91776,7 @@
 			"modifier_moon_warden_passive"
 			{
 				"Passive"			"1"
-				"IsHidden"			"0"
+				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"ThinkInterval"  	"1.0"
 				"OnIntervalThink"
@@ -89660,7 +91829,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"morphling_adaptive_strike"
+		"AbilityTextureName"	"winterblight/castle/blue_slime"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"AbilitySpecial"
@@ -89754,7 +91923,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"morphling_adaptive_strike"
+		"AbilityTextureName"	"winterblight/castle/blue_slime"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"AbilitySpecial"
@@ -89818,7 +91987,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"morphling_adaptive_strike"
+		"AbilityTextureName"	"winterblight/castle/cruxys"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"AbilitySpecial"
@@ -90002,7 +92171,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"morphling_adaptive_strike"
+		"AbilityTextureName"	"winterblight/castle/cruxys"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
@@ -90043,7 +92212,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT| DOTA_ABILITY_BEHAVIOR_CHANNELLED"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"winterblight/megmus_explosion"
+		"AbilityTextureName"	"dragon_knight_breate_fire"
 		"AbilityCastPoint"	"0.0"
 		"AbilityCooldown"	"9"
 		"AbilityChannelTime"	"1.0"
@@ -90135,7 +92304,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"morphling_adaptive_strike"
+		"AbilityTextureName"	"winterblight/castle/red_mage_attack"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
@@ -90196,7 +92365,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"venomancer_poison_sting"
+		"AbilityTextureName"			"venomancer_venomous_gale"
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"3"
@@ -90300,7 +92469,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"morphling_adaptive_strike"
+		"AbilityTextureName"	"venomancer_poison_sting"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
@@ -90361,7 +92530,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"venomancer_poison_sting"
+		"AbilityTextureName"			"crystal_maiden_crystal_nova"
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"3"
@@ -90448,7 +92617,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"morphling_adaptive_strike"
+		"AbilityTextureName"	"winterblight/castle/chilling_bite_aura"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
@@ -90534,7 +92703,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"necrolyte_death_pulse"
+		"AbilityTextureName"			"winterblight/castle/death_coil"
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"3"
@@ -90616,7 +92785,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"ancient_apparition_chilling_touch"
+		"AbilityTextureName"	"winterblight/castle/slime_emperor_passive"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"AOERadius"				"300 550 800"
 		"MaxLevel"	"3"
@@ -90710,9 +92879,8 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"skeleton_king_reincarnation"
+		"AbilityTextureName"	"winterblight/castle/necro_knight"
 		"MaxLevel"	"3"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilitySpecial"
 		{
@@ -90745,7 +92913,7 @@
 
 	"winterblight_lover_heart_ability"
 	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"skeleton_king_reincarnation"
 		"MaxLevel"	"3"
@@ -90912,7 +93080,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"winterblight/p2/spirit_warp"
+		"AbilityTextureName"			"winterblight/castle/strength_boss_charge"
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"
@@ -90947,6 +93115,11 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"damage"				"500 3000 20000"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stun_duration"				"2"
 			}
 		}
 
@@ -91003,6 +93176,7 @@
 						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
 						"Function"		"strength_charge_after_warp_falling"
 						"damage"		"%damage"
+						"stun_duration"	"%stun_duration"
 					}
 				}
 			}
@@ -91041,7 +93215,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"redfall/autumn_spawner"
+		"AbilityTextureName"	"winterblight/castle/hermit_eye_ability"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
 		"OnOwnerDied"
@@ -91184,7 +93358,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"skeleton_king_reincarnation"
+		"AbilityTextureName"	"winterblight/castle/hermit_hoodling_ability"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
@@ -91249,7 +93423,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"sorceress/glacial_vortex"
+		"AbilityTextureName"	"winterblight/castle/hermit_miniboss_shadow_tornado"
 		"AbilityCastPoint"	"0.0"
 		"AbilityCooldown"	"0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
@@ -91422,7 +93596,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"pudge_rot"
+		"AbilityTextureName"	"winterblight/castle/shadow_mist"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"AOERadius"				"240"
 		"MaxLevel"	"3"
@@ -91528,7 +93702,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"storm_spirit_ball_lightning"
+		"AbilityTextureName"			"winterblight/castle/blue_slime"
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"
@@ -91710,7 +93884,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"crystal_maiden_crystal_nova"
+		"AbilityTextureName"			"winterblight/castle/blue_shrapnel"
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"
@@ -91744,7 +93918,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"tick_damage"	"80 240 3000"
+				"tick_damage"	"160 440 5000"
 			}
 		}
 
@@ -91768,7 +93942,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"skeleton_king_reincarnation"
+		"AbilityTextureName"	"winterblight/castle/demon_lifesteal"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
@@ -91790,7 +93964,7 @@
 
 	"winterblight_hanged_slayer_passive"
 	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"skeleton_king_reincarnation"
 		"MaxLevel"	"3"
@@ -91946,7 +94120,7 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"			"doom_bringer_doom"
+		"AbilityTextureName"			"winterblight/castle/blue_doom"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 
@@ -92002,7 +94176,7 @@
 		}
 		"Modifiers"
 		{
-		"modifier_winterblight_doom"
+			"modifier_winterblight_doom"
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
@@ -92049,7 +94223,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"jakiro_dual_breath"
+		"AbilityTextureName"	"winterblight/castle/dual_blade"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
@@ -92124,7 +94298,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"jakiro_dual_breath"
+		"AbilityTextureName"	"winterblight/castle/face_ripper"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
@@ -92191,7 +94365,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"		"80 270 1000"
+				"damage"		"80 270 1500"
 			}
 			"02"
 			{
@@ -92229,7 +94403,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"mirana_starfall"
+		"AbilityTextureName"	"winterblight/castle/lumos_king"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"AOERadius"				"800"
 		"MaxLevel"	"3"
@@ -92302,7 +94476,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"mirana_starfall"
+		"AbilityTextureName"	"winterblight/castle/claws_of_terror"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"AOERadius"				"800"
 		"MaxLevel"	"3"
@@ -92344,7 +94518,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"morphling_adaptive_strike"
+		"AbilityTextureName"	"winterblight/castle/sun_phoenix"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
@@ -92496,7 +94670,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"winterblight/summoner_blink"
+		"AbilityTextureName"			"winterblight/castle/fire_blink"
 		"RequiredLevel"          		"0"
 		"LevelsBetweenUpgrades"  		"0"
 		"MaxLevel"				 		"3"
@@ -92553,7 +94727,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"lina_dragon_slave"
+		"AbilityTextureName"	"winterblight/castle/solos_passive"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"AbilitySpecial"
@@ -92637,6 +94811,756 @@
 						"Target"		"TARGET"
 						"Type"			"DAMAGE_TYPE_MAGICAL"
 						"Damage"		"%burn_dps"
+					}
+				}
+			}
+		}
+	}
+
+	"winterblight_vorethrex_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"winterblight/castle/vorethrex_passive"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"buff_damage"		"100 200 300"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"buff_attackspeed"		"120 280 500"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"buff_ms"		"40 70 100"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_vorethrex_passive"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MIN_HEALTH" "1"
+				}
+				"ThinkInterval"  "0.2"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"vorthrex_passive_think"
+					}
+				}
+			}
+			"modifier_vorethrex_dying_think"
+			{
+				"IsHidden"	"1"
+				"OverrideAnimation"     "ACT_DOTA_DISABLED"
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"vorthrex_dying_think"
+					}
+				}
+			}
+			"modifier_vorethrex_disabled"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_SILENCED"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVULNERABLE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"EffectName"	"particles/econ/items/huskar/huskar_ti8/huskar_ti8_shoulder_heal.vpcf"
+				"EffectAttachType"	"attach_origin"
+			}
+			"modifier_vorethrex_phase_2"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"StatusEffectName" 		"particles/status_fx/status_effect_gods_strength.vpcf" 	   
+				"StatusEffectPriority"  "15"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%buff_attackspeed"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%buff_ms"
+				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%buff_damage"
+				}
+			}
+		}
+	}
+
+	"winterblight_vorethrex_dash"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"winterblight/castle/vorethrex_dash"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+
+		}
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"6.0 5.0 4.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"debuff_duration"				"6"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"atk_power_loss"				"-40 -70 -100"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"200 3200 25000"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"health_regen_loss"				"-3 -5 -7"
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+				"Function"		"vorethrex_dash_start"
+				"target"		"POINT"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+				"Function"		"vorethrex_projectile_hit"
+				"target"        "TARGET"
+				"damage"		"%damage"
+				"debuff_duration"	"%debuff_duration"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_vorethrex_dash"
+			{
+				"IsHidden"	"1"
+				"IsBuff"	"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"vorethrex_dash_think"
+					}
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE"	"-100"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-100"
+				}
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"EffectName"	"particles/roshpit/winterblight/red_buff.vpcf"
+				"EffectAttachType"	"attach_hitloc"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"vorethrex_dash_end"
+					}
+				}
+
+			}
+			"modifier_vorethrex_dash_debuff"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"EffectName"	"particles/units/heroes/hero_silencer/silencer_curse.vpcf"
+				"EffectAttachType"	"follow_overhead"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%atk_power_loss"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE"		"%health_regen_loss"
+					"MODIFIER_PROPERTY_DISABLE_HEALING"				"1"
+				}
+			}
+		}
+
+	}
+
+	"winterblight_paragon_of_judgement_bash"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"winterblight/castle/judgement_bash"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"impact_damage"		"500 2000 15000"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"stun_duration"		"0.3 0.5 0.7"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"stun_chance"		"25"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_winterblight_paragon_of_judgement_passive"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"paragon_of_judgement_attack_land"
+						"impact_damage"	"%impact_damage"
+						"stun_duration"	"%stun_duration"
+						"stun_chance"	"%stun_chance"
+					}
+				}
+			}
+		}
+	}
+
+	"paragon_of_judgement_spark"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"winterblight/castle/judgement_spark"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
+		"LevelsBetweenUpgrades"  "0"
+		"MaxLevel"				 "7"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+
+		// Precache
+		//-------------------------------------------------------
+		"precache"
+		{
+
+		}
+
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"3 2.5 2.0"
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"100"
+
+		// Special
+		//-------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"base_damage"			"100 1000 10000"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"paralyze_duration"			"0.3"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"percent_attack_power"			"100"
+			}
+
+		}
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+				"Function"		"judgement_spark_phase"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+				"Function"		"judgement_spark_throw"
+				"base_damage"			"%base_damage"
+				"percent_attack_power"	"%percent_attack_power"
+				"paralyze_duration"		"%paralyze_duration"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+				"Function"		"judgement_spark_impact"
+				"target"		"TARGET"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_judgement_spark_paralyze"
+			{
+				"IsHidden"	"0"
+				"States"
+				{
+					"ACT_DOTA_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"StatusEffectName"	"particles/status_fx/status_effect_electrical.vpcf"
+				"StatusEffectPriority"	"120"
+			}
+			"modifier_judgement_spark_paralyze_immunity"
+			{
+				"IsHidden"	"1"
+			}
+		}
+	}
+
+	"high_priest_xelethar_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"winterblight/castle/xelethar_passive"
+		"MaxLevel"	"3"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage_base"			"50 200 1000"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage_pct_max_health"			"2 4 6"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"orb_damage"			"500 2000 10000"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"slow_duration"				"5"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"ms_slow"				"-60 -140 -400"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"as_slow"				"-100 -150 -200"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_xelethar_passive"
+			{
+				"IsPurgable"	"0"
+				"Passive" 		"1"
+				"IsHidden"		"1"
+				"IsBuff"		"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"xelethar_thinker"
+						"damage_base"	"%damage_base"
+						"damage_pct_max_health"	"%damage_pct_max_health"
+					}
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_VISUAL_Z_DELTA" "120"
+				}
+				"States"
+				{
+					"MODIFIER_STATE_NO_UNIT_COLLISION" "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY" "MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_xelethar_projectile"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"xelethar_projectile_thinker"
+						"target"		"TARGET"
+						"orb_damage"	"%orb_damage"
+						"slow_duration"	"%slow_duration"
+					}
+				}
+			}
+			"modifier_xelethar_slow"
+			{
+				"IsDebuff"	"1"
+				"StatusEffectName" 		"particles/status_fx/status_effect_frost_lich.vpcf"
+				"StatusEffectPriority"  "20"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%as_slow"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%ms_slow"
+				}
+			}
+		}
+
+	}
+
+	"bishop_of_hades_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"worlds/winterblight/abilities/bishop_of_hades_passive.lua"
+		"AbilityTextureName"			"winterblight/castle/bishop_passive"
+		"MaxLevel"				 		"3"
+		"Level"							"1"
+		"precache"
+		{
+
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"fear_duration"			"3 4 5"
+			}
+		}
+	}
+
+	"bishop_of_hades_dot"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_AOE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"winterblight/castle/bishop_dot"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastRange"				"1400"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AOERadius"						"600"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+	    "precache"
+	    {
+
+	    }
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.5"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"9.0 8.0 7.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"300 1000 15000"
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+				"Function"		"bishop_of_hades_dot_cast"
+				"Target"		"POINT"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_bishop_of_hades_dot"
+			{
+				"Passive"	"0"
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"EffectName"	"particles/roshpit/items/cloak_of_cimmerian_priesthood/q_dot.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"ThinkInterval"  "4"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"bishop_of_hades_dot_damage"
+						"target"		"TARGET"
+						"damage"		"%damage"
+					}
+				}
+			}
+		}
+	}
+
+	"winterblight_star_boss_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"winterblight/castle/red_star_attack"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"respawn_delay"			"3"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_winter_star_boss_passive"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName" 		"particles/status_fx/status_effect_void_spirit_aether_remnant.vpcf" 	   
+				"StatusEffectPriority"  "100"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "300"
+				}
+			}
+			"modifier_winter_boss_intro"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_FROZEN"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVULNERABLE"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+
+	"winter_star_boss_red_star_attack"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"invoker_chaos_meteor"
+		"MaxLevel"	"3"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"magic_resist_loss"			"-100 -500 -5000"
+			}
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"80 300 2000"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_autumn_mage_passive"
+			{
+				"IsPurgable"		"0"
+				"Passive" 			"1"
+				"IsHidden" 			"1"
+				"IsBuff"			"0"
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"star_boss_attack_hit"
+						"damage"		"%damage"
+					}
+				}
+			}
+			"modifier_autumn_mage_debuff"
+			{
+				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"        "particles/econ/items/axe/axe_cinder/axe_cinder_battle_hunger_c.vpcf"
+						"EffectAttachType"  "attach_hitloc"
+						"Target"            "TARGET"
+					}
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+			}
+		}
+	}
+
+	"winterblight_empress_emasz_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"templar_assassin_meld"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"evasion"			"30 60 90"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_empress_emasz_passive"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_EVASION_CONSTANT" "%evasion"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"empress_emasz_init"
+					}
+				}
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"empress_emasz_think"
+					}
+				}
+				"OnAttackStart"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"empress_emasz_attack_start"
+					}
+				}
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"empress_emasz_die"
 					}
 				}
 			}
@@ -107730,6 +110654,46 @@
 						"target"		"TARGET"
 					}
 				}
+			}
+			"modifier_master_as_buff"
+			{
+				"IsHidden"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "1"
+				}
+			}
+			"modifier_master_base_damage_buff"
+			{
+				"IsHidden"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
+				}				
+			}
+			"modifier_master_green_damage_buff"
+			{
+				"IsHidden"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "1"
+				}				
+			}
+			"modifier_master_green_damage_negative_buff"
+			{
+				"IsHidden"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "-1"
+				}				
+			}
+			"modifier_take_1_damage_only"
+			{
+				"IsHidden"	"1"
 			}
 		}
 		"AbilitySpecial"
@@ -145758,6 +148722,12 @@
 						"Type"			"DAMAGE_TYPE_PURE"
 						"Damage"		"%damage"
 					}
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/arena/pit_of_trials/pit_of_trials_ai.lua"
+						"Function"		"arena_doom_think"
+						"target"		"TARGET"
+					}
 				}
 				"OnDestroy"
 				{
@@ -165708,7 +168678,61 @@
 					}
 				}
 			}
+			"ai_loot_table"
+			{
+				"IsHidden"	"1"
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"ai/ai_modifiers.lua"
+						"Function"		"ai_loot_table_drop"
+					}
+				}
+			}
 		}
 	}
 
+	"spellcrafter_dummy_ability"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"items/lua/body/spellcrafter_coat.lua"
+		"AbilityTextureName"		"earthshaker_aftershock"
+		"MaxLevel"					"1"
+			
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilitySpecial"
+		{
+
+		}
+	}
+
+	"stonebreaker_dummy_ability"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"items/lua/gloves/stonebreaker_gauntlet.lua"
+		"AbilityTextureName"		"earthshaker_aftershock"
+		"MaxLevel"					"1"
+			
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilitySpecial"
+		{
+
+		}
+	}
+
+	"exodia_gloves_dummy_ability"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"items/lua/gloves/exodia_gloves.lua"
+		"AbilityTextureName"		"earthshaker_aftershock"
+		"MaxLevel"					"1"
+			
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilitySpecial"
+		{
+
+		}
+	}
 }
+

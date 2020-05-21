@@ -735,3 +735,66 @@
 		"item_rpc_energizing_quest_gear_sapphire1"							"No effect"
 		"item_rpc_energizing_quest_gear_amethyst1"							"No effect"
 		
+
+		"DOTA_Tooltip_ability_item_rpc_plague_emperor_armor"							"Plague Emperor Armor"
+		"item_property_plague_emperor"												"Poison Globs"
+		"property_plague_emperor_description"										"Every <% ITEM_RPC_PLAGUE_EMPEROR_ARMOR_INTERVAL %> seconds, throw a Poison Glob at a random enemy within <% ITEM_RPC_PLAGUE_EMPEROR_ARMOR_RANGE %> range. On impact, deal <% ITEM_RPC_PLAGUE_EMPEROR_ARMOR_DMG_ATK_POWER %>% of attack power as damage in a <% ITEM_RPC_PLAGUE_EMPEROR_ARMOR_DAMAGE_RADIUS %> radius."
+		"item_rpc_plague_emperor_armor_ruby1"							"Increases <font color=\"#37DD3D\">Poison</font> Elemental Damage by @ruby_property1%, increases the projectile speed of Poison Globs by @ruby_property2, and reduces the delay between Poison Globs by @ruby_property3. "
+		"item_rpc_plague_emperor_armor_emerald1"							"Enemies in the impact radius are poisoned for <% ITEM_RPC_PLAGUE_EMPEROR_ARMOR_EMERALD_DURATION %> seconds, slowing attack speed by @emerald_property1 and taking @emerald_property2% of Attack Power as damage every <% ITEM_RPC_PLAGUE_EMPEROR_ARMOR_EMERALD_INTERVAL %> seconds."
+		"item_rpc_plague_emperor_armor_sapphire1"							"Casting [Q] throws @sapphire_property1 poison globs forward. Casting [R] throws @sapphire_property2 poison globs in all directions. Distance thrown is <% ITEM_RPC_PLAGUE_EMPEROR_ARMOR_SAPPHIRE_DEFAULT_DISTANCE %> or the distance between you and the closest enemy. Can only trigger <% ITEM_RPC_PLAGUE_EMPEROR_ARMOR_SAPPHIRE_MAX_TRIGGERS_PER_SECOND %> time per second."
+		"item_rpc_plague_emperor_armor_amethyst1"							"Poison Globs leave a pile of slime at the impact point that lasts for <% ITEM_RPC_PLAGUE_EMPEROR_ARMOR_AMETHYST_DURATION %> seconds. Enemies standing inside have @amethyst_property1% reduced movespeed and take @amethyst_property2% of Attack Power as damage every <% ITEM_RPC_PLAGUE_EMPEROR_ARMOR_AMETHYST_DAMAGE_INTERVAL %> seconds"
+
+		"DOTA_Tooltip_modifier_plague_emperor_armor_emerald"					"Poison Glob"
+		"DOTA_Tooltip_modifier_plague_emperor_armor_emerald_Description"		"Reduced Attack Speed and taking damage"
+
+		"DOTA_Tooltip_ability_item_rpc_musty_crypt_armor"				"Musty Crypt Armor"
+		"item_property_musty_crypt_armor"				"Crypt Warrior"
+		"property_musty_crypt_armor_description"		"Casting @Ability1 transforms you into a melee skeleton warrior with <% ITEM_RPC_MUSTY_CRYPT_ARMOR_SKELETON_HP %> Max Health. Any instance of damage taken while in Skeleton Form deals exactly <% ITEM_RPC_MUSTY_CRYPT_ARMOR_DAMAGE_TAKEN %> damage. While in skeleton form you cannot heal. Lasts <% ITEM_RPC_MUSTY_CRYPT_ARMOR_DURATION %> seconds or is removed when casting @Ability1 again."
+
+		"DOTA_Tooltip_modifier_musty_crypt_skeleton_transform"		"Crypt Warrior"
+		
+		"item_rpc_musty_crypt_armor_ruby1"									"Gain @ruby_property1 Attack Speed and @ruby_property2 movement speed while in skeleton form. Damage taken while in skeleton form is reduced by @ruby_property3"
+		"item_rpc_musty_crypt_armor_emerald1"									"Restore @emerald_property1 health in skeleton form every <% ITEM_RPC_MUSTY_CRYPT_ARMOR_EMERALD_INTERVAL %> seconds even while healing is disabled. While in Skeleton Form, each point of current health increases Base Attack Damage by @emerald_property2"
+		"item_rpc_musty_crypt_armor_sapphire1"									"Gain @sapphire_property1% increased attack power and @sapphire_property2 additional health while in skeleton form"
+		"item_rpc_musty_crypt_armor_amethyst1"									"Attacks in skeleton form leave a debuff on enemies for @amethyst_property1 seconds that makes them unable to heal. Attacks in skeleton form also restore @amethyst_property2 health, even when healing is disabled."
+
+		"DOTA_Tooltip_modifier_musty_crypt_amethyst_debuff"			"Crypt Warrior (Amethyst)"
+		"DOTA_Tooltip_modifier_musty_crypt_amethyst_debuff_Description"	"Healing Disabled"	
+
+
+		"DOTA_Tooltip_ability_item_rpc_spellcrafter_coat"		"Spellcrafter Coat"
+		"item_property_spellcrafter_coat"				"Custom Spell"
+		"property_spellcrafter_coat_description"		"Casting @Ability2 throws a <% ITEM_RPC_SPELLCRAFTER_COAT_PROJECTILE_SPEED_BASE %> speed projectile towards the nearest enemy within <% ITEM_RPC_SPELLCRAFTER_COAT_RANGE %> range in front of the caster. The spell deals <% ITEM_RPC_SPELLCRAFTER_COAT_BASE_DMG_ATK_POWER %>% of Attack Power as Magical Damage."
+
+		"item_rpc_spellcrafter_coat_ruby1"									"Magic Spell deals <font color=\"#EF4126\">Fire</font> damage in a @ruby_property1 radius around the target. Magic Spell's damage is increased by @ruby_property2x Strength"
+		"item_rpc_spellcrafter_coat_emerald1"									"Magic Spell deals <font color=\"#7AE2A7\">Wind</font> damage and travels @emerald_property1 faster. Magic Spell's damage is increased by @emerald_property2x Agility"
+		"item_rpc_spellcrafter_coat_sapphire1"									"Magic Spell deals <font color=\"#87D9FF\">Ice</font> damage and the primary projectile fractures and hits up to @sapphire_property1 additional enemies within <% ITEM_RPC_SPELLCRAFTER_COAT_GEM_SAPPHIRE_RANGE %> range. Magic Spell's damage is increased by @sapphire_property2x Intelligence"
+		"item_rpc_spellcrafter_coat_amethyst1"									"Magic Spell deals  <font color=\"#E1A2E8\">Arcane</font> damage and the spell can bounce up to @amethyst_property1 times toward enemies within <% ITEM_RPC_SPELLCRAFTER_COAT_GEM_AMETHYST_RANGE %> range. Magic Spell's damage is increased by @amethyst_property2x Spirit"
+
+		"DOTA_Tooltip_ability_item_rpc_cloak_of_isolation"		"Cloak of Isolation"
+		"item_property_cloak_of_isolation"				"Isolation"
+		"property_cloak_of_isolation_description"		"Enemies within <% ITEM_RPC_CLOAK_OF_ISOLATION_RANGE %> range are pushed away with <% ITEM_RPC_CLOAK_OF_ISOLATION_BASE_FORCE %> force and have <% ITEM_RPC_CLOAK_OF_ISOLATION_MOVESPEED_REDUCE %>% reduced movespeed."
+
+		"item_rpc_cloak_of_isolation_ruby1"									"Increases isolation's range by @ruby_property1"
+		"item_rpc_cloak_of_isolation_emerald1"									"Increases isolation's push force by @emerald_property1%"
+		"item_rpc_cloak_of_isolation_sapphire1"									"Gain @sapphire_property1 Armor and Magic Armor while there are no enemies within <% ITEM_RPC_CLOAK_OF_ISOLATION_SAPPHIRE_RANGE %> range"
+		"item_rpc_cloak_of_isolation_amethyst1"									"Issuing a stop order disjoints incoming projectiles and applies @amethyst_property1 seconds of persistent invisibility. <% ITEM_RPC_CLOAK_OF_ISOLATION_AMETHYST_COOLDOWN %> second cooldown"
+
+		"DOTA_Tooltip_ability_item_rpc_breastplate_of_abjudication"		"Breastplate of Abjudication"
+		"item_property_breastplate_of_abjudication"				"Judgement"
+		"property_breastplate_of_abjudication_description"		"When an enemy begins an attack on you, if their armor pierce is higher than your armor, gain bonus armor equal to <% ITEM_RPC_BREASTPLATE_OF_ABJUDICATION_STAT_PCT %>% of the difference between your armor and their armor pierce for <% ITEM_RPC_BREASTPLATE_OF_ABJUDICATION_DURATION %> seconds."
+
+		"DOTA_Tooltip_modifier_abjudication_base_effect_armor"	"Judgement"
+		"DOTA_Tooltip_modifier_abjudication_base_effect_armor_Description"	"Increased Armor"
+
+		"item_rpc_breastplate_of_abjudication_ruby1"									"When beginning an attack on an enemy, if their armor is higher than your armor pierce, gain Armor Pierce equal to <% ITEM_RPC_BREASTPLATE_OF_ABJUDICATION_STAT_PCT %>% of the difference between your Armor Pierce and their Armor for @ruby_property1 seconds"
+		"item_rpc_breastplate_of_abjudication_emerald1"									"Increases the base effect's duration by @emerald_property1 seconds"
+		"item_rpc_breastplate_of_abjudication_sapphire1"									"Increases all attributes by @sapphire_property1%"
+		"item_rpc_breastplate_of_abjudication_amethyst1"									"After taking an instance of Magic or Pure damage, if the caster's Spell Pierce is higher than your Magic Armor, gain Magic Armor equal to <% ITEM_RPC_BREASTPLATE_OF_ABJUDICATION_STAT_PCT %>% of the difference between your Magic Armor and their Spell Pierce for @amethyst_property1 seconds"
+
+		"DOTA_Tooltip_modifier_abjudication_ruby_armor_pierce"	"Judgement (Ruby)"
+		"DOTA_Tooltip_modifier_abjudication_ruby_armor_pierce_Description"	"Increased Armor Pierce"
+
+		"DOTA_Tooltip_modifier_abjudication_amethyst_magic_armor" "Judgement (Amethyst)"
+		"DOTA_Tooltip_modifier_abjudication_amethyst_magic_armor_Description" "Increased Magic Armor"
+

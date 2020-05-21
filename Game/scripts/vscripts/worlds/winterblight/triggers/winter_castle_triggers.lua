@@ -51,7 +51,7 @@ function GooSwitchTriggerEnter(trigger)
 	local caller = trigger.caller
 	local switchIndex = caller:GetName():gsub('GooSwitchTrigger', "")
 	switchIndex = tonumber(switchIndex)
-	if Winterblight.CastleDungeonMaster and Winterblight.CastleDungeonMaster.goo_switches then
+	if Winterblight.CastleDungeonMaster and Winterblight.CastleDungeonMaster.goo_switches_can_be_pressed then
 		print(switchIndex)
 		if Winterblight.CastleDungeonMaster.goo_switches[switchIndex] == 0 then
 			Winterblight:ActivateSwitchGeneric(hero:GetAbsOrigin(), "GooSwitchButton", true, 0.352)

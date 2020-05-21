@@ -66,6 +66,10 @@ function modifierClass:IsHidden()
     return true
 end
 
+function modifierClass:RemoveOnDeath()
+    return false
+end
+
 function modifierClass:GetRoshpitQFlatCdModifier()
     return - self:GetAbility():GetFinalGemPropertyValue("emerald", ITEM_RPC_SIGNUS_CHARM_GEM_EMERALD2)
 end
