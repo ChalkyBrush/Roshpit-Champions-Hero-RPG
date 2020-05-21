@@ -1293,6 +1293,14 @@
 		"soulbinder_library"		"Soul Library"
 		"soulbinder_library_loading"		"Loading Library..."
 
+		"soulbinder_library_helms"		"Helms"
+		"soulbinder_library_bodies"		"Chests"
+		"soulbinder_library_weapons"	"Weapons"
+		"soulbinder_library_gloves"		"Gloves"
+		"soulbinder_library_boots"		"Boots"
+		"soulbinder_library_trinkets"		"Trinkets"
+		"soulbinder_library_arcanas"		"Arcanas"
+
 	    //------------------------
 		// World
 		//------------------------
@@ -1942,7 +1950,9 @@
 
 		"star_wb_cavern_master_description"									"Clear all @dungeon_name chambers with an average clear level of @level as @heroname"
 
-
+		"star_wb_castle_description"									"Defeat @bossname on @mapname as @heroname on Normal Difficulty."
+		"star_wb_castle_description2"									"Defeat @bossname on @mapname as @heroname on Legend Difficulty."
+		"star_wb_castle_description3"									"Defeat @bossname on @mapname as @heroname on Legend Difficulty with 3 active Glacier Stones."
 
 		//SERENGAARD
 

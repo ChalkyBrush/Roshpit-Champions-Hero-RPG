@@ -34,6 +34,10 @@ function Soulbinder:SoulbinderInput(msg)
 		Soulbinder:EquipSoulboundItem(msg)
 	elseif msg.event_type == "click_equipment" then
 		Soulbinder:EquipmentClicked(msg)
+	elseif msg.event_type == "library" then
+		Soulbinder:LoadLibrary(msg)
+	elseif msg.event_type == "library_category" then
+		Soulbinder:LoadLibraryCategory(msg)
 	end
 end
 
@@ -357,4 +361,45 @@ function CDOTABaseAbility:IsSoulbound()
 	else
 		return false
 	end
+end
+
+function Soulbinder:LoadLibrary(msg)
+	local playerID = msg.PlayerID
+	local player = PlayerResource:GetPlayer(playerID)
+	local hero = GameState:GetHeroByPlayerID(playerID)
+	local steamID = PlayerResource:GetSteamAccountID(playerID)
+	
+	local url = ROSHPIT_URL.."/soulbinder/get_player_soulbind_library_in_game?"
+	url = url.."steam_id="..steamID
+	CreateHTTPRequestScriptVM("GET", url):Send(function(result)
+		if result.StatusCode == 200 then
+			local resultTable = JSON:decode(result.Body)
+			CustomGameEventManager:Send_ServerToPlayer(player, "soulbinder_library_load", {result = resultTable})
+		end
+	end)
+end
+
+function Soulbinder:LoadLibraryCategory(msg)
+	local playerID = msg.PlayerID
+	local player = PlayerResource:GetPlayer(playerID)
+	local hero = GameState:GetHeroByPlayerID(playerID)
+	local steamID = PlayerResource:GetSteamAccountID(playerID)
+	
+	local url = ROSHPIT_URL.."/soulbinder/get_player_soulbind_library_category_in_game?"
+	url = url.."steam_id="..steamID
+	url = url.."&category="..msg.category
+	CreateHTTPRequestScriptVM("GET", url):Send(function(result)
+		if result.StatusCode == 200 then
+			local resultTable = JSON:decode(result.Body)
+			local table_with_images = {}
+			for i = 1, #resultTable, 1 do
+				local item_name = resultTable[i]
+				local hash_item = {}
+				hash_item["item_name"] = item_name
+				hash_item["image_path"] = GetItemKV(item_name, "AbilityTextureName", 1)
+				table.insert(table_with_images, hash_item)
+			end
+			CustomGameEventManager:Send_ServerToPlayer(player, "soulbinder_library_category_load", {result = table_with_images})
+		end
+	end)
 end

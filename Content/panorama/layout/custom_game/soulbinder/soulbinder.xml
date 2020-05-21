@@ -151,6 +151,63 @@
 				</Button>
 			</Panel>
 		</snippet>
+		<snippet name="soulbinder_library_start_categories">
+			<Panel class="soulbinder_library_start_root" hittest="false">
+				<Panel class="soulbinder_library_start_row">
+					<Button id="soulbinder_library_button1" class="soulbinder_library_button" hittest="true">
+						<Label class="library_category_text" text="soulbinder_library_helms" hittest="false" html="true"/>
+						<Label id="libarary_category_label_helms" class="library_category_numbers" text="0/0" hittest="false" html="true"/>
+					</Button>
+					<Button id="soulbinder_library_button2" class="soulbinder_library_button" hittest="true">
+						<Label class="library_category_text" text="soulbinder_library_bodies" hittest="false" html="true"/>
+						<Label id="libarary_category_label_bodies" class="library_category_numbers" text="0/0" hittest="false" html="true"/>
+					</Button>
+					<Button id="soulbinder_library_button3" class="soulbinder_library_button" hittest="true">
+						<Label class="library_category_text" text="soulbinder_library_weapons" hittest="false" html="true"/>
+						<Label id="libarary_category_label_weapons" class="library_category_numbers" text="0/0" hittest="false" html="true"/>
+					</Button>
+				</Panel>
+				<Panel class="soulbinder_library_start_row">
+					<Button id="soulbinder_library_button4" class="soulbinder_library_button" hittest="true">
+						<Label class="library_category_text" text="soulbinder_library_gloves" hittest="false" html="true"/>
+						<Label id="libarary_category_label_hands" class="library_category_numbers" text="0/0" hittest="false" html="true"/>
+					</Button>
+					<Button id="soulbinder_library_button5" class="soulbinder_library_button" hittest="true">
+						<Label class="library_category_text" text="soulbinder_library_boots" hittest="false" html="true"/>
+						<Label id="libarary_category_label_feet" class="library_category_numbers" text="0/0" hittest="false" html="true"/>
+					</Button>
+					<Button id="soulbinder_library_button6" class="soulbinder_library_button" hittest="true">
+						<Label class="library_category_text" text="soulbinder_library_trinkets" hittest="false" html="true"/>
+						<Label id="libarary_category_label_trinkets" class="library_category_numbers" text="0/0" hittest="false" html="true"/>
+					</Button>
+				</Panel>
+				<Panel class="soulbinder_library_start_row">
+					<Button id="soulbinder_library_button7" class="soulbinder_library_button library_button_centered" hittest="true">
+						<Label class="library_category_text" text="soulbinder_library_arcanas" hittest="false" html="true"/>
+						<Label id="libarary_category_label_arcanas" class="library_category_numbers" text="0/0" hittest="false" html="true"/>
+					</Button>
+				</Panel>
+			</Panel>
+		</snippet>
+		<snippet name="soulbinder_library_category_view">
+			<Panel class="soulbinder_library_category_view_root" hittest="false">
+				<Panel id="soulbinder_library_category_scroll_container">
+				</Panel>
+			</Panel>
+		</snippet>
+		<snippet name="soulbinder_library_category_row">
+			<Panel class="soulbinder_library_category_row_root" hittest="false">
+
+			</Panel>
+		</snippet>
+		<snippet name="soulbinder_category_result">
+			<Panel class="soulbinder_category_result_root" hittest="false">
+				<Button id="soulbinder_library_result_button" hittest="true">
+					<Image id="category_item_image" hittest="false"/>
+					<Label id="category_result_text" text="result" hittest="false" html="true"/>
+				</Button>
+			</Panel>
+		</snippet>
 	</snippets>
 
 	<Panel class="soulbinder_content" hittest="false">

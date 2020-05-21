@@ -11,6 +11,8 @@ mSoulbindSlotSelected = 0
 
 mSoulbindViewPage = ""
 
+mLibrary = 0
+
 function OpenSoulbinder(msg){
 	//$.Msg("GEM FORGER")
 	var parent = $('#soulbinder_container')
@@ -64,6 +66,8 @@ function OpenSoulbinder(msg){
 		Game.EmitSound("Gemforger.UI.Close")
 		CloseSoulbinder();
 	})
+
+	mLibrary = 0
 }
 
 
@@ -437,6 +441,67 @@ function soulbinder_library_init(soulbinder_main){
 		Game.EmitSound("UI.Soulbinder.Click")
 		OpenSoulbinder(null)
 	})
+    mLibrary = 1
+	GameEvents.SendCustomGameEventToServer( "soulbinder", {event_type: "library", library: "start"});
+}
+
+function LibraryLoad1(msg){
+	if (mLibrary == 1){
+		var result = msg.result
+		var attach_point = $.GetContextPanel().FindChildTraverse('soulbinder_library_results_attach')
+		attach_point.RemoveAndDeleteChildren(0)
+	    var soulbinder_library_root = $.CreatePanel("Panel", attach_point, "soulbinder-library-main-attach")
+	    soulbinder_library_root.BLoadLayoutSnippet("soulbinder_library_start_categories");	
+	    Object.keys(result).forEach(function (key) { 
+	    	soulbinder_library_root.FindChildTraverse('libarary_category_label_'+key).text = result[key].player + "/" + result[key].total
+	    });
+	    for (i = 1; i <= 7; i++) {
+	    	var button = soulbinder_library_root.FindChildTraverse('soulbinder_library_button'+i)
+	    	SetLibraryButtonAction(button, i)    	
+	    }
+	}
+}
+
+function SetLibraryButtonAction(button, i){
+    button.SetPanelEvent('onactivate', function Close() {
+		Game.EmitSound("UI.Soulbinder.Click")
+		LibraryCategoryClick(i)
+	})	
+}
+
+function LibraryCategoryClick(i){
+	mLibrary = 2
+	GameEvents.SendCustomGameEventToServer( "soulbinder", {event_type: "library_category", category: i});
+}
+
+function LibraryLoad2(msg){
+	if (mLibrary == 2){
+		var result = msg.result
+		var attach_point = $.GetContextPanel().FindChildTraverse('soulbinder_library_results_attach')
+		attach_point.RemoveAndDeleteChildren(0)
+	    var soulbinder_library_root = $.CreatePanel("Panel", attach_point, "soulbinder-library-main-attach")
+	    soulbinder_library_root.BLoadLayoutSnippet("soulbinder_library_category_view");	
+	    var items_count = 0
+	    var scroll_container = soulbinder_library_root.FindChildTraverse('soulbinder_library_category_scroll_container')
+	    Object.keys(result).forEach(function (key) {
+	    	if (result[key].item_name){
+	    		var row_panel_index = Math.floor(items_count/3)
+	    		items_count = items_count + 1
+	    		var category_row = scroll_container.FindChildTraverse("soulbinder-category-row-"+row_panel_index)
+	    		if (!(category_row)){
+	    			category_row = $.CreatePanel("Panel", scroll_container, "soulbinder-category-row-"+row_panel_index)
+	    		}
+	    		category_row.BLoadLayoutSnippet('soulbinder_library_category_row')
+	    		var item_panel = $.CreatePanel("Panel", category_row, "soulbinder-item-button-"+items_count)
+	    		item_panel.BLoadLayoutSnippet('soulbinder_category_result')
+	    		var image_name = "file://{images}/items/"+result[key].image_path+".png"
+	    		item_panel.FindChildTraverse('category_item_image').SetImage(image_name)
+	    		item_panel.FindChildTraverse('category_result_text').text = $.Localize("DOTA_Tooltip_ability_"+result[key].item_name)
+	    		var button = item_panel.FindChildTraverse('soulbinder_library_result_button')
+	    		setup_search_result_button_event(button, result[key].item_name, result[key].image_path)
+	    	}
+	    });
+	}
 }
 
 (function()
@@ -447,5 +512,7 @@ function soulbinder_library_init(soulbinder_main){
 	GameEvents.Subscribe( "soulbinder_item_up_for_soulbind", SoulbinderItemUpForSoulbind )
 	GameEvents.Subscribe( "close_soulbinder", CloseSoulbinder )
 	GameEvents.Subscribe( "soulbinder_gear_click_result", GearClickResult )
+	GameEvents.Subscribe( "soulbinder_library_load", LibraryLoad1 )
+	GameEvents.Subscribe( "soulbinder_library_category_load", LibraryLoad2 )
 
 })();
