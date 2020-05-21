@@ -36,6 +36,17 @@ function OpenSoulbinder(msg){
 	})
 
     var attach_point = soulbinder_main.FindChildTraverse('soulbinder_attach_contents')
+    var library_start_panel= $.CreatePanel("Panel", attach_point, "soulbinder-library")
+    library_start_panel.BLoadLayoutSnippet("soulbinder_start_button");
+    library_start_panel.FindChildTraverse("soulbinder_start_image").SetImage("file://{images}/custom_game/ui/spellbinder/soulbinder_library.png")
+    library_start_panel.FindChildTraverse('soulbinder_start_label').text = $.Localize("soulbinder_library_button_title")
+    library_button = library_start_panel.FindChildTraverse('soulbinder_start_button_collect')
+	library_button.SetPanelEvent('onactivate', function Close() {
+		Game.EmitSound("UI.Soulbinder.Click")
+		soulbinder_library_init(soulbinder_main)
+	})
+
+    var attach_point = soulbinder_main.FindChildTraverse('soulbinder_attach_contents')
     var tips_start_panel= $.CreatePanel("Panel", attach_point, "soulbinder-tips")
     tips_start_panel.BLoadLayoutSnippet("soulbinder_start_button");
     tips_start_panel.FindChildTraverse("soulbinder_start_image").SetImage("file://{images}/custom_game/ui/spellbinder/soulbinder_tips.png")
@@ -68,6 +79,12 @@ function soulbinder_item_search_setup(soulbinder_main){
     var search_button = soulbinder_item_start.FindChildTraverse('soulbinder_item_search_button')
     setup_search_button(search_button, soulbinder_item_start)
     mSoulbinderState = 1
+
+    var button = soulbinder_item_start.FindChildTraverse('soulbind_back_button')
+    button.SetPanelEvent('onactivate', function Close() {
+		Game.EmitSound("UI.Soulbinder.Click")
+		OpenSoulbinder(null)
+	})
 }
 
 function addSoulbindHighlight(){
@@ -403,6 +420,18 @@ function soulbinder_tips_init(soulbinder_main){
 	attach_point.RemoveAndDeleteChildren(0)
     var soulbinder_tips = $.CreatePanel("Panel", attach_point, "soulbinder-item-search-meta-container")
     soulbinder_tips.BLoadLayoutSnippet("soulbinder_tips");	
+    var button = soulbinder_tips.FindChildTraverse('soulbind_back_button')
+    button.SetPanelEvent('onactivate', function Close() {
+		Game.EmitSound("UI.Soulbinder.Click")
+		OpenSoulbinder(null)
+	})
+}
+
+function soulbinder_library_init(soulbinder_main){
+	var attach_point = soulbinder_main.FindChildTraverse('soulbinder_attach_contents')
+	attach_point.RemoveAndDeleteChildren(0)
+    var soulbinder_tips = $.CreatePanel("Panel", attach_point, "soulbinder-item-library-meta-container")
+    soulbinder_tips.BLoadLayoutSnippet("soulbinder_library_start");	
     var button = soulbinder_tips.FindChildTraverse('soulbind_back_button')
     button.SetPanelEvent('onactivate', function Close() {
 		Game.EmitSound("UI.Soulbinder.Click")

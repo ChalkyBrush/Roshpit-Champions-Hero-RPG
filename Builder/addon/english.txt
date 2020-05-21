@@ -1281,12 +1281,17 @@
 		"soulbinder_cost_to_soulbind"		"Soulbind Cost"
 
 		"soulbind_tips_title"				"Soulbinder Tips"
-		"soulbinder_tip_1"					"1. Soulbound items cannot be chiseled or traded"
+		"soulbinder_tip_1"					"1. Soulbound items cannot be chiseled, rerolled, or traded. Once an item is soulbound it can never be unbound."
 		"soulbinder_tip_2"					"2. Players can have up to 3 soulbound copies of EVERY single immortal and arcana equipment item in the game."
 		"soulbinder_tip_3"					"3. Soulbind Slots 2 & 3 can only be saved into by Premium Pass holders. If your pass expires, you can still summon a Soulbound item from those slots."
-		"soulbinder_tip_4"					"4. Soulbinding items costs Arcane Crystals, but resummoning an item is free."
+		"soulbinder_tip_4"					"4. Soulbinding an item into an empty slot costs Arcane Crystals, but resummoning an item is free."
 		"soulbinder_tip_5"					"5. Soulbound items are shared across characters, and can be reloaded infinitely as desired."
 		"soulbinder_tip_6"					"6. Soulbound items CAN have gems and sockets added. Soulbound items CAN NOT have their gems salvaged."
+		"soulbinder_tip_7"					"7. Soulbound items can be soulbound again in the same slot or in other slots."
+
+		"soulbinder_library_button_title"	"Browse Library"
+		"soulbinder_library"		"Soul Library"
+		"soulbinder_library_loading"		"Loading Library..."
 
 	    //------------------------
 		// World

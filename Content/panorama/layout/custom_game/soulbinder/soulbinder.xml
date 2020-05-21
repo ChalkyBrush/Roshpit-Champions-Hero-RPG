@@ -53,6 +53,9 @@
 						
 					</Panel>
 				</Panel>
+				<Button id="soulbind_back_button">
+					<Label id="soulbind_back_button_label" text="ui_back"/>
+				</Button>
 			</Panel>
 		</snippet>
 		<snippet name="soulbinder_search_result">
@@ -131,6 +134,18 @@
 				<Label id="soulbinder_tip4" class="soulbinder_tip" text="soulbinder_tip_4" hittest="false" html="true"/>
 				<Label id="soulbinder_tip5" class="soulbinder_tip" text="soulbinder_tip_5" hittest="false" html="true"/>
 				<Label id="soulbinder_tip6" class="soulbinder_tip" text="soulbinder_tip_6" hittest="false" html="true"/>
+				<Label id="soulbinder_tip7" class="soulbinder_tip" text="soulbinder_tip_7" hittest="false" html="true"/>
+				<Button id="soulbind_back_button">
+					<Label id="soulbind_back_button_label" text="ui_back"/>
+				</Button>
+			</Panel>
+		</snippet>
+		<snippet name="soulbinder_library_start">
+			<Panel class="soulbinder_library_start_root" hittest="false">
+				<Label id="soulbinder_tip_title" text="soulbinder_library" hittest="false" html="true"/>
+				<Panel id="soulbinder_library_results_attach" hittest="false">
+					<Label id="soulbinder_library_loading" text="soulbinder_library_loading" hittest="false" html="true"/>
+				</Panel>
 				<Button id="soulbind_back_button">
 					<Label id="soulbind_back_button_label" text="ui_back"/>
 				</Button>

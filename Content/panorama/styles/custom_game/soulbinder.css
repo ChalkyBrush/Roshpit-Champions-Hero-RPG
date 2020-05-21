@@ -565,14 +565,14 @@
 	color:white;
 	font-size:32px;		
 	margin-top:15px;
-	margin-bottom:25px;
+	margin-bottom:5px;
 }
 
 .soulbinder_tip{
 	margin-left:40px;
 	font-family: Radiance, FZLanTingHei-R-GBK, TH Sarabun New, Gulim,MingLiU;	
 	color:#e6e8ac;
-	font-size:20px;		
+	font-size:18px;		
 	margin-top:15px;
 }
 
@@ -596,4 +596,24 @@
 	font-size:20px;		
 	horizontal-align:center;
 	vertical-align: center;
+}
+
+.soulbinder_library_start_root{
+	width:100%;
+	height:600px;
+	flow-children:down;
+}
+
+#soulbinder_library_results_attach{
+	width:90%;
+	horizontal-align:center;
+	height:440px;
+}
+
+#soulbinder_library_loading{
+	font-family: Radiance, FZLanTingHei-R-GBK, TH Sarabun New, Gulim,MingLiU;	
+	color:#e6e8ac;
+	font-size:16px;		
+	horizontal-align:center;
+	vertical-align: center;	
 }
