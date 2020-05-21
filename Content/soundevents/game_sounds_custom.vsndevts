@@ -11483,10 +11483,10 @@ Env.LavaHit
                               "value0"        "sounds/custom/magic_appear.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "0.95000"  }
+                    "volume"            {   "value"     "0.65000"  }
                     "pitch_rand_min"    {   "value"     "-0.03000"  }
                     "pitch_rand_max"    {   "value"     "0.030000"  }
-                    "pitch"             {   "value"     "0.800000"  }
+                    "pitch"             {   "value"     "0.900000"  }
                     "soundlevel"        {   "value"     "94.00000" }
                     "distance_max"      {   "value"     "3000.000"  }
                     "event_type"        {   "value"     "1.000000"  }

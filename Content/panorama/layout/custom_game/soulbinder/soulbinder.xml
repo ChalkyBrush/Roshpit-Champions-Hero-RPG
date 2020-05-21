@@ -130,6 +130,7 @@
 				<Label id="soulbinder_tip3" class="soulbinder_tip" text="soulbinder_tip_3" hittest="false" html="true"/>
 				<Label id="soulbinder_tip4" class="soulbinder_tip" text="soulbinder_tip_4" hittest="false" html="true"/>
 				<Label id="soulbinder_tip5" class="soulbinder_tip" text="soulbinder_tip_5" hittest="false" html="true"/>
+				<Label id="soulbinder_tip6" class="soulbinder_tip" text="soulbinder_tip_6" hittest="false" html="true"/>
 				<Button id="soulbind_back_button">
 					<Label id="soulbind_back_button_label" text="ui_back"/>
 				</Button>

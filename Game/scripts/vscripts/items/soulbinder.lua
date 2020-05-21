@@ -148,7 +148,7 @@ function Soulbinder:SoulbindItem(msg)
 	local item_to_bind = hero.item_up_for_soulbinding["item"]
 
 	local rarity = item_to_bind.newItemTable.rarity
-	if rarity ~= "immortal" and rarity == "arcana" then
+	if rarity ~= "immortal" and rarity ~= "arcana" then
 		return false
 	end
 	local cost = Soulbinder:GetSoulbindCost(item_to_bind)
@@ -161,6 +161,7 @@ function Soulbinder:SoulbindItem(msg)
 	end
 	if hero.item_up_for_soulbinding["slot"] > 1 then
 		if not GameState:GetPlayerPremiumStatus(playerID) then
+			print("FAIL")
 			return false
 		end
 	end
