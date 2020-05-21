@@ -3946,7 +3946,7 @@
 
         "DOTA_Tooltip_ability_item_rpc_chernobog_immortal_weapon_3"            "Unholy Claw of Osyluth"
         "item_property_chernobog_immortal_weapon3"                             "Vampiric Thirst"
-        "property_chernobog_immortal_weapon3_description"                      "С каждой успешной атакой герой восстанавливает <font color='#ccff66'>0.65</font>% от макс. здоровья, даже если исцеление отключено. (Не означает, что здоровье перестанет отниматься при ударах @Ability2.)"
+        "property_chernobog_immortal_weapon3_description"                      "С каждой успешной атакой герой восстанавливает <font color='#ccff66'>0.65</font>% от макс. здоровья, даже если исцеление отключено @Ability2 (но здоровье все еще будет уменьшаться при атаках в этой способности). Размер восстанавливаемого здоровья не может быть модифицирован."
 
 		//Abilities
 		"earth_aspect"														"Элементаль Земли"
@@ -6201,7 +6201,7 @@
     	"DOTA_Tooltip_ability_epoch_rune_w_4"							"[W4] Genesis"
     	"DOTA_Tooltip_ability_epoch_rune_w_4_Description"				"При прочтении @Ability2 теряется 5% макс. маны. героя, при этом урон от этого умения увеличивается в зависимости от количества затраченной маны."
     	"DOTA_Tooltip_ability_epoch_rune_w_4_property_one"				"Доп. урон"
-    	"DOTA_Tooltip_ability_epoch_rune_w_4_suffix"					"% за каждую ед. затраченной маны"
+    	"DOTA_Tooltip_ability_epoch_rune_w_4_suffix"					"% от затраченной Маны"
 		
 		"DOTA_Tooltip_ability_time_warp"										"Distortion Orb"
 		"DOTA_Tooltip_ability_time_warp_Description"							"Стихия: <font color=\"#B5FFB7\">Время</font><br>Герой выпускает перед собой Distortion Orb, искажающий пространство. Повторное использование умения до исчезновения шара переместит Epoch Guardian в точку, где был шар. <br><font color='#6cbfe2'>(W) Genesis Orb</font> нанесёт двойной урон соединенным <font color='#6cbfe2'>(Q) Time Binder</font> врагам. <br>Первое прочтение <font color='#6cbfe2'>(W) Genesis Orb</font> сразу после прыжка нанесёт двойной урон."
@@ -7264,17 +7264,19 @@
     	"DOTA_Tooltip_modifier_glissade_freecast"										"Свободное прочтение Volcanic Glissade"
 
   		"DOTA_Tooltip_ability_mountain_protector_rune_e_1_arcana3"						"[E1] Crater"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_e_1_arcana3_Description"			"Увеличивает базовый урон способностей и урон от предметов за каждые 1000 ед. недостающего здоровья."
-    	"DOTA_Tooltip_ability_mountain_protector_rune_e_1_arcana3_property_one"			"Усиление урона способностей и предметов"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_e_1_arcana3_suffix"				"% за каждые 1000 недостающего здоровья"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_e_1_arcana3_Description"			"Увеличивает Магическую Защиту и Пробитие Брони за каждый отсутствующий процент здоровья."
+    	"DOTA_Tooltip_ability_mountain_protector_rune_e_1_arcana3_property_one"			"Усиление Магической Защиты и Пробития Брони"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_e_1_arcana3_suffix"				"за % отсутствующего здоровья"
 
   		"DOTA_Tooltip_ability_mountain_protector_rune_e_2_arcana3"						"[E2] Batholith"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_e_2_arcana3_Description"			"Прибавляет к базе урона умений значение, основанное на текущей Силе."
-    	"DOTA_Tooltip_ability_mountain_protector_rune_e_2_arcana3_property_one"			"Бонус к базе урона умений"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_e_2_arcana3_suffix"				"x Силы"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_e_2_arcana3_Description"			"Уменьшает Ловкость и увеличивает Силу."
+    	"DOTA_Tooltip_ability_mountain_protector_rune_e_2_arcana3_property_one"			"Бонус Силы"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_e_2_arcana3_suffix"				""
+		"DOTA_Tooltip_ability_mountain_protector_rune_e_2_arcana3_property_two"         "Потеря Ловкости"
+        "DOTA_Tooltip_ability_mountain_protector_rune_e_2_arcana3_suffix_two"           ""
 
   		"DOTA_Tooltip_ability_mountain_protector_rune_e_3_arcana3"						"[E3] Lava Flow"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_e_3_arcana3_Description"			"Дает шанс на свободное использование (E) Lava Glissade сразу после прочтения (E) Rockfall. Значение шанса выше 100% означает, что может быть получено несколько зарядов свободного прочтения."
+    	"DOTA_Tooltip_ability_mountain_protector_rune_e_3_arcana3_Description"			"Дает шанс на свободное использование (E) Volcanic Glissade сразу после прочтения (E) Rockfall. Значение шанса выше 100% означает, что может быть получено несколько зарядов свободного прочтения."
     	"DOTA_Tooltip_ability_mountain_protector_rune_e_3_arcana3_property_one"			"Шанс"
     	"DOTA_Tooltip_ability_mountain_protector_rune_e_3_arcana3_suffix"				"%"
 
@@ -8215,7 +8217,7 @@
 	"DOTA_Tooltip_ability_rubilash_rune_w_3_property_one"			"Скорость Атаки"
 	"DOTA_Tooltip_ability_rubilash_rune_w_3_suffix"					""
     "DOTA_Tooltip_ability_rubilash_rune_w_3_property_two"            "Урон"
-    "DOTA_Tooltip_ability_rubilash_rune_w_3_suffix_two"              "% от урона @Ability2"
+    "DOTA_Tooltip_ability_rubilash_rune_w_3_suffix_two"              "% от урона Ink Blot"
 	
 	
 	"DOTA_Tooltip_ability_rubilash_rune_w_4"							"[W4] Viscosity"
@@ -8287,16 +8289,16 @@
 	"item_rpc_rubilash_glyph_4_1_description" 				"Увеличивает Магическую Защиту на <font color='#ccff66'>5000</font>."
 
 	"DOTA_Tooltip_ability_item_rpc_rubilash_glyph_5_1"		"[T5-1] Glyph of Blue Paint"
-	"item_rpc_rubilash_glyph_5_1_description" 				"Вся Синяя краска разрушает Иммунитек к Магии."
+	"item_rpc_rubilash_glyph_5_1_description" 				"Вся Синяя краска разрушает Иммунитет к Магии."
 
 	"DOTA_Tooltip_ability_item_rpc_rubilash_glyph_6_1"		"[T6-1] Glyph of Red Paint"
-	"item_rpc_rubilash_glyph_6_1_description" 				"Вся Красная краска наносит на <font color='#ccff66'>400</font>% больше урона и имеет Физический тип урона."
+	"item_rpc_rubilash_glyph_6_1_description" 				"Вся Красная краска наносит на <font color='#ccff66'>200</font>% больше урона и имеет Физический тип урона."
 
 	"DOTA_Tooltip_ability_item_rpc_rubilash_glyph_7_1"		"[T7-1] Glyph of Yellow Paint"
 	"item_rpc_rubilash_glyph_7_1_description" 				"Вся Жёлтая краска наносит на <font color='#ccff66'>-50</font>% меньше урона и имеет Чистый тип урона."
 
 	"DOTA_Tooltip_ability_item_rpc_rubilash_glyph_5_a"		"[T5-a] Glyph of Black Paint"
-	"item_rpc_rubilash_glyph_5_a_description" 				"Если хотя бы 1 противник покрашен в Чёрный цвет, герой получает <font color='#ccff66'>300</font>% бонус к Силе Атаки."
+	"item_rpc_rubilash_glyph_5_a_description" 				"Если хотя бы 1 противник покрашен в Чёрный цвет, герой получает <font color='#ccff66'>200</font>% бонус к Силе Атаки."
 
 	//Weapons
 	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_00"		"Brush"
@@ -8313,13 +8315,13 @@
 	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_24"		"Old Master's Paintbrush"
 	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_25"		"Impressionist's Baton"
 
-	"DOTA_Tooltip_ability_item_rpc_rubilash_immortal_weapon_1"           "Quickstroke Handle"
+	"DOTA_Tooltip_ability_item_rpc_rubilash_immortal_weapon_1"           "Quicksilver Font"
 	"item_property_rubilash_immortal_weapon"                             "Quickstroke"
 	"property_rubilash_immortal_weapon_description"                      "@Ability1 не имеет анимации каста и получает <font color='#ccff66'>100</font>% увеличение Урона Способности."
 
-	"DOTA_Tooltip_ability_item_rpc_rubilash_immortal_weapon_2"            "Handcrafted Zombie Brush"
+	"DOTA_Tooltip_ability_item_rpc_rubilash_immortal_weapon_2"            "Bloody Pinion"
 	"item_property_rubilash_immortal_weapon2"                             "Spectral Artist"
-	"property_rubilash_immortal_weapon2_description"                      "Увеличивает Здоровье на <font color='#ccff66'>250</font>%, но снижает все лечащие эффекты на <font color='#ccff66'>60</font>%."
+	"property_rubilash_immortal_weapon2_description"                      "Увеличивает Здоровье на <font color='#ccff66'>200</font>%, но снижает все лечащие эффекты на <font color='#ccff66'>60</font>%."
 
 	"DOTA_Tooltip_ability_item_rpc_rubilash_immortal_weapon_3"            "Masterwork Brush"
 	"item_property_rubilash_immortal_weapon3"                             "Paint Mastery"
@@ -8343,8 +8345,8 @@
 	"DOTA_Tooltip_ability_rubilash_rune_e_2_arcana1_suffix"					""
 
 	"DOTA_Tooltip_ability_rubilash_rune_e_3_arcana1"						"[E3] Ace Acrylics"
-	"DOTA_Tooltip_ability_rubilash_rune_e_3_arcana1_Description"			"Увеличивает Урон всех способностей."
-	"DOTA_Tooltip_ability_rubilash_rune_e_3_arcana1_property_one"			"Увеличение Урона"
+	"DOTA_Tooltip_ability_rubilash_rune_e_3_arcana1_Description"			"Прибавляет урон к базовому урону от краски (сложение)."
+	"DOTA_Tooltip_ability_rubilash_rune_e_3_arcana1_property_one"			"Прибавка Урона"
 	"DOTA_Tooltip_ability_rubilash_rune_e_3_arcana1_suffix"					""
 
 		"DOTA_Tooltip_ability_rubilash_rune_e_4_arcana1"						"[E4] Blank Canvas"
@@ -8685,11 +8687,9 @@
     	"DOTA_Tooltip_modifier_lightbomb_magic_armor_loss_Description"					"Магическая Защита снижена"
 
     	"DOTA_Tooltip_ability_sephyr_rune_q_3"									"[Q3] Clearfire"
-    	"DOTA_Tooltip_ability_sephyr_rune_q_3_Description"						"С прочтением @Ability1, герой получит заряды этой руны. Когда количество зарядов больше или равно 10, прочтение @Ability1 не будет перезаряжаться. Заряды не будут добавляться, пока последнее прочтение не задействует перезарядку умения. Каждый заряд усиливает урон <font color=\"#F6FFB5\">Света</font>."
+    	"DOTA_Tooltip_ability_sephyr_rune_q_3_Description"						"С прочтением @Ability1, герой получит заряды этой руны. Когда количество зарядов больше или равно 10, прочтение @Ability1 не будет перезаряжаться. Заряды не будут добавляться, пока последнее прочтение не задействует перезарядку умения. Каждый заряд усиливает урон <font color=\"#F6FFB5\">Света</font> на <font color='#ccff66'>10</font>%."
     	"DOTA_Tooltip_ability_sephyr_rune_q_3_property_one"						"Получение зарядов Clearfire"
     	"DOTA_Tooltip_ability_sephyr_rune_q_3_suffix"							""
-		"DOTA_Tooltip_ability_sephyr_rune_q_3_property_two"                     "Урон <font color=\"#F6FFB5\">Света</font>"
-        "DOTA_Tooltip_ability_sephyr_rune_q_3_suffix_two"                       "%"
 
     	"DOTA_Tooltip_modifier_lightbomb_freecast"								"Clearfire"
     	"DOTA_Tooltip_modifier_lightbomb_freecast_Description"					"10 зарядов снимают время перезарядки у следующего прочтения (Q) Lightbomb"
@@ -8945,7 +8945,7 @@
     	"DOTA_Tooltip_ability_slipfinn_rune_w_2_suffix"								""
 
     	"DOTA_Tooltip_modifier_slipfinn_gloomshade_visible"							"Gloomshade"
-    	"DOTA_Tooltip_modifier_slipfinn_gloomshade_visible_Description"				"Получает дополнительный пост-резистный урон от Slipfinn"
+    	"DOTA_Tooltip_modifier_slipfinn_gloomshade_visible_Description"				"Получает дополнительный урон от Slipfinn"
 
     	"DOTA_Tooltip_ability_slipfinn_rune_w_3"									"[W3] Agitated Spring"
     	"DOTA_Tooltip_ability_slipfinn_rune_w_3_Description"						"Прыгая по вражеским головам, герой получает % бонус к урону. Длительность эффекта: <font color='#ccff66'>12</font> секунд. Последующие прыжки обновляют время действия."
@@ -9984,15 +9984,13 @@
 
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_4"				"[Q4] Inner Flame"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_4_Description"	"Урон стихий <font color=\"#EF4126\">Огонь</font> и <font color=\"#7AE2A7\">Ветер</font> пассивно увеличен."
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_4_property_one"	"Доп. урон стихии Огня"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_4_property_one"	"Доп. урон стихий"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_4_suffix"		"%"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_4_property_two"	"Доп. урон стихии Ветра"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_4_suffix_two"	"%"
 
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_1"				"[W1] Temperament"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_1_Description"  "Увеличивает базовый урон за каждую отсутствующую единицу маны."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_1_Description"  "Увеличивает базовый урон за каждый отсутствующий процент общей Маны героя."
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_1_property_one"	"Доп. урон"	
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_1_suffix"		" за отсутствующую ед. маны"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_1_suffix"		" за % отсутствующей Маны"
 
     	"DOTA_Tooltip_modifier_spirit_warrior_rune_w_1"				"Temperament"
     	"DOTA_Tooltip_modifier_spirit_warrior_rune_w_1_Description"	"Увеличивает урон за отсутствующую ману"	
@@ -10114,10 +10112,10 @@
     	"DOTA_Tooltip_ability_spirit_warrior_rune_r_3_arcana1_suffix_two"			"%"
 
     	"DOTA_Tooltip_ability_spirit_warrior_waterheart_weapon"					"Waterheart Weapon"
-    	"DOTA_Tooltip_ability_spirit_warrior_waterheart_weapon_Description"		"Зачаровывает своё оружие или оружие выбранного союзного героя, позволяя наносить дополнительный чистый урон, зависящий от текущего значения здоровья. На время действия усиления, весь пост-резистный урон увеличен."
+    	"DOTA_Tooltip_ability_spirit_warrior_waterheart_weapon_Description"		"Зачаровывает своё оружие или оружие выбранного союзного героя, позволяя наносить дополнительный чистый урон, зависящий от текущего значения здоровья. На время действия усиления Пробитие Брони увеличено."
 
     	"DOTA_Tooltip_modifier_waterheart_weapon"								"[R3] Waterheart Weapon"
-    	"DOTA_Tooltip_modifier_waterheart_weapon_Description"					"Вместе с атаками наносится дополнительный чистый урон в зависимости от текущего здоровья,а весь пост-резистный урон увеличен."
+    	"DOTA_Tooltip_modifier_waterheart_weapon_Description"					"Вместе с атаками наносится дополнительный чистый урон в зависимости от текущего здоровья, Пробитие Брони увеличено."
 
     	"spirit_warrior_arcana1_r"												"Ancient Rain и Waterheart Weapon"
 
@@ -10362,7 +10360,7 @@
 		"DOTA_Tooltip_ability_trapper_rune_e_3"						"[E3] Psi Blades"
     	"DOTA_Tooltip_ability_trapper_rune_e_3_Description"			"Атаки Trapper пробивают противника насквозь, позволяя задеть стоящих позади врагов. Также увеличивает пассивно дальность атаки."
     	"DOTA_Tooltip_ability_trapper_rune_e_3_property_one"		"Проникающий урон"
-    	"DOTA_Tooltip_ability_trapper_rune_e_3_suffix"				"% от основного урона"	
+    	"DOTA_Tooltip_ability_trapper_rune_e_3_suffix"				"% от урона атаки"	
     	"DOTA_Tooltip_ability_trapper_rune_e_3_property_two"		"Дальность атаки"
     	"DOTA_Tooltip_ability_trapper_rune_e_3_suffix_two"			""
 		
@@ -10433,6 +10431,7 @@
     	"DOTA_Tooltip_ability_trapper_arcana_venom_whip_range"				"ДАЛЬНОСТЬ:"
     	"DOTA_Tooltip_ability_trapper_arcana_venom_whip_move_slow_per_stack"		"ЗАМЕДЛЕНИЕ ЗА ЗАРЯД:"
     	"DOTA_Tooltip_ability_trapper_arcana_venom_whip_attack_mult_per_stack"	"УРОН ЗА ЗАРЯД, % ОТ УРОНА ГЕРОЯ"
+		"DOTA_Tooltip_ability_trapper_arcana_venom_whip_max_stacks"			"МАКСИМУМ ЗАРЯДОВ:"
 
     	"DOTA_Tooltip_modifier_poison_whip"							"Venom Whip"
     	"DOTA_Tooltip_modifier_poison_whip_Description"				"Получает урон от <font color=\"#37DD3D\">Яда</font> и теряет скорость передвижения."	
@@ -10446,7 +10445,7 @@
   		"DOTA_Tooltip_ability_trapper_rune_w_1_arcana1"						"[W1] Deadly Poison"
     	"DOTA_Tooltip_ability_trapper_rune_w_1_arcana1_Description"			"Заряды (W) Venom Whip снижают Магическую Броню жертвы. Максимум <font color='#ccff66'>50</font> стаков."
     	"DOTA_Tooltip_ability_trapper_rune_w_1_arcana1_property_one"		"Снижение Магической Брони"
-    	"DOTA_Tooltip_ability_trapper_rune_w_1_arcana1_suffix"				"%"
+    	"DOTA_Tooltip_ability_trapper_rune_w_1_arcana1_suffix"				""
 
   		"DOTA_Tooltip_ability_trapper_rune_w_2_arcana1"						"[W2] Dexterity"
     	"DOTA_Tooltip_ability_trapper_rune_w_2_arcana1_Description"			"Увеличивает весь <font color=\"#FFFFFF\">Нормальный</font> урон."
@@ -10722,7 +10721,7 @@
     	"DOTA_Tooltip_modifier_reaper_slice_shield_Description"					"Поглощает урон"
 
   		"DOTA_Tooltip_ability_venomort_rune_r_4_arcana1"						"[R4] Disencumber"
-    	"DOTA_Tooltip_ability_venomort_rune_r_4_arcana1_Description"			"Фиксированная способностью скорость передвижения увеличивается. Пассивно увеличивает броню во время действия @Ability4, максимально допустимое значение - 90%."
+    	"DOTA_Tooltip_ability_venomort_rune_r_4_arcana1_Description"			"Фиксированная способностью скорость передвижения увеличивается. Пассивно увеличивает броню во время действия @Ability4."
     	"DOTA_Tooltip_ability_venomort_rune_r_4_arcana1_property_one"			"Увеличение скорости"
     	"DOTA_Tooltip_ability_venomort_rune_r_4_arcana1_suffix"					""
 		 "DOTA_Tooltip_ability_venomort_rune_r_4_arcana1_property_two"      	"Бонус брони"
@@ -11356,11 +11355,11 @@
 
   		"DOTA_Tooltip_ability_zonik_rune_e_3_arcana1"						"[E3] Time Dilation"
     	"DOTA_Tooltip_ability_zonik_rune_e_3_arcana1_Description"  		"Пока герой находится в области действия поля, он получает заряды этой руны каждые 0.03 секунды. Каждый заряд увеличивает Базовый Урон @Ability3. Максимум 1000 зарядов."
-    	"DOTA_Tooltip_ability_zonik_rune_e_3_arcana1_property_one"			"Увеличение урона способностей"	
+    	"DOTA_Tooltip_ability_zonik_rune_e_3_arcana1_property_one"			"Увеличение урона способности Warp Field"	
     	"DOTA_Tooltip_ability_zonik_rune_e_3_arcana1_suffix"				"% за каждый заряд"
 
     	"DOTA_Tooltip_modifier_zhonic_arcana_c_c_visible"					"Time Dilation"
-    	"DOTA_Tooltip_modifier_zhonic_arcana_c_c_visible_Description"		"Увеличивает исходящий пост-резистный урон за каждый заряд."
+    	"DOTA_Tooltip_modifier_zhonic_arcana_c_c_visible_Description"		"Увеличивает урон способности Warp Field за каждый заряд."
 
     	"DOTA_Tooltip_ability_zonik_rune_e_4_arcana1"								"[E4] Supersonic"
     	"DOTA_Tooltip_ability_zonik_rune_e_4_arcana1_Description"					"Увеличивает весь урон стихии <font color=\"#B5FFB7\">Времени</font>. Дополнительно, Zhonik ненадолго сохраняет бонус к скорости передвижения после того, как покинет область действия @Ability3."
@@ -11392,12 +11391,12 @@
     	"DOTA_Tooltip_ability_zonik_rune_r_2_arcana2_suffix"				"%"
 
   		"DOTA_Tooltip_ability_zonik_rune_r_3_arcana2"						"[R3] Tempo Flux"
-    	"DOTA_Tooltip_ability_zonik_rune_r_3_arcana2_Description"  		"С каждым попаданием временного снаряда, оставляет на противнике заряды [R3], которые увеличивают стихийный урон <font color=\"#B5FFB7\">Времени</font>, получаемый от Zhonik."
-    	"DOTA_Tooltip_ability_zonik_rune_r_3_arcana2_property_one"			"Доп. урон Времени"	
-    	"DOTA_Tooltip_ability_zonik_rune_r_3_arcana2_suffix"				"% за заряд"
+    	"DOTA_Tooltip_ability_zonik_rune_r_3_arcana2_Description"  		"С каждым попаданием временного снаряда, оставляет на противнике заряды [R3], которые снижают Магическую Защиту противников. Максимум <font color='#ccff66'>10</font> зарядов."
+    	"DOTA_Tooltip_ability_zonik_rune_r_3_arcana2_property_one"			"Потеря Магической Защиты"	
+    	"DOTA_Tooltip_ability_zonik_rune_r_3_arcana2_suffix"				""
 
     	"DOTA_Tooltip_modifier_tempo_flux_visible"							"Tempo Flux"
-    	"DOTA_Tooltip_modifier_tempo_flux_visible_Description"				"Получает увеличенный урон Времени от героя Zhonik"
+    	"DOTA_Tooltip_modifier_tempo_flux_visible_Description"				"Магическая Защита снижена"
 
     	"DOTA_Tooltip_ability_zonik_rune_r_4_arcana2"								"[R4] Racer"
     	"DOTA_Tooltip_ability_zonik_rune_r_4_arcana2_Description"					"Увеличивает Ловкость героя. Каждое очко Ловкости дополнительно увеличивает базовый урон Zhonik."
@@ -11579,6 +11578,11 @@
 	"DOTA_Tooltip_ability_jex_lightning_nature_q_chain_lightning_damage_pct_attack_power" "УРОН МОЛНИИ В % ОТ СИЛЫ АТАКИ:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_q_q_4_additional_duration"	"<font color=\"#7DFF12\">[Q4] Дополнительно время жизни воина</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_q_e_4_lightning_damage_increase"	"%<font color=\"#7DFF12\">[E4] Дополнительное усиление урона цепной молнии</font>:"
+	
+	"DOTA_Tooltip_modifier_jex_lightning_lightning_w"								"Vortex Weapon"
+	"DOTA_Tooltip_modifier_jex_lightning_lightning_w_Description"					"Стандартные атаки выпускают цепные молнии."
+	"DOTA_Tooltip_modifier_jex_lightning_lightning_w_damage_buff"					"Vortex Weapon - Бонус Урона Атаки"
+	"DOTA_Tooltip_modifier_jex_lightning_lightning_w_damage_buff_Description"		"Бонусный урон атаки героя увеличен."
 
 	"DOTA_Tooltip_ability_jex_nature_nature_q"					"Oak Infusion"
 	"DOTA_Tooltip_ability_jex_nature_nature_q_Description"		"Jex покрывает свое тело корой древнего дуба, регенереция здоровья и броня увеличиваются. Противники, атакующие Jex будут оглушены в ответ, пока щит активен."
@@ -11655,10 +11659,10 @@
 	"DOTA_Tooltip_ability_jex_cosmic_nature_w_mana_cost_per_cast"				"СТОИМОСТЬ МАНЫ ЗА КАСТ:"
 	"DOTA_Tooltip_ability_jex_cosmic_nature_w_mana_drain_per_second"			"СНИЖЕНИЕ МАНЫ В СЕКУНДУ:"
 	"DOTA_Tooltip_ability_jex_cosmic_nature_w_q_4_max_mana_while_toggled_on"	"<font color=\"#7DFF12\">[Q4] Максимальная мана увеличена</font>:"
-	"DOTA_Tooltip_ability_jex_cosmic_nature_w_e_4_mana_drain_per_second_reduction"	"<font color=\"#7DFF12\">[E4] Снижение маны уменьшается</font>:"
+	"DOTA_Tooltip_ability_jex_cosmic_nature_w_e_4_mana_drain_per_second_reduction"	"<font color=\"#7DFF12\">[E4] Снижение маны уменьшено</font>:"
 
 	"DOTA_Tooltip_modifier_jex_cosmic_nature_w"					"Equilibrium Shifter"		
-	"DOTA_Tooltip_modifier_jex_cosmic_nature_w_Description"		"Увеличены магический пост-резистный урон, скорость передвижения, базовая сила атаки, мана тратится при каждом касте и дополнительно каждую секунду."
+	"DOTA_Tooltip_modifier_jex_cosmic_nature_w_Description"		"Увеличены Пробития, скорость передвижения, базовая сила атаки, мана тратится при каждом касте и дополнительно каждую секунду."
 
 	"DOTA_Tooltip_ability_jex_cosmic_cosmic_e"					"Xenon Warp"
 	"DOTA_Tooltip_ability_jex_cosmic_cosmic_e_Description"		"Jex прорывается сквозь пространство и перемещается в выбранную точку. Может иметь касты без перезарядки."
@@ -11679,7 +11683,7 @@
 	"DOTA_Tooltip_ability_jex_lightning_nature_e_damage_pct_atk_power"	"УРОН УДАРА МОЛНИИ ОТ УРОНА РАСТЕНИЯ:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_e_attack_range_base"		"БАЗОВЫЙ РАДИУС АТАКИ:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_e_cast_range"			"ДАЛЬНОСТЬ КАСТА:"
-	"DOTA_Tooltip_ability_jex_lightning_nature_e_q_4_blossom_magic_resistance"	"<font color=\"#7DFF12\">[Q4] Растения получают дополнительное сопротивление к магии</font>:"
+	"DOTA_Tooltip_ability_jex_lightning_nature_e_q_4_blossom_magic_armor"	"<font color=\"#7DFF12\">[Q4] Растения получают дополнительную Магическую Защиту</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_e_w_4_damage_increase_pct"		"%<font color=\"#7DFF12\">[W4] Усиление удара молнии</font>:"
 
 	"DOTA_Tooltip_ability_thunder_blossom_teleport"				"Lightning Tract"
@@ -15040,7 +15044,7 @@
 
         "DOTA_Tooltip_ability_item_rpc_neverlord_soul_ring"                         "Neverlord's Soul Ring"
 		"item_property_neverlord_soul_ring"                                             "Soul Conversion"
-        "property_neverlord_soul_ring_description"                                          "Конвертирует <font color='#ccff66'>30</font>% от запаса Здоровья в запас Маны."
+        "property_neverlord_soul_ring_description"                                          "Конвертирует <font color='#ccff66'>25</font>% от запаса Здоровья в запас Маны."
         "item_rpc_neverlord_soul_ring_ability_amethyst_tooltip"				"Burns <font color='#ccff66'>5</font>% of your max health and restores your mana by @amethyst_property1% of the burned health."
 
         "item_rpc_neverlord_soul_ring_ruby1"                                        "Увеличивает конвертирование Здоровья в Ману на @ruby_property1%."
@@ -17734,8 +17738,8 @@
 		"DOTA_Tooltip_modifier_stun_regen_applied_Description"		"Сильная регенерация здоровья."
 
 		"DOTA_Tooltip_ability_seafortress_heart_spike"					"Heart Piercer"
-		"DOTA_Tooltip_ability_seafortress_heart_spike_Description"		"Атаки наносят пост-резистный урон, зависящий от максимального здоровья цели."
-		"DOTA_Tooltip_ability_seafortress_heart_spike_damage_percent"	"ДОП. ПОСТ-РЕЗИСТНЫЙ УРОН ОТ МАКС. ЗДОРОВЬЯ, %:"
+		"DOTA_Tooltip_ability_seafortress_heart_spike_Description"		"Атаки наносят урон по здоровью, зависящий от максимального здоровья цели."
+		"DOTA_Tooltip_ability_seafortress_heart_spike_damage_percent"	"ПОНИЖЕНИЕ ЗДОРОВЬЯ ОТ МАКС. ЗДОРОВЬЯ, %:"
 
 		"DOTA_Tooltip_ability_seafortress_illusory_orb"					"Illusory Orb"
 		"DOTA_Tooltip_ability_seafortress_illusory_orb_Description"		"Волшебная сфера медленно движется вперед, нанося урон всем задетым на своём пути врагам. Сказочный дракончик может телепортироваться к сфере, пока она не исчезла."
@@ -20193,8 +20197,8 @@
 	"tutorial_master_dialogue_4_6f"										"Чувствуешь разницу? Пробитие увеличило урон даже не смотря на высокий уровень её Брони!"
 	"tutorial_master_dialogue_4_6g"										"Это подводит итог уроку о взаимодействии Брони и Пробитий."
 
-	"DOTA_Tooltip_challen_postmit_buff"					"Пост-Резистный Бафф"
-	"DOTA_Tooltip_challen_postmit_buff_Description"		"Пост-Резистный урон увеличен на 500%."
+	"DOTA_Tooltip_challen_postmit_buff"					"Мощный Бафф"
+	"DOTA_Tooltip_challen_postmit_buff_Description"		"Пробитие Брони увеличено."
 
 	"quest_4_challenge_7_desc"											"Баффы и дебаффы (позитивные и негативные эффекты) показываются над панелью способностей, и имеют зеленую/красную обводку соответственно. Противники при получении оглушений общей продолжительностью в 10 секунд становятся невосприимчивы к оглушениям на 7 секунд."
 	"quest_4_challenge_7_sub_0_summary"									"Прочти название наложенного на тебя Баффа"

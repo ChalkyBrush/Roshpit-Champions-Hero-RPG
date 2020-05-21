@@ -1159,7 +1159,7 @@ function Events:BGMmanager(player, hero)
 end
 
 function Events:SetupInventoryUnit(inventory_unit)
-	inventory_unit:AddAbility("town_unit")
+	inventory_unit:AddAbility("town_unit"):SetLevel(1)
 	inventory_unit:FindAbilityByName("town_unit"):SetLevel(1)
 	inventory_unit:FindAbilityByName("equipment_head"):SetLevel(1)
 	inventory_unit:FindAbilityByName("equipment_weapon"):SetLevel(1)

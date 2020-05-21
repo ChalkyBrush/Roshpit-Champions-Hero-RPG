@@ -8619,13 +8619,13 @@
 	"item_rpc_rubilash_glyph_5_1_description" 				"所有蓝墨都将打破技能免疫"
 
 	"DOTA_Tooltip_ability_item_rpc_rubilash_glyph_6_1"		"[T6-1] 红墨雕文"
-	"item_rpc_rubilash_glyph_6_1_description" 				"提高所有红墨造成的伤害<font color='#ccff66'>400</font>%并且拥有物理伤害类型"
+	"item_rpc_rubilash_glyph_6_1_description" 				"提高所有红墨造成的伤害<font color='#ccff66'>200</font>%并且拥有物理伤害类型"
 
 	"DOTA_Tooltip_ability_item_rpc_rubilash_glyph_7_1"		"[T7-1] 黄墨雕文"
 	"item_rpc_rubilash_glyph_7_1_description" 				"降低黄墨<font color='#ccff66'>-50</font>%造成的伤害并且拥有纯粹伤害类型"
 
 	"DOTA_Tooltip_ability_item_rpc_rubilash_glyph_5_a"		"[T5-a] 黑墨雕文"
-	"item_rpc_rubilash_glyph_5_a_description" 				"当至少有一个敌人被黑墨浸染时，你将会获得 <font color='#ccff66'>300</font>% 攻击力加成"
+	"item_rpc_rubilash_glyph_5_a_description" 				"当至少有一个敌人被黑墨浸染时，你将会获得 <font color='#ccff66'>200</font>% 攻击力加成"
 
 	//Weapons
 	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_00"		"笔刷"
@@ -8648,7 +8648,7 @@
 
 	"DOTA_Tooltip_ability_item_rpc_rubilash_immortal_weapon_2"            "僵尸手工之刷"
 	"item_property_rubilash_immortal_weapon2"                             "幽魂艺术"
-	"property_rubilash_immortal_weapon2_description"                      "增加最大生命值 <font color='#ccff66'>250</font>%, 降低所有受到的治疗效果 <font color='#ccff66'>60</font>%"
+	"property_rubilash_immortal_weapon2_description"                      "增加最大生命值 <font color='#ccff66'>200</font>%, 降低所有受到的治疗效果 <font color='#ccff66'>60</font>%"
 
 	"DOTA_Tooltip_ability_item_rpc_rubilash_immortal_weapon_3"            "杰作之笔"
 	"item_property_rubilash_immortal_weapon3"                             "墨之掌控"
@@ -14837,7 +14837,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_neverlord_soul_ring"							"灵魂之戒"
 		"item_property_neverlord_soul_ring"												"灵魂契约"
-		"property_neverlord_soul_ring_description"											"将 <font color='#ccff66'>30</font>% 最大生命值转换为最大魔法值."
+		"property_neverlord_soul_ring_description"											"将 <font color='#ccff66'>25</font>% 最大生命值转换为最大魔法值."
     	"DOTA_Tooltip_ability_item_rpc_neverlord_soul_ring_Description"							"部位：饰品"
         "item_rpc_neverlord_soul_ring_ability_amethyst_tooltip"				"Burns <font color='#ccff66'>5</font>% of your max health and restores your mana by @amethyst_property1% of the burned health."
 

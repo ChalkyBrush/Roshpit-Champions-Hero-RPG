@@ -4012,7 +4012,7 @@
 
         "DOTA_Tooltip_ability_item_rpc_chernobog_immortal_weapon_3"            "Unholy Claw of Osyluth"
         "item_property_chernobog_immortal_weapon3"                             "Vampiric Thirst"
-        "property_chernobog_immortal_weapon3_description"                      "Landing an attack restores <font color='#ccff66'>0.65</font>% of max health, even if healing is disabled."
+        "property_chernobog_immortal_weapon3_description"                      "Landing an attack restores <font color='#ccff66'>0.65</font>% of max health, even if healing is disabled by @Ability2. Health restore value cannot be modified."
 
 		//Abilities
 		"earth_aspect"														"Earth Aspect"
@@ -5546,7 +5546,7 @@
     	"notification_supercharge_no_corpse_charge"							"R3 not leveled"
 
     	"DOTA_Tooltip_ability_ekkan_dominion"								"Dark Dominion"
-    	"DOTA_Tooltip_ability_ekkan_dominion_Description"					"Element: <font color=\"#5C776E\">Undead</font> / <font color=\"#5B648C\">Demon</font><br>Curses an enemy unit's soul to eternal servitude of Ekkan. The target takes damage every 0.5 seconds based on their attack power. If an enemy dies while the dark dominion debuff is active, the unit joins Ekkan's army permanently until death. Can be cast on a dominated unit to instantly kill it."
+    	"DOTA_Tooltip_ability_ekkan_dominion_Description"					"Element: <font color=\"#5C776E\">Undead</font> / <font color=\"#5B648C\">Demon</font><br>Curses an enemy unit's soul to eternal servitude of Ekkan. The target takes damage every 0.5 seconds based on their attack power. If an enemy dies while the dark dominion debuff is active, the unit joins Ekkan's army permanently until death. Can be cast on a dominated unit to instantly kill it. While Ekkan is dead, dominated units cannot move, attack or be attacked."
     	"DOTA_Tooltip_ability_ekkan_dominion_max_summons"					"MAX ARMY SIZE:"
     	"DOTA_Tooltip_ability_ekkan_dominion_move_slow"						"MOVE SLOW % WHILE ACTIVE:"
     	"DOTA_Tooltip_ability_ekkan_dominion_debuff_duration"				"DEBUFF DURATION:"
@@ -5570,6 +5570,9 @@
 
     	"DOTA_Tooltip_modifier_ekkan_dominion_unit"							"Dominated"
    		"DOTA_Tooltip_modifier_ekkan_dominion_unit_Description"				"Serving Ekkan"
+
+		"DOTA_Tooltip_modifier_ekkan_dominion_hero_dead"					"Disabled"
+		"DOTA_Tooltip_modifier_ekkan_dominion_hero_dead_Description"		"While Ekkan is dead, this unit cannot move, attack or be attacked."
 		
 		"DOTA_Tooltip_ability_ekkan_rune_q_1"								"[Q1] Zombie Strike"
     	"DOTA_Tooltip_ability_ekkan_rune_q_1_Description"					"Dominated units have a <font color='#ccff66'>10</font>% chance on attack to damage enemies in a line."
@@ -5732,7 +5735,7 @@
     	"property_ekkan_arcana1_description"								"Replaces @Ability1 and all of its runes with Aphotic Dominion."
 
     	"DOTA_Tooltip_ability_ekkan_arcana_black_dominion"								"Aphotic Dominion"
-    	"DOTA_Tooltip_ability_ekkan_arcana_black_dominion_Description"					"Element: <font color=\"#5C776E\">Undead</font> / <font color=\"#5B648C\">Demon</font><br>Curses an enemy unit's soul to eternal servitude of Ekkan. The target takes damage every 0.5 seconds based on their attack power. If an enemy dies while the aphotic dominion debuff is active, the unit joins Ekkan's army permanently until death. The Aphotic Dominion unit always has the Steadfast ability."
+    	"DOTA_Tooltip_ability_ekkan_arcana_black_dominion_Description"					"Element: <font color=\"#5C776E\">Undead</font> / <font color=\"#5B648C\">Demon</font><br>Curses an enemy unit's soul to eternal servitude of Ekkan. The target takes damage every 0.5 seconds based on their attack power. If an enemy dies while the aphotic dominion debuff is active, the unit joins Ekkan's army permanently until death. The Aphotic Dominion unit always has the Steadfast ability. While Ekkan is dead, dominated units cannot move, attack or be attacked."
     	"DOTA_Tooltip_ability_ekkan_arcana_black_dominion_max_summons"					"MAX ARMY SIZE:"
     	"DOTA_Tooltip_ability_ekkan_arcana_black_dominion_move_slow"						"MOVE SLOW % WHILE ACTIVE:"
     	"DOTA_Tooltip_ability_ekkan_arcana_black_dominion_debuff_duration"				"DEBUFF DURATION:"
@@ -7500,6 +7503,11 @@
 	"DOTA_Tooltip_ability_jex_lightning_lightning_w_mana_cost"					"MANA COST:"
 	"DOTA_Tooltip_ability_jex_lightning_lightning_w_attack_speed"				"BONUS ATTACK SPEED:"
 	"DOTA_Tooltip_ability_jex_lightning_lightning_w_w_4_agility_added_to_lightning_damage"	"<font color=\"#7DFF12\">[W4] Agility added to chain lightning base damage</font>:"
+	
+	"DOTA_Tooltip_modifier_jex_lightning_lightning_w"								"Vortex Weapon"
+	"DOTA_Tooltip_modifier_jex_lightning_lightning_w_Description"					"Attacks release chain lighnings."
+	"DOTA_Tooltip_modifier_jex_lightning_lightning_w_damage_buff"					"Vortex Weapon - Bonus Attack Damage"
+	"DOTA_Tooltip_modifier_jex_lightning_lightning_w_damage_buff_Description"		"Caster's bonus attack damage increased."
 
 	"DOTA_Tooltip_ability_jex_lightning_nature_w"				"Thunderleaf Petals"
 	"DOTA_Tooltip_ability_jex_lightning_nature_w_Description"	"Element: <font color=\"#5CCDF9\">Lightning</font> / <font color=\"#69BC71\">Nature</font><br>Unleashes a quick spray of electrified Thunderleaf Petals directly in front of jex. Enemies hit by the leaves are paralyzed for a short duration. Enemies who have been paralyzed 5 times in a row become immune for 4 seconds."
@@ -7570,7 +7578,7 @@
 	"DOTA_Tooltip_ability_jex_lightning_nature_e_damage_pct_atk_power"	"% LIGHTNING DAMAGE AS % OF BLOSSOM'S ATTACK POWER:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_e_attack_range_base"		"BASE ATTACK RANGE:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_e_cast_range"			"CAST RANGE:"
-	"DOTA_Tooltip_ability_jex_lightning_nature_e_q_4_blossom_magic_resistance"	"<font color=\"#7DFF12\">[Q4] Blossom Bonus Magic Armor</font>:"
+	"DOTA_Tooltip_ability_jex_lightning_nature_e_q_4_blossom_magic_armor"	"<font color=\"#7DFF12\">[Q4] Blossom Bonus Magic Armor</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_e_w_4_damage_increase_pct"		"%<font color=\"#7DFF12\">[W4] Lightning bolt damage increase</font>:"
 
 	"DOTA_Tooltip_ability_thunder_blossom_teleport"				"Lightning Tract"
@@ -8189,7 +8197,7 @@
         "DOTA_Tooltip_ability_mountain_protector_rune_e_2_arcana3_suffix_two"           ""
 
   		"DOTA_Tooltip_ability_mountain_protector_rune_e_3_arcana3"						"[E3] Lava Flow"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_e_3_arcana3_Description"			"After casting rockfall, gain a chance to gain a free cast of Lava Glissade. Greater than 100% chance means it can proc multiple times."
+    	"DOTA_Tooltip_ability_mountain_protector_rune_e_3_arcana3_Description"			"After casting rockfall, gain a chance to gain a free cast of Volcanic Glissade. Greater than 100% chance means it can proc multiple times."
     	"DOTA_Tooltip_ability_mountain_protector_rune_e_3_arcana3_property_one"			"Stack Chance"
     	"DOTA_Tooltip_ability_mountain_protector_rune_e_3_arcana3_suffix"				"%"
 
@@ -9204,13 +9212,13 @@
 	"item_rpc_rubilash_glyph_5_1_description" 				"All Blue Paint breaks Magic Immunity."
 
 	"DOTA_Tooltip_ability_item_rpc_rubilash_glyph_6_1"		"[T6-1] Glyph of Red Paint"
-	"item_rpc_rubilash_glyph_6_1_description" 				"All Red Paint deals <font color='#ccff66'>400</font>% more damage and has Physical damage type."
+	"item_rpc_rubilash_glyph_6_1_description" 				"All Red Paint deals <font color='#ccff66'>200</font>% more damage and has Physical damage type."
 
 	"DOTA_Tooltip_ability_item_rpc_rubilash_glyph_7_1"		"[T7-1] Glyph of Yellow Paint"
 	"item_rpc_rubilash_glyph_7_1_description" 				"All Yellow Paint deals <font color='#ccff66'>-50</font>% reduced damage and has Pure damage type."
 
 	"DOTA_Tooltip_ability_item_rpc_rubilash_glyph_5_a"		"[T5-a] Glyph of Black Paint"
-	"item_rpc_rubilash_glyph_5_a_description" 				"While at least 1 enemy is painted black, gain <font color='#ccff66'>300</font>% Attack Power."
+	"item_rpc_rubilash_glyph_5_a_description" 				"While at least 1 enemy is painted black, gain <font color='#ccff66'>200</font>% Attack Power."
 
 	//Weapons
 	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_00"		"Brush"
@@ -9233,7 +9241,7 @@
 
 	"DOTA_Tooltip_ability_item_rpc_rubilash_immortal_weapon_2"            "Bloody Pinion"
 	"item_property_rubilash_immortal_weapon2"                             "Spectral Artist"
-	"property_rubilash_immortal_weapon2_description"                      "Increases Max Health by <font color='#ccff66'>250</font>%, and reduces all healing effects received by <font color='#ccff66'>60</font>%."
+	"property_rubilash_immortal_weapon2_description"                      "Increases Max Health by <font color='#ccff66'>200</font>%, and reduces all healing effects received by <font color='#ccff66'>60</font>%."
 
 	"DOTA_Tooltip_ability_item_rpc_rubilash_immortal_weapon_3"            "Masterwork Brush"
 	"item_property_rubilash_immortal_weapon3"                             "Paint Mastery"
@@ -9596,11 +9604,9 @@
     	"DOTA_Tooltip_modifier_lightbomb_magic_armor_loss_Description"					"Magic Armor reduced by Sephyr"
 
     	"DOTA_Tooltip_ability_sephyr_rune_q_3"									"[Q3] Clearfire"
-    	"DOTA_Tooltip_ability_sephyr_rune_q_3_Description"						"Casting Lightbomb adds stacks of Clearfire. 10 stacks of Clearfire allow Lightbomb to be cast without triggering its cooldown. Lightbombs that do not start cooldown do not add stacks. Each stack of Clearfire increases <font color=\"#F6FFB5\">Holy</font> damage."
+    	"DOTA_Tooltip_ability_sephyr_rune_q_3_Description"						"Casting Lightbomb adds stacks of Clearfire. 10 stacks of Clearfire allow Lightbomb to be cast without triggering its cooldown. Lightbombs that do not start cooldown do not add stacks. Each stack of Clearfire increases <font color=\"#F6FFB5\">Holy</font> damage by <font color='#ccff66'>10</font>%."
     	"DOTA_Tooltip_ability_sephyr_rune_q_3_property_one"						"Clearfire Stacks"
     	"DOTA_Tooltip_ability_sephyr_rune_q_3_suffix"							""
-        "DOTA_Tooltip_ability_sephyr_rune_q_3_property_two"                     "Holy Damage Amp"
-        "DOTA_Tooltip_ability_sephyr_rune_q_3_suffix_two"                           "%"
 
     	"DOTA_Tooltip_modifier_lightbomb_freecast"								"Clearfire"
     	"DOTA_Tooltip_modifier_lightbomb_freecast_Description"					"10 stacks remove the cooldown of Lightbomb"
@@ -10950,12 +10956,12 @@
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_4_suffix"		"%"
 
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_1"				"[W1] Temperament"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_1_Description"  "Gain attack damage for each point of missing mana"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_1_Description"  "Gain attack damage for each percent of missing Mana."
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_1_property_one"	"Attack Damage"	
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_1_suffix"		" per missing mana"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_1_suffix"		" per missing Mana %"
 
     	"DOTA_Tooltip_modifier_spirit_warrior_rune_w_1"				"Temperament"
-    	"DOTA_Tooltip_modifier_spirit_warrior_rune_w_1_Description"	"Gaining attack damage for missing mana"	
+    	"DOTA_Tooltip_modifier_spirit_warrior_rune_w_1_Description"	"Gaining attack damage for missing Mana percent"	
 
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_2"				"[W2] Soul Render"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_2_Description"  "Casting Soul Thrust increases attack damage for 5 seconds. Stacks up to 3 times."
@@ -11400,6 +11406,7 @@
     	"DOTA_Tooltip_ability_trapper_arcana_venom_whip_range"				"RANGE:"
     	"DOTA_Tooltip_ability_trapper_arcana_venom_whip_move_slow_per_stack"		"MOVE SLOW PER STACK:"
     	"DOTA_Tooltip_ability_trapper_arcana_venom_whip_attack_mult_per_stack"	"% DAMAGE PER STACK AS A % OF ATTACK DAMAGE:"
+		"DOTA_Tooltip_ability_trapper_arcana_venom_whip_max_stacks"			"MAX POISON STACKS:"
 
     	"DOTA_Tooltip_modifier_poison_whip"							"Venom Whip"
     	"DOTA_Tooltip_modifier_poison_whip_Description"				"Taking <font color=\"#37DD3D\">Poison</font> damage and reduced movespeed."	
@@ -12403,7 +12410,7 @@
     	"DOTA_Tooltip_ability_zonik_rune_r_2_arcana2_suffix"				"%"
 
   		"DOTA_Tooltip_ability_zonik_rune_r_3_arcana2"						"[R3] Tempo Flux"
-    	"DOTA_Tooltip_ability_zonik_rune_r_3_arcana2_Description"  		"Each time a target is hit by a Timewarp Missile, they gain a stack of Tempo Flux, reducing their Magic Armor."
+    	"DOTA_Tooltip_ability_zonik_rune_r_3_arcana2_Description"  		"Each time a target is hit by a Timewarp Missile, they gain a stack of Tempo Flux, reducing their Magic Armor. Max <font color='#ccff66'>10</font> stacks."
     	"DOTA_Tooltip_ability_zonik_rune_r_3_arcana2_property_one"			"Magic Armor Loss"	
     	"DOTA_Tooltip_ability_zonik_rune_r_3_arcana2_suffix"				""
 
@@ -15761,7 +15768,7 @@
 
         "DOTA_Tooltip_ability_item_rpc_neverlord_soul_ring"                         "Neverlord's Soul Ring"
         "item_property_neverlord_soul_ring"                                         "Soul Conversion"
-        "property_neverlord_soul_ring_description"                                  "Converts <font color='#ccff66'>30</font>% of max health to max mana."
+        "property_neverlord_soul_ring_description"                                  "Converts <font color='#ccff66'>25</font>% of max health to max mana."
         "item_rpc_neverlord_soul_ring_ability_amethyst_tooltip"				"Burns <font color='#ccff66'>5</font>% of your max health and restores your mana by @amethyst_property1% of the burned health."
 
         "item_rpc_neverlord_soul_ring_ruby1"                                        "Increases Soul Conversion's max health to max mana by an additional @ruby_property1%."
