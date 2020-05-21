@@ -5014,6 +5014,11 @@
         "Level" "1"
         "UnitLabel" "healing_ward"
         "ModelScale"    "1.05"
+        "precache"
+        {
+            "particle"  "particles/roshpit/soulbind/soulbind.vpcf"
+            "particle"  "particles/roshpit/winterblight/spotlight_colorable.vpcf"
+        }
         "Ability1"  "town_unit"
         "Ability2"  "npc_dialogue"
         "Ability3"  ""

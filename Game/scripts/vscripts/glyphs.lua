@@ -638,6 +638,31 @@ function Glyphs:GlyphPurchase(msg)
 	--print("spend "..cost.." crystals to buy "..glyphName)
 end
 
+function Glyphs:ModifyArcaneCrystals(hero, amount)
+	local playerID = hero:GetPlayerOwnerID()
+	local steamID = PlayerResource:GetSteamAccountID(playerID)
+	local player = PlayerResource:GetPlayer(playerID)
+	local url = ROSHPIT_URL.."/champions/modifyArcaneCrystals?"
+	url = url.."steam_id="..steamID
+	url = url.."&amount="..amount
+	url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
+	CreateHTTPRequestScriptVM("POST", url):Send(function(result)
+		--SaveLoad:NewKey()
+		local resultTable = {}
+		--print( "GET response:\n" )
+		for k, v in pairs(result) do
+			--print( string.format( "%s : %s\n", k, v ) )
+		end
+		--print( "Done." )
+		local resultTable = JSON:decode(result.Body)
+		-- resultTable = Quests:GetQuestDataFromJSON(resultTable)
+		local arcaneCrystals = resultTable.arcane_crystals
+		local enchanterTier = resultTable.glyph_enchanter_tier
+		CustomNetTables:SetTableValue("player_stats", tostring(playerID) .. "-resources", {arcane = arcaneCrystals})
+		CustomGameEventManager:Send_ServerToPlayer(player, "update_resources", {arcane_crystals = arcaneCrystals, enchanter_tier = enchanterTier, player = playerID})
+	end)
+end
+
 function Glyphs:GetGlyphCostByTier(tier, column, heroName)
 	local cost = 0
 	if tier == 1 then

@@ -277,17 +277,29 @@ function soulbind_slot_click(index, slot_data, item){
 function SoulbinderItemUpForSoulbind(msg){
 	var button = $.GetContextPanel().FindChildTraverse('soulbind_final_bind_button')
 	button.RemoveClass("none")
+	var cost = msg.cost
+	var current_crystals = msg.currentCrystals
+	$.GetContextPanel().FindChildTraverse('soulbind-cost-container').RemoveClass("none")
+	$.GetContextPanel().FindChildTraverse('soulbind-cost-label').text = $.Localize("soulbinder_cost_to_soulbind") 
+	$.GetContextPanel().FindChildTraverse('soulbind-cost-number').text = cost
 	var button_text = $.Localize("soulbinder_final_bind_button").replace("@slot_number", msg.slot_number)
 	$.GetContextPanel().FindChildTraverse('soulbind_final_bind_label').text = button_text
-	button.SetPanelEvent('onactivate', function FinalBind() {
-		if (!(button.BHasClass("final_button_disabled"))){
-			Game.EmitSound("UI.Soulbinder.FinalBindButton")
-			GameEvents.SendCustomGameEventToServer( "soulbinder", {event_type: "final_bind"});
-			button.RemoveClass("final_button_enabled")
-			button.AddClass("final_button_disabled")
-			$.GetContextPanel().FindChildTraverse('soulbind_final_bind_label').text = "Binding..."
-		}
-	});
+	if (current_crystals >= cost)
+	{
+		button.SetPanelEvent('onactivate', function FinalBind() {
+			if (!(button.BHasClass("final_button_disabled"))){
+				Game.EmitSound("UI.Soulbinder.FinalBindButton")
+				GameEvents.SendCustomGameEventToServer( "soulbinder", {event_type: "final_bind"});
+				button.RemoveClass("final_button_enabled")
+				button.AddClass("final_button_disabled")
+				$.GetContextPanel().FindChildTraverse('soulbind_final_bind_label').text = "Binding..."
+			}
+		});
+	}else{
+		button.RemoveClass("final_button_enabled")
+		button.AddClass("final_button_disabled")
+		$.GetContextPanel().FindChildTraverse('soulbind_final_bind_label').text = "Not Enough Crystals"		
+	}
 }
 
 function GetRarityColor(rarity){

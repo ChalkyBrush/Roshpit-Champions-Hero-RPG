@@ -98,9 +98,17 @@
 			<Panel class="soulbinder_item_slot_options_root" hittest="false">
 				<Label id="soulbind_empty_slot_instructions" text="soulbinder_empty_slot_instructions" html="true"/>
 				<Panel id="soulbind_slot_item_attacher"/>
+				<Label id="soulbind_empty_slot_weapon_warning" class="none" text="soulbinder_empty_slot_weapon_warning" html="true"/>
 				<Button id="soulbind_final_bind_button" class="none final_button_enabled">
 					<Label id="soulbind_final_bind_label" text="soulbinder_slot_select"/>
 				</Button>
+				<Panel id="soulbind-cost-container" class="none">
+					<Label id="soulbind-cost-label" text=""></Label>
+					<Panel id="soulbind-cost-number-and-image-container">
+						<Label id="soulbind-cost-number" text="0"></Label>
+						<Image id="soulbind-cost-image" src="file://{images}/custom_game/ui/arcane_crystal.png" />
+					</Panel>
+				</Panel>
 			</Panel>
 		</snippet>
 		<snippet name="soulbinder_item_slot_options_exists">

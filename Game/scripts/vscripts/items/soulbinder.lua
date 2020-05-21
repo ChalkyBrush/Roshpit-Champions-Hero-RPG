@@ -4,6 +4,9 @@ end
 
 SOULBINDER_STASH_ID = -10
 
+SOULBIND_CRYSTAL_COST_PER_ITEM_LEVEL = 10
+SOULBIND_CRYSTAL_COST_ARCANA_MULT = 5
+
 function Soulbinder:SpawnSoulbinder(position, forwardVector)
 	local soulbinder = CreateUnitByName("the_soulbinder", position, true, nil, nil, DOTA_TEAM_GOODGUYS)
 	soulbinder:SetForwardVector(forwardVector)
@@ -108,6 +111,14 @@ function Soulbinder:RemovePreviewItems(hero)
 	end
 end
 
+function Soulbinder:GetSoulbindCost(item)
+	local cost = item.newItemTable.minLevel * SOULBIND_CRYSTAL_COST_PER_ITEM_LEVEL
+	if item.newItemTable.rarity == "arcana" then
+		cost = cost * SOULBIND_CRYSTAL_COST_ARCANA_MULT
+	end
+	return cost
+end
+
 function Soulbinder:ItemUpForBinding(msg)
 	local playerID = msg.PlayerID
 	local player = PlayerResource:GetPlayer(playerID)
@@ -116,7 +127,9 @@ function Soulbinder:ItemUpForBinding(msg)
 	hero.item_up_for_soulbinding = {}
 	hero.item_up_for_soulbinding["slot"] = msg.slot
 	hero.item_up_for_soulbinding["item"] = item
-	CustomGameEventManager:Send_ServerToPlayer(player, "soulbinder_item_up_for_soulbind", {item = item:GetEntityIndex(), slot_number = msg.slot})
+	local cost = Soulbinder:GetSoulbindCost(item)
+	local currentCrystals = CustomNetTables:GetTableValue("player_stats", tostring(playerID) .. "-resources").arcane
+	CustomGameEventManager:Send_ServerToPlayer(player, "soulbinder_item_up_for_soulbind", {item = item:GetEntityIndex(), slot_number = msg.slot, cost = cost, currentCrystals = currentCrystals})
 end
 
 function Soulbinder:SoulbindItem(msg)
@@ -127,7 +140,18 @@ function Soulbinder:SoulbindItem(msg)
 	if not hero.item_up_for_soulbinding then
 		return false
 	end
+
 	local item_to_bind = hero.item_up_for_soulbinding["item"]
+
+	local cost = Soulbinder:GetSoulbindCost(item_to_bind)
+	local currentCrystals = CustomNetTables:GetTableValue("player_stats", tostring(playerID) .. "-resources").arcane
+	if cost > currentCrystals then
+		return false
+	else
+		local crystal_debit = cost*-1
+		Glyphs:ModifyArcaneCrystals(hero, crystal_debit)
+	end
+
 	local isItemEquipped = false
 	if hero.equipped_gear then
 		if hero.equipped_gear[RPC_GEAR_SLOT_HEAD] and hero.equipped_gear[RPC_GEAR_SLOT_HEAD] == item_to_bind then
@@ -165,12 +189,14 @@ function Soulbinder:SoulbindItem(msg)
 	CreateHTTPRequestScriptVM("POST", url):Send(function(result)
 		if result.StatusCode == 200 then
 			print("ITEM BOUND")
+			EmitSoundOn("UI.Soulbinder.SoulbindItem", hero)
 			Soulbinder:ConvertResponseToItemPreviews(hero, result, playerID)
 			CustomGameEventManager:Send_ServerToPlayer(player, "soulbinder_item_page_load", {result = hero.soul_bind_preview_items})
 		else
 			print("ITEM BIND FAILED?")
 		end
 	end)	
+	SpecialFX:ColoredSpotlight(hero:GetAbsOrigin(), Vector(200, 10, 235))
 end
 
 function Soulbinder:DeleteSoulboundItem(msg)
@@ -178,7 +204,7 @@ function Soulbinder:DeleteSoulboundItem(msg)
 	local player = PlayerResource:GetPlayer(playerID)
 	local hero = GameState:GetHeroByPlayerID(playerID)
 	local steamID = PlayerResource:GetSteamAccountID(playerID)
-
+	EmitSoundOn("UI.Soulbinder.DeleteBind", hero)
 	local url = ROSHPIT_URL.."/soulbinder/delete_soulbind_item?"
 	url = url.."steam_id="..steamID
 	url = url.."&item_variant="..msg.item_name
@@ -188,6 +214,7 @@ function Soulbinder:DeleteSoulboundItem(msg)
 	CreateHTTPRequestScriptVM("POST", url):Send(function(result)
 		if result.StatusCode == 200 then
 			print("ITEM DELETED")
+
 			Soulbinder:ConvertResponseToItemPreviews(hero, result, playerID)
 			CustomGameEventManager:Send_ServerToPlayer(player, "soulbinder_item_page_load", {result = hero.soul_bind_preview_items})
 		else
@@ -284,7 +311,8 @@ function Soulbinder:EquipSoulboundItem(msg)
 			SaveLoad:SaveCharacterGeneric(hero)
 		end
 	end
-
+	CustomAbilities:QuickAttachParticle("particles/roshpit/soulbind/soulbind.vpcf", hero, 3)
+	EmitSoundOn("UI.Soulbinder.EquipBind", hero)
 end
 
 function Soulbinder:EquipmentClicked(msg)

@@ -391,7 +391,7 @@
 #soulbinder_selection_area{
 	width:80%;
 	horizontal-align:center;
-	height:280px;
+	height:340px;
 }
 
 #soulbinder_selection_area_label{
@@ -412,6 +412,15 @@
 	color:white;	
 	text-align: center;
 	font-size:18px;	
+}
+
+#soulbind_empty_slot_weapon_warning{
+	font-family: Radiance, FZLanTingHei-R-GBK, TH Sarabun New, Gulim,MingLiU;	
+	color:#DD2222;	
+	text-align: center;
+	font-size:18px;
+	width:100%;		
+	margin-top:210px;
 }
 
 #soulbind_slot_item_attacher{
@@ -512,4 +521,33 @@
 
 .final_delete_button_enabled:hover{
 	background-color: #a3362e;
+}
+
+#soulbind-cost-container{
+	flow-children:down;
+	horizontal-align:center;
+	margin-top:280px;
+}
+
+#soulbind-cost-label{
+	font-family: Radiance, FZLanTingHei-R-GBK, TH Sarabun New, Gulim,MingLiU;	
+	color:white;
+	font-size:18px;	
+}
+
+#soulbind-cost-number{
+	font-family: Radiance, FZLanTingHei-R-GBK, TH Sarabun New, Gulim,MingLiU;	
+	color:white;
+	font-size:24px;	
+}
+
+#soulbind-cost-image{
+	width:20px;
+	height:20px;
+	margin-top:4px;
+}
+
+#soulbind-cost-number-and-image-container{
+	flow-children:right;
+	horizontal-align:center;
 }
