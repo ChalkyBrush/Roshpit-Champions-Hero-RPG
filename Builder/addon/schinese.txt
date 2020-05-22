@@ -1739,7 +1739,53 @@
 		"rpc_items_basic_sapphire" "提高智力值 @sapphire_property1"
 		"rpc_items_basic_amethyst" "提高精神值 @amethyst_property1"
 
-	    //------------------------
+	   
+	//------------------------
+		// Soul Binding
+		//------------------------
+		"item_soulbound"			"已绑定"
+
+		"the_soulbinder"			"灵魂绑定者"
+		"soulbinder_item_search"	"搜索装备"
+		"soulbinder_item_search_button"	"搜索"
+		"soulbinder_item_search_results"	"搜索结果"
+		"soulbinder_search_help_text"	"请用中文/英文/俄文输入您想搜索的装备名称.<br><br>或者, 您可以点击已穿戴的装备并打开其灵魂绑定界面."
+		"soulbinder_no_search_query_entered"	"请输入要搜索的装备名称"
+		"soulbinder_slot"	"灵魂绑定槽"
+		"soulbinder_slot_select"	"选择"
+		"soulbinder_item_view_first_tip"	"选择一个绑定槽以查看操作选项"
+		"soulbinder_empty_slot_instructions"	"这个灵魂绑定槽是空的.<br>将一件 @item_name 拖至下方的槽位中,<br>或者点击一件已穿戴的 @item_name 以将其绑定至此槽位.<br><br><font color=\"#EAA017\"><b>请注意！一旦一件装备进行了灵魂绑定之后, 它就永远不能被交易了！</b></font>"
+		"soulbinder_empty_slot_weapon_warning"	"武器灵魂绑定后将会退回至 1 级！"
+		"soulbinder_final_bind_button"		"将这件装备灵魂绑定至槽位 @slot_number "
+		"soulbinder_slot_exists_instructions"	"穿戴这件装备将覆盖当前相应部位的装备，请注意！"
+		"soulbinder_final_equip_button"		"穿戴装备"
+		"soulbinder_final_equip_delete_button"	"删除装备"
+		"soulbinder_final_equip_delete_button_confirm"	"请确认您要删除此装备. 您将会永远失去它！"
+		"soulbinder_cost_to_soulbind"		"灵魂绑定花费"
+
+		"soulbind_tips_title"				"灵魂绑定小贴士"
+		"soulbinder_tip_1"					"1. 已灵魂绑定的装备不能从身上拆下, 重铸, 或者交易. 一旦一件装备进行了灵魂绑定，那么它将永远不能解绑."
+		"soulbinder_tip_2"					"2. 玩家最多能够同时穿戴 3 件已灵魂绑定的装备."
+		"soulbinder_tip_3"					"3. 灵魂绑定槽位 2 和 3 只对拥有网页大会员的玩家开放。不过即使您的网页会员过期了，你仍然可以从这些槽位中加载已经灵魂绑定的装备."
+		"soulbinder_tip_4"					"4. 将一件装备灵魂绑定至指定空槽位需要花费奥术水晶, 但是加载这件装备是免费的."
+		"soulbinder_tip_5"					"5. 已灵魂绑定的装备可以在您任意角色之间使用, 只要您想，您便可以任意地加载它."
+		"soulbinder_tip_6"					"6. 已灵魂绑定的装备可以添加宝石或者打孔，但是不能将已装上的宝石卸下."
+		"soulbinder_tip_7"					"7. 已灵魂绑定的装备可以在当前槽位或者其他槽位再次绑定."
+
+		"soulbinder_library_button_title"	"查看灵魂绑定库"
+		"soulbinder_library"		"灵魂绑定库"
+		"soulbinder_library_loading"		"加载中..."
+
+		"soulbinder_library_helms"		"头盔"
+		"soulbinder_library_bodies"		"衣服"
+		"soulbinder_library_weapons"	"武器"
+		"soulbinder_library_gloves"		"手套"
+		"soulbinder_library_boots"		"鞋子"
+		"soulbinder_library_trinkets"		"饰品"
+		"soulbinder_library_arcanas"		"至宝"
+
+	    //------------------------   
+	   //------------------------
 		// World
 		//------------------------
 
