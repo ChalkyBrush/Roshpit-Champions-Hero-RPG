@@ -1388,7 +1388,7 @@ function treasure_chest_attacked(event)
 				Dungeons.lootLaunch = false
 			end
 			if caster.contents.crystals and caster.contents.crystals > 0 then
-				Glyphs:DropArcaneCrystals(caster:GetAbsOrigin(), ENEMY_TYPE_NORMAL_CREEP, caster.roshpit_attributes.roshpit_level, caster.contents.crystals/10)
+				Glyphs:DropArcaneCrystals(caster:GetAbsOrigin(), ENEMY_TYPE_NORMAL_CREEP, caster.roshpit_attributes.roshpit_level, caster.contents.crystals/60)
 			end
 			if caster.contents.ring_of_mysteries and caster.contents.ring_of_mysteries > 0 then
 				RPCItems:RollAndDropImmortalByLevel(caster:GetAbsOrigin(), caster.roshpit_attributes.roshpit_level, "item_rpc_ring_of_mysteries")
