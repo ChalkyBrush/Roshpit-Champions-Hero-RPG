@@ -188,7 +188,7 @@ function Challenges:SpawnByMap()
 	elseif GetMapName() == "rpc_redfall_ridge" then
 		Challenges:SpawnCrusaderNow(Vector(-14230, -15232), Vector(0,1))
 	elseif GetMapName() == "rpc_winterblight_mountain" then
-		Challenges:SpawnCrusaderNow(Vector(-13979, -1664), Vector(0,-1))
+		Challenges:SpawnCrusaderNow(Vector(-14179, -1664), Vector(0,-1))
 	elseif GetMapName() == "rpc_roshpit_arena" then
 		Challenges:SpawnCrusaderNow(Vector(-7940, 10159), Vector(0,-1))
 	elseif GetMapName() == "rpc_sea_fortress" then
