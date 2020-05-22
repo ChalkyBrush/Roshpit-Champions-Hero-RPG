@@ -20,7 +20,18 @@
 		
 		"DOTA_Tooltip_ability_ekkan_creep_aggressive"						"侵略"
     	"DOTA_Tooltip_ability_ekkan_creep_aggressive_Description"			"这个单位正在猎杀敌人，开启技能可以切换行动模式为跟随"
-"统治"
+
+
+    	"DOTA_Tooltip_ability_ekkan_creep_follow"							"跟随"
+    	"DOTA_Tooltip_ability_ekkan_creep_follow_Description"				"这个单位正在跟随召唤者，开启技能可以切换行动模式为被动"
+
+    	"DOTA_Tooltip_ability_ekkan_creep_passive"							"被动"
+    	"DOTA_Tooltip_ability_ekkan_creep_passive_Description"				"这个单位没有指示将不会进行任何行动。开启技能可以切换行动模式为侵略"
+
+    	"DOTA_Tooltip_modifier_ekkan_dominion_debuff"						"黑暗统治"
+    	"DOTA_Tooltip_modifier_ekkan_dominion_debuff_Description"			"被减速。如果在此buff持续时间内死亡，这个死灵将会被死灵飞龙支配。"
+
+    	"DOTA_Tooltip_modifier_ekkan_dominion_unit"							"统治"
    		"DOTA_Tooltip_modifier_ekkan_dominion_unit_Description"				"为死灵飞龙效劳"
 		
 		"DOTA_Tooltip_ability_ekkan_rune_q_1"								"[Q1] 僵尸之吻"
