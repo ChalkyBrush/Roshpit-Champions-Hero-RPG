@@ -523,3 +523,61 @@
 		"DOTA_Tooltip_modifier_pivotal_swift"	"轴心爆发"
 
 		"DOTA_Tooltip_modifier_pivotal_swift_Description"	"移动速度和移动速度上限增加"
+
+        "DOTA_Tooltip_ability_item_rpc_justice_greaves"                                "正义胫甲"
+
+        "item_property_justice_greaves"                    "公正"
+        "property_justice_greaves_description"         "增加护甲，魔甲，物理穿透和魔法穿透， 数值为<% ITEM_RPC_JUSTICE_GREAVES_PCT_STAT %>%范围内最高敌人计数的<% ITEM_RPC_JUSTICE_GREAVES_RANGE %>"
+
+        "item_rpc_justice_greaves_ruby1"                                        "增加 @ruby_property1点力量和 @ruby_property2最大生命值"
+        "item_rpc_justice_greaves_emerald1"                                     "降低来自正面的伤害 (<% ITEM_RPC_JUSTICE_GREAVES_EMERALD_ANGLE %> °以内) @emerald_property1"
+        "item_rpc_justice_greaves_sapphire1"                                        "增加Increases the Stat Gain from highest statted nearby enemy by an additional @sapphire_property1%"
+        "item_rpc_justice_greaves_amethyst1"                                        "增加搜索范围 @amethyst_property1 并且现在也会将隐身单位计入其中"
+
+        "DOTA_Tooltip_ability_item_rpc_hangman_slippers"                                "处刑者便鞋"
+
+        "item_property_hangman_slippers"                    "突袭"
+        "property_hangman_slippers_description"         "放出攻击指令将会使你的英雄飞向目标地点。在飞行时，你将无法做出任何行动但是你完全无敌。在着陆点 <% ITEM_RPC_HANGMAN_SLIPPERS_AOE %> 范围内的敌人将会被缴械 <% ITEM_RPC_HANGMAN_SLIPPERS_DISARM_DURATION %> 秒。效果冷却时间 为 <% ITEM_RPC_HANGMAN_SLIPPERS_CD %> 秒，最大距离为 <% ITEM_RPC_HANGMAN_SLIPPERS_MAX_DISTANCE %>。 "
+
+        "item_rpc_hangman_slippers_ruby1"                                        "增加效果的最大距离 @ruby_property1 并且增加缴械效果的影响范围 @ruby_property2"
+        "item_rpc_hangman_slippers_emerald1"                                     "增加穿行速度 @emerald_property1%"
+        "item_rpc_hangman_slippers_sapphire1"                                        "降低效果的冷却时间@sapphire_property1 秒"
+        "item_rpc_hangman_slippers_amethyst1"                                        "增加缴械持续时间 @amethyst_property1"
+
+        "DOTA_Tooltip_ability_item_rpc_boots_of_temperance"                                "节制之靴"
+
+        "item_property_boots_of_temperance"                    "节制"
+        "property_boots_of_temperance_description"         "基础技能伤害不能超过<% ITEM_RPC_BOOTS_OF_TEMPERANCE_BAD_CAP %>%。 降低承受伤害 <% ITEM_RPC_BOOTS_OF_TEMPERANCE_DMG_REDUCTION %>%。"
+
+        "item_rpc_boots_of_temperance_ruby1"                                        "降低额外攻击力 @ruby_property1%。增加最大生命值 @ruby_property2 点以及最大魔法值 @ruby_property3点"
+        "item_rpc_boots_of_temperance_emerald1"                                     "降低物理穿透和魔法穿透 @emerald_property1点， 增加护甲和魔甲 @emerald_property2点"
+        "item_rpc_boots_of_temperance_sapphire1"                                        "对@sapphire_property1范围内的敌人放出攻击指令将会将你和目标互换位置。被调换的敌人的移动速度将会降低@sapphire_property2%， 持续<% ITEM_RPC_BOOTS_OF_TEMPERANCE_SAPPHIRE_SLOW_DURATION %> 秒， <% ITEM_RPC_BOOTS_OF_TEMPERANCE_SAPPHIRE_CD %> 秒冷却时间"
+        "item_rpc_boots_of_temperance_amethyst1"                                        "攻击你的敌人有 @amethyst_property1% 概率被缴械<% ITEM_RPC_BOOTS_OF_TEMPERANCE_AMETHYST_DISARM_DURATION %> 秒"
+
+        "DOTA_Tooltip_modifier_temperance_disarm"                   "被缴械"
+
+        "DOTA_Tooltip_modifier_temperance_sapphire_slow"            "节制 (蓝宝石)"
+        "DOTA_Tooltip_modifier_temperance_sapphire_slow_Description"    "移动速度被降低"
+
+        "DOTA_Tooltip_ability_item_rpc_gravewalkers"                                "墓穴行者"
+
+        "item_property_gravewalkers"                    "骨之盛宴"
+        "property_gravewalkers_description"         "释放一个停止指令（H或者S）将会使你变成一个跳舞的骷髅，持续 <% ITEM_RPC_GRAVEWALKERS_BASE_DURATION %> 秒或者直到你移动。变身期间， <% ITEM_RPC_GRAVEWALKERS_RANGE %>范围内的敌人对你的仇恨将会降低并且会走到离你 <% ITEM_RPC_GRAVEWALKERS_WALKWAY_DISTANCE %> 距离以外的地方。其他敌人将会将你视为无害的并且不会攻击你。在跳舞的时候你不能攻击或者释放技能。<% ITEM_RPC_GRAVEWALKERS_COOLDOWN %> 秒冷却时间"
+
+        "item_rpc_gravewalkers_ruby1"                                        "增加最大变身持续时间 @ruby_property1秒， 仇恨降低范围@ruby_property3,以及远离你的距离 @ruby_property2 "
+        "item_rpc_gravewalkers_emerald1"                                     "在跳舞时释放移动指令将会使你冲到目标地点。穿行速度为 @emerald_property1 ，最大距离为 @emerald_property2"
+        "item_rpc_gravewalkers_sapphire1"                                        "降低冷却时间 @sapphire_property1 秒"
+        "item_rpc_gravewalkers_amethyst1"                                        "在变为跳舞的骷髅的时候降低受到的伤害 @amethyst_property1%"
+
+        "DOTA_Tooltip_ability_item_rpc_dissimilation_greaves"                                "异化胫甲"
+
+        "item_property_dissimilation_greaves"                    "异化"
+        "property_dissimilation_greaves_description"         "释放停止指令（S或者H）将会隐藏使用者 2 秒并在你周围 <% ITEM_RPC_DISSIMILATION_GREAVES_PORTAL_RADIUS %> 范围内产生 7 个传送点。右击传送点将会启动传送点，在隐藏持续时间结束后将你传送至目标传送点。在出现时对传送点周围的敌人造成 <% ITEM_RPC_DISSIMILATION_GREAVES_DAMAGE_PCT_ATK_POWER %>% 攻击力的伤害并且降低他们的移动速度 <% ITEM_RPC_DISSIMILATION_GREAVES_MS_SLOW_PCT %>% ， 持续<% ITEM_RPC_DISSIMILATION_GREAVES_SLOW_DURATION %>秒。 <% ITEM_RPC_DISSIMILATION_GREAVES_COOLDOWN %> 秒冷却时间"
+
+        "item_rpc_dissimilation_greaves_ruby1"                                        "增加传送点的范围 @ruby_property1"
+        "item_rpc_dissimilation_greaves_emerald1"                                     "增加 [E4] 符文 @emerald_property1点"
+        "item_rpc_dissimilation_greaves_sapphire1"                                        "降低冷却时间@sapphire_property1 秒"
+        "item_rpc_dissimilation_greaves_amethyst1"                                        "增加传送出现的伤害，数值为 @amethyst_property1% 攻击力并且增加减速持续时间 @amethyst_property2秒"
+
+        "DOTA_Tooltip_modifier_grey_domain_slow"            "优化"
+        "DOTA_Tooltip_modifier_grey_domain_slow_Description"    "被减速"

@@ -661,3 +661,57 @@
 
 		"DOTA_Tooltip_modifier_magistrates_hood_charges"		"技能扩散充能"
 "DOTA_Tooltip_modifier_magistrates_hood_charges_Description" "只要充能层数大于0层，所有魔法和纯粹伤害都会造成aoe伤害。"
+
+
+"DOTA_Tooltip_ability_item_rpc_shadowguard_helm"						"暗影守卫头盔"
+		"item_property_shadowguard_helm"						"精神阻挡"
+		"property_shadowguard_helm_description"				"当敌人准备攻击你时，你将会向攻击者投掷一个弹道速度为 <% ITEM_RPC_SHADOWGUARD_HELM_PROJECTILE_SPEED %> 的法术。击中后对目标造成 <% ITEM_RPC_SHADOWGUARD_HELM_DMG_PCT_ATK_POWER %>% 攻击力的伤害并且缴械目标 <% ITEM_RPC_SHADOWGUARD_HELM_DISARM_DURATION %> 秒。每秒至多触发 <% ITEM_RPC_SHADOWGUARD_HELM_MAX_PROCS_PER_SECOND %> 次。"
+
+		"item_rpc_shadowguard_helm_ruby1"		"增加伤害，数值为 @ruby_property1% 攻击力并且增加每秒最多触发次数限制至 @ruby_property2次"
+		"item_rpc_shadowguard_helm_emerald1"	"增加弹道速度 @emerald_property1"
+		"item_rpc_shadowguard_helm_sapphire1" 	"增加缴械持续时间 @sapphire_property1 秒"
+		"item_rpc_shadowguard_helm_amethyst1" 	"被缴械的敌人的魔甲和魔法穿透将会被降低 @amethyst_property1"
+
+    	"DOTA_Tooltip_ability_item_rpc_sun_gods_visage"						"日神面纱"
+		"item_property_sun_gods_visage"						"燃烧复苏"
+		"property_sun_gods_visage_description"				"每<% ITEM_RPC_SUN_GODS_VISAGE_INTERVAL %> 秒汲取失<% ITEM_RPC_SUN_GODS_VISAGE_HEALTH_DRAIN %>% 当前生命值并且回复 <% ITEM_RPC_SUN_GODS_VISAGE_HEAL %>% 丢失生命值 "
+
+		"item_rpc_sun_gods_visage_ruby1"		"增加生命汲取和治疗 @ruby_property1%"
+		"item_rpc_sun_gods_visage_emerald1"	"在生命值百分比处于<% ITEM_RPC_SUN_GODS_VISAGE_EMERALD_LOWER_BOUND %>% 到 <% ITEM_RPC_SUN_GODS_VISAGE_EMERALD_UPPER_BOUND %>% 之间时获得 @emerald_property1点敏捷和精神 "
+		"item_rpc_sun_gods_visage_sapphire1" 	"每点当前生命值增加魔甲 @sapphire_property1, 并且每点丢失生命值增加魔法穿透 @sapphire_property2"
+		"item_rpc_sun_gods_visage_amethyst1" 	"增加最大生命值 @amethyst_property1以及 <font color=\"#EF4126\">火</font> 元素伤害 @amethyst_property2%"
+
+    	"DOTA_Tooltip_ability_item_rpc_cloak_of_the_cimmerian_priesthood"						"安人祭祀头巾"
+		"item_property_cloak_of_the_cimmerian_priesthood"						"暗影祭祀"
+		"property_cloak_of_the_cimmerian_priesthood_description"				"普通攻击额外造成一次魔法 <font color=\'#7F4F84\'>暗</font>/<font color=\'#F6FFB5\'>圣</font> 伤害，数值为目标当前生命值的 <% ITEM_RPC_CLOAK_OF_THE_CIMMERIAN_PRIESTHOOD_DMG_PCT_TGT_CURRENT_HEALTH %>%并且使你回复 <% ITEM_RPC_CLOAK_OF_THE_CIMMERIAN_PRIESTHOOD_HEAL_PCT %>% 基础伤害的生命值。"
+
+		"item_rpc_cloak_of_the_cimmerian_priesthood_ruby1"		"被 [Q]击中的敌人每 @ruby_property1秒受到 <% ITEM_RPC_CLOAK_OF_THE_CIMMERIAN_PRIESTHOOD_RUBY_DAMAGE %>% 初始伤害，持续 @ruby_property2 秒"
+		"item_rpc_cloak_of_the_cimmerian_priesthood_emerald1"	"被 [W] 击中的敌人将会治疗敌人周围 <% ITEM_RPC_CLOAK_OF_THE_CIMMERIAN_PRIESTHOOD_EMERALD_RANGE %> 范围内的友军，数值为 @emerald_property1% 基础伤害"
+		"item_rpc_cloak_of_the_cimmerian_priesthood_sapphire1" 	"释放 [E] 将会获得一层护盾，护盾吸收 @sapphire_property1% 最大生命值的伤害。护盾持续 <% ITEM_RPC_CLOAK_OF_THE_CIMMERIAN_PRIESTHOOD_SAPPHIRE_DURATION %> 秒"
+		"item_rpc_cloak_of_the_cimmerian_priesthood_amethyst1" 	"施法 [R] 将会恐惧周围 <% ITEM_RPC_CLOAK_OF_THE_CIMMERIAN_PRIESTHOOD_AMETHYST_RADIUS %> 范围内的敌人，持续 @amethyst_property1"
+
+		"DOTA_Tooltip_modifier_cimmerian_priest_q_dot"			"暗影祭祀 (红宝石)"
+
+		"DOTA_Tooltip_modifier_cimmerian_priest_e_shield"		"暗影祭祀 (蓝宝石)"
+		"DOTA_Tooltip_modifier_cimmerian_priest_e_shield_Description"	"吸收伤害"
+
+    	"DOTA_Tooltip_ability_item_rpc_iron_tower_barbute"						"钢铁之塔头盔"
+		"item_property_iron_tower_barbute"						"钢铁之塔"
+		"property_iron_tower_barbute_description"				"放出停止指令（H或者S）将会获得 <% ITEM_RPC_IRON_TOWER_BARBUTE_STRENGTH %> X英雄等级的力量值。移动将会移除这个效果strength per hero level. Moving ends the effect."
+
+		"DOTA_Tooltip_modifier_iron_tower_effect"				"钢铁之塔"
+		"DOTA_Tooltip_modifier_iron_tower_effect_Description"	"增加力量值"
+
+		"item_rpc_iron_tower_barbute_ruby1"		"当钢铁之塔存在时，每点力量额外提供 @ruby_property1 点护甲和物理穿透"
+		"item_rpc_iron_tower_barbute_emerald1"		"死亡后，将你的重生旗帜放置在当前位置，有 @emerald_property1 秒冷却时间"
+		"item_rpc_iron_tower_barbute_sapphire1" 	"当周围 <% ITEM_RPC_IRON_TOWER_BARBUTE_SAPPHIRE_RANGE %>范围内有 <% ITEM_RPC_IRON_TOWER_BARBUTE_SAPPHIRE_ENEMIES %> 个敌人或者1个boss时，获得 @sapphire_property1% 攻击力"
+		"item_rpc_iron_tower_barbute_amethyst1" 	"钢铁之塔现在在移动后将会持续 @amethyst_property1 秒"
+
+    	"DOTA_Tooltip_ability_item_rpc_lich_kings_gaze"						"巫妖王之凝视"
+		"item_property_lich_kings_gaze"						"霜冻怒火"
+		"property_lich_kings_gaze_description"				"每<% ITEM_RPC_LICH_KINGS_GAZE_BASE_INTERVAL %>秒向施法者面前 <% ITEM_RPC_LICH_KINGS_GAZE_CIRCLE_RANGE %> 距离，<% ITEM_RPC_LICH_KINGS_GAZE_ANGLE_RANGE %>°范围内的敌人释放，至多<% ITEM_RPC_LICH_KINGS_GAZE_BASE_MAX_TARGETS %>个。 被击中的目标将会受到 <% ITEM_RPC_LICH_KINGS_GAZE_DAMAGE_PCT_ATK_POWER %>% 攻击力的时候并且降低他们的移动速度 <% ITEM_RPC_LICH_KINGS_GAZE_MOVE_SLOW %>% 持续 <% ITEM_RPC_LICH_KINGS_GAZE_SLOW_DURATION %> 秒"
+
+		"item_rpc_lich_kings_gaze_ruby1"		"增加角度 @ruby_property1 以及距离 @ruby_property2°"
+		"item_rpc_lich_kings_gaze_emerald1"	"降低触发间隔 @emerald_property1 秒"
+		"item_rpc_lich_kings_gaze_sapphire1" 	"增加最大指向目标数 @sapphire_property1"
+		"item_rpc_lich_kings_gaze_amethyst1" 	"如果范围内只有一个敌人时，这个敌人将会额外受到 @amethyst_property1 次霜冻怒火打击"
