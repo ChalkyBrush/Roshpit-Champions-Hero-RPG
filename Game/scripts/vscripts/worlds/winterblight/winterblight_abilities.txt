@@ -1680,7 +1680,7 @@
 					"RunScript"
 					{
 						"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
-						"Function"		"jump_think"
+						"Function"		"wb_assassin_jump_think"
 					}
 				}
 				"States"
@@ -1693,7 +1693,7 @@
 					"RunScript"
 					{
 						"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
-						"Function"		"jump_end"
+						"Function"		"wb_assassin_jump_end"
 					}
 				}
 			}

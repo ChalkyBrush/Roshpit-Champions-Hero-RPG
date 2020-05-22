@@ -575,7 +575,7 @@ function Winterblight:SetupCastleData()
 		Winterblight.CASTLE_DATA["rooms"][8]["active"] = 0
 		Winterblight.CASTLE_DATA["rooms"][8]["enemy_spawn_count"] = 0
 		Winterblight.CASTLE_DATA["rooms"][8]["enemies_slain"] = 0
-		Winterblight.CASTLE_DATA["rooms"][8]["extra_goal"] = 18
+		Winterblight.CASTLE_DATA["rooms"][8]["extra_goal"] = 15
 		Winterblight.CASTLE_DATA["rooms"][8]["key_positions"] = {Vector(15669, 1024), Vector(15120, 1870), Vector(14413, 1965)}
 		Winterblight.CASTLE_DATA["rooms"][8]["cleared"] = 0
 		Winterblight.CASTLE_DATA["rooms"][8]["mid_point"] = Vector(15104, 1920)
@@ -1943,7 +1943,7 @@ function Winterblight:SpawnCastleRoom8(variant)
 		end)
 	end
 	if Winterblight.CastleTarot["name"] == "strength" then
-		Winterblight.CASTLE_DATA["rooms"][8]["extra_goal"] = Winterblight.CASTLE_DATA["rooms"][8]["extra_goal"] + 24
+		Winterblight.CASTLE_DATA["rooms"][8]["extra_goal"] = Winterblight.CASTLE_DATA["rooms"][8]["extra_goal"] + 21
 	end
 	if variant == 1 then
 		Timers:CreateTimer(0.5, function()
@@ -3035,8 +3035,7 @@ function Winterblight:KeyLand(position)
 					chest.contents = {ring_of_mysteries = 1}
 				end
 				local luck_card = RandomInt(1, 24)
-				if luck_card == 1 then
-					table.insert(chest.contents, {tarot_card = 1})
+					chest.contents.tarot_card = 1
 				end
 				Timers:CreateTimer(6, function()
 					UTIL_Remove(pfx_dummy)

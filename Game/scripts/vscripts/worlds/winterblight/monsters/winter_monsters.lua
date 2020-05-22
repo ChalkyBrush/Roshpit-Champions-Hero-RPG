@@ -193,7 +193,6 @@ function wb_bandit_jump_start(event)
 	local caster = event.caster
 	local ability = event.ability
 	ability.targetPoint = event.target_points[1]
-	ability:ApplyDataDrivenModifier(caster, caster, "modifier_arkimus_e_free_cast", {duration = 4})
 	local distance = WallPhysics:GetDistance2d(ability.targetPoint, caster:GetAbsOrigin())
 	ability.jumpVelocity = distance / 20
 	ability.liftVelocity = 20
@@ -208,7 +207,6 @@ function wb_bandit_jump_start(event)
 		EmitSoundOn("Winterblight.Assassin.Aggro", caster)
 		EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Winterblight.Assassin.Jump", caster)
 		if caster:HasModifier("modifier_arkimus_e_free_cast") then
-			ability:EndCooldown()
 			local newStacks = caster:GetModifierStackCount("modifier_arkimus_e_free_cast", caster) - 1
 			if newStacks > 0 then
 				caster:SetModifierStackCount("modifier_arkimus_e_free_cast", caster, newStacks)
@@ -216,18 +214,12 @@ function wb_bandit_jump_start(event)
 				caster:RemoveModifierByName("modifier_arkimus_e_free_cast")
 			end
 		end
-		if caster:HasAbility("arkimus_energy_field") then
-			local energyField = caster:FindAbilityByName("arkimus_energy_field")
-			if energyField.rotationDelta then
-				energyField.rotationDelta = math.max(14, energyField.rotationDelta - 4)
-			end
-		end
 	end
 	ability.e_1_level = 0
 	ability.e_3_level = 0
 end
 
-function jump_think(event)
+function wb_assassin_jump_think(event)
 	local caster = event.caster
 	local ability = event.ability
 
@@ -265,37 +257,12 @@ function jump_think(event)
 	end
 end
 
-function jump_end(event)
+function wb_assassin_jump_end(event)
 	local caster = event.caster
 	local ability = event.ability
 	Timers:CreateTimer(0.03, function()
 		FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
 	end)
-	if ability.e_1_level and ability.e_1_level > 0 then
-		local searchRadius = 300 + ability.e_1_level * 2
-		local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * 0.3 * ability.e_1_level
-
-		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, searchRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
-		if #enemies > 0 then
-			for _, enemy in pairs(enemies) do
-				CreateZonisBeam(caster:GetAbsOrigin(), enemy:GetAbsOrigin() + Vector(0, 0, 50))
-				ability:ApplyDataDrivenModifier(caster, enemy, "modifier_zonis_stun", {duration = 0.2})
-				Filters:ApplyStun(caster, 0.2, enemy)
-				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_E, RPC_ELEMENT_ARCANE, RPC_ELEMENT_LIGHTNING)
-			end
-		else
-			for i = 1, 3, 1 do
-				local fv = WallPhysics:rotateVector(caster:GetForwardVector(), 2 * math.pi * i / 3)
-				CreateZonisBeam(caster:GetAbsOrigin(), caster:GetAbsOrigin() + fv * 120 + Vector(0, 0, 60))
-			end
-		end
-		EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Arkimus.JumpLightning", caster)
-	end
-	if ability.e_3_level and ability.e_3_level > 0 then
-		local duration = Filters:GetAdjustedBuffDuration(caster, 3, false)
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_arkimus_e_3_buff", {duration = duration})
-		caster:SetModifierStackCount("modifier_arkimus_e_3_buff", caster, ability.e_3_level)
-	end
 end
 
 function mountain_assassin_think(event)
@@ -307,7 +274,7 @@ function mountain_assassin_think(event)
 			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 2000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 			if #enemies > 0 then
 				local targetPoint = enemies[1]:GetAbsOrigin() + RandomVector(RandomInt(60, 320))
-
+				
 				local order =
 				{
 					UnitIndex = caster:entindex(),
