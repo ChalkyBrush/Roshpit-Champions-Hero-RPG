@@ -174,6 +174,48 @@
     	"DOTA_Tooltip_ability_sephyr_rune_w_4_arcana1_Description"				"提高所有 <font color=\"#7AE2A7\">风</font> 元素伤害。"
     	"DOTA_Tooltip_ability_sephyr_rune_w_4_arcana1_property_one"				"风元素伤害提高"
     	"DOTA_Tooltip_ability_sephyr_rune_w_4_arcana1_suffix"					"% 每10点全属性值"
+	
+	//Arcana2
+        "DOTA_Tooltip_ability_item_rpc_sephyr_arcana2"                      "风暴之主王冠"
+
+        "item_property_sephyr_arcana2"                                      "风暴降临"
+        "property_sephyr_arcana2_description"                               "用风暴降临替换 @Ability1 及其所有符文."
+
+        "DOTA_Tooltip_ability_sephyr_hurricane"                     "风暴降临"
+        "DOTA_Tooltip_ability_sephyr_hurricane_Description"         "希芙尔传送到目标位置并朝施法点周围释放风暴。风暴中的敌人将被缴械."
+        "DOTA_Tooltip_ability_sephyr_hurricane_disarm_duration"     "缴械时间:"
+        "DOTA_Tooltip_ability_sephyr_hurricane_wind_range"             "风暴范围:"
+        "DOTA_Tooltip_ability_sephyr_hurricane_wind_speed"             "风暴速度:"
+        "DOTA_Tooltip_ability_sephyr_hurricane_cast_range_base"         "基础施法范围:"
+        "DOTA_Tooltip_ability_sephyr_hurricane_cooldown_base"         "基础冷却时间:"
+
+        "DOTA_Tooltip_ability_sephyr_rune_q_1_arcana2"                      "[Q1] 疾风法则"
+        "DOTA_Tooltip_ability_sephyr_rune_q_1_arcana2_Description"          "释放风暴降临之后的 <% SEPHYR_ARCANA2_Q1_DURATION %> 秒内获得额外的移动速度，最大移动速度和敏捷值. 此buff生效期间, 普通攻击造成额外 <font color=\"#7AE2A7\">风</font> 属性魔法伤害"
+        "DOTA_Tooltip_ability_sephyr_rune_q_1_arcana2_property_one"         "额外移动速度和最大移动速度"
+        "DOTA_Tooltip_ability_sephyr_rune_q_1_arcana2_suffix"               ""      
+        "DOTA_Tooltip_ability_sephyr_rune_q_1_arcana2_property_two"         "额外敏捷值"
+        "DOTA_Tooltip_ability_sephyr_rune_q_1_arcana2_suffix_two"           ""   
+
+        "DOTA_Tooltip_modifier_sephyr_hurricane_q1"                         "疾风法则"
+        "DOTA_Tooltip_modifier_sephyr_hurricane_q1_Description"             "提高敏捷和移动速度"
+
+        "DOTA_Tooltip_ability_sephyr_rune_q_2_arcana2"                          "[Q2] 风雷交加"
+        "DOTA_Tooltip_ability_sephyr_rune_q_2_arcana2_Description"              "提高风暴降临的施法距离并降低其冷却时间."
+        "DOTA_Tooltip_ability_sephyr_rune_q_2_arcana2_property_one"             "施法距离提高"
+        "DOTA_Tooltip_ability_sephyr_rune_q_2_arcana2_suffix"                   ""
+        "DOTA_Tooltip_ability_sephyr_rune_q_2_arcana2_property_two"             "冷却时间降低"
+        "DOTA_Tooltip_ability_sephyr_rune_q_2_arcana2_suffix_two"               " 秒"
+
+        "DOTA_Tooltip_ability_sephyr_rune_q_3_arcana2"                          "[Q3] 无垠飓风"
+        "DOTA_Tooltip_ability_sephyr_rune_q_3_arcana2_Description"              "普通攻击有概率分裂并打击目标附近额外的敌人."
+        "DOTA_Tooltip_ability_sephyr_rune_q_3_arcana2_property_one"             "攻击分裂概率"
+        "DOTA_Tooltip_ability_sephyr_rune_q_3_arcana2_suffix"                   "%"
+
+        "DOTA_Tooltip_ability_sephyr_rune_q_4_arcana2"                          "[Q4] 风暴化身"
+        "DOTA_Tooltip_ability_sephyr_rune_q_4_arcana2_Description"              "敏捷值将提高攻击力."
+        "DOTA_Tooltip_ability_sephyr_rune_q_4_arcana2_property_one"             "额外攻击力"
+        "DOTA_Tooltip_ability_sephyr_rune_q_4_arcana2_suffix"                   "% 每点敏捷"
+		
 		
 		//Glyphs
 		
