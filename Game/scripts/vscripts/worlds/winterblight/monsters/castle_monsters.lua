@@ -665,7 +665,7 @@ function castle_room_unit_die(event)
 			Winterblight.CastleDungeonMaster.blue_slime_deaths = 0
 		end
 		Winterblight.CastleDungeonMaster.blue_slime_deaths = Winterblight.CastleDungeonMaster.blue_slime_deaths + 1
-		local active_delay = 8.5
+		local active_delay = 7.75
 		if Winterblight.CastleDungeonMaster.blue_slime_deaths == 6 or Winterblight.CastleDungeonMaster.blue_slime_deaths == 22 or Winterblight.CastleDungeonMaster.blue_slime_deaths == 38 then
 			local delay = 0.75
 			if Winterblight.CastleTarot["name"] == "chariot" then

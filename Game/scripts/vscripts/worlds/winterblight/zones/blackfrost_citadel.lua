@@ -1965,6 +1965,7 @@ function Winterblight:SpawnCastleRoom8(variant)
 			end
 		end)
 		Timers:CreateTimer(2.5, function()
+			Winterblight.CASTLE_DATA["rooms"][room_index]["active"] = 2
 			local positionTable = {Vector(15952, 2172), Vector(15756, 2597), Vector(15304, 2954), Vector(14592, 3456)}
 			for i = 1, #positionTable, 1 do
 				local fv = (Vector(14848, 1826) - positionTable[i]):Normalized()
@@ -1993,7 +1994,6 @@ function Winterblight:SpawnCastleRoom8(variant)
 					Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_ancient_mountain_spirit", positionTable[i], RandomVector(1), false, false)
 				end
 			end
-			Winterblight.CASTLE_DATA["rooms"][room_index]["active"] = 2
 		end)
 	end
 end
@@ -3408,7 +3408,7 @@ function Winterblight:SpawnHermitSpecialRoom()
 				local x_spacing = 256
 				local y_spacing = 356
 				local base_pos = Vector(13493, -2688)
-				local monster = Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_castle_hermit_hoodling", base_pos + Vector(x_spacing*i, y_spacing*j), fv, false, false)
+				local monster = Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_castle_hermit_hoodling", base_pos + Vector(x_spacing*i, y_spacing*j), fv, false, true)
 			end
 		end
 	end)
@@ -3417,21 +3417,21 @@ function Winterblight:SpawnHermitSpecialRoom()
 			local fv = Vector(0,1)
 			local x_spacing = 326
 			local base_pos = Vector(13493, -3353)
-			local monster = Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_castle_elite_hermit_hoodling", base_pos + Vector(x_spacing*i, 0), fv, false, false)
+			local monster = Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_castle_elite_hermit_hoodling", base_pos + Vector(x_spacing*i, 0), fv, false, true)
 		end
 	end)
 	Timers:CreateTimer(3.7, function()
 		local positionTable = {Vector(12489, -3072), Vector(12581, -2747)}
 		for i = 1, #positionTable, 1 do
 			local fv = (Vector(14712, -2720) - positionTable[i]):Normalized()
-			local monster = Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_shadow_wanderer", positionTable[i], fv, false, false)
+			local monster = Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_shadow_wanderer", positionTable[i], fv, false, true)
 		end	
 	end)	
 	Timers:CreateTimer(7.7, function()
 		local positionTable = {Vector(15276, -2464), Vector(15066, -2280), Vector(14848, -2101)}
 		for i = 1, #positionTable, 1 do
 			local fv = (Vector(14712, -2720) - positionTable[i]):Normalized()
-			local monster = Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_shadow_wanderer", positionTable[i], fv, false, false)
+			local monster = Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_shadow_wanderer", positionTable[i], fv, false, true)
 		end	
 	end)	
 	Timers:CreateTimer(5, function()
