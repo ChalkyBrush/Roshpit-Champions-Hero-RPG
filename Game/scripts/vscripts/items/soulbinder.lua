@@ -198,6 +198,9 @@ function Soulbinder:SoulbindItem(msg)
 		item_to_bind.newItemTable.soulbound = 1
 		RPCItems:ItemUpdateCustomNetTables(item_to_bind)
 	end
+	if isItemEquipped then
+		SaveLoad:SaveCharacterGeneric(hero)
+	end
 	-- item.newItemTable.validator = RPCItems:GetRandomKey(13)
 	local url = ROSHPIT_URL.."/soulbinder/soulbind_item?"
 	url = url.."steam_id="..steamID
@@ -319,6 +322,7 @@ function Soulbinder:EquipSoulboundItem(msg)
 		hero:EquipItem(newGear, true, true)
 	end
 	CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "update_inventory", {})
+
 	SaveLoad:SaveCharacterGeneric(hero)
 	CustomGameEventManager:Send_ServerToPlayer(player, "close_soulbinder", {})
 
@@ -327,14 +331,15 @@ function Soulbinder:EquipSoulboundItem(msg)
 	RPCItems:ItemUpdateCustomNetTables(newGear)
 	local premium_allowed = true
 	if hero.saveSlot and hero.saveSlot > 0 then
-		if hero.saveSlot > 8 then
-			if not GameState:GetPlayerPremiumStatus(hero:GetPlayerOwnerID()) then
-				premium_allowed = false
-			end
-		end
-		if premium_allowed then
-			SaveLoad:SaveCharacterGeneric(hero)
-		end
+		-- SaveLoad:SaveCharacterGeneric(hero)
+		-- if hero.saveSlot > 8 then
+		-- 	if not GameState:GetPlayerPremiumStatus(hero:GetPlayerOwnerID()) then
+		-- 		premium_allowed = false
+		-- 	end
+		-- end
+		-- if premium_allowed then
+		-- 	SaveLoad:SaveCharacterGeneric(hero)
+		-- end
 	end
 	CustomAbilities:QuickAttachParticle("particles/roshpit/soulbind/soulbind.vpcf", hero, 3)
 	EmitSoundOn("UI.Soulbinder.EquipBind", hero)
@@ -402,4 +407,93 @@ function Soulbinder:LoadLibraryCategory(msg)
 			CustomGameEventManager:Send_ServerToPlayer(player, "soulbinder_library_category_load", {result = table_with_images})
 		end
 	end)
+end
+
+function Soulbinder:SaveCharacterAndSoulbind(msg)
+	local playerID = msg.playerID
+	local slot = msg.slot
+	local hero = EntIndexToHScript(msg.heroIndex)
+	hero.saveSlot = slot
+	local developer = Convars:GetBool("developer")
+	local player = PlayerResource:GetPlayer(playerID)
+	local cheats = Convars:GetBool("sv_cheats")
+	local player_stats = CustomNetTables:GetTableValue("player_stats", tostring(playerID))
+	local current_rune_points = 0
+	local current_skill_points = 0
+	local runeUnit1 = hero.runeUnit
+	local runeUnit2 = hero.runeUnit2
+	local runeUnit3 = hero.runeUnit3
+	local runeUnit4 = hero.runeUnit4
+	hero.loadEnabled = 0
+	Weapons:ValidateGear(hero)
+	--SaveLoad:NewKey()
+	if SaveLoad:GetAllowSaving() then
+		local url = ROSHPIT_URL.."/champions/saveCharacter?"
+		url = url.."slot="..slot
+		url = url.."&hero_name="..hero:GetUnitName()
+		url = url.."&level="..hero:GetLevel()
+		url = url.."&steam_id="..PlayerResource:GetSteamAccountID(playerID)
+		url = url.."&current_xp="..hero:GetCurrentXP()
+		url = url.."&rune_a_a="..runeUnit1:GetAbilityByIndex(DOTA_Q_SLOT):GetBaseRuneLevel()
+		url = url.."&rune_a_b="..runeUnit1:GetAbilityByIndex(DOTA_W_SLOT):GetBaseRuneLevel()
+		url = url.."&rune_a_c="..runeUnit1:GetAbilityByIndex(DOTA_E_SLOT):GetBaseRuneLevel()
+		url = url.."&rune_a_d="..runeUnit1:GetAbilityByIndex(DOTA_D_SLOT):GetBaseRuneLevel()
+		url = url.."&rune_b_a="..runeUnit2:GetAbilityByIndex(DOTA_Q_SLOT):GetBaseRuneLevel()
+		url = url.."&rune_b_b="..runeUnit2:GetAbilityByIndex(DOTA_W_SLOT):GetBaseRuneLevel()
+		url = url.."&rune_b_c="..runeUnit2:GetAbilityByIndex(DOTA_E_SLOT):GetBaseRuneLevel()
+		url = url.."&rune_b_d="..runeUnit2:GetAbilityByIndex(DOTA_D_SLOT):GetBaseRuneLevel()
+		url = url.."&rune_c_a="..runeUnit3:GetAbilityByIndex(DOTA_Q_SLOT):GetBaseRuneLevel()
+		url = url.."&rune_c_b="..runeUnit3:GetAbilityByIndex(DOTA_W_SLOT):GetBaseRuneLevel()
+		url = url.."&rune_c_c="..runeUnit3:GetAbilityByIndex(DOTA_E_SLOT):GetBaseRuneLevel()
+		url = url.."&rune_c_d="..runeUnit3:GetAbilityByIndex(DOTA_D_SLOT):GetBaseRuneLevel()
+		url = url.."&rune_d_a="..runeUnit4:GetAbilityByIndex(DOTA_Q_SLOT):GetBaseRuneLevel()
+		url = url.."&rune_d_b="..runeUnit4:GetAbilityByIndex(DOTA_W_SLOT):GetBaseRuneLevel()
+		url = url.."&rune_d_c="..runeUnit4:GetAbilityByIndex(DOTA_E_SLOT):GetBaseRuneLevel()
+		url = url.."&rune_d_d="..runeUnit4:GetAbilityByIndex(DOTA_D_SLOT):GetBaseRuneLevel()
+		url = url.."&ability1level="..hero:GetAbilityByIndex(DOTA_Q_SLOT):GetLevel()
+		url = url.."&ability2level="..hero:GetAbilityByIndex(DOTA_W_SLOT):GetLevel()
+		url = url.."&ability3level="..hero:GetAbilityByIndex(DOTA_E_SLOT):GetLevel()
+		url = url.."&ability4level="..hero:GetAbilityByIndex(DOTA_R_SLOT):GetLevel()
+		url = url.."&ability_points="..current_skill_points
+		url = url.."&rune_points="..current_rune_points
+		url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
+		url = SaveLoad:AttachGlyphsToUrl(url, hero)
+		for i = 0, 5, 1 do
+			url = SaveLoad:AttachItemToURL(url, hero, 0, 0, playerID, i, hero.equipped_gear[i])
+		end
+		if msg.ignore_callback then
+			CreateHTTPRequestScriptVM("POST", url):Send(function(result)
+				for k, v in pairs(result) do
+
+				end
+				local resultTable = JSON:decode(result.Body)
+				SaveLoad:HeroSaveParticle(hero)
+			end)
+		else
+			CreateHTTPRequestScriptVM("POST", url):Send(function(result)
+				--print( "POST response:\n" )
+				for k, v in pairs(result) do
+					--print( string.format( "%s : %s\n", k, v ) )
+				end
+				--print( "Done." )
+				--SaveLoad:NewKey()
+				local resultTable = JSON:decode(result.Body)
+				-- SaveLoad:GetCharacterDataFromJSON(resultTable)
+				CustomGameEventManager:Send_ServerToPlayer(player, "recentlySaved", {})
+				local premium = 0
+				if GameState:GetPlayerPremiumStatus(playerID) then
+					premium = 1
+				end
+				Weapons:ValidateGear(hero)
+				CustomGameEventManager:Send_ServerToPlayer(player, "save_characters_loaded", {result = resultTable, message = "save_success", heroSlot = hero.saveSlot, premium = premium})
+				Events:TutorialServerEvent(hero, "2_3", 0)
+				Statistics.dispatch('hero:oracle:save')
+				hero.roshpitID = resultTable.id
+				if hero:GetUnitName() == "npc_dota_hero_arc_warden" then
+					SaveLoad:SaveJex(hero)
+				end
+				SaveLoad:HeroSaveParticle(hero)
+			end)
+		end
+	end
 end
