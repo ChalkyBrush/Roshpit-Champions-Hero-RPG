@@ -619,3 +619,66 @@
 		"DOTA_Tooltip_modifier_auric_ring_bkb"						"灵感"
 "DOTA_Tooltip_modifier_auric_ring_bkb_Description" "魔法免疫"
 
+
+"DOTA_Tooltip_ability_item_rpc_moon_shard"                              "月之碎片"
+
+        "item_property_moon_shard"                  "闪烁波动"
+        "property_moon_shard_description"           "每 1% 丢失魔法值降低所有冷却时间<% ITEM_RPC_MOON_SHARD_CD_REDUCTION_PER_MANA_PCT %>%。"
+
+        "item_rpc_moon_shard_ruby1"                             "每1%丢失魔法值提高攻击速度 @ruby_property1 点"
+        "item_rpc_moon_shard_emerald1"                              "每1%当前魔法值提高移动速度和最大移动速度 @emerald_property1"
+        "item_rpc_moon_shard_sapphire1"                             "每 @sapphire_property1 秒，获得一个buff，buff将会使你下一个释放的技能获得100%的冷却时间缩减"
+        "DOTA_Tooltip_modifier_moon_shard_sapphire"                 "闪烁波动 (蓝宝石)"
+        "DOTA_Tooltip_modifier_moon_shard_sapphire_Description"     "下一个释放的技能将会获得 100% 冷却时间缩减" 
+        "item_rpc_moon_shard_amethyst1"                             "移动 <% ITEM_RPC_MOON_SHARD_AMETHYST_DISTANCE_TO_TRIGGER %> 距离将会向周围<% ITEM_RPC_MOON_SHARD_AMETHYST_SEARCH_RADIUS %>范围内最近的敌人投掷至多 @amethyst_property1 个冰弹。造成 数值为@amethyst_property2 X 每点最大魔法值"
+	
+       "DOTA_Tooltip_ability_item_rpc_horn_of_the_triumphant"                              "胜利号角"
+
+        "item_property_horn_of_the_triumphant"                  "壁垒"
+        "property_horn_of_the_triumphant_description"           "放出停止指令（S或者H）将会在你的位置产生一个范围为 <% ITEM_RPC_HORN_OF_THE_TRIUMPHANT_RADIUS %> 的区域，至多加强一个处于区域内的友军或者虚弱一个处于区域内的敌人。 如果一个友军或者穿着者触发了壁垒，他们将会获得 <% ITEM_RPC_HORN_OF_THE_TRIUMPHANT_ATK_DMG_PCT_ALLY %>% 攻击力加成并且降低承受伤害 <% ITEM_RPC_HORN_OF_THE_TRIUMPHANT_DAMAGE_REDUCE %>%。 如果一个敌人触发了壁垒， 他们将会被缠绕并且被拉向区域的中心。壁垒没有持续时间并且不会叠加。同一时间你只能拥有一个壁垒效果 <% ITEM_RPC_HORN_OF_THE_TRIUMPHANT_MAX_CIRCLES %>"
+
+        "DOTA_Tooltip_modifier_horn_of_triumphant_inside_bastion_friendly"  "壁垒"
+        "DOTA_Tooltip_modifier_horn_of_triumphant_inside_bastion_friendly_Description"  "获得攻击力加成和伤害抗性"
+
+
+        "DOTA_Tooltip_modifier_horn_of_triumphant_inside_bastion_enemy"  "壁垒"
+        "DOTA_Tooltip_modifier_horn_of_triumphant_inside_bastion_enemy_Description"  "被缠绕"
+
+        "item_rpc_horn_of_the_triumphant_ruby1"                             "处于壁垒下的敌人的物理和魔法穿透将会降低 @ruby_property1 点并且攻击距离将会降低 @ruby_property2 "
+        "item_rpc_horn_of_the_triumphant_emerald1"                              "处于壁垒下的友军每 <% ITEM_RPC_HORN_OF_THE_TRIUMPHANT_EMERALD_HEAL_INTERVAL %>秒回复 @emerald_property1% 他们的最大生命值"
+        "item_rpc_horn_of_the_triumphant_sapphire1"                             "处于壁垒下的友军将会获得 @sapphire_property1% 最大生命值加成"
+        "item_rpc_horn_of_the_triumphant_amethyst1"                             "处于壁垒下的友军将会获得 @amethyst_property1 点护甲和魔甲。处于壁垒下的敌人的护甲和魔甲将会被降低 @amethyst_property2点"
+
+       "DOTA_Tooltip_ability_item_rpc_mortuary_charm"                              "尸鬼挂件"
+
+        "item_property_mortuary_charm"                  "灵气"
+        "property_mortuary_charm_description"           "<% ITEM_RPC_MORTUARY_CHARM_BASE_GHOSTS %> 个鬼魂将会跟随你，攻击你周围 <% ITEM_RPC_MORTUARY_CHARM_ATTACK_RANGE_BASE %> 范围内的敌人。当敌人被攻击时，敌人将会受到 <% ITEM_RPC_MORTUARY_CHARM_DMG_PCT_ATK_PWR %>% 召唤者的攻击力的伤害并且被麻痹 <% ITEM_RPC_MORTUARY_CHARM_PARALYZE_DURATION %> 秒"
+
+       "DOTA_Tooltip_modifier_mortuary_paralyze"        "灵气"
+       "DOTA_Tooltip_modifier_mortuary_paralyze_Description"    "被麻痹"
+
+        "item_rpc_mortuary_charm_ruby1"                             "获得 @ruby_property1 个额外鬼魂"
+        "item_rpc_mortuary_charm_emerald1"                              "增加鬼魂的攻击距离 @emerald_property1"
+        "item_rpc_mortuary_charm_sapphire1"                             "获得 @sapphire_property1 个额外鬼魂"
+        "item_rpc_mortuary_charm_amethyst1"                             "鬼魂的攻击有 @amethyst_property1% 概率弹跳至另一个目标。弹跳产生的弹道有同样的概率再次弹跳"
+
+
+       "DOTA_Tooltip_ability_item_rpc_baphomets_cursed_necklace"                              "巴菲梅特的诅咒项链"
+
+        "item_property_baphomets_cursed_necklace"                  "毁灭"
+        "property_baphomets_cursed_necklace_description"           "当你引导 @Ability4时，重置他的冷却时间并且获得一个buff， buff将会使他下一次释放不需要引导。 <% ITEM_RPC_BAPHOMETS_CURSED_NECKLACE_BASE_CD %> 秒冷却时间"
+
+        "item_rpc_baphomets_cursed_necklace_ruby1"                                 "所有属性增加基础攻击力 @ruby_property1点"
+        "item_rpc_baphomets_cursed_necklace_emerald1"                              "降低该效果的冷却时间 @emerald_property1 秒"
+        "item_rpc_baphomets_cursed_necklace_sapphire1"                             "普通攻击有@sapphire_property1%概率获得毁灭buff"
+        "item_rpc_baphomets_cursed_necklace_amethyst1"                             "当毁灭buff存在时获得 @amethyst_property1% 攻击力。"
+
+       "DOTA_Tooltip_ability_item_rpc_monarch_ring"                              "帝王指环"
+
+        "item_property_monarch_ring"                  "属性至上"
+        "property_monarch_ring_description"           "装备提供的符文将会提供属性而不是符文。 [Q] 符文增加力量， [W] 符文增加敏捷， [E] 符文增加智力，[R] 符文增加精神。 T1 和 T2 符文增加属性 <% ITEM_RPC_MONARCH_RING_STAT_PER_RUNE %>点, T3 符文增加属性 <% ITEM_RPC_MONARCH_RING_STAT_PER_RUNE * 2 %>点 ， T4 符文增加属性 <% ITEM_RPC_MONARCH_RING_STAT_PER_RUNE * 4 %>点"
+
+        "item_rpc_monarch_ring_ruby1"                                 "增加符文提供的力量 @ruby_property1%"
+        "item_rpc_monarch_ring_emerald1"                              "增加符文提供的敏捷 @emerald_property1%"
+        "item_rpc_monarch_ring_sapphire1"                             "增加符文提供的智力 @sapphire_property1%"
+        "item_rpc_monarch_ring_amethyst1"                             "增加符文提供的精神 @amethyst_property1%"
