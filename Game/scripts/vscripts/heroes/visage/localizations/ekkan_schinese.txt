@@ -20,17 +20,7 @@
 		
 		"DOTA_Tooltip_ability_ekkan_creep_aggressive"						"侵略"
     	"DOTA_Tooltip_ability_ekkan_creep_aggressive_Description"			"这个单位正在猎杀敌人，开启技能可以切换行动模式为跟随"
-
-    	"DOTA_Tooltip_ability_ekkan_creep_follow"							"跟随"
-    	"DOTA_Tooltip_ability_ekkan_creep_follow_Description"				"这个单位正在跟随召唤者，开启技能可以切换行动模式为被动"
-
-    	"DOTA_Tooltip_ability_ekkan_creep_passive"							"被动"
-    	"DOTA_Tooltip_ability_ekkan_creep_passive_Description"				"这个单位没有指示将不会进行任何行动。开启技能可以切换行动模式为侵略"
-
-    	"DOTA_Tooltip_modifier_ekkan_dominion_debuff"						"黑暗统治"
-    	"DOTA_Tooltip_modifier_ekkan_dominion_debuff_Description"			"被减速。如果在此buff持续时间内死亡，这个死灵将会被死灵飞龙支配。"
-
-    	"DOTA_Tooltip_modifier_ekkan_dominion_unit"							"统治"
+"统治"
    		"DOTA_Tooltip_modifier_ekkan_dominion_unit_Description"				"为死灵飞龙效劳"
 		
 		"DOTA_Tooltip_ability_ekkan_rune_q_1"								"[Q1] 僵尸之吻"
@@ -243,6 +233,194 @@
 
     	"DOTA_Tooltip_modifier_black_dominion_shield"							"灵魂守卫护盾"
     	"DOTA_Tooltip_modifier_black_dominion_shield_Description"				"吸收伤害"
+	
+	  //ARCANA 2 - a
+
+        "DOTA_Tooltip_ability_item_rpc_ekkan_arcana2a"                      "剧毒悲惨痛苦之握"
+
+        "item_property_ekkan_arcana2a"                                       "深渊复苏 (毒)"
+        "property_ekkan_arcana2a_description"                                "用召唤瘟疫使者替换 @Ability2 及其所有符文."
+
+        "DOTA_Tooltip_ability_ekkan_arcana2_plague_bearer"                        "召唤瘟疫使者"
+        "DOTA_Tooltip_ability_ekkan_arcana2_plague_bearer_Description"            "元素: <font color=\"#5C776E\">不死</font> / <font color=\"#37DD3D\">毒</font><br>死灵飞龙1500范围内死亡的敌人将留下他们的尸骨. 死灵飞龙可以对有尸骨的地点释放该技能以召唤瘟疫使者为他战斗。瘟疫使者具有毒性攻击，能对敌人造成持续伤害."
+        "DOTA_Tooltip_ability_ekkan_arcana2_plague_bearer_max_skeletons"          "最大数量:"
+        "DOTA_Tooltip_ability_ekkan_arcana2_plague_bearer_skeleton_duration"      "存活时间:"
+        "DOTA_Tooltip_ability_ekkan_arcana2_plague_bearer_armor_mult"             "根据死灵飞龙双甲的倍数提升召唤物双甲:"
+        "DOTA_Tooltip_ability_ekkan_arcana2_plague_bearer_attack_mult"            "根据死灵飞龙攻击力倍数提升召唤物攻击:"
+        "DOTA_Tooltip_ability_ekkan_arcana2_plague_bearer_skeleton_health"        "% 死灵飞龙生命值提高召唤物最大生命值:"
+        "DOTA_Tooltip_ability_ekkan_arcana2_plague_bearer_poison_duration"        "毒性攻击持续时间:"
+        "DOTA_Tooltip_ability_ekkan_arcana2_plague_bearer_poison_damage_interval"          "毒性攻击伤害间隔:"
+        "DOTA_Tooltip_ability_ekkan_arcana2_plague_bearer_poison_damage"          " % 召唤物攻击力添加至毒性伤害:" 
+
+        "DOTA_Tooltip_modifier_plaguebearer_basic_poison"                   "瘟疫剧毒"
+        "DOTA_Tooltip_modifier_plaguebearer_basic_poison_Description"       "每秒受到伤害"
+
+        "ekkan_plaguebearer"                                                        "瘟疫使者"
+
+        "DOTA_Tooltip_ability_ekkan_plaguebearer_passive"                   "毒性攻击"
+        "DOTA_Tooltip_ability_ekkan_plaguebearer_passive_Description"       "元素: <font color=\"#5C776E\">不死</font> / <font color=\"#37DD3D\">毒</font><br>攻击能使目标中毒，根据瘟疫使者的攻击力造成持续伤害"   
+        "DOTA_Tooltip_ability_ekkan_plaguebearer_passive_poison_duration"        "毒性攻击持续时间:"
+        "DOTA_Tooltip_ability_ekkan_plaguebearer_passive_poison_damage_interval"          "毒性攻击伤害间隔:"
+        "DOTA_Tooltip_ability_ekkan_plaguebearer_passive_poison_damage"          " % 攻击力加入毒性攻击伤害:" 
+
+        "DOTA_Tooltip_ability_ekkan_rune_w_1_arcana2a"                               "[W1] 腐蚀装甲"
+        "DOTA_Tooltip_ability_ekkan_rune_w_1_arcana2a_Description"                   "攻击瘟疫使者的敌人将中毒，每<% EKKAN_ARCANA_W1A_DAMAGE_INTERVAL %> 秒根据瘟疫使者的护甲值受到额外持续伤害."
+        "DOTA_Tooltip_ability_ekkan_rune_w_1_arcana2a_property_one"                  "中毒持续时间"
+        "DOTA_Tooltip_ability_ekkan_rune_w_1_arcana2a_suffix"                        " 秒"
+        "DOTA_Tooltip_ability_ekkan_rune_w_1_arcana2a_property_two"                  "中毒伤害"
+        "DOTA_Tooltip_ability_ekkan_rune_w_1_arcana2a_suffix_two"                    "% 瘟疫使者的护甲"
+
+        "DOTA_Tooltip_modifier_plaguebearer_w_1_poison"                              "腐蚀装甲"
+        "DOTA_Tooltip_modifier_plaguebearer_w_1_poison_Description"                 "每秒受到伤害"  
+
+        "DOTA_Tooltip_ability_ekkan_rune_w_2_arcana2a"                               "[W2] 疫病毒云"
+        "DOTA_Tooltip_ability_ekkan_rune_w_2_arcana2a_Description"                   "毒气笼罩瘟疫使者，使其 <% EKKAN_ARCANA_W2A_RADIUS %> 范围内的敌人减速并且每 <% EKKAN_ARCANA_W2A_DAMAGE_INTERVAL %> 秒根据瘟疫使者的最大生命值造成伤害."
+        "DOTA_Tooltip_ability_ekkan_rune_w_2_arcana2a_property_one"                  "每跳毒伤害"
+        "DOTA_Tooltip_ability_ekkan_rune_w_2_arcana2a_suffix"                        "% 最大生命值伤害"
+        "DOTA_Tooltip_ability_ekkan_rune_w_2_arcana2a_property_two"                  "移动速度降低"
+        "DOTA_Tooltip_ability_ekkan_rune_w_2_arcana2a_suffix_two"                        ""
+
+        "DOTA_Tooltip_modifier_plaguebearer_rot_effect"                               "疫病毒云"
+
+        "DOTA_Tooltip_ability_ekkan_rune_w_3_arcana2a"                               "[W3] 酸池"
+        "DOTA_Tooltip_ability_ekkan_rune_w_3_arcana2a_Description"                   "使瘟疫使者能够创造一片 <% EKKAN_ARCANA_W3A_RADIUS %> 范围的毒性区域，根据瘟疫使者的护甲穿透每 <% EKKAN_ARCANA_W3A_DAMAGE_INTERVAL %> 秒对其中的敌人造成伤害， 同时降低受影响敌人的双甲."
+        "DOTA_Tooltip_ability_ekkan_rune_w_3_arcana2a_property_one"                  "每跳毒伤害"
+        "DOTA_Tooltip_ability_ekkan_rune_w_3_arcana2a_suffix"                        "% 瘟疫使者的护甲穿透"
+        "DOTA_Tooltip_ability_ekkan_rune_w_3_arcana2a_property_two"                  "双甲降低"
+        "DOTA_Tooltip_ability_ekkan_rune_w_3_arcana2a_suffix_two"                    ""
+
+        "DOTA_Tooltip_ability_ekkan_plaguebearer_poison_spray"                       "酸池"
+        "DOTA_Tooltip_ability_ekkan_plaguebearer_poison_spray_Description"           "元素: <font color=\"#5C776E\">不死</font> / <font color=\"#37DD3D\">毒</font><br>创造酸池，对其中的敌人造成伤害并降低他们的双甲." 
+
+        "DOTA_Tooltip_plague_bearer_acid_spray_effect"                               "酸池"
+
+        "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2a"                               "[W4] 无尽瘟疫"
+        "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2a_Description"                   "提高瘟疫使者的召唤持续时间，同时提高 <font color=\"#5C776E\">不死</font> 和 <font color=\"#37DD3D\">毒</font> 元素伤害."
+        "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2a_property_one"                  "瘟疫使者召唤持续时间提高"
+        "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2a_suffix"                        " 秒"
+        "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2a_property_two"                  "不死和毒元素伤害提高"
+        "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2a_suffix_two"                    "%"
+
+        //ARCANA2 - b
+        "DOTA_Tooltip_ability_item_rpc_ekkan_arcana2b"                      "极寒悲惨痛苦之握"
+
+        "item_property_ekkan_arcana2b"                                       "深渊复苏 (冰)"
+        "property_ekkan_arcana2b_description"                                "用召唤寒冰亡魂替换 @Ability2 及其所有符文."
+
+        "DOTA_Tooltip_ability_ekkan_arcana2_frost_wraith"                        "召唤寒冰亡魂"
+        "DOTA_Tooltip_ability_ekkan_arcana2_frost_wraith_Description"            "元素: <font color=\"#5C776E\">不死</font> / <font color=\"#87D9FF\">冰</font><br>死灵飞龙1500范围内死亡的敌人将留下他们的尸骨. 死灵飞龙可以对有尸骨的地点释放该技能以召唤寒冰亡魂为他战斗。寒冰亡魂攻击具有冰霜之触效果，能降低敌人的速度."
+        "DOTA_Tooltip_ability_ekkan_arcana2_frost_wraith_max_skeletons"          "最大数量:"
+        "DOTA_Tooltip_ability_ekkan_arcana2_frost_wraith_skeleton_duration"      "存活时间:"
+        "DOTA_Tooltip_ability_ekkan_arcana2_frost_wraith_armor_mult"             "根据死灵飞龙双甲的倍数提升召唤物双甲:"
+        "DOTA_Tooltip_ability_ekkan_arcana2_frost_wraith_attack_mult"            "根据死灵飞龙攻击力倍数提升召唤物攻击:"
+        "DOTA_Tooltip_ability_ekkan_arcana2_frost_wraith_skeleton_health"        "% 死灵飞龙生命值提高召唤物最大生命值:"
+        "DOTA_Tooltip_ability_ekkan_arcana2_frost_wraith_cold_duration"        "冰霜之触持续时间:"
+        "DOTA_Tooltip_ability_ekkan_arcana2_frost_wraith_cold_ms_slow"          "冰霜之触移动速度降低:"
+        "DOTA_Tooltip_ability_ekkan_arcana2_frost_wraith_cold_as_slow"          "冰霜之触攻击速度降低:" 
+
+        "DOTA_Tooltip_modifier_frost_wraith_basic_chilled"                   "冰天雪地"
+        "DOTA_Tooltip_modifier_frost_wraith_basic_chilled_Description"       "被减速"
+
+        "ekkan_frost_wraith"                                                        "寒冰亡魂"
+
+        "DOTA_Tooltip_ability_ekkan_frost_wraith_passive"                   "冰霜之触"
+        "DOTA_Tooltip_ability_ekkan_frost_wraith_passive_Description"       "攻击能够降低敌人的攻击速度和移动速度."  
+        "DOTA_Tooltip_ability_ekkan_frost_wraith_passive_cold_duration"        "冰霜之触持续时间:"
+        "DOTA_Tooltip_ability_ekkan_frost_wraith_passive_cold_ms_slow"          "冰霜之触移动速度降低:"
+        "DOTA_Tooltip_ability_ekkan_frost_wraith_passive_cold_as_slow"          "冰霜之触攻击速度降低:" 
+
+        "DOTA_Tooltip_ability_ekkan_rune_w_1_arcana2b"                               "[W1] 冰晶爆轰"
+        "DOTA_Tooltip_ability_ekkan_rune_w_1_arcana2b_Description"                   "寒冰亡魂攻击时有 <% EKKAN_ARCANA_W1B_CHANCE %>% 概率伤害并缠绕 <% EKKAN_ARCANA_W1B_RADIUS %> 范围内的敌人."
+        "DOTA_Tooltip_ability_ekkan_rune_w_1_arcana2b_property_one"                  "缠绕持续时间"
+        "DOTA_Tooltip_ability_ekkan_rune_w_1_arcana2b_suffix"                        " 秒"
+        "DOTA_Tooltip_ability_ekkan_rune_w_1_arcana2b_property_two"                  "额外伤害"
+        "DOTA_Tooltip_ability_ekkan_rune_w_1_arcana2b_suffix_two"                    "% 寒冰亡魂的魔甲"
+
+        "DOTA_Tooltip_modifier_frost_wraith_w_1_root"                              "冰晶爆轰"
+        "DOTA_Tooltip_modifier_frost_wraith_w_1_root_Description"                 "被缠绕"  
+
+        "DOTA_Tooltip_ability_ekkan_rune_w_2_arcana2b"                               "[W2] 寒冰之矛"
+        "DOTA_Tooltip_ability_ekkan_rune_w_2_arcana2b_Description"                   "当寒冰亡魂受到伤害时, 有 <% EKKAN_ARCANA_W2B_CHANCE %>% 概率朝范围内随机目标投射 <% EKKAN_ARCANA_W2B_SPEAR_COUNT %> 根寒冰之矛. 被寒冰之矛击中的敌人将受到冰霜之触的减速效果."
+        "DOTA_Tooltip_ability_ekkan_rune_w_2_arcana2b_property_one"                  "冰矛伤害"
+        "DOTA_Tooltip_ability_ekkan_rune_w_2_arcana2b_suffix"                        "% 寒冰亡魂的攻击力"
+        "DOTA_Tooltip_ability_ekkan_rune_w_2_arcana2b_property_two"                  "最大冰矛投射范围"
+        "DOTA_Tooltip_ability_ekkan_rune_w_2_arcana2b_suffix_two"                    ""
+
+        "DOTA_Tooltip_ability_ekkan_rune_w_3_arcana2b"                               "[W3] 冻雨"
+        "DOTA_Tooltip_ability_ekkan_rune_w_3_arcana2b_Description"                   "寒冰亡魂能够在目标 <% EKKAN_ARCANA_W3B_RADIUS %> 范围内降下冻雨并极大地减速敌人 <% EKKAN_ARCANA_W3B_PCT_SLOW_DURATION %> 秒."
+        "DOTA_Tooltip_ability_ekkan_rune_w_3_arcana2b_property_one"                  "伤害"
+        "DOTA_Tooltip_ability_ekkan_rune_w_3_arcana2b_suffix"                        "% 寒冰亡魂的魔法穿透"
+        "DOTA_Tooltip_ability_ekkan_rune_w_3_arcana2b_property_two"                  "移动速度降低"
+        "DOTA_Tooltip_ability_ekkan_rune_w_3_arcana2b_suffix_two"                    "%"
+
+        "DOTA_Tooltip_ability_ekkan_frost_wraith_freezing_rain"                       "冻雨"
+        "DOTA_Tooltip_ability_ekkan_frost_wraith_freezing_rain_Description"           "元素: <font color=\"#5C776E\">不死</font> / <font color=\"#87D9FF\">冰</font><br>在目标 <% EKKAN_ARCANA_W3B_RADIUS %> 范围内降下冻雨并极大地减速敌人 <% EKKAN_ARCANA_W3B_PCT_SLOW_DURATION %> 秒." 
+
+        "DOTA_Tooltip_frost_wraith_freezing_rain_effect"                               "冻雨"
+        "DOTA_Tooltip_frost_wraith_freezing_rain_effect_Description"                   "移动速度降低"
+
+        "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2b"                               "[W4] 不灭寒骸"
+        "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2b_Description"                   "提高寒冰亡魂的召唤持续时间，同时提高 <font color=\"#5C776E\">不死</font> 和 <font color=\"#87D9FF\">冰</font> 元素伤害."
+        "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2b_property_one"                  "寒冰亡魂召唤持续时间提高"
+        "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2b_suffix"                        " 秒"
+        "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2b_property_two"                  "不死和冰元素伤害提高"
+        "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2b_suffix_two"                    "%"
+
+        //ARCANA2 - c
+        "DOTA_Tooltip_ability_item_rpc_ekkan_arcana2c"                      "炼狱悲惨痛苦之握"
+
+        "item_property_ekkan_arcana2c"                                       "深渊复苏 (火)"
+        "property_ekkan_arcana2c_description"                                "用召唤燃炎恶魔替换 @Ability2 及其所有符文."
+
+        "DOTA_Tooltip_ability_ekkan_arcana2_burning_legionnaire"                        "召唤燃炎恶魔"
+        "DOTA_Tooltip_ability_ekkan_arcana2_burning_legionnaire_Description"            "元素: <font color=\"#5C776E\">不死</font> / <font color=\"#EF4126\">火</font><br>死灵飞龙1500范围内死亡的敌人将留下他们的尸骨. 死灵飞龙可以对有尸骨的地点释放该技能以召唤燃炎恶魔为他战斗。燃炎恶魔攻击具有烈焰拳效果，能对目标敌人造成额外纯粹伤害."
+        "DOTA_Tooltip_ability_ekkan_arcana2_burning_legionnaire_max_skeletons"          "最大数量:"
+        "DOTA_Tooltip_ability_ekkan_arcana2_burning_legionnaire_skeleton_duration"      "存活时间:"
+        "DOTA_Tooltip_ability_ekkan_arcana2_burning_legionnaire_armor_mult"             "根据死灵飞龙双甲的倍数提升召唤物双甲:"
+        "DOTA_Tooltip_ability_ekkan_arcana2_burning_legionnaire_attack_mult"            "根据死灵飞龙攻击力倍数提升召唤物攻击:"
+        "DOTA_Tooltip_ability_ekkan_arcana2_burning_legionnaire_skeleton_health"        "% 死灵飞龙生命值提高召唤物最大生命值:"
+	"DOTA_Tooltip_ability_ekkan_arcana2_burning_legionnaire_fire_damage"        "% 攻击力伤害:"
+
+        "ekkan_burning_legionnaire"                                         "燃炎恶魔"
+
+        "DOTA_Tooltip_ability_ekkan_burning_legionnaire_passive"                   "烈焰拳"
+        "DOTA_Tooltip_ability_ekkan_burning_legionnaire_passive_Description"       "攻击附带额外纯粹伤害."  
+        "DOTA_Tooltip_ability_ekkan_burning_legionnaire_passive_fire_damage"         "% 攻击力:"
+
+        "DOTA_Tooltip_ability_ekkan_rune_w_1_arcana2c"                               "[W1] 狂热之火"
+        "DOTA_Tooltip_ability_ekkan_rune_w_1_arcana2c_Description"                   "在燃炎恶魔<% EKKAN_ARCANA_W1C_RANGE %> 范围内死亡的敌人能使燃炎恶魔永久获得额外的攻击力和攻击速度加成."
+        "DOTA_Tooltip_ability_ekkan_rune_w_1_arcana2c_property_one"                  "每层攻击力加成"
+        "DOTA_Tooltip_ability_ekkan_rune_w_1_arcana2c_suffix"                        ""
+        "DOTA_Tooltip_ability_ekkan_rune_w_1_arcana2c_property_two"                  "每层攻击速度加成"
+        "DOTA_Tooltip_ability_ekkan_rune_w_1_arcana2c_suffix_two"                    ""
+
+        "DOTA_Tooltip_modifier_burning_legionnaire_w_1_visible"                              "狂热之火"
+        "DOTA_Tooltip_modifier_burning_legionnaire_w_1_visible_Description"                 "永久提高攻击力和攻击速度"  
+
+        "DOTA_Tooltip_ability_ekkan_rune_w_2_arcana2c"                               "[W2] 炎狱披风"
+        "DOTA_Tooltip_ability_ekkan_rune_w_2_arcana2c_Description"                   "炎狱披风环绕着燃炎恶魔，使其 <% EKKAN_ARCANA_W2C_RADIUS %> 范围内的敌人每 <% EKKAN_ARCANA_W2C_DAMAGE_INTERVAL %> 秒根据燃炎恶魔的攻击力受到额外伤害. 同时被动提高燃炎恶魔的护甲值."
+        "DOTA_Tooltip_ability_ekkan_rune_w_2_arcana2c_property_one"                  "灼烧伤害"
+        "DOTA_Tooltip_ability_ekkan_rune_w_2_arcana2c_suffix"                        "% 燃炎恶魔的攻击力"
+        "DOTA_Tooltip_ability_ekkan_rune_w_2_arcana2c_property_two"                  "额外护甲值"
+        "DOTA_Tooltip_ability_ekkan_rune_w_2_arcana2c_suffix_two"                    ""
+
+        "DOTA_Tooltip_ability_ekkan_rune_w_3_arcana2c"                               "[W3] 末日冲击"
+        "DOTA_Tooltip_ability_ekkan_rune_w_3_arcana2c_Description"                   "燃炎恶魔能够跳向目标地点并对落地点 <% EKKAN_ARCANA_W3C_RADIUS %> 范围内的敌人造成伤害，将他们燃烧殆尽仅剩骨灰."
+        "DOTA_Tooltip_ability_ekkan_rune_w_3_arcana2c_property_one"                  "冲击伤害"
+        "DOTA_Tooltip_ability_ekkan_rune_w_3_arcana2c_suffix"                        "% 燃炎恶魔的攻击力"
+        "DOTA_Tooltip_ability_ekkan_rune_w_3_arcana2c_property_two"                  "最大跳跃距离"
+        "DOTA_Tooltip_ability_ekkan_rune_w_3_arcana2c_suffix_two"                    ""
+
+        "DOTA_Tooltip_ability_ekkan_burning_legionnaire_skeletal_mortar"                       "末日冲击"
+        "DOTA_Tooltip_ability_ekkan_burning_legionnaire_skeletal_mortar_Description"           "元素: <font color=\"#5C776E\">不死</font> / <font color=\"#EF4126\">火</font><br>跳向目标点并对 <% EKKAN_ARCANA_W3C_RADIUS %> 范围内的敌人造成伤害." 
+
+        "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2c"                               "[W4] 永恒烈焰"
+        "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2c_Description"                   "提高燃炎恶魔的召唤持续时间. 同时提高 <font color=\"#5C776E\">不死</font> 和 <font color=\"#EF4126\">火</font> 元素伤害."
+        "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2c_property_one"                  "燃炎恶魔召唤持续时间提高"
+        "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2c_suffix"                        " 秒"
+        "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2c_property_two"                  "不死和火元素伤害提高"
+        "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2c_suffix_two"                    "%"
+		
 		
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_1_1"		"[T1-1] 不死军团雕文"
