@@ -2227,7 +2227,7 @@ function Winterblight:SpawnTreasureRoomChests()
 		end
 		local luck_card = RandomInt(1, 24)
 		if luck_card == 1 then
-			table.insert(chest.contents, {tarot_card = 1})
+			chest.contents.tarot_card = 1
 		end
 		table.insert(Winterblight.CastleDungeonMaster.treasure_room_chests, chest)
 		chest.treasure_room = true
@@ -3071,7 +3071,7 @@ function Winterblight:CastleEnemyDieItemHype(enemy)
 				end
 				local luck_card = RandomInt(1, 24)
 				if luck_card == 1 then
-					table.insert(chest.contents, {tarot_card = 1})
+					chest.contents.tarot_card = 1
 				end
 				Timers:CreateTimer(6, function()
 					UTIL_Remove(pfx_dummy)
@@ -3152,7 +3152,7 @@ function Winterblight:GeneralChestSpawn(position, fv)
 		end
 		local luck_card = RandomInt(1, 24)
 		if luck_card == 1 then
-			table.insert(chest.contents, {tarot_card = 1})
+			chest.contents.tarot_card = 1
 		end
 		if Winterblight.CastleTarot["name"] == "wheel_of_fortune" then
 			local bad_luck = RandomInt(1, 2)
