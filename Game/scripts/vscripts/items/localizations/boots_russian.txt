@@ -570,3 +570,61 @@
         "item_rpc_yasha_boots_emerald1"                                     "Повышает Ловкость на @emerald_property1"
         "item_rpc_yasha_boots_sapphire1"                                        "Повышает Скорость Передвижения на @sapphire_property1%"
         "item_rpc_yasha_boots_amethyst1"                                        "Сила увеличивает Базовую Силу Атаки на @amethyst_property1"
+		
+		 "DOTA_Tooltip_ability_item_rpc_justice_greaves"                                "Justice Greaves"
+
+        "item_property_justice_greaves"                    "Equity"
+        "property_justice_greaves_description"         "Броня, Магическая Защита, Пробитие Брони и Пробитие Магической Защиты увеличены на <% ITEM_RPC_JUSTICE_GREAVES_PCT_STAT %>% от показателей сильнейшего противника в радиусе <% ITEM_RPC_JUSTICE_GREAVES_RANGE %>."
+
+        "item_rpc_justice_greaves_ruby1"                                        "Увеличивает Силу на @ruby_property1 и Запас Здоровья на @ruby_property2"
+        "item_rpc_justice_greaves_emerald1"                                     "Урон, получаемый спереди (сектор <% ITEM_RPC_JUSTICE_GREAVES_EMERALD_ANGLE %> градусов) снижается на @emerald_property1%"
+        "item_rpc_justice_greaves_sapphire1"                                        "Увеличивает получение Защит/Пробитий от противника на дополнительные @sapphire_property1%"
+        "item_rpc_justice_greaves_amethyst1"                                        "Увеличивает радиус поиска противника на @amethyst_property1 и включает в поиск невидимых юнитов"
+
+        "DOTA_Tooltip_ability_item_rpc_hangman_slippers"                                "Hangman Slippers"
+
+        "item_property_hangman_slippers"                    "Perspective Trick"
+        "property_hangman_slippers_description"         "Приказ атаки заставит вашего героя переместится к цели, при этом герой обездвижен, но полностью неуязвим. Противники в радиусе <% ITEM_RPC_HANGMAN_SLIPPERS_AOE %> от финальной точки будут обезоружены на <% ITEM_RPC_HANGMAN_SLIPPERS_DISARM_DURATION %> сек. Перезарядка <% ITEM_RPC_HANGMAN_SLIPPERS_CD %> секунд, максимальное расстояние для эффекта <% ITEM_RPC_HANGMAN_SLIPPERS_MAX_DISTANCE %>. "
+
+        "item_rpc_hangman_slippers_ruby1"                                        "Увеличивает расстояние на @ruby_property1 и радиус обезоруживания на @ruby_property2"
+        "item_rpc_hangman_slippers_emerald1"                                     "Увеличивает скорость перемещения основного эффекта на @emerald_property1%"
+        "item_rpc_hangman_slippers_sapphire1"                                        "Уменьшает перезарядку эффекта на @sapphire_property1 сек"
+        "item_rpc_hangman_slippers_amethyst1"                                        "Увеличивает длительность обезоруживания на @amethyst_property1"
+
+        "DOTA_Tooltip_ability_item_rpc_boots_of_temperance"                                "Boots of Temperance"
+
+        "item_property_boots_of_temperance"                    "Temperance"
+        "property_boots_of_temperance_description"         "Бонус Базового Урона Способностей не может превышать <% ITEM_RPC_BOOTS_OF_TEMPERANCE_BAD_CAP %>%. Весь получаемый урон снижается на <% ITEM_RPC_BOOTS_OF_TEMPERANCE_DMG_REDUCTION %>%."
+
+        "item_rpc_boots_of_temperance_ruby1"                                        "Понижает Бонусную Силу Атаки на @ruby_property1%. Увеличивает Максимальное Здоровье на @ruby_property2 и Максимальную Ману на @ruby_property3"
+        "item_rpc_boots_of_temperance_emerald1"                                     "Уменьшает Пробитие Брони и Пробитие Магической Защиты на @emerald_property1. Увеличивает Броню и Магическую Защиту на @emerald_property2"
+        "item_rpc_boots_of_temperance_sapphire1"                                        "Приказ атаки по противнику в радиусе @sapphire_property1 меняет героя и противника местами. Противники теряют @sapphire_property2% скорости перемещения после этого на <% ITEM_RPC_BOOTS_OF_TEMPERANCE_SAPPHIRE_SLOW_DURATION %> сек. Перезарядка <% ITEM_RPC_BOOTS_OF_TEMPERANCE_SAPPHIRE_CD %> сек."
+        "item_rpc_boots_of_temperance_amethyst1"                                        "Противники, которые атакуют героя, получают @amethyst_property1% шанс быть обезоруженными на <% ITEM_RPC_BOOTS_OF_TEMPERANCE_AMETHYST_DISARM_DURATION %> сек"
+
+        "DOTA_Tooltip_modifier_temperance_disarm"                   "Обезоружен"
+
+        "DOTA_Tooltip_modifier_temperance_sapphire_slow"            "Temperance (Сапфир)"
+        "DOTA_Tooltip_modifier_temperance_sapphire_slow_Description"    "Скорость передвижения уменьшена"
+
+        "DOTA_Tooltip_ability_item_rpc_gravewalkers"                                "Gravewalkers"
+
+        "item_property_gravewalkers"                    "Skeletal Pomp"
+        "property_gravewalkers_description"         "Приказ Остановки или Удержания Позиции превращает героя в танцующего скелета на <% ITEM_RPC_GRAVEWALKERS_BASE_DURATION %> секунд, или до приказа передвижения. На время превращения все противники поблизости в радиусе <% ITEM_RPC_GRAVEWALKERS_RANGE %> успокоятся и перестанут атаковать героя, а также отойдут на дистанцию <% ITEM_RPC_GRAVEWALKERS_WALKWAY_DISTANCE %>. Остальные противники сочтут героя безопасным и тоже не будут его атаковать. Герой не может читать заклинания или атаковать во время танца. Перезарядка <% ITEM_RPC_GRAVEWALKERS_COOLDOWN %> сек."
+
+        "item_rpc_gravewalkers_ruby1"                                        "Увеличивает максимальное время превращения на @ruby_property1, дистанция отступления противников увеличена на @ruby_property2 и радиус успокоения противников увеличен на @ruby_property3"
+        "item_rpc_gravewalkers_emerald1"                                     "Приказ передвижения во время танца переместит героя в сторону точки перемещения. Скорость перемещения равна @emerald_property1, максимальная дистанция @emerald_property2"
+        "item_rpc_gravewalkers_sapphire1"                                        "Уменьшает перезарядку на @sapphire_property1 сек"
+        "item_rpc_gravewalkers_amethyst1"                                        "Уменьшает любой урон, который заденет героя во время превращения на @amethyst_property1%"
+
+        "DOTA_Tooltip_ability_item_rpc_dissimilation_greaves"                                "Dissimilation Greaves"
+
+        "item_property_dissimilation_greaves"                    "Dissimilate"
+        "property_dissimilation_greaves_description"         "Приказ Остановки или Удержания Позиции прячет героя на 2 секунды и создает 7 порталов радиусом <% ITEM_RPC_DISSIMILATION_GREAVES_PORTAL_RADIUS %> рядом с героем. Щелчок правой кнопкой мыши по порталу активирует его и телепортирует героя к этому порталу по прошествии времени. В момент активации портала все противники внутри портала получат урон в <% ITEM_RPC_DISSIMILATION_GREAVES_DAMAGE_PCT_ATK_POWER %>% от Силы Атаки героя и замедлят скорость перемещения на <% ITEM_RPC_DISSIMILATION_GREAVES_MS_SLOW_PCT %>% в течение <% ITEM_RPC_DISSIMILATION_GREAVES_SLOW_DURATION %> сек. Перезарядка <% ITEM_RPC_DISSIMILATION_GREAVES_COOLDOWN %> сек."
+
+        "item_rpc_dissimilation_greaves_ruby1"                                        "Увеличивает радиус порталов на @ruby_property1"
+        "item_rpc_dissimilation_greaves_emerald1"                                     "Увеличивает показатель руны [E4] на @emerald_property1"
+        "item_rpc_dissimilation_greaves_sapphire1"                                        "Снижает перезарядку на @sapphire_property1 сек"
+        "item_rpc_dissimilation_greaves_amethyst1"                                        "Увеличивает урон на @amethyst_property1% от Силы Атаки и увеличивает замедление перемещения на @amethyst_property2"
+
+        "DOTA_Tooltip_modifier_grey_domain_slow"            "Dissimilation"
+        "DOTA_Tooltip_modifier_grey_domain_slow_Description"    "Замедлен"
