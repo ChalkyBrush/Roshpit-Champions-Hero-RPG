@@ -1500,12 +1500,12 @@
 		"DOTA_Tooltip_ability_winterblight_reaper_swipe"				"Reaper Swipe"
 		"DOTA_Tooltip_ability_winterblight_reaper_swipe_Description"	"Attacks summon a Grim Reaper that deals additional pure damage based on attack power and the target's Max Health"
 		"DOTA_Tooltip_ability_winterblight_reaper_swipe_damage_pct_atk_power"	"% DAMAGE % OF ATTACK POWER:"
-		"DOTA_Tooltip_ability_winterblight_reaper_swipe_damage_pct_max_healthr"	"% DAAMGE % OF TARGET MAX HEALTH:"
+		"DOTA_Tooltip_ability_winterblight_reaper_swipe_damage_pct_max_healthr"	"% DAMAGE % OF TARGET MAX HEALTH:"
 
 		"DOTA_Tooltip_ability_elite_ghoul_ai"							"Spark Throw"
 		"DOTA_Tooltip_ability_elite_ghoul_ai_Description"				"A ghastly spark damages and stuns impacted enemies"
 		"DOTA_Tooltip_ability_elite_ghoul_ai_base_damage"				"DAMAGE:"
-		"DOTA_Tooltip_ability_elite_ghoul_ai_base_paralyze_duration"	"PARALYZE_DURATION:"
+		"DOTA_Tooltip_ability_elite_ghoul_ai_base_paralyze_duration"	"PARALYZE DURATION:"
 
 		"DOTA_Tooltip_ability_winterblight_venomous_bite"				"Venomous Bite"
 		"DOTA_Tooltip_ability_winterblight_venomous_bite_Description"	"Attacks leave a stacking poison debuff that deals damage and slows movement speed"	
@@ -1762,7 +1762,7 @@
 		"DOTA_Tooltip_ability_winterblight_doom_duration"	"DURATION:"
 
 		"DOTA_Tooltip_modifier_winterblight_doom"				"Doom"
-		"DOTA_Tooltip_modifier_winterblight_doom_Description"	"Silencec"
+		"DOTA_Tooltip_modifier_winterblight_doom_Description"	"Silenced"
 
 		"DOTA_Tooltip_ability_winterblight_doom_warrior_searing_blade"	"Dual Blade"
 		"DOTA_Tooltip_ability_winterblight_doom_warrior_searing_blade_Description"	"Attacks have a frostfire effect that slow enemies and make them burn with a DOT effect."
@@ -1818,7 +1818,7 @@
 		"DOTA_Tooltip_ability_winterblight_fire_blink_Description"	"Teleport to the target position in a burst of fire."	
 
 		"DOTA_Tooltip_ability_winterblight_aspect_of_solos_passive"	"Sun Bird's Flamethrower"
-		"DOTA_Tooltip_ability_winterblight_aspect_of_solos_passive_Description"	"A spirial of flame emits from the Sun Bird."
+		"DOTA_Tooltip_ability_winterblight_aspect_of_solos_passive_Description"	"A spiral of flame emits from the Sun Bird."
 		"DOTA_Tooltip_ability_winterblight_aspect_of_solos_passive_burn_dps"		"BURN DPS:"
 		"DOTA_Tooltip_ability_winterblight_aspect_of_solos_passive_impact_damage"	"IMPACT DAMAGE:"
 
@@ -1840,7 +1840,7 @@
 		"DOTA_Tooltip_modifier_vorethrex_dash_debuff_Description"		"Reduced Attack Power and Health Regen"
 
 		"DOTA_Tooltip_ability_winterblight_paragon_of_judgement_bash"	"Gavel Bash"
-		"DOTA_Tooltip_ability_winterblight_paragon_of_judgement_bash_Description"	"Attacks haVE a chance to stun and deal additional Pure damage"
+		"DOTA_Tooltip_ability_winterblight_paragon_of_judgement_bash_Description"	"Attacks have a chance to stun and deal additional Pure damage"
 		"DOTA_Tooltip_ability_winterblight_paragon_of_judgement_bash_impact_damage"	"BASH DAMAGE:"
 		"DOTA_Tooltip_ability_winterblight_paragon_of_judgement_bash_stun_duration"	"STUN DURATION:"
 		"DOTA_Tooltip_ability_winterblight_paragon_of_judgement_bash_stun_chance"	"% BASH CHANCE:"

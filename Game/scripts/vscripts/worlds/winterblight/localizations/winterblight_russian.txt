@@ -1256,3 +1256,768 @@
 		"cavern_ui_failed"											"Провалено"		
 		"cavern_ui_completed"										"Завершено"	
 		"cavern_ui_no_record"										"Нет рекорда"
+		
+		//MOUNTAIN ASCENT + CASTLE UNITS
+
+		"winterblight_snowvil_brute"								"Snowvil Brute"
+		"winterblight_mountain_tree"								"Aggressive Pine"
+		"winterblight_snowvil_shaman"			"Snowvil Shaman"
+		"winterblight_snowvil_chieftain"		"Snowvil Chieftain"
+		"winterblight_composed_rubble"			"Composed Rubble"
+		"winterblight_owl_sentry"			"Winterblight Owl Sentry"
+		"winterblight_haunter"				"Haunter"
+		"winterblight_hinterlands_guardian"		"Hinterlands Guardian"
+		"winterblight_demonoid"				"Winterblight Demonoid"
+		"winterblight_yozario"				"Yazario"
+		"winterblight_mountain_tombstone"		"Winterblight Mountain Tombstone"
+		"winterblight_snowvil_bloodeater"		"Snowvil Bloodeater"
+		"winterblight_frozen_soul"			"Frozen Soul"
+		"winterblight_wraithguard"			"Wraithguard"
+		"winterblight_wraithguard_elite"		"Wraithguard Elite"
+		"winterblight_grave_ghost"			"Grave Ghost"
+		"winterblight_frozen_phantom"			"Frozen Phantom"
+		"winterblight_frozen_cage"			"Frozen Cage"
+		"winterblight_frozen_mage"			"Frozen Mage"
+		"winterblight_skeleton_archer"			"Winterblight Skeleton Archer"
+		"winterblight_defiler"				"Defiler"
+		"winterblight_baron_moredi"			"Baron Moredi"
+		"winterblight_lich_king_sonder"			"Lich King Sonder"
+		"winterblight_wrath_queen_asyria"		"Wrath Queen Asyria"
+		"winterblight_accursed"				"Accursed"
+		"winterblight_mountain_spirit"			"Mountain Spirit"
+		"winterblight_ancient_mountain_spirit"		"Ancient Mountain Spirit"
+		"winterblight_soul_fletcher"			"Soul Fletcher"
+		"winterblight_black_gargoyle"			"Winterblight Black Gargoyle"
+		"winterblight_draugr"				"Winterblight Draugr"
+		"winterblight_diviner_horus"			"Diviner Horus"
+		"winterblight_castle_warrior"			"Castle Warrior"
+		"winterblight_castle_watchman"			"Castle Watchman"
+		"winterblight_skull_ripper"			"Skull Ripper"
+		"winterblight_suffering_spirit"			"Suffering Spirit"
+		"winterblight_elite_ghoul"			"Elite Ghoul"
+		"winterblight_elite_castle_warrior"		"Elite Castle Warrior"
+		"winterblight_cellar_spider_mother"		"Broodmother"
+		"winterblight_spider_egg_sack"			"Egg Sack"
+		"winterblight_egg_spider"			"Venomous Spider"
+		"winterblight_invading_spider"			"Invading Spider"
+		"winterblight_ice_harbor_mini_boss"		"Winterblight Frost Wyrm"
+		"winterblight_spike_trap"			"Spike Trap"
+		"winterblight_ground_blade"			"Spiral Blade"
+		"winterblight_corrupted_corpse"			"Corrupted Corpse"
+		"winterblight_bloodripper"			"Bloodripper"
+		"winterblight_torturer"				"Vicious Torturor"
+		"winterblight_ghost_pirate"			"Winterblight Ghost Pirate"
+		"winterblight_castle_shadow_of_saturn"		"Shadow of Saturn"
+		"winterblight_saturn_zealot"			"Saturn Zealot"
+		"winterblight_slime_goblin"			"Slime Goblin"
+		"winterblight_fallen_one"			"Fallen One"
+		"winterblight_armory_rock"			"Armory Rock"
+		"winterblight_sun_rubble"			"Solar Rubble"
+		"winterblight_ice_bear"				"Boreal Ursan"
+		"winterblight_gold_fanatic"			"Winterblight Gold Fanatic"
+		"winterblight_treasure_room_tower"		"Golden Tower"
+		"winterblight_treasure_zombie"			"Treasure Zombie"
+		"winterblight_treasure_chest"			"Treasure Chest"
+		"winterblight_castle_graviton"			"Graviton"
+		"winterblight_moon_warden"			"Moon Warden"
+		"winterblight_blue_slime_monster"		"Blue Slime Manifest"
+		"winterblight_slime_zombie"			"Slime Zombie"
+		"winterblight_castle_boss"			"Lich King Cruxys"
+		"winterblight_castle_boss_surrogate"		"Cruxys"
+		"winterblight_castle_boss_surrogate_hanged"	"Flipped Avatar of Cruxys"
+		"winterblight_haunt_magician"			"Winterblight Haunt Magician"
+		"winterblight_red_magician"			"Winterblight Red Magician"
+		"winterblight_green_magician"			"Winterblight Green Magician"
+		"winterblight_blue_magician"			"Winterblight Blue Magician"
+		"winterblight_shadow_priestess"			"Shadow Priestess"
+		"winter_castle_faceless_empress"		"Faceless Empress"
+		"winterblight_emperors_servant"			"Emperor's Servant"
+		"winterblight_slime_emperor"			"Slime Emperor"
+		"winterblight_necro_knight"			"Necromancer Knight"
+		"winterblight_lovers_heart_path"		"Lovers"
+		"winterblight_dual_drake"			"Dual Drake"
+		"winterblight_galren"				"Galren"
+		"winterblight_elyna"				"Elyna"
+		"winterblight_serpent_nachash"			"Serpent Nakhash"
+		"winterblight_castle_strength_spine_drake"	"Mighty Spine Drake"
+		"winterblight_lost_gladiator"			"Lost Gladiator"
+		"winterblight_hermit_eye"			"Hermit's Eye"
+		"winterblight_castle_hermit_hoodling"		"Hoodling"
+		"winterblight_castle_elite_hermit_hoodling"	"Elite Hoodling"
+		"winterblight_lonely_hermit"			"Lonely Hermit"
+		"winterblight_shadow_wanderer"			"Shadow Wanderer"
+		"winterblight_blue_goo_gunman"			"Ghost Hunter Keenes"
+		"winterblight_castle_justice_angel"		"Angel of Justice"
+		"winterblight_castle_justice_demon"		"Demon of Justice"
+		"winterblight_castle_justice_arch_angel_matheus" "Arch-Angel Matheus"
+		"winterblight_castle_justice_arch_demon_hellmouth"	"Arch-Demon Hellmouth"
+		"winterblight_castle_justice_balance"		"Avatar of Balance"
+		"winterblight_hanging_slayer"			"Hanging Slayer"
+		"winterblight_water_bearer"			"Winterblight Water Bearer"
+		"winterblight_winterblight_devil_watcher"	"Devil Watcher"
+		"winterblight_winterblight_devil_warrior"	"Devil Warrior"
+		"winterblight_winterblight_elite_devil_warrior"	"Elite Devil Warrior"
+		"winterblight_devil_baphomet"			"Baphomet"
+		"winterblight_bloody_faceripper"		"Bloody Faceripper"
+		"winterblight_star_watcher"			"Star Gazer"
+		"winterblight_lumos_king"			"Lumos King"
+		"winterblight_castle_werewolf"			"Winterblight Castle Werewolf"
+		"winterblight_elite_castle_werewolf"		"Winterblight Elite Castle Werewolf"
+		"winterblight_temple_sun_crow"			"Temple Sun Crow"
+		"winterblight_heat_fletcher"			"Heat Fletcher"
+		"winterblight_elite_heat_fletcher"		"Elite Heat Fletcher"
+		"winterblight_iron_sun_warrior"			"Iron Sun Warrior"
+		"winterblight_aspect_of_solos"			"Aspect of Solos"
+		"winterblight_judgement_fallen"			"Fallen"
+		"winterblight_judgement_judge"			"Judge Berethar"
+		"winterblight_world_commander_vorethrex"	"World Commander Vorethrex"
+		"winterblight_paragon_of_judgement"		"Paragon of Judgement"
+		"winterblight_high_priest_xelethar"		"High Priest Xelethar"
+		"winterblight_bishop_of_hades"			"Bishop of Hades"
+		"winterblight_castle_star_miniboss"		"Countess of Exodia"
+		"winterblight_empress_emasz"			"Empress Emasz"
+
+		//MOUNTAIN ASCENT + CASTLE ABILITIES
+
+		"DOTA_Tooltip_ability_winterblight_mountain_rubble_ice_burst"	"Rubble Ice Burst"
+		"DOTA_Tooltip_ability_winterblight_mountain_rubble_ice_burst_Description"	"После задержки в 0.8 сек выпускает ледяной взрыв, замедляющий и оглушающий противников, попавших в него."
+		"DOTA_Tooltip_ability_winterblight_mountain_rubble_ice_burst_stun_duration"	ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
+		"DOTA_Tooltip_ability_winterblight_mountain_rubble_ice_burst_damage"		"УРОН:"
+		"DOTA_Tooltip_ability_winterblight_mountain_rubble_ice_burst_as_slow"		"ЗАМЕДЛЕНИЕ АТАК:"
+		"DOTA_Tooltip_ability_winterblight_mountain_rubble_ice_burst_ms_slow"		"ЗАМЕДЛЕНИЕ СКОРОСТИ ПЕРЕДВИЖЕНИЯ:"
+
+		"DOTA_Tooltip_modifier_mountain_rubble_slow"					"Ice Burst - Замедление"
+
+		"DOTA_Tooltip_ability_winterblight_owl_sentry_passive"				"Winterblight Sentry"
+		"DOTA_Tooltip_ability_winterblight_owl_sentry_passive_Description"		"В поиске нарушителей."
+
+		"DOTA_Tooltip_ability_winterblight_ice_lance"				"Winterblight Ice Lance"
+		"DOTA_Tooltip_ability_winterblight_ice_lance_Description"		"Запускает ледяной снаряд в сторону противника, который наносит урон при попадании."
+		"DOTA_Tooltip_ability_winterblight_ice_lance_damage"			"УРОН:"
+
+		"DOTA_Tooltip_modifier_ice_lance_cold"						"Ice Lance Cold"
+
+		"DOTA_Tooltip_ability_winterblight_demonoid_passive"			"Ardent Hunter"
+		"DOTA_Tooltip_ability_winterblight_demonoid_passive_Description"	"Пассивно увеличивает бонусный урон атаки"
+		"DOTA_Tooltip_ability_winterblight_demonoid_passive_attack_power_bonus"	"% БОНУСНЫЙ УРОН АТАКИ:"
+
+		"DOTA_Tooltip_modifier_demonoid_passive"					"Ardent Hunter"
+		"DOTA_Tooltip_modifier_demonoid_passive_Description"		"Урон атаки увеличен"
+
+		"DOTA_Tooltip_ability_winterblight_glint_of_onu"			"Onu Technique"
+		"DOTA_Tooltip_ability_winterblight_glint_of_onu_Description"		"Атаки имеют шанс телепортировать владельца за спину противника и ускорить атаки на короткий срок."
+		"DOTA_Tooltip_ability_winterblight_glint_of_onu_attack_speed_bonus"		"БОНУС СКОРОСТИ АТАКИ:"
+		"DOTA_Tooltip_ability_winterblight_glint_of_onu_proc_chance"		"ШАНС СРАБАТЫВАНИЯ:"
+
+		"DOTA_Tooltip_ability_mountain_tombstone_ability"			"Horrifying Screams"
+		"DOTA_Tooltip_ability_mountain_tombstone_ability_Description"		"Надгробный камень содрогается от боли и испускает крик."
+		"DOTA_Tooltip_ability_mountain_tombstone_ability_petrify_duration"	"ДЛИТЕЛЬНОСТЬ ОКАМЕНЕНИЯ:"
+		"DOTA_Tooltip_ability_mountain_tombstone_ability_damage"		"УРОН ОТ КРИКА:"
+
+		"DOTA_Tooltip_modifier_looking_at_tombstone_stacks"			"Empty Stare"
+
+		"DOTA_Tooltip_ability_winterblight_wraithfire_blast"			"Wraithfire Bullet"
+		"DOTA_Tooltip_ability_winterblight_wraithfire_blast_Description"	"Запускает призрачный череп в цель. Череп оглушает при попадании."
+		"DOTA_Tooltip_ability_winterblight_wraithfire_blast_range"		"ДАЛЬНОСТЬ:"
+		"DOTA_Tooltip_ability_winterblight_wraithfire_blast_damage"		"УРОН:"
+		"DOTA_Tooltip_ability_winterblight_wraithfire_blast_stun_duration"	"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
+
+		"DOTA_Tooltip_modifier_hellfire_burn"							"Wraithfire - Горение"
+
+		"DOTA_Tooltip_ability_winterblight_winterblight_ghost_blink"			"Ghost Blink"
+		"DOTA_Tooltip_ability_winterblight_winterblight_ghost_blink_Description"	"Телепортирует к цели."
+
+		"DOTA_Tooltip_ability_winterblight_defiler_passive"			"Defile"
+		"DOTA_Tooltip_ability_winterblight_defiler_passive_Description"	"Атаки оставляют складывающийся дебафф на противниках, который снижает урон атак. Владелец способности, наоборот, получает бонус к урону атаки при нанесении этих же атак."
+		"DOTA_Tooltip_ability_winterblight_defiler_passive_max_stacks"		"МАКСИМУМ ЗАРЯДОВ:"
+		"DOTA_Tooltip_ability_winterblight_defiler_passive_duration"		"ДЛИТЕЛЬНОСТЬ:"
+		"DOTA_Tooltip_ability_winterblight_defiler_passive_damage_gain_per_stack"	"% БОНУС УРОНА (ВЛАДЕЛЕЦ):"
+		"DOTA_Tooltip_ability_winterblight_defiler_passive_damage_loss_per_stack"	"% ПОТЕРЯ УРОНА (ПРОТИВНИК):"
+
+		"DOTA_Tooltip_modifier_defiler_attack_power_gain"				"Defile"
+		"DOTA_Tooltip_modifier_defiler_attack_power_gain_Description"	"Сила Атаки увеличена"
+
+		"DOTA_Tooltip_modifier_defiler_attack_power_drain"				"Defile"
+		"DOTA_Tooltip_modifier_defiler_attack_power_drain_Description"	"Сила Атаки уменьшена"
+
+		"DOTA_Tooltip_ability_winter_grave_ghost_spark"			"Ghost Spark"
+		"DOTA_Tooltip_ability_winter_grave_ghost_spark_Description"	"Запускает наносящие урон искры во все стороны. Искры парализуют при попадании."
+		"DOTA_Tooltip_ability_winter_grave_ghost_spark_base_damage"		"УРОН:"
+		"DOTA_Tooltip_ability_winter_grave_ghost_spark_paralyze_duration"		"ДЛИТЕЛЬНОСТЬ ПАРАЛИЧА:"
+
+		"DOTA_Tooltip_ability_winterblight_asyria_passive"					"Midnight Huntress"
+		"DOTA_Tooltip_ability_winterblight_asyria_passive_Description"		"При атаке выпускает дополнительную стрелу перед собой, которая нанесет урон по области и замедлит пораженных противников."
+		"DOTA_Tooltip_ability_winterblight_asyria_passive_base_damage"		"БАЗОВЫЙ УРОН СТРЕЛЫ:"
+		"DOTA_Tooltip_ability_winterblight_asyria_passive_percent_attack_power"	"% ДОПОЛНИТЕЛЬНЫЙ УРОН СТРЕЛЫ, % ОТ СИЛЫ АТАКИ:"
+		"DOTA_Tooltip_ability_winterblight_asyria_passive_movespeed_slow"	"ЗАМЕДЛЕНИЕ ПЕРЕМЕЩЕНИЯ:"
+		"DOTA_Tooltip_ability_winterblight_asyria_passive_movespeed_slow_duration"	"ДЛИТЕЛЬНОСТЬ ЗАМЕДЛЕНИЯ:"
+		"DOTA_Tooltip_ability_winterblight_asyria_passive_number_of_arrows"	"КОЛИЧЕСТВО СТРЕЛ:"
+
+		"DOTA_Tooltip_modifier_asyria_arrow_slow"						"Замерз"
+
+		"DOTA_Tooltip_ability_winterblight_accursed_passive"			"Execration"
+		"DOTA_Tooltip_ability_winterblight_accursed_passive_Description"	"Атаки наносят дополнительный чистый урон и обездвиживают. Пассивно увеличивает регенерацию ХП владельца."
+		"DOTA_Tooltip_ability_winterblight_accursed_passive_bonus_pure_damage"		"ЧИСТЫЙ УРОН:"
+		"DOTA_Tooltip_ability_winterblight_accursed_passive_root_duration"			"ДЛИТЕЛЬНОСТЬ ОБЕЗДВИЖИВАНИЯ:"
+		"DOTA_Tooltip_ability_winterblight_accursed_passive_health_regen_pct"		"% РЕГЕНЕРАЦИЯ ХП:"
+
+		"DOTA_Tooltip_modifier_accursed_effect"							"Execration"
+		"DOTA_Tooltip_modifier_accursed_effect_Description"				"Обездвижен"		
+
+		"DOTA_Tooltip_ability_winterblight_life_drain"					"Siphon Life"
+		"DOTA_Tooltip_ability_winterblight_life_drain_Description"		"Поражает всех противников в радиусе действия, замедляя их и высасывая здоровье."
+		"DOTA_Tooltip_ability_winterblight_life_drain_life_drain"		"ПОТЕРЯ ЗДОРОВЬЯ:"
+		"DOTA_Tooltip_ability_winterblight_life_drain_life_drain_heal_mult"	"МУЛЬТИПЛИКАТОР ЛЕЧЕНИЯ ОТ НАНЕСЕННОГО УРОНА:"
+		"DOTA_Tooltip_ability_winterblight_life_drain_life_movement_slow"	"% ЗАМЕДЛЕНИЕ ПЕРЕДВИЖЕНИЯ:"
+
+		"DOTA_Tooltip_modifier_life_drain_effect"						"Siphon Life"
+
+		"DOTA_Tooltip_ability_winterblight_reincarnation"				"Реинкарнация"
+		"DOTA_Tooltip_ability_winterblight_reincarnation_Description"	"Возрождается через некоторое время после смерти, не активируется, если перезаряжается."	
+		"DOTA_Tooltip_ability_winterblight_reincarnation_respawn_delay"	"ЗАДЕРЖКА ВОЗРОЖДЕНИЯ:"
+
+		"DOTA_Tooltip_ability_winterblight_reaper_swipe"				"Reaper Swipe"
+		"DOTA_Tooltip_ability_winterblight_reaper_swipe_Description"	"Атаки вызывают Мрачного Жнеца, который нанесет дополнительный Чистый урон по цели, в зависимости от атаки владельца и максимального здоровья цели."
+		"DOTA_Tooltip_ability_winterblight_reaper_swipe_damage_pct_atk_power"	"% УРОН % ОТ СИЛЫ АТАКИ:"
+		"DOTA_Tooltip_ability_winterblight_reaper_swipe_damage_pct_max_healthr"	"% УРОН % ОТ ЗАПАСА ЗДОРОВЬЯ ЦЕЛИ:"
+
+		"DOTA_Tooltip_ability_elite_ghoul_ai"							"Spark Throw"
+		"DOTA_Tooltip_ability_elite_ghoul_ai_Description"				"Призрачная искра наносит урон и парализует цели."
+		"DOTA_Tooltip_ability_elite_ghoul_ai_base_damage"				"УРОН:"
+		"DOTA_Tooltip_ability_elite_ghoul_ai_base_paralyze_duration"	"ДЛИТЕЛЬНОСТЬ ПАРАЛИЧА:"
+
+		"DOTA_Tooltip_ability_winterblight_venomous_bite"				"Venomous Bite"
+		"DOTA_Tooltip_ability_winterblight_venomous_bite_Description"	"Атаки оставляют складывающийся дебафф на цели, который наносит урон от яда и замедляет передвижение."	
+		"DOTA_Tooltip_ability_winterblight_venomous_bite_damage_per_tick_per_stack"	"УРОН ЗА ЗАРЯД:"
+		"DOTA_Tooltip_ability_winterblight_venomous_bite_move_slow_per_stack"		"% ЗАМЕДЛЕНИЕ ПЕРЕДВИЖЕНИЯ ЗА ЗАРЯД:"
+		"DOTA_Tooltip_ability_winterblight_venomous_bite_max_stacks"			"МАКСИМУМ СТАКОВ:"
+		"DOTA_Tooltip_ability_winterblight_venomous_bite_duration"				"ДЛИТЕЛЬНОСТЬ:"
+		"DOTA_Tooltip_ability_winterblight_venomous_bite_damage_interval"		"ИНТЕРВАЛ УРОНА:"
+
+		"DOTA_Tooltip_modifier_winterblight_venomous_bite_effect"		"Venomous Bite"
+		"DOTA_Tooltip_modifier_winterblight_venomous_bite_effect_Description"	"Получает периодический урон и замедлен."
+
+		"DOTA_Tooltip_winterblight_egg_sack_ability"					"Паучий кокон"
+		"DOTA_Tooltip_winterblight_egg_sack_ability_Description"		"Полон пауков"
+
+		"DOTA_Tooltip_ability_winterblight_frost_wyrm_passive"			"Frost Breath"
+		"DOTA_Tooltip_ability_winterblight_frost_wyrm_passive_Description"	"Атаки наносят дополнительный Чистый урон по области и замедляют цели."
+		"DOTA_Tooltip_ability_winterblight_frost_wyrm_passive_damage"		"УРОН:"
+		"DOTA_Tooltip_ability_winterblight_frost_wyrm_passive_ms_loss"		"СНИЖЕНИЕ СКОРОСТИ ПЕРЕДВИЖЕНИЯ:"
+
+		"DOTA_Tooltip_ability_winterblight_soulfire_storm_big"			"Mega Soulfire Storm"
+		"DOTA_Tooltip_ability_winterblight_soulfire_storm_big_Description"	"Вызывает обжигающий шторм, наносящий урон от каждой волны и поджигающий цели."
+		"DOTA_Tooltip_ability_winterblight_soulfire_storm_big_wave_damage"	"УРОН ВОЛН:"
+		"DOTA_Tooltip_ability_winterblight_soulfire_storm_big_burn_damage"	"УРОН ГОРЕНИЯ:"
+
+		"DOTA_Tooltip_ability_winterblight_spike_trap_passive"			"Spike Trap"
+		"DOTA_Tooltip_ability_winterblight_spike_trap_passive_Description"	"Противники получат серьёзный Чистый урон внутри ловушки из шипов."
+		"DOTA_Tooltip_ability_winterblight_spike_trap_passive_damage_base"		"УРОН:"
+		"DOTA_Tooltip_ability_winterblight_spike_trap_passive_damage_pct_max_health"	"% УРОН ОТ % МАКСИМАЛЬНОГО ЗДОРОВЬЯ:"
+
+		"DOTA_Tooltip_ability_winterblight_torturor_passive"			"Rend"
+		"DOTA_Tooltip_ability_winterblight_torturor_passive_Description"	"Атаки открывают кровотечение противникам на 3.5 секунды."
+		"DOTA_Tooltip_ability_winterblight_torturor_passive_bleed_damage"	"УРОН КРОВОТЕЧЕНИЯ:"
+
+		"DOTA_Tooltip_ability_winterblight_chilling_bite_aura"			"Chilling Bite Aura"
+		"DOTA_Tooltip_ability_winterblight_chilling_bite_aura_Description"	"Противники в радиусе способности атакуются сосульками, которые наносят урон при попадании."
+		"DOTA_Tooltip_ability_winterblight_chilling_bite_aura_as_loss"		"ЗАМЕДЛЕНИЕ СКОРОСТИ АТАКИ:"
+		"DOTA_Tooltip_ability_winterblight_chilling_bite_aura_ms_loss"		"ЗАМЕДЛЕНИЕ ПЕРЕДВИЖЕНИЯ:"
+		"DOTA_Tooltip_ability_winterblight_chilling_bite_aura_aoe_radius"	"РАДИУС СПОСОБНОСТИ:"
+		"DOTA_Tooltip_ability_winterblight_chilling_bite_aura_dmg_pct_atk_power"	"% УРОН % ОТ СИЛЫ АТАКИ:"
+		"DOTA_Tooltip_ability_winterblight_chilling_bite_aura_slow_duration"	"ДЛИТЕЛЬНОСТЬ ЗАМЕДЛЕНИЯ:"
+
+		"DOTA_Tooltip_modifier_winterblight_chilling_bite_aura_chilled"		"Chilling Bite"
+
+		"DOTA_Tooltip_ability_winterblight_rot"			"Rot"
+		"DOTA_Tooltip_ability_winterblight_rot_Description"	"Противники, попавшие в ядовитое облако, получают урон и замедляются."
+		"DOTA_Tooltip_ability_winterblight_rot_as_loss"		"ЗАМЕДЛЕНИЕ СКОРОСТИ АТАКИ:"
+		"DOTA_Tooltip_ability_winterblight_rot_ms_loss"		"ЗАМЕДЛЕНИЕ ПЕРЕДВИЖЕНИЯ:"
+		"DOTA_Tooltip_ability_winterblight_rot_aoe_radius"	"РАДИУС:"
+		"DOTA_Tooltip_ability_winterblight_rot_dps"	"УРОН В СЕКУНДУ:"
+
+		"DOTA_Tooltip_modifier_rot_effect"				"Rot"
+
+		"DOTA_Tooltip_ability_winterblight_shield_block"	"Shield Block"
+		"DOTA_Tooltip_ability_winterblight_shield_block_Description"	"Урон, полученный спереди, значительно уменьшен."
+		"DOTA_Tooltip_ability_winterblight_shield_block_front_damage_block"	"% СНИЖЕНИЕ УРОНА:"
+
+		"DOTA_Tooltip_modifier_shield_block"				"Shield Block"
+		"DOTA_Tooltip_modifier_shield_block_Description"	"Блокирует часть урона спереди."
+
+		"DOTA_Tooltip_ability_winterblight_ice_bear_passive"	"Rabid"
+		"DOTA_Tooltip_ability_winterblight_ice_bear_passive_Description"	"Нанесение атаки увеличивает Базовую Силу Атаки и Скорость Атаки на короткое время."
+		"DOTA_Tooltip_ability_winterblight_ice_bear_passive_duration"		"ДЛИТЕЛЬНОСТЬ:"
+		"DOTA_Tooltip_ability_winterblight_ice_bear_passive_max_stacks"		"МАКСИМУМ ЗАРЯДОВ:"
+		"DOTA_Tooltip_ability_winterblight_ice_bear_passive_base_attack_per_stack"	"БАЗОВАЯ СИЛА АТАКИ ЗА ЗАРЯД:"
+		"DOTA_Tooltip_ability_winterblight_ice_bear_passive_bonus_as_per_stack"		"СКОРОСТЬ АТАКИ ЗА ЗАРЯД:"
+
+		"DOTA_Tooltip_modifier_ice_bear_attack_buff"			"Rabid"
+		"DOTA_Tooltip_modifier_ice_bear_attack_buff_Description"	"Базовая Сила Атаки и Скорость Атаки повышены."
+
+		"DOTA_Tooltip_ability_winterblight_moon_warden_passive"		"Lunar Cascade"
+		"DOTA_Tooltip_ability_winterblight_moon_warden_passive_Description"	"Вокруг заклинателя появляются области, наносящие урон и накладывающие безмолвие противников внутри."
+		"DOTA_Tooltip_ability_winterblight_moon_warden_passive_damage"		"УРОН:"	
+		"DOTA_Tooltip_ability_winterblight_moon_warden_passive_silence_duration"	"ДЛИТЕЛЬНОСТЬ БЕЗМОЛВИЯ:"	
+
+		"DOTA_Tooltip_ability_blue_slimeling_passive"				"Slime Thrower"
+		"DOTA_Tooltip_ability_blue_slimeling_passive_Description"	"Атаки наносят магический урон по области и замедляют на некоторое время."	
+		"DOTA_Tooltip_ability_blue_slimeling_passive_attack_speed_loss" 	"ЗАМЕДЛЕНИЕ СКОРОСТИ АТАКИ:"
+		"DOTA_Tooltip_ability_blue_slimeling_passive_movespeed_loss"			"ЗАМЕДЛЕНИЕ ПЕРЕДВИЖЕНИЯ:"
+		"DOTA_Tooltip_ability_blue_slimeling_passive_bonus_aoe_magic_damage"	"УРОН ПО ОБЛАСТИ, МАГИЧЕСКИЙ:"
+		"DOTA_Tooltip_ability_blue_slimeling_passive_sticky_duration"			"ДЛИТЕЛЬНОСТЬ ДЕБАФФА:"
+
+		"DOTA_Tooltip_modifier_sticky_blue"							"Sticky Blue Slime"
+		"DOTA_Tooltip_modifier_sticky_blue_Description"				"Slowed"	
+
+		"DOTA_Tooltip_ability_blue_slime_ghoul_passive"				"Slime Slapper"
+		"DOTA_Tooltip_ability_blue_slime_ghoul_passive_Description"	"Атаки наносят магический урон по области и замедляют на некоторое время."	
+		"DOTA_Tooltip_ability_blue_slime_ghoul_passive_attack_speed_loss" 	"ЗАМЕДЛЕНИЕ СКОРОСТИ АТАКИ:"
+		"DOTA_Tooltip_ability_blue_slime_ghoul_passive_movespeed_loss"			"ЗАМЕДЛЕНИЕ ПЕРЕДВИЖЕНИЯ:"
+		"DOTA_Tooltip_ability_blue_slime_ghoul_passive_bonus_aoe_magic_damage"	"УРОН ПО ОБЛАСТИ, МАГИЧЕСКИЙ:"
+		"DOTA_Tooltip_ability_blue_slime_ghoul_passive_sticky_duration"			"ДЛИТЕЛЬНОСТЬ ДЕБАФФА:"
+
+		"DOTA_Tooltip_ability_winterblight_castle_boss_passive"		"Wrath of Cruxys"
+		"DOTA_Tooltip_ability_winterblight_castle_boss_passive_Description"	"Король-Лич Краксис имеет несколько атак в своем арсенале."
+		"DOTA_Tooltip_ability_winterblight_castle_boss_passive_nuke_damage"		"УРОН:"
+		"DOTA_Tooltip_ability_winterblight_castle_boss_passive_slow_duration"	"ДЛИТЕЛЬНОСТЬ ЗАМЕДЛЕНИЯ:"
+		"DOTA_Tooltip_ability_winterblight_castle_boss_passive_burn_damage"		"УРОН ГОРЕНИЯ:"
+		"DOTA_Tooltip_ability_winterblight_castle_boss_passive_chain_frost_damage"	"УРОН ЦЕПНОЙ ЗАМОРОЗКИ:"	
+		"DOTA_Tooltip_ability_winterblight_castle_boss_passive_chain_frost_ms_loss_pct"	"% ЗАМЕДЛЕНИЕ СКОРОСТИ ОТ ЗАМОРОЗКИ:"
+
+		"DOTA_Tooltip_modifier_castle_boss_burning_slow"			"Wrath of Cruxys"
+		"DOTA_Tooltip_modifier_castle_boss_burning_slow_Description"	"Горит и замедлен"
+
+		"DOTA_Tooltip_ability_winterblight_castle_boss_surrogate_passive"	"Surrogate"
+		"DOTA_Tooltip_ability_winterblight_castle_boss_surrogate_passive_Description"	"Аватар Краксиса"
+
+		"DOTA_Tooltip_ability_winterblight_red_mage_flamethrower"			"Red Magician Flamethrower"
+		"DOTA_Tooltip_ability_winterblight_red_mage_flamethrower_Description"	"Выстреливает пламенем каждые 0.1 сек во время заряда способности."
+		"DOTA_Tooltip_ability_winterblight_red_mage_flamethrower_damage"		"УРОН:"
+
+		"DOTA_Tooltip_ability_winterblight_red_mage_attack_passive"			"Red Magician Burning Attacks"
+		"DOTA_Tooltip_ability_winterblight_red_mage_attack_passive_Description"	"Атаки оставляют горение, наносящее урон каждую секунду."
+		"DOTA_Tooltip_ability_winterblight_red_mage_attack_passive_burn_damage"		"УРОН ГОРЕНИЯ:"
+		"DOTA_Tooltip_ability_winterblight_red_mage_attack_passive_burn_duration"	"ДЛИТЕЛЬНОСТЬ ГОРЕНИЯ:"
+
+		"DOTA_Tooltip_modifier_red_mage_burn"								"Горение"
+
+		"DOTA_Tooltip_ability_winterblight_green_mage_poison_spray"			"Green Magician Poison Spray"
+		"DOTA_Tooltip_ability_winterblight_green_mage_poison_spray_Description"	"Выплевывает ядовитый шар в сторону цели. Пораженные противники получат урон от яда и замедление."	
+		"DOTA_Tooltip_ability_winterblight_green_mage_poison_spray_impact_damage"	"УРОН ОТ ПОПАДАНИЯ:"
+		"DOTA_Tooltip_ability_winterblight_green_mage_poison_spray_dot_damage"		"УРОН В СЕКУНДУ:"	
+		"DOTA_Tooltip_ability_winterblight_green_mage_poison_spray_slow_ms_stacks"		"СНИЖЕНИЕ СКОРОСТИ ПЕРЕМЕЩЕНИЯ ЗА ЗАРЯД:"
+
+		"DOTA_Tooltip_modifier_green_mage_poison_slow"							"Poison Spray"
+		"DOTA_Tooltip_modifier_green_mage_poison_slow_Description"				"Замедлен и получает урон"
+
+		"DOTA_Tooltip_ability_winterblight_green_mage_attack_passive"			"Green Magician Poison Attacks"
+		"DOTA_Tooltip_ability_winterblight_green_mage_attack_passive_Description"	"Атаки поражают противника коротким, но сильным ядом, наносящим урон каждые 0.1 сек."
+		"DOTA_Tooltip_ability_winterblight_green_mage_attack_passive_burn_damage"		"УРОН ОТ ЯДА:"
+		"DOTA_Tooltip_ability_winterblight_green_mage_attack_passive_burn_duration"	"ДЛИТЕЛЬНОСТЬ:"
+
+		"DOTA_Tooltip_modifier_green_mage_attack_poison"					"Отравлен"
+
+		"DOTA_Tooltip_ability_winterblight_blue_mage_frost_nova"			"Blue Magician Frost Nova"
+		"DOTA_Tooltip_ability_winterblight_blue_mage_frost_nova_Description"	"Вызывает зону сильной заморозки, которая наносит урон и обездвиживает противников внутри."
+		"DOTA_Tooltip_ability_winterblight_blue_mage_frost_nova_nova_damage"		"УРОН:"
+		"DOTA_Tooltip_ability_winterblight_blue_mage_frost_nova_root_duration"	"ДЛИТЕЛЬНОСТЬ ОБЕЗДВИЖИВАНИЯ:"
+
+		"DOTA_Tooltip_modifier_blue_mage_root"								"Frost Nova"
+		"DOTA_Tooltip_modifier_blue_mage_root_Description"					"Обездвижен"
+
+		"DOTA_Tooltip_ability_winterblight_blue_damage_attack_passive"			"Blue Magician Frost Attacks"
+		"DOTA_Tooltip_ability_winterblight_blue_damage_attack_passive_Description"	"Атаки оставляют замедляющий дебафф на пораженных целях."
+		"DOTA_Tooltip_ability_winterblight_blue_damage_attack_passive_ms_slow"		"ЗАМЕДЛЕНИЕ ПЕРЕДВИЖЕНИЯ:"
+		"DOTA_Tooltip_ability_winterblight_blue_damage_attack_passive_as_slow"	"ЗАМЕДЛЕНИЕ СКОРОСТИ АТАКИ:"
+		"DOTA_Tooltip_ability_winterblight_blue_damage_attack_passive_slow_duration"	"ДЛИТЕЛЬНОСТЬ:"
+
+		"DOTA_Tooltip_modifier_blue_mage_attack_slow"						"Chilled"
+
+		"DOTA_Tooltip_ability_winterblight_death_coil"						"Death Coil"
+		"DOTA_Tooltip_ability_winterblight_death_coil_Description"			"Вылечивает цель-союзника на % от Максимального Здоровья."
+		"DOTA_Tooltip_ability_winterblight_death_coil_heal_pct_max_health"	"% ЛЕЧЕНИЕ % ОТ МАКСИМАЛЬНОГО ЗДОРОВЬЯ:"
+
+		"DOTA_Tooltip_ability_winterblight_slime_emperor_passive"			"Green Slime Avalanche"
+		"DOTA_Tooltip_ability_winterblight_slime_emperor_passive_Description"	"Выплевывает слизь во всех противников в радиусе, замедляя их и понижая регенерацию маны. Слизь накапливается бесконечно."
+		"DOTA_Tooltip_ability_winterblight_slime_emperor_passive_as_loss"	"ЗАМЕДЛЕНИЕ СКОРОСТИ АТАКИ (ЗА ЗАРЯД):"
+		"DOTA_Tooltip_ability_winterblight_slime_emperor_passive_ms_loss"	"ЗАМЕДЛЕНИЕ СКОРОСТИ ПЕРЕМЕЩЕНИЯ (ЗА ЗАРЯД):"
+		"DOTA_Tooltip_ability_winterblight_slime_emperor_passive_mana_regen_loss"	"ПОТЕРЯ РЕГЕНЕРАЦИИ МАНЫ:"
+		"DOTA_Tooltip_ability_winterblight_slime_emperor_passive_aoe_radius"		"РАДИУС:"
+		"DOTA_Tooltip_ability_winterblight_slime_emperor_passive_slow_duration"		"ДЛИТЕЛЬНОСТЬ:"
+
+		"DOTA_Tooltip_modifier_winterblight_slime_emperor_slowed"			"Green Slime"
+		"DOTA_Tooltip_modifier_winterblight_slime_emperor_slowed_Description"	"Обезмолвлен и регенерация маны снижена."	
+
+		"DOTA_Tooltip_ability_winterblight_necro_knight_attack"				"Necromancy"
+		"DOTA_Tooltip_ability_winterblight_necro_knight_attack_Description"	"Нанесение атаки призывает Воина Замка на сторону заклинателя."	
+		"DOTA_Tooltip_ability_winterblight_necro_knight_attack_max_summons"	"МАКСИМУМ СКЕЛЕТОВ:"
+
+		"DOTA_Tooltip_ability_winterblight_dragon_dual_burn"				"Dual Burn"
+		"DOTA_Tooltip_ability_winterblight_dragon_dual_burn_Description"	"Атаки оставляют горение на целях, а также замедляют."
+		"DOTA_Tooltip_ability_winterblight_dragon_dual_burn_ms_slow"		"ЗАМЕДЛЕНИЕ ПЕРЕДВИЖЕНИЯ:"
+		"DOTA_Tooltip_ability_winterblight_dragon_dual_burn_as_slow"		"ЗАМЕДЛЕНИЕ СКОРОСТИ АТАК:"
+		"DOTA_Tooltip_ability_winterblight_dragon_dual_burn_slow_duration"	"ДЛИТЕЛЬНОСТЬ:"
+		"DOTA_Tooltip_ability_winterblight_dragon_dual_burn_burn_damage"	"УРОН ГОРЕНИЯ:"
+
+		"DOTA_Tooltip_modifier_dragon_dual_burn_effect"						"Dual Burn"
+		"DOTA_Tooltip_modifier_dragon_dual_burn_effect_Description"			"Замедлен и получает урон от горения."	
+
+		"DOTA_Tooltip_ability_strength_boss_charge"							"Triumphant Charge"
+		"DOTA_Tooltip_ability_strength_boss_charge_Description"				"Разгоняется в сторону цели, нанося урон и оглушая противников в месте остановки."
+		"DOTA_Tooltip_ability_strength_boss_charge_damage"					"УРОН:"
+		"DOTA_Tooltip_ability_strength_boss_charge_stun_duration"			"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
+
+		"DOTA_Tooltip_ability_winterblight_hermit_eye_ability"				"Murky Gaze"
+		"DOTA_Tooltip_ability_winterblight_hermit_eye_ability_Description"		"Замедляет ближайших противников и снижает область их видимости. Пораженные противники будут атакованы снарядом с магическим типом урона."
+		"DOTA_Tooltip_ability_winterblight_hermit_eye_ability_movement_slow"	"% ЗАМЕДЛЕНИЕ ПЕРЕДВИЖЕНИЯ:"
+		"DOTA_Tooltip_ability_winterblight_hermit_eye_ability_vision_loss"		"ПОТЕРЯ ВИДИМОСТИ:"
+		"DOTA_Tooltip_ability_winterblight_hermit_eye_ability_damage"			"УРОН:"
+
+		"DOTA_Tooltip_modifier_hermit_eye_range"							"Murky Gaze"
+		"DOTA_Tooltip_modifier_hermit_eye_range_Description"				"Замедлен и теряет обзор местности."	
+
+		"DOTA_Tooltip_ability_winterblight_hermit_hoodling_ability"				"Blinding Shadows"
+		"DOTA_Tooltip_ability_winterblight_hermit_hoodling_ability_Description"	"Атаки оставляют на противниках дебафф, снижающий регенерацию маны и ослепляя их."
+		"DOTA_Tooltip_ability_winterblight_hermit_hoodling_ability_miss_chance"		"% ШАНС ПРОМАХА:"
+		"DOTA_Tooltip_ability_winterblight_hermit_hoodling_ability_mana_regen_loss"	"ПОТЕРЯ РЕГЕНЕРАЦИИ МАНЫ:"
+		"DOTA_Tooltip_ability_winterblight_hermit_hoodling_ability_duration"		"ДЛИТЕЛЬНОСТЬ ОСЛЕПЛЕНИЯ:"
+
+		"DOTA_Tooltip_modifier_hermit_hoodling_effect"						"Blinding Shadows"
+		"DOTA_Tooltip_modifier_hermit_hoodling_effect_Description"			"Есть шанс промахнуться при атаках."
+
+		"DOTA_Tooltip_ability_winterblight_hermit_miniboss_shadow_tornado"		"Void Tornado"
+		"DOTA_Tooltip_ability_winterblight_hermit_miniboss_shadow_tornado_Description"	"Выпускает торнадо в сторону цели, которое замедляет и засасывает противников внутрь. Торнадо дополнительно образует снаряды, наносящие урон."
+		"DOTA_Tooltip_ability_winterblight_hermit_miniboss_shadow_tornado_damage"		"УРОН ТОРНАДО:"
+		"DOTA_Tooltip_ability_winterblight_hermit_miniboss_shadow_tornado_move_slow"	"% ЗАМЕДЛЕНИЕ ПЕРЕМЕЩЕНИЯ:"	
+		"DOTA_Tooltip_ability_winterblight_hermit_miniboss_shadow_tornado_max_tornads"	"МАКСИМУМ ТОРНАДО:"
+		"DOTA_Tooltip_ability_winterblight_hermit_miniboss_shadow_tornado_splinter_damage"	"УРОН ОТ СНАРЯДОВ:"
+		"DOTA_Tooltip_ability_winterblight_hermit_miniboss_shadow_tornado_miss_chance"	"% ШАНС ПРОМАХА ВНУТРИ ТОРНАДО:"
+
+		"DOTA_Tooltip_modifier_enemy_inside_tornado"							"Void Tornado"
+
+		"DOTA_Tooltip_ability_winterblight_shadow_mist"							"Shadow Mist"
+		"DOTA_Tooltip_ability_winterblight_shadow_mist_Description"				"Ближайшие противники замедляются. Если они прочитывают заклинания внутри эффекта, то на них накладывается эффект безмолвия."	
+		"DOTA_Tooltip_ability_winterblight_shadow_mist_silence_duration"		"ДЛИТЕЛЬНОСТЬ БЕЗМОЛВИЯ:"
+		"DOTA_Tooltip_ability_winterblight_shadow_mist_ms_loss"					"ПОТЕРЯ СКОРОСТИ ПЕРЕДВИЖЕНИЯ:"
+		"DOTA_Tooltip_ability_winterblight_shadow_mist_aoe_radius"				"РАДИУС:"
+		"DOTA_Tooltip_ability_winterblight_shadow_mist_dps"						"УРОН В СЕКУНДУ:"
+
+		"DOTA_Tooltip_modifier_shadow_mist_effect"								"Shadow Mist"
+		"DOTA_Tooltip_modifier_shadow_mist_effect_Description"					"Замедлен. Будет обезмолвлен, если произнесет заклинание."
+
+		"DOTA_Tooltip_ability_winterblight_blue_gunman_main_ability"			"Blue Slime Gunner"
+		"DOTA_Tooltip_ability_winterblight_blue_gunman_main_ability_Description"	"Атаки оставляют дебафф замедления на цели. Прыжок к позиции оставляет лужу слизи, замедляющей противников."
+		"DOTA_Tooltip_ability_winterblight_blue_gunman_main_ability_land_slow_duration"	"ДЛИТЕЛЬНОСТЬ ЗАМЕДЛЕНИЯ (ПРЫЖОК):"
+		"DOTA_Tooltip_ability_winterblight_blue_gunman_main_ability_land_radius"		"РАДИУС СЛИЗИ (ПРЫЖОК):"
+		"DOTA_Tooltip_ability_winterblight_blue_gunman_main_ability_land_damage"		"УРОН (ПРЫЖОК):"
+		"DOTA_Tooltip_ability_winterblight_blue_gunman_main_ability_attack_speed_loss"	"ПОТЕРЯ СКОРОСТИ АТАКИ ОТ СЛИЗИ:"
+		"DOTA_Tooltip_ability_winterblight_blue_gunman_main_ability_movespeed_loss"		"ПОТЕРЯ СКОРОСТИ ПЕРЕДВИЖЕНИЯ ОТ СЛИЗИ:"
+		"DOTA_Tooltip_ability_winterblight_blue_gunman_main_ability_sticky_duration"	"ДЛИТЕЛЬНОСТЬ (ВЫСТРЕЛ):"	
+		"DOTA_Tooltip_ability_winterblight_blue_gunman_main_ability_bonus_aoe_magic_damage"	"УРОН ПО ОБЛАСТИ, МАГИЧЕСКИЙ (ВЫСТРЕЛ):"
+
+		"DOTA_Tooltip_ability_winterblight_blue_goo_shrapnel"					"Blue Slime Shrapnel"
+		"DOTA_Tooltip_ability_winterblight_blue_goo_shrapnel_Description"		"Создает постоянный ливень из пуль слизи, наносящих урон врагам в этой области."
+		"DOTA_Tooltip_ability_winterblight_blue_goo_shrapnel_tick_damage"		"УРОН:"
+
+		"DOTA_Tooltip_ability_winterblight_justice_demon_lifesteal"				"Vampiric"
+		"DOTA_Tooltip_ability_winterblight_justice_demon_lifesteal_Description"	"Атаки исцеляют заклинателя."	
+		"DOTA_Tooltip_ability_winterblight_justice_demon_lifesteal_lifesteal"	"% ВАМПИРИЗМ ОТ АТАК:"
+
+		"DOTA_Tooltip_ability_winterblight_hanged_slayer_passive"				"Slayer"
+		"DOTA_Tooltip_ability_winterblight_hanged_slayer_passive_Description"	""
+
+		"DOTA_Tooltip_ability_winterblight_water_bearer_passive"				"Jetstream"
+		"DOTA_Tooltip_ability_winterblight_water_bearer_passive_Description"	"Атаки стреляют волной воды, которая наносит урон и замедляет пораженных врагов."
+		"DOTA_Tooltip_ability_winterblight_water_bearer_passive_moveslow"		"% ЗАМЕДЛЕНИЕ ПЕРЕДВИЖЕНИЯ:"
+		"DOTA_Tooltip_ability_winterblight_water_bearer_passive_attack_slow"	"ЗАМЕДЛЕНИЕ СКОРОСТИ АТАКИ:"
+		"DOTA_Tooltip_ability_winterblight_water_bearer_passive_damage"			"УРОН:"
+
+		"DOTA_Tooltip_modifier_water_bearer_soak_soak"							"Drenched"
+
+		"DOTA_Tooltip_ability_winterblight_doom"				"Doom"
+		"DOTA_Tooltip_ability_winterblight_doom_Description"	"Проклинает цель, нанося периодический урон и накладывая безмолвие."
+		"DOTA_Tooltip_ability_winterblight_doom_damage"		"ПЕРИОДИЧЕСКИЙ УРОН:"
+		"DOTA_Tooltip_ability_winterblight_doom_duration"	"ДЛИТЕЛЬНОСТЬ:"
+
+		"DOTA_Tooltip_modifier_winterblight_doom"				"Doom"
+		"DOTA_Tooltip_modifier_winterblight_doom_Description"	"Обезмолвлен"
+
+		"DOTA_Tooltip_ability_winterblight_doom_warrior_searing_blade"	"Dual Blade"
+		"DOTA_Tooltip_ability_winterblight_doom_warrior_searing_blade_Description"	"Атаки имеют эффект ледяного огня, который замедляет врагов и заставляет их гореть."
+		"DOTA_Tooltip_ability_winterblight_doom_warrior_searing_blade_ms_slow"	"ЗАМЕДЛЕНИЕ ПЕРЕДВИЖЕНИЯ:"
+		"DOTA_Tooltip_ability_winterblight_doom_warrior_searing_blade_as_slow"	"ЗАМЕДЛЕНИЕ СКОРОСТИ АТАКИ:"
+		"DOTA_Tooltip_ability_winterblight_doom_warrior_searing_blade_slow_duration"	"ДЛИТЕЛЬНОСТЬ:"
+		"DOTA_Tooltip_ability_winterblight_doom_warrior_searing_blade_burn_damage"	"УРОН ОТ ЛЕДЯНОГО ОГНЯ:"
+
+		"DOTA_Tooltip_modifier_dual_blade_effect"				"Dual Blade"
+		"DOTA_Tooltip_modifier_dual_blade_effect_Description"	"Замедлен и получает урон от горения."
+
+		"DOTA_Tooltip_ability_winterblight_faceripper_passive"	"Impalement"
+		"DOTA_Tooltip_ability_winterblight_faceripper_passive_Description"	"Атаки наносят дополнительные порции Физического урона"
+		"DOTA_Tooltip_ability_winterblight_faceripper_passive_instance_count"	"ДОПОЛНИТЕЛЬНЫЕ ПОРЦИИ:"
+		"DOTA_Tooltip_ability_winterblight_faceripper_passive_damage"			"УРОН:"
+
+		"DOTA_Tooltip_ability_winterblight_starwatcher_passive"		"Starfall Aura"
+		"DOTA_Tooltip_ability_winterblight_starwatcher_passive_Description"	"Противники в радиусе будут поражены падающей звездой. "	
+		"DOTA_Tooltip_ability_winterblight_starwatcher_passive_damage"		"УРОН:"
+		"DOTA_Tooltip_ability_winterblight_starwatcher_passive_star_interval"	"ИНТЕРВАЛ:"
+		"DOTA_Tooltip_ability_winterblight_starwatcher_passive_radius"		"РАДИУС:"
+
+		"DOTA_Tooltip_ability_winterblight_lumos_king_passive"		"Moonlight Aura"
+		"DOTA_Tooltip_ability_winterblight_lumos_king_passive_Description"	"Противники в радиусе будут поражены лунным лучом и оглушены."
+		"DOTA_Tooltip_ability_winterblight_lumos_king_passive_damage"		"УРОН:"
+		"DOTA_Tooltip_ability_winterblight_lumos_king_passive_beam_interval"	"ИНТЕРВАЛ:"
+		"DOTA_Tooltip_ability_winterblight_lumos_king_passive_radius"		"РАДИУС:"
+
+		"DOTA_Tooltip_ability_winterblight_claws_of_terror"			"Claws of Terror"
+		"DOTA_Tooltip_ability_winterblight_claws_of_terror_Description"	"Атаки получают шанс напугать цель."
+		"DOTA_Tooltip_ability_winterblight_claws_of_terror_fear_chance"	"ШАНС НАПУГАТЬ:"
+		"DOTA_Tooltip_ability_winterblight_claws_of_terror_fear_duration"	"ДЛИТЕЛЬНОСТЬ ИСПУГА:"
+
+		"DOTA_Tooltip_ability_winterblight_sun_phoenix_passive"		"Fires of the Sun Phoenix"
+		"DOTA_Tooltip_ability_winterblight_sun_phoenix_passive_Description"	"Атаки заставляют цель гореть, замедляя скорость атаки и нанося периодический урон."
+		"DOTA_Tooltip_ability_winterblight_sun_phoenix_passive_burn_damage"		"УРОН ГОРЕНИЯ:"
+		"DOTA_Tooltip_ability_winterblight_sun_phoenix_passive_burn_duration"		"ДЛИТЕЛЬНОСТЬ:"
+		"DOTA_Tooltip_ability_winterblight_sun_phoenix_passive_attack_speed_loss"		"ПОТЕРЯ СКОРОСТИ АТАКИ:"
+
+		"DOTA_Tooltip_modifier_sun_phoenix_burn"					"Fires of the Sun Phoenix"
+		"DOTA_Tooltip_modifier_sun_phoenix_burn_Description"		"Получает периодический урон. Сила атаки понижена."
+
+		"DOTA_Tooltip_ability_winterblight_searing_arrow"			"Searing Arrow"
+		"DOTA_Tooltip_ability_winterblight_searing_arrow_Description"	"Атаки наносят дополнительный Чистый урон и понижают Броню цели."
+		"DOTA_Tooltip_ability_winterblight_searing_arrow_impact_damage"		"УРОН:"
+		"DOTA_Tooltip_ability_winterblight_searing_arrow_armor_loss_duration"	"ДЛИТЕЛЬНОСТЬ (ПОНИЖЕНИЕ БРОНИ):"
+		"DOTA_Tooltip_ability_winterblight_searing_arrow_armor_loss"		"ПОНИЖЕНИЕ БРОНИ:"
+
+		"DOTA_Tooltip_modifier_winterblight_searing_arrow_armor_loss"	"Searing Arrow"
+		"DOTA_Tooltip_modifier_winterblight_searing_arrow_armor_loss_Description"	"Броня снижена"
+
+		"DOTA_Tooltip_ability_winterblight_fire_blink"				"Fire Blink"
+		"DOTA_Tooltip_ability_winterblight_fire_blink_Description"	"Телепортируется к цели с огненной вспышкой."	
+
+		"DOTA_Tooltip_ability_winterblight_aspect_of_solos_passive"	"Sun Bird's Flamethrower"
+		"DOTA_Tooltip_ability_winterblight_aspect_of_solos_passive_Description"	"Солнечная птица выпускает спираль пламени вокруг себя."
+		"DOTA_Tooltip_ability_winterblight_aspect_of_solos_passive_burn_dps"		"ПЕРИОДИЧЕСКИЙ УРОН:"
+		"DOTA_Tooltip_ability_winterblight_aspect_of_solos_passive_impact_damage"	"УРОН:"
+
+		"DOTA_Tooltip_modifier_aspect_of_solo_burn"					"Горение"
+
+		"DOTA_Tooltip_ability_winterblight_vorethrex_passive"			"World Commander"
+		"DOTA_Tooltip_ability_winterblight_vorethrex_passive_Description"	"Чемпион Легионов Winterblight"
+
+		"DOTA_Tooltip_modifier_vorethrex_phase_2"						"World Commander's Fury"
+
+		"DOTA_Tooltip_ability_winterblight_vorethrex_dash"				"Commanding Sprint"
+		"DOTA_Tooltip_ability_winterblight_vorethrex_dash_Description"	"Бросается вперед к цели. Летящий череп проходит этот же путь, и все задетые им противники получат урон и дебафф."
+		"DOTA_Tooltip_ability_winterblight_vorethrex_dash_debuff_duration"	"ДЛИТЕЛЬНОСТЬ ДЕБАФФА:"
+		"DOTA_Tooltip_ability_winterblight_vorethrex_dash_atk_power_loss"	"ПОТЕРЯ СИЛЫ АТАКИ:"
+		"DOTA_Tooltip_ability_winterblight_vorethrex_dash_damage"			"УРОН ОТ СТОЛКНОВЕНИЯ:"
+		"DOTA_Tooltip_ability_winterblight_vorethrex_dash_health_regen_loss"	"% ПОТЕРЯ РЕГЕНЕРАЦИИ ХП:"
+
+		"DOTA_Tooltip_modifier_vorethrex_dash_debuff"					"Morale Break"
+		"DOTA_Tooltip_modifier_vorethrex_dash_debuff_Description"		"Сила Атаки и Регенерация ХП снижены"
+
+		"DOTA_Tooltip_ability_winterblight_paragon_of_judgement_bash"	"Gavel Bash"
+		"DOTA_Tooltip_ability_winterblight_paragon_of_judgement_bash_Description"	"Атаки могут оглушить и нанести дополнительный Чистый урон."
+		"DOTA_Tooltip_ability_winterblight_paragon_of_judgement_bash_impact_damage"	"УРОН ОГЛУШЕНИЯ:"
+		"DOTA_Tooltip_ability_winterblight_paragon_of_judgement_bash_stun_duration"	"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
+		"DOTA_Tooltip_ability_winterblight_paragon_of_judgement_bash_stun_chance"	"% ШАНС:"
+
+		"DOTA_Tooltip_ability_paragon_of_judgement_spark"				"Judgement Spark"
+		"DOTA_Tooltip_ability_paragon_of_judgement_spark_Description"	"Большой снаряд наносит урон от силы атаки заклинателя и парализует попавших в него противников."	
+		"DOTA_Tooltip_ability_paragon_of_judgement_spark_base_damage"	"УРОН:"
+		"DOTA_Tooltip_ability_paragon_of_judgement_spark_paralyze_duration"	"ДЛИТЕЛЬНОСТЬ ПАРАЛИЧА:"
+		"DOTA_Tooltip_ability_paragon_of_judgement_spark_percent_attack_power"	"% ДОП. УРОН % ОТ СИЛЫ АТАКИ:"
+
+		"DOTA_Tooltip_modifier_judgement_spark_paralyze"				"Judgement Spark"
+		"DOTA_Tooltip_modifier_judgement_spark_paralyze_Description"	"Парализован"	
+
+		"DOTA_Tooltip_ability_high_priest_xelethar_passive"				"Lightshot"
+		"DOTA_Tooltip_ability_high_priest_xelethar_passive_Description"	"Выпускает Сферы интенсивной энергии, которые наносят урон и замедляют противников."
+		"DOTA_Tooltip_ability_high_priest_xelethar_passive_damage_base"	"ПАССИВНЫЙ БОНУС УРОНА:"
+		"DOTA_Tooltip_ability_high_priest_xelethar_passive_damage_pct_max_health"	"% БАЗОВЫЙ УРОН АТАКИ % ОТ МАКСИМАЛЬНОГО ХП:"
+		"DOTA_Tooltip_ability_high_priest_xelethar_passive_orb_damage"			"УРОН ЭНЕРГИИ:"
+		"DOTA_Tooltip_ability_high_priest_xelethar_passive_slow_duration"		"ДЛИТЕЛЬНОСТЬ ЗАМЕДЛЕНИЯ:"
+		"DOTA_Tooltip_ability_high_priest_xelethar_passive_ms_slow"				"ЗАМЕДЛЕНИЕ ПЕРЕДВИЖЕНИЯ:"
+		"DOTA_Tooltip_ability_high_priest_xelethar_passive_as_slow"				"ЗАМЕДЛЕНИЕ СКОРОСТИ АТАКИ:"
+
+		"DOTA_Tooltip_modifier_xelethar_slow"							"Lightshot"
+		"DOTA_Tooltip_modifier_xelethar_slow_Description"				"Замедлен"	
+
+		"DOTA_Tooltip_ability_bishop_of_hades_passive"					"Cimmerian Chant"
+		"DOTA_Tooltip_ability_bishop_of_hades_passive_Description"		"Епископ устрашает всех противников в радиусе способности."
+		"DOTA_Tooltip_ability_bishop_of_hades_passive_fear_duration"	"ДЛИТЕЛЬНОСТЬ ИСПУГА:"
+
+		"DOTA_Tooltip_ability_bishop_of_hades_dot"						"Shadow Word: Pain"
+		"DOTA_Tooltip_ability_bishop_of_hades_dot_Description"			"Применяет дебафф ко всем противникам в зоне действия, который наносит урон каждые 4 секунды."
+		"DOTA_Tooltip_ability_bishop_of_hades_dot_damage"				"УРОН:"	
+
+		"DOTA_Tooltip_modifier_bishop_of_hades_dot"						"Shadow Word: Pain"
+		"DOTA_Tooltip_modifier_bishop_of_hades_dot_Description"			"Получает урон каждые 4 секунды"	
+
+		"DOTA_Tooltip_ability_winter_star_boss_red_star_attack"			"Red Starfall"
+		"DOTA_Tooltip_ability_winter_star_boss_red_star_attack_Description"	"Атаки вызывают падающие звезды на головы противников. Удар звезды снижает Магическую Защиту."
+		"DOTA_Tooltip_ability_winter_star_boss_red_star_attack_magic_resist_loss"	"ПОТЕРЯ МАГИЧЕСКОЙ ЗАЩИТЫ:"
+		"DOTA_Tooltip_ability_winter_star_boss_red_star_attack_damage"				"УРОН:"
+
+		"DOTA_Tooltip_ability_winterblight_empress_emasz_passive"		"Elusive Empress"
+		"DOTA_Tooltip_ability_winterblight_empress_emasz_passive_Description"	"Стойкая невидимость"
+
+		"DOTA_Tooltip_modifier_room_7_in_goo"							"Green Slime"
+		"DOTA_Tooltip_modifier_room_7_in_goo_Description"				"Замедлен"	
+
+		"DOTA_Tooltip_modifier_room_7_in_blue_goo"						"Blue Slime"
+		"DOTA_Tooltip_modifier_room_7_in_blue_goo_Description"			"Замедлен"			
+
+		"DOTA_Tooltip_modifier_diviner_high_priestess_heal"				"High Priestess"
+		"DOTA_Tooltip_modifier_diviner_high_priestess_heal_Description"	"Восстанавливает здоровье"	
+
+		"DOTA_Tooltip_modifier_diviner_empress_speed_boost"				"Empress"
+		"DOTA_Tooltip_modifier_diviner_empress_speed_boost_Description"	"Скорость перемещения увеличена"	
+
+		"DOTA_Tooltip_modifier_diviner_hierophant_spirit_buff"			"Hierophant"
+		"DOTA_Tooltip_modifier_diviner_hierophant_spirit_buff_Description"	"Дух и регенерация Маны увеличены."
+
+		"DOTA_Tooltip_modifier_chariot_speed"							"Chariot"
+		"DOTA_Tooltip_modifier_chariot_speed_Description"				"Скорость передвижения увеличена"	
+
+		"DOTA_Tooltip_modifier_strength_attack_power_enemy"				"Strength"
+		"DOTA_Tooltip_modifier_strength_attack_power_enemy_Description"	"Сила атаки увеличена"
+
+		"DOTA_Tooltip_modifier_strength_attack_power_player"				"Strength"
+		"DOTA_Tooltip_modifier_strength_attack_power_player_Description"	"Сила атаки увеличена"
+
+		"DOTA_Tooltip_modifier_diviner_hermit_debuff"					"Hermit"
+		"DOTA_Tooltip_modifier_diviner_hermit_debuff_Description"		"Дальность обзора уменьшена."	
+
+		"DOTA_Tooltip_modifier_diviner_hermit_buff"						"Hermit's Lantern"
+		"DOTA_Tooltip_modifier_diviner_hermit_buff_Description"			"Дальность обзора увеличена."	
+
+		"DOTA_Tooltip_modifier_diviner_angels_slain"					"Плохая Карма"
+		"DOTA_Tooltip_modifier_diviner_demons_slain"					"Хорошая Карма"
+
+		"DOTA_Tooltip_modifier_diviner_justice_imbalance"				"Дисбаланс Справедливости"
+
+		"DOTA_Tooltip_modifier_temperance_enemy_buff"					"Temperance"
+		"DOTA_Tooltip_modifier_temperance_enemy_buff_Description"		"Снижена скорость перемещения и сила атаки."	
+
+		"DOTA_Tooltip_modifier_temperance_scryer_debuff"				"Temperance"
+		"DOTA_Tooltip_modifier_temperance_scryer_debuff_Description"	"Замедление"
+
+		"DOTA_Tooltip_modifier_diviner_scryer_doom"						"Devil"
+
+		"DOTA_Tooltip_modifier_tower_attack_buff"						"Tower"
+		"DOTA_Tooltip_modifier_tower_attack_buff_Description"			"Сила атаки увеличена, усиленная Стойкость."	
+
+		"DOTA_Tooltip_modifier_diviner_star_all_stats_buff"				"Star"
+		"DOTA_Tooltip_modifier_diviner_star_all_stats_buff_Description"	"Все Атрибуты увеличиваются"	
+
+		"DOTA_Tooltip_modifier_diviner_sun_immolation"					"Sun"
+		"DOTA_Tooltip_modifier_diviner_sun_immolation_Description"		"Обжигает противников рядом"	
+
+		"DOTA_Tooltip_modifier_diviner_sun_immolation_effect"			"Sun Burn"
+
+		//CASTLE STUFF
+
+		"winterblight_castle"										"Замок Winterblight"
+
+		"winterblight_tarot_title"									"Выбрать судьбу"
+		"winterblight_tarot_leave_text"								"Уйти"
+
+		"DOTA_Tooltip_ability_item_rpc_winterblight_scryers_stone"	"Scryer's Stone"
+		"winterblight_scryers_stone_desc"							"Показывает путь"
+
+		//CASTLE QUESTS
+
+		"lovers_quest_item_use_fail"						"Необходимо использовать рядом с Яблоней"
+
+		"DOTA_Tooltip_ability_item_rpc_galrens_skull"		"Galren's Skull"
+		"item_rpc_galrens_skull_desc"						"Используйте рядом с Яблоней в Замке Winterblight, чтобы вызвать дух Галрена."
+
+		"DOTA_Tooltip_ability_item_rpc_elynas_feather"		"Elyna's Feather"
+		"item_rpc_elynas_feather_desc"						"Используйте рядом с Яблоней в Замке Winterblight, чтобы вызвать дух Элины."
+
+		"DOTA_Tooltip_ability_item_rpc_emperors_band"		"Emperor's Band"
+		"item_rpc_emperors_band_desc"						"Синтезируйте с Empress' Jewel, чтобы создать <font color='#E4AE33'>Immortal</font> предмет."
+
+		"DOTA_Tooltip_ability_item_rpc_empress_jewel"		"Empress' Jewel"
+		"item_rpc_empress_jewel_desc"						"Синтезируйте с Emperor's Band, чтобы создать <font color='#E4AE33'>Immortal</font> предмет."
+
+		"DOTA_Tooltip_ability_item_rpc_winterblight_dragon_scale" "Winterblight Dragon Scale"
+		"item_rpc_winterblight_dragon_scale_desc"			"Чешуя Дракона. Синтезируйте, чтобы сложить чешую вместе. Когда число чешуй достигнет 20, синтезируется  <font color='#ADE55C'>Аркана</font>."
+		"winterblight_dragon_scale_property"				"Чешуя"
+
+		"DOTA_Tooltip_ability_item_rpc_winterblight_tarot_card" "Карта Таро Winterblight"
+		"item_rpc_winterblight_tarot_card_desc"				    "Используйте при входе в Замок Winterblight, чтобы выбрать эту судьбу."
+
+		"winterblight_tarot_card_use_fail_1"				"Замок уже открыт"
+		"winterblight_tarot_card_use_fail_2"				"Прорицатель слишком далеко"
+
+		//tarot
+
+		"tarot_fool"												"Дурак"
+		"tarot_fool_description"									"Новое Начало..."
+
+		"tarot_magician"												"Волшебник"
+		"tarot_magician_description"									"Тайные Энергии..."
+
+		"tarot_high_priestess"												"Верховная Жрица"
+		"tarot_high_priestess_description"									"Интуиция и Священное Знание..."
+
+		"tarot_empress"												"Императрица"
+		"tarot_empress_description"									"Изобилие и Взращивание..."
+
+		"tarot_emperor"												"Император"
+		"tarot_emperor_description"									"Власть..."
+
+		"tarot_hierophant"												"Иерофант"
+		"tarot_hierophant_description"									"Духовная Мудрость..."
+
+		"tarot_lovers"												"Любовники"
+		"tarot_lovers_description"									"Двойственность..."
+
+		"tarot_chariot"												"Колесница"
+		"tarot_chariot_description"									"Решимость..."
+
+		"tarot_strength"												"Сила"
+		"tarot_strength_description"									"Непреклонная Сила..."
+
+		"tarot_hermit"												"Отшельник"
+		"tarot_hermit_description"									"Изоляция..."
+
+		"tarot_wheel_of_fortune"												"Колесо Фортуны"
+		"tarot_wheel_of_fortune_description"									"Цикл Удачи..."
+
+		"tarot_justice"												"Правосудие"
+		"tarot_justice_description"									"Справедливость и Карма..."
+
+		"tarot_hanged_man"												"Повешенный"
+		"tarot_hanged_man_description"									"Смена Перспективы..."
+
+		"tarot_death"												"Смерть"
+		"tarot_death_description"									"..."
+
+		"tarot_temperance"												"Умеренность"
+		"tarot_temperance_description"									"Терпение и Спокойствие..."
+
+		"tarot_devil"												"Дьявол"
+		"tarot_devil_description"									"Лишение Свободы..."
+
+		"tarot_tower"												"Башня"
+		"tarot_tower_description"									"Переворот..."
+
+		"tarot_star"												"Звезда"
+		"tarot_star_description"									"Надежда и Обновление..."
+
+		"tarot_moon"												"Луна"
+		"tarot_moon_description"									"Страх и Неуверенность..."
+
+		"tarot_sun"												"Солнце"
+		"tarot_sun_description"									"Пламенная Энергия..."
+
+		"tarot_judgement"												"Суд"
+		"tarot_judgement_description"									"Оценка и Пробуждение..."
+
+		"tarot_world"												"Мир"
+		"tarot_world_description"									"Абсолютно всё..."
