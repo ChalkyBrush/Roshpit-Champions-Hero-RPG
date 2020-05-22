@@ -707,3 +707,65 @@
 		"DOTA_Tooltip_modifier_nethergrasp_linked"		"彼世掌握"
 
 "DOTA_Tooltip_modifier_nethergrasp_linked_Description" "被施法者的攻击吞噬" 
+
+"DOTA_Tooltip_ability_item_rpc_plague_emperor_armor"							"瘟疫帝王之甲"
+		"item_property_plague_emperor"												"毒液之露"
+		"property_plague_emperor_description"										"每 <% ITEM_RPC_PLAGUE_EMPEROR_ARMOR_INTERVAL %> 秒向周围 <% ITEM_RPC_PLAGUE_EMPEROR_ARMOR_RANGE %>范围内的敌人丢出一个毒液之露。击中后造成对<% ITEM_RPC_PLAGUE_EMPEROR_ARMOR_DAMAGE_RADIUS %>范围内的敌人 <% ITEM_RPC_PLAGUE_EMPEROR_ARMOR_DMG_ATK_POWER %>% 攻击力的伤害"
+		"item_rpc_plague_emperor_armor_ruby1"							"增加 <font color=\"#37DD3D\">毒</font> 元素伤害 @ruby_property1%， 增加毒液之露的弹道速度 @ruby_property2, 降低释放毒液之露的间隔@ruby_property3。 "
+		"item_rpc_plague_emperor_armor_emerald1"							"被毒液之露击中的敌人将会中毒 <% ITEM_RPC_PLAGUE_EMPEROR_ARMOR_EMERALD_DURATION %> 秒， 降低攻击速度 @emerald_property1 并且每 <% ITEM_RPC_PLAGUE_EMPEROR_ARMOR_EMERALD_INTERVAL %>受到 @emerald_property2% 你的攻击力的伤害"
+		"item_rpc_plague_emperor_armor_sapphire1"							"释放 [Q] 将会向前方扔出 @sapphire_property1个毒液之露。释放 [R] 将会向周围放出 @sapphire_property2 个毒液之露。毒液之露的飞行距离为  <% ITEM_RPC_PLAGUE_EMPEROR_ARMOR_SAPPHIRE_DEFAULT_DISTANCE %> 或者你和最近的敌人。每秒只能触发 <% ITEM_RPC_PLAGUE_EMPEROR_ARMOR_SAPPHIRE_MAX_TRIGGERS_PER_SECOND %> 次"
+		"item_rpc_plague_emperor_armor_amethyst1"							"毒液之露将会在击中后留下一坨污泥，持续 <% ITEM_RPC_PLAGUE_EMPEROR_ARMOR_AMETHYST_DURATION %> 秒，站在其中的敌人的移动速度将会降低 @amethyst_property1% 并且每<% ITEM_RPC_PLAGUE_EMPEROR_ARMOR_AMETHYST_DAMAGE_INTERVAL %>秒受到 @amethyst_property2% 攻击力的伤害"
+
+		"DOTA_Tooltip_modifier_plague_emperor_armor_emerald"					"毒液之露"
+		"DOTA_Tooltip_modifier_plague_emperor_armor_emerald_Description"		"攻击速度降低并且受到伤害"
+
+		"DOTA_Tooltip_ability_item_rpc_musty_crypt_armor"				"腐室护甲"
+		"item_property_musty_crypt_armor"				"腐室战士"
+		"property_musty_crypt_armor_description"		"释放 @Ability1 将会将你变为一个最大生命值为 <% ITEM_RPC_MUSTY_CRYPT_ARMOR_SKELETON_HP %> 的骷髅战士。在骷髅形态下时任何受到的伤害将会对你造成 <% ITEM_RPC_MUSTY_CRYPT_ARMOR_DAMAGE_TAKEN %> 点伤害， 在骷髅状态下时你不能接受治疗。持续 <% ITEM_RPC_MUSTY_CRYPT_ARMOR_DURATION %> 秒或者直到你再次释放 @Ability1 技能"
+
+		"DOTA_Tooltip_modifier_musty_crypt_skeleton_transform"		"腐室战士"
+		
+		"item_rpc_musty_crypt_armor_ruby1"									"骷髅形态下时获得 @ruby_property1 点攻击速度和 @ruby_property2 点移动速度。在骷髅形态下受到的伤害将会被降低 @ruby_property3点"
+		"item_rpc_musty_crypt_armor_emerald1"									"骷髅形态下时每<% ITEM_RPC_MUSTY_CRYPT_ARMOR_EMERALD_INTERVAL %>秒回复e @emerald_property1 点生命值，即使处于治疗被禁用的状态下。此外，处于骷髅形态下时，每点当前生命值增加基础攻击力 @emerald_property2"
+		"item_rpc_musty_crypt_armor_sapphire1"									"骷髅形态下时获得 @sapphire_property1% 攻击力以及 @sapphire_property2 点额外生命值"
+		"item_rpc_musty_crypt_armor_amethyst1"									"骷髅形态下时攻击敌人将会留下一个debuff，持续 @amethyst_property1 秒，这个debuff将会禁用他们的治疗。此外，处于骷髅形态下时普通攻击将会回复 @amethyst_property2 点生命值，即使治疗被禁用。"
+
+		"DOTA_Tooltip_modifier_musty_crypt_amethyst_debuff"			"腐室战士 (紫宝石)"
+		"DOTA_Tooltip_modifier_musty_crypt_amethyst_debuff_Description"	"治疗被禁用"	
+
+
+		"DOTA_Tooltip_ability_item_rpc_spellcrafter_coat"		"咒术师法袍"
+		"item_property_spellcrafter_coat"				"原创技能"
+		"property_spellcrafter_coat_description"		"释放 @Ability2 将会向周围<% ITEM_RPC_SPELLCRAFTER_COAT_RANGE %>范围内最近的敌人释放一个弹道速度为 <% ITEM_RPC_SPELLCRAFTER_COAT_PROJECTILE_SPEED_BASE %> 的法术。这个法术造成 <% ITEM_RPC_SPELLCRAFTER_COAT_BASE_DMG_ATK_POWER %>% 攻击力的魔法伤害"
+
+		"item_rpc_spellcrafter_coat_ruby1"									"魔法技能将会对目标周围 @ruby_property1 范围内的敌人造成 <font color=\"#EF4126\">火</font> 伤害。提升魔法技能的伤害，数值为 @ruby_property2x 力量"
+		"item_rpc_spellcrafter_coat_emerald1"									"魔法技能将会造成 <font color=\"#7AE2A7\">风</font>伤害并且提高穿行速度 @emerald_property1 。提升魔法技能的伤害，数值为 @emerald_property2x 敏捷"
+		"item_rpc_spellcrafter_coat_sapphire1"									"魔法技能将会造成 <font color=\"#87D9FF\">冰</font>伤害并且主弹道将会分裂，至多分裂为 @sapphire_property1 个，对 <% ITEM_RPC_SPELLCRAFTER_COAT_GEM_SAPPHIRE_RANGE %> 范围内的敌人造成伤害。提升魔法技能的伤害， 数值为 @sapphire_property2x 智力"
+		"item_rpc_spellcrafter_coat_amethyst1"									"魔法技能将会造成 <font color=\"#E1A2E8\">奥术</font> 伤害并且法术将会在<% ITEM_RPC_SPELLCRAFTER_COAT_GEM_AMETHYST_RANGE %>范围内的敌人之间弹跳，至多弹跳 @amethyst_property1 次。提升魔法技能的伤害，数值为 @amethyst_property2x 精神"
+
+		"DOTA_Tooltip_ability_item_rpc_cloak_of_isolation"		"孤独斗篷"
+		"item_property_cloak_of_isolation"				"孤独"
+		"property_cloak_of_isolation_description"		"范围 <% ITEM_RPC_CLOAK_OF_ISOLATION_RANGE %> 内的敌人将会被击退 <% ITEM_RPC_CLOAK_OF_ISOLATION_BASE_FORCE %> 距离并且被推开的敌人的移动速度将会被降低force and have <% ITEM_RPC_CLOAK_OF_ISOLATION_MOVESPEED_REDUCE %>%。"
+
+		"item_rpc_cloak_of_isolation_ruby1"									"增加孤独的范围 @ruby_property1"
+		"item_rpc_cloak_of_isolation_emerald1"									"增加孤独的击退距离 @emerald_property1%"
+		"item_rpc_cloak_of_isolation_sapphire1"									"若周围<% ITEM_RPC_CLOAK_OF_ISOLATION_SAPPHIRE_RANGE %>内没有敌人时，你将会获得 @sapphire_property1 护甲和魔甲"
+		"item_rpc_cloak_of_isolation_amethyst1"									"放出一股停止指令将会躲避弹道并且施加 @amethyst_property1 秒的隐身效果。 <% ITEM_RPC_CLOAK_OF_ISOLATION_AMETHYST_COOLDOWN %> 秒冷却时间"
+
+		"DOTA_Tooltip_ability_item_rpc_breastplate_of_abjudication"		"审判胸甲"
+		"item_property_breastplate_of_abjudication"				"审判"
+		"property_breastplate_of_abjudication_description"		"当敌人准备攻击你时，如果他们的物理穿透高于你的护甲时，你将会获得数值为 <% ITEM_RPC_BREASTPLATE_OF_ABJUDICATION_STAT_PCT %>% 的你的护甲和敌方物理穿透的差值的额外护甲，持续 <% ITEM_RPC_BREASTPLATE_OF_ABJUDICATION_DURATION %> 秒"
+
+		"DOTA_Tooltip_modifier_abjudication_base_effect_armor"	"审判"
+		"DOTA_Tooltip_modifier_abjudication_base_effect_armor_Description"	"提高护甲"
+
+		"item_rpc_breastplate_of_abjudication_ruby1"									"当你准备攻击敌人时，如果他们的护甲高于你的物理穿透，那么你将会获得数值为 <% ITEM_RPC_BREASTPLATE_OF_ABJUDICATION_STAT_PCT %>% 的你的物理穿透和敌方护甲差值的物理穿透，持续 @ruby_property1 秒"
+		"item_rpc_breastplate_of_abjudication_emerald1"									"增加基础效果的持续时间 @emerald_property1 秒"
+		"item_rpc_breastplate_of_abjudication_sapphire1"									"增加全属性 @sapphire_property1%"
+		"item_rpc_breastplate_of_abjudication_amethyst1"									"受到一次魔法或者纯粹伤害时，如果施法者的魔法穿透高于你的魔甲时，你将会获得数值为 <% ITEM_RPC_BREASTPLATE_OF_ABJUDICATION_STAT_PCT %>% 他们的魔法穿透值和你的魔甲值差值的魔甲，持续 @amethyst_property1 秒"
+
+		"DOTA_Tooltip_modifier_abjudication_ruby_armor_pierce"	"审判 (红宝石)"
+		"DOTA_Tooltip_modifier_abjudication_ruby_armor_pierce_Description"	"增加物理穿透"
+
+		"DOTA_Tooltip_modifier_abjudication_amethyst_magic_armor" "审判 (紫宝石)"
+		"DOTA_Tooltip_modifier_abjudication_amethyst_magic_armor_Description" "增加魔甲"
