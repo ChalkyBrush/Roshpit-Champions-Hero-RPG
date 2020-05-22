@@ -17,7 +17,7 @@
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% EKKAN_ARCANA_W1A_DURATION %>"
 			}
 			"03"
@@ -159,7 +159,7 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_one_base"			"<% EKKAN_ARCANA_W1B_BASE_DURATION %>"
 			}
 			"02"
@@ -309,7 +309,7 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% EKKAN_ARCANA_W1C_ATTACK_DAMAGE %>"
 			}
 			"02"

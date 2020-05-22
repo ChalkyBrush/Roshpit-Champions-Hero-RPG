@@ -60,7 +60,7 @@ function river_of_souls_start(event)
 		if caster:HasModifier("modifier_ekkan_glyph_2_1") then
 			for i = 1, EKKAN_GLYPH_2_1_E_SPAWN_CORPSES, 1 do
 				local corpse = CreateUnitByName("ekkan_corpse", portalPosition, false, nil, nil, DOTA_TEAM_NEUTRALS)
-				local summonSkeletonAbility = caster:FindAbilityByName("ekkan_summon_skeleton")
+				local summonSkeletonAbility = caster:GetAbilityByIndex(DOTA_W_SLOT)
 				summonSkeletonAbility:ApplyDataDrivenModifier(caster, corpse, "modifier_ekkan_skeleton_corpse", {duration = 30})
 				corpse.jumpEnd = "basic_dust"
 				corpse:SetForwardVector(RandomVector(1))

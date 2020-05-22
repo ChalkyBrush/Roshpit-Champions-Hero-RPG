@@ -564,7 +564,7 @@ function Winterblight:SetupCastleData()
 		Winterblight.CASTLE_DATA["rooms"][7]["active"] = 0
 		Winterblight.CASTLE_DATA["rooms"][7]["enemy_spawn_count"] = 0
 		Winterblight.CASTLE_DATA["rooms"][7]["enemies_slain"] = 0
-		Winterblight.CASTLE_DATA["rooms"][7]["extra_goal"] = -1
+		Winterblight.CASTLE_DATA["rooms"][7]["extra_goal"] = 0
 		Winterblight.CASTLE_DATA["rooms"][7]["key_positions"] = {Vector(10837, 5609), Vector(9492, 5446), Vector(8960, 3660)}
 		Winterblight.CASTLE_DATA["rooms"][7]["cleared"] = 0
 		Winterblight.CASTLE_DATA["rooms"][7]["mid_point"] = Vector(10902, 3637)
@@ -2282,7 +2282,8 @@ function Winterblight:SpawnCastleRoom11(variant)
 			for i = 1, #positionTable, 1 do
 				local fv = RandomVector(1)
 				local monster = Winterblight:SpawnCastleRoomUnit(room_index, unitTable[RandomInt(1, #unitTable)], positionTable[i], fv, false, false)
-			end	
+			end
+			Winterblight.CASTLE_DATA["rooms"][room_index]["active"] = 2		
 		end)	
 		Timers:CreateTimer(4, function()
 			local positionTable = {Vector(15244, -2407), Vector(15104, -2233), Vector(15003, -2363), Vector(14848, -2176)}
@@ -2303,7 +2304,6 @@ function Winterblight:SpawnCastleRoom11(variant)
 			else
 				Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_moon_warden", Vector(14712, -2720), Vector(0,-1), false, false)
 			end
-			Winterblight.CASTLE_DATA["rooms"][room_index]["active"] = 2	
 		end)
 	elseif variant == 2 then
 		Timers:CreateTimer(0.5, function()
@@ -2352,6 +2352,7 @@ function Winterblight:SpawnCastleRoom11(variant)
 				local fv = RandomVector(1)
 				local monster = Winterblight:SpawnCastleRoomUnit(room_index, unitTable[RandomInt(1, #unitTable)], positionTable[i], fv, false, false)
 			end	
+			Winterblight.CASTLE_DATA["rooms"][room_index]["active"] = 2	
 		end)	
 		Timers:CreateTimer(4, function()
 			local positionTable = {Vector(15244, -2407), Vector(15104, -2233), Vector(15003, -2363), Vector(14848, -2176)}
@@ -2361,7 +2362,6 @@ function Winterblight:SpawnCastleRoom11(variant)
 			end	
 			local miniboss = Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_haunt_magician", Vector(14712, -2720), Vector(0,-1), false, false)
 			miniboss:AddLootDrop("immortal", "item_rpc_spellcrafter_coat", 100)
-			Winterblight.CASTLE_DATA["rooms"][room_index]["active"] = 2	
 		end)
 	elseif variant == 3 then
 		Timers:CreateTimer(0.5, function()
@@ -2410,6 +2410,7 @@ function Winterblight:SpawnCastleRoom11(variant)
 				local fv = RandomVector(1)
 				local monster = Winterblight:SpawnCastleRoomUnit(room_index, unitTable[RandomInt(1, #unitTable)], positionTable[i], fv, false, false)
 			end	
+			Winterblight.CASTLE_DATA["rooms"][room_index]["active"] = 2
 		end)	
 		Timers:CreateTimer(4, function()
 			local positionTable = {Vector(15244, -2407), Vector(15104, -2233), Vector(15003, -2363), Vector(14848, -2176)}
@@ -2418,7 +2419,6 @@ function Winterblight:SpawnCastleRoom11(variant)
 				local monster = Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_frozen_cage", positionTable[i], fv, false, false)
 			end	
 			Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_moon_warden", Vector(14712, -2720), Vector(0,-1), false, false)
-			Winterblight.CASTLE_DATA["rooms"][room_index]["active"] = 2	
 		end)
 	end
 end

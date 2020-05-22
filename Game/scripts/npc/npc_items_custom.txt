@@ -50797,7 +50797,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"1 2 3 4 5"
+				"emerald1"			"0.1 0.2 0.3 0.4 0.5"
 			}
 			"04"
 			{
@@ -50895,7 +50895,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"1 2 3 4 5"
+				"emerald1"			"0.01 0.02 0.03 0.04 0.05"
 			}
 			"04"
 			{
