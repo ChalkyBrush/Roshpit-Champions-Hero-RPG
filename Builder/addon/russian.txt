@@ -1302,6 +1302,50 @@
 		"rpc_items_basic_emerald" "Увеличивает Ловкость на @emerald_property1"
 		"rpc_items_basic_sapphire" "Увеличивает Интеллект на @sapphire_property1"
 		"rpc_items_basic_amethyst" "Увеличивает Дух на @amethyst_property1"	
+		
+		//------------------------
+		// Soul Binding
+		//------------------------
+		"item_soulbound"			"ЗАКРЕПЛЕН"
+
+		"the_soulbinder"			"The Soulbinder"
+		"soulbinder_item_search"	"Поиск по Предметам"
+		"soulbinder_item_search_button"	"Поиск"
+		"soulbinder_item_search_results"	"Искать Результаты"
+		"soulbinder_search_help_text"	"Ищите предметы, используя их игровые или внутренние имена.<br><br>Альтернативно можно выбрать надетый предмет, что вызовет меню Закрепления для этого типа предметов."
+		"soulbinder_no_search_query_entered"	"Введите слово поиска"
+		"soulbinder_slot"	"Закрепленный Слот"
+		"soulbinder_slot_select"	"Выбор"
+		"soulbinder_item_view_first_tip"	"Выберите Закрепленный Слот для просмотра опций"
+		"soulbinder_empty_slot_instructions"	"Это Закрепленный слот пуст.<br>Перетащите @item_name с слот ниже,<br>либо нажмите на надетый @item_name, чтобы прикрепить его к слоту.<br><br><font color=\"#EAA017\"><b>ПОСЛЕ ЗАКРЕПЛЕНИЯ ПРЕДМЕТЫ УЖЕ НЕ МОГУТ БЫТЬ ОБМЕНЕНЫ, ПЕРЕКОВАНЫ ИЛИ ПРОДАНЫ!</b></font>"
+		"soulbinder_empty_slot_weapon_warning"	"Оружия становятся снова 1 Уровня после закрепления за игроков!"
+		"soulbinder_final_bind_button"		"Закрепить этот предмет на слот @slot_number"
+		"soulbinder_slot_exists_instructions"	"Одевая этот предмет, вы уничтожите текущий предмет на вашем герое в этом слоте."
+		"soulbinder_final_equip_button"		"Надеть Предмет"
+		"soulbinder_final_equip_delete_button"	"Удалить Предмет"
+		"soulbinder_final_equip_delete_button_confirm"	"Подтвердите удаление. Предмет будет уничтожен."
+		"soulbinder_cost_to_soulbind"		"Стоимость Закрепления"
+
+		"soulbind_tips_title"				"Инструкции по Закреплению"
+		"soulbinder_tip_1"					"1. Закрепленные предметы не могут быть сняты, перекованы или проданы. Будучи однажды закрепленным, этот предмет уже никогда нельзя вернуть в обычное состояние."
+		"soulbinder_tip_2"					"2. Игроки могут иметь до 3 копий каждого предмета в игре с редкостью Иммортал или Аркана."
+		"soulbinder_tip_3"					"3. Закрепленные слоты 2 и 3 доступны для записи владельцам пропусков. Если ваш пропуск заканчивает действие, вы все еще сможете вызывать предмет из этих слотов."
+		"soulbinder_tip_4"					"4. Закрепление предмета в пустой слот стоит Кристаллы Тайны, но вызывать его после можно бесплатно."
+		"soulbinder_tip_5"					"5. Закрепленные предметы можно бесконечно копировать между разными персонажами."
+		"soulbinder_tip_6"					"6. Закрепленным предметам можно добавлять новые ячейки для самоцветов и инкрустировать или улучшать самоцветы, но после этого их уже нельзя переработать."
+		"soulbinder_tip_7"					"7. Закрепленные предметы можно повторно закрепить в другие слоты закрепления."
+
+		"soulbinder_library_button_title"	"Просмотр Хранилища"
+		"soulbinder_library"		"Хранилище"
+		"soulbinder_library_loading"		"Загрузка Хранилища..."
+
+		"soulbinder_library_helms"		"Шлемы"
+		"soulbinder_library_bodies"		"Нагрудники"
+		"soulbinder_library_weapons"	"Оружие"
+		"soulbinder_library_gloves"		"Перчатки"
+		"soulbinder_library_boots"		"Ботинки"
+		"soulbinder_library_trinkets"		"Амулеты"
+		"soulbinder_library_arcanas"		"Арканы"
 
 	    //------------------------
 		// World
@@ -1951,9 +1995,13 @@
 
 		"star_azalea_title"											"Shrine of Azalea"
 		"star_azalea_title_solo"									"Shrine of Azalea"
-		"star_azalea_description"									"Победить @bossname, @mapname героем @heroname на Нормальной сложности."
-		"star_azalea_description2"									"Победить @bossname, @mapname героем @heroname на Легендарной сложности."
-		"star_azalea_description3"									"Победить @bossname, @mapname героем @heroname на Легендарной сложности с тремя активными Glacier Stones."
+		"star_azalea_description"									"Победить @bossname в @mapname героем @heroname на Нормальной сложности."
+		"star_azalea_description2"									"Победить @bossname в @mapname героем @heroname на Легендарной сложности."
+		"star_azalea_description3"									"Победить @bossname в @mapname героем @heroname на Легендарной сложности с 3 активными Glacier Stones."
+		
+		"star_wb_castle_description"									"Победить @bossname в @mapname героем @heroname on Normal Difficulty."
+		"star_wb_castle_description2"									"Победить @bossname в @mapname героем @heroname Легендарной сложности."
+		"star_wb_castle_description3"									"Победить @bossname в @mapname героем @heroname на Легендарной сложности с 3 активными Glacier Stones."
 
 
 		//SERENGAARD

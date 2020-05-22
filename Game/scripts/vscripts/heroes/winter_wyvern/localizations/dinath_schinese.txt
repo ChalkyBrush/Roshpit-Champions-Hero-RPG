@@ -167,6 +167,55 @@
     	"DOTA_Tooltip_ability_dinath_rune_w_4_arcana1_suffix"					""
     	"DOTA_Tooltip_ability_dinath_rune_w_4_arcana1_property_two"				"获得额外攻击目标的概率"
     	"DOTA_Tooltip_ability_dinath_rune_w_4_arcana1_suffix_two"					"%"
+	
+	 //Arcana2
+        "DOTA_Tooltip_ability_item_rpc_dinath_arcana2"                      "严霜之龙鳞甲"
+
+        "item_property_dinath_arcana2"                                      "冰龙之怒"
+        "property_dinath_arcana2_description"                               "用冰龙之怒替换 @Ability4 及其所有符文."
+
+        "DOTA_Tooltip_ability_dinath_frost_wyrm"                       "冰龙之怒"
+        "DOTA_Tooltip_ability_dinath_frost_wyrm_Description"           "元素: <font color=\"#3289C7\">龙</font> / <font color=\"#87D9FF\">冰</font><br>持续施法2秒后, 帝纳斯向施法点冲去并提升至最大高度，同时朝目标位置发射矢量冰弹，爆炸后对半径内的敌人造成毁灭性伤害并使其减速."
+        "DOTA_Tooltip_ability_dinath_frost_wyrm_damage_mult"               "% 总攻击力的伤害:"
+        "DOTA_Tooltip_ability_dinath_frost_wyrm_cast_range"             "施法范围:"
+        "DOTA_Tooltip_ability_dinath_frost_wyrm_cooldown"               "冷却时间:"
+        "DOTA_Tooltip_ability_dinath_frost_wyrm_projectile_range"               "冰弹最大距离:"
+        "DOTA_Tooltip_ability_dinath_frost_wyrm_projectile_count"               "冰弹数量:"
+        "DOTA_Tooltip_ability_dinath_frost_wyrm_explode_radius"               "爆炸半径:"
+        "DOTA_Tooltip_ability_dinath_frost_wyrm_ms_slow"               "移动速度降低:"
+        "DOTA_Tooltip_ability_dinath_frost_wyrm_as_slow"               "攻速降低:"
+        "DOTA_Tooltip_ability_dinath_frost_wyrm_slow_duration"               "减速持续时间:"
+
+        "DOTA_Tooltip_modifier_dinath_frost_wyrm_slow"                  "冰龙之怒"
+        "DOTA_Tooltip_modifier_dinath_frost_wyrm_slow_Description"      "被减速"
+
+
+        "DOTA_Tooltip_ability_dinath_rune_r_1_arcana2"                      "[R1] 龙威所至，千里冰封"
+        "DOTA_Tooltip_ability_dinath_rune_r_1_arcana2_Description"          "提高冰龙之怒的施法距离和冰弹最大距离."
+        "DOTA_Tooltip_ability_dinath_rune_r_1_arcana2_property_one"         "施法距离提高"
+        "DOTA_Tooltip_ability_dinath_rune_r_1_arcana2_suffix"               ""
+        "DOTA_Tooltip_ability_dinath_rune_r_1_arcana2_property_two"         "冰弹距离提高"
+        "DOTA_Tooltip_ability_dinath_rune_r_1_arcana2_suffix_two"           ""
+
+        "DOTA_Tooltip_ability_dinath_rune_r_2_arcana2"                          "[R2] 毁灭之力，万物凋零"
+        "DOTA_Tooltip_ability_dinath_rune_r_2_arcana2_Description"              "提高冰龙之怒的爆炸半径并根据攻击力提高其伤害."
+        "DOTA_Tooltip_ability_dinath_rune_r_2_arcana2_property_one"             "爆炸半径提高"
+        "DOTA_Tooltip_ability_dinath_rune_r_2_arcana2_suffix"                   ""
+        "DOTA_Tooltip_ability_dinath_rune_r_2_arcana2_property_two"             "额外伤害"
+        "DOTA_Tooltip_ability_dinath_rune_r_2_arcana2_suffix_two"               "% 攻击力"
+
+        "DOTA_Tooltip_ability_dinath_rune_r_3_arcana2"                          "[R3] 混乱降临，无一幸免"
+        "DOTA_Tooltip_ability_dinath_rune_r_3_arcana2_Description"              "在到达目标点时有概率发射额外的冰弹."
+        "DOTA_Tooltip_ability_dinath_rune_r_3_arcana2_property_one"             "额外冰弹概率"
+        "DOTA_Tooltip_ability_dinath_rune_r_3_arcana2_suffix"                   "%"
+
+        "DOTA_Tooltip_ability_dinath_rune_r_4_arcana2"                          "[R4] 永恒怒火，世界终焉"
+        "DOTA_Tooltip_ability_dinath_rune_r_4_arcana2_Description"              "降低冰龙之怒的冷却时间和持续施法时间"
+        "DOTA_Tooltip_ability_dinath_rune_r_4_arcana2_property_one"             "冷却时间减少"
+        "DOTA_Tooltip_ability_dinath_rune_r_4_arcana2_suffix"                   " 秒"
+        "DOTA_Tooltip_ability_dinath_rune_r_4_arcana2_property_two"             "施法时间减少"
+        "DOTA_Tooltip_ability_dinath_rune_r_4_arcana2_suffix_two"               " 秒"
+		
 		
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_1_1"		"[T1-1] 低温雕文"

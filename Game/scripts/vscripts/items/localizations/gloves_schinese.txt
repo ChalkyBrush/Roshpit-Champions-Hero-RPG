@@ -541,3 +541,89 @@
 
 		"DOTA_Tooltip_modifier_goldbreaker_effect"			"鎏金粉碎"
 "DOTA_Tooltip_modifier_goldbreaker_effect_Description" "尝试进入魔免时将会被眩晕。"		
+
+
+		"DOTA_Tooltip_ability_item_rpc_angelic_gloves_of_the_judiciary"			"审判天使手套"
+
+		"item_property_angelic_gloves_of_the_judiciary"							"神圣平衡"
+		"property_angelic_gloves_of_the_judiciary_description"					"每点最低的属性增加基础技能伤害<% ITEM_RPC_ANGELIC_GLOVES_OF_THE_JUDICIARY_BAD_PER_ATTR %>%。"
+
+		"item_rpc_angelic_gloves_of_the_judiciary_ruby1"			"被攻击时回复 @ruby_property1% 最大生命值"
+		"item_rpc_angelic_gloves_of_the_judiciary_emerald1"			"每点当前生命值增加护甲和魔甲@emerald_property1点"
+		"item_rpc_angelic_gloves_of_the_judiciary_sapphire1"			"增加智力和精神@sapphire_property1点"
+		"item_rpc_angelic_gloves_of_the_judiciary_amethyst1"			"所有属性增加最大生命值 @amethyst_property1点"
+
+		"DOTA_Tooltip_ability_item_rpc_demonic_gloves_of_the_judiciary"			"审判恶魔手套"
+
+		"item_property_demonic_gloves_of_the_judiciary"							"地狱平衡"
+		"property_demonic_gloves_of_the_judiciary_description"					"每点最低的属性增加基础攻击力 <% ITEM_RPC_DEMONIC_GLOVES_OF_THE_JUDICIARY_ATTACK_PER_ATTR %>点"
+
+		"item_rpc_demonic_gloves_of_the_judiciary_ruby1"			"普通攻击将会回复 @ruby_property1% 最大生命值"
+		"item_rpc_demonic_gloves_of_the_judiciary_emerald1"			"每点当前魔法值增加物理穿透和魔法穿透 @emerald_property1点"
+		"item_rpc_demonic_gloves_of_the_judiciary_sapphire1"			"增加力量和敏捷 @sapphire_property1点"
+		"item_rpc_demonic_gloves_of_the_judiciary_amethyst1"			"所有属性增加最大魔法值 @amethyst_property1点"
+
+		"DOTA_Tooltip_ability_item_rpc_glove_of_the_hierophant"			"圣者手套"
+
+		"item_property_glove_of_the_hierophant"							"灵魂冲击"
+		"property_glove_of_the_hierophant_description"					"当你智力自己或者友军时，对治疗目标周围<% ITEM_RPC_GLOVE_OF_THE_HIEROPHANT_DMG_RADIUS %>范围内的敌人造成<% ITEM_RPC_GLOVE_OF_THE_HIEROPHANT_HEAL_TO_DMG_PCT %>% 治疗数值的纯粹伤害。每秒最多触发 <% ITEM_RPC_GLOVE_OF_THE_HIEROPHANT_TRIGGERS_PER_SECOND %> 次。"
+
+		"DOTA_Tooltip_modifier_glove_of_the_hierophant_sapphire_blind"	"灵魂冲击 (蓝宝石)"
+		"DOTA_Tooltip_modifier_glove_of_the_hierophant_sapphire_blind_Description"	"命中率被降低"
+
+		"DOTA_Tooltip_modifier_glove_of_the_hierophant_spirit_buff"	"灵魂冲击 (紫宝石)"
+		"DOTA_Tooltip_modifier_glove_of_the_hierophant_spirit_buff_Description"	"增加精神"
+
+		"item_rpc_glove_of_the_hierophant_ruby1"			"增加治疗效果 @ruby_property1%"
+		"item_rpc_glove_of_the_hierophant_emerald1"			"增加伤害范围 @emerald_property1"
+		"item_rpc_glove_of_the_hierophant_sapphire1"			"灵魂冲击将会降低附近的敌人的命中率@sapphire_property1% 持续 <% ITEM_RPC_GLOVE_OF_THE_HIEROPHANT_SAPPHIRE_DURATION%> 秒并且增加灵魂冲击的伤害，数值为 @sapphire_property2x 你的精神"
+		"item_rpc_glove_of_the_hierophant_amethyst1"			"当你治疗你自己或者友军时，被治疗的目标将会获得一个buff，buff增加目标的精神 @amethyst_property1 持续 <% ITEM_RPC_GLOVE_OF_THE_HIEROPHANT_AMETHYST_DURATION %> 秒"
+
+		"DOTA_Tooltip_ability_item_rpc_zombiegrip_gauntlet"			"僵尸之握手套"
+
+		"item_property_zombiegrip_gauntlet"							"僵尸之墙"
+		"property_zombiegrip_gauntlet_description"					"释放 @Ability1 将会召唤一个由 <% ITEM_RPC_ZOMBIEGRIP_GAUNTLET_BASE_ZOMBIE_COUNT %>个僵尸组成的不可通行的墙壁，僵尸的方向和施法者的方向垂直。站在墙周围 <% ITEM_RPC_ZOMBIEGRIP_GAUNTLET_ZOMBIE_ATTACK_RANGE %> 范围内的敌人将会被僵尸攻击。 僵尸拥有 <% ITEM_RPC_ZOMBIEGRIP_GAUNTLET_ATTACK_DMG_INHERIT_PCT%>% 施法者攻击力的攻击力。僵尸在受到 <% ITEM_RPC_ZOMBIEGRIP_GAUNTLET_ATTACKS_TO_KILL %> 次攻击后或者 <% ITEM_RPC_ZOMBIEGRIP_GAUNTLET_DURATION %> 秒后消失。僵尸之墙有 <% ITEM_RPC_ZOMBIEGRIP_GAUNTLET_COOLDOWN %> 秒冷却时间， 并且同一时间只能存在一面墙"
+
+		"item_rpc_zombiegrip_gauntlet_ruby1"			"增加不死元素伤害 @ruby_property1%， 僵尸获得 @ruby_property2 点攻击速度和 @ruby_property3% 攻击力。"
+		"item_rpc_zombiegrip_gauntlet_emerald1"			"当一个僵尸死亡时，他将会爆炸，对周围<% ITEM_RPC_ZOMBIEGRIP_GAUNTLET_EMERALD_RADIUS %>范围内的敌人造成 @emerald_property1% 攻击力的伤害。这个爆炸将会留下一片酸液，每0.5秒造成@emerald_property2% 攻击力伤害并且降低敌方护甲 @emerald_property3。这片酸液持续 <% ITEM_RPC_ZOMBIEGRIP_GAUNTLET_EMERALD_DURATION %> 秒"
+		"item_rpc_zombiegrip_gauntlet_sapphire1"			"额外召唤 @sapphire_property1 个僵尸。提高僵尸持续时间 @sapphire_property2 秒并且提高击杀所需次数@sapphire_property3次"
+		"item_rpc_zombiegrip_gauntlet_amethyst1"			"僵尸将会被毒液之云围绕，降低附近<% ITEM_PROPERTY_ZOMBIEGRIP_GAUNTLET_AMETHYST_RADIUS %>范围内的敌人的攻击速度 @amethyst_property1 和移动速度 @amethyst_property2"
+
+		"DOTA_Tooltip_modifier_zombiegrip_standing_in_acid_pile"	"僵尸之墙酸液"
+		"DOTA_Tooltip_modifier_zombiegrip_standing_in_acid_pile_Description"	"护甲被降低并且受到持续伤害"
+
+		"DOTA_Tooltip_modifier_zombiegrip_in_poison_cloud"			"僵尸之墙毒云"
+		"DOTA_Tooltip_modifier_zombiegrip_in_poison_cloud_Description"	"攻击速度和移动速度被降低"
+
+		"DOTA_Tooltip_ability_item_rpc_stonebreaker_gauntlet"			"破石者护手"
+
+		"item_property_stonebreaker_gauntlet"							"碎石者"
+		"property_stonebreaker_gauntlet_description"					"对<% ITEM_RPC_STONEBREAKER_GAUNTLET_RANGE %>范围内的敌人放出攻击指令将会丢出一个石头，造成 <% ITEM_RPC_STONEBREAKER_GAUNTLET_DMG_ATK_PWR %>% 攻击力 + <% ITEM_RPC_STONEBREAKER_GAUNTLET_DMG_STRENGTH %>x 力量值的伤害。这个石头也会眩晕目标 <% ITEM_RPC_STONEBREAKER_GAUNTLET_STUN_DURATION %>秒。 <% ITEM_RPC_STONEBREAKER_GAUNTLET_COOLDOWN %> 秒冷却时间。"
+
+		"item_rpc_stonebreaker_gauntlet_ruby1"			"当你普通攻击敌人或者用石头打击敌人时，你将会获得 @ruby_property1 力量，持续 <% ITEM_RPC_STONEBREAKER_GAUNTLET_RUBY_DURATION %> 秒"
+		"item_rpc_stonebreaker_gauntlet_emerald1"			"击中后，这个石头将会碎裂成 @emerald_property1 个碎片，飞向初始目标 <% ITEM_RPC_STONEBREAKER_GAUNTLET_EMERALD_FRACTURE_RANGE %> 范围内的最近的敌人。此外增加眩晕的持续时间 @emerald_property2 秒"
+		"item_rpc_stonebreaker_gauntlet_sapphire1"			"每点力量增加攻击力@sapphire_property1%"
+		"item_rpc_stonebreaker_gauntlet_amethyst1"			"引导 [R]时每@amethyst_property1 秒向周围 <% ITEM_RPC_STONEBREAKER_GAUNTLET_AMETHYST_RANGE %>范围内的随机敌人投掷巨石"
+
+		"DOTA_Tooltip_modifier_stonebreaker_ruby"			"破石者 (红宝石)"
+		"DOTA_Tooltip_modifier_stonebreaker_ruby_Description"	"增加力量"
+
+		"DOTA_Tooltip_ability_item_rpc_exodia_gloves"			"艾克佐迪亚手套"
+
+		"item_property_exodia_gloves"							"彗星"
+		"property_exodia_gloves_description"					"普通攻击将会额外造成一次<% ITEM_RPC_EXODIA_GLOVES_DMG_PCT_ATK_POWER %>% 攻击力的魔法伤害。这个效果将会溅射并且最多额外打击<% ITEM_RPC_EXODIA_GLOVES_ENEMY_SEARCH_RANGE %>范围内的2个敌人并且每次溅射都将再次溅射，至多打击范围内的2个敌人"
+
+		"item_rpc_exodia_gloves_ruby1"			"有@ruby_property1% 概率使得第一次溅射可以额外打击第三个目标"
+		"item_rpc_exodia_gloves_emerald1"			"每 1% 丢失魔法值增加攻击力 @emerald_property1%"
+		"item_rpc_exodia_gloves_sapphire1"			"增加对初始目标的伤害 @sapphire_property1%"
+		"item_rpc_exodia_gloves_amethyst1"			"增加溅射攻击的搜索范围 @amethyst_property1并且增加溅射的弹道速度 @amethyst_property2%"
+
+		"DOTA_Tooltip_ability_item_rpc_world_commander_gloves"			"世界指挥官手套"
+
+		"item_property_world_commander_gloves"							"世界之力"
+		"property_world_commander_gloves_description"					"每点物理穿透和魔法穿透增加攻击力 <% ITEM_RPC_WORLD_COMMANDER_GLOVES_DMG_PCT %>%"
+
+		"item_rpc_world_commander_gloves_ruby1"				"增加 [Q4] 符文 @ruby_property1"
+		"item_rpc_world_commander_gloves_emerald1"			"增加 [E4] 符文 @emerald_property1"
+		"item_rpc_world_commander_gloves_sapphire1"			"增加 [W4] 符文 @sapphire_property1"
+		"item_rpc_world_commander_gloves_amethyst1"			"增加 [R4] 符文 @amethyst_property1"
