@@ -1559,7 +1559,9 @@ end
 function castle_boss_rotator(event)
 	local caster = event.caster
 	local ability = event.ability
-
+	if not caster.posLock then
+		caster.posLock = caster:GetAbsOrigin()
+	end
 	local divisor = 360
 	if caster.rotationDivisor then
 		divisor = caster.rotationDivisor
