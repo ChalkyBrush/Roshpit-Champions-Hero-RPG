@@ -2001,28 +2001,28 @@ end
 function Winterblight:Room8Vertices()
 	local vertices = {}
 
-	local height = 2480
+	local height = 2280
 	local width = 406
 	local origin = Vector(14667, 2333)
 	local bl_vertex = origin-Vector(width/2, height/2)
 	local tr_vertex = origin+Vector(width/2, height/2)
 	table.insert(vertices, {bl_vertex, tr_vertex})
 
-	local height = 2187
+	local height = 2087
 	local width = 467
 	local origin = Vector(15145, 1871)
 	local bl_vertex = origin-Vector(width/2, height/2)
 	local tr_vertex = origin+Vector(width/2, height/2)
 	table.insert(vertices, {bl_vertex, tr_vertex})
 
-	local height = 1172
+	local height = 1072
 	local width = 733
 	local origin = Vector(15761, 1971)
 	local bl_vertex = origin-Vector(width/2, height/2)
 	local tr_vertex = origin+Vector(width/2, height/2)
 	table.insert(vertices, {bl_vertex, tr_vertex})
 
-	local height = 777
+	local height = 677
 	local width = 815
 	local origin = Vector(15807, 919)
 	local bl_vertex = origin-Vector(width/2, height/2)
@@ -3034,7 +3034,8 @@ function Winterblight:KeyLand(position)
 				if luck == 1 then
 					chest.contents = {ring_of_mysteries = 1}
 				end
-				local luck_card = RandomInt(1, 24)
+				local luck_card = RandomInt(1, 21)
+				if luck_card == 1 then
 					chest.contents.tarot_card = 1
 				end
 				Timers:CreateTimer(6, function()
