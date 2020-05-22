@@ -1381,7 +1381,7 @@
 
 		"DOTA_Tooltip_ability_winterblight_mountain_rubble_ice_burst"	"Rubble Ice Burst"
 		"DOTA_Tooltip_ability_winterblight_mountain_rubble_ice_burst_Description"	"После задержки в 0.8 сек выпускает ледяной взрыв, замедляющий и оглушающий противников, попавших в него."
-		"DOTA_Tooltip_ability_winterblight_mountain_rubble_ice_burst_stun_duration"	ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
+		"DOTA_Tooltip_ability_winterblight_mountain_rubble_ice_burst_stun_duration"	"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
 		"DOTA_Tooltip_ability_winterblight_mountain_rubble_ice_burst_damage"		"УРОН:"
 		"DOTA_Tooltip_ability_winterblight_mountain_rubble_ice_burst_as_slow"		"ЗАМЕДЛЕНИЕ АТАК:"
 		"DOTA_Tooltip_ability_winterblight_mountain_rubble_ice_burst_ms_slow"		"ЗАМЕДЛЕНИЕ СКОРОСТИ ПЕРЕДВИЖЕНИЯ:"
