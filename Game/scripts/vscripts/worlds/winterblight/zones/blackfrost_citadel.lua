@@ -2205,7 +2205,7 @@ end
 function Winterblight:SpawnTreasureRoomChests()
 	local positionTable = {Vector(9498, -2670), Vector(10130, -2278), Vector(10746, -1901)}
 	local glyphs_count = RandomInt(2, math.floor(3 + GameState:GetPlayerPremiumStatusCount()))
-	local crystals_count = (RandomInt(34, 40 + GameState:GetPlayerPremiumStatusCount()*4))/150
+	local crystals_count = (RandomInt(34, 40 + GameState:GetPlayerPremiumStatusCount()*4))/100
 	local rewardTables = {{items = RandomInt(6, 9+GameState:GetPlayerPremiumStatusCount())}, {crystals = crystals_count}, {glyphs = glyphs_count}}
 	local rewardTables = WallPhysics:ShuffleTable(rewardTables)
 	Winterblight.CastleDungeonMaster.treasure_room_chests = {}
@@ -2711,7 +2711,7 @@ function Winterblight:CastleBossDeath(boss)
 	end)
 	Timers:CreateTimer(2, function()
 		if Winterblight.CastleTarot["name"] == "death" then
-			RPCItems:RollAndDropUniqueItem(enemy, "item_rpc_mortuary_charm")
+			RPCItems:RollAndDropUniqueItem(boss, "item_rpc_mortuary_charm")
 		elseif Winterblight.CastleTarot["name"] == "emperor" and GameState:GetDifficultyFactor() >= 3 then
 			Winterblight:DropEmperorQuestItem("emperor", boss:GetAbsOrigin())
 		end
@@ -3127,7 +3127,7 @@ end
 
 function Winterblight:GetGeneralChestRewards()
 	local glyphs_count = RandomInt(2, math.floor(3 + GameState:GetPlayerPremiumStatusCount()))
-	local crystals_count = (RandomInt(34, 40 + GameState:GetPlayerPremiumStatusCount()*4))/150
+	local crystals_count = (RandomInt(34, 40 + GameState:GetPlayerPremiumStatusCount()*4))/100
 	return {{items = RandomInt(6, 9+GameState:GetPlayerPremiumStatusCount())}, {crystals = crystals_count}, {glyphs = glyphs_count}}
 end
 
