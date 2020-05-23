@@ -725,4 +725,57 @@
 		"item_rpc_wraith_hunters_steel_helm_ruby1"		"Магическая Защита увеличена на @ruby_property1% от показателя Брони."
 		"item_rpc_wraith_hunters_steel_helm_emerald1"	"Каждая единица Ловкости увеличивает Пробитие Магической Защиты на @emerald_property1"
 		"item_rpc_wraith_hunters_steel_helm_sapphire1" 	"Увеличивает Пробитие Брони на @sapphire_property1"
-		"item_rpc_wraith_hunters_steel_helm_amethyst1" 	"Каждая единица Духа увеличивает Пробитие Магической Защиты на @emerald_property1"	
+		"item_rpc_wraith_hunters_steel_helm_amethyst1" 	"Каждая единица Духа увеличивает Пробитие Магической Защиты на @emerald_property1"
+		
+		"DOTA_Tooltip_ability_item_rpc_shadowguard_helm"						"Shadowguard Helm"
+		"item_property_shadowguard_helm"						"Uncanny Alertness"
+		"property_shadowguard_helm_description"				"Когда вражеский юнит начинает атаку по герою, предмет выбрасывает снаряд со скоростью <% ITEM_RPC_SHADOWGUARD_HELM_PROJECTILE_SPEED %> в его сторону. При попадании этот снаряд наносит урон <% ITEM_RPC_SHADOWGUARD_HELM_DMG_PCT_ATK_POWER %>% от Силы Атаки героя и обезоруживает цель на <% ITEM_RPC_SHADOWGUARD_HELM_DISARM_DURATION %> сек. Может сработать максимум до <% ITEM_RPC_SHADOWGUARD_HELM_MAX_PROCS_PER_SECOND %> раз в секунду."
+
+		"item_rpc_shadowguard_helm_ruby1"		"Увеличивает урон снаряда на дополнительные @ruby_property1% от Силы Атаки и увеличивает максимум срабатываний в секунду на @ruby_property2"
+		"item_rpc_shadowguard_helm_emerald1"	"Увеличивает скорость снаряда на @emerald_property1"
+		"item_rpc_shadowguard_helm_sapphire1" 	"Увеличивает длительность обезоруживания на @sapphire_property1 сек"
+		"item_rpc_shadowguard_helm_amethyst1" 	"Противники, задетые эффектом обезоруживания, также потеряют до @amethyst_property1 Магической Защиты и Пробития Магической Защиты"
+
+    	"DOTA_Tooltip_ability_item_rpc_sun_gods_visage"						"Sun God's Visage"
+		"item_property_sun_gods_visage"						"Burning Rejuvenation"
+		"property_sun_gods_visage_description"				"Каждые <% ITEM_RPC_SUN_GODS_VISAGE_INTERVAL %> сек герой теряет <% ITEM_RPC_SUN_GODS_VISAGE_HEALTH_DRAIN %>% от текущего Здоровья, затем мгновенно восстанавливает <% ITEM_RPC_SUN_GODS_VISAGE_HEAL %>% от отсутствующего Здоровья."
+
+		"item_rpc_sun_gods_visage_ruby1"		"Увеличивает потерю и восстановление Здоровья на дополнительные @ruby_property1%"
+		"item_rpc_sun_gods_visage_emerald1"	"Увеличивает Ловкость и Дух на @emerald_property1, если показатель Здоровья находится между <% ITEM_RPC_SUN_GODS_VISAGE_EMERALD_LOWER_BOUND %>% и <% ITEM_RPC_SUN_GODS_VISAGE_EMERALD_UPPER_BOUND %>%"
+		"item_rpc_sun_gods_visage_sapphire1" 	"Каждое очко текущего Здоровья увеличивает Магическую Защиту на @sapphire_property1, а каждое очко отсутсвующего Здоровья увеличивает Пробитие Магической Защиты на @sapphire_property2"
+		"item_rpc_sun_gods_visage_amethyst1" 	"Увеличивает Максимальный Запас Здоровья на @amethyst_property1 и урон стихии <font color=\"#EF4126\">Огня</font> на @amethyst_property2%"
+
+    	"DOTA_Tooltip_ability_item_rpc_cloak_of_the_cimmerian_priesthood"						"Cloak of the Cimmerian Priesthood"
+		"item_property_cloak_of_the_cimmerian_priesthood"						"Shadow Priest"
+		"property_cloak_of_the_cimmerian_priesthood_description"				"Атаки наносят дополнительный магический урон <font color=\'#7F4F84\'>Тени</font>/<font color=\'#F6FFB5\'>Света</font>, основанный на <% ITEM_RPC_CLOAK_OF_THE_CIMMERIAN_PRIESTHOOD_DMG_PCT_TGT_CURRENT_HEALTH %>% от текущего Здоровья цели, а также исцеляют героя в размере <% ITEM_RPC_CLOAK_OF_THE_CIMMERIAN_PRIESTHOOD_HEAL_PCT %>% от базового значения этого урона (без учета мультипликаторов урона Стихий и Предметов)."
+
+		"item_rpc_cloak_of_the_cimmerian_priesthood_ruby1"		"Противники, задетые [Q], получают <% ITEM_RPC_CLOAK_OF_THE_CIMMERIAN_PRIESTHOOD_RUBY_DAMAGE %>% от основной порции урона эффекта каждые @ruby_property1 сек в течение @ruby_property2 сек"
+		"item_rpc_cloak_of_the_cimmerian_priesthood_emerald1"	"Противники, задетые [W], исцеляют союзников героя рядом с ними в радиусе <% ITEM_RPC_CLOAK_OF_THE_CIMMERIAN_PRIESTHOOD_EMERALD_RANGE %> в размере @emerald_property1% от базового значения урона"
+		"item_rpc_cloak_of_the_cimmerian_priesthood_sapphire1" 	"Прочтение [E] образует щит, продолжительностью <% ITEM_RPC_CLOAK_OF_THE_CIMMERIAN_PRIESTHOOD_SAPPHIRE_DURATION %> сек, который поглощает урон, равный @sapphire_property1% от Максимума Здоровья"
+		"item_rpc_cloak_of_the_cimmerian_priesthood_amethyst1" 	"Прочтение [R] накладывает эффект страха на всех противников в радиусе <% ITEM_RPC_CLOAK_OF_THE_CIMMERIAN_PRIESTHOOD_AMETHYST_RADIUS %> на @amethyst_property1 сек"
+
+		"DOTA_Tooltip_modifier_cimmerian_priest_q_dot"			"Shadow Priest (Рубин)"
+
+		"DOTA_Tooltip_modifier_cimmerian_priest_e_shield"		"Shadow Priest (Сапфир)"
+		"DOTA_Tooltip_modifier_cimmerian_priest_e_shield_Description"	"Поглощает урон"
+
+    	"DOTA_Tooltip_ability_item_rpc_iron_tower_barbute"						"Iron Tower Barbute"
+		"item_property_iron_tower_barbute"						"Iron Tower"
+		"property_iron_tower_barbute_description"				"Приказ остановки движения или удержания позиции увеличивает Силу героя на <% ITEM_RPC_IRON_TOWER_BARBUTE_STRENGTH %> за каждый Уровень героя. Передвижение убирает эффект."
+
+		"DOTA_Tooltip_modifier_iron_tower_effect"				"Iron Tower"
+		"DOTA_Tooltip_modifier_iron_tower_effect_Description"	"Сила увеличена"
+
+		"item_rpc_iron_tower_barbute_ruby1"		"Пока эффект активен, каждое очко Силы увеличивает Броню и Пробитие Брони на @ruby_property1"
+		"item_rpc_iron_tower_barbute_emerald1"	"При смерти героя флаг возрождения автоматически устанавливается в место смерти. Перезарядка @emerald_property1 сек."
+		"item_rpc_iron_tower_barbute_sapphire1" 	"Если в радиусе <% ITEM_RPC_IRON_TOWER_BARBUTE_SAPPHIRE_RANGE %> от героя есть <% ITEM_RPC_IRON_TOWER_BARBUTE_SAPPHIRE_ENEMIES %> противника или 1 босс, Бонусная Сила Атаки увеличивается на @sapphire_property1%."
+		"item_rpc_iron_tower_barbute_amethyst1" 	"Эффект Iron Tower держится еще @amethyst_property1 секунд после начала движения"
+
+    	"DOTA_Tooltip_ability_item_rpc_lich_kings_gaze"						"Lich King's Gaze"
+		"item_property_lich_kings_gaze"						"Sinister Gaze"
+		"property_lich_kings_gaze_description"				"Выбирает до <% ITEM_RPC_LICH_KINGS_GAZE_BASE_MAX_TARGETS %> противников в области-секторе перед героем длиной <% ITEM_RPC_LICH_KINGS_GAZE_CIRCLE_RANGE %>, шириной дуги в <% ITEM_RPC_LICH_KINGS_GAZE_ANGLE_RANGE %>° один раз в <% ITEM_RPC_LICH_KINGS_GAZE_BASE_INTERVAL %> сек. Эти противники получают урон в <% ITEM_RPC_LICH_KINGS_GAZE_DAMAGE_PCT_ATK_POWER %>% от Силы Атаки и их скорость передвижения замедляется на <% ITEM_RPC_LICH_KINGS_GAZE_MOVE_SLOW %>% на <% ITEM_RPC_LICH_KINGS_GAZE_SLOW_DURATION %> сек."
+
+		"item_rpc_lich_kings_gaze_ruby1"		"Увеличивает длину области на @ruby_property1, а ширину дуги на @ruby_property2°"
+		"item_rpc_lich_kings_gaze_emerald1"		"Уменьшает интервал между тиками урона на @emerald_property1 сек"
+		"item_rpc_lich_kings_gaze_sapphire1" 	"Увеличивает максимальное уоличество целей на @sapphire_property1"
+		"item_rpc_lich_kings_gaze_amethyst1" 	"Если в зоне только 1 противник, он получает дополнительно @amethyst_property1 порций урона от эффекта"
