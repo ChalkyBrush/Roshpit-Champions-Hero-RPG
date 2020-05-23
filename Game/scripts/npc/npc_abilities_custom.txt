@@ -90137,6 +90137,7 @@
 			"modifier_winter_castle_room_unit"
 			{
 				"IsHidden"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 				"OnDeath"
 				{
 					"RunScript"
@@ -168735,6 +168736,7 @@
 				"IsHidden"	"1"
 				"Passive"	"0"
 				"ThinkInterval"  "1.5"
+				"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -168748,6 +168750,7 @@
 			"ai_fight_juke"
 			{
 				"IsHidden"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 				"OnAttackLanded"
 				// "%attack_damage" is set to the damage value before mitigation
 				{
@@ -168762,6 +168765,7 @@
 			"ai_death_sound"
 			{
 				"IsHidden"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 				"OnDeath"
 				{
 					"RunScript"
@@ -168775,6 +168779,7 @@
 			{
 				"Passive"	"0"
 				"IsHidden"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 				"OverrideAnimation"     "ACT_DOTA_RUN"
 				"States"
 				{
@@ -168798,6 +168803,7 @@
 			"ai_loot_table"
 			{
 				"IsHidden"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 				"OnDeath"
 				{
 					"RunScript"

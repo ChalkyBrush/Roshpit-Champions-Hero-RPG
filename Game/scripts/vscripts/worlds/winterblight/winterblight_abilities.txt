@@ -16055,6 +16055,7 @@
 			"modifier_winter_castle_room_unit"
 			{
 				"IsHidden"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 				"OnDeath"
 				{
 					"RunScript"
