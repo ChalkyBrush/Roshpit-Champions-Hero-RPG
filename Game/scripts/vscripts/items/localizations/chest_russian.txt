@@ -771,7 +771,7 @@
 		"item_rpc_spellcrafter_coat_amethyst1"									"Снаряд наносит урон <font color=\"#E1A2E8\">Тайны</font> и отскакивает от целей до  @amethyst_property1 раз по целям в радиусе <% ITEM_RPC_SPELLCRAFTER_COAT_GEM_AMETHYST_RANGE %>. Урон снаряда увеличивается на @amethyst_property2x от Духа героя"
 
 		"DOTA_Tooltip_ability_item_rpc_cloak_of_isolation"		"Cloak of Isolation"
-		"item_property_cloak_of_isolation"				"Elective Isolation"
+		"item_property_cloak_of_isolation"				"Isolation"
 		"property_cloak_of_isolation_description"		"Противники в радиусе <% ITEM_RPC_CLOAK_OF_ISOLATION_RANGE %> отбрасываются назад с силой <% ITEM_RPC_CLOAK_OF_ISOLATION_BASE_FORCE %> и их скорость передвижения снижается на <% ITEM_RPC_CLOAK_OF_ISOLATION_MOVESPEED_REDUCE %>%."
 
 		"item_rpc_cloak_of_isolation_ruby1"									"Увеличивает радиус отбрасывания на @ruby_property1"
@@ -780,10 +780,10 @@
 		"item_rpc_cloak_of_isolation_amethyst1"									"Приказ остановки перемещения сбрасывает снаряды, летящие в героя и применяет @amethyst_property1-секундную невидимость. Перезарядка <% ITEM_RPC_CLOAK_OF_ISOLATION_AMETHYST_COOLDOWN %> сек."
 
 		"DOTA_Tooltip_ability_item_rpc_breastplate_of_abjudication"		"Breastplate of Abjudication"
-		"item_property_breastplate_of_abjudication"				"Summary Judgment"
+		"item_property_breastplate_of_abjudication"				"Judgement"
 		"property_breastplate_of_abjudication_description"		"Если атакующий героя противник имеет больше Пробития Брони, чем Броня героя, то герой получает бонус к Броне в  <% ITEM_RPC_BREASTPLATE_OF_ABJUDICATION_STAT_PCT %>% от разницы между этими двумя показателями на <% ITEM_RPC_BREASTPLATE_OF_ABJUDICATION_DURATION %> сек."
 
-		"DOTA_Tooltip_modifier_abjudication_base_effect_armor"	"Summary Judgment"
+		"DOTA_Tooltip_modifier_abjudication_base_effect_armor"	"Judgement"
 		"DOTA_Tooltip_modifier_abjudication_base_effect_armor_Description"	"Броня увеличена"
 
 		"item_rpc_breastplate_of_abjudication_ruby1"									"Если атакуемый героем противник имеет больше Брони, чем Пробитие Брони героя, то герой получает Пробитие Брони, равное <% ITEM_RPC_BREASTPLATE_OF_ABJUDICATION_STAT_PCT %>% от разницы между этими двумя показателями на @ruby_property1 сек."

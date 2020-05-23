@@ -582,7 +582,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_angelic_gloves_of_the_judiciary"			"Angelic Gloves of the Judiciary"
 
-		"item_property_angelic_gloves_of_the_judiciary"							"Humble Grace"
+		"item_property_angelic_gloves_of_the_judiciary"							"Divine Balance"
 		"property_angelic_gloves_of_the_judiciary_description"					"Каждое очко наименьшего по показателю Атрибута героя увеличивает Базовый Урон Способностей на <% ITEM_RPC_ANGELIC_GLOVES_OF_THE_JUDICIARY_BAD_PER_ATTR %>%."
 
 		"item_rpc_angelic_gloves_of_the_judiciary_ruby1"			"Восстанавливает @ruby_property1% от Максимального Запаса Здоровья при получении урона"
@@ -592,7 +592,7 @@
 
 		"DOTA_Tooltip_ability_item_rpc_demonic_gloves_of_the_judiciary"			"Demonic Gloves of the Judiciary"
 
-		"item_property_demonic_gloves_of_the_judiciary"							"Deceptive Weakness"
+		"item_property_demonic_gloves_of_the_judiciary"							"Infernal Balance"
 		"property_demonic_gloves_of_the_judiciary_description"					"Каждое очко наимешьшего по показателю Атрибута героя увеличивает Базовый Урон Атаки на <% ITEM_RPC_DEMONIC_GLOVES_OF_THE_JUDICIARY_ATTACK_PER_ATTR %>."
 
 		"item_rpc_demonic_gloves_of_the_judiciary_ruby1"			"Восстанавливает @ruby_property1% от Максимального Запаса Здоровья при нанесении атаки"
@@ -602,18 +602,18 @@
 
 		"DOTA_Tooltip_ability_item_rpc_glove_of_the_hierophant"			"Glove of the Hierophant"
 
-		"item_property_glove_of_the_hierophant"							"Judicious Ministry"
+		"item_property_glove_of_the_hierophant"							"Spirit Snap"
 		"property_glove_of_the_hierophant_description"					"Любое лечение себя или союзника нанесет <% ITEM_RPC_GLOVE_OF_THE_HIEROPHANT_HEAL_TO_DMG_PCT %>% от размера лечения Чистым типом урона по противникам в радиусе <% ITEM_RPC_GLOVE_OF_THE_HIEROPHANT_DMG_RADIUS %> от цели лечения. Максимально срабатывает до <% ITEM_RPC_GLOVE_OF_THE_HIEROPHANT_TRIGGERS_PER_SECOND %> раз в секунду."
 
-		"DOTA_Tooltip_modifier_glove_of_the_hierophant_sapphire_blind"	"Judicious Ministry (Сапфир)"
+		"DOTA_Tooltip_modifier_glove_of_the_hierophant_sapphire_blind"	"Spirit Snap (Сапфир)"
 		"DOTA_Tooltip_modifier_glove_of_the_hierophant_sapphire_blind_Description"	"Шанс промахнуться при атаках"
 
-		"DOTA_Tooltip_modifier_glove_of_the_hierophant_spirit_buff"	"Judicious Ministry (Аметист)"
+		"DOTA_Tooltip_modifier_glove_of_the_hierophant_spirit_buff"	"Spirit Snap (Аметист)"
 		"DOTA_Tooltip_modifier_glove_of_the_hierophant_spirit_buff_Description"	"Увеличивает Дух"
 
 		"item_rpc_glove_of_the_hierophant_ruby1"			"Увеличивает мощность лечения на @ruby_property1%"
-		"item_rpc_glove_of_the_hierophant_emerald1"			"Увеличивает радиус урона от эффекта Judicious Ministry на @emerald_property1"
-		"item_rpc_glove_of_the_hierophant_sapphire1"			"Урон Judicious Ministry снижает точность атак у пораженных существ на @sapphire_property1% на <% ITEM_RPC_GLOVE_OF_THE_HIEROPHANT_SAPPHIRE_DURATION%> сек, и этот урон увеличен на @sapphire_property2x от Духа героя"
+		"item_rpc_glove_of_the_hierophant_emerald1"			"Увеличивает радиус урона от эффекта Spirit Snap на @emerald_property1"
+		"item_rpc_glove_of_the_hierophant_sapphire1"			"Урон Spirit Snap снижает точность атак у пораженных существ на @sapphire_property1% на <% ITEM_RPC_GLOVE_OF_THE_HIEROPHANT_SAPPHIRE_DURATION%> сек, и этот урон увеличен на @sapphire_property2x от Духа героя"
 		"item_rpc_glove_of_the_hierophant_amethyst1"			"Юнит, получающий лечение от героя, также получит и бафф, увеличивающий Дух на @amethyst_property1 на <% ITEM_RPC_GLOVE_OF_THE_HIEROPHANT_AMETHYST_DURATION %> сек"
 
 		"DOTA_Tooltip_ability_item_rpc_zombiegrip_gauntlet"			"Zombiegrip Gauntlet"
@@ -634,7 +634,7 @@
 
 		"DOTA_Tooltip_ability_item_rpc_stonebreaker_gauntlet"			"Stonebreaker Gauntlet"
 
-		"item_property_stonebreaker_gauntlet"							"Chuck Rock" // formerly Sneed
+		"item_property_stonebreaker_gauntlet"							"Stonebreaker"
 		"property_stonebreaker_gauntlet_description"					"Приказ атаки по противнику в радиусе <% ITEM_RPC_STONEBREAKER_GAUNTLET_RANGE %> запустит в него булыжник, наносящий <% ITEM_RPC_STONEBREAKER_GAUNTLET_DMG_ATK_PWR %>% от Силы Атаки + <% ITEM_RPC_STONEBREAKER_GAUNTLET_DMG_STRENGTH %>x Силы при ударе. Булыжник также оглушает цель на <% ITEM_RPC_STONEBREAKER_GAUNTLET_STUN_DURATION %> сек. Этот эффект имеет <% ITEM_RPC_STONEBREAKER_GAUNTLET_COOLDOWN %> сек перезарядку."
 
 		"item_rpc_stonebreaker_gauntlet_ruby1"			"Когда булыжник попадает по цели, герой получает дополнительно @ruby_property1 Силы на <% ITEM_RPC_STONEBREAKER_GAUNTLET_RUBY_DURATION %> сек"

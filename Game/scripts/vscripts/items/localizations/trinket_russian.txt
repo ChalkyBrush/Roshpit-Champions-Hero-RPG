@@ -651,7 +651,7 @@
 		
 			   "DOTA_Tooltip_ability_item_rpc_moon_shard"                              "Moon Shard"
 
-        "item_property_moon_shard"                  "Luminant Celerity"
+        "item_property_moon_shard"                  "Lumos Celerity"
         "property_moon_shard_description"           "Каждый 1% отсутствующей маны снижает перезарядку способностей на <% ITEM_RPC_MOON_SHARD_CD_REDUCTION_PER_MANA_PCT %>%."
 
         "item_rpc_moon_shard_ruby1"                             "Герой получает @ruby_property1 скорости атаки за каждый 1% отсутствующей маны"
@@ -680,10 +680,10 @@
 
        "DOTA_Tooltip_ability_item_rpc_mortuary_charm"                              "Mortuary Charm"
 
-        "item_property_mortuary_charm"                  "Baleful Seance"
+        "item_property_mortuary_charm"                  "Exsufflation"
         "property_mortuary_charm_description"           "<% ITEM_RPC_MORTUARY_CHARM_BASE_GHOSTS %> призрака сопровождают героя, атакуя противников в радиусе <% ITEM_RPC_MORTUARY_CHARM_ATTACK_RANGE_BASE %>. Призраки наносят урон в размере <% ITEM_RPC_MORTUARY_CHARM_DMG_PCT_ATK_PWR %>% от Силы Атаки героя и парализуют цели на <% ITEM_RPC_MORTUARY_CHARM_PARALYZE_DURATION %> сек."
 
-       "DOTA_Tooltip_modifier_mortuary_paralyze"        "Baleful Seance"
+       "DOTA_Tooltip_modifier_mortuary_paralyze"        "Exsufflation"
        "DOTA_Tooltip_modifier_mortuary_paralyze_Description"    "Парализован"
 
         "item_rpc_mortuary_charm_ruby1"                             "Вызывает еще @ruby_property1 призраков"
@@ -694,7 +694,7 @@
 
        "DOTA_Tooltip_ability_item_rpc_baphomets_cursed_necklace"                              "Baphomet's Cursed Necklace"
 
-        "item_property_baphomets_cursed_necklace"                  "Ruinous Rage"
+        "item_property_baphomets_cursed_necklace"                  "Ruin"
         "property_baphomets_cursed_necklace_description"           "При прочтении @Ability4, сбрасывает её перезарядку и уменьшает её время перезарядки при следующем прочтении. Эффект имеет собственную перезарядку <% ITEM_RPC_BAPHOMETS_CURSED_NECKLACE_BASE_CD %> сек."
 
         "item_rpc_baphomets_cursed_necklace_ruby1"                                 "Каждый Атрибут героя увеличивает Базовый Урон Атаки на @ruby_property1"
@@ -704,7 +704,7 @@
 
        "DOTA_Tooltip_ability_item_rpc_monarch_ring"                              "Monarch Ring"
 
-        "item_property_monarch_ring"                  "Favorable Translation"
+        "item_property_monarch_ring"                  "Attribute Supremacy"
         "property_monarch_ring_description"           "Бонусы Рун от снаряжения увеличивают Атрибуты героя вместо указанных Рун. Руны [Q] увеличивают Силу, руны [W] увеличивают Ловкость, руны [E] увеличивают Интеллект, а руны [R] увеличивают Дух. Бонусы к рунами T1 и T2 увеличивают все атрибуты на <% ITEM_RPC_MONARCH_RING_STAT_PER_RUNE %>, T3 на <% ITEM_RPC_MONARCH_RING_STAT_PER_RUNE * 2 %>, а T4 на <% ITEM_RPC_MONARCH_RING_STAT_PER_RUNE * 4 %>."
 
         "item_rpc_monarch_ring_ruby1"                                 "Увеличивает бонус Силы от рун на @ruby_property1%"
@@ -714,7 +714,7 @@
 		
 		
         "DOTA_Tooltip_ability_item_rpc_ring_of_mysteries"             "Ring of Mysteries"
-        "item_property_ring_of_mysteries"                                     "Subtle Enchantment"
+        "item_property_ring_of_mysteries"                                     "Resplendence"
         "property_ring_of_mysteries_description"                              "Три руны T1 и T2 с наименьшими показателями получают бонус +<% ITEM_RPC_RING_OF_MYSTERIES_T1_AND_T2_BONUS %> к показателю."
 
         "item_rpc_ring_of_mysteries_ruby1"                "Одна руна Т3 с наименьшим показателем получает бонус +@ruby_property1"
