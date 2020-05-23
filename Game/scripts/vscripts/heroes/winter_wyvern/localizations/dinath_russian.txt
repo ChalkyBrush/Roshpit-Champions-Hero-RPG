@@ -168,6 +168,54 @@
     	"DOTA_Tooltip_ability_dinath_rune_w_4_arcana1_property_two"				"Шанс на доп. цель"
     	"DOTA_Tooltip_ability_dinath_rune_w_4_arcana1_suffix_two"					"%"
 		
+		//Arcana2
+        "DOTA_Tooltip_ability_item_rpc_dinath_arcana2"                      "Frost Wyrm Carapace"
+
+        "item_property_dinath_arcana2"                                      "Wrath of the Frost Wyrm"
+        "property_dinath_arcana2_description"                               "Заменяет @Ability4 и её руны на Wrath of the Frost Wyrm."
+
+        "DOTA_Tooltip_ability_dinath_frost_wyrm"                       "Wrath of the Frost Wyrm"
+        "DOTA_Tooltip_ability_dinath_frost_wyrm_Description"           "Элемент: <font color=\"#3289C7\">Дракон</font> / <font color=\"#87D9FF\">Лёд</font><br>После 2-секундной зарядки способности, герой летит к точке прочтения и взлетает на максимально доступную высоту и выдыхает ледяные снаряды, направленные по вектору. Снаряды наносят урон и замедляют противников."
+        "DOTA_Tooltip_ability_dinath_frost_wyrm_damage_mult"               "% УРОН ОТ СИЛЫ АТАКИ:"
+        "DOTA_Tooltip_ability_dinath_frost_wyrm_cast_range"             "ДАЛЬНОСТЬ ПРИМЕНЕНИЯ:"
+        "DOTA_Tooltip_ability_dinath_frost_wyrm_cooldown"               "ПЕРЕЗАРЯДКА:"
+        "DOTA_Tooltip_ability_dinath_frost_wyrm_projectile_range"               "ДАЛЬНОСТЬ ПОЛЕТА СНАРЯДОВ:"
+        "DOTA_Tooltip_ability_dinath_frost_wyrm_projectile_count"               "КОЛИЧЕСТВО СНАРЯДОВ:"
+        "DOTA_Tooltip_ability_dinath_frost_wyrm_explode_radius"               "РАДИУС ВЗРЫВОВ:"
+        "DOTA_Tooltip_ability_dinath_frost_wyrm_ms_slow"               "ЗАМЕДЛЕНИЕ ПЕРЕМЕЩЕНИЯ:"
+        "DOTA_Tooltip_ability_dinath_frost_wyrm_as_slow"               "ЗАМЕДЛЕНИЕ АТАК:"
+        "DOTA_Tooltip_ability_dinath_frost_wyrm_slow_duration"               "ДЛИТЕЛЬНОСТЬ ЗАМЕДЛЕНИЯ:"
+
+        "DOTA_Tooltip_modifier_dinath_frost_wyrm_slow"                  "Wrath of the Frost Wyrm"
+        "DOTA_Tooltip_modifier_dinath_frost_wyrm_slow_Description"      "Замедлен"
+
+
+        "DOTA_Tooltip_ability_dinath_rune_r_1_arcana2"                      "[R1] Dragon Reach"
+        "DOTA_Tooltip_ability_dinath_rune_r_1_arcana2_Description"          "Увеличивает дальность применения Wrath of the Frost Wyrm и дальность полета снарядов."
+        "DOTA_Tooltip_ability_dinath_rune_r_1_arcana2_property_one"         "Дальность Прочтения"
+        "DOTA_Tooltip_ability_dinath_rune_r_1_arcana2_suffix"               ""
+        "DOTA_Tooltip_ability_dinath_rune_r_1_arcana2_property_two"         "Дальность Полета Снарядов"
+        "DOTA_Tooltip_ability_dinath_rune_r_1_arcana2_suffix_two"           ""
+
+        "DOTA_Tooltip_ability_dinath_rune_r_2_arcana2"                          "[R2] Devastation"
+        "DOTA_Tooltip_ability_dinath_rune_r_2_arcana2_Description"              "Увеличивает область действия взрывающихся снарядов и увеличивает урон в завсимости от Силы Атаки героя."
+        "DOTA_Tooltip_ability_dinath_rune_r_2_arcana2_property_one"             "Увеличение Радиуса"
+        "DOTA_Tooltip_ability_dinath_rune_r_2_arcana2_suffix"                   ""
+        "DOTA_Tooltip_ability_dinath_rune_r_2_arcana2_property_two"             "Доп. Урон"
+        "DOTA_Tooltip_ability_dinath_rune_r_2_arcana2_suffix_two"               "% от Силы Атаки"
+
+        "DOTA_Tooltip_ability_dinath_rune_r_3_arcana2"                          "[R3] Volbeat"
+        "DOTA_Tooltip_ability_dinath_rune_r_3_arcana2_Description"              "Дает шанс выдохнуть дополнительные ледяные снаряды."
+        "DOTA_Tooltip_ability_dinath_rune_r_3_arcana2_property_one"             "Шанс на доп. снаряды"
+        "DOTA_Tooltip_ability_dinath_rune_r_3_arcana2_suffix"                   "%"
+
+        "DOTA_Tooltip_ability_dinath_rune_r_4_arcana2"                          "[R4] Endless Wrath"
+        "DOTA_Tooltip_ability_dinath_rune_r_4_arcana2_Description"              "Уменьшает перезарядку и время зарядки способности Wrath of the Frost Wyrm."
+        "DOTA_Tooltip_ability_dinath_rune_r_4_arcana2_property_one"             "Снижение Перезарядки"
+        "DOTA_Tooltip_ability_dinath_rune_r_4_arcana2_suffix"                   " сек"
+        "DOTA_Tooltip_ability_dinath_rune_r_4_arcana2_property_two"             "Снижение Времени Заряда Способности"
+        "DOTA_Tooltip_ability_dinath_rune_r_4_arcana2_suffix_two"               " сек"
+		
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_1_1"		"[T1-1] Glyph of Cryogenation"
 		"item_rpc_dinath_glyph_1_1_description" 				"Увеличивает длительность заморозки @Ability4 на <% DINATH_GLYPH_1_1_FREEZE_DURATION_INCREASE %> секунды."
