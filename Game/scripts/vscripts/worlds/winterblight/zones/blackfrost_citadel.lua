@@ -1219,6 +1219,9 @@ function Winterblight:SpawnCastleRoomUnit(room_index, unit_name, position, fv, a
 		print("SPAWN FOR ROOM")
 		print(Winterblight.ActiveCastleRoom["enemy_spawn_count"])
 		print(unit_name)
+		if not enemy:HasModifier("modifier_winter_castle_room_unit") then
+			Winterblight.ActiveCastleRoom["enemy_spawn_count"] = Winterblight.ActiveCastleRoom["enemy_spawn_count"] - 1
+		end
 	end
 	Timers:CreateTimer(0.1, function()
 		Winterblight:AdjustCastleUnit(enemy)
