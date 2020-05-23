@@ -1699,10 +1699,10 @@ function attackable_unit_hit(event)
 	local caster = event.caster
 	local ability = event.ability
 	local attacker = event.attacker
-	if not attacker:IsHero() then
-		return false
-	end
 	if caster.prop_id == 0 then
+		if not attacker:IsHero() then
+		return false
+		end
 		if not caster.hits then
 			caster.hits = 0
 		end
@@ -1717,10 +1717,19 @@ function attackable_unit_hit(event)
 		end
 		EmitSoundOn("Winterblight.IceSword.Hit", caster)
 	elseif caster.prop_id == 1 then
+		if not attacker:IsHero() then
+		return false
+		end
 		Winterblight:AttackAzaleaCrystal(caster, true)
 	elseif caster.prop_id == 2 then
+		if not attacker:IsHero() then
+		return false
+		end
 		Winterblight:AzaleaCupAttacked(caster, attacker)
 	elseif caster.prop_id == 3 then
+		if not attacker:IsHero() then
+		return false
+		end
 		Winterblight:AzaleaBladeAttacked(caster, attacker)
 	elseif caster.prop_id == 4 then
 		Winterblight:AzaleaPuckAttacked(caster, attacker)

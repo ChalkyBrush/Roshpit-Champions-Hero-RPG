@@ -715,7 +715,7 @@
 		"item_rpc_windsteel_armor_ruby1"									"Increases Fluttering Guard stacks by @ruby_property1"
 		"item_rpc_windsteel_armor_emerald1"									"While Fluttering Guard is active, gain @emerald_property1 Agility"
 		"item_rpc_windsteel_armor_sapphire1"									"Reduces Fluttering Guard Cooldown by @sapphire_property1 seconds"
-		"item_rpc_windsteel_armor_amethyst1"									"When Fluttering Guard expires or is destroyed, a burst of wind will toss enemies in a <% ITEM_RPC_WINDSTEEL_ARMOR_AMETHYST_RADIUS %> radius up into the air, disabling them for @amethyst_property1 seconds. While disabled by this effect, enemies are attack and magic immune."
+		"item_rpc_windsteel_armor_amethyst1"									"When Fluttering Guard expires or is destroyed, a burst of wind will toss enemies in a <% ITEM_RPC_WINDSTEEL_ARMOR_AMETHYST_RADIUS %> radius up into the air, disabling them for @amethyst_property1 seconds. While disabled by this effect, enemies are immune to attacks and spells."
 			 
 
 
@@ -727,14 +727,12 @@
 		"DOTA_Tooltip_ability_item_rpc_steelbark_guard_Description"						"Slot: Body"
 		"item_property_steelbark"			"Steelbark Protection"
 		"property_steelbark_description"	"While below 40% max health, gain 100 health regen and 40 bonus Armor."
-
-				
+			
 		"DOTA_Tooltip_ability_item_rpc_energizing_quest_gear"							"Energizing Quest Gear"
 		"item_rpc_energizing_quest_gear_ruby1"							"No effect"
 		"item_rpc_energizing_quest_gear_emerald1"							"No effect"
 		"item_rpc_energizing_quest_gear_sapphire1"							"No effect"
-		"item_rpc_energizing_quest_gear_amethyst1"							"No effect"
-		
+		"item_rpc_energizing_quest_gear_amethyst1"							"No effect"		
 
 		"DOTA_Tooltip_ability_item_rpc_plague_emperor_armor"							"Plague Emperor Armor"
 		"item_property_plague_emperor"												"Poison Globs"
@@ -797,4 +795,3 @@
 
 		"DOTA_Tooltip_modifier_abjudication_amethyst_magic_armor" "Judgement (Amethyst)"
 		"DOTA_Tooltip_modifier_abjudication_amethyst_magic_armor_Description" "Increased Magic Armor"
-

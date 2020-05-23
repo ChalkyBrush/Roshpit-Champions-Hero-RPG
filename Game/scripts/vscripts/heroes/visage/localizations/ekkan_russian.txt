@@ -74,7 +74,7 @@
 		"DOTA_Tooltip_ability_ekkan_summon_skeleton"						"Summon Skeleton"
    		"DOTA_Tooltip_ability_ekkan_summon_skeleton_Description"			"Враги, умирающие в радиусе <font color='#70EA72'>1500</font> от Ekkan оставляют горстку костей в месте своей смерти. Ekkan может выбрать небольшую область, в которой находятся трупы, чтобы призвать скелетов - воинов, которые будут сражаться на стороне героя."
 		"DOTA_Tooltip_ability_ekkan_summon_skeleton_max_skeletons"			"МАКСИМУМ СКЕЛЕТОВ:"
-		"DOTA_Tooltip_ability_ekkan_summon_skeleton_skeleton_duration"		"ДЛИТЕЛЬНОСТЬ ЖИЗНИ СКЕЛЕТОВ:"
+		"DOTA_Tooltip_ability_ekkan_summon_skeleton_skeleton_duration"		"ВРЕМЯ СУЩЕСТВОВАНИЯ:"
 		"DOTA_Tooltip_ability_ekkan_summon_skeleton_armor_mult"				"МНОЖИТЕЛЬ БРОНИ ОТ ПОКАЗАТЕЛЯ БРОНИ EKKAN:"
 		"DOTA_Tooltip_ability_ekkan_summon_skeleton_attack_mult"			"МНОЖИТЕЛЬ УРОНА ОТ УРОНА EKKAN:"
 		"DOTA_Tooltip_ability_ekkan_summon_skeleton_skeleton_health"		"ЗДОРОВЬЕ СКЕЛЕТОВ:"
@@ -251,6 +251,193 @@
 
     	"DOTA_Tooltip_modifier_black_dominion_shield"							"Gravekeeper Shield"
     	"DOTA_Tooltip_modifier_black_dominion_shield_Description"				"Поглощает урон."
+		
+		 //ARCANA 2 - a
+
+        "DOTA_Tooltip_ability_item_rpc_ekkan_arcana2a"                      "Wretched Grasp of Cruxys"
+
+        "item_property_ekkan_arcana2a"                                       "Abyssal Reanimation (Яд)"
+        "property_ekkan_arcana2a_description"                                "Заменяет @Ability2 и её руны на Вызов Разносчиков Чумы."
+
+        "DOTA_Tooltip_ability_ekkan_arcana2_plague_bearer"                        "Вызов Разносчиков Чумы"
+        "DOTA_Tooltip_ability_ekkan_arcana2_plague_bearer_Description"            "Элемент: <font color=\"#5C776E\">Нежить</font> / <font color=\"#37DD3D\">Яд</font><br>Противники, умирающие в радиусе 1500 от Эккана оставляют кучи костей после смерти. Эккан может вызвать из них Разносчиков Чумы для битвы на его стороне. Разносчики Чумы имеют ядовитую атаку."
+        "DOTA_Tooltip_ability_ekkan_arcana2_plague_bearer_max_skeletons"         			 "МАКСИМУМ РАЗНОСЧИКОВ ЧУМЫ:"
+        "DOTA_Tooltip_ability_ekkan_arcana2_plague_bearer_skeleton_duration"     			 "ВРЕМЯ СУЩЕСТВОВАНИЯ:"
+        "DOTA_Tooltip_ability_ekkan_arcana2_plague_bearer_armor_mult"            			 "МНОЖИТЕЛЬ БРОНИ И ЗАЩИТЫ ОТ ПОКАЗАТЕЛЯ БРОНИ EKKAN:"
+        "DOTA_Tooltip_ability_ekkan_arcana2_plague_bearer_attack_mult"           			 "МНОЖИТЕЛЬ УРОНА ОТ УРОНА EKKAN:"
+        "DOTA_Tooltip_ability_ekkan_arcana2_plague_bearer_skeleton_health"       			 "ЗДОРОВЬЕ РАЗНОСЧИКОВ ЧУМЫ, % ОТ ЗДОРОВЬЯ ГЕРОЯ:"
+        "DOTA_Tooltip_ability_ekkan_arcana2_plague_bearer_poison_duration"       			 "ДЛИТЕЛЬНОСТЬ ЯДА:"
+        "DOTA_Tooltip_ability_ekkan_arcana2_plague_bearer_poison_damage_interval"		     "ЧАСТОТА УРОНА ОТ ЯДА:"
+        "DOTA_Tooltip_ability_ekkan_arcana2_plague_bearer_poison_damage"         			 "УРОН ЯДА ОТ % УРОНА РАЗНОСЧИКОВ ЧУМЫ:" 
+
+        "DOTA_Tooltip_modifier_plaguebearer_basic_poison"                   "Яд Разносчиков Чумы"
+        "DOTA_Tooltip_modifier_plaguebearer_basic_poison_Description"       "Получает урон каждую секунду"
+
+        "ekkan_plaguebearer"                                                        "Разносчик Чумы"
+
+        "DOTA_Tooltip_ability_ekkan_plaguebearer_passive"                   "Plaguebearer Attacks"
+        "DOTA_Tooltip_ability_ekkan_plaguebearer_passive_Description"       "Элемент: <font color=\"#5C776E\">Нежить</font> / <font color=\"#37DD3D\">Яд</font><br>Атаки оставляют эффект яда, наносящий урон в зависимости от Силы Атаки Разносчика Чумы."   
+        "DOTA_Tooltip_ability_ekkan_plaguebearer_passive_poison_duration"        "ДЛИТЕЛЬНОСТЬ ЯДА:"
+        "DOTA_Tooltip_ability_ekkan_plaguebearer_passive_poison_damage_interval"          "ИНТЕРВАЛ ЯДА:"
+        "DOTA_Tooltip_ability_ekkan_plaguebearer_passive_poison_damage"          "УРОН ЯДА % ОТ СИЛЫ АТАКИ:" 
+
+        "DOTA_Tooltip_ability_ekkan_rune_w_1_arcana2a"                               "[W1] Corrosive Armor"
+        "DOTA_Tooltip_ability_ekkan_rune_w_1_arcana2a_Description"                   "Противники, атакующие Разносчиков Чумы, получают дополнительный яд, который наносит урон каждые <% EKKAN_ARCANA_W1A_DAMAGE_INTERVAL %> сек. Урон основан на Броне Разносчика Чумы."
+        "DOTA_Tooltip_ability_ekkan_rune_w_1_arcana2a_property_one"                  "Длительность Яда"
+        "DOTA_Tooltip_ability_ekkan_rune_w_1_arcana2a_suffix"                        " сек"
+        "DOTA_Tooltip_ability_ekkan_rune_w_1_arcana2a_property_two"                  "Урон Яда"
+        "DOTA_Tooltip_ability_ekkan_rune_w_1_arcana2a_suffix_two"                    "% от Брони Разносчиков Чумы"
+
+        "DOTA_Tooltip_modifier_plaguebearer_w_1_poison"                              "Corrosive Armor"
+        "DOTA_Tooltip_modifier_plaguebearer_w_1_poison_Description"                 "Получает урон каждую секунду"  
+
+        "DOTA_Tooltip_ability_ekkan_rune_w_2_arcana2a"                               "[W2] Poison Cloud"
+        "DOTA_Tooltip_ability_ekkan_rune_w_2_arcana2a_Description"                   "Облако ядовитого газа окружает Разносчиков Чумы. Противники внутри такого облака, в радиусе <% EKKAN_ARCANA_W2A_RADIUS %>, замедлены и получают урон каждые <% EKKAN_ARCANA_W2A_DAMAGE_INTERVAL %> сек, основанный на Здоровья Разносчика Чумы."
+        "DOTA_Tooltip_ability_ekkan_rune_w_2_arcana2a_property_one"                  "Урон Яда"
+        "DOTA_Tooltip_ability_ekkan_rune_w_2_arcana2a_suffix"                        "% от Запаса Здоровья"
+        "DOTA_Tooltip_ability_ekkan_rune_w_2_arcana2a_property_two"                  "Замедление Передвижения"
+        "DOTA_Tooltip_ability_ekkan_rune_w_2_arcana2a_suffix_two"                     ""
+
+        "DOTA_Tooltip_modifier_plaguebearer_rot_effect"                               "Poison Cloud"
+
+        "DOTA_Tooltip_ability_ekkan_rune_w_3_arcana2a"                               "[W3] Acid Pool"
+        "DOTA_Tooltip_ability_ekkan_rune_w_3_arcana2a_Description"                   "Разносчики Чумы получают способность создавать лужи из ядовитой кислоты радиусом <% EKKAN_ARCANA_W3A_RADIUS %>, которые наносят урон, основанный на Пробитии Брони Разносчика Чумы, каждые <% EKKAN_ARCANA_W3A_DAMAGE_INTERVAL %> сек. Противники, стоящие в луже также имеют сниженную Броню."
+        "DOTA_Tooltip_ability_ekkan_rune_w_3_arcana2a_property_one"                  "Урон Яда"
+        "DOTA_Tooltip_ability_ekkan_rune_w_3_arcana2a_suffix"                        "% от Пробития Брони"
+        "DOTA_Tooltip_ability_ekkan_rune_w_3_arcana2a_property_two"                  "Снижение Брони"
+        "DOTA_Tooltip_ability_ekkan_rune_w_3_arcana2a_suffix_two"                    ""
+
+        "DOTA_Tooltip_ability_ekkan_plaguebearer_poison_spray"                       "Acid Pool"
+        "DOTA_Tooltip_ability_ekkan_plaguebearer_poison_spray_Description"           "Элемент: <font color=\"#5C776E\">Нежить</font> / <font color=\"#37DD3D\">Яд</font><br>Создает ядовитую лужу, которая наносит урон и снижает Броню и Магическую Защиту стоящим в ней." 
+
+        "DOTA_Tooltip_plague_bearer_acid_spray_effect"                               "Acid Pool"
+
+        "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2a"                               "[W4] Endless Plague"
+        "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2a_Description"                   "Увеличивает длительность существования Разносчиков Чумы. Дополнительно увеличивает урон <font color=\"#5C776E\">Нежити</font> и <font color=\"#37DD3D\">Яда</font>."
+        "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2a_property_one"                  "Увеличение длительности жизни"
+        "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2a_suffix"                        " сек"
+        "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2a_property_two"                  "Элементальный урон Нежити и Яда"
+        "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2a_suffix_two"                    "%"
+
+        //ARCANA2 - b
+        "DOTA_Tooltip_ability_item_rpc_ekkan_arcana2b"                      "Wretched Grasp of Cruxys"
+
+        "item_property_ekkan_arcana2b"                                       "Abyssal Reanimation (Лёд)"
+        "property_ekkan_arcana2b_description"                                "Заменяет @Ability2 и её руны на Вызов Ледяных Призраков."
+
+        "DOTA_Tooltip_ability_ekkan_arcana2_frost_wraith"                        "Вызов Ледяных Призраков"
+        "DOTA_Tooltip_ability_ekkan_arcana2_frost_wraith_Description"            "Элемент: <font color=\"#5C776E\">Нежить</font> / <font color=\"#87D9FF\">Лёд</font><br>Противники, умирающие в радиусе 1500 от Эккана оставляют кучи костей после смерти. Эккан может вызвать из них Ледяных Призраков для битвы на его стороне. Ледяные Призраки имеют ледяную атаку, которая замедляет скорость атак и перемещения у целей."
+        "DOTA_Tooltip_ability_ekkan_arcana2_frost_wraith_max_skeletons"          "МАКСИМУМ ЛЕДЯНЫХ ПРИЗРАКОВ:"
+        "DOTA_Tooltip_ability_ekkan_arcana2_frost_wraith_skeleton_duration"      "ВРЕМЯ СУЩЕСТВОВАНИЯ:"
+        "DOTA_Tooltip_ability_ekkan_arcana2_frost_wraith_armor_mult"             "МНОЖИТЕЛЬ БРОНИ ЛЕДЯНЫХ ПРИЗРАКОВ ОТ БРОНИ EKKAN:"
+        "DOTA_Tooltip_ability_ekkan_arcana2_frost_wraith_attack_mult"            "МНОЖИТЕЛЬ УРОНА АТАКИ ЛЕДЯНЫХ ПРИЗРАКОВ ОТ УРОНА EKKAN:"
+        "DOTA_Tooltip_ability_ekkan_arcana2_frost_wraith_skeleton_health"        "% ЗДОРОВЬЕ ЛЕДЯНЫХ ПРИЗРАКОВ ОТ % ЗДОРОВЬЯ EKKAN:"
+        "DOTA_Tooltip_ability_ekkan_arcana2_frost_wraith_cold_duration"        "ДЛИТЕЛЬНОСТЬ ЭФФЕКТА АТАК:"
+        "DOTA_Tooltip_ability_ekkan_arcana2_frost_wraith_cold_ms_slow"          "ЗАМЕДЛЕНИЕ СКОРОСТИ ПЕРЕМЕЩЕНИЯ:"
+        "DOTA_Tooltip_ability_ekkan_arcana2_frost_wraith_cold_as_slow"          "ЗАМЕДЛЕНИЕ СКОРОСТИ АТАК:"
+
+        "DOTA_Tooltip_modifier_frost_wraith_basic_chilled"                   "Frost Wraith Chill"
+        "DOTA_Tooltip_modifier_frost_wraith_basic_chilled_Description"       "Замедлен"
+
+        "ekkan_frost_wraith"                                                        "Ледяной Призрак"
+
+        "DOTA_Tooltip_ability_ekkan_frost_wraith_passive"                   "Frost Attacks"
+        "DOTA_Tooltip_ability_ekkan_frost_wraith_passive_Description"       "Атаки замедляют скорость атаки и скорость бега противников."  
+        "DOTA_Tooltip_ability_ekkan_frost_wraith_passive_cold_duration"       "ДЛИТЕЛЬНОСТЬ ЭФФЕКТА АТАК:"
+        "DOTA_Tooltip_ability_ekkan_frost_wraith_passive_cold_ms_slow"          "ЗАМЕДЛЕНИЕ СКОРОСТИ ПЕРЕМЕЩЕНИЯ:"
+        "DOTA_Tooltip_ability_ekkan_frost_wraith_passive_cold_as_slow"          "ЗАМЕДЛЕНИЕ СКОРОСТИ АТАК:"
+
+        "DOTA_Tooltip_ability_ekkan_rune_w_1_arcana2b"                               "[W1] Ice Blast"
+        "DOTA_Tooltip_ability_ekkan_rune_w_1_arcana2b_Description"                   "Ледяной Призрак имеет шанс <% EKKAN_ARCANA_W1B_CHANCE %>% при атаках нанести дополнительный урон и обездвижить цели в радиусе <% EKKAN_ARCANA_W1B_RADIUS %> от основной."
+        "DOTA_Tooltip_ability_ekkan_rune_w_1_arcana2b_property_one"                  "Длительность обездвиживания"
+        "DOTA_Tooltip_ability_ekkan_rune_w_1_arcana2b_suffix"                        " сек"
+        "DOTA_Tooltip_ability_ekkan_rune_w_1_arcana2b_property_two"                  "Урон"
+        "DOTA_Tooltip_ability_ekkan_rune_w_1_arcana2b_suffix_two"                    "% от Магической Защиты Ледяного Призрака"
+
+        "DOTA_Tooltip_modifier_frost_wraith_w_1_root"                              "Ice Blast"
+        "DOTA_Tooltip_modifier_frost_wraith_w_1_root_Description"                 "Обездвижен"  
+
+        "DOTA_Tooltip_ability_ekkan_rune_w_2_arcana2b"                               "[W2] Icicle Spears"
+        "DOTA_Tooltip_ability_ekkan_rune_w_2_arcana2b_Description"                   "Когда Ледяные Призраки получают урон, с шансом <% EKKAN_ARCANA_W2B_CHANCE %>% выпускаются ледяные копья (<% EKKAN_ARCANA_W2B_SPEAR_COUNT %> шт.)в случайные цели поблизости. Противники, задетые копьями получают то же замедление, что и от основных атак Призраков."
+        "DOTA_Tooltip_ability_ekkan_rune_w_2_arcana2b_property_one"                  "Урон Ледяных Копий"
+        "DOTA_Tooltip_ability_ekkan_rune_w_2_arcana2b_suffix"                        "% от Урона Атаки Ледяных Призраков"
+        "DOTA_Tooltip_ability_ekkan_rune_w_2_arcana2b_property_two"                  "Радиус поражения Копий"
+        "DOTA_Tooltip_ability_ekkan_rune_w_2_arcana2b_suffix_two"                    ""
+
+        "DOTA_Tooltip_ability_ekkan_rune_w_3_arcana2b"                               "[W3] Freezing Rain"
+        "DOTA_Tooltip_ability_ekkan_rune_w_3_arcana2b_Description"                   "Ледяные Призраки получают способность вызвать Морозный Дождь в зону радиусом <% EKKAN_ARCANA_W3B_RADIUS %>, что значительно замедляет скорость передвижения противников на <% EKKAN_ARCANA_W3B_PCT_SLOW_DURATION %> сек."
+        "DOTA_Tooltip_ability_ekkan_rune_w_3_arcana2b_property_one"                  "Урон"
+        "DOTA_Tooltip_ability_ekkan_rune_w_3_arcana2b_suffix"                        "% от Пробития Магической Защиты Ледяных Призраков"
+        "DOTA_Tooltip_ability_ekkan_rune_w_3_arcana2b_property_two"                  "Замедление Скорости"
+        "DOTA_Tooltip_ability_ekkan_rune_w_3_arcana2b_suffix_two"                    "%"
+
+        "DOTA_Tooltip_ability_ekkan_frost_wraith_freezing_rain"                       "Морозный Дождь"
+        "DOTA_Tooltip_ability_ekkan_frost_wraith_freezing_rain_Description"           "Элемент: <font color=\"#5C776E\">Нежить</font> / <font color=\"#87D9FF\">Лёд</font><br>Вызывает Морозный Дождь в выбранную зону, который нанесет урон с задержкой в <% EKKAN_ARCANA_W3B_DAMAGE_DELAY %> сек и замедлит противников на <% EKKAN_ARCANA_W3B_PCT_SLOW_DURATION %> сек." 
+
+        "DOTA_Tooltip_frost_wraith_freezing_rain_effect"                               "Freezing Rain"
+        "DOTA_Tooltip_frost_wraith_freezing_rain_effect_Description"                   "Скорость перемещения снижена"
+
+        "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2b"                               "[W4] Eternal Cold"
+        "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2b_Description"                   "Увеличивает длительность существования Ледяных Призраков. Дополнительно увеличивает урон <font color=\"#5C776E\">Нежити</font> и <font color=\"#87D9FF\">Льда</font>."
+        "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2b_property_one"                  "Увеличение длительности жизни"
+        "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2b_suffix"                        " сек"
+        "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2b_property_two"                  "Элементальный урон <font color=\"#5C776E\">Нежити</font> и <font color=\"#87D9FF\">Льда</font>"
+        "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2b_suffix_two"                    "%"
+
+        //ARCANA2 - c
+        "DOTA_Tooltip_ability_item_rpc_ekkan_arcana2c"                      "Wretched Grasp of Cruxys"
+
+        "item_property_ekkan_arcana2c"                                       "Abyssal Reanimation (Огонь)"
+        "property_ekkan_arcana2c_description"                                "Заменяет @Ability2 и её руны на Вызов Горящих Легионеров."
+
+        "DOTA_Tooltip_ability_ekkan_arcana2_burning_legionnaire"                        "Summon Burning Legionnaire"
+        "DOTA_Tooltip_ability_ekkan_arcana2_burning_legionnaire_Description"            "Элемент: <font color=\"#5C776E\">Нежить</font> / <font color=\"#EF4126\">Огонь</font><br>Enemies that die within 1500 of Ekkan leave a pile of their bones at their point of death. Ekkan can target an area containing corpses to summon Burning Legionnaires that fight for him. Burning Legionnaires have a fire attack that deals an additional instance of Pure damage."
+        "DOTA_Tooltip_ability_ekkan_arcana2_burning_legionnaire_max_skeletons"          "MAX SKELETONS:"
+        "DOTA_Tooltip_ability_ekkan_arcana2_burning_legionnaire_skeleton_duration"      "ВРЕМЯ СУЩЕСТВОВАНИЯ:"
+        "DOTA_Tooltip_ability_ekkan_arcana2_burning_legionnaire_armor_mult"             "МНОЖИТЕЛЬ БРОНИ И ЗАЩИТЫ ГОРЯЩИХ ЛЕГИОНЕРОВ ОТ БРОНИ EKKAN:"
+        "DOTA_Tooltip_ability_ekkan_arcana2_burning_legionnaire_attack_mult"            "МНОЖИТЕЛЬ АТАКИ ГОРЯЩИХ ЛЕГИОНЕРОВ ОТ АТАКИ EKKAN:"
+        "DOTA_Tooltip_ability_ekkan_arcana2_burning_legionnaire_skeleton_health"        "% ЗДОРОВЬЕ ГОРЯЩИХ ЛЕГИОНЕРОВ % ОТ ЗДОРОВЬЯ EKKAN:"
+        "DOTA_Tooltip_ability_ekkan_arcana2_burning_legionnaire_fire_damage"        	"% УРОН ОГНЕННЫХ АТАК:"
+
+        "ekkan_burning_legionnaire"                                         "Горящий Легионер"
+
+        "DOTA_Tooltip_ability_ekkan_burning_legionnaire_passive"                   "Пламенная Атака"
+        "DOTA_Tooltip_ability_ekkan_burning_legionnaire_passive_Description"       "Атаки наносят дополнительный Чистый урон."  
+        "DOTA_Tooltip_ability_ekkan_burning_legionnaire_passive_fire_damage"         "% УРОН ОГНЕННЫХ АТАК:"
+
+        "DOTA_Tooltip_ability_ekkan_rune_w_1_arcana2c"                               "[W1] Heat Frenzy"
+        "DOTA_Tooltip_ability_ekkan_rune_w_1_arcana2c_Description"                   "Горящие Легионеры получают перманентный урон атаки и скорость атаки от противников, умирающих поблизости в радиусе <% EKKAN_ARCANA_W1C_RANGE %>."
+        "DOTA_Tooltip_ability_ekkan_rune_w_1_arcana2c_property_one"                  "Базовый Урон Атаки за заряд"
+        "DOTA_Tooltip_ability_ekkan_rune_w_1_arcana2c_suffix"                        ""
+        "DOTA_Tooltip_ability_ekkan_rune_w_1_arcana2c_property_two"                  "Скорость Атаки за заряд"
+        "DOTA_Tooltip_ability_ekkan_rune_w_1_arcana2c_suffix_two"                    ""
+
+        "DOTA_Tooltip_modifier_burning_legionnaire_w_1_visible"                              "Heat Frenzy"
+        "DOTA_Tooltip_modifier_burning_legionnaire_w_1_visible_Description"                 "Урон Атаки и Скорость Атаки перманентно увеличены"  
+
+        "DOTA_Tooltip_ability_ekkan_rune_w_2_arcana2c"                               "[W2] Cloak of Flame"
+        "DOTA_Tooltip_ability_ekkan_rune_w_2_arcana2c_Description"                   "Горящие Легионеры получают Огненную Мантию, окружающую их пламенем. Противники в радиусе <% EKKAN_ARCANA_W2C_RADIUS %> от них получают урон каждые <% EKKAN_ARCANA_W2C_DAMAGE_INTERVAL %> сек, основанный на Уроне Атаке Горящих Легионеров. Мантии также пассивно увеличивают Броню Легионеров."
+        "DOTA_Tooltip_ability_ekkan_rune_w_2_arcana2c_property_one"                  "Урон от огня"
+        "DOTA_Tooltip_ability_ekkan_rune_w_2_arcana2c_suffix"                        "% от Урона Атаки Легионеров"
+        "DOTA_Tooltip_ability_ekkan_rune_w_2_arcana2c_property_two"                  "Броня"
+        "DOTA_Tooltip_ability_ekkan_rune_w_2_arcana2c_suffix_two"                    ""
+
+        "DOTA_Tooltip_ability_ekkan_rune_w_3_arcana2c"                               "[W3] Skeletal Mortar"
+        "DOTA_Tooltip_ability_ekkan_rune_w_3_arcana2c_Description"                   "Горящие Легионеры получают способность совершать рывок вперед к цели и наносить урон в области приземления, в радиусе <% EKKAN_ARCANA_W3C_RADIUS %>."
+        "DOTA_Tooltip_ability_ekkan_rune_w_3_arcana2c_property_one"                  "Урон"
+        "DOTA_Tooltip_ability_ekkan_rune_w_3_arcana2c_suffix"                        "% от Урона Атаки Легионеров"
+        "DOTA_Tooltip_ability_ekkan_rune_w_3_arcana2c_property_two"                  "Максимальная дальность рывка"
+        "DOTA_Tooltip_ability_ekkan_rune_w_3_arcana2c_suffix_two"                    ""
+
+        "DOTA_Tooltip_ability_ekkan_burning_legionnaire_skeletal_mortar"                       "Skeletal Mortar"
+        "DOTA_Tooltip_ability_ekkan_burning_legionnaire_skeletal_mortar_Description"           "Элемент: <font color=\"#5C776E\">Нежить</font> / <font color=\"#EF4126\">Огонь</font><br>Прыгает к цели и наносит урон по области <% EKKAN_ARCANA_W3C_RADIUS %>." 
+
+        "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2c"                               "[W4] Enrapturing Flame"
+        "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2c_Description"                   "Увеличивает длительность существования Горящих Легионеров. Дополнительно увеличивает урон <font color=\"#5C776E\">Нежити</font> и <font color=\"#EF4126\">Огня</font>."
+        "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2c_property_one"                  "Увеличение длительности жизни"
+        "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2c_suffix"                        " сек"
+        "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2c_property_two"                  "Элементальный Урон <font color=\"#5C776E\">Нежити</font> и <font color=\"#EF4126\">Огня</font>"
+        "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2c_suffix_two"                    "%"
 		
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_1_1"		"[T1-1] Glyph of Undead Army"
