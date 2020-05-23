@@ -3307,7 +3307,7 @@ function Winterblight:SpawnStrengthEvent()
 end
 
 function Winterblight:SpawnStrengthMiniboss(position)
-	local miniboss = Winterblight:SpawnCastleRoomUnit(8, "winterblight_lost_gladiator", position, Vector(0,-1), true, false)
+	local miniboss = Winterblight:SpawnCastleRoomUnit(8, "winterblight_lost_gladiator", position, Vector(0,-1), true, true)
 	local boss_ability = miniboss:FindAbilityByName("strength_boss_charge")
 	miniboss.cantAggro = true
 	boss_ability:ApplyDataDrivenModifier(miniboss, miniboss, "modifier_disable_player", {duration = 3})
