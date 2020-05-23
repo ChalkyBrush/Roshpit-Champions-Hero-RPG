@@ -726,8 +726,8 @@
 		"item_rpc_wraith_hunters_steel_helm_amethyst1" 	"Each point of Spirit increases Spell Pierce by @amethyst_property1"	
 
     	"DOTA_Tooltip_ability_item_rpc_shadowguard_helm"						"Shadowguard Helm"
-		"item_property_shadowguard_helm"						"Uncanny Alertness"
-		"property_shadowguard_helm_description"				"When an enemy unit begins an attack on you, throw a <% ITEM_RPC_SHADOWGUARD_HELM_PROJECTILE_SPEED %>-speed projectile toward them. On impact, it deals <% ITEM_RPC_SHADOWGUARD_HELM_DMG_PCT_ATK_POWER %>% of your attack power as damage, and disarms the target for <% ITEM_RPC_SHADOWGUARD_HELM_DISARM_DURATION %> seconds. Can trigger a maximum of <% ITEM_RPC_SHADOWGUARD_HELM_MAX_PROCS_PER_SECOND %> times per second."
+		"item_property_shadowguard_helm"						"Mind Block"
+		"property_shadowguard_helm_description"				"When an enemy begins an attack on you, throw a <% ITEM_RPC_SHADOWGUARD_HELM_PROJECTILE_SPEED %> speed projectile toward the attacker. On impact, deal <% ITEM_RPC_SHADOWGUARD_HELM_DMG_PCT_ATK_POWER %>% of attack power as damage and disarm the target for <% ITEM_RPC_SHADOWGUARD_HELM_DISARM_DURATION %> seconds. Can trigger a maximum of <% ITEM_RPC_SHADOWGUARD_HELM_MAX_PROCS_PER_SECOND %> times per second."
 
 		"item_rpc_shadowguard_helm_ruby1"		"Increases the impact damage by an additional @ruby_property1% of attack power and increases the maximum procs per second by @ruby_property2"
 		"item_rpc_shadowguard_helm_emerald1"	"Increases the projectile travel speed by @emerald_property1"
@@ -736,21 +736,21 @@
 
     	"DOTA_Tooltip_ability_item_rpc_sun_gods_visage"						"Sun God's Visage"
 		"item_property_sun_gods_visage"						"Burning Rejuvenation"
-		"property_sun_gods_visage_description"				"Every <% ITEM_RPC_SUN_GODS_VISAGE_INTERVAL %> seconds, you lose <% ITEM_RPC_SUN_GODS_VISAGE_HEALTH_DRAIN %>% of your current health, then immediately heal <% ITEM_RPC_SUN_GODS_VISAGE_HEAL %>% of your missing health."
+		"property_sun_gods_visage_description"				"Lose <% ITEM_RPC_SUN_GODS_VISAGE_HEALTH_DRAIN %>% of current health and heal <% ITEM_RPC_SUN_GODS_VISAGE_HEAL %>% of missing health every <% ITEM_RPC_SUN_GODS_VISAGE_INTERVAL %> seconds."
 
-		"item_rpc_sun_gods_visage_ruby1"		"Increases the health loss and heal by an additional @ruby_property1%"
-		"item_rpc_sun_gods_visage_emerald1"	"Gain @emerald_property1 Agility and Spirit while between <% ITEM_RPC_SUN_GODS_VISAGE_EMERALD_LOWER_BOUND %>% and <% ITEM_RPC_SUN_GODS_VISAGE_EMERALD_UPPER_BOUND %>% current health"
-		"item_rpc_sun_gods_visage_sapphire1" 	"Each point of current health increases Magic Armor by @sapphire_property1, while each point of missing health increases Spell Pierce by @sapphire_property2"
+		"item_rpc_sun_gods_visage_ruby1"		"Increases the health drain and heal by an additional @ruby_property1%"
+		"item_rpc_sun_gods_visage_emerald1"	"Gain @emerald_property1 Agility and Spirit while between <% ITEM_RPC_SUN_GODS_VISAGE_EMERALD_LOWER_BOUND %>% and <% ITEM_RPC_SUN_GODS_VISAGE_EMERALD_UPPER_BOUND %>% health"
+		"item_rpc_sun_gods_visage_sapphire1" 	"Each point of current health increases Magic Armor by @sapphire_property1, and each point of missing health increases Spell Pierce by @sapphire_property2"
 		"item_rpc_sun_gods_visage_amethyst1" 	"Increases Max Health by @amethyst_property1 and <font color=\"#EF4126\">Fire</font> Elemental Damage by @amethyst_property2%"
 
     	"DOTA_Tooltip_ability_item_rpc_cloak_of_the_cimmerian_priesthood"						"Cloak of the Cimmerian Priesthood"
 		"item_property_cloak_of_the_cimmerian_priesthood"						"Shadow Priest"
-		"property_cloak_of_the_cimmerian_priesthood_description"				"Attacks deal an additional instance of Magical <font color=\'#7F4F84\'>Shadow</font>/<font color=\'#F6FFB5\'>Holy</font> damage based on <% ITEM_RPC_CLOAK_OF_THE_CIMMERIAN_PRIESTHOOD_DMG_PCT_TGT_CURRENT_HEALTH %>% of target's current health, while healing you for <% ITEM_RPC_CLOAK_OF_THE_CIMMERIAN_PRIESTHOOD_HEAL_PCT %>% of the base damage value (before applying Item or Elemental damage bonuses)."
+		"property_cloak_of_the_cimmerian_priesthood_description"				"Attacks deal an additional instance of Magical <font color=\'#7F4F84\'>Shadow</font>/<font color=\'#F6FFB5\'>Holy</font> damage based on <% ITEM_RPC_CLOAK_OF_THE_CIMMERIAN_PRIESTHOOD_DMG_PCT_TGT_CURRENT_HEALTH %>% of target's current health, and heals you for <% ITEM_RPC_CLOAK_OF_THE_CIMMERIAN_PRIESTHOOD_HEAL_PCT %>% of the base damage."
 
-		"item_rpc_cloak_of_the_cimmerian_priesthood_ruby1"		"Enemies hit by [Q] take <% ITEM_RPC_CLOAK_OF_THE_CIMMERIAN_PRIESTHOOD_RUBY_DAMAGE %>% of the original damage instance every @ruby_property1 seconds for @ruby_property2 seconds"
-		"item_rpc_cloak_of_the_cimmerian_priesthood_emerald1"	"Enemies hit by [W] heal allied units within <% ITEM_RPC_CLOAK_OF_THE_CIMMERIAN_PRIESTHOOD_EMERALD_RANGE %> range for @emerald_property1% of the base damage"
-		"item_rpc_cloak_of_the_cimmerian_priesthood_sapphire1" 	"Casting [E] applies a shield lasting <% ITEM_RPC_CLOAK_OF_THE_CIMMERIAN_PRIESTHOOD_SAPPHIRE_DURATION %> seconds which absorbs damage up to @sapphire_property1% of your Max Health"
-		"item_rpc_cloak_of_the_cimmerian_priesthood_amethyst1" 	"Casting [R] causes fear in all enemies within <% ITEM_RPC_CLOAK_OF_THE_CIMMERIAN_PRIESTHOOD_AMETHYST_RADIUS %> radius for @amethyst_property1 seconds"
+		"item_rpc_cloak_of_the_cimmerian_priesthood_ruby1"		"Enemies hit by [Q] take <% ITEM_RPC_CLOAK_OF_THE_CIMMERIAN_PRIESTHOOD_RUBY_DAMAGE %>% of the original damage every @ruby_property1 seconds for @ruby_property2 seconds"
+		"item_rpc_cloak_of_the_cimmerian_priesthood_emerald1"	"Enemies hit by [W] heal nearby allies within <% ITEM_RPC_CLOAK_OF_THE_CIMMERIAN_PRIESTHOOD_EMERALD_RANGE %> range for @emerald_property1% of base damage"
+		"item_rpc_cloak_of_the_cimmerian_priesthood_sapphire1" 	"Casting [E] applies a shield that absorbs @sapphire_property1% of Max Health. Shield lasts <% ITEM_RPC_CLOAK_OF_THE_CIMMERIAN_PRIESTHOOD_SAPPHIRE_DURATION %> seconds"
+		"item_rpc_cloak_of_the_cimmerian_priesthood_amethyst1" 	"Casting [R] fears all enemies in <% ITEM_RPC_CLOAK_OF_THE_CIMMERIAN_PRIESTHOOD_AMETHYST_RADIUS %> radius for @amethyst_property1 seconds"
 
 		"DOTA_Tooltip_modifier_cimmerian_priest_q_dot"			"Shadow Priest (Ruby)"
 
@@ -759,21 +759,21 @@
 
     	"DOTA_Tooltip_ability_item_rpc_iron_tower_barbute"						"Iron Tower Barbute"
 		"item_property_iron_tower_barbute"						"Iron Tower"
-		"property_iron_tower_barbute_description"				"Issuing a Stop or Hold Position order adds <% ITEM_RPC_IRON_TOWER_BARBUTE_STRENGTH %> Strength per hero level. Moving ends the effect."
+		"property_iron_tower_barbute_description"				"Issuing a Stop or Hold Position order adds <% ITEM_RPC_IRON_TOWER_BARBUTE_STRENGTH %> strength per hero level. Moving ends the effect."
 
 		"DOTA_Tooltip_modifier_iron_tower_effect"				"Iron Tower"
 		"DOTA_Tooltip_modifier_iron_tower_effect_Description"	"Increased Strength"
 
 		"item_rpc_iron_tower_barbute_ruby1"		"While Iron Tower is active, each point of Strength provides an additional @ruby_property1 Armor and Armor Pierce"
-		"item_rpc_iron_tower_barbute_emerald1"	"On death, place your respawn flag at your current position. @emerald_property1-second cooldown."
+		"item_rpc_iron_tower_barbute_emerald1"	"On death, place your respawn flag at your current position. @emerald_property1 second cooldown"
 		"item_rpc_iron_tower_barbute_sapphire1" 	"When there are <% ITEM_RPC_IRON_TOWER_BARBUTE_SAPPHIRE_ENEMIES %> enemies (or 1 boss) within <% ITEM_RPC_IRON_TOWER_BARBUTE_SAPPHIRE_RANGE %> range, gain @sapphire_property1% increased attack power."
 		"item_rpc_iron_tower_barbute_amethyst1" 	"Iron Tower effect sticks for @amethyst_property1 seconds after moving"
 
     	"DOTA_Tooltip_ability_item_rpc_lich_kings_gaze"						"Lich King's Gaze"
-		"item_property_lich_kings_gaze"						"Sinister Gaze"
-		"property_lich_kings_gaze_description"				"Selects up to <% ITEM_RPC_LICH_KINGS_GAZE_BASE_MAX_TARGETS %> enemies within a <% ITEM_RPC_LICH_KINGS_GAZE_CIRCLE_RANGE %>-length <% ITEM_RPC_LICH_KINGS_GAZE_ANGLE_RANGE %>° cone in front of you every <% ITEM_RPC_LICH_KINGS_GAZE_BASE_INTERVAL %> seconds. These enemies take <% ITEM_RPC_LICH_KINGS_GAZE_DAMAGE_PCT_ATK_POWER %>% of attack power as damage and have their movespeed slowed by <% ITEM_RPC_LICH_KINGS_GAZE_MOVE_SLOW %>% for <% ITEM_RPC_LICH_KINGS_GAZE_SLOW_DURATION %> seconds."
+		"item_property_lich_kings_gaze"						"Frost Wrath"
+		"property_lich_kings_gaze_description"				"Targets up to <% ITEM_RPC_LICH_KINGS_GAZE_BASE_MAX_TARGETS %> enemies within a <% ITEM_RPC_LICH_KINGS_GAZE_CIRCLE_RANGE %> length <% ITEM_RPC_LICH_KINGS_GAZE_ANGLE_RANGE %>° cone in front of the wearer every <% ITEM_RPC_LICH_KINGS_GAZE_BASE_INTERVAL %> seconds. Struck targets take <% ITEM_RPC_LICH_KINGS_GAZE_DAMAGE_PCT_ATK_POWER %>% of attack power as damage and have their movespeed slowed by <% ITEM_RPC_LICH_KINGS_GAZE_MOVE_SLOW %>% for <% ITEM_RPC_LICH_KINGS_GAZE_SLOW_DURATION %> seconds."
 
-		"item_rpc_lich_kings_gaze_ruby1"		"Increases the cone length by @ruby_property1 and targeting arc by @ruby_property2°"
-		"item_rpc_lich_kings_gaze_emerald1"		"Reduces the interval between Sinister Gaze attacks by @emerald_property1 seconds"
-		"item_rpc_lich_kings_gaze_sapphire1" 	"Increases the maximum number of targets by @sapphire_property1"
-		"item_rpc_lich_kings_gaze_amethyst1" 	"If only 1 enemy is within Frost Wrath's range, that enemy receives @amethyst_property1 additional Sinister Gaze attacks"
+		"item_rpc_lich_kings_gaze_ruby1"		"Increases the cone length by @ruby_property1 and range by @ruby_property2°"
+		"item_rpc_lich_kings_gaze_emerald1"	"Reduces the interval in between Frost Wrath attacks by @emerald_property1 seconds"
+		"item_rpc_lich_kings_gaze_sapphire1" 	"Increases the max targets by @sapphire_property1"
+		"item_rpc_lich_kings_gaze_amethyst1" 	"If only 1 enemy is within Frost Wrath's range, target that enemy with @amethyst_property1 additional Frost Wrath attacks"
