@@ -261,7 +261,7 @@
 
         "DOTA_Tooltip_ability_ekkan_arcana2_plague_bearer"                        "Вызов Разносчиков Чумы"
         "DOTA_Tooltip_ability_ekkan_arcana2_plague_bearer_Description"            "Элемент: <font color=\"#5C776E\">Нежить</font> / <font color=\"#37DD3D\">Яд</font><br>Противники, умирающие в радиусе 1500 от Эккана оставляют кучи костей после смерти. Эккан может вызвать из них Разносчиков Чумы для битвы на его стороне. Разносчики Чумы имеют ядовитую атаку."
-        "DOTA_Tooltip_ability_ekkan_arcana2_plague_bearer_max_skeletons"         			 "МАКСИМУМ РАЗНОСЧИКОВ ЧУМЫ":"
+        "DOTA_Tooltip_ability_ekkan_arcana2_plague_bearer_max_skeletons"         			 "МАКСИМУМ РАЗНОСЧИКОВ ЧУМЫ:"
         "DOTA_Tooltip_ability_ekkan_arcana2_plague_bearer_skeleton_duration"     			 "ВРЕМЯ СУЩЕСТВОВАНИЯ:"
         "DOTA_Tooltip_ability_ekkan_arcana2_plague_bearer_armor_mult"            			 "МНОЖИТЕЛЬ БРОНИ И ЗАЩИТЫ ОТ ПОКАЗАТЕЛЯ БРОНИ EKKAN:"
         "DOTA_Tooltip_ability_ekkan_arcana2_plague_bearer_attack_mult"           			 "МНОЖИТЕЛЬ УРОНА ОТ УРОНА EKKAN:"
