@@ -592,6 +592,7 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitAttributes()
 		self:GetTooltips()
 	end
 	self:CalculateAndSaveMasterGreenDamageBuff()
+	self:CalculateAndSaveMasterHealthRegen()
 end
 
 function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
@@ -3938,6 +3939,21 @@ function CDOTA_BaseNPC:CalculateAndSaveMasterGreenDamageBuff()
 	end
 end
 
+function CDOTA_BaseNPC:CalculateAndSaveMasterHealthRegen()
+	local hp_regen_buff = 0
+	Util.Modifier:SimpleEvent(self, 'GetRoshpitMasterHealthRegen', { MODIFIER_ROSHPIT_MASTER_HEALTH_REGEN }, { }, 
+		function(result, data)
+			print(result)
+			hp_regen_buff = hp_regen_buff + result
+		end
+	)
+	if hp_regen_buff > 0 then
+		Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_master_health_regen_buff", {})
+		self:SetModifierStackCount("modifier_master_health_regen_buff", self, hp_regen_buff*10)
+	else
+		self:RemoveModifierByName("modifier_master_health_regen_buff")
+	end
+end
 
 
 function CDOTA_BaseNPC_Hero:CalculateAndSaveCooldownModifier()

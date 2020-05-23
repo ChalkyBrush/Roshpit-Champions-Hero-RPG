@@ -1149,3 +1149,49 @@
 		}
 	}
 
+
+	//LUA ABILITIES
+
+	"flamewaker_seismic_flare"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/dragon_knight/ability_scripts/flamewaker_seismic_flare.lua"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityTextureName"			"forged_spirit_melting_strike"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"						"7"
+		"RequiredLevel"         		"-5"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+		"AOERadius"						"%aoe_radius"
+
+		// Precache
+		//-------------------------------------------------------
+		"precache"
+		{
+
+		}
+
+		// Special
+		//-------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"160 400 1000 2000 5000 10000 20000"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"aoe_radius"			"320"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"stun_duration"			"1.8 2.0 2.2 2.4 2.6 2.8 3.0"
+			}
+		}
+	}

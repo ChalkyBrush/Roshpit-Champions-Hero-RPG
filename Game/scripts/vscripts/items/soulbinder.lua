@@ -148,7 +148,9 @@ function Soulbinder:SoulbindItem(msg)
 	if not hero.item_up_for_soulbinding then
 		return false
 	end
-
+	if hero.item_up_for_soulbinding.newItemTable.version == "3.9" then
+		return false
+	end
 	local item_to_bind = hero.item_up_for_soulbinding["item"]
 
 	local rarity = item_to_bind.newItemTable.rarity

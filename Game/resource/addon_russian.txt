@@ -6482,7 +6482,7 @@
 		"DOTA_Tooltip_modifier_flamewaker_rune_q_3_buff_description" 			"Увеличивает урон и скорость атаки."
 		
 		"DOTA_Tooltip_ability_flamewaker_rune_q_4"								"[Q4] Molten Flux"
-    	"DOTA_Tooltip_ability_flamewaker_rune_q_4_Description"					"Восстановленное здоровье от руны [Q2] и урон, нанесенный руной [Q3] увеличивают базовый урон Flamewaker на <font color='#ccff66'>7</font> сек. Максимальный общий бонус урона от этой руны равен <font color='#ccff66'>10000</font>."
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_4_Description"					"Восстановленное здоровье от руны [Q2] и урон, нанесенный руной [Q3] увеличивают базовый урон Flamewaker на 0 сек. Максимальный общий бонус урона от этой руны равен 0."
     	"DOTA_Tooltip_ability_flamewaker_rune_q_4_property_one"					"Доп. урон от руны Restorative Earth"
     	"DOTA_Tooltip_ability_flamewaker_rune_q_4_suffix"						" за восстановленное здоровье"
     	"DOTA_Tooltip_ability_flamewaker_rune_q_4_property_two"					"Доп. урон от руны Eruption"
