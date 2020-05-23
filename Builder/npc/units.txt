@@ -80081,7 +80081,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "440"
         "MovementTurnRate"  "0.4"
-        "StatusHealth"  "94000"
+        "StatusHealth"  "940000"
         "StatusHealthRegen" "10"
         "StatusMana"    "200000"
         "StatusManaRegen"   "200000"
@@ -80140,10 +80140,10 @@
 
             }
         }
-        "RoshpitArmor"          "600"
-        "RoshpitArmorPierce"    "625"
-        "RoshpitSpellPierce"    "740"
-        "RoshpitMagicArmor"     "750"
+        "RoshpitArmor"          "1200"
+        "RoshpitArmorPierce"    "1225"
+        "RoshpitSpellPierce"    "1640"
+        "RoshpitMagicArmor"     "1550"
         "RoshpitLevel"          "52"
         "RoshpitDominion"       "0"
         "EnemyTier"             "<% ENEMY_TYPE_MINI_BOSS %>"
