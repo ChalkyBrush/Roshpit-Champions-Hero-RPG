@@ -176,6 +176,47 @@
     	"DOTA_Tooltip_ability_sephyr_rune_w_4_arcana1_property_one"				"Урон <font color=\"#7AE2A7\">Ветра</font>"
     	"DOTA_Tooltip_ability_sephyr_rune_w_4_arcana1_suffix"					"%"
 		
+		//Arcana2
+        "DOTA_Tooltip_ability_item_rpc_sephyr_arcana2"                      "Unity Crown"
+
+        "item_property_sephyr_arcana2"                                      "Hurricane"
+        "property_sephyr_arcana2_description"                               "Заменяет @Ability1 и все её руны на Hurricane."
+
+        "DOTA_Tooltip_ability_sephyr_hurricane"                     "Hurricane"
+        "DOTA_Tooltip_ability_sephyr_hurricane_Description"         "Sephyr телепортируется к указанной позиции и создает ураган в этой точке. Противники, захваченные ураганом, обезоруживаются."
+        "DOTA_Tooltip_ability_sephyr_hurricane_disarm_duration"     "ДЛИТЕЛЬНОСТЬ ОБЕЗОРУЖИВАНИЯ:"
+        "DOTA_Tooltip_ability_sephyr_hurricane_wind_range"             "РАДИУС ВЕТРА:"
+        "DOTA_Tooltip_ability_sephyr_hurricane_wind_speed"             "СКОРОСТЬ ВЕТРА:"
+        "DOTA_Tooltip_ability_sephyr_hurricane_cast_range_base"         "БАЗОВЫЙ РАДИУС КАСТА:"
+        "DOTA_Tooltip_ability_sephyr_hurricane_cooldown_base"         "БАЗОВАЯ ПЕРЕЗАРЯДКА:"
+
+        "DOTA_Tooltip_ability_sephyr_rune_q_1_arcana2"                      "[Q1] Concordia"
+        "DOTA_Tooltip_ability_sephyr_rune_q_1_arcana2_Description"          "Повышает Скорость Перемещениея, Лимит Скорости Перемещения и Ловкость на <% SEPHYR_ARCANA2_Q1_DURATION %> сек после создания урагана. Пока бонус активен, стандартные атаки будут наносить Магический урон <font color=\"#7AE2A7\">Ветра</font>."
+        "DOTA_Tooltip_ability_sephyr_rune_q_1_arcana2_property_one"         "Скорость Перемещения и Лимит Скорости"
+        "DOTA_Tooltip_ability_sephyr_rune_q_1_arcana2_suffix"               ""      
+        "DOTA_Tooltip_ability_sephyr_rune_q_1_arcana2_property_two"         "Ловкость"
+        "DOTA_Tooltip_ability_sephyr_rune_q_1_arcana2_suffix_two"           ""   
+
+        "DOTA_Tooltip_modifier_sephyr_hurricane_q1"                         "Concordia"
+        "DOTA_Tooltip_modifier_sephyr_hurricane_q1_Description"             "Скорость Перемещениея, Лимит Скорости Перемещения и Ловкость увеличены."
+
+        "DOTA_Tooltip_ability_sephyr_rune_q_2_arcana2"                          "[Q2] Squall"
+        "DOTA_Tooltip_ability_sephyr_rune_q_2_arcana2_Description"              "Увеличивает радиус каста урагана и снижает его перезарядку."
+        "DOTA_Tooltip_ability_sephyr_rune_q_2_arcana2_property_one"             "Радиус каста"
+        "DOTA_Tooltip_ability_sephyr_rune_q_2_arcana2_suffix"                   ""
+        "DOTA_Tooltip_ability_sephyr_rune_q_2_arcana2_property_two"             "Снижение перезарядки"
+        "DOTA_Tooltip_ability_sephyr_rune_q_2_arcana2_suffix_two"               " сек"
+
+        "DOTA_Tooltip_ability_sephyr_rune_q_3_arcana2"                          "[Q3] Aero Storm"
+        "DOTA_Tooltip_ability_sephyr_rune_q_3_arcana2_Description"              "Обычные атаки имеют шанс разделиться и ударить дополнительных юнитов рядом с основной целью."
+        "DOTA_Tooltip_ability_sephyr_rune_q_3_arcana2_property_one"             "Шанс Разделения Атаки"
+        "DOTA_Tooltip_ability_sephyr_rune_q_3_arcana2_suffix"                   "%"
+
+        "DOTA_Tooltip_ability_sephyr_rune_q_4_arcana2"                          "[Q4] Windforce"
+        "DOTA_Tooltip_ability_sephyr_rune_q_4_arcana2_Description"              "Ловкость героя увеличивает Силу Атаки."
+        "DOTA_Tooltip_ability_sephyr_rune_q_4_arcana2_property_one"             "Бонус Силы Атаки"
+        "DOTA_Tooltip_ability_sephyr_rune_q_4_arcana2_suffix"                   "% за ед. Ловкости"
+		
 		//Glyphs
 		
 		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_1_1"		"[T1-1] Glyph of Flurry"
