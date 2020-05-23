@@ -583,7 +583,7 @@
 
         "DOTA_Tooltip_ability_item_rpc_hangman_slippers"                                "Hangman Slippers"
 
-        "item_property_hangman_slippers"                    "Perspective Trick"
+        "item_property_hangman_slippers"                    "Dramatic Entrance"
         "property_hangman_slippers_description"         "Приказ атаки заставит вашего героя переместится к цели, при этом герой обездвижен, но полностью неуязвим. Противники в радиусе <% ITEM_RPC_HANGMAN_SLIPPERS_AOE %> от финальной точки будут обезоружены на <% ITEM_RPC_HANGMAN_SLIPPERS_DISARM_DURATION %> сек. Перезарядка <% ITEM_RPC_HANGMAN_SLIPPERS_CD %> секунд, максимальное расстояние для эффекта <% ITEM_RPC_HANGMAN_SLIPPERS_MAX_DISTANCE %>. "
 
         "item_rpc_hangman_slippers_ruby1"                                        "Увеличивает расстояние на @ruby_property1 и радиус обезоруживания на @ruby_property2"
@@ -608,7 +608,7 @@
 
         "DOTA_Tooltip_ability_item_rpc_gravewalkers"                                "Gravewalkers"
 
-        "item_property_gravewalkers"                    "Skeletal Pomp"
+        "item_property_gravewalkers"                    "Dancing Fool"
         "property_gravewalkers_description"         "Приказ Остановки или Удержания Позиции превращает героя в танцующего скелета на <% ITEM_RPC_GRAVEWALKERS_BASE_DURATION %> секунд, или до приказа передвижения. На время превращения все противники поблизости в радиусе <% ITEM_RPC_GRAVEWALKERS_RANGE %> успокоятся и перестанут атаковать героя, а также отойдут на дистанцию <% ITEM_RPC_GRAVEWALKERS_WALKWAY_DISTANCE %>. Остальные противники сочтут героя безопасным и тоже не будут его атаковать. Герой не может читать заклинания или атаковать во время танца. Перезарядка <% ITEM_RPC_GRAVEWALKERS_COOLDOWN %> сек."
 
         "item_rpc_gravewalkers_ruby1"                                        "Увеличивает максимальное время превращения на @ruby_property1, дистанция отступления противников увеличена на @ruby_property2 и радиус успокоения противников увеличен на @ruby_property3"

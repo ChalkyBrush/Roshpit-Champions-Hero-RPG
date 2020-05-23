@@ -579,3 +579,88 @@
 		"item_rpc_swiftspike_bracer_emerald1"			"Увеличивает Ловкость на @emerald_property1. Каждое очко Скорости Передвижения увеличивает Урон Предметов на @emerald_property2%"
 		"item_rpc_swiftspike_bracer_sapphire1"			"Лимит Скорости Передвижения увеличен на @sapphire_property1"
 		"item_rpc_swiftspike_bracer_amethyst1"			"Скорость Передвижения увеличена на @amethyst_property1%"
+		
+		"DOTA_Tooltip_ability_item_rpc_angelic_gloves_of_the_judiciary"			"Angelic Gloves of the Judiciary"
+
+		"item_property_angelic_gloves_of_the_judiciary"							"Humble Grace"
+		"property_angelic_gloves_of_the_judiciary_description"					"Каждое очко наименьшего по показателю Атрибута героя увеличивает Базовый Урон Способностей на <% ITEM_RPC_ANGELIC_GLOVES_OF_THE_JUDICIARY_BAD_PER_ATTR %>%."
+
+		"item_rpc_angelic_gloves_of_the_judiciary_ruby1"			"Восстанавливает @ruby_property1% от Максимального Запаса Здоровья при получении урона"
+		"item_rpc_angelic_gloves_of_the_judiciary_emerald1"			"Каждое очко текущего Здоровья увеличивает Броню и Магическую Защиту на @emerald_property1"
+		"item_rpc_angelic_gloves_of_the_judiciary_sapphire1"			"Увеличивает Интеллект и Дух на @sapphire_property1"
+		"item_rpc_angelic_gloves_of_the_judiciary_amethyst1"			"Каждый Атрибут увеличивает Здоровье на @amethyst_property1"
+
+		"DOTA_Tooltip_ability_item_rpc_demonic_gloves_of_the_judiciary"			"Demonic Gloves of the Judiciary"
+
+		"item_property_demonic_gloves_of_the_judiciary"							"Deceptive Weakness"
+		"property_demonic_gloves_of_the_judiciary_description"					"Каждое очко наимешьшего по показателю Атрибута героя увеличивает Базовый Урон Атаки на <% ITEM_RPC_DEMONIC_GLOVES_OF_THE_JUDICIARY_ATTACK_PER_ATTR %>."
+
+		"item_rpc_demonic_gloves_of_the_judiciary_ruby1"			"Восстанавливает @ruby_property1% от Максимального Запаса Здоровья при нанесении атаки"
+		"item_rpc_demonic_gloves_of_the_judiciary_emerald1"			"Каждое очко текущей Маны увеличивает Пробитие Брони и Пробитие Магической Защиты на @emerald_property1"
+		"item_rpc_demonic_gloves_of_the_judiciary_sapphire1"			"Увеличивает Силу и Ловкость на @sapphire_property1"
+		"item_rpc_demonic_gloves_of_the_judiciary_amethyst1"			"Каждый Атрибут увеличивает Максимальную Ману на @amethyst_property1"
+
+		"DOTA_Tooltip_ability_item_rpc_glove_of_the_hierophant"			"Glove of the Hierophant"
+
+		"item_property_glove_of_the_hierophant"							"Judicious Ministry"
+		"property_glove_of_the_hierophant_description"					"Любое лечение себя или союзника нанесет <% ITEM_RPC_GLOVE_OF_THE_HIEROPHANT_HEAL_TO_DMG_PCT %>% от размера лечения Чистым типом урона по противникам в радиусе <% ITEM_RPC_GLOVE_OF_THE_HIEROPHANT_DMG_RADIUS %> от цели лечения. Максимально срабатывает до <% ITEM_RPC_GLOVE_OF_THE_HIEROPHANT_TRIGGERS_PER_SECOND %> раз в секунду."
+
+		"DOTA_Tooltip_modifier_glove_of_the_hierophant_sapphire_blind"	"Judicious Ministry (Сапфир)"
+		"DOTA_Tooltip_modifier_glove_of_the_hierophant_sapphire_blind_Description"	"Шанс промахнуться при атаках"
+
+		"DOTA_Tooltip_modifier_glove_of_the_hierophant_spirit_buff"	"Judicious Ministry (Аметист)"
+		"DOTA_Tooltip_modifier_glove_of_the_hierophant_spirit_buff_Description"	"Увеличивает Дух"
+
+		"item_rpc_glove_of_the_hierophant_ruby1"			"Увеличивает мощность лечения на @ruby_property1%"
+		"item_rpc_glove_of_the_hierophant_emerald1"			"Увеличивает радиус урона от эффекта Judicious Ministry на @emerald_property1"
+		"item_rpc_glove_of_the_hierophant_sapphire1"			"Урон Judicious Ministry снижает точность атак у пораженных существ на @sapphire_property1% на <% ITEM_RPC_GLOVE_OF_THE_HIEROPHANT_SAPPHIRE_DURATION%> сек, и этот урон увеличен на @sapphire_property2x от Духа героя"
+		"item_rpc_glove_of_the_hierophant_amethyst1"			"Юнит, получающий лечение от героя, также получит и бафф, увеличивающий Дух на @amethyst_property1 на <% ITEM_RPC_GLOVE_OF_THE_HIEROPHANT_AMETHYST_DURATION %> сек"
+
+		"DOTA_Tooltip_ability_item_rpc_zombiegrip_gauntlet"			"Zombiegrip Gauntlet"
+
+		"item_property_zombiegrip_gauntlet"							"Zombie Wall"
+		"property_zombiegrip_gauntlet_description"					"Прочтение @Ability1 призывает непроходимую стену из <% ITEM_RPC_ZOMBIEGRIP_GAUNTLET_BASE_ZOMBIE_COUNT%> зомби перпендикулярно к заклинателю. Эти зомби имеют Базовый Урон Атаки, равный <% ITEM_RPC_ZOMBIEGRIP_GAUNTLET_ATTACK_DMG_INHERIT_PCT%>% от Силы Атаки заклинателя, и будут атаковать противников в пределах <% . ITEM_RPC_ZOMBIEGRIP_GAUNTLET_ZOMBIE_ATTACK_RANGE%> радиуса. Зомби умирают после получения <% ITEM_RPC_ZOMBIEGRIP_GAUNTLET_ATTACKS_TO_KILL%> атак, или через <% ITEM_RPC_ZOMBIEGRIP_GAUNTLET_DURATION%> сек. Создание стены из зомби имеет перезарядку <% ITEM_RPC_ZOMBIEGRIP_GAUNTLET_COOLDOWN%> сек, а также создание новой стены уничтожает предыдущую. "
+
+		"item_rpc_zombiegrip_gauntlet_ruby1"			"Увеличивает урон Нежити на @ruby_property1%. Зомби имеют повышенную на @ruby_property2 скорость атаки и  @ruby_property3% бонус к урону атаки."
+		"item_rpc_zombiegrip_gauntlet_emerald1"			"Зомби взрываются при убийстве, нанося @emerald_property1% от Силы Атаки в радиусе <% ITEM_RPC_ZOMBIEGRIP_GAUNTLET_EMERALD_RADIUS %>. Взрыв оставляет кислотную лужу, наносящую @emerald_property2% от Силы Атаки каждые 0.5 сек и понижает Броню противников на @emerald_property3. Лужа исчезает через <% ITEM_RPC_ZOMBIEGRIP_GAUNTLET_EMERALD_DURATION %> сек."
+		"item_rpc_zombiegrip_gauntlet_sapphire1"			"Призывает дополнительно @sapphire_property1 зомби. Время жизни зомби увеличивается на @sapphire_property2 сек, и им требуется на @sapphire_property3 больше атак для смерти."
+		"item_rpc_zombiegrip_gauntlet_amethyst1"			"Зомби окружаются ядовитым облаком радиусом <% ITEM_PROPERTY_ZOMBIEGRIP_GAUNTLET_AMETHYST_RADIUS %>, замедляющее скорость атаки противников на @amethyst_property1, а скорость их передвижения на @amethyst_property2"
+
+		"DOTA_Tooltip_modifier_zombiegrip_standing_in_acid_pile"	"Zombie Wall Acid"
+		"DOTA_Tooltip_modifier_zombiegrip_standing_in_acid_pile_Description"	"Броня снижена, получает урон"
+
+		"DOTA_Tooltip_modifier_zombiegrip_in_poison_cloud"			"Zombie Wall Poison Cloud"
+		"DOTA_Tooltip_modifier_zombiegrip_in_poison_cloud_Description"	"Скорости атаки и перемещения снижены"
+
+		"DOTA_Tooltip_ability_item_rpc_stonebreaker_gauntlet"			"Stonebreaker Gauntlet"
+
+		"item_property_stonebreaker_gauntlet"							"Chuck Rock" // formerly Sneed
+		"property_stonebreaker_gauntlet_description"					"Приказ атаки по противнику в радиусе <% ITEM_RPC_STONEBREAKER_GAUNTLET_RANGE %> запустит в него булыжник, наносящий <% ITEM_RPC_STONEBREAKER_GAUNTLET_DMG_ATK_PWR %>% от Силы Атаки + <% ITEM_RPC_STONEBREAKER_GAUNTLET_DMG_STRENGTH %>x Силы при ударе. Булыжник также оглушает цель на <% ITEM_RPC_STONEBREAKER_GAUNTLET_STUN_DURATION %> сек. Этот эффект имеет <% ITEM_RPC_STONEBREAKER_GAUNTLET_COOLDOWN %> сек перезарядку."
+
+		"item_rpc_stonebreaker_gauntlet_ruby1"			"Когда булыжник попадает по цели, герой получает дополнительно @ruby_property1 Силы на <% ITEM_RPC_STONEBREAKER_GAUNTLET_RUBY_DURATION %> сек"
+		"item_rpc_stonebreaker_gauntlet_emerald1"			"Булыжник при ударе раскалывается на более мелкие части (@emerald_property1 шт.) и попадет по ближайшим противникам в радиусе <% ITEM_RPC_STONEBREAKER_GAUNTLET_EMERALD_FRACTURE_RANGE %> от основной цели. Также увеличивает длительность оглушения на @emerald_property2 сек."
+		"item_rpc_stonebreaker_gauntlet_sapphire1"			"Каждое очко Силы увеличивает Бонусную Силу Атаки на @sapphire_property1%"
+		"item_rpc_stonebreaker_gauntlet_amethyst1"			"При прочтении способности [R] в случайную цель в радиусе <% ITEM_RPC_STONEBREAKER_GAUNTLET_AMETHYST_RANGE %> тоже будет запущен булыжник каждые @amethyst_property1 сек"
+
+		"DOTA_Tooltip_modifier_stonebreaker_ruby"			"Stonebreaker (Ruby)"
+		"DOTA_Tooltip_modifier_stonebreaker_ruby_Description"	"Сила увеличена"
+
+		"DOTA_Tooltip_ability_item_rpc_exodia_gloves"			"Exodia Gloves" // i thought they were called Duel Disks
+
+		"item_property_exodia_gloves"							"Nebular Comet"
+		"property_exodia_gloves_description"					"Атаки дополнительно наносят Магический урон ударом кометы в размере <% ITEM_RPC_EXODIA_GLOVES_DMG_PCT_ATK_POWER %>% от Силы Атаки героя. Каждый удар дополнительно ударит еще 2 противников кометами, и эти кометы расщепятся еще раз и ударят еще 2 противников каждая. Радиус поиска противников у комет 1 и 2 порядка равен <% ITEM_RPC_EXODIA_GLOVES_ENEMY_SEARCH_RANGE %>."
+
+		"item_rpc_exodia_gloves_ruby1"			"@ruby_property1% шанс, что кометы разделятся третий раз"
+		"item_rpc_exodia_gloves_emerald1"			"Каждый 1% отсутствующей маны увеличит Бонусную Силу Атаки на @emerald_property1%"
+		"item_rpc_exodia_gloves_sapphire1"			"Увеличивает урон кометы по основной цели на @sapphire_property1%"
+		"item_rpc_exodia_gloves_amethyst1"			"Увеличивает радиус поиска вторичных целей на @amethyst_property1 и скорость комет на @amethyst_property2%"
+
+		"DOTA_Tooltip_ability_item_rpc_world_commander_gloves"			"World Commander Gloves"
+
+		"item_property_world_commander_gloves"							"Universal Might"
+		"property_world_commander_gloves_description"					"Каждое очко Пробития Брони и Пробития Магической Зашиты увеличивает Бонусную Силу Атаки на <% ITEM_RPC_WORLD_COMMANDER_GLOVES_DMG_PCT %>%"
+
+		"item_rpc_world_commander_gloves_ruby1"				"Увеличивает показатель руны [Q4] на @ruby_property1"
+		"item_rpc_world_commander_gloves_emerald1"			"Увеличивает показатель руны [E4] на @emerald_property1"
+		"item_rpc_world_commander_gloves_sapphire1"			"Увеличивает показатель руны [W4] на @sapphire_property1"
+		"item_rpc_world_commander_gloves_amethyst1"			"Увеличивает показатель руны [R4] на @amethyst_property1"
