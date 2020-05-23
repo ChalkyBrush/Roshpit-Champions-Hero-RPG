@@ -735,3 +735,64 @@
 		"item_rpc_energizing_quest_gear_sapphire1"							"No effect"
 		"item_rpc_energizing_quest_gear_amethyst1"							"No effect"
 		
+		"DOTA_Tooltip_ability_item_rpc_plague_emperor_armor"							"Plague Emperor Armor"
+		"item_property_plague_emperor"												"Poison Globs"
+		"property_plague_emperor_description"										"Каждые <% ITEM_RPC_PLAGUE_EMPEROR_ARMOR_INTERVAL %> сек выпускает ядовитый шар в случайного противника в радиусе <% ITEM_RPC_PLAGUE_EMPEROR_ARMOR_RANGE %>. Шар при ударе наносит <% ITEM_RPC_PLAGUE_EMPEROR_ARMOR_DMG_ATK_POWER %>% от силы атаки героя в радиусе <% ITEM_RPC_PLAGUE_EMPEROR_ARMOR_DAMAGE_RADIUS %>."
+		"item_rpc_plague_emperor_armor_ruby1"							"Увеличивает урон <font color=\"#37DD3D\">Яда</font> на @ruby_property1%, увеличивает скорость шара на @ruby_property2 и понижает интервал между поиском противника на @ruby_property3. "
+		"item_rpc_plague_emperor_armor_emerald1"							"Противники в радиусе поражения будут отравлены на <% ITEM_RPC_PLAGUE_EMPEROR_ARMOR_EMERALD_DURATION %> сек, их скорость атаки будет замедлена на @emerald_property1 и они будут получать урон от яда в  @emerald_property2% от Силы Атаки героя каждые <% ITEM_RPC_PLAGUE_EMPEROR_ARMOR_EMERALD_INTERVAL %> сек."
+		"item_rpc_plague_emperor_armor_sapphire1"							"Прочтение [Q] выбросит @sapphire_property1 ядовитый(ых) шар(а) перед героем. Прочтение [R] выбростит @sapphire_property2 ядовитых шаров во все стороны от героя. Дистанция их полёта равна <% ITEM_RPC_PLAGUE_EMPEROR_ARMOR_SAPPHIRE_DEFAULT_DISTANCE %> или расстоянию между героем и ближайшим противником. Может сработать максимально <% ITEM_RPC_PLAGUE_EMPEROR_ARMOR_SAPPHIRE_MAX_TRIGGERS_PER_SECOND %> раз в секунду."
+		"item_rpc_plague_emperor_armor_amethyst1"							"Ядовитые Шары оставляют лужу слизи в месте приземления на <% ITEM_RPC_PLAGUE_EMPEROR_ARMOR_AMETHYST_DURATION %> сек. Противники внутри лужи замедляют передвижение на @amethyst_property1% и получат урон в @amethyst_property2% от Силы Атаки героя каждые <% ITEM_RPC_PLAGUE_EMPEROR_ARMOR_AMETHYST_DAMAGE_INTERVAL %> сек."
+
+		"DOTA_Tooltip_modifier_plague_emperor_armor_emerald"					"Poison Glob"
+		"DOTA_Tooltip_modifier_plague_emperor_armor_emerald_Description"		"Скорость атаки снижена, получает урон от яда"
+
+		"DOTA_Tooltip_ability_item_rpc_musty_crypt_armor"				"Musty Crypt Armor"
+		"item_property_musty_crypt_armor"				"Crypt Warrior"
+		"property_musty_crypt_armor_description"		"Прочтение @Ability1 превращает героя в скелета-мечника с <% ITEM_RPC_MUSTY_CRYPT_ARMOR_SKELETON_HP %> Запасом Здоровья. Любой урон понизит здоровье в этой форме на <% ITEM_RPC_MUSTY_CRYPT_ARMOR_DAMAGE_TAKEN %>. Лечение заблокировано. Длительность <% ITEM_RPC_MUSTY_CRYPT_ARMOR_DURATION %> сек, или отключается после повторного прочтения @Ability1."
+
+		"DOTA_Tooltip_modifier_musty_crypt_skeleton_transform"		"Crypt Warrior"
+		
+		"item_rpc_musty_crypt_armor_ruby1"									"Повышает скорость атаки на @ruby_property1, а скорость передвижение на @ruby_property2, пока герой превращен в скелета. Получаемый урон в форме скелета снижается на @ruby_property3"
+		"item_rpc_musty_crypt_armor_emerald1"									"Восстанавливает @emerald_property1 здоровья в форме скелета каждые <% ITEM_RPC_MUSTY_CRYPT_ARMOR_EMERALD_INTERVAL %> сек, даже учитывая заблокированное лечение. Каждое очко текущего здоровья увеличивает Базовый Урон Атаки на @emerald_property2 в форме скелета."
+		"item_rpc_musty_crypt_armor_sapphire1"									"Сила Атаки повышается на @sapphire_property1%, Запас Здоровья повышается на @sapphire_property2 в форме скелета"
+		"item_rpc_musty_crypt_armor_amethyst1"									"В форме скелета атаки оставляют на целях дебафф, который на @amethyst_property1 сек отключает их возможность восстанавливать здоровье, а также каждая атака восстановит @amethyst_property2 здоровья герою-скелету."
+
+		"DOTA_Tooltip_modifier_musty_crypt_amethyst_debuff"			"Crypt Warrior (Amethyst)"
+		"DOTA_Tooltip_modifier_musty_crypt_amethyst_debuff_Description"	"Восстановление здоровья заблокировано"	
+
+
+		"DOTA_Tooltip_ability_item_rpc_spellcrafter_coat"		"Spellcrafter Coat"
+		"item_property_spellcrafter_coat"				"Custom Spell"
+		"property_spellcrafter_coat_description"		"Прочтение @Ability2 выпускает снаряды со скоростью <% ITEM_RPC_SPELLCRAFTER_COAT_PROJECTILE_SPEED_BASE %> в ближайшего противника в радиусе <% ITEM_RPC_SPELLCRAFTER_COAT_RANGE %> перед заклинателем. Снаряд наносит урон в <% ITEM_RPC_SPELLCRAFTER_COAT_BASE_DMG_ATK_POWER %>% от Силы Атаки героя Магическим уроном."
+
+		"item_rpc_spellcrafter_coat_ruby1"									"Снаряд наносит урон <font color=\"#EF4126\">Огня</font> по области @ruby_property1 вокруг цели. Урон снаряда увеличен на @ruby_property2x от Силы героя"
+		"item_rpc_spellcrafter_coat_emerald1"									"Снаряд наносит урон <font color=\"#7AE2A7\">Ветра</font> и летит быстрее на @emerald_property1. Урон снаряда увеличен на @emerald_property2x от Ловкости героя"
+		"item_rpc_spellcrafter_coat_sapphire1"									"Снаряд наносит урон <font color=\"#87D9FF\">Льда</font>, а сам снаряд раскалывается при попадании и поражает до @sapphire_property1 дополнительных противников в радиусе <% ITEM_RPC_SPELLCRAFTER_COAT_GEM_SAPPHIRE_RANGE %>. Урон снаряда увеличен на @sapphire_property2x от Интеллекта героя"
+		"item_rpc_spellcrafter_coat_amethyst1"									"Снаряд наносит урон <font color=\"#E1A2E8\">Тайны</font> и отскакивает от целей до  @amethyst_property1 раз по целям в радиусе <% ITEM_RPC_SPELLCRAFTER_COAT_GEM_AMETHYST_RANGE %>. Урон снаряда увеличивается на @amethyst_property2x от Духа героя"
+
+		"DOTA_Tooltip_ability_item_rpc_cloak_of_isolation"		"Cloak of Isolation"
+		"item_property_cloak_of_isolation"				"Isolation"
+		"property_cloak_of_isolation_description"		"Противники в радиусе <% ITEM_RPC_CLOAK_OF_ISOLATION_RANGE %> отбрасываются назад с силой <% ITEM_RPC_CLOAK_OF_ISOLATION_BASE_FORCE %> и их скорость передвижения снижается на <% ITEM_RPC_CLOAK_OF_ISOLATION_MOVESPEED_REDUCE %>%."
+
+		"item_rpc_cloak_of_isolation_ruby1"									"Увеличивает радиус отбрасывания на @ruby_property1"
+		"item_rpc_cloak_of_isolation_emerald1"									"Увеличивает силу отбрасывания на @emerald_property1%"
+		"item_rpc_cloak_of_isolation_sapphire1"									"Увеличивает Броню и Магическую Защиту на @sapphire_property1, если в радиусе <% ITEM_RPC_CLOAK_OF_ISOLATION_SAPPHIRE_RANGE %> нет противников"
+		"item_rpc_cloak_of_isolation_amethyst1"									"Приказ остановки перемещения сбрасывает снаряды, летящие в героя и применяет @amethyst_property1-секундную невидимость. Перезарядка <% ITEM_RPC_CLOAK_OF_ISOLATION_AMETHYST_COOLDOWN %> сек."
+
+		"DOTA_Tooltip_ability_item_rpc_breastplate_of_abjudication"		"Breastplate of Abjudication"
+		"item_property_breastplate_of_abjudication"				"Judgement"
+		"property_breastplate_of_abjudication_description"		"Если атакующий героя противник имеет больше Пробития Брони, чем Броня героя, то герой получает бонус к Броне в  <% ITEM_RPC_BREASTPLATE_OF_ABJUDICATION_STAT_PCT %>% от разницы между этими двумя показателями на <% ITEM_RPC_BREASTPLATE_OF_ABJUDICATION_DURATION %> сек."
+
+		"DOTA_Tooltip_modifier_abjudication_base_effect_armor"	"Judgement"
+		"DOTA_Tooltip_modifier_abjudication_base_effect_armor_Description"	"Броня увеличена"
+
+		"item_rpc_breastplate_of_abjudication_ruby1"									"Если атакуемый героем противник имеет больше Брони, чем Пробитие Брони героя, то герой получает Пробитие Брони, равное <% ITEM_RPC_BREASTPLATE_OF_ABJUDICATION_STAT_PCT %>% от разницы между этими двумя показателями на @ruby_property1 сек."
+		"item_rpc_breastplate_of_abjudication_emerald1"									"Увеличивает длительность эффекта на @emerald_property1 сек"
+		"item_rpc_breastplate_of_abjudication_sapphire1"									"Увеличивает Все Атрибуты героя на @sapphire_property1%"
+		"item_rpc_breastplate_of_abjudication_amethyst1"									"После получения Магического или Чистого урона, если атакующий героя юнит имел больше Пробития Магической Защиты, чем Магическая Защита героя, то герой получит Магическую защиту в размере <% ITEM_RPC_BREASTPLATE_OF_ABJUDICATION_STAT_PCT %>% от разницы между этими двумя показателями на @amethyst_property1 сек."
+
+		"DOTA_Tooltip_modifier_abjudication_ruby_armor_pierce"	"Summary Judgment (Ruby)"
+		"DOTA_Tooltip_modifier_abjudication_ruby_armor_pierce_Description"	"Пробитие Брони увеличено"
+
+		"DOTA_Tooltip_modifier_abjudication_amethyst_magic_armor" "Summary Judgment (Amethyst)"
+		"DOTA_Tooltip_modifier_abjudication_amethyst_magic_armor_Description" "Магическая Защита увеличена"

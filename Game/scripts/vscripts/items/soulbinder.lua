@@ -154,6 +154,7 @@ function Soulbinder:SoulbindItem(msg)
 	local item_to_bind = hero.item_up_for_soulbinding["item"]
 
 	local rarity = item_to_bind.newItemTable.rarity
+
 	if rarity ~= "immortal" and rarity ~= "arcana" then
 		return false
 	end

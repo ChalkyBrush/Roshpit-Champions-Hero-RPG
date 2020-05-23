@@ -416,7 +416,7 @@
         "DOTA_Tooltip_ability_ekkan_rune_w_1_arcana2c_suffix_two"                    ""
 
         "DOTA_Tooltip_modifier_burning_legionnaire_w_1_visible"                              "Heat Frenzy"
-        "DOTA_Tooltip_modifier_burning_legionnaire_w_1_visible_Description"                 "Permenantly increased Attack Damage and Attack Speed"  
+        "DOTA_Tooltip_modifier_burning_legionnaire_w_1_visible_Description"                 "Permanently increased Attack Damage and Attack Speed"  
 
         "DOTA_Tooltip_ability_ekkan_rune_w_2_arcana2c"                               "[W2] Cloak of Flame"
         "DOTA_Tooltip_ability_ekkan_rune_w_2_arcana2c_Description"                   "A Cloak of Flames surrounds Burning Legionnaires. Enemies within its <% EKKAN_ARCANA_W2C_RADIUS %> range take damage every <% EKKAN_ARCANA_W2C_DAMAGE_INTERVAL %> seconds based on Burning Legionnaire's Attack Damage. The flames also passively increase Burning Legionnaires' Armor."
