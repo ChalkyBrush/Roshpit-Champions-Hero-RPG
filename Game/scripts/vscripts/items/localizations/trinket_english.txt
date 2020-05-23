@@ -448,13 +448,13 @@
         "item_rpc_raven_idol_amethyst1"                                     "Increases Item and <font color=\"#7F4F84\">Shadow</font> Elemental Damage by @amethyst_property1%"
 
         "DOTA_Tooltip_ability_item_rpc_ring_of_mysteries"             "Ring of Mysteries"
-        "item_property_ring_of_mysteries"                                     "Resplendence"
-        "property_ring_of_mysteries_description"                              "Your 3 lowest Tier 1 or Tier 2 runes are increased by a bonus of +<% ITEM_RPC_RING_OF_MYSTERIES_T1_AND_T2_BONUS %>."
+        "item_property_ring_of_mysteries"                                     "Subtle Enchantment"
+        "property_ring_of_mysteries_description"                              "Your three lowest Tier 1 or Tier 2 rune values receive a +<% ITEM_RPC_RING_OF_MYSTERIES_T1_AND_T2_BONUS %> bonus."
 
-        "item_rpc_ring_of_mysteries_ruby1"                "Your lowest Tier 3 rune is increased by a bonus of +@ruby_property1"
-        "item_rpc_ring_of_mysteries_emerald1"             "The rune bonus for the 3 lowest Tier 1 or Tier 2 runes is increased by an additional +@emerald_property1"
-        "item_rpc_ring_of_mysteries_sapphire1"                "Your lowest Tier 4 rune is increased by a bonus of +@sapphire_property1"
-        "item_rpc_ring_of_mysteries_amethyst1"                "Each rune level increases Spirit by @amethyst_property1"
+        "item_rpc_ring_of_mysteries_ruby1"                "Your single lowest Tier 3 rune receives a +@ruby_property1 bonus"
+        "item_rpc_ring_of_mysteries_emerald1"             "The rune bonus provided by Subtle Enchantment is increased by an additional @emerald_property1"
+        "item_rpc_ring_of_mysteries_sapphire1"                "Your single lowest Tier 4 rune is increased by a bonus of +@sapphire_property1"
+        "item_rpc_ring_of_mysteries_amethyst1"                "Each of your rune points also increases Spirit by @amethyst_property1"
 
         "DOTA_Tooltip_ability_item_rpc_ring_of_nobility"                                "Ring of Nobility"
         "item_rpc_ring_of_nobility_ruby1"                               "When this ring upgrades, upgrade this Ruby to Tier @ruby_property1, which will increase all Tier 1 runes by @ruby_property2."
@@ -667,20 +667,20 @@
 
 	   "DOTA_Tooltip_ability_item_rpc_moon_shard"                              "Moon Shard"
 
-        "item_property_moon_shard"                  "Lumos Celerity"
+        "item_property_moon_shard"                  "Luminant Celerity"
         "property_moon_shard_description"           "Each 1% of missing mana reduces all cooldowns by <% ITEM_RPC_MOON_SHARD_CD_REDUCTION_PER_MANA_PCT %>%."
 
-        "item_rpc_moon_shard_ruby1"                             "Gain @ruby_property1 attack speed for each 1% of missing mana."
-        "item_rpc_moon_shard_emerald1"                              "Gain @emerald_property1 movespeed and max movespeed for each 1% of current mana."
-        "item_rpc_moon_shard_sapphire1"                             "Every @sapphire_property1 seconds, gain a buff that makes your next spell cast have 100% reduced cooldown."
-        "DOTA_Tooltip_modifier_moon_shard_sapphire"                 "Lumos Celerity (Sapphire)"
+        "item_rpc_moon_shard_ruby1"                             "Gain @ruby_property1 attack speed for each 1% of missing mana"
+        "item_rpc_moon_shard_emerald1"                              "Gain @emerald_property1 movespeed and movespeed cap for each 1% of current mana"
+        "item_rpc_moon_shard_sapphire1"                             "Every @sapphire_property1 seconds, gain a buff that makes your next spell cast have 100% reduced cooldown"
+        "DOTA_Tooltip_modifier_moon_shard_sapphire"                 "Luminant Celerity (Sapphire)"
         "DOTA_Tooltip_modifier_moon_shard_sapphire_Description"     "Next spell cast has 100% reduced cooldown" 
-        "item_rpc_moon_shard_amethyst1"                             "Travelling <% ITEM_RPC_MOON_SHARD_AMETHYST_DISTANCE_TO_TRIGGER %> distance throws up to @amethyst_property1 icicles at the nearest enemies within <% ITEM_RPC_MOON_SHARD_AMETHYST_SEARCH_RADIUS %> range. Deals @amethyst_property2 damage for each point of Max Mana."
+        "item_rpc_moon_shard_amethyst1"                             "Traveling <% ITEM_RPC_MOON_SHARD_AMETHYST_DISTANCE_TO_TRIGGER %> distance throws up to @amethyst_property1 icicles at the nearest enemies within <% ITEM_RPC_MOON_SHARD_AMETHYST_SEARCH_RADIUS %> range, dealing @amethyst_property2 damage for each point of Max Mana"
 	
        "DOTA_Tooltip_ability_item_rpc_horn_of_the_triumphant"                              "Horn of the Triumphant"
 
         "item_property_horn_of_the_triumphant"                  "Bastion"
-        "property_horn_of_the_triumphant_description"           "Issuing a Hold Position order places a <% ITEM_RPC_HORN_OF_THE_TRIUMPHANT_RADIUS %> size area at your position that buffs up to 1 single ally or weakens 1 single enemy that is standing inside. If an ally or the wearer activates a Bastion, they gain <% ITEM_RPC_HORN_OF_THE_TRIUMPHANT_ATK_DMG_PCT_ALLY %>% attack power and take <% ITEM_RPC_HORN_OF_THE_TRIUMPHANT_DAMAGE_REDUCE %>% reduced damage from all sources. If an enemy activates a Bastion, they are rooted and pulled to the center. Bastions do not expire and they cannot stack. You can have up to <% ITEM_RPC_HORN_OF_THE_TRIUMPHANT_MAX_CIRCLES %> bastions active at a time."
+        "property_horn_of_the_triumphant_description"           "Issuing a Hold Position order places a <% ITEM_RPC_HORN_OF_THE_TRIUMPHANT_RADIUS %> size area at your position that buffs up to 1 single ally or weakens 1 single enemy that is standing inside. If an ally or the wearer activates a Bastion, they gain <% ITEM_RPC_HORN_OF_THE_TRIUMPHANT_ATK_DMG_PCT_ALLY %>% attack power and take <% ITEM_RPC_HORN_OF_THE_TRIUMPHANT_DAMAGE_REDUCE %>% reduced damage from all sources. If an enemy activates a Bastion, they are rooted and pulled to the center of it. Bastions do not expire and they cannot stack. You can have up to <% ITEM_RPC_HORN_OF_THE_TRIUMPHANT_MAX_CIRCLES %> Bastions active at a time."
 
         "DOTA_Tooltip_modifier_horn_of_triumphant_inside_bastion_friendly"  "Bastion"
         "DOTA_Tooltip_modifier_horn_of_triumphant_inside_bastion_friendly_Description"  "Gaining attack power and damage resistance"
@@ -689,39 +689,39 @@
         "DOTA_Tooltip_modifier_horn_of_triumphant_inside_bastion_enemy"  "Bastion"
         "DOTA_Tooltip_modifier_horn_of_triumphant_inside_bastion_enemy_Description"  "Rooted"
 
-        "item_rpc_horn_of_the_triumphant_ruby1"                             "Enemies standing in a Bastion lose @ruby_property1 Armor Pierce and Spell Pierce and have @ruby_property2 reduced attack range"
-        "item_rpc_horn_of_the_triumphant_emerald1"                              "Allies standing in a Bastion are healed by @emerald_property1% of their Max Health every <% ITEM_RPC_HORN_OF_THE_TRIUMPHANT_EMERALD_HEAL_INTERVAL %> seconds"
-        "item_rpc_horn_of_the_triumphant_sapphire1"                             "Allies standing in a Bastion have @sapphire_property1% increased Max Health"
-        "item_rpc_horn_of_the_triumphant_amethyst1"                             "Allies standing in a Bastion gain @amethyst_property1 Armor and Magic Armor. Enemies standing in a Bastion lose @amethyst_property2 Armor and Magic Armor."
+        "item_rpc_horn_of_the_triumphant_ruby1"                             "The enemy standing in a Bastion loses @ruby_property1 Armor Pierce and Spell Pierce and has @ruby_property2 reduced attack range"
+        "item_rpc_horn_of_the_triumphant_emerald1"                              "The ally standing in a Bastion is healed for @emerald_property1% of their Max Health every <% ITEM_RPC_HORN_OF_THE_TRIUMPHANT_EMERALD_HEAL_INTERVAL %> seconds"
+        "item_rpc_horn_of_the_triumphant_sapphire1"                             "The ally standing in a Bastion has @sapphire_property1% increased Max Health"
+        "item_rpc_horn_of_the_triumphant_amethyst1"                             "The ally standing in a Bastion gains @amethyst_property1 Armor and Magic Armor; the enemy standing in a Bastion instead loses @amethyst_property2 Armor and Magic Armor."
 
        "DOTA_Tooltip_ability_item_rpc_mortuary_charm"                              "Mortuary Charm"
 
-        "item_property_mortuary_charm"                  "Exsufflation"
-        "property_mortuary_charm_description"           "<% ITEM_RPC_MORTUARY_CHARM_BASE_GHOSTS %> ghosts follow you and attack enemies within <% ITEM_RPC_MORTUARY_CHARM_ATTACK_RANGE_BASE %> range. When attacked, enemies take <% ITEM_RPC_MORTUARY_CHARM_DMG_PCT_ATK_PWR %>% of the owner's Attack Power as damage and are paralyzed for <% ITEM_RPC_MORTUARY_CHARM_PARALYZE_DURATION %> seconds."
+        "item_property_mortuary_charm"                  "Baleful Seance"
+        "property_mortuary_charm_description"           "<% ITEM_RPC_MORTUARY_CHARM_BASE_GHOSTS %> ghosts follow you at all times, attacking enemies within <% ITEM_RPC_MORTUARY_CHARM_ATTACK_RANGE_BASE %> range. Ghost attacks deal <% ITEM_RPC_MORTUARY_CHARM_DMG_PCT_ATK_PWR %>% of your attack power as damage and paralyze the target for <% ITEM_RPC_MORTUARY_CHARM_PARALYZE_DURATION %> seconds."
 
-       "DOTA_Tooltip_modifier_mortuary_paralyze"        "Exsufflation"
+       "DOTA_Tooltip_modifier_mortuary_paralyze"        "Baleful Seance"
        "DOTA_Tooltip_modifier_mortuary_paralyze_Description"    "Paralyzed"
 
         "item_rpc_mortuary_charm_ruby1"                             "Gain @ruby_property1 additional ghosts"
-        "item_rpc_mortuary_charm_emerald1"                              "Increases ghosts attack range by @emerald_property1"
+        "item_rpc_mortuary_charm_emerald1"                              "Increases ghost aggro range by @emerald_property1"
         "item_rpc_mortuary_charm_sapphire1"                             "Gain @sapphire_property1 additional ghosts"
-        "item_rpc_mortuary_charm_amethyst1"                             "Ghost attacks have a @amethyst_property1% chance to bounce and hit an additional target. Subsequent hits also have the same chance to bounce"
+        "item_rpc_mortuary_charm_amethyst1"                             "Ghost attacks have a @amethyst_property1% chance to bounce and hit an additional target. Subsequent hits also have the same chance to bounce."
 
 
        "DOTA_Tooltip_ability_item_rpc_baphomets_cursed_necklace"                              "Baphomet's Cursed Necklace"
 
-        "item_property_baphomets_cursed_necklace"                  "Ruin"
-        "property_baphomets_cursed_necklace_description"           "When you cast @Ability4, refresh its cooldown and gain a buff that makes its next cast not require a channel. <% ITEM_RPC_BAPHOMETS_CURSED_NECKLACE_BASE_CD %> second cooldown."
+        "item_property_baphomets_cursed_necklace"                  "Ruinous Rage"
+        "property_baphomets_cursed_necklace_description"           "When you cast @Ability4, refresh its cooldown and gain a buff that removes the channel time for its next cast. This effect has a <% ITEM_RPC_BAPHOMETS_CURSED_NECKLACE_BASE_CD %>-second cooldown."
 
         "item_rpc_baphomets_cursed_necklace_ruby1"                                 "All attributes increase Base Attack Damage by @ruby_property1"
-        "item_rpc_baphomets_cursed_necklace_emerald1"                              "Reduces the cooldown by @emerald_property1 seconds"
-        "item_rpc_baphomets_cursed_necklace_sapphire1"                             "@sapphire_property1% chance when landing an attack to gain the Ruin effect"
-        "item_rpc_baphomets_cursed_necklace_amethyst1"                             "Gain @amethyst_property1% increased Attack power while Ruin is active"
+        "item_rpc_baphomets_cursed_necklace_emerald1"                              "Reduces the Ruinous Rage cooldown by @emerald_property1 seconds"
+        "item_rpc_baphomets_cursed_necklace_sapphire1"                             "@sapphire_property1% chance when landing an attack to gain the Ruinous Rage buff"
+        "item_rpc_baphomets_cursed_necklace_amethyst1"                             "Gain @amethyst_property1% increased attack power while the Ruinous Rage buff is active"
 
        "DOTA_Tooltip_ability_item_rpc_monarch_ring"                              "Monarch Ring"
 
-        "item_property_monarch_ring"                  "Attribute Supremacy"
-        "property_monarch_ring_description"           "Rune Bonuses from gear increase stats instead of runes. [Q] Runes increase Strength, [W] Runes increase Agility, [E] Runes increase Intelligence, and [R] Runes increase Spirit. T1 and T2 runes increase the attribute by <% ITEM_RPC_MONARCH_RING_STAT_PER_RUNE %>, T3 by <% ITEM_RPC_MONARCH_RING_STAT_PER_RUNE * 2 %> and T4 by <% ITEM_RPC_MONARCH_RING_STAT_PER_RUNE * 4 %>"
+        "item_property_monarch_ring"                  "Favorable Translation"
+        "property_monarch_ring_description"           "Rune bonuses from gear increase your attributes instead of the indicated runes. [Q] runes increase Strength, [W] runes increase Agility, [E] runes increase Intelligence, and [R] runes increase Spirit. T1 and T2 runes increase the attribute by <% ITEM_RPC_MONARCH_RING_STAT_PER_RUNE %> each, T3 by <% ITEM_RPC_MONARCH_RING_STAT_PER_RUNE * 2 %> each, and T4 by <% ITEM_RPC_MONARCH_RING_STAT_PER_RUNE * 4 %> each."
 
         "item_rpc_monarch_ring_ruby1"                                 "Increases Strength bonus from runes by @ruby_property1%"
         "item_rpc_monarch_ring_emerald1"                              "Increases Agility bonus from runes by @emerald_property1%"
