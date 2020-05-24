@@ -535,10 +535,10 @@ function castle_room_unit_die(event)
 		print("----")
 		print("ROOM UNIT DIE - Room: "..unit.room_index..", Total Slain: "..Winterblight.CASTLE_DATA["rooms"][unit.room_index]["enemies_slain"])
 		print("GOAL: "..Winterblight.CASTLE_DATA["rooms"][unit.room_index]["enemy_spawn_count"] + Winterblight.CASTLE_DATA["rooms"][unit.room_index]["extra_goal"])
-		print("ROOM ACTIVE?: "..Winterblight.ActiveCastleRoom["active"])
+		print("ROOM ACTIVE?: "..Winterblight.CASTLE_DATA["rooms"][unit.room_index]["active"])
 		if Winterblight.CASTLE_DATA["rooms"][unit.room_index]["enemies_slain"] >= Winterblight.CASTLE_DATA["rooms"][unit.room_index]["enemy_spawn_count"] + Winterblight.CASTLE_DATA["rooms"][unit.room_index]["extra_goal"] then
-			if Winterblight.ActiveCastleRoom["active"] == 2 then
-				Winterblight.ActiveCastleRoom["active"] = 3
+			if Winterblight.CASTLE_DATA["rooms"][unit.room_index]["active"] == 2 then
+				Winterblight.CASTLE_DATA["rooms"][unit.room_index]["active"] = 3
 				Winterblight:CastleRoomEnemyGoalReached(unit.room_index)
 			end
 		end
