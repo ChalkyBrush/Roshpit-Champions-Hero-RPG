@@ -3953,8 +3953,8 @@ function diviner_moon_platform_thinker(event)
 		local groundPosition = GetGroundPosition(miniboss:GetAbsOrigin(), miniboss)
 		SpecialFX:ColoredSpotlight(groundPosition, Vector(0, 120, 200))
 		miniboss.cantAggro = true
-		ability:ApplyDataDrivenModifier(caster, miniboss, "modifier_diviner_star_entering", {duration = 7})
 		miniboss:AddLootDrop("immortal", "item_rpc_moon_shard", 100)
+		ability:ApplyDataDrivenModifier(caster, miniboss, "modifier_diviner_star_entering", {duration = 7})
 	end
 end
 
