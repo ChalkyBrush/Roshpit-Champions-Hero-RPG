@@ -308,7 +308,7 @@
 
 #soulbinder-item-view{
 	width:100%;
-	height:560px;	
+	height:630px;	
 }
 
 .soulbinder_item_view_root{
@@ -391,7 +391,7 @@
 #soulbinder_selection_area{
 	width:80%;
 	horizontal-align:center;
-	height:340px;
+	height:440px;
 }
 
 #soulbinder_selection_area_label{
@@ -415,12 +415,7 @@
 }
 
 #soulbind_empty_slot_weapon_warning{
-	font-family: Radiance, FZLanTingHei-R-GBK, TH Sarabun New, Gulim,MingLiU;	
-	color:#DD2222;	
-	text-align: center;
-	font-size:18px;
-	width:100%;		
-	margin-top:210px;
+
 }
 
 #soulbind_slot_item_attacher{
@@ -526,7 +521,7 @@
 #soulbind-cost-container{
 	flow-children:down;
 	horizontal-align:center;
-	margin-top:280px;
+	margin-top:270px;
 }
 
 #soulbind-cost-label{
