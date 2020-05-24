@@ -608,7 +608,7 @@ function Winterblight:SetupCastleData()
 		Winterblight.CASTLE_DATA["rooms"][11]["active"] = 0
 		Winterblight.CASTLE_DATA["rooms"][11]["enemy_spawn_count"] = 0
 		Winterblight.CASTLE_DATA["rooms"][11]["enemies_slain"] = 0
-		Winterblight.CASTLE_DATA["rooms"][11]["extra_goal"] = -1
+		Winterblight.CASTLE_DATA["rooms"][11]["extra_goal"] = -2
 		Winterblight.CASTLE_DATA["rooms"][11]["key_positions"] = {Vector(12928, -2944), Vector(15257, -2775), Vector(14350, -2018)}
 		Winterblight.CASTLE_DATA["rooms"][11]["cleared"] = 0
 		Winterblight.CASTLE_DATA["rooms"][11]["mid_point"] = Vector(12971, -2673)
@@ -1463,6 +1463,7 @@ function Winterblight:SpawnCastleRoom1(variant)
 				local fv = Vector(1,0)
 				Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_suffering_spirit", positionTable[i], fv, false, false)
 			end
+			Winterblight.CASTLE_DATA["rooms"][room_index]["active"] = 2
 		end)
 		Timers:CreateTimer(8, function()
 			local positionTable = {Vector(11330, 16000), Vector(11136, 15744)}
@@ -1470,7 +1471,6 @@ function Winterblight:SpawnCastleRoom1(variant)
 				local fv = Vector(1,-1)
 				Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_necro_knight", positionTable[i], fv, false, false)
 			end
-			Winterblight.CASTLE_DATA["rooms"][room_index]["active"] = 2
 		end)
 	end
 end
