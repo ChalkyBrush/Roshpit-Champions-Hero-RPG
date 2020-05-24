@@ -492,7 +492,7 @@ function GameMode:OnPlayerChat(keys)
 	end
 
 	-- DEBUG COMMANDS --
-	if Beacons.cheats then
+	if true then
 		if check_command("-spawnunit") then
 			local position = MAIN_HERO_TABLE[1]:GetAbsOrigin() + MAIN_HERO_TABLE[1]:GetForwardVector() * 600
 			local unitName = args[2]
@@ -759,6 +759,135 @@ function GameMode:OnPlayerChat(keys)
 			local steamID = PlayerResource:GetSteamAccountID(playerid)
 			LoadCharacterDev(playerid, strn[1], strn[2])
 		elseif check_command("-dbg") then
+
+			local url = "https://localhost:5001/api/RpcStats/"
+
+			local lib = require("request_helper")
+
+			local data = {}
+			data.Validator = RPCItems:GetRandomKey(13)
+			data.Heroes = {}
+			local bossName = "bossName"--todo boss name
+			data.BossName = bossName
+
+			if MAIN_HERO_TABLE then
+				for i = 1, #MAIN_HERO_TABLE, 1 do
+					local playerID = MAIN_HERO_TABLE[i]:GetPlayerOwnerID()
+					local unitName = MAIN_HERO_TABLE[i]:GetUnitName()
+					data.Heroes[i] = {}
+					data.Heroes[i].UnitName = unitName
+					data.Heroes[i].Gear = {}
+
+					-- data.Heroes[unitName] = {}
+					for j = 0, 5, 1 do
+						-- data.Heroes[i].Gear[j] = {}
+						local gearTable = CustomNetTables:GetTableValue("equipment", tostring(playerID).."-"..tostring(j))
+						if gearTable and gearTable.itemIndex and gearTable.itemIndex ~= -1 then
+							local slotName = "Error"
+							if j == 0 then
+								slotName = "Slot: Head"
+							elseif j == 1 then
+								slotName = "Slot: Weapon"
+							elseif j == 2 then
+								slotName = "Slot: Hands"
+							elseif j == 3 then
+								slotName = "Slot: Feet"
+							elseif j == 4 then
+								slotName = "Slot: Body"
+							elseif j == 5 then
+								slotName = "Slot: Amulet"
+							end
+							data.Heroes[i].Gear[slotName] = {}
+							-- data.Heroes[i].Gear[j].Slot = slotName
+							local item = EntIndexToHScript(gearTable.itemIndex)
+							if item then
+								-- DeepPrintTable(item.newItemTable)
+								-- data.Heroes[i].Gear[j].Data = item.newItemTable
+								data.Heroes[i].Gear[slotName] = item.newItemTable
+								for k, v in pairs(data.Heroes[i].Gear[slotName]) do
+									if string.find(k, "special") 
+										or k == "itemSuffix" 
+										or k == "itemPrefix" 
+										or k == "validator" 
+										or k == "soulbound" 
+										or k == "gear" 
+										or k == "itemDescription" 
+										or k == "version" 
+										or k == "gear_slot" 
+										or k == "xp" 
+										or k == "xpNeeded" 
+										or k == "base_armor" 
+										or k == "base_magic_armor" 
+										or k == "item_slot" 
+										or k == "qualityName" 
+										or k == "qualityColor" 
+										or k == "rarity" 
+										or k == "consumable" 
+										or k == "level" 
+										or k == "itemEntityIndex" 
+										-- or string.find(k, "color") 
+										or string.find(k, "color") then
+										data.Heroes[i].Gear[slotName][k] = nil
+									end
+								end
+							end						
+						end
+					end
+				end
+			end
+
+			local json = require("libraries/json_new")
+			local jsonStr = json.encode(data)
+			print(jsonStr)
+			-- DeepPrintTable(data)
+			local function splitByChunk(text, chunkSize)
+			    local s = {}
+			    for i=1, #text, chunkSize do
+			        s[#s+1] = text:sub(i,i+chunkSize - 1)
+			    end
+			    return s
+			end
+			print("")
+			print("")
+			print("")
+
+			-- usage example
+			local st = splitByChunk(jsonStr, 100)
+			for i,v in ipairs(st) do
+			   -- print(tostring(i).."   "..tostring(v))
+			   print(tostring(v))
+			end
+			print("")
+			print("")
+			print("")
+
+
+			RequestHelper:SendJsonHTTPRequest("POST", url, data, function(response, statusCode, body)
+				print("3  "..tostring(response))
+				print("1  "..tostring(statusCode))
+				print("2  "..tostring(body))
+			end, 5, true)
+
+
+			-- RequestHelper:SendJsonHTTPRequest("POST", url, {Validator = "1", Gear = "aa", isComplete = true, ItemData = {asd = "2", zch = "3"}}, function(response, statusCode, body)
+			-- 	print("3  "..tostring(response))
+			-- 	print("1  "..tostring(statusCode))
+			-- 	print("2  "..tostring(body))
+			-- end, 5, true)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			-- Serengaard:KillAllNeutrals()
 			-- local position = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin()
 			-- local item = RPCItems:RollAerithsTear(position)--RPCItems:RollSangeBoots(position)
