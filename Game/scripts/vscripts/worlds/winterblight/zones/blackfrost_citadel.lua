@@ -4088,6 +4088,7 @@ function Winterblight:StarQuestBossSpawn(position)
 		Timers:CreateTimer(0, function()
 			EmitSoundOn("Winterblight.Castle.Starboss.Intro", miniboss)
 		end)
+		miniboss:AddLootDrop("immortal", "item_rpc_exodia_gloves", 100)
 		miniboss_ability:ApplyDataDrivenModifier(miniboss, miniboss, "modifier_winter_boss_intro", {duration = 5})
 		Events:smoothSizeChange(miniboss, 0.3, 2.5, 95)
 		Events:smoothTranslate(miniboss, Vector(0,-4,0), 90, Vector(0,0), nil)
@@ -4100,7 +4101,6 @@ function Winterblight:StarQuestBossSpawn(position)
 			miniboss.cantAggro = false
 			Dungeons:AggroUnit(miniboss)
 		end)
-		miniboss:AddLootDrop("immortal", "item_rpc_exodia_gloves", 100)
 	end)
 end
 
