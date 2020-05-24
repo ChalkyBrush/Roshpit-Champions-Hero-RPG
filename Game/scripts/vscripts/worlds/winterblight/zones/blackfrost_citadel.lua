@@ -23,8 +23,7 @@ function Winterblight:OpenWinterblightCastle()
 		end)
 		Events:DoorDust(Vector(10752, 13952), Vector(10752, 13352), 60, 0.2)
 
-		-- MAKE DELAY 9s WHEN DONE TESTING
-		Timers:CreateTimer(1, function()
+		Timers:CreateTimer(9, function()
 			local spawnPosition = Vector(11818, 14419)
 			local wraith = Enemies:SpawnEnemyUnit("winterblight_diviner_horus", spawnPosition, Vector(0,-1), false)
 			CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/blue_raze.vpcf", wraith:GetAbsOrigin(), 3)
@@ -1215,12 +1214,14 @@ function Winterblight:SpawnCastleRoomUnit(room_index, unit_name, position, fv, a
 
 	if bIgnoreCounter then
 	else
-		Winterblight.ActiveCastleRoom["enemy_spawn_count"] = Winterblight.ActiveCastleRoom["enemy_spawn_count"] + 1
-		print("SPAWN FOR ROOM")
-		print(Winterblight.ActiveCastleRoom["enemy_spawn_count"])
-		print(unit_name)
-		if not enemy:HasModifier("modifier_winter_castle_room_unit") then
-			Winterblight.ActiveCastleRoom["enemy_spawn_count"] = Winterblight.ActiveCastleRoom["enemy_spawn_count"] - 1
+		if room_index > 0 and Winterblight.CASTLE_DATA["rooms"][room_index] then
+			Winterblight.CASTLE_DATA["rooms"][room_index]["enemy_spawn_count"] = Winterblight.CASTLE_DATA["rooms"][room_index]["enemy_spawn_count"] + 1
+			print("SPAWN FOR ROOM")
+			print(Winterblight.CASTLE_DATA["rooms"][room_index]["enemy_spawn_count"])
+			print(unit_name)
+			if not enemy:HasModifier("modifier_winter_castle_room_unit") then
+				Winterblight.CASTLE_DATA["rooms"][room_index]["enemy_spawn_count"] = Winterblight.CASTLE_DATA["rooms"][room_index]["enemy_spawn_count"] - 1
+			end
 		end
 	end
 	Timers:CreateTimer(0.1, function()

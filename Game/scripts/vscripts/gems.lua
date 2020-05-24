@@ -106,6 +106,10 @@ function Gems:GetRewardAndSpawnPositionByEventName(event_name)
 		spawn_args["position"] = Vector(-640, -14336)
 		spawn_args["fv"] = Vector(1,-1)
 		spawn_args["reward"] = 12	
+	elseif event_name == "winterblight_castle_boss" then
+		spawn_args["position"] = Vector(13015, 1068)
+		spawn_args["fv"] = Vector(0,-1)
+		spawn_args["reward"] = 12
 	elseif event_name == "arena_pit_of_trials_final_boss" then	
 		spawn_args["position"] = Vector(3904, -13248)
 		spawn_args["fv"] = Vector(0.3,-1)
