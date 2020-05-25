@@ -682,3 +682,11 @@
         "item_rpc_monarch_ring_emerald1"                              "增加符文提供的敏捷 @emerald_property1%"
         "item_rpc_monarch_ring_sapphire1"                             "增加符文提供的智力 @sapphire_property1%"
         "item_rpc_monarch_ring_amethyst1"                             "增加符文提供的精神 @amethyst_property1%"
+"DOTA_Tooltip_ability_item_rpc_ring_of_mysteries"             "神秘戒指"
+        "item_property_ring_of_mysteries"                                     "辉煌"
+        "property_ring_of_mysteries_description"                              "增加你的最低3个的T1或者T2符文<% ITEM_RPC_RING_OF_MYSTERIES_T1_AND_T2_BONUS %>."
+
+        "item_rpc_ring_of_mysteries_ruby1"                "增加你最低的T3符文@ruby_property1"
+        "item_rpc_ring_of_mysteries_emerald1"             "增加最低的3个T1或者T2符文的符文加成 @emerald_property1"
+        "item_rpc_ring_of_mysteries_sapphire1"                "增加你的最低的T4符文@sapphire_property1"
+        "item_rpc_ring_of_mysteries_amethyst1"                "每级符文增加精神 @amethyst_property1"
