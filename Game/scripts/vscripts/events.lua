@@ -803,8 +803,20 @@ function GameMode:OnPlayerChat(keys)
 							if item then
 								-- DeepPrintTable(item.newItemTable)
 								-- data.Heroes[i].Gear[j].Data = item.newItemTable
-								data.Heroes[i].Gear[slotName] = item.newItemTable
+								local newTable = {}
+								for k, v in pairs(item.newItemTable) do
+									-- if string.find(v, "â") or string.find(v, "â") or string.find(v, "★") then
+									if v == "★" then
+										newTable[k] = "star_char"
+									else
+										newTable[k] = v
+									end
+								end
+								data.Heroes[i].Gear[slotName] = newTable
 								for k, v in pairs(data.Heroes[i].Gear[slotName]) do
+									-- if string.find(v, "â") or string.find(v, "â") or string.find(v, "★") then
+									-- 	v = "star"
+									-- end
 									if string.find(k, "special") 
 										or k == "itemSuffix" 
 										or k == "itemPrefix" 
@@ -825,6 +837,9 @@ function GameMode:OnPlayerChat(keys)
 										or k == "consumable" 
 										or k == "level" 
 										or k == "itemEntityIndex" 
+										or k == "item_name"
+										or k == "maxLevel"
+										or k == "requiredHero"
 										-- or string.find(k, "color") 
 										or string.find(k, "color") then
 										data.Heroes[i].Gear[slotName][k] = nil
