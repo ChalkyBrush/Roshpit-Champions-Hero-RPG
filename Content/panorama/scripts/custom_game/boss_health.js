@@ -22,7 +22,7 @@ function updateBossHealth(bossEntityIndex){
 		if (bossHealthContainer.FindChildTraverse("boss_name").text === "") {
 			bossHealthContainer.FindChildTraverse("boss_name").text = $.Localize(Entities.GetUnitName(bossEntityIndex));
 		}
-		bossHealthContainer.FindChildTraverse("boss_current_health").style.width = Entities.GetHealthPercent(bossEntityIndex) + "%";
+		bossHealthContainer.FindChildTraverse("boss_current_health").style.width = (Entities.GetHealth(bossEntityIndex) / Entities.GetMaxHealth(bossEntityIndex)) * 100 + "%";
 	}
 }
 
