@@ -294,9 +294,9 @@
         "DOTA_Tooltip_modifier_plaguebearer_rot_effect"                               "疫病毒云"
 
         "DOTA_Tooltip_ability_ekkan_rune_w_3_arcana2a"                               "[W3] 酸池"
-        "DOTA_Tooltip_ability_ekkan_rune_w_3_arcana2a_Description"                   "使瘟疫使者能够创造一片 <% EKKAN_ARCANA_W3A_RADIUS %> 范围的毒性区域，根据瘟疫使者的护甲穿透每 <% EKKAN_ARCANA_W3A_DAMAGE_INTERVAL %> 秒对其中的敌人造成伤害， 同时降低受影响敌人的双甲."
+        "DOTA_Tooltip_ability_ekkan_rune_w_3_arcana2a_Description"                   "使瘟疫使者能够创造一片 <% EKKAN_ARCANA_W3A_RADIUS %> 范围的毒性区域，根据瘟疫使者的物理穿透每 <% EKKAN_ARCANA_W3A_DAMAGE_INTERVAL %> 秒对其中的敌人造成伤害， 同时降低受影响敌人的双甲."
         "DOTA_Tooltip_ability_ekkan_rune_w_3_arcana2a_property_one"                  "每跳毒伤害"
-        "DOTA_Tooltip_ability_ekkan_rune_w_3_arcana2a_suffix"                        "% 瘟疫使者的护甲穿透"
+        "DOTA_Tooltip_ability_ekkan_rune_w_3_arcana2a_suffix"                        "% 瘟疫使者的物理穿透"
         "DOTA_Tooltip_ability_ekkan_rune_w_3_arcana2a_property_two"                  "双甲降低"
         "DOTA_Tooltip_ability_ekkan_rune_w_3_arcana2a_suffix_two"                    ""
 
