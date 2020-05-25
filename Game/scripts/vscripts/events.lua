@@ -771,16 +771,13 @@ function GameMode:OnPlayerChat(keys)
 			data.BossName = bossName
 
 			if MAIN_HERO_TABLE then
-				for i = 1, #MAIN_HERO_TABLE, 1 do
-					local playerID = MAIN_HERO_TABLE[i]:GetPlayerOwnerID()
-					local unitName = MAIN_HERO_TABLE[i]:GetUnitName()
-					data.Heroes[i] = {}
-					data.Heroes[i].UnitName = unitName
-					data.Heroes[i].Gear = {}
-
-					-- data.Heroes[unitName] = {}
+				for hero_index = 1, #MAIN_HERO_TABLE, 1 do
+					local playerID = MAIN_HERO_TABLE[hero_index]:GetPlayerOwnerID()
+					local unitName = MAIN_HERO_TABLE[hero_index]:GetUnitName()
+					data.Heroes[hero_index] = {}
+					data.Heroes[hero_index].UnitName = unitName
+					data.Heroes[hero_index].Gear = {}
 					for j = 0, 5, 1 do
-						-- data.Heroes[i].Gear[j] = {}
 						local gearTable = CustomNetTables:GetTableValue("equipment", tostring(playerID).."-"..tostring(j))
 						if gearTable and gearTable.itemIndex and gearTable.itemIndex ~= -1 then
 							local slotName = "Error"
@@ -797,26 +794,17 @@ function GameMode:OnPlayerChat(keys)
 							elseif j == 5 then
 								slotName = "Slot: Amulet"
 							end
-							data.Heroes[i].Gear[slotName] = {}
-							-- data.Heroes[i].Gear[j].Slot = slotName
+							local tableItemStats = {}
 							local item = EntIndexToHScript(gearTable.itemIndex)
 							if item then
-								-- DeepPrintTable(item.newItemTable)
-								-- data.Heroes[i].Gear[j].Data = item.newItemTable
 								local newTable = {}
 								for k, v in pairs(item.newItemTable) do
-									-- if string.find(v, "â") or string.find(v, "â") or string.find(v, "★") then
 									if v == "★" then
 										newTable[k] = "star_char"
 									else
 										newTable[k] = v
 									end
-								end
-								data.Heroes[i].Gear[slotName] = newTable
-								for k, v in pairs(data.Heroes[i].Gear[slotName]) do
-									-- if string.find(v, "â") or string.find(v, "â") or string.find(v, "★") then
-									-- 	v = "star"
-									-- end
+
 									if string.find(k, "special") 
 										or k == "itemSuffix" 
 										or k == "itemPrefix" 
@@ -840,12 +828,14 @@ function GameMode:OnPlayerChat(keys)
 										or k == "item_name"
 										or k == "maxLevel"
 										or k == "requiredHero"
-										-- or string.find(k, "color") 
 										or string.find(k, "color") then
-										data.Heroes[i].Gear[slotName][k] = nil
+										newTable[k] = nil
 									end
 								end
-							end						
+								tableItemStats = newTable
+								tableItemStats.SlotName = slotName
+							end	
+							table.insert(data.Heroes[hero_index].Gear, tableItemStats)					
 						end
 					end
 				end
