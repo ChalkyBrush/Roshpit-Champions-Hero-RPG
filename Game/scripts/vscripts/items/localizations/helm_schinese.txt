@@ -715,3 +715,18 @@
 		"item_rpc_lich_kings_gaze_emerald1"	"降低触发间隔 @emerald_property1 秒"
 		"item_rpc_lich_kings_gaze_sapphire1" 	"增加最大指向目标数 @sapphire_property1"
 		"item_rpc_lich_kings_gaze_amethyst1" 	"如果范围内只有一个敌人时，这个敌人将会额外受到 @amethyst_property1 次霜冻怒火打击"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_ruptholds_helm_of_gluttony"  "拉普顿的暴食之盔"
+		"item_property_ruptholds_helm_of_gluttony"					"不死暴食"
+		"property_ruptholds_helm_of_glutton_description"			"每点属性增加最大生命值<% ITEM_RPC_RUPTHOLDS_HELM_OF_GLUTTONY_MAX_HEALTH_PER_ATTR %>点。 生命回复速率不能超过 <% ITEM_RPC_RUPTHOLDS_HELM_OF_GLUTTONY_ALLOWED_HEALTH_REGEN %> 并且接受的治疗效果将会降低 <% ITEM_RPC_RUPTHOLDS_HELM_OF_GLUTTONY_HEALING_REDUCTION_PCT %>%。"
+
+		"item_rpc_ruptholds_helm_of_gluttony_ruby1"				"使得每点属性额外增加最大生命值@ruby_property1点"
+		"item_rpc_ruptholds_helm_of_gluttony_emerald1"			"使得生命回复速率可以达到至多@emerald_property1% 最大生命值"
+		"item_rpc_ruptholds_helm_of_gluttony_sapphire1"			"受到致命伤害时，获得一个buff， buff持续 @sapphire_property1 秒，buff将会使所有对你的伤害转为治疗。<% ITEM_RPC_RUPTHOLDS_HELM_OF_GLUTTONY_SAPPHIRE_COOLDOWN %> 秒冷却时间"
+		"item_rpc_ruptholds_helm_of_gluttony_amethyst1"			"当当前生命值低于最大生命值的 @amethyst_property1% 时，你所接受的治疗效果将会提高 <% ITEM_RPC_RUPTHOLDS_HELM_OF_GLUTTONY_AMETHYST_HEALING_INCREASE %>% 并且降低受到的纯粹伤害@amethyst_property2%"
+
+		"DOTA_Tooltip_modifier_rupthold_borrowed_time"			"不死暴食 (蓝宝石)"
+		"DOTA_Tooltip_modifier_rupthold_borrowed_time_Description"	"所有受到的伤害将会转为治疗"
+
+		"DOTA_Tooltip_modifier_rupthold_borrowed_time_cooldown"			"不死暴食 (蓝宝石) 冷却中"
