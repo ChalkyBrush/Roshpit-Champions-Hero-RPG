@@ -1141,7 +1141,7 @@ function Winterblight:SpawnCastleRoomUnit(room_index, unit_name, position, fv, a
 			local luck = RandomInt(1, 100)
 			if luck == 1 then
 				local drake = Winterblight:SpawnCastleRoomUnit(0, "winterblight_castle_strength_spine_drake", position+RandomVector(240), fv, false, true)
-				SpecialFX:ColoredPop(dragon:GetAbsOrigin()+Vector(0,0,150), Vector(255, 120, 120))
+				SpecialFX:ColoredPop(drake:GetAbsOrigin()+Vector(0,0,150), Vector(255, 120, 120))
 				local modelScale = drake:GetModelScale()
 				Events:smoothSizeChange(drake, 0.3, modelScale, 12)
 			end
