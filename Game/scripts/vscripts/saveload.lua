@@ -1783,7 +1783,7 @@ end
 		local steamID = PlayerResource:GetSteamAccountID(playerID)
 		local player = PlayerResource:GetPlayer(playerID)
 		local hero = GameState:GetHeroByPlayerID(playerID)
-		if not SaveLoad:GetAllowSaving()
+		if not SaveLoad:GetAllowSaving() then
 			return false
 		end
 		local keyIndex = msg.keyIndex
