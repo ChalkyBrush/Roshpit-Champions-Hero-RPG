@@ -3105,6 +3105,29 @@
 
 		"DOTA_Tooltip_ability_item_rpc_astral_glyph_5_a"		"[T5-a] 箭头雕文"
 		"item_rpc_astral_glyph_5_a_description" 				"增加基础攻击伤害 <font color='#ccff66'>1000</font>。"
+		//Column2Glyphs
+		"DOTA_Tooltip_ability_item_rpc_astral_glyph_book" 		"星际游侠的雕文书"
+
+        "DOTA_Tooltip_ability_item_rpc_astral_glyph_1_2"       "[T1-2] 薄尘雕文"
+        "item_rpc_astral_glyph_1_2_description"                "提高(Q) 月之尘埃的作用范围 <font color='#ccff66'>2</font>X， 但是这个技能将会失去他对敌人的负面效果。"
+
+        "DOTA_Tooltip_ability_item_rpc_astral_glyph_2_2"       "[T2-2] 月光之弦雕文"
+        "item_rpc_astral_glyph_2_2_description"                "提高由 (W) 分裂箭放出的箭矢的射程 <font color='#ccff66'>800</font>。"
+
+        "DOTA_Tooltip_ability_item_rpc_astral_glyph_3_2"       "[T3-2] 卫星雕文"
+        "item_rpc_astral_glyph_3_2_description"                "增加(R2) 星辰震颤的爆发的延迟 <font color='#ccff66'>0.4</font>秒, 但是增加该效果的影响范围至 <font color='#ccff66'>550</font>。此外额外提高星辰震颤的伤害<font color='#ccff66'>1.3</font>X。"
+
+        "DOTA_Tooltip_ability_item_rpc_astral_glyph_4_2"       "[T4-2] 疯狂裂隙雕文"
+        "item_rpc_astral_glyph_4_2_description"                "增加@Ability3的伤害，数值为<font color='#ccff66'>3</font> X星际游侠的攻击力。"
+
+        "DOTA_Tooltip_ability_item_rpc_astral_glyph_5_2"       "[T5-2] 天体雕文"
+        "item_rpc_astral_glyph_5_2_description"                "降低处于星际游侠周围 <font color='#ccff66'>500</font> 范围内的敌人的攻击速度 <font color='#ccff66'>50</font> 。"
+
+        "DOTA_Tooltip_ability_item_rpc_astral_glyph_6_2"       "[T6-2] 水晶箭矢雕文"
+        "item_rpc_astral_glyph_6_2_description"                "普通攻击有 <font color='#ccff66'>5</font>% 概率冻结敌人 <font color='#ccff66'>1</font> 秒。"
+
+        "DOTA_Tooltip_ability_item_rpc_astral_glyph_7_2"       "[T7-2] 隐星雕文"
+        "item_rpc_astral_glyph_7_2_description"                "每点T4符文将会提高<font color=\"#C25DFC\">宇宙</font> 元素伤害 <font color='#ccff66'>2</font>% "
 		
 		//Weapons
 		"astral_weapon_01"			"秘银符文弓"
@@ -4135,49 +4158,49 @@
         "DOTA_Tooltip_ability_chernobog_rune_w_4_property_two"                  "额外的敏捷值（开启时）"
         "DOTA_Tooltip_ability_chernobog_rune_w_4_suffix_two"                    ""
         		
-		"DOTA_Tooltip_ability_chernobog_shadow_hunt"							"Shadow Hunt"
-    	"DOTA_Tooltip_ability_chernobog_shadow_hunt_Description"				"Chernobog starts hunting his enemies. While hunting he has increased movespeed and movespeed cap but loses a % of his maximum health and mana each second."
-    	"DOTA_Tooltip_ability_chernobog_shadow_hunt_movespeed_cap"				"MS-CAP BONUS:"
-    	"DOTA_Tooltip_ability_chernobog_shadow_hunt_movespeed_bonus"			"MS BONUS:"
-    	"DOTA_Tooltip_ability_chernobog_shadow_hunt_hp_drain_per_second"		"% MAX HP DRAINED:"
-    	"DOTA_Tooltip_ability_chernobog_shadow_hunt_mp_drain_per_second"		"% MAX MP DRAINED:"
+		"DOTA_Tooltip_ability_chernobog_shadow_hunt"							"暗影猎手"
+    	"DOTA_Tooltip_ability_chernobog_shadow_hunt_Description"				"暗夜魔王开始狩猎他的敌人。处于狩猎状态下时，暗夜魔王的移动速度和移动速度上限将会提高，但是他将会每秒丢失一定百分比的最大生命值和最大魔法值。"
+    	"DOTA_Tooltip_ability_chernobog_shadow_hunt_movespeed_cap"				"移动速度上限提高："
+    	"DOTA_Tooltip_ability_chernobog_shadow_hunt_movespeed_bonus"			"额外移动速度"
+    	"DOTA_Tooltip_ability_chernobog_shadow_hunt_hp_drain_per_second"		"% 最大生命值汲取："
+    	"DOTA_Tooltip_ability_chernobog_shadow_hunt_mp_drain_per_second"		"% 最大魔法值汲取："
 		
-    	"DOTA_Tooltip_modifier_chernobog_shadow_hunt_buff"						"Shadow Hunt"
-    	"DOTA_Tooltip_modifier_chernobog_shadow_hunt_buff_Description"			"Increased movespeed and movespeed cap."
+    	"DOTA_Tooltip_modifier_chernobog_shadow_hunt_buff"						"暗夜猎手"
+    	"DOTA_Tooltip_modifier_chernobog_shadow_hunt_buff_Description"			"提高移动速度和移动速度上限。"
 
-		"DOTA_Tooltip_ability_chernobog_rune_e_1"								"[E1] Dark Whisper"
-    	"DOTA_Tooltip_ability_chernobog_rune_e_1_Description"					"Gain bonus attack damage, movespeed and movespeed cap while @Ability3 is toggled on."
-    	"DOTA_Tooltip_ability_chernobog_rune_e_1_property_one"					"Bonus Attack Damage"
+		"DOTA_Tooltip_ability_chernobog_rune_e_1"								"[E1] 黑暗耳语r"
+    	"DOTA_Tooltip_ability_chernobog_rune_e_1_Description"					"在@Ability3开启时获得额外攻击力，移动速度和移动速度上限加成。"
+    	"DOTA_Tooltip_ability_chernobog_rune_e_1_property_one"					"额外攻击力"
     	"DOTA_Tooltip_ability_chernobog_rune_e_1_suffix"						"%"
-    	"DOTA_Tooltip_ability_chernobog_rune_e_1_property_two"					"Bonus Movespeed and Movespeed Cap"
+    	"DOTA_Tooltip_ability_chernobog_rune_e_1_property_two"					"移动速度和移动速度上限提高"
     	"DOTA_Tooltip_ability_chernobog_rune_e_1_suffix_two"					""
 
-    	"DOTA_Tooltip_modifier_chernobog_e_1"									"Dark Whisper"
-    	"DOTA_Tooltip_modifier_chernobog_e_1_Description"						"Increased attack damage, movespeed and movespeed cap."
+    	"DOTA_Tooltip_modifier_chernobog_e_1"									"黑暗耳语"
+    	"DOTA_Tooltip_modifier_chernobog_e_1_Description"						"提高攻击力，移动速度和移动速度上限。"
 
-    	"DOTA_Tooltip_ability_chernobog_rune_e_2"								"[E2] Looming Terror"
-    	"DOTA_Tooltip_ability_chernobog_rune_e_2_Description"					"While @Ability3 is toggled on, the shadows around Chernobog come alive and slash at enemies within a <font color='#ccff66'>300</font> radius. Shadow attacks have a base interval of <font color='#ccff66'>0.4</font> seconds."
-    	"DOTA_Tooltip_ability_chernobog_rune_e_2_property_one"					"Shadows Attack Damage"
-    	"DOTA_Tooltip_ability_chernobog_rune_e_2_suffix"						"% of Chernobog's Attack Power"
+    	"DOTA_Tooltip_ability_chernobog_rune_e_2"								"[E2] 恐怖阴影"
+    	"DOTA_Tooltip_ability_chernobog_rune_e_2_Description"					"当 @Ability3 开启时， 围绕在暗夜魔王身边的暗影将会变得富有活力并且攻击暗夜魔王周围<font color='#ccff66'>300</font> 范围内的敌人。暗影的基础伤害间隔为<font color='#ccff66'>0.4</font>秒。"
+    	"DOTA_Tooltip_ability_chernobog_rune_e_2_property_one"					"暗影伤害"
+    	"DOTA_Tooltip_ability_chernobog_rune_e_2_suffix"						"% 暗夜魔王的攻击力"
 
-		"DOTA_Tooltip_modifier_chernobog_e_2"									"Looming Terror"
-		"DOTA_Tooltip_modifier_chernobog_e_2_Description"						"Surrounding enemies are attacked by shadows."
+		"DOTA_Tooltip_modifier_chernobog_e_2"									"恐怖阴影"
+		"DOTA_Tooltip_modifier_chernobog_e_2_Description"						"周围的敌人将会受到暗影的袭击。"
 
-     	"DOTA_Tooltip_ability_chernobog_rune_e_3"								"[E3] Sudden Strike"
-    	"DOTA_Tooltip_ability_chernobog_rune_e_3_Description"					"While @Ability3 is toggled on issuing an attack order on an enemy will teleport you behind the target.<br>Additionally Chernobog gains a massive bonus to Armor Pierce and Spell Pierce for <font color='#ccff66'>1</font> second after teleporting."
-    	"DOTA_Tooltip_ability_chernobog_rune_e_3_property_one"					"Teleport Range"
+     	"DOTA_Tooltip_ability_chernobog_rune_e_3"								"[E3] 突击"
+    	"DOTA_Tooltip_ability_chernobog_rune_e_3_Description"					"当 @Ability3 开启时，对一个敌人作出攻击指令将会使你立即传送至目标的身后。<br>此外，在传送至目标身后后获得巨额物理穿透和魔法穿透，持续 <font color='#ccff66'>1</font> 秒。"
+    	"DOTA_Tooltip_ability_chernobog_rune_e_3_property_one"					"传送距离"
     	"DOTA_Tooltip_ability_chernobog_rune_e_3_suffix"						""
-    	"DOTA_Tooltip_ability_chernobog_rune_e_3_property_two"					"Armor Pierce and Spell Pierce"
+    	"DOTA_Tooltip_ability_chernobog_rune_e_3_property_two"					"额外物理穿透和魔法穿透"
     	"DOTA_Tooltip_ability_chernobog_rune_e_3_suffix_two"					""
 
-		"DOTA_Tooltip_modifier_chernobog_e_3_buff"								"Sudden Strike"
-		"DOTA_Tooltip_modifier_chernobog_e_3_buff_Description"					"Increased Armor Pierce and Spell Pierce."
+		"DOTA_Tooltip_modifier_chernobog_e_3_buff"								"突击"
+		"DOTA_Tooltip_modifier_chernobog_e_3_buff_Description"					"提高物理穿透和魔法穿透。"
 		
-    	"DOTA_Tooltip_ability_chernobog_rune_e_4"								"[E4] Eclipse"
-    	"DOTA_Tooltip_ability_chernobog_rune_e_4_Description"					"Increase the attack rate of all Shadows. Also gain <font color='#ccff66'>75</font>% while @Ability3 is toggled on. This buff persists for some time after toggling @Ability3 off."
-    	"DOTA_Tooltip_ability_chernobog_rune_e_4_property_one"					"Buff Linger Period"
-    	"DOTA_Tooltip_ability_chernobog_rune_e_4_suffix"						" seconds"
-    	"DOTA_Tooltip_ability_chernobog_rune_e_4_property_two"					"Shadow Attack Rate Increase"
+    	"DOTA_Tooltip_ability_chernobog_rune_e_4"								"[E4] 月蚀"
+    	"DOTA_Tooltip_ability_chernobog_rune_e_4_Description"					"提高暗影的攻击频率。此外，开启@Ability3时，获得 <font color='#ccff66'>75</font>% 闪避。这个效果在关闭@Ability3后仍然会持续一段时间。"
+    	"DOTA_Tooltip_ability_chernobog_rune_e_4_property_one"					"Buff粘滞时间"
+    	"DOTA_Tooltip_ability_chernobog_rune_e_4_suffix"						" 秒"
+    	"DOTA_Tooltip_ability_chernobog_rune_e_4_property_two"					"暗影攻击频率提高"
     	"DOTA_Tooltip_ability_chernobog_rune_e_4_suffix_two"						"%"
 
     	"DOTA_Tooltip_modifier_chernobog_e_4"									"Eclipse"
@@ -4265,7 +4288,7 @@
         "DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_Description"           "增加恶魔霸权的持续时间，并且提高所有<font color=\"#5B648C\">恶魔</font> 元素的伤害。"
         "DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_property_one"          "持续时间延长："
         "DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_suffix"                " 秒"
-        "DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_property_two"          "恶魔元素伤害增加："
+        "DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_property_two"          "恶魔元素伤害提高："
         "DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_suffix_two"            "%"
 
         //cherno arcana2
@@ -7292,13 +7315,13 @@
 		"item_rpc_flamewaker_glyph_1_1_description" 			"攻击你的敌人有 <font color='#ccff66'>50</font>% 几率被眩晕 <font color='#ccff66'>1</font> 秒。"
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_2_1"	"[T2-1] 坍缩雕文"
-		"item_rpc_flamewaker_glyph_2_1_description" 			"降低地震爆发的冷却时间至 <font color='#ccff66'>5</font> 秒。"
+		"item_rpc_flamewaker_glyph_2_1_description" 			"降低地震爆发的冷却时间至 <font color='#ccff66'>5</font> 秒并且提高地震爆发的伤害，数值为 <font color='#ccff66'>5</font>X火焰行者的力量值。"
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_3_1"	"[T3-1] 剧变雕文"
 		"item_rpc_flamewaker_glyph_3_1_description" 			"[W1]造成伤害的同时会对目标附加[W3] 。"
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_4_1"	"[T4-1] 蓝焰雕文"
-		"item_rpc_flamewaker_glyph_4_1_description" 			"第二脉搏造成额外伤害，额外伤害为 <font color='#ccff66'>0.04</font>x 的攻击力。所造成的额外伤害还将乘以第二脉搏的等级数。同时减少敌人攻击和移动速度 <font color='#ccff66'>120</font>/<font color='#ccff66'>120</font>。"
+		"item_rpc_flamewaker_glyph_4_1_description" 			"@Ability2造成额外伤害，额外伤害为 <font color='#ccff66'>0.04</font>x 的攻击力。所造成的额外伤害还将乘以@Ability2的等级数。同时减少敌人攻击和移动速度 <font color='#ccff66'>120</font>/<font color='#ccff66'>120</font>。"
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_5_1"	"[T5-1] 灼热之心雕文"
 		"item_rpc_flamewaker_glyph_5_1_description" 			"增加[R2]的持续时间<font color='#ccff66'>1.5</font>倍。"
@@ -8173,7 +8196,7 @@
 		"omniro_water_orb_description"										"一道水之洪流将 <font color='#ccff66'>270</font> 范围内的敌人冲起。 当他们被冲到空中时，将会眩晕。"
 		"omniro_water_orb_a_pretext"											"攻击力%的伤害："	
 
-		"omniro_demon_orb_description"										"造成一次无视坚定的伤害。"
+		"omniro_demon_orb_description"										"造成一次巨额伤害。"
 		"omniro_demon_orb_a_pretext"											"攻击力 % 的伤害："	
 
 		"omniro_nature_orb_description"										"获得一个护盾来抵挡伤害。基础最大层数为 <font color='#ccff66'>2</font> 并且随等级提高。持续 <font color='#ccff66'>10</font> 秒"
@@ -8338,7 +8361,7 @@
 
 		"DOTA_Tooltip_ability_item_rpc_omniro_immortal_weapon_2"            "超级充能棱镜之锤"
 		"item_property_omniro_immortal_weapon2"                             "极速充能"
-		"property_omniro_immortal_weapon2_description"                      "元素充能的再充能时间加快 <font color='#ccff66'>20</font>% 。"
+		"property_omniro_immortal_weapon2_description"                      "每点最大充能提高再充能速率 <font color='#ccff66'>20</font>%（不包括<font color=\"#DDDDDD\">普通</font>）。"
 
 		"DOTA_Tooltip_ability_item_rpc_omniro_immortal_weapon_3"            "德雷克的权杖"
 		"item_property_omniro_immortal_weapon3"                             "龙之元素"
@@ -14597,7 +14620,7 @@
 		"DOTA_Tooltip_ability_item_rpc_glove_of_the_hierophant"			"圣者手套"
 
 		"item_property_glove_of_the_hierophant"							"灵魂冲击"
-		"property_glove_of_the_hierophant_description"					"当你智力自己或者友军时，对治疗目标周围<font color='#ccff66'>400</font>范围内的敌人造成<font color='#ccff66'>100</font>% 治疗数值的纯粹伤害。每秒最多触发 <font color='#ccff66'>5</font> 次。"
+		"property_glove_of_the_hierophant_description"					"当你治疗自己或者友军时，对治疗目标周围<font color='#ccff66'>400</font>范围内的敌人造成<font color='#ccff66'>100</font>% 治疗数值的纯粹伤害。每秒最多触发 <font color='#ccff66'>5</font> 次。"
 
 		"DOTA_Tooltip_modifier_glove_of_the_hierophant_sapphire_blind"	"灵魂冲击 (蓝宝石)"
 		"DOTA_Tooltip_modifier_glove_of_the_hierophant_sapphire_blind_Description"	"命中率被降低"
@@ -15377,6 +15400,21 @@
 		"item_rpc_lich_kings_gaze_emerald1"	"降低触发间隔 @emerald_property1 秒"
 		"item_rpc_lich_kings_gaze_sapphire1" 	"增加最大指向目标数 @sapphire_property1"
 		"item_rpc_lich_kings_gaze_amethyst1" 	"如果范围内只有一个敌人时，这个敌人将会额外受到 @amethyst_property1 次霜冻怒火打击"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_ruptholds_helm_of_gluttony"  "拉普顿的暴食之盔"
+		"item_property_ruptholds_helm_of_gluttony"					"不死暴食"
+		"property_ruptholds_helm_of_glutton_description"			"每点属性增加最大生命值<font color='#ccff66'>15</font>点。 生命回复速率不能超过 <font color='#ccff66'>0</font> 并且接受的治疗效果将会降低 <font color='#ccff66'>90</font>%。"
+
+		"item_rpc_ruptholds_helm_of_gluttony_ruby1"				"使得每点属性额外增加最大生命值@ruby_property1点"
+		"item_rpc_ruptholds_helm_of_gluttony_emerald1"			"使得生命回复速率可以达到至多@emerald_property1% 最大生命值"
+		"item_rpc_ruptholds_helm_of_gluttony_sapphire1"			"受到致命伤害时，获得一个buff， buff持续 @sapphire_property1 秒，buff将会使所有对你的伤害转为治疗。<font color='#ccff66'>20</font> 秒冷却时间"
+		"item_rpc_ruptholds_helm_of_gluttony_amethyst1"			"当当前生命值低于最大生命值的 @amethyst_property1% 时，你所接受的治疗效果将会提高 <font color='#ccff66'>300</font>% 并且降低受到的纯粹伤害@amethyst_property2%"
+
+		"DOTA_Tooltip_modifier_rupthold_borrowed_time"			"不死暴食 (蓝宝石)"
+		"DOTA_Tooltip_modifier_rupthold_borrowed_time_Description"	"所有受到的伤害将会转为治疗"
+
+		"DOTA_Tooltip_modifier_rupthold_borrowed_time_cooldown"			"不死暴食 (蓝宝石) 冷却中"
 
 
 
