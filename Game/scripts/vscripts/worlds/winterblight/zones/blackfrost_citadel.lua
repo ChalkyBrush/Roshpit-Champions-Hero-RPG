@@ -508,7 +508,7 @@ function Winterblight:SetupCastleData()
 		Winterblight.CASTLE_DATA["rooms"][2]["active"] = 0
 		Winterblight.CASTLE_DATA["rooms"][2]["enemy_spawn_count"] = 0
 		Winterblight.CASTLE_DATA["rooms"][2]["enemies_slain"] = 0
-		Winterblight.CASTLE_DATA["rooms"][2]["extra_goal"] = 27
+		Winterblight.CASTLE_DATA["rooms"][2]["extra_goal"] = 29
 		Winterblight.CASTLE_DATA["rooms"][2]["key_positions"] = {Vector(15488,16000), Vector(15440, 15307)}
 		Winterblight.CASTLE_DATA["rooms"][2]["cleared"] = 0
 		Winterblight.CASTLE_DATA["rooms"][2]["mid_point"] = Vector(15616, 15104)
