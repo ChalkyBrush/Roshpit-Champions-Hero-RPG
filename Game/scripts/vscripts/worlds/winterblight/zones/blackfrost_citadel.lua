@@ -508,7 +508,7 @@ function Winterblight:SetupCastleData()
 		Winterblight.CASTLE_DATA["rooms"][2]["active"] = 0
 		Winterblight.CASTLE_DATA["rooms"][2]["enemy_spawn_count"] = 0
 		Winterblight.CASTLE_DATA["rooms"][2]["enemies_slain"] = 0
-		Winterblight.CASTLE_DATA["rooms"][2]["extra_goal"] = 30
+		Winterblight.CASTLE_DATA["rooms"][2]["extra_goal"] = 27
 		Winterblight.CASTLE_DATA["rooms"][2]["key_positions"] = {Vector(15488,16000), Vector(15440, 15307)}
 		Winterblight.CASTLE_DATA["rooms"][2]["cleared"] = 0
 		Winterblight.CASTLE_DATA["rooms"][2]["mid_point"] = Vector(15616, 15104)
@@ -1140,7 +1140,7 @@ function Winterblight:SpawnCastleRoomUnit(room_index, unit_name, position, fv, a
 		if unit_name ~= "winterblight_castle_strength_spine_drake" then
 			local luck = RandomInt(1, 100)
 			if luck == 1 then
-				local drake = Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_castle_strength_spine_drake", position+RandomVector(240), fv, false, true)
+				local drake = Winterblight:SpawnCastleRoomUnit(0, "winterblight_castle_strength_spine_drake", position+RandomVector(240), fv, false, true)
 				SpecialFX:ColoredPop(dragon:GetAbsOrigin()+Vector(0,0,150), Vector(255, 120, 120))
 				local modelScale = drake:GetModelScale()
 				Events:smoothSizeChange(drake, 0.3, modelScale, 12)
