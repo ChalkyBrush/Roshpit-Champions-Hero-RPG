@@ -1783,7 +1783,9 @@ end
 		local steamID = PlayerResource:GetSteamAccountID(playerID)
 		local player = PlayerResource:GetPlayer(playerID)
 		local hero = GameState:GetHeroByPlayerID(playerID)
-
+		if not SaveLoad:GetAllowSaving()
+			return false
+		end
 		local keyIndex = msg.keyIndex
 		local limit = 20
 		local url = ROSHPIT_URL.."/champions/updatePlayerKeys?"
