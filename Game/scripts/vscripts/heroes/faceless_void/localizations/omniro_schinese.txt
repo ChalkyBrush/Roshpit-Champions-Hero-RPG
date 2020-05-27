@@ -186,7 +186,7 @@
 		"omniro_water_orb_description"										"一道水之洪流将 <% OMNIRO_WATER_ORB_AOE %> 范围内的敌人冲起。 当他们被冲到空中时，将会眩晕。"
 		"omniro_water_orb_a_pretext"											"攻击力%的伤害："	
 
-		"omniro_demon_orb_description"										"造成一次无视坚定的伤害。"
+		"omniro_demon_orb_description"										"造成一次巨额伤害。"
 		"omniro_demon_orb_a_pretext"											"攻击力 % 的伤害："	
 
 		"omniro_nature_orb_description"										"获得一个护盾来抵挡伤害。基础最大层数为 <% OMNIRO_NATURE_SHIELD_BASE_MAX_STACKS %> 并且随等级提高。持续 <% OMNIRO_NATURE_SHIELD_DURATION %> 秒"
@@ -351,7 +351,7 @@
 
 		"DOTA_Tooltip_ability_item_rpc_omniro_immortal_weapon_2"            "超级充能棱镜之锤"
 		"item_property_omniro_immortal_weapon2"                             "极速充能"
-		"property_omniro_immortal_weapon2_description"                      "元素充能的再充能时间加快 <% OMNIRO_LEGEND_WEAPON_2_RECHARGE_INCREASE %>% 。"
+		"property_omniro_immortal_weapon2_description"                      "每点最大充能提高再充能速率 <% OMNIRO_LEGEND_WEAPON_2_RECHARGE_INCREASE %>%（不包括<font color=\"#DDDDDD\">普通</font>）。"
 
 		"DOTA_Tooltip_ability_item_rpc_omniro_immortal_weapon_3"            "德雷克的权杖"
 		"item_property_omniro_immortal_weapon3"                             "龙之元素"

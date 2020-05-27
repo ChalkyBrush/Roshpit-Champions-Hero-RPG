@@ -566,7 +566,7 @@
 		"DOTA_Tooltip_ability_item_rpc_glove_of_the_hierophant"			"圣者手套"
 
 		"item_property_glove_of_the_hierophant"							"灵魂冲击"
-		"property_glove_of_the_hierophant_description"					"当你智力自己或者友军时，对治疗目标周围<% ITEM_RPC_GLOVE_OF_THE_HIEROPHANT_DMG_RADIUS %>范围内的敌人造成<% ITEM_RPC_GLOVE_OF_THE_HIEROPHANT_HEAL_TO_DMG_PCT %>% 治疗数值的纯粹伤害。每秒最多触发 <% ITEM_RPC_GLOVE_OF_THE_HIEROPHANT_TRIGGERS_PER_SECOND %> 次。"
+		"property_glove_of_the_hierophant_description"					"当你治疗自己或者友军时，对治疗目标周围<% ITEM_RPC_GLOVE_OF_THE_HIEROPHANT_DMG_RADIUS %>范围内的敌人造成<% ITEM_RPC_GLOVE_OF_THE_HIEROPHANT_HEAL_TO_DMG_PCT %>% 治疗数值的纯粹伤害。每秒最多触发 <% ITEM_RPC_GLOVE_OF_THE_HIEROPHANT_TRIGGERS_PER_SECOND %> 次。"
 
 		"DOTA_Tooltip_modifier_glove_of_the_hierophant_sapphire_blind"	"灵魂冲击 (蓝宝石)"
 		"DOTA_Tooltip_modifier_glove_of_the_hierophant_sapphire_blind_Description"	"命中率被降低"
