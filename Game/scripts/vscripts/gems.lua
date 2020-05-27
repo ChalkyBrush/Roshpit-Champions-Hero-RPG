@@ -462,6 +462,7 @@ function Gems:InsertGem(msg)
 			Gems:ModifyPrismaticGemstones(playerID, cost, "forge_gem", "subtract")
 			if hero.equipped_gear[item.newItemTable.gear_slot] == item then
 				hero:EquipItem(item, true)
+				SaveLoad:GenericSaveWithPremiumCheck(hero)
 			end
 			CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "update_inventory", {})
 		end

@@ -2011,3 +2011,6 @@ end
 			end
 		end
 	end
+
+	function SaveLoad:GenericSaveWithPremiumCheck(hero)
+	end
