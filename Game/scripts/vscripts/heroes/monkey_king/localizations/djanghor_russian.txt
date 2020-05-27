@@ -155,12 +155,12 @@
     	"DOTA_Tooltip_ability_djanghor_rune_q_2_suffix"								""
 
     	"DOTA_Tooltip_ability_djanghor_rune_q_3"									"[Q3] Oscillation"
-    	"DOTA_Tooltip_ability_djanghor_rune_q_3_Description"						"Прочтение (Q) Screech добавляет дополнительное время ко ВСЕМ действующим эффектам, которые герой на себя наложил и получил от своих предметов. Добавление времени может накладываться максимально 3 раза, затем эффект должен быть получен заново."
+    	"DOTA_Tooltip_ability_djanghor_rune_q_3_Description"						"Все баффы героя от рун, способностей и предметов пассивно продлеваются."
     	"DOTA_Tooltip_ability_djanghor_rune_q_3_property_one"						"Доп. длительность"
     	"DOTA_Tooltip_ability_djanghor_rune_q_3_suffix"								" сек."
 
     	"DOTA_Tooltip_ability_djanghor_rune_q_4"									"[Q4] Primal Instinct"
-    	"DOTA_Tooltip_ability_djanghor_rune_q_4_Description"						"Увеличивает эффект от усилений меток @Ability1."
+    	"DOTA_Tooltip_ability_djanghor_rune_q_4_Description"						"Увеличивает эффект от усилений меток Mark of the Fang, Mark of the Talon и Mark of the Claw."
     	"DOTA_Tooltip_ability_djanghor_rune_q_4_property_one"						"Усиление бонусов"
     	"DOTA_Tooltip_ability_djanghor_rune_q_4_suffix"								"%"
 
