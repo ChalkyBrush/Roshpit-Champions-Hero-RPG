@@ -295,6 +295,29 @@
 
 		"DOTA_Tooltip_ability_item_rpc_astral_glyph_5_a"		"[T5-a] 箭头雕文"
 		"item_rpc_astral_glyph_5_a_description" 				"增加基础攻击伤害 <% ASTRAL_RANGER_GLYPH_5_A_BASE_DAMAGE %>。"
+		//Column2Glyphs
+		"DOTA_Tooltip_ability_item_rpc_astral_glyph_book" 		"星际游侠的雕文书"
+
+        "DOTA_Tooltip_ability_item_rpc_astral_glyph_1_2"       "[T1-2] 薄尘雕文"
+        "item_rpc_astral_glyph_1_2_description"                "提高(Q) 月之尘埃的作用范围 <% ASTRAL_RANGER_GLYPH_1_2_Q_AOE_MULT %>X， 但是这个技能将会失去他对敌人的负面效果。"
+
+        "DOTA_Tooltip_ability_item_rpc_astral_glyph_2_2"       "[T2-2] 月光之弦雕文"
+        "item_rpc_astral_glyph_2_2_description"                "提高由 (W) 分裂箭放出的箭矢的射程 <% ASTRAL_RANGER_GLYPH_2_2_W_BONUS_RANGE %>。"
+
+        "DOTA_Tooltip_ability_item_rpc_astral_glyph_3_2"       "[T3-2] 卫星雕文"
+        "item_rpc_astral_glyph_3_2_description"                "增加(R2) 星辰震颤的爆发的延迟 <% ASTRAL_RANGER_GLYPH_3_2_R2_DELAY %>秒, 但是增加该效果的影响范围至 <% ASTRAL_RANGER_GLYPH_3_2_R2_EXP_AOE %>。此外额外提高星辰震颤的伤害<% ASTRAL_RANGER_GLYPH_3_2_R2_DAMAGE_MULT %>X。"
+
+        "DOTA_Tooltip_ability_item_rpc_astral_glyph_4_2"       "[T4-2] 疯狂裂隙雕文"
+        "item_rpc_astral_glyph_4_2_description"                "增加@Ability3的伤害，数值为<% ASTRAL_RANGER_GLYPH_4_2_ATTACK_TO_E_DMG %> X星际游侠的攻击力。"
+
+        "DOTA_Tooltip_ability_item_rpc_astral_glyph_5_2"       "[T5-2] 天体雕文"
+        "item_rpc_astral_glyph_5_2_description"                "降低处于星际游侠周围 <% ASTRAL_RANGER_GLYPH_5_2_RADIUS %> 范围内的敌人的攻击速度 <% ASTRAL_RANGER_GLYPH_5_2_AS_LOST %> 。"
+
+        "DOTA_Tooltip_ability_item_rpc_astral_glyph_6_2"       "[T6-2] 水晶箭矢雕文"
+        "item_rpc_astral_glyph_6_2_description"                "普通攻击有 <% ASTRAL_RANGER_GLYPH_6_2_FREEZE_CHANCE %>% 概率冻结敌人 <% ASTRAL_RANGER_GLYPH_6_2_FREEZE_DURATION %> 秒。"
+
+        "DOTA_Tooltip_ability_item_rpc_astral_glyph_7_2"       "[T7-2] 隐星雕文"
+        "item_rpc_astral_glyph_7_2_description"                "每点T4符文将会提高<font color=\"#C25DFC\">宇宙</font> 元素伤害 <% ASTRAL_RANGER_GLYPH_7_2_COSMIC_DMG_PER_T4 %>% "
 		
 		//Weapons
 		"astral_weapon_01"			"秘银符文弓"
