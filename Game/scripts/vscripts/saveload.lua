@@ -2013,4 +2013,15 @@ end
 	end
 
 	function SaveLoad:GenericSaveWithPremiumCheck(hero)
+		local premium_allowed = true
+		if hero.saveSlot and hero.saveSlot > 0 then
+			if hero.saveSlot > 8 then
+				if not GameState:GetPlayerPremiumStatus(hero:GetPlayerOwnerID()) then
+					premium_allowed = false
+				end
+			end
+			if premium_allowed then
+				SaveLoad:SaveCharacterGeneric(hero)
+			end
+		end
 	end
