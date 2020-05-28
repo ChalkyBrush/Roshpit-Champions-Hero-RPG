@@ -5,15 +5,15 @@
         "DOTA_Tooltip_modifier_basilisk_plague_petrify"	"深度腐烂"
 		"DOTA_Tooltip_modifier_basilisk_plague_petrify_Description"	"变成石头并且魔法免疫"
 		"item_rpc_basilisk_plague_helm_ruby1"	"被腐化的敌人攻击速度额外降低 @ruby_property1"
-		"item_rpc_basilisk_plague_helm_emerald1" "附近被腐化的敌人受到每 <% BASILISK_PLAGUE_THINK_INTERVAL %> 秒@emerald_property1 的持续伤害"
-		"item_rpc_basilisk_plague_helm_sapphire1"	"提高石化持续时间 @sapphire_property1 秒"
+		"item_rpc_basilisk_plague_helm_emerald1" "附近被腐化的敌人受到每 <% BASILISK_PLAGUE_THINK_INTERVAL %> 秒@emerald_property1 的持续伤害。每次造成伤害都将会提高，最多 <% BASILISK_PLAGUE_EMERALD_MAX_STACKS %>x 伤害"
+		"item_rpc_basilisk_plague_helm_sapphire1"	"提高石化持续时间 @sapphire_property1 秒并且当敌人被石化后，你将会获得 @sapphire_property2 点物理穿透，持续 <% BASILISK_PLAGUE_SAPPHIRE_DURATION %> 秒"
 		"item_rpc_basilisk_plague_helm_amethyst1" "被石化的敌人降低@amethyst_property1 护甲值"
 
 		
     	"DOTA_Tooltip_ability_item_rpc_brazen_kabuto_of_the_desert_realm"				"沙漠头盔"
 		"item_property_brazen_kabuto"				"勇士壁垒"
 		"property_brazen_kabuto_description"		"施放 @Ability4 时，100% 伤害免疫"
-		"item_rpc_brazen_kabuto_of_the_desert_realm_ruby1"	"提高力量值 @ruby_property1"
+		"item_rpc_brazen_kabuto_of_the_desert_realm_ruby1"	"引导@Ability4时，获得 @ruby_property1 点物理穿透和魔法穿透"
 		"item_rpc_brazen_kabuto_of_the_desert_realm_emerald1" "提高 [R] 的基础技能伤害 @emerald_property1%"
 		"item_rpc_brazen_kabuto_of_the_desert_realm_sapphire1"	"开始施放[R]时有@sapphire_property1% 概率刷新此技能的冷却时间"
 		"item_rpc_brazen_kabuto_of_the_desert_realm_amethyst1" "持续施法结束时, 获得一层减伤 <% KABUTO_AMETHYST_DAMAGE_REDUCTION %>% 的护盾 @amethyst_property1 秒"
@@ -38,7 +38,7 @@
 		 "item_rpc_crown_of_the_lava_forge_ruby1"	"提高熔岩爆裂触发概率 @ruby_property1%"
 		"item_rpc_crown_of_the_lava_forge_emerald1"	"提高熔岩爆裂伤害 @emerald_property1% of Agility"
 		"item_rpc_crown_of_the_lava_forge_sapphire1" "提高护甲和魔甲 @sapphire_property1"
-		"item_rpc_crown_of_the_lava_forge_amethyst1" "提高所有 <font color=\"#EF4126\">火</font> 以及 <font color=\"#7AE2A7\">风</font> 元素伤害 @amethyst_property1%"
+		"item_rpc_crown_of_the_lava_forge_amethyst1" "提高所有物品， <font color=\"#EF4126\">火</font> 以及 <font color=\"#7AE2A7\">风</font> 元素伤害 @amethyst_property1%"
 
 		 
 		 
@@ -61,7 +61,16 @@
 		"item_rpc_hyper_visor_ruby1"	"提高攻击速度 @ruby_property1"
 		"item_rpc_hyper_visor_emerald1"	"提高超级闪电伤害 @emerald_property1x 敏捷值"
 		"item_rpc_hyper_visor_sapphire1" "攻击有<% HYPER_VISOR_SAPPHIRE_CHAIN_LIGHTNING_CHANCE %>% 概率触发跳跃<% HYPER_VISOR_SAPPHIRE_CHAIN_LIGHTNING_TARGET_COUNT %>次的连锁闪电，造成 @sapphire_property1% 超级闪电的伤害"
-		"item_rpc_hyper_visor_amethyst1" "Increases Item Damage by @amethyst_property1%"
+		"item_rpc_hyper_visor_amethyst1" "增加物品和 <font color=\"#5CCDF9\">电</font> 元素伤害 @amethyst_property1%"
+		
+		    	"DOTA_Tooltip_ability_item_rpc_igneous_canine_helm"								"Igneous Canine Helm"
+		"item_property_igneous_canine"							"Lava Splash"
+		"property_igneous_canine_description"					"释放 @Ability2 将会眩晕附近的所有敌人<% IGNEOUS_CANINE_STUN_DURATION %> 秒并且留下一滩熔岩，降低处于其中的敌人的移动速度<% IGNEOUS_CANINE_MOVESPEED_SLOW %>% 以及攻击速度 <% IGNEOUS_CANINE_AS_SLOW %>。处于熔岩中的敌人每<% IGNEOUS_CANINE_LAVA_INTERVAL %>秒受到<% IGNEOUS_CANINE_ATTACK_TO_DMG %>%你的攻击力的伤害。最多同时存在 <% IGNEOUS_CANINE_MAX_LAVA_POOLS %> 滩熔岩"
+
+		"item_rpc_igneous_canine_helm_ruby1"	"增加熔岩的伤害，数值为@ruby_property1x 力量值并且增加力量值 @ruby_property2"
+		"item_rpc_igneous_canine_helm_emerald1"	"增加最大同时存在的熔岩的数量 @emerald_property1"
+		"item_rpc_igneous_canine_helm_sapphire1" "增加眩晕的持续时间@sapphire_property1 秒"
+		"item_rpc_igneous_canine_helm_amethyst1" "处于熔岩中的敌人的护甲将会被降低@amethyst_property1"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_crown_of_ruby_dragon"							"红宝石龙冠"	
@@ -88,7 +97,7 @@
 		"property_centaur_horns_description"		"免疫眩晕效果."
 
 		"item_rpc_centaur_horns_ruby1"	"提高力量值 @ruby_property1"
-		"item_rpc_centaur_horns_emerald1" "当一次眩晕效果被抵挡时, 获得 @emerald_property1 移动速度 <% CENTAUR_HORNS_EMERALD_SPEED_DURATION %> 秒"
+		"item_rpc_centaur_horns_emerald1" "当一次眩晕效果被抵挡时, 获得 @emerald_property1 移动速度 <% CENTAUR_HORNS_EMERALD_SPEED_DURATION %> 秒。此外，当你拥有这个buff的时候，获得 @emerald_property2x 移动速度的基础攻击力"
 		"item_rpc_centaur_horns_sapphire1"	"提高状态抗性 @sapphire_property1%"
 		"item_rpc_centaur_horns_amethyst1" "当一次眩晕效果被抵挡时,有 @amethyst_property1% 的概率刷新 [E] 技能的冷却时间"
 		
@@ -102,8 +111,11 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_death_whisper_helm"								"死亡耳语"
 		"item_property_death_whisper"				"死亡耳语"
-		"property_death_whisper_description"		"所有被 @Ability1 打击的敌人降低 <% DEATH_WHISPER_SLOW %> 移动速度和状态抗性<% DEATH_WHISPER_DAMAGE_STATUS_RESIST_LOSS %>% ，持续 <% DEATH_WHISPER_DURATION %> 秒."
-		
+		"property_death_whisper_description"		"所有被 @Ability1 打击的敌人降低 <% DEATH_WHISPER_SLOW %> 移动速度和状态抗性<% DEATH_WHISPER_DAMAGE_STATUS_RESIST_LOSS %>% ，持续 <% DEATH_WHISPER_DURATION %> 秒."	
+		"item_rpc_death_whisper_helm_ruby1"	"增加所有 T1 符文 @ruby_property1点"
+		"item_rpc_death_whisper_helm_emerald1"	"增加所有 T2 符文 @emerald_property1点"
+		"item_rpc_death_whisper_helm_sapphire1" "释放 [Q] 将会使你进入隐身状态，持续 @sapphire_property1 秒"
+		"item_rpc_death_whisper_helm_amethyst1" "增加基础技能伤害和 <font color=\"#7F4F84\">暗影</font> 元素伤害 @amethyst_property1%"
 		
     	"DOTA_Tooltip_ability_item_rpc_cap_of_wild_nature"								"大自然之帽"
 		"item_property_wild_nature"					"纠缠根须"
@@ -122,7 +134,7 @@
 		"property_luma_description"					 "被 @Ability1 打击的敌人有 <% LUMA_BEAM_CHANCE %>% 概率被一道月光打击, 造成 <% LUMA_DAMAGE_AMP %>% 此技能的伤害并在敌人的位置提供高空视野 <% LUMA_VISION_DURATION %> 秒. 每秒最多触发 <% LUMA_MAX_PROCS_PER_SECOND %> 次月光."
 		"item_rpc_guard_of_luma_ruby1"	"提高月光的触发概率 @ruby_property1%"
 		"item_rpc_guard_of_luma_emerald1"	"提高每秒最多触发的月光次数 @emerald_property1"
-		"item_rpc_guard_of_luma_sapphire1" "月光效果获得高空视野提高 @sapphire_property1 "
+		"item_rpc_guard_of_luma_sapphire1" "月光效果获得高空视野提高 @sapphire_property1并且提高 <font color=\"#C25DFC\">宇宙</font> 元素伤害 @sapphire_property2% "
 		"item_rpc_guard_of_luma_amethyst1" "提高月光的伤害 @amethyst_property1% 触发伤害"
 		
 		
@@ -164,8 +176,8 @@
 
 		"item_rpc_swamp_witch_hat_ruby1"	"每次敌人被暗影波击中, 他们的魔甲将降低 @ruby_property1 点. 最多叠加 <% SWAMP_WITCH_RUBY_MAX_STACKS %> 层，持续 <% SWAMP_WITCH_RUBY_DURATION %> 秒"
 		"item_rpc_swamp_witch_hat_emerald1"	"暗影波可以每 @emerald_property1 秒触发一次"
-		"item_rpc_swamp_witch_hat_sapphire1" "每个被暗影波击中的敌人回复你 @sapphire_property1 魔法值"
-		"item_rpc_swamp_witch_hat_amethyst1" "提高暗影波的伤害 @amethyst_property1"
+		"item_rpc_swamp_witch_hat_sapphire1" "每个被暗影波击中的敌人回复你 @sapphire_property1 魔法值并且增加暗影波的最大距离 @sapphire_property2"
+		"item_rpc_swamp_witch_hat_amethyst1" "增加物品和 <font color=\"#7F4F84\">暗影</font> 元素伤害@amethyst_property1%"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_tricksters_mask"									"狡诈面具"
@@ -240,11 +252,11 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_adamantine_samurai_helmet"						"金刚武士头盔"
 		"item_property_samurai_helmet"				"致命一击"
-		"property_samurai_helmet_description"		"你的普通攻击有 <% ADAMANTINE_SAMURAI_CHANCE %>% 几率造成 <% ADAMANTINE_SAMURAI_CRIT %>% 的暴击伤害。"
-		"item_rpc_adamantine_samurai_helmet_ruby1"	"提高力量值 @ruby_property1"
-		"item_rpc_adamantine_samurai_helmet_emerald1" "提高敏捷值 @emerald_property1"
+		"property_samurai_helmet_description"		"你的普通攻击有 <% ADAMANTINE_SAMURAI_CHANCE %>% 几率造成 <% ADAMANTINE_SAMURAI_CRIT %>% 的致命一击。"
+		"item_rpc_adamantine_samurai_helmet_ruby1"	"触发普通攻击致命一击后获得 @ruby_property1 点物理穿透，持续 <% ADAMANTINE_SAMURAI_RUBY_DURATION %> 秒"
+		"item_rpc_adamantine_samurai_helmet_emerald1" 	"每点护甲值提高基础攻击力 @emerald_property1点"
 		"item_rpc_adamantine_samurai_helmet_sapphire1"	"提高暴击概率 @sapphire_property1%"
-		"item_rpc_adamantine_samurai_helmet_amethyst1" "提高暴击伤害 @amethyst_property1%"
+		"item_rpc_adamantine_samurai_helmet_amethyst1" 	"提高暴击伤害 @amethyst_property1%"
 
 		
     	"DOTA_Tooltip_ability_item_rpc_scourge_knights_helm"							"天灾骑士头盔"
@@ -261,7 +273,7 @@
 		"item_property_undertaker"					"死亡打击"
 		"property_undertaker_description"			"你的普通攻击将同时释放死亡打击，造成<% UNDERTAKER_DAMAGE_INT_MULT %>x智力值的伤害。"
 		"item_rpc_undertakers_hood_ruby1"	"每点智力值提高攻击速度 @ruby_property1"
-		"item_rpc_undertakers_hood_emerald1"	"提高死亡打击的飞行速度 @emerald_property1"
+		"item_rpc_undertakers_hood_emerald1"	"提高死亡打击的飞行速度 @emerald_property1并且提高基础攻击力 @emerald_property2"
 		"item_rpc_undertakers_hood_sapphire1" "死亡打击对目标施加一层可叠加的 @sapphire_property1 魔甲降低debuff，持续 <% UNDERTAKER_SAPPHIRE_DURATION %> 秒, 最多叠加<% UNDERTAKER_SAPPHIRE_MAX_STACKS %> 层"
 		"item_rpc_undertakers_hood_amethyst1" "攻击时, 有@amethyst_property1% 概率释放额外一次死亡打击"
 		
@@ -290,7 +302,7 @@
 		"item_property_glint_of_onu"				"闪击"
 		"property_glint_of_onu_description"			"攻击时有<% GLINT_OF_ONU_CHANCE %>%的几率瞬移到敌人身后，并获得极限攻击速度，持续<% GLINT_OF_ONU_BUFF_DUR %>秒。闪烁时躲避弹道。"
 		"item_rpc_blinded_glint_of_onu_ruby1"	"@ruby_property1% 概率在瞬移后立即施加一次普通攻击."
-		"item_rpc_blinded_glint_of_onu_emerald1" "提高敏捷值 @emerald_property1"
+		"item_rpc_blinded_glint_of_onu_emerald1" "提高敏捷值 @emerald_property1 以及基础技能伤害 @emerald_property2%"
 		"item_rpc_blinded_glint_of_onu_sapphire1"	"提高闪击的触发概率 @sapphire_property1%"
 		"item_rpc_blinded_glint_of_onu_amethyst1" "闪击的攻击速度buff下，同时也提高攻击力 @amethyst_property1%"
 		
@@ -301,7 +313,7 @@
 		
 		"item_rpc_crown_of_the_roknar_emperor_ruby1"	"被眩晕时提高 @ruby_property1 物理穿透和魔法穿透"
 		"item_rpc_crown_of_the_roknar_emperor_emerald1"	"被眩晕时，永恒守护的每次回复效果提高 @emerald_property1% 你最大生命值的血量"
-		"item_rpc_crown_of_the_roknar_emperor_sapphire1" "提高护甲值 @sapphire_property1"
+		"item_rpc_crown_of_the_roknar_emperor_sapphire1" "提高护甲值 @sapphire_property1和最大生命值@sapphire_property2"
 		"item_rpc_crown_of_the_roknar_emperor_amethyst1" "降低所有受到的伤害 @amethyst_property1%"
 		
 		
@@ -316,10 +328,10 @@
     	"DOTA_Tooltip_ability_item_rpc_blackfeather_crown"								"黑羽之冠"
 		"item_property_blackfeather"				"老树昏鸦"	
 		"property_blackfeather_description"			"攻击敌人召唤一只乌鸦，乌鸦攻击为<% BLACKFEATHER_ATTACK_DAMAGE_MULT %>x 你的攻击力."
-		"item_rpc_blackfeather_crown_ruby1"	"提高乌鸦的攻击力 @ruby_property1%"
+		"item_rpc_blackfeather_crown_ruby1"	"乌鸦的攻击有 @ruby_property1% 概率连锁攻击至多 @ruby_property2 个附近的敌人"
 		"item_rpc_blackfeather_crown_emerald1" "乌鸦有 @emerald_property1% 概率还击攻击你的敌人"
-		"item_rpc_blackfeather_crown_sapphire1"	"乌鸦攻击施加一个 @sapphire_property1 护甲降低的debuff，持续 <% BLACKFEATHER_SAPPHIRE_ARMOR_REDUCE_DURATION %>秒"
-		"item_rpc_blackfeather_crown_amethyst1" "提高攻击速度 @amethyst_property1"
+		"item_rpc_blackfeather_crown_sapphire1"	"增加物理穿透 @sapphire_property2。乌鸦攻击施加一个 @sapphire_property1 护甲降低的debuff，持续 <% BLACKFEATHER_SAPPHIRE_ARMOR_REDUCE_DURATION %>秒"
+		"item_rpc_blackfeather_crown_amethyst1" "提高攻击速度 @amethyst_property1。当乌鸦存在时，获得 @amethyst_property2% 额外攻击力"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_wraith_crown"                                    "幽灵王冠"
@@ -346,7 +358,7 @@
 		"item_rpc_demon_mask_ruby1"	"恶魔之泪伤害增加[Q] 技能的@ruby_property1% "
 		"item_rpc_demon_mask_emerald1"	"提高 [Q3] 符文 @emerald_property1"
 		"item_rpc_demon_mask_sapphire1" "提高恶魔之泪的触发概率 @sapphire_property1%"
-		"item_rpc_demon_mask_amethyst1" "提高所有 <font color=\"#5B648C\">恶魔</font> 元素伤害 @amethyst_property1%"
+		"item_rpc_demon_mask_amethyst1" "提高所有物品和 <font color=\"#5B648C\">恶魔</font> 元素伤害 @amethyst_property1%"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_crest_of_the_umbral_sentinel"					"暗哨头冠"
@@ -355,10 +367,10 @@
 		"DOTA_Tooltip_modifier_crest_of_the_umbral_sentinel_effect_visible" "似幻似真"
 		"DOTA_Tooltip_modifier_crest_of_the_umbral_sentinel_effect_visible_Description"	"攻击有概率丢失."
 
-		"item_rpc_crest_of_the_umbral_sentinel_ruby1"	"每层似幻似真层数降低敌人攻击速度 @ruby_property1"
+		"item_rpc_crest_of_the_umbral_sentinel_ruby1"	"处于你周围 <% UMBRAL_SENTINEL_RUBY_RADIUS %> 范围内的敌人的护甲和穿透将会被降低 @ruby_property1% "
 		"item_rpc_crest_of_the_umbral_sentinel_emerald1"	"提高 [W4] 符文 @emerald_property1"
-		"item_rpc_crest_of_the_umbral_sentinel_sapphire1" "每层似幻似真效果降低敌人攻击力 @sapphire_property1%"
-		"item_rpc_crest_of_the_umbral_sentinel_amethyst1" "提高全属性 @amethyst_property1"
+		"item_rpc_crest_of_the_umbral_sentinel_sapphire1" "每层似幻似真效果降低敌人攻击力 @sapphire_property1%以及攻击速度 @sapphire_property2"
+		"item_rpc_crest_of_the_umbral_sentinel_amethyst1" "提高全属性 @amethyst_property1以及最大生命值 @amethyst_property2"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_carbuncles_helm_of_reflection"					"红宝石反射头盔"
@@ -431,7 +443,7 @@
 		 "property_black_mage_description"					"提高魔法穿透 <% HOOD_OF_BLACK_MAGE_SPELL_PIERCE_PCT_INCREASE %>%. 降低护甲和物理穿透 <% HOOD_OF_BLACK_MAGE_ARMOR_AND_ARMOR_PIERCE_PCT_PENALTY %>%."
 		 "item_rpc_hood_of_the_black_mage_ruby1"	"护甲降低效果改为 @ruby_property1%"
 		"item_rpc_hood_of_the_black_mage_emerald1"	"降低物品伤害的同时提高基础技能伤害 @emerald_property1%"
-		"item_rpc_hood_of_the_black_mage_sapphire1" "提高智力值 @sapphire_property1"
+		"item_rpc_hood_of_the_black_mage_sapphire1" "提高智力值 @sapphire_property1以及魔法恢复速率@sapphire_property2"
 		"item_rpc_hood_of_the_black_mage_amethyst1" "提高魔法穿透 @amethyst_property1%"
 		 
 		 
@@ -442,7 +454,7 @@
 		"DOTA_Tooltip_modifier_autumn_sleeper_root_Description"	"被缠绕"
 		"item_rpc_autumn_sleeper_mask_ruby1"	"施放 [R] 缠绕<% AUTUMN_SLEEPER_RUBY_RADIUS %>范围内的所有敌人@ruby_property1 秒"
 		"item_rpc_autumn_sleeper_mask_emerald1" "被过度生长缠绕的敌人每<% AUTUMN_SLEEPER_EMERALD_TICK_RATE %> 秒受到 @emerald_property1% 你的攻击力的伤害 "
-		"item_rpc_autumn_sleeper_mask_sapphire1"	"当过度生长的缠绕效果结束时, 敌人将以 <% AUTUMN_SLEEPER_SAPPHIRE_MOVESPEED_REDUCE %> 速度逃跑 @sapphire_property1 秒"
+		"item_rpc_autumn_sleeper_mask_sapphire1"	"当过度生长的缠绕效果结束时, 敌人的移动速度将会降低 <% AUTUMN_SLEEPER_SAPPHIRE_MOVESPEED_REDUCE %>，攻击力将会降低<% AUTUMN_SLEEPER_SAPPHIRE_ATTACK_POWER_REDUCE %>%  @sapphire_property1 秒"
 		"item_rpc_autumn_sleeper_mask_amethyst1" "被过度生长缠绕的敌人护甲值降低 @amethyst_property1 "
 		 
 		
@@ -473,8 +485,8 @@
 		"DOTA_Tooltip_modifier_wind_deity_damage_buff"					"风神谴 (紫宝石)"
 		"DOTA_Tooltip_modifier_wind_deity_damage_buff_Description"		"提高攻击力"
 
-		"item_rpc_wind_deity_crown_ruby1"		"提高敏捷值 @ruby_property1"
-		"item_rpc_wind_deity_crown_emerald1"	"提高所有 <font color=\"#7AE2A7\">风</font> 元素伤害 @emerald_property1%"
+		"item_rpc_wind_deity_crown_ruby1"		"提高敏捷值 @ruby_property1以及攻击速度 ruby_property2"
+		"item_rpc_wind_deity_crown_emerald1"	"提高物品和所有 <font color=\"#7AE2A7\">风</font> 元素伤害 @emerald_property1%"
 		"item_rpc_wind_deity_crown_sapphire1" 	"提高每秒最多触发的风神谴攻击次数 @sapphire_property1"
 		"item_rpc_wind_deity_crown_amethyst1" 	"每个被风神谴击中的敌人提高你的攻击力 @amethyst_property1% ，持续 <% WIND_DEITY_AMETHYST_DURATION %> 秒, 但是当你使用 [E]时移除所有层数. 攻击力提高效果最多叠加 <% WIND_DEITY_AMETHYST_MAX_STACKS %> 层."
 		
@@ -485,9 +497,9 @@
 		"DOTA_Tooltip_modifier_water_deity_crown_slow"					"水神谴"
 		"DOTA_Tooltip_modifier_water_deity_crown_slow_Description"		"移速降低"
 
-		"item_rpc_water_deity_crown_ruby1"	"提高所有 <font color=\"#3894FF\">水</font> 元素伤害 @ruby_property1%"
+		"item_rpc_water_deity_crown_ruby1"	"提高物品和所有 <font color=\"#3894FF\">水</font> 元素伤害 @ruby_property1%"
 		"item_rpc_water_deity_crown_emerald1"	"减速效果同时降低攻击速度 @emerald_property1"
-		"item_rpc_water_deity_crown_sapphire1" "提高水神谴的伤害 @sapphire_property1"
+		"item_rpc_water_deity_crown_sapphire1" "提高水神谴的伤害， 数值为@sapphire_property1%攻击力"
 		"item_rpc_water_deity_crown_amethyst1" "提高每秒最多触发次数 @amethyst_property1"
 		
 		
@@ -495,7 +507,7 @@
 		"item_property_fire_deity"							"火神谴"
 		 "property_fire_deity_description"					"@Ability2 造成伤害有 <% FIRE_DEITY_CROWN_CHANCE %>% 概率触发一次爆炸, 造成 <% FIRE_DEITY_CROWN_AMP %>% 触发技能的伤害并眩晕目标周围小范围内的敌人 <% FIRE_DEITY_CROWN_STUN_DURATION %> 秒. 每秒最多触发 <% FIRE_DEITY_MAX_PROCS_PER_SECOND %> 次."
 		 "item_rpc_fire_deity_crown_ruby1"	"提高触发火神谴的概率 @ruby_property1%"
-		"item_rpc_fire_deity_crown_emerald1"	"提高爆炸伤害 @emerald_property1"
+		"item_rpc_fire_deity_crown_emerald1"	"增加火神谴的伤害，数值为 @emerald_property1x 敏捷值"
 		"item_rpc_fire_deity_crown_sapphire1" "提高眩晕时间 @sapphire_property1"
 		"item_rpc_fire_deity_crown_amethyst1" "提高每秒最多触发次数 @amethyst_property1"
 		
@@ -506,7 +518,7 @@
 		 "item_rpc_crimson_skull_cap_ruby1"	"提高尸爆伤害 @ruby_property1% 敌人的最大生命值"
 		"item_rpc_crimson_skull_cap_emerald1"	"提高尸爆范围 @emerald_property1"
 		"item_rpc_crimson_skull_cap_sapphire1" "受到伤害时, 穿戴者在 <% CRIMSON_SKULL_CAP_SAPPHIRE_COUNTDOWN_TIMER %> 秒后爆炸，造成 @sapphire_property1% 最大生命值的伤害"
-		"item_rpc_crimson_skull_cap_amethyst1" "提高所有 <font color=\"#5C776E\">不死</font> 元素伤害 @amethyst_property1"
+		"item_rpc_crimson_skull_cap_amethyst1" "提高物品和所有 <font color=\"#5C776E\">不死</font> 元素伤害 @amethyst_property1"
 
 		
 		
@@ -532,8 +544,8 @@
 		"item_property_burning_spirit"							"喷火龙"
 		"property_burning_spirit_description"					"当引导 @Ability4 时，向前方发射一连串的火焰，每波火焰对敌人造成 <% BURNING_SPIRIT_ATTACK_TO_DAMAGE %>% 攻击力的伤害。"
 		"item_rpc_burning_spirit_helmet_ruby1"	"提高所有 <font color=\"#EF4126\">火</font> 元素伤害 @ruby_property1%"
-		"item_rpc_burning_spirit_helmet_emerald1" "火焰伤害提高 @emerald_property1"
-		"item_rpc_burning_spirit_helmet_sapphire1"	"提高全属性 @sapphire_property1"
+		"item_rpc_burning_spirit_helmet_emerald1" "提高火焰的伤害，数值为 @emerald_property1% 攻击力并且增加全属性 @emerald_property2"
+		"item_rpc_burning_spirit_helmet_sapphire1"	"普通攻击有 @sapphire_property1% 概率向前方释放一道火焰，火焰的射程为100%的穿戴者和目标之间的距离加上 @sapphire_property2 距离"
 		"item_rpc_burning_spirit_helmet_amethyst1" "每当火焰击中一个敌人降低 [R] 技能冷却 @amethyst_property1 秒"	
 
 		
@@ -593,7 +605,10 @@
 
 		"DOTA_Tooltip_modifier_sea_oracle_mega_buff"						"海神侵蚀"
 		"DOTA_Tooltip_modifier_sea_oracle_mega_buff_Description"			"提高穿透能力"
-		
+		"item_rpc_hood_of_the_sea_oracle_ruby1"	"每层海神侵蚀将会降低目标的双甲@ruby_property1"
+		"item_rpc_hood_of_the_sea_oracle_emerald1"	"额外提高对一名叠满海神侵蚀的敌人的物理穿透和魔法穿透 @emerald_property1"
+		"item_rpc_hood_of_the_sea_oracle_sapphire1" "获得攻击力加成，数值为目标身上海神侵蚀层数 X @sapphire_property1%"
+		"item_rpc_hood_of_the_sea_oracle_amethyst1" "普通攻击有 @amethyst_property1% 概率额外施加一层海神侵蚀"
 		
 		"DOTA_Tooltip_ability_item_rpc_dark_reef_shark_helmet"					"黑礁鲨头盔"	
 		"property_shark_helmet"												"鲨鱼撕咬"
@@ -655,7 +670,7 @@
 		"property_magistrate_description"								"所有魔法和纯粹伤害将会对<% MAGISTRATE_HOOD_AOE %>范围内的敌人造成 AOE伤害。 AOE 效果拥有 <% MAGISTRATE_HOOD_MAX_CHARGES %> 点充能，每<% MAGISTRATE_HOOD_REPLENISH_TIME %> 秒获得一层充能。所有aoe伤害将会增加 <% MAGISTRATE_HOOD_DAMAGE_AMP_PCT %>%。"
 		"item_rpc_magistrates_hood_ruby1"	"提高最大充能次数 @ruby_property1"
 		"item_rpc_magistrates_hood_emerald1"	"提高aoe伤害增加效果 @emerald_property1%"
-		"item_rpc_magistrates_hood_sapphire1" "提高魔法抗性 @sapphire_property1"
+		"item_rpc_magistrates_hood_sapphire1" "提高魔法穿透 @sapphire_property1以及智力值 sapphire_property2"
 		"item_rpc_magistrates_hood_amethyst1" "提高 [W] 的基础技能伤害 @amethyst_property1%"
 
 
