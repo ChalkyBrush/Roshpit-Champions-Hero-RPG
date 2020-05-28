@@ -23,8 +23,7 @@ function Winterblight:OpenWinterblightCastle()
 		end)
 		Events:DoorDust(Vector(10752, 13952), Vector(10752, 13352), 60, 0.2)
 
-		-- MAKE DELAY 9s WHEN DONE TESTING
-		Timers:CreateTimer(1, function()
+		Timers:CreateTimer(9, function()
 			local spawnPosition = Vector(11818, 14419)
 			local wraith = Enemies:SpawnEnemyUnit("winterblight_diviner_horus", spawnPosition, Vector(0,-1), false)
 			CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/blue_raze.vpcf", wraith:GetAbsOrigin(), 3)
@@ -509,7 +508,7 @@ function Winterblight:SetupCastleData()
 		Winterblight.CASTLE_DATA["rooms"][2]["active"] = 0
 		Winterblight.CASTLE_DATA["rooms"][2]["enemy_spawn_count"] = 0
 		Winterblight.CASTLE_DATA["rooms"][2]["enemies_slain"] = 0
-		Winterblight.CASTLE_DATA["rooms"][2]["extra_goal"] = 30
+		Winterblight.CASTLE_DATA["rooms"][2]["extra_goal"] = 29
 		Winterblight.CASTLE_DATA["rooms"][2]["key_positions"] = {Vector(15488,16000), Vector(15440, 15307)}
 		Winterblight.CASTLE_DATA["rooms"][2]["cleared"] = 0
 		Winterblight.CASTLE_DATA["rooms"][2]["mid_point"] = Vector(15616, 15104)
@@ -608,7 +607,7 @@ function Winterblight:SetupCastleData()
 		Winterblight.CASTLE_DATA["rooms"][11]["active"] = 0
 		Winterblight.CASTLE_DATA["rooms"][11]["enemy_spawn_count"] = 0
 		Winterblight.CASTLE_DATA["rooms"][11]["enemies_slain"] = 0
-		Winterblight.CASTLE_DATA["rooms"][11]["extra_goal"] = -1
+		Winterblight.CASTLE_DATA["rooms"][11]["extra_goal"] = -2
 		Winterblight.CASTLE_DATA["rooms"][11]["key_positions"] = {Vector(12928, -2944), Vector(15257, -2775), Vector(14350, -2018)}
 		Winterblight.CASTLE_DATA["rooms"][11]["cleared"] = 0
 		Winterblight.CASTLE_DATA["rooms"][11]["mid_point"] = Vector(12971, -2673)
@@ -1141,8 +1140,8 @@ function Winterblight:SpawnCastleRoomUnit(room_index, unit_name, position, fv, a
 		if unit_name ~= "winterblight_castle_strength_spine_drake" then
 			local luck = RandomInt(1, 100)
 			if luck == 1 then
-				local drake = Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_castle_strength_spine_drake", position+RandomVector(240), fv, false, true)
-				SpecialFX:ColoredPop(dragon:GetAbsOrigin()+Vector(0,0,150), Vector(255, 120, 120))
+				local drake = Winterblight:SpawnCastleRoomUnit(0, "winterblight_castle_strength_spine_drake", position+RandomVector(240), fv, false, true)
+				SpecialFX:ColoredPop(drake:GetAbsOrigin()+Vector(0,0,150), Vector(255, 120, 120))
 				local modelScale = drake:GetModelScale()
 				Events:smoothSizeChange(drake, 0.3, modelScale, 12)
 			end
@@ -1215,12 +1214,14 @@ function Winterblight:SpawnCastleRoomUnit(room_index, unit_name, position, fv, a
 
 	if bIgnoreCounter then
 	else
-		Winterblight.ActiveCastleRoom["enemy_spawn_count"] = Winterblight.ActiveCastleRoom["enemy_spawn_count"] + 1
-		print("SPAWN FOR ROOM")
-		print(Winterblight.ActiveCastleRoom["enemy_spawn_count"])
-		print(unit_name)
-		if not enemy:HasModifier("modifier_winter_castle_room_unit") then
-			Winterblight.ActiveCastleRoom["enemy_spawn_count"] = Winterblight.ActiveCastleRoom["enemy_spawn_count"] - 1
+		if room_index > 0 and Winterblight.CASTLE_DATA["rooms"][room_index] then
+			Winterblight.CASTLE_DATA["rooms"][room_index]["enemy_spawn_count"] = Winterblight.CASTLE_DATA["rooms"][room_index]["enemy_spawn_count"] + 1
+			print("SPAWN FOR ROOM")
+			print(Winterblight.CASTLE_DATA["rooms"][room_index]["enemy_spawn_count"])
+			print(unit_name)
+			if not enemy:HasModifier("modifier_winter_castle_room_unit") then
+				Winterblight.CASTLE_DATA["rooms"][room_index]["enemy_spawn_count"] = Winterblight.CASTLE_DATA["rooms"][room_index]["enemy_spawn_count"] - 1
+			end
 		end
 	end
 	Timers:CreateTimer(0.1, function()
@@ -1463,6 +1464,7 @@ function Winterblight:SpawnCastleRoom1(variant)
 				local fv = Vector(1,0)
 				Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_suffering_spirit", positionTable[i], fv, false, false)
 			end
+			Winterblight.CASTLE_DATA["rooms"][room_index]["active"] = 2
 		end)
 		Timers:CreateTimer(8, function()
 			local positionTable = {Vector(11330, 16000), Vector(11136, 15744)}
@@ -1470,7 +1472,6 @@ function Winterblight:SpawnCastleRoom1(variant)
 				local fv = Vector(1,-1)
 				Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_necro_knight", positionTable[i], fv, false, false)
 			end
-			Winterblight.CASTLE_DATA["rooms"][room_index]["active"] = 2
 		end)
 	end
 end
@@ -4088,6 +4089,7 @@ function Winterblight:StarQuestBossSpawn(position)
 		Timers:CreateTimer(0, function()
 			EmitSoundOn("Winterblight.Castle.Starboss.Intro", miniboss)
 		end)
+		miniboss:AddLootDrop("immortal", "item_rpc_exodia_gloves", 100)
 		miniboss_ability:ApplyDataDrivenModifier(miniboss, miniboss, "modifier_winter_boss_intro", {duration = 5})
 		Events:smoothSizeChange(miniboss, 0.3, 2.5, 95)
 		Events:smoothTranslate(miniboss, Vector(0,-4,0), 90, Vector(0,0), nil)
@@ -4100,7 +4102,6 @@ function Winterblight:StarQuestBossSpawn(position)
 			miniboss.cantAggro = false
 			Dungeons:AggroUnit(miniboss)
 		end)
-		miniboss:AddLootDrop("immortal", "item_rpc_exodia_gloves", 100)
 	end)
 end
 

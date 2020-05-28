@@ -66178,7 +66178,7 @@
 			"08"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald2"			"4 6 8 10 10"
+				"emerald2"			"2 3 4 5 5"
 			}
 			"09"
 			{
@@ -66188,7 +66188,7 @@
 			"10"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst2"			"4 6 8 10 10"
+				"amethyst2"			"1 2 2 3 3"
 			}
 		}
 		"precache"

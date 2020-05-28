@@ -346,7 +346,7 @@ function Curator:FinishGettingClientData(msg)
 	local playerID = msg.playerID
 	local item = EntIndexToHScript(msg.item)
 	local language = msg.language
-	if language ~= "english" then
+	if language ~= "english" and language ~= "English" then
 		return false
 	end
 	local localizedItemName = Curator:urlencode(msg.localizedName)
@@ -572,13 +572,6 @@ function Curator:urlencode(str)
 		str = string.gsub (str, " ", "+")
 	end
 	return str
-end
-
-function Curator:GetItemInfoFromClientAndSendToWeb(item, playerID)
-	local player = PlayerResource:GetPlayer(playerID)
-	if SaveLoad:GetAllowSaving() then
-		CustomGameEventManager:Send_ServerToPlayer(player, "get_item_data_for_curator", {itemIndex = item:GetEntityIndex()})
-	end
 end
 
 function Curator:CurateHero(playerID)

@@ -379,7 +379,9 @@ end
 
 function CDOTA_BaseNPC:AdjustSummon(caster, bDoHeroMult, hp_mult, attack_mult, armor_mult, magic_armor_mult, armor_pierce_mult, spell_pierce_mult)
 	local summon = self
-	summon:SetRoshpitLevel(caster:GetLevel())
+	if caster:IsHero() then
+		summon:SetRoshpitLevel(caster:GetLevel())
+	end
 	if bDoHeroMult then
 		local newHealth = caster:GetMaxHealth() * hp_mult
 		summon:SetMaxHealth(newHealth)
@@ -2843,7 +2845,7 @@ function CustomAttributes:SetAttributes(hero)
 		spr_bonus = spr_bonus + hero:GetModifierStackCount("modifier_sea_giant_spirit", hero.InventoryUnit)
 	end
 	if hero:HasModifier("modifier_skyforge_agility") then
-		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_skyforge_agility", 1)
+		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_skyforge_agility", 1)
 	end
 	if hero:HasModifier("modifier_sorcerers_regalia_spirit") then
 		spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_sorcerers_regalia_spirit", 1)

@@ -1783,7 +1783,9 @@ end
 		local steamID = PlayerResource:GetSteamAccountID(playerID)
 		local player = PlayerResource:GetPlayer(playerID)
 		local hero = GameState:GetHeroByPlayerID(playerID)
-
+		if not SaveLoad:GetAllowSaving() then
+			return false
+		end
 		local keyIndex = msg.keyIndex
 		local limit = 20
 		local url = ROSHPIT_URL.."/champions/updatePlayerKeys?"
@@ -2006,6 +2008,20 @@ end
 						SaveLoad:SaveCharacter(save_message)
 					end
 				end)
+			end
+		end
+	end
+
+	function SaveLoad:GenericSaveWithPremiumCheck(hero)
+		local premium_allowed = true
+		if hero.saveSlot and hero.saveSlot > 0 then
+			if hero.saveSlot > 8 then
+				if not GameState:GetPlayerPremiumStatus(hero:GetPlayerOwnerID()) then
+					premium_allowed = false
+				end
+			end
+			if premium_allowed then
+				SaveLoad:SaveCharacterGeneric(hero)
 			end
 		end
 	end

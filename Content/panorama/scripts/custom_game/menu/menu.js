@@ -212,9 +212,9 @@ function CorrectDotaUI(){
 	parent.FindChildTraverse("Armor").style.visibility = "collapse";
 	if (!(_new_attributes_initialized)){
 		_new_attributes_initialized = true
-		parent.FindChildTraverse('Strength').RemoveAndDeleteChildren(0)
-		parent.FindChildTraverse('Agility').RemoveAndDeleteChildren(0)
-		parent.FindChildTraverse('Intelligence').RemoveAndDeleteChildren(0)
+		parent.FindChildTraverse('Strength').style.visibility = "collapse";
+		parent.FindChildTraverse('Agility').style.visibility = "collapse";
+		parent.FindChildTraverse('Intelligence').style.visibility = "collapse";
 		var attr_panel = parent.FindChildTraverse('stragiint')
 		attr_panel.style.height = "94px"
 		attr_panel.style.width = "240px"

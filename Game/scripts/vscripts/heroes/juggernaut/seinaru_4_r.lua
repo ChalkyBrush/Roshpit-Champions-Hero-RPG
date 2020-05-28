@@ -29,7 +29,7 @@ function gorudo_start(event)
 		local radius = 500 + r_2_level * 5
 		local ringDuration = SEINARU_R2_DUR_BASE + r_2_level * 0.2
 		local speed = 200
-		local dummy = CreateUnitByName("dummy_unit_vulnerable", position, false, caster, caster, caster:GetTeam())
+		local dummy = CreateUnitByName("npc_dummy_unit", position, false, caster, caster, caster:GetTeam())
 		dummy:AddAbility("dummy_unit")
 		dummy:FindAbilityByName("dummy_unit"):SetLevel(1)
 		ability:ApplyDataDrivenModifier(caster, dummy, "modifier_gorudo_thinker", {})
