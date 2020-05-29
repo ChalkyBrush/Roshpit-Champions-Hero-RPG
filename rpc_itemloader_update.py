@@ -25,5 +25,21 @@ def update_itemloader(filepaths):
     
 
 if __name__ == '__main__':
-    filepaths = Path(IMAGES_PATH).rglob(IMAGE_PATTERN)
-    update_itemloader(filepaths)
+    manifest = Path('Content/panorama/layout/custom_game/custom_ui_manifest.xml')
+    should_update = True
+    with manifest.open('r+', encoding='utf-8') as file:
+        lines = file.readlines()
+        file.seek(0)
+        file.truncate(0)
+        for i, line in enumerate(lines):
+            if 'itemloader2.xml' in line:
+                del lines[i]
+                should_update = False
+                break
+        else:
+            lines.insert(-2, '    <CustomUIElement type="Hud"             layoutfile="file://{resources}/layout/custom_game/itemloader2.xml" />\n')
+        file.writelines(lines)
+    
+    if should_update:
+        filepaths = Path(IMAGES_PATH).rglob(IMAGE_PATTERN)
+        update_itemloader(filepaths)
