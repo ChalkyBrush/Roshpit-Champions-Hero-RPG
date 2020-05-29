@@ -1,8 +1,7 @@
 from pathlib import Path
 
 
-ITEMLOADER_PATH = 'Content/panorama/layout/custom_game/itemloader2.xml'
-IMAGES_PATH = 'Content/panorama/images/items'
+IMAGES_PATH = 'items'
 IMAGE_PATTERN = '*.png'
 
 
@@ -12,7 +11,8 @@ def get_image_tag(filepath):
     
 
 def update_itemloader(filepaths):
-    with Path(ITEMLOADER_PATH).open('w', encoding='utf-8') as itemloader:
+    path = Path('Content/panorama/layout/custom_game/itemloader2.xml')
+    with path.open('w', encoding='utf-8') as itemloader:
         itemloader.write('<root>\n' +
                          '\t<styles>\n' +
                          '\t\t<include src="file://{resources}/styles/custom_game/equipment.css" />\n'+
@@ -41,5 +41,6 @@ if __name__ == '__main__':
         file.writelines(lines)
     
     if should_update:
-        filepaths = Path(IMAGES_PATH).rglob(IMAGE_PATTERN)
+        images = Path('Content/panorama/images') / Path(IMAGES_PATH)
+        filepaths = images.rglob(IMAGE_PATTERN)
         update_itemloader(filepaths)
