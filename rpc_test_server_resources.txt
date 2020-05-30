@@ -995,10 +995,14 @@ function GameMode:OnPlayerChat(keys)
 		RPCItems:BasicDropItem(positionVector, RPCItems:RollPlagueEmperorArmor(item_level))
 		RPCItems:BasicDropItem(positionVector, RPCItems:RollRingOfMysteries(item_level))
 	end
-	if string.match(text, "wb3items") then
+	if string.match(text, "wb3arcana") then
 		local positionVector = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin()
 		local itemlevelDrop, item_level = 120, 120
-
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollEkkanArcana2a(item_level))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollEkkanArcana2b(item_level))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollEkkanArcana2c(item_level))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollSephyrArcana2(item_level))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollDinathArcana2(item_level))
 	end
 
 	if string.match(text, "winterblight_cavern") then
