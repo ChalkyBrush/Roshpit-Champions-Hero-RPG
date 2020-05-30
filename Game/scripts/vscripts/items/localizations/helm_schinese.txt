@@ -697,7 +697,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_iron_tower_barbute"						"钢铁之塔头盔"
 		"item_property_iron_tower_barbute"						"钢铁之塔"
-		"property_iron_tower_barbute_description"				"放出停止指令（H或者S）将会获得 <% ITEM_RPC_IRON_TOWER_BARBUTE_STRENGTH %> X英雄等级的力量值。移动将会移除这个效果strength per hero level. Moving ends the effect."
+		"property_iron_tower_barbute_description"				"放出停止指令（H或者S）将会获得 <% ITEM_RPC_IRON_TOWER_BARBUTE_STRENGTH %> X英雄等级的力量值。移动将会移除这个效果。"
 
 		"DOTA_Tooltip_modifier_iron_tower_effect"				"钢铁之塔"
 		"DOTA_Tooltip_modifier_iron_tower_effect_Description"	"增加力量值"
