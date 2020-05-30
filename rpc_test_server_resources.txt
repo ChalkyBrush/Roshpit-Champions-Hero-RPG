@@ -995,6 +995,11 @@ function GameMode:OnPlayerChat(keys)
 		RPCItems:BasicDropItem(positionVector, RPCItems:RollPlagueEmperorArmor(item_level))
 		RPCItems:BasicDropItem(positionVector, RPCItems:RollRingOfMysteries(item_level))
 	end
+	if string.match(text, "wb3items") then
+		local positionVector = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin()
+		local itemlevelDrop, item_level = 120, 120
+
+	end
 
 	if string.match(text, "winterblight_cavern") then
 		local position = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin()
@@ -1053,15 +1058,17 @@ function GameMode:OnPlayerChat(keys)
 		-- end
 	end
 
-	if string.match(text, "-immo") then
-		local strings = string.gmatch(text, "%S+")
-		local command = strings()
-		local name = strings()
-		local level = tonumber(strings(), 120)
-		if not level then
-			level = 1
-		end
-		name = "item_rpc_"..name
+	args = {}
+	for arg in keys.text:lower():gmatch("%S+") do
+		args[#args+1] = arg
+	end
+	local function check_command(command)
+		return args[1] == command
+	end
+	if check_command("-immo") then
+		local name = args[2]
+		local level = tonumber(args[3], 10) or 120
+		name = SearchItemName(name)
 		local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
 		local item = RPCItems:RollImmortalByName(name, level)
 		Gems:AddSocket(item)
