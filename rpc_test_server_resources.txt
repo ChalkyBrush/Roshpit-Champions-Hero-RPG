@@ -963,6 +963,39 @@ end
 
 function GameMode:OnPlayerChat(keys)
 	local text = string.lower(keys.text)
+	if string.match(text, "wb3items") then
+		local positionVector = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin()
+		local itemlevelDrop, item_level = 120, 120
+		RPCItems:BasicDropItem(positionVector, item_rpc_baphomets_cursed_necklace:CreateLuaItem(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, item_rpc_boots_of_temperance:CreateLuaItem(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, item_rpc_breastplate_of_abjudication:CreateLuaItem(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, item_rpc_cloak_of_isolation:CreateLuaItem(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, item_rpc_cloak_of_the_cimmerian_priesthood:CreateLuaItem(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, item_rpc_dissimilation_greaves:CreateLuaItem(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, item_rpc_exodia_gloves:CreateLuaItem(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, item_rpc_gravewalkers:CreateLuaItem(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, item_rpc_hangman_slippers:CreateLuaItem(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, item_rpc_horn_of_the_triumphant:CreateLuaItem(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, item_rpc_iron_tower_barbute:CreateLuaItem(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, item_rpc_lich_kings_gaze:CreateLuaItem(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, item_rpc_monarch_ring:CreateLuaItem(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, item_rpc_moon_shard:CreateLuaItem(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, item_rpc_mortuary_charm:CreateLuaItem(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, item_rpc_musty_crypt_armor:CreateLuaItem(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, item_rpc_shadowguard_helm:CreateLuaItem(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, item_rpc_spellcrafter_coat:CreateLuaItem(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, item_rpc_stonebreaker_gauntlet:CreateLuaItem(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, item_rpc_sun_gods_visage:CreateLuaItem(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, item_rpc_world_commander_gloves:CreateLuaItem(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, item_rpc_zombiegrip_gauntlet:CreateLuaItem(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollAngelicGlovesOfTheJudiciary(item_level))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollDemonicGlovesOfTheJudiciary(item_level))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollGloveOfTheHierophant(item_level))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollJusticeGreaves(item_level))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollPlagueEmperorArmor(item_level))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollRingOfMysteries(item_level))
+	end
+
 	if string.match(text, "winterblight_cavern") then
 		local position = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin()
 		local deathLocation = 120
@@ -1024,7 +1057,7 @@ function GameMode:OnPlayerChat(keys)
 		local strings = string.gmatch(text, "%S+")
 		local command = strings()
 		local name = strings()
-		local level = tonumber(strings(), 10)
+		local level = tonumber(strings(), 120)
 		if not level then
 			level = 1
 		end
@@ -1043,12 +1076,12 @@ function GameMode:OnPlayerChat(keys)
 	end	
 
 	if string.match(text, "-mp weapon2 stacks") then
-		-- local textToParse = string.gsub(text, "-mp weapon2 stacks", "")
-		-- local finalStacks = tonumber(textToParse)
-		-- local caster = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
-		-- local attacker = caster
-		-- caster.weapon:ApplyDataDrivenModifier(caster, attacker, "modifier_immortal_weapon_2_stacks", {})
-		-- attacker:SetModifierStackCount("modifier_immortal_weapon_2_stacks", caster, finalStacks)
+		local textToParse = string.gsub(text, "-mp weapon2 stacks", "")
+		local finalStacks = tonumber(textToParse)
+		local caster = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
+		local attacker = caster
+		caster.weapon:ApplyDataDrivenModifier(caster, attacker, "modifier_immortal_weapon_2_stacks", {})
+		attacker:SetModifierStackCount("modifier_immortal_weapon_2_stacks", caster, finalStacks)
 	end
 	if string.match(text, "-allglyph") then
 		local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
