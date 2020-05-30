@@ -272,10 +272,10 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_ring_of_nobility"								"崇高戒指"
-        "item_rpc_ring_of_nobility_ruby1"                               "此戒指升级后, 将这个红宝石升级为 @ruby_property1 级宝石"
-        "item_rpc_ring_of_nobility_emerald1"                                "此戒指升级后, 将这个绿宝石升级为 @emerald_property1 级宝石"
-        "item_rpc_ring_of_nobility_sapphire1"                               "此戒指升级后, 将这个蓝宝石升级为 @sapphire_property1 级宝石"
-        "item_rpc_ring_of_nobility_amethyst1"                               "此戒指升级后, 将这个紫宝石升级为 @amethyst_property1 级宝石"
+        "item_rpc_ring_of_nobility_ruby1"                               "此戒指升级后, 将这个红宝石升级为 @ruby_property1 级宝石， 增加所有T1符文 @ruby_property2。"
+        "item_rpc_ring_of_nobility_emerald1"                                "此戒指升级后, 将这个绿宝石升级为 @emerald_property1 级宝石，增加所有T3符文 @emerald_property2。"
+        "item_rpc_ring_of_nobility_sapphire1"                               "此戒指升级后, 将这个蓝宝石升级为 @sapphire_property1 级宝石，增加所有T2符文 @sapphire_property2。"
+        "item_rpc_ring_of_nobility_amethyst1"                               "此戒指升级后, 将这个紫宝石升级为 @amethyst_property1 级宝石，增加所有T4符文 @amethyst_property2。"
 		"item_property_nobility"							"崇高之路"
 		"property_nobility_description"						"提高全属性 <% ITEM_RPC_RING_OF_NOBILITY_ALL_ATTRIBUTES %>x 你的等级。当你杀死一个敌人时，该属性值提升。提升至10000时此戒指升级。升级后无法重铸。"
 		
