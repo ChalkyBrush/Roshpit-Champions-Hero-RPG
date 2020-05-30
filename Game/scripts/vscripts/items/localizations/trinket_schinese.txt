@@ -577,7 +577,7 @@
         "item_rpc_puzzlers_locket_sapphire1"                "提高 [W2] 符文 @ruby_property1"
         "item_rpc_puzzlers_locket_amethyst1"                "提高 [R2] 符文 @ruby_property1"
 		"item_property_puzzler"										"重组"
-		"property_puzzler_description"						 "装备上的T2 符文数和 T3符文数互换。"
+		"property_puzzler_description"						 "装备上的T2 符文数和 T3符文数互换。转换时T2符文转换额度降低50%， T3符文转换额度增加100%"
 		
 		"DOTA_Tooltip_ability_item_rpc_galvanized_razor_band"			"旋转剃刀系带"
 		"item_property_razor_band"										"旋转之刃"
