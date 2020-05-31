@@ -10,6 +10,17 @@ DEFAULT_REQUEST_TIME_OUT = 5
 require("libraries/json_new")
 
 
+-- usage:
+-- local data = {}
+-- local url = "api address"
+-- local json = require("libraries/json_new")
+-- RequestHelper:SendJsonHTTPRequest("POST", url, data, function(response, statusCode, body)
+-- 	print("3  "..tostring(response))
+-- 	print("1  "..tostring(statusCode))
+-- 	print("2  "..tostring(body))
+-- end, 5, true)
+
+
 function RequestHelper:SendJsonHTTPRequest(requestMethod, requestUrl, tableData, callbackFunction, requestTimeout, debugPrint)
 	if tableData == nil then tableData = {} end
 	if debugPrint then
