@@ -613,7 +613,7 @@ function SaveLoad:FixDuplicatedGear(gearTable)
 	local newGearTable = {}
 	if gearTable and type(gearTable) == "table" and gearTable.gear and type(gearTable.gear) == "table" then
 		for k, v in pairs(gearTable.gear) do
-			print(tostring(k).." -------------------------------------------------------------------")
+			-- print(tostring(k).." -------------------------------------------------------------------")
 			if type(v) == "table" then 
 				if v.item_slot and type(v.item_slot) == "number" then
 					if tableHasGear(newGearTable, v.item_slot) then
@@ -623,7 +623,7 @@ function SaveLoad:FixDuplicatedGear(gearTable)
 					end
 				end
 			end
-			print(tostring(k).." -------------------------------------------------------------------")
+			-- print(tostring(k).." -------------------------------------------------------------------")
 		end
 		gearTable.gear = newGearTable
 	end
