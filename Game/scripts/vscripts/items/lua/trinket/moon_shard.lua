@@ -78,8 +78,8 @@ function modifierClass:OnRemoved()
 	if not IsServer() then
 		return false
 	end
-	local caster = self:GetCaster()
-	caster:RemoveModifierByName("modifier_moon_shard_sapphire")
+	local hero = self:GetParent()
+	hero:RemoveModifierByName("modifier_moon_shard_sapphire")
 end
 
 function modifierClass:RemoveOnDeath()
