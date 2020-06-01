@@ -215,7 +215,7 @@
     	"property_voltex_arcana2_description"								"用热磁电子替换 @Ability1 及其所有符文。"
 
     	"DOTA_Tooltip_ability_voltex_magnet"						"热磁电子"
-    	"DOTA_Tooltip_ability_voltex_magnet_Description"			"电光使者将一个热磁子抛向目标位置。每一个被它击中的敌人都会被磁化，电光使者也会立即向他们靠近并对他们进行攻击。被热磁子击中的敌人会短暂瘫痪。"
+    	"DOTA_Tooltip_ability_voltex_magnet_Description"			"电光使者将一个热磁子抛向目标位置。每一个被它击中的敌人都会被磁化，电光使者也会立即向他们进行攻击而不受攻击距离限制。被热磁子击中的敌人会短暂瘫痪。"
     	"DOTA_Tooltip_ability_voltex_magnet_cast_range"				"施法距离:"
     	"DOTA_Tooltip_ability_voltex_magnet_freeze_duration"		"瘫痪持续时间:"
 
