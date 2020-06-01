@@ -2725,8 +2725,8 @@
     	"property_arkimus_arcana2_description"								"用奥法审判者替换 @Ability4 及其所有符文"
 
     	"DOTA_Tooltip_ability_arkimus_archon_form"									"奥法审判者"
-    	"DOTA_Tooltip_ability_arkimus_archon_form_Description"						"施法吟唱 2 秒后，变身成为奥法审判者形态，提高 +400 攻击速度，提高攻击距离，并且减伤。在奥法审判者形态下时，你的所有伤害都将造成物理伤害。攻击 1/2 攻击半径内的敌人时，阿基莫斯将自动向后推进，远离敌人。"
-    	"DOTA_Tooltip_ability_arkimus_archon_form_attack_range"							"攻击力提高："
+    	"DOTA_Tooltip_ability_arkimus_archon_form_Description"						"施法吟唱 2 秒后，变身成为奥法审判者形态，降低他的基础攻击间隔 <font color='#ccff66'>20</font>% 并获得额外<font color='#ccff66'>250</font>攻击速度，提高攻击距离，并且减伤。在奥法审判者形态下时，你的所有伤害都将造成纯粹伤害但是降低你的总输出 <font color='#ccff66'>80</font>%。攻击 1/2 攻击半径内的敌人时，阿基莫斯将自动向后推进，远离敌人。"
+    	"DOTA_Tooltip_ability_arkimus_archon_form_attack_range"							"攻击距离提高："
     	"DOTA_Tooltip_ability_arkimus_archon_form_duration"								"变身持续时间："
     	"DOTA_Tooltip_ability_arkimus_archon_form_damage_resist"						"伤害减免 %："
 
@@ -2751,9 +2751,11 @@
     	"DOTA_Tooltip_ability_arkimus_rune_r_3_arcana2_suffix"							"%"
 
     	"DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2"									"[R4] 中枢"
-    	"DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2_Description"						"奥法审判者形态下，阿基莫斯的攻击有概率造成连击。"
-    	"DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2_property_one"					"连击概率"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2_Description"						"奥法审判者形态下，阿基莫斯的攻击有概率额外攻击一次目标并且降低你的基础攻击间隔。"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2_property_one"					"额外攻击概率"
     	"DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2_suffix"							"%"
+	"DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2_property_two"                    "基础攻击间隔降低"
+        "DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2_suffix_two"                      "%"
 		
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_1_1"		"[T1-1] 能量场雕文"
@@ -2798,7 +2800,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_arkimus_immortal_weapon_1"			"奥法风刃"
 		"item_property_arkimus_immortal_weapon"								"双源"
-		"property_arkimus_immortal_weapon_description"						"闪光源造成 x<font color='#ccff66'>1.1</font> 伤害并且 [W2] 也能增加护甲穿透."
+		"property_arkimus_immortal_weapon_description"						"闪光源造成 x<font color='#ccff66'>1.1</font> 伤害并且 [W2] 也能增加物理穿透."
 		"DOTA_Tooltip_ability_item_rpc_arkimus_immortal_weapon_2"            "奥法光刃"
         "item_property_arkimus_immortal_weapon2"                             "磁化"
         "property_arkimus_immortal_weapon2_description"                      "造成 <font color=\"#E1A2E8\">奥术</font> 伤害的<font color='#ccff66'>0.5</font>%  将治疗阿基莫斯"
@@ -5162,16 +5164,16 @@
 		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_3_1"		"[T3-1] 狂火雕文"
 		"item_rpc_dinath_glyph_3_1_description" 				"@Ability1 拥有 <font color='#ccff66'>2</font> 层最大充能。"
 
-		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_4_1"		"[T4-1] 德雷克清扫"
+		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_4_1"		"[T4-1] 德雷克猛袭雕文"
 		"item_rpc_dinath_glyph_4_1_description" 				"@Ability3 每 <font color='#ccff66'>7</font> 就可以免冷却释放一次。"
 
-		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_5_1"		"[T5-1] 龙之怒"
+		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_5_1"		"[T5-1] 龙之怒雕文"
 		"item_rpc_dinath_glyph_5_1_description" 				"每次造成一次普通攻击，就能降低全部技能的冷却时间 <font color='#ccff66'>0.1</font> 秒。"
 
 		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_6_1"		"[T6-1] 灾难雕文"
 		"item_rpc_dinath_glyph_6_1_description" 				"提高 <font color=\"#EF4126\">火</font>, <font color=\"#87D9FF\">冰</font>, <font color=\"#5CCDF9\">电</font>, 和 <font color=\"#C25DFC\">宇宙</font> 元素伤害 <font color='#ccff66'>75</font>%."
 
-		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_7_1"		"[T7-1] 龙族魔法"
+		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_7_1"		"[T7-1] 魔法之龙雕文"
 		"item_rpc_dinath_glyph_7_1_description" 				"@Ability2 的伤害中加入 <font color='#ccff66'>0.1</font>x 当前魔法值, 同时每次攻击可以回复 <font color='#ccff66'>1</font>% 的最大魔法值"
 
 		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_5_a"		"[T5-a] 金色龙鳞"
@@ -5205,7 +5207,7 @@
 
         "DOTA_Tooltip_ability_item_rpc_dinath_immortal_weapon_3"            "混沌初开之花"
         "item_property_dinath_immortal_weapon3"                             "宇宙起源"
-        "property_dinath_immortal_weapon3_description"                      "所有<font color=\"#3289C7\">Dragon</font> 元素的伤害，将同时基于其技能的基础伤害造成一次额外的<font color=\"#C25DFC\">宇宙</font> 元素伤害（不与龙元素伤害叠乘）。"
+        "property_dinath_immortal_weapon3_description"                      "所有<font color=\"#3289C7\">龙</font> 元素的伤害，将同时基于其技能的基础伤害造成一次额外的<font color=\"#C25DFC\">宇宙</font> 元素伤害（不与龙元素伤害叠乘）。"
 
 
 		"DOTA_Tooltip_ability_draghor_shapeshift_cat"									"七十二变：狼"
@@ -11768,7 +11770,7 @@
     	"property_voltex_arcana2_description"								"用热磁电子替换 @Ability1 及其所有符文。"
 
     	"DOTA_Tooltip_ability_voltex_magnet"						"热磁电子"
-    	"DOTA_Tooltip_ability_voltex_magnet_Description"			"电光使者将一个热磁子抛向目标位置。每一个被它击中的敌人都会被磁化，电光使者也会立即向他们靠近并对他们进行攻击。被热磁子击中的敌人会短暂瘫痪。"
+    	"DOTA_Tooltip_ability_voltex_magnet_Description"			"电光使者将一个热磁子抛向目标位置。每一个被它击中的敌人都会被磁化，电光使者也会立即向他们进行攻击而不受攻击距离限制。被热磁子击中的敌人会短暂瘫痪。"
     	"DOTA_Tooltip_ability_voltex_magnet_cast_range"				"施法距离:"
     	"DOTA_Tooltip_ability_voltex_magnet_freeze_duration"		"瘫痪持续时间:"
 
@@ -11924,7 +11926,7 @@
     	"DOTA_Tooltip_modifier_mach_punch_whiplash_Description"				"一旦不再受到控制，释放爆炸，伤害并眩晕周围的敌人"
 
     	"DOTA_Tooltip_ability_zonik_rune_w_4"								"[W4] 回声"
-    	"DOTA_Tooltip_ability_zonik_rune_w_4_Description"					"基础技能或普通攻击伤害敌人目标一次将对敌人目标增加一层回声充能，如果4秒不再增加新的回声充能，将释放所有回声充能，对目标敌人造成伤害，伤害基于敌人目标拥有回声充能时间内所受到的所有伤害的总和，并且伤害无视坚定技能。（类似于巫医的诅咒）"
+    	"DOTA_Tooltip_ability_zonik_rune_w_4_Description"					"基础技能或普通攻击伤害敌人目标一次将对敌人目标增加一层回声充能，如果4秒不再增加新的回声充能，将释放所有回声充能，对目标敌人造成伤害，伤害基于敌人目标拥有回声充能时间内所受到的所有伤害的总和（税前）。（类似于巫医的诅咒）"
     	"DOTA_Tooltip_ability_zonik_rune_w_4_property_one"					"回声伤害"
     	"DOTA_Tooltip_ability_zonik_rune_w_4_suffix"						"% 所受到的所有伤害的总和"
 		
@@ -15397,7 +15399,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_iron_tower_barbute"						"钢铁之塔头盔"
 		"item_property_iron_tower_barbute"						"钢铁之塔"
-		"property_iron_tower_barbute_description"				"放出停止指令（H或者S）将会获得 <font color='#ccff66'>12</font> X英雄等级的力量值。移动将会移除这个效果strength per hero level. Moving ends the effect."
+		"property_iron_tower_barbute_description"				"放出停止指令（H或者S）将会获得 <font color='#ccff66'>12</font> X英雄等级的力量值。移动将会移除这个效果。"
 
 		"DOTA_Tooltip_modifier_iron_tower_effect"				"钢铁之塔"
 		"DOTA_Tooltip_modifier_iron_tower_effect_Description"	"增加力量值"
@@ -15706,10 +15708,10 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_ring_of_nobility"								"崇高戒指"
-        "item_rpc_ring_of_nobility_ruby1"                               "此戒指升级后, 将这个红宝石升级为 @ruby_property1 级宝石"
-        "item_rpc_ring_of_nobility_emerald1"                                "此戒指升级后, 将这个绿宝石升级为 @emerald_property1 级宝石"
-        "item_rpc_ring_of_nobility_sapphire1"                               "此戒指升级后, 将这个蓝宝石升级为 @sapphire_property1 级宝石"
-        "item_rpc_ring_of_nobility_amethyst1"                               "此戒指升级后, 将这个紫宝石升级为 @amethyst_property1 级宝石"
+        "item_rpc_ring_of_nobility_ruby1"                               "此戒指升级后, 将这个红宝石升级为 @ruby_property1 级宝石， 增加所有T1符文 @ruby_property2。"
+        "item_rpc_ring_of_nobility_emerald1"                                "此戒指升级后, 将这个绿宝石升级为 @emerald_property1 级宝石，增加所有T3符文 @emerald_property2。"
+        "item_rpc_ring_of_nobility_sapphire1"                               "此戒指升级后, 将这个蓝宝石升级为 @sapphire_property1 级宝石，增加所有T2符文 @sapphire_property2。"
+        "item_rpc_ring_of_nobility_amethyst1"                               "此戒指升级后, 将这个紫宝石升级为 @amethyst_property1 级宝石，增加所有T4符文 @amethyst_property2。"
 		"item_property_nobility"							"崇高之路"
 		"property_nobility_description"						"提高全属性 <font color='#ccff66'>1</font>x 你的等级。当你杀死一个敌人时，该属性值提升。提升至10000时此戒指升级。升级后无法重铸。"
 		
@@ -16011,7 +16013,7 @@
         "item_rpc_puzzlers_locket_sapphire1"                "提高 [W2] 符文 @ruby_property1"
         "item_rpc_puzzlers_locket_amethyst1"                "提高 [R2] 符文 @ruby_property1"
 		"item_property_puzzler"										"重组"
-		"property_puzzler_description"						 "装备上的T2 符文数和 T3符文数互换。"
+		"property_puzzler_description"						 "装备上的T2 符文数和 T3符文数互换。转换时T2符文转换额度降低50%， T3符文转换额度增加100%"
 		
 		"DOTA_Tooltip_ability_item_rpc_galvanized_razor_band"			"旋转剃刀系带"
 		"item_property_razor_band"										"旋转之刃"
