@@ -562,6 +562,7 @@ function SaveLoad:LoadCharacter(msg)
 		end
 		--print( "Done." )
 		local resultTable = JSON:decode(result.Body)
+		local resultTable = SaveLoad:FixDuplicatedGear(resultTable)
 		-- DeepPrintTable(resultTable)
 		SaveLoad:ApplyDataToHero(resultTable.character, playerID)
 		for i = 1, 6, 1 do
@@ -589,6 +590,47 @@ function SaveLoad:LoadCharacter(msg)
 		player.hero_loading = false
 		hero.loading = false
 	end)
+end
+
+function SaveLoad:FixDuplicatedGear(gearTable)
+	print("[SaveLoad:FixDuplicatedGear] "..tostring(type(gearTable)))
+	-- print("before ++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+	-- DeepPrintTable(gearTable)
+	-- print("before ++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+	local function tableHasGear(tableToo, gearItemSlot)
+		if tableToo and type(tableToo) == "table" and gearItemSlot and type(gearItemSlot) == "number" then
+			for k, v in pairs(tableToo) do
+				if type(v) == "table" and v.item_slot and type(v.item_slot) == "number" then
+					if v.item_slot == gearItemSlot then
+						return true
+					end
+				end
+			end
+		end
+		return false
+	end
+
+	local newGearTable = {}
+	if gearTable and type(gearTable) == "table" and gearTable.gear and type(gearTable.gear) == "table" then
+		for k, v in pairs(gearTable.gear) do
+			-- print(tostring(k).." -------------------------------------------------------------------")
+			if type(v) == "table" then 
+				if v.item_slot and type(v.item_slot) == "number" then
+					if tableHasGear(newGearTable, v.item_slot) then
+						print("[SaveLoad:FixDuplicatedGear] Table already have this slot: "..tostring(k))
+					else
+						table.insert(newGearTable, v)
+					end
+				end
+			end
+			-- print(tostring(k).." -------------------------------------------------------------------")
+		end
+		gearTable.gear = newGearTable
+	end
+	-- print("after ++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+	-- DeepPrintTable(newGearTable)
+	-- print("after ++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+	return gearTable
 end
 
 function SaveLoad:LoadGlyphs(character, hero)
