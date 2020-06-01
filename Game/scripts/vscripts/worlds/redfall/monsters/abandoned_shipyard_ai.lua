@@ -668,6 +668,7 @@ function shipyard_spawner_think(event)
 			itemRoll = 0
 		end
 		EmitSoundOn("Redfall.ShipyardSpawnerBoss.Spawn", caster)
+		StartAnimation(caster, {duration = 0, activity = ACT_DOTA_IDLE}) -- attack animation doesn't work every other time without that
 		StartAnimation(caster, {duration = 1.5, activity = ACT_DOTA_ATTACK, rate = 1.5})
 		for i = 1, loops, 1 do
 			local position = caster:GetAbsOrigin()

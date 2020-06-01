@@ -382,15 +382,19 @@ function Events:PickUpTest(heroEntity, itemEntity, itemname)
 		-- 	RPCItems:LegendaryPickup(itemEntity, heroEntity)
 		-- end
 		if IsValidEntity(itemEntity) then
-			if itemEntity:GetAbilityName() == "item_reanimation_stone" then
+			local item_name = itemEntity:GetAbilityName()
+			if item_name == "item_reanimation_stone" or item_name == "item_rpc_winterblight_tarot_card" or
+			   item_name == "item_rpc_emperors_band" or item_name == "item_rpc_empress_jewel" or 
+			   item_name == "item_rpc_galrens_skull" or item_name == "item_rpc_elynas_feather" 
+			then
 				RPCItems:LegendaryPickup(itemEntity, heroEntity)
 			elseif itemEntity.newItemTable.glyph or itemEntity.newItemTable.glyphBook then
 				if rarityFactor < 5 then
 					RPCItems:LegendaryPickup(itemEntity, heroEntity)
 				end
-			elseif itemEntity:GetAbilityName() == "item_redfall_ashen_twig" then
+			elseif item_name == "item_redfall_ashen_twig" then
 				Redfall:PickupAshTwig()
-			elseif itemEntity:GetAbilityName() == "item_redfall_glowing_redfall_leaf" then
+			elseif item_name == "item_redfall_glowing_redfall_leaf" then
 				Redfall:PickupEnchantedLeaf()
 			end
 		end
