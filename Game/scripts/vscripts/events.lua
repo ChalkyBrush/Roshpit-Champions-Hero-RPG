@@ -438,7 +438,11 @@ local function SearchItemName(name)
 		local kv = LoadKeyValues('scripts/npc/npc_items_custom.txt')
 		ItemNames = {}
 		for k, _ in pairs(kv) do
-			table.insert(ItemNames, k)
+			local status, item = pcall(function() return RPCItems:RollImmortalByName(k, 120) end)
+			if status and item then
+				table.insert(ItemNames, k)
+				UTIL_RemoveImmediate(item)
+			end
 		end
 	end
 
