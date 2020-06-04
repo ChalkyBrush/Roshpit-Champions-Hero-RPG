@@ -90,6 +90,7 @@ function diviner_think(event)
 					StartAnimation(caster, {duration = 1.4, activity = ACT_DOTA_ATTACK, rate = 1})
 					Quests:ShowDialogueText(MAIN_HERO_TABLE, caster, "tarot_"..Winterblight.CastleTarot["name"], 4, false)
 					EmitSoundOn("Winterblight.Horus.CardThrow.VO", caster)
+					Winterblight.CastleTarotRevealed = true
 					-- EmitSoundOn("Winterblight.DescribeTarotHaunt", caster)
 
 				end)
