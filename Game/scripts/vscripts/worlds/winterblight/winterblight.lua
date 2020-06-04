@@ -376,6 +376,7 @@ function Winterblight:CalculateHeroZones()
         local hero = MAIN_HERO_TABLE[i]
         local player = hero:GetPlayerOwner()
         local heroOrigin = hero:GetAbsOrigin()
+        local tarotMsgTable = {};
         if (WallPhysics:IsWithinRegionA(heroOrigin, Vector(-16512, -7095), Vector(-9856, -768))) then
           CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "update_zone_display", {zoneName = "winterblight_village"} )
           hero.bgm = "Music.Winterblight.Start"
@@ -395,10 +396,14 @@ function Winterblight:CalculateHeroZones()
         elseif WallPhysics:IsWithinRegionA(heroOrigin, Vector(10816, 11264), Vector(16000,17000)) or WallPhysics:IsWithinRegionA(heroOrigin, Vector(11085, 9600), Vector(16128, 11209)) or WallPhysics:IsWithinRegionA(heroOrigin, Vector(9892, 8704), Vector(16128,11230)) or WallPhysics:IsWithinRegionA(heroOrigin, Vector(7136, -3559), Vector(16128, 9004)) then
           CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "update_zone_display", {zoneName = "winterblight_castle"} )
           hero.bgm = "Music.Winterblight.BlackfrostCitadel"
+          if Winterblight.CastleTarotRevealed then
+            tarotMsgTable["tarotName"] = Winterblight.CastleTarot["name"]
+          end
         else
           CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "update_zone_display", {zoneName = "winterblight_mountain"} )
           hero.bgm = "Music.Winterblight.Start"
         end
+        CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "update_tarot", tarotMsgTable )
       end
     end
     return 3.5

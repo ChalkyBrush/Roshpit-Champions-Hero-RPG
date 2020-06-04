@@ -438,7 +438,11 @@ local function SearchItemName(name)
 		local kv = LoadKeyValues('scripts/npc/npc_items_custom.txt')
 		ItemNames = {}
 		for k, _ in pairs(kv) do
-			table.insert(ItemNames, k)
+			local status, item = pcall(function() return RPCItems:RollImmortalByName(k, 120) end)
+			if status and item then
+				table.insert(ItemNames, k)
+				UTIL_RemoveImmediate(item)
+			end
 		end
 	end
 
@@ -762,6 +766,29 @@ function GameMode:OnPlayerChat(keys)
 			local playerid = keys.playerid
 			local steamID = PlayerResource:GetSteamAccountID(playerid)
 			LoadCharacterDev(playerid, strn[1], strn[2])
+
+		elseif check_command("-tarot") then
+			local position = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin()
+			local tarot_name = args[2]
+			Winterblight:CreateCastleTarotCard(position, tarot_name)
+
+		elseif check_command("-goblin") then
+			local position = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin()
+			local saved_chance = nil
+			if args[2] == 'special' then
+				saved_chance = TreasureGoblins.SPECIAL_CHANCE
+				TreasureGoblins.SPECIAL_CHANCE = 100
+			end
+			TreasureGoblins:SpawnTreasureGoblin(position)
+			if saved_chance then
+				Timers:CreateTimer(3, function()
+					TreasureGoblins.SPECIAL_CHANCE = saved_chance
+				end)
+			end
+
+		elseif check_command("-fog") then
+			mode:SetFogOfWarDisabled(not mode:GetFogOfWarDisabled())
+
 		elseif check_command("-dbg") then
 			-- Serengaard:KillAllNeutrals()
 			-- local position = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin()

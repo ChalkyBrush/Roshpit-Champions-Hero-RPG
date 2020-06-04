@@ -1591,7 +1591,7 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 		end
 	elseif item:GetAbilityName() == "item_rpc_dissimilation_greaves" then
 		if socket_type == "emerald" then
-			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_GREY_DOMAIN_GREAVES_GEM_EMERALD, hero, "rune_e_4", RPC_GEAR_SLOT_BOOTS)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_DISSIMILATION_GREAVES_GEM_EMERALD, hero, "rune_e_4", RPC_GEAR_SLOT_BOOTS)
 		end
 	end
 end
