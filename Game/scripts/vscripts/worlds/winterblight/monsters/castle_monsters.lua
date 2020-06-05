@@ -90,6 +90,7 @@ function diviner_think(event)
 					StartAnimation(caster, {duration = 1.4, activity = ACT_DOTA_ATTACK, rate = 1})
 					Quests:ShowDialogueText(MAIN_HERO_TABLE, caster, "tarot_"..Winterblight.CastleTarot["name"], 4, false)
 					EmitSoundOn("Winterblight.Horus.CardThrow.VO", caster)
+					Winterblight.CastleTarotRevealed = true
 					-- EmitSoundOn("Winterblight.DescribeTarotHaunt", caster)
 
 				end)
@@ -4156,24 +4157,6 @@ function vorthrex_passive_think(event)
 	if caster.dying then
 		return false
 	end
-	if caster.aggro then
-		local castAbility = caster:FindAbilityByName("winterblight_vorethrex_dash")
-		if castAbility:IsFullyCastable() then
-			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1200, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_ANY_ORDER, false)
-			if #enemies > 0 then
-				local castPoint = enemies[1]:GetAbsOrigin()
-				local newOrder = {
-					UnitIndex = caster:entindex(),
-					OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
-					AbilityIndex = castAbility:entindex(),
-					Position = castPoint
-				}
-
-				ExecuteOrderFromTable(newOrder)
-			end
-			return true
-		end
-	end
 	if caster:GetHealth() < 100 then
 		if caster.fight_phase == 0 then
 			caster.dying = true
@@ -4292,6 +4275,24 @@ function vorthrex_passive_think(event)
 					end)
 				end
 			end)
+		end
+	end
+	if caster.aggro then
+		local castAbility = caster:FindAbilityByName("winterblight_vorethrex_dash")
+		if castAbility:IsFullyCastable() then
+			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1200, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_ANY_ORDER, false)
+			if #enemies > 0 then
+				local castPoint = enemies[1]:GetAbsOrigin()
+				local newOrder = {
+					UnitIndex = caster:entindex(),
+					OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+					AbilityIndex = castAbility:entindex(),
+					Position = castPoint
+				}
+
+				ExecuteOrderFromTable(newOrder)
+			end
+			return true
 		end
 	end
 end

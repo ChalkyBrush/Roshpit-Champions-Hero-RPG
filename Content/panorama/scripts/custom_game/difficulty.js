@@ -28,6 +28,15 @@ function PitLevel(msg){
 	$('#spirit_realm_label').text = $.Localize("#weapon_current_level")+" "+msg.pitLevel+" - "
 }
 
+function TarotFate(msg){
+	if (msg.tarotName)
+	{
+		$('#spirit_realm_label').text = $.Localize("#tarot_"+msg.tarotName)+" - "
+	}else{
+		$('#spirit_realm_label').text = ""
+	}
+}
+
 function KeyReceived(msg){
 	var number = 0
 	for (var i = 0; i < msg.key.length; i++) {
@@ -57,6 +66,7 @@ function ServerConfirmed(msg){
 	GameEvents.Subscribe( "update_spirit_zone_display", AddSpiritToZone );
 	GameEvents.Subscribe( "update_pit_level", PitLevel );
 	GameEvents.Subscribe( "update_difficulty", UpdateDifficulty );
+	GameEvents.Subscribe( "update_tarot", TarotFate );
 	GameEvents.Subscribe( "process_key", KeyReceived );
 	GameEvents.Subscribe( "server_confirmed", ServerConfirmed )
 	ServerConfirmed(0);

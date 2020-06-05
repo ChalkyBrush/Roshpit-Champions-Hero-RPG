@@ -2826,8 +2826,8 @@ function CustomAttributes:SetAttributes(hero)
 	end
 	if hero:GetUnitName() == "npc_dota_hero_huskar" then
 		local e_4_level = hero:GetRuneValue("e", 4)
-		int_bonus = e_4_level*SPIRIT_WARRIOR_E4_SPIRIT_AND_INT
-		spr_bonus = e_4_level*SPIRIT_WARRIOR_E4_SPIRIT_AND_INT
+		int_bonus = int_bonus + e_4_level * SPIRIT_WARRIOR_E4_SPIRIT_AND_INT
+		spr_bonus = spr_bonus + e_4_level * SPIRIT_WARRIOR_E4_SPIRIT_AND_INT
 	end
 	if hero:HasModifier("modifier_auriun_rune_q_4_effect") then
 		local modifier = hero:FindModifierByName("modifier_auriun_rune_q_4_effect")

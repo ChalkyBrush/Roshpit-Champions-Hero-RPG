@@ -214,6 +214,9 @@ function modifierClass:OnAttacked(event)
 	if not hero == event.target then
 		return false
 	end
+	if attacker == hero then
+		return false
+	end
 	local ability = self:GetAbility()
 	if ability:GetGemValue("amethyst") > 0 then
 		local proc = Filters:GetProc(hero, ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_BOOTS_OF_TEMPERANCE_GEM_AMETHYST))

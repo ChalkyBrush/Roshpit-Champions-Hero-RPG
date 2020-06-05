@@ -59522,7 +59522,7 @@
     "redfall_shipyard_spawner_boss"
     {
         "BaseClass" "npc_dota_creature"
-        "Model"      "models/props/traps/hooded_fang/hooded_fang.vmdl"
+        "Model"      "models/shipyard_spawner.vmdl"
         "ModelScale"    "1.3"
         "Level" "1"
         "HealthBarOffset"   "240"

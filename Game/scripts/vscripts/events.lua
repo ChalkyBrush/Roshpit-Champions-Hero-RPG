@@ -382,15 +382,19 @@ function Events:PickUpTest(heroEntity, itemEntity, itemname)
 		-- 	RPCItems:LegendaryPickup(itemEntity, heroEntity)
 		-- end
 		if IsValidEntity(itemEntity) then
-			if itemEntity:GetAbilityName() == "item_reanimation_stone" then
+			local item_name = itemEntity:GetAbilityName()
+			if item_name == "item_reanimation_stone" or item_name == "item_rpc_winterblight_tarot_card" or
+			   item_name == "item_rpc_emperors_band" or item_name == "item_rpc_empress_jewel" or 
+			   item_name == "item_rpc_galrens_skull" or item_name == "item_rpc_elynas_feather" 
+			then
 				RPCItems:LegendaryPickup(itemEntity, heroEntity)
 			elseif itemEntity.newItemTable.glyph or itemEntity.newItemTable.glyphBook then
 				if rarityFactor < 5 then
 					RPCItems:LegendaryPickup(itemEntity, heroEntity)
 				end
-			elseif itemEntity:GetAbilityName() == "item_redfall_ashen_twig" then
+			elseif item_name == "item_redfall_ashen_twig" then
 				Redfall:PickupAshTwig()
-			elseif itemEntity:GetAbilityName() == "item_redfall_glowing_redfall_leaf" then
+			elseif item_name == "item_redfall_glowing_redfall_leaf" then
 				Redfall:PickupEnchantedLeaf()
 			end
 		end
@@ -434,7 +438,11 @@ local function SearchItemName(name)
 		local kv = LoadKeyValues('scripts/npc/npc_items_custom.txt')
 		ItemNames = {}
 		for k, _ in pairs(kv) do
-			table.insert(ItemNames, k)
+			local status, item = pcall(function() return RPCItems:RollImmortalByName(k, 120) end)
+			if status and item then
+				table.insert(ItemNames, k)
+				UTIL_RemoveImmediate(item)
+			end
 		end
 	end
 
@@ -758,6 +766,29 @@ function GameMode:OnPlayerChat(keys)
 			local playerid = keys.playerid
 			local steamID = PlayerResource:GetSteamAccountID(playerid)
 			LoadCharacterDev(playerid, strn[1], strn[2])
+
+		elseif check_command("-tarot") then
+			local position = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin()
+			local tarot_name = args[2]
+			Winterblight:CreateCastleTarotCard(position, tarot_name)
+
+		elseif check_command("-goblin") then
+			local position = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin()
+			local saved_chance = nil
+			if args[2] == 'special' then
+				saved_chance = TreasureGoblins.SPECIAL_CHANCE
+				TreasureGoblins.SPECIAL_CHANCE = 100
+			end
+			TreasureGoblins:SpawnTreasureGoblin(position)
+			if saved_chance then
+				Timers:CreateTimer(3, function()
+					TreasureGoblins.SPECIAL_CHANCE = saved_chance
+				end)
+			end
+
+		elseif check_command("-fog") then
+			mode:SetFogOfWarDisabled(not mode:GetFogOfWarDisabled())
+
 		elseif check_command("-dbg") then
 			-- Serengaard:KillAllNeutrals()
 			-- local position = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin()

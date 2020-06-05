@@ -60,7 +60,7 @@
     	"DOTA_Tooltip_modifier_mach_punch_whiplash_Description"				"一旦不再受到控制，释放爆炸，伤害并眩晕周围的敌人"
 
     	"DOTA_Tooltip_ability_zonik_rune_w_4"								"[W4] 回声"
-    	"DOTA_Tooltip_ability_zonik_rune_w_4_Description"					"基础技能或普通攻击伤害敌人目标一次将对敌人目标增加一层回声充能，如果4秒不再增加新的回声充能，将释放所有回声充能，对目标敌人造成伤害，伤害基于敌人目标拥有回声充能时间内所受到的所有伤害的总和，并且伤害无视坚定技能。（类似于巫医的诅咒）"
+    	"DOTA_Tooltip_ability_zonik_rune_w_4_Description"					"基础技能或普通攻击伤害敌人目标一次将对敌人目标增加一层回声充能，如果4秒不再增加新的回声充能，将释放所有回声充能，对目标敌人造成伤害，伤害基于敌人目标拥有回声充能时间内所受到的所有伤害的总和（税前）。（类似于巫医的诅咒）"
     	"DOTA_Tooltip_ability_zonik_rune_w_4_property_one"					"回声伤害"
     	"DOTA_Tooltip_ability_zonik_rune_w_4_suffix"						"% 所受到的所有伤害的总和"
 		

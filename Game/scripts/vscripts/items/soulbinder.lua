@@ -220,7 +220,10 @@ function Soulbinder:SoulbindItem(msg)
 			end
 			CustomGameEventManager:Send_ServerToPlayer(player, "soulbinder_item_page_load", {result = hero.soul_bind_preview_items, premium = premium})
 		else
-			print("ITEM BIND FAILED?")
+			Notifications:Top(hero:GetPlayerOwnerID(), {text = "Soulbind Failed. Server Issues. Try Again.", duration = 5, style = {color = "red"}, continue = true})
+			if not isItemEquipped then
+				RPCItems:GiveItemToHeroWithSlotCheck(hero, item_to_bind)
+			end
 		end
 	end)	
 	SpecialFX:ColoredSpotlight(hero:GetAbsOrigin(), Vector(200, 10, 235))
