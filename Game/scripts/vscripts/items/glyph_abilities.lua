@@ -247,6 +247,7 @@ function use_glyph_book(event)
 	url = url.."&hero="..HerosCustom:ConvertRPCNameToStringHeroName(class)
 	url = url.."&tier="..book.newItemTable.property1
 	url = url.."&column="..book.newItemTable.property2
+	url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
 	--print(url)
 	CreateHTTPRequestScriptVM("GET", url):Send(function(result)
 		local resultTable = {}
