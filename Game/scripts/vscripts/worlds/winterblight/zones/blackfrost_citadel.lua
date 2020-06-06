@@ -2753,7 +2753,14 @@ function Winterblight:CastleBossDeath(boss)
 		end)
 	end
 	Timers:CreateTimer(6, function()
-		for j = 1, Winterblight.Stones + 2, 1 do
+		local vessel_luck = RandomInt(1, 5)
+		local vessel_bonus = 0
+			if vessel_luck = 1 then
+			vessel_bonus = 1
+			elseif vessel_luck = 2 then
+			vessel_bonus = 2
+			end
+		for j = 1, Winterblight.Stones + vessel_bonus, 1 do
 			Timers:CreateTimer(j, function()
 				RPCItems:DropSynthesisVessel(boss:GetAbsOrigin())
 			end)
