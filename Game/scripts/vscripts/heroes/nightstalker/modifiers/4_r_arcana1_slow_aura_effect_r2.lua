@@ -16,10 +16,10 @@ function class:OnCreated()
     end)
 end
 function class:GetModifierAttackSpeedBonus_Constant()
-    return -CHERNOBOG_ARCANA1_R2_ATT_SLOW * self:GetCaster().r2_level
+    return -CHERNOBOG_ARCANA1_R2_ATT_SLOW * self:GetCaster():GetRuneValue("r", 2)
 end
 function class:GetModifierMoveSpeedBonus_Constant()
-    return -CHERNOBOG_ARCANA1_R2_MS_SLOW * self:GetCaster().r2_level
+    return -CHERNOBOG_ARCANA1_R2_MS_SLOW * self:GetCaster():GetRuneValue("r", 2)
 end
 function class:GetTexture()
     return 'chernobog/chernobog_rune_r_2_arcana1'
