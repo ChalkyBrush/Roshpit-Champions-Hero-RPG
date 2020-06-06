@@ -244,7 +244,21 @@ function RPCItems:SynthCheckCombination(item1, item2, position)
 			return false
 		end
 	else
-		if (item1:GetAbilityName() == "item_rpc_galactic_arcana_cache_piece_1" and item2:GetAbilityName() == "item_rpc_galactic_arcana_cache_piece_2") or (item1:GetAbilityName() == "item_rpc_galactic_arcana_cache_piece_2" and item2:GetAbilityName() == "item_rpc_galactic_arcana_cache_piece_1") then
+		if item1.newItemTable.glyph and item2.newItemTable.glyph and (item1.newItemTable.glyph == 1 or item1.newItemTable.glyph == true) and (item2.newItemTable.glyph == 1 or item2.newItemTable.glyph == true) then
+			if item1.newItemTable.rarity == "immortal" and item2.newItemTable.rarity == "immortal" then
+				local heroTable = HerosCustom:GetHeroNameTable()
+				local heroName = heroTable[RandomInt(2, #heroTable)]
+				local variantName = "item_rpc_"..heroName.."_glyph_5_a"			
+				local newItem = Glyphs:RollGlyphAll(variantName, position, -1)
+				newItem.pickedUp = true
+				local itemInfo = CustomNetTables:GetTableValue("item_basics", tostring(newItem:GetEntityIndex()))
+				newItem.newItemTable.validator = itemInfo.validator
+				RPCItems:ItemUpdateCustomNetTables(newItem)
+				return newItem
+			else
+				return false
+			end		
+		elseif (item1:GetAbilityName() == "item_rpc_galactic_arcana_cache_piece_1" and item2:GetAbilityName() == "item_rpc_galactic_arcana_cache_piece_2") or (item1:GetAbilityName() == "item_rpc_galactic_arcana_cache_piece_2" and item2:GetAbilityName() == "item_rpc_galactic_arcana_cache_piece_1") then
 			local radianceAVG = math.floor((item1.newItemTable.property1 + item2.newItemTable.property1) / 2)
 			local key1 = "abc"
 			local key2 = "xyz"
