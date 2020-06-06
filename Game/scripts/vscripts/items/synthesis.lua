@@ -184,7 +184,9 @@ function RPCItems:SynthCheckCombination(item1, item2, position)
 			elseif item1.newItemTable.item_slot == "weapon" and item2.newItemTable.item_slot == "weapon" then
 				local possibilityTable = {item1, item2}
 				local randomItem = possibilityTable[RandomInt(1, #possibilityTable)]
-				local newMinLevel = 100
+				local minLevelAVG = math.floor((item1.newItemTable.minLevel + item2.newItemTable.minLevel) / 2)
+				local newMinLevel = RPCItems:GetImmortalLevelForSynth(minLevelAVG)
+				newMinLevel = math.max(math.min(newMinLevel, 120), 3)
 				local maxWeaponLevel = math.floor((item1.newItemTable.maxLevel + item2.newItemTable.maxLevel) / 2)
 				maxWeaponLevel = math.min(maxWeaponLevel, 10)
 				RPCItems.LevelRoll = newMinLevel
@@ -206,6 +208,38 @@ function RPCItems:SynthCheckCombination(item1, item2, position)
 			else
 				return false
 			end
+		elseif item1.newItemTable.rarity == "mythical" and item2.newItemTable.rarity == "mythical" then
+			if item1.newItemTable.item_slot == "weapon" and item2.newItemTable.item_slot == "weapon" then
+				if item1.newItemTable.requiredHero == item2.newItemTable.requiredHero then
+				local possibilityTable = {item1, item2}
+				local randomItem = possibilityTable[RandomInt(1, #possibilityTable)]
+				local minLevelAVG = math.floor((item1.newItemTable.minLevel + item2.newItemTable.minLevel) / 2)
+				local newMinLevel = RPCItems:GetImmortalLevelForSynth(minLevelAVG)
+				newMinLevel = math.max(math.min(newMinLevel, 120), 3)
+				local maxWeaponLevel = math.floor((item1.newItemTable.maxLevel + item2.newItemTable.maxLevel) / 2)
+				maxWeaponLevel = math.min(maxWeaponLevel, 10)
+				local hero_name = item1.newItemTable.requiredHero
+				RPCItems.LevelRoll = newMinLevel
+				local newItem = Weapons:RollWeapon(RPC_ITEMS_RARITY_MYTHICAL, newMinLevel, hero_name)
+					if newItem and IsValidEntity(newItem) then
+						if IsValidEntity(newItem:GetContainer()) then
+							UTIL_Remove(newItem:GetContainer())
+						end
+						newItem.pickedUp = true
+						newItem.newItemTable.minLevel = newMinLevel
+						local itemInfo = CustomNetTables:GetTableValue("item_basics", tostring(randomItem:GetEntityIndex()))
+						newItem.newItemTable.validator = itemInfo.validator
+						RPCItems:ItemUpdateCustomNetTables(newItem)
+						return newItem
+					else
+						return false
+					end
+				else
+					return false
+				end
+			else
+				return false
+			end		
 		else
 			return false
 		end
