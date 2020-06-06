@@ -15,6 +15,8 @@
 		//Stats
 		//--------------------
 
+        "rpc_entering_zone"         "You entered: "
+
 		"DOTA_StatTooltip_StrengthBonus" "- Each point increases hit points by 20\n- Each point increases hit point regen by 0.03\n"
 		"DOTA_StatTooltip_AgilityBonus" "- Every 7 points increase armor by 1\n- Each 20 points increases attack speed by 1\n"
 		"DOTA_StatTooltip_IntelligenceBonus" "- Each point increases mana by 5\n- Each point increases mana regen by 0.03\n"
@@ -22,36 +24,37 @@
 		//--------------------
 		//Heroes
 		//--------------------
+		"npc_dota_hero_wisp"				"Hero Selector"
 		"npc_dota_hero_dragon_knight"				"Flamewaker"
-		"npc_dota_hero_phantom_assassin"			"Voltex"
-		"npc_dota_hero_necrolyte"					"Venomort"
-		"npc_dota_hero_axe"							"The Red General"
-		"npc_dota_hero_drow_ranger"					"Astral Ranger"
+		"npc_dota_hero_phantom_assassin"					"Voltex"
+		"npc_dota_hero_necrolyte"				"Venomort"
+		"npc_dota_hero_axe"			"The Red General"
+		"npc_dota_hero_drow_ranger"			"Astral Ranger"
 		"npc_dota_hero_obsidian_destroyer"			"Epoch Guardian"
 		"npc_dota_hero_omniknight"					"Paladin"
 		"npc_dota_hero_crystal_maiden"				"Sorceress"
-		"npc_dota_hero_invoker"						"Conjuror"
+		"npc_dota_hero_invoker"				"Conjuror"
 		"npc_dota_hero_juggernaut"					"Seinaru"
-		"npc_dota_hero_beastmaster"					"Elemental Warlord"
-		"npc_dota_hero_leshrac"						"Bahamut"
+		"npc_dota_hero_beastmaster"		"Elemental Warlord"
+		"npc_dota_hero_leshrac"					"Bahamut"
 		"npc_dota_hero_spirit_breaker"				"Duskbringer"
-		"npc_dota_hero_zuus"						"Auriun"
-		"npc_dota_hero_templar_assassin"			"Trapper"
-		"npc_dota_hero_huskar"						"Spirit Warrior"
-		"npc_dota_hero_legion_commander"			"Mountain Protector"
+		"npc_dota_hero_zuus"					"Auriun"
+		"npc_dota_hero_templar_assassin"					"Trapper"
+		"npc_dota_hero_huskar"			"Spirit Warrior"
+		"npc_dota_hero_legion_commander"		"Mountain Protector"
 		"npc_dota_hero_night_stalker"				"Chernobog"
-		"npc_dota_hero_vengefulspirit"				"Solunia"
-		"npc_dota_hero_slardar"						"Hydroxis"
-		"npc_dota_hero_visage"						"Ekkan"
+		"npc_dota_hero_vengefulspirit"					"Solunia"
+		"npc_dota_hero_slardar"				"Hydroxis"
+		"npc_dota_hero_visage"					"Ekkan"
 		"npc_dota_hero_dark_seer"					"Zhonik"
 		"npc_dota_hero_antimage"					"Arkimus"
-		"npc_dota_hero_monkey_king"					"Djanghor"
-		"npc_dota_hero_slark"						"Slipfinn"
-		"npc_dota_hero_skywrath_mage"				"Sephyr"
-		"npc_dota_hero_winter_wyvern"				"Dinath"
-		"npc_dota_hero_arc_warden"					"Jex"
-		"npc_dota_hero_faceless_void"				"Omniro"
-		"npc_dota_hero_grimstroke"					"Rubilash"
+		"npc_dota_hero_monkey_king"				"Djanghor"
+		"npc_dota_hero_slark"				"Slipfinn"
+		"npc_dota_hero_skywrath_mage"					"Sephyr"
+		"npc_dota_hero_winter_wyvern"					"Dinath"
+		"npc_dota_hero_arc_warden"						"Jex"
+		"npc_dota_hero_faceless_void"					"Omniro"
+		"npc_dota_hero_grimstroke"				"Rubilash"
 
 		//--------------------
 		//Hero Lore
@@ -887,26 +890,6 @@
 
 		"server_status_no_save"			"This server is currently unverified and does not allow saving."
 		"server_status_save"			"This server has been verified and allows saving."
-	    //------------------------
-		// Player Quests
-		//------------------------
-
-
-		"dialogue_crusader_one"		"Strength in discipline"
-		"quests_quests"				"Quests"
-		"quests_quest_capacity"		"Quests Available"
-
-		"quests_no_quests"			"No Quests Available! Check back tomorrow."
-		"quests_questtip"			"A new quest is added every 24 hours at 00:00 EST."
-
-		"quest_description"			"Defeat @boss_name in @dungeon_name on @difficulty_name difficulty."
-
-		"quest_level"				"Quest Level"
-		"quest_status_incomplete"	"Incomplete"
-		"quest_status_complete"		"Clear. Click to Complete"
-
-		"quest_delete_quest_title"	"Delete Quest"
-		"quest_delete_quest_tooltip" "Permanently removes this quest."
 
 	    //------------------------
 		// GLYPHS
@@ -1905,6 +1888,7 @@
 		"star_description_basic3_tanari"								"Defeat @boss_name in @map_name on Legend Spirit Realm as @heroname."
 		"star_description_basic3_redfall"								"Defeat @boss_name in @map_name on Legend Equinox as @heroname."
 
+		"quests_menu"													"Quests"
 
 		"star_description_champions_league"								"Reach Rank @rank in the Champion's League as @heroname"
 		"star_description_pit"											"Defeat @boss_name in @map_name on Pit Level @level or higher as @heroname."
@@ -2133,5 +2117,8 @@
         ##TANARI_ENGLISH##
 		##TUTORIAL_ENGLISH##
 		##WINTERBLIGHT_ENGLISH##
+
+
+		##REDFALL_QUESTS_ENGLISH##
 	}	
 }

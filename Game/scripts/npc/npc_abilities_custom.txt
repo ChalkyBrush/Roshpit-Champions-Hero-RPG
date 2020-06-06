@@ -46641,7 +46641,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/redfall_forest/redfall_forest_ai.lua"
 						"Function"		"heavy_boulder_push_end"
 						"target"		"TARGET"
 					}
@@ -54445,7 +54445,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.1"
+				"property_two"			"0.5"
 			}
 		}
 	}
@@ -74140,7 +74140,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/autumn_mist_cavern_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/autumn_mist_cavern_ai.lua"
 						"Function"		"boss_explosion_pushback_end"
 						"target"		"TARGET"
 					}
@@ -79671,7 +79671,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/redfall_forest/redfall_forest_ai.lua"
 						"Function"		"heavy_boulder_push_end"
 						"target"		"TARGET"
 					}
@@ -86650,7 +86650,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/redfall_forest/redfall_forest_ai.lua"
 						"Function"		"heavy_boulder_push_end"
 						"target"		"TARGET"
 					}
@@ -115975,7 +115975,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/redfall_forest/redfall_forest_ai.lua"
 						"Function"		"redfall_shroomling_think"
 					}
 				}
@@ -138071,7 +138071,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/redfall_forest/redfall_forest_ai.lua"
 				"Function"		"autumn_spawner_die"
 			}
 		}
@@ -138090,7 +138090,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/redfall_forest/redfall_forest_ai.lua"
 						"Function"		"autumn_spawner_think"
 					}
 				}
@@ -138112,7 +138112,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/redfall_forest/redfall_forest_ai.lua"
 				"Function"		"redfall_summon_ability"
 			}
 		}
@@ -138127,7 +138127,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/redfall_forest/redfall_forest_ai.lua"
 						"Function"		"redfall_summoner_take_damage"
 					}
 				}
@@ -138186,7 +138186,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"			"worlds/redfall/monsters/redfall_forest_ai.lua"
+						"ScriptFile"			"worlds/redfall_ridge/redfall_forest/redfall_forest_ai.lua"
 						"Function"				"fury_swipes_attack"
 					}
 				}
@@ -138324,7 +138324,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/redfall_forest/redfall_forest_ai.lua"
 						"Function"		"redfall_disciple_of_maru_die"
 					}
 				}
@@ -138336,7 +138336,7 @@
 				"StatusEffectName" 		"particles/roshpit/redfall/status_effect_experimental_fire.vpcf"
 				"StatusEffectPriority"  "10"
 			}
-			"modifier_blessing_of_maru"
+			"modifier_blessing_of_the_forest"
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
@@ -138350,7 +138350,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/redfall_forest/redfall_forest_ai.lua"
 						"Function"		"big_tree_die"
 					}
 				}
@@ -138362,8 +138362,8 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
-						"Function"		"cliff_invader_die"
+						"ScriptFile"	"worlds/redfall_ridge/redfall_forest/redfall_forest_ai.lua"
+						"Function"		"RedfallCliffInvaderOnDeath"
 					}
 				}
 			}
@@ -138377,7 +138377,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/redfall_forest/redfall_forest_ai.lua"
 						"Function"		"preserver_end"
 					}
 				}
@@ -138389,7 +138389,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/autumn_mist_cavern_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/autumn_mist_cavern_ai.lua"
 						"Function"		"autumn_mist_cave_die"
 					}
 				}
@@ -138401,7 +138401,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/redfall_forest/redfall_forest_ai.lua"
 						"Function"		"redfall_unit_die"
 					}
 				}
@@ -138416,7 +138416,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/autumn_mist_cavern_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/autumn_mist_cavern_ai.lua"
 						"Function"		"ashara_explosion_pushback"
 						"target"		"TARGET"
 					}
@@ -138425,7 +138425,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/autumn_mist_cavern_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/autumn_mist_cavern_ai.lua"
 						"Function"		"boss_explosion_pushback_end"
 						"target"		"TARGET"
 					}
@@ -138452,8 +138452,8 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
-						"Function"		"ashara_wave_unit_die"
+						"ScriptFile"	"worlds/redfall_ridge/redfall_forest/redfall_forest_ai.lua"
+						"Function"		"AsharaWaveUnitOnDeath"
 					}
 				}
 			}
@@ -138495,7 +138495,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_farmlands_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/redfall_farmlands_ai.lua"
 						"Function"		"farmer_scene_think"
 						"target"		"TARGET"
 					}
@@ -138523,7 +138523,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/abandoned_shipyard_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/abandoned_shipyard_ai.lua"
 						"Function"		"lobster_statue_enemy_die"
 					}
 				}
@@ -138535,7 +138535,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/abandoned_shipyard_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/abandoned_shipyard_ai.lua"
 						"Function"		"shipyard_wave_unit_die"
 					}
 				}
@@ -138547,7 +138547,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/abandoned_shipyard_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/abandoned_shipyard_ai.lua"
 						"Function"		"shipyard_knight_die"
 					}
 				}
@@ -138559,7 +138559,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/abandoned_shipyard_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/abandoned_shipyard_ai.lua"
 						"Function"		"shipyard_boss_unit_die"
 					}
 				}
@@ -138568,7 +138568,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/abandoned_shipyard_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/abandoned_shipyard_ai.lua"
 						"Function"		"shipyard_boss_unit_think"
 						"target"		"TARGET"
 					}
@@ -138596,7 +138596,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/misc/shredder_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/misc/shredder_ai.lua"
 						"Function"		"hero_inside_shredder_think"
 						"target"        "TARGET"
 					}
@@ -138618,7 +138618,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"castle_entrance_unit_die"
 					}
 				}
@@ -138630,7 +138630,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"castle_flame_start"
 						"target"		"TARGET"
 					}
@@ -138649,7 +138649,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"lava_room_unit_die"
 					}
 				}
@@ -138661,7 +138661,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"generic_castle_unit_die"
 					}
 				}
@@ -138725,7 +138725,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/redfall_forest/redfall_forest_ai.lua"
 						"Function"		"forest_ranger_die"
 					}
 				}
@@ -138737,7 +138737,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/redfall_forest/redfall_forest_ai.lua"
 						"Function"		"redfall_red_raven_die"
 					}
 				}
@@ -138749,7 +138749,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/redfall_forest/redfall_forest_ai.lua"
 						"Function"		"redfall_ashara_die"
 					}
 				}
@@ -138765,7 +138765,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/redfall_forest/redfall_forest_ai.lua"
 						"Function"		"redfall_fenrir_think"
 						"target"		"TARGET"
 					}
@@ -138774,7 +138774,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/redfall_forest/redfall_forest_ai.lua"
 						"Function"		"redfall_fenrir_die"
 					}
 				}
@@ -138785,7 +138785,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/redfall_forest/redfall_forest_ai.lua"
 						"Function"		"redfall_crimsyth_cultist_die"
 					}
 				}
@@ -138796,7 +138796,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/redfall_forest/redfall_forest_ai.lua"
 						"Function"		"redfall_crimsyth_cultist_master_die"
 					}
 				}
@@ -138807,7 +138807,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/autumn_mist_cavern_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/autumn_mist_cavern_ai.lua"
 						"Function"		"autumn_mage_boss_die"
 					}
 				}
@@ -138818,19 +138818,19 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/autumn_mist_cavern_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/autumn_mist_cavern_ai.lua"
 						"Function"		"redfall_canyon_dinosaur_die"
 					}
 				}
 			}
-			"modifier_redfall_spirit_of_ashara_die"
+			"modifier_redfall_priestess_of_ashara_die"
 			{
 				"OnDeath"
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/autumn_mist_cavern_ai.lua"
-						"Function"		"redfall_spirit_of_ashara_die"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/autumn_mist_cavern_ai.lua"
+						"Function"		"redfall_priestess_of_ashara_die"
 					}
 				}
 			}
@@ -138840,7 +138840,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/autumn_mist_cavern_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/autumn_mist_cavern_ai.lua"
 						"Function"		"redfall_canyon_barbarian_die"
 					}
 				}
@@ -138851,7 +138851,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/autumn_mist_cavern_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/autumn_mist_cavern_ai.lua"
 						"Function"		"redfall_canyon_feronia_die"
 					}
 				}
@@ -139135,7 +139135,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/redfall_forest/redfall_forest_ai.lua"
 				"Function"		"redfall_roar_start"
 			}
 		}
@@ -139182,7 +139182,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/redfall_forest/redfall_forest_ai.lua"
 						"Function"		"redfall_roar_end"
 					}
 				}
@@ -139217,7 +139217,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/redfall_forest/redfall_forest_ai.lua"
 						"Function"		"otaru_think"
 					}
 				}
@@ -139274,7 +139274,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/redfall_forest/redfall_forest_ai.lua"
 				"Function"		"redfall_dodge"
 			}
 		}
@@ -139333,7 +139333,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/redfall_forest/redfall_forest_ai.lua"
 						"Function"		"forest_ranger_think"
 					}
 				}
@@ -139342,7 +139342,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/redfall_forest/redfall_forest_ai.lua"
 						"Function"		"forest_ranger_attack_land"
 					}
 				}
@@ -139430,7 +139430,7 @@
 			}
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/redfall_forest/redfall_forest_ai.lua"
 				"Function"		"heavy_boulder_toss_start"
 			}
 		}
@@ -139488,7 +139488,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/redfall_forest/redfall_forest_ai.lua"
 						"Function"		"heavy_boulder_pushback"
 						"target"		"TARGET"
 					}
@@ -139497,7 +139497,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/redfall_forest/redfall_forest_ai.lua"
 						"Function"		"heavy_boulder_push_end"
 						"target"		"TARGET"
 					}
@@ -139560,7 +139560,7 @@
 			}
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/redfall_forest/redfall_forest_ai.lua"
 				"Function"		"redfall_massive_arrow_phase"
 			}
 		}
@@ -139606,7 +139606,7 @@
 			}
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/redfall_forest/redfall_forest_ai.lua"
 				"Function"		"redfall_massive_arrow_start"
 			}
 		}
@@ -139648,7 +139648,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/redfall_forest/redfall_forest_ai.lua"
 						"Function"		"heart_spike_attack_land"
 						"damage_percent"	"%health_percent"
 					}
@@ -139695,7 +139695,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/redfall_forest/redfall_forest_ai.lua"
 						"Function"		"ash_snake_think"
 					}
 				}
@@ -139758,7 +139758,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/redfall_forest/redfall_forest_ai.lua"
 				"Function"		"ash_knight_shield_start"
 			}
 		}
@@ -139811,7 +139811,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/redfall_forest/redfall_forest_ai.lua"
 						"Function"		"ash_knight_shield_take_damage"
 						"silence_duration"	"%silence_duration"
 					}
@@ -139862,7 +139862,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/redfall_forest/redfall_forest_ai.lua"
 				"Function"		"autumn_slap"
 			}
 		}
@@ -139908,7 +139908,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/redfall_forest/redfall_forest_ai.lua"
 				"Function"		"redfall_autumn_tornado"
 			}
 		}
@@ -139942,7 +139942,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/redfall_forest/redfall_forest_ai.lua"
 						"Function"		"tornado_ability_lifting_think"
 					}
 				}
@@ -139982,7 +139982,7 @@
 			"DeleteOnHit"	"0"
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/redfall_forest/redfall_forest_ai.lua"
 				"Function"		"tornado_impact"
 				"target"		"TARGET"
 			}
@@ -140039,7 +140039,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/redfall_forest/redfall_forest_ai.lua"
 				"Function"		"mountain_crush_cast"
 				"target"		"TARGET"
 			}
@@ -140067,7 +140067,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/redfall_forest/redfall_forest_ai.lua"
 						"Function"		"mountain_crush_thinking"
 					}
 				}
@@ -140075,7 +140075,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/redfall_forest/redfall_forest_ai.lua"
 						"Function"		"mountain_crush_end"
 						"damage"		"%AbilityDamage"
 					}
@@ -140110,7 +140110,7 @@
 					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "%health_percent"
 				}
 			}
-			"modifier_cultist_entering"
+			"modifier_cultist_entering_spinning"
 			{
 				"Passive"			"0"
 				"IsHidden"			"1"
@@ -140132,9 +140132,27 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/redfall_forest/redfall_forest_ai.lua"
 						"Function"		"cultist_entering_think"
 					}
+				}
+			}
+			"modifier_cultist_entering"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ATTACK_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE" "-100"
 				}
 			}
 		}
@@ -140174,7 +140192,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/autumn_mist_cavern_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/monsters/autumn_mist_cavern_ai.lua"
 				"Function"		"enforcer_puff"
 			}
 
@@ -140257,7 +140275,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/autumn_mist_cavern_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/monsters/autumn_mist_cavern_ai.lua"
 				"Function"		"quake_set_target"
 				"target"		"TARGET"
 			}
@@ -140272,7 +140290,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/autumn_mist_cavern_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/monsters/autumn_mist_cavern_ai.lua"
 				"Function"		"redfall_tyrant_quake"
 				"target"		"TARGET"
 				"damage"		"%AbilityDamage"
@@ -140296,7 +140314,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/redfall_forest/redfall_forest_ai.lua"
 						"Function"		"mountain_crush_thinking"
 					}
 				}
@@ -140304,7 +140322,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/redfall_forest/redfall_forest_ai.lua"
 						"Function"		"mountain_crush_end"
 						"damage"		"%AbilityDamage"
 					}
@@ -140357,7 +140375,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/autumn_mist_cavern_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/monsters/autumn_mist_cavern_ai.lua"
 				"Function"		"alpha_dash"
 				"damage"		"%AbilityDamage"
 				"target"		"TARGET"
@@ -140383,7 +140401,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/autumn_mist_cavern_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/autumn_mist_cavern_ai.lua"
 						"Function"		"alpha_dash_think"
 					}
 				}
@@ -140474,7 +140492,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/autumn_mist_cavern_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/monsters/autumn_mist_cavern_ai.lua"
 				"Function"		"waveScreenShake"
 			}
 			"FireSound"
@@ -140555,7 +140573,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/autumn_mist_cavern_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/autumn_mist_cavern_ai.lua"
 						"Function"		"predator_passive_damage"
 					}
 					"FireEffect"
@@ -140636,7 +140654,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/autumn_mist_cavern_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/monsters/autumn_mist_cavern_ai.lua"
 				"Function"		"armored_crab_beast_ability_start"
 				"target"		"TARGET"
 			}
@@ -140705,7 +140723,7 @@
 				}
 				"RunScript"
 				{
-					"ScriptFile"	"worlds/redfall/monsters/autumn_mist_cavern_ai.lua"
+					"ScriptFile"	"worlds/redfall_ridge/monsters/autumn_mist_cavern_ai.lua"
 					"Function"		"ghost_mace_apply"
 					"debuff_duration"	"%debuff_duration"
 				}
@@ -140781,7 +140799,7 @@
 			}
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/autumn_mist_cavern_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/monsters/autumn_mist_cavern_ai.lua"
 				"Function"		"dinosaur_projectile_hit"
 				"target"		"TARGET"
 			}
@@ -140802,7 +140820,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/autumn_mist_cavern_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/autumn_mist_cavern_ai.lua"
 						"Function"		"dinosaur_passive_think"
 					}
 				}
@@ -140864,7 +140882,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/autumn_mist_cavern_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/autumn_mist_cavern_ai.lua"
 						"Function"		"redfall_guide_think"
 					}
 				}
@@ -140899,7 +140917,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/autumn_mist_cavern_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/autumn_mist_cavern_ai.lua"
 						"Function"		"inDragonThink"
 						"target"		"TARGET"
 					}
@@ -140908,7 +140926,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/autumn_mist_cavern_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/autumn_mist_cavern_ai.lua"
 						"Function"		"allyPickupStart"
 						"target"		"TARGET"
 					}
@@ -140917,7 +140935,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/autumn_mist_cavern_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/autumn_mist_cavern_ai.lua"
 						"Function"		"allyPickupStart"
 						"target"		"TARGET"
 					}
@@ -140991,7 +141009,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/autumn_mist_cavern_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/autumn_mist_cavern_ai.lua"
 						"Function"		"barbarian_passive_think"
 					}
 				}
@@ -141032,7 +141050,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/autumn_mist_cavern_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/autumn_mist_cavern_ai.lua"
 						"Function"		"autumn_mage_attack_hit"
 						"damage"		"%damage"
 					}
@@ -141107,7 +141125,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/autumn_mist_cavern_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/monsters/autumn_mist_cavern_ai.lua"
 				"Function"		"autumn_mage_blink_start"
 			}
 
@@ -141129,7 +141147,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/autumn_mist_cavern_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/autumn_mist_cavern_ai.lua"
 						"Function"		"autumn_blink_debuff_end"
 					}
 				}
@@ -141208,7 +141226,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/autumn_mist_cavern_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/autumn_mist_cavern_ai.lua"
 						"Function"		"autumn_mage_boss_think"
 						"damage"		"%AbilityDamage"
 					}
@@ -141266,7 +141284,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/redfall_forest/redfall_forest_ai.lua"
 				"Function"		"crimsith_cult_master_pull"
 				"target"		"TARGET"
 			}
@@ -141316,7 +141334,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/redfall_forest/redfall_forest_ai.lua"
 						"Function"		"crimsith_boss_attack_start"
 					}
 				}
@@ -141354,7 +141372,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/autumn_mist_cavern_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/autumn_mist_cavern_ai.lua"
 						"Function"		"canyon_boss_think"
 					}
 				}
@@ -141369,7 +141387,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/autumn_mist_cavern_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/autumn_mist_cavern_ai.lua"
 						"Function"		"boss_explosion_pushback"
 						"target"		"TARGET"
 					}
@@ -141378,7 +141396,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/autumn_mist_cavern_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/autumn_mist_cavern_ai.lua"
 						"Function"		"boss_explosion_pushback_end"
 						"target"		"TARGET"
 					}
@@ -141439,7 +141457,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/autumn_mist_cavern_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/monsters/autumn_mist_cavern_ai.lua"
 				"Function"		"canyon_boss_blink_start"
 				"target"		"POINT"
 			}
@@ -141489,7 +141507,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/autumn_mist_cavern_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/autumn_mist_cavern_ai.lua"
 						"Function"		"redfall_canyon_boss_death_check"
 						"Target"		"TARGET"
 					}
@@ -141513,7 +141531,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/autumn_mist_cavern_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/autumn_mist_cavern_ai.lua"
 						"Function"		"death_animation"
 					}
 				}
@@ -141550,7 +141568,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/abandoned_shipyard_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/abandoned_shipyard_ai.lua"
 						"Function"		"redfall_shipyard_boss_death_check"
 						"Target"		"TARGET"
 					}
@@ -141574,7 +141592,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/autumn_mist_cavern_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/autumn_mist_cavern_ai.lua"
 						"Function"		"death_animation"
 					}
 				}
@@ -141617,7 +141635,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/autumn_mist_cavern_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/autumn_mist_cavern_ai.lua"
 						"Function"		"death_animation"
 					}
 				}
@@ -141704,7 +141722,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/redfall_forest/redfall_forest_ai.lua"
 				"Function"		"ash_tree_die"
 			}
 		}
@@ -141726,7 +141744,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/redfall_forest/redfall_forest_ai.lua"
 						"Function"		"ash_tree_think"
 					}
 				}
@@ -141749,7 +141767,7 @@
 		}
 	}
 
-	"redfall_spirit_of_ashara_passive"
+	"redfall_priestess_of_ashara_passive"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
@@ -141781,7 +141799,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/autumn_mist_cavern_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/autumn_mist_cavern_ai.lua"
 						"Function"		"spirit_of_ashara_think"
 						"damage"		"%damage"
 					}
@@ -141790,7 +141808,7 @@
 		}
 	}
 
-	"redfall_student_of_ashara_leap"
+	"redfall_follower_of_ashara_leap"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -141828,7 +141846,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/redfall_forest/redfall_forest_ai.lua"
 				"Function"		"ashara_leap_cast"
 				"target"		"TARGET"
 			}
@@ -141856,7 +141874,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/redfall_forest/redfall_forest_ai.lua"
 						"Function"		"mountain_crush_thinking"
 					}
 				}
@@ -141864,7 +141882,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/redfall_forest/redfall_forest_ai.lua"
 						"Function"		"ashara_leap_end"
 						"damage"		"%AbilityDamage"
 					}
@@ -141906,7 +141924,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/redfall_forest/redfall_forest_ai.lua"
 						"Function"		"raven_seeking_think"
 					}
 				}
@@ -141919,7 +141937,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/redfall_forest/redfall_forest_ai.lua"
 						"Function"		"held_by_raven_think"
 						"target"		"target"
 					}
@@ -141958,7 +141976,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/redfall_forest/redfall_forest_ai.lua"
 						"Function"		"raven_look_for_drop_think"
 					}
 				}
@@ -142028,7 +142046,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/redfall_forest/redfall_forest_ai.lua"
 				"Function"		"begin_splitshot"
 			}
 		}
@@ -142071,7 +142089,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/redfall_forest/redfall_forest_ai.lua"
 						"Function"		"fenrir_ghost_think"
 						"target"		"TARGET"
 					}
@@ -142265,7 +142283,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/autumn_mist_cavern_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/autumn_mist_cavern_ai.lua"
 						"Function"		"feronia_think"
 					}
 				}
@@ -142273,7 +142291,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/autumn_mist_cavern_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/autumn_mist_cavern_ai.lua"
 						"Function"		"redfall_feronia_on_spell_cast"
 					}
 				}
@@ -142982,7 +143000,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/redfall_forest/redfall_forest_ai.lua"
 						"Function"		"forest_ranger_think"
 					}
 				}
@@ -143020,7 +143038,7 @@
 					}
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_farmlands_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/redfall_farmlands_ai.lua"
 						"Function"		"bandit_windrun_activate"
 					}
 				}
@@ -143065,7 +143083,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/redfall_forest/redfall_forest_ai.lua"
 				"Function"		"autumn_spawner_die"
 			}
 		}
@@ -143083,7 +143101,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_farmlands_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/redfall_farmlands_ai.lua"
 						"Function"		"farmland_spawner_think"
 					}
 				}
@@ -143169,7 +143187,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_farmlands_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/redfall_farmlands_ai.lua"
 						"Function"		"flamethinker_find_unit"
 					}
 				}
@@ -143288,7 +143306,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_farmlands_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/redfall_farmlands_ai.lua"
 						"Function"		"shredder_passive_think"
 					}
 				}
@@ -143388,7 +143406,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_farmlands_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/redfall_farmlands_ai.lua"
 						"Function"		"twisted_pumpkin_think"
 					}
 				}
@@ -143418,7 +143436,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_farmlands_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/redfall_farmlands_ai.lua"
 						"Function"		"twisted_pumpkin_active_think"
 					}
 				}
@@ -143527,7 +143545,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/redfall_farmlands_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/monsters/redfall_farmlands_ai.lua"
 				"Function"		"duelist_leap_cast"
 				"target"		"TARGET"
 			}
@@ -143563,7 +143581,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_farmlands_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/redfall_farmlands_ai.lua"
 						"Function"		"duelist_leap_thinking"
 					}
 				}
@@ -143571,7 +143589,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_farmlands_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/redfall_farmlands_ai.lua"
 						"Function"		"duelist_leap_end"
 						"search_radius"	"%landing_search_radius"
 					}
@@ -143590,7 +143608,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_farmlands_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/redfall_farmlands_ai.lua"
 						"Function"		"duelist_boosted_attack_land"
 						"damagePercent"	"%bonus_pure_damage"
 					}
@@ -143631,7 +143649,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/redfall_general.lua"
+						"ScriptFile"	"worlds/redfall_ridge/redfall_general.lua"
 						"Function"		"DialogueThink"
 					}
 				}
@@ -143657,7 +143675,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_farmlands_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/redfall_farmlands_ai.lua"
 						"Function"		"farmlands_scene_a_death"
 					}
 				}
@@ -143669,7 +143687,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_farmlands_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/redfall_farmlands_ai.lua"
 						"Function"		"farmlands_scene_b_death"
 					}
 				}
@@ -143681,7 +143699,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_farmlands_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/redfall_farmlands_ai.lua"
 						"Function"		"farmlands_scene_c_death"
 					}
 				}
@@ -143690,7 +143708,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_farmlands_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/redfall_farmlands_ai.lua"
 						"Function"		"farmlands_scene_c_distance_check"
 					}
 				}
@@ -143702,7 +143720,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_farmlands_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/redfall_farmlands_ai.lua"
 						"Function"		"farmlands_scene_d_death"
 					}
 				}
@@ -143787,7 +143805,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_farmlands_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/redfall_farmlands_ai.lua"
 						"Function"		"bandit_attack_land"
 						"prism_strike"	"%prism_strike"
 					}
@@ -143942,7 +143960,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_farmlands_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/redfall_farmlands_ai.lua"
 						"Function"		"task_armor_init"
 						"charges"		"%charges"
 					}
@@ -143952,7 +143970,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_farmlands_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/redfall_farmlands_ai.lua"
 						"Function"		"taskmaster_think"
 					}
 				}
@@ -144007,7 +144025,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_farmlands_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/redfall_farmlands_ai.lua"
 						"Function"		"recruiter_attack_land"
 					}
 				}
@@ -144082,7 +144100,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/redfall_farmlands_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/monsters/redfall_farmlands_ai.lua"
 				"Function"		"demon_farmer_die"
 			}
 		}
@@ -144136,7 +144154,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_farmlands_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/redfall_farmlands_ai.lua"
 						"Function"		"demon_farmer_aura_stat_loss"
 						"stat_loss_percent"	"%stat_loss_percent"
 						"target"		"TARGET"
@@ -144238,7 +144256,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_farmlands_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/redfall_farmlands_ai.lua"
 						"Function"		"meepo_farmer_guide_think"
 					}
 				}
@@ -144288,7 +144306,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_farmlands_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/redfall_farmlands_ai.lua"
 						"Function"		"demon_farmer_think"
 					}
 				}
@@ -144318,7 +144336,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/abandoned_shipyard_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/monsters/abandoned_shipyard_ai.lua"
 				"Function"		"bloodhunter_summon_wolves"
 			}
 		}
@@ -144436,7 +144454,7 @@
 			}
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/redfall_forest/redfall_forest_ai.lua"
 				"Function"		"redfall_massive_arrow_phase"
 			}
 		}
@@ -144467,7 +144485,7 @@
 			}
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/abandoned_shipyard_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/monsters/abandoned_shipyard_ai.lua"
 				"Function"		"cast_skeleton_boss_fireball"
 				"target"		"POINT"
 			}
@@ -144477,7 +144495,7 @@
 			"DeleteOnHit"	"1"
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/abandoned_shipyard_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/monsters/abandoned_shipyard_ai.lua"
 				"Function"		"skeleton_boss_arrow_impact"
 				"damage"		"%damage"
 			}
@@ -144511,7 +144529,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_farmlands_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/redfall_farmlands_ai.lua"
 						"Function"		"task_armor_init"
 						"charges"		"%charges"
 					}
@@ -144656,7 +144674,7 @@
 			"DeleteOnHit"	"1"
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/abandoned_shipyard_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/monsters/abandoned_shipyard_ai.lua"
 				"Function"		"skulldigger_hellfire_hit"
 				"target"        "TARGET"
 				"stun_duration"	"%property_four"
@@ -144701,7 +144719,7 @@
 			}
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/abandoned_shipyard_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/monsters/abandoned_shipyard_ai.lua"
 				"Function"		"shipyard_aoe_phase_start"
 			}
 			"ApplyModifier"
@@ -144715,7 +144733,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/abandoned_shipyard_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/monsters/abandoned_shipyard_ai.lua"
 				"Function"		"shipyard_aoe_blast_start"
 			}
 		}
@@ -144730,7 +144748,7 @@
 			}
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/abandoned_shipyard_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/monsters/abandoned_shipyard_ai.lua"
 				"Function"		"shipyard_aoe_blast_impact"
 				"target"		"TARGET"
 				"stun_duration"	"%stun_duration"
@@ -144740,7 +144758,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/abandoned_shipyard_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/monsters/abandoned_shipyard_ai.lua"
 				"Function"		"shipyard_gatekeeper_die"
 			}
 		}
@@ -144831,7 +144849,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/abandoned_shipyard_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/abandoned_shipyard_ai.lua"
 						"Function"		"shipyard_throw_prepping_think"
 						"target"		"TARGET"
 					}
@@ -144894,7 +144912,7 @@
 					}
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/abandoned_shipyard_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/abandoned_shipyard_ai.lua"
 						"Function"		"pirate_archer_attack_land"
 						"magic_damage_on_hit"	"%magic_damage_on_hit"
 					}
@@ -144941,7 +144959,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/abandoned_shipyard_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/monsters/abandoned_shipyard_ai.lua"
 				"Function"		"boss_spawner_die"
 			}
 		}
@@ -144958,7 +144976,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/abandoned_shipyard_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/abandoned_shipyard_ai.lua"
 						"Function"		"shipyard_spawner_think"
 					}
 				}
@@ -144986,7 +145004,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/abandoned_shipyard_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/monsters/abandoned_shipyard_ai.lua"
 				"Function"		"soul_collector_die"
 			}
 		}
@@ -145003,7 +145021,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/abandoned_shipyard_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/abandoned_shipyard_ai.lua"
 						"Function"		"shipyard_soul_collector_think"
 					}
 				}
@@ -145011,7 +145029,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/abandoned_shipyard_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/abandoned_shipyard_ai.lua"
 						"Function"		"shipyard_shield_initiate"
 						"max_stacks"	"%max_stacks"
 					}
@@ -145036,7 +145054,7 @@
 			}
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/abandoned_shipyard_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/monsters/abandoned_shipyard_ai.lua"
 				"Function"		"shipyard_soul_collector_projectile_hit"
 				"max_stacks"	"%max_stacks"
 			}
@@ -145072,7 +145090,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/abandoned_shipyard_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/abandoned_shipyard_ai.lua"
 						"Function"		"shipyard_boss_aura_end"
 						"target"		"TARGET"
 					}
@@ -145086,7 +145104,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/abandoned_shipyard_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/abandoned_shipyard_ai.lua"
 						"Function"		"boss_in_battle_think"
 					}
 				}
@@ -145246,7 +145264,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/abandoned_shipyard_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/abandoned_shipyard_ai.lua"
 						"Function"		"spikeball_thinking"
 					}
 				}
@@ -145258,7 +145276,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/abandoned_shipyard_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/abandoned_shipyard_ai.lua"
 						"Function"		"shipyard_boss_spike_hit"
 						"target"		"TARGET"
 					}
@@ -145293,7 +145311,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/misc/shredder_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/misc/shredder_ai.lua"
 						"Function"		"shredder_disabled_attacked"
 					}
 				}
@@ -145317,7 +145335,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/misc/shredder_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/misc/shredder_ai.lua"
 						"Function"		"shredder_awake_think"
 					}
 				}
@@ -145352,7 +145370,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/misc/shredder_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/misc/shredder_ai.lua"
 						"Function"		"shredder_with_hero_inside_thinking"
 					}
 				}
@@ -145360,7 +145378,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/misc/shredder_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/misc/shredder_ai.lua"
 						"Function"		"shredder_dismount"
 					}
 				}
@@ -145368,7 +145386,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/misc/shredder_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/misc/shredder_ai.lua"
 						"Function"		"shredder_used_ability"
 					}
 				}
@@ -145415,7 +145433,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/misc/shredder_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/misc/shredder_ai.lua"
 				"Function"		"shredder_dismount"
 			}
 		}
@@ -145446,7 +145464,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/misc/shredder_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/misc/shredder_ai.lua"
 				"Function"		"tree_harvest_cast"
 				"target"		"TARGET"
 			}
@@ -145504,7 +145522,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/misc/shredder_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/misc/shredder_ai.lua"
 				"Function"		"shredder_whirling_death_cast"
 			}
 		}
@@ -145856,7 +145874,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 				"Function"		"dragonkin_enflame_start"
 			}
 			"FireSound"
@@ -145949,7 +145967,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"hell_bandit_attack"
 						"mana_burn_percent"	"%mana_burn_percent"
 					}
@@ -145992,7 +146010,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 				"Function"		"autumn_monster_fire_lash"
 			}
 		}
@@ -146088,7 +146106,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 				"Function"		"redfall_bombadier_ability_start"
 				"target"		"POINT"
 				"damage"		"%damage"
@@ -146136,7 +146154,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"bombadier_bomb_thinking"
 					}
 				}
@@ -146200,7 +146218,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 				"Function"		"redfall_bombadier_ability_start"
 				"target"		"POINT"
 				"damage"		"%damage"
@@ -146300,7 +146318,7 @@
 					}
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"hawk_soldier_think"
 					}
 				}
@@ -146369,7 +146387,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"sorceress_flying_think"
 					}
 				}
@@ -146390,7 +146408,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"sorceress_moving_think"
 					}
 				}
@@ -146402,7 +146420,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"outside_castle_wave_unit_die"
 					}
 				}
@@ -146424,7 +146442,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"sorc_grow_unit"
 						"target"		"TARGET"
 					}
@@ -146447,7 +146465,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"sorc_grow_end"
 						"target"		"TARGET"
 					}
@@ -146461,7 +146479,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"sorceress_death"
 					}
 				}
@@ -146474,7 +146492,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"sorceress_combat_thinking"
 					}
 				}
@@ -146527,7 +146545,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"fire_spray_think"
 					}
 				}
@@ -146608,7 +146626,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 				"Function"		"castle_sorceress_blink"
 			}
 		}
@@ -146732,7 +146750,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 				"Function"		"hawk_knight_lock_on_start"
 				"target"		"TARGET"
 			}
@@ -146793,7 +146811,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"hawk_knight_lock_think"
 						"target"		"TARGET"
 					}
@@ -146808,7 +146826,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"hawk_knight_charging_think"
 						"target"		"TARGET"
 						"stun_duration"	"%stun_duration"
@@ -146839,7 +146857,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"crimsyth_castle_prop_attacked"
 					}
 				}
@@ -146856,7 +146874,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"attackable_prop_think"
 					}
 				}
@@ -146905,7 +146923,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"warflayer_attack_land"
 					}
 				}
@@ -146948,7 +146966,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"lava_lizard_think"
 					}
 				}
@@ -147027,7 +147045,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 				"Function"		"barrel_throw"
 				"damage"		"%damage"
 			}
@@ -147043,7 +147061,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"barrel_thrower_ai_think"
 					}
 				}
@@ -147055,7 +147073,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"barrel_thrower_take_damage"
 					}
 				}
@@ -147075,7 +147093,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"barrel_rolling_think"
 						"target"		"TARGET"
 					}
@@ -147085,7 +147103,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"barrel_explode"
 					}
 				}
@@ -147102,7 +147120,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"barrel_impact"
 						"target"		"TARGET"
 					}
@@ -147115,7 +147133,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"tongey_run_end"
 					}
 				}
@@ -147234,7 +147252,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"khan_knight_take_damage"
 						"blind_duration"	"%blind_duration"
 					}
@@ -147292,7 +147310,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"castle_viking_attack_land"
 					}
 				}
@@ -147313,7 +147331,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 				"Function"		"sadist_death"
 			}
 		}
@@ -147374,7 +147392,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"sadist_combat_think"
 					}
 				}
@@ -147382,7 +147400,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"sadist_combat_start"
 						"shield_charges"	"%shield_charges"
 					}
@@ -147438,7 +147456,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"sorc_grow_unit"
 						"target"		"TARGET"
 					}
@@ -147461,7 +147479,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"sorc_grow_end"
 						"target"		"TARGET"
 					}
@@ -147494,7 +147512,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"sadist_attach_think"
 						"target"		"TARGET"
 					}
@@ -147758,7 +147776,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 				"Function"		"archivist_death"
 			}
 		}
@@ -147790,7 +147808,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"archivist_in_combat_think"
 					}
 				}
@@ -147836,7 +147854,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"archivist_found_hero"
 						"target"		"TARGET"
 					}
@@ -147879,7 +147897,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"archivist_hero_lock_think"
 						"target"		"TARGET"
 					}
@@ -147888,7 +147906,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"lock_on_end"
 						"target"		"TARGET"
 					}
@@ -147960,7 +147978,7 @@
 			}
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 				"Function"		"moloth_bombs_preattack"
 			}
 		}
@@ -147968,7 +147986,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 				"Function"		"redfall_molok_bombs_ability_start"
 				"target"		"POINT"
 				"damage"		"%damage"
@@ -147995,7 +148013,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"moloth_combat_think"
 					}
 				}
@@ -148039,7 +148057,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 				"Function"		"moloth_die"
 			}
 		}
@@ -148054,7 +148072,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"moloth_combat_think"
 					}
 				}
@@ -148112,7 +148130,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"moloth_sphere_think"
 					}
 				}
@@ -148121,7 +148139,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"moloth_sphere_take_damage"
 					}
 				}
@@ -148316,7 +148334,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 				"Function"		"archivist_orb_change_start"
 				"target"		"TARGET"
 			}
@@ -148347,7 +148365,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 				"Function"		"garden_overlord_death"
 			}
 		}
@@ -148401,7 +148419,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"fire_turtle_think"
 					}
 				}
@@ -148409,7 +148427,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"fire_turtle_attacked"
 					}
 				}
@@ -148424,7 +148442,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"fire_turtle_gearing_up_think"
 					}
 				}
@@ -148545,7 +148563,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"crimson_samurai_think"
 					}
 				}
@@ -148569,7 +148587,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"conquest_switch_attack"
 					}
 				}
@@ -148945,7 +148963,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 				"Function"		"loki_the_mad_die"
 			}
 		}
@@ -148961,7 +148979,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"loki_attack_land"
 					}
 				}
@@ -149010,7 +149028,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"castle_whomp_think"
 					}
 				}
@@ -149034,7 +149052,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"crimsyth_ball_prop_attacked"
 					}
 				}
@@ -149051,7 +149069,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"ball_prop_think"
 					}
 				}
@@ -149065,7 +149083,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"ball_switch_moving_think"
 						"target"		"TARGET"
 					}
@@ -149116,7 +149134,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"crimsyth_mage_think"
 						"damage"		"%damage"
 					}
@@ -149277,7 +149295,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 				"Function"		"perdition_die"
 			}
 		}
@@ -149300,7 +149318,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"ghost_of_perdition_think"
 					}
 				}
@@ -149356,7 +149374,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"perdition_torch_attacked"
 					}
 				}
@@ -149365,7 +149383,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"perdition_torch_think"
 					}
 				}
@@ -149382,7 +149400,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"torch_flame_end"
 					}
 				}
@@ -149473,7 +149491,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 				"Function"		"perdition_raise_dead"
 				"skeleton_summons"	"%skeleton_summons"
 			}
@@ -149488,7 +149506,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"perdition_skeleton_summon_die"
 					}
 				}
@@ -149564,7 +149582,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"fortune_chest_attacked"
 					}
 				}
@@ -149585,7 +149603,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"chest_transforming_think"
 					}
 				}
@@ -149654,7 +149672,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 				"Function"		"fortunis_death"
 			}
 		}
@@ -149669,7 +149687,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"fortunis_think"
 					}
 				}
@@ -149696,7 +149714,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 				"Function"		"ethereal_revenant_die"
 			}
 		}
@@ -149822,7 +149840,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"crystal_mine_attack"
 					}
 				}
@@ -150058,7 +150076,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 				"Function"		"garden_watcher_nuke_precast"
 				"target"		"TARGET"
 			}
@@ -150067,7 +150085,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 				"Function"		"garden_watcher_nuke_start"
 				"target"		"TARGET"
 			}
@@ -150102,7 +150120,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 				"Function"		"elthezun_die"
 			}
 		}
@@ -150111,7 +150129,7 @@
 			"DeleteOnHit"	"1"
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 				"Function"		"elthezun_projectile_hit"
 				"target"		"TARGET"
 				"damage"		"%damage"
@@ -150144,7 +150162,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"elthezun_during_wave_think"
 					}
 				}
@@ -150157,7 +150175,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"elthezun_combat_think"
 					}
 				}
@@ -150249,7 +150267,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/redfall_forest/redfall_forest_ai.lua"
 				"Function"		"mountain_crush_cast"
 				"target"		"TARGET"
 			}
@@ -150277,7 +150295,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/redfall_forest/redfall_forest_ai.lua"
 						"Function"		"mountain_crush_thinking"
 					}
 				}
@@ -150285,7 +150303,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/redfall_forest/redfall_forest_ai.lua"
 						"Function"		"mountain_crush_end"
 						"damage"		"%AbilityDamage"
 					}
@@ -150313,7 +150331,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 				"Function"		"cannibal_die"
 			}
 		}
@@ -150528,7 +150546,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"demon_follower_think"
 					}
 				}
@@ -150570,7 +150588,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_farmlands_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/redfall_farmlands_ai.lua"
 						"Function"		"recruiter_attack_land"
 					}
 				}
@@ -150609,7 +150627,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 				"Function"		"boss_illusion_ability_cast"
 			}
 		}
@@ -150635,7 +150653,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"boss_illusion_die"
 					}
 				}
@@ -150671,7 +150689,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"castle_boss_waiting_think"
 					}
 				}
@@ -150702,7 +150720,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"castle_boss_in_combat_1"
 					}
 				}
@@ -150719,7 +150737,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"castle_boss_move_to_pit_think"
 					}
 				}
@@ -150754,7 +150772,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"castle_boss_split_attack"
 					}
 				}
@@ -150763,7 +150781,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"castle_boss_in_combat_2"
 					}
 				}
@@ -150787,7 +150805,7 @@
 			"DeleteOnHit"	"1"
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 				"Function"		"castle_boss_split_attack_hit"
 				"target"		"TARGET"
 			}
@@ -150846,7 +150864,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 				"Function"		"final_boss_fire_blast_start"
 				"target"		"POINT"
 			}
@@ -150867,7 +150885,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"boss_meteor_falling_think"
 						"damage"		"%meteor_damage"
 					}
@@ -151016,7 +151034,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 				"Function"		"lava_behemoth_die"
 			}
 		}
@@ -151037,7 +151055,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"lava_behemoth_take_damage"
 					}
 				}
@@ -155203,7 +155221,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/autumn_mist_cavern_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/monsters/autumn_mist_cavern_ai.lua"
 				"Function"		"quake_set_target"
 				"target"		"TARGET"
 			}
@@ -156100,43 +156118,11 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityTextureName"	"treant_overgrowth"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"OnProjectileHitUnit"
-		{
-			"DeleteOnHit"	"1"
-			"RunScript"
-			{
-				"ScriptFile"	"worlds/redfall/redfall_general"
-				"Function"		"ancient_tree_projectile_hit"
-			}
-			"FireSound"
-			{
-				"EffectName"	"Redfall.AncientTreeSummon.ProjectileHit"
-				"Target" 		"TARGET"
-			}
-		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"vision_loss"			"-70"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"armor_and_magic_armor_loss"			"-125"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"movespeed_loss"			"-1"
-			}
-		}
 		"Modifiers"
 		{
 			"modifier_ancient_tree_passive"
@@ -156150,13 +156136,9 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/redfall_general"
+						"ScriptFile"	"worlds/redfall_ridge/redfall_general"
 						"Function"		"ancient_tree_think"
 					}
-				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MIN_HEALTH" "1"
 				}
 			}
 			"modifier_ancient_tree_thinking"
@@ -156168,9 +156150,17 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/redfall_general"
+						"ScriptFile"	"worlds/redfall_ridge/redfall_general"
 						"Function"		"ancient_tree_main_think"
 					}
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MIN_HEALTH" "1"
+				}
+				"States"
+				{
+					"MODIFIER_STATE_ALLOW_PATHING_THROUGH_TREES"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
 			"modifier_ancient_tree_cinematic"
@@ -156183,37 +156173,6 @@
 					"MODIFIER_STATE_SILENCED"		"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-			"modifier_ancient_tree_vision"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"1"
-				"IsStunDebuff"			"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BONUS_DAY_VISION" "-70"
-					"MODIFIER_PROPERTY_BONUS_NIGHT_VISION" "-70"
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-1"
-				}
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"npc_abilities/general.lua"
-						"Function"		"utility_recalculate_roshpit_attributes"
-						"target"		"TARGET"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"npc_abilities/general.lua"
-						"Function"		"utility_recalculate_roshpit_attributes"
-						"target"		"TARGET"
-					}
 				}
 			}
 			"modifier_ancient_tree_round_2"
@@ -156238,7 +156197,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/autumn_mist_cavern_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/autumn_mist_cavern_ai.lua"
 						"Function"		"death_animation"
 					}
 				}
@@ -156271,6 +156230,73 @@
 		}
 	}
 
+	"ancient_tree_natures_grasp"
+	{
+		"BaseClass"						"treant_natures_grasp"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_TREE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"AbilitySound"					"Hero_Treant.NaturesGuise.On"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"1500"
+		"AbilityCastPoint"				"0.2"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"5"
+
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage_per_second"				"2000"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"movement_slow"				"50"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"vines_duration"				"3"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"creation_interval"			"0.1"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"initial_latch_delay"			"0.3"
+			}
+			"06"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"vine_spawn_interval"		"175"
+			}
+			"07"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"latch_range"		"135"
+			}
+			"08"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"latch_vision"		"150"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
+	}
+
 	"ancient_tree_summon"
 	{
 		// General
@@ -156293,7 +156319,7 @@
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"8"
+		"AbilityCooldown"				"15"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -156313,7 +156339,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/redfall_general"
+				"ScriptFile"	"worlds/redfall_ridge/redfall_general"
 				"Function"		"ancient_tree_summon"
 			}
 		}
@@ -156357,7 +156383,7 @@
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"6"
+		"AbilityCooldown"				"10"
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
@@ -156379,7 +156405,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/redfall_general"
+				"ScriptFile"	"worlds/redfall_ridge/redfall_general"
 				"Function"		"tree_ground_slam_cast"
 				"target"		"TARGET"
 				"damage"		"%damage"
@@ -156436,7 +156462,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/redfall_general"
+						"ScriptFile"	"worlds/redfall_ridge/redfall_general"
 						"Function"		"tree_summon_die"
 					}
 				}
@@ -156445,12 +156471,12 @@
 		}
 	}
 
-	"ancient_tree_summon_leech_seed"
+	"ancient_tree_summon_photosynthesis"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetFlag"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
@@ -156458,85 +156484,55 @@
 		"AbilityTextureName"			"treant_leech_seed"
 		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
 
-		// Precache
-		//-------------------------------------------------------------------------------------------------------------
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"380"
-		"AbilityCastPoint"				"0.4"
-
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"8"
-
-
-		// Damage.
-		//-------------------------------------------------------------------------------------------------------------
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"0"
-
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"heal_percent"			"5"
+				"heal_percent_self"			"1"
 			}
 			"02"
 			{
-				"var_type"			"FIELD_INTEGER"
-				"heal_percent_boss"		"1"
+				"var_type"			"FIELD_FLOAT"
+				"heal_percent_boss"		"0.33"
 			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage_per_tick"		"500"
-			}
-		}
-
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"worlds/redfall/redfall_general"
-				"Function"		"summoner_leech_seed"
-				"target"		"TARGET"
-			}
-
 		}
 		"Modifiers"
 		{
-			"modifier_summon_leech_seed_debuff"
+			"modifier_photosynthesis"
 			{
-				"IsHidden"	"0"
-				"ThinkInterval"  "1.0"
-				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"IsBuff"	"1"				
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/redfall_ridge/redfall_general.lua"
+						"Function"		"AncientTreeSummonPhotosynthesisOnCreated"
+					}
+				}		
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/redfall_ridge/redfall_general.lua"
+						"Function"		"AncientTreeSummonPhotosynthesisOnDestroy"
+					}
+				}
+				"ThinkInterval"  "0.03"
 				"OnIntervalThink"
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/redfall_general"
-						"Function"		"summon_leech_seed_think"
-						"target"		"TARGET"
-						"damage"		"%damage_per_tick"
+						"ScriptFile"	"worlds/redfall_ridge/redfall_general.lua"
+						"Function"			"AncientTreeSummonPhotosynthesisOnIntervalThink"
+						"heal_percent_self"	"%heal_percent_self"
+						"heal_percent_boss"	"%heal_percent_boss"
 					}
 				}
 			}
 		}
-		"OnProjectileHitUnit"
-		{
-			"DeleteOnHit"	"1"
-			"RunScript"
-			{
-				"ScriptFile"	"worlds/redfall/redfall_general"
-				"Function"		"summon_leech_seed_heal"
-				"target"		"TARGET"
-			}
-		}
-
 	}
 
 	"rock_fish_rip_tide"
@@ -160520,7 +160516,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/redfall_forest/redfall_forest_ai.lua"
 				"Function"		"autumn_spawner_die"
 			}
 		}
@@ -161811,7 +161807,7 @@
 					}
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"warflayer_attack_land"
 					}
 				}
@@ -162211,7 +162207,7 @@
 					}
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"warflayer_attack_land"
 					}
 					"RunScript"
@@ -162394,7 +162390,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/monsters/crimsyth_castle_ai.lua"
 						"Function"		"warflayer_attack_land"
 					}
 				}
@@ -164274,7 +164270,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/redfall_forest/redfall_forest_ai.lua"
 						"Function"		"heavy_boulder_push_end"
 						"target"		"TARGET"
 					}
@@ -164490,7 +164486,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/autumn_mist_cavern_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/monsters/autumn_mist_cavern_ai.lua"
 				"Function"		"waveScreenShake"
 			}
 			"FireSound"
@@ -166088,7 +166084,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/redfall_forest/redfall_forest_ai.lua"
 						"Function"		"heavy_boulder_push_end"
 						"target"		"TARGET"
 					}
@@ -166168,7 +166164,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/redfall_forest/redfall_forest_ai.lua"
 						"Function"		"heavy_boulder_push_end"
 						"target"		"TARGET"
 					}
@@ -167478,7 +167474,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/redfall_forest/redfall_forest_ai.lua"
 						"Function"		"heavy_boulder_push_end"
 						"target"		"TARGET"
 					}

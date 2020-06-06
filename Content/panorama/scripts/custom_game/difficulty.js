@@ -15,8 +15,8 @@ function UpdateDifficulty(){
 }
 
 function UpdateZone(msg){
-	var zoneName = msg.zoneName
-	$('#zone_label').text = $.Localize('#'+zoneName)
+    var zoneName = msg.zoneName
+    $('#zone_label').text = $.Localize('#'+zoneName)
 }
 
 function AddSpiritToZone(msg){

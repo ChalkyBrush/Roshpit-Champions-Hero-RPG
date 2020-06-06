@@ -916,9 +916,6 @@ function LoadCharacterDev(playerID, slot, steamID)
 			Timers:CreateTimer(1, function()
 				SaveLoad:LoadGlyphs(resultTable.character, hero)
 			end)
-			Timers:CreateTimer(3, function()
-				SaveLoad:LoadPortalKeys(resultTable.character, hero)
-			end)
 			if GameState:IsRPCArena() then
 				Arena:LoadChampionsLeagueData(hero, nil)
 			end

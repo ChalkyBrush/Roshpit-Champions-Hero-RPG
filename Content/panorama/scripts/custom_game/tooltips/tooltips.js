@@ -5,8 +5,19 @@ var extraTooltipsActive = false;
 function AbilityShowTooltip(element)
 {
     var slot = element.GetAttributeInt("abilityIndex", 0)
-	currentSlot = slot
-	var m_QueryUnit = Players.GetLocalPlayerPortraitUnit()
+    currentSlot = slot
+    var currentAbility = -1
+    var m_QueryUnit = Players.GetLocalPlayerPortraitUnit()
+    for (i = 0; i < Entities.GetAbilityCount(m_QueryUnit) - 1; i++) {
+        var ability = Entities.GetAbility(m_QueryUnit, i)
+        if (!Abilities.IsHidden(ability)){
+            currentAbility += 1;
+        }
+        if (currentAbility == slot) {
+            slot = i;
+            break;
+        }
+    }
 	var m_Ability = Entities.GetAbility(m_QueryUnit, slot)
 	var abilityName = Abilities.GetAbilityName( m_Ability );
 	$.DispatchEvent( "DOTAShowAbilityTooltipForEntityIndex", element, abilityName, m_QueryUnit);

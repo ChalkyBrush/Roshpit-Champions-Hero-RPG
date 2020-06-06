@@ -127,7 +127,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.1"
+				"property_two"			"<% EPOCH_Q4_Q3_BONUS_MANA_DRAIN_PCT %>"
 			}
 		}
 	}

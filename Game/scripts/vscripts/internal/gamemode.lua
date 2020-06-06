@@ -174,6 +174,13 @@ function GameMode:_InitGameMode()
   CustomGameEventManager:RegisterListener("client_crusader", Dynamic_Wrap(Quests, "ReceiveQuestmenuStatusFromClient"))
   CustomGameEventManager:RegisterListener("delete_quest", Dynamic_Wrap(Quests, "DeleteQuest"))
 
+  --------------
+  --- QUESTS ---
+  --------------
+  CustomGameEventManager:RegisterListener("claim_quest_reward", Dynamic_Wrap(Quests, "ClaimQuestReward"))
+  CustomGameEventManager:RegisterListener("ping_quest_objective", Dynamic_Wrap(Quests, "PingQuestObjective"))
+  
+
   CustomGameEventManager:RegisterListener("flash_heal", Dynamic_Wrap(CustomAbilities, "UpdateAuriunCursorPosition"))
   CustomGameEventManager:RegisterListener("tutorial", Dynamic_Wrap(Events, "TutorialEvent"))
 

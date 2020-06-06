@@ -1,85 +1,85 @@
-"AddonInfo"
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
 {
-  "TeamCount" "1"
-  "maps"      "rpc_tutorial rpc_redfall_ridge rpc_winterblight_mountain rpc_tanari_jungle rpc_battle_of_serengaard rpc_roshpit_arena rpc_sea_fortress"
-  "IsPlayable"  "1"
-  "rpc_tutorial"
-  {
-          "MaxPlayers"                    "4"
-  }
-  "rpc_redfall_ridge"
-  {
-          "MaxPlayers"                    "4"
-  }
-  "rpc_winterblight_mountain"
-  {
-          "MaxPlayers"                    "4"
-  }
-  "rpc_tanari_jungle"
-  {
-          "MaxPlayers"                    "4"
-  }
-  "rpc_battle_of_serengaard"
-  {
-          "MaxPlayers"                    "4"
-  }
-  //"rpc_world_1_normal"
-  //{
-  //        "MaxPlayers"                    "4"
-  //}
-  //"rpc_world_1_elite"
-  //{
-  //        "MaxPlayers"                    "4"
-  //}
-  //"rpc_world_1_legend"
-  //{
-  //        "MaxPlayers"                    "4"
-  //}
-  "rpc_roshpit_arena"
-  {
-          "MaxPlayers"                    "4"
-  }
-  //"rpc_pvp_alpha_3v3_open"
-  //{
-  //        "MaxPlayers"                    "6"
-  //}
-  "rpc_sea_fortress"
-  {
-          "MaxPlayers"                    "5"
-  }
-  "Default_Keys"
-  {
-      "01"
-      {
-          "Key"       "P"
-          "Command"   "+OpenEquipment"
-          "Name"      "Open Equipment"
-      }
-      "02"
-      {
-          "Key"       "L"
-          "Command"   "+OpenSkills"
-          "Name"      "Open Skills"
-      }
-      "03"
-      {
-          "Key"       "O"
-          "Command"   "+OpenResources"
-          "Name"      "Open Resources"
-      }
-      "04"
-      {
-          "Key"       "K"
-          "Command"   "+OpenStars"
-          "Name"      "Open Stars"
-      }
-  }
-//  "desert_duo"
-//  {
-//          "MaxPlayers"                    "10"
-//  }
-//  "forest_solo"
-//  {
-//          "MaxPlayers"                    "10"
-//  }
+	TeamCount = 1
+	maps = 
+	[
+		"rpc_tutorial",
+		"rpc_redfall_ridge",
+		"rpc_winterblight_mountain",
+		"rpc_tanari_jungle",
+		"rpc_battle_of_serengaard",
+		"rpc_roshpit_arena",
+		"rpc_sea_fortress",
+	]
+	IsPlayable = 1
+	Default_Keys = 
+	[
+		{
+			Key = "P"
+			Command = "+OpenEquipment"
+			Name = "Open Equipment"
+		},
+		{
+			Key = "L"
+			Command = "+OpenSkills"
+			Name = "Open Skills"
+		},
+		{
+			Key = "O"
+			Command = "+OpenResources"
+			Name = "Open Resources"
+		},
+		{
+			Key = "K"
+			Command = "+OpenStars"
+			Name = "Open Stars"
+		},
+	]
+	map_options = 
+	[
+		{
+			MaxPlayers = 5
+			map = "rpc_sea_fortress"
+		},
+		{
+			MaxPlayers = 4
+			map = "rpc_roshpit_arena"
+		},
+		{
+			MaxPlayers = 4
+			map = "rpc_battle_of_serengaard"
+		},
+		{
+			MaxPlayers = 4
+			map = "rpc_tanari_jungle"
+		},
+		{
+			MaxPlayers = 4
+			map = "rpc_winterblight_mountain"
+		},
+		{
+			MaxPlayers = 4
+			map = "rpc_redfall_ridge"
+		},
+		{
+			MaxPlayers = 4
+			map = "rpc_tutorial"
+		},
+	]
+	HideInTools = false
+	IsTemplate = false
+	CheckAFKPlayers = false
+	DefaultMap = ""
+	DisableIK = false
+	EnablePickRules = false
+	EventGame = false
+	hero_picker = 
+	{
+	}
+	HeroGuidesSupported = false
+	ForceDefaultGuide = false
+	MinimalPrecache = false
+	MinPlayers = 1
+	MaxPlayers = 10
+	PenaltiesEnabled = false
 }

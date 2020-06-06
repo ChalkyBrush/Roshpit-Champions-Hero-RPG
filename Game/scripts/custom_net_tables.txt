@@ -2,20 +2,16 @@
 {
   custom_net_tables =
   [
-//    "game_state",
 	  "item_basics",
-	  //"item_properties",
 	  "equipment",
 	  "player_stats",
 	  "skill_tree",
 	  "hero_index",
 	  "weapons",
 	  "stash",
-	  "units",
-	  "xp_table",
-	  //"min_level_reduction",
 	  "premium_pass",
 	  "hero_values", // for save some hero based that should be send to client side
 	  "tooltip",
+	  "interface_data",
   ]
 }

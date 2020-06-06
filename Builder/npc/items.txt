@@ -2472,8 +2472,8 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
-				"Function"		"use_redfall_ashen_twig"
+				"ScriptFile"	"worlds/redfall_ridge/redfall_ridge_items.lua"
+				"Function"		"AshenTwigOnSpellStart"
 			}
 
 		}
@@ -2504,8 +2504,8 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
-				"Function"		"use_glowing_redfall_leaf"
+				"ScriptFile"	"worlds/redfall_ridge/redfall_ridge_items.lua"
+				"Function"		"GlowingRedfallLeafOnSpellStart"
 			}
 
 		}
@@ -2536,8 +2536,8 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
-				"Function"		"use_autumnleaf_firefly"
+				"ScriptFile"	"worlds/redfall_ridge/redfall_ridge_items.lua"
+				"Function"		"BurgundyFireflyOnSpellStart"
 				"difficulty"	"1"
 			}
 
@@ -2569,8 +2569,8 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
-				"Function"		"use_autumnleaf_firefly"
+				"ScriptFile"	"worlds/redfall_ridge/redfall_ridge_items.lua"
+				"Function"		"BurgundyFireflyOnSpellStart"
 				"difficulty"	"2"
 			}
 
@@ -2603,8 +2603,8 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
-				"Function"		"use_autumnleaf_firefly"
+				"ScriptFile"	"worlds/redfall_ridge/redfall_ridge_items.lua"
+				"Function"		"BurgundyFireflyOnSpellStart"
 				"difficulty"	"3"
 			}
 
@@ -2636,8 +2636,8 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/redfall_farmlands_ai.lua"
-				"Function"		"use_vermillion_bundle"
+				"ScriptFile"	"worlds/redfall_ridge/monsters/redfall_farmlands_ai.lua"
+				"Function"		"PurifiedVermillionBundleOnSpellStart"
 				"difficulty"	"1"
 			}
 
@@ -2669,8 +2669,8 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/redfall_farmlands_ai.lua"
-				"Function"		"use_vermillion_bundle"
+				"ScriptFile"	"worlds/redfall_ridge/monsters/redfall_farmlands_ai.lua"
+				"Function"		"PurifiedVermillionBundleOnSpellStart"
 				"difficulty"	"1"
 			}
 
@@ -2702,8 +2702,8 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/redfall_farmlands_ai.lua"
-				"Function"		"use_vermillion_bundle"
+				"ScriptFile"	"worlds/redfall_ridge/monsters/redfall_farmlands_ai.lua"
+				"Function"		"PurifiedVermillionBundleOnSpellStart"
 				"difficulty"	"1"
 			}
 
@@ -2735,7 +2735,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/redfall_farmlands_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/monsters/redfall_farmlands_ai.lua"
 				"Function"		"use_shipyard_key"
 				"difficulty"	"1"
 			}
@@ -2768,7 +2768,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/redfall_farmlands_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/monsters/redfall_farmlands_ai.lua"
 				"Function"		"use_shipyard_key"
 				"difficulty"	"2"
 			}
@@ -2801,7 +2801,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/redfall_farmlands_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/monsters/redfall_farmlands_ai.lua"
 				"Function"		"use_shipyard_key"
 				"difficulty"	"3"
 			}
@@ -2834,7 +2834,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/redfall_farmlands_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/monsters/redfall_farmlands_ai.lua"
 				"Function"		"use_demon_relic"
 				"difficulty"	"1"
 			}
@@ -2867,7 +2867,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/redfall_farmlands_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/monsters/redfall_farmlands_ai.lua"
 				"Function"		"use_demon_relic"
 				"difficulty"	"2"
 			}
@@ -2900,7 +2900,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/monsters/redfall_farmlands_ai.lua"
+				"ScriptFile"	"worlds/redfall_ridge/monsters/redfall_farmlands_ai.lua"
 				"Function"		"use_demon_relic"
 				"difficulty"	"3"
 			}
@@ -2932,7 +2932,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/redfall_general"
+				"ScriptFile"	"worlds/redfall_ridge/redfall_general"
 				"Function"		"use_spirit_ruby"
 				"difficulty"	"1"
 			}
@@ -2964,7 +2964,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/redfall_general"
+				"ScriptFile"	"worlds/redfall_ridge/redfall_general"
 				"Function"		"use_spirit_ruby"
 				"difficulty"	"2"
 			}
@@ -2996,7 +2996,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"worlds/redfall/redfall_general"
+				"ScriptFile"	"worlds/redfall_ridge/redfall_general"
 				"Function"		"use_spirit_ruby"
 				"difficulty"	"3"
 			}

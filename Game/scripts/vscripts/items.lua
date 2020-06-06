@@ -695,54 +695,6 @@ function RPCItems:DropItem(item, position)
 
 end
 
--- function ShouldDropItem(item)
--- if GameMode.VoteSystem.junk_loot_disabled and RPCItems:GetRarityFactor(item.rarity) < 5 and item.slot
--- and (item.newItemTable.item_slot == "weapon" or item.newItemTable.item_slot == "feet" or item.newItemTable.item_slot == "head" or item.newItemTable.item_slot == "hands" or item.newItemTable.item_slot == "body" or item.newItemTable.item_slot == "amulet") then
--- return false
--- end
--- return true
--- end
-
--- function determineIfOKdrop(item)
--- local affixCount = RPCItems:GetRarityFactor(item.rarity)
--- if affixCount > 4 then
--- affixCount = 4
--- end
--- if item.gear then
--- for i = 1, affixCount, 1 do
--- local affixTable = CustomNetTables:GetTableValue("item_properties", tostring(item:GetEntityIndex()).."-"..tostring(i))
--- DeepPrintTable(affixTable)
--- local property = 0
--- local propertyName = ""
--- if i == 1 then
--- property = item.property1
--- propertyName = item.property1name
--- elseif i == 2 then
--- property = item.property2
--- propertyName = item.property2name
--- elseif i == 3 then
--- property = item.property3
--- propertyName = item.property3name
--- elseif i == 4 then
--- property = item.property4
--- propertyName = item.property4name
--- end
--- if not affixTable then
--- return false
--- end
--- if not property then
--- return false
--- end
--- if not propertyName then
--- return false
--- end
--- end
--- return true
--- else
--- return true
--- end
--- end
-
 function RPCItems:SetTableValues(item, itemName, consumableBoolean, description, qualityColor, qualityName, prefix, suffix, rarityFactor)
 	if not item.newItemTable then
 		item.newItemTable = {}

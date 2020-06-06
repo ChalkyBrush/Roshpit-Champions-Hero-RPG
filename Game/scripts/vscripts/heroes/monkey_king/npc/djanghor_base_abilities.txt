@@ -1134,7 +1134,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+						"ScriptFile"	"worlds/redfall_ridge/redfall_forest/redfall_forest_ai.lua"
 						"Function"		"heavy_boulder_push_end"
 						"target"		"TARGET"
 					}

@@ -3,6 +3,7 @@ var root= $.GetContextPanel()
 var m_difficulty = GetDifficultyFactor();
 var range_particle
 var _new_attributes_initialized = false
+var hotkeys_initialized = false
 
 function equipment_button(){
 	var equipmentPanel = GameUI.CustomUIConfig().equipmentParent
@@ -75,16 +76,16 @@ function stars_button(){
 
 		GameEvents.SendCustomGameEventToServer( "stars_menu", {playerID: playerID, heroIndex: heroIndex, openingPlayerID: playerID});
 	}
-	
+}
+
+function quests_button(){
+	var questsPanel = GameUI.CustomUIConfig().questsParent
+	questsPanel.ToggleClass("invisible")
 }
 
 
 
 
-Game.AddCommand("+OpenEquipment", equipment_button, "", 0);
-Game.AddCommand("+OpenSkills", skills_button, "", 0);
-Game.AddCommand("+OpenResources", resources_button, "", 0);
-Game.AddCommand("+OpenStars", stars_button, "", 0);
 
 function UpdateMenuValuesOnce(){
 	var playerID = Game.GetLocalPlayerID();
@@ -108,7 +109,7 @@ function UpdateMenuValuesOnce(){
 		var gold = Players.GetGold( playerID)
 		// $('#skill_points_menu_level').text = skillPoints
 		// $('#rune_points_menu_level').text = runePoints	
-		$('#gold_menu_label').text = gold			
+		//$('#gold_menu_label').text = gold			
 		
 	}
 }
@@ -116,7 +117,6 @@ function UpdateMenuValuesOnce(){
 function UpdateMenuValues(){
 
 	UpdateMenuValuesOnce()
-	// SetKeyVisibility();
 	$.Schedule( 1.5, UpdateMenuValues );
 }
 
@@ -270,26 +270,36 @@ function CorrectDotaUI(){
 	});
 
 	var abilities = parent.FindChildTraverse('abilities').Children()
-	var qAbility = abilities[0].FindChildTraverse("AbilityButton");
-	var wAbility = abilities[1].FindChildTraverse("AbilityButton");
-	var eAbility = abilities[2].FindChildTraverse("AbilityButton");
-	var rAbility = abilities[3].FindChildTraverse("AbilityButton");
-
-	qAbility.SetPanelEvent('onmouseover', () => AbilityShowTooltip(qAbility))
-	qAbility.SetAttributeInt("abilityIndex", 0)
-	qAbility.SetPanelEvent('onmouseout', () => AbilityHideTooltip(qAbility))
-
-	wAbility.SetPanelEvent('onmouseover', () => AbilityShowTooltip(wAbility))
-	wAbility.SetAttributeInt("abilityIndex", 1)
-	wAbility.SetPanelEvent('onmouseout', () => AbilityHideTooltip(wAbility))
-
-	eAbility.SetPanelEvent('onmouseover', () => AbilityShowTooltip(eAbility))
-	eAbility.SetAttributeInt("abilityIndex", 2)
-	eAbility.SetPanelEvent('onmouseout', () => AbilityHideTooltip(eAbility))
 	
-	rAbility.SetPanelEvent('onmouseover', () => AbilityShowTooltip(rAbility))
-	rAbility.SetAttributeInt("abilityIndex", 5)
-	rAbility.SetPanelEvent('onmouseout', () => AbilityHideTooltip(rAbility))
+	if (abilities !== undefined && abilities.length > 0) {
+		var qAbility = abilities[0].FindChildTraverse("AbilityButton");
+		var wAbility = abilities[1].FindChildTraverse("AbilityButton");
+		var eAbility = abilities[2].FindChildTraverse("AbilityButton");
+		var rAbility = abilities[3].FindChildTraverse("AbilityButton");
+
+		qAbility.SetPanelEvent('onmouseover', () => AbilityShowTooltip(qAbility))
+		qAbility.SetAttributeInt("abilityIndex", 0)
+		qAbility.SetPanelEvent('onmouseout', () => AbilityHideTooltip(qAbility))
+
+		wAbility.SetPanelEvent('onmouseover', () => AbilityShowTooltip(wAbility))
+		wAbility.SetAttributeInt("abilityIndex", 1)
+		wAbility.SetPanelEvent('onmouseout', () => AbilityHideTooltip(wAbility))
+
+		eAbility.SetPanelEvent('onmouseover', () => AbilityShowTooltip(eAbility))
+		eAbility.SetAttributeInt("abilityIndex", 2)
+		eAbility.SetPanelEvent('onmouseout', () => AbilityHideTooltip(eAbility))
+		
+		rAbility.SetPanelEvent('onmouseover', () => AbilityShowTooltip(rAbility))
+		rAbility.SetAttributeInt("abilityIndex", 3)
+		rAbility.SetPanelEvent('onmouseout', () => AbilityHideTooltip(rAbility))
+	}
+	if (!hotkeys_initialized) {
+		hotkeys_initialized = true;
+		Game.AddCommand("+OpenEquipment", equipment_button, "", 0);
+		Game.AddCommand("+OpenSkills", skills_button, "", 0);
+		Game.AddCommand("+OpenResources", resources_button, "", 0);
+		Game.AddCommand("+OpenStars", stars_button, "", 0);
+	}
 }
 
 
@@ -298,7 +308,7 @@ function InitializeMenu(){
 	$('#equipment_button_label').text=$.Localize("ui_equipment")
 	$('#resource_button_label').text=$.Localize("tooltip_resources")
 
-	$('#menu_gold_label').text=$.Localize("ui_gold")
+	//$('#menu_gold_label').text=$.Localize("ui_gold")
 	// $('#menu_skill_points_label').text=$.Localize("skill_points")
 	// $('#menu_rune_points_label').text=$.Localize("runic_points")
 	if (isRedfallRidge()){
@@ -309,31 +319,6 @@ function InitializeMenu(){
 	
 }
 
-function SetKeyVisibility(){
-	var difficulty = GetDifficultyFactor()
-	var heroIndex = getSelectedHeroIndex()
-	//var keys = CustomNetTables.GetTableValue( "portal_keys", heroIndex+"-"+difficulty )
-	//$.Msg(heroIndex)
-	//$.Msg(keys)
-	if (!(keys === undefined)){
-		if (keys.forest == 1){
-			$('#portal_key_forest').RemoveClass('hidden')
-		}else{
-			$('#portal_key_forest').AddClass('hidden')
-		}
-		if (keys.desert == 1){
-			$('#portal_key_desert').RemoveClass('hidden')
-		}else{
-			$('#portal_key_desert').AddClass('hidden')
-		}
-		if (keys.mines == 1){
-			$('#portal_key_mines').RemoveClass('hidden')
-		}else{
-			$('#portal_key_mines').AddClass('hidden')
-		}
-	}
-	// CustomNetTables:SetTableValue("portal_keys", heroIndex+"-"+difficulty, {forest = 1, desert = 0, mines = 0} )
-}
 
 function KeyShowTooltip(keyName){
 	var panel = $('#portal_key_'+keyName)
@@ -490,8 +475,6 @@ function AttributeTooltipHoverFromServer(msg){
 
 (function()
 {
-	// GameEvents.Subscribe( "dota_player_update_selected_unit", UpdateMenuValues );
-	// GameEvents.Subscribe( "dota_player_update_query_unit", UpdateMenuValues );
 
 	GameEvents.Subscribe( "", UpdateMenuValues );
 	

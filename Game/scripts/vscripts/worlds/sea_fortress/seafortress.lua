@@ -287,7 +287,6 @@ function Seafortress:SpawnDungeonUnit(unitName, spawnPoint, minDrops, maxDrops, 
   end
   unit.minDungeonDrops = minDrops
   unit.maxDungeonDrops = maxDrops
-  -- Redfall.RedfallMasterAbility:ApplyDataDrivenModifier(Redfall.RedfallMaster, unit, "modifier_redfall_unit", {})
   if fv then
     unit:SetForwardVector(fv)
   end
@@ -320,7 +319,6 @@ function Seafortress:SpawnUnitNoParagon(unitName, spawnPoint, minDrops, maxDrops
   end
   unit.minDungeonDrops = minDrops
   unit.maxDungeonDrops = maxDrops
-  -- Redfall.RedfallMasterAbility:ApplyDataDrivenModifier(Redfall.RedfallMaster, unit, "modifier_redfall_unit", {})
   if fv then
     unit:SetForwardVector(fv)
   end

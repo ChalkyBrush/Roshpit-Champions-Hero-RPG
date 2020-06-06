@@ -1,0 +1,41 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/dotastyles.css" />
+		<include src="file://{resources}/styles/custom_game/quests/quests.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/quests/quests.js" />
+	</scripts>
+    <snippets>
+		<snippet name="quest_snippet">
+            <Panel class="quest" hittest="false">
+	            <Label id="quest_name" text="Testing" html="true" hittest="false"></Label>
+				<Label id="quest_text" html="true" hittest="false"> </Label>
+				<Panel id="quest_objectives_container" hittest="false"/>
+            </Panel>
+		</snippet>
+		<snippet name="quest_objective_snippet">
+            <Panel class="quest_objective_container" hittest="false">
+                <Label id="quest_objective" text="" html="true" hittest="false"></Label>
+				<Button id="quest_objective_ping_button" class="invisible"> 
+					<Label class="quest_objective_ping_label" text="quest_objective_ping"> </Label>
+				</Button>
+            </Panel>
+		</snippet>
+		<snippet name="quest_reward_snippet">
+            <Panel class="quest_reward_container" hittest="false">
+                <Label id="quest_reward" text="" html="true" hittest="false"></Label>
+				<Button id="quest_reward_button" class="invisible">
+					<Label class="quest_reward_button_label" text="quest_reward_claim"> </Label>
+				</Button>
+            </Panel>
+		</snippet>
+    </snippets>
+	<Panel class="quests" hittest="false">
+		<Panel class="quests_overhead">
+			<Label class="quests_title" text="quests_title" html="true" hittest="false"> </Label> 
+			<ToggleButton id="hide_completed_quests_buton" text="quests_hide_completed_quests_button_text" onactivate="UpdateQuests()"> </ToggleButton>
+		</Panel>
+        <Panel id="quests_container" hittest="false"/>
+	</Panel>
+</root>

@@ -64,6 +64,7 @@ function HerosCustom:GetInternalHeroName(heroName)
 	elseif heroName == "npc_dota_hero_grimstroke" then
 		return "rubilash"
 	end
+	return heroName
 end
 
 function HerosCustom:GetInternalHeroNameMain(heroName)
@@ -128,6 +129,7 @@ function HerosCustom:GetInternalHeroNameMain(heroName)
 	elseif heroName == "npc_dota_hero_grimstroke" then
 		return "rubilash"
 	end
+	return heroName
 end
 
 function HerosCustom:ConvertRPCNameToStringHeroName(RPCName)

@@ -1,0 +1,39 @@
+
+	    "quests_title"				                    "Quests"
+        "quests_hide_completed_quests_button_text"      "Hide completed quests"
+
+        "quest_objective_ping"                          "Ping"
+        "quest_reward"                                  "Reward: "
+        "quest_reward_claim"                            "Claim Reward"
+	    "quest_no_quests_title"	                        "No Quests yet."
+        "quest_no_quests_text"                          "Try to talk to people."
+
+        "quest_heart_of_the_forest_title"               "Heart of the Forest"
+	    "quest_heart_of_the_forest_text"		        "Restore 4 corrupted Vermillion Trees located within the Redfall Forest."
+        "quest_heart_of_the_forest_objective1"          "Vermillion Trees restored"
+
+        "quest_shrine_of_maru_title"                    "Shrine of Maru"
+        "quest_shrine_of_maru_text"                     "You are being attacked by Disciples of the evil god Maru."
+
+        "quest_cleansing_the_coast_title"               "Cleansing the Coast"
+        "quest_cleansing_the_coast_text"                "Defend Otaru from waves of Ocean Ghouls while he cleanses the coast."
+        "quest_cleansing_the_coast_objective1"          "Waves repelled"    
+
+        "quest_autumn_ash_title"                        "Autumn Ash"
+        "quest_autumn_ash_text"                         "Awaken and defeat the corrupted Ash Treant."
+
+        "quest_seeking_ashara_title"                    "Seeking Ashara"
+        "quest_seeking_ashara_text"                     "You found a Glowing Redfall Leaf in the remains of the Red Raven."
+        "quest_seeking_ashara_objective1"               "Find a use for the Glowing Redfall Leaf"
+        "quest_seeking_ashara_objective3"               "Find the raven statue."
+        "quest_seeking_ashara_objective4"               "Waves defeated"
+
+        "quest_fenrir_title"                            "Fallen King of the Wolves"
+        "quest_fenrir_text"                             "The ghost of Fenrir wants you to kill his body, that is controlled by a corrupted spirit."
+
+        "quest_freeing_the_world_tree_title"            "Freeing the World Tree"
+        "quest_freeing_the_world_tree_text"             "The World Tree inside the Autumn Mist Canyon has been corrupted. Defeat the evil responsible for the corruption."
+        "quest_freeing_the_world_tree_objective1"       "Use the Burgundy Firefly to open the Autumn Mist Canyon"
+        "quest_freeing_the_world_tree_objective2"       "Find a way across the gulch"
+        "quest_freeing_the_world_tree_objective4"       "Stand on the pressure plate to open the door"
+        "quest_freeing_the_world_tree_objective5"       "Defeat the ambush"

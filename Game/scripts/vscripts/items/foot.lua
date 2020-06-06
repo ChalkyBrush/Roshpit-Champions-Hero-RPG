@@ -101,7 +101,7 @@ function Foot:action(propertyName, propertyValue, hero, inventory_unit, foot_abi
 		foot_ability.item_damage = foot_ability.item_damage + propertyValue
 		Foot:addBasicModifier(foot_ability.item_damage, hero, inventory_unit, "modifier_foot_item_damage_inc", foot_ability)
 	elseif propertyName == "attack_damage" then
-		foot_ability.attack_damage = foot_ability.attack_damage + Amulet:AdjustAttackPowerBonus(hero, propertyValue)
+		foot_ability.attack_damage = foot_ability.attack_damage + propertyValue
 		Foot:addBasicModifier(foot_ability.attack_damage, hero, inventory_unit, "modifier_foot_attack_damage", foot_ability)
 	elseif propertyName == "ghost_walk" then
 		Foot:addBasicModifier(1, hero, inventory_unit, "modifier_foot_unit_walk", foot_ability)

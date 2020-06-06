@@ -51,13 +51,21 @@
 				<Label class="menu_button_hotkey" text="(K)">
 				</Label>
 			</Button>
+			<Button class="main_menu_button" id="menu_button_quests" hittest="true"
+				onactivate='quests_button()'>
+				<Image class="menu_buttom_image" src="file://{images}/custom_game/ui/star.png" />
+				<Label id="stars_button_label" class="main_menu_button_text" text="quests_menu">
+				</Label>			
+				<Label class="menu_button_hotkey" text="(L)">
+				</Label>
+			</Button>	
 			<Panel id="horizontal_rule"></Panel>
-			<Panel class="menu_stats_panel">
+			<!-- <Panel class="menu_stats_panel">
 				<Label class="menu_stats" id="menu_gold_label" text="Gold:">
 				</Label>
 				<Label class="menu_stats_value gold_color" id="gold_menu_label" text="Gold:">
 				</Label>
-			</Panel>
+			</Panel> -->
 <!-- 			<Panel class="menu_stats_panel">
 				<Label class="menu_stats" id="menu_skill_points_label" text="Skill Points:">
 				</Label>
@@ -70,7 +78,7 @@
 				<Label class="menu_stats_value rune_color" id="rune_points_menu_level" text="Gold:">
 				</Label>
 			</Panel> -->
-			<Panel class="portal_key_container">
+			<!-- <Panel class="portal_key_container">
 				<Panel class="portal_key hidden" id="portal_key_forest">
 					<Image class="portal_key_image" src="file://{images}/custom_game/ui/key-forest.png"
 					onmouseover="KeyShowTooltip('forest')"
@@ -86,7 +94,7 @@
 					onmouseover="KeyShowTooltip('mines')"
 					onmouseout="KeyHideTooltip('mines')"/>
 				</Panel>
-			</Panel>
+			</Panel> -->
 			<Panel class="menu_special_buttons">
 				<Panel class="town_portal_container">
 					<Panel id="portal_hover" class="invisible portal-hover">

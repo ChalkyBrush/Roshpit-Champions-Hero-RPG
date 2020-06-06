@@ -3052,11 +3052,11 @@ function CustomAttributes:SetAttributes(hero)
 	if hero:HasModifier("modifier_strength_aura_effect") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, nil, "modifier_strength_aura_effect", "fire_temple_strength_aura", "strength_loss")
 	end
-	if hero:HasModifier("modifier_blessing_of_maru") then
-		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, nil, "modifier_blessing_of_maru", "redfall_ability", "maru_blessing")
-		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, nil, "modifier_blessing_of_maru", "redfall_ability", "maru_blessing")
-		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, nil, "modifier_blessing_of_maru", "redfall_ability", "maru_blessing")
-		spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, nil, "modifier_blessing_of_maru", "redfall_ability", "maru_blessing")
+	if hero:HasModifier("modifier_blessing_of_the_forest") then
+		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, nil, "modifier_blessing_of_the_forest", "redfall_ability", "maru_blessing")
+		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, nil, "modifier_blessing_of_the_forest", "redfall_ability", "maru_blessing")
+		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, nil, "modifier_blessing_of_the_forest", "redfall_ability", "maru_blessing")
+		spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, nil, "modifier_blessing_of_the_forest", "redfall_ability", "maru_blessing")
 	end
 	if hero:HasModifier("modifier_demon_farmer_aura_effect") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_demon_farmer_aura_str", -1)

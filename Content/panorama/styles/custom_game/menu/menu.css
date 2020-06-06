@@ -5,23 +5,16 @@
   height:190px;
   text-align:center;
   border-top-left-radius:10px;
-  margin-bottom:2px;
-  margin-right: 0px;
   border: 1px solid black;
+  margin-right:0px;
 }
 
 .AspectRatio5x4 .main_menu  {
-	margin-bottom:340px;
-  width:220px;
-  height:190px;
-	margin-right:0px;
+	margin-bottom:122px;
 }
 
 .AspectRatio4x3 .main_menu  {
-	margin-bottom:340px;
-  width:220px;
-  height:190px;
-	margin-right:0px;
+	margin-bottom:122px;
 }
 
 #main_menu_bg{
@@ -327,6 +320,7 @@
 
 .tp-scroll-picture{
 	width:60px;
+	height:60px;
 }
 
 .tp-scroll-picture:hover{
@@ -348,7 +342,8 @@
 .menu_special_buttons{
 	width:100%;
 	flow-children:right;
-	height:40px;
+	height:50px;
+	margin-bottom:10px;
 }
 
 

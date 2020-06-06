@@ -1992,7 +1992,6 @@ function water_bomb_explode(bomb)
 	EmitSoundOn("Tanari.Bombadier.BombExplose", bomb)
 	local rocks = Entities:FindAllByNameWithin("WaterSpiritCage", bomb:GetAbsOrigin(), 540)
 	if #rocks > 0 then
-		-- EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Redfall.RockCrash", Redfall.RedfallMaster)
 		for i = 1, #rocks, 1 do
 			if not Tanari.WaterTemple.CagesUp then
 				Tanari.WaterTemple.CagesUp = 25

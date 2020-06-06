@@ -44,6 +44,9 @@
 
     <CustomUIElement type="Hud"             layoutfile="file://{resources}/layout/custom_game/dungeon_vote.xml" /> 
     
+    <!-- <CustomUIElement type="Hud"             layoutfile="file://{resources}/layout/custom_game/itemloader2.xml" /> -->
+
+
     <CustomUIElement type="Hud"             layoutfile="file://{resources}/layout/custom_game/top_left_info.xml" />
     <CustomUIElement type="HudTopBar"       layoutfile="file://{resources}/layout/custom_game/ability_level_overlay.xml" /> 
     <CustomUIElement type="Hud"             layoutfile="file://{resources}/layout/custom_game/menu_two.xml" />
@@ -66,6 +69,8 @@
     <CustomUIElement type="HeroSelection"   layoutfile="file://{resources}/layout/custom_game/multiteam_hero_select_overlay.xml" />
     <CustomUIElement type="HudTopBar"       layoutfile="file://{resources}/layout/custom_game/multiteam_top_scoreboard.xml" />
     <CustomUIElement type="Hud"             layoutfile="file://{resources}/layout/custom_game/inventory.xml" />
+
+    <CustomUIElement type="Hud"             layoutfile="file://{resources}/layout/custom_game/quests/quests.xml" />
     
     <CustomUIElement type="Hud"             layoutfile="file://{resources}/layout/custom_game/equipment/equip_item_ui.xml" />
 

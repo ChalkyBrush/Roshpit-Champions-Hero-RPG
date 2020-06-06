@@ -386,7 +386,7 @@ function redfallSYNC(context)
 end
 
 function autumnmist_cavernSYNC(context)
-  local unitTable = {"redfall_autumn_enforcer", "redfall_autumn_tyrant", "redfall_pan_knight", "redfall_canyon_alpha_beast", "redfall_canyon_breaker", "redfall_canyon_predator", "redfall_armored_crab_beast", "redfall_canyon_bull", "redfall_canyon_dinosaur", "redfall_lzard_guide", "redfall_canyon_grizzly_patriarch", "redfall_canyon_barbarian", "redfall_mist_knight", "redfall_autumn_mage", "redfall_troll_warlord", "redfall_mist_assassin", "redfall_autumn_mage_boss", "redfall_canyon_boss", "redfall_canyon_boss_miniature", "redfall_spirit_of_ashara", "redfall_ashara", "redfall_canyon_feronia"}
+  local unitTable = {"redfall_autumn_enforcer", "redfall_autumn_tyrant", "redfall_pan_knight", "redfall_canyon_alpha_beast", "redfall_canyon_breaker", "redfall_canyon_predator", "redfall_armored_crab_beast", "redfall_canyon_bull", "redfall_canyon_dinosaur", "redfall_lzard_guide", "redfall_canyon_grizzly_patriarch", "redfall_canyon_barbarian", "redfall_mist_knight", "redfall_autumn_mage", "redfall_troll_warlord", "redfall_mist_assassin", "redfall_autumn_mage_boss", "redfall_canyon_boss", "redfall_canyon_boss_miniature", "redfall_priestess_of_ashara", "redfall_ashara", "redfall_canyon_feronia"}
   for i = 1, #unitTable, 1 do
     --print("precaching: "..unitTable[i])
     PrecacheUnitByNameSync(unitTable[i], context)

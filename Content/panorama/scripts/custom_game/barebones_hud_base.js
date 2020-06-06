@@ -1,5 +1,5 @@
-function TopNotification( msg ) {
-  AddNotification(msg, $('#TopNotifications'));
+function TopNotification(msg) {
+    AddNotification(msg, $('#TopNotifications'));
 }
 
 function BottomNotification(msg) {
@@ -7,6 +7,8 @@ function BottomNotification(msg) {
 }
 
 function AddNotification(msg, panel) {
+    $.Msg("Adding Notification")
+    $.Msg(msg)
   var newNotification = true;
   var lastNotification = panel.GetChild(panel.GetChildCount() - 1)
   //$.Msg(panel.GetChildCount())
@@ -75,9 +77,14 @@ function AddNotification(msg, panel) {
     notification.abilityname = msg.ability
     notification.hittest = false;
   } else if (msg.item != null){
-    notification.item_name = msg.item
-    notification.hittest = false;
-  } else{
+        notification.item_name = msg.item
+        notification.hittest = false;
+    } else if (msg.zoneName != null) {
+        notification.html = true;
+        notification.text = $.Localize("rpc_entering_zone") + $.Localize(msg.zoneName);
+        notification.hittest = false;
+        notification.AddClass('TitleText');
+    } else {
     notification.html = true;
     var text = msg.text || "No Text provided";
     notification.text = $.Localize(text)

@@ -574,9 +574,6 @@ function SaveLoad:LoadCharacter(msg)
 		Timers:CreateTimer(1, function()
 			SaveLoad:LoadGlyphs(resultTable.character, hero)
 		end)
-		-- Timers:CreateTimer(3, function()
-		-- 	SaveLoad:LoadPortalKeys(resultTable.character, hero)
-		-- end)
 		CustomGameEventManager:Send_ServerToPlayer(player, "close_oracle", {})
 		if GameState:IsRPCArena() then
 			Arena:LoadChampionsLeagueData(hero, nil)
@@ -654,17 +651,6 @@ function SaveLoad:LoadGlyphs(character, hero)
 	end
 	CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "update_inventory", {})
 	CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "update_runes", {})
-end
-
-function SaveLoad:LoadPortalKeys(character, hero)
-	-- local heroIndex = hero:GetEntityIndex()
-	-- CustomNetTables:SetTableValue("portal_keys", tostring(heroIndex) .. "-" .. "1", {forest = character.portal1normal, desert = character.portal2normal, mines = character.portal3normal})
-	-- CustomNetTables:SetTableValue("portal_keys", tostring(heroIndex) .. "-" .. "2", {forest = character.portal1elite, desert = character.portal2elite, mines = character.portal3elite})
-	-- CustomNetTables:SetTableValue("portal_keys", tostring(heroIndex) .. "-" .. "3", {forest = character.portal1legend, desert = character.portal2legend, mines = character.portal3legend})
-	-- if GameState:IsWorld1() then
-	-- 	Beacons:ActivatePortalsForKeys()
-	-- 	CustomGameEventManager:Send_ServerToAllClients("update_key_display", {})
-	-- end
 end
 
 function SaveLoad:LoadGear(gearTable, playerID, bEquip)

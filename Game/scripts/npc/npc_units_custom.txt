@@ -2714,8 +2714,6 @@
         "PathfindingSearchDepthScale" "0.2"
     }
 
-
-
     "tracer_unit"
     {
         "BaseClass" "npc_dota_base_additive"
@@ -58462,7 +58460,7 @@
         "EnemyTier"             "3"
     }
 
-    "redfall_spirit_of_ashara"
+    "redfall_priestess_of_ashara"
     {
         "BaseClass" "npc_dota_creature"
         "Model" "models/heroes/luna/luna.vmdl"
@@ -58515,7 +58513,7 @@
         "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
         "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-        "Ability1"          "redfall_spirit_of_ashara_passive"
+        "Ability1"          "redfall_priestess_of_ashara_passive"
         "Ability2"          "redfall_autumn_mage_passive"
         "Ability3"          "normal_steadfast"
         "Ability4"          "dungeon_creep"
@@ -58560,7 +58558,7 @@
         "EnemyTier"             "2"
     }
 
-    "redfall_student_of_ashara"
+    "redfall_follower_of_ashara"
     {
         "BaseClass" "npc_dota_creature"
         "Model" "models/heroes/luna/luna.vmdl"
@@ -58603,7 +58601,7 @@
         "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
         "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-        "Ability1"      "redfall_student_of_ashara_leap"
+        "Ability1"      "redfall_follower_of_ashara_leap"
         "Ability2"      "use_ability_1_target_ai"
         "Ability3"      "dungeon_creep"
         "Creature"
@@ -61870,14 +61868,14 @@
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "145"
-        "AttackDamageMax"   "155"
+        "AttackDamageMin"   "195"
+        "AttackDamageMax"   "205"
         "AttackRate"    "1"
         "AttackAnimationPoint"  "0.45"
         "AttackAcquisitionRange"    "0"
         "ProjectileSpeed"           "900"
         "ProjectileModel"           "particles/units/heroes/hero_clinkz/clinkz_searing_arrow.vpcf"
-        "AttackRange"   "620"
+        "AttackRange"   "650"
         "BountyGoldMin" "30"
         "BountyGoldMax" "40"
         "BountyXP" "2510"
@@ -61887,7 +61885,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "340"
         "MovementTurnRate"  "0.4"
-        "StatusHealth"  "1060"
+        "StatusHealth"  "1260"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "100"
         "StatusManaRegen"   "2"
@@ -64064,13 +64062,13 @@
             "particle"  "particles/econ/items/effigies/status_fx_effigies/status_effect_effigy_gold_dire.vpcf"
 
         }
-        "Ability1"  "ancient_tree_passive"
+        "Ability1"  "ancient_tree_natures_grasp"
         "Ability2"  "ancient_tree_summon"
         "Ability3"  "ancient_tree_ground_slam"
         "Ability4"  "mega_steadfast"
-        "Ability5"  "dungeon_creep"
-        "Ability6"  "boss_health"
-        "Ability7"  ""
+        "Ability5"  "ancient_tree_passive"
+        "Ability6"  "dungeon_creep"
+        "Ability7"  "boss_health"
         "Ability8"  ""
         "ArmorPhysical" "0"
         "MagicalResistance" "0"
@@ -64210,11 +64208,10 @@
             }
 
         }
-        "Ability1"  "ancient_tree_summon_leech_seed"
+        "Ability1"  "ancient_tree_summon_photosynthesis"
         "Ability2"  "ancient_tree_summon_passive"
         "Ability3"  "normal_steadfast"
-        "Ability4"  "use_ability_1_target_ai"
-        "Ability5"  "dungeon_creep"
+        "Ability4"  "dungeon_creep"
         "RoshpitArmor"          "380"
         "RoshpitArmorPierce"    "445"
         "RoshpitSpellPierce"    "445"

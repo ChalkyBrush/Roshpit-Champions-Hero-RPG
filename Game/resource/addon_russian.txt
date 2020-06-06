@@ -16946,8 +16946,8 @@
 		"redfall_blessing_of_maru"								"Благословение Мари"
 		"redfall_blessing_of_maru_Description"					"Дарует 35/100/200 ко всем атрибутам на 60 минут."
 
-		"DOTA_Tooltip_modifier_blessing_of_maru"				"Благословение Мари"
-		"DOTA_Tooltip_modifier_blessing_of_maru_Description"	"Доп. атрибуты"
+		"DOTA_Tooltip_modifier_blessing_of_the_forest"				"Благословение Мари"
+		"DOTA_Tooltip_modifier_blessing_of_the_forest_Description"	"Доп. атрибуты"
 
 		"redfall_quest_3_title"									"Очистка Побережья"
 		"redfall_quest_3_objective"								"Отару призвал морских гулей, убейте их."
@@ -17055,8 +17055,8 @@
 		"DOTA_Tooltip_ability_redfall_heavy_stone_toss"			"Heavy Stone Toss"
 		"DOTA_Tooltip_ability_redfall_heavy_stone_toss_Description"	"Бросает в выбранную цель булыжник, который оглушит её и оттолкнёт назад."
 
-		"DOTA_Tooltip_ability_redfall_spirit_of_ashara_passive"	"Red Heavens"
-		"DOTA_Tooltip_ability_redfall_spirit_of_ashara_passive_Description"	"Красные звёзды периодически падают на ближайших врагов, нанося урон."
+		"DOTA_Tooltip_ability_redfall_priestess_of_ashara_passive"	"Red Heavens"
+		"DOTA_Tooltip_ability_redfall_priestess_of_ashara_passive_Description"	"Красные звёзды периодически падают на ближайших врагов, нанося урон."
 
 		"DOTA_Tooltip_ability_redfall_gust_wave"				"Autumn Wind"
 		"DOTA_Tooltip_ability_redfall_gust_wave_Description"	"Поток ветра наносит урон и замедляет врагов."
@@ -17185,8 +17185,8 @@
 		"DOTA_Tooltip_ability_redfall_feronia_arrow"					"Sacred Arrow"
 		"DOTA_Tooltip_ability_redfall_feronia_arrow_Description"		"Бросает священную стрелу, которая оглушает и наносит урон всем задетым врагам."
 
-		"DOTA_Tooltip_ability_redfall_student_of_ashara_leap"			"Forest Leap"	
-		"DOTA_Tooltip_ability_redfall_student_of_ashara_leap_Description"	"Прыгает в сторону выбранного юнита."
+		"DOTA_Tooltip_ability_redfall_follower_of_ashara_leap"			"Forest Leap"	
+		"DOTA_Tooltip_ability_redfall_follower_of_ashara_leap_Description"	"Прыгает в сторону выбранного юнита."
 
 		"redfall_fenrir"												"Фенрир"
 
@@ -17240,8 +17240,8 @@
 		"redfall_mist_assassin"											"Mist Assassin"
 		"redfall_autumn_mage_boss"										"Autumn Grand Magus"
 		"redfall_ashen_treant"											"Ash Treant"
-		"redfall_spirit_of_ashara"										"Spirit of Ashara"
-		"redfall_student_of_ashara"										"Student of Ashara"
+		"redfall_priestess_of_ashara"										"Priestess of Ashara"
+		"redfall_follower_of_ashara"										"Follower of Ashara"
 		"redfall_ashara"												"Ashara"
 
 		//Redfall Farmlands
@@ -17889,13 +17889,13 @@
 		"item_redfall_crimsyth_demon_relic_legend_desc"						"Древняя реликвия, излучающая темный свет. Вернитесь в фермерские угодья и найдите портал в замок Кримсит в юго-восточном углу острова."
 
 		"DOTA_Tooltip_ability_item_redfall_spirit_ruby_normal"			"Рубин Осеннего Духа"
-		"item_redfall_spirit_ruby_normal_desc"							"Использование: Активирует Равноденствие на карте Redfall Ridge. В этом режиме монстры Парагона появляются в 3 раза чаще, сопротивление и урон всех существ удвоены, увеличен шанс выпадения предметов редкости Immortal. Получаемые Мифрильные Осколки увеличены в <font color='#ccff66'>1.5</font> раза, получаемые Темные Кристаллы удвоены. Оптимально активировать в начале игры, в стартовой зоне."
+		"item_redfall_spirit_ruby_normal_desc"							"Использование: Активирует Равноденствие на карте Redfall Ridge. В этом режиме монстры Парагона появляются в 3 раза чаще, сопротивление и урон всех существ удвоены, увеличен шанс выпадения предметов редкости Immortal. Получаемые Мифрильные Осколки увеличены в 0 раза, получаемые Темные Кристаллы удвоены. Оптимально активировать в начале игры, в стартовой зоне."
 
 		"DOTA_Tooltip_ability_item_redfall_spirit_ruby_elite"			"Рубин Осеннего Духа"
-		"item_redfall_spirit_ruby_elite_desc"							"Использование: Активирует Равноденствие на карте Redfall Ridge. В этом режиме монстры Парагона появляются в 3 раза чаще, сопротивление и урон всех существ удвоены, увеличен шанс выпадения предметов редкости Immortal. Получаемые Мифрильные Осколки увеличены в <font color='#ccff66'>1.5</font>, получаемые Темные Кристаллы удвоены. Оптимально активировать в начале игры, в стартовой зоне."
+		"item_redfall_spirit_ruby_elite_desc"							"Использование: Активирует Равноденствие на карте Redfall Ridge. В этом режиме монстры Парагона появляются в 3 раза чаще, сопротивление и урон всех существ удвоены, увеличен шанс выпадения предметов редкости Immortal. Получаемые Мифрильные Осколки увеличены в 0, получаемые Темные Кристаллы удвоены. Оптимально активировать в начале игры, в стартовой зоне."
 		
 		"DOTA_Tooltip_ability_item_redfall_spirit_ruby_legend"			"Рубин Осеннего Духа"
-		"item_redfall_spirit_ruby_legend_desc"							"Использование: Активирует Равноденствие на карте Redfall Ridge. В этом режиме монстры Парагона появляются в 3 раза чаще, сопротивление и урон всех существ удвоены, увеличен шанс выпадения предметов редкости Immortal. Получаемые Мифрильные Осколки увеличены в <font color='#ccff66'>1.5</font>, получаемые Темные Кристаллы удвоены. Оптимально активировать в начале игры, в стартовой зоне."
+		"item_redfall_spirit_ruby_legend_desc"							"Использование: Активирует Равноденствие на карте Redfall Ridge. В этом режиме монстры Парагона появляются в 3 раза чаще, сопротивление и урон всех существ удвоены, увеличен шанс выпадения предметов редкости Immortal. Получаемые Мифрильные Осколки увеличены в 0, получаемые Темные Кристаллы удвоены. Оптимально активировать в начале игры, в стартовой зоне."
 		
 		"redfall_equinox"												"Равноденствие"
 
@@ -17918,11 +17918,11 @@
 		"DOTA_Tooltip_ability_ancient_tree_ground_slam_Description"		"Со всей силы бьёт по земле, оглушая и нанося урон всем задетым врагам в области действия."
 		"DOTA_Tooltip_ability_ancient_tree_ground_slam_damage"			"УРОН:"	
 
-		"DOTA_Tooltip_ability_ancient_tree_summon_leech_seed"			"Redfall Leech Seed"
-		"DOTA_Tooltip_ability_ancient_tree_summon_leech_seed_Description"	"Сажает в выбранную цель отравляющее семя, которое с каждым пульсом исцеляет Осквернённое Мировое Древо и всю его армию на % от макс. здоровья."	
-		"DOTA_Tooltip_ability_ancient_tree_summon_leech_seed_heal_percent"	"ЛЕЧЕНИЕ %:"
-		"DOTA_Tooltip_ability_ancient_tree_summon_leech_seed_heal_percent_boss"	"ЛЕЧЕНИЕ МИРОВОГО ДРЕВА %:"
-		"DOTA_Tooltip_ability_ancient_tree_summon_leech_seed_damage_per_tick"	"УРОН В СЕКУНДУ:"
+		"DOTA_Tooltip_ability_ancient_tree_summon_photosynthesis"			"Redfall Leech Seed"
+		"DOTA_Tooltip_ability_ancient_tree_summon_photosynthesis_Description"	"Сажает в выбранную цель отравляющее семя, которое с каждым пульсом исцеляет Осквернённое Мировое Древо и всю его армию на % от макс. здоровья."	
+		"DOTA_Tooltip_ability_ancient_tree_summon_photosynthesis_heal_percent_self"	"ЛЕЧЕНИЕ %:"
+		"DOTA_Tooltip_ability_ancient_tree_summon_photosynthesis_heal_percent_boss"	"ЛЕЧЕНИЕ МИРОВОГО ДРЕВА %:"
+		"DOTA_Tooltip_ability_ancient_tree_summon_photosynthesis_damage_per_tick"	"УРОН В СЕКУНДУ:"
 
 		"DOTA_Tooltip_modifier_summon_leech_seed_debuff"				"Redfall Leech Seed"
 		"DOTA_Tooltip_modifier_summon_leech_seed_debuff_Description"	"Получает урон и исцеляет Мировое Древо и всю его армию."
@@ -23049,5 +23049,47 @@
 
 		"tarot_world"												"Мир"
 		"tarot_world_description"									"Абсолютно всё..."
+
+
+
+	    "quests_title"				                    "Quests"
+        "quests_hide_completed_quests_button_text"      "Hide completed quests"
+
+        "quest_objective_ping"                          "Ping"
+        "quest_reward"                                  "Reward: "
+        "quest_reward_claim"                            "Claim Reward"
+	    "quest_no_quests_title"	                        "No Quests yet."
+        "quest_no_quests_text"                          "Try to talk to people."
+
+        "quest_heart_of_the_forest_title"               "Heart of the Forest"
+	    "quest_heart_of_the_forest_text"		        "Restore 4 corrupted Vermillion Trees located within the Redfall Forest."
+        "quest_heart_of_the_forest_objective1"          "Vermillion Trees restored"
+
+        "quest_shrine_of_maru_title"                    "Shrine of Maru"
+        "quest_shrine_of_maru_text"                     "You are being attacked by Disciples of the evil god Maru."
+
+        "quest_cleansing_the_coast_title"               "Cleansing the Coast"
+        "quest_cleansing_the_coast_text"                "Defend Otaru from waves of Ocean Ghouls while he cleanses the coast."
+        "quest_cleansing_the_coast_objective1"          "Waves repelled"    
+
+        "quest_autumn_ash_title"                        "Autumn Ash"
+        "quest_autumn_ash_text"                         "Awaken and defeat the corrupted Ash Treant."
+
+        "quest_seeking_ashara_title"                    "Seeking Ashara"
+        "quest_seeking_ashara_text"                     "You found a Glowing Redfall Leaf in the remains of the Red Raven."
+        "quest_seeking_ashara_objective1"               "Find a use for the Glowing Redfall Leaf"
+        "quest_seeking_ashara_objective3"               "Find the raven statue."
+        "quest_seeking_ashara_objective4"               "Waves defeated"
+
+        "quest_fenrir_title"                            "Fallen King of the Wolves"
+        "quest_fenrir_text"                             "The ghost of Fenrir wants you to kill his body, that is controlled by a corrupted spirit."
+
+        "quest_freeing_the_world_tree_title"            "Freeing the World Tree"
+        "quest_freeing_the_world_tree_text"             "The World Tree inside the Autumn Mist Canyon has been corrupted. Defeat the evil responsible for the corruption."
+        "quest_freeing_the_world_tree_objective1"       "Use the Burgundy Firefly to open the Autumn Mist Canyon"
+        "quest_freeing_the_world_tree_objective2"       "Find a way across the gulch"
+        "quest_freeing_the_world_tree_objective4"       "Stand on the pressure plate to open the door"
+        "quest_freeing_the_world_tree_objective5"       "Defeat the ambush"
+
 	}
 }

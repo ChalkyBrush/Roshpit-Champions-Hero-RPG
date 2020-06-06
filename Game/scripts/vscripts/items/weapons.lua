@@ -89,7 +89,6 @@ Weapons.STARTING_ATTACK_DMG = 10
 Weapons.STARTING_ASPECT_HEALTH = 50
 
 function Weapons:InitialWeapon(hero, item_variant, itemName)
-	--print("[Weapons:InitialWeapon]")
 	local item = RPCItems:CreateItem(item_variant, nil, nil)
 	local item_slot = RPC_GEAR_SLOT_WEAPON
 	local rarity = RPC_ITEMS_RARITY_COMMON

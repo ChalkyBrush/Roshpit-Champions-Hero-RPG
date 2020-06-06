@@ -36,6 +36,9 @@ function UpdateAbilityList()
 	var nRemainingPoints = Entities.GetAbilityPoints( queryUnit );
 	var bPointsToSpend = ( nRemainingPoints > 0 );
 	var bControlsUnit = Entities.IsControllableByPlayer( queryUnit, Game.GetLocalPlayerID() );
+	if (!bControlsUnit || Entities.GetUnitName(queryUnit) == "npc_dota_hero_wisp"){
+		return;
+	}
 	var player_stats = CustomNetTables.GetTableValue( "player_stats", Game.GetLocalPlayerID().toString() );
 	if (!(player_stats === undefined)){
 		var skillPoints = player_stats.skillPoints

@@ -277,7 +277,7 @@ function GameMode:OnAllPlayersLoaded()
     --   Arena:Init()
     -- end)
   elseif GameState:IsRedfallRidge() then
-    require('worlds/redfall/redfall')
+    require('worlds/redfall_ridge/redfall')
     -- Timers:CreateTimer(5, function()
     --   Redfall:InitCamp()
     -- end)

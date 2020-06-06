@@ -222,6 +222,29 @@ function Enemies:SpawnEnemy(unitName, spawnPoint, aggroSound, fv, isAggro)
 	return unit
 end
 
+function Enemies:SpawnEnemyAsync(unitName, spawnPoint, aggroSound, fv, isAggro, callbackFunction)
+	local callback = function(unit)
+		if callbackFunction then
+			callbackFunction(unit)
+		end
+		if aggroSound then
+			unit.aggroSound = aggroSound
+		end
+		if fv then
+			unit:SetForwardVector(fv)
+		end
+		if isAggro then
+			Dungeons:AggroUnit(unit)
+		end
+		local ability = unit:FindAbilityByName("dungeon_creep")
+		if ability then
+			ability:SetLevel(1)
+			ability:ApplyDataDrivenModifier(unit, unit, "modifier_dungeon_thinker_creep", {})
+		end
+	end
+	CreateUnitByNameAsync(unitName, spawnPoint, true, nil, nil, DOTA_TEAM_NEUTRALS, callback)
+end
+
 function Enemies:InitializeEnemy(unit)
 	local base_level = unit:GetKeyValue("RoshpitLevel")
 	Enemies:AdjustUnitLevelForMapSpecial(unit, unit.roshpit_attributes.roshpit_level)
@@ -232,10 +255,8 @@ function Enemies:InitializeEnemy(unit)
 	if unit_level == 1337 then
 		Notifications:BottomToAll({text = "Unit level is not yet set: "..unit:GetUnitName(), duration = 5.0})
 		unit_level = 120
-	end
-	-- exp
-	--print(unit_level)
-	--print(enemyTier)
+    end
+    
 	local deathXP = Enemies.EXP_BASE_TABLE[unit_level] * Enemies.MOB_TIER_EXP_MULT[enemyTier]
 	local deathXP = deathXP + (deathXP * (math.max(0, RPCItems:GetConnectedPlayerCount() - 1)*Enemies.ADDITIONAL_MOB_EXP_PER_PLAYER)) + deathXP*GameState:GetPlayerPremiumStatusCount()*Enemies.EXTRA_EXP_PER_PASS_PLAYER
 	if GameState:IsSerengaard() then
@@ -272,12 +293,12 @@ function Enemies:InitializeEnemy(unit)
 
 	local newArmorPierce = (unit.roshpit_attributes.roshpit_armor_pierce*Enemies.DIFFICULTY_ROSHPIT_ATTRIBUTE_ADJUST[difficulty][enemyTier]+Enemies:GetFlatRoshpitAttributeForDifficulty(unit, base_level))*Enemies.SPIRIT_REALM_CONSTANTS[spirit_realm]["roshpit_attribute"]
 	newArmorPierce = Enemies:AdjustAttributeForMapSpecial(unit, "roshpit_armor_pierce", newArmorPierce)
-	newArmorPierce = newArmorPierce*Enemies.DIFFICULTY_PIERCE_ADJUST[difficulty]
+	newArmorPierce = newArmorPierce * Enemies.DIFFICULTY_PIERCE_ADJUST[difficulty]
 	unit:SetBaseRoshpitArmorPierce(newArmorPierce, false)
 
 	local newSpellPierce = (unit.roshpit_attributes.roshpit_spell_pierce*Enemies.DIFFICULTY_ROSHPIT_ATTRIBUTE_ADJUST[difficulty][enemyTier]+Enemies:GetFlatRoshpitAttributeForDifficulty(unit, base_level))*Enemies.SPIRIT_REALM_CONSTANTS[spirit_realm]["roshpit_attribute"]
 	newSpellPierce = Enemies:AdjustAttributeForMapSpecial(unit, "roshpit_spell_pierce", newSpellPierce)
-	newSpellPierce = newSpellPierce*Enemies.DIFFICULTY_PIERCE_ADJUST[difficulty]
+	newSpellPierce = newSpellPierce * Enemies.DIFFICULTY_PIERCE_ADJUST[difficulty]
 	unit:SetBaseRoshpitSpellPierce(newSpellPierce, false)
 
 
@@ -558,8 +579,8 @@ function Enemies:EnemySlain(unit, killingUnit)
 	end
 	if baseEXP > 0 then
 		local expPopup = baseEXP
-		
 		local heroes = FindUnitsInRadius(DOTA_TEAM_NEUTRALS, unit:GetAbsOrigin(), nil, 2000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false)
+		Quests:IncrementQuestObjective(unit:GetUnitName())
 		if #heroes > 0 then
 			for _, hero in pairs(heroes) do
 				local exp_per_hero = Enemies:SplitAdjustedEXP(baseEXP, #heroes)
@@ -585,13 +606,12 @@ end
 function Enemies:GrantHeroAdjustedEXPForLevel(hero, level_of_slain_enemy, baseEXP)
 	local exp = baseEXP
 	local level_differential = math.abs(hero:GetLevel() - level_of_slain_enemy)
-	--print("GRANT EXP")
-	--print(exp)
-	--print(level_differential)
+	if hero:HasModifier("modifier_preservers_mantra") then
+		exp = exp * 1.2
+	end
 	if level_differential > Enemies.EXP_LEVEL_DIFFERENTIAL then
-		local exp_mult = math.max((1 - Enemies.EXP_DECAY_PER_LEVEL_BEYOND_DIFFERENTIAL*(level_differential-Enemies.EXP_LEVEL_DIFFERENTIAL)), Enemies.MINIMUM_EXP_PERCENTAGE_AFTER_FULL_DECAY )
-		--print(exp_mult)
-		exp = exp*exp_mult
+		local exp_mult = math.max((1 - Enemies.EXP_DECAY_PER_LEVEL_BEYOND_DIFFERENTIAL*(level_differential-Enemies.EXP_LEVEL_DIFFERENTIAL)), Enemies.MINIMUM_EXP_PERCENTAGE_AFTER_FULL_DECAY)
+		exp = exp * exp_mult
 	end
 	if exp > 0 then
 		if hero:IsAlive() then
@@ -661,7 +681,6 @@ function Enemies:SpawnEnemyUnit(unitName, spawnPoint, fv, isAggro)
 	  unit:SetForwardVector(fv)
 	end
     if isAggro then
-      print("AGGRO THIS BITCH ON SPAWN")
       Dungeons:AggroUnit(unit)
     end
     return unit

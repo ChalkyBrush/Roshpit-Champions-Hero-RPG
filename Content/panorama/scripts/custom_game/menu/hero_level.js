@@ -55,7 +55,7 @@ function HeroLevelUP()
 
 function getXPNeededForLevel(iLevel)
 {
-		var xpTable = CustomNetTables.GetTableValue( "xp_table",  iLevel.toString() )
+		var xpTable = undefined
 		if (xpTable===undefined){
 			return 1;
 		}

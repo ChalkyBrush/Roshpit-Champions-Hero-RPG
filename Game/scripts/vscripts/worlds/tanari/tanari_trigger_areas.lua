@@ -953,7 +953,8 @@ function respawn_flag_succeed(event)
 		flag:SetRenderColor(255, 255, 130)
 	end
 	flag:FindAbilityByName("dummy_unit"):SetLevel(1)
-	caster.respawnFlag = flag
+    caster.respawnFlag = flag
+    caster:SetRespawnPosition(caster:GetAbsOrigin())
 	CustomAbilities:QuickAttachParticle("particles/econ/items/meepo/meepo_colossal_crystal_chorus/meepo_divining_rod_poof_end.vpcf", flag, 3)
 	CustomAbilities:QuickAttachParticle("particles/econ/items/monkey_king/arcana/water/mk_spring_arcana_water_channel_powertrails.vpcf", flag, 4)
 	Events:TutorialServerEvent(caster, "1_2", 0)

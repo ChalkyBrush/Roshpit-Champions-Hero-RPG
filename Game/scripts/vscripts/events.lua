@@ -9,7 +9,7 @@ require('dungeons')
 require('enemies')
 require('game_state')
 require('saveload')
-require('quests')
+require('quests/quests')
 require('glyphs')
 require('paragon')
 require('elements')
@@ -17,7 +17,7 @@ require('spawning')
 require('keyvalues')
 require('challenges_reborn')
 
-Beacons.cheats = false
+Beacons.cheats = false or Convars:GetBool("developer")
 
 if Events == nil then
 	Events = class({})
@@ -38,7 +38,7 @@ STARS_INCREASE_MITHRIL_ADDITIVE = false
 MITHRIL_INCREASE_PER_STAR_PCT = 0.08
 
 ROSHPIT_URL = "https://roshpit.herokuapp.com"
--- ROSHPIT_URL = "https://roshpit-test.herokuapp.com/"
+--ROSHPIT_URL = "https://roshpit-test.herokuapp.com/"
 ROSHPIT_VERSION = '4.1'
 
 SPAWN_POINT_OPEN_1 = Vector(-7232, -6464)
@@ -171,8 +171,9 @@ function GameMode:OnGameRulesStateChange(keys)
 			Winterblight:InitCamp()
 		elseif GameState:IsTutorial() then
 			Tutorial:InitTutorialMap()
-		end
-
+        end
+        Events:InitTownNpcs()
+		Quests:InitializePingDummies()
 		if GameState:IsPVPAlpha() then
 			PVP:SetPvpRules()
 			CustomGameEventManager:Send_ServerToAllClients("closePVPVoteScreen", {})
@@ -215,7 +216,16 @@ function GameMode:CorrectRespawn(npc)
 	if npc:IsRealHero() then
 		-- npc:ReequipAllGear(nil)
 		-- lets try not having this
-	end
+    end
+
+    if GameState:IsRedfallRidge() then
+        if npc.respawnFlag then
+            UTIL_Remove(npc.respawnFlag)
+            npc.respawnFlag = false
+            npc:SetRespawnPosition(npc.currentActiveSpawnPoint)
+        end
+        return 
+    end
 	if GameState:IsWorld1() then
 		if Events.isTownActive then
 			local vector = TOWN_RESPAWN_VECTOR
@@ -241,7 +251,7 @@ function GameMode:CorrectRespawn(npc)
 		if Dungeons.entryPoint and not Beacons.expireVote then
 			npc:SetOrigin(Dungeons.entryPoint)
 		end
-	elseif GameState:IsTanariJungle() or GameState:IsRedfallRidge() or GameState:IsSeaFortress() or GameState:IsWinterblight() or GameState:IsTutorial() then
+	elseif GameState:IsTanariJungle() or GameState:IsSeaFortress() or GameState:IsWinterblight() or GameState:IsTutorial() then
 		if npc.respawnFlag then
 			Events:RespawnFlag(npc)
 		else
@@ -392,10 +402,10 @@ function Events:PickUpTest(heroEntity, itemEntity, itemname)
 				if rarityFactor < 5 then
 					RPCItems:LegendaryPickup(itemEntity, heroEntity)
 				end
-			elseif item_name == "item_redfall_ashen_twig" then
-				Redfall:PickupAshTwig()
-			elseif item_name == "item_redfall_glowing_redfall_leaf" then
-				Redfall:PickupEnchantedLeaf()
+			elseif itemEntity:GetAbilityName() == "item_redfall_ashen_twig" then
+                Quests:StartNewQuest("autumn_ash")
+			elseif itemEntity:GetAbilityName() == "item_redfall_glowing_redfall_leaf" then
+                Quests:StartNewQuest("seeking_ashara")
 			end
 		end
 	end
@@ -536,7 +546,46 @@ function GameMode:OnPlayerChat(keys)
 			Gems:AddSocket(item)
 			Gems:AddSocket(item)
 			RPCItems:BasicDropItem(hero:GetAbsOrigin(), item)
+        elseif check_command("-debug") then
+			local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
+			local vector = hero:GetAbsOrigin()
+            GameRules:GetGameModeEntity():SetFogOfWarDisabled(true)
+                
+            Redfall:GiveSpiritRuby(hero, vector)
+            
+            local key = RPCItems:CreateConsumable("item_redfall_burgundy_firefly_normal", "rare", "redfall_key", "consumable", false, "Consumable", "item_redfall_burgundy_firefly_normal_desc")
+            RPCItems:GiveItemToHeroWithSlotCheck(hero, key)
 
+            Redfall:GiveVermillionBundle(hero, vector)
+            
+            Redfall:GiveShipyardKey(hero, vector)
+            
+            Redfall:GiveDemonRelic(hero, vector)
+            local item = RPCItems:CreateItem("item_debug_blink", nil, nil)
+            local drop = CreateItemOnPositionSync(Vector(-15168, -14976), item)
+            RPCItems:DropItem(item, Vector(-15168, -14976))
+		elseif check_command("-exclamation") then
+			local exclamationMark = SpawnEntityFromTableSynchronous("prop_dynamic", {origin = Vector(-12608, -13440, Redfall.ZFLOAT + 150)})
+			exclamationMark:SetModel("models/ui/exclamation/exclamation.vmdl")
+			exclamationMark:SetModelScale(0.05)		
+            exclamationMark:SetForwardVector(Vector(1, -1, 0))
+        elseif check_command("-text") then
+            DebugDrawText(Vector(-15750, -15424, Redfall.ZFLOAT + 200), "This is just a testaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", true, 99999999999)
+		elseif check_command("-square") then
+			local size = 600
+			local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
+			local location = hero:GetAbsOrigin() + Vector(0, 0, 10)
+			local radius = math.sqrt(size * size + size * size)
+			local thickness = 1
+		
+			local pfx = ParticleManager:CreateParticle("particles/circle.vpcf", PATTACH_ABSORIGIN, hero)
+			ParticleManager:SetParticleControl(pfx, 0, location)
+			ParticleManager:SetParticleControl(pfx, 1, Vector(size, thickness, 0))
+			ParticleManager:SetParticleControl(pfx, 62, Vector(0, 0, 0))
+			Timers:CreateTimer(2.5, function()
+				ParticleManager:DestroyParticle(pfx, false)
+				ParticleManager:ReleaseParticleIndex(pfx)
+			end)
 		elseif check_command("-arc") then
 			local name = args[2]
 			local level = tonumber(args[3], 10) or 1
@@ -579,12 +628,19 @@ function GameMode:OnPlayerChat(keys)
 		elseif check_command("-map_keys") then
 			local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
 			local vector = hero:GetAbsOrigin()
-			if GameState:IsRedfallRidge() then
-				Redfall:GiveSpiritRuby(hero, vector)
-				Redfall:GiveBurgundyFirefly(hero, vector)
-				Redfall:GiveVermillionBundle(hero, vector)
-				Redfall:GiveShipyardKey(hero, vector)
-				Redfall:GiveDemonRelic(hero, vector)
+            if GameState:IsRedfallRidge() then
+                
+                Redfall:GiveSpiritRuby(hero, vector)
+                
+                local key = RPCItems:CreateConsumable("item_redfall_burgundy_firefly_normal", "rare", "redfall_key", "consumable", false, "Consumable", "item_redfall_burgundy_firefly_normal_desc")
+                RPCItems:GiveItemToHeroWithSlotCheck(hero, key)
+
+                Redfall:GiveVermillionBundle(hero, vector)
+                
+                Redfall:GiveShipyardKey(hero, vector)
+                
+                Redfall:GiveDemonRelic(hero, vector)
+                
 			elseif GameState:IsTanariJungle() then
 				Tanari:WitchDoctorCombine(hero, GameState:GetDifficultyFactor())
 				Tanari:AcquireTempleKey(vector, "wind")
@@ -617,7 +673,26 @@ function GameMode:OnPlayerChat(keys)
 			msg.PlayerID = keys.playerid
 			GameState:GetHeroByPlayerID(keys.playerid).gem_reward = amount
 			Gems:CollectReward(msg)
-		
+        
+        elseif check_command("-fogoff") then
+            GameRules:GetGameModeEntity():SetFogOfWarDisabled(true)
+        elseif check_command("-fogon") then
+            GameRules:GetGameModeEntity():SetFogOfWarDisabled(false)
+        elseif check_command("-treasureroom") then
+            if not Redfall.Castle then
+                Redfall.Castle = {}
+            end
+            local torch = CreateUnitByName("npc_dummy_unit", Vector(432, 6916), false, nil, nil, DOTA_TEAM_NEUTRALS)
+            torch:SetOriginalModel("models/props_gameplay/rune_invisibility01.vmdl")
+            torch:SetModel("models/props_gameplay/rune_invisibility01.vmdl")
+            torch.jumpLock = true
+            torch:SetForwardVector(Vector (0, 1))
+            torch:SetModelScale(4.0)
+            torch:AddAbility("dummy_unit_can_be_attacked_cant_die"):SetLevel(1)
+            torch:AddAbility("redfall_arcane_crystal_mine"):SetLevel(1)
+            torch:RemoveAbility("dummy_unit")
+            torch:RemoveModifierByName("dummy_unit")
+            torch.attacks = 6
 		elseif check_command("-tanari") then
 			Tanari:Debug()
 
@@ -705,61 +780,41 @@ function GameMode:OnPlayerChat(keys)
 			local text2 = "Forward Vector: "..tostring(hero:GetForwardVector())
 			Notifications:Bottom(keys.playerid, {text = text2, duration = 15.0})
 			print(text2)
-
-		elseif check_command("-boss_canyon_paragon") then
-			Beacons.paragon = true
-			Beacons.packs = false
+        elseif check_command("-zones") then
+            Redfall:CalculateHeroZones()
+        elseif check_command("-otaru") then
+            local otaruSpawner = Entities:FindAllByName("npc_spawner_redfall_otaru")[1]
+            if otaruSpawner then
+                local callback = function(otaru)
+                    otaru.hasSpeechBubble = false
+                    otaru:SetForwardVector(otaruSpawner:GetForwardVector())
+                    otaru:FindAbilityByName("town_unit_not_invuln"):SetLevel(1)
+                    otaru:FindAbilityByName("redfall_otaru_ability"):SetLevel(1)
+                    otaru.state = 0
+                    Redfall.Otaru = otaru
+        
+                    local exclamationMark = SpawnEntityFromTableSynchronous("prop_dynamic", {origin = Vector(Redfall.Otaru:GetAbsOrigin().x, Redfall.Otaru:GetAbsOrigin().y, Redfall.ZFLOAT + 230)})
+                    exclamationMark:SetModel("models/ui/exclamation/exclamation.vmdl")
+                    exclamationMark:SetModelScale(0.05)		
+                    exclamationMark:SetForwardVector(Redfall.Otaru:GetForwardVector())
+                    Redfall.Otaru.ExclamationMark = exclamationMark
+                end
+                CreateUnitByNameAsync("redfall_otaru", otaruSpawner:GetAbsOrigin(), true, nil, nil, DOTA_TEAM_GOODGUYS, callback)
+            end
+        elseif check_command("-updatequests") then
+            Quests:UpdateQuests()
+		elseif check_command("-equinox_on") then
+			Events.SpiritRealm = true
+		elseif check_command("-boss_canyon") then
 			local unit = Redfall:SpawnCanyonBossParagonTest()
-
-		elseif check_command("-boss_canyon_pack") then
-			Beacons.paragon = false
-			Beacons.packs = true
-			local unit = Redfall:SpawnCanyonBossParagonTest()
-
-		elseif check_command("-boss_canyon_normal") then
-			Beacons.paragon = false
-			Beacons.packs = false
-			local unit = Redfall:SpawnCanyonBossParagonTest()
-
-		elseif check_command("-boss_tree_paragon") then
-			Beacons.paragon = true
-			Beacons.packs = false
+		elseif check_command("-boss_tree") then
 			local unit = Redfall:SpawnAncientTree()
-
-		elseif check_command("-boss_tree_pack") then
-			Beacons.paragon = false
-			Beacons.packs = true
-			local unit = Redfall:SpawnAncientTree()
-
-		elseif check_command("-boss_tree_normal") then
-			Beacons.paragon = false
-			Beacons.packs = false
-			local unit = Redfall:SpawnAncientTree()
-
-		elseif check_command("-boss_fire_normal") then
+		elseif check_command("-boss_fire") then
 			if not Tanari.FireTemple then
 				Tanari.FireTemple = {}
 			end
-			Beacons.paragon = false
-			Beacons.packs = false
 			Tanari:FireTempleFinalBossSpawn()
-
-		elseif check_command("-boss_fire_paragon") then
-			if not Tanari.FireTemple then
-				Tanari.FireTemple = {}
-			end
-			Beacons.paragon = true
-			Beacons.packs = false
-			Tanari:FireTempleFinalBossSpawn()
-
-		elseif check_command("-boss_fire_pack") then
-			if not Tanari.FireTemple then
-				Tanari.FireTemple = {}
-			end
-			Beacons.paragon = false
-			Beacons.packs = true
-			Tanari:FireTempleFinalBossSpawn()
-		elseif check_command("-black_mage") then
+		elseif check_command("-boss_black_mage") then
 			Arena:SpawnConquestBoss()
 		elseif check_command("-log") then
 			CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(keys.playerid), "error_logger_open", {})
@@ -769,7 +824,6 @@ function GameMode:OnPlayerChat(keys)
 			local playerid = keys.playerid
 			local steamID = PlayerResource:GetSteamAccountID(playerid)
 			LoadCharacterDev(playerid, strn[1], strn[2])
-
 		elseif check_command("-tarot") then
 			local position = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin()
 			local tarot_name = args[2]
@@ -791,7 +845,38 @@ function GameMode:OnPlayerChat(keys)
 
 		elseif check_command("-fog") then
 			mode:SetFogOfWarDisabled(not mode:GetFogOfWarDisabled())
+		elseif check_command("-camera") then
+			GameRules:GetGameModeEntity():SetCameraDistanceOverride(tonumber(args[2]))
+		elseif check_command("-initfarm") then
+			local bridge = Entities:FindAllByNameWithin("RedfallForest_RedfallFarmlands_Bridge", Vector(1728, -7281.91, 100 + Redfall.ZFLOAT), 50000000000)
+			for i = 1, #bridge, 1 do
+				bridge[i]:SetAbsOrigin(bridge[i]:GetAbsOrigin() - Vector(0, 0, 1000))
+			end
+		elseif check_command("-farmlands") then
+			local position = Vector(1728, -7281.91, 100 + Redfall.ZFLOAT)
+			local bridge = Entities:FindAllByNameWithin("RedfallForest_RedfallFarmlands_Bridge", Vector(1728, -7281.91, 100 + Redfall.ZFLOAT), 3000)
 
+			local height = 1000
+			local steps = 200 --multiply with 0.03 for time taken
+			local startspeed = 3.5
+			local velocity = height / math.pow(steps, 1 / startspeed)
+			--math.pow(height / velocity, 2)
+			local totalHeight = 0
+			for j = 1, steps, 1 do
+				local step = math.pow(j, 1 / startspeed) * velocity - totalHeight
+				for i = 1, #bridge, 1 do
+					Timers:CreateTimer(j * 0.03, function()
+						bridge[i]:SetAbsOrigin(bridge[i]:GetAbsOrigin() + Vector(0, 0, step))
+					end)
+				end
+				totalHeight = totalHeight + step
+			end
+			Timers:CreateTimer(steps * 0.03, function()
+				local blockers = Entities:FindAllByNameWithin("RedfallForest_RedfallFarmlands_Obstruction", Vector(1728, -7281.91, 100 + Redfall.ZFLOAT), 3000)
+				for i = 1, #blockers, 1 do
+					UTIL_Remove(blockers[i])
+				end
+			end)
 		elseif check_command("-dbg") then
 			-- Serengaard:KillAllNeutrals()
 			-- local position = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin()
@@ -863,9 +948,6 @@ function LoadCharacterDev(playerID, slot, steamID)
 			end
 			Timers:CreateTimer(1, function()
 				SaveLoad:LoadGlyphs(resultTable.character, hero)
-			end)
-			Timers:CreateTimer(3, function()
-				SaveLoad:LoadPortalKeys(resultTable.character, hero)
 			end)
 			if GameState:IsRPCArena() then
 				Arena:LoadChampionsLeagueData(hero, nil)
@@ -1133,8 +1215,9 @@ end
 -- A player picked a hero
 function GameMode:OnPlayerPickHero(keys)
 	DebugPrint('[BAREBONES] OnPlayerPickHero')
-	DebugPrintTable(keys)
-
+    DebugPrintTable(keys)
+    print("Hero Picked:")
+    DeepPrintTable(keys)
 	local heroClass = keys.hero
 	local heroEntity = EntIndexToHScript(keys.heroindex)
 	local player = EntIndexToHScript(keys.player)
@@ -1261,47 +1344,6 @@ function Events:InitializeHero(heroEntity)
 	end
 end
 
-function Events:EarnKey(clearedZone)
-	-- local difficulty = GameState:GetDifficultyFactor()
-	-- local keyName = ""
-	-- if clearedZone == "forest" then
-	-- 	for i = 1, #MAIN_HERO_TABLE, 1 do
-	-- 		local heroIndex = MAIN_HERO_TABLE[i]:GetEntityIndex()
-	-- 		local existingKeysThisDifficulty = CustomNetTables:GetTableValue("portal_keys", tostring(heroIndex) .. "-"..tostring(difficulty))
-	-- 		CustomNetTables:SetTableValue("portal_keys", tostring(heroIndex) .. "-"..difficulty, {forest = existingKeysThisDifficulty.forest, desert = 1, mines = existingKeysThisDifficulty.mines})
-	-- 		keyName = "desert"
-	-- 		local playerID = MAIN_HERO_TABLE[i]:GetPlayerOwnerID()
-	-- 		if existingKeysThisDifficulty.desert == 0 then
-	-- 			CustomGameEventManager:Send_ServerToAllClients("PickupPopup", {item = -1, heroId = MAIN_HERO_TABLE[i]:GetUnitName(), playerId = playerID, pickup = "key", keyName = keyName})
-	-- 		end
-	-- 	end
-	-- elseif clearedZone == "desert" then
-	-- 	for i = 1, #MAIN_HERO_TABLE, 1 do
-	-- 		local heroIndex = MAIN_HERO_TABLE[i]:GetEntityIndex()
-	-- 		local existingKeysThisDifficulty = CustomNetTables:GetTableValue("portal_keys", tostring(heroIndex) .. "-"..tostring(difficulty))
-	-- 		CustomNetTables:SetTableValue("portal_keys", tostring(heroIndex) .. "-"..difficulty, {forest = existingKeysThisDifficulty.forest, desert = existingKeysThisDifficulty.desert, mines = 1})
-	-- 		keyName = "mines"
-	-- 		local playerID = MAIN_HERO_TABLE[i]:GetPlayerOwnerID()
-	-- 		if existingKeysThisDifficulty.mines == 0 then
-	-- 			CustomGameEventManager:Send_ServerToAllClients("PickupPopup", {item = -1, heroId = MAIN_HERO_TABLE[i]:GetUnitName(), playerId = playerID, pickup = "key", keyName = keyName})
-	-- 		end
-	-- 	end
-	-- elseif clearedZone == "mines" and difficulty < 3 then
-	-- 	for i = 1, #MAIN_HERO_TABLE, 1 do
-	-- 		local heroIndex = MAIN_HERO_TABLE[i]:GetEntityIndex()
-	-- 		local existingKeysNextDifficulty = CustomNetTables:GetTableValue("portal_keys", tostring(heroIndex) .. "-"..tostring(difficulty + 1))
-	-- 		CustomNetTables:SetTableValue("portal_keys", tostring(heroIndex) .. "-"..difficulty + 1, {forest = 1, desert = existingKeysNextDifficulty.desert, mines = existingKeysNextDifficulty.mines})
-	-- 		keyName = "forest"
-	-- 		local playerID = MAIN_HERO_TABLE[i]:GetPlayerOwnerID()
-	-- 		if existingKeysNextDifficulty.forest == 0 then
-	-- 			CustomGameEventManager:Send_ServerToAllClients("PickupPopup", {item = -1, heroId = MAIN_HERO_TABLE[i]:GetUnitName(), playerId = playerID, pickup = "key", keyName = keyName})
-	-- 		end
-	-- 	end
-	-- end
-	-- CustomGameEventManager:Send_ServerToAllClients("update_key_display", {})
-	-- Beacons:ActivatePortalsForKeys()
-
-end
 
 function Events:ChangeRuneState(msg)
 	local playerid = msg.playerID
@@ -1457,7 +1499,6 @@ end
 function Events:SetupHeroes(heroEntity)
 
 	table.insert(MAIN_HERO_TABLE, heroEntity)
-
 	CustomNetTables:SetTableValue("hero_index", tostring(heroEntity:GetEntityIndex()), {playerOwner = tostring(heroEntity:GetPlayerID())})
 	heroEntity:AddNewModifier(nil, nil, "modifier_client_setting", {})
 	heroEntity:SetAbilityPoints(0)
@@ -2019,6 +2060,19 @@ function Events:SpawnOracle(position, forwardVector)
 	oracle.dialogueName = "oracle"
 end
 
+function Events:SpawnOracleAsync(position, forwardVector)
+    local callback = function(oracle)
+        oracle:SetForwardVector(forwardVector)
+        oracle:NoHealthBar()
+        oracle:AddAbility("town_unit")
+        oracle:AddAbility("npc_dialogue")
+        oracle:FindAbilityByName("town_unit"):SetLevel(1)
+        oracle:FindAbilityByName("npc_dialogue"):SetLevel(1)
+        oracle.dialogueName = "oracle"
+    end
+	CreateUnitByNameAsync("the_oracle", position, true, nil, nil, DOTA_TEAM_GOODGUYS, callback)
+end
+
 function Events:SpawnCurator(position, forwardVector)
 	local oracle = CreateUnitByName("the_curator", position, true, nil, nil, DOTA_TEAM_GOODGUYS)
 	oracle:SetForwardVector(forwardVector)
@@ -2032,15 +2086,18 @@ function Events:SpawnCurator(position, forwardVector)
 	return oracle
 end
 
-function Events:SpawnCrusader(position, forwardVector)
-	local oracle = CreateUnitByName("the_crusader", position, true, nil, nil, DOTA_TEAM_GOODGUYS)
-	oracle:SetForwardVector(forwardVector)
-	oracle:NoHealthBar()
-	oracle:AddAbility("town_unit")
-	oracle:AddAbility("npc_dialogue")
-	oracle:FindAbilityByName("town_unit"):SetLevel(1)
-	oracle:FindAbilityByName("npc_dialogue"):SetLevel(1)
-	oracle.dialogueName = "crusader"
+function Events:SpawnCuratorAsync(position, forwardVector)
+    local callback = function(curator)
+        curator:SetForwardVector(forwardVector)
+        curator:NoHealthBar()
+        curator:AddAbility("town_unit")
+        curator:AddAbility("npc_dialogue")
+        curator:FindAbilityByName("town_unit"):SetLevel(1)
+        curator:FindAbilityByName("npc_dialogue"):SetLevel(1)
+        curator.dialogueName = "curator"
+        Events.curator = curator
+    end
+	CreateUnitByNameAsync("the_curator", position, true, nil, nil, DOTA_TEAM_GOODGUYS, callback)
 end
 
 function Events:SpawnGlyphEnchanter(position, forwardVector)
@@ -2055,17 +2112,33 @@ function Events:SpawnGlyphEnchanter(position, forwardVector)
 	return oracle
 end
 
-function Events:SpawnSuppliesDealer(position, forwardVector)
-	local oracle = CreateUnitByName("supplies_dealer", position, true, nil, nil, DOTA_TEAM_GOODGUYS)
-	oracle:SetForwardVector(forwardVector)
-	oracle:SetModelScale(1.04)
-	oracle:NoHealthBar()
-	oracle:AddAbility("town_unit")
-	oracle:AddAbility("npc_dialogue")
-	oracle:FindAbilityByName("town_unit"):SetLevel(1)
-	oracle:FindAbilityByName("npc_dialogue"):SetLevel(1)
-	oracle.dialogueName = "supplies_dealer"
-	return oracle
+function Events:SpawnGlyphEnchanterAsync(position, forwardVector)
+    local callback = function(glyphEnchanter)
+        glyphEnchanter:SetForwardVector(forwardVector)
+        glyphEnchanter:NoHealthBar()
+        glyphEnchanter:AddAbility("town_unit")
+        glyphEnchanter:AddAbility("npc_dialogue")
+        glyphEnchanter:FindAbilityByName("town_unit"):SetLevel(1)
+        glyphEnchanter:FindAbilityByName("npc_dialogue"):SetLevel(1)
+        glyphEnchanter.dialogueName = "glyph_enchanter"
+        Events.GlyphEnchanter = glyphEnchanter
+    end
+	CreateUnitByNameAsync("the_glyph_enchanter", position, true, nil, nil, DOTA_TEAM_GOODGUYS, callback)
+end
+
+function Events:SpawnBlacksmithAsync(position, forwardVector)
+    local callback = function(blacksmith)
+        blacksmith:SetForwardVector(forwardVector)
+        blacksmith:SetModelScale(1.1)
+        blacksmith:NoHealthBar()
+        blacksmith:AddAbility("town_unit")
+        blacksmith:AddAbility("npc_dialogue")
+        blacksmith:FindAbilityByName("town_unit"):SetLevel(1)
+        blacksmith:FindAbilityByName("npc_dialogue"):SetLevel(1)
+        blacksmith.dialogueName = "blacksmith"
+        StartAnimation(blacksmith, {duration = 99999, activity = ACT_DOTA_IDLE, rate = 1.0})
+    end
+	CreateUnitByNameAsync("the_blacksmith", position, true, nil, nil, DOTA_TEAM_GOODGUYS, callback)
 end
 
 function Events:SpawnTownNPC(point, unitName, fVector, model, patrolAbility, initialPatrolModifier, modelScale, bSpeech, dialogueName)
@@ -4231,6 +4304,34 @@ function Events:DoorDust(startPosition, endPosition, dust_count, dust_delay)
   end
 end
 
-require('worlds/redfall/redfall')
+function Events:InitTownNpcs()
+    local curatorSpawner = Entities:FindAllByName("npc_spawner_curator")[1]
+    if curatorSpawner then
+        Events:SpawnCuratorAsync(curatorSpawner:GetAbsOrigin(), curatorSpawner:GetForwardVector())
+    end
+    local soulbinderSpawner = Entities:FindAllByName("npc_spawner_soulbinder")[1]
+    if soulbinderSpawner then
+        Soulbinder:SpawnSoulbinder(soulbinderSpawner:GetAbsOrigin(), soulbinderSpawner:GetForwardVector())
+    end
+    local blacksmithSpawner = Entities:FindAllByName("npc_spawner_blacksmith")[1]
+    if blacksmithSpawner then
+        Events:SpawnBlacksmithAsync(blacksmithSpawner:GetAbsOrigin(), blacksmithSpawner:GetForwardVector())
+    end
+
+    local elderRaiSpawner = Entities:FindAllByName("npc_spawner_elder_rai")[1]
+    if elderRaiSpawner then
+        Challenges:SpawnElderRai(elderRaiSpawner:GetAbsOrigin(), elderRaiSpawner:GetForwardVector())
+    end
+    local oracleSpawner = Entities:FindAllByName("npc_spawner_oracle")[1]
+    if oracleSpawner then
+        Events:SpawnOracleAsync(oracleSpawner:GetAbsOrigin(), oracleSpawner:GetForwardVector())
+    end
+    local glyphEnchanterSpawner = Entities:FindAllByName("npc_spawner_glyph_enchanter")[1]
+    if glyphEnchanterSpawner then
+        Events:SpawnGlyphEnchanterAsync(glyphEnchanterSpawner:GetAbsOrigin(), glyphEnchanterSpawner:GetForwardVector())
+    end
+end
+
+require('worlds/redfall_ridge/redfall')
 
 require('worlds/winterblight/winterblight')

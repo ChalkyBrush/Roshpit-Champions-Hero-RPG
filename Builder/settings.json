@@ -15,7 +15,8 @@
                 "heroes/*/*_constants.lua",
                 "items/constants/*.lua",
                 "worlds/*/constants/*.lua",
-                "global_constants.lua"
+                "global_constants.lua",
+                "quests/*/*constants.lua"
             ]
         },
         "replacements": {
@@ -29,7 +30,8 @@
                 "worlds/*/localizations/*.txt",
                 "npc_abilities/*/*.txt",
                 "npc_units/*/*/*.txt",
-                "npc_units/*/*.txt"
+                "npc_units/*/*.txt",
+                "quests/localizations/*.txt"
             ]
         }
     },

@@ -2,7 +2,6 @@
 {
 	horizontal-align: right;
 	vertical-align: bottom;
-	margin-bottom: 2px;
 	margin-right: 222px;
 	
 	flow-children: down;
@@ -10,8 +9,6 @@
 
 .AspectRatio16x10 .InventoryOverlayRoot
 {
-	margin-right:223px;
-	margin-bottom:2px;
 }
 .AspectRatio5x4 .InventoryOverlayRoot
 {
@@ -20,7 +17,6 @@
 .AspectRatio4x3 .InventoryOverlayRoot
 {
 	margin-right:0px;
-	margin-bottom:2px;
 }
 #inventory_items
 {
