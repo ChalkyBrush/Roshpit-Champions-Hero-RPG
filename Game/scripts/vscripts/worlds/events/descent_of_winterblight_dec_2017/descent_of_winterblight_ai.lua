@@ -782,7 +782,7 @@ function winterblight_boss_final_death_animation(caster)
 		for j = 1, 2 + GameState:GetPlayerPremiumStatusCount(), 1 do
 			Winterblight:DropGlacierStone(position)
 		end
-		local synth_count = math.floor(boss_level/15 + 1)
+		local synth_count = math.min(math.floor(boss_level/15 + 1), 4)
 		for j = 1, synth_count, 1 do
 			RPCItems:DropSynthesisVessel(caster:GetAbsOrigin())
 		end

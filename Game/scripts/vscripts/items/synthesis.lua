@@ -184,7 +184,9 @@ function RPCItems:SynthCheckCombination(item1, item2, position)
 			elseif item1.newItemTable.item_slot == "weapon" and item2.newItemTable.item_slot == "weapon" then
 				local possibilityTable = {item1, item2}
 				local randomItem = possibilityTable[RandomInt(1, #possibilityTable)]
-				local newMinLevel = 100
+				local minLevelAVG = math.floor((item1.newItemTable.minLevel + item2.newItemTable.minLevel) / 2)
+				local newMinLevel = RPCItems:GetImmortalLevelForSynth(minLevelAVG)
+				newMinLevel = math.max(math.min(newMinLevel, 120), 3)
 				local maxWeaponLevel = math.floor((item1.newItemTable.maxLevel + item2.newItemTable.maxLevel) / 2)
 				maxWeaponLevel = math.min(maxWeaponLevel, 10)
 				RPCItems.LevelRoll = newMinLevel
@@ -206,11 +208,57 @@ function RPCItems:SynthCheckCombination(item1, item2, position)
 			else
 				return false
 			end
+		elseif item1.newItemTable.rarity == "mythical" and item2.newItemTable.rarity == "mythical" then
+			if item1.newItemTable.item_slot == "weapon" and item2.newItemTable.item_slot == "weapon" then
+				if item1.newItemTable.requiredHero == item2.newItemTable.requiredHero then
+				local possibilityTable = {item1, item2}
+				local randomItem = possibilityTable[RandomInt(1, #possibilityTable)]
+				local minLevelAVG = math.floor((item1.newItemTable.minLevel + item2.newItemTable.minLevel) / 2)
+				local newMinLevel = RPCItems:GetImmortalLevelForSynth(minLevelAVG)
+				newMinLevel = math.max(math.min(newMinLevel, 120), 3)
+				local maxWeaponLevel = math.floor((item1.newItemTable.maxLevel + item2.newItemTable.maxLevel) / 2)
+				maxWeaponLevel = math.min(maxWeaponLevel, 10)
+				local hero_name = item1.newItemTable.requiredHero
+				RPCItems.LevelRoll = newMinLevel
+				local newItem = Weapons:RollWeapon(RPC_ITEMS_RARITY_MYTHICAL, newMinLevel, hero_name)
+					if newItem and IsValidEntity(newItem) then
+						if IsValidEntity(newItem:GetContainer()) then
+							UTIL_Remove(newItem:GetContainer())
+						end
+						newItem.pickedUp = true
+						newItem.newItemTable.minLevel = newMinLevel
+						local itemInfo = CustomNetTables:GetTableValue("item_basics", tostring(randomItem:GetEntityIndex()))
+						newItem.newItemTable.validator = itemInfo.validator
+						RPCItems:ItemUpdateCustomNetTables(newItem)
+						return newItem
+					else
+						return false
+					end
+				else
+					return false
+				end
+			else
+				return false
+			end		
 		else
 			return false
 		end
 	else
-		if (item1:GetAbilityName() == "item_rpc_galactic_arcana_cache_piece_1" and item2:GetAbilityName() == "item_rpc_galactic_arcana_cache_piece_2") or (item1:GetAbilityName() == "item_rpc_galactic_arcana_cache_piece_2" and item2:GetAbilityName() == "item_rpc_galactic_arcana_cache_piece_1") then
+		if item1.newItemTable.glyph and item2.newItemTable.glyph and (item1.newItemTable.glyph == 1 or item1.newItemTable.glyph == true) and (item2.newItemTable.glyph == 1 or item2.newItemTable.glyph == true) then
+			if item1.newItemTable.rarity == "immortal" and item2.newItemTable.rarity == "immortal" then
+				local heroTable = HerosCustom:GetHeroNameTable()
+				local heroName = heroTable[RandomInt(2, #heroTable)]
+				local variantName = "item_rpc_"..heroName.."_glyph_5_a"			
+				local newItem = Glyphs:RollGlyphAll(variantName, position, -1)
+				newItem.pickedUp = true
+				local itemInfo = CustomNetTables:GetTableValue("item_basics", tostring(newItem:GetEntityIndex()))
+				newItem.newItemTable.validator = itemInfo.validator
+				RPCItems:ItemUpdateCustomNetTables(newItem)
+				return newItem
+			else
+				return false
+			end		
+		elseif (item1:GetAbilityName() == "item_rpc_galactic_arcana_cache_piece_1" and item2:GetAbilityName() == "item_rpc_galactic_arcana_cache_piece_2") or (item1:GetAbilityName() == "item_rpc_galactic_arcana_cache_piece_2" and item2:GetAbilityName() == "item_rpc_galactic_arcana_cache_piece_1") then
 			local radianceAVG = math.floor((item1.newItemTable.property1 + item2.newItemTable.property1) / 2)
 			local key1 = "abc"
 			local key2 = "xyz"
