@@ -224,7 +224,7 @@ function crypt_armor_skeleton_modifier:OnAttackLanded(event)
     local target = event.target
     local ability = self:GetAbility()
     local caster = self:GetCaster()
-    if not self:CheckOnAttackLanded(event) then
+    if not self:ParentIsAttacker(event) then
         return
     end
     if ability:GetGemValue("amethyst") > 0 then
