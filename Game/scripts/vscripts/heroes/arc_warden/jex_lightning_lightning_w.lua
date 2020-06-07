@@ -71,7 +71,7 @@ function modifier_jex_lightning_lightning_w:OnAttackLanded(event)
 	local caster = self:GetParent()
 	local ability = self:GetAbility()
     local target = event.target
-    if not self:CheckOnAttackLanded(event) then
+    if not self:ParentIsAttacker(event) then
         return
     end
 	local drain_mana = ability:GetManaCost()

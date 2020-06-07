@@ -115,7 +115,7 @@ function aura_debuff_class:OnAttackStart(event)
 	local attacker = event.attacker
 	local target = event.target
 	local parent = self:GetParent()
-    if not self:CheckOnAttackLanded(event) then
+    if not self:ParentIsAttacker(event) then
         return
     end
     if target ~= hero then
