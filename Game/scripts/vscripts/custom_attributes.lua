@@ -731,32 +731,6 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	if unit:HasModifier("modifier_colossus_rage") then
 		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "physical_and_magic_armor", "modifier_colossus_rage")
 	end
-	if unit:HasModifier("modifier_heat_wave_armor_shred") then
-		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_shred", "modifier_heat_wave_armor_shred")
-	end
-	if unit:GetUnitName() == "npc_dota_hero_dragon_knight" then
-		if unit:HasAbility("seismic_flare") then
-			armor_modify = armor_modify + unit:GetRuneValue("q", 1)*FLAMEWAKER_Q1_ARMOR
-		end
-	end
-	if unit:HasModifier("modifier_flamewaker_arcana_a_a_effect") then
-		local modifier = unit:FindModifierByName("modifier_flamewaker_arcana_a_a_effect")
-		armor_modify = armor_modify + modifier:GetStackCount()
-	end
-	if unit:HasModifier("modifier_searing_heat") then
-		local modifier = unit:FindModifierByName("modifier_searing_heat")
-		armor_modify = armor_modify + modifier:GetStackCount()*FLAMEWAKER_W3_ARMOR_SHRED_PER_STACK
-	end
-	if unit:HasModifier("modifier_dragonflame_shield") then
-		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_and_magic_armor", "modifier_dragonflame_shield")
-	end
-	if unit:HasModifier("modifier_dragonflame_armor_shred") then
-		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_shred", "modifier_dragonflame_armor_shred")
-	end
-	if unit:HasModifier("modifier_b_b_shimmer") then
-		local modifier = unit:FindModifierByName("modifier_b_b_shimmer")
-		armor_modify = armor_modify + modifier:GetStackCount()*FLAMEWAKER_ARCANA2_W2_ARMOR
-	end
 	if unit:HasModifier("modifier_voltex_rune_q_1_buff") then
 		local modifier = unit:FindModifierByName("modifier_voltex_rune_q_1_buff")
 		armor_modify = armor_modify + modifier:GetStackCount()*VOLTEX_Q1_ARMOR
@@ -3945,7 +3919,6 @@ function CDOTA_BaseNPC:CalculateAndSaveMasterHealthRegen()
 	local hp_regen_buff = 0
 	Util.Modifier:SimpleEvent(self, 'GetRoshpitMasterHealthRegen', { MODIFIER_ROSHPIT_MASTER_HEALTH_REGEN }, { }, 
 		function(result, data)
-			print(result)
 			hp_regen_buff = hp_regen_buff + result
 		end
 	)

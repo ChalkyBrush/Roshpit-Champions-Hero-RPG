@@ -660,6 +660,11 @@ function Filters:AdjustBuffDuration(isBuff, duration)
     return duration
 end
 
+function Filters:LinearProjectile(projectile_data)
+    local projectile = ProjectileManager:CreateLinearProjectile(projectile_data)
+    return projectile
+end
+
 function Filters:ApplyStun(caster, duration, target)
     local mult = 1
     if caster:HasModifier("modifier_knight_crusher_armor") then
@@ -973,7 +978,7 @@ function Filters:BeginRChannel(caster)
         return false
     end
     local baseCd = ability:GetCooldownTimeRemaining()
-    if not ability.BaseClass and (caster:HasModifier("modifier_iron_treads_of_destruction") or caster:HasModifier("modifier_baphomets_cursed_necklace_ruin_effect")) then
+    if not ability.BaseClass and (caster:HasModifier("modifier_iron_treads_of_destruction") or caster:HasModifier("modifier_baphomets_cursed_necklace_ruin_effect")) or caster:HasModifier("modifier_flamewaker_rune_q_4") then
         ability:OnChannelFinish(false)
         Timers:CreateTimer(0.03, function()
             ability:EndChannel(true)

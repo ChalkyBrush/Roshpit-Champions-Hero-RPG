@@ -8,6 +8,12 @@ LinkLuaModifier("modifier_flamewaker_q_passive", "heroes/dragon_knight/ability_s
 modifier_flamewaker_seismic_flare_vacuum = class(npc_base_modifier, nil, npc_base_modifier)
 LinkLuaModifier("modifier_flamewaker_seismic_flare_vacuum", "heroes/dragon_knight/ability_scripts/flamewaker_seismic_flare.lua", LUA_MODIFIER_MOTION_NONE)
 
+modifier_flamewaker_rune_q_3_buff = class(npc_base_modifier, nil, npc_base_modifier)
+LinkLuaModifier("modifier_flamewaker_rune_q_3_buff", "heroes/dragon_knight/ability_scripts/flamewaker_seismic_flare.lua", LUA_MODIFIER_MOTION_NONE)
+
+modifier_flamewaker_rune_q_4 = class(npc_base_modifier, nil, npc_base_modifier)
+LinkLuaModifier("modifier_flamewaker_rune_q_4", "heroes/dragon_knight/ability_scripts/flamewaker_seismic_flare.lua", LUA_MODIFIER_MOTION_NONE)
+
 function flamewaker_seismic_flare:GetManaCostBase(level)
     return 0
 end
@@ -59,10 +65,8 @@ function flamewaker_seismic_flare:OnAbilityPhaseStart()
     ability.vacuum_enemy_indeces = {}
     if #enemies > 0 then
         for _, enemy in pairs(enemies) do
-        	if not enemy.pushLock then
-	            enemy:AddNewModifier(self:GetCaster(), ability, "modifier_flamewaker_seismic_flare_vacuum", {duration = 0.4})
-	            table.insert(ability.vacuum_enemy_indeces, enemy:GetEntityIndex())
-	        end
+            enemy:AddNewModifier(self:GetCaster(), ability, "modifier_flamewaker_seismic_flare_vacuum", {duration = 0.4})
+            table.insert(ability.vacuum_enemy_indeces, enemy:GetEntityIndex())
         end
     end
 
@@ -102,6 +106,7 @@ function flamewaker_seismic_flare:OnSpellStart()
     		ParticleManager:DestroyParticle(pfx_to_destroy, false)
     	end
     end)
+    local q_4_level = caster:GetRuneValue("q", 4)
     local stun_duration = ability:GetSpecialValueFor("stun_duration")
     local radius = self:GetAOERadius()
     local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target_position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
@@ -110,10 +115,24 @@ function flamewaker_seismic_flare:OnSpellStart()
         for _, enemy in pairs(enemies) do
         	Filters:ApplyStun(caster, stun_duration, enemy)
         	Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, BASE_ABILITY_Q, RPC_ELEMENT_FIRE, RPC_ELEMENT_EARTH)
+        	self:q_4_event(q_4_level)
         end
     end
     ability.damage = damage
     Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
+end
+
+function flamewaker_seismic_flare:q_4_event(q_4_level)
+	if q_4_level > 0 then
+		local luck = RandomInt(1, 1000)
+		if luck <= q_4_level*FLAMEWAKER_Q4_PROC_CHANCE*10 then
+			local caster = self:GetCaster()
+			local r_ability = caster:GetAbilityByIndex(DOTA_R_SLOT)
+			r_ability:EndCooldown()
+			local duration = FLAMEWAKER_Q4_FREECAST_DURATION_BASE + q_4_level*FLAMEWAKER_Q4_FREECAST_DURATION
+			caster:AddNewModifier(caster, self, "modifier_flamewaker_rune_q_4", {duration = duration})
+		end
+	end
 end
 
 -- PASSIVE
@@ -132,7 +151,9 @@ function modifier_flamewaker_q_passive:OnCreated()
     end
     self:SetSpecialTypes({ 
         MODIFIER_ROSHPIT_MASTER_HEALTH_REGEN,
-       	MODIFIER_ROSHPIT_BASE_ARMOR_BONUS
+       	MODIFIER_ROSHPIT_BASE_ARMOR_BONUS,
+       	MODIFIER_SPECIAL_TYPE_ON_STUN,
+       	MODIFIER_ROSHPIT_PERCENT_HEALTH_BONUS
     })
 
 end
@@ -145,10 +166,26 @@ function modifier_flamewaker_q_passive:GetRoshpitBaseArmorBonus()
 	return self:GetCaster():GetRuneValue("q", 1)*FLAMEWAKER_Q1_ARMOR
 end
 
+function modifier_flamewaker_q_passive:GetPercentHealthBonus()
+	return self:GetCaster():GetRuneValue("q", 2)*FLAMEWAKER_Q2_HEALTH_PCT
+end
+
+function modifier_flamewaker_q_passive:OnStun(event)
+	local caster = self:GetCaster()
+	local q_3_level = caster:GetRuneValue("q", 3)
+	if q_3_level > 0 then
+		caster:AddNewModifier(caster, self:GetAbility(), "modifier_flamewaker_rune_q_3_buff", {duration = FLAMEWAKER_Q3_DURATION})
+	end
+end
+
 -- VACUUM MODIFIER
 
 function modifier_flamewaker_seismic_flare_vacuum:IsHidden()
 	return true
+end
+
+function modifier_flamewaker_seismic_flare_vacuum:RemoveOnDeath()
+	return false
 end
 
 function modifier_flamewaker_seismic_flare_vacuum:OnCreated()
@@ -167,15 +204,18 @@ end
 
 function modifier_flamewaker_seismic_flare_vacuum:OnIntervalThink()
 	if IsServer() then
+		local caster = self:GetCaster()
 		local ability = self:GetAbility()
 		local target = self:GetParent()
-		local position = ability.center_point
-		local pullFV = ((position - target:GetAbsOrigin())*Vector(1,1,0)):Normalized()
-		local newPosition = GetGroundPosition(target:GetAbsOrigin() + pullFV*4, target) 
-		local obstruction = WallPhysics:FindNearestObstruction(newPosition)
-		local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, newPosition, target)
-		if not blockUnit then
-			target:SetAbsOrigin(newPosition)
+		if not target.pushLock then
+			local position = ability.center_point
+			local pullFV = ((position - target:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+			local newPosition = GetGroundPosition(target:GetAbsOrigin() + pullFV*4, target) 
+			local obstruction = WallPhysics:FindNearestObstruction(newPosition)
+			local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, newPosition, target)
+			if not blockUnit then
+				target:SetAbsOrigin(newPosition)
+			end
 		end
 	end
 end
@@ -189,4 +229,68 @@ end
 
 function modifier_flamewaker_seismic_flare_vacuum:GetOverrideAnimation()
 	return ACT_DOTA_FLAIL
+end
+
+-- Q3 MODIFIER
+
+function modifier_flamewaker_rune_q_3_buff:OnCreated()
+    if not IsServer() then
+        return false
+    end
+    self:SetSpecialTypes({ 
+        MODIFIER_ROSHPIT_MASTER_BASE_ATTACK_DMG
+    })
+end
+
+function modifier_flamewaker_rune_q_3_buff:IsHidden()
+	return false
+end
+
+function modifier_flamewaker_rune_q_3_buff:IsBuff()
+	return true
+end
+
+function modifier_flamewaker_rune_q_3_buff:RemoveOnDeath()
+	return true
+end
+
+function modifier_flamewaker_rune_q_3_buff:GetRoshpitMasterBaseDMG()
+	return self:GetCaster():GetRuneValue("q", 3)*FLAMEWAKER_Q3_BASE_DMG
+end
+
+function modifier_flamewaker_rune_q_3_buff:GetEffectName()
+	return "particles/units/heroes/hero_ogre_magi/ogre_magi_bloodlust_buff_e.vpcf"
+end
+
+function modifier_flamewaker_rune_q_3_buff:GetEffectAttachType()
+	return PATTACH_CUSTOMORIGIN_FOLLOW
+end
+
+-- Q_4_MODIFIER
+
+function modifier_flamewaker_rune_q_4:IsHidden()
+	return false
+end
+
+function modifier_flamewaker_rune_q_4:OnCreated()
+	if not IsServer() then
+		return false
+	end
+    self:SetSpecialTypes({
+    	MODIFIER_ROSHPIT_R_PCT_CHANNELTIME_MOD
+    })
+    local hero = self:GetParent()
+    EmitSoundOn("Flamewaker.Q4.Activate", hero)
+end
+
+function modifier_flamewaker_rune_q_4:GetEffectName()
+	return "particles/roshpit/flamewaker/flamewaker_q4_buff.vpcf"
+end
+
+function modifier_flamewaker_rune_q_4:GetEffectAttachType()
+	return PATTACH_CUSTOMORIGIN_FOLLOW
+end
+
+function modifier_flamewaker_rune_q_4:GetRoshpitRPctChanneltimeModifier()
+    return - ITEM_RPC_IRON_TREADS_OF_DESTRUCTION_PCT_CHANNELTIME_MOD
 end
