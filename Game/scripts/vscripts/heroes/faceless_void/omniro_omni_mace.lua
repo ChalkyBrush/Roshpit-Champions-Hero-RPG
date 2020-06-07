@@ -96,7 +96,7 @@ function modifier_omniro_omni_mace:OnAttackLanded(event)
 	local caster = self:GetParent()
 	local target = event.target
 	local ability = self:GetAbility()
-    if not self:CheckOnAttackLanded(event) then
+    if not self:ParentIsAttacker(event) then
         return
     end
 	if target.dummy or caster == target then

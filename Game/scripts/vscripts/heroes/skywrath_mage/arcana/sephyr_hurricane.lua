@@ -145,7 +145,7 @@ function modifier_sephyr_hurricane_passive:OnAttackStart(event)
     local hero = self:GetParent()
     local ability = self:GetAbility()
     local caster = hero
-    if not event.attacker == hero then
+    if not self:ParentIsAttacker(event) then
         return false
     end
     local procs = Runes:Procs(hero:GetRuneValue("q", 3), SEPHYR_ARCANA2_Q3_SPLIT_CHANCE, 1)

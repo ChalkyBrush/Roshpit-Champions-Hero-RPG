@@ -185,7 +185,7 @@ function modifier_arkimus_archon_form:IsBuff()
 end
 function modifier_arkimus_archon_form:OnAttackLanded(event)
     local attacker = event.attacker
-    if not self:CheckOnAttackLanded(event) then
+    if not self:ParentIsAttacker(event) then
         return
     end
     local ability = self:GetAbility()

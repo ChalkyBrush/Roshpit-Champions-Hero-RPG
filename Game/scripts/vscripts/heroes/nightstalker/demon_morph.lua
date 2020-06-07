@@ -46,6 +46,7 @@ function begin_demon_morph(event)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_chernobog_transitioning", {duration = 2.0})
 	local duration = event.duration + caster:GetRuneValue("r", 4) * CHERNOBOG_ARCANA1_R4_BONUS_DUR
 	local morphDuration = Filters:GetAdjustedBuffDuration(caster, duration, false)
+	local r_2_level = caster:GetRuneValue("r", 2)
 	Timers:CreateTimer(2.0, function()
 		caster:RemoveNoDraw()
 		caster:RemoveModifierByName("modifier_chernobog_transitioning")
@@ -58,7 +59,7 @@ function begin_demon_morph(event)
 		end
 
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_chernobog_demon_form", {duration = morphDuration})
-		if caster.r2_level > 0 then
+		if r_2_level > 0 then
 			caster:AddNewModifier(caster, ability, modifiers.slow_aura_r2, { duration = morphDuration })
 		end
 		if caster:HasModifier("modifier_chernobog_arcana2") then

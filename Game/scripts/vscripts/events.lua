@@ -607,7 +607,10 @@ function GameMode:OnPlayerChat(keys)
 		elseif check_command("-gems") then
 			Gems:DropSocketForger(PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin())
 			Gems:SpawnGemForger(PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin(), Vector(-1,-1), 10)
-
+		elseif check_command("-vessel") then
+			RPCItems:DropSynthesisVessel(PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin())
+			RPCItems:DropSynthesisVessel(PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin())
+			RPCItems:DropSynthesisVessel(PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin())
 		elseif check_command("-givegems") then
 			local amount = tonumber(args[2], 10)
 			local msg = {}

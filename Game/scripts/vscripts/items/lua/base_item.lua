@@ -104,6 +104,13 @@ function itemClass:OnSpellStart()
         caster = caster,
     })
 end
+function itemClass:GetCaster()
+    local caster = self.BaseClass.GetCaster(self)
+    if caster == nil then
+        caster = self.wearer
+    end
+    return caster
+end
 function itemClass:OnLoadItem()
     self.isLuaItem = true
 end

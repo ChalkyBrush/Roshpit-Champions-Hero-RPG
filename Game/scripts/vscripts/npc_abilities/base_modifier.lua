@@ -45,7 +45,7 @@ function class:CheckOnDamageTaken(event)
             event.unit == self:GetParent() --Is the unit that has the modifier really the victim?
 end
 
-function class:CheckOnAttackLanded(event)
+function class:ParentIsAttacker(event)
     return event.attacker == self:GetParent()
 end
 

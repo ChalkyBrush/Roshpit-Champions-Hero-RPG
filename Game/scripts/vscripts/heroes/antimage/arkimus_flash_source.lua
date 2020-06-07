@@ -99,7 +99,7 @@ function modifier_arkimus_flash_source:OnAttackLanded(event)
     local attacker = event.attacker
     local target = event.target
     local ability = self:GetAbility()
-    if not self:CheckOnAttackLanded(event) then
+    if not self:ParentIsAttacker(event) then
         return
     end
     if attacker:GetMana() < self:GetAbility():GetManaCost(-1) then
@@ -320,7 +320,7 @@ function modifier_arkimus_w_3_bonus_damage:OnAttackLanded(event)
     local attacker = event.attacker
     local target = event.target
     local ability = self:GetAbility()
-    if not self:CheckOnAttackLanded(event) then
+    if not self:ParentIsAttacker(event) then
         return
     end
     attacker:RemoveModifierByName("modifier_arkimus_w_3_dash")
