@@ -282,3 +282,7 @@ function modifier_flamewaker_e_heat_wave_e1:GetRoshpitMasterAS()
 	local caster = self:GetCaster()
 	return self:GetStackCount()*FLAMEWAKER_E1_ATK_SPEED*caster:GetRuneValue("e", 1)
 end
+
+function modifier_flamewaker_e_heat_wave_e1:GetTexture()
+	return "flamewaker/flamewaker_rune_e_1"
+end

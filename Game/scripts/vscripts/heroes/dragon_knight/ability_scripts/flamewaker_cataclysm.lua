@@ -289,3 +289,7 @@ end
 function modifier_flamewaker_r_3_strength:GetRoshpitStrengthBonus()
 	return FLAMEWAKER_R3_STRENGTH*self:GetCaster():GetRuneValue("r", 3)
 end
+
+function modifier_flamewaker_r_3_strength:GetTexture()
+	return "flamewaker/flamewaker_rune_r_3"
+end

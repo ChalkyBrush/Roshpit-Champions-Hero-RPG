@@ -167,7 +167,7 @@ function modifier_flamewaker_q_passive:GetRoshpitBaseArmorBonus()
 end
 
 function modifier_flamewaker_q_passive:GetPercentHealthBonus()
-	return self:GetCaster():GetRuneValue("q", 2)*FLAMEWAKER_Q2_HEALTH_PCT
+	return self:GetCaster():GetRuneValue("q", 2)*(FLAMEWAKER_Q2_HEALTH_PCT/100)
 end
 
 function modifier_flamewaker_q_passive:OnStun(event)
@@ -266,6 +266,9 @@ function modifier_flamewaker_rune_q_3_buff:GetEffectAttachType()
 	return PATTACH_CUSTOMORIGIN_FOLLOW
 end
 
+function modifier_flamewaker_rune_q_3_buff:GetTexture()
+	return "flamewaker/flamewaker_rune_q_3"
+end
 -- Q_4_MODIFIER
 
 function modifier_flamewaker_rune_q_4:IsHidden()
@@ -293,4 +296,8 @@ end
 
 function modifier_flamewaker_rune_q_4:GetRoshpitRPctChanneltimeModifier()
     return - ITEM_RPC_IRON_TREADS_OF_DESTRUCTION_PCT_CHANNELTIME_MOD
+end
+
+function modifier_flamewaker_rune_q_4:GetTexture()
+	return "flamewaker/flamewaker_rune_q_4"
 end

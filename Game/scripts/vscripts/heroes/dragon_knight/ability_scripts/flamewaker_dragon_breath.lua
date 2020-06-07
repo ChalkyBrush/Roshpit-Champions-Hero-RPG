@@ -197,3 +197,7 @@ function modifier_flamewaker_w_armor_sear:GetRoshpitArmorBonus()
 	local armor_reduction = self:GetStackCount() * FLAMEWAKER_W3_ARMOR_SHRED_PER_STACK * self:GetCaster():GetRuneValue("w", 3)
 	return armor_reduction
 end
+
+function modifier_flamewaker_w_armor_sear:GetTexture()
+	return "flamewaker/flamewaker_rune_w_3"
+end
