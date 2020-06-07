@@ -1,307 +1,3 @@
-	"heat_wave"
-	{
-		// General
-		//-------------------------------------------------------
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"phoenix_sun_ray"
-		"RequiredLevel"          		"-5"
-		"LevelsBetweenUpgrades"  		"10"
-		"MaxLevel"				 		"7"
-
-		// Casting
-		//-------------------------------------------------------
-		"AbilityCastRange"				"1300"
-		"AbilityCastPoint"				"0.01"
-
-		// Time
-		//-------------------------------------------------------
-		"AbilityCooldown"				"8.0 7.7 7.4 7.1 6.8 6.5 6.2"
-		"AbilityDuration"				"2.4 2.5 2.6 2.7 2.8 2.9 3.0"
-
-		// Cost
-		//-------------------------------------------------------
-		"AbilityManaCost"				"0"
-
-		// Special
-		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"movespeed"			"250 260 270 280 290 300 310"
-			}
-
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"base_dmg"			"20 40 60 80 100 120 140"
-			}
-
-			"05"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"radius"			"140"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"tick_interval"		"0.2"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"forward_move_speed"	"950 1000 1050 1100 1150 1200 1200"
-			}
-			"09"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"turn_rate_initial"			"250"
-			}
-			"10"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"turn_rate"					"20"
-			}
-			"11"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"tooltip_duration"	"6"
-			}
-			"12"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"duration"			"2.4 2.5 2.6 2.7 2.8 2.9 3.0"
-			}
-			"13"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ms_cap_bonus"			"<% FLAMEWAKER_E_MS_CAP_BONUS %>"
-			}
-			"14"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"armor_shred"			"-40 -80 -120 -160 -200 -240 -280"
-			}
-		}
-
-		// Data driven
-		//-------------------------------------------------------
-		"precache"
-		{
-			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_phoenix.vsndevts"
-			"particle"					"particles/roshpit/flamewaker/heat_wave.vpcf"
-			"particle"					"particles/econ/courier/courier_roshan_lava/courier_roshan_lava_ground.vpcf"
-			"particle"					"particles/status_fx/status_effect_huskar_lifebreak.vpcf"
-			"model"						"models/heroes/dragon_knight/dragon_knight_dragon.vmdl"
-			"particle"					"particles/units/heroes/hero_dragon_knight/dragon_knight_transform_red.vpcf"
-			"particle"					"particles/units/heroes/hero_phantom_assassin/flamewaker_c_c.vpcf"
-			"particle"					"particles/econ/courier/courier_greevil_orange/courier_greevil_orange_ambient_c.vpcf"
-		}
-
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"		"heroes/dragon_knight/flame_ray.lua"
-				"Function"			"CastNewHeatwave"
-				"duration"		"%AbilityDuration"
-			}
-		}
-
-		"OnProjectileHitUnit"
-		{
-			"DeleteOnHit"	"0"
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/dragon_knight/flame_ray.lua"
-				"Function"		"dragon_projectile_hit"
-				"Target"		"TARGET"
-			}
-		}
-		"OnOwnerDied"
-		{
-			"RunScript"
-			{
-				"ScriptFile"		"heroes/dragon_knight/flame_ray.lua"
-				"Function"			"EndSunRay"
-			}
-		}
-
-		"Modifiers"
-		{
-			"modifier_heatwave_phase_one"
-			{
-				"IsPurgable"	"false"
-				"IsBuff"		"1"
-
-				"Duration"	"%AbilityDuration"
-
-
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/dragon_knight/flame_ray.lua"
-						"Function"		"phase_one_end"
-					}
-					"RunScript"
-					{
-						"ScriptFile"		"heroes/dragon_knight/flame_ray.lua"
-						"Function"			"StopSound"
-						"sound_name"		"Hero_Phoenix.SunRay.Loop"
-					}
-
-					"FireSound"
-					{
-						"EffectName"		"Hero_Phoenix.SunRay.Stop"
-						"Target"			"CASTER"
-					}
-					"RunScript"
-					{
-						"ScriptFile"		"heroes/dragon_knight/flame_ray.lua"
-						"Function"			"EndSunRay"
-					}
-				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%movespeed"
-				    "MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE" "-5"
-				    "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"%base_dmg"
-				}
-				"ThinkInterval"		"0.05"
-				"States"
-				{
-					"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
-				}
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/dragon_knight/flame_ray.lua"
-						"Function"		"heatwave_phase_think"
-						"phase"			"0"
-					}
-				}
-				"Aura"          	"modifier_heat_wave_armor_shred"
-				"Aura_Radius"   	"260"
-				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-				"Aura_ApplyToCaster" "0"
-
-			}
-			"modifier_heatwave_flying_portion"
-			{
-				"States"
-				{
-					"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY"				"MODIFIER_STATE_VALUE_ENABLED"
-				}
-				"IsHidden"	"1"
-			}
-			"modifier_heat_wave_armor_shred"
-			{
-				"IsHidden"	"0"
-				"IsDebuff"	"1"
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"npc_abilities/general.lua"
-						"Function"		"utility_recalculate_roshpit_attributes"
-						"target"		"TARGET"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"npc_abilities/general.lua"
-						"Function"		"utility_recalculate_roshpit_attributes"
-						"target"		"TARGET"
-					}
-				}
-			}
-
-			"modifier_sun_ray_thinker_datadriven"
-			{
-				"Duration"	"%AbilityDuration"
-
-				"Aura"			"modifier_sun_ray_check_datadriven"
-				"Aura_Radius"	"%thinker_radius"
-				"Aura_Teams"	"DOTA_UNIT_TARGET_TEAM_BOTH"
-				"Aura_Types"	"DOTA_UNIT_TARGET_HERO"
-
-				"OnCreated"
-				{
-					"ApplyModifier"
-					{
-						"Target"		"TARGET"
-						"ModifierName"	"modifier_phased"
-					}
-				}
-
-				"States"
-				{
-					"MODIFIER_STATE_PROVIDES_VISION"		"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_INVULNERABLE"			"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_NO_HEALTH_BAR"			"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_NO_UNIT_COLLISION"		"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_NOT_ON_MINIMAP"			"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_UNSELECTABLE"			"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-
-			"fire_thinker"
-			{
-				"Aura"					"heatwave_fire_damage"
-				"Aura_Radius"			"225"
-				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-				"Duration"				"5"
-
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"EffectName"		"particles/econ/courier/courier_roshan_lava/courier_roshan_lava_ground.vpcf"
-						"EffectAttachType"	"follow_origin"
-						"Target"			"TARGET"
-						"ControlPoints"
-						{
-							"00" "0 0 0"
-							"01" "250 1 1"
-							"15" "155 90 30"
-							"16" "1 0 0"
-						}
-					}
-				}
-			}
-
-			"heatwave_fire_damage"
-			{
-				"IsDebuff"		"1"
-				"IsStunDebuff"		"1"
-				"IsPurgable"	"0"
-				"ThinkInterval"	"1"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/dragon_knight/flame_ray.lua"
-						"Function"		"rune_e_1_damage"
-						"target"		"TARGET"
-					}
-				}
-			}
-		}
-	}
-
 	"cataclysm"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_AOE"
@@ -758,7 +454,9 @@
 		//-------------------------------------------------------
 		"precache"
 		{
-			"particle"		"particles/units/heroes/hero_dragon_knight/dragon_knight_breathe_fire.vpcf"
+			"particle"		"particles/units/heroes/hero_clinkz/clinkz_burning_army_ambient.vpcf"
+			"particle"		"particles/roshpit/flamewaker/heat_wave.vpcf"
+			"particle"		"particles/econ/courier/courier_roshan_lava/courier_roshan_lava_ground.vpcf"
 		}
 
 		// Special
@@ -787,3 +485,43 @@
 			}
 		}
 	}
+
+	"flamewaker_cataclysm"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_AOE"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/dragon_knight/ability_scripts/flamewaker_cataclysm.lua"
+		"AbilityType"            		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"AbilityTextureName"			"phoenix_supernova"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AOERadius"						"%radius"
+		"precache"
+		{
+			"soundfile"		"soundevents/game_sounds_flamewaker.vsndevts"
+			"particle"		"particles/units/heroes/hero_phoenix/phoenix_icarus_dive_char_glow.vpcf"
+			"particle"		"particles/units/heroes/hero_warlock/warlock_rain_of_chaos.vpcf"
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"damage"	"<% FLAMEWAKER_R_DAMAGE %>"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"radius"	"600"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"stun_duration"	"2.0 2.2 2.4 2.6 2.8 3.0 3.2"
+			}
+		}
+	}
+

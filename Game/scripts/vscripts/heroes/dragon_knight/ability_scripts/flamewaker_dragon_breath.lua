@@ -135,7 +135,7 @@ function modifier_flamewaker_w_passive:RoshpitAttackLand(event)
 					Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, BASE_ABILITY_W, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 					local particleName = "particles/units/heroes/hero_jakiro/jakiro_liquid_fire_explosion.vpcf"
 					local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, enemy)
-					ParticleManager:SetParticleControlEnt(pfx, 0, enemy, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", enemy:GetAbsOrigin(), true)
+					ParticleManager:SetParticleControlEnt(pfx, 0, enemy, PATTACH_OVERHEAD_FOLLOW, "attach_hitloc", enemy:GetAbsOrigin()+Vector(0,0,40), true)
 					Timers:CreateTimer(0.4, function()
 						ParticleManager:DestroyParticle(pfx, false)
 					end)

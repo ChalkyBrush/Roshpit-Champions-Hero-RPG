@@ -106,8 +106,12 @@ function base_ability:GetBehavior()
 end
 
 function base_ability:OnSpellStart()
+    if self:GetAbilitySlot() == DOTA_R_SLOT then
+        self:GetCaster():AddNewModifier(self:GetCaster(), self, "modifier_channel_start", {duration = self:GetChannelTimeBase()})
+    end
     self:OnSpellStartBase()
     if self:GetAbilitySlot() == DOTA_R_SLOT and self:GetChannelTime() == 0 then
         self:OnChannelFinish(false)
     end
+
 end

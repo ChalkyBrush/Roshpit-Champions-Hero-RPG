@@ -6862,27 +6862,30 @@
     	"DOTA_Tooltip_ability_flamewaker_rune_e_4_property_one"					"Max Movement Speed"
     	"DOTA_Tooltip_ability_flamewaker_rune_e_4_suffix"						""
 		
-		"DOTA_Tooltip_ability_cataclysm"									"Cataclysm"
-		"DOTA_Tooltip_ability_cataclysm_Description"						"Element: <font color=\"#EF4126\">Fire</font> / <font color=\"#AF843D\">Earth</font><br>Channels an overload of fire for 2 seconds, and then releases a massive explosion dealing damage, stunning, and slowing all targets surrounding the caster."
-		"DOTA_Tooltip_ability_cataclysm_Lore"								"Base Ability: R"
-		"DOTA_Tooltip_ability_cataclysm_damage"							"DAMAGE:"
-    	"DOTA_Tooltip_ability_cataclysm_radius"							"RADIUS:"
-    	"DOTA_Tooltip_ability_cataclysm_stun_duration"					"STUN DURATION:"
+		"DOTA_Tooltip_ability_flamewaker_cataclysm"									"Cataclysm"
+		"DOTA_Tooltip_ability_flamewaker_cataclysm_Description"						"Element: <font color=\"#EF4126\">Fire</font> / <font color=\"#AF843D\">Earth</font><br>Channels an overload of fire for 2 seconds, and then releases a massive explosion dealing damage, stunning, and slowing all targets surrounding the caster."
+		"DOTA_Tooltip_ability_flamewaker_cataclysm_Lore"							"Base Ability: R"
+		"DOTA_Tooltip_ability_flamewaker_cataclysm_damage"							"DAMAGE:"
+    	"DOTA_Tooltip_ability_flamewaker_cataclysm_radius"							"RADIUS:"
+    	"DOTA_Tooltip_ability_flamewaker_cataclysm_stun_duration"					"STUN DURATION:"
 		
 		"DOTA_Tooltip_ability_flamewaker_rune_r_1"								"[R1] Mountain Strike"
-    	"DOTA_Tooltip_ability_flamewaker_rune_r_1_Description"					"When starting an attack, 25% chance for Flamewaker to lift himself and his target into the air for 0.3 seconds, gaining bonus attack damage while airborne. The target is stunned for the duration."
+    	"DOTA_Tooltip_ability_flamewaker_rune_r_1_Description"					"When starting an attack, <font color='#ccff66'>25</font>% chance for Flamewaker to lift himself and his target into the air for 0.3 seconds, gaining bonus attack damage while airborne. The target is stunned for the duration."
     	"DOTA_Tooltip_ability_flamewaker_rune_r_1_property_one"					"Bonus Attack Damage"
     	"DOTA_Tooltip_ability_flamewaker_rune_r_1_suffix"						"%"
 		
 		"DOTA_Tooltip_ability_flamewaker_rune_r_2"								"[R2] Flaming Vortex"
     	"DOTA_Tooltip_ability_flamewaker_rune_r_2_Description"					"Cataclysm also releases a spiral of flame around Flamewaker."
     	"DOTA_Tooltip_ability_flamewaker_rune_r_2_property_one"					"Damage Per Flame"
-    	"DOTA_Tooltip_ability_flamewaker_rune_r_2_suffix"						""
+    	"DOTA_Tooltip_ability_flamewaker_rune_r_2_suffix"						"% of attack power"
 
 		"DOTA_Tooltip_ability_flamewaker_rune_r_3"								"[R3] Mountain's Energy"
     	"DOTA_Tooltip_ability_flamewaker_rune_r_3_Description"					"After a successful cataclysm channel, gain strength for 12 seconds."
     	"DOTA_Tooltip_ability_flamewaker_rune_r_3_property_one"					"Strength Bonus"
     	"DOTA_Tooltip_ability_flamewaker_rune_r_3_suffix"						""
+
+        "DOTA_Tooltip_modifier_flamewaker_r_3_strength"                         "Mountain's Energy"
+        "DOTA_Tooltip_modifier_flamewaker_r_3_strength_Description"             "Increased Strength" 
 
 		"DOTA_Tooltip_modifier_flamewaker_rune_r_3" 							"Mountain's Energy"
 		"DOTA_Tooltip_modifier_flamewaker_rune_r_3_description" 				"Increased Strength."
