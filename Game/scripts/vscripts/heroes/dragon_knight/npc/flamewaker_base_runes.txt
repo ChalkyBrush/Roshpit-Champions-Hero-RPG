@@ -205,6 +205,7 @@
 		}
 	}
 
+
 	"flamewaker_rune_e_1"
 	{
 		// General
@@ -212,27 +213,20 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"phoenix_launch_fire_spirit"
+		"AbilityTextureName"	"dragon_knight_elder_dragon_form"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
-
 		"AbilitySpecial"
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% FLAMEWAKER_E1_DMG %>"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"<% FLAMEWAKER_E1_ATK_POWER %>"
 			}
-			"02"
+			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"3"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"				"2"
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"<% FLAMEWAKER_E1_ATK_SPEED %>"
 			}
 		}
 	}
@@ -247,19 +241,14 @@
 		"AbilityTextureName"	"brewmaster_fire_permanent_immolation"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% FLAMEWAKER_E2_IMMOLATION_BASE %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% FLAMEWAKER_E2_IMMOLATION_BONUS_DAMAGE_AGILITY %>"
+				"property_one"			"<% FLAMEWAKER_E2_DMG_ATK_PWR %>"
 			}
 			"03"
 			{
@@ -269,30 +258,11 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"element_one"				"2"
-			}
-		}
-		"Modifiers"
-		{
-			"flamewaker_rune_e_2_buff"
-			{
-				"Passive"	"0"
-				"Duration"  "6"
-				"IsBuff"	"1"
-				"EffectName"		"particles/roshpit/flamewaker/fiery_dragon_b_c_spirit_flameguard.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"ThinkInterval"  "0.5"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/dragon_knight/flame_ray.lua"
-						"Function"		"dragon_rage_b_c_think"
-					}
-				}
+				"element_one"				"<% RPC_ELEMENT_FIRE %>"
 			}
 		}
 	}
+
 
 	"flamewaker_rune_e_3"
 	{
@@ -301,79 +271,21 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"dragon_knight_elder_dragon_form"
+		"AbilityTextureName"	"phoenix_launch_fire_spirit"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
+
 		"AbilitySpecial"
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% FLAMEWAKER_E3_BONUS_DMG_PCT %>"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"<% FLAMEWAKER_E3_BASE_DMG_PER_MS_OVER_THRESH %>"
 			}
-			"01"
+			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% FLAMEWAKER_E3_ATT_SPEED %>"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_rune_e_3_dragon"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-
-				"EffectName"		"particles/units/heroes/hero_dragon_knight/dragon_knight_transform_red.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"StatusEffectName"	"particles/status_fx/status_effect_huskar_lifebreak.vpcf"
-				"StatusEffectPriority"	"10"
-
-				"ThinkInterval"  "0.03"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/dragon_knight/flame_ray.lua"
-						"Function"		"dragon_think"
-					}
-				}
-				"OnCreated"
-				{
-					"FireEffect"
-					{
-						"EffectName"	"particles/units/heroes/hero_dragon_knight/dragon_knight_transform_red.vpcf"
-						"EffectAttachType"	"follow_origin"
-						"Target"	"CASTER"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/dragon_knight/flame_ray.lua"
-						"Function"		"dragon_end"
-					}
-					"FireEffect"
-					{
-						"EffectName"	"particles/units/heroes/hero_dragon_knight/dragon_knight_transform_red.vpcf"
-						"EffectAttachType"	"follow_origin"
-						"Target"	"CASTER"
-					}
-				}
-			}
-			"modifier_rune_e_3_damage_boost"
-			{
-				"IsBuff"		"1"
-				"IsHidden"		"0"
-				"EffectName"	"particles/units/heroes/hero_phantom_assassin/flamewaker_c_c.vpcf"
-				"EffectAttachType"	"attach_origin"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%property_one"
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%property_two"
-				}
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"<% FLAMEWAKER_E3_PIERCE_PER_MS_OVER_THRESH %>"
 			}
 		}
 	}
@@ -393,34 +305,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% FLAMEWAKER_E4_CD_REDUCTION %>"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_flamewaker_rune_e_4"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-
-				"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
-				"EffectAttachType" 	"attach_origin"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%property_two"
-				}
-				"ThinkInterval"  "1"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/dragon_knight/flamewaker_runes.lua"
-						"Function"		"d_b_burn_think"
-						"target"        "TARGET"
-					}
-				}
+				"property_one"			"<% FLAMEWAKER_E4_MS_CAP %>"
 			}
 		}
 	}
