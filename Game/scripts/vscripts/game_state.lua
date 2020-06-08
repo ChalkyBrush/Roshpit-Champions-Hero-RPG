@@ -1318,19 +1318,6 @@ function GameState:OrderFilter(orderTable)
 				ability.Q2Toggle = false
 			end
 		end
-		if unit:HasModifier("modifier_flamewaker_arcana1") and orderTable.order_type ~= DOTA_UNIT_ORDER_CAST_POSITION then
-			local ability = unit:FindAbilityByName("flamewaker_arcana_ability")
-			if not ability:IsInAbilityPhase() then
-				if orderTable.entindex_ability then
-					if EntIndexToHScript(orderTable.entindex_ability):GetName() == "flamewaker_arcana_ability" then
-					else
-						ability.PointTable = nil
-					end
-				else
-					ability.PointTable = nil
-				end
-			end
-		end
 	end
 	if orderTable.entindex_ability > 0 then
 		if IsValidEntity(unit) then
@@ -1572,8 +1559,14 @@ end
 function GameState:IncomingDamageDecreaseWithType(victim, attacker, shouldConsumeShields, damagetype)
 	local BASE_VALUE_FOR_CALCULATE = 1000000
 	local damage = BASE_VALUE_FOR_CALCULATE
-
-
+	print(damage)
+	Util.Modifier:SimpleEvent(victim, 'GetConditionalDamageReduction', { MODIFIER_ROSHPIT_CONDITIONAL_DMG_REDUCTION }, {attacker = attacker, victim = victim, damageType = damagetype, shouldConsumeShields = shouldConsumeShields}, 
+		function(result, data)
+			damage = damage * (1 - result)
+		end
+	)
+	print(damage)
+	print("----")
 	if damagetype == DAMAGE_TYPE_PHYSICAL then
 		Util.Modifier:SimpleEvent(victim, 'GetPhysicalDamageReduction', { MODIFIER_ROSHPIT_PHYSICAL_DMG_REDUCTION }, { }, 
 			function(result, data)
@@ -3567,12 +3560,12 @@ function GameState:FilterDamage(filterTable)
 		if victim:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
 			if victim:IsHero() then
 				-- --print("TAKE DAMAGE: "..filterTable["damage"])
-				filterTable["damage"] = 0
+				-- filterTable["damage"] = 0
 			end
 			if victim:GetUnitName() == "rubick_apprentice" then
 				filterTable["damage"] = 1000
 			end
-			-- filterTable["damage"] = victim:GetHealth() - 10
+			filterTable["damage"] = victim:GetHealth() - 10
 		end
 		if attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
 			if attacker:IsHero() then

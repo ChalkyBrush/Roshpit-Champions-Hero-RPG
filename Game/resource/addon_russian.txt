@@ -6835,7 +6835,7 @@
 		
 		//Arcanas
 		"DOTA_Tooltip_ability_flamewaker_arcana_ability"						"Dragon Fire"
-    	"DOTA_Tooltip_ability_flamewaker_arcana_ability_Description"			"Стихия: <font color=\"#EF4126\">Огонь</font><br>Быстрый точечный взрыв, способный оглушить врагов. Наносит урон в небольшой области. Можно прочесть повторно перед перезарядкой в промежутке <font color='#ccff66'>0.5</font> сек. В начальной точке образуется только один взрыв, но выбор следующей точки на дистанции <font color='#ccff66'>200</font> - <font color='#ccff66'>1200</font> вызовет линию из множества взрывов. Урон дополнительно увеличивается в зависимости от значения Силы героя."
+    	"DOTA_Tooltip_ability_flamewaker_arcana_ability_Description"			"Стихия: <font color=\"#EF4126\">Огонь</font><br>Быстрый точечный взрыв, способный оглушить врагов. Наносит урон в небольшой области. Можно прочесть повторно перед перезарядкой в промежутке <font color='#ccff66'>2</font> сек. В начальной точке образуется только один взрыв, но выбор следующей точки на дистанции 0 - 0 вызовет линию из множества взрывов. Урон дополнительно увеличивается в зависимости от значения Силы героя."
     	"DOTA_Tooltip_ability_flamewaker_arcana_ability_damage"					"УРОН:"
     	"DOTA_Tooltip_ability_flamewaker_arcana_ability_strength_mult"			"МНОЖИТЕЛЬ УРОНА ОТ ЗНАЧЕНИЯ СИЛЫ:"
     	"DOTA_Tooltip_ability_flamewaker_arcana_ability_stun_duration"			"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
@@ -6844,11 +6844,11 @@
     	"property_flamewaker_arcana1_description"								"Заменяет умение @Ability1 и все соответствующие руны на Dragon Fire."
 
   		"DOTA_Tooltip_ability_flamewaker_rune_q_1_arcana1"						"[Q1] Dragon Knight"
-    	"DOTA_Tooltip_ability_flamewaker_rune_q_1_arcana1_Description"			"Получает дополнительную броню и регенерацию маны в зависимости от количества недостающего здоровья. Максимально взоможный бонус достигается на <font color='#ccff66'>10000</font> отсутствующего здоровья."
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_1_arcana1_Description"			"Получает дополнительную броню и регенерацию маны в зависимости от количества недостающего здоровья. Максимально взоможный бонус достигается на 0 отсутствующего здоровья."
     	"DOTA_Tooltip_ability_flamewaker_rune_q_1_arcana1_property_one"			"Доп. броня"
-    	"DOTA_Tooltip_ability_flamewaker_rune_q_1_arcana1_suffix"				" за каждые недостающие <font color='#ccff66'>100</font> очков здоровья"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_1_arcana1_suffix"				" за каждые недостающие 0 очков здоровья"
     	"DOTA_Tooltip_ability_flamewaker_rune_q_1_arcana1_property_two"			"Доп. реген. маны"
-    	"DOTA_Tooltip_ability_flamewaker_rune_q_1_arcana1_suffix_two"			" за каждые недостающие <font color='#ccff66'>100</font> очков здоровья"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_1_arcana1_suffix_two"			" за каждые недостающие 0 очков здоровья"
 
   		"DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1"						"[Q2] Flame Surge"
     	"DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1_Description"			"После прочтения @Ability1, герой получит бонус, увеличивающий скорость передвижения и Магическое Пробитие."

@@ -7230,7 +7230,7 @@
 		
 		//Arcanas
 		"DOTA_Tooltip_ability_flamewaker_arcana_ability"						"龙王吐息"
-    	"DOTA_Tooltip_ability_flamewaker_arcana_ability_Description"			"元素： <font color=\"#EF4126\">火</font><br>迅速喷发的火焰眩晕并伤害范围内的敌人。这个技能能够在进入冷却时间前的<font color='#ccff66'>0.5</font> 秒内能够再次释放一次。 <br>默认会对一个点的周围放出火焰,但是如果后一个释放点在离前一个释放点至少<font color='#ccff66'>200</font>码距离 (但是不超过 <font color='#ccff66'>1200</font> 码), 将会产生很多额外的火焰喷发出现在两个施法点连线周围的区域。<br>力量值会提高火焰的伤害。"
+    	"DOTA_Tooltip_ability_flamewaker_arcana_ability_Description"			"元素： <font color=\"#EF4126\">火</font><br>迅速喷发的火焰眩晕并伤害范围内的敌人。这个技能能够在进入冷却时间前的<font color='#ccff66'>2</font> 秒内能够再次释放一次。 <br>默认会对一个点的周围放出火焰,但是如果后一个释放点在离前一个释放点至少0码距离 (但是不超过 0 码), 将会产生很多额外的火焰喷发出现在两个施法点连线周围的区域。<br>力量值会提高火焰的伤害。"
     	"DOTA_Tooltip_ability_flamewaker_arcana_ability_damage"					"伤害："
     	"DOTA_Tooltip_ability_flamewaker_arcana_ability_strength_mult"			"额外伤害为力量值的倍数："
     	"DOTA_Tooltip_ability_flamewaker_arcana_ability_stun_duration"			"眩晕持续时间："
@@ -7241,9 +7241,9 @@
   		"DOTA_Tooltip_ability_flamewaker_rune_q_1_arcana1"						"[Q1] 龙骑士"
     	"DOTA_Tooltip_ability_flamewaker_rune_q_1_arcana1_Description"			"根据烈焰行者所失去的血量，提高护甲值和魔法回复速度。"
     	"DOTA_Tooltip_ability_flamewaker_rune_q_1_arcana1_property_one"			"额外护甲"
-    	"DOTA_Tooltip_ability_flamewaker_rune_q_1_arcana1_suffix"				" 每损失<font color='#ccff66'>100</font>点生命"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_1_arcana1_suffix"				" 每损失0点生命"
     	"DOTA_Tooltip_ability_flamewaker_rune_q_1_arcana1_property_two"			"魔法恢复速度提高"
-    	"DOTA_Tooltip_ability_flamewaker_rune_q_1_arcana1_suffix_two"			" 每损失<font color='#ccff66'>100</font>点生命"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_1_arcana1_suffix_two"			" 每损失0点生命"
 
   		"DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1"						"[Q2] 火焰浪涌"
     	"DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1_Description"			"施放 @Ability1 后增加移动速度和魔法穿透。"

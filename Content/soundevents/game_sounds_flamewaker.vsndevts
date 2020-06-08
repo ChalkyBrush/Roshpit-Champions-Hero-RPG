@@ -169,7 +169,7 @@
                     {
                         "value"
                         {
-                              "value0"        "flamewaker/arcana_ability.vsnd"
+                              "value0"        "sounds/flamewaker/arcana_ability.vsnd"
                         }
                     }
                     "volume"            {   "value"     "1.62000"  }
@@ -201,7 +201,7 @@
                     {
                         "value"
                         {
-                              "value0"        "flamewaker/arcana_ability.vsnd"
+                              "value0"        "sounds/flamewaker/arcana_ability.vsnd"
                         }
                     }
                     "volume"            {   "value"     "2.22000"  }

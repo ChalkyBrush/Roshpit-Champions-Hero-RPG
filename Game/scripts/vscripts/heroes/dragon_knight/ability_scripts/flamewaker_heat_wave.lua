@@ -38,8 +38,9 @@ end
 function flamewaker_heat_wave:OnSpellStart()
 	local caster = self:GetCaster()
 	local duration = self:GetSpecialValueFor("duration")
-
+	duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
 	caster:AddNewModifier(caster, self, "modifier_flamewaker_e_heat_wave_base", {duration = duration})
+	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 end
 
 function flamewaker_heat_wave:GetIntrinsicModifierName()
@@ -174,7 +175,8 @@ function modifier_flamewaker_e_heat_wave_base:CalculateE1()
 	local caster = self:GetParent()
 	if ability.interval%3 == 0 then
 		if caster:GetRuneValue("e", 1) > 0 then
-			caster:AddNewModifier(caster, ability, "modifier_flamewaker_e_heat_wave_e1", {duration = FLAMEWAKER_E1_DURATION})
+			local duration = Filters:GetAdjustedBuffDuration(caster, FLAMEWAKER_E1_DURATION, false)
+			caster:AddNewModifier(caster, ability, "modifier_flamewaker_e_heat_wave_e1", {duration = duration})
 			local new_stacks = caster:GetModifierStackCount("modifier_flamewaker_e_heat_wave_e1", caster) + 1
 			caster:SetModifierStackCount("modifier_flamewaker_e_heat_wave_e1", caster, new_stacks)
 		end

@@ -593,6 +593,7 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitAttributes()
 		self:CalculateAndSaveMasterBaseDamageBuff()
 		self:GetTooltips()
 	end
+	self:CalculateAndSaveMasterMovespeedBuff()
 	self:CalculateAndSaveMasterGreenDamageBuff()
 	self:CalculateAndSaveMasterHealthRegen()
 end
@@ -3864,6 +3865,21 @@ function CDOTA_BaseNPC_Hero:GetSumOfAllAttributes()
 	return self:GetStrength() + self:GetAgility() + self:GetIntellect() + self:GetSpirit()
 end
 
+function CDOTA_BaseNPC:CalculateAndSaveMasterMovespeedBuff()
+	local ms_buff = 0
+	Util.Modifier:SimpleEvent(self, 'GetRoshpitMasterMS', { MODIFIER_ROSHPIT_MASTER_MS }, { }, 
+		function(result, data)
+			ms_buff = ms_buff + result
+		end
+	)
+	if ms_buff > 0 then
+		Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_master_ms_buff", {})
+		self:SetModifierStackCount("modifier_master_ms_buff", self, ms_buff)
+	elseif self:HasModifier("modifier_master_ms_buff") then
+		self:RemoveModifierByName("modifier_master_ms_buff")
+	end
+end
+
 function CDOTA_BaseNPC:CalculateAndSaveMasterAttackSpeedBuff()
 	local as_buff = 0
 	Util.Modifier:SimpleEvent(self, 'GetRoshpitMasterAS', { MODIFIER_ROSHPIT_MASTER_AS }, { }, 
@@ -3874,7 +3890,7 @@ function CDOTA_BaseNPC:CalculateAndSaveMasterAttackSpeedBuff()
 	if as_buff > 0 then
 		Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_master_as_buff", {})
 		self:SetModifierStackCount("modifier_master_as_buff", self, as_buff)
-	else
+	elseif self:HasModifier("modifier_master_as_buff") then
 		self:RemoveModifierByName("modifier_master_as_buff")
 	end
 end

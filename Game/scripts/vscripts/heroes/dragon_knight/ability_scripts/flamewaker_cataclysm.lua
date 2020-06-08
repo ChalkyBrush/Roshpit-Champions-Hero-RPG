@@ -93,6 +93,8 @@ function flamewaker_cataclysm:OnChannelFinish(interrupted)
 		    end
 		    self:FlamewakerR2()
 		    self:FlamewakerR3()
+		    GridNav:DestroyTreesAroundPoint(position, 240, false)
+		    Filters:CastSkillArguments(BASE_ABILITY_R, caster)
 		end
     end
 end

@@ -23,6 +23,7 @@
 			"particle"		"particles/neutral_fx/roshan_slam_debris_small.vpcf"
 			"particle"		"particles/econ/items/earthshaker/egteam_set/hero_earthshaker_egset/earthshaker_echoslam_start_fallback_low_egset.vpcf"
 			"particle"		"particles/roshpit/flamewaker/flamewaker_q4_buff.vpcf"
+			"particle"		"particles/units/heroes/hero_tiny/tiny_tree_channel_tgt_ground_dark_crack.vpcf"
 		}
 
 		// Special

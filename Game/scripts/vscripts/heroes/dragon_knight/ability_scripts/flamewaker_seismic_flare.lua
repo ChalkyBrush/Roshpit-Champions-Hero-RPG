@@ -98,6 +98,7 @@ function flamewaker_seismic_flare:OnSpellStart()
 	local caster = self:GetCaster()
     local target_position = self:GetCursorPosition()
     CustomAbilities:QuickParticleAtPoint("particles/neutral_fx/roshan_slam_debris_small.vpcf", target_position, 4)
+    CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_tiny/tiny_tree_channel_tgt_ground_dark_crack.vpcf", target_position, 4)
     EmitSoundOnLocationWithCaster(target_position, "Flamewaker.SeismicFlare.Cast", self:GetCaster())
     local pfx_to_destroy = ability.pre_cast_pfx
     ability.pre_cast_pfx = nil
@@ -118,6 +119,7 @@ function flamewaker_seismic_flare:OnSpellStart()
         	self:q_4_event(q_4_level)
         end
     end
+    GridNav:DestroyTreesAroundPoint(target_position, radius - 20, false)
     ability.damage = damage
     Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 end
@@ -130,6 +132,7 @@ function flamewaker_seismic_flare:q_4_event(q_4_level)
 			local r_ability = caster:GetAbilityByIndex(DOTA_R_SLOT)
 			r_ability:EndCooldown()
 			local duration = FLAMEWAKER_Q4_FREECAST_DURATION_BASE + q_4_level*FLAMEWAKER_Q4_FREECAST_DURATION
+			duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
 			caster:AddNewModifier(caster, self, "modifier_flamewaker_rune_q_4", {duration = duration})
 		end
 	end
