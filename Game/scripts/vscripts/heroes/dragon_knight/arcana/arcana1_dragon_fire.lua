@@ -216,6 +216,14 @@ function modifier_flamewaker_arcana_q_passive:DeclareFunctions()
 	return funcs
 end
 
+function modifier_flamewaker_arcana_q_passive:OnRemoved()
+	local ability = self:GetAbility()
+	if ability.pfx then
+		ParticleManager:DestroyParticle(ability.pfx, false)
+		ability.pfx = nil
+	end	
+end
+
 function modifier_flamewaker_arcana_q_passive:OnDeath()
 	local ability = self:GetAbility()
 	if ability.pfx then
