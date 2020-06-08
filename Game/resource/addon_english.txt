@@ -6912,14 +6912,14 @@
     	"DOTA_Tooltip_ability_flamewaker_rune_q_1_arcana1_property_two"			"Bonus Armor Pierce"
     	"DOTA_Tooltip_ability_flamewaker_rune_q_1_arcana1_suffix_two"			" per 1% of missing health"
 
-  		"DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1"						"[Q2] Tarragon Boost"
+  		"DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1"						"[Q2] Overheat"
     	"DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1_Description"			"After casting @Ability1, gain bonus movement speed and <font color=\"#EF4126\">Fire</font> elemental damage for <font color='#ccff66'>6</font> seconds."
     	"DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1_property_one"			"Movespeed"
     	"DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1_suffix"				""
     	"DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1_property_two"			"<font color=\"#EF4126\">Fire</font> Damage"
     	"DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1_suffix_two"			"%"
 
-    	"DOTA_Tooltip_modifier_flamewaker_arcana_q2_buff"					     "Tarragon Boost"
+    	"DOTA_Tooltip_modifier_flamewaker_arcana_q2_buff"					     "Overheat"
     	"DOTA_Tooltip_modifier_flamewaker_arcana_q2_buff_Description"		    "Increased movespeed and dealing additional <font color=\"#EF4126\">Fire</font> damage."
 
   		"DOTA_Tooltip_ability_flamewaker_rune_q_3_arcana1"						"[Q3] Firestorm"
