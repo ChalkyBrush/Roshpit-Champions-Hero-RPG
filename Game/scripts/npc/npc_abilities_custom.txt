@@ -24760,7 +24760,10 @@
                 //-------------------------------------------------------
                 "precache"
                 {
-                        "particle"              "particles/roshpit/flamewaker/flamewaker_q_arcana1.vpcf"
+                        "particle"      "particles/roshpit/flamewaker/flamewaker_q_arcana1.vpcf"
+                        "particle"      "particles/econ/items/monkey_king/arcana/fire/monkey_king_spring_arcana_fire_channel.vpcf"
+                        "particle"      "particles/roshpit/flamewaker/flamewaker_arcana_d_arope_arcana.vpcf"
+                        "particle"      "particles/econ/items/techies/techies_arcana/techies_suicide_flame.vpcf"
                 }
 
                 // Special
@@ -24932,7 +24935,11 @@
 		//-------------------------------------------------------
 		"precache"
 		{
+			"particle"					"particles/units/heroes/hero_dragon_knight/dragon_knight_transform_red.vpcf"
+			"particle"					"particles/roshpit/flamewaker/fireborne_shimmer_heal.vpcf"
 			"particle"					"particles/roshpit/flamewaker/dragon_shield.vpcf"
+			"particle"					"particles/roshpit/flamewaker/dragonfire.vpcf"
+			"particle"					"particles/roshpit/flamewaker/arcana/bluedragon.vpcf"
 		}
 
 		// Special

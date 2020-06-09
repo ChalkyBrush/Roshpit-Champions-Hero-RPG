@@ -7,14 +7,14 @@
         "DOTA_Tooltip_ability_flamewaker_seismic_flare_aoe_radius"          "AOE RADIUS:"
 
 
-    	"DOTA_Tooltip_ability_flamewaker_rune_q_1"								"[Q1] Dragon Skin"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_1"								"[Q1] Drake Armor"
     	"DOTA_Tooltip_ability_flamewaker_rune_q_1_Description"					"Gain additional armor and health regen."
     	"DOTA_Tooltip_ability_flamewaker_rune_q_1_property_one"					"Armor Bonus"
     	"DOTA_Tooltip_ability_flamewaker_rune_q_1_suffix"						""
     	"DOTA_Tooltip_ability_flamewaker_rune_q_1_property_two"					"Health Regen"
     	"DOTA_Tooltip_ability_flamewaker_rune_q_1_suffix_two"					""
 
-		"DOTA_Tooltip_modifier_flamewaker_rune_q_1" 							"Dragon Skin"
+		"DOTA_Tooltip_modifier_flamewaker_rune_q_1" 							"Drake Armor"
 		"DOTA_Tooltip_modifier_flamewaker_rune_q_1_description" 				"Gaining Armor and Health Regen."
 
 		"DOTA_Tooltip_ability_flamewaker_rune_q_2"								"[Q2] Vitality"

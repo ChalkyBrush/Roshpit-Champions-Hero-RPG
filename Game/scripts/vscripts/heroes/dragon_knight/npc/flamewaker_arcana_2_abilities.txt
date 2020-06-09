@@ -16,7 +16,11 @@
 		//-------------------------------------------------------
 		"precache"
 		{
+			"particle"					"particles/units/heroes/hero_dragon_knight/dragon_knight_transform_red.vpcf"
+			"particle"					"particles/roshpit/flamewaker/fireborne_shimmer_heal.vpcf"
 			"particle"					"particles/roshpit/flamewaker/dragon_shield.vpcf"
+			"particle"					"particles/roshpit/flamewaker/dragonfire.vpcf"
+			"particle"					"particles/roshpit/flamewaker/arcana/bluedragon.vpcf"
 		}
 
 		// Special
