@@ -1377,9 +1377,6 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	if unit:HasModifier("modifier_colossus_rage") then
 		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "physical_and_magic_armor", "modifier_colossus_rage")
 	end
-	if unit:HasModifier("modifier_dragonflame_shield") then
-		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_and_magic_armor", "modifier_dragonflame_shield")
-	end
 	if unit:HasModifier("modifier_voltex_static_field_spell_armor_reduce") then
 		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "magic_armor_reduction_per_stack", "modifier_voltex_static_field_spell_armor_reduce")
 	end

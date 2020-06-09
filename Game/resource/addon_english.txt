@@ -6938,45 +6938,50 @@
     	"DOTA_Tooltip_modifier_flamewaker_arcana_d_a_aura_Description"			"Taking magic damage while having reduced armor and spell pierce."
 
     	"DOTA_Tooltip_ability_flamewaker_dragonflame"						"Fireborne"
-    	"DOTA_Tooltip_ability_flamewaker_dragonflame_Description"			"Element: <font color=\"#EF4126\">Fire</font><br>Flamewaker locks into position and billows a steady stream of hot dragon fire, dealing damage to enemies in the cone area every 0.1 seconds. After 1.5 seconds of being active, gain a shield that increases armor and magic armor. Ability is not stopped by stuns or silences. Drains 10% of its mana cost every 0.1 seconds, and deactivates if mana reaches 0. Enemies standing in the fire have reduced armor."
+    	"DOTA_Tooltip_ability_flamewaker_dragonflame_Description"			"Element: <font color=\"#EF4126\">Fire</font><br>Flamewaker locks into position and billows a steady stream of hot dragon fire, dealing damage to enemies in the cone area every 0.1 seconds. After <font color='#ccff66'>1.5</font> seconds of being active, gain a shield that reduces all damage taken. Ability is not stopped by stuns or silences. Drains 10% of its mana cost every 0.1 seconds, and deactivates if mana reaches 0. Enemies standing in the fire have reduced armor up to <font color='#ccff66'>100</font> stacks."
     	"DOTA_Tooltip_ability_flamewaker_dragonflame_base_damage"			"DAMAGE:"
     	"DOTA_Tooltip_ability_flamewaker_dragonflame_attack_dmg_bonus"			"% ATTACK DAMAGE ADDED TO FIRE:"
     	"DOTA_Tooltip_ability_flamewaker_dragonflame_mana_drain"			"MANA DRAIN PER SECOND:"
-    	"DOTA_Tooltip_ability_flamewaker_dragonflame_damage_reduce"			"ARMOR AND MAGIC ARMOR FROM SHIELD:"
-        "DOTA_Tooltip_ability_flamewaker_dragonflame_armor_shred"           "ARMOR SHRED:"
+    	"DOTA_Tooltip_ability_flamewaker_dragonflame_damage_reduce"			"DAMAGE REDUCTION:"
+        "DOTA_Tooltip_ability_flamewaker_dragonflame_armor_shred"           "ARMOR SHRED PER STACK:"
 
-    	"DOTA_Tooltip_modifier_dragonflame_shield"								"Fireborne Shield"
-    	"DOTA_Tooltip_modifier_dragonflame_shield_Description"					"Taking Reduced Damage"
+    	"DOTA_Tooltip_modifier_flamewaker_fireborne_shield"								"Fireborne Shield"
+    	"DOTA_Tooltip_modifier_flamewaker_fireborne_shield_Description"					"Taking Reduced Damage"
 
-    	"DOTA_Tooltip_modifier_flamewaker_dragonflame"							"Fireborne"
-    	"DOTA_Tooltip_modifier_flamewaker_dragonflame_Description"				"Spitting A steady stream of fire"	
+    	"DOTA_Tooltip_modifier_flamewaker_arcana_fireborne"							"Fireborne"
+    	"DOTA_Tooltip_modifier_flamewaker_arcana_fireborne_Description"				"Spitting A steady stream of fire"	
+
+        "DOTA_Tooltip_modifier_flamewaker_fireborne_armor_shred"                "Fireborne Armor Shred"
+        "DOTA_Tooltip_modifier_flamewaker_fireborne_armor_shred_Description"    "Reduced Armor"  
 
     	"item_property_flamewaker_arcana2"										"Fireborne"
     	"property_flamewaker_arcana2_description"								"Replaces @Ability2 and all of its runes with Fireborne."
 
-  		"DOTA_Tooltip_ability_flamewaker_rune_w_1_arcana2"						"[W1] Brimstone"
-    	"DOTA_Tooltip_ability_flamewaker_rune_w_1_arcana2_Description"			"Flamewaker deals increased <font color=\"#EF4126\">Fire</font> damage against enemies who are stunned."
-    	"DOTA_Tooltip_ability_flamewaker_rune_w_1_arcana2_property_one"			"Fire Damage Amp"
-    	"DOTA_Tooltip_ability_flamewaker_rune_w_1_arcana2_suffix"				"% against stunned enemies"
+  		"DOTA_Tooltip_ability_flamewaker_rune_w_1_arcana2"						"[W1] Enhanced Shield"
+    	"DOTA_Tooltip_ability_flamewaker_rune_w_1_arcana2_Description"			"Reduces the delay to activate the Fireborne Shield, and adds a sticky duration to the shield once Fireborne is toggled off."
+    	"DOTA_Tooltip_ability_flamewaker_rune_w_1_arcana2_property_one"			"Shield Delay Reduction"
+    	"DOTA_Tooltip_ability_flamewaker_rune_w_1_arcana2_suffix"				" seconds"
+        "DOTA_Tooltip_ability_flamewaker_rune_w_1_arcana2_property_two"         "Shield Sticky Duration"
+        "DOTA_Tooltip_ability_flamewaker_rune_w_1_arcana2_suffix_two"           " seconds"
 
   		"DOTA_Tooltip_ability_flamewaker_rune_w_2_arcana2"						"[W2] Shimmering Flame"
-    	"DOTA_Tooltip_ability_flamewaker_rune_w_2_arcana2_Description"			"Gain massive Health Regen and some armor while Fireborne Shield is active."
+    	"DOTA_Tooltip_ability_flamewaker_rune_w_2_arcana2_Description"			"Gain massive Health Regen and Armor while Fireborne Shield is active."
     	"DOTA_Tooltip_ability_flamewaker_rune_w_2_arcana2_property_one"			"Health Regen"
     	"DOTA_Tooltip_ability_flamewaker_rune_w_2_arcana2_suffix"				""
     	"DOTA_Tooltip_ability_flamewaker_rune_w_2_arcana2_property_two"			"Armor"
     	"DOTA_Tooltip_ability_flamewaker_rune_w_2_arcana2_suffix_two"			""
 
   		"DOTA_Tooltip_ability_flamewaker_rune_w_3_arcana2"						"[W3] Spitfire"
-    	"DOTA_Tooltip_ability_flamewaker_rune_w_3_arcana2_Description"			"Attacks spit fire in a straight line. Damage dealt is equal to a regular Fireborne strike. Attack Damage Bonus that's added to Fireborne damage from this rune or the base ability is increased."
+    	"DOTA_Tooltip_ability_flamewaker_rune_w_3_arcana2_Description"			"Increases Fireborne's range, and Attack Power is added to Fireborne's base damage."
     	"DOTA_Tooltip_ability_flamewaker_rune_w_3_arcana2_property_one"			"Increased Fireborne damage from Attack Power"
     	"DOTA_Tooltip_ability_flamewaker_rune_w_3_arcana2_suffix"				"%"
-    	"DOTA_Tooltip_ability_flamewaker_rune_w_3_arcana2_property_two"			"Flame Range"
+    	"DOTA_Tooltip_ability_flamewaker_rune_w_3_arcana2_property_two"			"Additional Flame Range"
     	"DOTA_Tooltip_ability_flamewaker_rune_w_3_arcana2_suffix_two"			""
 
   		"DOTA_Tooltip_ability_flamewaker_rune_w_4_arcana2"						"[W4] Blazing Drake"
-    	"DOTA_Tooltip_ability_flamewaker_rune_w_4_arcana2_Description"			"Agility is added to Base Attack Damage."
-    	"DOTA_Tooltip_ability_flamewaker_rune_w_4_arcana2_property_one"			"Base Attack Power"
-    	"DOTA_Tooltip_ability_flamewaker_rune_w_4_arcana2_suffix"				"x Agility"
+    	"DOTA_Tooltip_ability_flamewaker_rune_w_4_arcana2_Description"			"Cooldowns are reduced while Fireborne is active."
+    	"DOTA_Tooltip_ability_flamewaker_rune_w_4_arcana2_property_one"			"Global Cooldown Reduction"
+    	"DOTA_Tooltip_ability_flamewaker_rune_w_4_arcana2_suffix"				"%"
 
 		
 		//Glyphs

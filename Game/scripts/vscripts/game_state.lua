@@ -1559,14 +1559,13 @@ end
 function GameState:IncomingDamageDecreaseWithType(victim, attacker, shouldConsumeShields, damagetype)
 	local BASE_VALUE_FOR_CALCULATE = 1000000
 	local damage = BASE_VALUE_FOR_CALCULATE
-	print(damage)
+
 	Util.Modifier:SimpleEvent(victim, 'GetConditionalDamageReduction', { MODIFIER_ROSHPIT_CONDITIONAL_DMG_REDUCTION }, {attacker = attacker, victim = victim, damageType = damagetype, shouldConsumeShields = shouldConsumeShields}, 
 		function(result, data)
 			damage = damage * (1 - result)
 		end
 	)
-	print(damage)
-	print("----")
+
 	if damagetype == DAMAGE_TYPE_PHYSICAL then
 		Util.Modifier:SimpleEvent(victim, 'GetPhysicalDamageReduction', { MODIFIER_ROSHPIT_PHYSICAL_DMG_REDUCTION }, { }, 
 			function(result, data)

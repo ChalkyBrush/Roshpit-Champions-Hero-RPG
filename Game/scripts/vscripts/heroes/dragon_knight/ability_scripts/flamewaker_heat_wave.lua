@@ -168,6 +168,15 @@ function modifier_flamewaker_e_heat_wave_base:OnIntervalThink()
     ability.interval = ability.interval + 1
     self:CalculateE1()
     self:CalculateE2()
+    if caster:HasModifier("modifier_flamewaker_arcana_fireborne") then
+    	local speed = caster:GetActualMovespeed()/100
+        local newPos = GetGroundPosition(caster:GetAbsOrigin() + caster:GetForwardVector() * speed, caster) 
+        local obstruction = WallPhysics:FindNearestObstruction(newPos)
+        local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, newPos, caster)
+        if not blockUnit then
+            caster:SetAbsOrigin(newPos)
+        end
+    end
 end
 
 function modifier_flamewaker_e_heat_wave_base:CalculateE1()
@@ -219,6 +228,7 @@ function modifier_flamewaker_e_heat_wave_base:OnRemoved()
 		ParticleManager:DestroyParticle(ability.pfx, false)
 		ability.pfx = nil
 	end	
+	FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
 	StopSoundEvent("Flamewaker.HeatWave.LP", caster)
 	EmitSoundOn("Flamewaker.HeatWave.End", caster)
 end
