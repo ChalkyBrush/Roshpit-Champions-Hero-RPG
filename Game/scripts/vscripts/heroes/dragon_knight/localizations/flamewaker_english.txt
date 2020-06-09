@@ -239,13 +239,16 @@
 		"item_rpc_flamewaker_glyph_1_1_description" 			"Enemies who attack you have a <% FLAMEWAKER_GLYPH_1_1_RETURN_STUN_CHANCE %>% chance to be stunned for <% FLAMEWAKER_GLYPH_1_1_STUN_DURATION %> second."
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_2_1"	"[T2-1] Glyph of Cratering"
-		"item_rpc_flamewaker_glyph_2_1_description" 			"Reduces the cooldown of Seismic Flare to <% FLAMEWAKER_GLYPH_2_1_Q_CD %> seconds and increases its damage by x<% FLAMEWAKER_GLYPH_2_1_Q_STR_MULT %> of Flamewaker's Strength value."
+		"item_rpc_flamewaker_glyph_2_1_description" 			"[Q] has <% FLAMEWAKER_GLYPH_2_1_Q_CD %>% reduced cooldown and its base damage is increased by x<% FLAMEWAKER_GLYPH_2_1_Q_STR_MULT %>x Flamewaker's Strength."
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_3_1"	"[T3-1] Glyph of Upheaval"
-		"item_rpc_flamewaker_glyph_3_1_description" 			"Apply [W3] to enemies that take damage from [W1]."
+		"item_rpc_flamewaker_glyph_3_1_description" 			"Increases all Stun Durations by <% FLAMEWAKER_GLYPH_3_1_STUN_PCT %>%."
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_4_1"	"[T4-1] Glyph of Blue Flame"
-		"item_rpc_flamewaker_glyph_4_1_description" 			"@Ability2 deals additional damage equal to <% FLAMEWAKER_GLYPH_4_1_ATTIRIBUTES_TO_W_DAMAGE_PER_LVL %>x of the sum of all your attributes. This damage bonus is multiplied by @Ability2's level. Also slows targets' Movespeed and Attack Speed by <% FLAMEWAKER_GLYPH_4_1_MS_SLOW %>/<% FLAMEWAKER_GLYPH_4_1_AS_SLOW %> for <% FLAMEWAKER_GLYPH_4_1_SLOW_DURATION %> seconds."
+		"item_rpc_flamewaker_glyph_4_1_description" 			"[W] slows targets' Movespeed by <% FLAMEWAKER_GLYPH_4_1_MS_SLOW %> and Attack Speed by <% FLAMEWAKER_GLYPH_4_1_AS_SLOW %> for <% FLAMEWAKER_GLYPH_4_1_SLOW_DURATION %> seconds."
+
+        "DOTA_Tooltip_modifier_flamewaker_glyph_4_1_slow_effect"    "Blue Flame"
+        "DOTA_Tooltip_modifier_flamewaker_glyph_4_1_slow_effect_Description"    "Reduced attack speed and movespeed"
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_5_1"	"[T5-1] Glyph of Charred Hearts"
 		"item_rpc_flamewaker_glyph_5_1_description" 			"Increases the duration of [R2] by <% FLAMEWAKER_GLYPH_5_1_R2_DUR_MULTIPLY %>x."

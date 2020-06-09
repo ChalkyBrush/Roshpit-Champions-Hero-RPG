@@ -179,6 +179,12 @@ function modifier_attack_land_basic:OnAttackLanded(event)
 			function(result, data)
 			end
 		)
+		Util.Modifier:SimpleEvent(parent, 'RoshpitOnAttacked', { MODIFIER_ROSHPIT_EVENT_ON_ATTACKED }, damageTable, 
+			function(result, data)
+			end
+		)
+
+
 		local override = false
 		Util.Modifier:SimpleEvent(parent, 'BasicAttackOverride', { MODIFIER_ROSHPIT_OVERRIDE_ATTACK_EVENT }, {target = event.target}, 
 			function(result, data)
