@@ -141,7 +141,7 @@ function flamewaker_fireborne:OnProjectileHit(target, vLoc)
 	local ability = self
 	if target then
 		local base_damage = self:GetSpecialValueFor("base_damage")
-		local attack_dmg_bonus = self:GetSpecialValueFor("attack_dmg_bonus")
+		local attack_dmg_bonus = 0
 		local w_3_level = caster:GetRuneValue("w", 3)
 		attack_dmg_bonus = attack_dmg_bonus + w_3_level * FLAMEWAKER_ARCANA2_W3_ATK_POWER_ADDED_TO_FLAME
 		local damage = base_damage + (attack_dmg_bonus / 100) * OverflowProtectedGetAverageTrueAttackDamage(caster)
