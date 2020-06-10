@@ -239,7 +239,7 @@
 		"item_rpc_flamewaker_glyph_1_1_description" 			"Enemies who attack you have a <% FLAMEWAKER_GLYPH_1_1_RETURN_STUN_CHANCE %>% chance to be stunned for <% FLAMEWAKER_GLYPH_1_1_STUN_DURATION %> second."
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_2_1"	"[T2-1] Glyph of Cratering"
-		"item_rpc_flamewaker_glyph_2_1_description" 			"[Q] has <% FLAMEWAKER_GLYPH_2_1_Q_CD %>% reduced cooldown and its base damage is increased by x<% FLAMEWAKER_GLYPH_2_1_Q_STR_MULT %>x Flamewaker's Strength."
+		"item_rpc_flamewaker_glyph_2_1_description" 			"[Q] has <% FLAMEWAKER_GLYPH_2_1_Q_CD %>% reduced cooldown and its base damage is increased by <% FLAMEWAKER_GLYPH_2_1_Q_STR_MULT %>x Flamewaker's Strength."
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_3_1"	"[T3-1] Glyph of Upheaval"
 		"item_rpc_flamewaker_glyph_3_1_description" 			"Increases all Stun Durations by <% FLAMEWAKER_GLYPH_3_1_STUN_PCT %>%."

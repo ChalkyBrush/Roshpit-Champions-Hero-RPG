@@ -51,6 +51,9 @@ end
 function flamewaker_dragon_breath:FireProjectile(fv)
     local ability = self
 	local caster = self:GetCaster()	
+	if not ability.w_2_level then
+		ability.w_2_level = caster:GetRuneValue("w", 2)
+	end
     EmitSoundOn("Flamewaker.SecondHeartbeat", caster)
 	local start_radius = self:GetSpecialValueFor("start_radius")
 	local end_radius = self:GetSpecialValueFor("end_radius")
