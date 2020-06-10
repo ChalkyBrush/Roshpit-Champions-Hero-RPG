@@ -12727,7 +12727,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_sange_boots"										"散华之鞋"
 		"item_property_sange"						"战斗大师S"
-        "property_sange_description"                "每点敏捷提供 <font color='#ccff66'>15</font> 点最大生命值以及 <font color='#ccff66'>3</font>点护甲。"
+        "property_sange_description"                "每点敏捷提供 <font color='#ccff66'>4</font> 点最大生命值以及 <font color='#ccff66'>3</font>点护甲。"
 
         "item_rpc_sange_boots_ruby1"                                        "增加 @ruby_property1点力量"
         "item_rpc_sange_boots_emerald1"                                     "增加 @emerald_property1点敏捷"
@@ -12775,7 +12775,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_yasha_boots"										"夜叉之鞋"
 		"item_property_yasha"						"战斗大师Y"	
-        "property_yasha_description"                "每点力量提供 <font color='#ccff66'>0.5</font> 点攻击速度和 <font color='#ccff66'>3</font>点物理穿透。"
+        "property_yasha_description"                "每点力量提供 <font color='#ccff66'>0.25</font> 点攻击速度和 <font color='#ccff66'>3</font>点物理穿透。"
         "item_rpc_yasha_boots_ruby1"                                        "增加 @ruby_property1 点力量"
         "item_rpc_yasha_boots_emerald1"                                     "增加 @emerald_property1点敏捷"
         "item_rpc_yasha_boots_sapphire1"                                        "增加@sapphire_property1%点移动速度"
@@ -13753,7 +13753,7 @@
 		"item_rpc_gold_plate_of_leon_sapphire1"								"每点主属性提供 @sapphire_property1点攻击力 "
 		"item_rpc_gold_plate_of_leon_amethyst1"								"增加你的主属性 @amethyst_property1%"
 		"item_property_gold_plate_of_leon"						"无畏英雄"
-		"property_gold_plate_of_leon_description"				"提高你的主属性<font color='#ccff66'>50</font>%。"
+		"property_gold_plate_of_leon_description"				"提高你的主属性<font color='#ccff66'>30</font>%。"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_staggering_knight_crusher_armor"					"骑士破坏之甲"
@@ -13771,7 +13771,7 @@
 		"item_rpc_sapphire_dragon_scale_armor_sapphire1"						"每点智力增加基础攻击力 @sapphire_property1点"
 		"item_rpc_sapphire_dragon_scale_armor_amethyst1"						"每点智力增加魔甲@amethyst_property1点"
 		"item_property_sapphire_dragon"					"蓝龙"
-		"property_sapphire_dragon_description"				"每点智力值增加 <font color='#ccff66'>0.5</font>点基础攻击力。"
+		"property_sapphire_dragon_description"				"每点智力值增加 <font color='#ccff66'>0.25</font>点基础攻击力。"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_ruby_dragon_scale_armor"							"红宝石龙鳞铠甲"
@@ -13780,7 +13780,7 @@
 		"item_rpc_ruby_dragon_scale_armor_sapphire1"							"每点力量增加魔法穿透 @sapphire_property1点"
 		"item_rpc_ruby_dragon_scale_armor_amethyst1"							"每点力量增加魔甲 @amethyst_property1点"
 		"item_property_ruby_dragon_armor"					"红龙"
-		"property_ruby_dragon_armor_description"			"每点力量值增加 <font color='#ccff66'>0.5</font>点基础攻击力。"
+		"property_ruby_dragon_armor_description"			"每点力量值增加 <font color='#ccff66'>0.25</font>点基础攻击力。"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_topaz_dragon_scale_armor"						"黄玉龙鳞铠甲"
@@ -13789,7 +13789,7 @@
 		"item_rpc_topaz_dragon_scale_armor_sapphire1"						"每点敏捷增加魔法穿透 @sapphire_property1点"
 		"item_rpc_topaz_dragon_scale_armor_amethyst1"						"每点敏捷增加魔甲 @amethyst_property1点"
 		"item_property_topaz_dragon"						"黄龙"
-		"property_topaz_dragon_description"				"每点敏捷值增加 <font color='#ccff66'>0.5</font>点基础攻击力。"
+		"property_topaz_dragon_description"				"每点敏捷值增加 <font color='#ccff66'>0.25</font>点基础攻击力。"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_sacred_trials_armor"								"神圣审判护甲"
@@ -14908,7 +14908,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_mask_of_tyrius"									"提瑞斯面具"
 		"item_property_tyrius"						"提瑞斯之威"
-		"property_tyrius_description"				"每点力量额外提高<font color='#ccff66'>20</font>点生命值和<font color='#ccff66'>2</font>点魔法值。"
+		"property_tyrius_description"				"每点力量额外提高<font color='#ccff66'>6</font>点生命值和<font color='#ccff66'>2</font>点魔法值。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_veil_of_the_cerulean_high_guard"					"蓝天守卫面纱"
@@ -15029,7 +15029,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_blackfeather_crown"								"黑羽之冠"
 		"item_property_blackfeather"				"老树昏鸦"	
-		"property_blackfeather_description"			"攻击敌人召唤一只乌鸦，乌鸦攻击为<font color='#ccff66'>3</font>x 你的攻击力."
+		"property_blackfeather_description"			"攻击敌人召唤一只乌鸦，乌鸦攻击为<font color='#ccff66'>0.6</font>x 你的攻击力."
 		"item_rpc_blackfeather_crown_ruby1"	"乌鸦的攻击有 @ruby_property1% 概率连锁攻击至多 @ruby_property2 个附近的敌人"
 		"item_rpc_blackfeather_crown_emerald1" "乌鸦有 @emerald_property1% 概率还击攻击你的敌人"
 		"item_rpc_blackfeather_crown_sapphire1"	"增加物理穿透 @sapphire_property2。乌鸦攻击施加一个 @sapphire_property1 护甲降低的debuff，持续 <font color='#ccff66'>8</font>秒"

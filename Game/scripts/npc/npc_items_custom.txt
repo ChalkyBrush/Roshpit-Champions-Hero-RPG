@@ -36865,7 +36865,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"0.4 0.8 1.2 1.6 2"
+				"amethyst1"			"0.2 0.4 0.6 0.8 1"
 			}
 		}
 		"OnSpellStart"
@@ -37912,7 +37912,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"0.4 0.8 1.2 1.6 2"
+				"amethyst1"			"0.2 0.4 0.6 0.8 1"
 			}
 		}
 		"OnSpellStart"
@@ -40918,7 +40918,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby2"				"0.5 1 1.5 2 2.5"
+				"ruby2"				"0.25 0.5 0.75 1 1.25"
 			}
 			"03"
 			{
@@ -47613,7 +47613,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"0.3 0.6 0.9 1.2 1.5"
+				"sapphire1"			"0.15 0.3 0.45 0.6 0.75"
 			}
 			"05"
 			{
@@ -59459,22 +59459,22 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"2 4 6 8 10"
+				"ruby1"				"1 2 3 4 5"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"2 4 6 8 10"
+				"emerald1"				"1 2 3 4 5"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"2 4 6 8 10"
+				"sapphire1"				"1 2 3 4 5"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"2 4 6 8 10"
+				"amethyst1"				"1 2 3 4 5"
 			}
 		}
 	}
@@ -59620,17 +59620,17 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"1.2 2.4 3.6 4.8 6"
+				"ruby1"				"0.5 1 1.5 2 2.5"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"0.4 0.8 1.2 1.6 2"
+				"emerald1"				"0.15 0.3 0.45 0.6 0.75"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"2 4 6 8 10"
+				"sapphire1"				"1.5 3 4.5 6 7.5"
 			}
 			"04"
 			{
@@ -59640,7 +59640,7 @@
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"0.3 0.6 0.9 1.2 1.5"
+				"amethyst1"				"0.15 0.3 0.45 0.6 0.75"
 			}
 			"06"
 			{
@@ -67293,7 +67293,7 @@
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"0.15 0.3 0.45 0.6 0.75"
+				"amethyst1"			"0.1 0.2 0.3 0.4 0.5"
 			}
 		}
 		"OnSpellStart"

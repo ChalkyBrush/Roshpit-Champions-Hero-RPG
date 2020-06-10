@@ -12954,7 +12954,7 @@
         "DOTA_Tooltip_ability_item_rpc_sange_boots"                                     "Sange Boots"
 
         "item_property_sange"                       "Combat Mastery S"
-        "property_sange_description"                "Each point of Agility increases your Max Health by <font color='#ccff66'>15</font> and your Armor by <font color='#ccff66'>3</font>."
+        "property_sange_description"                "Each point of Agility increases your Max Health by <font color='#ccff66'>4</font> and your Armor by <font color='#ccff66'>3</font>."
 
         "item_rpc_sange_boots_ruby1"                                        "Increases Strength by @ruby_property1"
         "item_rpc_sange_boots_emerald1"                                     "Increases Agility by @emerald_property1"
@@ -13068,7 +13068,7 @@
 			
         "DOTA_Tooltip_ability_item_rpc_yasha_boots"                                     "Yasha Boots"
         "item_property_yasha"                       "Combat Mastery Y"  
-        "property_yasha_description"                "Each point of Strength increases your Attack Speed by <font color='#ccff66'>0.5</font> and your Armor Pierce by <font color='#ccff66'>3</font>."
+        "property_yasha_description"                "Each point of Strength increases your Attack Speed by <font color='#ccff66'>0.25</font> and your Armor Pierce by <font color='#ccff66'>3</font>."
         "item_rpc_yasha_boots_ruby1"                                        "Increases Strength by @ruby_property1"
         "item_rpc_yasha_boots_emerald1"                                     "Increases Agility by @emerald_property1"
         "item_rpc_yasha_boots_sapphire1"                                        "Increases Movespeed by @sapphire_property1%"
@@ -13381,7 +13381,7 @@
 
 		"DOTA_Tooltip_ability_item_rpc_gold_plate_of_leon"								"Gold Plate of Leon"
 		"item_property_gold_plate_of_leon"						"Gallant Hero"
-		"property_gold_plate_of_leon_description"				"Increases your Primary Attribute by <font color='#ccff66'>50</font>%"
+		"property_gold_plate_of_leon_description"				"Increases your Primary Attribute by <font color='#ccff66'>30</font>%"
 
 		"item_rpc_gold_plate_of_leon_ruby1"								"Your primary attribute is always Strength. Increases Strength by @ruby_property1."
 		"item_rpc_gold_plate_of_leon_emerald1"								"Increases all attributes by @emerald_property1"
@@ -13597,7 +13597,7 @@
 		"DOTA_Tooltip_ability_item_rpc_ruby_dragon_scale_armor"							"Ruby Dragon Scale Armor"
 
 		"item_property_ruby_dragon_armor"					"Red Scale"
-		"property_ruby_dragon_armor_description"			"Primary attribute is always Strength. Each point of Strength increases attack damage by an additional <font color='#ccff66'>0.5</font> and Armor/Magic Armor/Armor Pierce/Spell Pierce by <font color='#ccff66'>0.3</font>."
+		"property_ruby_dragon_armor_description"			"Primary attribute is always Strength. Each point of Strength increases attack damage by an additional <font color='#ccff66'>0.25</font> and Armor/Magic Armor/Armor Pierce/Spell Pierce by <font color='#ccff66'>0.3</font>."
 
 		"item_rpc_ruby_dragon_scale_armor_ruby1"							"Each point of Strength increases Base Attack Damage by @ruby_property1"
 		"item_rpc_ruby_dragon_scale_armor_emerald1"							"Each point of Strength increases Armor Pierce by @emerald_property1"
@@ -13607,7 +13607,7 @@
 		"DOTA_Tooltip_ability_item_rpc_topaz_dragon_scale_armor"						"Topaz Dragon Scale Armor"
 
 		"item_property_topaz_dragon"						"Yellow Scale"
-		"property_topaz_dragon_description"				"Primary attribute is always Agility. Each point of Agility increases attack damage by an additional <font color='#ccff66'>0.5</font> and Armor/Magic Armor/Armor Pierce/Spell Pierce by <font color='#ccff66'>0.3</font>."
+		"property_topaz_dragon_description"				"Primary attribute is always Agility. Each point of Agility increases attack damage by an additional <font color='#ccff66'>0.25</font> and Armor/Magic Armor/Armor Pierce/Spell Pierce by <font color='#ccff66'>0.3</font>."
 
 		"item_rpc_topaz_dragon_scale_armor_ruby1"						"Each point of Agility increases Armor by @ruby_property1"
 		"item_rpc_topaz_dragon_scale_armor_emerald1"						"Each point of Agility increases Base Attack Damage by @emerald_property1"
@@ -13617,7 +13617,7 @@
 		"DOTA_Tooltip_ability_item_rpc_sapphire_dragon_scale_armor"						"Sapphire Dragon Scale Armor"
 
 		"item_property_sapphire_dragon"					"Blue Scale"
-		"property_sapphire_dragon_description"				"Primary attribute is always Intelligence. Each point of Intelligence increases attack damage by an additional <font color='#ccff66'>0.5</font> and Armor/Magic Armor/Armor Pierce/Spell Pierce by <font color='#ccff66'>0.3</font>."
+		"property_sapphire_dragon_description"				"Primary attribute is always Intelligence. Each point of Intelligence increases attack damage by an additional <font color='#ccff66'>0.25</font> and Armor/Magic Armor/Armor Pierce/Spell Pierce by <font color='#ccff66'>0.3</font>."
 
 		"item_rpc_sapphire_dragon_scale_armor_ruby1"						"Each point of Intelligence increases Armor by @ruby_property1"
 		"item_rpc_sapphire_dragon_scale_armor_emerald1"						"Each point of Intelligence increases Armor Pierce by @ruby_property1"
@@ -14655,7 +14655,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_blackfeather_crown"								"Blackfeather Crown"
 		"item_property_blackfeather"				"Spirit of the Stormcrow"	
-		"property_blackfeather_description"			"Landing an attack summons the Stormcrow Spirit that performs an attack with <font color='#ccff66'>3</font>x your attack power."
+		"property_blackfeather_description"			"Landing an attack summons the Stormcrow Spirit that performs an attack with <font color='#ccff66'>0.6</font>x your attack power."
 
 		"item_rpc_blackfeather_crown_ruby1"	"The Stormcrow's attacks have a @ruby_property1% chance to chain to @ruby_property2 nearby enemies"
 		"item_rpc_blackfeather_crown_emerald1" "The Stormcrow has a @emerald_property1% chance to attack an enemy who attacks you"
@@ -15070,7 +15070,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_mask_of_tyrius"									"Mask of Tyrius"
 		"item_property_tyrius"						"Might of Tyrius"
-		"property_tyrius_description"				"Each point of Strength additionally increases max health by <font color='#ccff66'>20</font> and max mana by <font color='#ccff66'>2</font>."
+		"property_tyrius_description"				"Each point of Strength additionally increases max health by <font color='#ccff66'>6</font> and max mana by <font color='#ccff66'>2</font>."
 
 		"item_rpc_mask_of_tyrius_ruby1"		"Increases Max Health per Strength by an additional @ruby_property1"
 		"item_rpc_mask_of_tyrius_emerald1"	"Increases Base Attack Damage per Strength by @emerald_property1"

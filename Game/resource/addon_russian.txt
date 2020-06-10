@@ -12831,7 +12831,7 @@
         "DOTA_Tooltip_ability_item_rpc_sange_boots"                                     "Sange Boots"
 
         "item_property_sange"                       "Combat Mastery S"
-        "property_sange_description"                "Ловкость увеличивает Здоровье на <font color='#ccff66'>15</font> и Броню на <font color='#ccff66'>3</font>."
+        "property_sange_description"                "Ловкость увеличивает Здоровье на <font color='#ccff66'>4</font> и Броню на <font color='#ccff66'>3</font>."
 
         "item_rpc_sange_boots_ruby1"                                        "Увеличивает Силу на @ruby_property1"
         "item_rpc_sange_boots_emerald1"                                     "Увеличивает Ловкость на @emerald_property1"
@@ -12933,7 +12933,7 @@
 			
         "DOTA_Tooltip_ability_item_rpc_yasha_boots"                                     "Yasha Boots"
         "item_property_yasha"                       "Combat Mastery Y"  
-        "property_yasha_description"                "Сила увеличивает Скорость Атаки героя на <font color='#ccff66'>0.5</font> и Пробитие Брони на <font color='#ccff66'>3</font>."
+        "property_yasha_description"                "Сила увеличивает Скорость Атаки героя на <font color='#ccff66'>0.25</font> и Пробитие Брони на <font color='#ccff66'>3</font>."
         "item_rpc_yasha_boots_ruby1"                                        "Повышает Силу на @ruby_property1"
         "item_rpc_yasha_boots_emerald1"                                     "Повышает Ловкость на @emerald_property1"
         "item_rpc_yasha_boots_sapphire1"                                        "Повышает Скорость Передвижения на @sapphire_property1%"
@@ -13246,7 +13246,7 @@
 
 		"DOTA_Tooltip_ability_item_rpc_gold_plate_of_leon"								"Gold Plate of Leon"
 		"item_property_gold_plate_of_leon"						"Gallant Hero"
-		"property_gold_plate_of_leon_description"				"Увеличивает основной атрибут героя на <font color='#ccff66'>50</font>%"
+		"property_gold_plate_of_leon_description"				"Увеличивает основной атрибут героя на <font color='#ccff66'>30</font>%"
 
 		"item_rpc_gold_plate_of_leon_ruby1"								"Сила становится основным атрибутом героя. Увеличивает Силу на @ruby_property1."
 		"item_rpc_gold_plate_of_leon_emerald1"								"Увеличивает все Атрибуты на @emerald_property1"
@@ -13462,7 +13462,7 @@
 		"DOTA_Tooltip_ability_item_rpc_ruby_dragon_scale_armor"							"Ruby Dragon Scale Armor"
 
 		"item_property_ruby_dragon_armor"					"Red Scale"
-		"property_ruby_dragon_armor_description"			"Основным атрибутом героя назначается Сила. Каждое очко Силы увеличивает урон Атаки на <font color='#ccff66'>0.5</font>, Броню/Магическую Защиту/их Пробития на <font color='#ccff66'>0.3</font>."
+		"property_ruby_dragon_armor_description"			"Основным атрибутом героя назначается Сила. Каждое очко Силы увеличивает урон Атаки на <font color='#ccff66'>0.25</font>, Броню/Магическую Защиту/их Пробития на <font color='#ccff66'>0.3</font>."
 
 		"item_rpc_ruby_dragon_scale_armor_ruby1"							"Сила увеличивает Базовый Урон Атаки на @ruby_property1"
 		"item_rpc_ruby_dragon_scale_armor_emerald1"							"Сила увеличивает Пробитие Брони на @emerald_property1"
@@ -13472,7 +13472,7 @@
 		"DOTA_Tooltip_ability_item_rpc_topaz_dragon_scale_armor"						"Topaz Dragon Scale Armor"
 
 		"item_property_topaz_dragon"						"Yellow Scale"
-		"property_topaz_dragon_description"				"Основным атрибутом героя назначается Ловкость. Каждое очко Ловкости увеличивает урон Атаки на <font color='#ccff66'>0.5</font>, Броню/Магическую Защиту/их Пробития на <font color='#ccff66'>0.3</font>."
+		"property_topaz_dragon_description"				"Основным атрибутом героя назначается Ловкость. Каждое очко Ловкости увеличивает урон Атаки на <font color='#ccff66'>0.25</font>, Броню/Магическую Защиту/их Пробития на <font color='#ccff66'>0.3</font>."
 
 		"item_rpc_topaz_dragon_scale_armor_ruby1"						"Ловкость увеличивает Броню на @ruby_property1"
 		"item_rpc_topaz_dragon_scale_armor_emerald1"						"Ловкость увеличивает Базовый Урон Атаки на @emerald_property1"
@@ -13482,7 +13482,7 @@
 		"DOTA_Tooltip_ability_item_rpc_sapphire_dragon_scale_armor"						"Sapphire Dragon Scale Armor"
 
 		"item_property_sapphire_dragon"					"Blue Scale"
-		"property_sapphire_dragon_description"				"Основным атрибутом героя назначается Интеллект. Каждое очко Интеллекта увеличивает урон Атаки на  <font color='#ccff66'>0.5</font>, Броню/Магическую Защиту/их Пробития на <font color='#ccff66'>0.3</font>."
+		"property_sapphire_dragon_description"				"Основным атрибутом героя назначается Интеллект. Каждое очко Интеллекта увеличивает урон Атаки на  <font color='#ccff66'>0.25</font>, Броню/Магическую Защиту/их Пробития на <font color='#ccff66'>0.3</font>."
 
 		"item_rpc_sapphire_dragon_scale_armor_ruby1"						"Интеллект увеличивает Броню на @ruby_property1"
 		"item_rpc_sapphire_dragon_scale_armor_emerald1"						"Интеллекть увеличивает Пробитие Брони на  @ruby_property1"
@@ -14521,7 +14521,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_blackfeather_crown"								"Blackfeather Crown"
 		"item_property_blackfeather"				"Spirit of the Stormcrow"	
-		"property_blackfeather_description"			"Успешное нанесение атаки призывает дух Штормового Ворона, атакующего с <font color='#ccff66'>3</font>x силой атаки героя."
+		"property_blackfeather_description"			"Успешное нанесение атаки призывает дух Штормового Ворона, атакующего с <font color='#ccff66'>0.6</font>x силой атаки героя."
 
 		"item_rpc_blackfeather_crown_ruby1"	"Атаки Штормового Ворона имеют @ruby_property1% шанс откочить на @ruby_property2 ближайших противников"
 		"item_rpc_blackfeather_crown_emerald1" "Штормовой Ворон имеет @emerald_property1% шанс атаковать противника, который атакует его героя. Увеличивает Пробитие Брони на @sapphire_property2."
@@ -14937,7 +14937,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_mask_of_tyrius"									"Mask of Tyrius"
 		"item_property_tyrius"						"Might of Tyrius"
-		"property_tyrius_description"				"Каждая единица Силы дополнительно увеличивает Здоровье Героя на <font color='#ccff66'>20</font>, а Максимальную Ману на <font color='#ccff66'>2</font>."
+		"property_tyrius_description"				"Каждая единица Силы дополнительно увеличивает Здоровье Героя на <font color='#ccff66'>6</font>, а Максимальную Ману на <font color='#ccff66'>2</font>."
 
 		"item_rpc_mask_of_tyrius_ruby1"		"Увеличивает Максимальное Здоровье за единицу Силы дополнительно на @ruby_property1"
 		"item_rpc_mask_of_tyrius_emerald1"	"Увеличивает Базовую Атаку героя за единицу Силы на @emerald_property1"
