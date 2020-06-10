@@ -179,7 +179,7 @@ function modifier_attack_land_basic:OnAttackLanded(event)
 			function(result, data)
 			end
 		)
-		Util.Modifier:SimpleEvent(parent, 'RoshpitOnAttacked', { MODIFIER_ROSHPIT_EVENT_ON_ATTACKED }, damageTable, 
+		Util.Modifier:SimpleEvent(event.target, 'RoshpitOnAttacked', { MODIFIER_ROSHPIT_EVENT_ON_ATTACKED }, damageTable, 
 			function(result, data)
 			end
 		)
