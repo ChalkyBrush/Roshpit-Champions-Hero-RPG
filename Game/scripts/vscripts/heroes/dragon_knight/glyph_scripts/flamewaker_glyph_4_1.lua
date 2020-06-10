@@ -49,7 +49,7 @@ end
 function modifierClass:OnHitWAbility(event)
 	local hero = event.attacker
 	local target = event.victim
-	target:AddNewModifier(hero, self:GetAbility(), " modifier_flamewaker_glyph_4_1_slow_effect", {duration = FLAMEWAKER_GLYPH_4_1_SLOW_DURATION })
+	target:AddNewModifier(hero, self:GetAbility(), "modifier_flamewaker_glyph_4_1_slow_effect", {duration = FLAMEWAKER_GLYPH_4_1_SLOW_DURATION })
 end
 
 -- SLOW MODIFIER

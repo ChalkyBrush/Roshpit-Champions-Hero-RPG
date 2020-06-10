@@ -109,8 +109,8 @@ function flamewaker_cataclysm:FlamewakerR2()
 		ability.r_2_level = r_2_level
 		if r_2_level > 0 then
 			EmitSoundOn("Flamewaker.SecondHeartbeat", caster)
-			local count = 50
-			local delay = 0.06
+			local count = 25
+			local delay = 0.12
 			if caster:HasModifier("modifier_flamewaker_glyph_5_1") then
 				count = count * FLAMEWAKER_GLYPH_5_1_ADDITIONAL_FLAMES_MULT
 				delay = delay / FLAMEWAKER_GLYPH_5_1_ADDITIONAL_FLAMES_MULT

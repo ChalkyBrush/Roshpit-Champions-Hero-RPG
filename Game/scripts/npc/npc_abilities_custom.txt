@@ -25621,7 +25621,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"5"
+				"property_one"			"10"
 			}
 			"03"
 			{

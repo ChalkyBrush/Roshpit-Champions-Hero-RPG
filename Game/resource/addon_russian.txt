@@ -6922,16 +6922,16 @@
 		"item_rpc_flamewaker_glyph_1_1_description" 			"Враги, атакующие вас могут быть оглушены с шансом <font color='#ccff66'>50</font>% на <font color='#ccff66'>1</font> сек."
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_2_1"	"[T2-1] Glyph of Cratering"
-		"item_rpc_flamewaker_glyph_2_1_description" 			"Уменьшает время перезарядки (Q) Seismic Flare до <font color='#ccff66'>5</font> сек и увеличивает урон этой способности на показатель Силы героя в <font color='#ccff66'>5</font>-кратном размере."
+		"item_rpc_flamewaker_glyph_2_1_description" 			"Уменьшает время перезарядки (Q) Seismic Flare до <font color='#ccff66'>35</font> сек и увеличивает урон этой способности на показатель Силы героя в <font color='#ccff66'>4</font>-кратном размере."
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_3_1"	"[T3-1] Glyph of Upheaval"
 		"item_rpc_flamewaker_glyph_3_1_description" 			"На все цели попавшие под [W1] применяется [W3]."
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_4_1"	"[T4-1] Glyph of Blue Flame"
-		"item_rpc_flamewaker_glyph_4_1_description" 			"(W) @Ability2 наносит дополнительный урон, равный (<font color='#ccff66'>0.04</font>x от суммы атрибутов героя, помноженный на текущий уровень (W) @Ability2. Дополнительно снижает скорость передвижения и атаки врагов на <font color='#ccff66'>120</font>/<font color='#ccff66'>120</font> на <font color='#ccff66'>3</font> сек."
+		"item_rpc_flamewaker_glyph_4_1_description" 			"(W) @Ability2 наносит дополнительный урон, равный (0x от суммы атрибутов героя, помноженный на текущий уровень (W) @Ability2. Дополнительно снижает скорость передвижения и атаки врагов на <font color='#ccff66'>-160</font>/<font color='#ccff66'>-140</font> на <font color='#ccff66'>4</font> сек."
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_5_1"	"[T5-1] Glyph of Charred Hearts"
-		"item_rpc_flamewaker_glyph_5_1_description" 			"Увеличивает длительность [R2] в <font color='#ccff66'>1.5</font> раза."
+		"item_rpc_flamewaker_glyph_5_1_description" 			"Увеличивает длительность [R2] в 0 раза."
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_6_1"	"[T6-1] Glyph of Mountain's Core"
 		"item_rpc_flamewaker_glyph_6_1_description" 			"В течение <font color='#ccff66'>7</font> сек. после прочтения (R) Cataclysm, основной урон будет увеличен на <font color='#ccff66'>100</font>%."
@@ -6940,10 +6940,10 @@
 		"DOTA_Tooltip_modifier_flamewaker_glyph_6_1_buff_Description"	"Урон увеличен на <font color='#ccff66'>100</font>%%."
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_7_1"	"[T7-1] Glyph of Flaming Sea"
-		"item_rpc_flamewaker_glyph_7_1_description" 			"Оставляемый огненный след от руны [E1] шире в @glyph_property1 раз(а) и наносит в <font color='#ccff66'>3</font> раз(а) больше урона."
+		"item_rpc_flamewaker_glyph_7_1_description" 			"Оставляемый огненный след от руны [E1] шире в @glyph_property1 раз(а) и наносит в 0 раз(а) больше урона."
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_5_a"	"[T5-a] Glyph of Dragon Skin"
-		"item_rpc_flamewaker_glyph_5_a_description" 			"Любой входящий урон не отнимет более <font color='#ccff66'>30</font>% от макс. здоровья. Если уровень здоровья ниже <font color='#ccff66'>50</font>%, входящий урон не отнимет более <font color='#ccff66'>15</font>% от макс. здоровья."
+		"item_rpc_flamewaker_glyph_5_a_description" 			"Любой входящий урон не отнимет более <font color='#ccff66'>3000</font>% от макс. здоровья. Если уровень здоровья ниже <font color='#ccff66'>5000</font>%, входящий урон не отнимет более <font color='#ccff66'>1500</font>% от макс. здоровья."
 
 		//Weapons
 		"flamewaker_weapon_00"			"Basic Sword"

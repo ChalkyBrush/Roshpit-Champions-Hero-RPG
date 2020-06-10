@@ -7317,16 +7317,16 @@
 		"item_rpc_flamewaker_glyph_1_1_description" 			"攻击你的敌人有 <font color='#ccff66'>50</font>% 几率被眩晕 <font color='#ccff66'>1</font> 秒。"
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_2_1"	"[T2-1] 坍缩雕文"
-		"item_rpc_flamewaker_glyph_2_1_description" 			"降低地震爆发的冷却时间至 <font color='#ccff66'>5</font> 秒并且提高地震爆发的伤害，数值为 <font color='#ccff66'>5</font>X火焰行者的力量值。"
+		"item_rpc_flamewaker_glyph_2_1_description" 			"降低地震爆发的冷却时间至 <font color='#ccff66'>35</font> 秒并且提高地震爆发的伤害，数值为 <font color='#ccff66'>4</font>X火焰行者的力量值。"
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_3_1"	"[T3-1] 剧变雕文"
 		"item_rpc_flamewaker_glyph_3_1_description" 			"[W1]造成伤害的同时会对目标附加[W3] 。"
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_4_1"	"[T4-1] 蓝焰雕文"
-		"item_rpc_flamewaker_glyph_4_1_description" 			"@Ability2造成额外伤害，额外伤害为 <font color='#ccff66'>0.04</font>x 的攻击力。所造成的额外伤害还将乘以@Ability2的等级数。同时减少敌人攻击和移动速度 <font color='#ccff66'>120</font>/<font color='#ccff66'>120</font>。"
+		"item_rpc_flamewaker_glyph_4_1_description" 			"@Ability2造成额外伤害，额外伤害为 0x 的攻击力。所造成的额外伤害还将乘以@Ability2的等级数。同时减少敌人攻击和移动速度 <font color='#ccff66'>-160</font>/<font color='#ccff66'>-140</font>。"
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_5_1"	"[T5-1] 灼热之心雕文"
-		"item_rpc_flamewaker_glyph_5_1_description" 			"增加[R2]的持续时间<font color='#ccff66'>1.5</font>倍。"
+		"item_rpc_flamewaker_glyph_5_1_description" 			"增加[R2]的持续时间0倍。"
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_6_1"	"[T6-1] 山脉之核雕文"
 		"item_rpc_flamewaker_glyph_6_1_description" 			"施放大灾变后提高额外攻击力 <font color='#ccff66'>100</font>% ，持续时间 <font color='#ccff66'>7</font> 秒。"
@@ -7335,10 +7335,10 @@
 		"DOTA_Tooltip_modifier_flamewaker_glyph_6_1_buff_Description"	"提高 <font color='#ccff66'>100</font>% 额外攻击力"
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_7_1"	"[T7-1] 火海雕文"
-		"item_rpc_flamewaker_glyph_7_1_description" 			"余烬拥有 @glyph_property1x 宽度并造成 <font color='#ccff66'>3</font>x 伤害。"
+		"item_rpc_flamewaker_glyph_7_1_description" 			"余烬拥有 @glyph_property1x 宽度并造成 0x 伤害。"
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_5_a"	"[T5-a] 龙族血统雕文"
-		"item_rpc_flamewaker_glyph_5_a_description" 			"受到的伤害上限不会超过 <font color='#ccff66'>30</font>% 的最大生命值. 如果低于<font color='#ccff66'>50</font>% 血量, 受到的伤害上限在 <font color='#ccff66'>15</font>%."
+		"item_rpc_flamewaker_glyph_5_a_description" 			"受到的伤害上限不会超过 <font color='#ccff66'>3000</font>% 的最大生命值. 如果低于<font color='#ccff66'>5000</font>% 血量, 受到的伤害上限在 <font color='#ccff66'>1500</font>%."
 
 		//Weapons
 		"flamewaker_weapon_00"			"战刃"

@@ -29,7 +29,7 @@ function modifierClass:OnCreated()
         return
     end
     self:SetSpecialTypes({ 
-        MODIFIER_ROSHPIT_EVENT_ATTACKED
+        MODIFIER_ROSHPIT_EVENT_ON_ATTACKED
     })
 end
 
@@ -47,7 +47,7 @@ function modifierClass:RoshpitOnAttacked(event)
 	local hero = event.victim
 	local attacker = event.attacker
 	local luck = RandomInt(1, 2)
-	if luck == 100/FLAMEWAKER_GLYPH_1_1_RETURN_STUN_CHANCE then
+	if luck == 1 then
 		Filters:ApplyStun(hero, FLAMEWAKER_GLYPH_1_1_STUN_DURATION, attacker)
 	end	
 end

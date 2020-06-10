@@ -6988,25 +6988,25 @@
 		"item_rpc_flamewaker_glyph_1_1_description" 			"Enemies who attack you have a <font color='#ccff66'>50</font>% chance to be stunned for <font color='#ccff66'>1</font> second."
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_2_1"	"[T2-1] Glyph of Cratering"
-		"item_rpc_flamewaker_glyph_2_1_description" 			"Reduces the cooldown of Seismic Flare to <font color='#ccff66'>5</font> seconds and increases its damage by x<font color='#ccff66'>5</font> of Flamewaker's Strength value."
+		"item_rpc_flamewaker_glyph_2_1_description" 			"[Q] has <font color='#ccff66'>35</font>% reduced cooldown and its base damage is increased by x<font color='#ccff66'>4</font>x Flamewaker's Strength."
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_3_1"	"[T3-1] Glyph of Upheaval"
-		"item_rpc_flamewaker_glyph_3_1_description" 			"Apply [W3] to enemies that take damage from [W1]."
+		"item_rpc_flamewaker_glyph_3_1_description" 			"Increases all Stun Durations by <font color='#ccff66'>40</font>%."
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_4_1"	"[T4-1] Glyph of Blue Flame"
-		"item_rpc_flamewaker_glyph_4_1_description" 			"@Ability2 deals additional damage equal to <font color='#ccff66'>0.04</font>x of the sum of all your attributes. This damage bonus is multiplied by @Ability2's level. Also slows targets' Movespeed and Attack Speed by <font color='#ccff66'>120</font>/<font color='#ccff66'>120</font> for <font color='#ccff66'>3</font> seconds."
+		"item_rpc_flamewaker_glyph_4_1_description" 			"[W] slows targets' Movespeed by <font color='#ccff66'>-160</font> and Attack Speed by <font color='#ccff66'>-140</font> for <font color='#ccff66'>4</font> seconds."
+
+        "DOTA_Tooltip_modifier_flamewaker_glyph_4_1_slow_effect"    "Blue Flame"
+        "DOTA_Tooltip_modifier_flamewaker_glyph_4_1_slow_effect_Description"    "Reduced attack speed and movespeed"
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_5_1"	"[T5-1] Glyph of Charred Hearts"
-		"item_rpc_flamewaker_glyph_5_1_description" 			"Increases the duration of [R2] by <font color='#ccff66'>1.5</font>x."
+		"item_rpc_flamewaker_glyph_5_1_description" 			"[R2] has <font color='#ccff66'>2</font>x flames and spirals <font color='#ccff66'>2</font>x faster."
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_6_1"	"[T6-1] Glyph of Mountain's Core"
-		"item_rpc_flamewaker_glyph_6_1_description" 			"Increases attack damage by <font color='#ccff66'>100</font>% for <font color='#ccff66'>7</font> seconds after casting @Ability4."
-
-		"DOTA_Tooltip_modifier_flamewaker_glyph_6_1_buff"		"Mountain's Core"
-		"DOTA_Tooltip_modifier_flamewaker_glyph_6_1_buff_Description"	"Gaining <font color='#ccff66'>100</font>%% increased attack damage."
+		"item_rpc_flamewaker_glyph_6_1_description" 			"[R3] also increases Spirit."
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_7_1"	"[T7-1] Glyph of Flaming Sea"
-		"item_rpc_flamewaker_glyph_7_1_description" 			"Blazing Trail has @glyph_property1x width and deals <font color='#ccff66'>3</font>x damage."
+		"item_rpc_flamewaker_glyph_7_1_description" 			"While Heat Wave is active, enemies within <font color='#ccff66'>1000</font> range create Blazing Trail fire puddles beneath their feet."
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_5_a"	"[T5-a] Glyph of Dragon Skin"
 		"item_rpc_flamewaker_glyph_5_a_description" 			"Damage instances are capped at <font color='#ccff66'>30</font>% of max health. If below <font color='#ccff66'>50</font>% health, instances are capped at <font color='#ccff66'>15</font>%."
