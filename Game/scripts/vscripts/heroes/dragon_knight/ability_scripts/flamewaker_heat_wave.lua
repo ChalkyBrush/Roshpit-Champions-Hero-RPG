@@ -126,16 +126,29 @@ function modifier_flamewaker_e_heat_wave_base:OnCreated()
 	if not IsServer() then
 		return false
 	end
+    self:SetSpecialTypes({ 
+    	MODIFIER_ROSHPIT_PHYSICAL_DMG_REDUCTION,
+    	MODIFIER_ROSHPIT_MAGICAL_DMG_REDUCTION,
+    	MODIFIER_ROSHPIT_PURE_DMG_REDUCTION
+    })	
 	local caster = self:GetParent()
 	local ability = self:GetAbility()
 	if ability.pfx then
 		ParticleManager:DestroyParticle(ability.pfx, false)
 		ability.pfx = nil
 	end	
-    EmitSoundOn("Flamewaker.HeatWaveCast", caster)
-    StartSoundEvent("Flamewaker.HeatWave.LP", caster)
+	local baseSound = "Flamewaker.HeatWaveCast"
+	local lpSound = "Flamewaker.HeatWave.LP"
+
     caster:RemoveModifierByName("modifier_flamewaker_e_heat_wave_e1")
     local particleName = "particles/roshpit/flamewaker/heat_wave.vpcf"
+    if caster:HasModifier("modifier_flamewaker_glyph_2_2") then
+    	particleName = "particles/roshpit/flamewaker/blue_heatwave.vpcf"
+  		baseSound = "Flamewaker.HeatWaveCast.Glyph"
+		lpSound = "Flamewaker.HeatWave.LP.Glyph"
+    end
+    EmitSoundOn(baseSound, caster)
+    StartSoundEvent(lpSound, caster)
     local particleVector = caster:GetAbsOrigin() - (caster:GetForwardVector() * 90)
     local pfx = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, caster)
     ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", particleVector, true)
@@ -253,8 +266,15 @@ function modifier_flamewaker_e_heat_wave_base:OnRemoved()
 		ability.pfx = nil
 	end	
 	FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
-	StopSoundEvent("Flamewaker.HeatWave.LP", caster)
-	EmitSoundOn("Flamewaker.HeatWave.End", caster)
+
+	local lpSound = "Flamewaker.HeatWave.LP"
+	local endSound = "Flamewaker.HeatWave.End"
+    if caster:HasModifier("modifier_flamewaker_glyph_2_2") then
+		lpSound = "Flamewaker.HeatWave.LP.Glyph"
+		endSound = "Flamewaker.HeatWave.End.Glyph"
+	end
+	StopSoundEvent(lpSound, caster)
+	EmitSoundOn(endSound, caster)
 end
 
 function modifier_flamewaker_e_heat_wave_base:CheckState()
@@ -271,18 +291,50 @@ end
 function modifier_flamewaker_e_heat_wave_base:DeclareFunctions()
 	local funcs = {
 		MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
-		MODIFIER_PROPERTY_MOVESPEED_MAX
+		MODIFIER_PROPERTY_MOVESPEED_MAX,
 	}
 
 	return funcs
 end
 
 function modifier_flamewaker_e_heat_wave_base:GetModifierMoveSpeedBonus_Constant()
-	return self:GetAbility():GetSpecialValueFor("movespeed")
+	local mult = 1
+	local caster = self:GetCaster()
+	if caster:HasModifier("modifier_flamewaker_glyph_2_2") then
+		mult = -1
+	end
+	return self:GetAbility():GetSpecialValueFor("movespeed")*mult
 end
 
 function modifier_flamewaker_e_heat_wave_base:GetModifierMoveSpeed_Max_Increase(params)
 	return FLAMEWAKER_E_MS_CAP_BONUS + self:GetCaster():GetRuneValue("e", 4)*FLAMEWAKER_E4_MS_CAP
+end
+
+function modifier_flamewaker_e_heat_wave_base:GetPhysicalDamageReduction()
+	local caster = self:GetCaster()
+	if caster:HasModifier("modifier_flamewaker_glyph_2_2") then
+		return FLAMEWAKER_GLYPH_2_2_DAMAGE_REDUCTION/100
+	else
+		return 0
+	end
+end
+
+function modifier_flamewaker_e_heat_wave_base:GetMagicalDamageReduction()
+	local caster = self:GetCaster()
+	if caster:HasModifier("modifier_flamewaker_glyph_2_2") then
+		return FLAMEWAKER_GLYPH_2_2_DAMAGE_REDUCTION/100
+	else
+		return 0
+	end
+end
+
+function modifier_flamewaker_e_heat_wave_base:GetPureDamageReduction()
+	local caster = self:GetCaster()
+	if caster:HasModifier("modifier_flamewaker_glyph_2_2") then
+		return FLAMEWAKER_GLYPH_2_2_DAMAGE_REDUCTION/100
+	else
+		return 0
+	end
 end
 
 -- E1 MODIFIER

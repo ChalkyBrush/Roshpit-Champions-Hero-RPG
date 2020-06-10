@@ -126,6 +126,7 @@
 			"particle"		"particles/units/heroes/hero_clinkz/clinkz_burning_army_ambient.vpcf"
 			"particle"		"particles/roshpit/flamewaker/heat_wave.vpcf"
 			"particle"		"particles/econ/courier/courier_roshan_lava/courier_roshan_lava_ground.vpcf"
+			"particle"		"particles/roshpit/flamewaker/blue_heatwave.vpcf"
 		}
 
 		// Special

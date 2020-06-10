@@ -83,8 +83,8 @@
     	"DOTA_Tooltip_ability_flamewaker_heat_wave_duration"								"DURATION:"
         "DOTA_Tooltip_ability_flamewaker_heat_wave_cooldown"                                "COOLDOWN:"
 
-    	"DOTA_Tooltip_modifier_modifier_flamewaker_e_heat_wave_base"								"Heat Wave"
-    	"DOTA_Tooltip_modifier_modifier_flamewaker_e_heat_wave_base_Description"					"Increased movespeed and max movespeed."
+    	"DOTA_Tooltip_modifier_flamewaker_e_heat_wave_base"								"Heat Wave"
+    	"DOTA_Tooltip_modifier_flamewaker_e_heat_wave_base_Description"					"Increased movespeed and max movespeed."
 		
         "DOTA_Tooltip_ability_flamewaker_rune_e_1"                              "[E1] Heat Surge"
         "DOTA_Tooltip_ability_flamewaker_rune_e_1_Description"                  "While Heat Wave is active, gain Attack Power and Attack Speed every 0.1 seconds that persists for <% FLAMEWAKER_E1_DURATION %> seconds. Resets when casting Heat Wave again."
