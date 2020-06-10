@@ -201,7 +201,7 @@ function modifier_flamewaker_arcana_fireborne:OnIntervalThink()
 			caster:AddNewModifier(caster, ability, "modifier_flamewaker_fireborne_shield", {})
 		end
 
-		local mana_drain = ability:GetManaCostBase(-1)/10
+		local mana_drain = ability:GetManaCost(-1)/10
 		if not ability.fv then
 			ability.fv = caster:GetForwardVector()
 		end

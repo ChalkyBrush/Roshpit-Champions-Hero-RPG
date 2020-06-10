@@ -38,6 +38,9 @@ end
 function flamewaker_heat_wave:OnSpellStart()
 	local caster = self:GetCaster()
 	local duration = self:GetSpecialValueFor("duration")
+	if caster:HasModifier("modifier_flamewaker_glyph_3_2") then
+		duration = duration + FLAMEWAKER_GLYPH_3_2_DURATION_INCREASE
+	end
 	duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
 	caster:AddNewModifier(caster, self, "modifier_flamewaker_e_heat_wave_base", {duration = duration})
 	Filters:CastSkillArguments(BASE_ABILITY_E, caster)

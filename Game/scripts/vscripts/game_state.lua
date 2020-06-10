@@ -1910,12 +1910,6 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 			Filters:HitAxeCCShield(victim, attacker)
 		end
 	end
-	if victim:HasModifier("modifier_volcano_shield") then
-		damage = damage * (100-FLAMEWAKER_IMMORTAL_WEAPON_1_DAMAGE_REDUCTION)/100
-		if shouldConsumeShields then
-			CustomAbilities:HitVolcanoShield(victim, attacker)
-		end
-	end
 	if victim:GetUnitName() == "npc_dota_hero_spirit_breaker" and attacker:IsRooted() and victim:HasAbility("ghost_hallow") then
 		local w_4_level = victim:GetRuneValue("w", 4)
 		damage = damage * math.max((1 - w_4_level * DUSKBRINGER_W4_ROOTED_DAMAGE_BLOCK_PCT), 0.05)

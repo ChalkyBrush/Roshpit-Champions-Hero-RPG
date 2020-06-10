@@ -445,16 +445,6 @@ function CustomAbilities:HitWinterblightMaidenShield(victim, attacker)
 	end
 end
 
-function CustomAbilities:HitVolcanoShield(victim, attacker)
-	local currentStacks = victim:GetModifierStackCount("modifier_volcano_shield", victim.InventoryUnit)
-	if currentStacks > 1 then
-		victim:SetModifierStackCount("modifier_volcano_shield", victim.InventoryUnit, currentStacks - 1)
-	else
-		victim:RemoveModifierByName("modifier_volcano_shield")
-		-- CustomAbilities:QuickAttachParticle("particles/roshpit/sorceress/shield_shatter.vpcf", victim, 1.2)
-	end
-end
-
 function CustomAbilities:HitShieldGeneric(victim, attacker, caster, modifierName)
 	local currentStacks = victim:GetModifierStackCount(modifierName, caster)
 	if currentStacks > 1 then

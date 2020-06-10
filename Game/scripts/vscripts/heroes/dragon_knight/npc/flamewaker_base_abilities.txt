@@ -173,6 +173,7 @@
 			"soundfile"		"soundevents/game_sounds_flamewaker.vsndevts"
 			"particle"		"particles/units/heroes/hero_phoenix/phoenix_icarus_dive_char_glow.vpcf"
 			"particle"		"particles/units/heroes/hero_warlock/warlock_rain_of_chaos.vpcf"
+			"particle"		"particles/roshpit/red_general/cyclone_shield.vpcf"
 		}
 
 		"AbilitySpecial"

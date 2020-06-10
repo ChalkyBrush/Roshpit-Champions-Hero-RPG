@@ -277,6 +277,9 @@
         "DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_5_2"    "[T5-2] Glyph of Volcano Shield"
         "item_rpc_flamewaker_glyph_5_2_description"             "Casting [R] applies a shield for <% FLAMEWAKER_GLYPH_5_2_SHIELD_DURATION %> seconds that reduces all damage taken by <% FLAMEWAKER_GLYPH_5_2_SHIELD_DMG_REDUCE %>%."
 
+        "DOTA_Tooltip_modifier_flamewaker_glyph_5_2_volcano_shield" "Volcano Shield"
+         "DOTA_Tooltip_modifier_flamewaker_glyph_5_2_volcano_shield_Description"    "Reduces all damage taken"
+
         "DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_6_2"    "[T6-2] Glyph of Volcanic Calamity"
         "item_rpc_flamewaker_glyph_6_2_description"             "Casting [R] also creates 4 casts of [Q] in a Diamond Pattern"
 

@@ -28,6 +28,10 @@ function modifierClass:OnCreated()
     if not IsServer() then
         return
     end
+    self:SetSpecialTypes({ 
+        MODIFIER_ROSHPIT_W_BASE_DMG_FLAT,
+        MODIFIER_ROSHPIT_W_PCT_MANA_COST
+    })
 end
 
 function modifierClass:IsHidden()
@@ -38,4 +42,13 @@ function modifierClass:IsBuff()
 end
 function modifierClass:RemoveOnDeath()
     return false
+end
+
+function modifierClass:GetRoshpitWBaseDmgFlat()
+	local hero = self:GetParent()
+	return hero:GetSumOfAllAttributes()*FLAMEWAKER_GLYPH_4_2_W_BASE_DMG_STATS_MULT
+end
+
+function modifierClass:GetRoshpitWPctManaCostModifier()
+	return FLAMEWAKER_GLYPH_4_2_W_MANA_COST_INCREASE_PCT/100
 end
