@@ -251,19 +251,16 @@
         "DOTA_Tooltip_modifier_flamewaker_glyph_4_1_slow_effect_Description"    "Reduced attack speed and movespeed"
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_5_1"	"[T5-1] Glyph of Charred Hearts"
-		"item_rpc_flamewaker_glyph_5_1_description" 			"Increases the duration of [R2] by <% FLAMEWAKER_GLYPH_5_1_R2_DUR_MULTIPLY %>x."
+		"item_rpc_flamewaker_glyph_5_1_description" 			"[R2] has <% FLAMEWAKER_GLYPH_5_1_ADDITIONAL_FLAMES_MULT %>x flames and spirals <% FLAMEWAKER_GLYPH_5_1_ADDITIONAL_FLAMES_MULT %>x faster."
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_6_1"	"[T6-1] Glyph of Mountain's Core"
-		"item_rpc_flamewaker_glyph_6_1_description" 			"Increases attack damage by <% FLAMEWAKER_GLYPH_6_1_BONUS_ATTACK_DAMAGE %>% for <% FLAMEWAKER_GLYPH_6_1_DURATION %> seconds after casting @Ability4."
-
-		"DOTA_Tooltip_modifier_flamewaker_glyph_6_1_buff"		"Mountain's Core"
-		"DOTA_Tooltip_modifier_flamewaker_glyph_6_1_buff_Description"	"Gaining <% FLAMEWAKER_GLYPH_6_1_BONUS_ATTACK_DAMAGE %>%% increased attack damage."
+		"item_rpc_flamewaker_glyph_6_1_description" 			"[R3] also increases Spirit."
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_7_1"	"[T7-1] Glyph of Flaming Sea"
-		"item_rpc_flamewaker_glyph_7_1_description" 			"Blazing Trail has @glyph_property1x width and deals <% FLAMEWAKER_GLYPH_7_1_E1_DAMAGE_MULT %>x damage."
+		"item_rpc_flamewaker_glyph_7_1_description" 			"While Heat Wave is active, enemies within <% FLAMEWAKER_GLYPH_7_1_RANGE %> range create Blazing Trail fire puddles beneath their feet."
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_5_a"	"[T5-a] Glyph of Dragon Skin"
-		"item_rpc_flamewaker_glyph_5_a_description" 			"Damage instances are capped at <% FLAMEWAKER_GLYPH_5_A_DAMAGE_CAP * 100 %>% of max health. If below <% FLAMEWAKER_GLYPH_5_A_LOW_HP_THRESH * 100 %>% health, instances are capped at <% FLAMEWAKER_GLYPH_5_A_DAMAGE_CAP_LOW_HP * 100 %>%."
+		"item_rpc_flamewaker_glyph_5_a_description" 			"Damage instances are capped at <% FLAMEWAKER_GLYPH_5_A_DAMAGE_CAP %>% of max health. If below <% FLAMEWAKER_GLYPH_5_A_LOW_HP_THRESH %>% health, instances are capped at <% FLAMEWAKER_GLYPH_5_A_DAMAGE_CAP_LOW_HP %>%."
 
 		//Weapons
 		"flamewaker_weapon_00"			"Basic Sword"

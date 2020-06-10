@@ -3163,17 +3163,6 @@ function GameState:FilterDamage(filterTable)
 			filterTable["damage"] = filterTable["damage"] * 0.005
 		end
 	end
-	if victim:HasModifier("modifier_flamewaker_glyph_5_a") then
-		if victim:GetUnitName() == "npc_dota_hero_dragon_knight" then
-			local thresh = FLAMEWAKER_GLYPH_5_A_DAMAGE_CAP
-			if victim:GetHealth() < victim:GetMaxHealth() * FLAMEWAKER_GLYPH_5_A_LOW_HP_THRESH then
-				thresh = FLAMEWAKER_GLYPH_5_A_DAMAGE_CAP_LOW_HP
-			end
-			if filterTable["damage"] > victim:GetMaxHealth() * thresh then
-				filterTable["damage"] = victim:GetMaxHealth() * thresh
-			end
-		end
-	end
 
 	if victim:HasModifier("modifier_djanghor_immortal_weapon_2") then
 		if victim:HasModifier("modifier_shapeshift_bear") or victim:HasModifier("modifier_shapeshift_year_beast") then
@@ -3325,11 +3314,28 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_paladin_rune_e_1_invulnerable") then
 		filterTable["damage"] = 0
 	end
+	local hp_pct_cap = 0
+	Util.Modifier:SimpleEvent(victim, 'RoshpitDmgPctHPThreshold', { MODIFIER_ROSHPIT_DMG_PCT_HP_THRESHOLD }, {attacker = attacker, victim = victim, damage = filterTable["damage"], damageType = filterTable["damagetype_const"]}, 
+		function(result, data)
+			if hp_pct_cap == 0 then
+				hp_pct_cap = result
+			else
+				hp_pct_cap = math.min(hp_pct_cap, result)
+			end
+		end
+	)
+	if hp_pct_cap > 0 then
+		local thresh = hp_pct_cap/100
+		if filterTable["damage"] > victim:GetMaxHealth() * thresh then
+			filterTable["damage"] = victim:GetMaxHealth() * thresh
+		end
+	end
 	Util.Modifier:SimpleEvent(victim, 'RoshpitEventFinalTakeDamage', { MODIFIER_ROSHPIT_EVENT_FINAL_TAKE_DAMAGE }, {attacker = attacker, victim = victim, damage = filterTable["damage"], damageType = filterTable["damagetype_const"]}, 
 		function(result, data)
 			filterTable["damage"] = result
 		end
-	)	
+	)
+
 	--LETHAL CHECK
 	if filterTable["damage"] >= victim:GetHealth() then
 		local death_prevented = false
@@ -3564,7 +3570,7 @@ function GameState:FilterDamage(filterTable)
 			if victim:GetUnitName() == "rubick_apprentice" then
 				filterTable["damage"] = 1000
 			end
-			filterTable["damage"] = victim:GetHealth() - 10
+			-- filterTable["damage"] = victim:GetHealth() - 10
 		end
 		if attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
 			if attacker:IsHero() then

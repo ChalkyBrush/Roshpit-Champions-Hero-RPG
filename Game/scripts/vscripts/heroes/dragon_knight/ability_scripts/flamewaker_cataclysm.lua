@@ -110,9 +110,14 @@ function flamewaker_cataclysm:FlamewakerR2()
 		if r_2_level > 0 then
 			EmitSoundOn("Flamewaker.SecondHeartbeat", caster)
 			local count = 50
+			local delay = 0.06
+			if caster:HasModifier("modifier_flamewaker_glyph_5_1") then
+				count = count * FLAMEWAKER_GLYPH_5_1_ADDITIONAL_FLAMES_MULT
+				delay = delay / FLAMEWAKER_GLYPH_5_1_ADDITIONAL_FLAMES_MULT
+			end
 			local cast_number = ability.cast_number
 			for i = 0, count, 1 do
-				Timers:CreateTimer(0.06 * i, function()
+				Timers:CreateTimer(delay * i, function()
 					if caster:IsAlive() and ability.cast_number == cast_number then
 						if i % 2 == 0 then
 							EmitSoundOn("Flamewaker.R2FlameSpiral", caster)
@@ -284,12 +289,21 @@ function modifier_flamewaker_r_3_strength:OnCreated()
 		return false
 	end
     self:SetSpecialTypes({ 
-        MODIFIER_ROSHPIT_STRENGTH_BONUS
+        MODIFIER_ROSHPIT_STRENGTH_BONUS,
+        MODIFIER_ROSHPIT_SPIRIT_BONUS
     })
 end
 
 function modifier_flamewaker_r_3_strength:GetRoshpitStrengthBonus()
 	return FLAMEWAKER_R3_STRENGTH*self:GetCaster():GetRuneValue("r", 3)
+end
+
+function modifier_flamewaker_r_3_strength:GetRoshpitSpiritBonus()
+	if self:GetCaster():HasModifier("modifier_flamewaker_glyph_6_1") then
+		return self:GetRoshpitStrengthBonus()
+	else
+		return 0
+	end
 end
 
 function modifier_flamewaker_r_3_strength:GetTexture()

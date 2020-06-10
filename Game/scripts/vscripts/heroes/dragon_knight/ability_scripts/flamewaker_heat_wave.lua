@@ -216,6 +216,30 @@ function modifier_flamewaker_e_heat_wave_base:CalculateE2()
     		end
     	end
     end
+    if caster:HasModifier("modifier_flamewaker_glyph_7_1") and caster:GetRuneValue("e", 2) > 0 then
+	    local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, FLAMEWAKER_GLYPH_7_1_RANGE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+	    if #enemies > 0 then
+	        for _, enemy in pairs(enemies) do
+	    		local free_space_condition = true
+	    		for i = 1, #ability.e_2_table, 1 do
+	    			local free_space_distance_check = WallPhysics:GetDistance2d(enemy:GetAbsOrigin(), ability.e_2_table[i].position)
+	    			if free_space_distance_check < FLAMEWAKER_E2_DISTANCE_TO_CREATE_PUDDLE then
+	    				free_space_condition = false
+	    				break
+	    			end
+	    		end
+	    		if free_space_condition then
+	    			local flame_object = {}
+	    			flame_object.position = enemy:GetAbsOrigin()
+	    			local pfx = ParticleManager:CreateParticle("particles/econ/courier/courier_roshan_lava/courier_roshan_lava_ground.vpcf", PATTACH_CUSTOMORIGIN, nil)
+	    			ParticleManager:SetParticleControl(pfx, 0, flame_object.position)
+	    			ParticleManager:SetParticleControl(pfx, 1, Vector(250, 1, 1))
+	    			flame_object.pfx = pfx
+	    			table.insert(ability.e_2_table, flame_object)
+	    		end
+	        end
+	    end
+    end
 end
 
 function modifier_flamewaker_e_heat_wave_base:OnRemoved()
