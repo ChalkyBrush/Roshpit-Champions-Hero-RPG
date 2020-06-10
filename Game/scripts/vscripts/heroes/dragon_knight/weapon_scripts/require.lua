@@ -1,0 +1,1 @@
+require('heroes/dragon_knight/weapon_scripts/flamewaker_immortal_weapon_1')

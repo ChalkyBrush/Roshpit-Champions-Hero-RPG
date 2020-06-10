@@ -102,9 +102,6 @@ function Weapons:RollLegendWeapon1(location, class, strictMaxItemLevel, disableD
 	if internalName == "conjuror" then
 		Weapons:SetLegendWeaponProperty1(weapon, internalName, "aspect_health", nil, 3)
 		Weapons:SetLegendWeaponProperty2(weapon, "base_ability", 3)
-	elseif internalName == "flamewaker" then
-		Weapons:SetLegendWeaponProperty1(weapon, internalName, "immortal_weapon_1", "#E06647", nil)
-		Weapons:SetLegendWeaponProperty2(weapon, "strength", 2)
 	elseif internalName == "voltex"	then
 		Weapons:SetLegendWeaponProperty1(weapon, internalName, "immortal_weapon_1", "#31EBEB", nil)
 		Weapons:SetLegendWeaponProperty2(weapon, "attack_damage", 2)

@@ -405,27 +405,32 @@ function Weapons:RollWeapon(rarity, item_level, hero_name)
 end
 
 function Weapons:CreateWeaponVariant(variantName, rarityName, itemNameText, slot, gear, slotText, whichHero, maxLevel, minLevel)
-	local itemVariant = variantName
-	local item = RPCItems:CreateItem(itemVariant, nil, nil)
-	if not item.newItemTable then
-		item.newItemTable = {}
+	local item = nil
+	if _G[variantName] then
+		item = _G[variantName]:CreateLuaItem()
+	else
+		local itemVariant = variantName
+		item = RPCItems:CreateItem(itemVariant, nil, nil)
+		if not item.newItemTable then
+			item.newItemTable = {}
+		end
+		item.newItemTable.item_name = variantName
+		item.newItemTable.rarity = rarityName
+		local rarityValue = RPCItems:GetRarityFactor(item.newItemTable.rarity)
+		local itemName = itemNameText
+		local suffix = ""
+		local prefix = ""
+		item.newItemTable.item_name = itemName
+		item.newItemTable.item_slot = slot
+		item.newItemTable.gear = gear
+		item.newItemTable.xp = 0
+		item.newItemTable.level = 1
+		item.newItemTable.xpNeeded = Weapons.XP_PER_LEVEL_TABLE[item.newItemTable.level]
+		item.newItemTable.minLevel = minLevel
+		item.newItemTable.maxLevel = maxLevel
+		item.newItemTable.requiredHero = whichHero
+		item.newItemTable.itemDescription = slotText
 	end
-	item.newItemTable.item_name = variantName
-	item.newItemTable.rarity = rarityName
-	local rarityValue = RPCItems:GetRarityFactor(item.newItemTable.rarity)
-	local itemName = itemNameText
-	local suffix = ""
-	local prefix = ""
-	item.newItemTable.item_name = itemName
-	item.newItemTable.item_slot = slot
-	item.newItemTable.gear = gear
-	item.newItemTable.xp = 0
-	item.newItemTable.level = 1
-	item.newItemTable.xpNeeded = Weapons.XP_PER_LEVEL_TABLE[item.newItemTable.level]
-	item.newItemTable.minLevel = minLevel
-	item.newItemTable.maxLevel = maxLevel
-	item.newItemTable.requiredHero = whichHero
-	item.newItemTable.itemDescription = slotText
 	return item
 end
 
