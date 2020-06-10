@@ -14,12 +14,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% FLAMEWAKER_ARCANA_Q1_ARMOR_PER_STACK %>"
+				"property_one"			"<% FLAMEWAKER_ARCANA_Q1_ARMOR_MISSING_HP_PCT %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% FLAMEWAKER_ARCANA_Q1_MANAREGEN_PER_STACK %>"
+				"property_two"			"<% FLAMEWAKER_ARCANA_Q1_ARMOR_PIERCE_MISSING_HP_PCT %>"
 			}
 		}
 	}
@@ -44,7 +44,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% FLAMEWAKER_ARCANA_Q2_SPELL_PIERCE %>"
+				"property_two"			"<% FLAMEWAKER_ARCANA_Q2_FIRE_DAMAGE %>"
 			}
 		}
 	}
@@ -79,18 +79,28 @@
 		"AbilityTextureName"	"flamewaker/flamewaker_q_4_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 		"AbilitySpecial"
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% FLAMEWAKER_ARCANA_Q4_DMG_PER_ATT * 100 %>"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"<% FLAMEWAKER_ARCANA_Q4_DMG_PER_ATT %>"
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% FLAMEWAKER_ARCANA_Q4_ARMOR_AND_SPELL_PIERCE_REDUCTION %>"
+				"var_type"				"FIELD_FLOAT"
+				"property_two_base"			"<% FLAMEWAKER_ARCANA_Q4_DAMAGE_REDUCE_BASE %>"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"<% FLAMEWAKER_ARCANA_Q4_DAMAGE_REDUCE %>"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two_max"			"<% FLAMEWAKER_ARCANA_Q4_DAMAGE_REDUCE_MAX %>"
 			}
 			"03"
 			{
@@ -100,7 +110,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"element_one"			"2"
+				"element_one"			"<% RPC_ELEMENT_FIRE %>"
 			}
 		}
 	}

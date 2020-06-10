@@ -1,0 +1,1 @@
+require('heroes/dragon_knight/weapon_scripts/require')

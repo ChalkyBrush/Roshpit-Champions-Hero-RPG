@@ -1318,19 +1318,6 @@ function GameState:OrderFilter(orderTable)
 				ability.Q2Toggle = false
 			end
 		end
-		if unit:HasModifier("modifier_flamewaker_arcana1") and orderTable.order_type ~= DOTA_UNIT_ORDER_CAST_POSITION then
-			local ability = unit:FindAbilityByName("flamewaker_arcana_ability")
-			if not ability:IsInAbilityPhase() then
-				if orderTable.entindex_ability then
-					if EntIndexToHScript(orderTable.entindex_ability):GetName() == "flamewaker_arcana_ability" then
-					else
-						ability.PointTable = nil
-					end
-				else
-					ability.PointTable = nil
-				end
-			end
-		end
 	end
 	if orderTable.entindex_ability > 0 then
 		if IsValidEntity(unit) then
@@ -1573,6 +1560,11 @@ function GameState:IncomingDamageDecreaseWithType(victim, attacker, shouldConsum
 	local BASE_VALUE_FOR_CALCULATE = 1000000
 	local damage = BASE_VALUE_FOR_CALCULATE
 
+	Util.Modifier:SimpleEvent(victim, 'GetConditionalDamageReduction', { MODIFIER_ROSHPIT_CONDITIONAL_DMG_REDUCTION }, {attacker = attacker, victim = victim, damageType = damagetype, shouldConsumeShields = shouldConsumeShields}, 
+		function(result, data)
+			damage = damage * (1 - result)
+		end
+	)
 
 	if damagetype == DAMAGE_TYPE_PHYSICAL then
 		Util.Modifier:SimpleEvent(victim, 'GetPhysicalDamageReduction', { MODIFIER_ROSHPIT_PHYSICAL_DMG_REDUCTION }, { }, 
@@ -1916,12 +1908,6 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		end
 		if shouldConsumeShields then
 			Filters:HitAxeCCShield(victim, attacker)
-		end
-	end
-	if victim:HasModifier("modifier_volcano_shield") then
-		damage = damage * (100-FLAMEWAKER_IMMORTAL_WEAPON_1_DAMAGE_REDUCTION)/100
-		if shouldConsumeShields then
-			CustomAbilities:HitVolcanoShield(victim, attacker)
 		end
 	end
 	if victim:GetUnitName() == "npc_dota_hero_spirit_breaker" and attacker:IsRooted() and victim:HasAbility("ghost_hallow") then
@@ -3171,17 +3157,6 @@ function GameState:FilterDamage(filterTable)
 			filterTable["damage"] = filterTable["damage"] * 0.005
 		end
 	end
-	if victim:HasModifier("modifier_flamewaker_glyph_5_a") then
-		if victim:GetUnitName() == "npc_dota_hero_dragon_knight" then
-			local thresh = FLAMEWAKER_GLYPH_5_A_DAMAGE_CAP
-			if victim:GetHealth() < victim:GetMaxHealth() * FLAMEWAKER_GLYPH_5_A_LOW_HP_THRESH then
-				thresh = FLAMEWAKER_GLYPH_5_A_DAMAGE_CAP_LOW_HP
-			end
-			if filterTable["damage"] > victim:GetMaxHealth() * thresh then
-				filterTable["damage"] = victim:GetMaxHealth() * thresh
-			end
-		end
-	end
 
 	if victim:HasModifier("modifier_djanghor_immortal_weapon_2") then
 		if victim:HasModifier("modifier_shapeshift_bear") or victim:HasModifier("modifier_shapeshift_year_beast") then
@@ -3333,11 +3308,28 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_paladin_rune_e_1_invulnerable") then
 		filterTable["damage"] = 0
 	end
+	local hp_pct_cap = 0
+	Util.Modifier:SimpleEvent(victim, 'RoshpitDmgPctHPThreshold', { MODIFIER_ROSHPIT_DMG_PCT_HP_THRESHOLD }, {attacker = attacker, victim = victim, damage = filterTable["damage"], damageType = filterTable["damagetype_const"]}, 
+		function(result, data)
+			if hp_pct_cap == 0 then
+				hp_pct_cap = result
+			else
+				hp_pct_cap = math.min(hp_pct_cap, result)
+			end
+		end
+	)
+	if hp_pct_cap > 0 then
+		local thresh = hp_pct_cap/100
+		if filterTable["damage"] > victim:GetMaxHealth() * thresh then
+			filterTable["damage"] = victim:GetMaxHealth() * thresh
+		end
+	end
 	Util.Modifier:SimpleEvent(victim, 'RoshpitEventFinalTakeDamage', { MODIFIER_ROSHPIT_EVENT_FINAL_TAKE_DAMAGE }, {attacker = attacker, victim = victim, damage = filterTable["damage"], damageType = filterTable["damagetype_const"]}, 
 		function(result, data)
 			filterTable["damage"] = result
 		end
-	)	
+	)
+
 	--LETHAL CHECK
 	if filterTable["damage"] >= victim:GetHealth() then
 		local death_prevented = false
@@ -3567,7 +3559,7 @@ function GameState:FilterDamage(filterTable)
 		if victim:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
 			if victim:IsHero() then
 				-- --print("TAKE DAMAGE: "..filterTable["damage"])
-				filterTable["damage"] = 0
+				-- filterTable["damage"] = 0
 			end
 			if victim:GetUnitName() == "rubick_apprentice" then
 				filterTable["damage"] = 1000
@@ -3586,7 +3578,7 @@ function GameState:FilterDamage(filterTable)
 			end
 			if not victim:HasModifier("modifier_take_1_damage_only") then
 				if not death_prevented then
-					filterTable["damage"] = 1000000
+					-- filterTable["damage"] = 1000000
 				end
 			else
 				-- filterTable["damage"] = 25

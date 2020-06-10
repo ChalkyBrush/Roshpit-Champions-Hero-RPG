@@ -24741,205 +24741,62 @@
 
 
 
+        "flamewaker_dragon_fire"
+        {
+                // General
+                //-------------------------------------------------------
+                "BaseClass"                                             "ability_lua"
+                "ScriptFile"                                    "heroes/dragon_knight/arcana/arcana1_dragon_fire.lua"
+                "AbilityBehavior"                               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+                "AbilityTextureName"                    "flamewaker/flamewaker_arcana_ability"
+                "LevelsBetweenUpgrades"                 "10"
+                "MaxLevel"                                "7"
+                "RequiredLevel"                         "-5"
+                "AbilityUnitDamageType"                 "DAMAGE_TYPE_PHYSICAL"
+                "AbilityCastAnimation"                  "ACT_DOTA_CAST_ABILITY_1"
+                "AOERadius"                             "%aoe_radius"
 
-	"flamewaker_arcana_ability"
-	{
-		// General
-		//-------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_AOE"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"flamewaker/flamewaker_arcana_ability"
-		"RequiredLevel"          		"-5"
-		"LevelsBetweenUpgrades"  		"10"
-		"MaxLevel"				 		"7"
-		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityCastRange"				"1200"
-		"AOERadius"						"360"
-		"precache"
-		{
-
-		}
-
-		"AbilityCastPoint"				"0.1"
-
-		// Time
-		//-------------------------------------------------------
-		"AbilityCooldown"				"3.0"
-
-		// Cost
-		//-------------------------------------------------------
-
-		// Special
-		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"stun_duration"	"1.2"
-			}
-			"02"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"strength_mult"	"7 8 9 10 11 12 14"
-			}
-			"03"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"damage"		"120 300 450 750 900 1200 1500"
-			}
-			"04"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"max_distance" "400"
-			}
-		}
-		"OnAbilityPhaseStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/dragon_knight/arcana_ability.lua"
-				"Function"		"PhaseStartArcanaAbility"
-				"target"		"POINT"
-			}
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-        		"ScriptFile"	"heroes/dragon_knight/arcana_ability.lua"
-        		"Function"		"start_arcana_ability"
-        		"Target"			"POINT"
-        		"range"			"%range"
-        		"damage"		"%damage"
-        		"strength_mult"	"%strength_mult"
-			}
-		}
-                "Modifiers"
+                // Precache
+                //-------------------------------------------------------
+                "precache"
                 {
-                	"modifier_flamewaker_arcana_passive"
-                	{
-                		"IsHidden"	"1"
-                		"Passive"	"1"
-                		"ThinkInterval"  "0.3"
-                		"OnIntervalThink"
-                		{
-        					"RunScript"
-        					{
-        		        		"ScriptFile"	"heroes/dragon_knight/arcana_ability.lua"
-        		        		"Function"		"arcana_ability_think"
-        					}
-                		}
-                		"OnDestroy"
-                		{
-                			"RemoveModifier"
-                			{
-                				"ModifierName"	"modifier_flamewaker_arcana_a_a_effect"
-                				"Target" 		"TARGET"
-                			}
-                			"RemoveModifier"
-                			{
-                				"ModifierName"	"modifier_flamewaker_arcana_d_a_effect"
-                				"Target" 		"TARGET"
-                			}
-                			"RemoveModifier"
-                			{
-                				"ModifierName"	"modifier_flamewaker_arcana_b_a_effect"
-                				"Target" 		"TARGET"
-                			}
-                		}
-                	}
-                	"modifier_flamewaker_arcana_q_free_cast"
-                	{
-                		"IsHidden"	"0"
-                	}
-                	"modifier_flamewaker_arcana_a_a_effect"
-                	{
-                		"IsHidden"	"1"
-                		"Properties"
-                		{
-                		    "MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "1"
-                		}
-                	}
-                	"modifier_flamewaker_arcana_b_a_effect"
-                	{
-                		"IsHidden"	"0"
-                		"TextureName"	"flamewaker/flamewaker_q_2_arcana1"
-                		"Properties"
-                		{
-                			"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "4"
-                		}
-                	}
-                	"modifier_flamewaker_arcana_d_a_effect"
-                	{
-                		"IsHidden"	"1"
-                		"OnCreated"
-                		{
-                			"AttachEffect"
-        					{
-        						"EffectName"        "particles/roshpit/flamewaker/flamewaker_arcana_d_arope_arcana.vpcf"
-        						"EffectAttachType"  "follow_origin"
-        						"Target"            "CASTER"
-        						"ControlPointEntities"
-        						{
-        							"CASTER"	"attach_origin"
-        							"CASTER"	"attach_origin"
-        							"CASTER"	"attach_origin"
-        							"CASTER"	"attach_origin"
-        							"CASTER"	"attach_origin"
-        							"CASTER"	"attach_origin"
-        							"CASTER"	"attach_origin"
-        							"CASTER"	"attach_origin"
-        						}
-        					}
-                		}
-                		"Aura"          	"modifier_flamewaker_arcana_d_a_aura"
-                		"Aura_Radius"   	"280"
-                		"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-                		"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-                		"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
-                	}
-                	"modifier_flamewaker_arcana_d_a_aura"
-                	{
-                		"IsHidden"	"0"
-                		"IsDebuff"	"1"
-                		"IsStunDebuff"	"1"
-                		"TextureName"	"flamewaker/flamewaker_d_a_arcana1"
-                		"OnCreated"
-                		{
-                			"RunScript"
-                			{
-                				"ScriptFile"	"heroes/dragon_knight/arcana_ability.lua"
-                				"Function"		"d_a_stun"
-                				"target"		"TARGET"
-                			}
-                                        "RunScript"
-                                        {
-                                                "ScriptFile"    "npc_abilities/general.lua"
-                                                "Function"              "utility_recalculate_roshpit_attributes"
-                                                "target"                "TARGET"
-                                        }
-                		}
-                                "OnDestroy"
-                                {
-                                        "RunScript"
-                                        {
-                                                "ScriptFile"    "npc_abilities/general.lua"
-                                                "Function"              "utility_recalculate_roshpit_attributes"
-                                                "target"                "TARGET"
-                                        }
-                                }
-                	}
-                	"modifier_flamewaker_arcana_d_a_immune"
-                	{
-                		"IsHidden"	"1"
-                	}
+                        "particle"      "particles/roshpit/flamewaker/flamewaker_q_arcana1.vpcf"
+                        "particle"      "particles/econ/items/monkey_king/arcana/fire/monkey_king_spring_arcana_fire_channel.vpcf"
+                        "particle"      "particles/roshpit/flamewaker/flamewaker_arcana_d_arope_arcana.vpcf"
+                        "particle"      "particles/econ/items/techies/techies_arcana/techies_suicide_flame.vpcf"
                 }
-	}
 
-
+                // Special
+                //-------------------------------------------------------
+                "AbilitySpecial"
+                {
+                        "01"
+                        {
+                                "var_type"      "FIELD_FLOAT"
+                                "stun_duration" "1.2"
+                        }
+                        "02"
+                        {
+                                "var_type"      "FIELD_FLOAT"
+                                "strength_mult" "4 4.5 5 5.5 6 6.5 7"
+                        }
+                        "03"
+                        {
+                                "var_type"      "FIELD_INTEGER"
+                                "damage"                "200 300 450 675 1200 1800 3000"
+                        }
+                        "04"
+                        {
+                                "var_type"      "FIELD_INTEGER"
+                                "max_distance" "400"
+                        }
+                        "05"
+                        {
+                                "var_type"      "FIELD_INTEGER"
+                                "aoe_radius"    "280"
+                        }
+                }
+        }
 
 
 	"flamewaker_rune_q_1_arcana1"
@@ -24957,12 +24814,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"5"
+				"property_one"			"1.5"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"1"
+				"property_two"			"1.5"
 			}
 		}
 	}
@@ -24987,7 +24844,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"80"
+				"property_two"			"4"
 			}
 		}
 	}
@@ -25007,7 +24864,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"25"
+				"property_one"			"10"
 			}
 		}
 	}
@@ -25022,18 +24879,28 @@
 		"AbilityTextureName"	"flamewaker/flamewaker_q_4_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 		"AbilitySpecial"
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"20"
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"-120"
+				"var_type"				"FIELD_FLOAT"
+				"property_two_base"			"50"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"1.5"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two_max"			"90"
 			}
 			"03"
 			{
@@ -25050,12 +24917,12 @@
 
 
 
-
-	"flamewaker_dragonflame"
+	"flamewaker_fireborne"
 	{
 		// General
 		//-------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/dragon_knight/arcana/arcana2_fireborne.lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_TOGGLE"
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"flamewaker/fireborne"
@@ -25063,26 +24930,17 @@
 		"LevelsBetweenUpgrades"  "0"
 		"MaxLevel"				 "7"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 
 		// Precache
 		//-------------------------------------------------------
 		"precache"
 		{
-
+			"particle"					"particles/units/heroes/hero_dragon_knight/dragon_knight_transform_red.vpcf"
+			"particle"					"particles/roshpit/flamewaker/fireborne_shimmer_heal.vpcf"
+			"particle"					"particles/roshpit/flamewaker/dragon_shield.vpcf"
+			"particle"					"particles/roshpit/flamewaker/dragonfire.vpcf"
+			"particle"					"particles/roshpit/flamewaker/arcana/bluedragon.vpcf"
 		}
-
-		// Casting
-		//-------------------------------------------------------
-		"AbilityCastPoint"				"0"
-
-		// Time
-		//-------------------------------------------------------
-		"AbilityCooldown"				"0"
-
-		// Cost
-		//-------------------------------------------------------
-		"AbilityManaCost"				"20 40 60 80 100 120 140"
 
 		// Special
 		//-------------------------------------------------------
@@ -25096,179 +24954,25 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"attack_dmg_bonus"				"5"
+				"mana_drain"				"20 40 60 80 100 120 140"
 			}
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"mana_drain"				"20 40 60 80 100 120 140"
+				"damage_reduce"				"38 40 42 44 46 48 50"
 			}
 			"04"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"armor_and_magic_armor"				"500 1000 1500 2000 2500 3000 3500"
+				"armor_shred"				"-10 -20 -30 -40 -50 -60 -70"
 			}
 			"05"
 			{
-				"var_type"					"FIELD_INTEGER"
-				"armor_shred"				"-5 -10 -15 -20 -25 -30 -35"
-			}
-		}
-		"OnToggleOn"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/dragon_knight/arcana/dragonfire"
-				"Function"		"turn_toggle_on"
-			}
-		}
-		"OnToggleOff"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/dragon_knight/arcana/dragonfire"
-				"Function"		"turn_toggle_off"
-			}
-		}
-		"OnProjectileHitUnit"
-		{
-			"DeleteOnHit"	"0"
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/dragon_knight/arcana/dragonfire"
-				"Function"		"flame_proj_hit"
-				"base_damage"	"%base_damage"
-				"attack_dmg_bonus"	"%attack_dmg_bonus"
-				"target"		"TARGET"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_flamewaker_arcana2_passive"
-			{
-				"IsHidden"	"1"
-				"Passive"	"1"
-				"OnAttackLanded"
-				// "%attack_damage" is set to the damage value before mitigation
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/dragon_knight/arcana/dragonfire"
-						"Function"		"dragon_attack"
-					}
-				}
-				"ThinkInterval"  "0.3"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/dragon_knight/arcana/dragonfire"
-						"Function"		"dragonfire_passive_think"
-					}
-				}
-				"OnDestroy"
-				{
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_d_b_attack_power"
-						"Target" 		"TARGET"
-					}
-				}
-			}
-			"modifier_dragonflame_armor_shred"
-			{
-				"IsHidden"	"1"
-			}
-			"modifier_dragonflame_freeze_effect"
-			{
-				"IsHidden"	"1"
-				"States"
-				{
-					"MODIFIER_STATE_FROZEN"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-			"modifier_flamewaker_dragonflame"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"0"
-			
-				"ThinkInterval"  "0.1"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/dragon_knight/arcana/dragonfire"
-						"Function"		"dragonflame_think"
-						"mana_drain"	"%mana_drain"
-					}
-				}
-				"States"
-				{
-					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-			"modifier_dragonflame_shield"
-			{
-				"IsHidden"	"0"
-				"EffectName"	"particles/roshpit/flamewaker/dragon_shield.vpcf"
-				"EffectAttachType"	"attach_origin"
-				"OnDestroy"
-				{
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_b_b_shimmer"
-						"Target" 		"TARGET"
-					}
-				}
-			}
-			"modifier_dragonflame_shield_waiter"
-			{
-				"IsHidden"	"1"
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/dragon_knight/arcana/dragonfire"
-						"Function"		"shield_waiter_end"
-					}
-				}
-
-			}
-			"modifier_b_b_shimmer"
-			{
-				"IsHidden"	"1"
-				"EffectName"	"particles/roshpit/flamewaker/fireborne_shimmer_heal.vpcf"
-				"EffectAttachType"	"attach_origin"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "40"
-				}
-			}
-			"modifier_d_b_attack_power"
-			{
-				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "10"
-				}
-			}
-			"modifier_flamewaker_glyph_4_1_effect"
-			{
-				"IsHidden"	"0"
-				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-120"
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-120"
-				}
+				"var_type"					"FIELD_FLOAT"
+				"armor_shred_duration"				"1"
 			}
 		}
 	}
-
-
 
 
 	"flamewaker_rune_w_1_arcana2"
@@ -25286,8 +24990,13 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"3"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"-0.01"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"0.04"
 			}
 		}
 	}
@@ -25313,7 +25022,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"45"
+				"property_two"			"150"
 			}
 		}
 	}
@@ -25334,22 +25043,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.7"
+				"property_one"			"1"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"property_two"			"5"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two_base"		"300"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"2"
 			}
 		}
 	}
@@ -25370,67 +25069,40 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.12"
+				"property_one"			"2.5"
 			}
 		}
 	}
 
 
 
-	"seismic_flare"
+	//LUA ABILITIES
+
+	"flamewaker_seismic_flare"
 	{
 		// General
 		//-------------------------------------------------------
-		"BaseClass"				"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/dragon_knight/ability_scripts/flamewaker_seismic_flare.lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"forged_spirit_melting_strike"
-		"RequiredLevel"          "-5"
-		"LevelsBetweenUpgrades"  "10"
-		"MaxLevel"				 "7"
-
-		"AbilityCastRange"				"600"
-		"AbilityCastPoint"				"0.45 0.45 0.45 0.45"
-		"AOERadius"						"%light_strike_array_aoe"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"						"7"
+		"RequiredLevel"         		"-5"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+		"AOERadius"						"%aoe_radius"
 
 		// Precache
 		//-------------------------------------------------------
 		"precache"
 		{
-			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_lina.vsndevts"
-			"particle"			"particles/units/heroes/hero_lina/lina_spell_light_strike_array.vpcf"
-			"particle"			"particles/units/heroes/hero_lina/lina_spell_light_strike_array_ray_team.vpcf"
-			"particle"			"particles/generic_gameplay/generic_stunned.vpcf"
-			"particle"			"particles/econ/items/earthshaker/egteam_set/hero_earthshaker_egset/earthshaker_echoslam_start_fallback_low_egset.vpcf"
-			"particle"			"particles/neutral_fx/roshan_slam_debris_small.vpcf"
-			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_invoker.vsndevts"
-			"particle"			"particles/units/heroes/hero_oracle/oracle_false_promise_heal.vpcf"
-			"particle"			"particles/econ/items/axe/axe_helm_shoutmask/axe_beserkers_call_buff_shout_mask.vpcf"
-			"particle"			"particles/status_fx/status_effect_beserkers_call.vpcf"
-			"particle"			"particles/units/heroes/hero_ogre_magi/ogre_magi_bloodlust_buff_e.vpcf"
-			"particle"			"particles/econ/items/monkey_king/arcana/fire/monkey_king_spring_arcana_fire.vpcf"
-			"particle"			"particles/econ/items/monkey_king/arcana/fire/monkey_king_spring_arcana_fire_channel.vpcf"
-			"particle"			"particles/roshpit/flamewaker/flamewaker_arcana_d_arope_arcana.vpcf"
-			"particle"			"particles/econ/items/techies/techies_arcana/techies_suicide_flame.vpcf"
+			"particle"		"particles/units/heroes/hero_ogre_magi/ogre_magi_bloodlust_buff_e.vpcf"
+			"particle"		"particles/neutral_fx/roshan_slam_debris_small.vpcf"
+			"particle"		"particles/econ/items/earthshaker/egteam_set/hero_earthshaker_egset/earthshaker_echoslam_start_fallback_low_egset.vpcf"
+			"particle"		"particles/roshpit/flamewaker/flamewaker_q4_buff.vpcf"
+			"particle"		"particles/units/heroes/hero_tiny/tiny_tree_channel_tgt_ground_dark_crack.vpcf"
 		}
-
-		// Time
-		//-------------------------------------------------------
-		"AbilityCooldown"				"9.0"
-		"AbilityDuration"				"%light_strike_array_stun_duration"
-
-		// Damage.
-		//-------------------------------------------------------
-		"AbilityDamage"					"250 600 1800 2400 3000 3600 4500"
-
-		// Cost
-		//-------------------------------------------------------
-		"AbilityManaCost"				"0"
 
 		// Special
 		//-------------------------------------------------------
@@ -25438,265 +25110,47 @@
 		{
 			"01"
 			{
-				"var_type"					"FIELD_INTEGER"
-				"light_strike_array_aoe"	"320 340 360 380 400 420 440"
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"160 400 1000 2000 5000 10000 20000"
 			}
-
 			"02"
 			{
-				"var_type"						"FIELD_FLOAT"
-				"light_strike_array_delay_time"	"0.5"
+				"var_type"			"FIELD_INTEGER"
+				"aoe_radius"			"320"
 			}
-
 			"03"
 			{
-				"var_type"						"FIELD_FLOAT"
-				"light_strike_array_stun_duration"	"1.2 1.5 1.8 2.1 2.4 2.7 3.0"
-			}
-			"04"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"light_strike_array_cooldown"	"8 7.5 7 6.5 6 5.5"
-			}
-			"05"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"light_strike_array_damage"		"80 300 900 1500 4000 7000 20000"
-			}
-			"06"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"light_strike_array_delay_time"	"0.5"
-			}
-		}
-
-		"OnSpellStart"
-		{
-			"FireSound"
-			{
-				"EffectName"	"Hero_Invoker.ChaosMeteor.Cast"
-				"Target"		"CASTER"
-			}
-
-			"FireEffect"
-			{
-				"EffectName"	"particles/econ/items/earthshaker/egteam_set/hero_earthshaker_egset/earthshaker_echoslam_start_fallback_low_egset.vpcf"
-				"EffectAttachType"	"start_at_customorigin"
-				"TargetPoint"		"POINT"
-
-				"ControlPoints"
-	            {
-	            	"01"	"%light_strike_array_aoe 0 0"
-	            	"03"	"0 0 0"
-	            }
-			}
-
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/dragon_knight/fire_blast.lua"
-				"Function"		"cast_fire_blast"
-				"Target" 		"POINT"
-			}
-
-			"DelayedAction"
-			{
-				"Delay"		"%light_strike_array_delay_time"
-
-				"Action"
-				{
-					"FireSound"
-					{
-						"EffectName"	"Hero_Invoker.ChaosMeteor.Impact"
-						"Target"		"CASTER"
-					}
-
-					"FireEffect"
-					{
-						"EffectName"	"particles/neutral_fx/roshan_slam_debris_small.vpcf"
-						"EffectAttachType"	"start_at_customorigin"
-						"TargetPoint"		"POINT"
-
-						"ControlPoints"
-			            {
-			            	"00"	"POINT"
-			            	"01"	"%light_strike_array_aoe 0 0"
-			            	"03"	"0 0 0"
-			            }
-					}
-
-					"DestroyTrees"
-			        {
-			        	"Target"	"POINT"
-			        	"Radius"	"%light_strike_array_aoe"
-			        }
-					"ActOnTargets"
-					{
-						"Target"
-			            {
-			                "Center" "POINT"
-			                "Radius" "%light_strike_array_aoe"
-			                "Teams" "DOTA_UNIT_TARGET_TEAM_ENEMY"
-			                "Types" "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
-			            }
-
-			            "Action"
-			            {
-							"RunScript"
-							{
-								"ScriptFile"	"heroes/dragon_knight/fire_blast.lua"
-								"Function"		"fire_blast_damage"
-								"target"		"TARGET"
-								"damage"		"%AbilityDamage"
-								"stun_duration"	"%light_strike_array_stun_duration"
-							}
-							"RunScript"
-							{
-								"ScriptFile"	"heroes/dragon_knight/flamewaker_runes.lua"
-								"Function"		"rune_q_2"
-							}
-			            }
-					}
-				}
-			}
-		}
-
-
-		"Modifiers"
-		{
-			"modifier_light_strike_array_datadriven"
-			{
-				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
-				"OverrideAnimation"	"ACT_DOTA_DISABLED"
-
-				"EffectName"	"particles/generic_gameplay/generic_stunned.vpcf"
-				"EffectAttachType"	"follow_overhead"
-
-				"States"
-				{
-					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-			"modifier_vacuum_thinker_datadriven"
-			{
-				"Duration"		"%light_strike_array_delay_time"
-				"OnCreated"
-				{
-
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/dragon_knight/fire_blast.lua"
-						"Function"		"VacuumStart"
-					}
-				}
-				"ThinkInterval"  "0.03"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/dragon_knight/fire_blast.lua"
-						"Function"		"Vacuum"
-						"vacuum_modifier"	"modifier_vacuum_datadriven"
-					}
-				}
-			}
-			"modifier_vacuum_datadriven"
-			{
-				"IsPurgable"	"0"
-
-				"OverrideAnimation"     "ACT_DOTA_FLAIL"
-
-				"States"
-				{
-					"MODIFIER_STATE_STUNNED"			"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-			"modifier_eruption_thinker"
-			{
-				"Aura"					"modifier_eruption_aura"
-				"Aura_Radius"			"360"
-				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-				"Duration"				"7"
-
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"EffectName"		"particles/units/heroes/hero_alchemist/fire_ground_effect.vpcf"
-						"EffectAttachType"	"follow_origin"
-						"Target"			"TARGET"
-						"ControlPoints"
-						{
-							"00" "0 0 0"
-							"01" "320 1 1"
-							"15" "255 50 50"
-							"16" "1 0 0"
-						}
-					}
-				}
-			}
-			"modifier_eruption_aura"
-			{
-				"IsDebuff"		"1"
-				"IsStunDebuff"		"1"
-				"IsPurgable"	"0"
-				"ThinkInterval"	"1.0"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/dragon_knight/fire_blast.lua"
-						"Function"		"eruption_damage"
-						"Target"		"TARGET"
-					}
-				}
+				"var_type"			"FIELD_FLOAT"
+				"stun_duration"			"1.8 2.0 2.2 2.4 2.6 2.8 3.0"
 			}
 		}
 	}
 
-	"second_heartbeat"
+	"flamewaker_dragon_breath"
 	{
 		// General
 		//-------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/dragon_knight/ability_scripts/flamewaker_dragon_breath.lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"lina_light_strike_array"
-		"RequiredLevel"          		"-5"
+		"AbilityTextureName"			"flamewaker/flamewaker_dragon_breath"
 		"LevelsBetweenUpgrades"  		"10"
-		"MaxLevel"				 		"7"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-
-		// Precache
-		//-------------------------------------------------------
-		"precache"
-		{
-			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_disruptor.vsndevts"
-			"particle"			"particles/units/heroes/hero_sven/sven_spell_gods_strength.vpcf"
-			"particle"			"particles/status_fx/status_effect_electrical.vpcf"
-			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_shadowshaman.vsndevts"
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_dragon_knight.vsndevts"
-			"particle"		"particles/units/heroes/hero_dragon_knight/dragon_knight_breathe_fire.vpcf"
-			"particle"		"particles/units/heroes/hero_jakiro/jakiro_liquid_fire_explosion.vpcf"
-			"particle"		"particles/units/heroes/hero_jakiro/jakiro_liquid_fire_debuff.vpcf"
-			"particle"		"particles/units/heroes/hero_dragon_knight/blue_flame_breath.vpcf"
-		}
-
-		// Casting
-		//-------------------------------------------------------
-		"AbilityCastPoint"				"0"
-
-		// Time
-		//-------------------------------------------------------
-		"AbilityCooldown"				"0"
-
-		// Cost
-		//-------------------------------------------------------
+		"MaxLevel"						"7"
+		"RequiredLevel"         		"-5"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+		"AOERadius"						"%aoe_radius"
 		"AbilityManaCost"				"30 60 90 120 150 180 210"
 
+		// Precache
+		//-------------------------------------------------------
+		"precache"
+		{
+			"particle"		"particles/units/heroes/hero_dragon_knight/dragon_knight_breathe_fire.vpcf"
+			"particle"		"particles/units/heroes/hero_dragon_knight/blue_flame_breath.vpcf"
+			"particle"		"particles/units/heroes/hero_jakiro/jakiro_liquid_fire_explosion.vpcf"
+		}
+
 		// Special
 		//-------------------------------------------------------
 		"AbilitySpecial"
@@ -25704,221 +25158,54 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"radius"					"160 170 180 190"
+				"damage"					"120 300 500 900 1500 2400 3500"
 			}
 			"02"
 			{
-				"var_type"					"FIELD_INTEGER"
-				"damage"					"120 300 500 700 900 1100 1500"
+				"var_type"				"FIELD_INTEGER"
+				"start_radius"			"140"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"start_radius"			"140 140 140 140"
+				"end_radius"			"240"
 			}
 			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"end_radius"			"240 240 240 240"
-			}
-			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"range"					"600 600 600 600"
 			}
-			"06"
+			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"speed"					"1050"
 			}
 		}
-
-		"OnSpellStart"
-		{
-			"FireSound"
-			{
-				"EffectName"	"Flamewaker.SecondHeartbeat"
-				"Target"		"CASTER"
-			}
-
-			"FireEffect"
-			{
-				"EffectName"	"particles/units/heroes/hero_sven/sven_spell_gods_strength.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"Target"		"CASTER"
-			}
-
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/dragon_knight/second_heartbeat.lua"
-				"Function"		"begin_second_heartbeat"
-				"start_radius"	"%start_radius"
-				"end_radius"    "%end_radius"
-				"range"			"%range"
-				"speed"			"%speed"
-				"damage"		"%damage"
-			}
-		}
-		"OnProjectileHitUnit"
-		{
-			"DeleteOnHit" "0"
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/dragon_knight/second_heartbeat.lua"
-				"Function"		"second_heartbeat_damage"
-				"damage"		"%damage"
-				"target"		"TARGET"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_flamewaker_think"
-			{
-				"Passive"		"1"
-				"IsHidden"		"1"
-				"ThinkInterval"  "1"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/dragon_knight/flamewaker_runes.lua"
-						"Function"		"flamewaker_think"
-					}
-				}
-				"OnTakeDamage"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/dragon_knight/second_heartbeat.lua"
-						"Function"		"last_damaging_unit"
-					}
-				}
-			}
-			"modifier_flamewaker_rune_w_1"
-			{
-				"Passive"	"0"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"OnAttackLanded"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/dragon_knight/flamewaker_runes.lua"
-						"Function"		"a_b_attack"
-					}
-				}
-			}
-			"modifier_flamewaker_rune_w_1_burn"
-			{
-				"Passive"	"0"
-				"IsHidden"	"1"
-				"Duration"  "1"
-				"OnCreated"
-				{
-					"FireEffect"
-					{
-						"EffectName"        "particles/units/heroes/hero_jakiro/jakiro_liquid_fire_explosion.vpcf"
-						"EffectAttachType"  "follow_origin"
-						"Target"            "TARGET"
-					}
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/dragon_knight/flamewaker_runes.lua"
-						"Function"		"w_1"
-						"damage"        "%property_one"
-					}
-				}
-			}
-			"modifier_searing_heat"
-			{
-				"IsHidden"	"0"
-				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
-				"TextureName"		"abaddon_death_coil"
-				"EffectName"		"particles/units/heroes/hero_jakiro/jakiro_liquid_fire_debuff.vpcf"
-				"EffectAttachType" 	"attach_origin"
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"npc_abilities/general.lua"
-						"Function"		"utility_recalculate_roshpit_attributes"
-						"target"		"TARGET"
-					}
-				}
-			}
-			"modifier_flamewaker_glyph_4_1_effect"
-			{
-				"IsHidden"	"0"
-				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-120"
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-120"
-				}
-			}
-			"modfier_dragon_wrath_jumping"
-			{
-				"IsHidden"	"1"
-				"IsBuff"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE"	"-100"
-					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"	"-100"
-				}
-				"EffectName"	"particles/units/heroes/hero_brewmaster/brewmaster_primal_split_fire_trail.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"States"
-				{
-					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
-				"ThinkInterval"  "0.03"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/dragon_knight/second_heartbeat.lua"
-						"Function"		"dragon_wrath_jumping_think"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/dragon_knight/second_heartbeat.lua"
-						"Function"		"drop_end"
-					}
-				}
-			}
-		}
 	}
 
-	"heat_wave"
+	"flamewaker_heat_wave"
 	{
 		// General
 		//-------------------------------------------------------
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"FightRecapLevel"				"1"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/dragon_knight/ability_scripts/flamewaker_heat_wave.lua"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityTextureName"			"phoenix_sun_ray"
-		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
-		"MaxLevel"				 		"7"
-
-		// Casting
-		//-------------------------------------------------------
-		"AbilityCastRange"				"1300"
-		"AbilityCastPoint"				"0.01"
-
-		// Time
-		//-------------------------------------------------------
-		"AbilityCooldown"				"8.0 7.7 7.4 7.1 6.8 6.5 6.2"
-		"AbilityDuration"				"2.4 2.5 2.6 2.7 2.8 2.9 3.0"
-
-		// Cost
-		//-------------------------------------------------------
+		"MaxLevel"						"7"
+		"RequiredLevel"         		"-5"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
 		"AbilityManaCost"				"0"
+
+		// Precache
+		//-------------------------------------------------------
+		"precache"
+		{
+			"particle"		"particles/units/heroes/hero_clinkz/clinkz_burning_army_ambient.vpcf"
+			"particle"		"particles/roshpit/flamewaker/heat_wave.vpcf"
+			"particle"		"particles/econ/courier/courier_roshan_lava/courier_roshan_lava_ground.vpcf"
+			"particle"		"particles/roshpit/flamewaker/blue_heatwave.vpcf"
+		}
 
 		// Special
 		//-------------------------------------------------------
@@ -25929,602 +25216,61 @@
 				"var_type"			"FIELD_INTEGER"
 				"movespeed"			"250 260 270 280 290 300 310"
 			}
-
 			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"base_dmg"			"20 40 60 80 100 120 140"
-			}
-
-			"05"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"radius"			"140"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"tick_interval"		"0.2"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"forward_move_speed"	"950 1000 1050 1100 1150 1200 1200"
-			}
-			"09"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"turn_rate_initial"			"250"
-			}
-			"10"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"turn_rate"					"20"
-			}
-			"11"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"tooltip_duration"	"6"
-			}
-			"12"
 			{
 				"var_type"			"FIELD_FLOAT"
 				"duration"			"2.4 2.5 2.6 2.7 2.8 2.9 3.0"
 			}
-			"13"
+			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
 				"ms_cap_bonus"			"90"
 			}
-			"14"
+			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"armor_shred"			"-40 -80 -120 -160 -200 -240 -280"
-			}
-		}
-
-		// Data driven
-		//-------------------------------------------------------
-		"precache"
-		{
-			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_phoenix.vsndevts"
-			"particle"					"particles/roshpit/flamewaker/heat_wave.vpcf"
-			"particle"					"particles/econ/courier/courier_roshan_lava/courier_roshan_lava_ground.vpcf"
-			"particle"					"particles/status_fx/status_effect_huskar_lifebreak.vpcf"
-			"model"						"models/heroes/dragon_knight/dragon_knight_dragon.vmdl"
-			"particle"					"particles/units/heroes/hero_dragon_knight/dragon_knight_transform_red.vpcf"
-			"particle"					"particles/units/heroes/hero_phantom_assassin/flamewaker_c_c.vpcf"
-			"particle"					"particles/econ/courier/courier_greevil_orange/courier_greevil_orange_ambient_c.vpcf"
-		}
-
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"		"heroes/dragon_knight/flame_ray.lua"
-				"Function"			"CastNewHeatwave"
-				"duration"		"%AbilityDuration"
-			}
-		}
-
-		"OnProjectileHitUnit"
-		{
-			"DeleteOnHit"	"0"
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/dragon_knight/flame_ray.lua"
-				"Function"		"dragon_projectile_hit"
-				"Target"		"TARGET"
-			}
-		}
-		"OnOwnerDied"
-		{
-			"RunScript"
-			{
-				"ScriptFile"		"heroes/dragon_knight/flame_ray.lua"
-				"Function"			"EndSunRay"
-			}
-		}
-
-		"Modifiers"
-		{
-			"modifier_heatwave_phase_one"
-			{
-				"IsPurgable"	"false"
-				"IsBuff"		"1"
-
-				"Duration"	"%AbilityDuration"
-
-
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/dragon_knight/flame_ray.lua"
-						"Function"		"phase_one_end"
-					}
-					"RunScript"
-					{
-						"ScriptFile"		"heroes/dragon_knight/flame_ray.lua"
-						"Function"			"StopSound"
-						"sound_name"		"Hero_Phoenix.SunRay.Loop"
-					}
-
-					"FireSound"
-					{
-						"EffectName"		"Hero_Phoenix.SunRay.Stop"
-						"Target"			"CASTER"
-					}
-					"RunScript"
-					{
-						"ScriptFile"		"heroes/dragon_knight/flame_ray.lua"
-						"Function"			"EndSunRay"
-					}
-				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%movespeed"
-				    "MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE" "-5"
-				    "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"%base_dmg"
-				}
-				"ThinkInterval"		"0.05"
-				"States"
-				{
-					"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
-				}
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/dragon_knight/flame_ray.lua"
-						"Function"		"heatwave_phase_think"
-						"phase"			"0"
-					}
-				}
-				"Aura"          	"modifier_heat_wave_armor_shred"
-				"Aura_Radius"   	"260"
-				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-				"Aura_ApplyToCaster" "0"
-
-			}
-			"modifier_heatwave_flying_portion"
-			{
-				"States"
-				{
-					"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY"				"MODIFIER_STATE_VALUE_ENABLED"
-				}
-				"IsHidden"	"1"
-			}
-			"modifier_heat_wave_armor_shred"
-			{
-				"IsHidden"	"0"
-				"IsDebuff"	"1"
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"npc_abilities/general.lua"
-						"Function"		"utility_recalculate_roshpit_attributes"
-						"target"		"TARGET"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"npc_abilities/general.lua"
-						"Function"		"utility_recalculate_roshpit_attributes"
-						"target"		"TARGET"
-					}
-				}
-			}
-
-			"modifier_sun_ray_thinker_datadriven"
-			{
-				"Duration"	"%AbilityDuration"
-
-				"Aura"			"modifier_sun_ray_check_datadriven"
-				"Aura_Radius"	"%thinker_radius"
-				"Aura_Teams"	"DOTA_UNIT_TARGET_TEAM_BOTH"
-				"Aura_Types"	"DOTA_UNIT_TARGET_HERO"
-
-				"OnCreated"
-				{
-					"ApplyModifier"
-					{
-						"Target"		"TARGET"
-						"ModifierName"	"modifier_phased"
-					}
-				}
-
-				"States"
-				{
-					"MODIFIER_STATE_PROVIDES_VISION"		"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_INVULNERABLE"			"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_NO_HEALTH_BAR"			"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_NO_UNIT_COLLISION"		"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_NOT_ON_MINIMAP"			"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_UNSELECTABLE"			"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-
-			"fire_thinker"
-			{
-				"Aura"					"heatwave_fire_damage"
-				"Aura_Radius"			"225"
-				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-				"Duration"				"5"
-
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"EffectName"		"particles/econ/courier/courier_roshan_lava/courier_roshan_lava_ground.vpcf"
-						"EffectAttachType"	"follow_origin"
-						"Target"			"TARGET"
-						"ControlPoints"
-						{
-							"00" "0 0 0"
-							"01" "250 1 1"
-							"15" "155 90 30"
-							"16" "1 0 0"
-						}
-					}
-				}
-			}
-
-			"heatwave_fire_damage"
-			{
-				"IsDebuff"		"1"
-				"IsStunDebuff"		"1"
-				"IsPurgable"	"0"
-				"ThinkInterval"	"1"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/dragon_knight/flame_ray.lua"
-						"Function"		"rune_e_1_damage"
-						"target"		"TARGET"
-					}
-				}
+				"cooldown"			"8.0 7.7 7.4 7.1 6.8 6.5 6.2"
 			}
 		}
 	}
 
-	"cataclysm"
+	"flamewaker_cataclysm"
 	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_AOE"
-		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"phoenix_supernova"
-
-		"AbilityCastRange"	"%radius"
-		"AbilityCastPoint"	"0.0"
-		"AbilityCooldown"	"14.0"
-		"AbilityChannelTime"	"1.5"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
-		"AbilityCastAnimation"	"ACT_DOTA_VICTORY"
-		"AbilityDamage"	"%damage"
-		"AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
-		"RequiredLevel"          "-5"
-		"LevelsBetweenUpgrades"  "10"
-		"MaxLevel"				 "7"
-		"AOERadius"				"%radius"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_AOE"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/dragon_knight/ability_scripts/flamewaker_cataclysm.lua"
+		"AbilityType"            		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"AbilityTextureName"			"flamewaker/flamewaker_cataclysm"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AOERadius"						"%radius"
 		"precache"
 		{
-			"particle"		"particles/units/heroes/hero_warlock/warlock_rain_of_chaos.vpcf"
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_gyrocopter.vsndevts"
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_sandking.vsndevts"
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_batrider.vsndevts"
-			"particle" 		"particles/units/heroes/hero_invoker/invoker_chaos_meteor.vpcf"
-			"particle"		"particles/econ/items/techies/techies_arcana/techies_suicide_arcana.vpcf"
-			"soundfile"		"sounds/physics/damage/player/tower_projectile03.vsnd"
-			"particle"		"particles/econ/items/axe/axe_helm_shoutmask/axe_beserkers_call_buff_shout_mask.vpcf"
 			"soundfile"		"soundevents/game_sounds_flamewaker.vsndevts"
-			"particle"		"particles/econ/items/crystal_maiden/crystal_maiden_maiden_of_icewrack/flamewaker_crit.vpcf"
+			"particle"		"particles/units/heroes/hero_phoenix/phoenix_icarus_dive_char_glow.vpcf"
+			"particle"		"particles/units/heroes/hero_warlock/warlock_rain_of_chaos.vpcf"
 			"particle"		"particles/roshpit/red_general/cyclone_shield.vpcf"
-			"particle"		"particles/roshpit/flamewaker/flamewaker_r3.vpcf"
-		}
-
-		"AbilityManaCost"	"0"
-		"SideShop"	"1"
-		"OnSpellStart"
-		{
-			"ApplyModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_channel_start"
-			}
-
-			"FireSound"
-			{
-				"EffectName"	"Ability.SandKing_Epicenter.spell"
-				"Target"	"CASTER"
-			}
-
-		}
-
-		"OnChannelSucceeded"
-		{
-			"RemoveModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_channel_start"
-			}
-
-			"AttachEffect"
-			{
-				"EffectName"	"particles/units/heroes/hero_warlock/warlock_rain_of_chaos.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"EffectRadius"	"%radius"
-				"EffectDurationScale"	"1"
-				"EffectLifeDurationScale"	"1"
-				"EffectColorA"	"255 0 0"
-				"EffectColorB"	"255 0 0"
-				"Target"	"CASTER"
-			}
-
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/dragon_knight/flamewaker_runes"
-				"Function"		"flamewaker_r_2"
-			}
-
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/dragon_knight/flamewaker_runes"
-				"Function"		"flamewaker_r_3"
-			}
-
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/dragon_knight/cataclysm"
-				"Function"		"cataclysm_start"
-			}
-
-			"ActOnTargets"
-			{
-				"Target"
-				{
-					"Center"	"CASTER"
-					"Radius"	"%radius"
-					"Teams"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-					"Types"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-				}
-
-				"Action"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/dragon_knight/cataclysm"
-						"Function"		"cataclysm_damage"
-						"damage"		"%damage"
-						"target"		"TARGET"
-						"stun_duration"	"%stun_duration"
-					}
-				}
-
-			}
-
-
-			"ApplyModifier"
-			{
-				"Center"	"CASTER"
-				"Target"
-				{
-					"Center"	"CASTER"
-					"Radius"	"%radius"
-					"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
-				}
-				"ModifierName"		"modifier_thunder_clap"
-				"Duration"		"5"
-			}
-
-			"FireSound"
-			{
-				"EffectName"	"Hero_Gyrocopter.CallDown.Damage"
-				"Target"	"CASTER"
-			}
-
-		}
-
-		"OnChannelFinish"
-		{
-			"RemoveModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_channel_start"
-			}
-
-		}
-		"OnProjectileHitUnit"
-		{
-			"DeleteOnHit"	"0"
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/dragon_knight/flamewaker_runes"
-				"Function"		"flamewaker_r_2_impact"
-			}
-		}
-		"OnChannelInterrupted"
-		{
-			"RemoveModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_channel_start"
-			}
-
-		}
-
-		"Modifiers"
-		{
-			"modifier_channel_start"
-			{
-				"IsHidden"	"1"
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"IsHidden"	"1"
-						"EffectName"	"particles/units/heroes/hero_phoenix/phoenix_icarus_dive_char_glow.vpcf"
-						"EffectAttachType"	"follow_origin"
-						"Target"	"CASTER"
-						"EffectRadius"	"%radius"
-						"EffectColorA"	"255 0 0"
-						"EffectColorB"	"255 0 0"
-						"ControlPoints"
-						{
-							"00"	"50 100 5"
-						}
-
-					}
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/util/channeling.lua"
-						"Function"		"beginChannel"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/util/channeling.lua"
-						"Function"		"endChannel"
-					}
-				}
-
-			}
-			"modifier_thunder_clap"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"1"
-				"IsStunDebuff"			"1"
-
-				"EffectName"		"particles/units/heroes/hero_brewmaster/brewmaster_thunder_clap_debuff.vpcf"
-				"EffectAttachType"	"follow_origin"
-
-				"StatusEffectName" 		"particles/status_fx/status_effect_brewmaster_thunder_clap.vpcf"
-				"StatusEffectPriority"  "10"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-50"
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-50"
-				}
-
-				"OnCreated"
-				{
-					"FireSound"
-					{
-						"EffectName"	"Hero_Brewmaster.ThunderClap.Target"
-						"Target" 		"TARGET"
-					}
-				}
-			}
-			"modifier_flamewaker_a_d"
-			{
-				"Passive"			"1"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-
-				"OnAttackStart"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/dragon_knight/flamewaker_runes"
-						"Function"		"a_d_attack_land"
-					}
-				}
-			}
-			"modifier_flamewaker_a_d_crit_damage"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "3"
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"0"
-					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"	"-100"
-				}
-				"OnAttackLanded"
-				{
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_flamewaker_a_d_crit_damage"
-						"Target" 		"TARGET"
-					}
-				}
-				"States"
-				{
-					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-			"modifier_flamewaker_glyph_6_1_buff"
-			{
-				"Passive"	"0"
-				"IsHidden"	"0"
-				"IsBuff"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "100"
-				}
-			}
-			"modifier_flamewaker_rune_r_3"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"0"
-
-				"EffectName"		"particles/econ/items/axe/axe_helm_shoutmask/axe_beserkers_call_buff_shout_mask.vpcf"
-				"EffectAttachType"	"follow_origin"
-			}
 		}
 
 		"AbilitySpecial"
 		{
 			"01"
 			{
-				"var_type"	"FIELD_FLOAT"
-				"duration"	"0.1"
+				"var_type"	"FIELD_INTEGER"
+				"damage"	"400 1200 2000 3000 5000 7000 10000"
 			}
-
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage"	"400 1200 2000 3000 4000 5000 6000"
+				"radius"	"600"
 			}
-
 			"03"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"radius"	"560 570 580 590 600 610 620"
-			}
-
-			"04"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"distance"	"200"
-			}
-
-			"05"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"height"	"80"
-			}
-			"06"
 			{
 				"var_type"	"FIELD_FLOAT"
 				"stun_duration"	"2.0 2.2 2.4 2.6 2.8 3.0 3.2"
 			}
-
 		}
 	}
 
@@ -26547,7 +25293,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"45"
+				"property_one"			"50"
 			}
 			"02"
 			{
@@ -26555,33 +25301,6 @@
 				"property_two"			"14"
 			}
 
-		}
-
-		"Modifiers"
-		{
-			"modifier_a_a_think"
-			{
-				"Passive"	"1"
-				"ThinkInterval"  "1.0"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/dragon_knight/flamewaker_runes.lua"
-						"Function"		"a_a_think"
-					}
-				}
-			}
-			"modifier_flamewaker_rune_q_1"
-			{
-				"Passive"	"0"
-				"IsBuff"	"1"
-				"IsHidden"	"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"%property_two"
-				}
-			}
 		}
 	}
 
@@ -26592,46 +25311,15 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"elder_titan_earth_splitter"
+		"AbilityTextureName"	"flamewaker/flamewaker_rune_q_2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-
 		"AbilitySpecial"
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"20"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"strength_multiplier"	"1"
-			}
-		}
-		"Modifiers"
-		{
-			"flamewaker_rune_q_2_heal_effect"
-			{
-				"Passive"	"0"
-				"IsHidden"	"0"
-				"Duration"  "5"
-				"ThinkInterval"  "0.5"
-				"OnIntervalThink"
-				{
-					"FireEffect"
-					{
-						"EffectName"        "particles/units/heroes/hero_oracle/oracle_false_promise_heal.vpcf"
-						"EffectAttachType"  "follow_origin"
-						"Target"            "TARGET"
-					}
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/dragon_knight/flamewaker_runes.lua"
-						"Function"		"b_a_modifier_think"
-					}
-				}
-
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.8"
 			}
 		}
 	}
@@ -26643,32 +25331,16 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"earthshaker_aftershock_egset"
+		"AbilityTextureName"	"flamewaker/flamewaker_rune_q_3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"18"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"95"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"1"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"				"2"
+				"property_one"			"100"
 			}
 		}
 	}
@@ -26680,7 +25352,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"dragon_knight_dragon_tail"
+		"AbilityTextureName"	"flamewaker/flamewaker_rune_q_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -26688,30 +25360,18 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.05"
+				"property_one"			"1.2"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.1"
+				"property_two"			"0.4"
 			}
-		}
-		"Modifiers"
-		{
-			"modifier_flamewaker_rune_q_4"
+			"03"
 			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"0"
-
-				"EffectName"		"particles/units/heroes/hero_ogre_magi/ogre_magi_bloodlust_buff_e.vpcf"
-				"EffectAttachType"	"attach_overhead"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "10"
-				}
-			}
+				"var_type"				"FIELD_FLOAT"
+				"property_two_base"			"1"
+			}			
 		}
 	}
 
@@ -26722,7 +25382,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"phoenix_fire_spirits"
+		"AbilityTextureName"	"flamewaker/flamewaker_rune_w_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
@@ -26745,11 +25405,6 @@
 				"element_one"				"2"
 			}
 		}
-
-		"Modifiers"
-		{
-
-		}
 	}
 
 	"flamewaker_rune_w_2"
@@ -26767,7 +25422,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5"
+				"property_one"			"6"
 			}
 			"02"
 			{
@@ -26777,7 +25432,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"5"
+				"property_two"			"8"
 			}
 		}
 	}
@@ -26789,7 +25444,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"abaddon_death_coil"
+		"AbilityTextureName"	"flamewaker/flamewaker_rune_w_3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -26797,7 +25452,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"-3"
+				"property_one"			"-10"
 			}
 		}
 	}
@@ -26809,7 +25464,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"centaur_double_edge"
+		"AbilityTextureName"	"flamewaker/flamewaker_rune_w_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
@@ -26818,30 +25473,16 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"5"
+				"property_one"			"1.5"
 			}
-		}
-		"Modifiers"
-		{
-			"modifier_flamewaker_rune_w_4"
+			"02"
 			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "5"
-				}
-			}
-			"modifier_flamewaker_rune_w_4_cooldown"
-			{
-				"IsHidden"	"0"
-				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"20"
 			}
 		}
 	}
+
 
 	"flamewaker_rune_e_1"
 	{
@@ -26850,27 +25491,20 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"phoenix_launch_fire_spirit"
+		"AbilityTextureName"	"flamewaker/flamewaker_rune_e_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
-
 		"AbilitySpecial"
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"85"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.1"
 			}
-			"02"
+			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"3"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"				"2"
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"0.5"
 			}
 		}
 	}
@@ -26882,22 +25516,17 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"brewmaster_fire_permanent_immolation"
+		"AbilityTextureName"	"flamewaker/flamewaker_rune_e_2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"55"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"10"
+				"property_one"			"7"
 			}
 			"03"
 			{
@@ -26910,27 +25539,8 @@
 				"element_one"				"2"
 			}
 		}
-		"Modifiers"
-		{
-			"flamewaker_rune_e_2_buff"
-			{
-				"Passive"	"0"
-				"Duration"  "6"
-				"IsBuff"	"1"
-				"EffectName"		"particles/roshpit/flamewaker/fiery_dragon_b_c_spirit_flameguard.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"ThinkInterval"  "0.5"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/dragon_knight/flame_ray.lua"
-						"Function"		"dragon_rage_b_c_think"
-					}
-				}
-			}
-		}
 	}
+
 
 	"flamewaker_rune_e_3"
 	{
@@ -26939,79 +25549,21 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"dragon_knight_elder_dragon_form"
+		"AbilityTextureName"	"flamewaker/flamewaker_rune_e_3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
+
 		"AbilitySpecial"
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.5"
 			}
-			"01"
+			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"10"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_rune_e_3_dragon"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-
-				"EffectName"		"particles/units/heroes/hero_dragon_knight/dragon_knight_transform_red.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"StatusEffectName"	"particles/status_fx/status_effect_huskar_lifebreak.vpcf"
-				"StatusEffectPriority"	"10"
-
-				"ThinkInterval"  "0.03"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/dragon_knight/flame_ray.lua"
-						"Function"		"dragon_think"
-					}
-				}
-				"OnCreated"
-				{
-					"FireEffect"
-					{
-						"EffectName"	"particles/units/heroes/hero_dragon_knight/dragon_knight_transform_red.vpcf"
-						"EffectAttachType"	"follow_origin"
-						"Target"	"CASTER"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/dragon_knight/flame_ray.lua"
-						"Function"		"dragon_end"
-					}
-					"FireEffect"
-					{
-						"EffectName"	"particles/units/heroes/hero_dragon_knight/dragon_knight_transform_red.vpcf"
-						"EffectAttachType"	"follow_origin"
-						"Target"	"CASTER"
-					}
-				}
-			}
-			"modifier_rune_e_3_damage_boost"
-			{
-				"IsBuff"		"1"
-				"IsHidden"		"0"
-				"EffectName"	"particles/units/heroes/hero_phantom_assassin/flamewaker_c_c.vpcf"
-				"EffectAttachType"	"attach_origin"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%property_one"
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%property_two"
-				}
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"0.6"
 			}
 		}
 	}
@@ -27023,7 +25575,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"batrider_firefly"
+		"AbilityTextureName"	"flamewaker/flamewaker_rune_e_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -27031,34 +25583,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.2"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_flamewaker_rune_e_4"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-
-				"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
-				"EffectAttachType" 	"attach_origin"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%property_two"
-				}
-				"ThinkInterval"  "1"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/dragon_knight/flamewaker_runes.lua"
-						"Function"		"d_b_burn_think"
-						"target"        "TARGET"
-					}
-				}
+				"property_one"			"10"
 			}
 		}
 	}
@@ -27070,7 +25595,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"juggernaut_blade_fury"
+		"AbilityTextureName"	"flamewaker/flamewaker_rune_r_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -27078,7 +25603,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"3"
+				"property_one"			"6"
 			}
 		}
 	}
@@ -27088,9 +25613,9 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"dragon_knight_breathe_fire"
+		"AbilityTextureName"	"flamewaker/flamewaker_rune_r_2"
 		"MaxLevel"				"20"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 		"LevelsBetweenUpgrades" "0"
 
 		"AbilitySpecial"
@@ -27098,7 +25623,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"65"
+				"property_one"			"10"
 			}
 			"03"
 			{
@@ -27111,16 +25636,6 @@
 				"element_one"				"2"
 			}
 		}
-		"Modifiers"
-		{
-			"modifier_flamewaker_rune_r_2_effect"
-			{
-				"Passive"	"0"
-				"Duration"  "5"
-				"StatusEffectName"	"particles/status_fx/status_effect_huskar_lifebreak.vpcf"
-				"StatusEffectPriority"	"10"
-			}
-		}
 	}
 
 	"flamewaker_rune_r_3"
@@ -27130,7 +25645,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"ogre_magi/antipodeanabilityicons/ogre_magi_ignite"
+		"AbilityTextureName"	"flamewaker/flamewaker_rune_r_3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -27138,7 +25653,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"25"
+				"property_one"			"35"
 			}
 		}
 	}
@@ -27150,7 +25665,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rpc/flamewaker_rune_r_4"
+		"AbilityTextureName"	"flamewaker/flamewaker_rune_r_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -27162,166 +25677,6 @@
 			}
 		}
 	}
-
-	"flamewaker_rune_r_1_meteor"
-	{
-		// General
-		//-------------------------------------------------------
-	 	"BaseClass"						"invoker_chaos_meteor"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"MaxLevel"						"20"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"FightRecapLevel"				"1"
-
-		// Stats
-		//-------------------------------------------------------
-		"AbilityCastRange"				"700"
-		"AbilityCastPoint"				"0"
-		"AbilityCooldown"				"5"
-		"AbilityManaCost"				"0"
-
-		// Stats
-		//-------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.0"	// Mainly about damage
-
-		// Special
-		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"land_time"				"1.3"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"area_of_effect"		"275"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"travel_distance"		"1000"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"travel_speed"			"400"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"damage_interval"		"0.5"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"vision_distance"		"500"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"end_vision_duration"	"3.0"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"main_damage"			"20 40 60 80 100 120 140 160 180 200 220 240 260 280 300 320 340 360 380 400"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"burn_duration"			"3.0"
-			}
-			"10"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"burn_dps"				"20 40 60 80 100 120 140 160 180 200 220 240 260 280 300 320 340 360 380 400"
-			}
-		}
-	}
-
-	"flamewaker_rune_r_1_meteor_two"
-	{
-		// General
-		//-------------------------------------------------------
-	 	"BaseClass"						"invoker_chaos_meteor"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"MaxLevel"						"20"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"FightRecapLevel"				"1"
-
-		// Stats
-		//-------------------------------------------------------
-		"AbilityCastRange"				"700"
-		"AbilityCastPoint"				"0"
-		"AbilityCooldown"				"5"
-		"AbilityManaCost"				"0"
-
-		// Stats
-		//-------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.0"	// Mainly about damage
-
-		// Special
-		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"land_time"				"1.3"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"area_of_effect"		"275"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"travel_distance"		"1000"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"travel_speed"			"400"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"damage_interval"		"0.5"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"vision_distance"		"500"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"end_vision_duration"	"3.0"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"main_damage"			"420 440 460 480 500 520 540 560 580 600 620 640 660 680 700 720 740 760 780 800"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"burn_duration"			"3.0"
-			}
-			"10"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"burn_dps"				"420 440 460 480 500 520 540 560 580 600 620 640 660 680 700 720 740 760 780 800"
-			}
-		}
-	}
-
-
 
 
 
@@ -110719,6 +109074,15 @@
 					}
 				}
 			}
+			"modifier_master_ms_buff"
+			{
+				"IsHidden"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "1"
+				}			
+			}
 			"modifier_master_as_buff"
 			{
 				"IsHidden"	"1"
@@ -110753,6 +109117,15 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "-1"
+				}				
+			}
+			"modifier_master_health_regen_buff"
+			{
+				"IsHidden"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "0.1"
 				}				
 			}
 			"modifier_take_1_damage_only"

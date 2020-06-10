@@ -689,37 +689,11 @@ function Runes:EquipArcana(hero, index)
 	end
 	if hero:GetUnitName() == "npc_dota_hero_dragon_knight" then
 		if index == 1 then
-			local origAbility = hero:GetAbilityByIndex(DOTA_Q_SLOT)
-			local abilityLevel = hero:GetAbilityByIndex(DOTA_Q_SLOT):GetLevel()
-			local runeLevel1 = hero.runeUnit:GetAbilityByIndex(DOTA_Q_SLOT).rune_level
-			local runeLevel2 = hero.runeUnit2:GetAbilityByIndex(DOTA_Q_SLOT).rune_level
-			local runeLevel3 = hero.runeUnit3:GetAbilityByIndex(DOTA_Q_SLOT).rune_level
-			local runeLevel4 = hero.runeUnit4:GetAbilityByIndex(DOTA_Q_SLOT).rune_level
-			hero:RemoveAbility("seismic_flare")
-			local newAbility = hero:AddAbility("flamewaker_arcana_ability")
-			newAbility:SetLevel(abilityLevel)
-			newAbility:SetAbilityIndex(0)
-
-			hero.runeUnit:RemoveAbility("flamewaker_rune_q_1")
-			hero.runeUnit2:RemoveAbility("flamewaker_rune_q_2")
-			hero.runeUnit3:RemoveAbility("flamewaker_rune_q_3")
-			hero.runeUnit4:RemoveAbility("flamewaker_rune_q_4")
-
-			local newRune = hero.runeUnit:AddAbility("flamewaker_rune_q_1_arcana1")
-			newRune.rune_level = runeLevel1
-			newRune:SetAbilityIndex(0)
-			local newRune = hero.runeUnit2:AddAbility("flamewaker_rune_q_2_arcana1")
-			newRune.rune_level = runeLevel2
-			newRune:SetAbilityIndex(0)
-			local newRune = hero.runeUnit3:AddAbility("flamewaker_rune_q_3_arcana1")
-			newRune.rune_level = runeLevel3
-			newRune:SetAbilityIndex(0)
-			local newRune = hero.runeUnit4:AddAbility("flamewaker_rune_q_4_arcana1")
-			newRune.rune_level = runeLevel4
-			newRune:SetAbilityIndex(0)
+			hero:RemoveModifierByName("modifier_flamewaker_q_passive")
+			Runes:EasySwapArcanaSkills(hero, 0, "flamewaker_seismic_flare", "flamewaker_dragon_fire", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 		elseif index == 2 then
-			hero:RemoveModifierByName("modifier_flamewaker_think")
-			Runes:EasySwapArcanaSkills(hero, 1, "second_heartbeat", "flamewaker_dragonflame", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
+			hero:RemoveModifierByName("modifier_flamewaker_w_passive")
+			Runes:EasySwapArcanaSkills(hero, 1, "flamewaker_dragon_breath", "flamewaker_fireborne", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_juggernaut" then
 		if index == 1 then
@@ -1473,38 +1447,11 @@ function Runes:UnequipArcana(hero, index)
 	end
 	if hero:GetUnitName() == "npc_dota_hero_dragon_knight" then
 		if index == 1 then
-			local origAbility = hero:GetAbilityByIndex(DOTA_Q_SLOT)
-			local abilityLevel = hero:GetAbilityByIndex(DOTA_Q_SLOT):GetLevel()
-			local runeLevel1 = hero.runeUnit:GetAbilityByIndex(DOTA_Q_SLOT).rune_level
-			local runeLevel2 = hero.runeUnit2:GetAbilityByIndex(DOTA_Q_SLOT).rune_level
-			local runeLevel3 = hero.runeUnit3:GetAbilityByIndex(DOTA_Q_SLOT).rune_level
-			local runeLevel4 = hero.runeUnit4:GetAbilityByIndex(DOTA_Q_SLOT).rune_level
-			hero:RemoveAbility("flamewaker_arcana_ability")
-			local newAbility = hero:AddAbility("seismic_flare")
-			newAbility:SetLevel(abilityLevel)
-			newAbility:SetAbilityIndex(0)
-
-			hero.runeUnit:RemoveAbility("flamewaker_rune_q_1_arcana1")
-			hero.runeUnit2:RemoveAbility("flamewaker_rune_q_2_arcana1")
-			hero.runeUnit3:RemoveAbility("flamewaker_rune_q_3_arcana1")
-			hero.runeUnit4:RemoveAbility("flamewaker_rune_q_4_arcana1")
-
-			local newRune = hero.runeUnit:AddAbility("flamewaker_rune_q_1")
-			newRune.rune_level = runeLevel1
-			newRune:SetAbilityIndex(0)
-			local newRune = hero.runeUnit2:AddAbility("flamewaker_rune_q_2")
-			newRune.rune_level = runeLevel2
-			newRune:SetAbilityIndex(0)
-			local newRune = hero.runeUnit3:AddAbility("flamewaker_rune_q_3")
-			newRune.rune_level = runeLevel3
-			newRune:SetAbilityIndex(0)
-			local newRune = hero.runeUnit4:AddAbility("flamewaker_rune_q_4")
-			newRune.rune_level = runeLevel4
-			newRune:SetAbilityIndex(0)
-			hero:RemoveModifierByName("modifier_flamewaker_arcana_passive")
+			hero:RemoveModifierByName("modifier_flamewaker_arcana_q_passive")
+			Runes:EasyRevertArcanaSkills(hero, 0, "flamewaker_seismic_flare", "flamewaker_dragon_fire", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 		elseif index == 2 then
-			hero:RemoveModifierByName("modifier_flamewaker_arcana2_passive")
-			Runes:EasyRevertArcanaSkills(hero, 1, "second_heartbeat", "flamewaker_dragonflame", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
+			hero:RemoveModifierByName("modifier_flamewaker_arcana_w_passive")
+			Runes:EasyRevertArcanaSkills(hero, 1, "flamewaker_dragon_breath", "flamewaker_fireborne", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_juggernaut" then
 		if index == 1 then

@@ -24,33 +24,6 @@
 			}
 
 		}
-
-		"Modifiers"
-		{
-			"modifier_a_a_think"
-			{
-				"Passive"	"1"
-				"ThinkInterval"  "1.0"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/dragon_knight/flamewaker_runes.lua"
-						"Function"		"a_a_think"
-					}
-				}
-			}
-			"modifier_flamewaker_rune_q_1"
-			{
-				"Passive"	"0"
-				"IsBuff"	"1"
-				"IsHidden"	"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"%property_two"
-				}
-			}
-		}
 	}
 
 	"flamewaker_rune_q_2"
@@ -60,46 +33,15 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"elder_titan_earth_splitter"
+		"AbilityTextureName"	"flamewaker/flamewaker_rune_q_2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-
 		"AbilitySpecial"
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% FLAMEWAKER_Q2_HEAL_PER_TICK_PER_UNIT %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"strength_multiplier"	"1"
-			}
-		}
-		"Modifiers"
-		{
-			"flamewaker_rune_q_2_heal_effect"
-			{
-				"Passive"	"0"
-				"IsHidden"	"0"
-				"Duration"  "5"
-				"ThinkInterval"  "0.5"
-				"OnIntervalThink"
-				{
-					"FireEffect"
-					{
-						"EffectName"        "particles/units/heroes/hero_oracle/oracle_false_promise_heal.vpcf"
-						"EffectAttachType"  "follow_origin"
-						"Target"            "TARGET"
-					}
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/dragon_knight/flamewaker_runes.lua"
-						"Function"		"b_a_modifier_think"
-					}
-				}
-
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"<% FLAMEWAKER_Q2_HEALTH_PCT %>"
 			}
 		}
 	}
@@ -111,32 +53,16 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"earthshaker_aftershock_egset"
+		"AbilityTextureName"	"flamewaker/flamewaker_rune_q_3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% FLAMEWAKER_Q3_STRENGTH_ADDED_TO_LAVA_DMG_PCT %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% FLAMEWAKER_Q3_FLAT_LAVA_DPS %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"1"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"				"2"
+				"property_one"			"<% FLAMEWAKER_Q3_BASE_DMG %>"
 			}
 		}
 	}
@@ -148,7 +74,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"dragon_knight_dragon_tail"
+		"AbilityTextureName"	"flamewaker/flamewaker_rune_q_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -156,30 +82,18 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% FLAMEWAKER_Q4_BASE_DMG_PER_HP %>"
+				"property_one"			"<% FLAMEWAKER_Q4_PROC_CHANCE %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% FLAMEWAKER_Q4_BASE_DMG_PER_DAMAGE * 10 %>"
+				"property_two"			"<% FLAMEWAKER_Q4_FREECAST_DURATION %>"
 			}
-		}
-		"Modifiers"
-		{
-			"modifier_flamewaker_rune_q_4"
+			"03"
 			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"0"
-
-				"EffectName"		"particles/units/heroes/hero_ogre_magi/ogre_magi_bloodlust_buff_e.vpcf"
-				"EffectAttachType"	"attach_overhead"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "10"
-				}
-			}
+				"var_type"				"FIELD_FLOAT"
+				"property_two_base"			"<% FLAMEWAKER_Q4_FREECAST_DURATION_BASE %>"
+			}			
 		}
 	}
 
@@ -190,7 +104,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"phoenix_fire_spirits"
+		"AbilityTextureName"	"flamewaker/flamewaker_rune_w_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
@@ -212,11 +126,6 @@
 				"var_type"				"FIELD_INTEGER"
 				"element_one"				"2"
 			}
-		}
-
-		"Modifiers"
-		{
-
 		}
 	}
 
@@ -240,12 +149,12 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one_max"		"1000"
+				"property_one_max"		"<% FLAMEWAKER_W2_MAX_RANGE %>"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% FLAMEWAKER_W2_DAMAGE_BONUS_PCT %>"
+				"property_two"			"<% FLAMEWAKER_W2_SPEED_BONUS %>"
 			}
 		}
 	}
@@ -257,7 +166,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"abaddon_death_coil"
+		"AbilityTextureName"	"flamewaker/flamewaker_rune_w_3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -277,7 +186,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"centaur_double_edge"
+		"AbilityTextureName"	"flamewaker/flamewaker_rune_w_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
@@ -286,30 +195,16 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% FLAMEWAKER_W4_BONUS_DMG_PCT %>"
+				"property_one"			"<% FLAMEWAKER_W4_FIRE_SPIT_CHANCE %>"
 			}
-		}
-		"Modifiers"
-		{
-			"modifier_flamewaker_rune_w_4"
+			"02"
 			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% FLAMEWAKER_W4_BONUS_DMG_PCT %>"
-				}
-			}
-			"modifier_flamewaker_rune_w_4_cooldown"
-			{
-				"IsHidden"	"0"
-				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"<% FLAMEWAKER_W4_W_BAD %>"
 			}
 		}
 	}
+
 
 	"flamewaker_rune_e_1"
 	{
@@ -318,27 +213,20 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"phoenix_launch_fire_spirit"
+		"AbilityTextureName"	"flamewaker/flamewaker_rune_e_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
-
 		"AbilitySpecial"
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% FLAMEWAKER_E1_DMG %>"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"<% FLAMEWAKER_E1_ATK_POWER %>"
 			}
-			"02"
+			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"3"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"				"2"
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"<% FLAMEWAKER_E1_ATK_SPEED %>"
 			}
 		}
 	}
@@ -350,22 +238,17 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"brewmaster_fire_permanent_immolation"
+		"AbilityTextureName"	"flamewaker/flamewaker_rune_e_2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% FLAMEWAKER_E2_IMMOLATION_BASE %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% FLAMEWAKER_E2_IMMOLATION_BONUS_DAMAGE_AGILITY %>"
+				"property_one"			"<% FLAMEWAKER_E2_DMG_ATK_PWR %>"
 			}
 			"03"
 			{
@@ -375,30 +258,11 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"element_one"				"2"
-			}
-		}
-		"Modifiers"
-		{
-			"flamewaker_rune_e_2_buff"
-			{
-				"Passive"	"0"
-				"Duration"  "6"
-				"IsBuff"	"1"
-				"EffectName"		"particles/roshpit/flamewaker/fiery_dragon_b_c_spirit_flameguard.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"ThinkInterval"  "0.5"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/dragon_knight/flame_ray.lua"
-						"Function"		"dragon_rage_b_c_think"
-					}
-				}
+				"element_one"				"<% RPC_ELEMENT_FIRE %>"
 			}
 		}
 	}
+
 
 	"flamewaker_rune_e_3"
 	{
@@ -407,79 +271,21 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"dragon_knight_elder_dragon_form"
+		"AbilityTextureName"	"flamewaker/flamewaker_rune_e_3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
+
 		"AbilitySpecial"
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% FLAMEWAKER_E3_BONUS_DMG_PCT %>"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"<% FLAMEWAKER_E3_BASE_DMG_PER_MS_OVER_THRESH %>"
 			}
-			"01"
+			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% FLAMEWAKER_E3_ATT_SPEED %>"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_rune_e_3_dragon"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-
-				"EffectName"		"particles/units/heroes/hero_dragon_knight/dragon_knight_transform_red.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"StatusEffectName"	"particles/status_fx/status_effect_huskar_lifebreak.vpcf"
-				"StatusEffectPriority"	"10"
-
-				"ThinkInterval"  "0.03"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/dragon_knight/flame_ray.lua"
-						"Function"		"dragon_think"
-					}
-				}
-				"OnCreated"
-				{
-					"FireEffect"
-					{
-						"EffectName"	"particles/units/heroes/hero_dragon_knight/dragon_knight_transform_red.vpcf"
-						"EffectAttachType"	"follow_origin"
-						"Target"	"CASTER"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/dragon_knight/flame_ray.lua"
-						"Function"		"dragon_end"
-					}
-					"FireEffect"
-					{
-						"EffectName"	"particles/units/heroes/hero_dragon_knight/dragon_knight_transform_red.vpcf"
-						"EffectAttachType"	"follow_origin"
-						"Target"	"CASTER"
-					}
-				}
-			}
-			"modifier_rune_e_3_damage_boost"
-			{
-				"IsBuff"		"1"
-				"IsHidden"		"0"
-				"EffectName"	"particles/units/heroes/hero_phantom_assassin/flamewaker_c_c.vpcf"
-				"EffectAttachType"	"attach_origin"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%property_one"
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%property_two"
-				}
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"<% FLAMEWAKER_E3_PIERCE_PER_MS_OVER_THRESH %>"
 			}
 		}
 	}
@@ -491,7 +297,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"batrider_firefly"
+		"AbilityTextureName"	"flamewaker/flamewaker_rune_e_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -499,34 +305,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% FLAMEWAKER_E4_CD_REDUCTION %>"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_flamewaker_rune_e_4"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-
-				"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
-				"EffectAttachType" 	"attach_origin"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%property_two"
-				}
-				"ThinkInterval"  "1"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/dragon_knight/flamewaker_runes.lua"
-						"Function"		"d_b_burn_think"
-						"target"        "TARGET"
-					}
-				}
+				"property_one"			"<% FLAMEWAKER_E4_MS_CAP %>"
 			}
 		}
 	}
@@ -538,7 +317,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"juggernaut_blade_fury"
+		"AbilityTextureName"	"flamewaker/flamewaker_rune_r_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -556,9 +335,9 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"dragon_knight_breathe_fire"
+		"AbilityTextureName"	"flamewaker/flamewaker_rune_r_2"
 		"MaxLevel"				"20"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 		"LevelsBetweenUpgrades" "0"
 
 		"AbilitySpecial"
@@ -566,7 +345,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% FLAMEWAKER_R2_DAMAGE %>"
+				"property_one"			"<% FLAMEWAKER_R2_DAMAGE_ATK_POWER %>"
 			}
 			"03"
 			{
@@ -579,16 +358,6 @@
 				"element_one"				"2"
 			}
 		}
-		"Modifiers"
-		{
-			"modifier_flamewaker_rune_r_2_effect"
-			{
-				"Passive"	"0"
-				"Duration"  "5"
-				"StatusEffectName"	"particles/status_fx/status_effect_huskar_lifebreak.vpcf"
-				"StatusEffectPriority"	"10"
-			}
-		}
 	}
 
 	"flamewaker_rune_r_3"
@@ -598,7 +367,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"ogre_magi/antipodeanabilityicons/ogre_magi_ignite"
+		"AbilityTextureName"	"flamewaker/flamewaker_rune_r_3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -618,7 +387,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rpc/flamewaker_rune_r_4"
+		"AbilityTextureName"	"flamewaker/flamewaker_rune_r_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -630,162 +399,3 @@
 			}
 		}
 	}
-
-	"flamewaker_rune_r_1_meteor"
-	{
-		// General
-		//-------------------------------------------------------
-	 	"BaseClass"						"invoker_chaos_meteor"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"MaxLevel"						"20"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"FightRecapLevel"				"1"
-
-		// Stats
-		//-------------------------------------------------------
-		"AbilityCastRange"				"700"
-		"AbilityCastPoint"				"0"
-		"AbilityCooldown"				"5"
-		"AbilityManaCost"				"0"
-
-		// Stats
-		//-------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.0"	// Mainly about damage
-
-		// Special
-		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"land_time"				"1.3"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"area_of_effect"		"275"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"travel_distance"		"1000"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"travel_speed"			"400"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"damage_interval"		"0.5"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"vision_distance"		"500"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"end_vision_duration"	"3.0"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"main_damage"			"20 40 60 80 100 120 140 160 180 200 220 240 260 280 300 320 340 360 380 400"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"burn_duration"			"3.0"
-			}
-			"10"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"burn_dps"				"20 40 60 80 100 120 140 160 180 200 220 240 260 280 300 320 340 360 380 400"
-			}
-		}
-	}
-
-	"flamewaker_rune_r_1_meteor_two"
-	{
-		// General
-		//-------------------------------------------------------
-	 	"BaseClass"						"invoker_chaos_meteor"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"MaxLevel"						"20"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"FightRecapLevel"				"1"
-
-		// Stats
-		//-------------------------------------------------------
-		"AbilityCastRange"				"700"
-		"AbilityCastPoint"				"0"
-		"AbilityCooldown"				"5"
-		"AbilityManaCost"				"0"
-
-		// Stats
-		//-------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.0"	// Mainly about damage
-
-		// Special
-		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"land_time"				"1.3"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"area_of_effect"		"275"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"travel_distance"		"1000"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"travel_speed"			"400"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"damage_interval"		"0.5"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"vision_distance"		"500"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"end_vision_duration"	"3.0"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"main_damage"			"420 440 460 480 500 520 540 560 580 600 620 640 660 680 700 720 740 760 780 800"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"burn_duration"			"3.0"
-			}
-			"10"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"burn_dps"				"420 440 460 480 500 520 540 560 580 600 620 640 660 680 700 720 740 760 780 800"
-			}
-		}
-	}
-

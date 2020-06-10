@@ -445,16 +445,6 @@ function CustomAbilities:HitWinterblightMaidenShield(victim, attacker)
 	end
 end
 
-function CustomAbilities:HitVolcanoShield(victim, attacker)
-	local currentStacks = victim:GetModifierStackCount("modifier_volcano_shield", victim.InventoryUnit)
-	if currentStacks > 1 then
-		victim:SetModifierStackCount("modifier_volcano_shield", victim.InventoryUnit, currentStacks - 1)
-	else
-		victim:RemoveModifierByName("modifier_volcano_shield")
-		-- CustomAbilities:QuickAttachParticle("particles/roshpit/sorceress/shield_shatter.vpcf", victim, 1.2)
-	end
-end
-
 function CustomAbilities:HitShieldGeneric(victim, attacker, caster, modifierName)
 	local currentStacks = victim:GetModifierStackCount(modifierName, caster)
 	if currentStacks > 1 then
@@ -1040,6 +1030,22 @@ function CDOTA_BaseNPC:ApplyModifierAndSetStacks(ability, caster, modifier_name,
 	self:SetModifierStackCount(modifier_name, caster, stacks)
 end
 
+function CDOTA_BaseNPC:ApplyAndIncrementStackLua(ability, caster, modifier_name, increment, max_stacks, duration)
+	local currentStacks = self:GetModifierStackCount(modifier_name, caster)
+	local new_stacks = nil
+	if max_stacks > 0 then
+		new_stacks = math.min(currentStacks + increment, max_stacks)
+	else
+		new_stacks = currentStacks + increment
+	end
+	if duration > 0 then
+		self:AddNewModifier(caster, ability, modifier_name, {duration = duration})
+	else
+		self:AddNewModifier(caster, ability, modifier_name, {})
+	end
+	self:SetModifierStackCount(modifier_name, caster, new_stacks)
+end
+
 function CustomAbilities:RubilashPaintRoshpitAttributes(unit, roshpit_attribute)
 	local modify = 0
 	local caster = unit:FindModifierByName("modifier_rubilash_base_painted"):GetCaster()
@@ -1090,4 +1096,14 @@ function CDOTA_BaseNPC:CrawlEnter(position, direction2d, climbDirection, offset,
 	self:SetAngles(xAngle, yAngle, 0)
 
 	self.crawlVector = Vector(0,0,(-xAngle/90)*speed)
+end
+
+function CDOTABaseAbility:GetCastPosition()
+	if self.cast_position_override then
+		local position = self.cast_position_override
+		self.cast_position_override = nil
+		return position
+	else
+		return self:GetCursorPosition()
+	end
 end

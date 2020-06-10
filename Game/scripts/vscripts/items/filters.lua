@@ -660,12 +660,21 @@ function Filters:AdjustBuffDuration(isBuff, duration)
     return duration
 end
 
+function Filters:LinearProjectile(projectile_data)
+    local projectile = ProjectileManager:CreateLinearProjectile(projectile_data)
+    return projectile
+end
+
 function Filters:ApplyStun(caster, duration, target)
     local mult = 1
     if caster:HasModifier("modifier_knight_crusher_armor") then
         mult = mult + ITEM_RPC_STAGGERING_KNIGHT_CRUSHER_ARMOR_STUN_DURATION_INCREASE/100
     end
-
+    Util.Modifier:SimpleEvent(caster, 'GetRoshpitStunDurationPctModifier', { MODIFIER_ROSHPIT_STUN_DURATION_PCT }, { }, 
+        function(result, data)
+            mult = mult + result/100
+        end
+    )
     if caster:HasModifier("modifier_steelforge_passive") then
         caster.w_2_level = caster:GetRuneValue("w", 2)
     end
@@ -973,7 +982,7 @@ function Filters:BeginRChannel(caster)
         return false
     end
     local baseCd = ability:GetCooldownTimeRemaining()
-    if not ability.BaseClass and (caster:HasModifier("modifier_iron_treads_of_destruction") or caster:HasModifier("modifier_baphomets_cursed_necklace_ruin_effect")) then
+    if not ability.BaseClass and (caster:HasModifier("modifier_iron_treads_of_destruction") or caster:HasModifier("modifier_baphomets_cursed_necklace_ruin_effect")) or caster:HasModifier("modifier_flamewaker_rune_q_4") then
         ability:OnChannelFinish(false)
         Timers:CreateTimer(0.03, function()
             ability:EndChannel(true)
@@ -1590,14 +1599,32 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
 
     local attackerName = attacker:GetUnitName()
     if not ignore_effects then
-        -- if attacker:HasModifier("modifier_heavy_echo_gauntlet") then
-        --     if not victim.echoLock then
-        --         victim.echoLock = true
-        --         Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_type, slot, element1, element2, ignore_effects)
-        --         Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_type, slot, element1, element2, ignore_effects)
-        --         victim.echoLock = false
-        --     end
-        -- end
+        -- DAMAGE ADDED TO BASE
+        if slot == BASE_ABILITY_Q then
+            Util.Modifier:SimpleEvent(attacker, 'GetRoshpitQBaseDmgFlat', { MODIFIER_ROSHPIT_Q_BASE_DMG_FLAT }, { }, 
+                function(result, data)
+                    damage = damage + result
+                end
+            )
+        elseif slot == BASE_ABILITY_W then
+            Util.Modifier:SimpleEvent(attacker, 'GetRoshpitWBaseDmgFlat', { MODIFIER_ROSHPIT_W_BASE_DMG_FLAT }, { }, 
+                function(result, data)
+                    damage = damage + result
+                end
+            )
+        elseif slot == BASE_ABILITY_E then
+            Util.Modifier:SimpleEvent(attacker, 'GetRoshpitEBaseDmgFlat', { MODIFIER_ROSHPIT_E_BASE_DMG_FLAT }, { }, 
+                function(result, data)
+                    damage = damage + result
+                end
+            )
+        elseif slot == BASE_ABILITY_R then
+            Util.Modifier:SimpleEvent(attacker, 'GetRoshpitRBaseDmgFlat', { MODIFIER_ROSHPIT_R_BASE_DMG_FLAT }, { }, 
+                function(result, data)
+                    damage = damage + result
+                end
+            )
+        end
     end
 
     if slot == BASE_AUTO_ATTACK then
@@ -1842,6 +1869,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
                 damageMult = damageMult + result
             end
         )
+
         if not ignore_effects then
             if attacker:HasModifier("modifier_cap_of_wild_nature1") or attacker:HasModifier("modifier_cap_of_wild_nature2") then
                 Filters:WildNatureTwo(attacker, victim, slot)
@@ -2391,19 +2419,6 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         if attacker:HasModifier("modifier_dinath_glyph_6_1") then
             fireMult = fireMult + DINATH_GLYPH_6_1_FIRE_ICE_LIGHTING_COSMIC_AMP/100
         end
-        if unitName == "npc_dota_hero_dragon_knight" then
-            if attacker.r_4_level then
-                fireMult = fireMult + attacker.r_4_level*(FLAMEWAKER_R4_FIRE_DAMAGE_AMP/100)
-            end
-            if attacker:HasModifier("modifier_flamewaker_arcana2_passive") then
-                if victim:IsStunned() or victim:IsFakeStunned() then
-                    local w_1_level = attacker:GetRuneValue("w", 1)
-                    if w_1_level > 0 then
-                        fireMult = fireMult + (FLAMEWAKER_ARCANA2_W1_FIRE_AMP_AGAINST_STUNNED/100) * w_1_level
-                    end
-                end
-            end
-        end
         if unitName == "npc_dota_hero_visage" then
             if attacker:HasModifier("modifier_ekkan_arcana2c") then
                 mult = mult + attacker:GetRuneValue("w", 4)*EKKAN_ARCANA_W4C_ELEMENTAL_AMP/100
@@ -2498,11 +2513,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         mult = mult + fireMult
     end
     if element1 == RPC_ELEMENT_EARTH or element2 == RPC_ELEMENT_EARTH then
-        if unitName == "npc_dota_hero_dragon_knight" then
-            if attacker.r_4_level then
-                mult = mult + (attacker.r_4_level*FLAMEWAKER_R4_FIRE_DAMAGE_AMP/100)
-            end
-        elseif unitName == "npc_dota_hero_beastmaster" then
+        if unitName == "npc_dota_hero_beastmaster" then
             if attacker:HasModifier("modifier_warlord_earth_charge") then
                 local stacks = attacker:GetModifierStackCount("modifier_warlord_earth_charge", attacker)
                 mult = mult + stacks * (WARLORD_EARTH_CHARGE_ELEMENT_BONUS_PCT/100)

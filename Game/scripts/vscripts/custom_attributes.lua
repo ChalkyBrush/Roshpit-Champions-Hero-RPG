@@ -593,7 +593,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitAttributes()
 		self:CalculateAndSaveMasterBaseDamageBuff()
 		self:GetTooltips()
 	end
+	self:CalculateAndSaveMasterMovespeedBuff()
 	self:CalculateAndSaveMasterGreenDamageBuff()
+	self:CalculateAndSaveMasterHealthRegen()
 end
 
 function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
@@ -729,32 +731,6 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	end
 	if unit:HasModifier("modifier_colossus_rage") then
 		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "physical_and_magic_armor", "modifier_colossus_rage")
-	end
-	if unit:HasModifier("modifier_heat_wave_armor_shred") then
-		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_shred", "modifier_heat_wave_armor_shred")
-	end
-	if unit:GetUnitName() == "npc_dota_hero_dragon_knight" then
-		if unit:HasAbility("seismic_flare") then
-			armor_modify = armor_modify + unit:GetRuneValue("q", 1)*FLAMEWAKER_Q1_ARMOR
-		end
-	end
-	if unit:HasModifier("modifier_flamewaker_arcana_a_a_effect") then
-		local modifier = unit:FindModifierByName("modifier_flamewaker_arcana_a_a_effect")
-		armor_modify = armor_modify + modifier:GetStackCount()
-	end
-	if unit:HasModifier("modifier_searing_heat") then
-		local modifier = unit:FindModifierByName("modifier_searing_heat")
-		armor_modify = armor_modify + modifier:GetStackCount()*FLAMEWAKER_W3_ARMOR_SHRED_PER_STACK
-	end
-	if unit:HasModifier("modifier_dragonflame_shield") then
-		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_and_magic_armor", "modifier_dragonflame_shield")
-	end
-	if unit:HasModifier("modifier_dragonflame_armor_shred") then
-		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_shred", "modifier_dragonflame_armor_shred")
-	end
-	if unit:HasModifier("modifier_b_b_shimmer") then
-		local modifier = unit:FindModifierByName("modifier_b_b_shimmer")
-		armor_modify = armor_modify + modifier:GetStackCount()*FLAMEWAKER_ARCANA2_W2_ARMOR
 	end
 	if unit:HasModifier("modifier_voltex_rune_q_1_buff") then
 		local modifier = unit:FindModifierByName("modifier_voltex_rune_q_1_buff")
@@ -1400,9 +1376,6 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	end
 	if unit:HasModifier("modifier_colossus_rage") then
 		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "physical_and_magic_armor", "modifier_colossus_rage")
-	end
-	if unit:HasModifier("modifier_dragonflame_shield") then
-		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_and_magic_armor", "modifier_dragonflame_shield")
 	end
 	if unit:HasModifier("modifier_voltex_static_field_spell_armor_reduce") then
 		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "magic_armor_reduction_per_stack", "modifier_voltex_static_field_spell_armor_reduce")
@@ -3889,6 +3862,21 @@ function CDOTA_BaseNPC_Hero:GetSumOfAllAttributes()
 	return self:GetStrength() + self:GetAgility() + self:GetIntellect() + self:GetSpirit()
 end
 
+function CDOTA_BaseNPC:CalculateAndSaveMasterMovespeedBuff()
+	local ms_buff = 0
+	Util.Modifier:SimpleEvent(self, 'GetRoshpitMasterMS', { MODIFIER_ROSHPIT_MASTER_MS }, { }, 
+		function(result, data)
+			ms_buff = ms_buff + result
+		end
+	)
+	if ms_buff > 0 then
+		Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_master_ms_buff", {})
+		self:SetModifierStackCount("modifier_master_ms_buff", self, ms_buff)
+	elseif self:HasModifier("modifier_master_ms_buff") then
+		self:RemoveModifierByName("modifier_master_ms_buff")
+	end
+end
+
 function CDOTA_BaseNPC:CalculateAndSaveMasterAttackSpeedBuff()
 	local as_buff = 0
 	Util.Modifier:SimpleEvent(self, 'GetRoshpitMasterAS', { MODIFIER_ROSHPIT_MASTER_AS }, { }, 
@@ -3899,7 +3887,7 @@ function CDOTA_BaseNPC:CalculateAndSaveMasterAttackSpeedBuff()
 	if as_buff > 0 then
 		Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_master_as_buff", {})
 		self:SetModifierStackCount("modifier_master_as_buff", self, as_buff)
-	else
+	elseif self:HasModifier("modifier_master_as_buff") then
 		self:RemoveModifierByName("modifier_master_as_buff")
 	end
 end
@@ -3940,6 +3928,20 @@ function CDOTA_BaseNPC:CalculateAndSaveMasterGreenDamageBuff()
 	end
 end
 
+function CDOTA_BaseNPC:CalculateAndSaveMasterHealthRegen()
+	local hp_regen_buff = 0
+	Util.Modifier:SimpleEvent(self, 'GetRoshpitMasterHealthRegen', { MODIFIER_ROSHPIT_MASTER_HEALTH_REGEN }, { }, 
+		function(result, data)
+			hp_regen_buff = hp_regen_buff + result
+		end
+	)
+	if hp_regen_buff > 0 then
+		Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_master_health_regen_buff", {})
+		self:SetModifierStackCount("modifier_master_health_regen_buff", self, hp_regen_buff*10)
+	else
+		self:RemoveModifierByName("modifier_master_health_regen_buff")
+	end
+end
 
 
 function CDOTA_BaseNPC_Hero:CalculateAndSaveCooldownModifier()

@@ -102,9 +102,6 @@ function Weapons:RollLegendWeapon1(location, class, strictMaxItemLevel, disableD
 	if internalName == "conjuror" then
 		Weapons:SetLegendWeaponProperty1(weapon, internalName, "aspect_health", nil, 3)
 		Weapons:SetLegendWeaponProperty2(weapon, "base_ability", 3)
-	elseif internalName == "flamewaker" then
-		Weapons:SetLegendWeaponProperty1(weapon, internalName, "immortal_weapon_1", "#E06647", nil)
-		Weapons:SetLegendWeaponProperty2(weapon, "strength", 2)
 	elseif internalName == "voltex"	then
 		Weapons:SetLegendWeaponProperty1(weapon, internalName, "immortal_weapon_1", "#31EBEB", nil)
 		Weapons:SetLegendWeaponProperty2(weapon, "attack_damage", 2)
@@ -239,10 +236,7 @@ function Weapons:RollLegendWeapon2(location, class, strictMaxItemLevel, disableD
 
 	local weapon = Weapons:CreateWeaponVariant(weaponName, rarity, "Legend Weapon2", "weapon", true, "Slot: Weapon", whichHero, maxLevel, item_level)
 	weapon.newItemTable.minLevel = item_level
-	if internalName == "flamewaker" then
-		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_2", "#E06647", nil, 2)
-		Weapons:SetLegendWeaponProperty2(weapon, "agility", 2)
-	elseif internalName == "voltex"	then
+	if internalName == "voltex"	then
 		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "all_attributes", nil, 3)
 		Weapons:SetLegendWeaponProperty2(weapon, "agility", 3)
 	elseif internalName == "venomort" then	
@@ -390,10 +384,8 @@ function Weapons:RollLegendWeapon3(location, class, strictMaxItemLevel, disableD
 
 	local weapon = Weapons:CreateWeaponVariant(weaponName, rarity, "Legend Weapon3", "weapon", true, "Slot: Weapon", whichHero, maxLevel, item_level)
 	weapon.newItemTable.minLevel = item_level
-	if internalName == "flamewaker" then
-		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_3", "#E06647", nil, 3)
-		Weapons:SetLegendWeaponProperty2(weapon, "strength", 2)
-	elseif internalName == "voltex"	then
+
+	if internalName == "voltex"	then
 		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_3", "#88ECF7", nil, 3)
 		Weapons:SetLegendWeaponProperty2(weapon, "agility", 2)
 	elseif internalName == "venomort" then	

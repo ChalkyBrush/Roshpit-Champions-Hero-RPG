@@ -12644,6 +12644,15 @@
 					}
 				}
 			}
+			"modifier_master_ms_buff"
+			{
+				"IsHidden"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "1"
+				}			
+			}
 			"modifier_master_as_buff"
 			{
 				"IsHidden"	"1"
@@ -12678,6 +12687,15 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "-1"
+				}				
+			}
+			"modifier_master_health_regen_buff"
+			{
+				"IsHidden"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "0.1"
 				}				
 			}
 			"modifier_take_1_damage_only"

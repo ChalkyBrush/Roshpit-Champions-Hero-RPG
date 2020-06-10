@@ -8938,17 +8938,17 @@
 
 
 
-
-	"item_rpc_flamewaker_glyph_1_1"
+	"item_rpc_flamewaker_glyph_book"
 	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
 		"BaseClass"	"item_datadriven"
-		"AbilityTextureName"	"glyphs/glyph_flamewaker_1_1"
+		"AbilityTextureName"	"glyphs/book/glyph_book_flamewaker"
 		"AbilityCastRange"	"900"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
 		"AbilityCastPoint"	"0"
-		"AbilityCooldown"	"0"
+		"AbilityCooldown"	"10"
 		"AbilityManaCost"	"0"
 		"ItemPermanent"			"0"
 		"ItemQuality"			"common"
@@ -8957,336 +8957,346 @@
 		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
-		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
-		"Modifiers"
+		"Model" 		"models/gameplay/attrib_tome_str.vmdl"
+		"OnSpellStart"
 		{
-			"modifier_flamewaker_glyph_1_1"
+			"RunScript"
 			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"OnAttacked"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/glyph_abilities.lua"
-						"Function"		"flamewaker_glyph_1_1_attacked"
-					}
-				}
+				"ScriptFile"	"items/glyph_abilities.lua"
+				"Function"		"use_glyph_book"
+				"hero"          "flamewaker"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"50"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"1"
-			}
-		}
+	}
+
+	"item_rpc_flamewaker_glyph_1_1"
+	{
+		"AbilityBehavior"	    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	            "item_lua"
+        "ScriptFile"            "heroes/dragon_knight/glyph_scripts/flamewaker_glyph_1_1.lua"
+		"AbilityTextureName"	"glyphs/glyph_flamewaker_1_1"
+		"AbilityCastRange"	    "900"
+		"AbilityCastPoint"	    "0"
+		"AbilityCooldown"	    "0"
+		"AbilityManaCost"	    "0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	        "1"
+		"ItemShareability"	    "ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	    "1"
+		"ItemBaseLevel"	        "1"
+		"Model" 		        "models/props_gameplay/tpscroll01.vmdl"
 	}
 
 	"item_rpc_flamewaker_glyph_2_1"
 	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"	    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	            "item_lua"
+        "ScriptFile"            "heroes/dragon_knight/glyph_scripts/flamewaker_glyph_2_1.lua"
 		"AbilityTextureName"	"glyphs/glyph_flamewaker_2_1"
-		"AbilityCastRange"	"900"
-		"AbilityCastPoint"	"0"
-		"AbilityCooldown"	"0"
-		"AbilityManaCost"	"0"
+		"AbilityCastRange"	    "900"
+		"AbilityCastPoint"	    "0"
+		"AbilityCooldown"	    "0"
+		"AbilityManaCost"	    "0"
 		"ItemPermanent"			"0"
 		"ItemQuality"			"common"
-		"ItemDroppable"	"1"
-		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"MaxUpgradeLevel"	"1"
-		"ItemBaseLevel"	"1"
-		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
-		"Modifiers"
-		{
-			"modifier_flamewaker_glyph_2_1"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}
-		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5"
-			}
-		}
+		"ItemDroppable"	        "1"
+		"ItemShareability"	    "ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	    "1"
+		"ItemBaseLevel"	        "1"
+		"Model" 		        "models/props_gameplay/tpscroll01.vmdl"
 	}
 
 	"item_rpc_flamewaker_glyph_3_1"
 	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"	    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	            "item_lua"
+        "ScriptFile"            "heroes/dragon_knight/glyph_scripts/flamewaker_glyph_3_1.lua"
 		"AbilityTextureName"	"glyphs/glyph_flamewaker_3_1"
-		"AbilityCastRange"	"900"
-		"AbilityCastPoint"	"0"
-		"AbilityCooldown"	"0"
-		"AbilityManaCost"	"0"
+		"AbilityCastRange"	    "900"
+		"AbilityCastPoint"	    "0"
+		"AbilityCooldown"	    "0"
+		"AbilityManaCost"	    "0"
 		"ItemPermanent"			"0"
 		"ItemQuality"			"common"
-		"ItemDroppable"	"1"
-		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"MaxUpgradeLevel"	"1"
-		"ItemBaseLevel"	"1"
-		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
-		"Modifiers"
-		{
-			"modifier_flamewaker_glyph_3_1"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}
-		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"30"
-			}
-		}
+		"ItemDroppable"	        "1"
+		"ItemShareability"	    "ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	    "1"
+		"ItemBaseLevel"	        "1"
+		"Model" 		        "models/props_gameplay/tpscroll01.vmdl"
 	}
 
 	"item_rpc_flamewaker_glyph_4_1"
 	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"	    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	            "item_lua"
+        "ScriptFile"            "heroes/dragon_knight/glyph_scripts/flamewaker_glyph_4_1.lua"
 		"AbilityTextureName"	"glyphs/glyph_flamewaker_4_1"
-		"AbilityCastRange"	"900"
-		"AbilityCastPoint"	"0"
-		"AbilityCooldown"	"0"
-		"AbilityManaCost"	"0"
+		"AbilityCastRange"	    "900"
+		"AbilityCastPoint"	    "0"
+		"AbilityCooldown"	    "0"
+		"AbilityManaCost"	    "0"
 		"ItemPermanent"			"0"
 		"ItemQuality"			"common"
-		"ItemDroppable"	"1"
-		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"MaxUpgradeLevel"	"1"
-		"ItemBaseLevel"	"1"
-		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
-		"Modifiers"
-		{
-			"modifier_flamewaker_glyph_4_1"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}
-		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"120"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"500"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_three"		"20"
-			}
-		}
+		"ItemDroppable"	        "1"
+		"ItemShareability"	    "ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	    "1"
+		"ItemBaseLevel"	        "1"
+		"Model" 		        "models/props_gameplay/tpscroll01.vmdl"
 	}
 
 	"item_rpc_flamewaker_glyph_5_1"
 	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"	    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	            "item_lua"
+        "ScriptFile"            "heroes/dragon_knight/glyph_scripts/flamewaker_glyph_5_1.lua"
 		"AbilityTextureName"	"glyphs/glyph_flamewaker_5_1"
-		"AbilityCastRange"	"900"
-		"AbilityCastPoint"	"0"
-		"AbilityCooldown"	"0"
-		"AbilityManaCost"	"0"
+		"AbilityCastRange"	    "900"
+		"AbilityCastPoint"	    "0"
+		"AbilityCooldown"	    "0"
+		"AbilityManaCost"	    "0"
 		"ItemPermanent"			"0"
 		"ItemQuality"			"common"
-		"ItemDroppable"	"1"
-		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"MaxUpgradeLevel"	"1"
-		"ItemBaseLevel"	"1"
-		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
-		"Modifiers"
-		{
-			"modifier_flamewaker_glyph_5_1"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}
-		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"0"
-			}
-		}
+		"ItemDroppable"	        "1"
+		"ItemShareability"	    "ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	    "1"
+		"ItemBaseLevel"	        "1"
+		"Model" 		        "models/props_gameplay/tpscroll01.vmdl"
 	}
 
 	"item_rpc_flamewaker_glyph_6_1"
 	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"	    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	            "item_lua"
+        "ScriptFile"            "heroes/dragon_knight/glyph_scripts/flamewaker_glyph_6_1.lua"
 		"AbilityTextureName"	"glyphs/glyph_flamewaker_6_1"
-		"AbilityCastRange"	"900"
-		"AbilityCastPoint"	"0"
-		"AbilityCooldown"	"0"
-		"AbilityManaCost"	"0"
+		"AbilityCastRange"	    "900"
+		"AbilityCastPoint"	    "0"
+		"AbilityCooldown"	    "0"
+		"AbilityManaCost"	    "0"
 		"ItemPermanent"			"0"
 		"ItemQuality"			"common"
-		"ItemDroppable"	"1"
-		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"MaxUpgradeLevel"	"1"
-		"ItemBaseLevel"	"1"
-		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
-		"Modifiers"
-		{
-			"modifier_flamewaker_glyph_6_1"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}
-		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"100"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"7"
-			}
-		}
+		"ItemDroppable"	        "1"
+		"ItemShareability"	    "ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	    "1"
+		"ItemBaseLevel"	        "1"
+		"Model" 		        "models/props_gameplay/tpscroll01.vmdl"
 	}
 
 	"item_rpc_flamewaker_glyph_7_1"
 	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"	    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	            "item_lua"
+        "ScriptFile"            "heroes/dragon_knight/glyph_scripts/flamewaker_glyph_7_1.lua"
 		"AbilityTextureName"	"glyphs/glyph_flamewaker_7_1"
-		"AbilityCastRange"	"900"
-		"AbilityCastPoint"	"0"
-		"AbilityCooldown"	"0"
-		"AbilityManaCost"	"0"
+		"AbilityCastRange"	    "900"
+		"AbilityCastPoint"	    "0"
+		"AbilityCooldown"	    "0"
+		"AbilityManaCost"	    "0"
 		"ItemPermanent"			"0"
 		"ItemQuality"			"common"
-		"ItemDroppable"	"1"
-		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"MaxUpgradeLevel"	"1"
-		"ItemBaseLevel"	"1"
-		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
-		"Modifiers"
-		{
-			"modifier_flamewaker_glyph_7_1"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}
-		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"3"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"3"
-			}
-		}
+		"ItemDroppable"	        "1"
+		"ItemShareability"	    "ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	    "1"
+		"ItemBaseLevel"	        "1"
+		"Model" 		        "models/props_gameplay/tpscroll01.vmdl"
 	}
 
 	"item_rpc_flamewaker_glyph_5_a"
 	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"	    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	            "item_lua"
+        "ScriptFile"            "heroes/dragon_knight/glyph_scripts/flamewaker_glyph_5_a.lua"
 		"AbilityTextureName"	"glyphs/glyph_flamewaker_5_a"
-		"AbilityCastRange"	"900"
-		"AbilityCastPoint"	"0"
-		"AbilityCooldown"	"0"
-		"AbilityManaCost"	"0"
+		"AbilityCastRange"	    "900"
+		"AbilityCastPoint"	    "0"
+		"AbilityCooldown"	    "0"
+		"AbilityManaCost"	    "0"
 		"ItemPermanent"			"0"
 		"ItemQuality"			"common"
-		"ItemDroppable"	"1"
-		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"MaxUpgradeLevel"	"1"
-		"ItemBaseLevel"	"1"
-		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
-		"Modifiers"
-		{
-			"modifier_flamewaker_glyph_5_a"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}
-		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"30"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"15"
-			}
-		}
+		"ItemDroppable"	        "1"
+		"ItemShareability"	    "ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	    "1"
+		"ItemBaseLevel"	        "1"
+		"Model" 		        "models/props_gameplay/tpscroll01.vmdl"
+	}
+
+	"item_rpc_flamewaker_glyph_1_2"
+	{
+		"AbilityBehavior"	    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	            "item_lua"
+        "ScriptFile"            "heroes/dragon_knight/glyph_scripts/flamewaker_glyph_1_2.lua"
+		"AbilityTextureName"	"glyphs/glyph_flamewaker_1_1"
+		"AbilityCastRange"	    "900"
+		"AbilityCastPoint"	    "0"
+		"AbilityCooldown"	    "0"
+		"AbilityManaCost"	    "0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	        "1"
+		"ItemShareability"	    "ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	    "1"
+		"ItemBaseLevel"	        "1"
+		"Model" 		        "models/props_gameplay/tpscroll01.vmdl"
+	}
+
+	"item_rpc_flamewaker_glyph_2_2"
+	{
+		"AbilityBehavior"	    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	            "item_lua"
+        "ScriptFile"            "heroes/dragon_knight/glyph_scripts/flamewaker_glyph_2_2.lua"
+		"AbilityTextureName"	"glyphs/glyph_flamewaker_2_1"
+		"AbilityCastRange"	    "900"
+		"AbilityCastPoint"	    "0"
+		"AbilityCooldown"	    "0"
+		"AbilityManaCost"	    "0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	        "1"
+		"ItemShareability"	    "ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	    "1"
+		"ItemBaseLevel"	        "1"
+		"Model" 		        "models/props_gameplay/tpscroll01.vmdl"
+	}
+
+	"item_rpc_flamewaker_glyph_3_2"
+	{
+		"AbilityBehavior"	    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	            "item_lua"
+        "ScriptFile"            "heroes/dragon_knight/glyph_scripts/flamewaker_glyph_3_2.lua"
+		"AbilityTextureName"	"glyphs/glyph_flamewaker_3_1"
+		"AbilityCastRange"	    "900"
+		"AbilityCastPoint"	    "0"
+		"AbilityCooldown"	    "0"
+		"AbilityManaCost"	    "0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	        "1"
+		"ItemShareability"	    "ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	    "1"
+		"ItemBaseLevel"	        "1"
+		"Model" 		        "models/props_gameplay/tpscroll01.vmdl"
+	}
+
+	"item_rpc_flamewaker_glyph_4_2"
+	{
+		"AbilityBehavior"	    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	            "item_lua"
+        "ScriptFile"            "heroes/dragon_knight/glyph_scripts/flamewaker_glyph_4_2.lua"
+		"AbilityTextureName"	"glyphs/glyph_flamewaker_4_1"
+		"AbilityCastRange"	    "900"
+		"AbilityCastPoint"	    "0"
+		"AbilityCooldown"	    "0"
+		"AbilityManaCost"	    "0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	        "1"
+		"ItemShareability"	    "ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	    "1"
+		"ItemBaseLevel"	        "1"
+		"Model" 		        "models/props_gameplay/tpscroll01.vmdl"
+	}
+
+	"item_rpc_flamewaker_glyph_5_2"
+	{
+		"AbilityBehavior"	    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	            "item_lua"
+        "ScriptFile"            "heroes/dragon_knight/glyph_scripts/flamewaker_glyph_5_2.lua"
+		"AbilityTextureName"	"glyphs/glyph_flamewaker_5_1"
+		"AbilityCastRange"	    "900"
+		"AbilityCastPoint"	    "0"
+		"AbilityCooldown"	    "0"
+		"AbilityManaCost"	    "0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	        "1"
+		"ItemShareability"	    "ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	    "1"
+		"ItemBaseLevel"	        "1"
+		"Model" 		        "models/props_gameplay/tpscroll01.vmdl"
+	}
+
+	"item_rpc_flamewaker_glyph_6_2"
+	{
+		"AbilityBehavior"	    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	            "item_lua"
+        "ScriptFile"            "heroes/dragon_knight/glyph_scripts/flamewaker_glyph_6_2.lua"
+		"AbilityTextureName"	"glyphs/glyph_flamewaker_6_1"
+		"AbilityCastRange"	    "900"
+		"AbilityCastPoint"	    "0"
+		"AbilityCooldown"	    "0"
+		"AbilityManaCost"	    "0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	        "1"
+		"ItemShareability"	    "ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	    "1"
+		"ItemBaseLevel"	        "1"
+		"Model" 		        "models/props_gameplay/tpscroll01.vmdl"
+	}
+
+	"item_rpc_flamewaker_glyph_7_2"
+	{
+		"AbilityBehavior"	    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	            "item_lua"
+        "ScriptFile"            "heroes/dragon_knight/glyph_scripts/flamewaker_glyph_7_2.lua"
+		"AbilityTextureName"	"glyphs/glyph_flamewaker_7_1"
+		"AbilityCastRange"	    "900"
+		"AbilityCastPoint"	    "0"
+		"AbilityCooldown"	    "0"
+		"AbilityManaCost"	    "0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	        "1"
+		"ItemShareability"	    "ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	    "1"
+		"ItemBaseLevel"	        "1"
+		"Model" 		        "models/props_gameplay/tpscroll01.vmdl"
 	}
 
 
@@ -9676,7 +9686,8 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	"item_lua"
+        "ScriptFile" "heroes/dragon_knight/weapon_scripts/flamewaker_immortal_weapon_1.lua"
 		"AbilityTextureName"	"weapons/legends/flamewaker_immortal_weapon_1"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -9690,39 +9701,6 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/red_box.vmdl"
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/equipment.lua"
-				"Function"		"equip_item"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_flamewaker_immortal_weapon_1"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}
-			"modifier_volcano_shield"
-			{
-				"EffectName"	"particles/roshpit/red_general/cyclone_shield.vpcf"
-				"EffectAttachType"	"attach_hitloc"
-				"IsHidden"	"0"
-				"TextureName"	"phoenix_supernova"
-			}
-		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"50"
-			}
-		}
 	}
 
 	"item_rpc_flamewaker_immortal_weapon_2"
@@ -9730,7 +9708,8 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	"item_lua"
+        "ScriptFile" "heroes/dragon_knight/weapon_scripts/flamewaker_immortal_weapon_2.lua"
 		"AbilityTextureName"	"weapons/legends/flamewaker_immortal_weapon_2"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -9744,67 +9723,6 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/red_box.vmdl"
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/equipment.lua"
-				"Function"		"equip_item"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_flamewaker_immortal_weapon_2"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "0.2"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/weapon_effects"
-						"Function"		"flamewaker_immortal2_think"
-						"target"		"TARGET"
-					}
-				}
-				"OnDestroy"
-				{
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_flamewaker_weapon_attack_power"
-						"Target" 		"TARGET"
-					}
-				}
-			}
-			"modifier_flamewaker_weapon_attack_power"
-			{
-				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "0.1"
-				}
-			}
-			"modifier_flamewaker_weapon_agility"
-			{
-				"IsHidden"	"1"
-			}
-		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"6"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_two"			"50000"
-			}
-		}
 	}
 
 	"item_rpc_flamewaker_immortal_weapon_3"
@@ -9812,7 +9730,8 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	"item_lua"
+        "ScriptFile" "heroes/dragon_knight/weapon_scripts/flamewaker_immortal_weapon_3.lua"
 		"AbilityTextureName"	"weapons/legends/flamewaker_immortal_weapon_3"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -9826,32 +9745,6 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/red_box.vmdl"
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/equipment.lua"
-				"Function"		"equip_item"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_flamewaker_immortal_weapon_3"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}
-		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"150"
-			}
-		}
 	}
 
 
