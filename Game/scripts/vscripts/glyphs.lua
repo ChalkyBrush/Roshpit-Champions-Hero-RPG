@@ -468,7 +468,7 @@ function Glyphs:GetRandomHeroname()
 end
 
 function Glyphs:GetRandomHeronameForBook()
-	local heroNameTable = {"sorceress", "axe", "trapper", "duskbringer", "venomort", "paladin", "astral"}
+	local heroNameTable = {"sorceress", "axe", "trapper", "duskbringer", "venomort", "paladin", "astral", "flamewaker"}
 	local random = RandomInt(1, #heroNameTable)
 	return heroNameTable[random]
 end
@@ -690,28 +690,41 @@ function Glyphs:GetGlyphCostByTier(tier, column, heroName)
 end
 
 function Glyphs:RollGlyphAll(variantName, position, heroIndex)
-	local nameLength = string.len(variantName)
-	--print(string.sub(variantName, nameLength-2, nameLength-2))
-	local tier = tonumber(string.sub(variantName, nameLength - 2, nameLength - 2))
-	--print(tier)
-	local index = string.sub(variantName, nameLength, nameLength)
-	--print(variantName)
-	local rarityName = Glyphs:GetRarityFromGlyphTier(tier, index)
-	--print(rarityName)
-	local itemName = "Basic Glyph"
-	local slotText = "Glyph"
-	local useDescription = variantName.."_description"
-	local minLevel = tier * 15
-	local rpcName = variantName:gsub("item_rpc_", "")
-	rpcName = rpcName:gsub(string.sub(rpcName, string.len(rpcName) - 9), "")
-	--print(rpcName)
-	local tooltipName = HerosCustom:ConvertRPCNameToStringHeroName(rpcName)
-	local modifierName = variantName:gsub("item_rpc", "modifier")
-	--print(modifierName)
+	if _G[variantName] then
+		local glyph = _G[variantName]:CreateLuaItem()
+		if heroIndex == 0 and position then
+			RPCItems:BasicDropItem(position, glyph)
+		elseif heroIndex == -1 then
+		else
+			glyph.pickedUp = true
+			local hero = EntIndexToHScript(heroIndex)
+			RPCItems:GiveItemToHeroWithSlotCheck(hero, glyph)
+		end
+		return glyph
+	else
+		local nameLength = string.len(variantName)
+		--print(string.sub(variantName, nameLength-2, nameLength-2))
+		local tier = tonumber(string.sub(variantName, nameLength - 2, nameLength - 2))
+		--print(tier)
+		local index = string.sub(variantName, nameLength, nameLength)
+		--print(variantName)
+		local rarityName = Glyphs:GetRarityFromGlyphTier(tier, index)
+		--print(rarityName)
+		local itemName = "Basic Glyph"
+		local slotText = "Glyph"
+		local useDescription = variantName.."_description"
+		local minLevel = tier * 15
+		local rpcName = variantName:gsub("item_rpc_", "")
+		rpcName = rpcName:gsub(string.sub(rpcName, string.len(rpcName) - 9), "")
+		--print(rpcName)
+		local tooltipName = HerosCustom:ConvertRPCNameToStringHeroName(rpcName)
+		local modifierName = variantName:gsub("item_rpc", "modifier")
+		--print(modifierName)
 
-	local glyph = Glyphs:CreateGlyphItem(variantName, rarityName, nil, slotText, useDescription, position, tooltipName, minLevel, modifierName, heroIndex)
-	RPCItems:ItemUpdateCustomNetTables(glyph)
-	return glyph
+		local glyph = Glyphs:CreateGlyphItem(variantName, rarityName, nil, slotText, useDescription, position, tooltipName, minLevel, modifierName, heroIndex)
+		RPCItems:ItemUpdateCustomNetTables(glyph)
+		return glyph
+	end
 end
 
 function Glyphs:GetRarityFromGlyphTier(tier, index)
@@ -777,12 +790,7 @@ function Glyphs:DebugRollHeroGlyphs(heroName, position)
 	for j = 1, maxTiers, 1 do
 		for i = 1, 7, 1 do
 			local variantName = "item_rpc_"..heroName.."_glyph_"..i.."_"..j
-			if _G[variantName] then
-				newItem = _G[variantName]:CreateLuaItem(item_level)
-				RPCItems:BasicDropItem(MAIN_HERO_TABLE[1]:GetAbsOrigin(), newItem)
-			else
-				Glyphs:RollGlyphAll(variantName, position, 0)
-			end
+			Glyphs:RollGlyphAll(variantName, position, 0)
 		end
 	end
 
@@ -883,7 +891,7 @@ function Glyphs:GetAvailableColumnCount(rpcHeroName)
 	local columns = 1
 	if rpcHeroName == "neutral" then
 		columns = 3
-	elseif rpcHeroName == "sorceress" or rpcHeroName == "axe" or rpcHeroName == "trapper" or rpcHeroName == "duskbringer" or rpcHeroName == "venomort" or rpcHeroName == "paladin" or rpcHeroName == "astral" then
+	elseif rpcHeroName == "sorceress" or rpcHeroName == "axe" or rpcHeroName == "trapper" or rpcHeroName == "duskbringer" or rpcHeroName == "venomort" or rpcHeroName == "paladin" or rpcHeroName == "astral" or rpcHeroName == "flamewaker" then
 		columns = 2
 	end
 	return columns

@@ -262,6 +262,26 @@
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_5_a"	"[T5-a] Glyph of Dragon Skin"
 		"item_rpc_flamewaker_glyph_5_a_description" 			"Damage instances are capped at <% FLAMEWAKER_GLYPH_5_A_DAMAGE_CAP %>% of max health. If below <% FLAMEWAKER_GLYPH_5_A_LOW_HP_THRESH %>% health, instances are capped at <% FLAMEWAKER_GLYPH_5_A_DAMAGE_CAP_LOW_HP %>%."
 
+        "DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_1_2"    "[T1-2] Glyph of Dragon Spittle"
+        "item_rpc_flamewaker_glyph_1_2_description"             "Landing an attack shoots a [W] flame."
+
+        "DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_2_2"    "[T2-2] Glyph of Condensation"
+        "item_rpc_flamewaker_glyph_2_2_description"             "[E] instead reduces movement speed, but reduces all damage taken by <% FLAMEWAKER_GLYPH_2_2_DAMAGE_REDUCTION %>%."
+
+        "DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_3_2"    "[T3-2] Glyph of Hot Flash"
+        "item_rpc_flamewaker_glyph_3_2_description"             "[E] Base Duration is increased by <% FLAMEWAKER_GLYPH_3_2_DURATION_INCREASE %> second."
+
+        "DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_4_2"    "[T4-2] Glyph of Flamethrowing"
+        "item_rpc_flamewaker_glyph_4_2_description"             "[W] costs <% FLAMEWAKER_GLYPH_4_2_W_MANA_COST_INCREASE_PCT %>% more mana and has its based damage increased by <% FLAMEWAKER_GLYPH_4_2_W_BASE_DMG_STATS_MULT %>x Flamewaker's Attributes."
+
+        "DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_5_2"    "[T5-2] Glyph of Volcano Shield"
+        "item_rpc_flamewaker_glyph_5_2_description"             "Casting [R] applies a shield for <% FLAMEWAKER_GLYPH_5_2_SHIELD_DURATION %> seconds that reduces all damage taken by <% FLAMEWAKER_GLYPH_5_2_SHIELD_DMG_REDUCE %>%."
+
+        "DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_6_2"    "[T6-2] Glyph of Volcanic Calamity"
+        "item_rpc_flamewaker_glyph_6_2_description"             "Casting [R] also creates 4 casts of [Q] in a Diamond Pattern"
+
+        "DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_7_2"    "[T7-2] Glyph of Draconic Might"
+        "item_rpc_flamewaker_glyph_7_2_description"             "Increases Strength by <% FLAMEWAKER_GLYPH_7_2_STRENGTH_PCT %>%."
 		//Weapons
 		"flamewaker_weapon_00"			"Basic Sword"
 		"flamewaker_weapon_01"			"Earth Dragon Blade"
@@ -292,11 +312,8 @@
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_weapon_25"   "Blade of the Elderwyrm"
 		
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_immortal_weapon_1"	"Ragnarok"
-		"item_property_flamewaker_immortal_weapon"							"Volcano Shield"
-		"property_flamewaker_immortal_weapon_description"					"Casting @Ability4 applies a <% FLAMEWAKER_IMMORTAL_WEAPON_1_SHIELDS %> charge shield that reduces damage taken by <% FLAMEWAKER_IMMORTAL_WEAPON_1_DAMAGE_REDUCTION %>%."
-
-		"DOTA_Tooltip_modifier_volcano_shield"							"Volcano Shield"
-		"DOTA_Tooltip_modifier_volcano_shield_Description"				"Damage taken reduced by <% FLAMEWAKER_IMMORTAL_WEAPON_1_DAMAGE_REDUCTION %>%%"
+		"item_property_flamewaker_immortal_weapon"							"Terra Crush"
+		"property_flamewaker_immortal_weapon_description"					"<% FLAMEWAKER_IMMORTAL_WEAPON_1_PROC_CHANCE%>% chance when landing an attack to create a [Q] at the target's position."
 		
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_immortal_weapon_2"			"Ancient Flamerunner Blade"
     	"item_property_flamewaker_immortal_weapon2"								"Inner Dragon"
@@ -304,4 +321,4 @@
 
     	"DOTA_Tooltip_ability_item_rpc_flamewaker_immortal_weapon_3"			"Gladius"
     	"item_property_flamewaker_immortal_weapon3"								"Meteor Break"
-    	"property_flamewaker_immortal_weapon3_description"						"Stun duration of @Ability1 and @Ability4 is multiplied by <% FLAMEWAKER_IMMORTAL_WEAPON_3_STUN_DURATION_Q_R_MULT %>"
+    	"property_flamewaker_immortal_weapon3_description"						"[R] becomes point target with <% FLAMEWAKER_IMMORTAL_WEAPON_3_R_CAST_RANGE %> cast range and has <% FLAMEWAKER_IMMORTAL_WEAPON_3_R_CD_REDUCTION %>% reduced cooldown."

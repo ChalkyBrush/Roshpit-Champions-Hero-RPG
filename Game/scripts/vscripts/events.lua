@@ -37,7 +37,7 @@ STARS_INCREASE_MITHRIL = false
 STARS_INCREASE_MITHRIL_ADDITIVE = false
 MITHRIL_INCREASE_PER_STAR_PCT = 0.08
 
-ROSHPIT_URL = "https://roshpit.herokuapp.com"
+ROSHPIT_URL = "https://roshpit-test.herokuapp.com"
 -- ROSHPIT_URL = "https://roshpit-test.herokuapp.com/"
 ROSHPIT_VERSION = '4.1'
 

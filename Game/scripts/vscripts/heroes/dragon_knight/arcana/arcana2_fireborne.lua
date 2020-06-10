@@ -247,6 +247,7 @@ function modifier_flamewaker_arcana_fireborne:CheckState()
 	local state = {
 		[MODIFIER_STATE_FROZEN] = ability.frozen,
 		[MODIFIER_STATE_ROOTED] = true,
+		[MODIFIER_STATE_DISARMED] = true
 	}
 	return state
 end
