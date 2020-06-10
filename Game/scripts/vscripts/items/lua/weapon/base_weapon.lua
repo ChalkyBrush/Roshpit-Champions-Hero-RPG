@@ -11,14 +11,22 @@ function itemClass:GetSlotNumber()
     return RPC_GEAR_SLOT_WEAPON
 end
 
-function itemClass:CreateLuaItem(item_level)
+function itemClass:CreateLuaItem(item_level, max_level)
     self = RPCItems:CreateVariant(self:GetClassName(), "immortal", self:GetName(), self:GetSlotTextShort(), true, self:GetSlotText())
     self.isLuaItem = true
 
+	local item_level = math.max(RPCItems:RollItemLevelFromUnit(100), 100)
+	self.newItemTable.minLevel = item_level
+	self.newItemTable.xp = 0
+	self.newItemTable.level = 1
+	self.newItemTable.xpNeeded = Weapons.XP_PER_LEVEL_TABLE[self.newItemTable.level]
+	self.newItemTable.maxLevel = max_level
     self:RollProperty1(item_level)
     self:RollProperty2(item_level)
     self:RollProperty3(item_level)
     self:RollProperty4(item_level)
+
+    self.newItemTable.requiredHero = HerosCustom:ConvertRPCNameToStringHeroName(self:RequiredHero())
 
     RPCItems:SetBaseItemValues(self, self:GetClassName(), false, 
     	RPCItems.BASIC_ITEMS_SLOT_TEXT[self:GetSlotNumber()], RPC_ITEM_RARITY_COLORS[RPC_ITEMS_RARITY_IMMORTAL], 
@@ -54,5 +62,8 @@ function itemClass:RollProperty4(item_level)
 	end
 end
 
+function itemClass:RequiredHero()
+	return false
+end
 
 	

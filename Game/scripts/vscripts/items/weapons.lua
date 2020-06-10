@@ -407,7 +407,7 @@ end
 function Weapons:CreateWeaponVariant(variantName, rarityName, itemNameText, slot, gear, slotText, whichHero, maxLevel, minLevel)
 	local item = nil
 	if _G[variantName] then
-		item = _G[variantName]:CreateLuaItem()
+		item = _G[variantName]:CreateLuaItem(minLevel, maxLevel)
 	else
 		local itemVariant = variantName
 		item = RPCItems:CreateItem(itemVariant, nil, nil)

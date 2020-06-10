@@ -6976,18 +6976,18 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_immortal_weapon_1"	"Ragnarok"
 		"item_property_flamewaker_immortal_weapon"							"Volcano Shield"
-		"property_flamewaker_immortal_weapon_description"					"После успешного прочтения (R) @Ability4 герой получит <font color='#ccff66'>50</font> зарядов щита, сокращающего входящий урон на <font color='#ccff66'>50</font>%."
+		"property_flamewaker_immortal_weapon_description"					"После успешного прочтения (R) @Ability4 герой получит 0 зарядов щита, сокращающего входящий урон на 0%."
 
 		"DOTA_Tooltip_modifier_volcano_shield"							"Volcano Shield"
-		"DOTA_Tooltip_modifier_volcano_shield_Description"				"Входящий урон снижен на <font color='#ccff66'>50</font>%%"
+		"DOTA_Tooltip_modifier_volcano_shield_Description"				"Входящий урон снижен на 0%%"
 		
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_immortal_weapon_2"			"Ancient Flamerunner Blade"
     	"item_property_flamewaker_immortal_weapon2"								"Inner Dragon"
-    	"property_flamewaker_immortal_weapon2_description"						"Каждое очко Ловкости увеличивает базовый урон на <font color='#ccff66'>0.1</font>. Пока активно умение (E) @Ability3, герой получает бонус: <font color='#ccff66'>1000</font> очков Ловкости."
+    	"property_flamewaker_immortal_weapon2_description"						"Каждое очко Ловкости увеличивает базовый урон на <font color='#ccff66'>0.5</font>. Пока активно умение (E) @Ability3, герой получает бонус: <font color='#ccff66'>1200</font> очков Ловкости."
 
     	"DOTA_Tooltip_ability_item_rpc_flamewaker_immortal_weapon_3"			"Gladius"
     	"item_property_flamewaker_immortal_weapon3"								"Meteor Break"
-    	"property_flamewaker_immortal_weapon3_description"						"Время оглушения от (Q) @Ability1 и (R) @Ability4 увеличено в <font color='#ccff66'>2.5</font> раз(а)."
+    	"property_flamewaker_immortal_weapon3_description"						"Время оглушения от (Q) @Ability1 и (R) @Ability4 увеличено в 0 раз(а)."
 
 
 		//Abilities

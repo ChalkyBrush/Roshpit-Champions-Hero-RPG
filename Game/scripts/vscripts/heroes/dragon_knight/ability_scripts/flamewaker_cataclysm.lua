@@ -16,7 +16,11 @@ function flamewaker_cataclysm:GetManaCostBase(level)
 end
 
 function flamewaker_cataclysm:GetBehaviorBase()
-    return DOTA_ABILITY_BEHAVIOR_NO_TARGET + DOTA_ABILITY_BEHAVIOR_CHANNELLED + DOTA_ABILITY_BEHAVIOR_AOE
+	local behavior = DOTA_ABILITY_BEHAVIOR_NO_TARGET + DOTA_ABILITY_BEHAVIOR_CHANNELLED + DOTA_ABILITY_BEHAVIOR_AOE
+	if self:GetCaster():HasModifier("modifier_flamewaker_immortal_weapon_3") then
+		behavior = DOTA_ABILITY_BEHAVIOR_POINT + DOTA_ABILITY_BEHAVIOR_CHANNELLED + DOTA_ABILITY_BEHAVIOR_AOE
+	end
+    return behavior
 end
 
 function flamewaker_cataclysm:GetAbilitySlot()
@@ -32,7 +36,11 @@ function flamewaker_cataclysm:GetCooldownBase(level)
 end
 
 function flamewaker_cataclysm:GetCastRange()
-    return 0
+	local range = 0
+	if self:GetCaster():HasModifier("modifier_flamewaker_immortal_weapon_3") then
+		range = FLAMEWAKER_IMMORTAL_WEAPON_3_R_CAST_RANGE
+	end
+    return range
 end
 
 function flamewaker_cataclysm:GetTexture()
@@ -76,6 +84,9 @@ function flamewaker_cataclysm:OnChannelFinish(interrupted)
     		StopSoundEvent("Flamewaker.Cataclysm.Start", caster)
     	else
 		    local position = caster:GetAbsOrigin()
+		    if caster:HasModifier("modifier_flamewaker_immortal_weapon_3") then
+		    	position = self:GetCursorPosition()
+		    end
 		    local radius = ability:GetSpecialValueFor("radius")
 		    local stun_duration = ability:GetSpecialValueFor("stun_duration")
 		    local explosionPFX = CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_warlock/warlock_rain_of_chaos.vpcf", position, 4)

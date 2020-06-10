@@ -132,7 +132,8 @@ function modifier_flamewaker_e_heat_wave_base:OnCreated()
     self:SetSpecialTypes({ 
     	MODIFIER_ROSHPIT_PHYSICAL_DMG_REDUCTION,
     	MODIFIER_ROSHPIT_MAGICAL_DMG_REDUCTION,
-    	MODIFIER_ROSHPIT_PURE_DMG_REDUCTION
+    	MODIFIER_ROSHPIT_PURE_DMG_REDUCTION,
+    	MODIFIER_ROSHPIT_AGILITY_BONUS
     })	
 	local caster = self:GetParent()
 	local ability = self:GetAbility()
@@ -339,6 +340,16 @@ function modifier_flamewaker_e_heat_wave_base:GetPureDamageReduction()
 		return 0
 	end
 end
+
+function modifier_flamewaker_e_heat_wave_base:GetRoshpitAgilityBonus()
+	local caster = self:GetCaster()
+	if caster:HasModifier("modifier_flamewaker_immortal_weapon_2") then
+		return FLAMEWAKER_IMMORTAL_WEAPON_2_AGILITY_DURING_E
+	else
+		return 0
+	end
+end
+
 
 -- E1 MODIFIER
 

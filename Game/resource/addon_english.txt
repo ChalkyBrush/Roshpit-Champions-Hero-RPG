@@ -7065,15 +7065,15 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_immortal_weapon_1"	"Ragnarok"
 		"item_property_flamewaker_immortal_weapon"							"Terra Crush"
-		"property_flamewaker_immortal_weapon_description"					"0% chance when landing an attack to create a [Q] at the target's position."
+		"property_flamewaker_immortal_weapon_description"					"<font color='#ccff66'>15</font>% chance when landing an attack to create a [Q] at the target's position."
 		
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_immortal_weapon_2"			"Ancient Flamerunner Blade"
     	"item_property_flamewaker_immortal_weapon2"								"Inner Dragon"
-    	"property_flamewaker_immortal_weapon2_description"						"Each point of Agility increases base attack power by <font color='#ccff66'>0.1</font>. While @Ability3 is active, gain <font color='#ccff66'>1000</font> agility."
+    	"property_flamewaker_immortal_weapon2_description"						"Each point of Agility increases base attack power by <font color='#ccff66'>0.5</font>. While @Ability3 is active, gain <font color='#ccff66'>1200</font> agility."
 
     	"DOTA_Tooltip_ability_item_rpc_flamewaker_immortal_weapon_3"			"Gladius"
     	"item_property_flamewaker_immortal_weapon3"								"Meteor Break"
-    	"property_flamewaker_immortal_weapon3_description"						"[R] becomes point target with 0 cast range and has 0% reduced cooldown."
+    	"property_flamewaker_immortal_weapon3_description"						"[R] becomes point target with <font color='#ccff66'>1000</font> cast range and has <font color='#ccff66'>40</font>% reduced cooldown."
 
 
 		//Abilities

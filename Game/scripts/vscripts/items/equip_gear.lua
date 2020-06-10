@@ -262,7 +262,11 @@ function CDOTA_BaseNPC_Hero:ApplyGearBonusesByGearSlot(gear_slot)
 	--DeepPrintTable(hero.gear_bonuses[gear_slot])
 	for key, value in pairs(hero.gear_bonuses[gear_slot]) do
 		if string.match(key, "immortal_weapon") then
-			hero.equipped_gear[gear_slot]:ApplyDataDrivenModifier(inventory_unit, hero, "modifier_"..internal_hero_name.."_"..key, {})
+			if hero.equipped_gear[gear_slot].isLuaItem then
+				hero:AddNewModifier(inventory_unit, hero.equipped_gear[gear_slot], "modifier_"..internal_hero_name.."_"..key, {})
+			else
+				hero.equipped_gear[gear_slot]:ApplyDataDrivenModifier(inventory_unit, hero, "modifier_"..internal_hero_name.."_"..key, {})
+			end
 		elseif string.match(key, "arcana") then
 			hero.equipped_gear[gear_slot]:ApplyDataDrivenModifier(inventory_unit, hero, "modifier_"..internal_hero_name.."_"..key, {})
 			RPCItems:PreacheArcanaResources(hero.equipped_gear[gear_slot])

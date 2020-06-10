@@ -34,7 +34,7 @@
                         }
                         "02"
                         {
-                                "var_type"      "FIELD_INTEGER"
+                                "var_type"      "FIELD_FLOAT"
                                 "strength_mult" "<% FLAMEWAKER_ARCANA_Q_STR_TO_DAMAGE_MULT %>"
                         }
                         "03"
