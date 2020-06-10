@@ -49,7 +49,7 @@ end
 function flamewaker_seismic_flare:OnAbilityPhaseStart()
 	local ability = self
 	local caster = self:GetCaster()
-	local target_position = self:GetCursorPosition()
+	local target_position = self:GetCastPosition()
 	ability.center_point = target_position
 	EmitSoundOnLocationWithCaster(target_position, "Flamewaker.SeismicFlare.Pre", self:GetCaster())
 	if ability.pre_cast_pfx then
@@ -96,7 +96,7 @@ end
 function flamewaker_seismic_flare:OnSpellStart()
     local ability = self
 	local caster = self:GetCaster()
-    local target_position = self:GetCursorPosition()
+    local target_position = self:GetCastPosition()
     CustomAbilities:QuickParticleAtPoint("particles/neutral_fx/roshan_slam_debris_small.vpcf", target_position, 4)
     CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_tiny/tiny_tree_channel_tgt_ground_dark_crack.vpcf", target_position, 4)
     EmitSoundOnLocationWithCaster(target_position, "Flamewaker.SeismicFlare.Cast", self:GetCaster())

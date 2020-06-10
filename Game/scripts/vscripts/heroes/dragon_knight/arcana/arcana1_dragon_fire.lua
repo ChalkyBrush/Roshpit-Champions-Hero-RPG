@@ -61,7 +61,7 @@ end
 function flamewaker_dragon_fire:OnSpellStart()
     local ability = self
 	local caster = self:GetCaster()
-    local target_position = self:GetCursorPosition()
+    local target_position = self:GetCastPosition()
     self:flame_burst(target_position)
 
 	if not caster:HasModifier("modifier_flamewaker_arcana_q_freecast") then

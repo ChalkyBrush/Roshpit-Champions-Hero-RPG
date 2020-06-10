@@ -28,6 +28,9 @@ function modifierClass:OnCreated()
     if not IsServer() then
         return
     end
+    self:SetSpecialTypes({ 
+    	MODIFIER_SPECIAL_TYPE_CAST_R_ABILITY
+    })
 end
 
 function modifierClass:IsHidden()
@@ -38,4 +41,22 @@ function modifierClass:IsBuff()
 end
 function modifierClass:RemoveOnDeath()
     return false
+end
+
+function modifierClass:OnCastRAbility()
+	local hero = self:GetParent()
+	local r_ability = hero:GetAbilityByIndex(DOTA_R_SLOT)
+	local position = r_ability:GetCursorPosition()
+	if position:Length2D() == 0 then
+		position = hero:GetAbsOrigin()
+	end
+	local q_ability = hero:GetAbilityByIndex(DOTA_Q_SLOT)
+
+	for i = 1, 4, 1 do
+		local cast_position = position + WallPhysics:rotateVector(hero:GetForwardVector(), 2*math.pi*i/4)*q_ability:GetAOERadius()
+		print(cast_position)
+		q_ability.cast_position_override = cast_position
+		print("CASTING?")
+		q_ability:OnSpellStart()
+	end
 end

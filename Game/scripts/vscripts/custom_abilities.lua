@@ -1097,3 +1097,13 @@ function CDOTA_BaseNPC:CrawlEnter(position, direction2d, climbDirection, offset,
 
 	self.crawlVector = Vector(0,0,(-xAngle/90)*speed)
 end
+
+function CDOTABaseAbility:GetCastPosition()
+	if self.cast_position_override then
+		local position = self.cast_position_override
+		self.cast_position_override = nil
+		return position
+	else
+		return self:GetCursorPosition()
+	end
+end

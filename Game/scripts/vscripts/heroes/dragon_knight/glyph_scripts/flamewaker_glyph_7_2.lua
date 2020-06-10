@@ -28,6 +28,10 @@ function modifierClass:OnCreated()
     if not IsServer() then
         return
     end
+    self:SetSpecialTypes({ 
+    	MODIFIER_ROSHPIT_STRENGTH_PCT_BONUS
+    })
+    self:GetParent():SetStatsForLevel()
 end
 
 function modifierClass:IsHidden()
@@ -38,4 +42,12 @@ function modifierClass:IsBuff()
 end
 function modifierClass:RemoveOnDeath()
     return false
+end
+
+function modifierClass:GetRoshpitStrengthPctBonus()
+	return FLAMEWAKER_GLYPH_7_2_STRENGTH_PCT
+end
+
+function modifierClass:OnRemoved()
+	self:GetParent():SetStatsForLevel()
 end

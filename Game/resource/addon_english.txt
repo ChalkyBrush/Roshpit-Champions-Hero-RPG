@@ -7033,7 +7033,7 @@
         "item_rpc_flamewaker_glyph_6_2_description"             "Casting [R] also creates 4 casts of [Q] in a Diamond Pattern"
 
         "DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_7_2"    "[T7-2] Glyph of Draconic Might"
-        "item_rpc_flamewaker_glyph_7_2_description"             "Increases Strength by 0%."
+        "item_rpc_flamewaker_glyph_7_2_description"             "Increases Strength by <font color='#ccff66'>35</font>%."
 		//Weapons
 		"flamewaker_weapon_00"			"Basic Sword"
 		"flamewaker_weapon_01"			"Earth Dragon Blade"
