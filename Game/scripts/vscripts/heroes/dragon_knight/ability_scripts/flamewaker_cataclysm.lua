@@ -174,7 +174,7 @@ end
 function flamewaker_cataclysm:OnProjectileHit(target, vPos)
 	local caster = self:GetCaster()
 	if target then
-		local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*(FLAMEWAKER_R2_DAMAGE_ATK_POWER/100)
+		local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*(FLAMEWAKER_R2_DAMAGE_ATK_POWER/100)*caster:GetRuneValue("r", 2)
 		Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PHYSICAL, BASE_ABILITY_R, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 	end
 	return false
