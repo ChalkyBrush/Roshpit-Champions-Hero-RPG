@@ -147,7 +147,7 @@ function epoch_r_1_buff_think(event)
 
   local r_1_level = caster:GetModifierStackCount("modifier_eternity_flood_r_1_visible", caster)
 
-  local percent_damage_stacks = caster:GetMana() * r_1_level * EPOCH_R1_DMG_PCT / EPOCH_R1_PER_MANA
+  local percent_damage_stacks = caster:GetMana() / caster:GetMaxMana() * 100 * r_1_level * EPOCH_R1_DMG_PCT
   caster:SetModifierStackCount("modifier_eternity_flood_r_1_invisible", caster, percent_damage_stacks)
 
   --local missingManaStacks = ((caster:GetMaxMana()-caster:GetMana())/caster:GetMaxMana())*10

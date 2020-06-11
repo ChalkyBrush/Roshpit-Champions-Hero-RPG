@@ -133,7 +133,7 @@
     	"DOTA_Tooltip_ability_epoch_rune_r_1"							"[R1] Tempo"
     	"DOTA_Tooltip_ability_epoch_rune_r_1_Description"				"Casting @Ability4 applies a buff that increases attack damage by a % based on your current mana. This buff's base duration is 10 seconds."
     	"DOTA_Tooltip_ability_epoch_rune_r_1_property_one"				"Damage Increase %"
-    	"DOTA_Tooltip_ability_epoch_rune_r_1_suffix"					" for every <% EPOCH_R1_PER_MANA %> mana"
+    	"DOTA_Tooltip_ability_epoch_rune_r_1_suffix"					" for every 1% of current mana"
     	"DOTA_Tooltip_ability_epoch_rune_r_1_property_two"				"Additional buff duration"
     	"DOTA_Tooltip_ability_epoch_rune_r_1_suffix_two"				" seconds"
 
