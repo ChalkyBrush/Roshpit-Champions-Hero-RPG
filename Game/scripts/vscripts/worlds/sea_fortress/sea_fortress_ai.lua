@@ -5322,6 +5322,86 @@ function sea_fortress_final_boss_think(event)
 	if caster.dying then
 		return false
 	end
+	if caster:GetHealth() < 1000 then
+		caster.dying = true
+		Seafortress.FinalBossSlain = true
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_boss_dying", {})
+		Timers:CreateTimer(0.5, function()
+			EmitSoundOn("Seafortress.Boss.Death1", caster)
+		end)
+		Timers:CreateTimer(1.5, function()
+			CustomGameEventManager:Send_ServerToAllClients("BGMend", {})
+			EmitGlobalSound("Loot_Drop_Stinger_Arcana")
+			Notifications:TopToAll({text = "Dungeon Clear!", duration = 8.0})
+
+		end)
+		caster:BossDrops(20)
+		Timers:CreateTimer(3, function()
+			for i = 0, 2, 1 do
+				Timers:CreateTimer(i, function()
+					Weapons:RollRandomLegendWeapon3(caster:GetAbsOrigin())
+				end)
+			end
+		end)
+		Timers:CreateTimer(4, function()
+			local luck = RandomInt(1, 10)
+			if luck == 1 then
+				RPCItems:RollAndDropUniqueItem(caster, "item_rpc_ocean_helm_of_valdun")
+			elseif luck == 2 then
+				RPCItems:RollAndDropUniqueItem(caster, "item_rpc_sparkling_token_of_oceanis")
+			end
+		end)
+		Timers:CreateTimer(2, function()
+			RPCItems:DropSynthesisVessel(caster:GetAbsOrigin())
+			Gems:DropSocketForger(caster:GetAbsOrigin())
+		end)
+		local randDelay = RandomInt(10, 50) / 10
+		local position = caster:GetAbsOrigin()
+		Timers:CreateTimer(randDelay, function()
+			for i = 1, #GameState:GetPlayerPremiumStatusCount() + 1, 1 do
+				local luck = RandomInt(1, 50)
+				if luck == 1 then
+					RPCItems:RollRandomArcana(position, caster:GetRoshpitLevel())
+				end
+			end
+		end)
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_boss_dying_effect", {})
+		local bossOrigin = caster:GetAbsOrigin()
+		StartAnimation(caster, {duration = 9, activity = ACT_DOTA_FLAIL, rate = 1})
+		Timers:CreateTimer(7, function()
+			CustomAbilities:QuickParticleAtPoint("particles/act_2/siltbreaker_spell_torrent_bubbles.vpcf", caster:GetAbsOrigin(), 12)
+		end)
+		Timers:CreateTimer(9, function()
+			Enemies:EnemySlain(caster, nil)
+			Events:MainBossSlain(caster:GetUnitName())
+			CustomGameEventManager:Send_ServerToAllClients("hide_boss_health", {bossEntityIndex = caster:GetEntityIndex()})
+			caster:RemoveModifierByName("modifier_boss_dying")
+			Timers:CreateTimer(0.1, function()
+				StartAnimation(caster, {duration = 10, activity = ACT_DOTA_DISABLED, rate = 0.25})
+				EmitSoundOn("Seafortress.Boss.Death2", caster)
+				for i = 1, 120, 1 do
+					Timers:CreateTimer(i * 0.05, function()
+						if IsValidEntity(caster) then
+							caster:SetAbsOrigin(caster:GetAbsOrigin() + Vector(0, 0, -2.5))
+						end
+					end)
+				end
+				Timers:CreateTimer(6, function()
+					UTIL_Remove(caster)
+					Seafortress:DefeatFinalBoss(bossOrigin)
+				end)
+			end)
+		end)
+		Timers:CreateTimer(1, function()
+			local waterEnt = Seafortress.BossWater
+			local movement = -155 / 300
+			for i = 1, 300, 1 do
+				Timers:CreateTimer(i * 0.1, function()
+					waterEnt:SetAbsOrigin(waterEnt:GetAbsOrigin() + Vector(0, 0, movement * 2))
+				end)
+			end
+		end)
+	end
 	caster.interval = caster.interval + 1
 	if caster.interval % 40 == 0 then
 		if not caster.backHits then
@@ -5443,86 +5523,6 @@ function sea_fortress_final_boss_think(event)
 				ParticleManager:DestroyParticle(pfx, false)
 			end)
 		end
-	end
-	if caster:GetHealth() < 1000 then
-		caster.dying = true
-		Seafortress.FinalBossSlain = true
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_boss_dying", {})
-		Timers:CreateTimer(0.5, function()
-			EmitSoundOn("Seafortress.Boss.Death1", caster)
-		end)
-		Timers:CreateTimer(1.5, function()
-			CustomGameEventManager:Send_ServerToAllClients("BGMend", {})
-			EmitGlobalSound("Loot_Drop_Stinger_Arcana")
-			Notifications:TopToAll({text = "Dungeon Clear!", duration = 8.0})
-
-		end)
-		caster:BossDrops(20)
-		Timers:CreateTimer(3, function()
-			for i = 0, 2, 1 do
-				Timers:CreateTimer(i, function()
-					Weapons:RollRandomLegendWeapon3(caster:GetAbsOrigin())
-				end)
-			end
-		end)
-		Timers:CreateTimer(4, function()
-			local luck = RandomInt(1, 10)
-			if luck == 1 then
-				RPCItems:RollAndDropUniqueItem(caster, "item_rpc_ocean_helm_of_valdun")
-			elseif luck == 2 then
-				RPCItems:RollAndDropUniqueItem(caster, "item_rpc_sparkling_token_of_oceanis")
-			end
-		end)
-		Timers:CreateTimer(2, function()
-			RPCItems:DropSynthesisVessel(caster:GetAbsOrigin())
-			Gems:DropSocketForger(caster:GetAbsOrigin())
-		end)
-		local randDelay = RandomInt(10, 50) / 10
-		local position = caster:GetAbsOrigin()
-		Timers:CreateTimer(randDelay, function()
-			for i = 1, #GameState:GetPlayerPremiumStatusCount() + 1, 1 do
-				local luck = RandomInt(1, 50)
-				if luck == 1 then
-					RPCItems:RollRandomArcana(position, caster:GetRoshpitLevel())
-				end
-			end
-		end)
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_boss_dying_effect", {})
-		local bossOrigin = caster:GetAbsOrigin()
-		StartAnimation(caster, {duration = 9, activity = ACT_DOTA_FLAIL, rate = 1})
-		Timers:CreateTimer(7, function()
-			CustomAbilities:QuickParticleAtPoint("particles/act_2/siltbreaker_spell_torrent_bubbles.vpcf", caster:GetAbsOrigin(), 12)
-		end)
-		Timers:CreateTimer(9, function()
-			Enemies:EnemySlain(caster, nil)
-			Events:MainBossSlain(caster:GetUnitName())
-			CustomGameEventManager:Send_ServerToAllClients("hide_boss_health", {bossEntityIndex = caster:GetEntityIndex()})
-			caster:RemoveModifierByName("modifier_boss_dying")
-			Timers:CreateTimer(0.1, function()
-				StartAnimation(caster, {duration = 10, activity = ACT_DOTA_DISABLED, rate = 0.25})
-				EmitSoundOn("Seafortress.Boss.Death2", caster)
-				for i = 1, 120, 1 do
-					Timers:CreateTimer(i * 0.05, function()
-						if IsValidEntity(caster) then
-							caster:SetAbsOrigin(caster:GetAbsOrigin() + Vector(0, 0, -2.5))
-						end
-					end)
-				end
-				Timers:CreateTimer(6, function()
-					UTIL_Remove(caster)
-					Seafortress:DefeatFinalBoss(bossOrigin)
-				end)
-			end)
-		end)
-		Timers:CreateTimer(1, function()
-			local waterEnt = Seafortress.BossWater
-			local movement = -155 / 300
-			for i = 1, 300, 1 do
-				Timers:CreateTimer(i * 0.1, function()
-					waterEnt:SetAbsOrigin(waterEnt:GetAbsOrigin() + Vector(0, 0, movement * 2))
-				end)
-			end
-		end)
 	end
 end
 
