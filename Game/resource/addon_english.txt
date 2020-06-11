@@ -12953,7 +12953,7 @@
         "DOTA_Tooltip_ability_item_rpc_sange_boots"                                     "Sange Boots"
 
         "item_property_sange"                       "Combat Mastery S"
-        "property_sange_description"                "Each point of Agility increases your Max Health by <font color='#ccff66'>4</font> and your Armor by <font color='#ccff66'>3</font>."
+        "property_sange_description"                "Each point of Agility increases your Max Health by <font color='#ccff66'>5</font> and your Armor by <font color='#ccff66'>3</font>."
 
         "item_rpc_sange_boots_ruby1"                                        "Increases Strength by @ruby_property1"
         "item_rpc_sange_boots_emerald1"                                     "Increases Agility by @emerald_property1"

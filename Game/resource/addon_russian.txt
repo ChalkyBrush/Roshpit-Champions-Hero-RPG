@@ -12831,7 +12831,7 @@
         "DOTA_Tooltip_ability_item_rpc_sange_boots"                                     "Sange Boots"
 
         "item_property_sange"                       "Combat Mastery S"
-        "property_sange_description"                "Ловкость увеличивает Здоровье на <font color='#ccff66'>4</font> и Броню на <font color='#ccff66'>3</font>."
+        "property_sange_description"                "Ловкость увеличивает Здоровье на <font color='#ccff66'>5</font> и Броню на <font color='#ccff66'>3</font>."
 
         "item_rpc_sange_boots_ruby1"                                        "Увеличивает Силу на @ruby_property1"
         "item_rpc_sange_boots_emerald1"                                     "Увеличивает Ловкость на @emerald_property1"

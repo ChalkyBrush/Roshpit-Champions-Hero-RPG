@@ -12727,7 +12727,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_sange_boots"										"散华之鞋"
 		"item_property_sange"						"战斗大师S"
-        "property_sange_description"                "每点敏捷提供 <font color='#ccff66'>4</font> 点最大生命值以及 <font color='#ccff66'>3</font>点护甲。"
+        "property_sange_description"                "每点敏捷提供 <font color='#ccff66'>5</font> 点最大生命值以及 <font color='#ccff66'>3</font>点护甲。"
 
         "item_rpc_sange_boots_ruby1"                                        "增加 @ruby_property1点力量"
         "item_rpc_sange_boots_emerald1"                                     "增加 @emerald_property1点敏捷"
