@@ -133,7 +133,7 @@
     	"DOTA_Tooltip_ability_epoch_rune_r_1"							"[R1] Tempo"
     	"DOTA_Tooltip_ability_epoch_rune_r_1_Description"				"С прочтением @Ability4, герой получает бонус к урону, зависящий от текущего значения маны. Базовая длительность эффекта 10 секунд."
     	"DOTA_Tooltip_ability_epoch_rune_r_1_property_one"				"Доп. урон %"
-    	"DOTA_Tooltip_ability_epoch_rune_r_1_suffix"					" за каждые <% EPOCH_R1_PER_MANA %> маны"
+    	"DOTA_Tooltip_ability_epoch_rune_r_1_suffix"					" за каждые 1% маны"
     	"DOTA_Tooltip_ability_epoch_rune_r_1_property_two"				"Доп. время эффекта"
     	"DOTA_Tooltip_ability_epoch_rune_r_1_suffix_two"				" сек."
 
