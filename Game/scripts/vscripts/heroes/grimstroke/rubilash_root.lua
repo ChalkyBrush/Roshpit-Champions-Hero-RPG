@@ -61,7 +61,7 @@ function rubilash_quick_thinker(event)
 			if not caster:HasModifier("modifier_rubilash_e_1_attack_damage") then
 				ability:ApplyDataDrivenModifier(caster, caster, "modifier_rubilash_e_1_attack_damage", {})
 			end
-			local attack_damage = e_1_level*RUBILASH_RUNE_E1_ATTACK_PER_MANA*caster:GetMana()
+			local attack_damage = e_1_level * RUBILASH_RUNE_E1_ATTACK_PER_MANA * caster:GetMana() / caster:GetMaxMana() * 100
 			caster:SetModifierStackCount("modifier_rubilash_e_1_attack_damage", caster, attack_damage)
 		else
 			caster:RemoveModifierByName("modifier_rubilash_e_1_attack_damage")
