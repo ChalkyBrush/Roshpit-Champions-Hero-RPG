@@ -2483,7 +2483,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.01"
+				"property_two"			"0.1"
 			}
 		}
 	}
@@ -22347,12 +22347,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"4"
+				"property_one"			"8"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"8"
+				"property_two"			"4"
 			}
 		}
 		"Modifiers"
@@ -35497,7 +35497,7 @@
             	"IsHidden"	"1"
             	"Properties"
             	{
-            		"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "8"
+            		"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "2"
             	}
             }
             "modifier_seinaru_b_c_wakizashi"
@@ -36052,8 +36052,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"8"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"2"
 			}
 			"02"
 			{
@@ -53069,7 +53069,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.1"
+				"property_one"			"0.02"
 			}
 			"02"
 			{
@@ -69392,7 +69392,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"25"
+				"property_one"			"10"
 			}
 		}
 		"Modifiers"

@@ -6942,7 +6942,7 @@
     	"DOTA_Tooltip_ability_epoch_rune_r_1"							"[R1] 永恒上升"
     	"DOTA_Tooltip_ability_epoch_rune_r_1_Description"				"@Ability4 将根据你现有的魔法值增加你的攻击力，buff基础持续时间为10秒。"
     	"DOTA_Tooltip_ability_epoch_rune_r_1_property_one"				"攻击力提高 %"
-    	"DOTA_Tooltip_ability_epoch_rune_r_1_suffix"					" 每 <font color='#ccff66'>100</font>  点当前魔法值"
+    	"DOTA_Tooltip_ability_epoch_rune_r_1_suffix"					" 每 1%  点当前魔法值"
     	"DOTA_Tooltip_ability_epoch_rune_r_1_property_two"				"额外延长 buff 时间"
     	"DOTA_Tooltip_ability_epoch_rune_r_1_suffix_two"				" 秒"
 
