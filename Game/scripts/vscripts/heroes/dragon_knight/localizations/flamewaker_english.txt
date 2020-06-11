@@ -61,7 +61,7 @@
         "DOTA_Tooltip_ability_flamewaker_rune_w_2_suffix_two"                   ""
 		
 		"DOTA_Tooltip_ability_flamewaker_rune_w_3"								"[W3] Searing Heat"
-    	"DOTA_Tooltip_ability_flamewaker_rune_w_3_Description"					"Dragon Breath also burns through enemies armor, leaving a stacking armor reduction debuff on targets. Lasts 6 seconds and can stack up to <% FLAMEWAKER_W3_STACK_LIMIT %> times."
+    	"DOTA_Tooltip_ability_flamewaker_rune_w_3_Description"					"Dragon Breath also burns through enemies' Armor, leaving a stacking Armor reduction debuff on targets. Lasts 6 seconds and can stack up to <% FLAMEWAKER_W3_STACK_LIMIT %> times."
     	"DOTA_Tooltip_ability_flamewaker_rune_w_3_property_one"					"Stacking Armor Reduction"
     	"DOTA_Tooltip_ability_flamewaker_rune_w_3_suffix"						""
 
@@ -76,7 +76,7 @@
         "DOTA_Tooltip_ability_flamewaker_rune_w_4_suffix_two"                   "%"
 		
 		"DOTA_Tooltip_ability_flamewaker_heat_wave"										"Heat Wave"
-		"DOTA_Tooltip_ability_flamewaker_heat_wave_Description"							"Element: <font color=\"#EF4126\">Fire</font><br>Flamewaker activates an intense heat energy, gaining movespeed, attack damage, cliff walking, and increased max movespeed. Enemies close to flamewaker during heatwave have reduced armor."
+		"DOTA_Tooltip_ability_flamewaker_heat_wave_Description"							"Element: <font color=\"#EF4126\">Fire</font><br>Flamewaker activates an intense heat energy, gaining movespeed, attack damage, cliff walking, and increased max movespeed. Enemies close to Flamewaker during heatwave have reduced armor."
 		"DOTA_Tooltip_ability_flamewaker_heat_wave_Lore"									"Base Ability: E"
     	"DOTA_Tooltip_ability_flamewaker_heat_wave_ms_cap_bonus"							"MS-CAP BONUS:"
     	"DOTA_Tooltip_ability_flamewaker_heat_wave_movespeed"								"MOVESPEED:"
@@ -131,7 +131,7 @@
     	"DOTA_Tooltip_ability_flamewaker_rune_r_2_suffix"						"% of attack power"
 
 		"DOTA_Tooltip_ability_flamewaker_rune_r_3"								"[R3] Mountain's Energy"
-    	"DOTA_Tooltip_ability_flamewaker_rune_r_3_Description"					"After a successful cataclysm channel, gain strength for 12 seconds."
+    	"DOTA_Tooltip_ability_flamewaker_rune_r_3_Description"					"After a successful Cataclysm channel, gain Strength for 12 seconds."
     	"DOTA_Tooltip_ability_flamewaker_rune_r_3_property_one"					"Strength Bonus"
     	"DOTA_Tooltip_ability_flamewaker_rune_r_3_suffix"						""
 
@@ -272,7 +272,7 @@
         "item_rpc_flamewaker_glyph_3_2_description"             "[E] Base Duration is increased by <% FLAMEWAKER_GLYPH_3_2_DURATION_INCREASE %> second."
 
         "DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_4_2"    "[T4-2] Glyph of Flamethrowing"
-        "item_rpc_flamewaker_glyph_4_2_description"             "[W] costs <% FLAMEWAKER_GLYPH_4_2_W_MANA_COST_INCREASE_PCT %>% more mana and has its based damage increased by <% FLAMEWAKER_GLYPH_4_2_W_BASE_DMG_STATS_MULT %>x Flamewaker's Attributes."
+        "item_rpc_flamewaker_glyph_4_2_description"             "[W] costs <% FLAMEWAKER_GLYPH_4_2_W_MANA_COST_INCREASE_PCT %>% more mana and has its base damage increased by <% FLAMEWAKER_GLYPH_4_2_W_BASE_DMG_STATS_MULT %>x Flamewaker's total attributes."
 
         "DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_5_2"    "[T5-2] Glyph of Volcano Shield"
         "item_rpc_flamewaker_glyph_5_2_description"             "Casting [R] applies a shield for <% FLAMEWAKER_GLYPH_5_2_SHIELD_DURATION %> seconds that reduces all damage taken by <% FLAMEWAKER_GLYPH_5_2_SHIELD_DMG_REDUCE %>%."
@@ -281,7 +281,7 @@
          "DOTA_Tooltip_modifier_flamewaker_glyph_5_2_volcano_shield_Description"    "Reduces all damage taken"
 
         "DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_6_2"    "[T6-2] Glyph of Volcanic Calamity"
-        "item_rpc_flamewaker_glyph_6_2_description"             "Casting [R] also creates 4 casts of [Q] in a Diamond Pattern"
+        "item_rpc_flamewaker_glyph_6_2_description"             "Casting [R] also creates 4 casts of [Q] in a diamond pattern around the cast point."
 
         "DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_7_2"    "[T7-2] Glyph of Draconic Might"
         "item_rpc_flamewaker_glyph_7_2_description"             "Increases Strength by <% FLAMEWAKER_GLYPH_7_2_STRENGTH_PCT %>%."
