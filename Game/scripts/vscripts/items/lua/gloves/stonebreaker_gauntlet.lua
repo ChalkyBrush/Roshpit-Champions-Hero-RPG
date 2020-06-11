@@ -126,7 +126,7 @@ function modifierClass:OnOrderFilter(data)
 	    ability:ThrowStonebreakerRock(hero, enemy, fractures)
 	    StartAnimation(hero, {duration = 0.8, activity = ACT_DOTA_ATTACK, rate = 1.5})
 	    local cooldown = ITEM_RPC_STONEBREAKER_GAUNTLET_COOLDOWN
-	    ability:StartCooldown(cooldown)
+	    ability:StartRoshpitCooldown(cooldown)
 	end
 end
 

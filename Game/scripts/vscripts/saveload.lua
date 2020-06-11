@@ -857,6 +857,8 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 			if item.newItemTable.version == "3.9" then
 				Curator:UpdateItemToCurrentVersion(item, hero, true)
 			else
+				RPCItems:GiveItemToHeroWithSlotCheck(hero, item)
+				hero:TakeItem(item)
 				hero:EquipItem(item, false, false)
 			end
 		else

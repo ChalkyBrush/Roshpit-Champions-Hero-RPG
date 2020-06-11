@@ -134,3 +134,8 @@ end
 function itemClass:RemoveSpecialModifiers(caster)
     caster:RemoveModifierByName(self:GetModifierName())
 end
+
+function itemClass:StartRoshpitCooldown(cd)
+    local cooldown = Filters:AdjustCooldownForDotaCooldownRate(cd)
+    self:StartCooldown(cooldown)   
+end
