@@ -248,7 +248,7 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% SEINARU_E1_ATT_PCT %>"
 			}
 			"02"
