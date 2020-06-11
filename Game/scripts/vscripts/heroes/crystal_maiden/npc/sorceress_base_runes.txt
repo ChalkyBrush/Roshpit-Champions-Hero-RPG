@@ -210,12 +210,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SORCERESS_W3_MANA_REGEN %>"
+				"property_one"			"<% SORCERESS_W3_INTELLECT %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% SORCERESS_W3_INTELLECT %>"
+				"property_two"			"<% SORCERESS_W3_MANA_REGEN %>"
 			}
 		}
 		"Modifiers"
