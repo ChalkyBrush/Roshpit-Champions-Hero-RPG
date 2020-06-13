@@ -6843,7 +6843,7 @@
     	"DOTA_Tooltip_modifier_eon_channel_enemy_Description"					"攻击力被偷取"
 		
     	"DOTA_Tooltip_ability_epoch_rune_q_3"									"[Q3] 永世打击"
-    	"DOTA_Tooltip_ability_epoch_rune_q_3_Description"						"每次攻击汲取你 <font color='#ccff66'>1</font>% 最大魔法值，并根据被汲取的魔法值造成额外伤害。"
+    	"DOTA_Tooltip_ability_epoch_rune_q_3_Description"						"每次攻击汲取你 0% 最大魔法值，并根据被汲取的魔法值造成额外伤害。"
     	"DOTA_Tooltip_ability_epoch_rune_q_3_property_one"						"伤害"
     	"DOTA_Tooltip_ability_epoch_rune_q_3_suffix"							"x所汲取魔法值"
 
@@ -6851,7 +6851,7 @@
     	"DOTA_Tooltip_modifier_epoch_q_3_Description"							"每次攻击汲取你的部分魔法值并造成额外伤害"
 		
     	"DOTA_Tooltip_ability_epoch_rune_q_4"									"[Q4] 时光节点"
-    	"DOTA_Tooltip_ability_epoch_rune_q_4_Description"						"时空锁将汲取你<font color='#ccff66'>100</font>% 的最大魔法值，并根据汲取的魔法值提高每秒伤害。额外提高 [Q3] 永世打击 每次攻击的魔法汲取量。"
+    	"DOTA_Tooltip_ability_epoch_rune_q_4_Description"						"时空锁将汲取你0% 的最大魔法值，并根据汲取的魔法值提高每秒伤害。额外提高 [Q3] 永世打击 每次攻击的魔法汲取量。"
     	"DOTA_Tooltip_ability_epoch_rune_q_4_property_one"						"伤害提高"
     	"DOTA_Tooltip_ability_epoch_rune_q_4_suffix"							"% 每汲取100点魔法值"
     	"DOTA_Tooltip_ability_epoch_rune_q_4_property_two"						"永世打击 每次攻击的魔法汲取量提高"
