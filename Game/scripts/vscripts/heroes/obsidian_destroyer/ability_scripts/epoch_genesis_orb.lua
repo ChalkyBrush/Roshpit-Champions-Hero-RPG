@@ -156,7 +156,7 @@ function epoch_genesis_orb:W3()
 	local caster = self:GetCaster()
 	local w_3_level = caster:GetRuneValue("w", 3)
 	if w_3_level > 0 then
-		caster:ApplyAndIncrementStackLua(ability, caster, "modifier_epoch_w_3_int", increment, EPOCH_W3_MAX_STACKS, EPOCH_W3_DURATION)
+		caster:ApplyAndIncrementStackLua(ability, caster, "modifier_epoch_w_3_int", 1, EPOCH_W3_MAX_STACKS, EPOCH_W3_DURATION)
 	end	
 end
 
