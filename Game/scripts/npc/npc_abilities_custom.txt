@@ -51305,182 +51305,6 @@
 		}
 	}
 
-	"time_genesis_orb"
-	{
-		// General
-		//-------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"obsidian_destroyer_arcane_orb"
-		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"RequiredLevel"          		"-5"
-		"LevelsBetweenUpgrades"  		"10"
-		"MaxLevel"				 		"7"
-
-		// Precache
-		//-------------------------------------------------------
-		"precache"
-		{
-			"particle"					"particles/roshpit/epoch/genesis_orb.vpcf"
-			"particle"					"particles/items2_fx/refresher.vpcf"
-			"particle"					"particles/roshpit/epoch/epoch_b_b_debuff_amp_damage.vpcf"
-			"particle"					"particles/roshpit/epoch/epoch_c_b_buff_amp_damage.vpcf"
-			"particle"					"particles/roshpit/epoch/epoch_a_b_effect.vpcf"
-		}
-
-		// Casting
-		//-------------------------------------------------------
-		"AbilityCastPoint"				"0.16"
-
-		// Time
-		//-------------------------------------------------------
-		"AbilityCooldown"				"0"
-
-		// Cost
-		//-------------------------------------------------------
-		"AbilityManaCost"				"35 65 95 125 155 185 215"
-
-		// Special
-		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"range"							"700 750 800 850 900 950 1000"
-			}
-
-			"02"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"damage"						"100 200 550 750 1000 1400 1700"
-			}
-			"03"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"delay_time"					"0.25"
-			}
-		}
-		"OnAbilityPhaseStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/obsidian_destroyer/epoch_2_w.lua"
-				"Function"		"genesis_phase_start"
-			}
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/obsidian_destroyer/epoch_2_w.lua"
-				"Function"		"begin_genesis_orb"
-				"range"			"%range"
-			}
-
-		}
-		"OnProjectileHitUnit"
-		{
-			"DeleteOnHit"	"0"
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/obsidian_destroyer/epoch_2_w.lua"
-				"Function"		"genesis_orb_impact"
-				"damage"		"%damage"
-				"target"		"TARGET"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_epoch_rune_thinker"
-			{
-				"Passive" "1"
-				"IsHidden"	"1"
-				"ThinkInterval"  "2"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/obsidian_destroyer/epoch_4_r.lua"
-						"Function"		"epoch_rune_r_2_think"
-					}
-				}
-			}
-			"modifier_epoch_rune_w_2_visible"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"1"
-				"IsStunDebuff"			"1"
-				"TextureName"		"obsidian_destroyer/lucent_gate_icons/obsidian_destroyer_sanity_eclipse"
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/obsidian_destroyer/epoch_2_w.lua"
-						"Function"		"AmplifyDamageParticle"
-						"particleName"	"particles/roshpit/epoch/epoch_b_b_debuff_amp_damage.vpcf"
-					}
-				}
-
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/obsidian_destroyer/epoch_2_w.lua"
-						"Function"		"EndAmplifyDamageParticle"
-					}
-				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-50"
-				}
-			}
-			"modifier_epoch_rune_w_3_visible"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"0"
-				"TextureName"		"obsidian_destroyer_essence_aura"
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/obsidian_destroyer/epoch_2_w.lua"
-						"Function"		"AmplifyDamageParticle"
-						"particleName"	"particles/roshpit/epoch/epoch_c_b_buff_amp_damage.vpcf"
-					}
-				}
-
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/obsidian_destroyer/epoch_2_w.lua"
-						"Function"		"EndAmplifyDamageParticle"
-
-					}
-				}
-				"OnAttackLanded"
-				// "%attack_damage" is set to the damage value before mitigation
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/obsidian_destroyer/epoch_2_w.lua"
-						"Function"		"epoch_c_b_attack_land"
-					}
-				}
-			}
-			"modifier_epoch_rune_w_3_invisible"
-			{
-				"IsHidden"	"1"
-				"IsBuff"	"1"
-			}
-		}
-	}
-
 	"eternity_flood"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_AOE"
@@ -51971,6 +51795,65 @@
 			{
 				"var_type"			"FIELD_FLOAT"
 				"dot_damage_pct_impact"			"4"
+			}
+		}
+	}
+
+	"epoch_genesis_orb"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/obsidian_destroyer/ability_scripts/epoch_genesis_orb.lua"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"skywrath_mage_arcane_bolt"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+
+		// Precache
+		//-------------------------------------------------------
+		"precache"
+		{
+
+		}
+
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastRange"				"1000"
+		"AbilityCastPoint"				"0.1"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"0"
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"60 200 340 480 640 880 1020"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"cast_range"			"1000"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"max_bounces"			"3 4 5 6 7 8 9"
 			}
 		}
 	}

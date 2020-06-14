@@ -567,3 +567,26 @@ function modifier_epoch_eon_phantom:OnIntervalThink()
 		end
 	end
 end
+
+-- BOUNCES FOR W
+
+function epoch_time_binder:FindNextTargetForW(target, extraData)
+	local ability = self
+	local next_target = nil
+	DeepPrintTable(extraData)
+	for i = 1, #ability.link_sets, 1 do
+		if ability.link_sets[i] then
+			if ability.link_sets[i][target:GetEntityIndex()] then
+				local set = ability.link_sets[i]
+				for source, link in pairs(set) do
+					if extraData[source] then
+					else
+						next_target = EntIndexToHScript(source)
+						break
+					end
+				end
+			end
+		end
+	end	
+	return next_target
+end

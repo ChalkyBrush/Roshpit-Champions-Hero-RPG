@@ -665,6 +665,11 @@ function Filters:LinearProjectile(projectile_data)
     return projectile
 end
 
+function Filters:TrackingProjectile(projectile_data)
+    local projectile = ProjectileManager:CreateTrackingProjectile(projectile_data)
+    return projectile
+end
+
 function Filters:ApplyStun(caster, duration, target)
     local mult = 1
     if caster:HasModifier("modifier_knight_crusher_armor") then

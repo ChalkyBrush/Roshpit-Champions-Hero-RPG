@@ -1107,3 +1107,13 @@ function CDOTABaseAbility:GetCastPosition()
 		return self:GetCursorPosition()
 	end
 end
+
+function CDOTABaseAbility:GetCastTarget()
+	if self.cast_target_override then
+		local target = self.cast_target_override
+		self.cast_target_override = nil
+		return target
+	else
+		return self:GetCursorTarget()
+	end
+end
