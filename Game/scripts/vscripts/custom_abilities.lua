@@ -1043,7 +1043,6 @@ function CDOTA_BaseNPC:ApplyAndIncrementStackLua(ability, caster, modifier_name,
 	else
 		self:AddNewModifier(caster, ability, modifier_name, {})
 	end
-	if new_stacks > 0 then
 	self:SetModifierStackCount(modifier_name, caster, new_stacks)
 end
 
