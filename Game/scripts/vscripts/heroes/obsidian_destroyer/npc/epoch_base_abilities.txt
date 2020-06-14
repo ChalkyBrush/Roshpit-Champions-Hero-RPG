@@ -700,7 +700,7 @@
 
 		// Time
 		//-------------------------------------------------------
-		"AbilityCooldown"				"EPOCH_Q_COOLDOWN"
+		"AbilityCooldown"				"<% EPOCH_Q_COOLDOWN %>"
 		// Cost
 		//-------------------------------------------------------
 		"AbilityManaCost"				"0"
@@ -861,12 +861,12 @@
 
 		// Casting
 		//-------------------------------------------------------
-		"AbilityCastRange"				"3000"
-		"AbilityCastPoint"				"0.3"
+		"AbilityCastRange"				"%range"
+		"AbilityCastPoint"				"0"
 
 		// Time
 		//-------------------------------------------------------
-		"AbilityCooldown"				"EPOCH_Q_COOLDOWN"
+		"AbilityCooldown"				"<% EPOCH_E_COOLDOWN %>"
 		// Cost
 		//-------------------------------------------------------
 		"AbilityManaCost"				"0"
@@ -878,12 +878,17 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"speed"		"1500"
+				"speed"				"1000"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"range"		"1500"
+				"range"		"1300 1400 1500 1600 1700 1800 1900 2000"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"		"150 450 850 1350 1950 2650 3450"
 			}
 		}
 	}

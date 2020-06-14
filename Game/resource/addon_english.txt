@@ -6535,12 +6535,12 @@
         "DOTA_Tooltip_ability_epoch_rune_w_4_property_two"              "[W] Mana Cost Increase"
         "DOTA_Tooltip_ability_epoch_rune_w_4_suffix_two"                 "%"
 		
-		"DOTA_Tooltip_ability_time_warp"										"Distortion Orb"
-		"DOTA_Tooltip_ability_time_warp_Description"							"Element: <font color=\"#B5FFB7\">Temporal</font><br>Creates a distortion of space that travels directly in front of the Epoch Guardian. Activating the ability again before the orb expires moves the Guardian to the Orb's location. Distortion orb deals double damage to Time Bound targets. Your first Genesis Orb after jaunting deals double damage."
-		"DOTA_Tooltip_ability_time_warp_Lore"									""
-    	"DOTA_Tooltip_ability_time_warp_range"									"RANGE:"
-    	"DOTA_Tooltip_ability_time_warp_damage"									"DAMAGE:"
-    	"DOTA_Tooltip_ability_time_warp_duration"								"DURATION:"
+		"DOTA_Tooltip_ability_epoch_distortion_orb"										"Distortion Orb"
+		"DOTA_Tooltip_ability_epoch_distortion_orb_Description"							"Element: <font color=\"#B5FFB7\">Temporal</font><br>Creates a distortion of space that travels toward the cast point. Activating the ability again before the orb expires moves Epoch Guardian to the Orb's location and removes it."
+		"DOTA_Tooltip_ability_epoch_distortion_orb_Lore"									""
+    	"DOTA_Tooltip_ability_epoch_distortion_orb_range"									"RANGE:"
+    	"DOTA_Tooltip_ability_epoch_distortion_orb_speed"									"SPEED:"
+    	"DOTA_Tooltip_ability_epoch_distortion_orb_damage"								"DAMAGE:"
 
 		"DOTA_Tooltip_modifier_time_warp" 										"Active Distortion"
 		"DOTA_Tooltip_modifier_time_warp_description" 							"Activating your distortion orb ability will teleport you to your current orb."

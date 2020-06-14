@@ -47,7 +47,10 @@ function epoch_distortion_orb:GetCastRange()
 end
 
 function epoch_distortion_orb:GetCooldownBase(level)
-    return 10
+    if level == -1 then
+        level = self:GetLevel() - 1
+    end
+    return EPOCH_E_COOLDOWN[level + 1]
 end
 
 function epoch_distortion_orb:GetIntrinsicModifierName()
@@ -113,9 +116,12 @@ function epoch_distortion_orb:OnProjectileHit_ExtraData(target, vLocation, extra
 	local caster = self:GetCaster()
 	local ability = self
 	if not target then
-		ability:StartCooldown(ability:GetCooldownBase())
+		ability:StartCooldown(ability:GetCooldownBase(-1))
 		caster:RemoveModifierByName("modifier_epoch_e_in_motion")
 		return true
+	else
+		local damage = self:GetSpecialValueFor("damage")
+		Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_E, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
 	end
 end
 
