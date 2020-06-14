@@ -5,16 +5,33 @@ epoch_distortion_orb = class(base_ability)
 modifier_epoch_e_passive = class(npc_base_modifier, nil, npc_base_modifier)
 LinkLuaModifier("modifier_epoch_e_passive", "heroes/obsidian_destroyer/ability_scripts/epoch_distortion_orb.lua", LUA_MODIFIER_MOTION_NONE)
 
+modifier_epoch_e_in_motion = class(npc_base_modifier, nil, npc_base_modifier)
+LinkLuaModifier("modifier_epoch_e_in_motion", "heroes/obsidian_destroyer/ability_scripts/epoch_distortion_orb.lua", LUA_MODIFIER_MOTION_NONE)
+
 function epoch_distortion_orb:GetManaCostBase(level)
     return 0
 end
 
 function epoch_distortion_orb:GetBehaviorBase()
-    return DOTA_ABILITY_BEHAVIOR_DIRECTIONAL + DOTA_ABILITY_BEHAVIOR_POINT + DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING
+	local caster = self:GetCaster()
+	if caster:HasModifier("modifier_epoch_e_in_motion") then
+		return DOTA_ABILITY_BEHAVIOR_NO_TARGET + DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING
+	else
+    	return DOTA_ABILITY_BEHAVIOR_DIRECTIONAL + DOTA_ABILITY_BEHAVIOR_POINT + DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING
+    end
 end
 
 function epoch_distortion_orb:GetCastAnimation()
 	return ACT_DOTA_CAST_ABILITY_2
+end
+
+function epoch_distortion_orb:GetAbilityTextureName()
+	local caster = self:GetCaster()
+	if caster:HasModifier("modifier_epoch_e_in_motion") then
+		return "epoch/epoch_w_4"
+	else
+		return "elder_titan_natural_order"
+	end
 end
 
 function epoch_distortion_orb:GetAbilitySlot()
@@ -22,79 +39,91 @@ function epoch_distortion_orb:GetAbilitySlot()
 end
 
 function epoch_distortion_orb:GetCastPoint()
-    return 0.3
+    return 0
 end
 
 function epoch_distortion_orb:GetCastRange()
-    return 2000
+    return self:GetSpecialValueFor("range")
 end
 
 function epoch_distortion_orb:GetCooldownBase(level)
-    return EPOCH_Q_COOLDOWN
+    return 10
 end
 
 function epoch_distortion_orb:GetIntrinsicModifierName()
 	return "modifier_epoch_e_passive"
 end
 
-function epoch_distortion_orb:GetAOERadius()
-	return self:GetSpecialValueFor("aoe_radius")
-end
-
-function epoch_distortion_orb:OnAbilityPhaseStart()
-	local ability = self
-	local caster = self:GetCaster()
-	local target_position = self:GetCastPosition()
-	StartAnimation(caster, {duration = 0.7, activity = ACT_DOTA_CAST_ABILITY_2, rate = 0.94})
-
-	return true
-end
-
 function epoch_distortion_orb:OnSpellStart()
     local ability = self
 	local caster = self:GetCaster()
     local target_position = self:GetCastPosition()
+    if caster:HasModifier("modifier_epoch_e_in_motion") then
+    	CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_oracle/oracle_false_promise_cast.vpcf", caster:GetAbsOrigin()+Vector(0,0,90), 3)
+    	local newPos = WallPhysics:WallSearch(caster:GetAbsOrigin(), ability.projectilePosition, caster)
+    	FindClearSpaceForUnit(caster, newPos, false)
+    	ProjectileManager:ProjectileDodge(caster)
+    	EmitSoundOn("Epoch.DistortionOrb.Jaunt", caster)
+    	caster:RemoveModifierByName("modifier_epoch_e_in_motion")
+    	CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_oracle/oracle_false_promise_cast.vpcf", caster:GetAbsOrigin()+Vector(0,0,90), 3)
+    	ProjectileManager:DestroyLinearProjectile(ability.projectile)
+    else
+	    StartAnimation(caster, {duration = 0.7, activity = ACT_DOTA_CAST_ABILITY_2, rate = 1.64})
+		local start_radius = 110
+		local end_radius = 110
+		local range = self:GetSpecialValueFor("range")
+		local speed = self:GetSpecialValueFor("speed")
 
-    
-	local start_radius = 110
-	local end_radius = 110
-	local range = self:GetSpecialValueFor("range")
-	local speed = self:GetSpecialValueFor("speed")
-	speed = speed * (1 + (EPOCH_Q4_PROJECTILE_SPEED/100)*caster:GetRuneValue("q", 4))
-	local projectileParticle = "particles/roshpit/epoch/time_binder_projectile_hellfire_linear.vpcf"
+		local projectileParticle = "particles/units/heroes/hero_puck/time_warp.vpcf"
 
-	local perpFV = WallPhysics:rotateVector(caster:GetForwardVector()*Vector(1,1,0), 2*math.pi/4)
-	local projectileOrigin = caster:GetAbsOrigin() + Vector(0,0,160) + (perpFV*40) + (caster:GetForwardVector()*40)
-
-	local fv = ((target_position - projectileOrigin)*Vector(1,1,0)):Normalized()
-	local info =
-	{
-		Ability = ability,
-		EffectName = projectileParticle,
-		vSpawnOrigin = projectileOrigin,
-		fDistance = range,
-		fStartRadius = start_radius,
-		fEndRadius = end_radius,
-		Source = caster,
-		StartPosition = "attach_origin",
-		bHasFrontalCone = true,
-		bReplaceExisting = false,
-		iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
-		iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
-		iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-		fExpireTime = GameRules:GetGameTime() + 5.0,
-		bDeleteOnHit = false,
-		vVelocity = fv * speed,
-		bProvidesVision = true,
-		iVisionRadius = 100,
-		iMoveSpeed = speed,
-		iVisionTeamNumber = caster:GetTeamNumber()
-	}
-	Filters:LinearProjectile(info)
-	EmitSoundOn("Epoch.TimeBinder.Launch", caster)
-    Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
+		local projectileOrigin = caster:GetAbsOrigin()
+		local fv = ((target_position - projectileOrigin)*Vector(1,1,0)):Normalized()
+		local info =
+		{
+			Ability = ability,
+			EffectName = projectileParticle,
+			vSpawnOrigin = projectileOrigin,
+			fDistance = range,
+			fStartRadius = start_radius,
+			fEndRadius = end_radius,
+			Source = caster,
+			StartPosition = "attach_origin",
+			bHasFrontalCone = true,
+			bReplaceExisting = false,
+			iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+			iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+			iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+			fExpireTime = GameRules:GetGameTime() + 5.0,
+			bDeleteOnHit = false,
+			vVelocity = fv * speed,
+			bProvidesVision = true,
+			iVisionRadius = 600,
+			iMoveSpeed = speed,
+			iVisionTeamNumber = caster:GetTeamNumber()
+		}
+		ability.projectile = Filters:LinearProjectile(info)
+		EmitSoundOn("Epoch.DistortionOrb", caster)
+		caster:AddNewModifier(caster, ability, "modifier_epoch_e_in_motion", {})
+	    Filters:CastSkillArguments(BASE_ABILITY_E, caster)
+	    ability:EndCooldown()
+	end
 end
 
+function epoch_distortion_orb:OnProjectileHit_ExtraData(target, vLocation, extraData)
+	local caster = self:GetCaster()
+	local ability = self
+	if not target then
+		ability:StartCooldown(ability:GetCooldownBase())
+		caster:RemoveModifierByName("modifier_epoch_e_in_motion")
+		return true
+	end
+end
+
+function epoch_distortion_orb:OnProjectileThink(vLoc)
+	local ability = self
+	ability.projectilePosition = vLoc
+	return true
+end
 
 -- PASSIVE
 
@@ -114,5 +143,11 @@ function modifier_epoch_e_passive:OnCreated()
 
     })
 
+end
+
+-- E IN MOTION MODIFIER
+
+function modifier_epoch_e_in_motion:IsHidden()
+	return true
 end
 
