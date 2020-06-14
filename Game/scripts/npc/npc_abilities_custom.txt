@@ -51754,7 +51754,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"max_links"			"5 6 7 8 9 10 11 12"
+				"max_links"			"7 8 9 10 11 12 13 14"
 			}
 			"04"
 			{
@@ -51854,6 +51854,16 @@
 			{
 				"var_type"			"FIELD_INTEGER"
 				"max_bounces"			"3 4 5 6 7 8 9"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"base_projectile_speed"			"1350"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"projectile_speed_gain"			"150"
 			}
 		}
 	}
@@ -51960,38 +51970,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.05"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_epoch_rune_w_1"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"0"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_epoch_rune_w_1_effect"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Duration"			"1"
-
-				"EffectName"		"particles/items2_fx/refresher.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"OnCreated"
-				{
-					"FireEffect"
-					{
-						"EffectName"        "particles/items2_fx/refresher.vpcf"
-						"EffectAttachType"  "follow_origin"
-						"Target"            "TARGET"
-					}
-				}
+				"property_one"			"10"
 			}
 		}
 	}
@@ -52008,8 +51987,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"-15"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.8"
 			}
 		}
 	}
@@ -52027,15 +52006,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"3"
+				"property_one"			"1"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"50"
+				"property_two"			"30"
 			}
 		}
 	}
+
+
 
 	"epoch_rune_w_4"
 	{
@@ -52050,7 +52031,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"60"
+				"property_one"			"20"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"15"
 			}
 		}
 	}

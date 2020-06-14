@@ -318,6 +318,39 @@
     }
 }
 
+"Epoch.GenesisOrb.ProjectileCast"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/weapons/hero/void_spirit/remnant_target.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.72000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.03000"  }
+                    "pitch"             {   "value"     "1.150000"  }
+                    "soundlevel"        {   "value"     "90.00000" }
+                    "distance_max"      {   "value"     "2400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+
 "Epoch.GenesisOrb.Impact"
 {
     "operator_stacks"
@@ -334,13 +367,13 @@
                     {
                         "value"
                         {
-                              "value0"        "sounds/weapons/hero/pudge/hook_target_ti10.vsnd"
+                              "value0"        "sounds/weapons/hero/faceless_void/time_dilation_cast.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "0.52000"  }
+                    "volume"            {   "value"     "0.72000"  }
                     "pitch_rand_min"    {   "value"     "-0.03000"  }
                     "pitch_rand_max"    {   "value"     "0.03000"  }
-                    "pitch"             {   "value"     "1.150000"  }
+                    "pitch"             {   "value"     "1.30000"  }
                     "soundlevel"        {   "value"     "90.00000" }
                     "distance_max"      {   "value"     "2400.000"  }
                     "event_type"        {   "value"     "1.000000"  }

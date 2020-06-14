@@ -579,7 +579,7 @@ function epoch_time_binder:FindNextTargetForW(target, extraData)
 			if ability.link_sets[i][target:GetEntityIndex()] then
 				local set = ability.link_sets[i]
 				for source, link in pairs(set) do
-					if extraData[source] then
+					if extraData[source] == 1 then
 					else
 						next_target = EntIndexToHScript(source)
 						break

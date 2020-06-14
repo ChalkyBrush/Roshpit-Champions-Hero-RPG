@@ -6464,7 +6464,7 @@
     	"DOTA_Tooltip_ability_epoch_rune_w_1_suffix"					"% от макс. маны"
 
     	"DOTA_Tooltip_ability_epoch_rune_w_2"							"[W2] Origination"
-    	"DOTA_Tooltip_ability_epoch_rune_w_2_Description"				"Противники, задетые @Ability2 теряют Магическую Защиту на <font color='#ccff66'>6</font> сек. Эффект складывается до <font color='#ccff66'>7</font> раз."
+    	"DOTA_Tooltip_ability_epoch_rune_w_2_Description"				"Противники, задетые @Ability2 теряют Магическую Защиту на 0 сек. Эффект складывается до 0 раз."
     	"DOTA_Tooltip_ability_epoch_rune_w_2_property_one"				"Снижение Магической Защиты"
     	"DOTA_Tooltip_ability_epoch_rune_w_2_suffix"					""
 
@@ -6472,7 +6472,7 @@
     	"DOTA_Tooltip_modifier_epoch_rune_w_2_visible_Description"		"Снижение Магической Защиты."
 		
     	"DOTA_Tooltip_ability_epoch_rune_w_3"							"[W3] Ages of Wisdom"
-    	"DOTA_Tooltip_ability_epoch_rune_w_3_Description"				"С каждым прочтением @Ability2, Epoch Guardian получает заряд. Каждый заряд даёт дополнительные очки Интеллекта. Максимум <font color='#ccff66'>10</font> зарядов. Каждая базовая атака тратит 1 заряд и восстанавливает герою здоровье."
+    	"DOTA_Tooltip_ability_epoch_rune_w_3_Description"				"С каждым прочтением @Ability2, Epoch Guardian получает заряд. Каждый заряд даёт дополнительные очки Интеллекта. Максимум <font color='#ccff66'>30</font> зарядов. Каждая базовая атака тратит 1 заряд и восстанавливает герою здоровье."
     	"DOTA_Tooltip_ability_epoch_rune_w_3_property_one"				"Интеллекта за заряд"
     	"DOTA_Tooltip_ability_epoch_rune_w_3_suffix"					""
     	"DOTA_Tooltip_ability_epoch_rune_w_3_property_two"				"Восст. здоровья за атаку"

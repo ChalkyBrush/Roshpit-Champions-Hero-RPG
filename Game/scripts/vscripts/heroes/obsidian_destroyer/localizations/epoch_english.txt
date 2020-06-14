@@ -64,8 +64,8 @@
         "DOTA_Tooltip_modifier_epoch_rune_w_3_visible_Description"      "Increased Intelligence. Attacking consumes a stack and heals Epoch Guardian."  
         
         "DOTA_Tooltip_ability_epoch_rune_w_4"                           "[W4] Genesis"
-        "DOTA_Tooltip_ability_epoch_rune_w_4_Description"               "Increases the Base Damage and Mana Cost of [W]"
-        "DOTA_Tooltip_ability_epoch_rune_w_4_property_one"              "[W] Base Damage Increase"
+        "DOTA_Tooltip_ability_epoch_rune_w_4_Description"               "Increases Base Ability Damage and Mana Cost of [W]"
+        "DOTA_Tooltip_ability_epoch_rune_w_4_property_one"              "[W] Base Ability Damage"
         "DOTA_Tooltip_ability_epoch_rune_w_4_suffix"                    "%"
         "DOTA_Tooltip_ability_epoch_rune_w_4_property_two"              "[W] Mana Cost Increase"
         "DOTA_Tooltip_ability_epoch_rune_w_4_suffix_two"                 "%"

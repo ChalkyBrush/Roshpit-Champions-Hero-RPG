@@ -6868,7 +6868,7 @@
     	"DOTA_Tooltip_ability_epoch_rune_w_1_suffix"					"% 最大魔法值"
 
     	"DOTA_Tooltip_ability_epoch_rune_w_2"							"[W2] 时光风暴"
-    	"DOTA_Tooltip_ability_epoch_rune_w_2_Description"				"被@Ability2击中的敌人减少魔甲<font color='#ccff66'>6</font> 秒， 最高叠加<font color='#ccff66'>7</font> 层"
+    	"DOTA_Tooltip_ability_epoch_rune_w_2_Description"				"被@Ability2击中的敌人减少魔甲0 秒， 最高叠加0 层"
     	"DOTA_Tooltip_ability_epoch_rune_w_2_property_one"				"魔甲减少"
     	"DOTA_Tooltip_ability_epoch_rune_w_2_suffix"					""
      
@@ -6876,7 +6876,7 @@
     	"DOTA_Tooltip_modifier_epoch_rune_w_2_visible_Description"		"减少魔甲"
 		
     	"DOTA_Tooltip_ability_epoch_rune_w_3"							"[W3] 智慧穷尽"
-    	"DOTA_Tooltip_ability_epoch_rune_w_3_Description"				"每次施放@Ability2增加智力值，上限<font color='#ccff66'>10</font>层。每次攻击消耗一层并且回复生命值。"
+    	"DOTA_Tooltip_ability_epoch_rune_w_3_Description"				"每次施放@Ability2增加智力值，上限<font color='#ccff66'>30</font>层。每次攻击消耗一层并且回复生命值。"
     	"DOTA_Tooltip_ability_epoch_rune_w_3_property_one"				"每层智力值"
     	"DOTA_Tooltip_ability_epoch_rune_w_3_suffix"					""
     	"DOTA_Tooltip_ability_epoch_rune_w_3_property_two"				"每次攻击消耗一层并恢复血量"
@@ -6886,7 +6886,7 @@
     	"DOTA_Tooltip_modifier_epoch_rune_w_3_visible_Description"		"增加智力值。每次攻击消耗一层并且回复生命值。"	
 		
     	"DOTA_Tooltip_ability_epoch_rune_w_4"							"[W4] 创世纪"
-    	"DOTA_Tooltip_ability_epoch_rune_w_4_Description"				"每次施放@Ability2 吸取额外 <font color='#ccff66'>5</font>% 你最大的魔法值，根据吸取魔法量增加伤害。"
+    	"DOTA_Tooltip_ability_epoch_rune_w_4_Description"				"每次施放@Ability2 吸取额外 0% 你最大的魔法值，根据吸取魔法量增加伤害。"
     	"DOTA_Tooltip_ability_epoch_rune_w_4_property_one"				"伤害提高"
     	"DOTA_Tooltip_ability_epoch_rune_w_4_suffix"					"% 每汲取100点魔法值"
 		

@@ -100,38 +100,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% EPOCH_W1_MANA_RESTORE_PCT %>"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_epoch_rune_w_1"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"0"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_epoch_rune_w_1_effect"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Duration"			"1"
-
-				"EffectName"		"particles/items2_fx/refresher.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"OnCreated"
-				{
-					"FireEffect"
-					{
-						"EffectName"        "particles/items2_fx/refresher.vpcf"
-						"EffectAttachType"  "follow_origin"
-						"Target"            "TARGET"
-					}
-				}
+				"property_one"			"<% EPOCH_W1_MANA_RESTORE %>"
 			}
 		}
 	}
@@ -148,8 +117,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% EPOCH_W2_MAGIC_ARMOR_REDUCTION %>"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"<% EPOCH_W2_ATK_POWER_PCT_ADDED_TO_W_DMG %>"
 			}
 		}
 	}
@@ -177,6 +146,8 @@
 		}
 	}
 
+
+
 	"epoch_rune_w_4"
 	{
 		"BaseClass"				"ability_datadriven"
@@ -190,7 +161,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% EPOCH_W4_DMG_MULTI_PCT %>"
+				"property_one"			"<% EPOCH_W4_W_BAD %>"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"<% EPOCH_W4_W_MANA_PCT %>"
 			}
 		}
 	}
