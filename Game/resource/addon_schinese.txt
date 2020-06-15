@@ -6916,12 +6916,12 @@
     	"DOTA_Tooltip_ability_epoch_rune_e_2_suffix_two"				""
 		
     	"DOTA_Tooltip_ability_epoch_rune_e_3"							"[E3] 时光之眼"
-    	"DOTA_Tooltip_ability_epoch_rune_e_3_Description"				"使用@Ability3传送后，获得<font color='#ccff66'>50</font>%攻击力和多重攻击能力，持续6秒。"
+    	"DOTA_Tooltip_ability_epoch_rune_e_3_Description"				"使用@Ability3传送后，获得0%攻击力和多重攻击能力，持续6秒。"
     	"DOTA_Tooltip_ability_epoch_rune_e_3_property_one"				"最多攻击目标数"
     	"DOTA_Tooltip_ability_epoch_rune_e_3_suffix"					""
 
 		"DOTA_Tooltip_modifier_epoch_rune_e_3"							"时光之眼"
-		"DOTA_Tooltip_modifier_epoch_rune_e_3_description" 				"多重攻击能力和<font color='#ccff66'>50</font>%攻击力"
+		"DOTA_Tooltip_modifier_epoch_rune_e_3_description" 				"多重攻击能力和0%攻击力"
 		
     	"DOTA_Tooltip_ability_epoch_rune_e_4"							"[E4] 时空发散"
     	"DOTA_Tooltip_ability_epoch_rune_e_4_Description"				"你的攻击力将提高 @Ability3 和[E2]的伤害。"

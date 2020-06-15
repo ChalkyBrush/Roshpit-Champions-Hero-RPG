@@ -51915,7 +51915,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"range"		"1300 1400 1500 1600 1700 1800 1900 2000"
+				"range"		"1200 1300 1400 1500 1600 1700 1800"
 			}
 			"03"
 			{
@@ -52108,33 +52108,10 @@
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one_base"		"0.4"
-			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.12"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_epoch_rune_e_1"
-			{
-				"Passive"	"0"
-				"EffectName"		"particles/units/heroes/hero_phantom_assassin/epoch_rune_a_c.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "300"
-					"MODIFIER_PROPERTY_EVASION_CONSTANT"		"100"
-				}
-				"States"
-				{
-					"MODIFIER_STATE_NO_UNIT_COLLISION"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
+				"property_one"			"0.04"
 			}
 		}
 	}
@@ -52147,38 +52124,17 @@
 		"AbilityTextureName"	"medusa_mana_shield"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one_max"			"20"
+				"property_one"			"10"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"40"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two_base"		"0"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"3"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"6"
+				"property_two"			"8"
 			}
 		}
 	}
@@ -52196,29 +52152,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
+				"property_one"			"300"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"2"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_epoch_rune_e_3"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"0"
-
-				"StatusEffectName" 		"particles/status_fx/status_effect_huskar_lifebreak_experimental.vpcf"
-				"StatusEffectPriority"  "10"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "50"
-				}
+				"property_two"			"120"
 			}
 		}
 	}
@@ -52231,12 +52170,33 @@
 		"AbilityTextureName"	"epoch/epoch_e_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"property_one"			"10"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"1"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two_max"			"20"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"6"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"3"
 			}
 		}
 	}

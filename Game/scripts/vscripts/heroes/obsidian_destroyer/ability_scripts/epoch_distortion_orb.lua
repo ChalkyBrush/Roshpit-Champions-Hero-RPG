@@ -57,6 +57,14 @@ function epoch_distortion_orb:GetIntrinsicModifierName()
 	return "modifier_epoch_e_passive"
 end
 
+function epoch_distortion_orb:GetProjectileSpeed()
+	return self:GetSpecialValueFor("speed") + self:GetCaster():GetRuneValue("e", 2)*EPOCH_E2_SPEED
+end
+
+function epoch_distortion_orb:GetProjectileRange()
+	return self:GetSpecialValueFor("range") + self:GetCaster():GetRuneValue("e", 2)*EPOCH_E2_RANGE
+end
+
 function epoch_distortion_orb:OnSpellStart()
     local ability = self
 	local caster = self:GetCaster()
@@ -72,10 +80,10 @@ function epoch_distortion_orb:OnSpellStart()
     	ProjectileManager:DestroyLinearProjectile(ability.projectile)
     else
 	    StartAnimation(caster, {duration = 0.7, activity = ACT_DOTA_CAST_ABILITY_2, rate = 1.64})
-		local start_radius = 110
-		local end_radius = 110
-		local range = self:GetSpecialValueFor("range")
-		local speed = self:GetSpecialValueFor("speed")
+		local start_radius = 210
+		local end_radius = 210
+		local range = self:GetProjectileRange()
+		local speed = self:GetProjectileSpeed()
 
 		local projectileParticle = "particles/units/heroes/hero_puck/time_warp.vpcf"
 
@@ -102,33 +110,91 @@ function epoch_distortion_orb:OnSpellStart()
 			bProvidesVision = true,
 			iVisionRadius = 600,
 			iMoveSpeed = speed,
-			iVisionTeamNumber = caster:GetTeamNumber()
+			iVisionTeamNumber = caster:GetTeamNumber(),
+			ExtraData = {projectileType = 1}
 		}
 		ability.projectile = Filters:LinearProjectile(info)
 		EmitSoundOn("Epoch.DistortionOrb", caster)
 		caster:AddNewModifier(caster, ability, "modifier_epoch_e_in_motion", {})
 	    Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 	    ability:EndCooldown()
+	    self:E4(projectileOrigin, fv)
 	end
 end
 
 function epoch_distortion_orb:OnProjectileHit_ExtraData(target, vLocation, extraData)
 	local caster = self:GetCaster()
 	local ability = self
-	if not target then
-		ability:StartCooldown(ability:GetCooldownBase(-1))
-		caster:RemoveModifierByName("modifier_epoch_e_in_motion")
-		return true
-	else
-		local damage = self:GetSpecialValueFor("damage")
-		Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_E, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
+	if extraData.projectileType == 1 then
+		if not target then
+			ability:StartCooldown(ability:GetCooldownBase(-1))
+			caster:RemoveModifierByName("modifier_epoch_e_in_motion")
+			return true
+		else
+			local damage = self:GetSpecialValueFor("damage")
+			Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_E, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
+		end
+	elseif extraData.projectileType == 2 then
+		if target then
+			local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*caster:GetRuneValue("e", 4)*(EPOCH_E4_DMG_ATK_PWR_PCT/100)
+			Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_E, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
+		end
 	end
 end
 
-function epoch_distortion_orb:OnProjectileThink(vLoc)
-	local ability = self
-	ability.projectilePosition = vLoc
-	return true
+function epoch_distortion_orb:OnProjectileThink_ExtraData(vLoc, extraData)
+	if extraData.projectileType == 1 then
+		local ability = self
+		ability.projectilePosition = vLoc
+		return true
+	end
+end
+
+function epoch_distortion_orb:E4(position, fv)
+	local caster = self:GetCaster()
+	local e_4_level = caster:GetRuneValue("e", 4)
+	if e_4_level > 0 then
+		local numOrbs = math.min(e_4_level, EPOCH_E4_ORBS_MAX)
+		for i = 0, numOrbs-1, 1 do
+			if (i % 2 == 0) then
+				local rotatedVector = WallPhysics:rotateVector(fv, (math.pi / 80) * i)
+				self:E4Projectile(position, rotatedVector)
+			else
+				local rotatedVector = WallPhysics:rotateVector(fv, (math.pi / 80) * i *- 1)
+				self:E4Projectile(position, rotatedVector)
+			end
+		end
+	end
+end
+
+function epoch_distortion_orb:E4Projectile(position, fv)
+	local caster = self:GetCaster()
+	local start_radius = 130
+	local end_radius = 130
+	local speed = self:GetProjectileSpeed()
+	local range = self:GetProjectileRange()
+	local info =
+	{
+		Ability = self,
+		EffectName = "particles/units/heroes/hero_alchemist/epoch_rune_a_d_concoction_projectile.vpcf",
+		vSpawnOrigin = position + Vector(0, 0, 100),
+		fDistance = range,
+		fStartRadius = start_radius,
+		fEndRadius = end_radius,
+		Source = caster,
+		StartPosition = "attach_origin",
+		bHasFrontalCone = true,
+		bReplaceExisting = false,
+		iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+		iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+		iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+		fExpireTime = GameRules:GetGameTime() + 5.0,
+		bDeleteOnHit = false,
+		vVelocity = fv * speed,
+		bProvidesVision = false,
+		ExtraData = {projectileType = 2}
+	}
+	Filters:LinearProjectile(info)
 end
 
 -- PASSIVE
@@ -146,9 +212,32 @@ function modifier_epoch_e_passive:OnCreated()
         return false
     end
     self:SetSpecialTypes({ 
-
+    	MODIFIER_ROSHPIT_BASE_MAGIC_ARMOR_BONUS,
+    	MODIFIER_ROSHPIT_BASE_ARMOR_BONUS,
+    	MODIFIER_ROSHPIT_FLAT_HEALTH_BONUS,
+    	MODIFIER_ROSHPIT_FLAT_MANA_BONUS
     })
 
+end
+
+function modifier_epoch_e_passive:GetRoshpitBaseMagicArmorBonus()
+	local caster = self:GetCaster()
+	return caster:GetRuneValue("e", 1)*caster:GetSumOfAllAttributes()*EPOCH_E1_ARMOR_AND_MAGIC_ARMOR_PER_ATTR
+end
+
+function modifier_epoch_e_passive:GetRoshpitBaseArmorBonus()
+	local caster = self:GetCaster()
+	return caster:GetRuneValue("e", 1)*caster:GetSumOfAllAttributes()*EPOCH_E1_ARMOR_AND_MAGIC_ARMOR_PER_ATTR
+end
+
+function modifier_epoch_e_passive:GetFlatHealthBonus()
+	local caster = self:GetCaster()
+	return caster:GetRuneValue("e", 3)*EPOCH_E3_MAX_HEALTH
+end
+
+function modifier_epoch_e_passive:GetFlatManaBonus()
+	local caster = self:GetCaster()
+	return caster:GetRuneValue("e", 3)*EPOCH_E3_MAX_MANA
 end
 
 -- E IN MOTION MODIFIER

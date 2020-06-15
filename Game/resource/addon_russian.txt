@@ -6505,14 +6505,14 @@
 		"DOTA_Tooltip_modifier_epoch_rune_e_1_description" 				"Хождение сквозь врагов - Максимальная скорость передвижения, 100%% уклонение."
 
     	"DOTA_Tooltip_ability_epoch_rune_e_2"							"[E2] Distortion Rift"
-    	"DOTA_Tooltip_ability_epoch_rune_e_2_Description"				"Выпуская @Ability3, Epoch Guardian дополнительно выпустит Сферы Времени в конусе перед собой. Сферы Времени наносят двойной урон противникам, находящимся под действием @Ability1. Максимальное количество сфер - <font color='#ccff66'>20</font>."
+    	"DOTA_Tooltip_ability_epoch_rune_e_2_Description"				"Выпуская @Ability3, Epoch Guardian дополнительно выпустит Сферы Времени в конусе перед собой. Сферы Времени наносят двойной урон противникам, находящимся под действием @Ability1. Максимальное количество сфер - 0."
     	"DOTA_Tooltip_ability_epoch_rune_e_2_property_one"				"Кол-во сфер"
     	"DOTA_Tooltip_ability_epoch_rune_e_2_suffix"					""
     	"DOTA_Tooltip_ability_epoch_rune_e_2_property_two"				"Урон за сферу"
     	"DOTA_Tooltip_ability_epoch_rune_e_2_suffix_two"				""
 		
     	"DOTA_Tooltip_ability_epoch_rune_e_3"							"[E3] Time’s Eye"
-    	"DOTA_Tooltip_ability_epoch_rune_e_3_Description"				"После телепортации к @Ability3, Epoch Guardian в течение 6 секунд получит бонус <font color='#ccff66'>50</font>% к урону атаки, и его атаки будут атаковать несколько целей одновременно."
+    	"DOTA_Tooltip_ability_epoch_rune_e_3_Description"				"После телепортации к @Ability3, Epoch Guardian в течение 6 секунд получит бонус 0% к урону атаки, и его атаки будут атаковать несколько целей одновременно."
     	"DOTA_Tooltip_ability_epoch_rune_e_3_property_one"				"Макс. целей"
     	"DOTA_Tooltip_ability_epoch_rune_e_3_suffix"					""
 
