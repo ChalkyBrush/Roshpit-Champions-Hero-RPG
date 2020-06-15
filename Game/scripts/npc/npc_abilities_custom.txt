@@ -51030,281 +51030,6 @@
 
 
 
-	"time_warp"
-	{
-		// General
-		//-------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_UNRESTRICTED"
-		"FightRecapLevel"				"1"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityTextureName"			"elder_titan_natural_order"
-		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
-		"RequiredLevel"          		"-5"
-		"LevelsBetweenUpgrades"  		"10"
-		"MaxLevel"				 		"7"
-
-		// Precache
-		//-------------------------------------------------------
-		"precache"
-		{
-			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_oracle.vsndevts"
-			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_elder_titan.vsndevts"
-			"particle"				"particles/units/heroes/hero_puck/time_warp.vpcf"
-			"particle"				"particles/units/heroes/hero_oracle/oracle_false_promise_cast.vpcf"
-			"particle"				"particles/units/heroes/hero_broodmother/broodmother_spiderlings_debuff.vpcf"
-			"particle"				"particles/units/heroes/hero_phantom_assassin/epoch_rune_e_1.vpcf"
-			"particle"				"particles/status_fx/status_effect_huskar_lifebreak_experimental.vpcf"
-			"particle"				"particles/units/heroes/hero_puck/epoch_glyph_7_1.vpcf"
-		}
-
-		// Casting
-		//-------------------------------------------------------
-		"AbilityCastPoint"				"0"
-
-		// Time
-		//-------------------------------------------------------
-		"AbilityCooldown"				"0"
-
-		// Cost
-		//-------------------------------------------------------
-		"AbilityManaCost"				"0"
-
-		// Special
-		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"start_radius"				"350 350 350 350"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"end_radius"				"350 350 350 350"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"range"						"1000 1100 1200 1300 1400 1500 1600"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"speed"						"700 700 700 700"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"damage"					"90 215 340 465 590 715 830"
-			}
-			"06"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"duration"					"1.8 1.95 2.1 2.25 2.4 2.55 2.7"
-			}
-		}
-
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/obsidian_destroyer/epoch_3_e.lua"
-				"Function"		"onWarpFire"
-			}
-		}
-		"OnProjectileHitUnit"
-		{
-			"DeleteOnHit"	"0"
-
-	        "RunScript"
-	        {
-	        	"ScriptFile"	"scripts/vscripts/heroes/obsidian_destroyer/epoch_3_e.lua"
-	        	"Function"		"epoch_e_2_projectile_hit"
-	        	"Target"		"TARGET"
-	        }
-		}
-		"Modifiers"
-		{
-			"modifier_time_warp"
-			{
-				"Duration"		"%duration"
-				"IsBuff"		"1"
-				"IsPurgable"	"0"
-				"OnCreated"
-				{
-
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"			"scripts/vscripts/heroes/obsidian_destroyer/epoch_3_e.lua"
-						"Function"				"startCooldown"
-					}
-				}
-				"ThinkInterval"	"0.03"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"			"scripts/vscripts/heroes/obsidian_destroyer/epoch_3_e.lua"
-						"Function"				"getProjectilePosition"
-					}
-				}
-
-			}
-			"modifier_time_warp_buff"
-			{
-				"Duration"		"2"
-				"IsBuff"		"1"
-				"IsPurgable"	"0"
-				"AttachEffect"
-				{
-					"Target"	"TARGET"
-					"EffectName"	"particles/units/heroes/hero_broodmother/broodmother_spiderlings_debuff.vpcf"
-					"EffectAttachType"	"start_at_customorigin"
-					"ControlPointEntities"
-					{
-						"CASTER"	"attach_hitloc"
-					}
-
-				}
-			}
-			"modifier_no_damage"
-			{
-				"Duration"		"%duration"
-				"IsHidden"	"1"
-			}
-			"modifier_time_warp_7_1_phased"
-			{
-				"Passive"	"0"
-				"IsHidden"	"1"
-
-				"EffectName"		"particles/units/heroes/hero_puck/epoch_glyph_7_1.vpcf"
-				"EffectAttachType"	"attach_origin"
-
-				"OnCreated"
-				{
-
-					"RunScript"
-					{
-						"ScriptFile"		"items/special_item_effects.lua"
-						"Function"			"wraith_phase"
-						"target"			"TARGET"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"		"items/special_item_effects.lua"
-						"Function"			"wraith_phase_back"
-						"target"			"TARGET"
-					}
-				}
-				"States"
-				{
-					"MODIFIER_STATE_ATTACK_IMMUNE"			"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_MAGIC_IMMUNE"			"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_UNSELECTABLE"			"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_NO_HEALTH_BAR"			"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_ROOTED"					"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_DISARMED"				"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-		}
-	}
-
-	"time_warp_dummy"
-	{
-		// General
-		//-------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"pugna_nether_blast"
-
-		// Casting
-		//-------------------------------------------------------
-		"AbilityCastRange"				"1000"
-		"AbilityCastPoint"				"0"
-
-		// Time
-		//-------------------------------------------------------
-		"AbilityCooldown"				"0"
-
-
-		// Damage.
-		//-------------------------------------------------------
-
-		// Cost
-		//-------------------------------------------------------
-		"AbilityManaCost"				"0"
-
-		// Special
-		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"start_radius"				"350 350 350 350"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"end_radius"				"350 350 350 350"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"range"						"1000 1100 1200 1300 1400 1500 1600"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"speed"						"700 700 700 700"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"damage"					"90 215 340 465 590 715 830"
-			}
-		}
-
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"scripts/vscripts/heroes/obsidian_destroyer/epoch_3_e.lua"
-				"Function"		"fire_main_orb"
-				"speed"			"%speed"
-				"radius"		"%start_radius"
-				"range"			"%range"
-				"Target"		"POINT"
-			}
-		}
-
-		"OnProjectileHitUnit"
-		{
-			"DeleteOnHit"	"0"
-
-	        "RunScript"
-	        {
-	        	"ScriptFile"	"scripts/vscripts/heroes/obsidian_destroyer/epoch_3_e.lua"
-	        	"Function"		"onProjectileHit"
-	        	"damage"		"%damage"
-	        	"Target"		"TARGET"
-	        }
-		}
-	}
-
 	"eternity_flood"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_AOE"
@@ -51722,7 +51447,12 @@
 		//-------------------------------------------------------
 		"precache"
 		{
-
+			"particle"				"particles/roshpit/epoch/time_binder_projectile_hellfire_linear.vpcf"
+			"particle"				"particles/units/heroes/hero_abaddon/abaddon_aphotic_shield_explosion.vpcf"
+			"particle"				"particles/units/heroes/hero_wisp/tether_green.vpcf"
+			"particle"				"particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_arcane_orb.vpcf"
+			"particle"				"particles/econ/items/antimage/antimage_weapon_basher_ti5/time_bind_damage.vpcf"
+			"model"					"models/items/enigma/eidolon/enigma_seer_of_infinity_space_eidolon/enigma_seer_of_infinity_space_eidolon.vmdl"
 		}
 
 		// Casting
@@ -51821,7 +51551,10 @@
 		//-------------------------------------------------------
 		"precache"
 		{
-
+			"particle"		"particles/roshpit/epoch/epoch_c_b_buff_amp_damage.vpcf"
+			"particle"		"particles/items2_fx/refresher.vpcf"
+			"particle"		"particles/roshpit/epoch/v2_genesis_orb.vpcf"
+			"particle"		"particles/roshpit/epoch/epoch_a_b_effect.vpcf"
 		}
 
 		// Casting
@@ -51888,7 +51621,9 @@
 		//-------------------------------------------------------
 		"precache"
 		{
-
+			"particle"		"particles/units/heroes/hero_oracle/oracle_false_promise_cast.vpcf"
+			"particle"		"particles/units/heroes/hero_puck/time_warp.vpcf"
+			"particle"		"particles/units/heroes/hero_alchemist/epoch_rune_a_d_concoction_projectile.vpcf"
 		}
 
 		// Casting
@@ -51924,6 +51659,35 @@
 			}
 		}
 	}
+
+	"epoch_eternity_flood"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_AOE"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/obsidian_destroyer/ability_scripts/epoch_eternity_flood.lua"
+		"AbilityType"            		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"AbilityTextureName"			"obsidian_destroyer/lucent_gate_icons/obsidian_destroyer_astral_imprisonment"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AOERadius"						"%radius"
+		"precache"
+		{
+			"soundfile"	"soundevents/game_sounds_epoch.vsndevts"
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"radius"	"500"
+			}
+		}
+	}
+
+
 
 
 	"epoch_rune_q_1"

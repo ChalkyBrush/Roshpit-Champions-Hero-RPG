@@ -292,7 +292,7 @@
 		"Ability3"	"epoch_distortion_orb"
 		"Ability4"	"generic_hidden"
 		"Ability5"	"generic_hidden"
-		"Ability6"	"eternity_flood"
+		"Ability6"	"epoch_eternity_flood"
 		"Ability7"	""
 		"Ability8"	""
 		"Ability9"	""
