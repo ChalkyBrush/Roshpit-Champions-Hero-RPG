@@ -51684,6 +51684,31 @@
 				"var_type"	"FIELD_INTEGER"
 				"radius"	"500"
 			}
+			"02"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"damage"	"100 350 600 850 1100 1350 1600"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"damage_sum_attrs"	"1"
+			}
+			"04"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"cast_range"	"800 900 1000 1100 1200 1300 1400"
+			}
+			"05"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"cooldown"	"16 15 14 13 12 11 10"
+			}
+			"06"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"freeze_duration"	"2.4 2.6 2.8 3.0 3.2 3.4 3.6"
+			}
 		}
 	}
 

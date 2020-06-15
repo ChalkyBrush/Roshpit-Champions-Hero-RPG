@@ -102,18 +102,20 @@ function epoch_genesis_orb:OnProjectileHit_ExtraData(target, vLocation, extraDat
 	local caster = self:GetCaster()
 	local damage = self:CalculateImpactDamage()
 	if target:HasModifier("modifier_epoch_time_bind") then
-		DeepPrintTable(extraData)
 		extraData.bounces = extraData.bounces - 1
 		extraData[target:GetEntityIndex()] = 1
 		extraData.speed = extraData.speed + self:GetSpecialValueFor("projectile_speed_gain")
 		local next_target = nil
 		local q_ability = caster:GetAbilityByIndex(DOTA_Q_SLOT)
 		next_target = q_ability:FindNextTargetForW(target, extraData)
-		if next_target and extraData.bounces >= 0 then
+		if next_target and extraData.bounces > 0 then
 			self:MainProjectile(target, next_target, extraData)
 		end
 	end
-	EmitSoundOn("Epoch.GenesisOrb.Impact", target)
+    local limitKey = caster:GetEntityIndex().."_genesis_orb_sound"
+    Util.Common:LimitPerTime(3, 0.3, limitKey, function()
+		EmitSoundOn("Epoch.GenesisOrb.Impact", target)
+	end)
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
 	self:W1()
 	self:W3()
