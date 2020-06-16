@@ -54,7 +54,7 @@ end
 function epoch_genesis_orb:OnAbilityPhaseStart()
 	local ability = self
 	local caster = self:GetCaster()
-	StartAnimation(caster, {duration = 0.4, activity = ACT_DOTA_CAST_ABILITY_2, rate = 1.7})
+	StartAnimation(caster, {duration = 0.4, activity = ACT_DOTA_CAST_ABILITY_3, rate = 1.7})
 	EmitSoundOn("Epoch.GenesisOrb.ProjectileCast", caster)
 	return true
 end

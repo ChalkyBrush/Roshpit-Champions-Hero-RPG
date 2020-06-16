@@ -337,7 +337,7 @@
                               "value0"        "sounds/weapons/hero/void_spirit/remnant_target.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "0.72000"  }
+                    "volume"            {   "value"     "0.52000"  }
                     "pitch_rand_min"    {   "value"     "-0.03000"  }
                     "pitch_rand_max"    {   "value"     "0.03000"  }
                     "pitch"             {   "value"     "1.150000"  }
@@ -370,7 +370,7 @@
                               "value0"        "sounds/weapons/hero/faceless_void/time_dilation_cast.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "0.72000"  }
+                    "volume"            {   "value"     "0.62000"  }
                     "pitch_rand_min"    {   "value"     "-0.03000"  }
                     "pitch_rand_max"    {   "value"     "0.03000"  }
                     "pitch"             {   "value"     "1.30000"  }

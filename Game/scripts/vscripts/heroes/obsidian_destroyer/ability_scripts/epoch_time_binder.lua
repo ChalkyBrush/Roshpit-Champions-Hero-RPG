@@ -20,7 +20,7 @@ function epoch_time_binder:GetBehaviorBase()
 end
 
 function epoch_time_binder:GetCastAnimation()
-	return ACT_DOTA_CAST_ABILITY_2
+	return ACT_DOTA_ATTACK
 end
 
 function epoch_time_binder:GetAbilitySlot()
@@ -51,7 +51,7 @@ function epoch_time_binder:OnAbilityPhaseStart()
 	local ability = self
 	local caster = self:GetCaster()
 	local target_position = self:GetCastPosition()
-	StartAnimation(caster, {duration = 0.7, activity = ACT_DOTA_CAST_ABILITY_2, rate = 0.94})
+	StartAnimation(caster, {duration = 0.7, activity = ACT_DOTA_ATTACK, rate = 1.64})
 
 	return true
 end
@@ -70,7 +70,7 @@ function epoch_time_binder:OnSpellStart()
 	local projectileParticle = "particles/roshpit/epoch/time_binder_projectile_hellfire_linear.vpcf"
 
 	local perpFV = WallPhysics:rotateVector(caster:GetForwardVector()*Vector(1,1,0), 2*math.pi/4)
-	local projectileOrigin = caster:GetAbsOrigin() + Vector(0,0,160) + (perpFV*40) + (caster:GetForwardVector()*40)
+	local projectileOrigin = caster:GetAttachmentOrigin(2) + caster:GetForwardVector()*40
 
 	local fv = ((target_position - projectileOrigin)*Vector(1,1,0)):Normalized()
 	local info =
@@ -579,7 +579,6 @@ function epoch_time_binder:FindNextTargetForW(target, extraData)
 			if ability.link_sets[i][target:GetEntityIndex()] then
 				local set = ability.link_sets[i]
 				for source, link in pairs(set) do
-					print(source)
 					if extraData[source] then
 					else
 						next_target = EntIndexToHScript(source)
