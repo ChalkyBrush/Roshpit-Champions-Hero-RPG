@@ -2259,32 +2259,6 @@ function GameState:FilterDamage(filterTable)
 	    	end
 	    end
     end
-	if victim:HasModifier("modifier_epoch_arcana_root") then
-		local modifier = victim:FindModifierByName("modifier_epoch_arcana_root")
-		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
-			local q_1_level = attacker:GetRuneValue("q", 1)
-			if q_1_level > 0 then
-				if attacker:HasAbility("epoch_arcana_ability") then
-					local affectedByQ1 = victim:FindModifierByName("modifier_epoch_arcana_q_1_effect")
-					if not affectedByQ1 then
-						----print("affectedByQ1 true")
-						attacker:FindAbilityByName("epoch_arcana_ability"):ApplyDataDrivenModifier(attacker, victim, "modifier_epoch_arcana_q_1_effect", {duration = 3})
-					end
-					-- attacker:FindAbilityByName("epoch_arcana_ability"):ApplyDataDrivenModifier(attacker, victim, "modifier_epoch_arcana_a_a_effect", {duration = 3})
-					local damage = filterTable["damage"]
-					-- filterTable["damage"] = 0
-					-- victim:Heal(damage, attacker)
-					if not victim.epochArcanaAA then
-						victim.epochArcanaAA = 0
-					end
-					----print("od q1 arcana test damage per hit Hit "..victim.epochArcanaAA)
-					----print("od q1 arcana test damage per hit Damage "..damage)
-					-- victim.epochArcanaAA = math.max(victim.epochArcanaAA,damage)
-					victim.epochArcanaAA = victim.epochArcanaAA + damage
-				end
-			end
-		end
-	end
 	if attacker:HasModifier("modifier_slipfinn_passive") then
 		if filterTable["entindex_inflictor_const"] then
 			local ability = EntIndexToHScript(filterTable["entindex_inflictor_const"])
@@ -3087,9 +3061,6 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_slipfinn_release_immunity") then
 		filterTable["damage"] = 0
 	end
-	if victim:HasModifier("modifier_epoch_glyph_5_a_little_shield") then
-		filterTable["damage"] = 0
-	end
 	Util.Modifier:SimpleEvent(victim, 'HPShieldTakeDamage', { MODIFIER_ROSHPIT_HP_SHIELD }, { damage = filterTable["damage"], victim = victim }, 
         function(result, data)
             filterTable["damage"] = math.max(filterTable["damage"] - result, 0)
@@ -3387,14 +3358,6 @@ function GameState:FilterDamage(filterTable)
 			if not victim:HasModifier("modifier_solunia_glyph_5_a_cooldown") then
 				filterTable["damage"] = victim:GetHealth() - 2
 				CustomAbilities:Protostar(victim)
-				death_prevented = true
-			end
-		end
-		if victim:HasModifier("modifier_epoch_glyph_5_a_effect") and not death_prevented then
-			if not victim:HasModifier("modifier_epoch_glyph_5_a_cooldown") then
-				--print("EpochTimeTravelGlyph shield trigger - game state")
-				filterTable["damage"] = victim:GetHealth() - 2
-				CustomAbilities:EpochTimeTravelGlyph(victim)
 				death_prevented = true
 			end
 		end

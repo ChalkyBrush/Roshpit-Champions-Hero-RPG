@@ -28,9 +28,9 @@ end
 function epoch_distortion_orb:GetAbilityTextureName()
 	local caster = self:GetCaster()
 	if caster:HasModifier("modifier_epoch_e_in_motion") then
-		return "epoch/epoch_w_4"
+		return "epoch/epoch_distortion_orb_alt"
 	else
-		return "elder_titan_natural_order"
+		return "epoch/epoch_distortion_orb"
 	end
 end
 

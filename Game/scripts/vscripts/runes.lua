@@ -1071,7 +1071,7 @@ function Runes:EquipArcana(hero, index)
 			Runes:EasySwapArcanaSkills(hero, 0, "blizzard", "sorceress_fire_arcana_q", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_obsidian_destroyer" then
-		hero:RemoveModifierByName("modifier_epoch_time_binder_passive")
+		hero:RemoveModifierByName("modifier_epoch_q_passive")
 		if index == 1 then
 			Runes:EasySwapArcanaSkills(hero, 0, "epoch_time_binder", "epoch_arcana_ability", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 		end

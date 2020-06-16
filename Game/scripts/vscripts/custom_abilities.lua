@@ -44,29 +44,6 @@ function CustomAbilities:StargazerSphereTakeDamage(caster, ability, unit, damage
 
 end
 
-function CustomAbilities:EpochTimeTravelGlyph(victim)
-	local modifier = victim:FindModifierByName("modifier_epoch_glyph_5_a")
-	local glyphUnit = modifier:GetCaster()
-	local glyph = modifier:GetAbility()
-
-	local inventoryUnit = victim.InventoryUnit
-	-- ability:ApplyDataDrivenModifier(inventoryUnit, victim, "modifier_epoch_glyph_5_a_cooldown", {duration = 15})
-
-	glyph:ApplyDataDrivenModifier(glyphUnit, victim, "modifier_epoch_glyph_5_a_cooldown", {duration = EPOCH_GLYPH_5_A_SECOND_LIFE_CD})
-	glyph:ApplyDataDrivenModifier(glyphUnit, victim, "modifier_epoch_glyph_5_a_little_shield", {duration = 2})
-
-	--print("EpochTimeTravelGlyph shield trigger - custom abilities")
-	EmitSoundOn("RPC.MagicImmuneBreakAttacker", victim)
-	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_faceless_void/faceless_void_backtrack.vpcf", victim, 2)
-	ProjectileManager:ProjectileDodge(victim)
-	victim:SetHealth(victim:GetMaxHealth())
-	victim:SetMana(victim:GetMaxMana())
-	victim:GetAbilityByIndex(DOTA_Q_SLOT):EndCooldown()
-	victim:GetAbilityByIndex(DOTA_W_SLOT):EndCooldown()
-	victim:GetAbilityByIndex(DOTA_E_SLOT):EndCooldown()
-	victim:GetAbilityByIndex(DOTA_R_SLOT):EndCooldown()
-end
-
 function CustomAbilities:UpdateAuriunCursorPosition(msg)
 	local auriun = EntIndexToHScript(msg.auriun)
 	auriun.cursorPos = Vector(msg.xPos, msg.yPos)
