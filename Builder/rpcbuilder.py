@@ -266,7 +266,17 @@ class RPCBuilder:
             # if color was not found immediately then it's partial name
             keywords = const.split('_')
             for const_name, const_value in self._constants['colors'].items():
-                if all(re.search(f'(?<![A-Z]){keyword}(?![A-Z])', const_name) for keyword in keywords):
+                found = True
+                for keyword in keywords:
+                    start = const_name.find(keyword)
+                    end = start + len(keyword)
+                    if start == -1 or \
+                       not (start == 0 or const_name[start-1] == '_') or \
+                       not (end == len(const_name) or const_name[end] == '_'):
+                        found = False
+                        break
+                        
+                if found:
                     color = const_value
                     break
             else:
