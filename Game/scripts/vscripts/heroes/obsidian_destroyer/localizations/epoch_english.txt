@@ -108,26 +108,24 @@
         "DOTA_Tooltip_ability_epoch_rune_e_4_property_two"              "Rift Count"
         "DOTA_Tooltip_ability_epoch_rune_e_4_suffix_two"                ""
 		
-		"DOTA_Tooltip_ability_eternity_flood"									"Eternity Flood"
-		"DOTA_Tooltip_ability_eternity_flood_Description"						"Element: <font color=\"#B5FFB7\">Temporal</font><br>Creates a Universe at the target location, vacuuming nearby matter and freezing it in time. Upon collapse, it explodes dealing damage and launching all matter backwards and freezing them in time."
-		"DOTA_Tooltip_ability_eternity_flood_Lore"								""
-		"DOTA_Tooltip_ability_eternity_flood_damage"							"DAMAGE:"
-    	"DOTA_Tooltip_ability_eternity_flood_duration"							"LOCK DURATION:"
-    	"DOTA_Tooltip_ability_eternity_flood_stun_duration"						"STUN DURATION:"
-    	"DOTA_Tooltip_ability_eternity_flood_radius"							"RADIUS:"
+		"DOTA_Tooltip_ability_epoch_eternity_flood"									"Eternity Flood"
+		"DOTA_Tooltip_ability_epoch_eternity_flood_Description"						"Element: <font color=\"#B5FFB7\">Temporal</font>/<font color=\"#C25DFC\">Cosmic</font><br>Creates a Universe at the target location while channeling, vacuuming nearby matter and freezing it in time. Upon successful cast it collapses, dealing damage and launching all matter backwards and freezing them in time."
+		"DOTA_Tooltip_ability_epoch_eternity_flood_Lore"								""
+		"DOTA_Tooltip_ability_epoch_eternity_flood_damage"							"BASE DAMAGE:"
+    	"DOTA_Tooltip_ability_epoch_eternity_flood_damage_sum_attrs"				"ADDITIONAL DAMAGE SUM OF ALL ATTRIBUTES:"
+    	"DOTA_Tooltip_ability_epoch_eternity_flood_freeze_duration"						"FREEZE DURATION:"
+    	"DOTA_Tooltip_ability_epoch_eternity_flood_radius"							"RADIUS:"
 
-		"DOTA_Tooltip_modifier_eternity_flood_locked"							"Time Lock"
-		"DOTA_Tooltip_modifier_eternity_flood_locked_description" 				"Frozen in time."
+		"DOTA_Tooltip_modifier_epoch_r_freeze"							"Time Lock"
+		"DOTA_Tooltip_modifier_epoch_r_freeze_description" 				"Frozen in time."
 
-    	"DOTA_Tooltip_ability_epoch_rune_r_1"							"[R1] Tempo"
-    	"DOTA_Tooltip_ability_epoch_rune_r_1_Description"				"Casting @Ability4 applies a buff that increases attack damage by a % based on your current mana. This buff's base duration is 10 seconds."
+        "DOTA_Tooltip_modifier_epoch_r_vacuum"                          "Eternity Flood"
+        "DOTA_Tooltip_modifier_epoch_r_vacuum_description"              "Caught in a Black Hole."
+
+    	"DOTA_Tooltip_ability_epoch_rune_r_1"							"[R1] Tides of Time"
+    	"DOTA_Tooltip_ability_epoch_rune_r_1_Description"				"Passively increases Attack Power based on Epoch's Current Mana Pool."
     	"DOTA_Tooltip_ability_epoch_rune_r_1_property_one"				"Damage Increase %"
     	"DOTA_Tooltip_ability_epoch_rune_r_1_suffix"					" for every 1% of current mana"
-    	"DOTA_Tooltip_ability_epoch_rune_r_1_property_two"				"Additional buff duration"
-    	"DOTA_Tooltip_ability_epoch_rune_r_1_suffix_two"				" seconds"
-
-    	"DOTA_Tooltip_modifier_eternity_flood_r_1_visible"					"Eternal Rise"
-    	"DOTA_Tooltip_modifier_eternity_flood_r_1_visible_Description"		"Increased attack power based on Mana."
 
     	"DOTA_Tooltip_ability_epoch_rune_r_2"							"[R2] Guardian of Ages"
     	"DOTA_Tooltip_ability_epoch_rune_r_2_Description"				"Passively increases Epoch Guardian's attack speed and attack range."
@@ -136,25 +134,17 @@
     	"DOTA_Tooltip_ability_epoch_rune_r_2_property_two"				"Attack speed"
     	"DOTA_Tooltip_ability_epoch_rune_r_2_suffix_two"				""
 
-    	"DOTA_Tooltip_modifier_epoch_r_2_buff"						"Guardian of Ages"
-    	"DOTA_Tooltip_modifier_epoch_r_2_buff_Description"			"Increased attack range and speed."
-
-
     	"DOTA_Tooltip_ability_epoch_rune_r_3"							"[R3] Time Crackle"
-    	"DOTA_Tooltip_ability_epoch_rune_r_3_Description"				"Enemies frozen in time by @Ability4 are eroded away every 0.32 seconds."
-    	"DOTA_Tooltip_ability_epoch_rune_r_3_property_one"				"Damage Per Tick"
-    	"DOTA_Tooltip_ability_epoch_rune_r_3_suffix"					"% of attack damage"
+    	"DOTA_Tooltip_ability_epoch_rune_r_3_Description"				"Epoch Guardian's Attack Power increases the damage of Eternity Flood. Enemies frozen in time by @Ability4 are eroded away every 0.33 seconds based on the initial damage."
+    	"DOTA_Tooltip_ability_epoch_rune_r_3_property_one"				"Additional Eternity Flood Damage"
+    	"DOTA_Tooltip_ability_epoch_rune_r_3_suffix"					"% of Attack Power"
+        "DOTA_Tooltip_ability_epoch_rune_r_3_property_two"              "Crackle Damage"
+        "DOTA_Tooltip_ability_epoch_rune_r_3_suffix_two"                "% of initial damage"
 
-    	"DOTA_Tooltip_modifier_eternity_flood_locked_rune_r_3_exploding"		"Time Crackle"
-    	"DOTA_Tooltip_modifier_eternity_flood_locked_rune_r_3_exploding_Description" "Exploding for a percentage of Epoch Guardian's attack damage"	
-
-    	"DOTA_Tooltip_ability_epoch_rune_r_4"							"[R4] Tides of Time"
+    	"DOTA_Tooltip_ability_epoch_rune_r_4"							"[R4] Boundless Generation"
     	"DOTA_Tooltip_ability_epoch_rune_r_4_Description"				"Increases all <font color=\"#B5FFB7\">Temporal</font> damage."
     	"DOTA_Tooltip_ability_epoch_rune_r_4_property_one"				"Temporal Damage Amp"
-    	"DOTA_Tooltip_ability_epoch_rune_r_4_suffix"					"%"	
-
-    	//"DOTA_Tooltip_modifier_epoch_rune_r_4_visible"					"Tides of Time"
-    	//"DOTA_Tooltip_modifier_epoch_rune_r_4_visible_Description"		"Gaining Attack Damage"
+    	"DOTA_Tooltip_ability_epoch_rune_r_4_suffix"					"%"
 
 		//Arcanas
 		

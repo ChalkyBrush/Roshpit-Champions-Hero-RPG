@@ -51675,6 +51675,11 @@
 		"precache"
 		{
 			"soundfile"	"soundevents/game_sounds_epoch.vsndevts"
+			"particle"	"particles/econ/items/enigma/enigma_world_chasm/time_ulti.vpcf"
+			"particle"	"particles/roshpit/epoch/eternity_flood_explosion.vpcf"
+			"particle"	"particles/units/heroes/hero_oracle/oracle_false_promise_stars.vpcf"
+			"particle"	"particles/econ/items/morphling/morphling_crown_of_tears/morphling_crown_waveform_dmg_flash.vpcf"
+			"particle"	"particles/status_fx/status_effect_faceless_chronosphere.vpcf"
 		}
 
 		"AbilitySpecial"
@@ -52005,11 +52010,6 @@
 				"var_type"				"FIELD_FLOAT"
 				"property_one"			"0.02"
 			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.5"
-			}
 		}
 	}
 
@@ -52034,22 +52034,6 @@
 				"property_two"			"5"
 			}
 		}
-
-		"Modifiers"
-		{
-			"modifier_epoch_r_2_buff"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"0"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "%property_one"
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%property_two"
-				}
-			}
-		}
 	}
 
 	"epoch_rune_r_3"
@@ -52066,17 +52050,27 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"6"
+				"property_one"			"2"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"4"
+				"property_one"			"4"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"4"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
 				"element_one"			"6"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_two"			"8"
 			}
 		}
 	}
@@ -52098,7 +52092,6 @@
 			}
 		}
 	}
-
 
 
 
@@ -108060,6 +108053,24 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "0.1"
+				}				
+			}
+			"modifier_master_attack_range_buff"
+			{
+				"IsHidden"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "1"
+				}				
+			}
+			"modifier_master_attack_range_negative_buff"
+			{
+				"IsHidden"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "-1"
 				}				
 			}
 			"modifier_take_1_damage_only"

@@ -643,6 +643,11 @@
 		"precache"
 		{
 			"soundfile"	"soundevents/game_sounds_epoch.vsndevts"
+			"particle"	"particles/econ/items/enigma/enigma_world_chasm/time_ulti.vpcf"
+			"particle"	"particles/roshpit/epoch/eternity_flood_explosion.vpcf"
+			"particle"	"particles/units/heroes/hero_oracle/oracle_false_promise_stars.vpcf"
+			"particle"	"particles/econ/items/morphling/morphling_crown_of_tears/morphling_crown_waveform_dmg_flash.vpcf"
+			"particle"	"particles/status_fx/status_effect_faceless_chronosphere.vpcf"
 		}
 
 		"AbilitySpecial"

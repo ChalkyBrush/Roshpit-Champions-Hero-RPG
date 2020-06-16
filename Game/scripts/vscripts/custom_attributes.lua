@@ -595,6 +595,7 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitAttributes()
 	end
 	self:CalculateAndSaveMasterMovespeedBuff()
 	self:CalculateAndSaveMasterGreenDamageBuff()
+	self:CalculateAndSaveMasterAttackRangeBuff()
 	self:CalculateAndSaveMasterHealthRegen()
 end
 
@@ -3908,6 +3909,27 @@ function CDOTA_BaseNPC:CalculateAndSaveMasterGreenDamageBuff()
 	else
 		self:RemoveModifierByName("modifier_master_green_damage_negative_buff")
 		self:RemoveModifierByName("modifier_master_green_damage_buff")
+	end
+end
+
+function CDOTA_BaseNPC:CalculateAndSaveMasterAttackRangeBuff()
+	local atk_range_buff = 0
+	Util.Modifier:SimpleEvent(self, 'GetRoshpitMasterAttackRange', { MODIFIER_ROSHPIT_MASTER_ATTACK_RANGE }, { }, 
+		function(result, data)
+			atk_range_buff = atk_range_buff + result
+		end
+	)
+	if atk_range_buff > 0 then
+		Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_master_attack_range_buff", {})
+		self:SetModifierStackCount("modifier_master_attack_range_buff", self, atk_range_buff)
+		self:RemoveModifierByName("modifier_master_attack_range_negative_buff")
+	elseif atk_range_buff < 0 then
+		Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_master_attack_range_negative_buff", {})
+		self:SetModifierStackCount("modifier_master_attack_range_negative_buff", self, atk_range_buff*-1)
+		self:RemoveModifierByName("modifier_master_attack_range_buff")
+	else
+		self:RemoveModifierByName("modifier_master_attack_range_negative_buff")
+		self:RemoveModifierByName("modifier_master_attack_range_buff")
 	end
 end
 

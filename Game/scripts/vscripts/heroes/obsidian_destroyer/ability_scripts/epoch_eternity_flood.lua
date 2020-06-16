@@ -91,6 +91,7 @@ function epoch_eternity_flood:OnChannelFinish(interrupted)
     	local caster = self:GetCaster()
     	local ability = self
     	local position = self:GetCastPosition()
+    	ability.r_3_level = caster:GetRuneValue("r", 3)
     	caster:RemoveModifierByName("modifier_channel_start")
     	StopSoundEvent("Epoch.EternityFlood.BlackHole.LP", caster)
     	caster:RemoveModifierByName("modifier_epoch_r_channeling")
@@ -119,20 +120,26 @@ function epoch_eternity_flood:OnChannelFinish(interrupted)
 				ParticleManager:DestroyParticle(pfx, false)
 				ParticleManager:ReleaseParticleIndex(pfx)
 			end)
-			local damage = self:GetSpecialValueFor("damage") + self:GetSpecialValueFor("damage_sum_attrs")*caster:GetSumOfAllAttributes()
+			local damage = self:GetBaseDamage()
 			local freeze_duration = self:GetSpecialValueFor("freeze_duration")
 			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, ability:GetAOERadius(), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false)
 			if #enemies > 0 then
 				for _, enemy in pairs(enemies) do
-					Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_TIME, RPC_ELEMENT_COSMIC)
+					Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_TIME, RPC_ELEMENT_COSMOS)
 					local lift_direction = ((enemy:GetAbsOrigin() - position)*Vector(1,1,0)):Normalized()
-					ability.freeze_table[enemy:GetEntityIndex()] = {lift_speed = 22, lift_direction = lift_direction, is_frozen = false, is_falling = false}
+					ability.freeze_table[enemy:GetEntityIndex()] = {lift_speed = 22, lift_direction = lift_direction, is_frozen = false, is_falling = false, interval = 0}
 					enemy:AddNewModifier(caster, ability, "modifier_epoch_r_freeze", {duration = freeze_duration})
 				end
 			end
 			Filters:CastSkillArguments(BASE_ABILITY_R, caster)
 		end
     end
+end
+
+function epoch_eternity_flood:GetBaseDamage()
+	local caster = self:GetCaster()
+	local damage = self:GetSpecialValueFor("damage") + self:GetSpecialValueFor("damage_sum_attrs")*caster:GetSumOfAllAttributes() + caster:GetRuneValue("r", 3)*OverflowProtectedGetAverageTrueAttackDamage(caster)*(EPOCH_R3_DMG_ADDED_PCT_ATTACK_PWR/100)
+	return damage
 end
 
 -- PASSIVE
@@ -154,10 +161,22 @@ function modifier_epoch_r_passive:OnCreated()
 		return false
 	end
     self:SetSpecialTypes({ 
-        RPC_ELEMENT_TIME
+        RPC_ELEMENT_TIME,
+        MODIFIER_ROSHPIT_MASTER_GREEN_DMG,
+        MODIFIER_ROSHPIT_MASTER_ATTACK_RANGE,
+        MODIFIER_ROSHPIT_MASTER_AS
     })
 end
 
+function modifier_epoch_r_passive:GetRoshpitMasterAttackRange()
+	local caster = self:GetCaster()
+	return caster:GetRuneValue("r", 2)*EPOCH_R2_ATTACK_RANGE
+end
+
+function modifier_epoch_r_passive:GetRoshpitMasterAS()
+	local caster = self:GetCaster()
+	return caster:GetRuneValue("r", 2)*EPOCH_R2_ATTACK_SPEED 
+end
 
 function modifier_epoch_r_passive:DeclareFunctions()
 	local funcs = {
@@ -165,6 +184,17 @@ function modifier_epoch_r_passive:DeclareFunctions()
 	}
 	return funcs
 end
+
+function modifier_epoch_r_passive:GetRoshpitMasterGreenDMG()
+	local caster = self:GetCaster()
+	local mana_pct = math.floor((caster:GetMana()/caster:GetMaxMana())*100)
+	return mana_pct*caster:GetRuneValue("r", 1)*EPOCH_R1_DMG_PCT
+end
+
+function modifier_epoch_r_passive:GetRoshpitElementalDmgBonus()
+	return self:GetCaster():GetRuneValue("r", 4)*(EPOCH_R4_TIME_AMP/100)
+end
+
 
 -- EPOCH R CHANNEL
 
@@ -316,6 +346,16 @@ function modifier_epoch_r_freeze:OnIntervalThink()
 	end
 	local caster = self:GetCaster()
 	local ability = self:GetAbility()
+	if ability.r_3_level > 0 then
+		if not ability.freeze_table[target:GetEntityIndex()].is_falling then
+			ability.freeze_table[target:GetEntityIndex()].interval = ability.freeze_table[target:GetEntityIndex()].interval + 1
+			if ability.freeze_table[target:GetEntityIndex()].interval%11 == 0 then
+			  local damage = ability:GetBaseDamage()*ability.r_3_level*(EPOCH_R3_CRACKLE_DMG_PCT_INITIAL/100)
+			  Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_R, RPC_ELEMENT_TIME, RPC_ELEMENT_COSMOS)
+			  CustomAbilities:QuickAttachParticle("particles/econ/items/morphling/morphling_crown_of_tears/morphling_crown_waveform_dmg_flash.vpcf", target, 1)
+			end
+		end
+	end
 	if ability.freeze_table[target:GetEntityIndex()].is_frozen then
 		return false
 	end

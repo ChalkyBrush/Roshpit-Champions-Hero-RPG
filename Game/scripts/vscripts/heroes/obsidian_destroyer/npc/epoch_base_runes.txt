@@ -289,11 +289,6 @@
 				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% EPOCH_R1_DMG_PCT %>"
 			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% EPOCH_R1_EXTRA_DURATION %>"
-			}
 		}
 	}
 
@@ -318,22 +313,6 @@
 				"property_two"			"<% EPOCH_R2_ATTACK_SPEED %>"
 			}
 		}
-
-		"Modifiers"
-		{
-			"modifier_epoch_r_2_buff"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"0"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "%property_one"
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%property_two"
-				}
-			}
-		}
 	}
 
 	"epoch_rune_r_3"
@@ -350,17 +329,27 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% EPOCH_R3_DMG_MULTI_PCT %>"
+				"property_one"			"<% EPOCH_R3_DMG_ADDED_PCT_ATTACK_PWR %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"4"
+				"property_one"			"<% EPOCH_R3_CRACKLE_DMG_PCT_INITIAL %>"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"element_one"			"6"
+				"base_ability"			"4"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"<% RPC_ELEMENT_TIME %>"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_two"			"<% RPC_ELEMENT_COSMOS %>"
 			}
 		}
 	}
@@ -378,8 +367,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% EPOCH_R4_TIME_AMP * 100 %>"
+				"property_one"			"<% EPOCH_R4_TIME_AMP %>"
 			}
 		}
 	}
-
