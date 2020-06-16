@@ -4,7 +4,7 @@ from pathlib import Path
 from time import sleep, time
 from typing import Match, List, Optional, Dict, NoReturn
 
-from Builder.lua_classes import LuaNumber, LuaTable, LuaConstant, try_parse
+from Builder.lua_classes import *
 from Builder.settings import SettingsManager
 from Builder.messages import MsgType, print_msg
 from Builder.kv2json import kv2json
@@ -92,7 +92,10 @@ class RPCBuilder:
             # color all strings enclosed in <RAINBOW> tag
             regex = settings.get_pattern('rainbow')
             colors = settings.get_pattern_misc('rainbow', 'colors')
-            content = re.sub(regex, lambda match: self._color_text(match, colors), content)
+            content = re.sub(regex, lambda match: self._process_colors(match, colors), content)
+            # resolve color constants in <font> tags
+            regex = settings.get_pattern('font')
+            content = re.sub(regex, self._process_colors, content)
             dst.write(content)
 
     def _parse_constants(self, path: Path) -> Dict[str, LuaConstant]:
@@ -112,9 +115,11 @@ class RPCBuilder:
                     self._validate_const(key, parsed)
         return result
 
-    def _validate_const(self, name, const) -> bool:
+    def _validate_const(self, name: str, const: LuaConstant) -> bool:
         try:
             if type(const) == LuaTable and type(const[0]) == LuaNumber:
+                # detect typos like      ↓
+                # {1000, 2000, 3000, 40000, 5000}
                 cmp = None
                 cmp_name = ''
                 index = -1
@@ -126,11 +131,16 @@ class RPCBuilder:
                         elif const[i] < const[i+1]:
                             cmp = lambda x, y: y >= x
                             cmp_name = 'greater'
-                    else:
-                        if not cmp(const[i], const[i+1]):
-                            print_msg(f'Inconsistency detected!\n{name} = {const}\nValue at position [{i+2}] ({const[i+1]}) is expected to be {cmp_name} than or equal to the previous value ({const[i]})', MsgType.WARNING)
-                            return False
+                    elif not cmp(const[i], const[i+1]):
+                        print_msg(f'Inconsistency detected!\n{name} = {const}\nValue at position [{i+2}] ({const[i+1]}) is expected to be {cmp_name} than or equal to the previous value ({const[i]})', MsgType.WARNING)
+                        return False
+            elif type(const) == LuaString:
+                # check if string constant is color
+                if "COLOR" in name and re.match(r"#[\dA-Fa-f]{6}", const):
+                    self._constants['colors'][name] = const
+                return True
         except Exception as e:
+            # just in case we get IndexError or smth
             print_msg(f'Oopsie\n{e}', MsgType.ERROR)
         
         return True
@@ -140,7 +150,8 @@ class RPCBuilder:
         settings = self._settings
         paths = settings.get_paths('constants')
         overwrite = settings.get_flag('overwrite_constants')
-        result = {}
+        result = {'colors': {}}
+        self._constants = result
         for path in paths:
             self._file_stats[path] = path.stat().st_mtime
             temp = self._parse_constants(path)
@@ -152,9 +163,6 @@ class RPCBuilder:
                     result[key] = temp[key]
                 else:
                     print_msg(f'Duplicate constant definition for {key}:\nsource:"{path}"', MsgType.WARNING)
-
-
-        self._constants = result
 
     def _load_replacements(self) -> None:
         # creates dictionary {'FILE_NAME': Path, ...}
@@ -195,7 +203,7 @@ class RPCBuilder:
             try:
                 kv2json(content)
             except Exception as e:
-                print_msg(f'{e}', MsgType.ERROR)
+                print_msg(f'Could not convert KeyValues to JSON: {file_path}\n{e}', MsgType.ERROR)
                 print_msg(f'Skipping {file_name}', MsgType.WARNING)
                 return ''
             return f'\n{content}'
@@ -229,14 +237,39 @@ class RPCBuilder:
 
         return result.to_string()
 
-    def _color_text(self, match: Match, colors: List[str]) -> str:
-        # colors text char by char
-        text = match.group(1)
-        result = ''
-        index = 0
-        for char in text:
-            result += f'<font color=\\"{colors[index]}\\">{char}</font>'
-            index = (index + 1) % len(colors)
+    def _process_colors(self, match: Match, colors: Optional[List[str]] = None) -> str:
+        # colors text char by char or resolves constants in <font> tags
+        if colors:
+            text = match.group(1)
+            result = []
+            index = 0
+            for char in text:
+                result.append(f'<font color=\\"{colors[index]}\\">{char}</font>')
+                index = (index + 1) % len(colors)
+            return ''.join(result)
+        # if colors were not specified then it's <font> tag
+        result = match.group(0)
+        attributes = match.group(1).strip()
+        if "color" not in attributes:
+            # ignore if it doesn't need coloring
+            return match.group(0)
+                  
+        pattern = self._settings.get_pattern_misc('font', 'color_attribute')
+        color_attribute = re.search(pattern, attributes)
+        if not color_attribute:
+            # ignore if color attribute uses literal value
+            return result
+        
+        const = color_attribute.group(1)
+        color = self._constants['colors'].get(const)
+        if not color:
+            # if color was not found immediately then it's partial name
+            keywords = const.split('_')
+            for const_name, const_value in self._constants['colors'].items():
+                if all(re.search(f'(?<![A-Z]){keyword}(?![A-Z])', const_name) for keyword in keywords):
+                    color = const_value
+                    break
+            else:
+                print_msg(f'Font color {const} not found!', MsgType.ERROR)
+        result = result.replace(const, f"'{color}'")
         return result
-
-

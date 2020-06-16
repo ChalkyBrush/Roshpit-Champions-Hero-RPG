@@ -54,6 +54,11 @@
         "file": {
             "start": "^[\t ]+##",
             "end": "##"
+        },
+        "font": {
+            "start": "<font ([^>]+)>",
+            "end": "</font>",
+            "color_attribute": "color=([A-Z_]+)"
         }
     },
     "output": {
