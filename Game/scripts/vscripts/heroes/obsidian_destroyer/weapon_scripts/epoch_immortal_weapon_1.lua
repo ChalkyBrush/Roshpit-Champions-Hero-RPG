@@ -1,5 +1,6 @@
 require('items/lua/weapon/base_weapon')
 require('npc_abilities/base_modifier')
+require('heroes/obsidian_destroyer/epoch_constants')
 
 item_rpc_epoch_immortal_weapon_1 = class(BaseWeapon, nil, BaseWeapon)
 local itemClass = item_rpc_epoch_immortal_weapon_1

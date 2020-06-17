@@ -6634,7 +6634,7 @@
     	"DOTA_Tooltip_ability_epoch_rune_q_2_arcana1_property_one"				"All Attributes Increase"
     	"DOTA_Tooltip_ability_epoch_rune_q_2_arcana1_suffix"					"%"
 
-    	"DOTA_Tooltip_ability_epoch_rune_q_3_arcana1"							"[Q3] Eternal Sentinel"
+    	"DOTA_Tooltip_ability_epoch_rune_q_3_arcana1"							"[Q3] Chronology"
     	"DOTA_Tooltip_ability_epoch_rune_q_3_arcana1_Description"				"Passively increases Attack Damage and Spell Pierce."
     	"DOTA_Tooltip_ability_epoch_rune_q_3_arcana1_property_one"				"Attack Damage Bonus"
     	"DOTA_Tooltip_ability_epoch_rune_q_3_arcana1_suffix"					""
