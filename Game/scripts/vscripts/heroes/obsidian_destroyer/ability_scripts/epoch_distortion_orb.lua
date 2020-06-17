@@ -127,7 +127,9 @@ function epoch_distortion_orb:OnProjectileHit_ExtraData(target, vLocation, extra
 	local ability = self
 	if extraData.projectileType == 1 then
 		if not target then
-			ability:StartCooldown(ability:GetCooldownBase(-1))
+			if not caster:HasModifier('modifier_epoch_immortal_weapon_3') then
+				ability:StartCooldown(ability:GetCooldownBase(-1))
+			end
 			caster:RemoveModifierByName("modifier_epoch_e_in_motion")
 			return true
 		else
