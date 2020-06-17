@@ -3304,6 +3304,21 @@ function GameState:FilterDamage(filterTable)
 	--LETHAL CHECK
 	if filterTable["damage"] >= victim:GetHealth() then
 		local death_prevented = false
+		local death_prevented_modifier = nil
+		Util.Modifier:SimpleEvent(victim, 'RoshpitPreventDeathCheck', { MODIFIER_ROSHPIT_PREVENT_DEATH }, {attacker = attacker, victim = victim, damage = filterTable["damage"], damageType = filterTable["damagetype_const"]}, 
+			function(result, data)
+				if not death_prevented then
+					if result then
+						death_prevented = true
+						death_prevented_modifier = result
+						filterTable["damage"] = 0
+					end
+				end
+			end
+		)
+		if death_prevented_modifier then
+			death_prevented_modifier:OnDeathPrevented()
+		end
 		if victim:HasModifier('modifier_armor_of_atlantis') then
 			if victim.equipped_gear[RPC_GEAR_SLOT_BODY]:GetGemValue("emerald") > 0 then
 				local reduction = victim.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_ARMOR_OF_ATLANTIS_GEM_EMERALD)

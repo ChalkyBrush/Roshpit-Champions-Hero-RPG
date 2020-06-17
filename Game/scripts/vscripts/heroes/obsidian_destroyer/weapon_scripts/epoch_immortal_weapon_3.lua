@@ -29,7 +29,7 @@ end
 function itemClass:RollProperty1(item_level)
 	self.newItemTable.property1 = 1
 	self.newItemTable.property1name = "immortal_weapon_3"
-	RPCItems:SetPropertyValuesSpecial(self, "★", "#item_property_"..self:RequiredHero().."_immortal_weapon", "#6EB788", 1, "#property_"..self:RequiredHero().."_immortal_weapon_description")
+	RPCItems:SetPropertyValuesSpecial(self, "★", "#item_property_"..self:RequiredHero().."_immortal_weapon3", "#6EB788", 1, "#property_"..self:RequiredHero().."_immortal_weapon3_description")
 end
 
 function itemClass:RollProperty2(item_level)
