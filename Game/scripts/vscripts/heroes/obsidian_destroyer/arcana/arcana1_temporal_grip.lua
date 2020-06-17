@@ -3,7 +3,7 @@ require('heroes/base_ability')
 epoch_temporal_grip = class(base_ability)
 
 modifier_epoch_arcana_q_passive = class(npc_base_modifier, nil, npc_base_modifier)
-LinkLuaModifier("modifier_epoch_arcana_q_passive", "heroes/obsidian_destroyer/ability_scripts/epoch_time_binder.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_epoch_arcana_q_passive", "heroes/obsidian_destroyer/arcana/arcana1_temporal_grip.lua", LUA_MODIFIER_MOTION_NONE)
 
 modifier_epoch_arcana_q_root = class(npc_base_modifier, nil, npc_base_modifier)
 LinkLuaModifier("modifier_epoch_arcana_q_root", "heroes/obsidian_destroyer/arcana/arcana1_temporal_grip.lua", LUA_MODIFIER_MOTION_NONE)
@@ -32,7 +32,7 @@ function epoch_temporal_grip:GetCastPoint()
 end
 
 function epoch_temporal_grip:GetCastRange()
-   return 1500 + (self:GetCaster():GetModifierStackCount("modifier_epoch_arcana_q4", caster)*EPOCH_ARCANA_Q4_RANGE)
+   return 1500 + (self:GetCaster():GetModifierStackCount("modifier_epoch_arcana_q4", caster)*EPOCH_ARCANA_Q4_CAST_RANGE)
 end
 
 function epoch_temporal_grip:GetCooldownBase(level)
@@ -167,6 +167,7 @@ function modifier_epoch_arcana_q_passive:OnCreated()
         return false
     end
     self:SetSpecialTypes({ 
+    	MODIFIER_ROSHPIT_OVERRIDE_ATTACK_EVENT,
     	MODIFIER_ROSHPIT_STRENGTH_PCT_BONUS,
     	MODIFIER_ROSHPIT_AGILITY_PCT_BONUS,
     	MODIFIER_ROSHPIT_INTELLIGENCE_PCT_BONUS,
@@ -212,7 +213,6 @@ function modifier_epoch_arcana_q_passive:BasicAttackOverride(event)
 			end
 		end
 		ability.q_1_attacks[target:GetEntityIndex()] = new_attack_data_table
-		DeepPrintTable(ability.q_1_attacks)
     end
     return override
 end
@@ -278,7 +278,6 @@ function modifier_epoch_arcana_q_passive:OnAttackStart(event)
     	end
     end
     ability:clean_up_q_1_attacks_table()
-    DeepPrintTable(ability.q_1_attacks)
 end
 
 function modifier_epoch_arcana_q_passive:GetModifierProjectileName()
