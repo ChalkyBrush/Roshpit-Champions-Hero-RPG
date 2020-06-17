@@ -6469,18 +6469,18 @@
 		"DOTA_Tooltip_ability_epoch_time_binder_max_links"				"MAX LINKS:"
 		"DOTA_Tooltip_ability_epoch_time_binder_link_search_range"					"LINK SEARCH RANGE:"
 		"DOTA_Tooltip_ability_epoch_time_binder_link_duration"			"LINK DURATION:"
-        "DOTA_Tooltip_ability_epoch_time_binder_link_ms_slow_base"          "BASE MOVESPEED SLOW:"
-        "DOTA_Tooltip_ability_epoch_time_binder_link_ms_slow_per_stack"          "ADDITIONAL MOVESLOW PER LINKED ENEMY:"
-        "DOTA_Tooltip_ability_epoch_time_binder_link_impact_radius"          "PROJECTILE IMPACT RADIUS:"
-        "DOTA_Tooltip_ability_epoch_time_binder_link_impact_damage_base"          "PROJECTILE IMPACT BASE DAMAGE:"
-        "DOTA_Tooltip_ability_epoch_time_binder_link_impact_damage_int_mult"          "ADDITIONAL IMPACT DAMAGE MULTIPLE OF EPOCH INTELLIGENCE:"
-        "DOTA_Tooltip_ability_epoch_time_binder_link_dot_damage_pct_impact"          "% DOT DAMAGE % OF IMPACT DAMAGE TIME NUMBER OF LINKS:"
+        "DOTA_Tooltip_ability_epoch_time_binder_ms_slow_base"          "BASE MOVESPEED SLOW:"
+        "DOTA_Tooltip_ability_epoch_time_binder_ms_slow_per_stack"          "ADDITIONAL MOVESLOW PER LINKED ENEMY:"
+        "DOTA_Tooltip_ability_epoch_time_binder_impact_radius"          "PROJECTILE IMPACT RADIUS:"
+        "DOTA_Tooltip_ability_epoch_time_binder_impact_damage_base"          "PROJECTILE IMPACT BASE DAMAGE:"
+        "DOTA_Tooltip_ability_epoch_time_binder_impact_damage_int_mult"          "ADDITIONAL IMPACT DAMAGE MULTIPLE OF EPOCH INTELLIGENCE:"
+        "DOTA_Tooltip_ability_epoch_time_binder_dot_damage_pct_impact"          "% DOT DAMAGE % OF IMPACT DAMAGE TIME NUMBER OF LINKS:"
 
 		"DOTA_Tooltip_modifier_epoch_time_bind" 										"Time Bind"
 		"DOTA_Tooltip_modifier_epoch_time_bind_description" 							"Linked to nearby allies. Stack count indicates the number of linked targets."
 		
     	"DOTA_Tooltip_ability_epoch_rune_q_1"									"[Q1] Aeon Strike"
-    	"DOTA_Tooltip_ability_epoch_rune_q_1_Description"						"Attacks drain <font color='#ccff66'>5</font>% of Max Mana and deal additional damage based on the mana drained. Aeon Strike overrides the basic attack effect."
+    	"DOTA_Tooltip_ability_epoch_rune_q_1_Description"						"Attacks drain <font color='#ccff66'>3</font>% of Max Mana and deal additional damage based on the mana drained. Aeon Strike overrides the basic attack effect."
     	"DOTA_Tooltip_ability_epoch_rune_q_1_property_one"						"Additional Damage"
     	"DOTA_Tooltip_ability_epoch_rune_q_1_suffix"							"% of Drained Mana"
 
@@ -6625,7 +6625,7 @@
     	"DOTA_Tooltip_modifier_epoch_arcana_root_Description"				"Rooted"	
 
         "DOTA_Tooltip_ability_epoch_rune_q_1_arcana1"                       "[Q1] Aeon Blast"
-        "DOTA_Tooltip_ability_epoch_rune_q_1_arcana1_Description"           "Attacks drain <font color='#ccff66'>5</font>% of Max Mana and deal additional damage based on the mana drained. Aeon Blast overrides the basic attack effect."
+        "DOTA_Tooltip_ability_epoch_rune_q_1_arcana1_Description"           "Attacks drain <font color='#ccff66'>3</font>% of Max Mana and deal additional damage based on the mana drained. Aeon Blast overrides the basic attack effect."
         "DOTA_Tooltip_ability_epoch_rune_q_1_arcana1_property_one"          "Additional Damage"
         "DOTA_Tooltip_ability_epoch_rune_q_1_arcana1_suffix"                "% of Drained Mana"
 
@@ -6715,7 +6715,8 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_epoch_immortal_weapon_1"			"Eye of Chronos"
 		"item_property_epoch_immortal_weapon"								"Eye of Chronos"
-		"property_epoch_immortal_weapon_description"						"Genesis orb fires an additional <font color='#ccff66'>2</font> orbs in parallel and deal <font color='#ccff66'>1.5</font>x damage."
+		"property_epoch_immortal_weapon_description"						"Attacking an enemy bound by @Ability1 will create an attack on all other bound units as well."
+        
 		"DOTA_Tooltip_ability_item_rpc_epoch_immortal_weapon_2"				"Staff of the Eternal Guardian"
     	"item_property_epoch_immortal_weapon2"								"Guardian of Eternity"
     	"property_epoch_immortal_weapon2_description"						"If @Ability4 is off cooldown on death, immediately cast it at Epoch Guardian's position and respawn after <font color='#ccff66'>3</font> seconds. Upon respawning, base ability cooldowns are refreshed, except for @Ability4 which goes on <font color='#ccff66'>1.5</font>x cooldown."

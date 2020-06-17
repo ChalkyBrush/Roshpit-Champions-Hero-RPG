@@ -391,7 +391,6 @@ function modifier_epoch_q_passive:OnAttackStart(event)
     	end
     end
     ability:clean_up_q_1_attacks_table()
-    DeepPrintTable(ability.q_1_attacks)
 end
 
 function modifier_epoch_q_passive:GetModifierProjectileName()
