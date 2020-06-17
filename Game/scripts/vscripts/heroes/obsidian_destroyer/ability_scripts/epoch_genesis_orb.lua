@@ -248,3 +248,7 @@ function modifier_epoch_w_3_int:RoshpitAttackLand()
 		caster:RemoveModifierByName("modifier_epoch_w_3_int")
 	end
 end
+
+function modifier_epoch_w_3_int:GetTexture()
+	return "epoch/epoch_rune_w_3"
+end
