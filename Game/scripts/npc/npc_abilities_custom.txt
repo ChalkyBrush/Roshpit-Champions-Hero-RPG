@@ -50921,7 +50921,51 @@
 		}
 	}
 
+	"epoch_temporal_grip"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/obsidian_destroyer/arcana/arcana1_temporal_grip.lua"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityTextureName"			"epoch/epoch_temporal_grip"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"						"7"
+		"RequiredLevel"         		"-5"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
+		"AOERadius"						"%aoe_radius"
 
+		// Precache
+		//-------------------------------------------------------
+		"precache"
+		{
+			"particle"	"particles/roshpit/epoch/arcana_ability_area.vpcf"
+			"particle"	"particles/roshpit/epoch/arcana_root.vpcf"
+			"particle"	"particles/roshpit/epoch/arcana_a_a_xplosion.vpcf"
+		}
+
+		// Special
+		//-------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"aoe_radius"			"450"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"root_duration"			"1.8 2.1 2.4 2.7 3.0 3.3 3.6"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"dmg_atk_power"			"50 60 70 80 90 100 110"
+			}
+		}
+	}
 
 
 	"epoch_rune_q_1_arcana1"
@@ -50932,18 +50976,23 @@
 		"AbilityTextureName"	"epoch/epoch_rune_q_1_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"AbilitySpecial"
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.2"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_base"			"5"
+				"base_ability"			"1"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"6"
 			}
 		}
 	}
@@ -50961,7 +51010,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"20"
+				"property_one"			"0.5"
 			}
 		}
 	}
@@ -50973,34 +51022,18 @@
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityTextureName"	"epoch/epoch_rune_q_3_arcana1"
 		"MaxLevel"				"20"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.7"
+				"property_one"			"150"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.15"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"6"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_two"			"-1"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"1"
+				"property_two"			"200"
 			}
 		}
 	}
@@ -51018,17 +51051,15 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"50"
+				"property_one"			"120"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"5"
+				"property_two"			"20"
 			}
 		}
 	}
-
-
 
 	"epoch_time_binder"
 	{

@@ -145,7 +145,7 @@
                               "value0"        "sounds/epoch/arcana_cast2.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "1.02000"  }
+                    "volume"            {   "value"     "0.72000"  }
                     "pitch_rand_min"    {   "value"     "-0.03000"  }
                     "pitch_rand_max"    {   "value"     "0.030000"  }
                     "pitch"             {   "value"     "1.00000"  }

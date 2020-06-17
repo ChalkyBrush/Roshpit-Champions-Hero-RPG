@@ -1073,7 +1073,7 @@ function Runes:EquipArcana(hero, index)
 	elseif hero:GetUnitName() == "npc_dota_hero_obsidian_destroyer" then
 		hero:RemoveModifierByName("modifier_epoch_q_passive")
 		if index == 1 then
-			Runes:EasySwapArcanaSkills(hero, 0, "epoch_time_binder", "epoch_arcana_ability", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+			Runes:EasySwapArcanaSkills(hero, 0, "epoch_time_binder", "epoch_temporal_grip", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_axe" then
 		if index == 1 then
@@ -1817,8 +1817,8 @@ function Runes:UnequipArcana(hero, index)
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_obsidian_destroyer" then
 		if index == 1 then
-			hero:RemoveModifierByName("modifier_epoch_arcana_passive")
-			Runes:EasyRevertArcanaSkills(hero, 0, "epoch_time_binder", "epoch_arcana_ability", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+			hero:RemoveModifierByName("modifier_epoch_arcana_q_passive")
+			Runes:EasyRevertArcanaSkills(hero, 0, "epoch_time_binder", "epoch_temporal_grip", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_axe" then
 		hero:RemoveModifierByName("modifier_axe_arcana_passive")

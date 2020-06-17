@@ -101,7 +101,7 @@ end
 function epoch_genesis_orb:OnProjectileHit_ExtraData(target, vLocation, extraData)
 	local caster = self:GetCaster()
 	local damage = self:CalculateImpactDamage()
-	if target:HasModifier("modifier_epoch_time_bind") then
+	if target:HasModifier("modifier_epoch_time_bind") or target:HasModifier("modifier_epoch_arcana_q_root") then
 		extraData.bounces = extraData.bounces - 1
 		extraData[target:GetEntityIndex()] = 1
 		extraData.speed = extraData.speed + self:GetSpecialValueFor("projectile_speed_gain")

@@ -6995,7 +6995,7 @@
     	"DOTA_Tooltip_ability_epoch_rune_q_2_arcana1_suffix"					""
 
     	"DOTA_Tooltip_ability_epoch_rune_q_3_arcana1"							"[Q3] 永世毁灭"
-    	"DOTA_Tooltip_ability_epoch_rune_q_3_arcana1_Description"				"时光守卫的攻击将汲取<font color='#ccff66'>1</font>%的魔法值，并且根据所汲取的魔法值造成额外纯粹伤害。同时时光守卫的最大魔法值将提高他的基础攻击力。"
+    	"DOTA_Tooltip_ability_epoch_rune_q_3_arcana1_Description"				"时光守卫的攻击将汲取0%的魔法值，并且根据所汲取的魔法值造成额外纯粹伤害。同时时光守卫的最大魔法值将提高他的基础攻击力。"
     	"DOTA_Tooltip_ability_epoch_rune_q_3_arcana1_property_one"				"纯粹伤害"
     	"DOTA_Tooltip_ability_epoch_rune_q_3_arcana1_suffix"					"x 所汲取的魔法值"
     	"DOTA_Tooltip_ability_epoch_rune_q_3_arcana1_property_two"				"基础攻击力提高"

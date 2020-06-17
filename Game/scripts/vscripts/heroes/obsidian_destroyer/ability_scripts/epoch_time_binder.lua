@@ -449,7 +449,7 @@ function modifier_epoch_time_bind:IsDebuff()
 end
 
 function modifier_epoch_time_bind:RoshpitDispellable()
-	return false
+	return 0
 end
 
 function modifier_epoch_time_bind:RemoveOnDeath()
