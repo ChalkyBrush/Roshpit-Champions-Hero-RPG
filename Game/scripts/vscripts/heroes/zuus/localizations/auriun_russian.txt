@@ -50,8 +50,8 @@
     	"DOTA_Tooltip_ability_auriun_rune_w_1_suffix_two"				"x Интеллект"
 		
 		"DOTA_Tooltip_ability_auriun_rune_w_2"						"[W2] Discipline"
-    	"DOTA_Tooltip_ability_auriun_rune_w_2_Description"			"Пассивное увеличение всего лечения и урона <font color=\"#7F4F84\">Тени</font> и <font color=\"#F6FFB5\">Света</font>."
-    	"DOTA_Tooltip_ability_auriun_rune_w_2_property_one"			"Урон <font color=\"#7F4F84\">Тени</font>/<font color=\"#F6FFB5\">Света</font>"
+    	"DOTA_Tooltip_ability_auriun_rune_w_2_Description"			"Пассивное увеличение всего лечения и урона <font color=ELEMENT_SHADOW>Тени</font> и <font color=ELEMENT_HOLY>Света</font>."
+    	"DOTA_Tooltip_ability_auriun_rune_w_2_property_one"			"Урон <font color=ELEMENT_SHADOW>Тени</font>/<font color=ELEMENT_HOLY>Света</font>"
     	"DOTA_Tooltip_ability_auriun_rune_w_2_suffix"				"%"
     	"DOTA_Tooltip_ability_auriun_rune_w_2_property_two"			"Усиление лечения"
     	"DOTA_Tooltip_ability_auriun_rune_w_2_suffix_two"			"%"
@@ -183,8 +183,8 @@
     	"DOTA_Tooltip_ability_auriun_rune_q_2_arcana1_suffix"					"%"
 
     	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana1"							"[Q3] Holy Vengeance"
-    	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana1_Description"				"Пассивно увеличивает стихийный урон <font color=\"#F6FFB5\">Света</font>."
-    	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana1_property_one"				"Урон <font color=\"#F6FFB5\">Света</font>"
+    	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana1_Description"				"Пассивно увеличивает стихийный урон <font color=ELEMENT_HOLY>Света</font>."
+    	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana1_property_one"				"Урон <font color=ELEMENT_HOLY>Света</font>"
     	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana1_suffix"					"%"
 
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana1"							"[Q4] Holy Ghost"
@@ -223,8 +223,8 @@
     	"DOTA_Tooltip_ability_auriun_rune_q_2_arcana2_suffix"					"%"
 
     	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana2"							"[Q3] Dark Sympathy"
-    	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana2_Description"				"Пассивно увеличивает стихийный урон <font color=\"#7F4F84\">Тени</font> за счет атрибутов героя."
-    	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana2_property_one"				"Урон <font color=\"#7F4F84\">Тени</font>"
+    	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana2_Description"				"Пассивно увеличивает стихийный урон <font color=ELEMENT_SHADOW>Тени</font> за счет атрибутов героя."
+    	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana2_property_one"				"Урон <font color=ELEMENT_SHADOW>Тени</font>"
     	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana2_suffix"					"%"
 
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2"							"[Q4] Shadow Form"

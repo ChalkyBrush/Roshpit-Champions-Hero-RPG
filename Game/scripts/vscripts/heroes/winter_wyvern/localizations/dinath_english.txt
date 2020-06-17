@@ -1,6 +1,6 @@
 		//Abilities
 		"DOTA_Tooltip_ability_dinath_arctic_burn"								"Wyvern Fire"
-    	"DOTA_Tooltip_ability_dinath_arctic_burn_Description"					"Element: <font color=\"#3289C7\">Dragon</font> / <font color=\"#EF4126\">Fire</font><br>A breath of fire is exhaled toward the target location, which starts a bonfire when it comes in contact with the ground. Enemies in the fire are damaged every 0.5 seconds. The radius of the fire is dependant on Dinath's elevation relative to the impact point. Dinath generates free casts of Wyvern Fire every 8 seconds, and can store up to 2 stacks. Each stack removes the cooldown of Wyvern Fire. Fire sticks for 7 seconds."
+    	"DOTA_Tooltip_ability_dinath_arctic_burn_Description"					"Element: <font color=ELEMENT_DRAGON>Dragon</font> / <font color=ELEMENT_FIRE>Fire</font><br>A breath of fire is exhaled toward the target location, which starts a bonfire when it comes in contact with the ground. Enemies in the fire are damaged every 0.5 seconds. The radius of the fire is dependant on Dinath's elevation relative to the impact point. Dinath generates free casts of Wyvern Fire every 8 seconds, and can store up to 2 stacks. Each stack removes the cooldown of Wyvern Fire. Fire sticks for 7 seconds."
     	"DOTA_Tooltip_ability_dinath_arctic_burn_damage_base"					"BASE DAMAGE:"
     	"DOTA_Tooltip_ability_dinath_arctic_burn_damage_attack_power"			"% ATTACK POWER ADDED TO BURN:"
 		
@@ -36,7 +36,7 @@
     	"DOTA_Tooltip_ability_dinath_rune_q_4_suffix"							"%"
 		
 		"DOTA_Tooltip_ability_dinath_drake_ring"								"Eye of the Drake"
-    	"DOTA_Tooltip_ability_dinath_drake_ring_Description"					"Element: <font color=\"#3289C7\">Dragon</font> / <font color=\"#87D9FF\">Ice</font><br>A puff of crystal air creates a marked area at the target location after 1 second travel time. All enemies in the area marked area are automatically attacked by Dinath if they are within her attack range. Passively increase attack range and causes Dinath's attacks to deal additional physical damage."
+    	"DOTA_Tooltip_ability_dinath_drake_ring_Description"					"Element: <font color=ELEMENT_DRAGON>Dragon</font> / <font color=ELEMENT_ICE>Ice</font><br>A puff of crystal air creates a marked area at the target location after 1 second travel time. All enemies in the area marked area are automatically attacked by Dinath if they are within her attack range. Passively increase attack range and causes Dinath's attacks to deal additional physical damage."
     	"DOTA_Tooltip_ability_dinath_drake_ring_radius"							"RADIUS:"
     	"DOTA_Tooltip_ability_dinath_drake_ring_attack_range_bonus"				"PASSIVE ATTACK RANGE BONUS:"
     	"DOTA_Tooltip_ability_dinath_drake_ring_damage_mult"					"% DAMAGE BASED ON ATTACK POWER:"
@@ -127,7 +127,7 @@
     	"DOTA_Tooltip_ability_dinath_rune_r_3_suffix"							"%"
 
     	"DOTA_Tooltip_ability_dinath_rune_r_4"									"[R4] Blood of Tiamat"
-    	"DOTA_Tooltip_ability_dinath_rune_r_4_Description"				"Dinath's attributes increase the power of all <font color=\"#3289C7\">Dragon</font> damage."
+    	"DOTA_Tooltip_ability_dinath_rune_r_4_Description"				"Dinath's attributes increase the power of all <font color=ELEMENT_DRAGON>Dragon</font> damage."
     	"DOTA_Tooltip_ability_dinath_rune_r_4_property_one"				"Damage Bonus"
     	"DOTA_Tooltip_ability_dinath_rune_r_4_suffix"					"%"
 		
@@ -136,7 +136,7 @@
     	"property_dinath_arcana1_description"								"Replaces @Ability2 and all of its runes with Spire Breath."
 
     	"DOTA_Tooltip_ability_dinath_dragon_fire"						"Spire Breath"
-    	"DOTA_Tooltip_ability_dinath_dragon_fire_Description"			"Element: <font color=\"#3289C7\">Dragon</font> / <font color=\"#87D9FF\">Ice</font><br>Passively adds pure damage to Dinath's attacks. While toggled on, attacks have extra range and can split and hit additional targets. Each attack drains the mana cost and mana is drained every second while toggled on. Attack radius searches around the main attack target."
+    	"DOTA_Tooltip_ability_dinath_dragon_fire_Description"			"Element: <font color=ELEMENT_DRAGON>Dragon</font> / <font color=ELEMENT_ICE>Ice</font><br>Passively adds pure damage to Dinath's attacks. While toggled on, attacks have extra range and can split and hit additional targets. Each attack drains the mana cost and mana is drained every second while toggled on. Attack radius searches around the main attack target."
     	"DOTA_Tooltip_ability_dinath_dragon_fire_damage_mult"				"% DAMAGE BASED ON ATTACK POWER:"
     	"DOTA_Tooltip_ability_dinath_dragon_fire_mana_cost"				"MANA COST:"
     	"DOTA_Tooltip_ability_dinath_dragon_fire_extra_range"				"EXTRA RANGE:"
@@ -177,7 +177,7 @@
         "property_dinath_arcana2_description"                               "Replaces @Ability4 and all of its runes with Wrath of the Frost Wyrm."
 
         "DOTA_Tooltip_ability_dinath_frost_wyrm"                       "Wrath of the Frost Wyrm"
-        "DOTA_Tooltip_ability_dinath_frost_wyrm_Description"           "Element: <font color=\"#3289C7\">Dragon</font> / <font color=\"#87D9FF\">Ice</font><br>After a 2 second channel, charge toward the cast point and elevate to max fly height. Dinath breathes Ice projectiles toward the Vector Target position that damage and slow enemies in the radius."
+        "DOTA_Tooltip_ability_dinath_frost_wyrm_Description"           "Element: <font color=ELEMENT_DRAGON>Dragon</font> / <font color=ELEMENT_ICE>Ice</font><br>After a 2 second channel, charge toward the cast point and elevate to max fly height. Dinath breathes Ice projectiles toward the Vector Target position that damage and slow enemies in the radius."
         "DOTA_Tooltip_ability_dinath_frost_wyrm_damage_mult"               "% DAMAGE BASED ON ATTACK POWER:"
         "DOTA_Tooltip_ability_dinath_frost_wyrm_cast_range"             "CAST RANGE:"
         "DOTA_Tooltip_ability_dinath_frost_wyrm_cooldown"               "COOLDOWN:"
@@ -235,7 +235,7 @@
 		"item_rpc_dinath_glyph_5_1_description" 				"Landing an attack reduces the cooldown of all other abilities by <% DINATH_GLYPH_5_1_CD_REDUCTION_PER_ATTACK %> seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_6_1"		"[T6-1] Glyph of Calamity"
-		"item_rpc_dinath_glyph_6_1_description" 				"Increases <font color=\"#EF4126\">Fire</font>, <font color=\"#87D9FF\">Ice</font>, <font color=\"#5CCDF9\">Lightning</font>, and <font color=\"#C25DFC\">Cosmic</font> damage by <% DINATH_GLYPH_6_1_FIRE_ICE_LIGHTING_COSMIC_AMP %>%."
+		"item_rpc_dinath_glyph_6_1_description" 				"Increases <font color=ELEMENT_FIRE>Fire</font>, <font color=ELEMENT_ICE>Ice</font>, <font color=ELEMENT_LIGHTNING>Lightning</font>, and <font color=ELEMENT_COSMOS>Cosmic</font> damage by <% DINATH_GLYPH_6_1_FIRE_ICE_LIGHTING_COSMIC_AMP %>%."
 
 		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_7_1"		"[T7-1] Glyph of the Mana Dragon"
 		"item_rpc_dinath_glyph_7_1_description" 				"Damage of @Ability2 is increased by <% DINATH_GLYPH_7_1_CURR_MANA_TO_W_DAMAGE %>x current mana, and attacks restore <% DINATH_GLYPH_7_1_MANA_RESTORED_PER_ATTACK_PCT %>% of max mana."
@@ -271,4 +271,4 @@
 
         "DOTA_Tooltip_ability_item_rpc_dinath_immortal_weapon_3"            "Chaos Orchid"
         "item_property_dinath_immortal_weapon3"                             "Cosmic Origin"
-        "property_dinath_immortal_weapon3_description"                      "All instances of <font color=\"#3289C7\">Dragon</font> damage deal an additional instance of <font color=\"#C25DFC\">Cosmic</font> damage."
+        "property_dinath_immortal_weapon3_description"                      "All instances of <font color=ELEMENT_DRAGON>Dragon</font> damage deal an additional instance of <font color=ELEMENT_COSMOS>Cosmic</font> damage."

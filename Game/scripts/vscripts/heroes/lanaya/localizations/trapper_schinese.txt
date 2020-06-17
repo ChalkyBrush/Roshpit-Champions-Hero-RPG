@@ -4,7 +4,7 @@
     	"tooltip_trapper_r"											"潜行和背刺"
 		
 		"DOTA_Tooltip_ability_fulminating_trap"						"爆炸陷阱"
-    	"DOTA_Tooltip_ability_fulminating_trap_Description"			"元素： <font color=\"#EF4126\">火·</font><br>放置一个爆炸陷阱，进入陷阱的敌人将受到伤害。"
+    	"DOTA_Tooltip_ability_fulminating_trap_Description"			"元素： <font color=ELEMENT_FIRE>火·</font><br>放置一个爆炸陷阱，进入陷阱的敌人将受到伤害。"
     	"DOTA_Tooltip_ability_fulminating_trap_Lore"				""
     	"DOTA_Tooltip_ability_fulminating_trap_damage"				"伤害："
 		
@@ -15,11 +15,11 @@
     	"DOTA_Tooltip_ability_net_trap_attack_range_loss"			"攻击距离降低："
 		
 		"DOTA_Tooltip_ability_torrent_trap"							"激流陷阱"
-    	"DOTA_Tooltip_ability_torrent_trap_Description"				"元素： <font color=\"#3894FF\">水</font><br>任何敌人在陷阱中持续站立2.5秒后，将被一股激流眩晕2秒并降低攻击速度9秒。被眩晕后7秒内免疫该效果。"
+    	"DOTA_Tooltip_ability_torrent_trap_Description"				"元素： <font color=ELEMENT_WATER>水</font><br>任何敌人在陷阱中持续站立2.5秒后，将被一股激流眩晕2秒并降低攻击速度9秒。被眩晕后7秒内免疫该效果。"
     	"DOTA_Tooltip_ability_torrent_trap_Lore"					""
 		
 		"DOTA_Tooltip_ability_poison_trap"						"毒蛇陷阱"
-    	"DOTA_Tooltip_ability_poison_trap_Description"			"元素： <font color=\"#37DD3D\">毒</font><br>在毒蛇陷阱中的敌人每0.5秒获得一层毒素，并在离开陷阱后根据层数受到持续伤害。最高30层，持续6秒。"
+    	"DOTA_Tooltip_ability_poison_trap_Description"			"元素： <font color=ELEMENT_POISON>毒</font><br>在毒蛇陷阱中的敌人每0.5秒获得一层毒素，并在离开陷阱后根据层数受到持续伤害。最高30层，持续6秒。"
     	"DOTA_Tooltip_ability_poison_trap_Lore"					""
 		
 		"DOTA_Tooltip_modifier_poison_trap_effect"					"毒蛇陷阱"
@@ -55,7 +55,7 @@
     	"DOTA_Tooltip_ability_trapper_rune_q_4_suffix"				"%"
 		
 		"DOTA_Tooltip_ability_explosive_bomb"						"炸弹"
-    	"DOTA_Tooltip_ability_explosive_bomb_Description"			"元素: <font color=\"<% RPC_ELEMENT_NORMAL_COLOR %>\">普通</font><br>向目标地点投掷炸弹. 炸弹爆炸将会伤害并眩晕附近的敌人."
+    	"DOTA_Tooltip_ability_explosive_bomb_Description"			"元素: <font color=ELEMENT_NORMAL>普通</font><br>向目标地点投掷炸弹. 炸弹爆炸将会伤害并眩晕附近的敌人."
     	"DOTA_Tooltip_ability_explosive_bomb_Lore"					""
     	"DOTA_Tooltip_ability_explosive_bomb_damage"				"伤害："
     	"DOTA_Tooltip_ability_explosive_bomb_stun_duration"			"眩晕持续时间："
@@ -142,7 +142,7 @@
     	"DOTA_Tooltip_ability_trapper_action_leap_max_distance"			"最大跳跃距离："
 		
 		"DOTA_Tooltip_ability_trapper_backstab"						"背刺"
-    	"DOTA_Tooltip_ability_trapper_backstab_Description"			"元素： <font color=\"#DDDDDD\">普通</font><br>对目标进行致命一击。引导2秒后，从背后将敌人击入空中并造成猎人攻击力倍数的巨大伤害。如果引导过程中敌人发现了猎人，该技能将取消引导。"
+    	"DOTA_Tooltip_ability_trapper_backstab_Description"			"元素： <font color=ELEMENT_NORMAL>普通</font><br>对目标进行致命一击。引导2秒后，从背后将敌人击入空中并造成猎人攻击力倍数的巨大伤害。如果引导过程中敌人发现了猎人，该技能将取消引导。"
     	"DOTA_Tooltip_ability_trapper_backstab_Lore"				""
     	"DOTA_Tooltip_ability_trapper_backstab_damage_mult"			"伤害倍数："
 		
@@ -182,7 +182,7 @@
     	"property_trapper_arcana1_description"								"用毒液鞭与真言套索替换 @Ability2 和他的所有符文。"
 
     	"DOTA_Tooltip_ability_trapper_arcana_venom_whip"					"毒液鞭"
-    	"DOTA_Tooltip_ability_trapper_arcana_venom_whip_Description"			"元素： <font color=\"#37DD3D\">毒</font><br>猎人向一个范围的全部敌人投射一个毒液鞭。被毒液鞭击中的敌人受到一个可以叠加的debuff。毒液鞭造成基于猎人攻击力的毒性伤害并且减速敌人。"
+    	"DOTA_Tooltip_ability_trapper_arcana_venom_whip_Description"			"元素： <font color=ELEMENT_POISON>毒</font><br>猎人向一个范围的全部敌人投射一个毒液鞭。被毒液鞭击中的敌人受到一个可以叠加的debuff。毒液鞭造成基于猎人攻击力的毒性伤害并且减速敌人。"
     	"DOTA_Tooltip_ability_trapper_arcana_venom_whip_Lore"				""
     	"DOTA_Tooltip_ability_trapper_arcana_venom_whip_radius"				"范围半径："
     	"DOTA_Tooltip_ability_trapper_arcana_venom_whip_range"				"施法距离："
@@ -201,7 +201,7 @@
     	"DOTA_Tooltip_ability_trapper_rune_w_1_arcana1_suffix"				"%"
 
   		"DOTA_Tooltip_ability_trapper_rune_w_2_arcana1"						"[W2] 灵巧"
-    	"DOTA_Tooltip_ability_trapper_rune_w_2_arcana1_Description"			"提高所有 <font color=\"#FFFFFF\">普通</font> 元素伤害。"
+    	"DOTA_Tooltip_ability_trapper_rune_w_2_arcana1_Description"			"提高所有 <font color=ELEMENT_NORMAL>普通</font> 元素伤害。"
     	"DOTA_Tooltip_ability_trapper_rune_w_2_arcana1_property_one"		"普通元素伤害提高"
     	"DOTA_Tooltip_ability_trapper_rune_w_2_arcana1_suffix"				"%"
 
@@ -211,7 +211,7 @@
         "DOTA_Tooltip_ability_trapper_rune_w_3_arcana1_suffix"              "x 敏捷值"
 
   		"DOTA_Tooltip_ability_trapper_rune_w_4_arcana1"						"[W4] 元素诡计"
-    	"DOTA_Tooltip_ability_trapper_rune_w_4_arcana1_Description"			"提高猎人所有的<br><font color=\"#EF4126\">火</font>, <font color=\"#3894FF\">水</font> 和 <font color=\"#37DD3D\">毒</font> 元素伤害。"
+    	"DOTA_Tooltip_ability_trapper_rune_w_4_arcana1_Description"			"提高猎人所有的<br><font color=ELEMENT_FIRE>火</font>, <font color=ELEMENT_WATER>水</font> 和 <font color=ELEMENT_POISON>毒</font> 元素伤害。"
     	"DOTA_Tooltip_ability_trapper_rune_w_4_arcana1_property_one"		"火、水、毒元素伤害提高"
     	"DOTA_Tooltip_ability_trapper_rune_w_4_arcana1_suffix"				"%"
 		
@@ -235,7 +235,7 @@
         "item_rpc_trapper_glyph_5_1_description"                "每当你移动 <% TRAPPER_GLYPH_5_1_DISTANCE %> 码时将会自动释放@Ability2。烟幕弹的持续时间增加 <% TRAPPER_GLYPH_5_1_INVISIBLE_W_DURATION_AMPLIFY %> 并且范围增加 <% TRAPPER_GLYPH_5_1_INVISIBLE_W_RADIUS_AMPLIFY %>。"
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_6_1"       "[T6-1] 工匠雕文"
-        "item_rpc_trapper_glyph_6_1_description"                "提高所有 <font color=\"<% RPC_ELEMENT_NORMAL_COLOR %>\">普通</font> 元素伤害 <% TRAPPER_GLYPH_6_1_NORMAL_AMP * 100 %>%.。"
+        "item_rpc_trapper_glyph_6_1_description"                "提高所有 <font color=ELEMENT_NORMAL>普通</font> 元素伤害 <% TRAPPER_GLYPH_6_1_NORMAL_AMP * 100 %>%.。"
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_7_1"       "[T7-1] 陷阱雕文"
         "item_rpc_trapper_glyph_7_1_description"                "同一时间可以拥有2个同种陷阱。"

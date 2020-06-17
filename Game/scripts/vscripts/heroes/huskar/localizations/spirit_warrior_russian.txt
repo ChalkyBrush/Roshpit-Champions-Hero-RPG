@@ -1,5 +1,5 @@
     	"DOTA_Tooltip_ability_spirit_warrior_flametongue"			"Flameblood Weapon"
-    	"DOTA_Tooltip_ability_spirit_warrior_flametongue_Description"	"Стихия: <font color=\"#EF4126\">Огонь</font><br>Накладывает на себя или выбранную союзную цель огненные чары, которые увеличивают урон и добавляют к атакам бонус магического урона. Пока активно, носитель получает увеличение <font color=\"#EF4126\">Огненного</font> урона."
+    	"DOTA_Tooltip_ability_spirit_warrior_flametongue_Description"	"Стихия: <font color=ELEMENT_FIRE>Огонь</font><br>Накладывает на себя или выбранную союзную цель огненные чары, которые увеличивают урон и добавляют к атакам бонус магического урона. Пока активно, носитель получает увеличение <font color=ELEMENT_FIRE>Огненного</font> урона."
     	"DOTA_Tooltip_ability_spirit_warrior_flametongue_damage_increase"	"ДОП.УРОН, %"
     	"DOTA_Tooltip_ability_spirit_warrior_flametongue_duration"			"ДЛИТЕЛЬНОСТЬ УСИЛЕНИЯ:"
     	"DOTA_Tooltip_ability_spirit_warrior_flametongue_damage"	"ДОП.МАГИЧЕСКИЙ УРОН:"
@@ -9,7 +9,7 @@
     	"DOTA_Tooltip_modifier_flametongue_Description"				"Увеличение урона и бонусная надбавка магического урона, усиление Огненного урона"
 
     	"DOTA_Tooltip_ability_spirit_warrior_soul_thrust"			"Soul Thrust"
-    	"DOTA_Tooltip_ability_spirit_warrior_soul_thrust_Description"	"Стихия: <font color=\"#EF4126\">Огонь</font> / <font color=\"#7AE2A7\">Ветер</font><br>Spirit Warrior вонзает своё копьё в землю перед собой, создавая взрыв, ранящий души. Урон может быть усилен за счет умения (Q) Flameblood weapon. Враги, задетые этим умением наносят на 50% меньше урона герою. Каст перемещает одного из духов на место героя."	
+    	"DOTA_Tooltip_ability_spirit_warrior_soul_thrust_Description"	"Стихия: <font color=ELEMENT_FIRE>Огонь</font> / <font color=ELEMENT_WIND>Ветер</font><br>Spirit Warrior вонзает своё копьё в землю перед собой, создавая взрыв, ранящий души. Урон может быть усилен за счет умения (Q) Flameblood weapon. Враги, задетые этим умением наносят на 50% меньше урона герою. Каст перемещает одного из духов на место героя."	
     	"DOTA_Tooltip_ability_spirit_warrior_soul_thrust_damage"		"УРОН:"
 
     	"DOTA_Tooltip_modifier_soul_thrust_effect"					"Soul Thrust"
@@ -52,7 +52,7 @@
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_3_suffix"		"% от урона усиляемой цели"
 
       	"DOTA_Tooltip_ability_spirit_warrior_windstrike_weapon"			"Windstrike Weapon"
-    	"DOTA_Tooltip_ability_spirit_warrior_windstrike_weapon_Description"	"Стихия: <font color=\"#7AE2A7\">Ветер</font><br>Наделяет выбранную союзную цель усиляющим эффектом, который позволяет наносить дополнительный ЧИСТЫЙ урон, зависящий от значения атаки усиляемой цели. Умения (Q) Windstrike и (Q) Flameblood не могут использоваться одновременно на одной цели."
+    	"DOTA_Tooltip_ability_spirit_warrior_windstrike_weapon_Description"	"Стихия: <font color=ELEMENT_WIND>Ветер</font><br>Наделяет выбранную союзную цель усиляющим эффектом, который позволяет наносить дополнительный ЧИСТЫЙ урон, зависящий от значения атаки усиляемой цели. Умения (Q) Windstrike и (Q) Flameblood не могут использоваться одновременно на одной цели."
     	"DOTA_Tooltip_ability_spirit_warrior_windstrike_weapon_attackspeed"	"ДОП. СКОРОСТЬ АТАКИ"
     	"DOTA_Tooltip_ability_spirit_warrior_windstrike_weapon_duration"			"ДЛИТЕЛЬНОСТЬ ЭФФЕКТА:"
 
@@ -60,7 +60,7 @@
     	"DOTA_Tooltip_modifier_windstrike_weapon_Description"			"Атаки во время действия этого эффекта наносят дополнительный чистый урон"	
 
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_4"				"[Q4] Inner Flame"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_4_Description"	"Урон стихий <font color=\"#EF4126\">Огонь</font> и <font color=\"#7AE2A7\">Ветер</font> пассивно увеличен."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_4_Description"	"Урон стихий <font color=ELEMENT_FIRE>Огонь</font> и <font color=ELEMENT_WIND>Ветер</font> пассивно увеличен."
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_4_property_one"	"Доп. урон стихий"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_4_suffix"		"%"
 
@@ -197,15 +197,15 @@
     	"spirit_warrior_arcana1_r"												"Ancient Rain и Waterheart Weapon"
 
   		"DOTA_Tooltip_ability_spirit_warrior_rune_r_4_arcana1"						"[R4] Water Gods"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_4_arcana1_Description"			"Урон стихии <font color=\"#3894FF\">Воды</font> пассивно увеличен."
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_4_arcana1_property_one"		"Урон <font color=\"#3894FF\">Воды</font>"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_4_arcana1_Description"			"Урон стихии <font color=ELEMENT_WATER>Воды</font> пассивно увеличен."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_4_arcana1_property_one"		"Урон <font color=ELEMENT_WATER>Воды</font>"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_r_4_arcana1_suffix"				"%"
 
        	"item_property_spirit_warrior_arcana2"										"Blazing Javelin"
     	"property_spirit_warrior_arcana2_description"								"Заменяет (W) @Ability2 и все соответствующие руны на (W) Blazing Javelin."
 
     	"DOTA_Tooltip_ability_spirit_warrior_blazing_javelin"						"Blazing Javelin"
-    	"DOTA_Tooltip_ability_spirit_warrior_blazing_javelin_Description"			"Стихия: <font color=\"#EF4126\">Огонь</font> / <font color=\"#DDDDDD\">Нормальный</font><br>Spirit Warrior бросает в указанную точку копьё, которое пробивает врагов насквозь, взрываясь огнём при соприкосновении с каждым противником."
+    	"DOTA_Tooltip_ability_spirit_warrior_blazing_javelin_Description"			"Стихия: <font color=ELEMENT_FIRE>Огонь</font> / <font color=ELEMENT_NORMAL>Нормальный</font><br>Spirit Warrior бросает в указанную точку копьё, которое пробивает врагов насквозь, взрываясь огнём при соприкосновении с каждым противником."
     	"DOTA_Tooltip_ability_spirit_warrior_blazing_javelin_damage"				"УРОН:"
     	"DOTA_Tooltip_ability_spirit_warrior_blazing_javelin_cast_range"			"ДАЛЬНОСТЬ ПРИМЕНЕНИЯ:"
 
@@ -227,8 +227,8 @@
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_3_arcana2_suffix"				"%"
 
   		"DOTA_Tooltip_ability_spirit_warrior_rune_w_4_arcana2"						"[W4] Fire Gods"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_4_arcana2_Description"			"Урон стихии <font color=\"#EF4126\">Огня</font> пассивно увеличен."
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_4_arcana2_property_one"		"Урона <font color=\"#EF4126\">Огня</font>"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_4_arcana2_Description"			"Урон стихии <font color=ELEMENT_FIRE>Огня</font> пассивно увеличен."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_4_arcana2_property_one"		"Урона <font color=ELEMENT_FIRE>Огня</font>"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_4_arcana2_suffix"				"%"
 
        	"item_property_spirit_warrior_arcana3"										"Ancient Spirit Elite"
@@ -260,8 +260,8 @@
     	"DOTA_Tooltip_ability_spirit_warrior_rune_e_3_arcana3_suffix_two"			" сек."	
 
   		"DOTA_Tooltip_ability_spirit_warrior_rune_e_4_arcana3"						"[E4] Wind Gods"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_4_arcana3_Description"			"Урон стихии <font color=\"#7AE2A7\">Ветра</font> пассивно увеличен."
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_4_arcana3_property_one"		"Урон <font color=\"#7AE2A7\">Ветра</font>"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_4_arcana3_Description"			"Урон стихии <font color=ELEMENT_WIND>Ветра</font> пассивно увеличен."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_4_arcana3_property_one"		"Урон <font color=ELEMENT_WIND>Ветра</font>"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_e_4_arcana3_suffix"				"%"
 
 		//Glyphs

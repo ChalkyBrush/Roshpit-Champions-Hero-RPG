@@ -42,7 +42,7 @@
     	"item_rpc_arcanys_slipper_ruby1"									"Each poof deals damage based on @ruby_property1% of attack power in a <% ITEM_RPC_ARCANYS_SLIPPER_RUBY_RADIUS %> radius"
     	"item_rpc_arcanys_slipper_emerald1"									"Each point of attack damage gained from Arcane Rush also increases Spell Pierce by @emerald_property1"
     	"item_rpc_arcanys_slipper_sapphire1"									"Increases Max Mana by @sapphire_property1"
-    	"item_rpc_arcanys_slipper_amethyst1"									"Increases Intelligence by @amethyst_property1 and <font color=\"#E1A2E8\">Arcane</font> Elemental Damage by @amethyst_property2%"
+    	"item_rpc_arcanys_slipper_amethyst1"									"Increases Intelligence by @amethyst_property1 and <font color=ELEMENT_ARCANE>Arcane</font> Elemental Damage by @amethyst_property2%"
 
     	"DOTA_Tooltip_ability_item_rpc_bloodstone_boots"								"Bloodstone Boots"
 
@@ -64,7 +64,7 @@
     	"item_rpc_blue_dragon_greaves_ruby1"								"Casting [E] applies Dragon Dance for @ruby_property1 seconds and Dragon Dance adds @ruby_property2 Base Attack Damage"
     	"item_rpc_blue_dragon_greaves_emerald1"								"Dragon Dance increases Agility and Spirit by @emerald_property1"
     	"item_rpc_blue_dragon_greaves_sapphire1"								"Increases Dragon Dance duration by @sapphire_property1%, and Dragon Dance increases Attack Speed by @sapphire_property2"
-    	"item_rpc_blue_dragon_greaves_amethyst1"								"Increases <font color=\"#3289C7\">Dragon</font> Elemental Damage and Item Damage by @amethyst_property1%"
+    	"item_rpc_blue_dragon_greaves_amethyst1"								"Increases <font color=ELEMENT_DRAGON>Dragon</font> Elemental Damage and Item Damage by @amethyst_property1%"
 
     	"DOTA_Tooltip_ability_item_rpc_boots_of_ashara"									"Boots of Ashara"
 
@@ -270,7 +270,7 @@
 
 		"item_rpc_ice_floe_slippers_ruby1"	"Removes the Rooted restriction and increases max travel distance by @ruby_property1"
 		"item_rpc_ice_floe_slippers_emerald1"	"Increases [E4] rune by @emerald_property1, and Ice Floe's travel speed by @emerald_property2%"
-		"item_rpc_ice_floe_slippers_sapphire1"	"Increases <font color=\"#87D9FF\">Ice</font> Elemental damage and Base Ability Damage by @sapphire_property1%, and Ice Floe's travel speed by @sapphire_property2%"
+		"item_rpc_ice_floe_slippers_sapphire1"	"Increases <font color=ELEMENT_ICE>Ice</font> Elemental damage and Base Ability Damage by @sapphire_property1%, and Ice Floe's travel speed by @sapphire_property2%"
 		"item_rpc_ice_floe_slippers_amethyst1"	"When Ice Floe is triggered, gain a shield that absorbs @amethyst_property1 instances of Magic and Pure Damage for <% ITEM_RPC_ICE_FLOE_SLIPPERS_MAGIC_SHIELD_DURATION %> seconds."
 
 		"DOTA_Tooltip_modifier_ice_floe_amethyst_shield"	"Ice Floe (Amethyst)"
@@ -307,7 +307,7 @@
     	"item_rpc_moon_tech_runners_ruby1"								"Enemies in the dust have @ruby_property1 reduced attack speed, and take @ruby_property2% of your attack power as damage every <% ITEM_RPC_MOON_TECH_RUNNERS_RUBY_INTERVAL %> seconds"
     	"item_rpc_moon_tech_runners_emerald1"								"Issuing a move order within the Moon Dust cloud teleports you to that position and disjoints projectiles. @emerald_property1 second cooldown on the teleport."
     	"item_rpc_moon_tech_runners_sapphire1"								"Enemies standing in Moon Dust have @sapphire_property1 reduced Magic Armor and @sapphire_property2% chance to miss with attacks"
-    	"item_rpc_moon_tech_runners_amethyst1"								"Increases Item Damage and <font color=\"#C25DFC\">Cosmic</font> Elemental Damage by @amethyst_property1%"
+    	"item_rpc_moon_tech_runners_amethyst1"								"Increases Item Damage and <font color=ELEMENT_COSMOS>Cosmic</font> Elemental Damage by @amethyst_property1%"
 
         "DOTA_Tooltip_modifier_moon_tech_emerald_cd"    "Moon Tech Runners (Emerald) Cooldown"
 
@@ -523,7 +523,7 @@
         "DOTA_Tooltip_modifier_temporal_warp_cooldown"      "Time Warp Cooldown"
 
         "item_rpc_temporal_warp_boots_ruby1"                                "Casting [E] resets mana, health, position, and cooldowns (except [E]) to what they were @ruby_property1 seconds ago. <% ITEM_RPC_TEMPORAL_WARP_BOOTS_RUBY_COOLDOWN %> second cooldown."
-        "item_rpc_temporal_warp_boots_emerald1"                             "Increases Item Damage and <font color=\"#B5FFB7\">Temporal</font> Elemental Damage by @emerald_property1%"
+        "item_rpc_temporal_warp_boots_emerald1"                             "Increases Item Damage and <font color=ELEMENT_TIME>Temporal</font> Elemental Damage by @emerald_property1%"
         "item_rpc_temporal_warp_boots_sapphire1"                                "Reduces the channel time of Time Warp by @sapphire_property1 seconds"
         "item_rpc_temporal_warp_boots_amethyst1"                                "When you plant your respawn flag, gain @amethyst_property1 vision of that area for @amethyst_property2 minutes"
 
@@ -534,7 +534,7 @@
         "DOTA_Tooltip_modifier_rpc_terrasic_lava_boot_effect"   "Magma Tread"
         "DOTA_Tooltip_modifier_rpc_terrasic_lava_boot_effect_Description"   "Increased attack damage and attack range."
 
-        "item_rpc_terrasic_lava_boots_ruby1"                                "Increases Item and <font color=\"#EF4126\">Fire</font> Elemental damage by @ruby_property1%"
+        "item_rpc_terrasic_lava_boots_ruby1"                                "Increases Item and <font color=ELEMENT_FIRE>Fire</font> Elemental damage by @ruby_property1%"
         "item_rpc_terrasic_lava_boots_emerald1"                             "Casting [E] emits @emerald_property1 <% ITEM_RPC_TERRASIC_LAVA_BOOTS_EMERALD_FLAME_RANGE %> range flames in a cone from your back, each dealing @emerald_property2% of attack power to impacted enemies"
         "item_rpc_terrasic_lava_boots_sapphire1"                                "Travelling <% ITEM_RPC_TERRASIC_LAVA_BOOTS_SAPPHIRE_DISTANCE %> distance summons a fireling with Magma Tread active. The fireling has <% ITEM_RPC_TERRASIC_LAVA_BOOTS_SAPPHIRE_ATTACK_RANGE %> attack range, @sapphire_property1% of your health, and @sapphire_property2% of your attack damage. Lasts <% ITEM_RPC_TERRASIC_LAVA_BOOTS_SAPPHIRE_DURATION %> seconds."
         "item_rpc_terrasic_lava_boots_amethyst1"                                "Casting [E] applies the Magma Tread buff for @amethyst_property1 seconds"

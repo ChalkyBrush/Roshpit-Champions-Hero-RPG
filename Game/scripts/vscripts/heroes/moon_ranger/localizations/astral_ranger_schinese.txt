@@ -1,6 +1,6 @@
 		//Abilities
 		"DOTA_Tooltip_ability_moon_shroud"								"星际尘埃"
-		"DOTA_Tooltip_ability_moon_shroud_Description"					"元素： <font color=\"#C25DFC\">宇宙</font><br>在游侠前方创建一片星际尘埃，在其中的敌人将会攻击丢失、受到伤害并减速。"
+		"DOTA_Tooltip_ability_moon_shroud_Description"					"元素： <font color=ELEMENT_COSMOS>宇宙</font><br>在游侠前方创建一片星际尘埃，在其中的敌人将会攻击丢失、受到伤害并减速。"
 		"DOTA_Tooltip_ability_moon_shroud_Lore"							""
 		"DOTA_Tooltip_ability_moon_shroud_duration"						"持续时间："
 		"DOTA_Tooltip_ability_moon_shroud_damage"						"每秒伤害："
@@ -40,7 +40,7 @@
     	"DOTA_Tooltip_modifier_astral_rune_q_4_visible_Description"		"攻击力提高"
 		
 		"DOTA_Tooltip_ability_split_shot"								"分裂箭"
-		"DOTA_Tooltip_ability_split_shot_Description"					"元素： <font color=\"#DDDDDD\">普通</font><br>星际游侠拉开她的长弓，持续0.8秒，然后向她面向的方向射出15支箭。"
+		"DOTA_Tooltip_ability_split_shot_Description"					"元素： <font color=ELEMENT_COSMOS>普通</font><br>星际游侠拉开她的长弓，持续0.8秒，然后向她面向的方向射出15支箭。"
 		"DOTA_Tooltip_ability_split_shot_Lore"							""
 		"DOTA_Tooltip_ability_split_shot_damage"						"每支箭伤害："
     	"DOTA_Tooltip_ability_split_shot_range"							"范围："
@@ -72,7 +72,7 @@
     	"DOTA_Tooltip_modifier_astral_d_b_visible_Description"			"魔甲降低"
 		
 		"DOTA_Tooltip_ability_star_blink"								"星际裂隙"
-		"DOTA_Tooltip_ability_star_blink_Description"					"元素： <font color=\"#C25DFC\">宇宙</font><br>向目标点放置一粒星辰，眩晕其附近的单位。2秒后，游侠传送到该点。"
+		"DOTA_Tooltip_ability_star_blink_Description"					"元素： <font color=ELEMENT_COSMOS>宇宙</font><br>向目标点放置一粒星辰，眩晕其附近的单位。2秒后，游侠传送到该点。"
 		"DOTA_Tooltip_ability_star_blink_Lore"							""
 		"DOTA_Tooltip_ability_star_blink_star_range"					"施法距离："
     	"DOTA_Tooltip_ability_star_blink_star_stun_duration"			"眩晕时间："
@@ -106,7 +106,7 @@
         "DOTA_Tooltip_ability_astral_rune_e_3_suffix_two"                   ""
 		
 		"DOTA_Tooltip_ability_astral_rune_e_4"							"[E4] 流星"
-    	"DOTA_Tooltip_ability_astral_rune_e_4_Description"				"提高属性值和所有 <font color=\"#C25DFC\">宇宙</font> 元素的伤害。"
+    	"DOTA_Tooltip_ability_astral_rune_e_4_Description"				"提高属性值和所有 <font color=ELEMENT_COSMOS>宇宙</font> 元素的伤害。"
     	"DOTA_Tooltip_ability_astral_rune_e_4_property_one"				"额外属性值"
     	"DOTA_Tooltip_ability_astral_rune_e_4_suffix"					""
     	"DOTA_Tooltip_ability_astral_rune_e_4_property_two"				"宇宙元素伤害提高"
@@ -118,7 +118,7 @@
     	"DOTA_Tooltip_modifier_astral_rune_e_4_visible_Description"		"额外属性值并且提高宇宙元素伤害"
 		
 		"DOTA_Tooltip_ability_ranger_aoe_explosion"						"天体爆发"
-		"DOTA_Tooltip_ability_ranger_aoe_explosion_Description"			"元素： <font color=\"#C25DFC\">宇宙</font><br>在星际游侠周围的地底产生星辰碎片，对范围内的敌人造成伤害并将其抛至空中。"
+		"DOTA_Tooltip_ability_ranger_aoe_explosion_Description"			"元素： <font color=ELEMENT_COSMOS>宇宙</font><br>在星际游侠周围的地底产生星辰碎片，对范围内的敌人造成伤害并将其抛至空中。"
 		"DOTA_Tooltip_ability_ranger_aoe_explosion_Lore"				""
 		"DOTA_Tooltip_ability_ranger_aoe_explosion_damage"				"伤害："
     	"DOTA_Tooltip_ability_ranger_aoe_explosion_duration"			"抛掷时间："
@@ -226,7 +226,7 @@
     	"property_astral_arcana3_description"								"用冰晶之箭来替换 @Ability4 和它的全部符文。"
 
     	"DOTA_Tooltip_ability_crystal_arrow"						"冰晶之箭"
-    	"DOTA_Tooltip_ability_crystal_arrow_Description"			"元素: <font color=\"#87D9FF\">冰</font> / <font color=\"#C25DFC\">宇宙</font><br>星界游侠向天空射出一只冰晶之箭。引导结束后，向目标位置射击受到阿塞莉娅祝福的冰晶之箭，造成范围伤害。"
+    	"DOTA_Tooltip_ability_crystal_arrow_Description"			"元素: <font color=ELEMENT_ICE>冰</font> / <font color=ELEMENT_COSMOS>宇宙</font><br>星界游侠向天空射出一只冰晶之箭。引导结束后，向目标位置射击受到阿塞莉娅祝福的冰晶之箭，造成范围伤害。"
     	"DOTA_Tooltip_ability_crystal_arrow_damage"					"伤害:"
 
     	"DOTA_Tooltip_ability_astral_rune_r_1_arcana3"						"[R1] 阿塞莉娅之窗"
@@ -317,7 +317,7 @@
         "item_rpc_astral_glyph_6_2_description"                "普通攻击有 <% ASTRAL_RANGER_GLYPH_6_2_FREEZE_CHANCE %>% 概率冻结敌人 <% ASTRAL_RANGER_GLYPH_6_2_FREEZE_DURATION %> 秒。"
 
         "DOTA_Tooltip_ability_item_rpc_astral_glyph_7_2"       "[T7-2] 隐星雕文"
-        "item_rpc_astral_glyph_7_2_description"                "每点T4符文将会提高<font color=\"#C25DFC\">宇宙</font> 元素伤害 <% ASTRAL_RANGER_GLYPH_7_2_COSMIC_DMG_PER_T4 %>% "
+        "item_rpc_astral_glyph_7_2_description"                "每点T4符文将会提高<font color=ELEMENT_COSMOS>宇宙</font> 元素伤害 <% ASTRAL_RANGER_GLYPH_7_2_COSMIC_DMG_PER_T4 %>% "
 		
 		//Weapons
 		"astral_weapon_01"			"秘银符文弓"

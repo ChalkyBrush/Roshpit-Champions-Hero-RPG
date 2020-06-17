@@ -1,6 +1,6 @@
 		//Abilities
 		"DOTA_Tooltip_ability_hydroxis_hydro_pump"									"Hydro Pump"
-    	"DOTA_Tooltip_ability_hydroxis_hydro_pump_Description"						"Element: <font color=\"#3894FF\">Water</font><br>Hydroxis slams the ground, pumping out pressurized water jets in a line towards the target point. Enemies hit by the torrents are launched into the air and stunned."
+    	"DOTA_Tooltip_ability_hydroxis_hydro_pump_Description"						"Element: <font color=ELEMENT_WATER>Water</font><br>Hydroxis slams the ground, pumping out pressurized water jets in a line towards the target point. Enemies hit by the torrents are launched into the air and stunned."
     	"DOTA_Tooltip_ability_hydroxis_hydro_pump_damage"							"DAMAGE:"
     	"DOTA_Tooltip_ability_hydroxis_hydro_pump_torrents"							"WATER JETS:"
 
@@ -41,7 +41,7 @@
     	"DOTA_Tooltip_ability_hydroxis_rune_q_4_suffix_two"					"x all attributes"
 		
 		"DOTA_Tooltip_ability_hydroxis_water_blade"									"Water Bomb"
-    	"DOTA_Tooltip_ability_hydroxis_water_blade_Description"						"Element: <font color=\"#3894FF\">Water</font><br>An arc of water is conjured from Hydroxis' weapon. Enemies in the impact radius are heavily slowed."	
+    	"DOTA_Tooltip_ability_hydroxis_water_blade_Description"						"Element: <font color=ELEMENT_WATER>Water</font><br>An arc of water is conjured from Hydroxis' weapon. Enemies in the impact radius are heavily slowed."	
     	"DOTA_Tooltip_ability_hydroxis_water_blade_damage"							"DAMAGE:"
     	"DOTA_Tooltip_ability_hydroxis_water_blade_slow_movespeed"					"MOVESPEED SLOW:"
     	"DOTA_Tooltip_ability_hydroxis_water_blade_slow_attackspeed"				"ATTACKSPEED SLOW:"
@@ -99,14 +99,14 @@
     	"DOTA_Tooltip_modifier_hydroxis_c_c_Description"					"Increased attack speed"
 		
 		"DOTA_Tooltip_ability_hydroxis_rune_e_4"							"[E4] Shining Scales"
-    	"DOTA_Tooltip_ability_hydroxis_rune_e_4_Description"				"Increases Agility, Intelligence, and <font color=\"#3894FF\">Water</font> damage."
+    	"DOTA_Tooltip_ability_hydroxis_rune_e_4_Description"				"Increases Agility, Intelligence, and <font color=ELEMENT_WATER>Water</font> damage."
     	"DOTA_Tooltip_ability_hydroxis_rune_e_4_property_one"				"Bonus Agility and Intelligence"
     	"DOTA_Tooltip_ability_hydroxis_rune_e_4_suffix"						""
     	"DOTA_Tooltip_ability_hydroxis_rune_e_4_property_two"				"Water Damage Amp"
     	"DOTA_Tooltip_ability_hydroxis_rune_e_4_suffix_two"					"%"
 		
 		"DOTA_Tooltip_ability_hydroxis_tsunami"										"Ocean Quake"		
-    	"DOTA_Tooltip_ability_hydroxis_tsunami_Description"							"Element: <font color=\"#3894FF\">Water</font> / <font color=\"#AF843D\">Earth</font><br>Hydroxis crashes the ground, revealing a torrent of water that stuns and slows all surrounding enemies. Ability damage is based on strength attribute."	
+    	"DOTA_Tooltip_ability_hydroxis_tsunami_Description"							"Element: <font color=ELEMENT_WATER>Water</font> / <font color=ELEMENT_EARTH>Earth</font><br>Hydroxis crashes the ground, revealing a torrent of water that stuns and slows all surrounding enemies. Ability damage is based on strength attribute."	
     	"DOTA_Tooltip_ability_hydroxis_tsunami_strength_damage"						"DAMAGE STRENGTH MULTIPLIER:"			
     	"DOTA_Tooltip_ability_hydroxis_tsunami_stun_duration"						"STUN DURATION:"
     	"DOTA_Tooltip_ability_hydroxis_tsunami_slow_duration"						"SLOW DURATION:"
@@ -190,7 +190,7 @@
         "DOTA_Tooltip_ability_hydroxis_rune_w_3_arcana1_suffix_two"         ""
 
   		"DOTA_Tooltip_ability_hydroxis_rune_w_4_arcana1"						"[W4] Wave Maker"
-    	"DOTA_Tooltip_ability_hydroxis_rune_w_4_arcana1_Description"			"Enemies hit by <font color=\"#3894FF\">Water</font> damage have @Ability2 debuff applied. Additionally all attacks or [W2] strikes add stacks of base attack damage that last for 10 seconds, up to 30 stacks."
+    	"DOTA_Tooltip_ability_hydroxis_rune_w_4_arcana1_Description"			"Enemies hit by <font color=ELEMENT_WATER>Water</font> damage have @Ability2 debuff applied. Additionally all attacks or [W2] strikes add stacks of base attack damage that last for 10 seconds, up to 30 stacks."
     	"DOTA_Tooltip_ability_hydroxis_rune_w_4_arcana1_property_one"		"Whitewhater Mist Apply Duration"
     	"DOTA_Tooltip_ability_hydroxis_rune_w_4_arcana1_suffix"				" seconds"
     	"DOTA_Tooltip_ability_hydroxis_rune_w_4_arcana1_property_two"		"Bonus Attack Per Stack"
@@ -224,7 +224,7 @@
     	"DOTA_Tooltip_ability_hydroxis_rune_r_2_arcana2_suffix"				" seconds"
 
   		"DOTA_Tooltip_ability_hydroxis_rune_r_3_arcana2"						"[R3] Undercurrent"
-    	"DOTA_Tooltip_ability_hydroxis_rune_r_3_arcana2_Description"			"Enemies who step into a @Ability4 are temporarily rooted and dragged toward the center. Enemies standing in @Ability4 also take increased <font color=\"#3894FF\">Water</font> damage."
+    	"DOTA_Tooltip_ability_hydroxis_rune_r_3_arcana2_Description"			"Enemies who step into a @Ability4 are temporarily rooted and dragged toward the center. Enemies standing in @Ability4 also take increased <font color=ELEMENT_WATER>Water</font> damage."
     	"DOTA_Tooltip_ability_hydroxis_rune_r_3_arcana2_property_one"		"Root Duration"
     	"DOTA_Tooltip_ability_hydroxis_rune_r_3_arcana2_suffix"				" seconds"
     	"DOTA_Tooltip_ability_hydroxis_rune_r_3_arcana2_property_two"		"Increased Water Damage"

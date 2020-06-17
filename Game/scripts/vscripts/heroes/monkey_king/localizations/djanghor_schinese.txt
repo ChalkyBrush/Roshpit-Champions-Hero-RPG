@@ -43,7 +43,7 @@
 		"DOTA_Tooltip_modifier_mark_of_the_talon_Description"							"提高魔法回复速度和魔甲。释放后可以变身成为鹰形态。"	
 
 		"DOTA_Tooltip_ability_draghor_jin_bo"											"金箍棒"
-		"DOTA_Tooltip_ability_draghor_jin_bo_Description"								"元素： <font color=\"#DDDDDD\">普通</font><br>孙悟空挥舞金箍棒，将敌人击退。连续第三次打击时，金箍棒将伸长，打击一条直线上的所有敌人，并造成眩晕。第三次打击时，伤害拥有 <font color=\"#69BC71\">自然</font> 元素属性。在施放筋斗云时施放金箍棒将自动造成第三次打击。"
+		"DOTA_Tooltip_ability_draghor_jin_bo_Description"								"元素： <font color=ELEMENT_NORMAL>普通</font><br>孙悟空挥舞金箍棒，将敌人击退。连续第三次打击时，金箍棒将伸长，打击一条直线上的所有敌人，并造成眩晕。第三次打击时，伤害拥有 <font color=ELEMENT_NATURE>自然</font> 元素属性。在施放筋斗云时施放金箍棒将自动造成第三次打击。"
 		"DOTA_Tooltip_ability_draghor_jin_bo_damage_mult"								"伤害为 % 的攻击力："
 		"DOTA_Tooltip_ability_draghor_jin_bo_stun_duration"								"第三次打击时眩晕持续时间："
 
@@ -76,7 +76,7 @@
 		"DOTA_Tooltip_modifier_wolf_sprint_Description"									"提高移动速度和移动速度上限"
 
 		"DOTA_Tooltip_ability_draghor_wolf_rend"										"撕裂"
-		"DOTA_Tooltip_ability_draghor_wolf_rend_Description"							"元素： <font color=\"#DDDDDD\">普通</font><br>攻击面前的敌人，根据攻击力造成伤害。每次撕裂减少敌人的护甲值，最多叠加 2 层。如果敌人被撕裂了两次（获得两层撕裂debuff），敌人将会流血，受到持续的流血伤害。"
+		"DOTA_Tooltip_ability_draghor_wolf_rend_Description"							"元素： <font color=ELEMENT_NORMAL>普通</font><br>攻击面前的敌人，根据攻击力造成伤害。每次撕裂减少敌人的护甲值，最多叠加 2 层。如果敌人被撕裂了两次（获得两层撕裂debuff），敌人将会流血，受到持续的流血伤害。"
 		"DOTA_Tooltip_ability_draghor_wolf_rend_damage_mult"							"伤害为 % 的攻击力："
 		"DOTA_Tooltip_ability_draghor_wolf_rend_bleed_damage"							"流血伤害为 % 的攻击力："	
 		"DOTA_Tooltip_ability_draghor_wolf_rend_bleed_duration"							"流血持续时间："
@@ -99,7 +99,7 @@
 		"DOTA_Tooltip_modifier_bear_armor_buff_Description"								"护甲值提高"	
 
 		"DOTA_Tooltip_ability_djanghor_bear_war_stomp"									"战争践踏"
-		"DOTA_Tooltip_ability_djanghor_bear_war_stomp_Description"						"元素： <font color=\"#69BC71\">自然</font> / <font color=\"#AF843D\">土</font><br>熊形态下重踏地面，造成地震并眩晕敌人，伤害周围的敌人。"
+		"DOTA_Tooltip_ability_djanghor_bear_war_stomp_Description"						"元素： <font color=ELEMENT_NATURE>自然</font> / <font color=ELEMENT_EARTH>土</font><br>熊形态下重踏地面，造成地震并眩晕敌人，伤害周围的敌人。"
 		"DOTA_Tooltip_ability_djanghor_bear_war_stomp_damage"							"伤害："
 		"DOTA_Tooltip_ability_djanghor_bear_war_stomp_stun_duration"					"眩晕持续时间："
 
@@ -111,7 +111,7 @@
 		"DOTA_Tooltip_modifier_bear_charging"										"战争冲锋"
 
 		"DOTA_Tooltip_ability_draghor_hawk_screech"									"超声波"
-		"DOTA_Tooltip_ability_draghor_hawk_screech_Description"						"元素： <font color=\"#B5FFB7\">时</font> / <font color=\"#69BC71\">自然</font><br>向前方锥形区域施放超声波上海敌人，并且敌人将获得一个debuff，使敌人的魔甲在一定时间内降低。"
+		"DOTA_Tooltip_ability_draghor_hawk_screech_Description"						"元素： <font color=ELEMENT_TIME>时</font> / <font color=ELEMENT_NATURE>自然</font><br>向前方锥形区域施放超声波上海敌人，并且敌人将获得一个debuff，使敌人的魔甲在一定时间内降低。"
 		"DOTA_Tooltip_ability_draghor_hawk_screech_damage"							"伤害："
 		"DOTA_Tooltip_ability_draghor_hawk_screech_magic_armor_reduction"					"魔甲降低:"
 		"DOTA_Tooltip_ability_draghor_hawk_screech_debuff_duration"					"持续时间:"
@@ -120,7 +120,7 @@
 		"DOTA_Tooltip_modifier_draghor_hawk_screech_Description"					"魔甲降低"
 
 		"DOTA_Tooltip_ability_draghor_hawk_tornado"									"苍穹龙卷"
-		"DOTA_Tooltip_ability_draghor_hawk_tornado_Description"						"元素：<font color=\"#7AE2A7\">风</font> / <font color=\"#69BC71\">自然</font><br> 翅膀扇动召唤致命的龙卷风，席卷前方。被龙卷风击中的敌人将被减速。"
+		"DOTA_Tooltip_ability_draghor_hawk_tornado_Description"						"元素：<font color=ELEMENT_WIND>风</font> / <font color=ELEMENT_NATURE>自然</font><br> 翅膀扇动召唤致命的龙卷风，席卷前方。被龙卷风击中的敌人将被减速。"
 		"DOTA_Tooltip_ability_draghor_hawk_tornado_bonus_movement_speed"			"移动速度减少："
 		"DOTA_Tooltip_ability_draghor_hawk_tornado_attack_speed"					"攻击速度减少 % ："
 		"DOTA_Tooltip_ability_draghor_hawk_tornado_damage"							"基础伤害："
@@ -167,7 +167,7 @@
     	"DOTA_Tooltip_ability_djanghor_rune_q_4_suffix"								"%"
 
     	"DOTA_Tooltip_ability_djanghor_rune_w_1"									"[W1] 自然撕咬"
-    	"DOTA_Tooltip_ability_djanghor_rune_w_1_Description"						"在所有形态下攻击都将造成 <font color=\"#69BC71\">自然</font> 元素伤害。"
+    	"DOTA_Tooltip_ability_djanghor_rune_w_1_Description"						"在所有形态下攻击都将造成 <font color=ELEMENT_NATURE>自然</font> 元素伤害。"
     	"DOTA_Tooltip_ability_djanghor_rune_w_1_property_one"						"伤害"
     	"DOTA_Tooltip_ability_djanghor_rune_w_1_suffix"								"% 所造成的伤害"
 
@@ -182,7 +182,7 @@
     	"DOTA_Tooltip_ability_djanghor_rune_w_3_suffix"								"% 攻击力"
 
     	"DOTA_Tooltip_ability_djanghor_rune_w_4"									"[W4] 自然选择"
-    	"DOTA_Tooltip_ability_djanghor_rune_w_4_Description"						"提高所有 <font color=\"#69BC71\">自然</font> 元素的伤害。"
+    	"DOTA_Tooltip_ability_djanghor_rune_w_4_Description"						"提高所有 <font color=ELEMENT_NATURE>自然</font> 元素的伤害。"
     	"DOTA_Tooltip_ability_djanghor_rune_w_4_property_one"						"自然元素伤害提高"
     	"DOTA_Tooltip_ability_djanghor_rune_w_4_suffix"								"%"
 
@@ -245,7 +245,7 @@
     	"DOTA_Tooltip_ability_draghor_shapeshift_year_beast_all_attributes_bonus"						"年兽形态全属性提高："
 
     	"DOTA_Tooltip_ability_draghor_year_beast_thunderous_roar"									"嗔怒"
-		"DOTA_Tooltip_ability_draghor_year_beast_thunderous_roar_Description"						"元素： <font color=\"#B5FFB7\">时</font> / <font color=\"#69BC71\">自然</font><br>向前方释放超声波，被击中的敌人魔甲降低。同时，被击中的敌人受到嘲讽，强制攻击 齐天大圣 一段时间。嘲讽期间提高护甲值。"
+		"DOTA_Tooltip_ability_draghor_year_beast_thunderous_roar_Description"						"元素： <font color=ELEMENT_TIME>时</font> / <font color=ELEMENT_NATURE>自然</font><br>向前方释放超声波，被击中的敌人魔甲降低。同时，被击中的敌人受到嘲讽，强制攻击 齐天大圣 一段时间。嘲讽期间提高护甲值。"
 		"DOTA_Tooltip_ability_draghor_year_beast_thunderous_roar_damage"							"伤害："
 	"DOTA_Tooltip_ability_draghor_year_beast_thunderous_roar_magic_armor_reduction"					"魔甲降低:"
 		"DOTA_Tooltip_ability_draghor_year_beast_thunderous_roar_debuff_duration"					"持续时间："
@@ -253,7 +253,7 @@
 		"DOTA_Tooltip_ability_draghor_year_beast_thunderous_roar_armor_bonus"						"护甲值提高："
 
 		"DOTA_Tooltip_ability_draghor_year_beast_rending_gale"										"飓风"
-		"DOTA_Tooltip_ability_draghor_year_beast_rending_gale_Description"							"元素： <font color=\"#DDDDDD\">普通</font><br><font color=\"#7AE2A7\">风</font> / <font color=\"#69BC71\">自然</font><br>用利爪攻击前方，强有力的一击卷起旋风，伤害基于总攻击力。敌人每次被利爪将减少护甲值，叠加 2 次。如果敌人两次或以上被利爪或旋风击中，将会流血，受到持续伤害，同时被减速。"
+		"DOTA_Tooltip_ability_draghor_year_beast_rending_gale_Description"							"元素： <font color=ELEMENT_NORMAL>普通</font><br><font color=ELEMENT_WIND>风</font> / <font color=ELEMENT_NATURE>自然</font><br>用利爪攻击前方，强有力的一击卷起旋风，伤害基于总攻击力。敌人每次被利爪将减少护甲值，叠加 2 次。如果敌人两次或以上被利爪或旋风击中，将会流血，受到持续伤害，同时被减速。"
 		"DOTA_Tooltip_ability_draghor_year_beast_rending_gale_damage_mult"							"利爪伤害为 % 攻击力："
 		"DOTA_Tooltip_ability_draghor_year_beast_rending_gale_bleed_damage"							"流血伤害为 % 攻击力："	
 		"DOTA_Tooltip_ability_draghor_year_beast_rending_gale_bleed_duration"						"流血持续时间："
@@ -272,7 +272,7 @@
 		"DOTA_Tooltip_ability_djanghor_year_beast_charge_duration"							"移速提高持续时间："
 
 		"DOTA_Tooltip_ability_draghor_year_beast_leap"									"龙腾"
-		"DOTA_Tooltip_ability_draghor_year_beast_leap_Description"						"元素： <font color=\"#69BC71\">自然</font> / <font color=\"#AF843D\">土</font><br>向目标点跳跃，重击地面，眩晕并伤害附近的敌人。"
+		"DOTA_Tooltip_ability_draghor_year_beast_leap_Description"						"元素： <font color=ELEMENT_NATURE>自然</font> / <font color=ELEMENT_EARTH>土</font><br>向目标点跳跃，重击地面，眩晕并伤害附近的敌人。"
 		"DOTA_Tooltip_ability_draghor_year_beast_leap_stun_duration"					"眩晕持续时间："
 		"DOTA_Tooltip_ability_draghor_year_beast_leap_cast_range"						"施法距离："
 
@@ -332,7 +332,7 @@
 		"DOTA_Tooltip_modifier_glyph_7_bash_Description"		"攻击时有概率眩晕敌人并造成额外伤害"
 
 		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_5_a"		"[T5-a] 自然灾害雕文"
-		"item_rpc_djanghor_glyph_5_a_description" 				"所有 <font color=\"#DDDDDD\">普通</font> 元素伤害都将拥有第二种元素类型，为 <font color=\"#69BC71\">自然</font>."
+		"item_rpc_djanghor_glyph_5_a_description" 				"所有 <font color=ELEMENT_NORMAL>普通</font> 元素伤害都将拥有第二种元素类型，为 <font color=ELEMENT_NATURE>自然</font>."
 		
 	
 		//Weapons

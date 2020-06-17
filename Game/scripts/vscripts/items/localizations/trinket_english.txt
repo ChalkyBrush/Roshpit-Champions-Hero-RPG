@@ -18,7 +18,7 @@
 
         "item_rpc_ancient_tanari_waterstone_ruby1"                      "Increases Max Health by @ruby_property1 and Max Mana by @ruby_property2"
         "item_rpc_ancient_tanari_waterstone_emerald1"                       "Each point of Intelligence grants @emerald_property1 Magic Armor"
-        "item_rpc_ancient_tanari_waterstone_sapphire1"                      "Increases Item and <font color=\"#3894FF\">Water</font> Elemental Damage by @sapphire_property1%"
+        "item_rpc_ancient_tanari_waterstone_sapphire1"                      "Increases Item and <font color=ELEMENT_WATER>Water</font> Elemental Damage by @sapphire_property1%"
         "item_rpc_ancient_tanari_waterstone_amethyst1"                      "Increases Spirit by @amethyst_property1"
 
         "DOTA_Tooltip_ability_item_rpc_ankh_of_the_ancients"                            "Ankh of the Ancients"
@@ -84,7 +84,7 @@
         "item_rpc_arcane_charm_ruby1"                                   "Each point of Intelligence increases Magic Armor by @ruby_property1"
         "item_rpc_arcane_charm_emerald1"                                    "@emerald_property1% of your Magic Armor also increases Spell Pierce"
         "item_rpc_arcane_charm_sapphire1"                                   "All Magic or Pure Damage taken immediately heals you for @sapphire_property1% of the damage taken"
-        "item_rpc_arcane_charm_amethyst1"                                   "Increases Item Damage and <font color=\"#E1A2E8\">Arcane</font> Elemental damage by @amethyst_property1%"
+        "item_rpc_arcane_charm_amethyst1"                                   "Increases Item Damage and <font color=ELEMENT_ARCANE>Arcane</font> Elemental damage by @amethyst_property1%"
 		
         "DOTA_Tooltip_ability_item_rpc_auric_ring_of_inspiration"   "Auric Ring of Inspiration"
 
@@ -95,7 +95,7 @@
         "DOTA_Tooltip_modifier_auric_ring_bkb_Description"          "Spell Immunity"
 
         "item_rpc_auric_ring_of_inspiration_ruby1"  "Gain @ruby_property1 Spell Pierce while Divine Inspiration is active"
-        "item_rpc_auric_ring_of_inspiration_emerald1"   "Increases Item and <font color=\"#F6FFB5\">Holy</font> Elemental Damage by @emerald_property1%"
+        "item_rpc_auric_ring_of_inspiration_emerald1"   "Increases Item and <font color=ELEMENT_HOLY>Holy</font> Elemental Damage by @emerald_property1%"
         "item_rpc_auric_ring_of_inspiration_sapphire1"  "Increases the Magic Immunity Duration by @sapphire_property1"
         "item_rpc_auric_ring_of_inspiration_amethyst1"  "When you activate Divine Inspiration, restore @amethyst_property1% of Max Health"
 
@@ -135,7 +135,7 @@
 
         "item_rpc_beryl_ring_of_intuition_ruby1"    "When you activate Cycle of Respiration, restore @ruby_property1% of Max Health"
         "item_rpc_beryl_ring_of_intuition_emerald1"     "Gain @emerald_property1 Armor Pierce for <% ITEM_RPC_BERYL_RING_OF_INTUITION_EMERALD_DURATION %> seconds after activating Cycle of Respiration"
-        "item_rpc_beryl_ring_of_intuition_sapphire1"    "Increases Item and <font color=\"#F6FFB5\">Ice</font> Elemental Damage by @sapphire_property1%"
+        "item_rpc_beryl_ring_of_intuition_sapphire1"    "Increases Item and <font color=ELEMENT_ICE>Ice</font> Elemental Damage by @sapphire_property1%"
         "item_rpc_beryl_ring_of_intuition_amethyst1"    "When you activate Cycle of Respiration, restore @amethyst_property1% of Max Mana"
 
         "DOTA_Tooltip_modifier_beryl_ring_of_intuition_emerald_armor_pierce"	"Cycle of Respiration (Emerald)"
@@ -214,7 +214,7 @@
         "item_rpc_epsilons_eyeglass_ruby1"                              "Your attacks deal an extra instance of damage equal to @ruby_property1x the distance between you and your target"
         "item_rpc_epsilons_eyeglass_emerald1"                               "Increases the Attack Range bonus (for Ranged heroes) by an additional @emerald_property1"
         "item_rpc_epsilons_eyeglass_sapphire1"                              "Increases the Projectile Speed bonus by an additional @sapphire_property1 and increases Attack Power by @sapphire_property2%"
-        "item_rpc_epsilons_eyeglass_amethyst1"                              "Increases <font color=\"#C25DFC\">Cosmic</font> Elemental Damage and Item Damage by @amethyst_property1%"
+        "item_rpc_epsilons_eyeglass_amethyst1"                              "Increases <font color=ELEMENT_COSMOS>Cosmic</font> Elemental Damage and Item Damage by @amethyst_property1%"
 
         "DOTA_Tooltip_ability_item_rpc_eye_of_avernus"                                  "Eye of Avernus"
         "item_property_avernus"                     "Commanding Vision"                             
@@ -253,7 +253,7 @@
         "property_firelock_description"                 "Each point of Strength increases Armor Pierce by <% ITEM_RPC_FIRELOCK_PENDANT_STR_TO_ARMOR_PIERCE %>."
         
         "item_rpc_firelock_pendant_ruby1"                               "Increases Strength and Agility by @ruby_property1"
-        "item_rpc_firelock_pendant_emerald1"                                 "Increases Item and <font color=\"#EF4126\">Fire</font> Elemental damage by @emerald_property1%"
+        "item_rpc_firelock_pendant_emerald1"                                 "Increases Item and <font color=ELEMENT_FIRE>Fire</font> Elemental damage by @emerald_property1%"
         "item_rpc_firelock_pendant_sapphire1"                               "Each point of Agility and Strength increase Attack Speed by @sapphire_property1"
         "item_rpc_firelock_pendant_amethyst1"                               "Each point of Spirit increases Base Attack Damage by @amethyst_property1"
 
@@ -318,7 +318,7 @@
         "item_rpc_galaxy_orb_ruby1"                                     "Increases Black Hole's radius by @ruby_property1 and pull force by @ruby_property2"
         "item_rpc_galaxy_orb_emerald1"                                      "Enemies trapped in the Black Hole vacuum for <% ITEM_RPC_GALAXY_ORB_EMERALD_TIME_TO_FREEZE %> seconds are Frozen and have @emerald_property1 reduced Armor and Magic Armor for @emerald_property2 seconds"
         "item_rpc_galaxy_orb_sapphire1"                                     "Black Hole persists for @sapphire_property1 seconds after channeling ends, and increases Base Ability Damage of [R] by @sapphire_property2%."
-        "item_rpc_galaxy_orb_amethyst1"                                     "Increases Item and <font color=\"#C25DFC\">Cosmic</font> Elemental Damage by @amethyst_property1%"
+        "item_rpc_galaxy_orb_amethyst1"                                     "Increases Item and <font color=ELEMENT_COSMOS>Cosmic</font> Elemental Damage by @amethyst_property1%"
 
         "DOTA_Tooltip_ability_item_rpc_galvanized_razor_band"           "Galvanized Razor Band"
 
@@ -351,7 +351,7 @@
 
         "item_rpc_gem_of_eternal_frost_ruby1"                           "Enemies who are rooted deal @ruby_property1% reduced damage to you"
         "item_rpc_gem_of_eternal_frost_emerald1"                            "Increases Frost Nova radius by @emerald_property1 and nova damage by @emerald_property2"
-        "item_rpc_gem_of_eternal_frost_sapphire1"                           "Increases Item and <font color=\"#87D9FF\">Ice</font> Elemental Damage by @sapphire_property1%"
+        "item_rpc_gem_of_eternal_frost_sapphire1"                           "Increases Item and <font color=ELEMENT_ICE>Ice</font> Elemental Damage by @sapphire_property1%"
         "item_rpc_gem_of_eternal_frost_amethyst1"                           "Enemies with <% ITEM_RPC_GEM_OF_ETERNAL_FROST_AMETHYST_AURA_RADIUS %> range are slowed by @amethyst_property1 movespeed every <% ITEM_RPC_GEM_OF_ETERNAL_FROST_AMETHYST_STACK_INTERVAL %> seconds. When their movespeed drops below <% ITEM_RPC_GEM_OF_ETERNAL_FROST_AMETHYST_MS_THRESHOLD %> they are rooted for @amethyst_property2 seconds."
 
         "DOTA_Tooltip_ability_item_rpc_guardian_stone"                  "Guardian Stone"
@@ -445,7 +445,7 @@
         "item_rpc_raven_idol_ruby1"                                     "Reduces your health limit by an additional @ruby_property1% of Max Health, and increases Black Soul's damage reduction by an additional @ruby_property2%"
         "item_rpc_raven_idol_emerald1"                                      "Healing effects that are applied to you are @emerald_property1% less effective. Increase Base Ability Damage by @emerald_property2% and Attack Power by @emerald_property3"
         "item_rpc_raven_idol_sapphire1"                                     "Reduces Spirit by @sapphire_property1 and increases Strength by @sapphire_property2"
-        "item_rpc_raven_idol_amethyst1"                                     "Increases Item and <font color=\"#7F4F84\">Shadow</font> Elemental Damage by @amethyst_property1%"
+        "item_rpc_raven_idol_amethyst1"                                     "Increases Item and <font color=ELEMENT_SHADOW>Shadow</font> Elemental Damage by @amethyst_property1%"
 
         "DOTA_Tooltip_ability_item_rpc_ring_of_mysteries"             "Ring of Mysteries"
         "item_property_ring_of_mysteries"                                     "Resplendence"
@@ -506,10 +506,10 @@
         "item_rpc_sapphire_lotus_amethyst1"                                 "Each current point of Mana increases Spell Pierce by @amethyst_property1"
 		
         "DOTA_Tooltip_ability_item_rpc_serengaard_sun_crystal"                          "Serengaard Sun Crystal"
-        "item_rpc_serengaard_sun_crystal_ruby1"                         "Increases <font color='<% RPC_ELEMENT_FIRE_COLOR %>'>Fire</font>, <font color='<% RPC_ELEMENT_EARTH_COLOR %>'>Earth</font>, <font color='<% RPC_ELEMENT_LIGHTNING_COLOR %>'>Lightning</font>, and <font color='<% RPC_ELEMENT_POISON_COLOR %>'>Poison</font> Elemental Damage by @ruby_property1%"
-        "item_rpc_serengaard_sun_crystal_emerald1"                          "Increases <font color='<% RPC_ELEMENT_ARCANE_COLOR %>'>Arcane</font>, <font color='<% RPC_ELEMENT_SHADOW_COLOR %>'>Shadow</font>, <font color='<% RPC_ELEMENT_WIND_COLOR %>'>Wind</font>, and <font color='<% RPC_ELEMENT_GHOST_COLOR %>'>Ghost</font> Elemental Damage by @emerald_property1%"  
-        "item_rpc_serengaard_sun_crystal_sapphire1"                         "Increases <font color='<% RPC_ELEMENT_TIME_COLOR %>'>Time</font>, <font color='<% RPC_ELEMENT_HOLY_COLOR %>'>Holy</font>, <font color='<% RPC_ELEMENT_COSMOS_COLOR %>'>Cosmic</font>, and <font color='<% RPC_ELEMENT_ICE_COLOR %>'>Ice</font> Elemental Damage by @sapphire_property1%"
-        "item_rpc_serengaard_sun_crystal_amethyst1"                         "Increases <font color='<% RPC_ELEMENT_WATER_COLOR %>'>Water</font>, <font color='<% RPC_ELEMENT_DEMON_COLOR %>'>Demon</font>, <font color='<% RPC_ELEMENT_NATURE_COLOR %>'>Nature</font>, <font color='<% RPC_ELEMENT_UNDEAD_COLOR %>'>Undead</font>, and <font color='<% RPC_ELEMENT_DRAGON_COLOR %>'>Dragon</font> Elemental Damage by @amethyst_property1%"
+        "item_rpc_serengaard_sun_crystal_ruby1"                         "Increases <font color=ELEMENT_FIRE>Fire</font>, <font color=ELEMENT_EARTH>Earth</font>, <font color=ELEMENT_LIGHTNING>Lightning</font>, and <font color=ELEMENT_POISON>Poison</font> Elemental Damage by @ruby_property1%"
+        "item_rpc_serengaard_sun_crystal_emerald1"                          "Increases <font color=ELEMENT_ARCANE>Arcane</font>, <font color=ELEMENT_SHADOW>Shadow</font>, <font color=ELEMENT_WIND>Wind</font>, and <font color=ELEMENT_GHOST>Ghost</font> Elemental Damage by @emerald_property1%"  
+        "item_rpc_serengaard_sun_crystal_sapphire1"                         "Increases <font color=ELEMENT_TIME>Time</font>, <font color=ELEMENT_HOLY>Holy</font>, <font color=ELEMENT_COSMOS>Cosmic</font>, and <font color=ELEMENT_ICE>Ice</font> Elemental Damage by @sapphire_property1%"
+        "item_rpc_serengaard_sun_crystal_amethyst1"                         "Increases <font color=ELEMENT_WATER>Water</font>, <font color=ELEMENT_DEMON>Demon</font>, <font color=ELEMENT_NATURE>Nature</font>, <font color=ELEMENT_UNDEAD>Undead</font>, and <font color=ELEMENT_DRAGON>Dragon</font> Elemental Damage by @amethyst_property1%"
 
         "DOTA_Tooltip_ability_item_rpc_signus_charm"                                    "Signus Charm"
         "item_property_signus_charm"                                                    "Authority"
@@ -543,7 +543,7 @@
         "item_rpc_stargazers_sphere_ruby1"            "Issuing an attack-move order within a circle instantly collapses it, forming a meteor that does @ruby_property1% your attack power in the area and stuns enemies for @ruby_property2 seconds."
         "item_rpc_stargazers_sphere_emerald1"            "Reduces Eye of the Stargazer's cooldown by @emerald_property1 and max creation range by @emerald_property2"
         "item_rpc_stargazers_sphere_sapphire1"            "Reduces the Starfall delay per enemy by @sapphire_property1 seconds and increases the Star's damage by @sapphire_property2"
-        "item_rpc_stargazers_sphere_amethyst1"            "Increases Item and <font color=\"#C25DFC\">Cosmic</font> Elemental Damage by @amethyst_property1%"
+        "item_rpc_stargazers_sphere_amethyst1"            "Increases Item and <font color=ELEMENT_COSMOS>Cosmic</font> Elemental Damage by @amethyst_property1%"
 
         "DOTA_Tooltip_modifier_in_stargazer_area"                   "Stargazer's Sphere"
         "DOTA_Tooltip_modifier_in_stargazer_area_Description"       "Hit by stars when taking damage"
@@ -563,7 +563,7 @@
         "item_rpc_tempest_falcon_ring_ruby1"                                "Increases Movement Speed by @ruby_property1 and Max Movement Speed by @ruby_property2"
         "item_rpc_tempest_falcon_ring_emerald1"                             "Increases Attack Speed by @emerald_property1 and Agility by @emerald_property2"
         "item_rpc_tempest_falcon_ring_sapphire1"                                "Landing an attack increases Armor and Magic Armor by @sapphire_property1 and removes this sapphire's attack power bonus, and taking damage increases Attack Power by @sapphire_property2% and removes this sapphire's armor and magic armor bonus."
-        "item_rpc_tempest_falcon_ring_amethyst1"                                "Increases Item and <font color=\"#7AE2A7\">Wind</font> Elemental Damage by @amethyst_property1%"
+        "item_rpc_tempest_falcon_ring_amethyst1"                                "Increases Item and <font color=ELEMENT_WIND>Wind</font> Elemental Damage by @amethyst_property1%"
 		
 		
         "DOTA_Tooltip_ability_item_rpc_tome_of_chaos"                                   "Tome of Chaos"
@@ -600,7 +600,7 @@
         "item_rpc_torch_of_gengar_ruby1"                                    "Reduces Shadow Walk's disabled duration by @ruby_property1 seconds"
         "item_rpc_torch_of_gengar_emerald1"                                 "While Shadow Walk is disabled gain @emerald_property1% Base Ability Damage and @emerald_property2 Magic Armor"
         "item_rpc_torch_of_gengar_sapphire1"                                    "Reduces the Attack Power penalty during Shadow Walk by @sapphire_property1%"
-        "item_rpc_torch_of_gengar_amethyst1"                                    "Increases Item and <font color=\"#9ACCD1\">Ghost</font> Elemental Damage by @amethyst_property1%"
+        "item_rpc_torch_of_gengar_amethyst1"                                    "Increases Item and <font color=ELEMENT_GHOST>Ghost</font> Elemental Damage by @amethyst_property1%"
 	
         "DOTA_Tooltip_ability_item_rpc_twig_of_the_enlightened"                         "Twig of the Enlightened"
 
@@ -654,7 +654,7 @@
         "item_rpc_world_trees_flower_cache_ruby1"                       "New Bloom buff also increases Armor Pierce and Spell Pierce by @ruby_property1"
         "item_rpc_world_trees_flower_cache_emerald1"                        "Reduces New Bloom's Cooldown by @emerald_property1 seconds"
         "item_rpc_world_trees_flower_cache_sapphire1"                       "Increases New Bloom's buff duration by @sapphire_property1 seconds"
-        "item_rpc_world_trees_flower_cache_amethyst1"                       "Increases Item and <font color=\"#69BC71\">Nature</font> Elemental Damage by @amethyst_property1%"
+        "item_rpc_world_trees_flower_cache_amethyst1"                       "Increases Item and <font color=ELEMENT_NATURE>Nature</font> Elemental Damage by @amethyst_property1%"
 		
 		"DOTA_Tooltip_ability_item_rpc_sparkling_sea_crystal"					"Sparkling Sea Crystal"	
 		"item_rpc_sparkling_sea_crystal_ruby1"					"No Effect"

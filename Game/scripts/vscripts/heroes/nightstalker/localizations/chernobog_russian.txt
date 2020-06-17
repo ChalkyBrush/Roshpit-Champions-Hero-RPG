@@ -1,6 +1,6 @@
         //Abilities
         "DOTA_Tooltip_ability_chernobog_charons_claw"                           "Charon's Claw"
-        "DOTA_Tooltip_ability_chernobog_charons_claw_Description"               "Стихия: <font color=\"#5B648C\">Демон</font> / <font color=\"#7F4F84\">Тень</font><br>Выпускает поток тьмы в указанную сторону. Все задетые враги теряют % от скорости передвижения и урона, а герой получает бонус, дающий дополнительную скорость передвижения и возможность ходить сквозь врагов и препятствия."
+        "DOTA_Tooltip_ability_chernobog_charons_claw_Description"               "Стихия: <font color=ELEMENT_DEMON>Демон</font> / <font color=ELEMENT_SHADOW>Тень</font><br>Выпускает поток тьмы в указанную сторону. Все задетые враги теряют % от скорости передвижения и урона, а герой получает бонус, дающий дополнительную скорость передвижения и возможность ходить сквозь врагов и препятствия."
         "DOTA_Tooltip_ability_chernobog_charons_claw_range"                     "ДАЛЬНОСТЬ:"
         "DOTA_Tooltip_ability_chernobog_charons_claw_move_and_attack_slow"      "СНИЖЕНИЕ УРОНА И СКОРОСТИ (ВРАГИ):"
         "DOTA_Tooltip_ability_chernobog_charons_claw_move_speed_increase"       "БОНУС СКОРОСТИ (ГЕРОЙ И СОЮЗНИКИ):"
@@ -39,7 +39,7 @@
     	"DOTA_Tooltip_ability_chernobog_rune_q_4_suffix_three"					"% быстрее"
         
         "DOTA_Tooltip_ability_chernobog_demon_hunter"                           "Demon Hunter"
-        "DOTA_Tooltip_ability_chernobog_demon_hunter_Description"               "Стихия: <font color=\"#5B648C\">Демон</font><br>Позволяет раскрыть навыки охотника - демона, обретая дополнительные возможности и свойства. Добавляет к обычным атакам магический урон по области <% CHERNOBOG_W_RADIUS %>, основанный на общем уроне; а любой входящий урон не нанесёт герою больше определённого % от макс. здоровья.<br><font color='#f14b4b'>Пока это умение активно, герой не может восстанавливать своё здоровье</font>.<br><font color='#70EA72'>Если срабатывает свойство уменьшения урона, герой затратит некоторое количество маны</font>."
+        "DOTA_Tooltip_ability_chernobog_demon_hunter_Description"               "Стихия: <font color=ELEMENT_DEMON>Демон</font><br>Позволяет раскрыть навыки охотника - демона, обретая дополнительные возможности и свойства. Добавляет к обычным атакам магический урон по области <% CHERNOBOG_W_RADIUS %>, основанный на общем уроне; а любой входящий урон не нанесёт герою больше определённого % от макс. здоровья.<br><font color='#f14b4b'>Пока это умение активно, герой не может восстанавливать своё здоровье</font>.<br><font color='#70EA72'>Если срабатывает свойство уменьшения урона, герой затратит некоторое количество маны</font>."
         "DOTA_Tooltip_ability_chernobog_demon_hunter_mana_drain_per_attack"                     "ЗАТРАТЫ МАНЫ НА АТАКУ (НА СЕБЯ):"
         "DOTA_Tooltip_ability_chernobog_demon_hunter_health_cost_percent"                       "ЗАТРАТЫ ЗДОРОВЬЯ НА АТАКУ (НА СЕБЯ), %:"
         "DOTA_Tooltip_ability_chernobog_demon_hunter_max_damage_taken_percent_of_health"        "МАКС. ВХОДЯЩИЙ УРОН, % ОТ МАКС. ЗДОРОВЬЯ:"
@@ -147,8 +147,8 @@
         "DOTA_Tooltip_modifier_chernobog_ult_freeze_special_Description"        "Заморожен" 
 		
         "DOTA_Tooltip_ability_chernobog_rune_r_1"                               "[R1] Fiend's Grip"
-        "DOTA_Tooltip_ability_chernobog_rune_r_1_Description"                   "Пассивно увеличивает урон <font color=\"#5B648C\">Демона</font>."
-        "DOTA_Tooltip_ability_chernobog_rune_r_1_property_one"                  "Урон <font color=\"#5B648C\">Демона</font>"
+        "DOTA_Tooltip_ability_chernobog_rune_r_1_Description"                   "Пассивно увеличивает урон <font color=ELEMENT_DEMON>Демона</font>."
+        "DOTA_Tooltip_ability_chernobog_rune_r_1_property_one"                  "Урон <font color=ELEMENT_DEMON>Демона</font>"
         "DOTA_Tooltip_ability_chernobog_rune_r_1_suffix"                        "%"
 
         "DOTA_Tooltip_modifier_nights_procession_a_d_rune"                      "Fiend's Grip"          
@@ -209,10 +209,10 @@
 
 
         "DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1"                       "[R4] Darkness Incarnate"
-        "DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_Description"           "Продлевает действие @Ability4, пассивно увеличивает урон <font color=\"#5B648C\">Демона</font>."
+        "DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_Description"           "Продлевает действие @Ability4, пассивно увеличивает урон <font color=ELEMENT_DEMON>Демона</font>."
         "DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_property_one"          "Доп. длительность"
         "DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_suffix"                " сек."
-        "DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_property_two"          "Урон <font color=\"#5B648C\">Демона</font>"
+        "DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_property_two"          "Урон <font color=ELEMENT_DEMON>Демона</font>"
         "DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_suffix_two"                "%"
 
         //cherno arcana2
@@ -252,7 +252,7 @@
         "DOTA_Tooltip_modifier_demonflight_b_c_visible_Description"             "Chernobog увеличивает свой урон за счет находящихся рядом врагов"  
 
         "DOTA_Tooltip_ability_chernobog_rune_e_3_arcana2"                       "[E3] Demonic Acrimony"
-        "DOTA_Tooltip_ability_chernobog_rune_e_3_arcana2_Description"           "Бонусы к стихии <font color=\"#5B648C\">Демона</font> добавляются к базовому урону героя."
+        "DOTA_Tooltip_ability_chernobog_rune_e_3_arcana2_Description"           "Бонусы к стихии <font color=ELEMENT_DEMON>Демона</font> добавляются к базовому урону героя."
         "DOTA_Tooltip_ability_chernobog_rune_e_3_arcana2_property_one"          "Доп. базовый урон"
         "DOTA_Tooltip_ability_chernobog_rune_e_3_arcana2_suffix"                " за каждый 1% усиления стихии Демона"
 

@@ -1,5 +1,5 @@
 		"DOTA_Tooltip_ability_arkimus_dimension_coil"								"Dimension Coil"
-    	"DOTA_Tooltip_ability_arkimus_dimension_coil_Description"					"Стихия: <font color=\"#E1A2E8\">Тайна</font> / <font color=\"#5CCDF9\">Молния</font><br>Arkimus прорывается через пространственные барьеры перед собой, мгновенно появляясь в указанной точке. От места начала прыжка до конечной точки на <% ARKIMUS_Q_COIL_BASE_DURATION %> секунд появляется энергетический канал. Враги, задетые молнией будут постоянно оглушены на время действия и получат урон. Каждые 6 секунд герой получает заряд этого умения, который позволяет прочитать заклинание без перезарядки. Максимум 2 заряда."
+    	"DOTA_Tooltip_ability_arkimus_dimension_coil_Description"					"Стихия: <font color=ELEMENT_ARCANE>Тайна</font> / <font color=ELEMENT_LIGHTNING>Молния</font><br>Arkimus прорывается через пространственные барьеры перед собой, мгновенно появляясь в указанной точке. От места начала прыжка до конечной точки на <% ARKIMUS_Q_COIL_BASE_DURATION %> секунд появляется энергетический канал. Враги, задетые молнией будут постоянно оглушены на время действия и получат урон. Каждые 6 секунд герой получает заряд этого умения, который позволяет прочитать заклинание без перезарядки. Максимум 2 заряда."
     	"DOTA_Tooltip_ability_arkimus_dimension_coil_damage"						"УРОН:"
     	"DOTA_Tooltip_ability_arkimus_dimension_coil_cast_range"					"ДАЛЬНОСТЬ ПРИМЕНЕНИЯ:"
 
@@ -36,7 +36,7 @@
     	"DOTA_Tooltip_ability_arkimus_rune_q_4_suffix_two"						"%"
 
     	"DOTA_Tooltip_ability_arkimus_flash_source"								"Flash Source"
-    	"DOTA_Tooltip_ability_arkimus_flash_source_Description"					"Стихия: <font color=\"#E1A2E8\">Тайна</font><br>Arkimus зачаровывает свое оружие потоком тайной энергии, который высвобождается мощным взрывом при успешной атаке по цели. На каждый удар тратится мана. Когда заканчивается запас маны, умение отключается."
+    	"DOTA_Tooltip_ability_arkimus_flash_source_Description"					"Стихия: <font color=ELEMENT_ARCANE>Тайна</font><br>Arkimus зачаровывает свое оружие потоком тайной энергии, который высвобождается мощным взрывом при успешной атаке по цели. На каждый удар тратится мана. Когда заканчивается запас маны, умение отключается."
     	"DOTA_Tooltip_ability_arkimus_flash_source_damage_mult"					"УРОН, % ОТ УРОНА ГЕРОЯ:"
 
     	"DOTA_Tooltip_modifier_arkimus_flash_source"							"Flash Source"
@@ -102,7 +102,7 @@
     	"DOTA_Tooltip_ability_arkimus_rune_e_4_suffix_two"						"%"
 
     	"DOTA_Tooltip_ability_arkimus_energy_field"								"Energy Field"
-    	"DOTA_Tooltip_ability_arkimus_energy_field_Description"					"Стихия: <font color=\"#E1A2E8\">Тайна</font><br>После двухсекундной зарядки выпускает несколько энергосфер из тайной энергии на 20 секунд, которые начинают вращаться вокруг героя и следовать за ним. Враги, задетые энергосферами получают урон и теряют часть своего урона на 5 секунд. Прочтение (E) Orbital Leap уменьшит радиус полёта сфер, а (Q) Dimension Coil увеличит."
+    	"DOTA_Tooltip_ability_arkimus_energy_field_Description"					"Стихия: <font color=ELEMENT_ARCANE>Тайна</font><br>После двухсекундной зарядки выпускает несколько энергосфер из тайной энергии на 20 секунд, которые начинают вращаться вокруг героя и следовать за ним. Враги, задетые энергосферами получают урон и теряют часть своего урона на 5 секунд. Прочтение (E) Orbital Leap уменьшит радиус полёта сфер, а (Q) Dimension Coil увеличит."
     	"DOTA_Tooltip_ability_arkimus_energy_field_damage"						"УРОН:"
     	"DOTA_Tooltip_ability_arkimus_energy_field_spirits"						"ЭНЕРГОСФЕР:"
     	"DOTA_Tooltip_ability_arkimus_energy_field_damage_reduce"				"СНИЖЕНИЕ УРОНА, %:"
@@ -128,7 +128,7 @@
     	"DOTA_Tooltip_modifier_arkimus_r_3_shield_Description"				"Весь входящий урон снижен на <% ARKIMUS_R3_DMG_RED * 100 %>%%"
 
     	"DOTA_Tooltip_ability_arkimus_rune_r_4"									"[R4] Helical Magic"
-    	"DOTA_Tooltip_ability_arkimus_rune_r_4_Description"						"Весь стихийный урон <font color=\"#E1A2E8\">Тайны</font> пассивно увеличен."
+    	"DOTA_Tooltip_ability_arkimus_rune_r_4_Description"						"Весь стихийный урон <font color=ELEMENT_ARCANE>Тайны</font> пассивно увеличен."
     	"DOTA_Tooltip_ability_arkimus_rune_r_4_property_one"					"Усиление стихийного урона Тайны"
     	"DOTA_Tooltip_ability_arkimus_rune_r_4_suffix"							"%"
 		
@@ -137,7 +137,7 @@
     	"property_arkimus_arcana1_description"								"Заменяет (Q) @Ability1 и все соответствующие руны на (Q) Magnetic Flux."
 
     	"DOTA_Tooltip_ability_arkimus_magnetic_flux"									"Magnetic Flux"
-    	"DOTA_Tooltip_ability_arkimus_magnetic_flux_Description"						"Стихия: <font color=\"#E1A2E8\">Тайна</font> / <font color=\"#5CCDF9\">Молния</font><br>Arkimus создаёт мощное магнитное поле, которое следует за ним. Враги, задетые полем поражаются электрическим разрядом, из-за чего получают урон и оглушаются на 0.2 секунды."
+    	"DOTA_Tooltip_ability_arkimus_magnetic_flux_Description"						"Стихия: <font color=ELEMENT_ARCANE>Тайна</font> / <font color=ELEMENT_LIGHTNING>Молния</font><br>Arkimus создаёт мощное магнитное поле, которое следует за ним. Враги, задетые полем поражаются электрическим разрядом, из-за чего получают урон и оглушаются на 0.2 секунды."
     	"DOTA_Tooltip_ability_arkimus_magnetic_flux_damage"							"УРОН:"
     	"DOTA_Tooltip_ability_arkimus_magnetic_flux_duration"						"ДЛИТЕЛЬНОСТЬ:"
     	"DOTA_Tooltip_ability_arkimus_magnetic_flux_int_damage"						"ДОП. УРОН ОТ ИНТЕЛЛЕКТА:"
@@ -163,7 +163,7 @@
     	"DOTA_Tooltip_modifier_arkimus_arcana_q_3_buff_Description"							"Каждый заряд независимо от других снижает входящий урон на <% ARKIMUS_ARCANA1_Q3_DMG_RED_PER_STACK_EXP_BASE * 100 %>%%"	
 
      	"DOTA_Tooltip_ability_arkimus_rune_q_4_arcana1"									"[Q4] Arcane Channel"
-    	"DOTA_Tooltip_ability_arkimus_rune_q_4_arcana1_Description"						"Пока действует @Ability1, Arkimus получает дополнительные очки Ловкости и наносит увеличенный стихийный урон <font color=\"#5CCDF9\">Молнии</font>."
+    	"DOTA_Tooltip_ability_arkimus_rune_q_4_arcana1_Description"						"Пока действует @Ability1, Arkimus получает дополнительные очки Ловкости и наносит увеличенный стихийный урон <font color=ELEMENT_LIGHTNING>Молнии</font>."
     	"DOTA_Tooltip_ability_arkimus_rune_q_4_arcana1_property_one"					"Доп. очков Ловкости"
     	"DOTA_Tooltip_ability_arkimus_rune_q_4_arcana1_suffix"							""
     	"DOTA_Tooltip_ability_arkimus_rune_q_4_arcana1_property_two"					"Увеличение стихийного урона Молнии"
@@ -228,7 +228,7 @@
 		"item_rpc_arkimus_glyph_6_1_description" 				"Увеличивает максимальное количество зарядов на свободное прочтение (Q) Dimension Coil на <% ARKIMUS_GLYPH_6_1_Q_FREE_CAST %>."
 
 		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_7_1"		"[T7-1] Glyph of Arcane Electrocution"
-		"item_rpc_arkimus_glyph_7_1_description" 				"Увеличивает весь стихийный урон <font color=\"#5CCDF9\">Молнии</font> на <% ARKIMUS_GLYPH_7_1_LIGHTNING_AMP %>%."
+		"item_rpc_arkimus_glyph_7_1_description" 				"Увеличивает весь стихийный урон <font color=ELEMENT_LIGHTNING>Молнии</font> на <% ARKIMUS_GLYPH_7_1_LIGHTNING_AMP %>%."
 
 		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_5_a"		"[T5-a] Glyph of Zonal Separation"
 		"item_rpc_arkimus_glyph_5_a_description" 				"Активные энергосферы могут поглотить входящий магический или чистый урон. В случае поглощения энергосфера разрушается."
@@ -254,7 +254,7 @@
 		"property_arkimus_immortal_weapon_description"						"(W) Flash Source наносит в <% ARKIMUS_IMMORTAL_WEAPON_1_W_MULT %> раз(а) больше урона. [W2] дополнительно увеличивает и Пробитие Брони."
 		"DOTA_Tooltip_ability_item_rpc_arkimus_immortal_weapon_2"            "Arclight Blade"
         "item_property_arkimus_immortal_weapon2"                             "Magnetize"
-        "property_arkimus_immortal_weapon2_description"                      "@special_property1% от всего урона <font color=\"#E1A2E8\">Тайны</font> исцеляет героя."
+        "property_arkimus_immortal_weapon2_description"                      "@special_property1% от всего урона <font color=ELEMENT_ARCANE>Тайны</font> исцеляет героя."
 
         "DOTA_Tooltip_ability_item_rpc_arkimus_immortal_weapon_3"            "Arcane Circuitry Shiv"
         "item_property_arkimus_immortal_weapon3"                             "Photon Shell"

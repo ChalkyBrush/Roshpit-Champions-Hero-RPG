@@ -1,5 +1,5 @@
 		"DOTA_Tooltip_ability_mountain_protector_shockwave"			"Shockwave"
-    	"DOTA_Tooltip_ability_mountain_protector_shockwave_Description"	"Стихия: <font color=\"#DDDDDD\">Нормальный</font> / <font color=\"#AF843D\">Земля</font><br>Mountain Protector совершает сильный взмах своим оружием, высвобождая каскадный поток силы, двигающийся вперёд большой волной. Кратковременно оглушает и наносит урон всем задетым целям."
+    	"DOTA_Tooltip_ability_mountain_protector_shockwave_Description"	"Стихия: <font color=ELEMENT_NORMAL>Нормальный</font> / <font color=ELEMENT_EARTH>Земля</font><br>Mountain Protector совершает сильный взмах своим оружием, высвобождая каскадный поток силы, двигающийся вперёд большой волной. Кратковременно оглушает и наносит урон всем задетым целям."
     	"DOTA_Tooltip_ability_mountain_protector_shockwave_stun_duration"	"ВРЕМЯ ОГЛУШЕНИЯ:"
     	"DOTA_Tooltip_ability_mountain_protector_shockwave_range"			"ДАЛЬНОСТЬ:"
 
@@ -116,7 +116,7 @@
     	"DOTA_Tooltip_modifier_mountain_rune_e_4_effect_Description"	"Основной урон атаки и урон умений увеличены"
 		
     	"DOTA_Tooltip_ability_mountain_protector_aeon_fracture"					"Aeon Fracture"
-    	"DOTA_Tooltip_ability_mountain_protector_aeon_fracture_Description"		"Стихия: <font color=\"#AF843D\">Земля</font> / <font color=\"#EF4126\">Огонь</font><br>Призывает серию подземных взрывов на 10 секунд в указанную область. Поражённые взрывом враги оглушаются и получают урон. Каждый взрыв имеет шанс сбросить перезарядку с Emberstone, если задел хотя бы одного противника."
+    	"DOTA_Tooltip_ability_mountain_protector_aeon_fracture_Description"		"Стихия: <font color=ELEMENT_EARTH>Земля</font> / <font color=ELEMENT_FIRE>Огонь</font><br>Призывает серию подземных взрывов на 10 секунд в указанную область. Поражённые взрывом враги оглушаются и получают урон. Каждый взрыв имеет шанс сбросить перезарядку с Emberstone, если задел хотя бы одного противника."
     	"DOTA_Tooltip_ability_mountain_protector_aeon_fracture_stun_duration"	"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
     	"DOTA_Tooltip_ability_mountain_protector_aeon_fracture_explosions"		"ВЗРЫВОВ:"
 		"DOTA_Tooltip_ability_mountain_protector_aeon_fracture_refresh_chance"  "ШАНС ПЕРЕЗАРЯДИТЬ 'E': %"
@@ -144,7 +144,7 @@
     	"DOTA_Tooltip_ability_mountain_protector_rune_r_3_suffix_two"	"x Силы"
 		
 		"DOTA_Tooltip_ability_mountain_protector_rune_r_4"						"[R4] Force of Mountains"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_r_4_Description"			"Пассивно увеличивает стихийный урон <font color=\"#AF843D\">Земли</font> и <font color=\"#EF4126\">Огня</font>."
+    	"DOTA_Tooltip_ability_mountain_protector_rune_r_4_Description"			"Пассивно увеличивает стихийный урон <font color=ELEMENT_EARTH>Земли</font> и <font color=ELEMENT_FIRE>Огня</font>."
     	"DOTA_Tooltip_ability_mountain_protector_rune_r_4_property_one"			"Урон Земли и Огня"
     	"DOTA_Tooltip_ability_mountain_protector_rune_r_4_suffix"				"%"
 		
@@ -194,7 +194,7 @@
     	"property_mountain_protector_arcana2_description"								"Заменяет (R) @Ability4 и все соответствующие руны на (R) Hailstorm."
 
     	"DOTA_Tooltip_ability_mountain_protector_hailstorm"								"Hailstorm"
-    	"DOTA_Tooltip_ability_mountain_protector_hailstorm_Description"					"Стихия: <font color=\"#AF843D\">Земля</font> / <font color=\"#87D9FF\">Лёд</font><br>Взывает к мощи северных гор чтобы создать в указанной области разрушительную снежную бурю. Враги, попавшие в область действия теряют скорость атаки и передвижения, также могут быть задеты ледяными взрывами. Каждый взрыв имеет шанс сбросить перезарядку с Emberstone, если задел хотя бы одного противника."
+    	"DOTA_Tooltip_ability_mountain_protector_hailstorm_Description"					"Стихия: <font color=ELEMENT_EARTH>Земля</font> / <font color=ELEMENT_ICE>Лёд</font><br>Взывает к мощи северных гор чтобы создать в указанной области разрушительную снежную бурю. Враги, попавшие в область действия теряют скорость атаки и передвижения, также могут быть задеты ледяными взрывами. Каждый взрыв имеет шанс сбросить перезарядку с Emberstone, если задел хотя бы одного противника."
     	"DOTA_Tooltip_ability_mountain_protector_hailstorm_Lore"						""
     	"DOTA_Tooltip_ability_mountain_protector_hailstorm_stun_duration"				"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
     	"DOTA_Tooltip_ability_mountain_protector_hailstorm_damage"						"УРОН:"
@@ -232,7 +232,7 @@
     	"DOTA_Tooltip_ability_mountain_protector_rune_r_3_arcana2_suffix"				""
 
       	"DOTA_Tooltip_ability_mountain_protector_rune_r_4_arcana2"						"[R4] Frozen Peak"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_r_4_arcana2_Description"			"Пассивно увеличивает стихийный урон <font color=\"#AF843D\">Земли</font> и <font color=\"#87D9FF\">Льда</font>."
+    	"DOTA_Tooltip_ability_mountain_protector_rune_r_4_arcana2_Description"			"Пассивно увеличивает стихийный урон <font color=ELEMENT_EARTH>Земли</font> и <font color=ELEMENT_ICE>Льда</font>."
     	"DOTA_Tooltip_ability_mountain_protector_rune_r_4_arcana2_property_one"			"Урона Земли и Льда"
     	"DOTA_Tooltip_ability_mountain_protector_rune_r_4_arcana2_suffix"				"%"	
 
@@ -240,7 +240,7 @@
     	"property_mountain_protector_arcana3_description"								"Заменяет (E) @Ability3 и все соответствующие руны на (E) Rockfall и Volcanic Glissade."
 
     	"DOTA_Tooltip_ability_mountain_protector_rockfall"								"Rockfall"
-    	"DOTA_Tooltip_ability_mountain_protector_rockfall_Description"					"Стихия: <font color=\"#AF843D\">Земля</font> / <font color=\"#EF4126\">Огонь</font><br>Образует в указанной точке три камнепада, оглушающих врагов и наносящих им урон. Каждое попадание по противнику отнимает у героя некоторый процент здоровья. Получаемый героем урон не может быть смертельным. Враги, задетые камнепадом в последующие 10 секунд потеряют Магическую Броню."
+    	"DOTA_Tooltip_ability_mountain_protector_rockfall_Description"					"Стихия: <font color=ELEMENT_EARTH>Земля</font> / <font color=ELEMENT_FIRE>Огонь</font><br>Образует в указанной точке три камнепада, оглушающих врагов и наносящих им урон. Каждое попадание по противнику отнимает у героя некоторый процент здоровья. Получаемый героем урон не может быть смертельным. Враги, задетые камнепадом в последующие 10 секунд потеряют Магическую Броню."
     	"DOTA_Tooltip_ability_mountain_protector_rockfall_Lore"							""
     	"DOTA_Tooltip_ability_mountain_protector_rockfall_stun_duration"				"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
     	"DOTA_Tooltip_ability_mountain_protector_rockfall_damage"						"УРОН:"

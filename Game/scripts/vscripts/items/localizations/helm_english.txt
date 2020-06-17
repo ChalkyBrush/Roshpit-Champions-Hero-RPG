@@ -14,7 +14,7 @@
 		"item_property_arcane_cascade_hat"				"Arcane Cascade"
 		"property_arcane_cascade_hat_description"		"Drains <% ARCANE_CASCADE_MANA_DRAIN * 100 %>% of your max mana every <% ARCANE_CASCADE_TICKRATE %> seconds. All enemies within <% ARCANE_CASCADE_RANGE %> range take up to <% ARCANE_CASCADE_DAMAGE %>x the mana drained as Magic Damage."
 
-		"item_rpc_arcane_cascade_hat_ruby1"	"Increases all Item damage and <font color=\"#E1A2E8\">Arcane</font> Elemental damage by @ruby_property1%"
+		"item_rpc_arcane_cascade_hat_ruby1"	"Increases all Item damage and <font color=ELEMENT_ARCANE>Arcane</font> Elemental damage by @ruby_property1%"
 		"item_rpc_arcane_cascade_hat_emerald1" "Increases Max Mana by @emerald_property1"
 		"item_rpc_arcane_cascade_hat_sapphire1"	"Increases the Mana Drain by an additional @sapphire_property1%"
 		"item_rpc_arcane_cascade_hat_amethyst1" "Enemies in the damage AOE have @amethyst_property1 reduced Magic Armor"	
@@ -94,7 +94,7 @@
 		"item_property_burning_spirit"							"Flamethrower"
 		"property_burning_spirit_description"					"While channeling @Ability4, a steady stream of flames fires forward, rapidly dealing damage equal to <% BURNING_SPIRIT_ATTACK_TO_DAMAGE %>% of attack power."
 
-		"item_rpc_burning_spirit_helmet_ruby1"	"Increases Item and <font color=\"#EF4126\">Fire</font> elemental damage by @ruby_property1%"
+		"item_rpc_burning_spirit_helmet_ruby1"	"Increases Item and <font color=ELEMENT_FIRE>Fire</font> elemental damage by @ruby_property1%"
 		"item_rpc_burning_spirit_helmet_emerald1" "Flamethrower damage is increased by an additional @emerald_property1% of attack power, and all attributes are increased by @emerald_property2"
 		"item_rpc_burning_spirit_helmet_sapphire1"	"Landing an attack has a @sapphire_property1% chance to throw a single flame whose range is equal to 100% of the distance between the attacker and target plus @sapphire_property2 additional distance"
 		"item_rpc_burning_spirit_helmet_amethyst1" "Each enemy hit by a flame reduces the current cooldown of [R] by @amethyst_property1 seconds"	
@@ -107,13 +107,13 @@
 		"property_wild_nature_two_description"		"Enemies struck by @Ability2 have a <% CAP_OF_WILD_NATURE_CHANCE_TWO %>% chance to be rooted for <% CAP_OF_WILD_NATURE_DURATION_TWO %> seconds. Enemies entangled by Wild Nature's roots take damage equal to <% CAP_OF_WILD_NATURE_DAMAGE_PER_ATTRIBUTES %>x your primary attribute every second."
 
 		"item_rpc_cap_of_wild_nature_ruby1"	"Increases the Wild Nature roots' damage by @ruby_property1%"
-		"item_rpc_cap_of_wild_nature_emerald1" "Increases all <font color=\"#69BC71\">Nature</font> element damage by @emerald_property1%"
+		"item_rpc_cap_of_wild_nature_emerald1" "Increases all <font color=ELEMENT_NATURE>Nature</font> element damage by @emerald_property1%"
 		"item_rpc_cap_of_wild_nature_sapphire1"	"Enemies hit by [Q] have a <% CAP_OF_WILD_NATURE_SAPPHIRE_PROC %>% chance to be rooted for @sapphire_property1 seconds"
 		"item_rpc_cap_of_wild_nature_amethyst1" "Increases Health Regen by @amethyst_property1"	
 
     	"DOTA_Tooltip_ability_item_rpc_carbuncles_helm_of_reflection"					"Carbuncle's Helm of Reflection"
 		"item_property_carbuncle"								"Ruby Shell"
-		"property_carbuncle_description"						"When you cast @Ability2, gain a magic reflecting shell for <% CARBUNCLE_SHIELD_DURATION %> seconds that negates an instance of Magic or Pure damage and applies it to the inflictor instead with <font color=\"#EF4126\">Fire</font>/<font color=\"#E1A2E8\">Arcane</font> element. The shell is broken upon reflecting a spell. Reflection shell has a <% CARBUNCLE_SHIELD_COOLDOWN %> second cooldown."
+		"property_carbuncle_description"						"When you cast @Ability2, gain a magic reflecting shell for <% CARBUNCLE_SHIELD_DURATION %> seconds that negates an instance of Magic or Pure damage and applies it to the inflictor instead with <font color=ELEMENT_FIRE>Fire</font>/<font color=ELEMENT_ARCANE>Arcane</font> element. The shell is broken upon reflecting a spell. Reflection shell has a <% CARBUNCLE_SHIELD_COOLDOWN %> second cooldown."
 		"DOTA_Tooltip_modifier_carbuncles_helm_of_reflection_effect"	"Ruby Shell"
 		"DOTA_Tooltip_modifier_carbuncles_helm_of_reflection_effect_Description"	"Magical or Pure damage taken reduced to 0 and reflected back at the source"
 
@@ -167,7 +167,7 @@
 		"item_rpc_crimson_skull_cap_ruby1"	"Increases Corpse Explosion damage by @ruby_property1% of enemy max health"
 		"item_rpc_crimson_skull_cap_emerald1"	"Increases Corpse Explosion radius by @emerald_property1"
 		"item_rpc_crimson_skull_cap_sapphire1" "After taking damage, the wearer explodes after <% CRIMSON_SKULL_CAP_SAPPHIRE_COUNTDOWN_TIMER %> seconds dealing damage equal to @sapphire_property1% of max health"
-		"item_rpc_crimson_skull_cap_amethyst1" "Increases Item and <font color=\"#5C776E\">Undead</font> elemental damage by @amethyst_property1"
+		"item_rpc_crimson_skull_cap_amethyst1" "Increases Item and <font color=ELEMENT_UNDEAD>Undead</font> elemental damage by @amethyst_property1"
 
 		"DOTA_Tooltip_modifier_crimson_skull_cap_sapphire_countdown"	"Crimson Skull Cap (Sapphire)"
 		"DOTA_Tooltip_modifier_crimson_skull_cap_sapphire_countdown_Description"	"Wearer explodes when this buff expires"
@@ -197,7 +197,7 @@
 		"item_rpc_crown_of_the_lava_forge_ruby1"	"Increases proc chance by @ruby_property1%"
 		"item_rpc_crown_of_the_lava_forge_emerald1"	"Increases Tephra Burst damage by @emerald_property1% of Agility"
 		"item_rpc_crown_of_the_lava_forge_sapphire1" "Increases Armor and Magic Armor by @sapphire_property1"
-		"item_rpc_crown_of_the_lava_forge_amethyst1" "Increases Item, <font color=\"#EF4126\">Fire</font> and <font color=\"#7AE2A7\">Wind</font> elemental damage by @amethyst_property1%"
+		"item_rpc_crown_of_the_lava_forge_amethyst1" "Increases Item, <font color=ELEMENT_FIRE>Fire</font> and <font color=ELEMENT_WIND>Wind</font> elemental damage by @amethyst_property1%"
 
     	"DOTA_Tooltip_ability_item_rpc_crown_of_the_roknar_emperor"						"Crown of the Rok'nar Emperor"
 		"item_property_roknar_emperor"				"Enduring Protection"
@@ -228,7 +228,7 @@
 		"item_rpc_death_whisper_helm_ruby1"	"Increases all T1 runes by @ruby_property1"
 		"item_rpc_death_whisper_helm_emerald1"	"Increases all T2 runes by @emerald_property1"
 		"item_rpc_death_whisper_helm_sapphire1" "Casting [Q] applies invisibility for @sapphire_property1 seconds"
-		"item_rpc_death_whisper_helm_amethyst1" "Increases Base Ability and <font color=\"#7F4F84\">Shadow</font> elemental damage by @amethyst_property1%"
+		"item_rpc_death_whisper_helm_amethyst1" "Increases Base Ability and <font color=ELEMENT_SHADOW>Shadow</font> elemental damage by @amethyst_property1%"
 
 		"DOTA_Tooltip_modifier_death_whisper_debuff"		"Death Whisper"
 		"DOTA_Tooltip_modifier_death_whisper_debuff_Description"	"Reduced movespeed and status resistance"
@@ -241,7 +241,7 @@
 		"item_rpc_demon_mask_ruby1"	"Underworld Tear damage increased by an additional @ruby_property1% of [Q] damage"
 		"item_rpc_demon_mask_emerald1"	"Increases [Q3] Rune by @emerald_property1"
 		"item_rpc_demon_mask_sapphire1" "Increases proc chance of Underworld Tear by @sapphire_property1%"
-		"item_rpc_demon_mask_amethyst1" "Increases Item and <font color=\"#5B648C\">Demon</font> elemental damage by @amethyst_property1%"
+		"item_rpc_demon_mask_amethyst1" "Increases Item and <font color=ELEMENT_DEMON>Demon</font> elemental damage by @amethyst_property1%"
 
     	"DOTA_Tooltip_ability_item_rpc_emerald_douli"									"Emerald Douli"
 		"item_property_emerald_douli"				"Mana Shield"
@@ -306,7 +306,7 @@
 
 		"item_rpc_guard_of_luma_ruby1"	"Increases moonbeam proc chance by @ruby_property1%"
 		"item_rpc_guard_of_luma_emerald1"	"Increases the maximum number of procs per second by @emerald_property1"
-		"item_rpc_guard_of_luma_sapphire1" "Grants @sapphire_property1 radius persistent flying vision, and increases <font color=\"#C25DFC\">Cosmic</font> elemental damage by @sapphire_property2%"
+		"item_rpc_guard_of_luma_sapphire1" "Grants @sapphire_property1 radius persistent flying vision, and increases <font color=ELEMENT_COSMOS>Cosmic</font> elemental damage by @sapphire_property2%"
 		"item_rpc_guard_of_luma_amethyst1" "Increases Lucent Beam damage by an additional @amethyst_property1% of the damage that triggered it"
 
 		"item_rpc_helm_of_champions_ruby1"	"Increases Rune [Q1] by @ruby_property1"
@@ -404,7 +404,7 @@
 		"item_rpc_hyper_visor_ruby1"	"Increases Attack Speed @ruby_property1"
 		"item_rpc_hyper_visor_emerald1"	"Increases the lightning bolt's damage by @emerald_property1x Agility"
 		"item_rpc_hyper_visor_sapphire1" "<% HYPER_VISOR_SAPPHIRE_CHAIN_LIGHTNING_CHANCE %>% chance on attack to trigger a chain lightning that bounces <% HYPER_VISOR_SAPPHIRE_CHAIN_LIGHTNING_TARGET_COUNT %> times and deals @sapphire_property1% of Hyper Lightning's damage"
-		"item_rpc_hyper_visor_amethyst1" "Increases Item and <font color=\"#5CCDF9\">Lightning</font> elemental damage by @amethyst_property1%"
+		"item_rpc_hyper_visor_amethyst1" "Increases Item and <font color=ELEMENT_LIGHTNING>Lightning</font> elemental damage by @amethyst_property1%"
 
     	"DOTA_Tooltip_ability_item_rpc_igneous_canine_helm"								"Igneous Canine Helm"
 		"item_property_igneous_canine"							"Lava Splash"
@@ -527,7 +527,7 @@
 		"item_rpc_shipyard_veil_lv1_ruby1"	"Each Soul Shield stack increases Base Ability Damage by @ruby_property1%"
 		"item_rpc_shipyard_veil_lv1_emerald1"	"Each time an enemy breaks a shield stack, they are targetted by a skull that deals @emerald_property1 damage"
 		"item_rpc_shipyard_veil_lv1_sapphire1" "Reduces the cooldown between shield stack generation by @sapphire_property1"
-		"item_rpc_shipyard_veil_lv1_amethyst1" "Increases <font color=\"#9ACCD1\">Ghost</font> elemental damage by @amethyst_property1%"
+		"item_rpc_shipyard_veil_lv1_amethyst1" "Increases <font color=ELEMENT_GHOST>Ghost</font> elemental damage by @amethyst_property1%"
 
     	"DOTA_Tooltip_ability_item_rpc_shroud_of_eternal_night"							"Shroud of Eternal Night"
 		"item_property_eternal_night"				"Tranquilizer"
@@ -583,7 +583,7 @@
 		"item_rpc_swamp_witch_hat_ruby1"	"Each time an enemy is hit by a Murky Wave, they lose @ruby_property1 magic armor. Stacks up to <% SWAMP_WITCH_RUBY_MAX_STACKS %> times and lasts <% SWAMP_WITCH_RUBY_DURATION %> seconds"
 		"item_rpc_swamp_witch_hat_emerald1"	"Murky Wave can trigger once every @emerald_property1 seconds"
 		"item_rpc_swamp_witch_hat_sapphire1" "Each enemy hit by Murky Wave restores @sapphire_property1 mana, and Murky Wave's range is increased by @sapphire_property2"
-		"item_rpc_swamp_witch_hat_amethyst1" "Increases Item and <font color=\"#7F4F84\">Shadow</font> elemental damage by @amethyst_property1%"
+		"item_rpc_swamp_witch_hat_amethyst1" "Increases Item and <font color=ELEMENT_SHADOW>Shadow</font> elemental damage by @amethyst_property1%"
 
     	"DOTA_Tooltip_ability_item_rpc_tricksters_mask"									"Trickster's Mask"
 		"item_property_trickster"					"Laughing Scoundrel"
@@ -654,11 +654,11 @@
 
     	"DOTA_Tooltip_ability_item_rpc_water_deity_crown"								"Water Deity Crown"
 		"item_property_water_deity"							"Wrath of Water"
-		"property_water_deity_description"						"@Ability4 deals additional <% WATER_DEITY_CROWN_DAMAGE_AMP %>% <font color=\"#3894FF\">Water</font> damage and slows the enemy's movement speed by <% WATER_DEITY_CROWN_MOVESPEED_SLOW_PCT %>% for <% WATER_DEITY_CROWN_MOVESPEED_SLOW_DURATION %> seconds. Maximum of <% WATER_DEITY_CROWN_MAX_PROCS_PER_SECOND %> triggers per second."
+		"property_water_deity_description"						"@Ability4 deals additional <% WATER_DEITY_CROWN_DAMAGE_AMP %>% <font color=ELEMENT_WATER>Water</font> damage and slows the enemy's movement speed by <% WATER_DEITY_CROWN_MOVESPEED_SLOW_PCT %>% for <% WATER_DEITY_CROWN_MOVESPEED_SLOW_DURATION %> seconds. Maximum of <% WATER_DEITY_CROWN_MAX_PROCS_PER_SECOND %> triggers per second."
 		"DOTA_Tooltip_modifier_water_deity_crown_slow"					"Wrath of Water"
 		"DOTA_Tooltip_modifier_water_deity_crown_slow_Description"		"Movement slowed"
 
-		"item_rpc_water_deity_crown_ruby1"	"Increases Item and <font color=\"#3894FF\">Water</font> elemental damage by @ruby_property1%"
+		"item_rpc_water_deity_crown_ruby1"	"Increases Item and <font color=ELEMENT_WATER>Water</font> elemental damage by @ruby_property1%"
 		"item_rpc_water_deity_crown_emerald1"	"The slow effect also reduces attack speed by @emerald_property1"
 		"item_rpc_water_deity_crown_sapphire1" "Increases Wrath of Water's damage by @sapphire_property1% of Attack Power"
 		"item_rpc_water_deity_crown_amethyst1" "Increases max procs per second by @amethyst_property1"
@@ -670,7 +670,7 @@
 		"DOTA_Tooltip_modifier_wind_deity_damage_buff_Description"		"Increased attack damage"
 
 		"item_rpc_wind_deity_crown_ruby1"		"Increases Agility by @ruby_property1 and Attack Speed by @ruby_property2"
-		"item_rpc_wind_deity_crown_emerald1"	"Increases Item and <font color=\"#7AE2A7\">Wind</font> elemental damage by @emerald_property1%"
+		"item_rpc_wind_deity_crown_emerald1"	"Increases Item and <font color=ELEMENT_WIND>Wind</font> elemental damage by @emerald_property1%"
 		"item_rpc_wind_deity_crown_sapphire1" 	"Increases max Wrath of Wind attacks per second by @sapphire_property1"
 		"item_rpc_wind_deity_crown_amethyst1" 	"Each enemy hit by Wrath of Wind attacks increases your attack damage by @amethyst_property1% for <% WIND_DEITY_AMETHYST_DURATION %> seconds, but these stacks are lost when you cast [E]. Max <% WIND_DEITY_AMETHYST_MAX_STACKS %> stacks."
 
@@ -741,11 +741,11 @@
 		"item_rpc_sun_gods_visage_ruby1"		"Increases the health drain and heal by an additional @ruby_property1%"
 		"item_rpc_sun_gods_visage_emerald1"	"Gain @emerald_property1 Agility and Spirit while between <% ITEM_RPC_SUN_GODS_VISAGE_EMERALD_LOWER_BOUND %>% and <% ITEM_RPC_SUN_GODS_VISAGE_EMERALD_UPPER_BOUND %>% health"
 		"item_rpc_sun_gods_visage_sapphire1" 	"Each point of current health increases Magic Armor by @sapphire_property1, and each point of missing health increases Spell Pierce by @sapphire_property2"
-		"item_rpc_sun_gods_visage_amethyst1" 	"Increases Max Health by @amethyst_property1 and <font color=\"#EF4126\">Fire</font> Elemental Damage by @amethyst_property2%"
+		"item_rpc_sun_gods_visage_amethyst1" 	"Increases Max Health by @amethyst_property1 and <font color=ELEMENT_FIRE>Fire</font> Elemental Damage by @amethyst_property2%"
 
     	"DOTA_Tooltip_ability_item_rpc_cloak_of_the_cimmerian_priesthood"						"Cloak of the Cimmerian Priesthood"
 		"item_property_cloak_of_the_cimmerian_priesthood"						"Shadow Priest"
-		"property_cloak_of_the_cimmerian_priesthood_description"				"Attacks deal an additional instance of Magical <font color=\'#7F4F84\'>Shadow</font>/<font color=\'#F6FFB5\'>Holy</font> damage based on <% ITEM_RPC_CLOAK_OF_THE_CIMMERIAN_PRIESTHOOD_DMG_PCT_TGT_CURRENT_HEALTH %>% of target's current health, and heals you for <% ITEM_RPC_CLOAK_OF_THE_CIMMERIAN_PRIESTHOOD_HEAL_PCT %>% of the base damage."
+		"property_cloak_of_the_cimmerian_priesthood_description"				"Attacks deal an additional instance of Magical <font color=ELEMENT_SHADOW>Shadow</font>/<font color=ELEMENT_HOLY>Holy</font> damage based on <% ITEM_RPC_CLOAK_OF_THE_CIMMERIAN_PRIESTHOOD_DMG_PCT_TGT_CURRENT_HEALTH %>% of target's current health, and heals you for <% ITEM_RPC_CLOAK_OF_THE_CIMMERIAN_PRIESTHOOD_HEAL_PCT %>% of the base damage."
 
 		"item_rpc_cloak_of_the_cimmerian_priesthood_ruby1"		"Enemies hit by [Q] take <% ITEM_RPC_CLOAK_OF_THE_CIMMERIAN_PRIESTHOOD_RUBY_DAMAGE %>% of the original damage every @ruby_property1 seconds for @ruby_property2 seconds"
 		"item_rpc_cloak_of_the_cimmerian_priesthood_emerald1"	"Enemies hit by [W] heal nearby allies within <% ITEM_RPC_CLOAK_OF_THE_CIMMERIAN_PRIESTHOOD_EMERALD_RANGE %> range for @emerald_property1% of base damage"

@@ -1,6 +1,6 @@
 		//Abilities
 		"DOTA_Tooltip_ability_hydroxis_hydro_pump"									"Hydro Pump"
-    	"DOTA_Tooltip_ability_hydroxis_hydro_pump_Description"						"Стихия: <font color=\"#3894FF\">Вода</font><br>Hydroxis бьёт по земле, выбивая из подземных источников фонтаны воды в указанную сторону. Враги, задетые потоком воды поднимаются в воздух и оглушаются."
+    	"DOTA_Tooltip_ability_hydroxis_hydro_pump_Description"						"Стихия: <font color=ELEMENT_WATER>Вода</font><br>Hydroxis бьёт по земле, выбивая из подземных источников фонтаны воды в указанную сторону. Враги, задетые потоком воды поднимаются в воздух и оглушаются."
     	"DOTA_Tooltip_ability_hydroxis_hydro_pump_damage"							"УРОН:"
     	"DOTA_Tooltip_ability_hydroxis_hydro_pump_torrents"							"ФОНТАНОВ ВОДЫ:"
 
@@ -41,7 +41,7 @@
     	"DOTA_Tooltip_ability_hydroxis_rune_q_4_suffix_two"					"x от суммы"
 		
 		"DOTA_Tooltip_ability_hydroxis_water_blade"									"Water Bomb"
-    	"DOTA_Tooltip_ability_hydroxis_water_blade_Description"						"Стихия: <font color=\"#3894FF\">Вода</font><br>Hydroxis выпускает из своего оружия поток воды в указанную точку. Враги, задетые умением сильно замедляются."	
+    	"DOTA_Tooltip_ability_hydroxis_water_blade_Description"						"Стихия: <font color=ELEMENT_WATER>Вода</font><br>Hydroxis выпускает из своего оружия поток воды в указанную точку. Враги, задетые умением сильно замедляются."	
     	"DOTA_Tooltip_ability_hydroxis_water_blade_damage"							"УРОН:"
     	"DOTA_Tooltip_ability_hydroxis_water_blade_slow_movespeed"					"СНИЖЕНИЕ СКОРОСТИ ПЕРЕДВИЖЕНИЯ:"
     	"DOTA_Tooltip_ability_hydroxis_water_blade_slow_attackspeed"				"СНИЖЕНИЕ СКОРОСТИ АТАКИ:"
@@ -99,14 +99,14 @@
     	"DOTA_Tooltip_modifier_hydroxis_c_c_Description"					"Скорость атаки увеличена"
 		
 		"DOTA_Tooltip_ability_hydroxis_rune_e_4"							"[E4] Shining Scales"
-    	"DOTA_Tooltip_ability_hydroxis_rune_e_4_Description"				"Пассивно увеличивает Ловкость, Интеллект и урон стихии <font color=\"#3894FF\">Воды</font>."
+    	"DOTA_Tooltip_ability_hydroxis_rune_e_4_Description"				"Пассивно увеличивает Ловкость, Интеллект и урон стихии <font color=ELEMENT_WATER>Воды</font>."
     	"DOTA_Tooltip_ability_hydroxis_rune_e_4_property_one"				"Ловкость и Интеллект"
     	"DOTA_Tooltip_ability_hydroxis_rune_e_4_suffix"						""
-    	"DOTA_Tooltip_ability_hydroxis_rune_e_4_property_two"				"Урон стихии <font color=\"#3894FF\">Воды</font>"
+    	"DOTA_Tooltip_ability_hydroxis_rune_e_4_property_two"				"Урон стихии <font color=ELEMENT_WATER>Воды</font>"
     	"DOTA_Tooltip_ability_hydroxis_rune_e_4_suffix_two"					"%"
 		
 		"DOTA_Tooltip_ability_hydroxis_tsunami"										"Ocean Quake"		
-    	"DOTA_Tooltip_ability_hydroxis_tsunami_Description"							"Стихия: <font color=\"#3894FF\">Вода</font> / <font color=\"#AF843D\">Земля</font><br>Hydroxis пробивает землю, выпуская мощный поток подземных вод, который оглушает и замедляет всех задетых противников.<br><font color='#70EA72'>Урон способности зависит от значения Силы героя</font>."	
+    	"DOTA_Tooltip_ability_hydroxis_tsunami_Description"							"Стихия: <font color=ELEMENT_WATER>Вода</font> / <font color=ELEMENT_EARTH>Земля</font><br>Hydroxis пробивает землю, выпуская мощный поток подземных вод, который оглушает и замедляет всех задетых противников.<br><font color='#70EA72'>Урон способности зависит от значения Силы героя</font>."	
     	"DOTA_Tooltip_ability_hydroxis_tsunami_strength_damage"						"МНОЖИТЕЛЬ УРОНА ОТ СИЛЫ:"			
     	"DOTA_Tooltip_ability_hydroxis_tsunami_stun_duration"						"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
     	"DOTA_Tooltip_ability_hydroxis_tsunami_slow_duration"						"ДЛИТЕЛЬНОСТЬ ЗАМЕДЛЕНИЯ:"
@@ -190,7 +190,7 @@
         "DOTA_Tooltip_ability_hydroxis_rune_w_3_arcana1_suffix_two"         ""
 
   		"DOTA_Tooltip_ability_hydroxis_rune_w_4_arcana1"						"[W4] Wave Maker"
-    	"DOTA_Tooltip_ability_hydroxis_rune_w_4_arcana1_Description"			"Враги, получившие стихийный урон <font color=\"#3894FF\">Воды</font> подвергаются эффекту @Ability2. Дополнительно, каждая обычная атака или удары [W2] добавляют герою заряды. Каждый заряд увеличивает базовый урон на 10 секунд. Максимум 30 зарядов."
+    	"DOTA_Tooltip_ability_hydroxis_rune_w_4_arcana1_Description"			"Враги, получившие стихийный урон <font color=ELEMENT_WATER>Воды</font> подвергаются эффекту @Ability2. Дополнительно, каждая обычная атака или удары [W2] добавляют герою заряды. Каждый заряд увеличивает базовый урон на 10 секунд. Максимум 30 зарядов."
     	"DOTA_Tooltip_ability_hydroxis_rune_w_4_arcana1_property_one"		"Длительность эффекта (W) Whitewhater Mist на врагах"
     	"DOTA_Tooltip_ability_hydroxis_rune_w_4_arcana1_suffix"				" сек."
     	"DOTA_Tooltip_ability_hydroxis_rune_w_4_arcana1_property_two"		"Бонус к урону за заряд"
@@ -224,10 +224,10 @@
     	"DOTA_Tooltip_ability_hydroxis_rune_r_2_arcana2_suffix"				" сек."
 
   		"DOTA_Tooltip_ability_hydroxis_rune_r_3_arcana2"						"[R3] Undercurrent"
-    	"DOTA_Tooltip_ability_hydroxis_rune_r_3_arcana2_Description"			"Враги, ступившие в глубоководный разлом будут временно обездвижены и начнут медленно перемещаться к центру бассейна. Дополнительно, враги, находящиеся в разломе, получают дополнительный стихийный урон <font color=\"#3894FF\">Воды</font>."
+    	"DOTA_Tooltip_ability_hydroxis_rune_r_3_arcana2_Description"			"Враги, ступившие в глубоководный разлом будут временно обездвижены и начнут медленно перемещаться к центру бассейна. Дополнительно, враги, находящиеся в разломе, получают дополнительный стихийный урон <font color=ELEMENT_WATER>Воды</font>."
     	"DOTA_Tooltip_ability_hydroxis_rune_r_3_arcana2_property_one"		"Длительность привязки"
     	"DOTA_Tooltip_ability_hydroxis_rune_r_3_arcana2_suffix"				" сек."
-    	"DOTA_Tooltip_ability_hydroxis_rune_r_3_arcana2_property_two"		"Доп. урон <font color=\"#3894FF\">Воды</font>"
+    	"DOTA_Tooltip_ability_hydroxis_rune_r_3_arcana2_property_two"		"Доп. урон <font color=ELEMENT_WATER>Воды</font>"
     	"DOTA_Tooltip_ability_hydroxis_rune_r_3_arcana2_suffix_two"			"%"
 
     	"DOTA_Tooltip_modifier_flood_basin_aura_effect_enemy"				"Flood Basin"

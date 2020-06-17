@@ -5,13 +5,13 @@
     	"solunia_r"															"Supernova and Eclipse"
 
     	"DOTA_Tooltip_ability_solunia_solar_glow"							"Solar Napalm"
-    	"DOTA_Tooltip_ability_solunia_solar_glow_Description"				"Element: <font color=\"#C25DFC\">Cosmic</font> / <font color=\"#EF4126\">Fire</font><br>A barrage of firey Sun Stones launch from Solunia towards the target location."
+    	"DOTA_Tooltip_ability_solunia_solar_glow_Description"				"Element: <font color=ELEMENT_COSMOS>Cosmic</font> / <font color=ELEMENT_FIRE>Fire</font><br>A barrage of firey Sun Stones launch from Solunia towards the target location."
     	"DOTA_Tooltip_ability_solunia_solar_glow_damage"					"DAMAGE:"
     	"DOTA_Tooltip_ability_solunia_solar_glow_projectiles"				"PROJECTILES:"
     	"DOTA_Tooltip_ability_solunia_solar_glow_stun_duration"				"STUN DURATION:"
 
     	"DOTA_Tooltip_ability_solunia_lunar_glow"							"Lunar Napalm"
-    	"DOTA_Tooltip_ability_solunia_lunar_glow_Description"				"Element: <font color=\"#C25DFC\">Cosmic</font> / <font color=\"#87D9FF\">Ice</font><br>A barrage of icy Moon Stones are emitted from Solunia towards the target location."
+    	"DOTA_Tooltip_ability_solunia_lunar_glow_Description"				"Element: <font color=ELEMENT_COSMOS>Cosmic</font> / <font color=ELEMENT_ICE>Ice</font><br>A barrage of icy Moon Stones are emitted from Solunia towards the target location."
     	"DOTA_Tooltip_ability_solunia_lunar_glow_damage"					"DAMAGE:"
     	"DOTA_Tooltip_ability_solunia_lunar_glow_projectiles"				"PROJECTILES:"
     	"DOTA_Tooltip_ability_solunia_lunar_glow_stun_duration"				"STUN DURATION:"
@@ -46,12 +46,12 @@
     	"DOTA_Tooltip_ability_solunia_rune_q_3_suffix_two"					"% of missing health"
 		
 		"DOTA_Tooltip_ability_solunia_rune_q_4"								"[Q4] Mercuria"
-    	"DOTA_Tooltip_ability_solunia_rune_q_4_Description"					"Increases all <font color=\"#C25DFC\">Cosmic</font> damage."
+    	"DOTA_Tooltip_ability_solunia_rune_q_4_Description"					"Increases all <font color=ELEMENT_COSMOS>Cosmic</font> damage."
     	"DOTA_Tooltip_ability_solunia_rune_q_4_property_one"				"Cosmic Damage Amp"
     	"DOTA_Tooltip_ability_solunia_rune_q_4_suffix"						"%"
 		
 		"DOTA_Tooltip_ability_solunia_solarang"								"Solarang"
-    	"DOTA_Tooltip_ability_solunia_solarang_Description"					"Element: <font color=\"#C25DFC\">Cosmic</font> / <font color=\"#DDDDDD\">Normal</font><br>Solunia's weapon is tossed as a boomerang towards the target location. The blade deals damage every 0.2 seconds to all enemies it collides with. If it gets close enough to enemy, it latches on to them."
+    	"DOTA_Tooltip_ability_solunia_solarang_Description"					"Element: <font color=ELEMENT_COSMOS>Cosmic</font> / <font color=ELEMENT_NORMAL>Normal</font><br>Solunia's weapon is tossed as a boomerang towards the target location. The blade deals damage every 0.2 seconds to all enemies it collides with. If it gets close enough to enemy, it latches on to them."
     	"DOTA_Tooltip_ability_solunia_solarang_max_boomerangs"				"MAX CONCURRENT SOLARANGS:"
     	"DOTA_Tooltip_ability_solunia_solarang_damage"						"DAMAGE:"
 
@@ -59,7 +59,7 @@
     	"DOTA_Tooltip_modifier_outgoing_lunarang"							"Outbound Lunarangs"
 
     	"DOTA_Tooltip_ability_solunia_lunarang"								"Lunarang"
-    	"DOTA_Tooltip_ability_solunia_lunarang_Description"					"Element: <font color=\"#C25DFC\">Cosmic</font> / <font color=\"#DDDDDD\">Normal</font><br>Solunia's weapon is tossed as a boomerang towards the target location. The blade deals damage every 0.2 seconds to all enemies in its razor-sharp spin. If it gets close enough to enemy, it latches on to them."
+    	"DOTA_Tooltip_ability_solunia_lunarang_Description"					"Element: <font color=ELEMENT_COSMOS>Cosmic</font> / <font color=ELEMENT_NORMAL>Normal</font><br>Solunia's weapon is tossed as a boomerang towards the target location. The blade deals damage every 0.2 seconds to all enemies in its razor-sharp spin. If it gets close enough to enemy, it latches on to them."
     	"DOTA_Tooltip_ability_solunia_lunarang_max_boomerangs"				"MAX CONCURRENT LUNARANGS:"
     	"DOTA_Tooltip_ability_solunia_lunarang_damage"						"DAMAGE:"
 		
@@ -138,12 +138,12 @@
     	"DOTA_Tooltip_ability_solunia_rune_e_4_suffix"						""
 		
 		"DOTA_Tooltip_ability_solunia_supernova"							"Supernova"
-    	"DOTA_Tooltip_ability_solunia_supernova_Description"				"Element: <font color=\"#C25DFC\">Cosmic</font> / <font color=\"#EF4126\">Fire</font><br>Solunia heats up and explodes, transferring her energy into the Moon. If over 180 distance above the ground, Solunia is immune while channeling."
+    	"DOTA_Tooltip_ability_solunia_supernova_Description"				"Element: <font color=ELEMENT_COSMOS>Cosmic</font> / <font color=ELEMENT_FIRE>Fire</font><br>Solunia heats up and explodes, transferring her energy into the Moon. If over 180 distance above the ground, Solunia is immune while channeling."
     	"DOTA_Tooltip_ability_solunia_supernova_damage"						"DAMAGE:"
     	"DOTA_Tooltip_ability_solunia_supernova_stun_duration"				"STUN DURATION:"
 
     	"DOTA_Tooltip_ability_solunia_eclipse"								"Eclipse"
-    	"DOTA_Tooltip_ability_solunia_eclipse_Description"					"Element: <font color=\"#C25DFC\">Cosmic</font> / <font color=\"#EF4126\">Fire</font><br>Solunia cools down and explodes, transferring her energy into the Sun. If over 180 distance above the ground, Solunia is immune while channeling."
+    	"DOTA_Tooltip_ability_solunia_eclipse_Description"					"Element: <font color=ELEMENT_COSMOS>Cosmic</font> / <font color=ELEMENT_FIRE>Fire</font><br>Solunia cools down and explodes, transferring her energy into the Sun. If over 180 distance above the ground, Solunia is immune while channeling."
     	"DOTA_Tooltip_ability_solunia_eclipse_damage"						"DAMAGE:"
     	"DOTA_Tooltip_ability_solunia_eclipse_stun_duration"				"STUN DURATION:"
 		
@@ -183,7 +183,7 @@
     	"property_solunia_arcana1_description"								"Replaces @Ability1 and all of its runes with Solar & Lunar Comet."
 
     	"DOTA_Tooltip_ability_solunia_arcana_solar_comet"								"Solar Comet"
-    	"DOTA_Tooltip_ability_solunia_arcana_solar_comet_Description"					"Element: <font color=\"#C25DFC\">Cosmic</font> / <font color=\"#EF4126\">Fire</font><br>Drops a firey comet at the target location that stuns and damages targets in an AOE when it comes into contact with earth. Has no cooldown but has a number of charges before needing to reload by switching to Lunar."
+    	"DOTA_Tooltip_ability_solunia_arcana_solar_comet_Description"					"Element: <font color=ELEMENT_COSMOS>Cosmic</font> / <font color=ELEMENT_FIRE>Fire</font><br>Drops a firey comet at the target location that stuns and damages targets in an AOE when it comes into contact with earth. Has no cooldown but has a number of charges before needing to reload by switching to Lunar."
     	"DOTA_Tooltip_ability_solunia_arcana_solar_comet_damage"						"DAMAGE:"
     	"DOTA_Tooltip_ability_solunia_arcana_solar_comet_stun_duration"					"STUN DURATION:"
     	"DOTA_Tooltip_ability_solunia_arcana_solar_comet_max_charges"					"CHARGES BEFORE RELOAD:"
@@ -191,7 +191,7 @@
     	"DOTA_Tooltip_modifier_solar_comet_free_cast"									"Solar Comet Charge"
 
     	"DOTA_Tooltip_ability_solunia_arcana_lunar_comet"								"Lunar Comet"
-    	"DOTA_Tooltip_ability_solunia_arcana_lunar_comet_Description"					"Element: <font color=\"#C25DFC\">Cosmic</font> / <font color=\"#87D9FF\">Ice</font><br>Drops an icy comet at the target location that stuns and damages targets in an AOE when it comes into contact with earth. Has no cooldown but has a number of charges before needing to reload by switching to Solar."
+    	"DOTA_Tooltip_ability_solunia_arcana_lunar_comet_Description"					"Element: <font color=ELEMENT_COSMOS>Cosmic</font> / <font color=ELEMENT_ICE>Ice</font><br>Drops an icy comet at the target location that stuns and damages targets in an AOE when it comes into contact with earth. Has no cooldown but has a number of charges before needing to reload by switching to Solar."
     	"DOTA_Tooltip_ability_solunia_arcana_lunar_comet_damage"						"DAMAGE:"
     	"DOTA_Tooltip_ability_solunia_arcana_lunar_comet_stun_duration"					"STUN DURATION:"
     	"DOTA_Tooltip_ability_solunia_arcana_lunar_comet_max_charges"					"CHARGES BEFORE RELOAD:"
@@ -229,7 +229,7 @@
     	"DOTA_Tooltip_modifier_solar_compression_visible_Description"			"Reduced Magic Armor."
 
     	"DOTA_Tooltip_ability_solunia_rune_q_4_arcana1"								"[Q4] Mercuria X"
-    	"DOTA_Tooltip_ability_solunia_rune_q_4_arcana1_Description"					"Increases all <font color=\"#C25DFC\">Cosmic</font> damage."
+    	"DOTA_Tooltip_ability_solunia_rune_q_4_arcana1_Description"					"Increases all <font color=ELEMENT_COSMOS>Cosmic</font> damage."
     	"DOTA_Tooltip_ability_solunia_rune_q_4_arcana1_property_one"				"Cosmic Damage Amp"
     	"DOTA_Tooltip_ability_solunia_rune_q_4_arcana1_suffix"						"%"
 
@@ -237,13 +237,13 @@
     	"property_solunia_arcana2_description"								"Replaces @Ability4 and all of its runes with Solar and Lunar Alpha Spark."
 
     	"DOTA_Tooltip_ability_solunia_solar_alpha_spark"					"Solar Alpha Spark"				
-    	"DOTA_Tooltip_ability_solunia_solar_alpha_spark_Description"		"Element: <font color=\"#C25DFC\">Cosmic</font> / <font color=\"#EF4126\">Fire</font><br>In a flash of cosmic heat, Solunia teleports to the target position and explodes - transferring her energy to Lunar."
+    	"DOTA_Tooltip_ability_solunia_solar_alpha_spark_Description"		"Element: <font color=ELEMENT_COSMOS>Cosmic</font> / <font color=ELEMENT_FIRE>Fire</font><br>In a flash of cosmic heat, Solunia teleports to the target position and explodes - transferring her energy to Lunar."
     	"DOTA_Tooltip_ability_solunia_solar_alpha_spark_damage"				"DAMAGE:"
     	"DOTA_Tooltip_ability_solunia_solar_alpha_spark_stun_duration"		"STUN DURATION:"
     	"DOTA_Tooltip_ability_solunia_solar_alpha_spark_cast_range"			"CAST RANGE:"
 
     	"DOTA_Tooltip_ability_solunia_lunar_alpha_spark"					"Lunar Alpha Spark"				
-    	"DOTA_Tooltip_ability_solunia_lunar_alpha_spark_Description"		"Element: <font color=\"#C25DFC\">Cosmic</font> / <font color=\"#EF4126\">Fire</font><br>In a flash of cosmic heat, Solunia teleports to the target position and explodes - transferring her energy to Solar."
+    	"DOTA_Tooltip_ability_solunia_lunar_alpha_spark_Description"		"Element: <font color=ELEMENT_COSMOS>Cosmic</font> / <font color=ELEMENT_FIRE>Fire</font><br>In a flash of cosmic heat, Solunia teleports to the target position and explodes - transferring her energy to Solar."
     	"DOTA_Tooltip_ability_solunia_lunar_alpha_spark_damage"				"DAMAGE:"
     	"DOTA_Tooltip_ability_solunia_lunar_alpha_spark_stun_duration"		"STUN DURATION:"
     	"DOTA_Tooltip_ability_solunia_lunar_alpha_spark_cast_range"			"CAST RANGE:"
@@ -274,7 +274,7 @@
     	"DOTA_Tooltip_modifier_solunia_c_d_arcana_shell_Description"		"Damage taken reduced by <% SOLUNIA_ARCANA2_R3_DAMAGE_REDUCTION_PCT * 100 %>%, +100 movespeed and unit walking."
 
   		"DOTA_Tooltip_ability_solunia_rune_r_4_arcana2"						"[R4] Tellarias"
-    	"DOTA_Tooltip_ability_solunia_rune_r_4_arcana2_Description"			"Increases all attributes. Increases <font color=\"#EF4126\">Fire</font> damage, <font color=\"#87D9FF\">Ice</font> damage, and <font color=\"#C25DFC\">Cosmic</font> damage."
+    	"DOTA_Tooltip_ability_solunia_rune_r_4_arcana2_Description"			"Increases all attributes. Increases <font color=ELEMENT_FIRE>Fire</font> damage, <font color=ELEMENT_ICE>Ice</font> damage, and <font color=ELEMENT_COSMOS>Cosmic</font> damage."
     	"DOTA_Tooltip_ability_solunia_rune_r_4_arcana2_property_one"		"Elemental Amp"
     	"DOTA_Tooltip_ability_solunia_rune_r_4_arcana2_suffix"				"%"
     	"DOTA_Tooltip_ability_solunia_rune_r_4_arcana2_property_two"		"Passive Stat Bonus"
@@ -287,7 +287,7 @@
         "property_solunia_arcana3_description"                              "Replaces @Ability2 and all of its runes with Solar and Lunar Vorpal Blades."
 
         "DOTA_Tooltip_ability_solunia_solar_vorpal_blades"                    "Solar Vorpal Blades"             
-        "DOTA_Tooltip_ability_solunia_solar_vorpal_blades_Description"        "Element: <font color=\"#C25DFC\">Cosmic</font> / <font color=\"#EF4126\">Fire</font><br>Throws out 3 solar vorpal blades that seek out enemies within 1000 range of Solunia. The blades deal damage on hit and can bounce to other enemies if there are any nearby."
+        "DOTA_Tooltip_ability_solunia_solar_vorpal_blades_Description"        "Element: <font color=ELEMENT_COSMOS>Cosmic</font> / <font color=ELEMENT_FIRE>Fire</font><br>Throws out 3 solar vorpal blades that seek out enemies within 1000 range of Solunia. The blades deal damage on hit and can bounce to other enemies if there are any nearby."
         "DOTA_Tooltip_ability_solunia_solar_vorpal_blades_damage"             "DAMAGE:"
         "DOTA_Tooltip_ability_solunia_solar_vorpal_blades_max_blades"           "MAXIMUM ACTIVE CONCURRENT BLADES:"
         "DOTA_Tooltip_ability_solunia_solar_vorpal_blades_base_bounces"         "BOUNCES:"
@@ -295,7 +295,7 @@
         "DOTA_Tooltip_modifier_active_sun_vorpals"                           "Active Solar Vorpal Blades"
 
         "DOTA_Tooltip_ability_solunia_lunar_vorpal_blades"                    "Lunar Vorpal Blades"             
-        "DOTA_Tooltip_ability_solunia_lunar_vorpal_blades_Description"        "Element: <font color=\"#C25DFC\">Cosmic</font> / <font color=\"#87D9FF\">Ice</font><br>Throws out 3 lunar vorpal blades that seek out enemies within 1000 range of Solunia. The blades deal damage on hit and can bounce to other enemies if there are any nearby."
+        "DOTA_Tooltip_ability_solunia_lunar_vorpal_blades_Description"        "Element: <font color=ELEMENT_COSMOS>Cosmic</font> / <font color=ELEMENT_ICE>Ice</font><br>Throws out 3 lunar vorpal blades that seek out enemies within 1000 range of Solunia. The blades deal damage on hit and can bounce to other enemies if there are any nearby."
         "DOTA_Tooltip_ability_solunia_lunar_vorpal_blades_damage"             "DAMAGE:"
         "DOTA_Tooltip_ability_solunia_lunar_vorpal_blades_max_blades"           "MAXIMUM ACTIVE CONCURRENT BLADES:"
         "DOTA_Tooltip_ability_solunia_lunar_vorpal_blades_base_bounces"         "BOUNCES:"

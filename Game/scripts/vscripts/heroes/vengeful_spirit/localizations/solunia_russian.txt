@@ -5,13 +5,13 @@
     	"solunia_r"															"Supernova и Eclipse"
 
     	"DOTA_Tooltip_ability_solunia_solar_glow"							"Solar Napalm"
-    	"DOTA_Tooltip_ability_solunia_solar_glow_Description"				"Стихия: <font color=\"#C25DFC\">Космос</font> / <font color=\"#EF4126\">Огонь</font><br>Выпускает залп из горящих Солнечных камней в указанную точку."
+    	"DOTA_Tooltip_ability_solunia_solar_glow_Description"				"Стихия: <font color=ELEMENT_COSMOS>Космос</font> / <font color=ELEMENT_FIRE>Огонь</font><br>Выпускает залп из горящих Солнечных камней в указанную точку."
     	"DOTA_Tooltip_ability_solunia_solar_glow_damage"					"УРОН:"
     	"DOTA_Tooltip_ability_solunia_solar_glow_projectiles"				"КАМНЕЙ:"
     	"DOTA_Tooltip_ability_solunia_solar_glow_stun_duration"				"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
 
     	"DOTA_Tooltip_ability_solunia_lunar_glow"							"Lunar Napalm"
-    	"DOTA_Tooltip_ability_solunia_lunar_glow_Description"				"Стихия: <font color=\"#C25DFC\">Космос</font> / <font color=\"#87D9FF\">Лёд</font><br>Выпускает залп из ледяных Лунных камней в указанную точку."
+    	"DOTA_Tooltip_ability_solunia_lunar_glow_Description"				"Стихия: <font color=ELEMENT_COSMOS>Космос</font> / <font color=ELEMENT_ICE>Лёд</font><br>Выпускает залп из ледяных Лунных камней в указанную точку."
     	"DOTA_Tooltip_ability_solunia_lunar_glow_damage"					"УРОН:"
     	"DOTA_Tooltip_ability_solunia_lunar_glow_projectiles"				"КАМНЕЙ:"
     	"DOTA_Tooltip_ability_solunia_lunar_glow_stun_duration"				"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
@@ -43,12 +43,12 @@
     	"DOTA_Tooltip_ability_solunia_rune_q_3_suffix_two"					"% от недостающего здоровя врагов"
 		
 		"DOTA_Tooltip_ability_solunia_rune_q_4"								"[Q4] Mercuria"
-    	"DOTA_Tooltip_ability_solunia_rune_q_4_Description"					"Увеличивает стихийный урон <font color=\"#C25DFC\">Космоса</font>."
-    	"DOTA_Tooltip_ability_solunia_rune_q_4_property_one"				"Урон <font color=\"#C25DFC\">Космоса</font>"
+    	"DOTA_Tooltip_ability_solunia_rune_q_4_Description"					"Увеличивает стихийный урон <font color=ELEMENT_COSMOS>Космоса</font>."
+    	"DOTA_Tooltip_ability_solunia_rune_q_4_property_one"				"Урон <font color=ELEMENT_COSMOS>Космоса</font>"
     	"DOTA_Tooltip_ability_solunia_rune_q_4_suffix"						"%"
 		
 		"DOTA_Tooltip_ability_solunia_solarang"								"Solarang"
-    	"DOTA_Tooltip_ability_solunia_solarang_Description"					"Стихия: <font color=\"#C25DFC\">Космос</font> / <font color=\"#DDDDDD\">Нормальный</font><br>Solunia бросает своё оружие как бумеранг в указанную точку. Лезвие наносит урон каждые 0.2 секунды всем находящимся в области действия врагам."
+    	"DOTA_Tooltip_ability_solunia_solarang_Description"					"Стихия: <font color=ELEMENT_COSMOS>Космос</font> / <font color=ELEMENT_NORMAL>Нормальный</font><br>Solunia бросает своё оружие как бумеранг в указанную точку. Лезвие наносит урон каждые 0.2 секунды всем находящимся в области действия врагам."
     	"DOTA_Tooltip_ability_solunia_solarang_max_boomerangs"				"МАКС. БРОСКОВ:"
     	"DOTA_Tooltip_ability_solunia_solarang_damage"						"УРОН:"
 
@@ -56,7 +56,7 @@
     	"DOTA_Tooltip_modifier_outgoing_lunarang"							"Выпушено Лунных бумерангов"
 
     	"DOTA_Tooltip_ability_solunia_lunarang"								"Lunarang"
-    	"DOTA_Tooltip_ability_solunia_lunarang_Description"					"Стихия: <font color=\"#C25DFC\">Космос</font> / <font color=\"#DDDDDD\">Нормальный</font><br>Solunia бросает своё оружие как бумеранг в указанную точку. Лезвие наносит урон каждые 0.2 секунды всем находящимся в области действия врагам."
+    	"DOTA_Tooltip_ability_solunia_lunarang_Description"					"Стихия: <font color=ELEMENT_COSMOS>Космос</font> / <font color=ELEMENT_NORMAL>Нормальный</font><br>Solunia бросает своё оружие как бумеранг в указанную точку. Лезвие наносит урон каждые 0.2 секунды всем находящимся в области действия врагам."
     	"DOTA_Tooltip_ability_solunia_lunarang_max_boomerangs"				"МАКС. БРОСКОВ:"
     	"DOTA_Tooltip_ability_solunia_lunarang_damage"						"УРОН:"
 		
@@ -135,12 +135,12 @@
     	"DOTA_Tooltip_ability_solunia_rune_e_4_suffix"						""
 		
 		"DOTA_Tooltip_ability_solunia_supernova"							"Supernova"
-    	"DOTA_Tooltip_ability_solunia_supernova_Description"				"Стихия: <font color=\"#C25DFC\">Космос</font> / <font color=\"#EF4126\">Огонь</font><br>Solunia разогревается до сверхвысоких температур, после чего взрывается и меняет свою форму на Лунную. <br><font color='#70EA72'>Если умение произносится в воздухе на высоте от 180, то герой получает полный иммунитет на время прочтения</font>."
+    	"DOTA_Tooltip_ability_solunia_supernova_Description"				"Стихия: <font color=ELEMENT_COSMOS>Космос</font> / <font color=ELEMENT_FIRE>Огонь</font><br>Solunia разогревается до сверхвысоких температур, после чего взрывается и меняет свою форму на Лунную. <br><font color='#70EA72'>Если умение произносится в воздухе на высоте от 180, то герой получает полный иммунитет на время прочтения</font>."
     	"DOTA_Tooltip_ability_solunia_supernova_damage"						"УРОН:"
     	"DOTA_Tooltip_ability_solunia_supernova_stun_duration"				"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
 
     	"DOTA_Tooltip_ability_solunia_eclipse"								"Eclipse"
-    	"DOTA_Tooltip_ability_solunia_eclipse_Description"					"Стихия: <font color=\"#C25DFC\">Космос</font> / <font color=\"#EF4126\">Огонь</font><br>Solunia остывает до сверхнизких температур, после чего взрывается и меняет свою форму на Солнечную. <br><font color='#70EA72'>Если умение произносится в воздухе на высоте от 180, то герой получает полный иммунитет на время прочтения</font>."
+    	"DOTA_Tooltip_ability_solunia_eclipse_Description"					"Стихия: <font color=ELEMENT_COSMOS>Космос</font> / <font color=ELEMENT_FIRE>Огонь</font><br>Solunia остывает до сверхнизких температур, после чего взрывается и меняет свою форму на Солнечную. <br><font color='#70EA72'>Если умение произносится в воздухе на высоте от 180, то герой получает полный иммунитет на время прочтения</font>."
     	"DOTA_Tooltip_ability_solunia_eclipse_damage"						"УРОН:"
     	"DOTA_Tooltip_ability_solunia_eclipse_stun_duration"				"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
 		
@@ -180,7 +180,7 @@
     	"property_solunia_arcana1_description"								"Заменяет (Q) @Ability1 и все соответствующие руны на (Q) Solar & Lunar Comet."
 
     	"DOTA_Tooltip_ability_solunia_arcana_solar_comet"								"Solar Comet"
-    	"DOTA_Tooltip_ability_solunia_arcana_solar_comet_Description"					"Стихия: <font color=\"#C25DFC\">Космос</font> / <font color=\"#EF4126\">Огонь</font><br>В указанную точку падает огненная комета, которая по приземлении оглушает задетых врагов и наносит им урон. Не имеет перезарядки, но ограничено количеством зарядов, по окончании зарядов становится неактивной и требует переключения в Лунную форму."
+    	"DOTA_Tooltip_ability_solunia_arcana_solar_comet_Description"					"Стихия: <font color=ELEMENT_COSMOS>Космос</font> / <font color=ELEMENT_FIRE>Огонь</font><br>В указанную точку падает огненная комета, которая по приземлении оглушает задетых врагов и наносит им урон. Не имеет перезарядки, но ограничено количеством зарядов, по окончании зарядов становится неактивной и требует переключения в Лунную форму."
     	"DOTA_Tooltip_ability_solunia_arcana_solar_comet_damage"						"УРОН:"
     	"DOTA_Tooltip_ability_solunia_arcana_solar_comet_stun_duration"					"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
     	"DOTA_Tooltip_ability_solunia_arcana_solar_comet_max_charges"					"ЗАРЯДОВ:"
@@ -188,7 +188,7 @@
     	"DOTA_Tooltip_modifier_solar_comet_free_cast"									"Заряды (Q) Solar Comet"
 
     	"DOTA_Tooltip_ability_solunia_arcana_lunar_comet"								"Lunar Comet"
-    	"DOTA_Tooltip_ability_solunia_arcana_lunar_comet_Description"					"Стихия: <font color=\"#C25DFC\">Космос</font> / <font color=\"#87D9FF\">Лёд</font><br>В указанную точку падает ледяная комета, которая по приземлении оглушает задетых врагов и наносит им урон. Не имеет перезарядки, но ограничено количеством зарядов, по окончании зарядов становится неактивной и требует переключения в Солнечную форму."
+    	"DOTA_Tooltip_ability_solunia_arcana_lunar_comet_Description"					"Стихия: <font color=ELEMENT_COSMOS>Космос</font> / <font color=ELEMENT_ICE>Лёд</font><br>В указанную точку падает ледяная комета, которая по приземлении оглушает задетых врагов и наносит им урон. Не имеет перезарядки, но ограничено количеством зарядов, по окончании зарядов становится неактивной и требует переключения в Солнечную форму."
     	"DOTA_Tooltip_ability_solunia_arcana_lunar_comet_damage"						"УРОН:"
     	"DOTA_Tooltip_ability_solunia_arcana_lunar_comet_stun_duration"					"ДЛИТЕЛЬНСТЬ ОГЛУШЕНИЯ:"
     	"DOTA_Tooltip_ability_solunia_arcana_lunar_comet_max_charges"					"ЗАРЯДОВ:"
@@ -226,7 +226,7 @@
     	"DOTA_Tooltip_modifier_solar_compression_visible_Description"			"Магическая Защита снижена."
 
     	"DOTA_Tooltip_ability_solunia_rune_q_4_arcana1"								"[Q4] Mercuria X"
-    	"DOTA_Tooltip_ability_solunia_rune_q_4_arcana1_Description"					"Увеличивает весь стихийный урон <font color=\"#C25DFC\">Космоса</font>."
+    	"DOTA_Tooltip_ability_solunia_rune_q_4_arcana1_Description"					"Увеличивает весь стихийный урон <font color=ELEMENT_COSMOS>Космоса</font>."
     	"DOTA_Tooltip_ability_solunia_rune_q_4_arcana1_property_one"				"Усиление стихии Космоса"
     	"DOTA_Tooltip_ability_solunia_rune_q_4_arcana1_suffix"						"%"
 
@@ -234,13 +234,13 @@
     	"property_solunia_arcana2_description"								"Заменяет (R) @Ability4 и все соответствующие руны на (R) Solar и Lunar Alpha Spark."
 
     	"DOTA_Tooltip_ability_solunia_solar_alpha_spark"					"Solar Alpha Spark"				
-    	"DOTA_Tooltip_ability_solunia_solar_alpha_spark_Description"		"Стихия: <font color=\"#C25DFC\">Космос</font> / <font color=\"#EF4126\">Огонь</font><br>Задействовав всю энергию Космоса, Solunia телепортируется в указанную точку и взрывается. Энергия героя переходит в Лунную после прочтения."
+    	"DOTA_Tooltip_ability_solunia_solar_alpha_spark_Description"		"Стихия: <font color=ELEMENT_COSMOS>Космос</font> / <font color=ELEMENT_FIRE>Огонь</font><br>Задействовав всю энергию Космоса, Solunia телепортируется в указанную точку и взрывается. Энергия героя переходит в Лунную после прочтения."
     	"DOTA_Tooltip_ability_solunia_solar_alpha_spark_damage"				"УРОН:"
     	"DOTA_Tooltip_ability_solunia_solar_alpha_spark_stun_duration"		"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
     	"DOTA_Tooltip_ability_solunia_solar_alpha_spark_cast_range"			"ДАЛЬНОСТЬ ПРИМЕНЕНИЯ:"
 
     	"DOTA_Tooltip_ability_solunia_lunar_alpha_spark"					"Lunar Alpha Spark"				
-    	"DOTA_Tooltip_ability_solunia_lunar_alpha_spark_Description"		"Стихия: <font color=\"#C25DFC\">Космос</font> / <font color=\"#EF4126\">Огонь</font><br>Задействовав всю энергию Космоса, Solunia телепортируется в указанную точку и взрывается. Энергия героя переходит в Солнечную после прочтения."
+    	"DOTA_Tooltip_ability_solunia_lunar_alpha_spark_Description"		"Стихия: <font color=ELEMENT_COSMOS>Космос</font> / <font color=ELEMENT_FIRE>Огонь</font><br>Задействовав всю энергию Космоса, Solunia телепортируется в указанную точку и взрывается. Энергия героя переходит в Солнечную после прочтения."
     	"DOTA_Tooltip_ability_solunia_lunar_alpha_spark_damage"				"УРОН:"
     	"DOTA_Tooltip_ability_solunia_lunar_alpha_spark_stun_duration"		"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
     	"DOTA_Tooltip_ability_solunia_lunar_alpha_spark_cast_range"			"ДАЛЬНОСТЬ ПРИМЕНЕНИЯ:"
@@ -271,7 +271,7 @@
     	"DOTA_Tooltip_modifier_solunia_c_d_arcana_shell_Description"		"Входящий урон снижен на <% SOLUNIA_ARCANA2_R3_DAMAGE_REDUCTION_PCT %>%%, +100 к скорости передвижения и возможность проходить сквозь существ."
 
   		"DOTA_Tooltip_ability_solunia_rune_r_4_arcana2"						"[R4] Tellarias"
-    	"DOTA_Tooltip_ability_solunia_rune_r_4_arcana2_Description"			"Пассивно увеличивает все атрибуты героя и стихийный урон <font color=\"#EF4126\">Огня</font>, <font color=\"#87D9FF\">Льда</font> и <font color=\"#C25DFC\">Космоса</font>."
+    	"DOTA_Tooltip_ability_solunia_rune_r_4_arcana2_Description"			"Пассивно увеличивает все атрибуты героя и стихийный урон <font color=ELEMENT_FIRE>Огня</font>, <font color=ELEMENT_ICE>Льда</font> и <font color=ELEMENT_COSMOS>Космоса</font>."
     	"DOTA_Tooltip_ability_solunia_rune_r_4_arcana2_property_one"		"Усиление стихийного урона"
     	"DOTA_Tooltip_ability_solunia_rune_r_4_arcana2_suffix"				"%"
     	"DOTA_Tooltip_ability_solunia_rune_r_4_arcana2_property_two"		"Бонус ко всем атрибутам"
@@ -284,7 +284,7 @@
         "property_solunia_arcana3_description"                              "Заменяет @Ability2 и её руны на Solar and Lunar Vorpal Blades."
 
         "DOTA_Tooltip_ability_solunia_solar_vorpal_blades"                    "Solar Vorpal Blades"             
-        "DOTA_Tooltip_ability_solunia_solar_vorpal_blades_Description"        "Элемент: <font color=\"#C25DFC\">Космос</font> / <font color=\"#EF4126\">Огонь</font><br>Выбрасывает 3 острых лезвия, преследующих противников в радиусе 1000 от героя. Лезвия наносят урон при ударе и отскакивают на рядомстоящих противников."
+        "DOTA_Tooltip_ability_solunia_solar_vorpal_blades_Description"        "Элемент: <font color=ELEMENT_COSMOS>Космос</font> / <font color=ELEMENT_FIRE>Огонь</font><br>Выбрасывает 3 острых лезвия, преследующих противников в радиусе 1000 от героя. Лезвия наносят урон при ударе и отскакивают на рядомстоящих противников."
         "DOTA_Tooltip_ability_solunia_solar_vorpal_blades_damage"             "УРОН:"
         "DOTA_Tooltip_ability_solunia_solar_vorpal_blades_max_blades"           "МАКСИМУМ ЛЕЗВИЙ ОДНОВРЕМЕННО:"
         "DOTA_Tooltip_ability_solunia_solar_vorpal_blades_base_bounces"         "ОТСКОКОВ:"
@@ -292,7 +292,7 @@
         "DOTA_Tooltip_modifier_active_sun_vorpals"                           "Active Solar Vorpal Blades"
 
         "DOTA_Tooltip_ability_solunia_lunar_vorpal_blades"                    "Lunar Vorpal Blades"             
-        "DOTA_Tooltip_ability_solunia_lunar_vorpal_blades_Description"        "Элемент: <font color=\"#C25DFC\">Космос</font> / <font color=\"#87D9FF\">Лёд</font><br>Выбрасывает 3 острых лезвия, преследующих противников в радиусе 1000 от героя. Лезвия наносят урон при ударе и отскакивают на рядомстоящих противников."
+        "DOTA_Tooltip_ability_solunia_lunar_vorpal_blades_Description"        "Элемент: <font color=ELEMENT_COSMOS>Космос</font> / <font color=ELEMENT_ICE>Лёд</font><br>Выбрасывает 3 острых лезвия, преследующих противников в радиусе 1000 от героя. Лезвия наносят урон при ударе и отскакивают на рядомстоящих противников."
         "DOTA_Tooltip_ability_solunia_lunar_vorpal_blades_damage"             "УРОН:"
         "DOTA_Tooltip_ability_solunia_lunar_vorpal_blades_max_blades"           "МАКСИМУМ ЛЕЗВИЙ ОДНОВРЕМЕННО:"
         "DOTA_Tooltip_ability_solunia_lunar_vorpal_blades_base_bounces"         "ОТСКОКОВ:"

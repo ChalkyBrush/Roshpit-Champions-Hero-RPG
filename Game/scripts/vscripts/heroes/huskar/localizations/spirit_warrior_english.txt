@@ -1,5 +1,5 @@
     	"DOTA_Tooltip_ability_spirit_warrior_flametongue"			"Flameblood Weapon"
-    	"DOTA_Tooltip_ability_spirit_warrior_flametongue_Description"	"Element: <font color=\"#EF4126\">Fire</font><br>Applies a fire buff to a target ally that increases attack damage and adds a flat burst of magic damage on attack land. While flameblood weapon is active, the carrier has increased <font color=\"#EF4126\">Fire</font> damage."
+    	"DOTA_Tooltip_ability_spirit_warrior_flametongue_Description"	"Element: <font color=ELEMENT_FIRE>Fire</font><br>Applies a fire buff to a target ally that increases attack damage and adds a flat burst of magic damage on attack land. While flameblood weapon is active, the carrier has increased <font color=ELEMENT_FIRE>Fire</font> damage."
     	"DOTA_Tooltip_ability_spirit_warrior_flametongue_damage_increase"	"ATTACK DAMAGE BONUS %"
     	"DOTA_Tooltip_ability_spirit_warrior_flametongue_duration"			"BUFF DURATION:"
     	"DOTA_Tooltip_ability_spirit_warrior_flametongue_damage"	"EXTRA MAGIC DAMAGE ON ATTACK:"
@@ -9,7 +9,7 @@
     	"DOTA_Tooltip_modifier_flametongue_Description"				"Increased attack damage and a flat magic damage bonus on attack"
 
     	"DOTA_Tooltip_ability_spirit_warrior_soul_thrust"			"Soul Thrust"
-    	"DOTA_Tooltip_ability_spirit_warrior_soul_thrust_Description"	"Element: <font color=\"#EF4126\">Fire</font> / <font color=\"#7AE2A7\">Wind</font><br>The Spirit Warrior slams his spear into the ground in front of him, creating a damaging soul explosion. Damage is enhanced by Flameblood Weapon. Enemies hit by Soul Thrust deal <% SPIRIT_WARRIOR_W_DAMAGE_REDUCTION * 100 %>% reduced damage to Spirit Warrior for 7 seconds. Casting this ability causes one of Spirit Warrior's active ancient spirits to run towards his position."	
+    	"DOTA_Tooltip_ability_spirit_warrior_soul_thrust_Description"	"Element: <font color=ELEMENT_FIRE>Fire</font> / <font color=ELEMENT_WIND>Wind</font><br>The Spirit Warrior slams his spear into the ground in front of him, creating a damaging soul explosion. Damage is enhanced by Flameblood Weapon. Enemies hit by Soul Thrust deal <% SPIRIT_WARRIOR_W_DAMAGE_REDUCTION * 100 %>% reduced damage to Spirit Warrior for 7 seconds. Casting this ability causes one of Spirit Warrior's active ancient spirits to run towards his position."	
     	"DOTA_Tooltip_ability_spirit_warrior_soul_thrust_damage"		"DAMAGE:"
 
     	"DOTA_Tooltip_modifier_soul_thrust_effect"					"Soul Thrust"
@@ -52,7 +52,7 @@
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_3_suffix"		"% of attack damage"
 
       	"DOTA_Tooltip_ability_spirit_warrior_windstrike_weapon"			"Windstrike Weapon"
-    	"DOTA_Tooltip_ability_spirit_warrior_windstrike_weapon_Description"	"Element: <font color=\"#7AE2A7\">Wind</font><br>Applies a wind buff to a target ally that makes attacks deal additional pure damage based on the attacker's attack power. Windstrike and Flameblood cannot be active at the same time on the same target."
+    	"DOTA_Tooltip_ability_spirit_warrior_windstrike_weapon_Description"	"Element: <font color=ELEMENT_WIND>Wind</font><br>Applies a wind buff to a target ally that makes attacks deal additional pure damage based on the attacker's attack power. Windstrike and Flameblood cannot be active at the same time on the same target."
     	"DOTA_Tooltip_ability_spirit_warrior_windstrike_weapon_attackspeed"	"ATTACKSPEED BONUS"
     	"DOTA_Tooltip_ability_spirit_warrior_windstrike_weapon_duration"			"BUFF DURATION:"
 
@@ -60,7 +60,7 @@
     	"DOTA_Tooltip_modifier_windstrike_weapon_Description"			"Attacks deal additional pure damage based on attack power"	
 
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_4"				"[Q4] Inner Flame"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_4_Description"	"Increases <font color=\"#EF4126\">Fire</font> damage and <font color=\"#7AE2A7\">Wind</font> damage."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_4_Description"	"Increases <font color=ELEMENT_FIRE>Fire</font> damage and <font color=ELEMENT_WIND>Wind</font> damage."
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_4_property_one"	"Fire and Wind Amp"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_4_suffix"		"%"
 
@@ -197,7 +197,7 @@
     	"spirit_warrior_arcana1_r"												"Ancient Rain & Waterheart Weapon"
 
   		"DOTA_Tooltip_ability_spirit_warrior_rune_r_4_arcana1"						"[R4] Water Gods"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_4_arcana1_Description"			"Increases all <font color=\"#3894FF\">Water</font> damage."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_4_arcana1_Description"			"Increases all <font color=ELEMENT_WATER>Water</font> damage."
     	"DOTA_Tooltip_ability_spirit_warrior_rune_r_4_arcana1_property_one"		"Water Damage Amp"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_r_4_arcana1_suffix"				"%"
 
@@ -205,7 +205,7 @@
     	"property_spirit_warrior_arcana2_description"								"Replaces @Ability2 and all of its runes with Blazing Javelin."
 
     	"DOTA_Tooltip_ability_spirit_warrior_blazing_javelin"						"Blazing Javelin"
-    	"DOTA_Tooltip_ability_spirit_warrior_blazing_javelin_Description"			"Element: <font color=\"#EF4126\">Fire</font> / <font color=\"#DDDDDD\">Normal</font><br>Throws a spear at the target location. It travels through enemies and deals explosive fire damage."
+    	"DOTA_Tooltip_ability_spirit_warrior_blazing_javelin_Description"			"Element: <font color=ELEMENT_FIRE>Fire</font> / <font color=ELEMENT_NORMAL>Normal</font><br>Throws a spear at the target location. It travels through enemies and deals explosive fire damage."
     	"DOTA_Tooltip_ability_spirit_warrior_blazing_javelin_damage"				"DAMAGE:"
     	"DOTA_Tooltip_ability_spirit_warrior_blazing_javelin_cast_range"			"CAST RANGE:"
 
@@ -227,7 +227,7 @@
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_3_arcana2_suffix"				"%"
 
   		"DOTA_Tooltip_ability_spirit_warrior_rune_w_4_arcana2"						"[W4] Fire Gods"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_4_arcana2_Description"			"Increases all <font color=\"#EF4126\">Fire</font> damage."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_4_arcana2_Description"			"Increases all <font color=ELEMENT_FIRE>Fire</font> damage."
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_4_arcana2_property_one"		"Fire Damage Amp"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_4_arcana2_suffix"				"%"
 
@@ -260,7 +260,7 @@
     	"DOTA_Tooltip_ability_spirit_warrior_rune_e_3_arcana3_suffix_two"			" seconds"	
 
   		"DOTA_Tooltip_ability_spirit_warrior_rune_e_4_arcana3"						"[E4] Wind Gods"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_4_arcana3_Description"			"Increases all <font color=\"#7AE2A7\">Wind</font> damage."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_4_arcana3_Description"			"Increases all <font color=ELEMENT_WIND>Wind</font> damage."
     	"DOTA_Tooltip_ability_spirit_warrior_rune_e_4_arcana3_property_one"		"Wind Damage Amp"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_e_4_arcana3_suffix"				"%"
 

@@ -1,5 +1,5 @@
 		"DOTA_Tooltip_ability_heroic_fury"								"英雄之怒"
-		"DOTA_Tooltip_ability_heroic_fury_Description"					"元素： <font color=\"#F6FFB5\">圣</font> / <font color=\"#DDDDDD\">普通</font><br>大幅强化全能骑士的武器，获得溅射、减速效果，每次攻击都将回复一定生命值。"
+		"DOTA_Tooltip_ability_heroic_fury_Description"					"元素： <font color=ELEMENT_HOLY>圣</font> / <font color=ELEMENT_NORMAL>普通</font><br>大幅强化全能骑士的武器，获得溅射、减速效果，每次攻击都将回复一定生命值。"
 		"DOTA_Tooltip_ability_heroic_fury_Lore"							""
 		"DOTA_Tooltip_ability_heroic_fury_duration"						"持续时间："
 		"DOTA_Tooltip_ability_heroic_fury_damage"						"溅射伤害："
@@ -39,14 +39,14 @@
     	"DOTA_Tooltip_ability_paladin_rune_q_3_suffix_two"				"x 力量值"
 		
 		"DOTA_Tooltip_ability_paladin_rune_q_4"							"[Q4] 激化之火"
-    	"DOTA_Tooltip_ability_paladin_rune_q_4_Description"				"全能骑士所有的过度治疗（治疗量大于所损失的生命值）都会创造一个护盾，吸收伤害。被动提高所有 <font color=\"#F6FFB5\">圣</font> 元素的伤害。"
+    	"DOTA_Tooltip_ability_paladin_rune_q_4_Description"				"全能骑士所有的过度治疗（治疗量大于所损失的生命值）都会创造一个护盾，吸收伤害。被动提高所有 <font color=ELEMENT_HOLY>圣</font> 元素的伤害。"
     	"DOTA_Tooltip_ability_paladin_rune_q_4_property_one"			"护盾吸收最大伤害"
     	"DOTA_Tooltip_ability_paladin_rune_q_4_suffix"					"% 目标的最大生命值"
     	"DOTA_Tooltip_ability_paladin_rune_q_4_property_two"			"圣元素伤害提高"
     	"DOTA_Tooltip_ability_paladin_rune_q_4_suffix_two"				"%"
 		
 		"DOTA_Tooltip_ability_justice_overwhelming"								"正义之手"
-		"DOTA_Tooltip_ability_justice_overwhelming_Description"					"元素： <font color=\"#F6FFB5\">圣</font><br>全能骑士从手中释放出一道纯粹的神圣风暴，自己退避并对前方锥形区域的敌人造成伤害。"
+		"DOTA_Tooltip_ability_justice_overwhelming_Description"					"元素： <font color=ELEMENT_HOLY>圣</font><br>全能骑士从手中释放出一道纯粹的神圣风暴，自己退避并对前方锥形区域的敌人造成伤害。"
 		"DOTA_Tooltip_ability_justice_overwhelming_Lore"							""
 		"DOTA_Tooltip_ability_justice_overwhelming_damage"							"伤害："
 		
@@ -174,7 +174,7 @@
     	"property_paladin_arcana1_description"								"用禅替换 @Ability2 及其所有符文。"
 
     	"DOTA_Tooltip_ability_paladin_penance"								"禅"
-    	"DOTA_Tooltip_ability_paladin_penance_Description"					"元素： <font color=\"#F6FFB5\">圣</font> / <font color=\"#9ACCD1\">鬼</font><br>全能骑士可以对敌人或者友军发射一支圣灵之枪。在目标周围的敌方单位都会受到伤害。如果目标是友军的话，友军将被治疗，治疗量为 a% 的基础技能伤害。"
+    	"DOTA_Tooltip_ability_paladin_penance_Description"					"元素： <font color=ELEMENT_HOLY>圣</font> / <font color=ELEMENT_GHOST>鬼</font><br>全能骑士可以对敌人或者友军发射一支圣灵之枪。在目标周围的敌方单位都会受到伤害。如果目标是友军的话，友军将被治疗，治疗量为 a% 的基础技能伤害。"
     	"DOTA_Tooltip_ability_paladin_penance_damage"						"伤害："
     	"DOTA_Tooltip_ability_paladin_penance_heal_percentage"				"治疗量百分比："
 
@@ -214,7 +214,7 @@
     	"property_paladin_arcana2_description"								"用神圣之翼替换 @Ability3 及其所有符文。"
 
     	"DOTA_Tooltip_ability_paladin_crusader_comet"						"神圣之翼"
-    	"DOTA_Tooltip_ability_paladin_crusader_comet_Description"			"元素： <font color=\"#F6FFB5\">圣</font><br>全能骑士升入天堂随后向目标地点发起冲击，净化冲击范围内的所有敌人。"
+    	"DOTA_Tooltip_ability_paladin_crusader_comet_Description"			"元素： <font color=ELEMENT_HOLY>圣</font><br>全能骑士升入天堂随后向目标地点发起冲击，净化冲击范围内的所有敌人。"
     	"DOTA_Tooltip_ability_paladin_crusader_comet_cast_range"			"施法距离："
     	"DOTA_Tooltip_ability_paladin_crusader_comet_base_damage"			"伤害："
     	"DOTA_Tooltip_ability_paladin_crusader_comet_damage_from_str"		"额外伤害（力量值的倍数）"
@@ -229,7 +229,7 @@
     	"DOTA_Tooltip_modifier_paladin_heal_on_lethal_cooldown"				"忠贞技能冷却中"
 
   		"DOTA_Tooltip_ability_paladin_rune_e_2_arcana2"						"[E2] 赐福"
-    	"DOTA_Tooltip_ability_paladin_rune_e_2_arcana2_Description"			"每 1% 点 <font color=\"#F6FFB5\">圣</font> 元素伤害加成，都将提高全能骑士一定的的基础攻击力。"
+    	"DOTA_Tooltip_ability_paladin_rune_e_2_arcana2_Description"			"每 1% 点 <font color=ELEMENT_HOLY>圣</font> 元素伤害加成，都将提高全能骑士一定的的基础攻击力。"
     	"DOTA_Tooltip_ability_paladin_rune_e_2_arcana2_property_one"		"基础攻击力提高为%圣元素加成的倍数"
     	"DOTA_Tooltip_ability_paladin_rune_e_2_arcana2_suffix"				"x"
 
@@ -239,7 +239,7 @@
     	"DOTA_Tooltip_ability_paladin_rune_e_3_arcana2_suffix"				" 秒"
 
   		"DOTA_Tooltip_ability_paladin_rune_e_4_arcana2"						"[E4] 虔诚"
-    "DOTA_Tooltip_ability_paladin_rune_e_4_arcana2_Description"			"精神值增加全能骑士所有 <font color=\"#F6FFB5\">圣</font> 元素伤害和魔法穿透."
+    "DOTA_Tooltip_ability_paladin_rune_e_4_arcana2_Description"			"精神值增加全能骑士所有 <font color=ELEMENT_HOLY>圣</font> 元素伤害和魔法穿透."
     	"DOTA_Tooltip_ability_paladin_rune_e_4_arcana2_property_one"		"圣元素伤害提高"
     	"DOTA_Tooltip_ability_paladin_rune_e_4_arcana2_suffix"				"% 精神值"
         "DOTA_Tooltip_ability_paladin_rune_e_4_arcana2_property_two"        "魔法穿透"
@@ -291,7 +291,7 @@
         "item_rpc_paladin_glyph_4_2_description"                "@Ability2 有 <% PALADIN_GLYPH_4_2_CAST_POINT %> 秒的施法点，并且将你向前推进。"
 
         "DOTA_Tooltip_ability_item_rpc_paladin_glyph_5_2"       "[T5-2] 赎罪雕文"
-        "item_rpc_paladin_glyph_5_2_description"                "@Ability4 将会攻击，并且造成纯粹 <font color=\"#F6FFB5\">圣</font>伤害，数值为 @glyph_property1x 全能骑士的攻击力。"
+        "item_rpc_paladin_glyph_5_2_description"                "@Ability4 将会攻击，并且造成纯粹 <font color=ELEMENT_HOLY>圣</font>伤害，数值为 @glyph_property1x 全能骑士的攻击力。"
 
         "DOTA_Tooltip_ability_item_rpc_paladin_glyph_6_2"       "[T6-2] 神护雕文"
         "item_rpc_paladin_glyph_6_2_description"                "提高魔甲 <% PALADIN_GLYPH_6_2_MAGIC_ARMOR_PCT %>%。"

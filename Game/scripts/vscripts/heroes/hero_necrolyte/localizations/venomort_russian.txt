@@ -1,6 +1,6 @@
 		//Abilities
 		"DOTA_Tooltip_ability_gale_nova"										"Plague Spreader"
-		"DOTA_Tooltip_ability_gale_nova_Description"							"Стихия: <font color=\"#37DD3D\">Яд</font><br>Venomort выпускает ядовитый туман вокруг себя, поражая противников в зоне действия периодическим уроном каждые 0.4 секунды."
+		"DOTA_Tooltip_ability_gale_nova_Description"							"Стихия: <font color=ELEMENT_POISON>Яд</font><br>Venomort выпускает ядовитый туман вокруг себя, поражая противников в зоне действия периодическим уроном каждые 0.4 секунды."
 		"DOTA_Tooltip_ability_gale_nova_Lore"									""
     	"DOTA_Tooltip_ability_gale_nova_damage"							        "ПЕРИОДИЧЕСКИЙ УРОН ЗА ТИК:"
     	"DOTA_Tooltip_ability_gale_nova_duration"								"ДЛИТЕЛЬНОСТЬ ЯДА:"
@@ -34,7 +34,7 @@
 
 		
 		"DOTA_Tooltip_ability_nether_blaster"								"Necrofusion"
-		"DOTA_Tooltip_ability_nether_blaster_Description"					"Стихия: <font color=\"#37DD3D\">Яд/Призрак</font><br>Venomort выпускает перед собой призрака в форме черепа, замедляющего и наносящего урон задетым противникам."
+		"DOTA_Tooltip_ability_nether_blaster_Description"					"Стихия: <font color=ELEMENT_POISON>Яд/Призрак</font><br>Venomort выпускает перед собой призрака в форме черепа, замедляющего и наносящего урон задетым противникам."
 		"DOTA_Tooltip_ability_nether_blaster_Lore"							""
 		"DOTA_Tooltip_ability_nether_blaster_movespeed_slow"				"ЗАМЕДЛЕНИЕ ПЕРЕДВИЖЕНИЯ:"
 		"DOTA_Tooltip_ability_nether_blaster_damage"					    "УРОН:"
@@ -66,7 +66,7 @@
     	"DOTA_Tooltip_ability_venomort_rune_w_4_suffix"						"% за 1% отсутствующего ХП"
 		
 		"DOTA_Tooltip_ability_phase_walk"									"Poison Step"
-		"DOTA_Tooltip_ability_phase_walk_Description"						"Стихия: <font color=\"#37DD3D\">Яд</font><br>Venomort телепортируется вперёд, оставляя ядовитые лужи на местах телепортации, которые наносят урон врагу."
+		"DOTA_Tooltip_ability_phase_walk_Description"						"Стихия: <font color=ELEMENT_POISON>Яд</font><br>Venomort телепортируется вперёд, оставляя ядовитые лужи на местах телепортации, которые наносят урон врагу."
 		"DOTA_Tooltip_ability_phase_walk_Lore"								""
 		"DOTA_Tooltip_ability_phase_walk_step_distance"						"ДАЛЬНОСТЬ:"
     	"DOTA_Tooltip_ability_phase_walk_radius"							"РАДИУС ЯДОВИТОЙ ЛУЖИ:"
@@ -84,7 +84,7 @@
 		"DOTA_Tooltip_ability_venomort_ghost_warp_cast_range"			"ДАЛЬНОСТЬ ПРИМЕНЕНИЯ:"
 
 		"DOTA_Tooltip_ability_venomort_rune_e_1"							"[E1] Infection"
-    	"DOTA_Tooltip_ability_venomort_rune_e_1_Description"				"Увеличивает весь урон стихии <font color=\"#37DD3D\">Яд</font> наносимого Venomort."
+    	"DOTA_Tooltip_ability_venomort_rune_e_1_Description"				"Увеличивает весь урон стихии <font color=ELEMENT_POISON>Яд</font> наносимого Venomort."
     	"DOTA_Tooltip_ability_venomort_rune_e_1_property_one"				"Усиление урона"
     	"DOTA_Tooltip_ability_venomort_rune_e_1_suffix"						"%"
 
@@ -155,7 +155,7 @@
     	"property_venomort_arcana1_description"								"Заменяет (R) @Ability4 и все соответствующие руны на (R) Reaper's Judgement."
 
     	"DOTA_Tooltip_ability_venom_reaper_slice"								"Reaper's Judgement"
-    	"DOTA_Tooltip_ability_venom_reaper_slice_Description"					"Стихия: <font color=\"#37DD3D\">Яд</font> / <font color=\"#5C776E\">Нежить</font><br>Переключите способность для вызова трех ядовитых Жнецов. Жнецы атакуют случайных противников в радиусе 600. Урон Жнецов базируется на атаке Venomort. Пока Жнецы активны, скорость передвижения Venomort установлена на 100 единиц."
+    	"DOTA_Tooltip_ability_venom_reaper_slice_Description"					"Стихия: <font color=ELEMENT_POISON>Яд</font> / <font color=ELEMENT_UNDEAD>Нежить</font><br>Переключите способность для вызова трех ядовитых Жнецов. Жнецы атакуют случайных противников в радиусе 600. Урон Жнецов базируется на атаке Venomort. Пока Жнецы активны, скорость передвижения Venomort установлена на 100 единиц."
     	"DOTA_Tooltip_ability_venom_reaper_slice_damage_mult"					"МНОЖИТЕЛЬ УРОНА ОТ АТАКИ:"
 
   		"DOTA_Tooltip_ability_venomort_rune_r_1_arcana1"						"[R1] Purgatory"
@@ -196,7 +196,7 @@
     	"DOTA_Tooltip_modifier_chilled_stacking"							"Frostvenom Grasp"
 
     	"DOTA_Tooltip_ability_venomort_frostvenom_grasp"								"Frostvenom Grasp"
-    	"DOTA_Tooltip_ability_venomort_frostvenom_grasp_Description"					"Стихия: <font color=\"#37DD3D\">Яд</font> / <font color=\"#87D9FF\">Лёд</font><br>Venomort выпускает поток леденящего яда, который направляется в случайных врагов, с каждым попаданием по противнику происходит взрыв, который наносит урон в небольшой области и замедляет всех врагов, получивших урон."
+    	"DOTA_Tooltip_ability_venomort_frostvenom_grasp_Description"					"Стихия: <font color=ELEMENT_POISON>Яд</font> / <font color=ELEMENT_ICE>Лёд</font><br>Venomort выпускает поток леденящего яда, который направляется в случайных врагов, с каждым попаданием по противнику происходит взрыв, который наносит урон в небольшой области и замедляет всех врагов, получивших урон."
     	"DOTA_Tooltip_ability_venomort_frostvenom_grasp_explosions"						"ВЗРЫВОВ:"
     	"DOTA_Tooltip_ability_venomort_frostvenom_grasp_damage"							"УРОН:"
     	"DOTA_Tooltip_ability_venomort_frostvenom_grasp_bonus_attack_speed"				"СНИЖЕНИЕ СКОРОСТИ АТАКИ:"
@@ -242,7 +242,7 @@
 		"item_rpc_venomort_glyph_3_1_description" 				"В эффекте невидимости от @Ability3, регенерация здоровья Venomort увеличена на @glyph_property1% от максимального запаса здоровья. Перезарядка @Ability3 уменьшена на <% VENOMORT_GLYPH_3_1_E_CD_RED %> секунд, дальность каста увеличена на <% VENOMORT_GLYPH_3_1_E_CAST_RANGE_AMP %>."
 
 		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_4_1"		"[T4-1] Glyph of Melancholy"
-		"item_rpc_venomort_glyph_4_1_description" 				"[E1] дополнительно увеличивает стихии <font color=\"#9ACCD1\">Призрак</font>, <font color=\"#5C776E\">Нежить</font>, и <font color=\"#7F4F84\">Тень</font>."
+		"item_rpc_venomort_glyph_4_1_description" 				"[E1] дополнительно увеличивает стихии <font color=ELEMENT_GHOST>Призрак</font>, <font color=ELEMENT_UNDEAD>Нежить</font>, и <font color=ELEMENT_SHADOW>Тень</font>."
 
 		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_5_1"		"[T5-1] Glyph of Ghoul Frenzy"
 		"item_rpc_venomort_glyph_5_1_description" 				"Умножает потенциал [W3] на @glyph_property1."

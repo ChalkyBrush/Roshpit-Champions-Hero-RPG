@@ -1,7 +1,7 @@
     	//Abilities
 
     	"DOTA_Tooltip_ability_seinaru_konokaze"							"Konokaze"
-    	"DOTA_Tooltip_ability_seinaru_konokaze_Description"				"Element: <font color=\"#7AE2A7\">Wind</font><br>A swift burst of air blinds, slows, and pushes back enemies in its path."
+    	"DOTA_Tooltip_ability_seinaru_konokaze_Description"				"Element: <font color=ELEMENT_WIND>Wind</font><br>A swift burst of air blinds, slows, and pushes back enemies in its path."
     	"DOTA_Tooltip_ability_seinaru_konokaze_stun_duration"			"KNOCKBACK DURATION:"
     	"DOTA_Tooltip_ability_seinaru_konokaze_range"					"RANGE:"
     	"DOTA_Tooltip_ability_seinaru_konokaze_blind_chance"			"BLIND MISS CHANCE:"
@@ -74,14 +74,14 @@
 		"DOTA_Tooltip_modifier_seinaru_rune_w_3_shield_Description"	"Shield absorbs damage"
 
     	"DOTA_Tooltip_ability_seinaru_rune_w_4"							"[W4] Light of Wisdom"
-    	"DOTA_Tooltip_ability_seinaru_rune_w_4_Description"				"Passively increases <font color=\"#7AE2A7\">Wind</font> damage and Spirit."
+    	"DOTA_Tooltip_ability_seinaru_rune_w_4_Description"				"Passively increases <font color=ELEMENT_WIND>Wind</font> damage and Spirit."
     	"DOTA_Tooltip_ability_seinaru_rune_w_4_property_one"			"Wind Amplification"
     	"DOTA_Tooltip_ability_seinaru_rune_w_4_suffix"					"%"
     	"DOTA_Tooltip_ability_seinaru_rune_w_4_property_two"			"Spirit Bonus"
     	"DOTA_Tooltip_ability_seinaru_rune_w_4_suffix_two"				""
 
 		"DOTA_Tooltip_ability_seinaru_odachi_leap"						"Odachi Leap"
-		"DOTA_Tooltip_ability_seinaru_odachi_leap_Description"			"Element: <font color=\"#DDDDDD\">Normal</font><br>Quickly leaps forward while slicing all enemies in Seinaru's path. 100% evasion while jumping."
+		"DOTA_Tooltip_ability_seinaru_odachi_leap_Description"			"Element: <font color=ELEMENT_NORMAL>Normal</font><br>Quickly leaps forward while slicing all enemies in Seinaru's path. 100% evasion while jumping."
 		"DOTA_Tooltip_ability_seinaru_odachi_leap_Lore"					""
 		"DOTA_Tooltip_ability_seinaru_odachi_leap_damage"				"DAMAGE/SLICE:"
 
@@ -104,7 +104,7 @@
     	"DOTA_Tooltip_ability_seinaru_rune_e_3_suffix"					""
 
 		"DOTA_Tooltip_ability_seinaru_rune_e_4"						"[E4] Wings of the Swift"
-		"DOTA_Tooltip_ability_seinaru_rune_e_4_Description"			"Increases <font color=\"#F6FFB5\">Holy</font> damage and Agility."
+		"DOTA_Tooltip_ability_seinaru_rune_e_4_Description"			"Increases <font color=ELEMENT_HOLY>Holy</font> damage and Agility."
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_property_one"			"Holy Amplification"
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_suffix"					"%"
 	 	"DOTA_Tooltip_ability_seinaru_rune_e_4_property_two"			"Agility Bonus"
@@ -153,7 +153,7 @@
     	"DOTA_Tooltip_ability_seinaru_rune_r_4_suffix"					""
 
     	"DOTA_Tooltip_ability_seinaru_blade_dash"						"Blade Dash"
-    	"DOTA_Tooltip_ability_seinaru_blade_dash_Description"			"Element: <font color=\"#DDDDDD\">Normal</font><br>Seinaru charges, slashing targets along the way."
+    	"DOTA_Tooltip_ability_seinaru_blade_dash_Description"			"Element: <font color=ELEMENT_NORMAL>Normal</font><br>Seinaru charges, slashing targets along the way."
     	"DOTA_Tooltip_ability_seinaru_blade_dash_damage_percent_of_atk"			"ATTACK MULTIPLIER %:"
 
 		//Arcanas
@@ -195,7 +195,7 @@
     	"property_seinaru_arcana2_description"								"Replaces @Ability3 and all of its runes with Sunstrider."
 
     	"DOTA_Tooltip_ability_seinaru_sunstrider"						"Sunstrider"
-    	"DOTA_Tooltip_ability_seinaru_sunstrider_Description"			"With the blessing of the sun, Seinaru blazes towards the target location. Enemies within the cast area of the ability are attacked by Seinaru in 0.06 second intervals with bonus attack power. Each attack echoes, dealing intense <font color='<% RPC_ELEMENT_HOLY_COLOR %>'>Holy</font> damage in a small area around the target."
+    	"DOTA_Tooltip_ability_seinaru_sunstrider_Description"			"With the blessing of the sun, Seinaru blazes towards the target location. Enemies within the cast area of the ability are attacked by Seinaru in 0.06 second intervals with bonus attack power. Each attack echoes, dealing intense <font color=ELEMENT_HOLY>Holy</font> damage in a small area around the target."
     	"DOTA_Tooltip_ability_seinaru_sunstrider_cast_range"			"CAST RANGE:"
     	"DOTA_Tooltip_ability_seinaru_sunstrider_targets_count"			"MAXIMUM TARGETS:"
     	"DOTA_Tooltip_ability_seinaru_sunstrider_att_to_dmg"			"DAMAGE AS MULTIPLE OF ATTACK POWER:"
@@ -232,7 +232,7 @@
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_Description"			"When @Ability3 goes on cooldown, chance to gain a buff that allows @Ability3 to be cast without cooldown. A chance greater than 100% means you can get multiple stacks. Additionally increases all Holy damage."
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_property_one"			"Chance for Free Cast"
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_suffix"					"%"
-		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_property_two"			"<font color=\"#F6FFB5\">Holy</font> Amplification"
+		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_property_two"			"<font color=ELEMENT_HOLY>Holy</font> Amplification"
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_suffix_two"				"%"
 
     	"DOTA_Tooltip_modifier_sunstrider_freecast"							"Sunstrider Freecast"
@@ -290,7 +290,7 @@
 
 		"DOTA_Tooltip_ability_item_rpc_seinaru_immortal_weapon_1"		"Onimaru"
 		"item_property_seinaru_immortal_weapon"								"Shinken"
-		"property_seinaru_immortal_weapon_description"						"Each attack whips up a <% SEINARU_WEAP_1_RADIUS %>-radius whirlwind, dealing <% SEINARU_WEAP_1_DMG_PER_ATT * 100 %>% of Seinaru's total attack damage as Physical <font color=\"#7AE2A7\">Wind</font> damage and applying [R1]."
+		"property_seinaru_immortal_weapon_description"						"Each attack whips up a <% SEINARU_WEAP_1_RADIUS %>-radius whirlwind, dealing <% SEINARU_WEAP_1_DMG_PER_ATT * 100 %>% of Seinaru's total attack damage as Physical <font color=ELEMENT_WIND>Wind</font> damage and applying [R1]."
 
 		"DOTA_Tooltip_ability_item_rpc_seinaru_immortal_weapon_2"            "Musashi Swiftblade"
         "item_property_seinaru_immortal_weapon2"                             "Five Rings Insight"

@@ -13,7 +13,7 @@
     	"notification_supercharge_no_corpse_charge"							"R3 not leveled"
 
     	"DOTA_Tooltip_ability_ekkan_dominion"								"Dark Dominion"
-    	"DOTA_Tooltip_ability_ekkan_dominion_Description"					"Element: <font color=\"#5C776E\">Undead</font> / <font color=\"#5B648C\">Demon</font><br>Curses an enemy unit's soul to eternal servitude of Ekkan. The target takes damage every 0.5 seconds based on their attack power. If an enemy dies while the dark dominion debuff is active, the unit joins Ekkan's army permanently until death. Can be cast on a dominated unit to instantly kill it. While Ekkan is dead, dominated units cannot move, attack or be attacked."
+    	"DOTA_Tooltip_ability_ekkan_dominion_Description"					"Element: <font color=ELEMENT_UNDEAD>Undead</font> / <font color=ELEMENT_DEMON>Demon</font><br>Curses an enemy unit's soul to eternal servitude of Ekkan. The target takes damage every 0.5 seconds based on their attack power. If an enemy dies while the dark dominion debuff is active, the unit joins Ekkan's army permanently until death. Can be cast on a dominated unit to instantly kill it. While Ekkan is dead, dominated units cannot move, attack or be attacked."
     	"DOTA_Tooltip_ability_ekkan_dominion_max_summons"					"MAX ARMY SIZE:"
     	"DOTA_Tooltip_ability_ekkan_dominion_move_slow"						"MOVE SLOW % WHILE ACTIVE:"
     	"DOTA_Tooltip_ability_ekkan_dominion_debuff_duration"				"DEBUFF DURATION:"
@@ -90,7 +90,7 @@
 		"DOTA_Tooltip_modifier_skeleton_summon_unit"						"Summoned Skeleton"
 		
 		"DOTA_Tooltip_ability_ekkan_rune_w_1"								"[W1] Skeleton Archers"
-    	"DOTA_Tooltip_ability_ekkan_rune_w_1_Description"					"30% of summoned skeletons spawn as a skeleton archer that has ranged attacks and a scaling attack multiplier. Archers have a 30% chance to deal critical strikes that pierce armor and have <font color=\"#5C776E\">Undead</font> element."
+    	"DOTA_Tooltip_ability_ekkan_rune_w_1_Description"					"30% of summoned skeletons spawn as a skeleton archer that has ranged attacks and a scaling attack multiplier. Archers have a 30% chance to deal critical strikes that pierce armor and have <font color=ELEMENT_UNDEAD>Undead</font> element."
     	"DOTA_Tooltip_ability_ekkan_rune_w_1_property_one"					"Attack power multiple of Ekkan's"
     	"DOTA_Tooltip_ability_ekkan_rune_w_1_suffix"						"%"
 		"DOTA_Tooltip_ability_ekkan_rune_w_1_property_two"                  "Base Attack Damage"
@@ -99,7 +99,7 @@
         "DOTA_Tooltip_ability_ekkan_rune_w_1_suffix_three"                    "%"
 
     	"DOTA_Tooltip_ability_ekkan_rune_w_2"								"[W2] Extended Reanimation"
-    	"DOTA_Tooltip_ability_ekkan_rune_w_2_Description"					"Increases the lifetime duration of summoned skeletons. Each active skeleton increases Ekkan's <font color=\"#5C776E\">Undead</font> damage."
+    	"DOTA_Tooltip_ability_ekkan_rune_w_2_Description"					"Increases the lifetime duration of summoned skeletons. Each active skeleton increases Ekkan's <font color=ELEMENT_UNDEAD>Undead</font> damage."
     	"DOTA_Tooltip_ability_ekkan_rune_w_2_property_one"					"Life Duration Increase"
     	"DOTA_Tooltip_ability_ekkan_rune_w_2_suffix"						" seconds"
         "DOTA_Tooltip_ability_ekkan_rune_w_2_property_two"                  "Undead Amplification"
@@ -202,7 +202,7 @@
     	"property_ekkan_arcana1_description"								"Replaces @Ability1 and all of its runes with Aphotic Dominion."
 
     	"DOTA_Tooltip_ability_ekkan_arcana_black_dominion"								"Aphotic Dominion"
-    	"DOTA_Tooltip_ability_ekkan_arcana_black_dominion_Description"					"Element: <font color=\"#5C776E\">Undead</font> / <font color=\"#5B648C\">Demon</font><br>Curses an enemy unit's soul to eternal servitude of Ekkan. The target takes damage every 0.5 seconds based on their attack power. If an enemy dies while the aphotic dominion debuff is active, the unit joins Ekkan's army permanently until death. The Aphotic Dominion unit always has the Steadfast ability. While Ekkan is dead, dominated units cannot move, attack or be attacked."
+    	"DOTA_Tooltip_ability_ekkan_arcana_black_dominion_Description"					"Element: <font color=ELEMENT_UNDEAD>Undead</font> / <font color=ELEMENT_DEMON>Demon</font><br>Curses an enemy unit's soul to eternal servitude of Ekkan. The target takes damage every 0.5 seconds based on their attack power. If an enemy dies while the aphotic dominion debuff is active, the unit joins Ekkan's army permanently until death. The Aphotic Dominion unit always has the Steadfast ability. While Ekkan is dead, dominated units cannot move, attack or be attacked."
     	"DOTA_Tooltip_ability_ekkan_arcana_black_dominion_max_summons"					"MAX ARMY SIZE:"
     	"DOTA_Tooltip_ability_ekkan_arcana_black_dominion_move_slow"						"MOVE SLOW % WHILE ACTIVE:"
     	"DOTA_Tooltip_ability_ekkan_arcana_black_dominion_debuff_duration"				"DEBUFF DURATION:"
@@ -263,7 +263,7 @@
         "property_ekkan_arcana2a_description"                                "Replaces @Ability2 and all of its runes with Summon Plaguebearer."
 
         "DOTA_Tooltip_ability_ekkan_arcana2_plague_bearer"                        "Summon Plaguebearer"
-        "DOTA_Tooltip_ability_ekkan_arcana2_plague_bearer_Description"            "Element: <font color=\"#5C776E\">Undead</font> / <font color=\"#37DD3D\">Poison</font><br>Enemies that die within 1500 of Ekkan leave a pile of their bones at their point of death. Ekkan can target an area containing corpses to summon Plague Bearers that fight for him. Plaguebearers have a poison attack."
+        "DOTA_Tooltip_ability_ekkan_arcana2_plague_bearer_Description"            "Element: <font color=ELEMENT_UNDEAD>Undead</font> / <font color=ELEMENT_POISON>Poison</font><br>Enemies that die within 1500 of Ekkan leave a pile of their bones at their point of death. Ekkan can target an area containing corpses to summon Plague Bearers that fight for him. Plaguebearers have a poison attack."
         "DOTA_Tooltip_ability_ekkan_arcana2_plague_bearer_max_skeletons"          "MAX PLAGUEBEARERS:"
         "DOTA_Tooltip_ability_ekkan_arcana2_plague_bearer_skeleton_duration"      "PLAGUEBEARER LIFE DURATION:"
         "DOTA_Tooltip_ability_ekkan_arcana2_plague_bearer_armor_mult"             "PLAGUEBEARER ARMOR AND MAGIC ARMOR MULTIPLE OF EKKAN'S:"
@@ -279,7 +279,7 @@
         "ekkan_plaguebearer"                                                        "Plaguebearer"
 
         "DOTA_Tooltip_ability_ekkan_plaguebearer_passive"                   "Plaguebearer Attacks"
-        "DOTA_Tooltip_ability_ekkan_plaguebearer_passive_Description"       "Element: <font color=\"#5C776E\">Undead</font> / <font color=\"#37DD3D\">Poison</font><br>Attacks leave a poison effect that deals damage based on the Plaguebearer's Attack Power."   
+        "DOTA_Tooltip_ability_ekkan_plaguebearer_passive_Description"       "Element: <font color=ELEMENT_UNDEAD>Undead</font> / <font color=ELEMENT_POISON>Poison</font><br>Attacks leave a poison effect that deals damage based on the Plaguebearer's Attack Power."   
         "DOTA_Tooltip_ability_ekkan_plaguebearer_passive_poison_duration"        "POISON ATTACK DURATION:"
         "DOTA_Tooltip_ability_ekkan_plaguebearer_passive_poison_damage_interval"          "POISON DAMAGE INTERVAL:"
         "DOTA_Tooltip_ability_ekkan_plaguebearer_passive_poison_damage"          "POISON DAMAGE % ATTACK POWER:" 
@@ -311,12 +311,12 @@
         "DOTA_Tooltip_ability_ekkan_rune_w_3_arcana2a_suffix_two"                    ""
 
         "DOTA_Tooltip_ability_ekkan_plaguebearer_poison_spray"                       "Acid Pool"
-        "DOTA_Tooltip_ability_ekkan_plaguebearer_poison_spray_Description"           "Element: <font color=\"#5C776E\">Undead</font> / <font color=\"#37DD3D\">Poison</font><br>Creates an area of poison that deals damage and reduces enemies' Armor and Magic Armor." 
+        "DOTA_Tooltip_ability_ekkan_plaguebearer_poison_spray_Description"           "Element: <font color=ELEMENT_UNDEAD>Undead</font> / <font color=ELEMENT_POISON>Poison</font><br>Creates an area of poison that deals damage and reduces enemies' Armor and Magic Armor." 
 
         "DOTA_Tooltip_plague_bearer_acid_spray_effect"                               "Acid Pool"
 
         "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2a"                               "[W4] Endless Plague"
-        "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2a_Description"                   "Increases Plaguebearers' summon duration. Additionally enhances <font color=\"#5C776E\">Undead</font> and <font color=\"#37DD3D\">Poison</font> damage."
+        "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2a_Description"                   "Increases Plaguebearers' summon duration. Additionally enhances <font color=ELEMENT_UNDEAD>Undead</font> and <font color=ELEMENT_POISON>Poison</font> damage."
         "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2a_property_one"                  "Plaguebearear Duration Increase"
         "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2a_suffix"                        " seconds"
         "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2a_property_two"                  "Undead and Poison Damage Amp"
@@ -329,7 +329,7 @@
         "property_ekkan_arcana2b_description"                                "Replaces @Ability2 and all of its runes with Summon Frost Wraith."
 
         "DOTA_Tooltip_ability_ekkan_arcana2_frost_wraith"                        "Summon Frost Wraith"
-        "DOTA_Tooltip_ability_ekkan_arcana2_frost_wraith_Description"            "Element: <font color=\"#5C776E\">Undead</font> / <font color=\"#87D9FF\">Ice</font><br>Enemies that die within 1500 of Ekkan leave a pile of their bones at their point of death. Ekkan can target an area containing corpses to summon Frost Wraiths that fight for him. Frost Wraiths have an ice attack that slows enemy attack and movespeed."
+        "DOTA_Tooltip_ability_ekkan_arcana2_frost_wraith_Description"            "Element: <font color=ELEMENT_UNDEAD>Undead</font> / <font color=ELEMENT_ICE>Ice</font><br>Enemies that die within 1500 of Ekkan leave a pile of their bones at their point of death. Ekkan can target an area containing corpses to summon Frost Wraiths that fight for him. Frost Wraiths have an ice attack that slows enemy attack and movespeed."
         "DOTA_Tooltip_ability_ekkan_arcana2_frost_wraith_max_skeletons"          "MAX FROST WRAITHS:"
         "DOTA_Tooltip_ability_ekkan_arcana2_frost_wraith_skeleton_duration"      "FROST WRAITH LIFE DURATION:"
         "DOTA_Tooltip_ability_ekkan_arcana2_frost_wraith_armor_mult"             "FROST WRAITH ARMOR AND MAGIC ARMOR MULTIPLE OF EKKAN'S:"
@@ -375,13 +375,13 @@
         "DOTA_Tooltip_ability_ekkan_rune_w_3_arcana2b_suffix_two"                    "%"
 
         "DOTA_Tooltip_ability_ekkan_frost_wraith_freezing_rain"                       "Freezing Rain"
-        "DOTA_Tooltip_ability_ekkan_frost_wraith_freezing_rain_Description"           "Element: <font color=\"#5C776E\">Undead</font> / <font color=\"#87D9FF\">Ice</font><br>Drops Freezing Rain on the target area, impacting enemies on a <% EKKAN_ARCANA_W3B_DAMAGE_DELAY %> second delay and slowing them for <% EKKAN_ARCANA_W3B_PCT_SLOW_DURATION %> seconds." 
+        "DOTA_Tooltip_ability_ekkan_frost_wraith_freezing_rain_Description"           "Element: <font color=ELEMENT_UNDEAD>Undead</font> / <font color=ELEMENT_ICE>Ice</font><br>Drops Freezing Rain on the target area, impacting enemies on a <% EKKAN_ARCANA_W3B_DAMAGE_DELAY %> second delay and slowing them for <% EKKAN_ARCANA_W3B_PCT_SLOW_DURATION %> seconds." 
 
         "DOTA_Tooltip_frost_wraith_freezing_rain_effect"                               "Freezing Rain"
         "DOTA_Tooltip_frost_wraith_freezing_rain_effect_Description"                   "Reduced movement speed"
 
         "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2b"                               "[W4] Eternal Cold"
-        "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2b_Description"                   "Increases Frost Wraiths' summon duration. Additionally enhances <font color=\"#5C776E\">Undead</font> and <font color=\"#87D9FF\">Ice</font> damage."
+        "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2b_Description"                   "Increases Frost Wraiths' summon duration. Additionally enhances <font color=ELEMENT_UNDEAD>Undead</font> and <font color=ELEMENT_ICE>Ice</font> damage."
         "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2b_property_one"                  "Frost Wraith Duration Increase"
         "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2b_suffix"                        " seconds"
         "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2b_property_two"                  "Undead and Ice Damage Amp"
@@ -394,7 +394,7 @@
         "property_ekkan_arcana2c_description"                                "Replaces @Ability2 and all of its runes with Summon Burning Legionnaire."
 
         "DOTA_Tooltip_ability_ekkan_arcana2_burning_legionnaire"                        "Summon Burning Legionnaire"
-        "DOTA_Tooltip_ability_ekkan_arcana2_burning_legionnaire_Description"            "Element: <font color=\"#5C776E\">Undead</font> / <font color=\"#EF4126\">Fire</font><br>Enemies that die within 1500 of Ekkan leave a pile of their bones at their point of death. Ekkan can target an area containing corpses to summon Burning Legionnaires that fight for him. Burning Legionnaires have a fire attack that deals an additional instance of Pure damage."
+        "DOTA_Tooltip_ability_ekkan_arcana2_burning_legionnaire_Description"            "Element: <font color=ELEMENT_UNDEAD>Undead</font> / <font color=ELEMENT_FIRE>Fire</font><br>Enemies that die within 1500 of Ekkan leave a pile of their bones at their point of death. Ekkan can target an area containing corpses to summon Burning Legionnaires that fight for him. Burning Legionnaires have a fire attack that deals an additional instance of Pure damage."
         "DOTA_Tooltip_ability_ekkan_arcana2_burning_legionnaire_max_skeletons"          "MAX LEGIONNAIRES:"
         "DOTA_Tooltip_ability_ekkan_arcana2_burning_legionnaire_skeleton_duration"      "LEGIONNAIRE LIFE DURATION:"
         "DOTA_Tooltip_ability_ekkan_arcana2_burning_legionnaire_armor_mult"             "LEGIONNAIRE ARMOR AND MAGIC ARMOR MULTIPLE OF EKKAN'S:"
@@ -433,10 +433,10 @@
         "DOTA_Tooltip_ability_ekkan_rune_w_3_arcana2c_suffix_two"                    ""
 
         "DOTA_Tooltip_ability_ekkan_burning_legionnaire_skeletal_mortar"                       "Skeletal Mortar"
-        "DOTA_Tooltip_ability_ekkan_burning_legionnaire_skeletal_mortar_Description"           "Element: <font color=\"#5C776E\">Undead</font> / <font color=\"#EF4126\">Fire</font><br>Jumps toward the target location and deals damage in <% EKKAN_ARCANA_W3C_RADIUS %> area." 
+        "DOTA_Tooltip_ability_ekkan_burning_legionnaire_skeletal_mortar_Description"           "Element: <font color=ELEMENT_UNDEAD>Undead</font> / <font color=ELEMENT_FIRE>Fire</font><br>Jumps toward the target location and deals damage in <% EKKAN_ARCANA_W3C_RADIUS %> area." 
 
         "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2c"                               "[W4] Enrapturing Flame"
-        "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2c_Description"                   "Increases Burning Legionnaires' summon duration. Additionally enhances <font color=\"#5C776E\">Undead</font> and <font color=\"#EF4126\">Fire</font> damage."
+        "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2c_Description"                   "Increases Burning Legionnaires' summon duration. Additionally enhances <font color=ELEMENT_UNDEAD>Undead</font> and <font color=ELEMENT_FIRE>Fire</font> damage."
         "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2c_property_one"                  "Burning Legionnaire Duration Increase"
         "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2c_suffix"                        " seconds"
         "DOTA_Tooltip_ability_ekkan_rune_w_4_arcana2c_property_two"                  "Undead and Fire Damage Amp"

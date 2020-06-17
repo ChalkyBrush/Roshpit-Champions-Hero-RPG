@@ -1,84 +1,84 @@
-"DOTA_Tooltip_modifier_rubilash_painted_red"			"<font color=\"<% RUBILASH_TEXT_COLOR_RED %>\">Red</font> Paint"
+"DOTA_Tooltip_modifier_rubilash_painted_red"			"<font color=RUBILASH_RED>Red</font> Paint"
 "DOTA_Tooltip_modifier_rubilash_painted_red_Description"	"Soaked in Rubilash's Paint"
 
-"DOTA_Tooltip_modifier_rubilash_painted_blue"			"<font color=\"<% RUBILASH_TEXT_COLOR_BLUE %>\">Blue</font> Paint"
+"DOTA_Tooltip_modifier_rubilash_painted_blue"			"<font color=RUBILASH_BLUE>Blue</font> Paint"
 "DOTA_Tooltip_modifier_rubilash_painted_blue_Description"	"Soaked in Rubilash's Paint"
 
-"DOTA_Tooltip_modifier_rubilash_painted_yellow"			"<font color=\"<% RUBILASH_TEXT_COLOR_YELLOW %>\">Yellow</font> Paint"
+"DOTA_Tooltip_modifier_rubilash_painted_yellow"			"<font color=RUBILASH_YELLOW>Yellow</font> Paint"
 "DOTA_Tooltip_modifier_rubilash_painted_yellow_Description"	"Soaked in Rubilash's Paint"
 
-"DOTA_Tooltip_modifier_rubilash_painted_orange"			"<font color=\"<% RUBILASH_TEXT_COLOR_ORANGE %>\">Orange</font> Paint"
+"DOTA_Tooltip_modifier_rubilash_painted_orange"			"<font color=RUBILASH_ORANGE>Orange</font> Paint"
 "DOTA_Tooltip_modifier_rubilash_painted_orange_Description"	"Soaked in Rubilash's Paint"
 
-"DOTA_Tooltip_modifier_rubilash_painted_green"			"<font color=\"<% RUBILASH_TEXT_COLOR_GREEN %>\">Green</font> Paint"
+"DOTA_Tooltip_modifier_rubilash_painted_green"			"<font color=RUBILASH_GREEN>Green</font> Paint"
 "DOTA_Tooltip_modifier_rubilash_painted_green_Description"	"Soaked in Rubilash's Paint"
 
-"DOTA_Tooltip_modifier_rubilash_painted_purple"			"<font color=\"<% RUBILASH_TEXT_COLOR_PURPLE %>\">Purple</font> Paint"
+"DOTA_Tooltip_modifier_rubilash_painted_purple"			"<font color=RUBILASH_PURPLE>Purple</font> Paint"
 "DOTA_Tooltip_modifier_rubilash_painted_purple_Description"	"Soaked in Rubilash's Paint"
 
-"DOTA_Tooltip_modifier_rubilash_painted_black"			"<font color=\"<% RUBILASH_TEXT_COLOR_BLACK %>\">Black</font> Paint"
+"DOTA_Tooltip_modifier_rubilash_painted_black"			"<font color=RUBILASH_BLACK>Black</font> Paint"
 "DOTA_Tooltip_modifier_rubilash_painted_black_Description"	"Soaked in Rubilash's Paint"
 
-"DOTA_Tooltip_modifier_rubilash_painted_white"			"<font color=\"<% RUBILASH_TEXT_COLOR_WHITE %>\">White</font> Paint"
+"DOTA_Tooltip_modifier_rubilash_painted_white"			"<font color=RUBILASH_WHITE>White</font> Paint"
 "DOTA_Tooltip_modifier_rubilash_painted_white_Description"	"Soaked in Rubilash's Paint"
 
 "rubilash_q_base_name"										"Phantom Brush"
 "rubilash_w_base_name"										"Ink Blot"
 "rubilash_e_base_name"										"Paint Splatter"			
 
-"DOTA_Tooltip_Ability_rubilash_phantom_brush_red"			"Phantom Brush [<font color=\"<% RUBILASH_TEXT_COLOR_RED %>\">Red</font>]"
-"DOTA_Tooltip_Ability_rubilash_phantom_brush_red_Description"			"Element: <font color=\"<% RPC_ELEMENT_DEMON_COLOR %>\">Demon</font> / <font color=\"<% RPC_ELEMENT_GHOST_COLOR %>\">Ghost</font><br>Winds up for <% RUBILASH_PHANTOM_BRUSH_CAST_POINT %> seconds and throws a powerful brushstroke of thick paint towards the target location. Cast Range buffs increase the paint's distance."
+"DOTA_Tooltip_Ability_rubilash_phantom_brush_red"			"Phantom Brush [<font color=RUBILASH_RED>Red</font>]"
+"DOTA_Tooltip_Ability_rubilash_phantom_brush_red_Description"			"Element: <font color=ELEMENT_DEMON>Demon</font> / <font color=ELEMENT_GHOST>Ghost</font><br>Winds up for <% RUBILASH_PHANTOM_BRUSH_CAST_POINT %> seconds and throws a powerful brushstroke of thick paint towards the target location. Cast Range buffs increase the paint's distance."
 "DOTA_Tooltip_Ability_rubilash_phantom_brush_red_damage"	"DAMAGE:"
 "DOTA_Tooltip_Ability_rubilash_phantom_brush_red_range"		"PAINT DISTANCE:"
 
-"DOTA_Tooltip_Ability_rubilash_phantom_brush_yellow"			"Phantom Brush [<font color=\"<% RUBILASH_TEXT_COLOR_YELLOW %>\">Yellow</font>]"
-"DOTA_Tooltip_Ability_rubilash_phantom_brush_yellow_Description"			"Element: <font color=\"<% RPC_ELEMENT_DEMON_COLOR %>\">Demon</font> / <font color=\"<% RPC_ELEMENT_GHOST_COLOR %>\">Ghost</font><br>Winds up for <% RUBILASH_PHANTOM_BRUSH_CAST_POINT %> seconds and throws a powerful brushstroke of thick paint towards the target location. Cast Range buffs increase the paint's distance."
+"DOTA_Tooltip_Ability_rubilash_phantom_brush_yellow"			"Phantom Brush [<font color=RUBILASH_YELLOW>Yellow</font>]"
+"DOTA_Tooltip_Ability_rubilash_phantom_brush_yellow_Description"			"Element: <font color=ELEMENT_DEMON>Demon</font> / <font color=ELEMENT_GHOST>Ghost</font><br>Winds up for <% RUBILASH_PHANTOM_BRUSH_CAST_POINT %> seconds and throws a powerful brushstroke of thick paint towards the target location. Cast Range buffs increase the paint's distance."
 "DOTA_Tooltip_Ability_rubilash_phantom_brush_yellow_damage"	"DAMAGE:"
 "DOTA_Tooltip_Ability_rubilash_phantom_brush_yellow_range"		"PAINT DISTANCE:"
 
-"DOTA_Tooltip_Ability_rubilash_phantom_brush_blue"			"Phantom Brush [<font color=\"<% RUBILASH_TEXT_COLOR_BLUE %>\">Blue</font>]"
-"DOTA_Tooltip_Ability_rubilash_phantom_brush_blue_Description"			"Element: <font color=\"<% RPC_ELEMENT_DEMON_COLOR %>\">Demon</font> / <font color=\"<% RPC_ELEMENT_GHOST_COLOR %>\">Ghost</font><br>Winds up for <% RUBILASH_PHANTOM_BRUSH_CAST_POINT %> seconds and throws a powerful brushstroke of thick paint towards the target location. Cast Range buffs increase the paint's distance."
+"DOTA_Tooltip_Ability_rubilash_phantom_brush_blue"			"Phantom Brush [<font color=RUBILASH_BLUE>Blue</font>]"
+"DOTA_Tooltip_Ability_rubilash_phantom_brush_blue_Description"			"Element: <font color=ELEMENT_DEMON>Demon</font> / <font color=ELEMENT_GHOST>Ghost</font><br>Winds up for <% RUBILASH_PHANTOM_BRUSH_CAST_POINT %> seconds and throws a powerful brushstroke of thick paint towards the target location. Cast Range buffs increase the paint's distance."
 "DOTA_Tooltip_Ability_rubilash_phantom_brush_blue_damage"	"DAMAGE:"
 "DOTA_Tooltip_Ability_rubilash_phantom_brush_blue_range"		"PAINT DISTANCE:"
 
-"DOTA_Tooltip_Ability_rubilash_phantom_brush_white"			"Phantom Brush [<font color=\"<% RUBILASH_TEXT_COLOR_WHITE %>\">White</font>]"
-"DOTA_Tooltip_Ability_rubilash_phantom_brush_white_Description"			"Element: <font color=\"<% RPC_ELEMENT_DEMON_COLOR %>\">Demon</font> / <font color=\"<% RPC_ELEMENT_GHOST_COLOR %>\">Ghost</font><br>Winds up for <% RUBILASH_PHANTOM_BRUSH_CAST_POINT %> seconds and throws a powerful brushstroke of thick paint towards the target location. Cast Range buffs increase the paint's distance."
+"DOTA_Tooltip_Ability_rubilash_phantom_brush_white"			"Phantom Brush [<font color=RUBILASH_WHITE>White</font>]"
+"DOTA_Tooltip_Ability_rubilash_phantom_brush_white_Description"			"Element: <font color=ELEMENT_DEMON>Demon</font> / <font color=ELEMENT_GHOST>Ghost</font><br>Winds up for <% RUBILASH_PHANTOM_BRUSH_CAST_POINT %> seconds and throws a powerful brushstroke of thick paint towards the target location. Cast Range buffs increase the paint's distance."
 "DOTA_Tooltip_Ability_rubilash_phantom_brush_white_damage"	"DAMAGE:"
 "DOTA_Tooltip_Ability_rubilash_phantom_brush_white_range"		"PAINT DISTANCE:"
 
-"DOTA_Tooltip_Ability_rubilash_ink_blot_red"			"Ink Blot [<font color=\"<% RUBILASH_TEXT_COLOR_RED %>\">Red</font>]"
-"DOTA_Tooltip_Ability_rubilash_ink_blot_red_Description"			"Element: <font color=\"<% RPC_ELEMENT_DEMON_COLOR %>\">Demon</font> / <font color=\"<% RPC_ELEMENT_GHOST_COLOR %>\">Ghost</font><br>Throws a little glob of paint that damages enemies at the target location once it reaches its destination."
+"DOTA_Tooltip_Ability_rubilash_ink_blot_red"			"Ink Blot [<font color=RUBILASH_RED>Red</font>]"
+"DOTA_Tooltip_Ability_rubilash_ink_blot_red_Description"			"Element: <font color=ELEMENT_DEMON>Demon</font> / <font color=ELEMENT_GHOST>Ghost</font><br>Throws a little glob of paint that damages enemies at the target location once it reaches its destination."
 "DOTA_Tooltip_Ability_rubilash_ink_blot_red_damage"	"DAMAGE:"
 
-"DOTA_Tooltip_Ability_rubilash_ink_blot_yellow"			"Ink Blot [<font color=\"<% RUBILASH_TEXT_COLOR_YELLOW %>\">Yellow</font>]"
-"DOTA_Tooltip_Ability_rubilash_ink_blot_yellow_Description"			"Element: <font color=\"<% RPC_ELEMENT_DEMON_COLOR %>\">Demon</font> / <font color=\"<% RPC_ELEMENT_GHOST_COLOR %>\">Ghost</font><br>Throws a little glob of paint that damages enemies at the target location once it reaches its destination."
+"DOTA_Tooltip_Ability_rubilash_ink_blot_yellow"			"Ink Blot [<font color=RUBILASH_YELLOW>Yellow</font>]"
+"DOTA_Tooltip_Ability_rubilash_ink_blot_yellow_Description"			"Element: <font color=ELEMENT_DEMON>Demon</font> / <font color=ELEMENT_GHOST>Ghost</font><br>Throws a little glob of paint that damages enemies at the target location once it reaches its destination."
 "DOTA_Tooltip_Ability_rubilash_ink_blot_yellow_damage"	"DAMAGE:"
 
-"DOTA_Tooltip_Ability_rubilash_ink_blot_blue"			"Ink Blot [<font color=\"<% RUBILASH_TEXT_COLOR_BLUE %>\">Blue</font>]"
-"DOTA_Tooltip_Ability_rubilash_ink_blot_blue_Description"			"Element: <font color=\"<% RPC_ELEMENT_DEMON_COLOR %>\">Demon</font> / <font color=\"<% RPC_ELEMENT_GHOST_COLOR %>\">Ghost</font><br>Throws a little glob of paint that damages enemies at the target location once it reaches its destination."
+"DOTA_Tooltip_Ability_rubilash_ink_blot_blue"			"Ink Blot [<font color=RUBILASH_BLUE>Blue</font>]"
+"DOTA_Tooltip_Ability_rubilash_ink_blot_blue_Description"			"Element: <font color=ELEMENT_DEMON>Demon</font> / <font color=ELEMENT_GHOST>Ghost</font><br>Throws a little glob of paint that damages enemies at the target location once it reaches its destination."
 "DOTA_Tooltip_Ability_rubilash_ink_blot_blue_damage"	"DAMAGE:"
 
-"DOTA_Tooltip_Ability_rubilash_ink_blot_white"			"Ink Blot [<font color=\"<% RUBILASH_TEXT_COLOR_WHITE %>\">White</font>]"
-"DOTA_Tooltip_Ability_rubilash_ink_blot_white_Description"			"Element: <font color=\"<% RPC_ELEMENT_DEMON_COLOR %>\">Demon</font> / <font color=\"<% RPC_ELEMENT_GHOST_COLOR %>\">Ghost</font><br>Throws a little glob of paint that damages enemies at the target location once it reaches its destination."
+"DOTA_Tooltip_Ability_rubilash_ink_blot_white"			"Ink Blot [<font color=RUBILASH_WHITE>White</font>]"
+"DOTA_Tooltip_Ability_rubilash_ink_blot_white_Description"			"Element: <font color=ELEMENT_DEMON>Demon</font> / <font color=ELEMENT_GHOST>Ghost</font><br>Throws a little glob of paint that damages enemies at the target location once it reaches its destination."
 "DOTA_Tooltip_Ability_rubilash_ink_blot_white_damage"	"DAMAGE:"
 
-"DOTA_Tooltip_Ability_rubilash_paint_splatter_red"			"Paint Splatter [<font color=\"<% RUBILASH_TEXT_COLOR_RED %>\">Red</font>]"
-"DOTA_Tooltip_Ability_rubilash_paint_splatter_red_Description"			"Element: <font color=\"<% RPC_ELEMENT_DEMON_COLOR %>\">Demon</font> / <font color=\"<% RPC_ELEMENT_GHOST_COLOR %>\">Ghost</font><br>Teleports to the target location and soaks enemies at the destination in [<font color=\"<% RUBILASH_TEXT_COLOR_RED %>\">Red</font>] paint. Using this ability toggles Rubilash's current paint color to [<font color=\"<% RUBILASH_TEXT_COLOR_YELLOW %>\">Yellow</font>].<br><br>When an enemy is covered in paint, they take increased damage from that same paint color. When an enemy is covered in multiple different paints, the paints mix and create a larger damage multiple. All base paint colors have their own independant durations on enemies.<br><br>[<font color=\"<% RUBILASH_TEXT_COLOR_RED %>\">Red</font>] Paint -> Take 2x damage from <font color=\"<% RUBILASH_TEXT_COLOR_RED %>\">Red</font> Paint.<br>[<font color=\"<% RUBILASH_TEXT_COLOR_YELLOW %>\">Yellow</font>] Paint -> Take 2x damage from <font color=\"<% RUBILASH_TEXT_COLOR_YELLOW %>\">Yellow</font> Paint.<br>[<font color=\"<% RUBILASH_TEXT_COLOR_BLUE %>\">Blue</font>] Paint -> Take 2x damage from <font color=\"<% RUBILASH_TEXT_COLOR_BLUE %>\">Blue</font> Paint.<br>[<font color=\"<% RUBILASH_TEXT_COLOR_ORANGE %>\">Orange</font>] Paint -> Take 3x damage from <font color=\"<% RUBILASH_TEXT_COLOR_RED %>\">Red</font> and <font color=\"<% RUBILASH_TEXT_COLOR_YELLOW %>\">Yellow</font> Paint.<br>[<font color=\"<% RUBILASH_TEXT_COLOR_GREEN %>\">Green</font>] Paint -> Take 3x damage from <font color=\"<% RUBILASH_TEXT_COLOR_YELLOW %>\">Yellow</font> and <font color=\"<% RUBILASH_TEXT_COLOR_BLUE %>\">Blue</font> Paint.<br>[<font color=\"<% RUBILASH_TEXT_COLOR_PURPLE %>\">Purple</font>] Paint -> Take 3x damage from <font color=\"<% RUBILASH_TEXT_COLOR_RED %>\">Red</font> and <font color=\"<% RUBILASH_TEXT_COLOR_BLUE %>\">Blue</font> Paint.<br>[<font color=\"<% RUBILASH_TEXT_COLOR_BLACK %>\">Black</font>] Paint -> Take 4x damage from <font color=\"<% RUBILASH_TEXT_COLOR_RED %>\">Red</font>, <font color=\"<% RUBILASH_TEXT_COLOR_BLUE %>\">Blue</font> and <font color=\"<% RUBILASH_TEXT_COLOR_YELLOW %>\">Yellow</font> Paint."
+"DOTA_Tooltip_Ability_rubilash_paint_splatter_red"			"Paint Splatter [<font color=RUBILASH_RED>Red</font>]"
+"DOTA_Tooltip_Ability_rubilash_paint_splatter_red_Description"			"Element: <font color=ELEMENT_DEMON>Demon</font> / <font color=ELEMENT_GHOST>Ghost</font><br>Teleports to the target location and soaks enemies at the destination in [<font color=RUBILASH_RED>Red</font>] paint. Using this ability toggles Rubilash's current paint color to [<font color=RUBILASH_YELLOW>Yellow</font>].<br><br>When an enemy is covered in paint, they take increased damage from that same paint color. When an enemy is covered in multiple different paints, the paints mix and create a larger damage multiple. All base paint colors have their own independant durations on enemies.<br><br>[<font color=RUBILASH_RED>Red</font>] Paint -> Take 2x damage from <font color=RUBILASH_RED>Red</font> Paint.<br>[<font color=RUBILASH_YELLOW>Yellow</font>] Paint -> Take 2x damage from <font color=RUBILASH_YELLOW>Yellow</font> Paint.<br>[<font color=RUBILASH_BLUE>Blue</font>] Paint -> Take 2x damage from <font color=RUBILASH_BLUE>Blue</font> Paint.<br>[<font color=RUBILASH_ORANGE>Orange</font>] Paint -> Take 3x damage from <font color=RUBILASH_RED>Red</font> and <font color=RUBILASH_YELLOW>Yellow</font> Paint.<br>[<font color=RUBILASH_GREEN>Green</font>] Paint -> Take 3x damage from <font color=RUBILASH_YELLOW>Yellow</font> and <font color=RUBILASH_BLUE>Blue</font> Paint.<br>[<font color=RUBILASH_PURPLE>Purple</font>] Paint -> Take 3x damage from <font color=RUBILASH_RED>Red</font> and <font color=RUBILASH_BLUE>Blue</font> Paint.<br>[<font color=RUBILASH_BLACK>Black</font>] Paint -> Take 4x damage from <font color=RUBILASH_RED>Red</font>, <font color=RUBILASH_BLUE>Blue</font> and <font color=RUBILASH_YELLOW>Yellow</font> Paint."
 "DOTA_Tooltip_Ability_rubilash_paint_splatter_red_damage"	"DAMAGE:"
 "DOTA_Tooltip_Ability_rubilash_paint_splatter_red_cast_range"	"CAST RANGE:"
 
-"DOTA_Tooltip_Ability_rubilash_paint_splatter_yellow"			"Paint Splatter [<font color=\"<% RUBILASH_TEXT_COLOR_YELLOW %>\">Yellow</font>]"
-"DOTA_Tooltip_Ability_rubilash_paint_splatter_yellow_Description"			"Element: <font color=\"<% RPC_ELEMENT_DEMON_COLOR %>\">Demon</font> / <font color=\"<% RPC_ELEMENT_GHOST_COLOR %>\">Ghost</font><br>Teleports to the target location and soaks enemies at the destination in [<font color=\"<% RUBILASH_TEXT_COLOR_YELLOW %>\">Yellow</font>] paint. Using this ability toggles Rubilash's current paint color to [<font color=\"<% RUBILASH_TEXT_COLOR_BLUE %>\">Blue</font>].<br><br>When an enemy is covered in paint, they take increased damage from that same paint color. When an enemy is covered in multiple different paints, the paints mix and create a larger damage multiple. All base paint colors have their own independant durations on enemies.<br><br>[<font color=\"<% RUBILASH_TEXT_COLOR_RED %>\">Red</font>] Paint -> Take 2x damage from <font color=\"<% RUBILASH_TEXT_COLOR_RED %>\">Red</font> Paint.<br>[<font color=\"<% RUBILASH_TEXT_COLOR_YELLOW %>\">Yellow</font>] Paint -> Take 2x damage from <font color=\"<% RUBILASH_TEXT_COLOR_YELLOW %>\">Yellow</font> Paint.<br>[<font color=\"<% RUBILASH_TEXT_COLOR_BLUE %>\">Blue</font>] Paint -> Take 2x damage from <font color=\"<% RUBILASH_TEXT_COLOR_BLUE %>\">Blue</font> Paint.<br>[<font color=\"<% RUBILASH_TEXT_COLOR_ORANGE %>\">Orange</font>] Paint -> Take 3x damage from <font color=\"<% RUBILASH_TEXT_COLOR_RED %>\">Red</font> and <font color=\"<% RUBILASH_TEXT_COLOR_YELLOW %>\">Yellow</font> Paint.<br>[<font color=\"<% RUBILASH_TEXT_COLOR_GREEN %>\">Green</font>] Paint -> Take 3x damage from <font color=\"<% RUBILASH_TEXT_COLOR_YELLOW %>\">Yellow</font> and <font color=\"<% RUBILASH_TEXT_COLOR_BLUE %>\">Blue</font> Paint.<br>[<font color=\"<% RUBILASH_TEXT_COLOR_PURPLE %>\">Purple</font>] Paint -> Take 3x damage from <font color=\"<% RUBILASH_TEXT_COLOR_RED %>\">Red</font> and <font color=\"<% RUBILASH_TEXT_COLOR_BLUE %>\">Blue</font> Paint.<br>[<font color=\"<% RUBILASH_TEXT_COLOR_BLACK %>\">Black</font>] Paint -> Take 4x damage from <font color=\"<% RUBILASH_TEXT_COLOR_RED %>\">Red</font>, <font color=\"<% RUBILASH_TEXT_COLOR_BLUE %>\">Blue</font> and <font color=\"<% RUBILASH_TEXT_COLOR_YELLOW %>\">Yellow</font> Paint."
+"DOTA_Tooltip_Ability_rubilash_paint_splatter_yellow"			"Paint Splatter [<font color=RUBILASH_YELLOW>Yellow</font>]"
+"DOTA_Tooltip_Ability_rubilash_paint_splatter_yellow_Description"			"Element: <font color=ELEMENT_DEMON>Demon</font> / <font color=ELEMENT_GHOST>Ghost</font><br>Teleports to the target location and soaks enemies at the destination in [<font color=RUBILASH_YELLOW>Yellow</font>] paint. Using this ability toggles Rubilash's current paint color to [<font color=RUBILASH_BLUE>Blue</font>].<br><br>When an enemy is covered in paint, they take increased damage from that same paint color. When an enemy is covered in multiple different paints, the paints mix and create a larger damage multiple. All base paint colors have their own independant durations on enemies.<br><br>[<font color=RUBILASH_RED>Red</font>] Paint -> Take 2x damage from <font color=RUBILASH_RED>Red</font> Paint.<br>[<font color=RUBILASH_YELLOW>Yellow</font>] Paint -> Take 2x damage from <font color=RUBILASH_YELLOW>Yellow</font> Paint.<br>[<font color=RUBILASH_BLUE>Blue</font>] Paint -> Take 2x damage from <font color=RUBILASH_BLUE>Blue</font> Paint.<br>[<font color=RUBILASH_ORANGE>Orange</font>] Paint -> Take 3x damage from <font color=RUBILASH_RED>Red</font> and <font color=RUBILASH_YELLOW>Yellow</font> Paint.<br>[<font color=RUBILASH_GREEN>Green</font>] Paint -> Take 3x damage from <font color=RUBILASH_YELLOW>Yellow</font> and <font color=RUBILASH_BLUE>Blue</font> Paint.<br>[<font color=RUBILASH_PURPLE>Purple</font>] Paint -> Take 3x damage from <font color=RUBILASH_RED>Red</font> and <font color=RUBILASH_BLUE>Blue</font> Paint.<br>[<font color=RUBILASH_BLACK>Black</font>] Paint -> Take 4x damage from <font color=RUBILASH_RED>Red</font>, <font color=RUBILASH_BLUE>Blue</font> and <font color=RUBILASH_YELLOW>Yellow</font> Paint."
 "DOTA_Tooltip_Ability_rubilash_paint_splatter_yellow_damage"	"DAMAGE:"
 "DOTA_Tooltip_Ability_rubilash_paint_splatter_yellow_cast_range"	"CAST RANGE:"
 
-"DOTA_Tooltip_Ability_rubilash_paint_splatter_blue"			"Paint Splatter [<font color=\"<% RUBILASH_TEXT_COLOR_BLUE %>\">Blue</font>]"
-"DOTA_Tooltip_Ability_rubilash_paint_splatter_blue_Description"			"Element: <font color=\"<% RPC_ELEMENT_DEMON_COLOR %>\">Demon</font> / <font color=\"<% RPC_ELEMENT_GHOST_COLOR %>\">Ghost</font><br>Teleports to the target location and soaks enemies at the destination in [<font color=\"<% RUBILASH_TEXT_COLOR_BLUE %>\">Blue</font>] paint. Using this ability toggles Rubilash's current paint color to [<font color=\"<% RUBILASH_TEXT_COLOR_RED %>\">Red</font>].<br><br>When an enemy is covered in paint, they take increased damage from that same paint color. When an enemy is covered in multiple different paints, the paints mix and create a larger damage multiple. All base paint colors have their own independant durations on enemies.<br><br>[<font color=\"<% RUBILASH_TEXT_COLOR_RED %>\">Red</font>] Paint -> Take 2x damage from <font color=\"<% RUBILASH_TEXT_COLOR_RED %>\">Red</font> Paint.<br>[<font color=\"<% RUBILASH_TEXT_COLOR_YELLOW %>\">Yellow</font>] Paint -> Take 2x damage from <font color=\"<% RUBILASH_TEXT_COLOR_YELLOW %>\">Yellow</font> Paint.<br>[<font color=\"<% RUBILASH_TEXT_COLOR_BLUE %>\">Blue</font>] Paint -> Take 2x damage from <font color=\"<% RUBILASH_TEXT_COLOR_BLUE %>\">Blue</font> Paint.<br>[<font color=\"<% RUBILASH_TEXT_COLOR_ORANGE %>\">Orange</font>] Paint -> Take 3x damage from <font color=\"<% RUBILASH_TEXT_COLOR_RED %>\">Red</font> and <font color=\"<% RUBILASH_TEXT_COLOR_YELLOW %>\">Yellow</font> Paint.<br>[<font color=\"<% RUBILASH_TEXT_COLOR_GREEN %>\">Green</font>] Paint -> Take 3x damage from <font color=\"<% RUBILASH_TEXT_COLOR_YELLOW %>\">Yellow</font> and <font color=\"<% RUBILASH_TEXT_COLOR_BLUE %>\">Blue</font> Paint.<br>[<font color=\"<% RUBILASH_TEXT_COLOR_PURPLE %>\">Purple</font>] Paint -> Take 3x damage from <font color=\"<% RUBILASH_TEXT_COLOR_RED %>\">Red</font> and <font color=\"<% RUBILASH_TEXT_COLOR_BLUE %>\">Blue</font> Paint.<br>[<font color=\"<% RUBILASH_TEXT_COLOR_BLACK %>\">Black</font>] Paint -> Take 4x damage from <font color=\"<% RUBILASH_TEXT_COLOR_RED %>\">Red</font>, <font color=\"<% RUBILASH_TEXT_COLOR_BLUE %>\">Blue</font> and <font color=\"<% RUBILASH_TEXT_COLOR_YELLOW %>\">Yellow</font> Paint."
+"DOTA_Tooltip_Ability_rubilash_paint_splatter_blue"			"Paint Splatter [<font color=RUBILASH_BLUE>Blue</font>]"
+"DOTA_Tooltip_Ability_rubilash_paint_splatter_blue_Description"			"Element: <font color=ELEMENT_DEMON>Demon</font> / <font color=ELEMENT_GHOST>Ghost</font><br>Teleports to the target location and soaks enemies at the destination in [<font color=RUBILASH_BLUE>Blue</font>] paint. Using this ability toggles Rubilash's current paint color to [<font color=RUBILASH_RED>Red</font>].<br><br>When an enemy is covered in paint, they take increased damage from that same paint color. When an enemy is covered in multiple different paints, the paints mix and create a larger damage multiple. All base paint colors have their own independant durations on enemies.<br><br>[<font color=RUBILASH_RED>Red</font>] Paint -> Take 2x damage from <font color=RUBILASH_RED>Red</font> Paint.<br>[<font color=RUBILASH_YELLOW>Yellow</font>] Paint -> Take 2x damage from <font color=RUBILASH_YELLOW>Yellow</font> Paint.<br>[<font color=RUBILASH_BLUE>Blue</font>] Paint -> Take 2x damage from <font color=RUBILASH_BLUE>Blue</font> Paint.<br>[<font color=RUBILASH_ORANGE>Orange</font>] Paint -> Take 3x damage from <font color=RUBILASH_RED>Red</font> and <font color=RUBILASH_YELLOW>Yellow</font> Paint.<br>[<font color=RUBILASH_GREEN>Green</font>] Paint -> Take 3x damage from <font color=RUBILASH_YELLOW>Yellow</font> and <font color=RUBILASH_BLUE>Blue</font> Paint.<br>[<font color=RUBILASH_PURPLE>Purple</font>] Paint -> Take 3x damage from <font color=RUBILASH_RED>Red</font> and <font color=RUBILASH_BLUE>Blue</font> Paint.<br>[<font color=RUBILASH_BLACK>Black</font>] Paint -> Take 4x damage from <font color=RUBILASH_RED>Red</font>, <font color=RUBILASH_BLUE>Blue</font> and <font color=RUBILASH_YELLOW>Yellow</font> Paint."
 "DOTA_Tooltip_Ability_rubilash_paint_splatter_blue_damage"	"DAMAGE:"
 "DOTA_Tooltip_Ability_rubilash_paint_splatter_blue_cast_range"	"CAST RANGE:"
 
-"DOTA_Tooltip_Ability_rubilash_paint_splatter_white"			"Paint Splatter [<font color=\"<% RUBILASH_TEXT_COLOR_WHITE %>\">White</font>]"
-"DOTA_Tooltip_Ability_rubilash_paint_splatter_white_Description"			"Element: <font color=\"<% RPC_ELEMENT_DEMON_COLOR %>\">Demon</font> / <font color=\"<% RPC_ELEMENT_GHOST_COLOR %>\">Ghost</font><br>Teleports to the target location and soaks enemies at the destination in [<font color=\"<% RUBILASH_TEXT_COLOR_WHITE %>\">White</font>] paint. White paint gains the benefits of ALL other paint colors. Enemies covered in [<font color=\"<% RUBILASH_TEXT_COLOR_WHITE %>\">White</font>] paint take 2x damage from [<font color=\"<% RUBILASH_TEXT_COLOR_WHITE %>\">White</font>] paint."
+"DOTA_Tooltip_Ability_rubilash_paint_splatter_white"			"Paint Splatter [<font color=RUBILASH_WHITE>White</font>]"
+"DOTA_Tooltip_Ability_rubilash_paint_splatter_white_Description"			"Element: <font color=ELEMENT_DEMON>Demon</font> / <font color=ELEMENT_GHOST>Ghost</font><br>Teleports to the target location and soaks enemies at the destination in [<font color=RUBILASH_WHITE>White</font>] paint. White paint gains the benefits of ALL other paint colors. Enemies covered in [<font color=RUBILASH_WHITE>White</font>] paint take 2x damage from [<font color=RUBILASH_WHITE>White</font>] paint."
 "DOTA_Tooltip_Ability_rubilash_paint_splatter_white_damage"	"DAMAGE:"
 "DOTA_Tooltip_Ability_rubilash_paint_splatter_white_cast_range"	"CAST RANGE:"
 
@@ -92,7 +92,7 @@
 	"DOTA_Tooltip_ability_rubilash_rune_q_1_suffix"					""	
 	
 	"DOTA_Tooltip_ability_rubilash_rune_q_2"							"[Q2] Marked Red"
-	"DOTA_Tooltip_ability_rubilash_rune_q_2_Description"				"Enemies painted <font color=\"<% RUBILASH_TEXT_COLOR_RED %>\">Red</font>, <font color=\"<% RUBILASH_TEXT_COLOR_ORANGE %>\">Orange</font>, <font color=\"<% RUBILASH_TEXT_COLOR_PURPLE %>\">Purple</font>, or <font color=\"<% RUBILASH_TEXT_COLOR_BLACK %>\">Black</font> have reduced Magic Armor and Armor."
+	"DOTA_Tooltip_ability_rubilash_rune_q_2_Description"				"Enemies painted <font color=RUBILASH_RED>Red</font>, <font color=RUBILASH_ORANGE>Orange</font>, <font color=RUBILASH_PURPLE>Purple</font>, or <font color=RUBILASH_BLACK>Black</font> have reduced Magic Armor and Armor."
 	"DOTA_Tooltip_ability_rubilash_rune_q_2_property_one"			"Armor and Magic Armor Loss"
 	"DOTA_Tooltip_ability_rubilash_rune_q_2_suffix"					""	
 
@@ -105,7 +105,7 @@
 	"DOTA_Tooltip_modifier_rubilash_q_3_fear_Description"			"Feared"
 	
 	"DOTA_Tooltip_ability_rubilash_rune_q_4"							"[Q4] Malevolent Artistry"
-	"DOTA_Tooltip_ability_rubilash_rune_q_4_Description"				"Increases all <font color=\"<% RPC_ELEMENT_DEMON_COLOR %>\">Demon</font> and <font color=\"<% RPC_ELEMENT_GHOST_COLOR %>\">Ghost</font> Elemental Damage."
+	"DOTA_Tooltip_ability_rubilash_rune_q_4_Description"				"Increases all <font color=ELEMENT_DEMON>Demon</font> and <font color=ELEMENT_GHOST>Ghost</font> Elemental Damage."
 	"DOTA_Tooltip_ability_rubilash_rune_q_4_property_one"			"Elemental Amp"
 	"DOTA_Tooltip_ability_rubilash_rune_q_4_suffix"					"%"		
 	
@@ -116,7 +116,7 @@
 	"DOTA_Tooltip_ability_rubilash_rune_w_1_suffix"					" seconds"	
 	
 	"DOTA_Tooltip_ability_rubilash_rune_w_2"							"[W2] Grim Yellow"
-	"DOTA_Tooltip_ability_rubilash_rune_w_2_Description"				"Enemies painted <font color=\"<% RUBILASH_TEXT_COLOR_YELLOW %>\">Yellow</font>, <font color=\"<% RUBILASH_TEXT_COLOR_ORANGE %>\">Orange</font>, <font color=\"<% RUBILASH_TEXT_COLOR_GREEN %>\">Green</font>, or <font color=\"<% RUBILASH_TEXT_COLOR_BLACK %>\">Black</font> have reduced Magic Armor and Armor Pierce."
+	"DOTA_Tooltip_ability_rubilash_rune_w_2_Description"				"Enemies painted <font color=RUBILASH_YELLOW>Yellow</font>, <font color=RUBILASH_ORANGE>Orange</font>, <font color=RUBILASH_GREEN>Green</font>, or <font color=RUBILASH_BLACK>Black</font> have reduced Magic Armor and Armor Pierce."
 	"DOTA_Tooltip_ability_rubilash_rune_w_2_property_one"			"Magic Armor and Armor Pierce Loss"
 	"DOTA_Tooltip_ability_rubilash_rune_w_2_suffix"					""	
 
@@ -130,7 +130,7 @@
 	
 	
 	"DOTA_Tooltip_ability_rubilash_rune_w_4"							"[W4] Viscosity"
-	"DOTA_Tooltip_ability_rubilash_rune_w_4_Description"				"Enemies who are painted have reduced attack speed and move speed. The debuff is amplified 2x when painted <font color=\"<% RUBILASH_TEXT_COLOR_ORANGE %>\">Orange</font>, <font color=\"<% RUBILASH_TEXT_COLOR_GREEN %>\">Green</font>, or <font color=\"<% RUBILASH_TEXT_COLOR_PURPLE %>\">Purple</font>, and 3x when painted <font color=\"<% RUBILASH_TEXT_COLOR_BLACK %>\">Black</font>."
+	"DOTA_Tooltip_ability_rubilash_rune_w_4_Description"				"Enemies who are painted have reduced attack speed and move speed. The debuff is amplified 2x when painted <font color=RUBILASH_ORANGE>Orange</font>, <font color=RUBILASH_GREEN>Green</font>, or <font color=RUBILASH_PURPLE>Purple</font>, and 3x when painted <font color=RUBILASH_BLACK>Black</font>."
 	"DOTA_Tooltip_ability_rubilash_rune_w_4_property_one"			"Attackspeed and Movespeed Loss"
 	"DOTA_Tooltip_ability_rubilash_rune_w_4_suffix"					" while Painted"
 	
@@ -143,7 +143,7 @@
 	"DOTA_Tooltip_ability_rubilash_rune_e_1_suffix_two"				" per mana"	
 	
 	"DOTA_Tooltip_ability_rubilash_rune_e_2"							"[E2] Eerie Blue"
-	"DOTA_Tooltip_ability_rubilash_rune_e_2_Description"				"Enemies painted <font color=\"<% RUBILASH_TEXT_COLOR_BLUE %>\">Blue</font>, <font color=\"<% RUBILASH_TEXT_COLOR_PURPLE %>\">Purple</font>, <font color=\"<% RUBILASH_TEXT_COLOR_GREEN %>\">Green</font>, or <font color=\"<% RUBILASH_TEXT_COLOR_BLACK %>\">Black</font> have reduced Magic Armor and Spell Pierce."
+	"DOTA_Tooltip_ability_rubilash_rune_e_2_Description"				"Enemies painted <font color=RUBILASH_BLUE>Blue</font>, <font color=RUBILASH_PURPLE>Purple</font>, <font color=RUBILASH_GREEN>Green</font>, or <font color=RUBILASH_BLACK>Black</font> have reduced Magic Armor and Spell Pierce."
 	"DOTA_Tooltip_ability_rubilash_rune_e_2_property_one"			"Magic Armor and Spell Pierce Loss"
 	"DOTA_Tooltip_ability_rubilash_rune_e_2_suffix"					""	
 	
@@ -241,7 +241,7 @@
 	"DOTA_Tooltip_ability_item_rpc_rubilash_arcana1"						"Masterstroke Trappings"
 
 	"item_property_rubilash_arcana1"										"White Paint"
-	"property_rubilash_arcana1_description"									"Replaces @Ability3 and all of its runes with Paint Splatter [<font color=\"<% RUBILASH_TEXT_COLOR_WHITE %>\">White</font>]."
+	"property_rubilash_arcana1_description"									"Replaces @Ability3 and all of its runes with Paint Splatter [<font color=RUBILASH_WHITE>White</font>]."
 
 	"DOTA_Tooltip_ability_rubilash_rune_e_1_arcana1"						"[E1] Fresh Coat"
 	"DOTA_Tooltip_ability_rubilash_rune_e_1_arcana1_Description"			"Casting @Ability3 restores health."

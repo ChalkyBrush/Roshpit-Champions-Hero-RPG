@@ -5,13 +5,13 @@
     	"solunia_r"															"超新星与日食"
 
     	"DOTA_Tooltip_ability_solunia_solar_glow"							"日之石"
-    	"DOTA_Tooltip_ability_solunia_solar_glow_Description"				"元素： <font color=\"#C25DFC\">宇宙</font><br>大量炽热的太阳石从日月女神发射到目标位置。"
+    	"DOTA_Tooltip_ability_solunia_solar_glow_Description"				"元素： <font color=ELEMENT_COSMOS>宇宙</font><br>大量炽热的太阳石从日月女神发射到目标位置。"
     	"DOTA_Tooltip_ability_solunia_solar_glow_damage"					"伤害："
     	"DOTA_Tooltip_ability_solunia_solar_glow_projectiles"				"发射数量："
     	"DOTA_Tooltip_ability_solunia_solar_glow_stun_duration"				"眩晕持续时间："
 
     	"DOTA_Tooltip_ability_solunia_lunar_glow"							"月之石"
-    	"DOTA_Tooltip_ability_solunia_lunar_glow_Description"				"元素： <font color=\"#C25DFC\">宇宙</font><br>大量的冰冷月之石从日月女神发射到目标位置。"
+    	"DOTA_Tooltip_ability_solunia_lunar_glow_Description"				"元素： <font color=ELEMENT_COSMOS>宇宙</font><br>大量的冰冷月之石从日月女神发射到目标位置。"
     	"DOTA_Tooltip_ability_solunia_lunar_glow_damage"					"伤害："
     	"DOTA_Tooltip_ability_solunia_lunar_glow_projectiles"				"发射数量："
     	"DOTA_Tooltip_ability_solunia_lunar_glow_stun_duration"				"眩晕持续时间："
@@ -43,12 +43,12 @@
     	"DOTA_Tooltip_ability_solunia_rune_q_3_suffix_two"					"% 敌人损失的血量值"
 		
 		"DOTA_Tooltip_ability_solunia_rune_q_4"								"[Q4] 水星"
-    	"DOTA_Tooltip_ability_solunia_rune_q_4_Description"					"提高所有 <font color=\"#C25DFC\">宇宙</font> 元素伤害。"
+    	"DOTA_Tooltip_ability_solunia_rune_q_4_Description"					"提高所有 <font color=ELEMENT_COSMOS>宇宙</font> 元素伤害。"
     	"DOTA_Tooltip_ability_solunia_rune_q_4_property_one"				"宇宙元素伤害提高"
     	"DOTA_Tooltip_ability_solunia_rune_q_4_suffix"						"%"
 		
 		"DOTA_Tooltip_ability_solunia_solarang"								"日之回旋镖"
-    	"DOTA_Tooltip_ability_solunia_solarang_Description"					"元素： <font color=\"#C25DFC\">宇宙</font> / <font color=\"#DDDDDD\">普通</font><br>向目标位置扔出回旋镖。回旋镖每0.2秒对其碰撞的所有敌人造成伤害。"
+    	"DOTA_Tooltip_ability_solunia_solarang_Description"					"元素： <font color=ELEMENT_COSMOS>宇宙</font> / <font color=ELEMENT_NORMAL>普通</font><br>向目标位置扔出回旋镖。回旋镖每0.2秒对其碰撞的所有敌人造成伤害。"
     	"DOTA_Tooltip_ability_solunia_solarang_max_boomerangs"				"同时可拥有日之回旋镖的数量："
     	"DOTA_Tooltip_ability_solunia_solarang_damage"						"伤害："
 
@@ -56,7 +56,7 @@
     	"DOTA_Tooltip_modifier_outgoing_lunarang"							"月之回旋镖掷出"
 
     	"DOTA_Tooltip_ability_solunia_lunarang"								"月之回旋镖"
-    	"DOTA_Tooltip_ability_solunia_lunarang_Description"					"元素： <font color=\"#C25DFC\">宇宙</font> / <font color=\"#DDDDDD\">普通</font><br>向目标位置扔出回旋镖，自动锁定靠近旋镖的敌人一段时间。回旋镖每0.2秒对其碰撞的所有敌人造成伤害。"
+    	"DOTA_Tooltip_ability_solunia_lunarang_Description"					"元素： <font color=ELEMENT_COSMOS>宇宙</font> / <font color=ELEMENT_NORMAL>普通</font><br>向目标位置扔出回旋镖，自动锁定靠近旋镖的敌人一段时间。回旋镖每0.2秒对其碰撞的所有敌人造成伤害。"
     	"DOTA_Tooltip_ability_solunia_lunarang_max_boomerangs"				"同时可拥有月之回旋镖的数量："
     	"DOTA_Tooltip_ability_solunia_lunarang_damage"						"伤害："
 		
@@ -134,12 +134,12 @@
     	"DOTA_Tooltip_ability_solunia_rune_e_4_suffix"						""
 		
 		"DOTA_Tooltip_ability_solunia_supernova"							"超新星"
-    	"DOTA_Tooltip_ability_solunia_supernova_Description"				"元素： <font color=\"#C25DFC\">宇宙</font> / <font color=\"#EF4126\">火</font><br>日夜女神燃烧自己然后爆炸，转换能量成为月之形态。引导时，当日夜女神离地面超过180码时，将免疫所有伤害。"
+    	"DOTA_Tooltip_ability_solunia_supernova_Description"				"元素： <font color=ELEMENT_COSMOS>宇宙</font> / <font color=ELEMENT_FIRE>火</font><br>日夜女神燃烧自己然后爆炸，转换能量成为月之形态。引导时，当日夜女神离地面超过180码时，将免疫所有伤害。"
     	"DOTA_Tooltip_ability_solunia_supernova_damage"						"伤害："
     	"DOTA_Tooltip_ability_solunia_supernova_stun_duration"				"眩晕持续时间："
 
     	"DOTA_Tooltip_ability_solunia_eclipse"								"日食"
-    	"DOTA_Tooltip_ability_solunia_eclipse_Description"					"元素： <font color=\"#C25DFC\">宇宙</font> / <font color=\"#EF4126\">火</font><br>日夜女神冰封自己然后爆炸，转换能量成为日之形态。引导时，当日夜女神离地面超过180码时，将免疫所有伤害。"
+    	"DOTA_Tooltip_ability_solunia_eclipse_Description"					"元素： <font color=ELEMENT_COSMOS>宇宙</font> / <font color=ELEMENT_FIRE>火</font><br>日夜女神冰封自己然后爆炸，转换能量成为日之形态。引导时，当日夜女神离地面超过180码时，将免疫所有伤害。"
     	"DOTA_Tooltip_ability_solunia_eclipse_damage"						"伤害："
     	"DOTA_Tooltip_ability_solunia_eclipse_stun_duration"				"眩晕持续时间："
 		
@@ -179,7 +179,7 @@
     	"property_solunia_arcana1_description"								"用日月之星替换 @Ability1 及其所有符文。"
 
     	"DOTA_Tooltip_ability_solunia_arcana_solar_comet"								"日之星"
-    	"DOTA_Tooltip_ability_solunia_arcana_solar_comet_Description"					"元素： <font color=\"#C25DFC\">宇宙</font> / <font color=\"#EF4126\">火</font><br>向目标地点投掷炽热流星，当流星接触地面时眩晕敌人并且造成范围伤害。该技能没有冷却时间，但是拥有充能上限，当用光所有充能时，需要切换月之形态来重新填装充能。"
+    	"DOTA_Tooltip_ability_solunia_arcana_solar_comet_Description"					"元素： <font color=ELEMENT_COSMOS>宇宙</font> / <font color=ELEMENT_FIRE>火</font><br>向目标地点投掷炽热流星，当流星接触地面时眩晕敌人并且造成范围伤害。该技能没有冷却时间，但是拥有充能上限，当用光所有充能时，需要切换月之形态来重新填装充能。"
     	"DOTA_Tooltip_ability_solunia_arcana_solar_comet_damage"						"伤害："
     	"DOTA_Tooltip_ability_solunia_arcana_solar_comet_stun_duration"					"眩晕持续时间："
     	"DOTA_Tooltip_ability_solunia_arcana_solar_comet_max_charges"					"再填装前最大充能数："
@@ -187,7 +187,7 @@
     	"DOTA_Tooltip_modifier_solar_comet_free_cast"									"日之星充能"
 
     	"DOTA_Tooltip_ability_solunia_arcana_lunar_comet"								"月之星"
-    	"DOTA_Tooltip_ability_solunia_arcana_lunar_comet_Description"					"元素： <font color=\"#C25DFC\">宇宙</font> / <font color=\"#87D9FF\">冰</font><br>向目标地点投掷冰冷流星，当流星接触地面时眩晕敌人并且造成范围伤害。该技能没有冷却时间，但是拥有充能上限，当用光所有充能时，需要切换日之形态来重新填装充能。"
+    	"DOTA_Tooltip_ability_solunia_arcana_lunar_comet_Description"					"元素： <font color=ELEMENT_COSMOS>宇宙</font> / <font color=ELEMENT_ICE>冰</font><br>向目标地点投掷冰冷流星，当流星接触地面时眩晕敌人并且造成范围伤害。该技能没有冷却时间，但是拥有充能上限，当用光所有充能时，需要切换日之形态来重新填装充能。"
     	"DOTA_Tooltip_ability_solunia_arcana_lunar_comet_damage"						"伤害："
     	"DOTA_Tooltip_ability_solunia_arcana_lunar_comet_stun_duration"					"眩晕持续时间："
     	"DOTA_Tooltip_ability_solunia_arcana_lunar_comet_max_charges"					"再填装前最大充能数："
@@ -225,7 +225,7 @@
     	"DOTA_Tooltip_modifier_solar_compression_visible_Description"			"降低魔甲."
 
     	"DOTA_Tooltip_ability_solunia_rune_q_4_arcana1"								"[Q4] M78星云"
-    	"DOTA_Tooltip_ability_solunia_rune_q_4_arcana1_Description"					"提高所有 <font color=\"#C25DFC\">宇宙</font> 元素伤害。"
+    	"DOTA_Tooltip_ability_solunia_rune_q_4_arcana1_Description"					"提高所有 <font color=ELEMENT_COSMOS>宇宙</font> 元素伤害。"
     	"DOTA_Tooltip_ability_solunia_rune_q_4_arcana1_property_one"				"宇宙元素伤害提高"
     	"DOTA_Tooltip_ability_solunia_rune_q_4_arcana1_suffix"						"%"
 
@@ -233,13 +233,13 @@
     	"property_solunia_arcana2_description"								"用阿尔法星火替换 @Ability4 及其所有符文。"
 
     	"DOTA_Tooltip_ability_solunia_solar_alpha_spark"					"日之阿尔法星火"				
-    	"DOTA_Tooltip_ability_solunia_solar_alpha_spark_Description"		"元素： <font color=\"#C25DFC\">宇宙</font> / <font color=\"#EF4126\">火</font><br>在一阵宇宙辐射中，日月女神传送至目标地点并且造成爆炸 - 转换她的能量形态至月形态。"
+    	"DOTA_Tooltip_ability_solunia_solar_alpha_spark_Description"		"元素： <font color=ELEMENT_COSMOS>宇宙</font> / <font color=ELEMENT_FIRE>火</font><br>在一阵宇宙辐射中，日月女神传送至目标地点并且造成爆炸 - 转换她的能量形态至月形态。"
     	"DOTA_Tooltip_ability_solunia_solar_alpha_spark_damage"				"伤害："
     	"DOTA_Tooltip_ability_solunia_solar_alpha_spark_stun_duration"		"眩晕持续时间："
     	"DOTA_Tooltip_ability_solunia_solar_alpha_spark_cast_range"			"施法距离："
 
     	"DOTA_Tooltip_ability_solunia_lunar_alpha_spark"					"月之阿尔法星火"				
-    	"DOTA_Tooltip_ability_solunia_lunar_alpha_spark_Description"		"元素： <font color=\"#C25DFC\">宇宙</font> / <font color=\"#EF4126\">火</font><br>在一阵宇宙辐射中，日月女神传送至目标地点并且造成爆炸 - 转换她的能量形态至日形态。"
+    	"DOTA_Tooltip_ability_solunia_lunar_alpha_spark_Description"		"元素： <font color=ELEMENT_COSMOS>宇宙</font> / <font color=ELEMENT_FIRE>火</font><br>在一阵宇宙辐射中，日月女神传送至目标地点并且造成爆炸 - 转换她的能量形态至日形态。"
     	"DOTA_Tooltip_ability_solunia_lunar_alpha_spark_damage"				"伤害："
     	"DOTA_Tooltip_ability_solunia_lunar_alpha_spark_stun_duration"		"眩晕持续时间："
     	"DOTA_Tooltip_ability_solunia_lunar_alpha_spark_cast_range"			"施法距离："
@@ -267,7 +267,7 @@
     	"DOTA_Tooltip_modifier_solunia_c_d_arcana_shell_Description"		"<% SOLUNIA_ARCANA2_R3_DAMAGE_REDUCTION_PCT %>%减伤，+100移动速度并且相位移动"
 
   		"DOTA_Tooltip_ability_solunia_rune_r_4_arcana2"						"[R4] 黑洞"
-    	"DOTA_Tooltip_ability_solunia_rune_r_4_arcana2_Description"			"被动增加全属性，并且提高所有 <font color=\"#EF4126\">火</font> ，<font color=\"#87D9FF\">冰</font> ，和 <font color=\"#C25DFC\">宇宙</font> 元素的伤害。"
+    	"DOTA_Tooltip_ability_solunia_rune_r_4_arcana2_Description"			"被动增加全属性，并且提高所有 <font color=ELEMENT_FIRE>火</font> ，<font color=ELEMENT_ICE>冰</font> ，和 <font color=ELEMENT_COSMOS>宇宙</font> 元素的伤害。"
     	"DOTA_Tooltip_ability_solunia_rune_r_4_arcana2_property_one"		"火、冰、宇宙元素伤害提高"
     	"DOTA_Tooltip_ability_solunia_rune_r_4_arcana2_suffix"				"%"
     	"DOTA_Tooltip_ability_solunia_rune_r_4_arcana2_property_two"		"全属性提高"
@@ -317,7 +317,7 @@
 
 		"DOTA_Tooltip_ability_solunia_solar_vorpal_blades" "赫利俄斯之刃" 
 
-		"DOTA_Tooltip_ability_solunia_solar_vorpal_blades_Description" "元素: <font color=\"#C25DFC\">宇宙</font> / <font color=\"#EF4126\">火</font><br>掷出3枚赫利俄斯之刃，这个飞刃将会自动寻找日夜女神周围1000码内的敌人。这个飞刃在击中敌人后会造成伤害，并且弹跳至被击中的敌人周围的敌人。"
+		"DOTA_Tooltip_ability_solunia_solar_vorpal_blades_Description" "元素: <font color=ELEMENT_COSMOS>宇宙</font> / <font color=ELEMENT_FIRE>火</font><br>掷出3枚赫利俄斯之刃，这个飞刃将会自动寻找日夜女神周围1000码内的敌人。这个飞刃在击中敌人后会造成伤害，并且弹跳至被击中的敌人周围的敌人。"
 
 		"DOTA_Tooltip_ability_solunia_solar_vorpal_blades_damage" "伤害:"
 
@@ -333,7 +333,7 @@
 
 		"DOTA_Tooltip_ability_solunia_lunar_vorpal_blades" "塞勒涅之刃" 
 
-		"DOTA_Tooltip_ability_solunia_lunar_vorpal_blades_Description" "元素: <font color=\"#C25DFC\">宇宙</font> / <font color=\"#87D9FF\">冰</font><br>掷出3枚塞勒涅之刃，这个飞刃将会自动寻找日夜女神周围1000码内的敌人。这个飞刃在击中敌人后会造成伤害，并且弹跳至被击中的敌人周围的敌人。"
+		"DOTA_Tooltip_ability_solunia_lunar_vorpal_blades_Description" "元素: <font color=ELEMENT_COSMOS>宇宙</font> / <font color=ELEMENT_ICE>冰</font><br>掷出3枚塞勒涅之刃，这个飞刃将会自动寻找日夜女神周围1000码内的敌人。这个飞刃在击中敌人后会造成伤害，并且弹跳至被击中的敌人周围的敌人。"
 
 		"DOTA_Tooltip_ability_solunia_lunar_vorpal_blades_damage" "伤害:"
 

@@ -1,6 +1,6 @@
 		//Abilities
 		"DOTA_Tooltip_ability_gale_nova"										"Plague Spreader"
-		"DOTA_Tooltip_ability_gale_nova_Description"							"Element: <font color=\"#37DD3D\">Poison</font><br>Venomort conjures a mist of venomous smoke, causing all nearby enemies to contract a disease which deals damage every 0.4 seconds."
+		"DOTA_Tooltip_ability_gale_nova_Description"							"Element: <font color=ELEMENT_POISON>Poison</font><br>Venomort conjures a mist of venomous smoke, causing all nearby enemies to contract a disease which deals damage every 0.4 seconds."
 		"DOTA_Tooltip_ability_gale_nova_Lore"									""
     	"DOTA_Tooltip_ability_gale_nova_damage"							        "POISON DAMAGE/TICK:"
     	"DOTA_Tooltip_ability_gale_nova_duration"								"POISON DURATION:"
@@ -40,7 +40,7 @@
 
 		
 		"DOTA_Tooltip_ability_nether_blaster"								"Necrofusion"
-		"DOTA_Tooltip_ability_nether_blaster_Description"					"Element: <font color=\"#37DD3D\">Poison</font>/<font color=\"#9ACCD1\">Ghost</font><br>Conjures a skull-shaped bolt of poison magic in front of Venomort, damaging and slowing enemies struck."
+		"DOTA_Tooltip_ability_nether_blaster_Description"					"Element: <font color=ELEMENT_POISON>Poison</font>/<font color=ELEMENT_GHOST>Ghost</font><br>Conjures a skull-shaped bolt of poison magic in front of Venomort, damaging and slowing enemies struck."
 		"DOTA_Tooltip_ability_nether_blaster_Lore"							""
 		"DOTA_Tooltip_ability_nether_blaster_movespeed_slow"				"MOVESPEED SLOW:"
 		"DOTA_Tooltip_ability_nether_blaster_damage"					    "DAMAGE:"
@@ -78,7 +78,7 @@
     	"DOTA_Tooltip_ability_venomort_rune_w_4_suffix"						"% for every 1% of missing HP"
 		
 		"DOTA_Tooltip_ability_phase_walk"									"Poison Step"
-		"DOTA_Tooltip_ability_phase_walk_Description"						"Element: <font color=\"#37DD3D\">Poison</font><br>Venomort casts himself into a puddle of his own conconction, reappearing in a forward location and leaving pools of damaging poison at his entry and exit points."
+		"DOTA_Tooltip_ability_phase_walk_Description"						"Element: <font color=ELEMENT_POISON>Poison</font><br>Venomort casts himself into a puddle of his own conconction, reappearing in a forward location and leaving pools of damaging poison at his entry and exit points."
 		"DOTA_Tooltip_ability_phase_walk_Lore"								""
 		"DOTA_Tooltip_ability_phase_walk_step_distance"						"STEP DISTANCE:"
     	"DOTA_Tooltip_ability_phase_walk_radius"							"POISON RADIUS:"
@@ -96,7 +96,7 @@
 		"DOTA_Tooltip_ability_venomort_ghost_warp_cast_range"			"CAST RANGE:"
 
 		"DOTA_Tooltip_ability_venomort_rune_e_1"							"[E1] Infection"
-    	"DOTA_Tooltip_ability_venomort_rune_e_1_Description"				"Increases all <font color=\"#37DD3D\">Poison</font> damage dealt by Venomort."
+    	"DOTA_Tooltip_ability_venomort_rune_e_1_Description"				"Increases all <font color=ELEMENT_POISON>Poison</font> damage dealt by Venomort."
     	"DOTA_Tooltip_ability_venomort_rune_e_1_property_one"				"Poison damage"
     	"DOTA_Tooltip_ability_venomort_rune_e_1_suffix"						"%"
 
@@ -194,7 +194,7 @@
     	"property_venomort_arcana1_description"								"Replaces @Ability4 and all of its runes with Reaper's Judgement."
 
     	"DOTA_Tooltip_ability_venom_reaper_slice"								"Reaper's Judgement"
-    	"DOTA_Tooltip_ability_venom_reaper_slice_Description"					"Element: <font color=\"#37DD3D\">Poison</font> / <font color=\"#5C776E\">Undead</font><br>Toggle on to conjure up to 3 venomous reapers of Death against random enemies within <% VENOMORT_ARCANA1_R_RADIUS %> range, whose strikes deal a multiple of Venomort's total attack damage. While the reapers are active, Venomort's base movement speed is set to 100."
+    	"DOTA_Tooltip_ability_venom_reaper_slice_Description"					"Element: <font color=ELEMENT_POISON>Poison</font> / <font color=ELEMENT_UNDEAD>Undead</font><br>Toggle on to conjure up to 3 venomous reapers of Death against random enemies within <% VENOMORT_ARCANA1_R_RADIUS %> range, whose strikes deal a multiple of Venomort's total attack damage. While the reapers are active, Venomort's base movement speed is set to 100."
     	"DOTA_Tooltip_ability_venom_reaper_slice_damage_mult"					"ATTACK POWER DAMAGE MULTIPLIER:"
 
   		"DOTA_Tooltip_ability_venomort_rune_r_1_arcana1"						"[R1] Purgatory"
@@ -236,7 +236,7 @@
     	"DOTA_Tooltip_modifier_chilled_stacking"							"Frostvenom Grasp"
 
     	"DOTA_Tooltip_ability_venomort_frostvenom_grasp"								"Frostvenom Grasp"
-    	"DOTA_Tooltip_ability_venomort_frostvenom_grasp_Description"					"Element: <font color=\"#37DD3D\">Poison</font> / <font color=\"#87D9FF\">Ice</font><br>Venomort raps his scythe against the ground, calling up the sheer cold of the Winterblight against nearby enemies. Each Frostvenom Grasp explosion damages and slows all targets caught in each blast. Limit 1 blast per enemy."
+    	"DOTA_Tooltip_ability_venomort_frostvenom_grasp_Description"					"Element: <font color=ELEMENT_POISON>Poison</font> / <font color=ELEMENT_ICE>Ice</font><br>Venomort raps his scythe against the ground, calling up the sheer cold of the Winterblight against nearby enemies. Each Frostvenom Grasp explosion damages and slows all targets caught in each blast. Limit 1 blast per enemy."
     	"DOTA_Tooltip_ability_venomort_frostvenom_grasp_explosions"						"EXPLOSIONS:"
     	"DOTA_Tooltip_ability_venomort_frostvenom_grasp_damage"							"DAMAGE:"
     	"DOTA_Tooltip_ability_venomort_frostvenom_grasp_bonus_attack_speed"				"ATTACK SPEED SLOW:"
@@ -282,7 +282,7 @@
 		"item_rpc_venomort_glyph_3_1_description" 				"While invisible from @Ability3, Venomort's health regeneration is increased by @glyph_property1% of maximum health. Additionally reduces @Ability3's cooldown by <% VENOMORT_GLYPH_3_1_E_CD_RED %> seconds and multiplies its cast range by <% VENOMORT_GLYPH_3_1_E_CAST_RANGE_AMP %>."
 
 		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_4_1"		"[T4-1] Glyph of Melancholy"
-		"item_rpc_venomort_glyph_4_1_description" 				"[E1] additionally increases <font color=\"#9ACCD1\">Ghost</font>, <font color=\"#5C776E\">Undead</font>, and <font color=\"#7F4F84\">Shadow</font> damage."
+		"item_rpc_venomort_glyph_4_1_description" 				"[E1] additionally increases <font color=ELEMENT_GHOST>Ghost</font>, <font color=ELEMENT_UNDEAD>Undead</font>, and <font color=ELEMENT_SHADOW>Shadow</font> damage."
 
 		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_5_1"		"[T5-1] Glyph of Ghoul Frenzy"
 		"item_rpc_venomort_glyph_5_1_description" 				"Multiplies the effectiveness of [W3] by @glyph_property1."

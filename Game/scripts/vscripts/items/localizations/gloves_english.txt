@@ -134,7 +134,7 @@
 
 		"item_rpc_dark_emissary_glove_ruby1"						"Increases Spectral Mist damage by @ruby_property1 and Spell Pierce by @ruby_property2"
 		"item_rpc_dark_emissary_glove_emerald1"						"Spectral Mist creates an additional patch of fog that lingers for @emerald_property1 seconds, and enemies within take @emerald_property2% of the initial damage every <% ITEM_RPC_DARK_EMISSARY_GLOVE_EMERALD_DOT_INTERVAL %> seconds"
-		"item_rpc_dark_emissary_glove_sapphire1"						"Increases <font color=\"#9ACCD1\">Ghost</font> Elemental Damage and Item Damage by @sapphire_property1%"
+		"item_rpc_dark_emissary_glove_sapphire1"						"Increases <font color=ELEMENT_GHOST>Ghost</font> Elemental Damage and Item Damage by @sapphire_property1%"
 		"item_rpc_dark_emissary_glove_amethyst1"						"Spectral Mist applies invisibility for @amethyst_property1 seconds. Attacking or casting a spell breaks this invisibilty. Spell Pierce is increased by @amethyst_property2 while invisible by any means."
 
     	"DOTA_Tooltip_ability_item_rpc_demonfire_gauntlet"								"Demonfire Gauntlet"
@@ -152,7 +152,7 @@
 		"DOTA_Tooltip_ability_item_rpc_depth_demon_claw"			"Depth Demon Claw"	
 
 		"property_depth_demon_claw"												"Metamorphose"
-		"property_depth_demon_claw_Description"									"All Elemental damage has its secondary element converted into <font color=\"#5B648C\">Demon</font> damage."
+		"property_depth_demon_claw_Description"									"All Elemental damage has its secondary element converted into <font color=ELEMENT_DEMON>Demon</font> damage."
 
 		"item_rpc_depth_demon_claw_ruby1"			"Increases attack power by @ruby_property1%, but attacks drain @ruby_property2% of max health. The health drain does not break shields and cannot be lethal"
 		"item_rpc_depth_demon_claw_emerald1"			"Reduces Health Regen @emerald_property1 and increases Mana Regen by @emerald_property2"
@@ -224,9 +224,9 @@
 
     	"DOTA_Tooltip_ability_item_rpc_gauntlet_of_divine_purity"						"Gauntlet of Divine Purity"
 		"item_property_divine_purity"				"Divine Purity"
-		"property_divine_purity_description"		"Your basic attacks deal <% ITEM_RPC_GAUNTLET_OF_DIVINE_PURITY_DMG_REDUCTION %>% reduced damage. Attacks' primary element is now <font color=\"#F6FFB5\">Holy</font> and deals Pure damage."
+		"property_divine_purity_description"		"Your basic attacks deal <% ITEM_RPC_GAUNTLET_OF_DIVINE_PURITY_DMG_REDUCTION %>% reduced damage. Attacks' primary element is now <font color=ELEMENT_HOLY>Holy</font> and deals Pure damage."
     	"item_rpc_gauntlet_of_divine_purity_ruby1"						"Increases Armor and Magic armor by @ruby_property1"
-    	"item_rpc_gauntlet_of_divine_purity_emerald1"						"Increases <font color=\"#F6FFB5\">Holy</font> elemental damage by @emerald_property1%"
+    	"item_rpc_gauntlet_of_divine_purity_emerald1"						"Increases <font color=ELEMENT_HOLY>Holy</font> elemental damage by @emerald_property1%"
     	"item_rpc_gauntlet_of_divine_purity_sapphire1"						"Increases Base Attack Damage by @sapphire_property1"
     	"item_rpc_gauntlet_of_divine_purity_amethyst1"						"Your attacks heal you for @amethyst_property1% of your max health"
 
@@ -235,10 +235,10 @@
 		"item_property_forgotten_ghost"					"Afterburn"
 		 "property_forgotten_ghost_description"				"All debuffs that you apply on enemies last <% ITEM_RPC_GLOVE_OF_THE_FORGOTTEN_GHOST_DURATION_INCREASE_PCT %>% longer."
 
-    	"item_rpc_glove_of_the_forgotten_ghost_ruby1"					"Increases <font color=\"#9ACCD1\">Ghost</font> elemental damage and Base Ability Damage by @ruby_property1%"
+    	"item_rpc_glove_of_the_forgotten_ghost_ruby1"					"Increases <font color=ELEMENT_GHOST>Ghost</font> elemental damage and Base Ability Damage by @ruby_property1%"
     	"item_rpc_glove_of_the_forgotten_ghost_emerald1"					"Increases all base debuff durations that you apply on enemies by a flat @emerald_property1 seconds"
     	"item_rpc_glove_of_the_forgotten_ghost_sapphire1"					"When you apply any debuff on an enemy, they have their Magic Armor reduced by @sapphire_property1 for <% ITEM_RPC_GLOVE_OF_THE_FORGOTTEN_GHOST_SAPPHIRE_DURATION_PCT %>% of the debuff's duration"
-    	"item_rpc_glove_of_the_forgotten_ghost_amethyst1"					"Increases <font color=\"#9ACCD1\">Ghost</font> elemental damage and Item Damage by @amethyst_property1%"
+    	"item_rpc_glove_of_the_forgotten_ghost_amethyst1"					"Increases <font color=ELEMENT_GHOST>Ghost</font> elemental damage and Item Damage by @amethyst_property1%"
 
       	"DOTA_Tooltip_ability_item_rpc_gloves_of_sweeping_wind"							"Gloves of Sweeping Winds"
 
@@ -248,7 +248,7 @@
 		"DOTA_Tooltip_modifier_sweeping_wind_stackable_Description"	"Each stack provides bonus attack damage and damages nearby enemies."
 
     	"item_rpc_gloves_of_sweeping_wind_ruby1"							"@ruby_property1% chance to not lose a stack when attacking"
-    	"item_rpc_gloves_of_sweeping_wind_emerald1"							"Each Sweeping Wind stack increases <font color=\"#7AE2A7\">Wind</font> Elemental damage by @emerald_property1%"
+    	"item_rpc_gloves_of_sweeping_wind_emerald1"							"Each Sweeping Wind stack increases <font color=ELEMENT_WIND>Wind</font> Elemental damage by @emerald_property1%"
     	"item_rpc_gloves_of_sweeping_wind_sapphire1"							"Casting [W] has a @sapphire_property1% chance to add a Sweeping Wind stack"
     	"item_rpc_gloves_of_sweeping_wind_amethyst1"							"Increases Sweeping wind's damage by @amethyst_property1 and each Sweeping Wind stack increases Base Attack Damage by @amethyst_property2"
 
@@ -343,7 +343,7 @@
 		"item_property_ironbound_gloves"					"Ironfist"
 		"property_ironbound_gloves_description"				"Your base attack damage is increased by <% ITEM_RPC_IRONBOUND_GLOVES_ATTACK_PER_ARMOR %>x your total Armor. Reduces Attack Speed by <% ITEM_RPC_IRONBOUND_GLOVES_ATTACKSPEED_LOSS %>."
 
-    	"item_rpc_ironbound_gloves_ruby1"								"Increases all <font color=\"#DDDDDD\">Normal</font> damage by @ruby_property1%"
+    	"item_rpc_ironbound_gloves_ruby1"								"Increases all <font color=ELEMENT_NORMAL>Normal</font> damage by @ruby_property1%"
     	"item_rpc_ironbound_gloves_emerald1"								"@emerald_property1% chance to fully block physical damage"
     	"item_rpc_ironbound_gloves_sapphire1"								"Agility, Intelligence and Spirit increase Armor by @sapphire_property1"
     	"item_rpc_ironbound_gloves_amethyst1"								"Each point of Strength increases Armor Pierce by @amethyst_property1"
@@ -432,7 +432,7 @@
 		"item_property_phoenix_gloves"				"Perpetual Rebirth" 
 		"property_phoenix_gloves_description"		"Gain <% ITEM_RPC_PHOENIX_GLOVES_HP_REGEN_PER_MISSING_HP %> health regen for each missing point of health."
 
-    	"item_rpc_phoenix_gloves_ruby1"									"Increases Attack Speed by @ruby_property1 and makes your basic attacks have <font color=\"#EF4126\">Fire</font> element"
+    	"item_rpc_phoenix_gloves_ruby1"									"Increases Attack Speed by @ruby_property1 and makes your basic attacks have <font color=ELEMENT_FIRE>Fire</font> element"
     	"item_rpc_phoenix_gloves_emerald1"									"Increases Agility by @emerald_property1 and each point of Agility increases Max Health by @emerald_property2"
     	"item_rpc_phoenix_gloves_sapphire1"									"Gain @sapphire_property1 Base Attack Damage for each current point of health"
     	"item_rpc_phoenix_gloves_amethyst1"									"Increases Spirit by @amethyst_property1, and each point of Spirit increases Max Health by @amethyst_property2"
@@ -480,7 +480,7 @@
 		"property_shadow_armlet_description"	"<% ITEM_RPC_SHADOW_ARMLET_INVIS_CHANCE %>% chance on taking damage to go invisible for <% ITEM_RPC_SHADOW_ARMLET_INVIS_DURATION %> seconds. Attacking or casting removes the invisibility."
 
     	"item_rpc_shadow_armlet_ruby1"									"@ruby_property1% chance on taking damage to instantly heal for the amount of the damage instance"
-    	"item_rpc_shadow_armlet_emerald1"									"Increases <font color=\"#7F4F84\">Shadow</font> Elemental Damage and Item Damage by @emerald_property1%"
+    	"item_rpc_shadow_armlet_emerald1"									"Increases <font color=ELEMENT_SHADOW>Shadow</font> Elemental Damage and Item Damage by @emerald_property1%"
     	"item_rpc_shadow_armlet_sapphire1"									"While invisible from Shadow Step, increase Health Regen by @sapphire_property1% of Max Health and increase the invisible duration by @sapphire_property2 seconds"
     	"item_rpc_shadow_armlet_amethyst1"									"Gain @amethyst_property1 Spell Pierce and Armor Pierce while invisible from Shadow Step"
 

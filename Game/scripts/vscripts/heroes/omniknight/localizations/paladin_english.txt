@@ -1,5 +1,5 @@
 		"DOTA_Tooltip_ability_heroic_fury"								"Heroic Fury"
-		"DOTA_Tooltip_ability_heroic_fury_Description"					"Element: <font color=\"#F6FFB5\">Holy</font> / <font color=\"#DDDDDD\">Normal</font><br>Empowers the Paladin's weapon to deal massive splash and slow effect, as well as heal him on successful strikes."
+		"DOTA_Tooltip_ability_heroic_fury_Description"					"Element: <font color=ELEMENT_HOLY>Holy</font> / <font color=ELEMENT_NORMAL>Normal</font><br>Empowers the Paladin's weapon to deal massive splash and slow effect, as well as heal him on successful strikes."
 		"DOTA_Tooltip_ability_heroic_fury_Lore"							""
 		"DOTA_Tooltip_ability_heroic_fury_duration"						"DURATION:"
 		"DOTA_Tooltip_ability_heroic_fury_damage"						"SPLASH DAMAGE:"
@@ -42,14 +42,14 @@
     	"DOTA_Tooltip_modifier_paladin_q3_shield_Description"		"Absorbs the next instance of damage and zaps the shield breaker."
 		
 		"DOTA_Tooltip_ability_paladin_rune_q_4"							"[Q4] Holy Crusader"
-    	"DOTA_Tooltip_ability_paladin_rune_q_4_Description"				"Any overhealing done by Paladin creates a shield that absorbs damage. Passively increases all <font color=\"#F6FFB5\">Holy</font> damage."
+    	"DOTA_Tooltip_ability_paladin_rune_q_4_Description"				"Any overhealing done by Paladin creates a shield that absorbs damage. Passively increases all <font color=ELEMENT_HOLY>Holy</font> damage."
     	"DOTA_Tooltip_ability_paladin_rune_q_4_property_one"			"Max Shield Absorb"
     	"DOTA_Tooltip_ability_paladin_rune_q_4_suffix"					"% of shield bearer's Max Health"
     	"DOTA_Tooltip_ability_paladin_rune_q_4_property_two"			"Holy Damage Increase"
     	"DOTA_Tooltip_ability_paladin_rune_q_4_suffix_two"				"%"
 		
 		"DOTA_Tooltip_ability_justice_overwhelming"								"Justice Overwhelming"
-		"DOTA_Tooltip_ability_justice_overwhelming_Description"					"Element: <font color=\"#F6FFB5\">Holy</font><br>A wave of pure Holy Justice blasts from the Paladin's hand. The force pushes him back and deals damage in a cone."
+		"DOTA_Tooltip_ability_justice_overwhelming_Description"					"Element: <font color=ELEMENT_HOLY>Holy</font><br>A wave of pure Holy Justice blasts from the Paladin's hand. The force pushes him back and deals damage in a cone."
 		"DOTA_Tooltip_ability_justice_overwhelming_Lore"							""
 		"DOTA_Tooltip_ability_justice_overwhelming_damage"							"DAMAGE:"
 		
@@ -191,7 +191,7 @@
     	"property_paladin_arcana1_description"								"Replaces @Ability2 and all of its runes with Penance."
 
     	"DOTA_Tooltip_ability_paladin_penance"								"Penance"
-    	"DOTA_Tooltip_ability_paladin_penance_Description"					"Element: <font color=\"#F6FFB5\">Holy</font> / <font color=\"#9ACCD1\">Ghost</font><br>Paladin impels a holy spirit lance that can target allies or enemies. Enemies around the initial target are also damaged. Allies who are hit by Penance are healed for 10% of the base ability damage."
+    	"DOTA_Tooltip_ability_paladin_penance_Description"					"Element: <font color=ELEMENT_HOLY>Holy</font> / <font color=ELEMENT_GHOST>Ghost</font><br>Paladin impels a holy spirit lance that can target allies or enemies. Enemies around the initial target are also damaged. Allies who are hit by Penance are healed for 10% of the base ability damage."
     	"DOTA_Tooltip_ability_paladin_penance_damage"						"DAMAGE:"
     	"DOTA_Tooltip_ability_paladin_penance_heal_percentage"				"HEAL PERCENTAGE:"
 		"DOTA_Tooltip_ability_paladin_penance_cast_range"					"CAST RANGE:"
@@ -235,7 +235,7 @@
     	"property_paladin_arcana2_description"								"Replaces @Ability3 and all of its runes with Wings of Sanctity."
 
     	"DOTA_Tooltip_ability_paladin_crusader_comet"						"Wings of Sanctity"
-    	"DOTA_Tooltip_ability_paladin_crusader_comet_Description"			"Element: <font color=\"#F6FFB5\">Holy</font><br>Paladin is lifted towards heaven and then storms toward the target location, purifying enemies at the impact point."
+    	"DOTA_Tooltip_ability_paladin_crusader_comet_Description"			"Element: <font color=ELEMENT_HOLY>Holy</font><br>Paladin is lifted towards heaven and then storms toward the target location, purifying enemies at the impact point."
     	"DOTA_Tooltip_ability_paladin_crusader_comet_cast_range"			"CAST RANGE:"
     	"DOTA_Tooltip_ability_paladin_crusader_comet_base_damage"			"DAMAGE:"
     	"DOTA_Tooltip_ability_paladin_crusader_comet_damage_from_str"		"BONUS DAMAGE FROM STRENGTH MULTIPLIER"
@@ -250,7 +250,7 @@
     	"DOTA_Tooltip_modifier_paladin_heal_on_lethal_cooldown"				"Devotion Cooldown"
 
   		"DOTA_Tooltip_ability_paladin_rune_e_2_arcana2"						"[E2] Benediction"
-    	"DOTA_Tooltip_ability_paladin_rune_e_2_arcana2_Description"			"Each % of <font color=\"#F6FFB5\">Holy</font> damage amplification is added to base attack damage."
+    	"DOTA_Tooltip_ability_paladin_rune_e_2_arcana2_Description"			"Each % of <font color=ELEMENT_HOLY>Holy</font> damage amplification is added to base attack damage."
     	"DOTA_Tooltip_ability_paladin_rune_e_2_arcana2_property_one"		"Holy Amp added to attack damage"
     	"DOTA_Tooltip_ability_paladin_rune_e_2_arcana2_suffix"				"x"
 
@@ -260,7 +260,7 @@
     	"DOTA_Tooltip_ability_paladin_rune_e_3_arcana2_suffix"				" seconds"
 
   		"DOTA_Tooltip_ability_paladin_rune_e_4_arcana2"						"[E4] Spirit of Resolution"
-    	"DOTA_Tooltip_ability_paladin_rune_e_4_arcana2_Description"			"Spirit increases <font color=\"#F6FFB5\">Holy</font> damage amplification and Spell Pierce."
+    	"DOTA_Tooltip_ability_paladin_rune_e_4_arcana2_Description"			"Spirit increases <font color=ELEMENT_HOLY>Holy</font> damage amplification and Spell Pierce."
     	"DOTA_Tooltip_ability_paladin_rune_e_4_arcana2_property_one"		"Holy Damage Amp"
     	"DOTA_Tooltip_ability_paladin_rune_e_4_arcana2_suffix"				"% of Spirit"
         "DOTA_Tooltip_ability_paladin_rune_e_4_arcana2_property_two"        "Spell Pierce"
@@ -311,7 +311,7 @@
         "item_rpc_paladin_glyph_4_2_description"                "@Ability2 has a <% PALADIN_GLYPH_4_2_CAST_POINT %> second cast point, and pushes forward."
 
         "DOTA_Tooltip_ability_item_rpc_paladin_glyph_5_2"       "[T5-2] Glyph of Penitence"
-        "item_rpc_paladin_glyph_5_2_description"                "@Ability4 may now attack, dealing Pure <font color=\"#F6FFB5\">Holy</font> damage equal to <% PALADIN_GLYPH_5_2_ATTACK_MULT %>x Paladin's attack power."
+        "item_rpc_paladin_glyph_5_2_description"                "@Ability4 may now attack, dealing Pure <font color=ELEMENT_HOLY>Holy</font> damage equal to <% PALADIN_GLYPH_5_2_ATTACK_MULT %>x Paladin's attack power."
 
         "DOTA_Tooltip_ability_item_rpc_paladin_glyph_6_2"       "[T6-2] Glyph of Magic Protection"
         "item_rpc_paladin_glyph_6_2_description"                "Magic Armor is increased by <% PALADIN_GLYPH_6_2_MAGIC_ARMOR_PCT %>%."

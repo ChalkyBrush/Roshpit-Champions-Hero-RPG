@@ -1,6 +1,6 @@
 		//Abilities
 		"DOTA_Tooltip_ability_leshrac_wall"								"宽恕之墙"
-    	"DOTA_Tooltip_ability_leshrac_wall_Description"					"元素： <font color=\"#F6FFB5\">圣</font><br>巴哈姆特在前方召唤一面宽恕之墙，揭露穿过之人的不足。<br>宽恕之墙附近的敌人将被判定罪行并受到惩罚。敌人靠近墙受到持续伤害并且降低攻击力。"
+    	"DOTA_Tooltip_ability_leshrac_wall_Description"					"元素： <font color=ELEMENT_HOLY>圣</font><br>巴哈姆特在前方召唤一面宽恕之墙，揭露穿过之人的不足。<br>宽恕之墙附近的敌人将被判定罪行并受到惩罚。敌人靠近墙受到持续伤害并且降低攻击力。"
     	"DOTA_Tooltip_ability_leshrac_wall_Lore"						""
     	"DOTA_Tooltip_ability_leshrac_wall_damage"						"每次伤害"
     	"DOTA_Tooltip_ability_leshrac_wall_wall_length"					"长度"
@@ -43,7 +43,7 @@
 		
 		
 		"DOTA_Tooltip_ability_leshrac_nuke"								"审判"
-    	"DOTA_Tooltip_ability_leshrac_nuke_Description"					"元素： <font color=\"#F6FFB5\">圣</font><br>巴哈姆特审判前方小范围内敌人的罪行。"
+    	"DOTA_Tooltip_ability_leshrac_nuke_Description"					"元素： <font color=ELEMENT_HOLY>圣</font><br>巴哈姆特审判前方小范围内敌人的罪行。"
     	"DOTA_Tooltip_ability_leshrac_nuke_Lore"						""
     	"DOTA_Tooltip_ability_leshrac_nuke_damage"						"伤害："
     	"DOTA_Tooltip_ability_leshrac_nuke_radius"						"范围："
@@ -119,13 +119,13 @@
 		
 		
 		"DOTA_Tooltip_ability_bahamut_rune_e_4"							"[E4] 和谐"
-    	"DOTA_Tooltip_ability_bahamut_rune_e_4_Description"				"提高所有 <font color=\"#F6FFB5\">圣</font> 元素的伤害。"
+    	"DOTA_Tooltip_ability_bahamut_rune_e_4_Description"				"提高所有 <font color=ELEMENT_HOLY>圣</font> 元素的伤害。"
     	"DOTA_Tooltip_ability_bahamut_rune_e_4_property_one"			"圣元素伤害提高"
     	"DOTA_Tooltip_ability_bahamut_rune_e_4_suffix"					"% "
 		
 		
 		"DOTA_Tooltip_ability_charge_of_light"							"神圣之耀"
-    	"DOTA_Tooltip_ability_charge_of_light_Description"				"元素： <font color=\"#F6FFB5\">圣</font><br>巴哈姆特向前冲锋，释放一股强大的爆炸力量以清除卑劣之物。冲锋时免疫物理和魔法伤害。"
+    	"DOTA_Tooltip_ability_charge_of_light_Description"				"元素： <font color=ELEMENT_HOLY>圣</font><br>巴哈姆特向前冲锋，释放一股强大的爆炸力量以清除卑劣之物。冲锋时免疫物理和魔法伤害。"
     	"DOTA_Tooltip_ability_charge_of_light_Lore"						""
     	"DOTA_Tooltip_ability_charge_of_light_damage"					"伤害："	
     	"DOTA_Tooltip_ability_charge_of_light_range"					"爆炸范围："
@@ -175,7 +175,7 @@
 		//Arcanas
 		
 		"DOTA_Tooltip_ability_bahamut_arcana_ulti" 						"天罚"
-    	"DOTA_Tooltip_ability_bahamut_arcana_ulti_Description"			"元素： <font color=\"#F6FFB5\">圣</font><br>巴哈姆特充满了强大的能量，获得一个buff，每0.1秒降下闪电随机打击巴哈姆特周围的一个敌人，并且将他们减速65%，持续0.2秒。"
+    	"DOTA_Tooltip_ability_bahamut_arcana_ulti_Description"			"元素： <font color=ELEMENT_HOLY>圣</font><br>巴哈姆特充满了强大的能量，获得一个buff，每0.1秒降下闪电随机打击巴哈姆特周围的一个敌人，并且将他们减速65%，持续0.2秒。"
     	"DOTA_Tooltip_ability_bahamut_arcana_ulti_duration"				"持续时间："
     	"DOTA_Tooltip_ability_bahamut_arcana_ulti_damage"				"闪电伤害："
 

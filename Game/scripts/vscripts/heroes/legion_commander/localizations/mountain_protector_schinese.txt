@@ -1,5 +1,5 @@
 		"DOTA_Tooltip_ability_mountain_protector_shockwave"			"冲击波"
-    	"DOTA_Tooltip_ability_mountain_protector_shockwave_Description"	"元素： <font color=\"#DDDDDD\">普通</font> / <font color=\"#AF843D\">土</font><br>释放出一连串的连绵起伏的力量造成伤害并眩晕路线上的敌人。"
+    	"DOTA_Tooltip_ability_mountain_protector_shockwave_Description"	"元素： <font color=ELEMENT_NORMAL>普通</font> / <font color=ELEMENT_EARTH>土</font><br>释放出一连串的连绵起伏的力量造成伤害并眩晕路线上的敌人。"
     	"DOTA_Tooltip_ability_mountain_protector_shockwave_stun_duration"	"眩晕时间"
     	"DOTA_Tooltip_ability_mountain_protector_shockwave_range"			"冲击波范围"
 
@@ -120,7 +120,7 @@
     	"DOTA_Tooltip_modifier_mountain_rune_e_4_effect_Description"	"增加基础攻击力和基础技能伤害"
 		
     	"DOTA_Tooltip_ability_mountain_protector_aeon_fracture"					"永世断裂"
-    	"DOTA_Tooltip_ability_mountain_protector_aeon_fracture_Description"		"元素： <font color=\"#AF843D\">土</font> / <font color=\"#EF4126\">火</font><br>对附近范围造成10秒破坏性的地震，不断制造爆炸伤害并眩晕击中的敌人。每一次爆炸在击中至少一个敌人后都有概率刷新[E] 技能的冷却时间。"
+    	"DOTA_Tooltip_ability_mountain_protector_aeon_fracture_Description"		"元素： <font color=ELEMENT_EARTH>土</font> / <font color=ELEMENT_FIRE>火</font><br>对附近范围造成10秒破坏性的地震，不断制造爆炸伤害并眩晕击中的敌人。每一次爆炸在击中至少一个敌人后都有概率刷新[E] 技能的冷却时间。"
     	"DOTA_Tooltip_ability_mountain_protector_aeon_fracture_stun_duration"	"眩晕持续时间"
     	"DOTA_Tooltip_ability_mountain_protector_aeon_fracture_explosions"		"爆炸伤害"
 	"DOTA_Tooltip_ability_mountain_protector_aeon_fracture_refresh_chance"  "E 刷新的概率: %"
@@ -148,7 +148,7 @@
     	"DOTA_Tooltip_ability_mountain_protector_rune_r_3_suffix_two"	"x 力量值"
 		
 		"DOTA_Tooltip_ability_mountain_protector_rune_r_4"						"[R4] 山丘之力"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_r_4_Description"			"提高所有 <font color=\"#AF843D\">土</font> 和 <font color=\"#EF4126\">火</font> 元素的伤害。"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_r_4_Description"			"提高所有 <font color=ELEMENT_EARTH>土</font> 和 <font color=ELEMENT_FIRE>火</font> 元素的伤害。"
     	"DOTA_Tooltip_ability_mountain_protector_rune_r_4_property_one"			"元素伤害提高"
     	"DOTA_Tooltip_ability_mountain_protector_rune_r_4_suffix"				"%"
 		
@@ -199,7 +199,7 @@
     	"property_mountain_protector_arcana2_description"								"用霜雪风暴替换 @Ability4 及其所有符文。"
 
     	"DOTA_Tooltip_ability_mountain_protector_hailstorm"								"霜雪风暴"
-    	"DOTA_Tooltip_ability_mountain_protector_hailstorm_Description"					"元素： <font color=\"#AF843D\">土</font> / <font color=\"#87D9FF\">冰</font><br>召唤极北冰川的严寒风暴对目标地区进行毁灭性的打击。区域内敌人攻击速度和移动速度降低，同时会受到冰冷沟壑的打击。每一次打击在击中至少一个敌人后都有概率刷新[E] 技能的冷却时间"
+    	"DOTA_Tooltip_ability_mountain_protector_hailstorm_Description"					"元素： <font color=ELEMENT_EARTH>土</font> / <font color=ELEMENT_ICE>冰</font><br>召唤极北冰川的严寒风暴对目标地区进行毁灭性的打击。区域内敌人攻击速度和移动速度降低，同时会受到冰冷沟壑的打击。每一次打击在击中至少一个敌人后都有概率刷新[E] 技能的冷却时间"
     	"DOTA_Tooltip_ability_mountain_protector_hailstorm_Lore"						""
     	"DOTA_Tooltip_ability_mountain_protector_hailstorm_stun_duration"				"眩晕时间："
     	"DOTA_Tooltip_ability_mountain_protector_hailstorm_damage"						"伤害："
@@ -240,7 +240,7 @@
         "DOTA_Tooltip_modifier_hailstorm_armor_and_magic_armor_loss_Description"        "降低双甲"  
 
       	"DOTA_Tooltip_ability_mountain_protector_rune_r_4_arcana2"						"[R4] 冰山一角"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_r_4_arcana2_Description"			"提高所有 <font color=\"#AF843D\">土</font> 与 <font color=\"#87D9FF\">冰</font> 元素的伤害。"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_r_4_arcana2_Description"			"提高所有 <font color=ELEMENT_EARTH>土</font> 与 <font color=ELEMENT_ICE>冰</font> 元素的伤害。"
     	"DOTA_Tooltip_ability_mountain_protector_rune_r_4_arcana2_property_one"			"元素伤害提高"
     	"DOTA_Tooltip_ability_mountain_protector_rune_r_4_arcana2_suffix"				"%"	
 
@@ -248,7 +248,7 @@
     	"property_mountain_protector_arcana3_description"								"用 陨石 和 火山岩 替换 @Ability3 及其全部符文。"
 
     	"DOTA_Tooltip_ability_mountain_protector_rockfall"								"陨石"
-    	"DOTA_Tooltip_ability_mountain_protector_rockfall_Description"					"元素： <font color=\"#AF843D\">土</font> / <font color=\"#EF4126\">火</font><br>召唤 3 组 炽热的火山岩，向目标地点投射，伤害并眩晕敌人。 被击中的敌人魔甲将被降低10秒。同时，每击中一个敌人，山丘守卫都将对自己造成 % 最大生命值的伤害，对自身的伤害不致死。"
+    	"DOTA_Tooltip_ability_mountain_protector_rockfall_Description"					"元素： <font color=ELEMENT_EARTH>土</font> / <font color=ELEMENT_FIRE>火</font><br>召唤 3 组 炽热的火山岩，向目标地点投射，伤害并眩晕敌人。 被击中的敌人魔甲将被降低10秒。同时，每击中一个敌人，山丘守卫都将对自己造成 % 最大生命值的伤害，对自身的伤害不致死。"
     	"DOTA_Tooltip_ability_mountain_protector_rockfall_Lore"							""
     	"DOTA_Tooltip_ability_mountain_protector_rockfall_stun_duration"				"眩晕持续时间："
     	"DOTA_Tooltip_ability_mountain_protector_rockfall_damage"						"伤害："

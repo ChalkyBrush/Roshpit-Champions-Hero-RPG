@@ -14,7 +14,7 @@
 		"item_property_arcane_cascade_hat"				"Arcane Cascade"
 		"property_arcane_cascade_hat_description"		"Поглощает <% ARCANE_CASCADE_MANA_DRAIN * 100 %>% от максимальной маны каждые <% ARCANE_CASCADE_TICKRATE %> сек. Все противники в радиусе <% ARCANE_CASCADE_RANGE %> получают <% ARCANE_CASCADE_DAMAGE %>x от поглощенной маны Магическим уроном."
 
-		"item_rpc_arcane_cascade_hat_ruby1"	"Увеличивает урон <font color=\"#E1A2E8\">Тайны</font> на @ruby_property1%"
+		"item_rpc_arcane_cascade_hat_ruby1"	"Увеличивает урон <font color=ELEMENT_ARCANE>Тайны</font> на @ruby_property1%"
 		"item_rpc_arcane_cascade_hat_emerald1" "Увеличивает максимальный запас Маны на @emerald_property1"
 		"item_rpc_arcane_cascade_hat_sapphire1"	"Увеличивает поглощение маны дополнительно на @sapphire_property1%"
 		"item_rpc_arcane_cascade_hat_amethyst1" "Магическая защита противников под действием эффекта снижается на @amethyst_property1"
@@ -94,7 +94,7 @@
 		"item_property_burning_spirit"							"Flamethrower"
 		"property_burning_spirit_description"					"Во время заряда @Ability4 выпускает поток пламени перед героем, который наносит <% BURNING_SPIRIT_ATTACK_TO_DAMAGE %>% от урона атаки с высокой частотой."
 
-		"item_rpc_burning_spirit_helmet_ruby1"	"Увеличивает Базовый Урон Способностей и урон <font color=\"#EF4126\">Огня</font> на @ruby_property1%"
+		"item_rpc_burning_spirit_helmet_ruby1"	"Увеличивает Базовый Урон Способностей и урон <font color=ELEMENT_FIRE>Огня</font> на @ruby_property1%"
 		"item_rpc_burning_spirit_helmet_emerald1" "Урон потока пламени увеличивается на @emerald_property1% от Силы Атаки героя, все Атрибуты героя увеличиваются на @emerald_property2"
 		"item_rpc_burning_spirit_helmet_sapphire1"	"Обычные атаки получают @sapphire_property1% шанс выстрелить струей пламени, дальность которой равна расстоянию между героем и целью, плюс @sapphire_property2 дополнительной дистанции"
 		"item_rpc_burning_spirit_helmet_amethyst1" "Каждое попадание пламени по противнику снизит текущую перезарядку [R] на @amethyst_property1 сек"	
@@ -107,13 +107,13 @@
 		"property_wild_nature_two_description"		"Противники, задетые @Ability2, имеют <% CAP_OF_WILD_NATURE_CHANCE_TWO %>% шанс быть опутаными корнями на <% CAP_OF_WILD_NATURE_DURATION_TWO %> сек. Противники в корнях получают урон <% CAP_OF_WILD_NATURE_DAMAGE_PER_ATTRIBUTES %>x от основного атрибута героя каждую секунду."
 
 		"item_rpc_cap_of_wild_nature_ruby1"	"Увеличивает урон корней на @ruby_property1%"
-		"item_rpc_cap_of_wild_nature_emerald1" "Увеличивает урон <font color=\"#69BC71\">Природы</font> на @emerald_property1%"
+		"item_rpc_cap_of_wild_nature_emerald1" "Увеличивает урон <font color=ELEMENT_NATURE>Природы</font> на @emerald_property1%"
 		"item_rpc_cap_of_wild_nature_sapphire1"	"Противники, задетые [Q], будут с <% CAP_OF_WILD_NATURE_SAPPHIRE_PROC %>% шансом опутаны корнями на  @sapphire_property1 сек"
 		"item_rpc_cap_of_wild_nature_amethyst1" "Увеличивает Регенерацию Здоровья на @amethyst_property1"	
 
     	"DOTA_Tooltip_ability_item_rpc_carbuncles_helm_of_reflection"					"Carbuncle's Helm of Reflection"
 		"item_property_carbuncle"								"Ruby Shell"
-		"property_carbuncle_description"						"При прочтении @Ability2 даёт герою щит на <% CARBUNCLE_SHIELD_DURATION %> сек, который поглощает порцию Магического или Чистого урона, возвращает ее атакующему <font color=\"#EF4126\">Огненным</font>/<font color=\"#E1A2E8\">Тайным</font> уроном и отключается после этого. Перезарядка щита <% CARBUNCLE_SHIELD_COOLDOWN %> сек."
+		"property_carbuncle_description"						"При прочтении @Ability2 даёт герою щит на <% CARBUNCLE_SHIELD_DURATION %> сек, который поглощает порцию Магического или Чистого урона, возвращает ее атакующему <font color=ELEMENT_FIRE>Огненным</font>/<font color=ELEMENT_ARCANE>Тайным</font> уроном и отключается после этого. Перезарядка щита <% CARBUNCLE_SHIELD_COOLDOWN %> сек."
 		"DOTA_Tooltip_modifier_carbuncles_helm_of_reflection_effect"	"Ruby Shell"
 		"DOTA_Tooltip_modifier_carbuncles_helm_of_reflection_effect_Description"	"Магический или Чистый урон будет возвращен атакующему"
 
@@ -168,7 +168,7 @@
 		"item_rpc_crimson_skull_cap_ruby1"	"Увеличивает урон от взрыва дополнительно на @ruby_property1% от показателя Здоровья убитого противника"
 		"item_rpc_crimson_skull_cap_emerald1"	"Увеличивает радиус взрыва на @emerald_property1"
 		"item_rpc_crimson_skull_cap_sapphire1" "При получении урона герой произведет взрыв через <% CRIMSON_SKULL_CAP_SAPPHIRE_COUNTDOWN_TIMER %> сек, нанося урон по обласи @sapphire_property1% от максимального запаса здоровья"
-		"item_rpc_crimson_skull_cap_amethyst1" "Увеличивает урон Предметов и урон <font color=\"#5C776E\">Нежити</font> на @amethyst_property1"
+		"item_rpc_crimson_skull_cap_amethyst1" "Увеличивает урон Предметов и урон <font color=ELEMENT_UNDEAD>Нежити</font> на @amethyst_property1"
 
 		"DOTA_Tooltip_modifier_crimson_skull_cap_sapphire_countdown"	"Crimson Skull Cap (Sapphire)"
 		"DOTA_Tooltip_modifier_crimson_skull_cap_sapphire_countdown_Description"	"Носитель взорвется по окончании таймера"
@@ -198,7 +198,7 @@
 		"item_rpc_crown_of_the_lava_forge_ruby1"	"Шанс срабатывания увеличен на @ruby_property1%"
 		"item_rpc_crown_of_the_lava_forge_emerald1"	"Увеличивает урон огненных шаров дополнительно на @emerald_property1% от Ловкости"
 		"item_rpc_crown_of_the_lava_forge_sapphire1" "Увеличивает Броню и Магическую Защиту героя на @sapphire_property1"
-		"item_rpc_crown_of_the_lava_forge_amethyst1" "Увеличивает урон Предметов, урон <font color=\"#EF4126\">Огня</font> и <font color=\"#7AE2A7\">Ветра</font> на @amethyst_property1%"
+		"item_rpc_crown_of_the_lava_forge_amethyst1" "Увеличивает урон Предметов, урон <font color=ELEMENT_FIRE>Огня</font> и <font color=ELEMENT_WIND>Ветра</font> на @amethyst_property1%"
 
     	"DOTA_Tooltip_ability_item_rpc_crown_of_the_roknar_emperor"						"Crown of the Rok'nar Emperor"
 		"item_property_roknar_emperor"				"Enduring Protection"
@@ -229,7 +229,7 @@
 		"item_rpc_death_whisper_helm_ruby1"	"Увеличивает показатель рун T1 на @ruby_property1 (Q1, W1, E1, R1)"
 		"item_rpc_death_whisper_helm_emerald1"	"Увеличивает показатель рун T2 на @emerald_property1 (Q2, W2, E2, R2)"
 		"item_rpc_death_whisper_helm_sapphire1" "Прочтение [Q] применяет невидимость на @sapphire_property1 сек"
-		"item_rpc_death_whisper_helm_amethyst1" "Увеличивает Базовый Урон Способностей и урон <font color=\"#7F4F84\">Тени</font> на @amethyst_property1%"
+		"item_rpc_death_whisper_helm_amethyst1" "Увеличивает Базовый Урон Способностей и урон <font color=ELEMENT_SHADOW>Тени</font> на @amethyst_property1%"
 
 		"DOTA_Tooltip_modifier_death_whisper_debuff"		"Death Whisper"
 		"DOTA_Tooltip_modifier_death_whisper_debuff_Description"	"Скорость перемещения и сопротивление эффектам снижены"
@@ -242,7 +242,7 @@
 		"item_rpc_demon_mask_ruby1"	"Урон взрыва увеличен на дополнительные @ruby_property1% от урона [Q]"
 		"item_rpc_demon_mask_emerald1"	"Увеличивает показатель руны [Q3] на @emerald_property1"
 		"item_rpc_demon_mask_sapphire1" "Увеличивает шанс срабатывания Underworld Tear на @sapphire_property1%"
-		"item_rpc_demon_mask_amethyst1" "Увеличивает урон Предметов и урон <font color=\"#5B648C\">Демона</font> на @amethyst_property1%"
+		"item_rpc_demon_mask_amethyst1" "Увеличивает урон Предметов и урон <font color=ELEMENT_DEMON>Демона</font> на @amethyst_property1%"
 
     	"DOTA_Tooltip_ability_item_rpc_emerald_douli"									"Emerald Douli"
 		"item_property_emerald_douli"				"Mana Shield"
@@ -307,7 +307,7 @@
 
 		"item_rpc_guard_of_luma_ruby1"	"Шанс срабатывания лучей увеличен на @ruby_property1%"
 		"item_rpc_guard_of_luma_emerald1"	"Максимум срабатываний в секунду увеличен на @emerald_property1"
-		"item_rpc_guard_of_luma_sapphire1" "Даёт герою @sapphire_property1 свободного обзора, увеличивает урон <font color=\"#C25DFC\">Космоса</font> на @sapphire_property2%"
+		"item_rpc_guard_of_luma_sapphire1" "Даёт герою @sapphire_property1 свободного обзора, увеличивает урон <font color=ELEMENT_COSMOS>Космоса</font> на @sapphire_property2%"
 		"item_rpc_guard_of_luma_amethyst1" "Увеличивает урон лучей на @amethyst_property1% от урона способности"
 
 		"item_rpc_helm_of_champions_ruby1"	"Увеличивает показатель руны [Q1] на @ruby_property1"
@@ -405,7 +405,7 @@
 		"item_rpc_hyper_visor_ruby1"	"Increases Attack Speed @ruby_property1"
 		"item_rpc_hyper_visor_emerald1"	"Увеличивает урон разряда молнии дополнительно на @emerald_property1x от Ловкости"
 		"item_rpc_hyper_visor_sapphire1" "<% HYPER_VISOR_SAPPHIRE_CHAIN_LIGHTNING_CHANCE %>% шанс при атаке вызвать цепную молнию, которая перепрыгивает до <% HYPER_VISOR_SAPPHIRE_CHAIN_LIGHTNING_TARGET_COUNT %> раз и наносит @sapphire_property1% от урона разряда молнии Hyper Lightning"
-		"item_rpc_hyper_visor_amethyst1" "Увеличивает Урон Предметов и урон <font color=\"#5CCDF9\">Молнии</font> на @amethyst_property1%"
+		"item_rpc_hyper_visor_amethyst1" "Увеличивает Урон Предметов и урон <font color=ELEMENT_LIGHTNING>Молнии</font> на @amethyst_property1%"
 
     	"DOTA_Tooltip_ability_item_rpc_igneous_canine_helm"								"Igneous Canine Helm"
 		"item_property_igneous_canine"							"Lava Splash"
@@ -529,7 +529,7 @@
 		"item_rpc_shipyard_veil_lv1_ruby1"	"Каждый заряд щита Soul Shield увеличивает Базовый Урон Способностей на @ruby_property1%"
 		"item_rpc_shipyard_veil_lv1_emerald1"	"Противник, разбивший щит, будет атакован летающим черепом с @emerald_property1 урона"
 		"item_rpc_shipyard_veil_lv1_sapphire1" "Снижает интервал между получением щитов на @sapphire_property1"
-		"item_rpc_shipyard_veil_lv1_amethyst1" "Увеличивает урон <font color=\"#9ACCD1\">Призрака</font> на @amethyst_property1%"
+		"item_rpc_shipyard_veil_lv1_amethyst1" "Увеличивает урон <font color=ELEMENT_GHOST>Призрака</font> на @amethyst_property1%"
 
     	"DOTA_Tooltip_ability_item_rpc_shroud_of_eternal_night"							"Shroud of Eternal Night"
 		"item_property_eternal_night"				"Tranquilizer"
@@ -585,7 +585,7 @@
 		"item_rpc_swamp_witch_hat_ruby1"	"Противники, получившие урон от Murky Wave теряют @ruby_property1 Магической Защиты. Эффект складывается до <% SWAMP_WITCH_RUBY_MAX_STACKS %> раз и длится <% SWAMP_WITCH_RUBY_DURATION %> сек"
 		"item_rpc_swamp_witch_hat_emerald1"	"Murky Wave можно использовать раз в @emerald_property1 сек"
 		"item_rpc_swamp_witch_hat_sapphire1" "Противники, задетые Murky Wave, восстановят @sapphire_property1 Маны герою, дальность стаи увеличена на @sapphire_property2"
-		"item_rpc_swamp_witch_hat_amethyst1" "Увеличивает урон Предметов и урон <font color=\"#7F4F84\">Тени</font> на @amethyst_property1%"
+		"item_rpc_swamp_witch_hat_amethyst1" "Увеличивает урон Предметов и урон <font color=ELEMENT_SHADOW>Тени</font> на @amethyst_property1%"
 
     	"DOTA_Tooltip_ability_item_rpc_tricksters_mask"									"Trickster's Mask"
 		"item_property_trickster"					"Laughing Scoundrel"
@@ -656,11 +656,11 @@
 
     	"DOTA_Tooltip_ability_item_rpc_water_deity_crown"								"Water Deity Crown"
 		"item_property_water_deity"							"Wrath of Water"
-		"property_water_deity_description"						"@Ability4 наносит дополнительно <% WATER_DEITY_CROWN_DAMAGE_AMP %>% урона <font color=\"#3894FF\">Воды</font> и замедляет скорость передвижения противников на <% WATER_DEITY_CROWN_MOVESPEED_SLOW_PCT %>% на <% WATER_DEITY_CROWN_MOVESPEED_SLOW_DURATION %> сек. Максимум <% WATER_DEITY_CROWN_MAX_PROCS_PER_SECOND %> срабатываний в секунду."
+		"property_water_deity_description"						"@Ability4 наносит дополнительно <% WATER_DEITY_CROWN_DAMAGE_AMP %>% урона <font color=ELEMENT_WATER>Воды</font> и замедляет скорость передвижения противников на <% WATER_DEITY_CROWN_MOVESPEED_SLOW_PCT %>% на <% WATER_DEITY_CROWN_MOVESPEED_SLOW_DURATION %> сек. Максимум <% WATER_DEITY_CROWN_MAX_PROCS_PER_SECOND %> срабатываний в секунду."
 		"DOTA_Tooltip_modifier_water_deity_crown_slow"					"Wrath of Water"
 		"DOTA_Tooltip_modifier_water_deity_crown_slow_Description"		"Скорость перемещения снижена"
 
-		"item_rpc_water_deity_crown_ruby1"	"Увеличивает урон Предметов и урон <font color=\"#3894FF\">Воды</font> на @ruby_property1%"
+		"item_rpc_water_deity_crown_ruby1"	"Увеличивает урон Предметов и урон <font color=ELEMENT_WATER>Воды</font> на @ruby_property1%"
 		"item_rpc_water_deity_crown_emerald1"	"Эффект замедления также снижает и скорость атак на @emerald_property1"
 		"item_rpc_water_deity_crown_sapphire1" "Увеличивает урон Wrath of Water на @sapphire_property1% от Силы Атаки"
 		"item_rpc_water_deity_crown_amethyst1" "Увеличивает количество срабатываний в секунду на @amethyst_property1"
@@ -672,7 +672,7 @@
 		"DOTA_Tooltip_modifier_wind_deity_damage_buff_Description"		"Бонусный Урон Атаки увеличен"
 
 		"item_rpc_wind_deity_crown_ruby1"		"Увеличивает Ловкость на @ruby_property1, Скорость Атаки на @ruby_property2"
-		"item_rpc_wind_deity_crown_emerald1"	"Увеличивает урон Предметов и урон <font color=\"#7AE2A7\">Ветра</font> на @emerald_property1%"
+		"item_rpc_wind_deity_crown_emerald1"	"Увеличивает урон Предметов и урон <font color=ELEMENT_WIND>Ветра</font> на @emerald_property1%"
 		"item_rpc_wind_deity_crown_sapphire1" 	"Увеличивает количество срабатываний на @sapphire_property1"
 		"item_rpc_wind_deity_crown_amethyst1" 	"Задетые противники увеличивают Бонусный Урон Атаки героя на @amethyst_property1% на <% WIND_DEITY_AMETHYST_DURATION %> сек, но эффект будет обнулен при прочтении [E]. Максимум <% WIND_DEITY_AMETHYST_MAX_STACKS %> зарядов эффекта."
 
@@ -743,11 +743,11 @@
 		"item_rpc_sun_gods_visage_ruby1"		"Увеличивает потерю и восстановление Здоровья на дополнительные @ruby_property1%"
 		"item_rpc_sun_gods_visage_emerald1"	"Увеличивает Ловкость и Дух на @emerald_property1, если показатель Здоровья находится между <% ITEM_RPC_SUN_GODS_VISAGE_EMERALD_LOWER_BOUND %>% и <% ITEM_RPC_SUN_GODS_VISAGE_EMERALD_UPPER_BOUND %>%"
 		"item_rpc_sun_gods_visage_sapphire1" 	"Каждое очко текущего Здоровья увеличивает Магическую Защиту на @sapphire_property1, а каждое очко отсутсвующего Здоровья увеличивает Пробитие Магической Защиты на @sapphire_property2"
-		"item_rpc_sun_gods_visage_amethyst1" 	"Увеличивает Максимальный Запас Здоровья на @amethyst_property1 и урон стихии <font color=\"#EF4126\">Огня</font> на @amethyst_property2%"
+		"item_rpc_sun_gods_visage_amethyst1" 	"Увеличивает Максимальный Запас Здоровья на @amethyst_property1 и урон стихии <font color=ELEMENT_FIRE>Огня</font> на @amethyst_property2%"
 
     	"DOTA_Tooltip_ability_item_rpc_cloak_of_the_cimmerian_priesthood"						"Cloak of the Cimmerian Priesthood"
 		"item_property_cloak_of_the_cimmerian_priesthood"						"Shadow Priest"
-		"property_cloak_of_the_cimmerian_priesthood_description"				"Атаки наносят дополнительный магический урон <font color=\'#7F4F84\'>Тени</font>/<font color=\'#F6FFB5\'>Света</font>, основанный на <% ITEM_RPC_CLOAK_OF_THE_CIMMERIAN_PRIESTHOOD_DMG_PCT_TGT_CURRENT_HEALTH %>% от текущего Здоровья цели, а также исцеляют героя в размере <% ITEM_RPC_CLOAK_OF_THE_CIMMERIAN_PRIESTHOOD_HEAL_PCT %>% от базового значения этого урона (без учета мультипликаторов урона Стихий и Предметов)."
+		"property_cloak_of_the_cimmerian_priesthood_description"				"Атаки наносят дополнительный магический урон <font color=ELEMENT_SHADOW>Тени</font>/<font color=ELEMENT_HOLY>Света</font>, основанный на <% ITEM_RPC_CLOAK_OF_THE_CIMMERIAN_PRIESTHOOD_DMG_PCT_TGT_CURRENT_HEALTH %>% от текущего Здоровья цели, а также исцеляют героя в размере <% ITEM_RPC_CLOAK_OF_THE_CIMMERIAN_PRIESTHOOD_HEAL_PCT %>% от базового значения этого урона (без учета мультипликаторов урона Стихий и Предметов)."
 
 		"item_rpc_cloak_of_the_cimmerian_priesthood_ruby1"		"Противники, задетые [Q], получают <% ITEM_RPC_CLOAK_OF_THE_CIMMERIAN_PRIESTHOOD_RUBY_DAMAGE %>% от основной порции урона эффекта каждые @ruby_property1 сек в течение @ruby_property2 сек"
 		"item_rpc_cloak_of_the_cimmerian_priesthood_emerald1"	"Противники, задетые [W], исцеляют союзников героя рядом с ними в радиусе <% ITEM_RPC_CLOAK_OF_THE_CIMMERIAN_PRIESTHOOD_EMERALD_RANGE %> в размере @emerald_property1% от базового значения урона"

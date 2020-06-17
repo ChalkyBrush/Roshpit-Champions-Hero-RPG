@@ -1,5 +1,5 @@
     	"DOTA_Tooltip_ability_spirit_warrior_flametongue"			"炽血武器"
-    	"DOTA_Tooltip_ability_spirit_warrior_flametongue_Description"	"元素： <font color=\"#EF4126\">火</font><br>给友方单位施加火焰buff，提高其攻击力并使其在攻击时造成额外魔法伤害。当炽血武器存在时，拥有者造成的  <font color=\"#EF4126\">火</font> 元素伤害增加。"
+    	"DOTA_Tooltip_ability_spirit_warrior_flametongue_Description"	"元素： <font color=ELEMENT_FIRE>火</font><br>给友方单位施加火焰buff，提高其攻击力并使其在攻击时造成额外魔法伤害。当炽血武器存在时，拥有者造成的  <font color=ELEMENT_FIRE>火</font> 元素伤害增加。"
     	"DOTA_Tooltip_ability_spirit_warrior_flametongue_damage_increase"	"额外攻击力 %"
     	"DOTA_Tooltip_ability_spirit_warrior_flametongue_duration"			"buff持续时间："
     	"DOTA_Tooltip_ability_spirit_warrior_flametongue_damage"	"攻击时额外魔法伤害："
@@ -11,7 +11,7 @@
 
 
     	"DOTA_Tooltip_ability_spirit_warrior_soul_thrust"			"灵魂之刺"
-    	"DOTA_Tooltip_ability_spirit_warrior_soul_thrust_Description"	"元素： <font color=\"#EF4126\">火</font> / <font color=\"#7AE2A7\">风</font><br>灵魂守卫将他的长矛刺向前方的地面，造成毁灭性的灵魂爆炸。炽血武器可提高该技能伤害。被灵魂之刺击中的敌人在7秒内，对灵魂守卫造成的伤害将减少<% SPIRIT_WARRIOR_W_DAMAGE_REDUCTION * 100 %>%。"	
+    	"DOTA_Tooltip_ability_spirit_warrior_soul_thrust_Description"	"元素： <font color=ELEMENT_FIRE>火</font> / <font color=ELEMENT_WIND>风</font><br>灵魂守卫将他的长矛刺向前方的地面，造成毁灭性的灵魂爆炸。炽血武器可提高该技能伤害。被灵魂之刺击中的敌人在7秒内，对灵魂守卫造成的伤害将减少<% SPIRIT_WARRIOR_W_DAMAGE_REDUCTION * 100 %>%。"	
     	"DOTA_Tooltip_ability_spirit_warrior_soul_thrust_damage"		"伤害："
 
     	"DOTA_Tooltip_modifier_soul_thrust_effect"					"灵魂之刺"
@@ -57,7 +57,7 @@
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_3_suffix"		"% 攻击力"
 
       	"DOTA_Tooltip_ability_spirit_warrior_windstrike_weapon"			"风怒武器"
-    	"DOTA_Tooltip_ability_spirit_warrior_windstrike_weapon_Description"	"元素： <font color=\"#7AE2A7\">风</font><br>给友方单位施加风怒武器buff，使其攻击时根据攻击力造成额外纯粹伤害。每点目标的护甲将会额外增加风怒武器伤害1%。同一单位不能同时拥有炽血武器和风怒武器buff。"
+    	"DOTA_Tooltip_ability_spirit_warrior_windstrike_weapon_Description"	"元素： <font color=ELEMENT_WIND>风</font><br>给友方单位施加风怒武器buff，使其攻击时根据攻击力造成额外纯粹伤害。每点目标的护甲将会额外增加风怒武器伤害1%。同一单位不能同时拥有炽血武器和风怒武器buff。"
     	"DOTA_Tooltip_ability_spirit_warrior_windstrike_weapon_attackspeed"	"攻击速度提高："
     	"DOTA_Tooltip_ability_spirit_warrior_windstrike_weapon_duration"			"持续时间："
 
@@ -65,7 +65,7 @@
     	"DOTA_Tooltip_modifier_windstrike_weapon_Description"			"攻击时根据攻击力造成额外纯粹伤害"	
 
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_4"				"[Q4] 心炎"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_4_Description"	"提高所有 <font color=\"#EF4126\">火</font> 和<font color=\"#7AE2A7\">风</font> 元素的伤害。"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_4_Description"	"提高所有 <font color=ELEMENT_FIRE>火</font> 和<font color=ELEMENT_WIND>风</font> 元素的伤害。"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_4_property_one"	"火和风元素伤害提高"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_4_suffix"		"%"
 	
@@ -202,7 +202,7 @@
     	"spirit_warrior_arcana1_r"												"上古风暴 & 水神之矛"
 
   		"DOTA_Tooltip_ability_spirit_warrior_rune_r_4_arcana1"						"[R4] 水神之力"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_4_arcana1_Description"			"提高灵魂守卫所有 <font color=\"#3894FF\">水</font> 元素的伤害。"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_4_arcana1_Description"			"提高灵魂守卫所有 <font color=ELEMENT_WATER>水</font> 元素的伤害。"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_r_4_arcana1_property_one"		"水元素伤害提高"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_r_4_arcana1_suffix"				"% "
 
@@ -210,7 +210,7 @@
     	"property_spirit_warrior_arcana2_description"								"用炽炎枪替换 @Ability2 及其所有符文。"
 
     	"DOTA_Tooltip_ability_spirit_warrior_blazing_javelin"						"炽炎枪"
-    	"DOTA_Tooltip_ability_spirit_warrior_blazing_javelin_Description"			"元素： <font color=\"#EF4126\">火</font> / <font color=\"#DDDDDD\">普通</font><br>向目标地点投掷一只标枪。穿透敌人并造成火元素伤害。"
+    	"DOTA_Tooltip_ability_spirit_warrior_blazing_javelin_Description"			"元素： <font color=ELEMENT_FIRE>火</font> / <font color=ELEMENT_NORMAL>普通</font><br>向目标地点投掷一只标枪。穿透敌人并造成火元素伤害。"
     	"DOTA_Tooltip_ability_spirit_warrior_blazing_javelin_damage"				"伤害："
     	"DOTA_Tooltip_ability_spirit_warrior_blazing_javelin_cast_range"			"施法距离："
 
@@ -232,7 +232,7 @@
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_3_arcana2_suffix"				"%"
 
   		"DOTA_Tooltip_ability_spirit_warrior_rune_w_4_arcana2"						"[W4] 火神之力"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_4_arcana2_Description"			"提高灵魂守卫所有 <font color=\"#EF4126\">火</font> 元素的伤害。"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_4_arcana2_Description"			"提高灵魂守卫所有 <font color=ELEMENT_FIRE>火</font> 元素的伤害。"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_4_arcana2_property_one"		"火元素伤害提高"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_4_arcana2_suffix"				""
 
@@ -265,7 +265,7 @@
     	"DOTA_Tooltip_ability_spirit_warrior_rune_e_3_arcana3_suffix_two"			" 秒"	
 
   		"DOTA_Tooltip_ability_spirit_warrior_rune_e_4_arcana3"						"[E4] 风神之力"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_4_arcana3_Description"			"提高灵魂守卫所有 <font color=\"#7AE2A7\">风</font> 元素的伤害。"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_4_arcana3_Description"			"提高灵魂守卫所有 <font color=ELEMENT_WIND>风</font> 元素的伤害。"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_e_4_arcana3_property_one"		"风元素伤害提高"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_e_4_arcana3_suffix"				""
 

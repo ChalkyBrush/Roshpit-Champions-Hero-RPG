@@ -1,6 +1,6 @@
 		//Abilities
 		"DOTA_Tooltip_ability_moon_shroud"								"Moon Shroud"
-		"DOTA_Tooltip_ability_moon_shroud_Description"					"Element: <font color=\"#C25DFC\">Cosmic</font><br>Creates a screen of moon dust in front of the Astral Ranger. Enemies within the dust will miss with their attacks, take damage, and have their movespeed slowed. Teleporting with Astral Rift while standing in the shroud moves the shroud and adds %add_duration% seconds to the duration."
+		"DOTA_Tooltip_ability_moon_shroud_Description"					"Element: <font color=ELEMENT_COSMOS>Cosmic</font><br>Creates a screen of moon dust in front of the Astral Ranger. Enemies within the dust will miss with their attacks, take damage, and have their movespeed slowed. Teleporting with Astral Rift while standing in the shroud moves the shroud and adds %add_duration% seconds to the duration."
 		"DOTA_Tooltip_ability_moon_shroud_Lore"							""
 		"DOTA_Tooltip_ability_moon_shroud_duration"						"DURATION:"
 		"DOTA_Tooltip_ability_moon_shroud_damage"						"DAMAGE/SEC"
@@ -43,7 +43,7 @@
     	"DOTA_Tooltip_modifier_astral_rune_q_4_visible_Description"		"Gaining attack damage"
 		
 		"DOTA_Tooltip_ability_split_shot"								"Split Shot"
-		"DOTA_Tooltip_ability_split_shot_Description"					"Element: <font color=\"#C25DFC\">Cosmic</font><br>Astral Ranger winds up her bow for <% ASTRAL_RANGER_W_DELAY %> seconds, and then fires <% ASTRAL_RANGER_W_ARROWS_COUNT %> arrows in the direction she is facing."
+		"DOTA_Tooltip_ability_split_shot_Description"					"Element: <font color=ELEMENT_COSMOS>Cosmic</font><br>Astral Ranger winds up her bow for <% ASTRAL_RANGER_W_DELAY %> seconds, and then fires <% ASTRAL_RANGER_W_ARROWS_COUNT %> arrows in the direction she is facing."
 		"DOTA_Tooltip_ability_split_shot_Lore"							""
 		"DOTA_Tooltip_ability_split_shot_damage"						"DAMAGE PER ARROW:"
     	"DOTA_Tooltip_ability_split_shot_range"							"RANGE:"
@@ -62,7 +62,7 @@
     	"DOTA_Tooltip_ability_astral_rune_w_2_suffix"					"%"
 		
 		"DOTA_Tooltip_ability_astral_rune_w_3"							"[W3] Empyral Arrows"
-    	"DOTA_Tooltip_ability_astral_rune_w_3_Description"				"Each arrow fired by Split Shot has a <% ASTRAL_RANGER_W3_PROC_CHANCE %>% chance to be an Empyral Arrow that deals bonus damage and has <font color=\"#C25DFC\">Cosmic</font> element."
+    	"DOTA_Tooltip_ability_astral_rune_w_3_Description"				"Each arrow fired by Split Shot has a <% ASTRAL_RANGER_W3_PROC_CHANCE %>% chance to be an Empyral Arrow that deals bonus damage and has <font color=ELEMENT_COSMOS>Cosmic</font> element."
     	"DOTA_Tooltip_ability_astral_rune_w_3_property_one"				"Damage Bonus"
     	"DOTA_Tooltip_ability_astral_rune_w_3_suffix"					"%"
 		
@@ -75,7 +75,7 @@
     	"DOTA_Tooltip_modifier_astral_d_b_visible_Description"			"Reduced Magic Armor"
 		
 		"DOTA_Tooltip_ability_star_blink"								"Astral Rift"
-		"DOTA_Tooltip_ability_star_blink_Description"					"Element: <font color=\"#C25DFC\">Cosmic</font><br>Drops a star at the target location, stunning units in the area. After 2 seconds, the Ranger is teleported to the star's impact point."
+		"DOTA_Tooltip_ability_star_blink_Description"					"Element: <font color=ELEMENT_COSMOS>Cosmic</font><br>Drops a star at the target location, stunning units in the area. After 2 seconds, the Ranger is teleported to the star's impact point."
 		"DOTA_Tooltip_ability_star_blink_Lore"							""
 		"DOTA_Tooltip_ability_star_blink_star_range"					"CAST RANGE:"
     	"DOTA_Tooltip_ability_star_blink_star_stun_duration"			"STUN DURATION:"
@@ -113,7 +113,7 @@
 		"DOTA_Tooltip_modifier_astral_c_c_visible_description" 			"Increased resistance and stun and silence resistance."
 		
 		"DOTA_Tooltip_ability_astral_rune_e_4"							"[E4] Shooting Star"
-    	"DOTA_Tooltip_ability_astral_rune_e_4_Description"				"Passively increases all attributes and all <font color=\"#C25DFC\">Cosmic</font> damage."
+    	"DOTA_Tooltip_ability_astral_rune_e_4_Description"				"Passively increases all attributes and all <font color=ELEMENT_COSMOS>Cosmic</font> damage."
     	"DOTA_Tooltip_ability_astral_rune_e_4_property_one"				"Attribute Bonus"
     	"DOTA_Tooltip_ability_astral_rune_e_4_suffix"					""
     	"DOTA_Tooltip_ability_astral_rune_e_4_property_two"				"Cosmic Damage Bonus"
@@ -126,7 +126,7 @@
     	"DOTA_Tooltip_modifier_astral_rune_e_4_visible_Description"		"Extra Stats and increased cosmic damage."
 		
 		"DOTA_Tooltip_ability_ranger_aoe_explosion"						"Celestial Burst"
-		"DOTA_Tooltip_ability_ranger_aoe_explosion_Description"			"Element: <font color=\"#C25DFC\">Cosmic</font><br>Produces star shards beneath the earth in a large area around the Astral Ranger, dealing damage and knocking enemy units up into the air."
+		"DOTA_Tooltip_ability_ranger_aoe_explosion_Description"			"Element: <font color=ELEMENT_COSMOS>Cosmic</font><br>Produces star shards beneath the earth in a large area around the Astral Ranger, dealing damage and knocking enemy units up into the air."
 		"DOTA_Tooltip_ability_ranger_aoe_explosion_Lore"				""
 		"DOTA_Tooltip_ability_ranger_aoe_explosion_damage"				"DAMAGE:"
     	"DOTA_Tooltip_ability_ranger_aoe_explosion_duration"			"LIFT DURATION:"
@@ -237,7 +237,7 @@
     	"property_astral_arcana3_description"								"Replaces @Ability4 and all of its runes with Crystal Arrow."
 
     	"DOTA_Tooltip_ability_crystal_arrow"						"Crystal Arrow"
-    	"DOTA_Tooltip_ability_crystal_arrow_Description"			"Element: <font color=\"#87D9FF\">Ice</font> / <font color=\"#C25DFC\">Cosmic</font><br>Astral Ranger draws a frostbitten arrow and rises towards the sky. When the channel completes, shoot Azalea's blessed arrow toward the target location, dealing area damage."
+    	"DOTA_Tooltip_ability_crystal_arrow_Description"			"Element: <font color=ELEMENT_ICE>Ice</font> / <font color=ELEMENT_COSMOS>Cosmic</font><br>Astral Ranger draws a frostbitten arrow and rises towards the sky. When the channel completes, shoot Azalea's blessed arrow toward the target location, dealing area damage."
     	"DOTA_Tooltip_ability_crystal_arrow_damage"					"DAMAGE:"
 
     	"DOTA_Tooltip_ability_astral_rune_r_1_arcana3"						"[R1] Azalea's Window"
@@ -328,7 +328,7 @@
         "item_rpc_astral_glyph_6_2_description"                "Normal attacks have <% ASTRAL_RANGER_GLYPH_6_2_FREEZE_CHANCE %>% chance to freeze an enemy for <% ASTRAL_RANGER_GLYPH_6_2_FREEZE_DURATION %> second."
 
         "DOTA_Tooltip_ability_item_rpc_astral_glyph_7_2"       "[T7-2] Glyph of Inner Quasar"
-        "item_rpc_astral_glyph_7_2_description"                "Every point in Tier 4 runes grants an additional <% ASTRAL_RANGER_GLYPH_7_2_COSMIC_DMG_PER_T4 %>% <font color=\"#C25DFC\">Cosmic</font> element damage."
+        "item_rpc_astral_glyph_7_2_description"                "Every point in Tier 4 runes grants an additional <% ASTRAL_RANGER_GLYPH_7_2_COSMIC_DMG_PER_T4 %>% <font color=ELEMENT_COSMOS>Cosmic</font> element damage."
 		
 		//Weapons
 		"astral_weapon_01"			"Mithril String Bow"

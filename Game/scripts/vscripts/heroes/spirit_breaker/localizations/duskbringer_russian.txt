@@ -1,7 +1,7 @@
 "tooltip_duskbringer_Q"											"Whirling Flail и Duskfire"
 
 		"DOTA_Tooltip_ability_whirling_flail"							"Whirling Flail"
-		"DOTA_Tooltip_ability_whirling_flail_Description"				"Стихия: <font color=\"#DDDDDD\">Нормальный</font><br>Duskbringer быстро размахивает своим цепом, отталкивая всех ближайших противников. Может быть сразу использовано при Specter Rush для атаки во время движения. Базовый радиус <% DUSKBRINGER_Q_BASE_RADIUS %>."
+		"DOTA_Tooltip_ability_whirling_flail_Description"				"Стихия: <font color=ELEMENT_NORMAL>Нормальный</font><br>Duskbringer быстро размахивает своим цепом, отталкивая всех ближайших противников. Может быть сразу использовано при Specter Rush для атаки во время движения. Базовый радиус <% DUSKBRINGER_Q_BASE_RADIUS %>."
 		"DOTA_Tooltip_ability_whirling_flail_Lore"						""
 		"DOTA_Tooltip_ability_whirling_flail_damage"					"УРОН, % ОТ УРОНА ГЕРОЯ ЗА ВЗМАХ:"
 		"DOTA_Tooltip_ability_whirling_flail_knockback"					"ОТТАЛКИВАНИЕ:"		
@@ -113,7 +113,7 @@
 		"DOTA_Tooltip_modifier_duskbringer_rune_e_4_visible_Description"	"[e4]_modifier_description?"
 		
 		"DOTA_Tooltip_ability_seven_visions"							"Seven Visions"
-		"DOTA_Tooltip_ability_seven_visions_Description"				"Стихия: <font color=\"#9ACCD1\">Призрак</font> / <font color=\"#DDDDDD\">Нормальный</font><br>Duskbringer телепортируется к врагам, атакуя со всех сторон, нанося дополнительный урон и оглушая их.<br><font color='#70EA72'>Герой невосприимчив к магии и физическому урону во время действия.</font>"
+		"DOTA_Tooltip_ability_seven_visions_Description"				"Стихия: <font color=ELEMENT_GHOST>Призрак</font> / <font color=ELEMENT_NORMAL>Нормальный</font><br>Duskbringer телепортируется к врагам, атакуя со всех сторон, нанося дополнительный урон и оглушая их.<br><font color='#70EA72'>Герой невосприимчив к магии и физическому урону во время действия.</font>"
 		"DOTA_Tooltip_ability_seven_visions_Lore"						""
 		"DOTA_Tooltip_ability_seven_visions_attacks"					"АТАК:"
 		"DOTA_Tooltip_ability_seven_visions_bonus_damage"				"ДОП. УРОН:"
@@ -139,8 +139,8 @@
 		
 		
 		"DOTA_Tooltip_ability_duskbringer_rune_r_4"						"[R4] Force of Night"
-		"DOTA_Tooltip_ability_duskbringer_rune_r_4_Description"			"Пассивно увеличивает урон стихии <font color=\"#9ACCD1\">Призрака</font>."
-		"DOTA_Tooltip_ability_duskbringer_rune_r_4_property_one"		"Урон <font color=\"#9ACCD1\">Призрака</font>"
+		"DOTA_Tooltip_ability_duskbringer_rune_r_4_Description"			"Пассивно увеличивает урон стихии <font color=ELEMENT_GHOST>Призрака</font>."
+		"DOTA_Tooltip_ability_duskbringer_rune_r_4_property_one"		"Урон <font color=ELEMENT_GHOST>Призрака</font>"
 		"DOTA_Tooltip_ability_duskbringer_rune_r_4_suffix"				"%"
 		
 		"DOTA_Tooltip_ability_revenant_strikes"								"Revenant Strikes"
@@ -157,7 +157,7 @@
 		"property_duskbringer_arcana1_description"								"Заменяет (W) @Ability2 и все соответствующие руны на (W) Shadow Slam."
 
 		"DOTA_Tooltip_ability_duskbringer_arcana_ability"						"Shadow Slam"
-		"DOTA_Tooltip_ability_duskbringer_arcana_ability_Description"			"Стихия: <font color=\"#9ACCD1\">Призрак</font> / <font color=\"#7F4F84\">Тень</font><br>Duskbringer прыгает в указанную точку и создаёт в точке приземления мощную вспышку спектральной энергии."
+		"DOTA_Tooltip_ability_duskbringer_arcana_ability_Description"			"Стихия: <font color=ELEMENT_GHOST>Призрак</font> / <font color=ELEMENT_SHADOW>Тень</font><br>Duskbringer прыгает в указанную точку и создаёт в точке приземления мощную вспышку спектральной энергии."
 		"DOTA_Tooltip_ability_duskbringer_arcana_ability_damage"				"УРОН:"
 		"DOTA_Tooltip_ability_duskbringer_arcana_ability_stun_duration"			"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
 
@@ -201,11 +201,11 @@
 		"DOTA_Tooltip_modifier_terrorize_thinking_Description"					"Иммунитет к атакам и магии. Способности применяются без поворота герояя."
 
 		"DOTA_Tooltip_ability_duskbringer_arcana_terrorize"						"Terrorize"
-		"DOTA_Tooltip_ability_duskbringer_arcana_terrorize_Description"			"Элемент: <font color=\"#9ACCD1\">Призрак</font><br>Duskbringer взмывает в воздух и зависает в выбранном месте. В этом состоянии герой неуязвим для магии и атакам, а применение способностей не требует поворота к цели. На время действия способность заменяется на Phantom Plasma. Приказ перемещения заканчивает эффект."
+		"DOTA_Tooltip_ability_duskbringer_arcana_terrorize_Description"			"Элемент: <font color=ELEMENT_GHOST>Призрак</font><br>Duskbringer взмывает в воздух и зависает в выбранном месте. В этом состоянии герой неуязвим для магии и атакам, а применение способностей не требует поворота к цели. На время действия способность заменяется на Phantom Plasma. Приказ перемещения заканчивает эффект."
 		"DOTA_Tooltip_ability_duskbringer_arcana_terrorize_base_duration"		"ДЛИТЕЛЬНОСТЬ:"
 
 		"DOTA_Tooltip_ability_duskbringer_arcana_terrorize_phantom_plasma"		"Phantom Plasma"
-		"DOTA_Tooltip_ability_duskbringer_arcana_terrorize_phantom_plasma_Description"			"Элемент: <font color=\"#9ACCD1\">Призрак</font><br>Сгусток потусторонней энергии вылетает в сторону цели и взрывается при ударе. Противники, пораженные сгустком, теряют скорость передвижения на 10 следующих секунд."
+		"DOTA_Tooltip_ability_duskbringer_arcana_terrorize_phantom_plasma_Description"			"Элемент: <font color=ELEMENT_GHOST>Призрак</font><br>Сгусток потусторонней энергии вылетает в сторону цели и взрывается при ударе. Противники, пораженные сгустком, теряют скорость передвижения на 10 следующих секунд."
 		"DOTA_Tooltip_ability_duskbringer_arcana_terrorize_phantom_plasma_damage"				"УРОН:"
 		"DOTA_Tooltip_ability_duskbringer_arcana_terrorize_phantom_plasma_additional_damage_atk_power_pct"	"% СИЛЫ АТАКИ В УРОН СПОСОБНОСТИ:"
 		"DOTA_Tooltip_ability_duskbringer_arcana_terrorize_phantom_plasma_move_slow_percent"				"% ЗАМЕДЛЕНИЕ:"
@@ -281,11 +281,11 @@
 		"item_rpc_duskbringer_glyph_6_2_description" 				"Снимает с героя все эффекты оглушения и безмолвия каждые <% DUSKBRINGER_GLYPH_6_2_CLEANCE_INTERVAL %> секунды."
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_7_2"		"[T7-2] Glyph of Haunted Spirits"
-		"item_rpc_duskbringer_glyph_7_2_description" 				"Весь урон, наносимый предметами напрямую, получает вторую стихию - <font color=\"#9ACCD1\">Призрак</font>."
+		"item_rpc_duskbringer_glyph_7_2_description" 				"Весь урон, наносимый предметами напрямую, получает вторую стихию - <font color=ELEMENT_GHOST>Призрак</font>."
 
 
     	"DOTA_Tooltip_ability_manifestation"						"Manifestation"
-    	"DOTA_Tooltip_ability_manifestation_Description"			"Стихия: <font color=\"#9ACCD1\">Призрак</font><br>Duskbringer мгновенно перемещается к указанной точке, атакуя попавшихся врагов с помощью [E3] Entity Clash."
+    	"DOTA_Tooltip_ability_manifestation_Description"			"Стихия: <font color=ELEMENT_GHOST>Призрак</font><br>Duskbringer мгновенно перемещается к указанной точке, атакуя попавшихся врагов с помощью [E3] Entity Clash."
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_5_a"		"[T5-a] Glyph of Second Chances"
 		"item_rpc_duskbringer_glyph_5_a_description" 				"Союзники не погибают по окончании действия формы духа. Эта особенность перезаряжается <% DUSKBRINGER_GLYPH_5_a_CD %> сек."
