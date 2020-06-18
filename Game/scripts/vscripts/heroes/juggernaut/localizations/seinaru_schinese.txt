@@ -1,7 +1,7 @@
     	//Abilities
 
     	"DOTA_Tooltip_ability_seinaru_konokaze"							"狂风"
-    	"DOTA_Tooltip_ability_seinaru_konokaze_Description"				"元素: <font color=\"#7AE2A7\">风</font><br>，一阵狂风呼啸向前推开敌人，并且造成致盲和减速."
+    	"DOTA_Tooltip_ability_seinaru_konokaze_Description"				"元素: <font color=ELEMENT_WIND>风</font><br>，一阵狂风呼啸向前推开敌人，并且造成致盲和减速."
     	"DOTA_Tooltip_ability_seinaru_konokaze_stun_duration"			"狂风 持续时间:"
     	"DOTA_Tooltip_ability_seinaru_konokaze_range"					"范围:"
     	"DOTA_Tooltip_ability_seinaru_konokaze_blind_chance"			"致盲几率:"
@@ -70,7 +70,7 @@
 		"DOTA_Tooltip_ability_seinaru_rune_w_3_suffix"					"X 敏捷值"
 
     	"DOTA_Tooltip_ability_seinaru_rune_w_4"							"[W4] 智慧之光"
-    	"DOTA_Tooltip_ability_seinaru_rune_w_4_Description"				"提高神圣剑客的所有 <font color=\"#7AE2A7\">风</font> 元素伤害，并获得额外精神值"
+    	"DOTA_Tooltip_ability_seinaru_rune_w_4_Description"				"提高神圣剑客的所有 <font color=ELEMENT_WIND>风</font> 元素伤害，并获得额外精神值"
 	"DOTA_Tooltip_ability_seinaru_rune_w_4_property_one"			"风元素伤害提高"
     	"DOTA_Tooltip_ability_seinaru_rune_w_4_suffix"				"%"
 	"DOTA_Tooltip_ability_seinaru_rune_w_4_property_two"			"额外精神值"
@@ -79,7 +79,7 @@
 
 
 		"DOTA_Tooltip_ability_seinaru_odachi_leap"						"太刀飞跃"
-		"DOTA_Tooltip_ability_seinaru_odachi_leap_Description"			"元素: <font color=\"#DDDDDD\">普通</font><br>快速向前飞跃，斩击路径上的所有敌人. 飞跃期间拥有100%闪避."
+		"DOTA_Tooltip_ability_seinaru_odachi_leap_Description"			"元素: <font color=ELEMENT_NORMAL>普通</font><br>快速向前飞跃，斩击路径上的所有敌人. 飞跃期间拥有100%闪避."
 		"DOTA_Tooltip_ability_seinaru_odachi_leap_Lore"					""
 		"DOTA_Tooltip_ability_seinaru_odachi_leap_damage"				"伤害:"
 
@@ -103,7 +103,7 @@
     	"DOTA_Tooltip_ability_seinaru_rune_e_3_suffix"					""
 		
 		"DOTA_Tooltip_ability_seinaru_rune_e_4"						"[E4] 迅捷之翼"
-		"DOTA_Tooltip_ability_seinaru_rune_e_4_Description"			"提高神圣剑客所有 <font color=\"#F6FFB5\">圣</font> 元素伤害，并获得额外敏捷值"
+		"DOTA_Tooltip_ability_seinaru_rune_e_4_Description"			"提高神圣剑客所有 <font color=ELEMENT_HOLY>圣</font> 元素伤害，并获得额外敏捷值"
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_property_one"			"圣元素伤害提高"
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_suffix"					"%"
 	 	"DOTA_Tooltip_ability_seinaru_rune_e_4_property_two"			"额外敏捷值"
@@ -157,7 +157,7 @@
 
 	//Arcanas
     	"DOTA_Tooltip_ability_seinaru_blade_dash"						"拔刀斩"
-    	"DOTA_Tooltip_ability_seinaru_blade_dash_Description"			"元素： <font color=\"#DDDDDD\">普通</font><br>神圣剑客冲向敌人，对目标进行一次斩击，斩击时的攻击力为平时攻击力的倍数。"
+    	"DOTA_Tooltip_ability_seinaru_blade_dash_Description"			"元素： <font color=ELEMENT_NORMAL>普通</font><br>神圣剑客冲向敌人，对目标进行一次斩击，斩击时的攻击力为平时攻击力的倍数。"
     	"DOTA_Tooltip_ability_seinaru_blade_dash_damage_percent_of_atk"			"斩击攻击力倍数 %:"
 
 		
@@ -195,7 +195,7 @@
     	"DOTA_Tooltip_modifier_seinaru_arcana_evasion_buff_Description"			"100%% 闪避"
 
     	"DOTA_Tooltip_ability_seinaru_blade_dash"						"拔刀斩"
-    	"DOTA_Tooltip_ability_seinaru_blade_dash_Description"			"元素： <font color=\"#DDDDDD\">普通</font><br>神圣剑客冲向敌人，对目标进行一次斩击，斩击时的攻击力为平时攻击力的倍数。"
+    	"DOTA_Tooltip_ability_seinaru_blade_dash_Description"			"元素： <font color=ELEMENT_NORMAL>普通</font><br>神圣剑客冲向敌人，对目标进行一次斩击，斩击时的攻击力为平时攻击力的倍数。"
     	"DOTA_Tooltip_ability_seinaru_blade_dash_damage_percent_of_atk"			"斩击攻击力倍数 %:"
 
 
@@ -203,7 +203,7 @@
     	"property_seinaru_arcana2_description"								"用炎阳冲锋替换 @Ability3 及其全部符文。"
 
     	"DOTA_Tooltip_ability_seinaru_sunstrider"						"炎阳冲锋"
-    	"DOTA_Tooltip_ability_seinaru_sunstrider_Description"			"在太阳的祝福下，神圣剑客朝着目标位置神圣冲锋. 神圣冲锋范围内的敌人在0.06秒内都将受到神圣剑客额外伤害加成的打击. 每次攻击都会产生AOE伤害，在目标周围造成<font color='<% RPC_ELEMENT_HOLY_COLOR %>'>神圣</font> 伤害."
+    	"DOTA_Tooltip_ability_seinaru_sunstrider_Description"			"在太阳的祝福下，神圣剑客朝着目标位置神圣冲锋. 神圣冲锋范围内的敌人在0.06秒内都将受到神圣剑客额外伤害加成的打击. 每次攻击都会产生AOE伤害，在目标周围造成<font color=ELEMENT_HOLY>神圣</font> 伤害."
     	"DOTA_Tooltip_ability_seinaru_sunstrider_cast_range"			"施法距离:"
     	"DOTA_Tooltip_ability_seinaru_sunstrider_targets_count"			"最大目标数:"
     	"DOTA_Tooltip_ability_seinaru_sunstrider_att_to_dmg"			"伤害基于总攻击力:"
@@ -241,7 +241,7 @@
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_Description"			"当炎阳冲锋进入冷却时间时，神圣剑客有概率额外地获得一格充能，使炎阳冲锋可以自由施放一次而不进入冷却时间。概率超过 100% 可以获得多格充能。"
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_property_one"			"自由施放概率"
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_suffix"					"%"
-		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_property_two"			"<font color=\"#F6FFB5\">圣</font> 元素伤害提高"
+		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_property_two"			"<font color=ELEMENT_HOLY>圣</font> 元素伤害提高"
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_suffix_two"				"%"
 
     	"DOTA_Tooltip_modifier_sunstrider_freecast"							"炎阳冲锋自由施放充能"
@@ -301,7 +301,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_seinaru_immortal_weapon_1"		"鬼丸"
 		"item_property_seinaru_immortal_weapon"								"穿刺攻击"
-		"property_seinaru_immortal_weapon_description"						"每次攻击造成 <% SEINARU_WEAP_1_RADIUS %>-码范围的旋风, 伤害量为 <% SEINARU_WEAP_1_DMG_PER_ATT * 100 %>% 剑圣的总攻击力的物理 <font color=\"#7AE2A7\">风</font> 元素伤害并且施加 [R1]."
+		"property_seinaru_immortal_weapon_description"						"每次攻击造成 <% SEINARU_WEAP_1_RADIUS %>-码范围的旋风, 伤害量为 <% SEINARU_WEAP_1_DMG_PER_ATT * 100 %>% 剑圣的总攻击力的物理 <font color=ELEMENT_WIND>风</font> 元素伤害并且施加 [R1]."
 		
 		"DOTA_Tooltip_ability_item_rpc_seinaru_immortal_weapon_2"            "武藏的藏刀"
         "item_property_seinaru_immortal_weapon2"                             "忍者之心"

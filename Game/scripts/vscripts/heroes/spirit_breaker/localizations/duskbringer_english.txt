@@ -1,7 +1,7 @@
 "tooltip_duskbringer_Q"											"Whirling Flail and Duskfire"
 
 		"DOTA_Tooltip_ability_whirling_flail"							"Whirling Flail"
-		"DOTA_Tooltip_ability_whirling_flail_Description"				"Element: <font color=\"#DDDDDD\">Normal</font> / <font color=\"#9ACCD1\">Ghost</font><br>Duskbringer rapidly swings his weapon in circles, knocking back all nearby enemies. Can be used immediately after using Specter Rush to attack while moving."
+		"DOTA_Tooltip_ability_whirling_flail_Description"				"Element: <font color=ELEMENT_NORMAL>Normal</font> / <font color=ELEMENT_GHOST>Ghost</font><br>Duskbringer rapidly swings his weapon in circles, knocking back all nearby enemies. Can be used immediately after using Specter Rush to attack while moving."
 		"DOTA_Tooltip_ability_whirling_flail_Lore"						""
 		"DOTA_Tooltip_ability_whirling_flail_damage"					"DAMAGE % OF ATTACK DAMAGE/SWING"
 		"DOTA_Tooltip_ability_whirling_flail_knockback"					"KNOCKBACK DISTANCE"		
@@ -117,7 +117,7 @@
 		"DOTA_Tooltip_modifier_duskbringer_rune_e_4_visible_Description"	"Increased Attack Damage"
 		
 		"DOTA_Tooltip_ability_seven_visions"							"Seven Visions"
-		"DOTA_Tooltip_ability_seven_visions_Description"				"Element: <font color=\"#DDDDDD\">Normal</font> / <font color=\"#9ACCD1\">Ghost</font><br>Duskbringer teleports to his enemies and attacks them from any angle, dealing bonus damage and stunning them. Caster has magic and physical immunity for the duration."
+		"DOTA_Tooltip_ability_seven_visions_Description"				"Element: <font color=ELEMENT_NORMAL>Normal</font> / <font color=ELEMENT_GHOST>Ghost</font><br>Duskbringer teleports to his enemies and attacks them from any angle, dealing bonus damage and stunning them. Caster has magic and physical immunity for the duration."
 		"DOTA_Tooltip_ability_seven_visions_Lore"						""
 		"DOTA_Tooltip_ability_seven_visions_attacks"					"ATTACKS"
 		"DOTA_Tooltip_ability_seven_visions_bonus_damage"				"BONUS ATTACK DAMAGE"
@@ -148,7 +148,7 @@
 		"DOTA_Tooltip_modifier_duskbringer_rune_r_3_Description"		"Gaining attack damage"
 		
 		"DOTA_Tooltip_ability_duskbringer_rune_r_4"						"[R4] Force of Night"
-		"DOTA_Tooltip_ability_duskbringer_rune_r_4_Description"			"<font color=\"#9ACCD1\">Ghost</font> Damage passively increased."
+		"DOTA_Tooltip_ability_duskbringer_rune_r_4_Description"			"<font color=ELEMENT_GHOST>Ghost</font> Damage passively increased."
 		"DOTA_Tooltip_ability_duskbringer_rune_r_4_property_one"		"Ghost Damage Increase"
 		"DOTA_Tooltip_ability_duskbringer_rune_r_4_suffix"				"%"
 		
@@ -166,7 +166,7 @@
 		"property_duskbringer_arcana1_description"								"Replaces @Ability2 and all of its runes with Shadow Slam."
 
 		"DOTA_Tooltip_ability_duskbringer_arcana_ability"						"Shadow Slam"
-		"DOTA_Tooltip_ability_duskbringer_arcana_ability_Description"			"Element: <font color=\"#9ACCD1\">Ghost</font> / <font color=\"#7F4F84\">Shadow</font><br>Duskbringer leaps toward the target point and creates a massive flare of spectral energy at the landing point."
+		"DOTA_Tooltip_ability_duskbringer_arcana_ability_Description"			"Element: <font color=ELEMENT_GHOST>Ghost</font> / <font color=ELEMENT_SHADOW>Shadow</font><br>Duskbringer leaps toward the target point and creates a massive flare of spectral energy at the landing point."
 		"DOTA_Tooltip_ability_duskbringer_arcana_ability_damage"				"DAMAGE:"
 		"DOTA_Tooltip_ability_duskbringer_arcana_ability_stun_duration"			"STUN DURATION:"
 
@@ -209,11 +209,11 @@
 		"DOTA_Tooltip_modifier_terrorize_thinking_Description"					"No Cast Angle. Immune to magic and basic attacks."
 
 		"DOTA_Tooltip_ability_duskbringer_arcana_terrorize"						"Terrorize"
-		"DOTA_Tooltip_ability_duskbringer_arcana_terrorize_Description"			"Element: <font color=\"#9ACCD1\">Ghost</font><br>Duskbringer warps forward and floats above the target location with a terrifying presence. While in this state, Duskbringer is magic and attack immune and has cast angle restrictions removed. During the duration Duskbringer has the Phantom Plasma ability. Issuing a move order during terrorize ends the effect."
+		"DOTA_Tooltip_ability_duskbringer_arcana_terrorize_Description"			"Element: <font color=ELEMENT_GHOST>Ghost</font><br>Duskbringer warps forward and floats above the target location with a terrifying presence. While in this state, Duskbringer is magic and attack immune and has cast angle restrictions removed. During the duration Duskbringer has the Phantom Plasma ability. Issuing a move order during terrorize ends the effect."
 		"DOTA_Tooltip_ability_duskbringer_arcana_terrorize_base_duration"		"TERRORIZE DURATION:"
 
 		"DOTA_Tooltip_ability_duskbringer_arcana_terrorize_phantom_plasma"		"Phantom Plasma"
-		"DOTA_Tooltip_ability_duskbringer_arcana_terrorize_phantom_plasma_Description"			"Element: <font color=\"#9ACCD1\">Ghost</font><br>A bulb of spectral energy travels towards the target point and explodes on impact. Enemies hit by the plasma have their movement speed slowed for 10 seconds."
+		"DOTA_Tooltip_ability_duskbringer_arcana_terrorize_phantom_plasma_Description"			"Element: <font color=ELEMENT_GHOST>Ghost</font><br>A bulb of spectral energy travels towards the target point and explodes on impact. Enemies hit by the plasma have their movement speed slowed for 10 seconds."
 		"DOTA_Tooltip_ability_duskbringer_arcana_terrorize_phantom_plasma_damage"				"DAMAGE:"
 		"DOTA_Tooltip_ability_duskbringer_arcana_terrorize_phantom_plasma_additional_damage_atk_power_pct"	"% ATTACK POWER ADDED TO BASE DAMAGE:"
 		"DOTA_Tooltip_ability_duskbringer_arcana_terrorize_phantom_plasma_move_slow_percent"				"% MOVESPEED SLOW:"
@@ -295,11 +295,11 @@
 		"item_rpc_duskbringer_glyph_6_2_description" 				"Cleanses all silences and stuns every <% DUSKBRINGER_GLYPH_6_2_CLEANCE_INTERVAL %> seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_7_2"		"[T7-2] Glyph of Haunted Spirits"
-		"item_rpc_duskbringer_glyph_7_2_description" 				"All damage dealt directly by items gains <font color=\"#9ACCD1\">Ghost</font> as an additional element."
+		"item_rpc_duskbringer_glyph_7_2_description" 				"All damage dealt directly by items gains <font color=ELEMENT_GHOST>Ghost</font> as an additional element."
 
 
     	"DOTA_Tooltip_ability_manifestation"						"Manifestation"
-    	"DOTA_Tooltip_ability_manifestation_Description"			"Element: <font color=\"#9ACCD1\">Ghost</font><br>Duskbringer immediately appears at the target location, smashing each nearby enemy with Entity Clash."
+    	"DOTA_Tooltip_ability_manifestation_Description"			"Element: <font color=ELEMENT_GHOST>Ghost</font><br>Duskbringer immediately appears at the target location, smashing each nearby enemy with Entity Clash."
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_5_a"		"[T5-a] Glyph of Second Chances"
 		"item_rpc_duskbringer_glyph_5_a_description" 				"Allies will not die when Final Vengeance wraithform ends. This effect has a cooldown of <% DUSKBRINGER_GLYPH_5_a_CD %> seconds."

@@ -1,84 +1,84 @@
-"DOTA_Tooltip_modifier_rubilash_painted_red"			"<font color=\"<% RUBILASH_TEXT_COLOR_RED %>\">红</font> 墨"
+"DOTA_Tooltip_modifier_rubilash_painted_red"			"<font color=RUBILASH_RED>红</font> 墨"
 "DOTA_Tooltip_modifier_rubilash_painted_red_Description"	"被墨水浸染"
 
-"DOTA_Tooltip_modifier_rubilash_painted_blue"			"<font color=\"<% RUBILASH_TEXT_COLOR_BLUE %>\">蓝</font> 墨"
+"DOTA_Tooltip_modifier_rubilash_painted_blue"			"<font color=RUBILASH_BLUE>蓝</font> 墨"
 "DOTA_Tooltip_modifier_rubilash_painted_blue_Description"	"被墨水浸染"
 
-"DOTA_Tooltip_modifier_rubilash_painted_yellow"			"<font color=\"<% RUBILASH_TEXT_COLOR_YELLOW %>\">黄</font> 墨"
+"DOTA_Tooltip_modifier_rubilash_painted_yellow"			"<font color=RUBILASH_YELLOW>黄</font> 墨"
 "DOTA_Tooltip_modifier_rubilash_painted_yellow_Description"	"被墨水浸染"
 
-"DOTA_Tooltip_modifier_rubilash_painted_orange"			"<font color=\"<% RUBILASH_TEXT_COLOR_ORANGE %>\">橙</font> 墨"
+"DOTA_Tooltip_modifier_rubilash_painted_orange"			"<font color=RUBILASH_ORANGE>橙</font> 墨"
 "DOTA_Tooltip_modifier_rubilash_painted_orange_Description"	"被墨水浸染"
 
-"DOTA_Tooltip_modifier_rubilash_painted_green"			"<font color=\"<% RUBILASH_TEXT_COLOR_GREEN %>\">绿</font> 墨"
+"DOTA_Tooltip_modifier_rubilash_painted_green"			"<font color=RUBILASH_GREEN>绿</font> 墨"
 "DOTA_Tooltip_modifier_rubilash_painted_green_Description"	"被墨水浸染"
 
-"DOTA_Tooltip_modifier_rubilash_painted_purple"			"<font color=\"<% RUBILASH_TEXT_COLOR_PURPLE %>\">紫</font> 墨"
+"DOTA_Tooltip_modifier_rubilash_painted_purple"			"<font color=RUBILASH_PURPLE>紫</font> 墨"
 "DOTA_Tooltip_modifier_rubilash_painted_purple_Description"	"被墨水浸染"
 
-"DOTA_Tooltip_modifier_rubilash_painted_black"			"<font color=\"<% RUBILASH_TEXT_COLOR_BLACK %>\">黑</font> 墨"
+"DOTA_Tooltip_modifier_rubilash_painted_black"			"<font color=RUBILASH_BLACK>黑</font> 墨"
 "DOTA_Tooltip_modifier_rubilash_painted_black_Description"	"被墨水浸染"
 
-"DOTA_Tooltip_modifier_rubilash_painted_white"			"<font color=\"<% RUBILASH_TEXT_COLOR_WHITE %>\">白</font> 墨"
+"DOTA_Tooltip_modifier_rubilash_painted_white"			"<font color=RUBILASH_WHITE>白</font> 墨"
 "DOTA_Tooltip_modifier_rubilash_painted_white_Description"	"被墨水浸染"
 
 "rubilash_q_base_name"										"幻影笔刷"
 "rubilash_w_base_name"										"墨弹"
 "rubilash_e_base_name"										"泼墨"			
 
-"DOTA_Tooltip_Ability_rubilash_phantom_brush_red"			"幻影笔刷 [<font color=\"<% RUBILASH_TEXT_COLOR_RED %>\">红</font>]"
-"DOTA_Tooltip_Ability_rubilash_phantom_brush_red_Description"			"元素: <font color=\"<% RPC_ELEMENT_DEMON_COLOR %>\">恶魔</font> / <font color=\"<% RPC_ELEMENT_GHOST_COLOR %>\">鬼</font><br>蓄力 <% RUBILASH_PHANTOM_BRUSH_CAST_POINT %> 秒而后向目标地点放出一股强力墨涌。施法距离也会提高该技能的最大距离。"
+"DOTA_Tooltip_Ability_rubilash_phantom_brush_red"			"幻影笔刷 [<font color=RUBILASH_RED>红</font>]"
+"DOTA_Tooltip_Ability_rubilash_phantom_brush_red_Description"			"元素: <font color=ELEMENT_DEMON>恶魔</font> / <font color=ELEMENT_GHOST>鬼</font><br>蓄力 <% RUBILASH_PHANTOM_BRUSH_CAST_POINT %> 秒而后向目标地点放出一股强力墨涌。施法距离也会提高该技能的最大距离。"
 "DOTA_Tooltip_Ability_rubilash_phantom_brush_red_damage"	"伤害:"
 "DOTA_Tooltip_Ability_rubilash_phantom_brush_red_range"		"墨涌距离:"
 
-"DOTA_Tooltip_Ability_rubilash_phantom_brush_yellow"			"暗影笔刷 [<font color=\"<% RUBILASH_TEXT_COLOR_YELLOW %>\">黄</font>]"
-"DOTA_Tooltip_Ability_rubilash_phantom_brush_yellow_Description"			"元素: <font color=\"<% RPC_ELEMENT_DEMON_COLOR %>\">恶魔</font> / <font color=\"<% RPC_ELEMENT_GHOST_COLOR %>\">鬼</font><br>蓄力 <% RUBILASH_PHANTOM_BRUSH_CAST_POINT %>秒而后向目标地点放出一股强力墨涌。施法距离也会提高该技能的最大距离。"
+"DOTA_Tooltip_Ability_rubilash_phantom_brush_yellow"			"暗影笔刷 [<font color=RUBILASH_YELLOW>黄</font>]"
+"DOTA_Tooltip_Ability_rubilash_phantom_brush_yellow_Description"			"元素: <font color=ELEMENT_DEMON>恶魔</font> / <font color=ELEMENT_GHOST>鬼</font><br>蓄力 <% RUBILASH_PHANTOM_BRUSH_CAST_POINT %>秒而后向目标地点放出一股强力墨涌。施法距离也会提高该技能的最大距离。"
 "DOTA_Tooltip_Ability_rubilash_phantom_brush_yellow_damage"	"伤害:"
 "DOTA_Tooltip_Ability_rubilash_phantom_brush_yellow_range"		"墨涌距离:"
 
-"DOTA_Tooltip_Ability_rubilash_phantom_brush_blue"			"Phantom Brush [<font color=\"<% RUBILASH_TEXT_COLOR_BLUE %>\">蓝</font>]"
-"DOTA_Tooltip_Ability_rubilash_phantom_brush_blue_Description"			"元素: <font color=\"<% RPC_ELEMENT_DEMON_COLOR %>\">恶魔</font> / <font color=\"<% RPC_ELEMENT_GHOST_COLOR %>\">鬼</font><br>蓄力 <% RUBILASH_PHANTOM_BRUSH_CAST_POINT %> 秒而后向目标地点放出一股强力墨涌。施法距离也会提高该技能的最大距离。"
+"DOTA_Tooltip_Ability_rubilash_phantom_brush_blue"			"Phantom Brush [<font color=RUBILASH_BLUE>蓝</font>]"
+"DOTA_Tooltip_Ability_rubilash_phantom_brush_blue_Description"			"元素: <font color=ELEMENT_DEMON>恶魔</font> / <font color=ELEMENT_GHOST>鬼</font><br>蓄力 <% RUBILASH_PHANTOM_BRUSH_CAST_POINT %> 秒而后向目标地点放出一股强力墨涌。施法距离也会提高该技能的最大距离。"
 "DOTA_Tooltip_Ability_rubilash_phantom_brush_blue_damage"	"伤害:"
 "DOTA_Tooltip_Ability_rubilash_phantom_brush_blue_range"		"墨涌距离:"
 
-"DOTA_Tooltip_Ability_rubilash_phantom_brush_white"			"Phantom Brush [<font color=\"<% RUBILASH_TEXT_COLOR_WHITE %>\">白</font>]"
-"DOTA_Tooltip_Ability_rubilash_phantom_brush_white_Description"			"元素: <font color=\"<% RPC_ELEMENT_DEMON_COLOR %>\">恶魔</font> / <font color=\"<% RPC_ELEMENT_GHOST_COLOR %>\">鬼</font><br>蓄力 <% RUBILASH_PHANTOM_BRUSH_CAST_POINT %> 秒而后向目标地点放出一股强力墨涌。施法距离也会提高该技能的最大距离。"
+"DOTA_Tooltip_Ability_rubilash_phantom_brush_white"			"Phantom Brush [<font color=RUBILASH_WHITE>白</font>]"
+"DOTA_Tooltip_Ability_rubilash_phantom_brush_white_Description"			"元素: <font color=ELEMENT_DEMON>恶魔</font> / <font color=ELEMENT_GHOST>鬼</font><br>蓄力 <% RUBILASH_PHANTOM_BRUSH_CAST_POINT %> 秒而后向目标地点放出一股强力墨涌。施法距离也会提高该技能的最大距离。"
 "DOTA_Tooltip_Ability_rubilash_phantom_brush_white_damage"	"伤害:"
 "DOTA_Tooltip_Ability_rubilash_phantom_brush_white_range"		"墨涌距离:"
 
-"DOTA_Tooltip_Ability_rubilash_ink_blot_red"			"墨弹 [<font color=\"<% RUBILASH_TEXT_COLOR_RED %>\">红</font>]"
-"DOTA_Tooltip_Ability_rubilash_ink_blot_red_Description"			"元素: <font color=\"<% RPC_ELEMENT_DEMON_COLOR %>\">恶魔</font> / <font color=\"<% RPC_ELEMENT_GHOST_COLOR %>\">鬼</font><br>向目标地点放出一小团墨水，当墨水到达目标地点时将会对敌人造成伤害。"
+"DOTA_Tooltip_Ability_rubilash_ink_blot_red"			"墨弹 [<font color=RUBILASH_RED>红</font>]"
+"DOTA_Tooltip_Ability_rubilash_ink_blot_red_Description"			"元素: <font color=ELEMENT_DEMON>恶魔</font> / <font color=ELEMENT_GHOST>鬼</font><br>向目标地点放出一小团墨水，当墨水到达目标地点时将会对敌人造成伤害。"
 "DOTA_Tooltip_Ability_rubilash_ink_blot_red_damage"	"伤害:"
 
-"DOTA_Tooltip_Ability_rubilash_ink_blot_yellow"			"墨弹 [<font color=\"<% RUBILASH_TEXT_COLOR_YELLOW %>\">黄</font>]"
-"DOTA_Tooltip_Ability_rubilash_ink_blot_yellow_Description"			"元素: <font color=\"<% RPC_ELEMENT_DEMON_COLOR %>\">恶魔</font> / <font color=\"<% RPC_ELEMENT_GHOST_COLOR %>\">鬼</font><br>向目标地点放出一小团墨水，当墨水到达目标地点时将会对敌人造成伤害。"
+"DOTA_Tooltip_Ability_rubilash_ink_blot_yellow"			"墨弹 [<font color=RUBILASH_YELLOW>黄</font>]"
+"DOTA_Tooltip_Ability_rubilash_ink_blot_yellow_Description"			"元素: <font color=ELEMENT_DEMON>恶魔</font> / <font color=ELEMENT_GHOST>鬼</font><br>向目标地点放出一小团墨水，当墨水到达目标地点时将会对敌人造成伤害。"
 "DOTA_Tooltip_Ability_rubilash_ink_blot_yellow_damage"	"伤害:"
 
-"DOTA_Tooltip_Ability_rubilash_ink_blot_blue"			"墨弹 [<font color=\"<% RUBILASH_TEXT_COLOR_BLUE %>\">蓝</font>]"
-"DOTA_Tooltip_Ability_rubilash_ink_blot_blue_Description"			"元素: <font color=\"<% RPC_ELEMENT_DEMON_COLOR %>\">恶魔</font> / <font color=\"<% RPC_ELEMENT_GHOST_COLOR %>\">鬼</font><br>向目标地点放出一小团墨水，当墨水到达目标地点时将会对敌人造成伤害。"
+"DOTA_Tooltip_Ability_rubilash_ink_blot_blue"			"墨弹 [<font color=RUBILASH_BLUE>蓝</font>]"
+"DOTA_Tooltip_Ability_rubilash_ink_blot_blue_Description"			"元素: <font color=ELEMENT_DEMON>恶魔</font> / <font color=ELEMENT_GHOST>鬼</font><br>向目标地点放出一小团墨水，当墨水到达目标地点时将会对敌人造成伤害。"
 "DOTA_Tooltip_Ability_rubilash_ink_blot_blue_damage"	"伤害:"
 
-"DOTA_Tooltip_Ability_rubilash_ink_blot_white"			"墨弹 [<font color=\"<% RUBILASH_TEXT_COLOR_WHITE %>\">白</font>]"
-"DOTA_Tooltip_Ability_rubilash_ink_blot_white_Description"			"元素: <font color=\"<% RPC_ELEMENT_DEMON_COLOR %>\">恶魔</font> / <font color=\"<% RPC_ELEMENT_GHOST_COLOR %>\">鬼</font><br>向目标地点放出一小团墨水，当墨水到达目标地点时将会对敌人造成伤害。"
+"DOTA_Tooltip_Ability_rubilash_ink_blot_white"			"墨弹 [<font color=RUBILASH_WHITE>白</font>]"
+"DOTA_Tooltip_Ability_rubilash_ink_blot_white_Description"			"元素: <font color=ELEMENT_DEMON>恶魔</font> / <font color=ELEMENT_GHOST>鬼</font><br>向目标地点放出一小团墨水，当墨水到达目标地点时将会对敌人造成伤害。"
 "DOTA_Tooltip_Ability_rubilash_ink_blot_white_damage"	"伤害:"
 
-"DOTA_Tooltip_Ability_rubilash_paint_splatter_red"			"泼墨 [<font color=\"<% RUBILASH_TEXT_COLOR_RED %>\">红</font>]"
-"DOTA_Tooltip_Ability_rubilash_paint_splatter_red_Description"			"元素: <font color=\"<% RPC_ELEMENT_DEMON_COLOR %>\">恶魔</font> / <font color=\"<% RPC_ELEMENT_GHOST_COLOR %>\">鬼</font><br>传送至目标地点并且将目标地点周围的敌人浸入 [<font color=\"<% RUBILASH_TEXT_COLOR_RED %>\">红</font>]墨中。 使用该技能将会将目前的墨色切换至[<font color=\"<% RUBILASH_TEXT_COLOR_YELLOW %>\">黄</font>]色。<br><br>当敌人被墨浸染时，同颜色的墨水的对他们造成的伤害将会提高。当敌人被多种墨水浸染时，墨水将会混合并且大幅度提高他们受到的伤害。 所有基础墨色的持续时间都为独立计算。<br><br>[<font color=\"<% RUBILASH_TEXT_COLOR_RED %>\">红</font>] 墨 -> 受到的来自 <font color=\"<% RUBILASH_TEXT_COLOR_RED %>\">红</font>墨的伤害2X。<br>[<font color=\"<% RUBILASH_TEXT_COLOR_YELLOW %>\">黄</font>] 墨 -> 受到的来自 <font color=\"<% RUBILASH_TEXT_COLOR_YELLOW %>\">黄</font> 墨的伤害2X。<br>[<font color=\"<% RUBILASH_TEXT_COLOR_BLUE %>\">蓝</font>] 墨 -> 受到的来自 <font color=\"<% RUBILASH_TEXT_COLOR_BLUE %>\">蓝</font> 墨的伤害2X。<br>[<font color=\"<% RUBILASH_TEXT_COLOR_ORANGE %>\">橙</font>] 墨 -> 受到的来自 <font color=\"<% RUBILASH_TEXT_COLOR_RED %>\">红</font> 和 <font color=\"<% RUBILASH_TEXT_COLOR_YELLOW %>\">黄</font> 墨.<br>[<font color=\"<% RUBILASH_TEXT_COLOR_GREEN %>\">绿</font>] 墨 -> 受到的来自 <font color=\"<% RUBILASH_TEXT_COLOR_YELLOW %>\">黄</font> 和 <font color=\"<% RUBILASH_TEXT_COLOR_BLUE %>\">蓝</font> 墨的伤害3X。<br>[<font color=\"<% RUBILASH_TEXT_COLOR_PURPLE %>\">紫</font>] 墨 -> 受到的来自 <font color=\"<% RUBILASH_TEXT_COLOR_RED %>\">红</font> 和 <font color=\"<% RUBILASH_TEXT_COLOR_BLUE %>\">蓝</font> 墨的伤害3X。<br>[<font color=\"<% RUBILASH_TEXT_COLOR_BLACK %>\">黑</font>] 墨 -> 受到的来自 <font color=\"<% RUBILASH_TEXT_COLOR_RED %>\">红</font>, <font color=\"<% RUBILASH_TEXT_COLOR_BLUE %>\">蓝</font> 以及<font color=\"<% RUBILASH_TEXT_COLOR_YELLOW %>\">黄</font> 墨的伤害4X。"
+"DOTA_Tooltip_Ability_rubilash_paint_splatter_red"			"泼墨 [<font color=RUBILASH_RED>红</font>]"
+"DOTA_Tooltip_Ability_rubilash_paint_splatter_red_Description"			"元素: <font color=ELEMENT_DEMON>恶魔</font> / <font color=ELEMENT_GHOST>鬼</font><br>传送至目标地点并且将目标地点周围的敌人浸入 [<font color=RUBILASH_RED>红</font>]墨中。 使用该技能将会将目前的墨色切换至[<font color=RUBILASH_YELLOW>黄</font>]色。<br><br>当敌人被墨浸染时，同颜色的墨水的对他们造成的伤害将会提高。当敌人被多种墨水浸染时，墨水将会混合并且大幅度提高他们受到的伤害。 所有基础墨色的持续时间都为独立计算。<br><br>[<font color=RUBILASH_RED>红</font>] 墨 -> 受到的来自 <font color=RUBILASH_RED>红</font>墨的伤害2X。<br>[<font color=RUBILASH_YELLOW>黄</font>] 墨 -> 受到的来自 <font color=RUBILASH_YELLOW>黄</font> 墨的伤害2X。<br>[<font color=RUBILASH_BLUE>蓝</font>] 墨 -> 受到的来自 <font color=RUBILASH_BLUE>蓝</font> 墨的伤害2X。<br>[<font color=RUBILASH_ORANGE>橙</font>] 墨 -> 受到的来自 <font color=RUBILASH_RED>红</font> 和 <font color=RUBILASH_YELLOW>黄</font> 墨.<br>[<font color=RUBILASH_GREEN>绿</font>] 墨 -> 受到的来自 <font color=RUBILASH_YELLOW>黄</font> 和 <font color=RUBILASH_BLUE>蓝</font> 墨的伤害3X。<br>[<font color=RUBILASH_PURPLE>紫</font>] 墨 -> 受到的来自 <font color=RUBILASH_RED>红</font> 和 <font color=RUBILASH_BLUE>蓝</font> 墨的伤害3X。<br>[<font color=RUBILASH_BLACK>黑</font>] 墨 -> 受到的来自 <font color=RUBILASH_RED>红</font>, <font color=RUBILASH_BLUE>蓝</font> 以及<font color=RUBILASH_YELLOW>黄</font> 墨的伤害4X。"
 "DOTA_Tooltip_Ability_rubilash_paint_splatter_red_damage"	"伤害:"
 "DOTA_Tooltip_Ability_rubilash_paint_splatter_red_cast_range"	"施法距离:"
 
-"DOTA_Tooltip_Ability_rubilash_paint_splatter_yellow"			"泼墨 [<font color=\"<% RUBILASH_TEXT_COLOR_YELLOW %>\">黄</font>]"
-"DOTA_Tooltip_Ability_rubilash_paint_splatter_yellow_Description"			"元素: <font color=\"<% RPC_ELEMENT_DEMON_COLOR %>\">恶魔</font> / <font color=\"<% RPC_ELEMENT_GHOST_COLOR %>\">鬼</font><br>传送至目标地点并且将目标地点周围的敌人浸入 [<font color=\"<% RUBILASH_TEXT_COLOR_YELLOW %>\">黄</font>] 墨中。 使用该技能将会将目前的墨色切换至 [<font color=\"<% RUBILASH_TEXT_COLOR_BLUE %>\">蓝</font>]色。<br><br>当敌人被墨浸染时，同颜色的墨水的对他们造成的伤害将会提高。当敌人被多种墨水浸染时，墨水将会混合并且大幅度提高他们受到的伤害。 所有基础墨色的持续时间都为独立计算。<br><br>[<font color=\"<% RUBILASH_TEXT_COLOR_RED %>\">红</font>] 墨 -> 受到的来自 <font color=\"<% RUBILASH_TEXT_COLOR_RED %>\">红</font>墨的伤害2X。<br>[<font color=\"<% RUBILASH_TEXT_COLOR_YELLOW %>\">黄</font>] 墨 -> 受到的来自 <font color=\"<% RUBILASH_TEXT_COLOR_YELLOW %>\">黄</font> 墨的伤害2X。<br>[<font color=\"<% RUBILASH_TEXT_COLOR_BLUE %>\">蓝</font>] 墨 -> 受到的来自 <font color=\"<% RUBILASH_TEXT_COLOR_BLUE %>\">蓝</font> 墨的伤害2X。<br>[<font color=\"<% RUBILASH_TEXT_COLOR_ORANGE %>\">橙</font>] 墨 -> 受到的来自 <font color=\"<% RUBILASH_TEXT_COLOR_RED %>\">红</font> 和 <font color=\"<% RUBILASH_TEXT_COLOR_YELLOW %>\">黄</font> 墨.<br>[<font color=\"<% RUBILASH_TEXT_COLOR_GREEN %>\">绿</font>] 墨 -> 受到的来自 <font color=\"<% RUBILASH_TEXT_COLOR_YELLOW %>\">黄</font> 和 <font color=\"<% RUBILASH_TEXT_COLOR_BLUE %>\">蓝</font> 墨的伤害3X。<br>[<font color=\"<% RUBILASH_TEXT_COLOR_PURPLE %>\">紫</font>] 墨 -> 受到的来自 <font color=\"<% RUBILASH_TEXT_COLOR_RED %>\">红</font> 和 <font color=\"<% RUBILASH_TEXT_COLOR_BLUE %>\">蓝</font> 墨的伤害3X。<br>[<font color=\"<% RUBILASH_TEXT_COLOR_BLACK %>\">黑</font>] 墨 -> 受到的来自 <font color=\"<% RUBILASH_TEXT_COLOR_RED %>\">红</font>, <font color=\"<% RUBILASH_TEXT_COLOR_BLUE %>\">蓝</font> 以及 <font color=\"<% RUBILASH_TEXT_COLOR_YELLOW %>\">黄</font> 墨的伤害4X。"
+"DOTA_Tooltip_Ability_rubilash_paint_splatter_yellow"			"泼墨 [<font color=RUBILASH_YELLOW>黄</font>]"
+"DOTA_Tooltip_Ability_rubilash_paint_splatter_yellow_Description"			"元素: <font color=ELEMENT_DEMON>恶魔</font> / <font color=ELEMENT_GHOST>鬼</font><br>传送至目标地点并且将目标地点周围的敌人浸入 [<font color=RUBILASH_YELLOW>黄</font>] 墨中。 使用该技能将会将目前的墨色切换至 [<font color=RUBILASH_BLUE>蓝</font>]色。<br><br>当敌人被墨浸染时，同颜色的墨水的对他们造成的伤害将会提高。当敌人被多种墨水浸染时，墨水将会混合并且大幅度提高他们受到的伤害。 所有基础墨色的持续时间都为独立计算。<br><br>[<font color=RUBILASH_RED>红</font>] 墨 -> 受到的来自 <font color=RUBILASH_RED>红</font>墨的伤害2X。<br>[<font color=RUBILASH_YELLOW>黄</font>] 墨 -> 受到的来自 <font color=RUBILASH_YELLOW>黄</font> 墨的伤害2X。<br>[<font color=RUBILASH_BLUE>蓝</font>] 墨 -> 受到的来自 <font color=RUBILASH_BLUE>蓝</font> 墨的伤害2X。<br>[<font color=RUBILASH_ORANGE>橙</font>] 墨 -> 受到的来自 <font color=RUBILASH_RED>红</font> 和 <font color=RUBILASH_YELLOW>黄</font> 墨.<br>[<font color=RUBILASH_GREEN>绿</font>] 墨 -> 受到的来自 <font color=RUBILASH_YELLOW>黄</font> 和 <font color=RUBILASH_BLUE>蓝</font> 墨的伤害3X。<br>[<font color=RUBILASH_PURPLE>紫</font>] 墨 -> 受到的来自 <font color=RUBILASH_RED>红</font> 和 <font color=RUBILASH_BLUE>蓝</font> 墨的伤害3X。<br>[<font color=RUBILASH_BLACK>黑</font>] 墨 -> 受到的来自 <font color=RUBILASH_RED>红</font>, <font color=RUBILASH_BLUE>蓝</font> 以及 <font color=RUBILASH_YELLOW>黄</font> 墨的伤害4X。"
 "DOTA_Tooltip_Ability_rubilash_paint_splatter_yellow_damage"	"伤害:"
 "DOTA_Tooltip_Ability_rubilash_paint_splatter_yellow_cast_range"	"施法距离:"
 
-"DOTA_Tooltip_Ability_rubilash_paint_splatter_blue"			"泼墨 [<font color=\"<% RUBILASH_TEXT_COLOR_BLUE %>\">蓝</font>]"
-"DOTA_Tooltip_Ability_rubilash_paint_splatter_blue_Description"			"元素: <font color=\"<% RPC_ELEMENT_DEMON_COLOR %>\">恶魔</font> / <font color=\"<% RPC_ELEMENT_GHOST_COLOR %>\">鬼</font><br>传送至目标地点并且将目标地点周围的敌人浸入 [<font color=\"<% RUBILASH_TEXT_COLOR_BLUE %>\">蓝</font>] 墨中。 使用该技能将会将目前的墨色切换至 [<font color=\"<% RUBILASH_TEXT_COLOR_RED %>\">红</font>]色。<br><br>当敌人被墨浸染时，同颜色的墨水的对他们造成的伤害将会提高。当敌人被多种墨水浸染时，墨水将会混合并且大幅度提高他们受到的伤害。 所有基础墨色的持续时间都为独立计算。<br><br>[<font color=\"<% RUBILASH_TEXT_COLOR_RED %>\">红</font>] 墨 -> 受到的来自 <font color=\"<% RUBILASH_TEXT_COLOR_RED %>\">红</font>墨的伤害2X。<br>[<font color=\"<% RUBILASH_TEXT_COLOR_YELLOW %>\">黄</font>] 墨 -> 受到的来自 <font color=\"<% RUBILASH_TEXT_COLOR_YELLOW %>\">黄</font> 墨的伤害2X。<br>[<font color=\"<% RUBILASH_TEXT_COLOR_BLUE %>\">蓝</font>] 墨 -> 受到的来自 <font color=\"<% RUBILASH_TEXT_COLOR_BLUE %>\">蓝</font> 墨的伤害2X。<br>[<font color=\"<% RUBILASH_TEXT_COLOR_ORANGE %>\">橙</font>] 墨 -> 受到的来自 <font color=\"<% RUBILASH_TEXT_COLOR_RED %>\">红</font> 和 <font color=\"<% RUBILASH_TEXT_COLOR_YELLOW %>\">黄</font> 墨.<br>[<font color=\"<% RUBILASH_TEXT_COLOR_GREEN %>\">绿</font>] 墨 -> 受到的来自 <font color=\"<% RUBILASH_TEXT_COLOR_YELLOW %>\">黄</font> 和 <font color=\"<% RUBILASH_TEXT_COLOR_BLUE %>\">蓝</font> 墨的伤害3X。<br>[<font color=\"<% RUBILASH_TEXT_COLOR_PURPLE %>\">紫</font>] 墨 -> 受到的来自 <font color=\"<% RUBILASH_TEXT_COLOR_RED %>\">红</font> 和 <font color=\"<% RUBILASH_TEXT_COLOR_BLUE %>\">蓝</font> 墨的伤害3X。<br>[<font color=\"<% RUBILASH_TEXT_COLOR_BLACK %>\">黑</font>] 墨 -> 受到的来自 <font color=\"<% RUBILASH_TEXT_COLOR_RED %>\">红</font>, <font color=\"<% RUBILASH_TEXT_COLOR_BLUE %>\">蓝</font> 以及 <font color=\"<% RUBILASH_TEXT_COLOR_YELLOW %>\">黄</font> 墨的伤害4X。"
+"DOTA_Tooltip_Ability_rubilash_paint_splatter_blue"			"泼墨 [<font color=RUBILASH_BLUE>蓝</font>]"
+"DOTA_Tooltip_Ability_rubilash_paint_splatter_blue_Description"			"元素: <font color=ELEMENT_DEMON>恶魔</font> / <font color=ELEMENT_GHOST>鬼</font><br>传送至目标地点并且将目标地点周围的敌人浸入 [<font color=RUBILASH_BLUE>蓝</font>] 墨中。 使用该技能将会将目前的墨色切换至 [<font color=RUBILASH_RED>红</font>]色。<br><br>当敌人被墨浸染时，同颜色的墨水的对他们造成的伤害将会提高。当敌人被多种墨水浸染时，墨水将会混合并且大幅度提高他们受到的伤害。 所有基础墨色的持续时间都为独立计算。<br><br>[<font color=RUBILASH_RED>红</font>] 墨 -> 受到的来自 <font color=RUBILASH_RED>红</font>墨的伤害2X。<br>[<font color=RUBILASH_YELLOW>黄</font>] 墨 -> 受到的来自 <font color=RUBILASH_YELLOW>黄</font> 墨的伤害2X。<br>[<font color=RUBILASH_BLUE>蓝</font>] 墨 -> 受到的来自 <font color=RUBILASH_BLUE>蓝</font> 墨的伤害2X。<br>[<font color=RUBILASH_ORANGE>橙</font>] 墨 -> 受到的来自 <font color=RUBILASH_RED>红</font> 和 <font color=RUBILASH_YELLOW>黄</font> 墨.<br>[<font color=RUBILASH_GREEN>绿</font>] 墨 -> 受到的来自 <font color=RUBILASH_YELLOW>黄</font> 和 <font color=RUBILASH_BLUE>蓝</font> 墨的伤害3X。<br>[<font color=RUBILASH_PURPLE>紫</font>] 墨 -> 受到的来自 <font color=RUBILASH_RED>红</font> 和 <font color=RUBILASH_BLUE>蓝</font> 墨的伤害3X。<br>[<font color=RUBILASH_BLACK>黑</font>] 墨 -> 受到的来自 <font color=RUBILASH_RED>红</font>, <font color=RUBILASH_BLUE>蓝</font> 以及 <font color=RUBILASH_YELLOW>黄</font> 墨的伤害4X。"
 "DOTA_Tooltip_Ability_rubilash_paint_splatter_blue_damage"	"伤害:"
 "DOTA_Tooltip_Ability_rubilash_paint_splatter_blue_cast_range"	"施法距离:"
 
-"DOTA_Tooltip_Ability_rubilash_paint_splatter_white"			"泼墨 [<font color=\"<% RUBILASH_TEXT_COLOR_WHITE %>\">白</font>]"
-"DOTA_Tooltip_Ability_rubilash_paint_splatter_white_Description"			"元素: <font color=\"<% RPC_ELEMENT_DEMON_COLOR %>\">恶魔</font> / <font color=\"<% RPC_ELEMENT_GHOST_COLOR %>\">鬼</font><br>传送至目标地点并且将目标地点周围的敌人浸入 [<font color=\"<% RUBILASH_TEXT_COLOR_WHITE %>\">白</font>] 墨中。 白墨将会获得所有其他墨色的加成。将敌人浸入 [<font color=\"<% RUBILASH_TEXT_COLOR_WHITE %>\">白</font>]墨之中。 受到的来自 [<font color=\"<% RUBILASH_TEXT_COLOR_WHITE %>\">白</font>] 墨的伤害将会提高2X。"
+"DOTA_Tooltip_Ability_rubilash_paint_splatter_white"			"泼墨 [<font color=RUBILASH_WHITE>白</font>]"
+"DOTA_Tooltip_Ability_rubilash_paint_splatter_white_Description"			"元素: <font color=ELEMENT_DEMON>恶魔</font> / <font color=ELEMENT_GHOST>鬼</font><br>传送至目标地点并且将目标地点周围的敌人浸入 [<font color=RUBILASH_WHITE>白</font>] 墨中。 白墨将会获得所有其他墨色的加成。将敌人浸入 [<font color=RUBILASH_WHITE>白</font>]墨之中。 受到的来自 [<font color=RUBILASH_WHITE>白</font>] 墨的伤害将会提高2X。"
 "DOTA_Tooltip_Ability_rubilash_paint_splatter_white_damage"	"伤害:"
 "DOTA_Tooltip_Ability_rubilash_paint_splatter_white_cast_range"	"施法距离:"
 
@@ -92,7 +92,7 @@
 	"DOTA_Tooltip_ability_rubilash_rune_q_1_suffix"					""	
 	
 	"DOTA_Tooltip_ability_rubilash_rune_q_2"							"[Q2] 红色标记"
-	"DOTA_Tooltip_ability_rubilash_rune_q_2_Description"				"降低被<font color=\"<% RUBILASH_TEXT_COLOR_RED %>\">红</font>墨, <font color=\"<% RUBILASH_TEXT_COLOR_ORANGE %>\">橙</font>墨, <font color=\"<% RUBILASH_TEXT_COLOR_PURPLE %>\">紫</font>墨, 或者<font color=\"<% RUBILASH_TEXT_COLOR_BLACK %>\">黑</font> 墨浸染的敌人的魔甲和护甲。"
+	"DOTA_Tooltip_ability_rubilash_rune_q_2_Description"				"降低被<font color=RUBILASH_RED>红</font>墨, <font color=RUBILASH_ORANGE>橙</font>墨, <font color=RUBILASH_PURPLE>紫</font>墨, 或者<font color=RUBILASH_BLACK>黑</font> 墨浸染的敌人的魔甲和护甲。"
 	"DOTA_Tooltip_ability_rubilash_rune_q_2_property_one"			"魔甲和护甲降低"
 	"DOTA_Tooltip_ability_rubilash_rune_q_2_suffix"					""	
 
@@ -105,7 +105,7 @@
 	"DOTA_Tooltip_modifier_rubilash_q_3_fear_Description"			"被恐惧"
 	
 	"DOTA_Tooltip_ability_rubilash_rune_q_4"							"[Q4] 阴恶艺术"
-	"DOTA_Tooltip_ability_rubilash_rune_q_4_Description"				"增加所有 <font color=\"<% RPC_ELEMENT_DEMON_COLOR %>\">恶魔</font> 和 <font color=\"<% RPC_ELEMENT_GHOST_COLOR %>\">鬼</font> 元素伤害。"
+	"DOTA_Tooltip_ability_rubilash_rune_q_4_Description"				"增加所有 <font color=ELEMENT_DEMON>恶魔</font> 和 <font color=ELEMENT_GHOST>鬼</font> 元素伤害。"
 	"DOTA_Tooltip_ability_rubilash_rune_q_4_property_one"			"元素伤害加成"
 	"DOTA_Tooltip_ability_rubilash_rune_q_4_suffix"					"%"		
 	
@@ -116,7 +116,7 @@
 	"DOTA_Tooltip_ability_rubilash_rune_w_1_suffix"					" 秒"	
 	
 	"DOTA_Tooltip_ability_rubilash_rune_w_2"							"[W2] 冷黄"
-	"DOTA_Tooltip_ability_rubilash_rune_w_2_Description"				"降低被 <font color=\"<% RUBILASH_TEXT_COLOR_YELLOW %>\">黄</font>, <font color=\"<% RUBILASH_TEXT_COLOR_ORANGE %>\">橙</font>, <font color=\"<% RUBILASH_TEXT_COLOR_GREEN %>\">绿</font>, 或者 <font color=\"<% RUBILASH_TEXT_COLOR_BLACK %>\">黑</font>墨浸染的敌人的魔法穿透和物理穿透。"
+	"DOTA_Tooltip_ability_rubilash_rune_w_2_Description"				"降低被 <font color=RUBILASH_YELLOW>黄</font>, <font color=RUBILASH_ORANGE>橙</font>, <font color=RUBILASH_GREEN>绿</font>, 或者 <font color=RUBILASH_BLACK>黑</font>墨浸染的敌人的魔法穿透和物理穿透。"
 	"DOTA_Tooltip_ability_rubilash_rune_w_2_property_one"			"物理穿透和魔法穿透降低"
 	"DOTA_Tooltip_ability_rubilash_rune_w_2_suffix"					""	
 
@@ -130,7 +130,7 @@
 	
 	
 	"DOTA_Tooltip_ability_rubilash_rune_w_4"							"[W4] 粘稠"
-	"DOTA_Tooltip_ability_rubilash_rune_w_4_Description"				"降低被墨水影响的敌人攻击速度和移动速度。这个debuff的效果对被 <font color=\"<% RUBILASH_TEXT_COLOR_ORANGE %>\">橙</font>, <font color=\"<% RUBILASH_TEXT_COLOR_GREEN %>\">绿</font>, or <font color=\"<% RUBILASH_TEXT_COLOR_PURPLE %>\">紫</font>墨影响的敌人提高2倍, 对被 <font color=\"<% RUBILASH_TEXT_COLOR_BLACK %>\">黑</font>墨影响的敌人提高3倍。"
+	"DOTA_Tooltip_ability_rubilash_rune_w_4_Description"				"降低被墨水影响的敌人攻击速度和移动速度。这个debuff的效果对被 <font color=RUBILASH_ORANGE>橙</font>, <font color=RUBILASH_GREEN>绿</font>, or <font color=RUBILASH_PURPLE>紫</font>墨影响的敌人提高2倍, 对被 <font color=RUBILASH_BLACK>黑</font>墨影响的敌人提高3倍。"
 	"DOTA_Tooltip_ability_rubilash_rune_w_4_property_one"			"攻击速度和移动速度降低"
 	"DOTA_Tooltip_ability_rubilash_rune_w_4_suffix"					" 被墨浸染时"
 	
@@ -143,7 +143,7 @@
 	"DOTA_Tooltip_ability_rubilash_rune_e_1_suffix_two"				" 每点当前魔法值"	
 	
 	"DOTA_Tooltip_ability_rubilash_rune_e_2"							"[E2] 鬼蓝"
-	"DOTA_Tooltip_ability_rubilash_rune_e_2_Description"				"降低被 <font color=\"<% RUBILASH_TEXT_COLOR_BLUE %>\">蓝</font>, <font color=\"<% RUBILASH_TEXT_COLOR_PURPLE %>\">紫</font>, <font color=\"<% RUBILASH_TEXT_COLOR_GREEN %>\">绿</font>, 或者 <font color=\"<% RUBILASH_TEXT_COLOR_BLACK %>\">黑</font> 墨浸染的敌人的魔甲和魔法穿透。"
+	"DOTA_Tooltip_ability_rubilash_rune_e_2_Description"				"降低被 <font color=RUBILASH_BLUE>蓝</font>, <font color=RUBILASH_PURPLE>紫</font>, <font color=RUBILASH_GREEN>绿</font>, 或者 <font color=RUBILASH_BLACK>黑</font> 墨浸染的敌人的魔甲和魔法穿透。"
 	"DOTA_Tooltip_ability_rubilash_rune_e_2_property_one"			"魔甲和魔法穿透降低"
 	"DOTA_Tooltip_ability_rubilash_rune_e_2_suffix"					""	
 	
@@ -241,7 +241,7 @@
 	"DOTA_Tooltip_ability_item_rpc_rubilash_arcana1"						"大师笔触之靴"
 
 	"item_property_rubilash_arcana1"										"白墨"
-	"property_rubilash_arcana1_description"									"将 @Ability3 及他的所有符文替换为泼墨 [<font color=\"<% RUBILASH_TEXT_COLOR_WHITE %>\">白</font>]。"
+	"property_rubilash_arcana1_description"									"将 @Ability3 及他的所有符文替换为泼墨 [<font color=RUBILASH_WHITE>白</font>]。"
 
 	"DOTA_Tooltip_ability_rubilash_rune_e_1_arcana1"						"[E1] 崭新大衣"
 	"DOTA_Tooltip_ability_rubilash_rune_e_1_arcana1_Description"			"释放 @Ability3 回复生命值"

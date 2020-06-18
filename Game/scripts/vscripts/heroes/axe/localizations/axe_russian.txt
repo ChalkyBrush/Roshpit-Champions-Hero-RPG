@@ -1,5 +1,5 @@
 		"DOTA_Tooltip_ability_red_general_ability_base_q_skull_basher"							"Skull Basher"
-		"DOTA_Tooltip_ability_red_general_ability_base_q_skull_basher_Description"			"Стихия: <font color=\"#DDDDDD\">Нормальный</font><br>Герой прыгает в указанную точку. С каждой атакой Red General оглушает врагов мощным ударом по области. Также на время действия повышается скорость атаки. Во время прыжка время действия [Q2] Berserker Rage приостанавливается."
+		"DOTA_Tooltip_ability_red_general_ability_base_q_skull_basher_Description"			"Стихия: <font color=ELEMENT_NORMAL>Нормальный</font><br>Герой прыгает в указанную точку. С каждой атакой Red General оглушает врагов мощным ударом по области. Также на время действия повышается скорость атаки. Во время прыжка время действия [Q2] Berserker Rage приостанавливается."
 		"DOTA_Tooltip_ability_red_general_ability_base_q_skull_basher_Lore"					""
 		"DOTA_Tooltip_ability_red_general_ability_base_q_skull_basher_attack_speed"			"ДОП. СКОРОСТЬ АТАКИ:"
 		"DOTA_Tooltip_ability_red_general_ability_base_q_skull_basher_bolt_damage"			"УРОН ОТ УДАРА:"
@@ -37,7 +37,7 @@
         "DOTA_Tooltip_ability_axe_rune_q_4_suffix"                      ""	
 		
 		"DOTA_Tooltip_ability_red_general_ability_base_w_backshock"                                "Spur Shock"
-        "DOTA_Tooltip_ability_red_general_ability_base_w_backshock_Description"                    "Стихия: <font color=\"#DDDDDD\">Нормальный</font><br>Red General выпускает 3 борозды позади себя."
+        "DOTA_Tooltip_ability_red_general_ability_base_w_backshock_Description"                    "Стихия: <font color=ELEMENT_NORMAL>Нормальный</font><br>Red General выпускает 3 борозды позади себя."
         "DOTA_Tooltip_ability_red_general_ability_base_w_backshock_Lore"                           ""
         "DOTA_Tooltip_ability_red_general_ability_base_w_backshock_main_damage"                    "УРОН ЗА ВОЛНУ:"
         "DOTA_Tooltip_ability_red_general_ability_base_w_backshock_speed"                          "СКОРОСТЬ ВОЛНЫ:"
@@ -114,7 +114,7 @@
         "DOTA_Tooltip_modifier_axe_rune_e_4_furnace_Description"        "Casting Spur Shock unleashes charges."
  
         "DOTA_Tooltip_ability_red_general_ability_base_r_sunder"                                   "Sunder"
-        "DOTA_Tooltip_ability_red_general_ability_base_r_sunder_Description"                       "Стихия: <font color=\"#DDDDDD\">Нормальный</font><br>Red General поднимает своё оружие вверх и через 2 секунды бьёт о землю перед собой, распространяя ударные волны, наносящие урон врагам в радиусе. Наносимый урон зависит от текущего здоровья героя."
+        "DOTA_Tooltip_ability_red_general_ability_base_r_sunder_Description"                       "Стихия: <font color=ELEMENT_NORMAL>Нормальный</font><br>Red General поднимает своё оружие вверх и через 2 секунды бьёт о землю перед собой, распространяя ударные волны, наносящие урон врагам в радиусе. Наносимый урон зависит от текущего здоровья героя."
         "DOTA_Tooltip_ability_red_general_ability_base_r_sunder_Lore"                              ""
         "DOTA_Tooltip_ability_red_general_ability_base_r_sunder_main_damage"                       "УРОН, % ОТ ТЕКУЩЕГО ЗДОРОВЬЯ:"
 		
@@ -157,7 +157,7 @@
         "property_axe_arcana1_description"                              "Заменяет (R) @Ability4 и все соответствующие руны на (R) Terraforming."
  
         "DOTA_Tooltip_ability_red_general_ability_arcana1_r_tectonic_sunder"                         "Terraforming"
-        "DOTA_Tooltip_ability_red_general_ability_arcana1_r_tectonic_sunder_Description"             "Стихия: <font color=\"#DDDDDD\">Нормальный</font><br>Мощным ударом топора о землю создаёт огромный разлом впереди себя, который взрывается спустя 2 секунды."
+        "DOTA_Tooltip_ability_red_general_ability_arcana1_r_tectonic_sunder_Description"             "Стихия: <font color=ELEMENT_NORMAL>Нормальный</font><br>Мощным ударом топора о землю создаёт огромный разлом впереди себя, который взрывается спустя 2 секунды."
         "DOTA_Tooltip_ability_red_general_ability_arcana1_r_tectonic_sunder_attack_power_mult_percent"   "УРОН, % ОТ УРОНА ГЕРОЯ:"
         "DOTA_Tooltip_ability_red_general_ability_arcana1_r_tectonic_sunder_stun_duration"           "ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
  

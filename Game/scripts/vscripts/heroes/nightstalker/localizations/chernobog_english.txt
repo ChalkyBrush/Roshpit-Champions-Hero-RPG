@@ -1,6 +1,6 @@
 		//Abilities
     	"DOTA_Tooltip_ability_chernobog_charons_claw"							"Charon's Claw"
-    	"DOTA_Tooltip_ability_chernobog_charons_claw_Description"				"Element: <font color=\"#5B648C\">Demon</font> / <font color=\"#7F4F84\">Shadow</font><br>Flicks a stream of abyssal ichor along a straight path. Enemies within the darkness have reduced movespeed and attack damage, while Chernobog and other allied units gain increased movespeed and free pathing."
+    	"DOTA_Tooltip_ability_chernobog_charons_claw_Description"				"Element: <font color=ELEMENT_DEMON>Demon</font> / <font color=ELEMENT_SHADOW>Shadow</font><br>Flicks a stream of abyssal ichor along a straight path. Enemies within the darkness have reduced movespeed and attack damage, while Chernobog and other allied units gain increased movespeed and free pathing."
     	"DOTA_Tooltip_ability_chernobog_charons_claw_range"						"PATH LENGTH:"
     	"DOTA_Tooltip_ability_chernobog_charons_claw_move_and_attack_slow"		"% MOVESPEED AND ATTACK DAMAGE REDUCTION (ENEMY):"
     	"DOTA_Tooltip_ability_chernobog_charons_claw_move_speed_increase"		"MOVESPEED INCREASE (CASTER AND ALLIES):"
@@ -44,7 +44,7 @@
 
 		
 		"DOTA_Tooltip_ability_chernobog_demon_hunter"							"Demon Hunter"
-    	"DOTA_Tooltip_ability_chernobog_demon_hunter_Description"				"Element: <font color=\"#5B648C\">Demon</font><br>Chernobog enters a hunter's state where his attacks deal additional magic damage based on total attack power to all enemies within a <% CHERNOBOG_W_RADIUS %> radius of the target; additionally, all damage taken is capped at a % of max health while in this state, but all healing is also disabled. Some mana is spent each time damage is truncated by this effect."
+    	"DOTA_Tooltip_ability_chernobog_demon_hunter_Description"				"Element: <font color=ELEMENT_DEMON>Demon</font><br>Chernobog enters a hunter's state where his attacks deal additional magic damage based on total attack power to all enemies within a <% CHERNOBOG_W_RADIUS %> radius of the target; additionally, all damage taken is capped at a % of max health while in this state, but all healing is also disabled. Some mana is spent each time damage is truncated by this effect."
     	"DOTA_Tooltip_ability_chernobog_demon_hunter_mana_drain_per_attack"						"MANA DRAIN PER ATTACK (SELF):"
     	"DOTA_Tooltip_ability_chernobog_demon_hunter_health_cost_percent"						"HEALTH % COST PER ATTACK (SELF):"
     	"DOTA_Tooltip_ability_chernobog_demon_hunter_max_damage_taken_percent_of_health"		"INCOMING DAMAGE LIMIT AS % OF HEALTH:"
@@ -152,7 +152,7 @@
     	"DOTA_Tooltip_modifier_chernobog_4_r_procession_enemy_effect_Description"		"Frozen"
 		
 		"DOTA_Tooltip_ability_chernobog_rune_r_1"								"[R1] Fiend's Grip"
-    	"DOTA_Tooltip_ability_chernobog_rune_r_1_Description"					"Increases all <font color=\"#5B648C\">Demon</font> damage."
+    	"DOTA_Tooltip_ability_chernobog_rune_r_1_Description"					"Increases all <font color=ELEMENT_DEMON>Demon</font> damage."
     	"DOTA_Tooltip_ability_chernobog_rune_r_1_property_one"					"Demon Amp"
     	"DOTA_Tooltip_ability_chernobog_rune_r_1_suffix"						"%"
 
@@ -217,7 +217,7 @@
     	"DOTA_Tooltip_ability_chernobog_rune_r_3_arcana1_suffix"				"%"
 
   		"DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1"						"[R4] Darkness Incarnate"
-    	"DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_Description"			"Increases the duration of @Ability4, and increases all <font color=\"#5B648C\">Demon</font> damage"
+    	"DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_Description"			"Increases the duration of @Ability4, and increases all <font color=ELEMENT_DEMON>Demon</font> damage"
     	"DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_property_one"			"Duration Increase"
     	"DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_suffix"				" seconds"
     	"DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_property_two"			"Demon Damage Amp"
@@ -260,7 +260,7 @@
     	"DOTA_Tooltip_modifier_demonflight_b_c_visible_Description"				"Increased attack damage based on number of nearby enemies"	
 
   		"DOTA_Tooltip_ability_chernobog_rune_e_3_arcana2"						"[E3] Infernal Power"
-    	"DOTA_Tooltip_ability_chernobog_rune_e_3_arcana2_Description"			"Chernobog's <font color=\"#5B648C\">Demon</font> elemental damage bonus also adds to his base attack damage."
+    	"DOTA_Tooltip_ability_chernobog_rune_e_3_arcana2_Description"			"Chernobog's <font color=ELEMENT_DEMON>Demon</font> elemental damage bonus also adds to his base attack damage."
     	"DOTA_Tooltip_ability_chernobog_rune_e_3_arcana2_property_one"			"Base Attack Damage"
     	"DOTA_Tooltip_ability_chernobog_rune_e_3_arcana2_suffix"				" per 1% Demon damage bonus"
 

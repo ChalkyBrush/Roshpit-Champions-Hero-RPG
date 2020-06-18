@@ -12,7 +12,7 @@
 		"property_tanari_wind_armor_description"				"Enemies within <% ITEM_RPC_ANCIENT_TANARI_WIND_ARMOR_WIND_RADIUS %> radius have their movespeed reduced by <% ITEM_RPC_ANCIENT_TANARI_WIND_ARMOR_MS_REDUCTION %>%, their attack speed slowed by <% ITEM_RPC_ANCIENT_TANARI_WIND_ARMOR_AS_REDUCTION %>, and have a <% ITEM_RPC_ANCIENT_TANARI_WIND_ARMOR_MISS_CHANCE %>% miss chance."
 
 		"item_rpc_ancient_tanari_wind_armor_ruby1"						"Enemies within the Wind's radius take damage equal to @ruby_property1x your Agility and Intelligence every 0.5 seconds."
-		"item_rpc_ancient_tanari_wind_armor_emerald1"						"Increases <font color=\"#7AE2A7\">Wind</font> elemental damage by @emerald_property1%"
+		"item_rpc_ancient_tanari_wind_armor_emerald1"						"Increases <font color=ELEMENT_WIND>Wind</font> elemental damage by @emerald_property1%"
 		"item_rpc_ancient_tanari_wind_armor_sapphire1"						"Increases the attack speed slow by an additional @sapphire_property1"
 		"item_rpc_ancient_tanari_wind_armor_amethyst1"						"Increases the miss chance by an additional @amethyst_property1%"
 
@@ -60,7 +60,7 @@
 		"property_avalanche_description"			"When you finish casting @Ability4, release a <% ITEM_RPC_AVALANCHE_PLATE_AVALANCHE_RADIUS %>-radius avalanche which deals <% ITEM_RPC_AVALANCHE_PLATE_AVALANCHE_STR_TO_DMG %>x your Strength every <% ITEM_RPC_AVALANCHE_PLATE_AVALANCHE_INTERVAL %> seconds. Struck enemies are stunned for <% ITEM_RPC_AVALANCHE_PLATE_STUN_DUR %> seconds. Lasts <% ITEM_RPC_AVALANCHE_PLATE_DURATION %> seconds."
 		
 		"item_rpc_avalanche_plate_ruby1"								"At the end of Avalanche's duration, create a large earthquake that deals @ruby_property1x Strength to enemies in a <% ITEM_RPC_AVALANCHE_PLATE_RUBY_EARTHQUAKE_RADIUS_MULT %>x radius that stuns them for @ruby_property2 seconds."
-		"item_rpc_avalanche_plate_emerald1"								"Increases Item Damage and <font color=\"#AF843D\">Earth</font> elemental damage by @emerald_property1%"
+		"item_rpc_avalanche_plate_emerald1"								"Increases Item Damage and <font color=ELEMENT_EARTH>Earth</font> elemental damage by @emerald_property1%"
 		"item_rpc_avalanche_plate_sapphire1"								"Increases the avalanche's radius by @sapphire_property1 and increases strength by @sapphire_property2"
 		"item_rpc_avalanche_plate_amethyst1"								"Each damage instance of the base avalance is increased by @amethyst_property1"
 
@@ -96,7 +96,7 @@
 		"DOTA_Tooltip_modifier_blazing_fury_sapphire_effect_Description"	"Increased Attack Speed and Attack Power"
 
 		"item_rpc_blazing_fury_armor_ruby1"								"Each point of Strength and Intelligence increase attack speed by @ruby_property1"
-		"item_rpc_blazing_fury_armor_emerald1"								"Increases Agility by @emerald_property1 and <font color=\"#EF4126\">Fire</font> elemental damage by @emerald_property2%"
+		"item_rpc_blazing_fury_armor_emerald1"								"Increases Agility by @emerald_property1 and <font color=ELEMENT_FIRE>Fire</font> elemental damage by @emerald_property2%"
 		"item_rpc_blazing_fury_armor_sapphire1"								"<% ITEM_RPC_BLAZING_FURY_SAPPHIRE_CHANCE %>% chance on attack to gain @sapphire_property1 attack speed and @sapphire_property2% attack power for <% ITEM_RPC_BLAZING_FURY_SAPPHIRE_DURATION %> seconds"
 		"item_rpc_blazing_fury_armor_amethyst1"								"Increases Spirit by @amethyst_property1% of Agility"
 
@@ -225,7 +225,7 @@
 		"DOTA_Tooltip_ability_item_rpc_gilded_soul_cage"								"Gilded Soul Cage"
 
 		"item_property_gilded_soul"					"Siphon Soul"
-		"property_gilded_soul_description"			"Slain enemies' souls explode with light and heal you and nearby allies within <% ITEM_RPC_GILDED_SOUL_CAGE_HEAL_RADIUS %> range for <% ITEM_RPC_GILDED_SOUL_CAGE_HEAL_PCT %>% of their max health. Enemies who die within <% ITEM_RPC_GILDED_SOUL_RADIUS %> release their soul and have it collected by the Soul Cage. Each collected soul increases <font color=\"#F6FFB5\">Holy</font> elemental damage by <% ITEM_RPC_GILDED_SOUL_CAGE_ELEMENT_HOLY_AMP %>%. Can collect up to <% ITEM_RPC_GILDED_SOUL_CAGE_MAX_SOULS %> souls that last for <% ITEM_RPC_GILDED_SOUL_CAGE_SOUL_DURATION%> seconds. When the duration expires, only 1 soul is lost."
+		"property_gilded_soul_description"			"Slain enemies' souls explode with light and heal you and nearby allies within <% ITEM_RPC_GILDED_SOUL_CAGE_HEAL_RADIUS %> range for <% ITEM_RPC_GILDED_SOUL_CAGE_HEAL_PCT %>% of their max health. Enemies who die within <% ITEM_RPC_GILDED_SOUL_RADIUS %> release their soul and have it collected by the Soul Cage. Each collected soul increases <font color=ELEMENT_HOLY>Holy</font> elemental damage by <% ITEM_RPC_GILDED_SOUL_CAGE_ELEMENT_HOLY_AMP %>%. Can collect up to <% ITEM_RPC_GILDED_SOUL_CAGE_MAX_SOULS %> souls that last for <% ITEM_RPC_GILDED_SOUL_CAGE_SOUL_DURATION%> seconds. When the duration expires, only 1 soul is lost."
 		"DOTA_Tooltip_modifier_gilded_soul_buff"				"Gilded Soul Cage"
 		"DOTA_Tooltip_modifier_gilded_soul_buff_Description"	"Collected purified souls"
 		"DOTA_Tooltip_modifier_gilded_soul_immunity" "Gilded Soul Spell Immunity"
@@ -351,7 +351,7 @@
 		"DOTA_Tooltip_modifier_nethergrasp_linked_Description"	"Drawn to the caster for extra attacks"	
 
 		"item_rpc_nethergrasp_palisade_ruby1"		"Increases Max Grip range and Grip leash range by @ruby_property1 and increases maximum number of concurrent grips by @ruby_property2"
-		"item_rpc_nethergrasp_palisade_emerald1"		"Attacks against gripped enemies deal @emerald_property1% of the original damage as <font color=\"#B5FFB7\">Temporal</font> Pure damage. Effect overrides basic attacks"
+		"item_rpc_nethergrasp_palisade_emerald1"		"Attacks against gripped enemies deal @emerald_property1% of the original damage as <font color=ELEMENT_TIME>Temporal</font> Pure damage. Effect overrides basic attacks"
 		"item_rpc_nethergrasp_palisade_sapphire1"		"Enemies within attack range deal @sapphire_property1% reduced damage to you, and pull speed is increased by @sapphire_property2"
 		"item_rpc_nethergrasp_palisade_amethyst1"		"Gripped enemies have @amethyst_property1 reduced attack speed and can't heal"
 
@@ -367,7 +367,7 @@
 		"item_rpc_nightmare_rider_mantle_ruby1"							"Enemies hit by Shadow Melt have their Magic Armor reduced by @ruby_property1% and take @ruby_property2 magic damage"
 		"item_rpc_nightmare_rider_mantle_emerald1"							"Casting [R] adds @emerald_property1 Nightmare Stacks and increases max Nightmare Stacks by @emerald_property2"
 		"item_rpc_nightmare_rider_mantle_sapphire1"							"3 Nightmare orbs encircle you and deal damage to a nearby target every <% ITEM_RPC_NIGHTMARE_RIDER_MANTLE_SAPPHIRE_INTERVAL %> seconds for @sapphire_property1% of your attack power"
-		"item_rpc_nightmare_rider_mantle_amethyst1"							"Each active Nightmare Stack increases <font color=\"#7F4F84\">Shadow</font> elemental damage by @amethyst_property1% and Base Ability Damage and Item damage by @amethyst_property2%"
+		"item_rpc_nightmare_rider_mantle_amethyst1"							"Each active Nightmare Stack increases <font color=ELEMENT_SHADOW>Shadow</font> elemental damage by @amethyst_property1% and Base Ability Damage and Item damage by @amethyst_property2%"
 
 
 		"DOTA_Tooltip_ability_item_rpc_ocean_tempest_pallium"							"Ocean Tempest Pallium"
@@ -512,7 +512,7 @@
 		"item_rpc_savage_plate_of_ogthun_ruby1"							"@ruby_property1% chance when attacked to immediately perform a counter attack if they are within attack range"	
 		"item_rpc_savage_plate_of_ogthun_emerald1"							"Reduces all damage taken by @emerald_property1% while below <% ITEM_RPC_SAVAGE_PLATE_OF_OGTHUN_RUBY_THRESHOLD %>% health"		
 		"item_rpc_savage_plate_of_ogthun_sapphire1"							"Attacking an enemy increases attack power by @sapphire_property1% and Armor Pierce by @sapphire_property2 for <% ITEM_RPC_SAVAGE_PLATE_OF_OGTHUN_SAPPHIRE_DURATION %> seconds."
-		"item_rpc_savage_plate_of_ogthun_amethyst1"							"Increases <font color=\"<% RPC_ELEMENT_NORMAL_COLOR %>\">Normal</font> damage by @amethyst_property1%"
+		"item_rpc_savage_plate_of_ogthun_amethyst1"							"Increases <font color=ELEMENT_NORMAL>Normal</font> damage by @amethyst_property1%"
 
 		"DOTA_Tooltip_ability_item_rpc_sea_giants_plate"					"Sea Giant's Plate"	
 		"property_sea_giant_plate"												"Titanic Fortitude"
@@ -571,7 +571,7 @@
 		"item_rpc_space_tech_vest_ruby1"									"While channeling [R], gain @ruby_property1% Base Ability Damage over the duration of the channel. This bonus lasts <% ITEM_RPC_SPACE_TECH_VEST_BUFF_DURATION %> seconds or is reset when beginning to channel the ability again."
 		"item_rpc_space_tech_vest_emerald1"									"Reduce the cooldown of [R] by @emerald_property1% over its channel time"
 		"item_rpc_space_tech_vest_sapphire1"									"When enemies reach <% ITEM_RPC_SPACE_TECH_VEST_MAX_SLOW_STACKS %> Gravity Bend stacks, they are frozen in time for @sapphire_property1 seconds."
-		"item_rpc_space_tech_vest_amethyst1"									"Increases <font color=\"#C25DFC\">Cosmic</font> elemental damage by @amethyst_property1%"
+		"item_rpc_space_tech_vest_amethyst1"									"Increases <font color=ELEMENT_COSMOS>Cosmic</font> elemental damage by @amethyst_property1%"
 		
 		"DOTA_Tooltip_ability_item_rpc_spellslinger_coat"								"Spellslinger's Coat"
 		"item_property_spellslinger_coat"			"Spellslinger"
@@ -639,7 +639,7 @@
 		"DOTA_Tooltip_modifier_terrasic_magma_break_stacks"	"Magma Breaker"
 		"DOTA_Tooltip_modifier_terrasic_magma_break_stacks_Description"	"Removes cooldown of [Q]. Casting [Q] removes a stack."
 
-		"item_rpc_terrasic_stone_plate_ruby1"							"Increases Strength by @ruby_property1, Armor and Armor Pierce by @ruby_property2, and <font color=\"#EF4126\">Fire</font> and <font color=\"#AF843D\">Earth</font> elemental damage by @ruby_property3%"
+		"item_rpc_terrasic_stone_plate_ruby1"							"Increases Strength by @ruby_property1, Armor and Armor Pierce by @ruby_property2, and <font color=ELEMENT_FIRE>Fire</font> and <font color=ELEMENT_EARTH>Earth</font> elemental damage by @ruby_property3%"
 		"item_rpc_terrasic_stone_plate_emerald1"							"Reduces the stack generation interval by @emerald_property1"
 		"item_rpc_terrasic_stone_plate_sapphire1"							"Increases [Q] Base Ability damage by @sapphire_property1%"
 		"item_rpc_terrasic_stone_plate_amethyst1"							"Increases maximum Magma Breaker stacks by @amethyst_property1"
@@ -701,7 +701,7 @@
 
 		"item_rpc_water_mage_robes_ruby1"								"Drenched enemies have @ruby_property1 reduced Magic Armor"
 		"item_rpc_water_mage_robes_emerald1"								"Increases the damage of Wave Burst by @emerald_property1 and the wave travel speed by @emerald_property2"
-		"item_rpc_water_mage_robes_sapphire1"								"Increases all <font color=\"#3894FF\">Water</font> elemental damage by @sapphire_property1% and Spell Pierce by @sapphire_property2"
+		"item_rpc_water_mage_robes_sapphire1"								"Increases all <font color=ELEMENT_WATER>Water</font> elemental damage by @sapphire_property1% and Spell Pierce by @sapphire_property2"
 		"item_rpc_water_mage_robes_amethyst1"								"Casting [W] has a @amethyst_property1% chance to fire a single wave burst forward"
 		
 		"DOTA_Tooltip_ability_item_rpc_windsteel_armor"				"Windsteel Armor"
@@ -737,7 +737,7 @@
 		"DOTA_Tooltip_ability_item_rpc_plague_emperor_armor"							"Plague Emperor Armor"
 		"item_property_plague_emperor"												"Poison Globs"
 		"property_plague_emperor_description"										"Every <% ITEM_RPC_PLAGUE_EMPEROR_ARMOR_INTERVAL %> seconds, throw a Poison Glob at a random enemy within <% ITEM_RPC_PLAGUE_EMPEROR_ARMOR_RANGE %> range. On impact, deal <% ITEM_RPC_PLAGUE_EMPEROR_ARMOR_DMG_ATK_POWER %>% of attack power as damage in a <% ITEM_RPC_PLAGUE_EMPEROR_ARMOR_DAMAGE_RADIUS %> radius."
-		"item_rpc_plague_emperor_armor_ruby1"							"Increases <font color=\"#37DD3D\">Poison</font> Elemental Damage by @ruby_property1%, increases the projectile speed of Poison Globs by @ruby_property2, and reduces the delay between Poison Globs by @ruby_property3. "
+		"item_rpc_plague_emperor_armor_ruby1"							"Increases <font color=ELEMENT_POISON>Poison</font> Elemental Damage by @ruby_property1%, increases the projectile speed of Poison Globs by @ruby_property2, and reduces the delay between Poison Globs by @ruby_property3. "
 		"item_rpc_plague_emperor_armor_emerald1"							"Enemies in the impact radius are poisoned for <% ITEM_RPC_PLAGUE_EMPEROR_ARMOR_EMERALD_DURATION %> seconds, slowing attack speed by @emerald_property1 and taking @emerald_property2% of Attack Power as damage every <% ITEM_RPC_PLAGUE_EMPEROR_ARMOR_EMERALD_INTERVAL %> seconds."
 		"item_rpc_plague_emperor_armor_sapphire1"							"Casting [Q] throws @sapphire_property1 poison globs forward. Casting [R] throws @sapphire_property2 poison globs in all directions. Distance thrown is <% ITEM_RPC_PLAGUE_EMPEROR_ARMOR_SAPPHIRE_DEFAULT_DISTANCE %> or the distance between you and the closest enemy. Can only trigger <% ITEM_RPC_PLAGUE_EMPEROR_ARMOR_SAPPHIRE_MAX_TRIGGERS_PER_SECOND %> time per second."
 		"item_rpc_plague_emperor_armor_amethyst1"							"Poison Globs leave a pile of slime at the impact point that lasts for <% ITEM_RPC_PLAGUE_EMPEROR_ARMOR_AMETHYST_DURATION %> seconds. Enemies standing inside have @amethyst_property1% reduced movespeed and take @amethyst_property2% of Attack Power as damage every <% ITEM_RPC_PLAGUE_EMPEROR_ARMOR_AMETHYST_DAMAGE_INTERVAL %> seconds"
@@ -764,10 +764,10 @@
 		"item_property_spellcrafter_coat"				"Custom Spell"
 		"property_spellcrafter_coat_description"		"Casting @Ability2 throws a <% ITEM_RPC_SPELLCRAFTER_COAT_PROJECTILE_SPEED_BASE %> speed projectile towards the nearest enemy within <% ITEM_RPC_SPELLCRAFTER_COAT_RANGE %> range in front of the caster. The spell deals <% ITEM_RPC_SPELLCRAFTER_COAT_BASE_DMG_ATK_POWER %>% of Attack Power as Magical Damage."
 
-		"item_rpc_spellcrafter_coat_ruby1"									"Magic Spell deals <font color=\"#EF4126\">Fire</font> damage in a @ruby_property1 radius around the target. Magic Spell's damage is increased by @ruby_property2x Strength"
-		"item_rpc_spellcrafter_coat_emerald1"									"Magic Spell deals <font color=\"#7AE2A7\">Wind</font> damage and travels @emerald_property1 faster. Magic Spell's damage is increased by @emerald_property2x Agility"
-		"item_rpc_spellcrafter_coat_sapphire1"									"Magic Spell deals <font color=\"#87D9FF\">Ice</font> damage and the primary projectile fractures and hits up to @sapphire_property1 additional enemies within <% ITEM_RPC_SPELLCRAFTER_COAT_GEM_SAPPHIRE_RANGE %> range. Magic Spell's damage is increased by @sapphire_property2x Intelligence"
-		"item_rpc_spellcrafter_coat_amethyst1"									"Magic Spell deals  <font color=\"#E1A2E8\">Arcane</font> damage and the spell can bounce up to @amethyst_property1 times toward enemies within <% ITEM_RPC_SPELLCRAFTER_COAT_GEM_AMETHYST_RANGE %> range. Magic Spell's damage is increased by @amethyst_property2x Spirit"
+		"item_rpc_spellcrafter_coat_ruby1"									"Magic Spell deals <font color=ELEMENT_FIRE>Fire</font> damage in a @ruby_property1 radius around the target. Magic Spell's damage is increased by @ruby_property2x Strength"
+		"item_rpc_spellcrafter_coat_emerald1"									"Magic Spell deals <font color=ELEMENT_WIND>Wind</font> damage and travels @emerald_property1 faster. Magic Spell's damage is increased by @emerald_property2x Agility"
+		"item_rpc_spellcrafter_coat_sapphire1"									"Magic Spell deals <font color=ELEMENT_ICE>Ice</font> damage and the primary projectile fractures and hits up to @sapphire_property1 additional enemies within <% ITEM_RPC_SPELLCRAFTER_COAT_GEM_SAPPHIRE_RANGE %> range. Magic Spell's damage is increased by @sapphire_property2x Intelligence"
+		"item_rpc_spellcrafter_coat_amethyst1"									"Magic Spell deals  <font color=ELEMENT_ARCANE>Arcane</font> damage and the spell can bounce up to @amethyst_property1 times toward enemies within <% ITEM_RPC_SPELLCRAFTER_COAT_GEM_AMETHYST_RANGE %> range. Magic Spell's damage is increased by @amethyst_property2x Spirit"
 
 		"DOTA_Tooltip_ability_item_rpc_cloak_of_isolation"		"Cloak of Isolation"
 		"item_property_cloak_of_isolation"				"Isolation"

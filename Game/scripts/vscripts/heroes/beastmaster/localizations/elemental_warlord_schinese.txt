@@ -94,20 +94,20 @@
 		"DOTA_Tooltip_modifier_elemental_axe_fire_Description"	"火系技能激活"
 		
 		"DOTA_Tooltip_ability_axe_throw_earth"							"投掷大地之斧"
-		"DOTA_Tooltip_ability_axe_throw_earth_Description"				"元素： <font color=\"#AF843D\">土</font> / <font color=\"#DDDDDD\">普通</font><br>向目标点投掷大地之斧，造成单体伤害并眩晕。"
+		"DOTA_Tooltip_ability_axe_throw_earth_Description"				"元素： <font color=ELEMENT_EARTH>土</font> / <font color=ELEMENT_NORMAL>普通</font><br>向目标点投掷大地之斧，造成单体伤害并眩晕。"
 		"DOTA_Tooltip_ability_axe_throw_earth_Lore"						""
 		"DOTA_Tooltip_ability_axe_throw_earth_damage"					"伤害：" 
 		"DOTA_Tooltip_ability_axe_throw_earth_stun_duration"			"眩晕持续时间：" 	
 
  		"DOTA_Tooltip_ability_axe_throw_ice"							"投掷寒冰之斧"
-		"DOTA_Tooltip_ability_axe_throw_ice_Description"				"元素： <font color=\"#87D9FF\">冰</font> / <font color=\"#DDDDDD\">普通</font><br>向目标点投掷寒冰之斧，造成AOE伤害并减速。"
+		"DOTA_Tooltip_ability_axe_throw_ice_Description"				"元素： <font color=ELEMENT_ICE>冰</font> / <font color=ELEMENT_NORMAL>普通</font><br>向目标点投掷寒冰之斧，造成AOE伤害并减速。"
 		"DOTA_Tooltip_ability_axe_throw_ice_Lore"						""
 		"DOTA_Tooltip_ability_axe_throw_ice_damage"						"伤害：" 
 		"DOTA_Tooltip_ability_axe_throw_ice_slow_duration"				"减速持续时间：" 
 		"DOTA_Tooltip_ability_axe_throw_ice_radius"						"范围：" 
 
  		"DOTA_Tooltip_ability_axe_throw_fire"							"投掷火焰之斧"
-		"DOTA_Tooltip_ability_axe_throw_fire_Description"				"元素： <font color=\"#EF4126\">火</font> / <font color=\"#DDDDDD\">普通</font><br>向目标点投掷火焰之斧，造成AOE伤害并减甲。"
+		"DOTA_Tooltip_ability_axe_throw_fire_Description"				"元素： <font color=ELEMENT_FIRE>火</font> / <font color=ELEMENT_NORMAL>普通</font><br>向目标点投掷火焰之斧，造成AOE伤害并减甲。"
 		"DOTA_Tooltip_ability_axe_throw_fire_Lore"						""
 		"DOTA_Tooltip_ability_axe_throw_fire_damage"					"伤害：" 
 		"DOTA_Tooltip_ability_axe_throw_fire_armor_reduction"			"护甲值降低：" 
@@ -145,7 +145,7 @@
 		"Tooltip_jump_abilities"										"火光降落-大地冲撞和北极冲刺"
 
 		"DOTA_Tooltip_ability_warlord_jump_earth"							"大地冲撞"
-		"DOTA_Tooltip_ability_warlord_jump_earth_Description"				"元素： <font color=\"#AF843D\">土</font><br>督军原地跳起，落向目标地点时引发地震。"
+		"DOTA_Tooltip_ability_warlord_jump_earth_Description"				"元素： <font color=ELEMENT_EARTH>土</font><br>督军原地跳起，落向目标地点时引发地震。"
 		"DOTA_Tooltip_ability_warlord_jump_earth_Lore"						""
 		"DOTA_Tooltip_ability_warlord_jump_earth_damage"					"伤害："
 		"DOTA_Tooltip_ability_warlord_jump_earth_radius"					"范围："  
@@ -153,20 +153,20 @@
 		"DOTA_Tooltip_ability_warlord_jump_earth_cast_range"				"最远跳跃距离："
 
  		"DOTA_Tooltip_ability_warlord_jump_fire"							"火光降落"
-		"DOTA_Tooltip_ability_warlord_jump_fire_Description"				"元素： <font color=\"#EF4126\">火</font><br>督军飞跃至空中并在火中向前冲击，造成AOE伤害。"
+		"DOTA_Tooltip_ability_warlord_jump_fire_Description"				"元素： <font color=ELEMENT_FIRE>火</font><br>督军飞跃至空中并在火中向前冲击，造成AOE伤害。"
 		"DOTA_Tooltip_ability_warlord_jump_fire_Lore"						""
 		"DOTA_Tooltip_ability_warlord_jump_fire_damage"						"伤害："
 		"DOTA_Tooltip_ability_warlord_jump_fire_radius"						"范围："  
 		
 		"DOTA_Tooltip_ability_warlord_jump_ice"								"北极冲刺"
-		"DOTA_Tooltip_ability_warlord_jump_ice_Description"					"元素： <font color=\"#87D9FF\">冰</font><br>督军向前滑行，在身后留下一条冰道。扬起的冰屑使督军可以躲避敌人的攻击弹道。"
+		"DOTA_Tooltip_ability_warlord_jump_ice_Description"					"元素： <font color=ELEMENT_ICE>冰</font><br>督军向前滑行，在身后留下一条冰道。扬起的冰屑使督军可以躲避敌人的攻击弹道。"
 		"DOTA_Tooltip_ability_warlord_jump_ice_Lore"						""
 		"DOTA_Tooltip_ability_warlord_jump_ice_damage"						"伤害："
 		"DOTA_Tooltip_ability_warlord_jump_ice_radius"						"范围："
 		"DOTA_Tooltip_ability_warlord_jump_ice_duration"					"持续时间："
 
 		"DOTA_Tooltip_ability_elemental_overload"							"元素主宰"
-		"DOTA_Tooltip_ability_elemental_overload_Description"				"元素： <font color=\"#EF4126\">火</font> / <font color=\"#87D9FF\">冰</font><br>向督军前方释放一道光，造成大量伤害。正在引导时再次使用技能可以结束引导。"
+		"DOTA_Tooltip_ability_elemental_overload_Description"				"元素： <font color=ELEMENT_FIRE>火</font> / <font color=ELEMENT_ICE>冰</font><br>向督军前方释放一道光，造成大量伤害。正在引导时再次使用技能可以结束引导。"
 		"DOTA_Tooltip_ability_elemental_overload_Lore"						""
 		"DOTA_Tooltip_ability_elemental_overload_damage"					"每秒伤害：" 
 
@@ -190,12 +190,12 @@
     	"DOTA_Tooltip_ability_warlord_rune_e_3_suffix_two"				""
 		
 		"DOTA_Tooltip_ability_warlord_rune_e_4"							"[E4] 元素之怒"
-    	"DOTA_Tooltip_ability_warlord_rune_e_4_Description"				"元素督军的 <font color=\"#EF4126\">火</font>, <font color=\"#AF843D\">土</font> 和 <font color=\"#87D9FF\">冰</font> 元素伤害提高。"
+    	"DOTA_Tooltip_ability_warlord_rune_e_4_Description"				"元素督军的 <font color=ELEMENT_FIRE>火</font>, <font color=ELEMENT_EARTH>土</font> 和 <font color=ELEMENT_ICE>冰</font> 元素伤害提高。"
     	"DOTA_Tooltip_ability_warlord_rune_e_4_property_one"			"元素伤害提高"
     	"DOTA_Tooltip_ability_warlord_rune_e_4_suffix"					"%"
 
  		"DOTA_Tooltip_ability_elemental_overload_2"							"元素主宰"
-		"DOTA_Tooltip_ability_elemental_overload_2_Description"				"元素： <font color=\"#EF4126\">火</font> / <font color=\"#87D9FF\">冰</font><br>攻击敌人或投掷斧头击中敌人可以提高相应的元素能量。施放元素主宰将释放所有的元素能量 - 寒冰能量提高冰爆术的范围，火焰能量发射火球，大地能量回复生命值并且提供 90% 伤害减免。<br>此外，相应的元素能量也将提高相应的元素伤害。该技能只消耗一半的元素充能。"
+		"DOTA_Tooltip_ability_elemental_overload_2_Description"				"元素： <font color=ELEMENT_FIRE>火</font> / <font color=ELEMENT_ICE>冰</font><br>攻击敌人或投掷斧头击中敌人可以提高相应的元素能量。施放元素主宰将释放所有的元素能量 - 寒冰能量提高冰爆术的范围，火焰能量发射火球，大地能量回复生命值并且提供 90% 伤害减免。<br>此外，相应的元素能量也将提高相应的元素伤害。该技能只消耗一半的元素充能。"
 		"DOTA_Tooltip_ability_elemental_overload_2_Lore"					""
 		"DOTA_Tooltip_ability_elemental_overload_2_heal_per_earth_charge"	"每层大地能量回复生命值：" 
 		"DOTA_Tooltip_ability_elemental_overload_2_protection_per_earth_charge"	"每层大地能量提高减伤护盾的持续时间：" 
@@ -294,14 +294,14 @@
         "property_warlord_arcana2_description"                              "将@Ability1 及他的所有符文替换为天灾震颤，霜结破损和火焰沉溺。"
 		
         "DOTA_Tooltip_ability_warlord_cataclysm_shaker"                     "天灾震颤"
-        "DOTA_Tooltip_ability_warlord_cataclysm_shaker_Description"         "元素: <font color=\"#AF843D\">土</font> / <font color=\"#3289C7\">龙</font><br>选择一个起点和终点，产生一个巨大的裂隙。这个裂隙的长度基于选定的距离，并且有最大长度限制。这个裂隙有体积碰撞并且会对击中的敌人造成伤害和眩晕。"
+        "DOTA_Tooltip_ability_warlord_cataclysm_shaker_Description"         "元素: <font color=ELEMENT_EARTH>土</font> / <font color=ELEMENT_DRAGON>龙</font><br>选择一个起点和终点，产生一个巨大的裂隙。这个裂隙的长度基于选定的距离，并且有最大长度限制。这个裂隙有体积碰撞并且会对击中的敌人造成伤害和眩晕。"
         "DOTA_Tooltip_ability_warlord_cataclysm_shaker_distance"            "最大裂隙距离:"
         "DOTA_Tooltip_ability_warlord_cataclysm_shaker_stun_duration"       "眩晕持续时间:"
         "DOTA_Tooltip_ability_warlord_cataclysm_shaker_damage"              "基础伤害:"
         "DOTA_Tooltip_ability_warlord_cataclysm_shaker_str_mult"            "力量倍数的额外伤害:"
 
         "DOTA_Tooltip_ability_warlord_frost_scathe"                         "霜结破损"
-        "DOTA_Tooltip_ability_warlord_frost_scathe_Description"             "元素: <font color=\"#87D9FF\">冰</font> / <font color=\"#3289C7\">龙</font><br>在目标地点产生一个龙之闪烁并且冻结该区域。站在其中的敌人将会被减速并且将会被施加一个debuff，这个debuff将会在一段延迟后冻结并伤害周围的敌人。这个技能有2层自由释放充能，每3秒获得一层充能。"
+        "DOTA_Tooltip_ability_warlord_frost_scathe_Description"             "元素: <font color=ELEMENT_ICE>冰</font> / <font color=ELEMENT_DRAGON>龙</font><br>在目标地点产生一个龙之闪烁并且冻结该区域。站在其中的敌人将会被减速并且将会被施加一个debuff，这个debuff将会在一段延迟后冻结并伤害周围的敌人。这个技能有2层自由释放充能，每3秒获得一层充能。"
         "DOTA_Tooltip_ability_warlord_frost_scathe_radius"                  "冻结范围:"
         "DOTA_Tooltip_ability_warlord_frost_scathe_main_aoe_duration"       "冻结持续时间:"
         "DOTA_Tooltip_ability_warlord_frost_scathe_freeze_delay"            "冻结爆发延迟:"
@@ -321,7 +321,7 @@
         "DOTA_Tooltip_modifier_ice_scathe_freeze"                       "霜结破损冻结"
 
         "DOTA_Tooltip_ability_warlord_flame_wreck"                     "火焰沉溺"
-        "DOTA_Tooltip_ability_warlord_flame_wreck_Description"         "元素: <font color=\"#EF4126\">火</font> / <font color=\"#3289C7\">龙</font><br>元素督军释放一个火焰海啸，每0.5秒灼烧一次站在其中的敌人。当元素督军站在火焰中时，他将会获得额外移动速度，并且移动速度上限将会被增加。"
+        "DOTA_Tooltip_ability_warlord_flame_wreck_Description"         "元素: <font color=ELEMENT_FIRE>火</font> / <font color=ELEMENT_DRAGON>龙</font><br>元素督军释放一个火焰海啸，每0.5秒灼烧一次站在其中的敌人。当元素督军站在火焰中时，他将会获得额外移动速度，并且移动速度上限将会被增加。"
         "DOTA_Tooltip_ability_warlord_flame_wreck_range"               "距离:"
         "DOTA_Tooltip_ability_warlord_flame_wreck_wreck_duration"      "火焰持续时间:"
         "DOTA_Tooltip_ability_warlord_flame_wreck_base_damage"         "基础伤害:"
@@ -355,7 +355,7 @@
         "DOTA_Tooltip_modifier_flame_wreck_q3_atk_power_Description"        "增加攻击力和攻击速度"
 
         "DOTA_Tooltip_ability_warlord_rune_q_4_arcana2"                     "[Q4] 龙之盛怒"
-        "DOTA_Tooltip_ability_warlord_rune_q_4_arcana2_Description"         "被动增加全属性和 <font color=\"#3289C7\">龙</font> 元素伤害。"
+        "DOTA_Tooltip_ability_warlord_rune_q_4_arcana2_Description"         "被动增加全属性和 <font color=ELEMENT_DRAGON>龙</font> 元素伤害。"
         "DOTA_Tooltip_ability_warlord_rune_q_4_arcana2_property_one"        "额外全属性"
         "DOTA_Tooltip_ability_warlord_rune_q_4_arcana2_suffix"              ""
         "DOTA_Tooltip_ability_warlord_rune_q_4_arcana2_property_two"        "额外龙元素伤害"
@@ -388,7 +388,7 @@
 		"item_rpc_warlord_glyph_6_1_description" 				"提高大地、火焰和寒冰能量的层数上限至<% WARLORD_GLYPH_6_1_ADDITIONAL_CHARGES %>。"
 
 		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_7_1"		"[T7-1] 战斗雕文"
-		"item_rpc_warlord_glyph_7_1_description" 				"普通攻击造成爆炸并且造成 <% WARLORD_GLYPH_7_1_MAGICAL_SPLASH_PCT %>% 攻击力的魔法伤害为 <font color=\"#EF4126\">火</font>/<font color=\"#87D9FF\">冰</font> 在 <% WARLORD_GLYPH_7_1_MAGICAL_SPLASH_AOE %> 码范围造成AOE伤害. 伤害能被道具加成伤害加成."
+		"item_rpc_warlord_glyph_7_1_description" 				"普通攻击造成爆炸并且造成 <% WARLORD_GLYPH_7_1_MAGICAL_SPLASH_PCT %>% 攻击力的魔法伤害为 <font color=ELEMENT_FIRE>火</font>/<font color=ELEMENT_ICE>冰</font> 在 <% WARLORD_GLYPH_7_1_MAGICAL_SPLASH_AOE %> 码范围造成AOE伤害. 伤害能被道具加成伤害加成."
 
 		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_5_a"		"[T5-a] 生态雕文"
 		"item_rpc_warlord_glyph_5_a_description" 				"受到伤害增加 <% WARLORD_GLYPH_5_A_FIRE_CHARGES_PER_DMG_TAKEN %> 火焰能量. 每层寒冰能量增加魔法穿透 <% WARLORD_GLYPH_5_A_SPELL_PIERCE_PER_ICE_CHARGE %>."

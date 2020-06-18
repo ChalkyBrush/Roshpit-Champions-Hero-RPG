@@ -4,7 +4,7 @@
     	"tooltip_trapper_r"											"Stealth & Backstab"
 		
 		"DOTA_Tooltip_ability_fulminating_trap"						"Fulminating Trap"
-    	"DOTA_Tooltip_ability_fulminating_trap_Description"			"Element: <font color=\"#EF4126\">Fire</font><br>Lays an explosive trap that damages enemies who step into it."
+    	"DOTA_Tooltip_ability_fulminating_trap_Description"			"Element: <font color=ELEMENT_FIRE>Fire</font><br>Lays an explosive trap that damages enemies who step into it."
     	"DOTA_Tooltip_ability_fulminating_trap_Lore"				""
     	"DOTA_Tooltip_ability_fulminating_trap_damage"				"DAMAGE:"
 		
@@ -15,11 +15,11 @@
     	"DOTA_Tooltip_ability_net_trap_attack_range_loss"			"ATTACK RANGE REDUCTION:"
 		
 		"DOTA_Tooltip_ability_torrent_trap"							"Torrent Trap"
-    	"DOTA_Tooltip_ability_torrent_trap_Description"				"Element: <font color=\"#3894FF\">Water</font><br>When an enemy stands within torrent trap for a consecutive 2.5 seconds, they are hit by a burst of water that stuns them for 2 seconds and lowers their attack speed for 9 seconds. Enemies become immune to the effect for 7 seconds after getting hit."
+    	"DOTA_Tooltip_ability_torrent_trap_Description"				"Element: <font color=ELEMENT_WATER>Water</font><br>When an enemy stands within torrent trap for a consecutive 2.5 seconds, they are hit by a burst of water that stuns them for 2 seconds and lowers their attack speed for 9 seconds. Enemies become immune to the effect for 7 seconds after getting hit."
     	"DOTA_Tooltip_ability_torrent_trap_Lore"					""
 		
 		"DOTA_Tooltip_ability_poison_trap"						"Poison Trap"
-    	"DOTA_Tooltip_ability_poison_trap_Description"			"Element: <font color=\"#37DD3D\">Poison</font><br>Enemies within Poison Trap gain a stack of poison every 0.5 seconds, and take damage based on the stack for 6 seconds once leaving the trap. Maximum of <% TRAPPER_Q1_MAX_STACKS_COUNT %> poison stacks."
+    	"DOTA_Tooltip_ability_poison_trap_Description"			"Element: <font color=ELEMENT_POISON>Poison</font><br>Enemies within Poison Trap gain a stack of poison every 0.5 seconds, and take damage based on the stack for 6 seconds once leaving the trap. Maximum of <% TRAPPER_Q1_MAX_STACKS_COUNT %> poison stacks."
     	"DOTA_Tooltip_ability_poison_trap_Lore"					""
 		
 		"DOTA_Tooltip_modifier_poison_trap_effect"					"Poison Trap"
@@ -55,7 +55,7 @@
     	"DOTA_Tooltip_ability_trapper_rune_q_4_suffix"				"%"
 		
 		"DOTA_Tooltip_ability_explosive_bomb"						"Explosive Bomb"
-    	"DOTA_Tooltip_ability_explosive_bomb_Description"			"Element: <font color=\"<% RPC_ELEMENT_NORMAL_COLOR %>\">Normal</font><br>Tosses volatile bombs at the target location. The explosion damages and stuns enemies in the blast radius."
+    	"DOTA_Tooltip_ability_explosive_bomb_Description"			"Element: <font color=ELEMENT_NORMAL>Normal</font><br>Tosses volatile bombs at the target location. The explosion damages and stuns enemies in the blast radius."
     	"DOTA_Tooltip_ability_explosive_bomb_Lore"					""
     	"DOTA_Tooltip_ability_explosive_bomb_damage"				"DAMAGE:"
     	"DOTA_Tooltip_ability_explosive_bomb_stun_duration"			"STUN DURATION:"
@@ -143,7 +143,7 @@
     	"DOTA_Tooltip_ability_trapper_action_leap_max_distance"			"MAX JUMP DISTANCE:"
 		
 		"DOTA_Tooltip_ability_trapper_backstab"						"Backstab"
-    	"DOTA_Tooltip_ability_trapper_backstab_Description"			"Element: <font color=\"#DDDDDD\">Normal</font><br>Sets up a fatal blow on the target unit. After a 2-second channel, stab the target upwards through the back and deal massive damage based on Trapper's attack damage. If an enemy detects Trapper while prepping Backstab, the ability is cancelled. Damage from this ability ignores Steadfast.<br>You can manually cancel Stealth mode by self-casting Backstab."
+    	"DOTA_Tooltip_ability_trapper_backstab_Description"			"Element: <font color=ELEMENT_NORMAL>Normal</font><br>Sets up a fatal blow on the target unit. After a 2-second channel, stab the target upwards through the back and deal massive damage based on Trapper's attack damage. If an enemy detects Trapper while prepping Backstab, the ability is cancelled. Damage from this ability ignores Steadfast.<br>You can manually cancel Stealth mode by self-casting Backstab."
     	"DOTA_Tooltip_ability_trapper_backstab_Lore"				""
     	"DOTA_Tooltip_ability_trapper_backstab_damage_mult"			"DAMAGE MULTIPLIER:"
 		
@@ -183,7 +183,7 @@
     	"property_trapper_arcana1_description"								"Replaces @Ability2 and all of its runes with Venom Whip and Lasso."
 
     	"DOTA_Tooltip_ability_trapper_arcana_venom_whip"					"Venom Whip"
-    	"DOTA_Tooltip_ability_trapper_arcana_venom_whip_Description"			"Element: <font color=\"#37DD3D\">Poison</font><br>Trapper throws a poison-coated whip towards all enemies in the cast radius. Enemies hit by the whip receive a stacking debuff that deals poison damage based on attack power and slows movement speed."
+    	"DOTA_Tooltip_ability_trapper_arcana_venom_whip_Description"			"Element: <font color=ELEMENT_POISON>Poison</font><br>Trapper throws a poison-coated whip towards all enemies in the cast radius. Enemies hit by the whip receive a stacking debuff that deals poison damage based on attack power and slows movement speed."
     	"DOTA_Tooltip_ability_trapper_arcana_venom_whip_Lore"				""
     	"DOTA_Tooltip_ability_trapper_arcana_venom_whip_radius"				"RADIUS:"
     	"DOTA_Tooltip_ability_trapper_arcana_venom_whip_range"				"RANGE:"
@@ -192,7 +192,7 @@
 		"DOTA_Tooltip_ability_trapper_arcana_venom_whip_max_stacks"			"MAX POISON STACKS:"
 
     	"DOTA_Tooltip_modifier_poison_whip"							"Venom Whip"
-    	"DOTA_Tooltip_modifier_poison_whip_Description"				"Taking <font color=\"#37DD3D\">Poison</font> damage and reduced movespeed."	
+    	"DOTA_Tooltip_modifier_poison_whip_Description"				"Taking <font color=ELEMENT_POISON>Poison</font> damage and reduced movespeed."	
 
     	"DOTA_Tooltip_ability_trapper_arcana_lasso"					"Lasso"
     	"DOTA_Tooltip_ability_trapper_arcana_lasso_Description"			"Trapper throws a lasso towards all enemies in the cast radius. Enemies hit by the lasso are disabled and pulled back towards her, and stunned for 1 second."
@@ -206,7 +206,7 @@
     	"DOTA_Tooltip_ability_trapper_rune_w_1_arcana1_suffix"				""
 
   		"DOTA_Tooltip_ability_trapper_rune_w_2_arcana1"						"[W2] Dexterity"
-    	"DOTA_Tooltip_ability_trapper_rune_w_2_arcana1_Description"			"Increases all <font color=\"#FFFFFF\">Normal</font> damage."
+    	"DOTA_Tooltip_ability_trapper_rune_w_2_arcana1_Description"			"Increases all <font color=ELEMENT_NORMAL>Normal</font> damage."
     	"DOTA_Tooltip_ability_trapper_rune_w_2_arcana1_property_one"		"Normal Damage Bonus"
     	"DOTA_Tooltip_ability_trapper_rune_w_2_arcana1_suffix"				"%"
 
@@ -216,7 +216,7 @@
         "DOTA_Tooltip_ability_trapper_rune_w_3_arcana1_suffix"              "x Agility"
 
   		"DOTA_Tooltip_ability_trapper_rune_w_4_arcana1"						"[W4] Elemental Trickery"
-        "DOTA_Tooltip_ability_trapper_rune_w_4_arcana1_Description"         "Increases all <font color=\"#EF4126\">Fire</font>, <font color=\"#37DD3D\">Poison</font> and <font color=\"#3894FF\">Water</font> damage."
+        "DOTA_Tooltip_ability_trapper_rune_w_4_arcana1_Description"         "Increases all <font color=ELEMENT_FIRE>Fire</font>, <font color=ELEMENT_POISON>Poison</font> and <font color=ELEMENT_WATER>Water</font> damage."
         "DOTA_Tooltip_ability_trapper_rune_w_4_arcana1_property_one"        "Elemental Amp"
         "DOTA_Tooltip_ability_trapper_rune_w_4_arcana1_suffix"              "%"
 		
@@ -237,7 +237,7 @@
         "item_rpc_trapper_glyph_5_1_description"                "Attempt to cast @Ability2 for free every time you move <% TRAPPER_GLYPH_5_1_DISTANCE %> distance. Smoke Bombs last <% TRAPPER_GLYPH_5_1_INVISIBLE_W_DURATION_AMPLIFY %> times longer and have <% TRAPPER_GLYPH_5_1_INVISIBLE_W_RADIUS_AMPLIFY %>x radius."
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_6_1"       "[T6-1] Glyph of Craftsmanship"
-        "item_rpc_trapper_glyph_6_1_description"                "Increases all <font color=\"<% RPC_ELEMENT_NORMAL_COLOR %>\">Normal</font> damage by <% TRAPPER_GLYPH_6_1_NORMAL_AMP * 100 %>%."
+        "item_rpc_trapper_glyph_6_1_description"                "Increases all <font color=ELEMENT_NORMAL>Normal</font> damage by <% TRAPPER_GLYPH_6_1_NORMAL_AMP * 100 %>%."
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_7_1"       "[T7-1] Glyph of Trapping"
         "item_rpc_trapper_glyph_7_1_description"                "You can have 2 traps of each type active at a time."

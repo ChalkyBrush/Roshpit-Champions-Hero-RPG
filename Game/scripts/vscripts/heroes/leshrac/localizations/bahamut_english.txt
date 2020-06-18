@@ -1,6 +1,6 @@
 		//Abilities
 		"DOTA_Tooltip_ability_leshrac_wall"								"Wall of Impunity"
-    	"DOTA_Tooltip_ability_leshrac_wall_Description"					"Element: <font color=\"#F6FFB5\">Holy</font><br>Bahamut conjures a wall that reveals the inadequacy of beings that pass through. Enemies near the wall are judged for being unworthy and take damage."
+    	"DOTA_Tooltip_ability_leshrac_wall_Description"					"Element: <font color=ELEMENT_HOLY>Holy</font><br>Bahamut conjures a wall that reveals the inadequacy of beings that pass through. Enemies near the wall are judged for being unworthy and take damage."
     	"DOTA_Tooltip_ability_leshrac_wall_Lore"						""
     	"DOTA_Tooltip_ability_leshrac_wall_damage"						"DAMAGE/TICK"
     	"DOTA_Tooltip_ability_leshrac_wall_wall_length"					"LENGTH"
@@ -43,7 +43,7 @@
 		
 		
 		"DOTA_Tooltip_ability_leshrac_nuke"								"Judgement"
-    	"DOTA_Tooltip_ability_leshrac_nuke_Description"					"Element: <font color=\"#F6FFB5\">Holy</font><br>Bahamut measures the worth of enemies in a small radius in front of him."
+    	"DOTA_Tooltip_ability_leshrac_nuke_Description"					"Element: <font color=ELEMENT_HOLY>Holy</font><br>Bahamut measures the worth of enemies in a small radius in front of him."
     	"DOTA_Tooltip_ability_leshrac_nuke_Lore"						""
     	"DOTA_Tooltip_ability_leshrac_nuke_damage"						"DAMAGE"
     	"DOTA_Tooltip_ability_leshrac_nuke_radius"						"RADIUS"
@@ -120,13 +120,13 @@
 		
 		
 		"DOTA_Tooltip_ability_bahamut_rune_e_4"							"[E4] Harmony"
-    	"DOTA_Tooltip_ability_bahamut_rune_e_4_Description"				"Increases all <font color=\"#F6FFB5\">Holy</font> damage."
+    	"DOTA_Tooltip_ability_bahamut_rune_e_4_Description"				"Increases all <font color=ELEMENT_HOLY>Holy</font> damage."
     	"DOTA_Tooltip_ability_bahamut_rune_e_4_property_one"			"Holy Amp"
     	"DOTA_Tooltip_ability_bahamut_rune_e_4_suffix"					"%"
 		
 		
 		"DOTA_Tooltip_ability_charge_of_light"							"Megaflare"
-    	"DOTA_Tooltip_ability_charge_of_light_Description"				"Element: <font color=\"#F6FFB5\">Holy</font><br>Bahamut charges forward and unleashes an explosion of power to cleanse the inferior. While charging Bamamut is immune to physical and magic damage."
+    	"DOTA_Tooltip_ability_charge_of_light_Description"				"Element: <font color=ELEMENT_HOLY>Holy</font><br>Bahamut charges forward and unleashes an explosion of power to cleanse the inferior. While charging Bamamut is immune to physical and magic damage."
     	"DOTA_Tooltip_ability_charge_of_light_Lore"						""
     	"DOTA_Tooltip_ability_charge_of_light_damage"					"DAMAGE"	
     	"DOTA_Tooltip_ability_charge_of_light_range"					"EXPLOSION RADIUS"
@@ -176,7 +176,7 @@
 		//Arcanas
 		
 		"DOTA_Tooltip_ability_bahamut_arcana_ulti" 						"Demigod's Vengeance"
-    	"DOTA_Tooltip_ability_bahamut_arcana_ulti_Description"			"Element: <font color=\"#F6FFB5\">Holy</font><br>Bahamut infuses himself with the energy of greatness - adding a powerful buff that drops bolts of light on a random nearby enemy every 0.1 seconds and slows them by 65% for 0.2 seconds."
+    	"DOTA_Tooltip_ability_bahamut_arcana_ulti_Description"			"Element: <font color=ELEMENT_HOLY>Holy</font><br>Bahamut infuses himself with the energy of greatness - adding a powerful buff that drops bolts of light on a random nearby enemy every 0.1 seconds and slows them by 65% for 0.2 seconds."
     	"DOTA_Tooltip_ability_bahamut_arcana_ulti_duration"				"DURATION:"
     	"DOTA_Tooltip_ability_bahamut_arcana_ulti_damage"				"DAMAGE:"
 

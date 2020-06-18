@@ -3,7 +3,7 @@
 		"Tooltip_sorceress_q"											"Blizzard и Ice Lance"
 		
 		"DOTA_Tooltip_ability_blizzard"									"Blizzard"
-		"DOTA_Tooltip_ability_blizzard_Description"						"Стихия: <font color=\"#87D9FF\">Лёд</font><br>Посылает волны льда во врагов в указанной точке, нанося урон и замедляя их. С каждым успешным попаданием по врагам их сопротивление стихии <font color=\"#87D9FF\">Льда</font> снижается на 8 секунд. Складывается неограниченное количество раз."
+		"DOTA_Tooltip_ability_blizzard_Description"						"Стихия: <font color=ELEMENT_ICE>Лёд</font><br>Посылает волны льда во врагов в указанной точке, нанося урон и замедляя их. С каждым успешным попаданием по врагам их сопротивление стихии <font color=ELEMENT_ICE>Льда</font> снижается на 8 секунд. Складывается неограниченное количество раз."
 		"DOTA_Tooltip_ability_blizzard_Lore"							""
 		"DOTA_Tooltip_ability_blizzard_wave_damage"						"УРОН ЗА ВОЛНУ:"
 		"DOTA_Tooltip_ability_blizzard_movement_slow"					"ЗАМЕДЛЕНИЕ:"
@@ -13,7 +13,7 @@
 		"DOTA_Tooltip_modifier_blizzard_ice_resist_loss_Description"	"Получает увеличенный урон стихии Льда"
 		
 		"DOTA_Tooltip_ability_ice_lance"								"Ice Lance"
-		"DOTA_Tooltip_ability_ice_lance_Description"					"Стихия: <font color=\"#87D9FF\">Лёд</font><br>Отправляет в указанную точку ледяное копьё. При попадании по врагу, копьё оставляет складывающийся эффект, который снижает скорость передвижения противника. При попадании, копьё разделяется и наносит 50% своего урона двум дополнительным целям."
+		"DOTA_Tooltip_ability_ice_lance_Description"					"Стихия: <font color=ELEMENT_ICE>Лёд</font><br>Отправляет в указанную точку ледяное копьё. При попадании по врагу, копьё оставляет складывающийся эффект, который снижает скорость передвижения противника. При попадании, копьё разделяется и наносит 50% своего урона двум дополнительным целям."
 		"DOTA_Tooltip_ability_ice_lance_Lore"							""
 		
 		"DOTA_Tooltip_modifier_ice_lance_cold"							"Ice Lance Slow"
@@ -48,13 +48,13 @@
     	"DOTA_Tooltip_ability_sorceress_rune_q_3_suffix_two"				" сек."
 		
 		"DOTA_Tooltip_ability_sorceress_rune_q_4"							"[Q4] Ice Mastery"
-    	"DOTA_Tooltip_ability_sorceress_rune_q_4_Description"				"Увеличивает урон стихии <font color=\"#87D9FF\">Льда</font>."
+    	"DOTA_Tooltip_ability_sorceress_rune_q_4_Description"				"Увеличивает урон стихии <font color=ELEMENT_ICE>Льда</font>."
     	"DOTA_Tooltip_ability_sorceress_rune_q_4_property_one"				"Урон Льда"
     	"DOTA_Tooltip_ability_sorceress_rune_q_4_suffix"					"%"
 
 
 		"DOTA_Tooltip_ability_arcane_explosion"							"Arcane Explosion"
-		"DOTA_Tooltip_ability_arcane_explosion_Description"				"Стихия: <font color=\"#E1A2E8\">Тайна</font><br>Мощный взрыв тайной энергии мгновенно наносящий урон ближайшим врагам, зависящий от текущего значения маны героя."
+		"DOTA_Tooltip_ability_arcane_explosion_Description"				"Стихия: <font color=ELEMENT_ARCANE>Тайна</font><br>Мощный взрыв тайной энергии мгновенно наносящий урон ближайшим врагам, зависящий от текущего значения маны героя."
 		"DOTA_Tooltip_ability_arcane_explosion_Lore"					""
 		"DOTA_Tooltip_ability_arcane_explosion_damage"					"УРОН, % ОТ ТЕКУЩЕЙ МАНЫ:"
 		"DOTA_Tooltip_ability_arcane_explosion_radius"					"РАДИУС:"
@@ -141,14 +141,14 @@
 		"Tooltip_sorceress_r"											"Pyroblast и Fireball"
 		
 		"DOTA_Tooltip_ability_pyroblast"								"Pyroblast"
-		"DOTA_Tooltip_ability_pyroblast_Description"					"Стихия: <font color=\"#EF4126\">Огонь</font><br>Sorceress в течение 2 секунд призывает мощное огненное ядро, которое начинает медленно лететь от героя в указанную точку. Попав во врага, огненное ядро взрывается, нанося урон и оглушая всех ближайших противников."
+		"DOTA_Tooltip_ability_pyroblast_Description"					"Стихия: <font color=ELEMENT_FIRE>Огонь</font><br>Sorceress в течение 2 секунд призывает мощное огненное ядро, которое начинает медленно лететь от героя в указанную точку. Попав во врага, огненное ядро взрывается, нанося урон и оглушая всех ближайших противников."
 		"DOTA_Tooltip_ability_pyroblast_Lore"							""
 		"DOTA_Tooltip_ability_pyroblast_damage"							"УРОН:"
 		"DOTA_Tooltip_ability_pyroblast_range"							"ДАЛЬНОСТЬ:"
 		"DOTA_Tooltip_ability_pyroblast_stun_duration"					"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
 		
 		"DOTA_Tooltip_ability_fireball"										"Fireball"
-		"DOTA_Tooltip_ability_fireball_Description"							"Стихия: <font color=\"#EF4126\">Огонь</font><br>Мгновенно стреляет огненным шаром впереди Sorceress. При попадании по врагу шар взрывается и наносит урон по площади. При попадании герой получает бонус к урону, скорости атаки и скорости передвижения. Бонус к урону равен базовому урону этого умения"
+		"DOTA_Tooltip_ability_fireball_Description"							"Стихия: <font color=ELEMENT_FIRE>Огонь</font><br>Мгновенно стреляет огненным шаром впереди Sorceress. При попадании по врагу шар взрывается и наносит урон по площади. При попадании герой получает бонус к урону, скорости атаки и скорости передвижения. Бонус к урону равен базовому урону этого умения"
 		"DOTA_Tooltip_ability_fireball_Lore"								""
 
 		"DOTA_Tooltip_modifier_fireball_stacks"						"Fireball Surge"
@@ -181,7 +181,7 @@
 
 
 		"DOTA_Tooltip_ability_sorceress_rune_r_4"							"[R4] Fire Mastery"
-    	"DOTA_Tooltip_ability_sorceress_rune_r_4_Description"				"Увеличивает урон стихии <font color=\"#EF4126\">Огня</font>."
+    	"DOTA_Tooltip_ability_sorceress_rune_r_4_Description"				"Увеличивает урон стихии <font color=ELEMENT_FIRE>Огня</font>."
     	"DOTA_Tooltip_ability_sorceress_rune_r_4_property_one"				"Урон Огня"
     	"DOTA_Tooltip_ability_sorceress_rune_r_4_suffix"					"%"
 		
@@ -190,7 +190,7 @@
     	"property_sorceress_arcana1_description"								"Заменяет (R) @Ability4 и все соответствующие руны на (R) Glacial Vortex."
 
     	"DOTA_Tooltip_ability_sorceress_arcana_ice_tornado"								"Glacial Vortex"
-    	"DOTA_Tooltip_ability_sorceress_arcana_ice_tornado_Description"					"Стихия: <font color=\"#87D9FF\">Лёд</font> / <font color=\"#7AE2A7\">Ветер</font><br>Призывает на поле боя мощный ледяной шторм, летящий от героя в указанную точку и кружит возле неё. Враги рядом с воронкой замораживаются, притягиваются к центру воронки и получают урон каждые 0.5 секунды."
+    	"DOTA_Tooltip_ability_sorceress_arcana_ice_tornado_Description"					"Стихия: <font color=ELEMENT_ICE>Лёд</font> / <font color=ELEMENT_WIND>Ветер</font><br>Призывает на поле боя мощный ледяной шторм, летящий от героя в указанную точку и кружит возле неё. Враги рядом с воронкой замораживаются, притягиваются к центру воронки и получают урон каждые 0.5 секунды."
     	"DOTA_Tooltip_ability_sorceress_arcana_ice_tornado_damage"					"УРОН:"
     	"DOTA_Tooltip_ability_sorceress_arcana_ice_tornado_move_slow"				"СНИЖЕНИЕ СКОРОСТИ ПЕРЕДВИЖЕНИЯ:"
     	"DOTA_Tooltip_ability_sorceress_arcana_ice_tornado_max_tornados"			"МАКСИМУМ ВИХРЕЙ:"
@@ -213,7 +213,7 @@
     	"DOTA_Tooltip_ability_sorceress_rune_r_2_arcana1_suffix_two"				"%"
 
   		"DOTA_Tooltip_ability_sorceress_rune_r_3_arcana1"						"[R3] Glacial Chill"
-    	"DOTA_Tooltip_ability_sorceress_rune_r_3_arcana1_Description"			"Враги, попадающие в область действия @Ability4 получают заряды этой руны каждые 0.5 секунды. Каждый заряд [R3] увеличивает получаемый врагами стихийный урон <font color=\"#87D9FF\">Льда</font> из всех источников. Максимально <% SORCERESS_ARCANA1_R3_MAX_STACKS %> зарядов."
+    	"DOTA_Tooltip_ability_sorceress_rune_r_3_arcana1_Description"			"Враги, попадающие в область действия @Ability4 получают заряды этой руны каждые 0.5 секунды. Каждый заряд [R3] увеличивает получаемый врагами стихийный урон <font color=ELEMENT_ICE>Льда</font> из всех источников. Максимально <% SORCERESS_ARCANA1_R3_MAX_STACKS %> зарядов."
     	"DOTA_Tooltip_ability_sorceress_rune_r_3_arcana1_property_one"			"Урон Льда за заряд"
     	"DOTA_Tooltip_ability_sorceress_rune_r_3_arcana1_suffix"					"%"
 
@@ -221,7 +221,7 @@
     	"DOTA_Tooltip_modifier_tornado_ice_resist_loss_visible_Description"		"Получает увеличенный урон стихии Льда из всех источников"
 
   		"DOTA_Tooltip_ability_sorceress_rune_r_4_arcana1"						"[R4] Avatar of Frost"
-    	"DOTA_Tooltip_ability_sorceress_rune_r_4_arcana1_Description"			"Прочтение @Ability4 активирует форму [R4], во время которой весь стихийный урон героя превращается в стихийный урон <font color=\"#87D9FF\">Льда</font>, а весь урон стихии <font color=\"#87D9FF\">Льда</font> усиливается."
+    	"DOTA_Tooltip_ability_sorceress_rune_r_4_arcana1_Description"			"Прочтение @Ability4 активирует форму [R4], во время которой весь стихийный урон героя превращается в стихийный урон <font color=ELEMENT_ICE>Льда</font>, а весь урон стихии <font color=ELEMENT_ICE>Льда</font> усиливается."
     	"DOTA_Tooltip_ability_sorceress_rune_r_4_arcana1_property_one"			"Длительность"
     	"DOTA_Tooltip_ability_sorceress_rune_r_4_arcana1_suffix"					" сек."
     	"DOTA_Tooltip_ability_sorceress_rune_r_4_arcana1_property_two"			"Урон Льда"
@@ -234,7 +234,7 @@
     	"property_sorceress_arcana2_description"								"Заменяет {Q} @Ability1 и все соответствующие руны на (Q) Incineration."
 
     	"DOTA_Tooltip_ability_sorceress_fire_arcana_q"								"Inceration"
-    	"DOTA_Tooltip_ability_sorceress_fire_arcana_q_Description"					"Стихия: <font color=\"#EF4126\">Огонь</font><br>Окружает выбранную область кольцом пламени, заставляя всех попавших в него врагов с 17% шансом загораться каждые 0.2 секунды."
+    	"DOTA_Tooltip_ability_sorceress_fire_arcana_q_Description"					"Стихия: <font color=ELEMENT_FIRE>Огонь</font><br>Окружает выбранную область кольцом пламени, заставляя всех попавших в него врагов с 17% шансом загораться каждые 0.2 секунды."
     	"DOTA_Tooltip_ability_sorceress_fire_arcana_q_damage"					"УРОН:"
     	"DOTA_Tooltip_ability_sorceress_fire_arcana_q_aoe_radius"				"РАДИУС:"
     	"DOTA_Tooltip_ability_sorceress_fire_arcana_q_duration"					"ДЛИТЕЛЬНОСТЬ ЭФФЕКТА:"
@@ -249,7 +249,7 @@
     	"DOTA_Tooltip_ability_sorceress_rune_q_1_arcana2_property_two"				"Доп. урон"
     	"DOTA_Tooltip_ability_sorceress_rune_q_1_arcana2_suffix_two"				"% от урона героя"
 		"DOTA_Tooltip_ability_sorceress_sun_lance"								"Sun Lance"
-		"DOTA_Tooltip_ability_sorceress_sun_lance_Description"					"Стихия: <font color=\"#EF4126\">Огонь</font><br>Выпускает в указанную точку копьё, состоящее из обжигающего пламени. Копьё может пролететь сквозь врага, нанося урон."
+		"DOTA_Tooltip_ability_sorceress_sun_lance_Description"					"Стихия: <font color=ELEMENT_FIRE>Огонь</font><br>Выпускает в указанную точку копьё, состоящее из обжигающего пламени. Копьё может пролететь сквозь врага, нанося урон."
 		"DOTA_Tooltip_ability_sorceress_sun_lance_Lore"							""
 
   		"DOTA_Tooltip_ability_sorceress_rune_q_2_arcana2"						"[Q2] Ring of Fire"
@@ -281,7 +281,7 @@
     	"DOTA_Tooltip_modifier_sun_lance_burn"									"Горит"
 
   		"DOTA_Tooltip_ability_sorceress_rune_q_4_arcana2"						"[Q4] Avatar of Fire"
-    	"DOTA_Tooltip_ability_sorceress_rune_q_4_arcana2_Description"			"С прочтением (Q) Incineration, герой обретает форму аватара огня на 12 секунд. В это время, весь стихийный урон конвертируется в стихию <font color=\"#EF4126\">Огня</font>, а весь <font color=\"#EF4126\">Огненный</font> урон увеличен."
+    	"DOTA_Tooltip_ability_sorceress_rune_q_4_arcana2_Description"			"С прочтением (Q) Incineration, герой обретает форму аватара огня на 12 секунд. В это время, весь стихийный урон конвертируется в стихию <font color=ELEMENT_FIRE>Огня</font>, а весь <font color=ELEMENT_FIRE>Огненный</font> урон увеличен."
     	"DOTA_Tooltip_ability_sorceress_rune_q_4_arcana2_property_one"			"Урон Огня"
     	"DOTA_Tooltip_ability_sorceress_rune_q_4_arcana2_suffix"					"%"
 
@@ -308,7 +308,7 @@
 		"item_rpc_sorceress_glyph_5_1_description" 				"Заменяет (W) @Ability2 на (W) Arcane Torrent, который направляется в одного врага на большом расстоянии и наносит урон, равный <% SORCERESS_GLYPH_5_1_AMPLIFY %>х урона (W) @Ability2. [W1] накладывает % SORCERESS_GLYPH_4_1_W1_STACKS_GENERATION %> щит за каждый каст, до максимума в <% SORCERESS_GLYPH_4_1_W1_SHIELDS %> щита."
 
 		"DOTA_Tooltip_ability_arcane_torrent"					"Arcane Torrent"
-		"DOTA_Tooltip_ability_arcane_torrent_Description"		"Стихия: <font color=\"#E1A2E8\">Тайна</font><br>Активация этого умения позволяет выпускать поток тайной энергии в одного ближайшего врага каждые <% SORCERESS_GLYPH_5_1_INTERVAL %> секунды. Урон снарядов равен <% SORCERESS_GLYPH_5_1_AMPLIFY %>х урона (W) Arcane Explosion, умноженного на % текущей маны в сравнении с макс. маной."
+		"DOTA_Tooltip_ability_arcane_torrent_Description"		"Стихия: <font color=ELEMENT_ARCANE>Тайна</font><br>Активация этого умения позволяет выпускать поток тайной энергии в одного ближайшего врага каждые <% SORCERESS_GLYPH_5_1_INTERVAL %> секунды. Урон снарядов равен <% SORCERESS_GLYPH_5_1_AMPLIFY %>х урона (W) Arcane Explosion, умноженного на % текущей маны в сравнении с макс. маной."
 		"DOTA_Tooltip_ability_arcane_torrent_range"				"ДАЛЬНОСТЬ:"
 		"DOTA_Tooltip_ability_arcane_torrent_mana_drain_per_second" "ЗАТРАТЫ МАНЫ В СЕКУНДУ:"
 		"DOTA_Tooltip_ability_arcane_torrent_damage"			"БАЗОВЫЙ УРОН(ARCANE EXPLOSION), % ОТ ТЕКУЩЕЙ МАНЫ:"

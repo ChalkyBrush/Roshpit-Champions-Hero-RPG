@@ -98,7 +98,7 @@
 
         "item_rpc_gem_of_eternal_frost_ruby1"                           "被缠绕的敌人对你造成的伤害减少 @ruby_property1% "
         "item_rpc_gem_of_eternal_frost_emerald1"                            "提高冰霜新星的范围 @emerald_property1 和伤害 @emerald_property2"
-        "item_rpc_gem_of_eternal_frost_sapphire1"                           "提高物品伤害和所有 <font color=\"#87D9FF\">冰</font> 元素伤害 @sapphire_property1%"
+        "item_rpc_gem_of_eternal_frost_sapphire1"                           "提高物品伤害和所有 <font color=ELEMENT_ICE>冰</font> 元素伤害 @sapphire_property1%"
         "item_rpc_gem_of_eternal_frost_amethyst1"                           " <% ITEM_RPC_GEM_OF_ETERNAL_FROST_AMETHYST_AURA_RADIUS %> 范围内的敌人每<% ITEM_RPC_GEM_OF_ETERNAL_FROST_AMETHYST_STACK_INTERVAL %> 秒将被降低 @amethyst_property1 移动速度 . 当他们的移动速度低于<% ITEM_RPC_GEM_OF_ETERNAL_FROST_AMETHYST_MS_THRESHOLD %> 时他们将被缠绕 @amethyst_property2 秒."
 		
 		
@@ -116,7 +116,7 @@
         "item_rpc_galaxy_orb_ruby1"                                     "提高黑洞的范围 @ruby_property1 和吸力 @ruby_property2"
         "item_rpc_galaxy_orb_emerald1"                                      "被黑洞吸附<% ITEM_RPC_GALAXY_ORB_EMERALD_TIME_TO_FREEZE %> 秒的敌人将被冻结并降低 @emerald_property1 护甲和魔甲 @emerald_property2 秒"
         "item_rpc_galaxy_orb_sapphire1"                                     "黑洞在引导结束时还将残留 @sapphire_property1 秒, 并且提高 [R] 的基础技能伤害 @sapphire_property2%."
-        "item_rpc_galaxy_orb_amethyst1"                                     "提高物品伤害和所有 <font color=\"#C25DFC\">宇宙</font> 元素伤害 @amethyst_property1%"
+        "item_rpc_galaxy_orb_amethyst1"                                     "提高物品伤害和所有 <font color=ELEMENT_COSMOS>宇宙</font> 元素伤害 @amethyst_property1%"
 		"item_property_galaxy_orb"					"黑洞"
 		"property_galaxy_orb_description"			"当你引导 @Ability4 时，身边所有敌方单位将被拽向你。"
 		
@@ -196,7 +196,7 @@
         "item_rpc_torch_of_gengar_ruby1"                                    "减少施放技能时暗影步伐效果移除的时间 @ruby_property1 seconds"
         "item_rpc_torch_of_gengar_emerald1"                                 "暗影步伐效果移除时获得 @emerald_property1% 基础技能伤害和 @emerald_property2 魔甲"
         "item_rpc_torch_of_gengar_sapphire1"                                    "减少暗影步伐的攻击力降低惩罚 @sapphire_property1%"
-        "item_rpc_torch_of_gengar_amethyst1"                                    "提高物品伤害和所有 <font color=\"#9ACCD1\">鬼</font> 元素伤害 @amethyst_property1%"
+        "item_rpc_torch_of_gengar_amethyst1"                                    "提高物品伤害和所有 <font color=ELEMENT_GHOST>鬼</font> 元素伤害 @amethyst_property1%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_ruinfall_skull_token"							"头骨令牌"
@@ -227,7 +227,7 @@
         "item_rpc_raven_idol_ruby1"                                     "降低黑暗灵魂的生命阈值 @ruby_property1% , 但能提高其减伤效果 @ruby_property2%"
         "item_rpc_raven_idol_emerald1"                                      "对你的治疗效果降低 @emerald_property1% . 提高基础技能伤害 @emerald_property2% 和攻击力 @emerald_property3"
         "item_rpc_raven_idol_sapphire1"                                     "提高精神值 @sapphire_property1 ，提高力量值 @sapphire_property2"
-        "item_rpc_raven_idol_amethyst1"                                     "提高物品伤害和所有 <font color=\"#7F4F84\">暗</font> 元素伤害 @amethyst_property1%"
+        "item_rpc_raven_idol_amethyst1"                                     "提高物品伤害和所有 <font color=ELEMENT_SHADOW>暗</font> 元素伤害 @amethyst_property1%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_phoenix_emblem"									"凤凰徽章"
@@ -306,7 +306,7 @@
 
         "item_rpc_ancient_tanari_waterstone_ruby1"                      "提高最大生命值 @ruby_property1 和最大魔法值 @ruby_property2"
         "item_rpc_ancient_tanari_waterstone_emerald1"                       "每点智力值提高 @emerald_property1 魔甲"
-        "item_rpc_ancient_tanari_waterstone_sapphire1"                      "提高物品伤害和所有 <font color=\"#3894FF\">水</font> 元素伤害 @sapphire_property1%"
+        "item_rpc_ancient_tanari_waterstone_sapphire1"                      "提高物品伤害和所有 <font color=ELEMENT_WATER>水</font> 元素伤害 @sapphire_property1%"
         "item_rpc_ancient_tanari_waterstone_amethyst1"                      "提高精神值 @amethyst_property1"
 		 
 		 
@@ -318,7 +318,7 @@
         "item_rpc_tempest_falcon_ring_ruby1"                                "提高移动速度 @ruby_property1 和最大移动速度 @ruby_property2"
         "item_rpc_tempest_falcon_ring_emerald1"                             "提高攻击速度 @emerald_property1 和敏捷值 @emerald_property2"
         "item_rpc_tempest_falcon_ring_sapphire1"                                "进行攻击后能提高护甲和魔甲 @sapphire_property1 并且移除这个蓝宝石提供的攻击力加成, 受到伤害提高攻击力 @sapphire_property2% 并且移除这个蓝宝石提供的护甲和魔甲加成."
-        "item_rpc_tempest_falcon_ring_amethyst1"                                "提高物品伤害和所有 <font color=\"#7AE2A7\">风</font> 元素伤害 @amethyst_property1%"
+        "item_rpc_tempest_falcon_ring_amethyst1"                                "提高物品伤害和所有 <font color=ELEMENT_WIND>风</font> 元素伤害 @amethyst_property1%"
 		 
 		 
 		 
@@ -327,7 +327,7 @@
         "property_firelock_description"                 "每点力量值提高物理穿透 <% ITEM_RPC_FIRELOCK_PENDANT_STR_TO_ARMOR_PIERCE %>."
         
         "item_rpc_firelock_pendant_ruby1"                               "提高力量值和敏捷值 @ruby_property1"
-        "item_rpc_firelock_pendant_emerald1"                                 "提高物品伤害和所有 <font color=\"#EF4126\">火</font> 元素伤害 @emerald_property1%"
+        "item_rpc_firelock_pendant_emerald1"                                 "提高物品伤害和所有 <font color=ELEMENT_FIRE>火</font> 元素伤害 @emerald_property1%"
         "item_rpc_firelock_pendant_sapphire1"                               "每点敏捷值和力量值提高攻击速度@sapphire_property1"
         "item_rpc_firelock_pendant_amethyst1"                               "每点精神值提高基础攻击力 @amethyst_property1"
 		 
@@ -352,7 +352,7 @@
         "item_rpc_epsilons_eyeglass_ruby1"                              "@ruby_property1x 你和攻击目标的距离作为额外伤害加入到你的普通攻击伤害中"
         "item_rpc_epsilons_eyeglass_emerald1"                               "提高额外攻击距离 (仅远程英雄) @emerald_property1"
         "item_rpc_epsilons_eyeglass_sapphire1"                              "提高额外攻击弹道速度@sapphire_property1 和攻击力 @sapphire_property2%"
-        "item_rpc_epsilons_eyeglass_amethyst1"                              "提高所有 <font color=\"#C25DFC\">宇宙</font> 元素伤害和物品伤害 @amethyst_property1%"
+        "item_rpc_epsilons_eyeglass_amethyst1"                              "提高所有 <font color=ELEMENT_COSMOS>宇宙</font> 元素伤害和物品伤害 @amethyst_property1%"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_fenrirs_fang"									"芬里尔的犬牙"
@@ -416,10 +416,10 @@
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_serengaard_sun_crystal"							"太阳宝石"
-        "item_rpc_serengaard_sun_crystal_ruby1"                         "提高所有 <font color='<% RPC_ELEMENT_FIRE_COLOR %>'>火</font>, <font color='<% RPC_ELEMENT_EARTH_COLOR %>'>土</font>, <font color='<% RPC_ELEMENT_LIGHTNING_COLOR %>'>电</font>, 和 <font color='<% RPC_ELEMENT_POISON_COLOR %>'>毒</font> 元素伤害 @ruby_property1%"
-        "item_rpc_serengaard_sun_crystal_emerald1"                          "提高所有 <font color='<% RPC_ELEMENT_ARCANE_COLOR %>'>奥术</font>, <font color='<% RPC_ELEMENT_SHADOW_COLOR %>'>暗</font>, <font color='<% RPC_ELEMENT_WIND_COLOR %>'>风</font>, 和 <font color='<% RPC_ELEMENT_GHOST_COLOR %>'>鬼</font> 元素伤害 @emerald_property1%"  
-        "item_rpc_serengaard_sun_crystal_sapphire1"                         "提高所有 <font color='<% RPC_ELEMENT_TIME_COLOR %>'>时</font>, <font color='<% RPC_ELEMENT_HOLY_COLOR %>'>圣</font>, <font color='<% RPC_ELEMENT_COSMOS_COLOR %>'>宇宙</font>, 和 <font color='<% RPC_ELEMENT_ICE_COLOR %>'>冰</font> 元素伤害 @sapphire_property1%"
-        "item_rpc_serengaard_sun_crystal_amethyst1"                         "提高所有 <font color='<% RPC_ELEMENT_WATER_COLOR %>'>水</font>, <font color='<% RPC_ELEMENT_DEMON_COLOR %>'>恶魔</font>, <font color='<% RPC_ELEMENT_NATURE_COLOR %>'>自然</font>, <font color='<% RPC_ELEMENT_UNDEAD_COLOR %>'>不死</font>, 和 <font color='<% RPC_ELEMENT_DRAGON_COLOR %>'>龙</font> 元素伤害 @amethyst_property1%"
+        "item_rpc_serengaard_sun_crystal_ruby1"                         "提高所有 <font color=ELEMENT_FIRE>火</font>, <font color=ELEMENT_EARTH>土</font>, <font color=ELEMENT_LIGHTNING>电</font>, 和 <font color=ELEMENT_POISON>毒</font> 元素伤害 @ruby_property1%"
+        "item_rpc_serengaard_sun_crystal_emerald1"                          "提高所有 <font color=ELEMENT_ARCANE>奥术</font>, <font color=ELEMENT_SHADOW>暗</font>, <font color=ELEMENT_WIND>风</font>, 和 <font color=ELEMENT_GHOST>鬼</font> 元素伤害 @emerald_property1%"  
+        "item_rpc_serengaard_sun_crystal_sapphire1"                         "提高所有 <font color=ELEMENT_TIME>时</font>, <font color=ELEMENT_HOLY>圣</font>, <font color=ELEMENT_COSMOS>宇宙</font>, 和 <font color=ELEMENT_ICE>冰</font> 元素伤害 @sapphire_property1%"
+        "item_rpc_serengaard_sun_crystal_amethyst1"                         "提高所有 <font color=ELEMENT_WATER>水</font>, <font color=ELEMENT_DEMON>恶魔</font>, <font color=ELEMENT_NATURE>自然</font>, <font color=ELEMENT_UNDEAD>不死</font>, 和 <font color=ELEMENT_DRAGON>龙</font> 元素伤害 @amethyst_property1%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_wind_orchid"										"风兰花"
@@ -484,14 +484,14 @@
         "item_rpc_world_trees_flower_cache_ruby1"                       "血之兰buff同时提高你的物理穿透和魔法穿透 @ruby_property1"
         "item_rpc_world_trees_flower_cache_emerald1"                        "降低血之兰的冷却时间 @emerald_property1 秒"
         "item_rpc_world_trees_flower_cache_sapphire1"                       "提高血之兰的buff持续时间 @sapphire_property1 "
-        "item_rpc_world_trees_flower_cache_amethyst1"                       "提高物品伤害和所有 <font color=\"#69BC71\">自然</font> 元素伤害@amethyst_property1%"
+        "item_rpc_world_trees_flower_cache_amethyst1"                       "提高物品伤害和所有 <font color=ELEMENT_NATURE>自然</font> 元素伤害@amethyst_property1%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_arcane_charm"									"奥术挂坠"
         "item_rpc_arcane_charm_ruby1"                                   "每点智力值提高魔甲 @ruby_property1"
         "item_rpc_arcane_charm_emerald1"                                    "提高魔法穿透，提高值为@emerald_property1% 的魔甲值"
         "item_rpc_arcane_charm_sapphire1"                                   "受到所有魔法或纯粹伤害时，伤害的 @sapphire_property1% 将会立即治疗你"
-        "item_rpc_arcane_charm_amethyst1"                                   "提高物品伤害和所有 <font color=\"#E1A2E8\">奥术</font> 元素伤害 @amethyst_property1%"
+        "item_rpc_arcane_charm_amethyst1"                                   "提高物品伤害和所有 <font color=ELEMENT_ARCANE>奥术</font> 元素伤害 @amethyst_property1%"
 		"item_property_arcane_charm"					"奥法聚能环"
 		"property_arcane_charm_description"				"提高奥术水晶拾取范围 <% ITEM_RPC_ARCANE_CHARM_CRYSTAL_PICKUP_RADIUS_INC %>%，并且拾取奥术水晶会恢复一定的生命值和魔法值。根据拾取水晶的大小分别恢复 <% ITEM_RPC_ARCANE_CHARM_CRYSTAL_HP_MANA_RESTORE_1 %>/<% ITEM_RPC_ARCANE_CHARM_CRYSTAL_HP_MANA_RESTORE_2 %>/<% ITEM_RPC_ARCANE_CHARM_CRYSTAL_HP_MANA_RESTORE_3 %>/<% ITEM_RPC_ARCANE_CHARM_CRYSTAL_HP_MANA_RESTORE_4 %>% 的最大生命值和魔法值。（越大恢复越多）"
 		
@@ -539,7 +539,7 @@
         "item_rpc_stargazers_sphere_ruby1"            "再次发布攻击移动指令将使领域破坏, 使一颗陨石落下并造成 @ruby_property1% 你的攻击力的伤害并眩晕敌人 @ruby_property2 秒."
         "item_rpc_stargazers_sphere_emerald1"            "降低观星者之眼的冷却时间 @emerald_property1 和最大创建范围 @emerald_property2"
         "item_rpc_stargazers_sphere_sapphire1"            "缩短流星打击的间隔时间 @sapphire_property1 秒并提高流星的伤害 @sapphire_property2"
-        "item_rpc_stargazers_sphere_amethyst1"            "提高物品伤害和所有 <font color=\"#C25DFC\">宇宙</font> 元素伤害 @amethyst_property1%"
+        "item_rpc_stargazers_sphere_amethyst1"            "提高物品伤害和所有 <font color=ELEMENT_COSMOS>宇宙</font> 元素伤害 @amethyst_property1%"
 
 		"DOTA_Tooltip_modifier_in_stargazer_area"					"观星者的法球"
 		"DOTA_Tooltip_modifier_in_stargazer_area_Description"		"受到伤害时将被流星打击"
@@ -603,14 +603,14 @@
 		"DOTA_Tooltip_ability_item_rpc_beryl_ring_of_intuition" 	"直觉翡翠之戒"
         "item_rpc_beryl_ring_of_intuition_ruby1"    "当你触发直觉效果后, 回复 @ruby_property1% 最大生命值的血量"
         "item_rpc_beryl_ring_of_intuition_emerald1"     "当你触发直觉效果后, 提高 @emerald_property1 物理穿透 <% ITEM_RPC_BERYL_RING_OF_INTUITION_EMERALD_DURATION %> 秒"
-        "item_rpc_beryl_ring_of_intuition_sapphire1"    "提高物品伤害和所有 <font color=\"#F6FFB5\">冰</font> 元素伤害 @sapphire_property1%"
+        "item_rpc_beryl_ring_of_intuition_sapphire1"    "提高物品伤害和所有 <font color=ELEMENT_ICE>冰</font> 元素伤害 @sapphire_property1%"
         "item_rpc_beryl_ring_of_intuition_amethyst1"    "当你触发直觉效果后, 回复 @amethyst_property1% 最大魔法值的法力"
 		"item_property_beryl_ring_of_intuition"						"直觉"
 		"property_beryl_ring_of_intuition_description"				"在释放完所有技能后，你的生命值和魔法值以及技能的冷却时间都会被重置。如果 @Ability4的冷却时间大于 <% ITEM_RPC_BERYL_RING_OF_INTUITION_ULTIMATE_MIN_CD %>秒时，这个效果将会只是降低它的冷却时间到<% ITEM_RPC_BERYL_RING_OF_INTUITION_ULTIMATE_MIN_CD %> 秒。"
 
 		"DOTA_Tooltip_ability_item_rpc_auric_ring_of_inspiration" 	"灵感鎏金之戒"
         "item_rpc_auric_ring_of_inspiration_ruby1"  "当你触发振奋效果后,提高 @ruby_property1 魔法穿透"
-        "item_rpc_auric_ring_of_inspiration_emerald1"   "提高物品伤害和所有 <font color=\"#F6FFB5\">圣</font> 元素伤害 @emerald_property1%"
+        "item_rpc_auric_ring_of_inspiration_emerald1"   "提高物品伤害和所有 <font color=ELEMENT_HOLY>圣</font> 元素伤害 @emerald_property1%"
         "item_rpc_auric_ring_of_inspiration_sapphire1"  "提高振奋效果的魔法免疫持续时间 @sapphire_property1"
         "item_rpc_auric_ring_of_inspiration_amethyst1"  "当你触发振奋效果后,回复 @amethyst_property1% 最大生命值的血量"
 		"item_property_auric_ring_of_inspiration"						"振奋"

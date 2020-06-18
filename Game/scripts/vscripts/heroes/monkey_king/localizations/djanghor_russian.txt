@@ -41,7 +41,7 @@
 		"DOTA_Tooltip_modifier_mark_of_the_talon_Description"							"Пассивно увеличивает регенерацию маны и Магическую Защиту. Пока активно это усиление, персонаж может трансформироваться в ястреба."	
 
 		"DOTA_Tooltip_ability_draghor_jin_bo"											"Jin'bo"
-		"DOTA_Tooltip_ability_draghor_jin_bo_Description"								"Стихия: <font color=\"#DDDDDD\">Нормальный</font><br>Djanghor совершает взмах своим оружием, отталкивая врагов от себя. После двух последовательных атак, третий удар наносит увеличенный урон на большем расстоянии, дополнительно оглушая задетых врагов. Урон от третьей атаки становится стихийным - его элемент - <font color=\"#69BC71\">Природа</font>. Примененяя это умение во время (E) Monkey Leap, герой автоматически совершит третью атаку."
+		"DOTA_Tooltip_ability_draghor_jin_bo_Description"								"Стихия: <font color=ELEMENT_NORMAL>Нормальный</font><br>Djanghor совершает взмах своим оружием, отталкивая врагов от себя. После двух последовательных атак, третий удар наносит увеличенный урон на большем расстоянии, дополнительно оглушая задетых врагов. Урон от третьей атаки становится стихийным - его элемент - <font color=ELEMENT_NATURE>Природа</font>. Примененяя это умение во время (E) Monkey Leap, герой автоматически совершит третью атаку."
 		"DOTA_Tooltip_ability_draghor_jin_bo_damage_mult"								"УРОН, % ОТ УРОНА ГЕРОЯ:"
 		"DOTA_Tooltip_ability_draghor_jin_bo_stun_duration"								"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ ОТ 3-Й АТАКИ:"
 
@@ -73,7 +73,7 @@
 		"DOTA_Tooltip_modifier_wolf_sprint_Description"									"Абсолютная скорость передвижения увеличена. Герой может проходить сквозь препятствия и существ."
 
 		"DOTA_Tooltip_ability_draghor_wolf_rend"										"Rend"
-		"DOTA_Tooltip_ability_draghor_wolf_rend_Description"							"Стихия: <font color=\"#DDDDDD\">Нормальный</font><br>Атакует всех врагов перед собой своими когтями, нанося урон, основанный на общем уроне героя. Когти снижают броню врагов. Эффект складывается до 2 раз. Третий успешный удар оставит на противниках кровоточащие раны."
+		"DOTA_Tooltip_ability_draghor_wolf_rend_Description"							"Стихия: <font color=ELEMENT_NORMAL>Нормальный</font><br>Атакует всех врагов перед собой своими когтями, нанося урон, основанный на общем уроне героя. Когти снижают броню врагов. Эффект складывается до 2 раз. Третий успешный удар оставит на противниках кровоточащие раны."
 		"DOTA_Tooltip_ability_draghor_wolf_rend_damage_mult"							"УРОН, % ОТ ОБЩЕГО УРОНА:"
 		"DOTA_Tooltip_ability_draghor_wolf_rend_bleed_damage"							"УРОН КРОВОТЕЧЕНИЯ, % ОТ ОБЩЕГО УРОНА:"	
 		"DOTA_Tooltip_ability_draghor_wolf_rend_bleed_duration"							"ДЛИТЕЛЬНОСТЬ КРОВОТЕЧЕНИЯ:"
@@ -96,7 +96,7 @@
 		"DOTA_Tooltip_modifier_bear_armor_buff_Description"								"Броня увеличена"	
 
 		"DOTA_Tooltip_ability_djanghor_bear_war_stomp"									"War Stomp"
-		"DOTA_Tooltip_ability_djanghor_bear_war_stomp_Description"						"Стихия: <font color=\"#69BC71\">Природа</font> / <font color=\"#AF843D\">Земля</font><br>Djanghor сотрясает землю под собой мощным ударом лапы, нанося урон ближайшим врагам и оглушая их."
+		"DOTA_Tooltip_ability_djanghor_bear_war_stomp_Description"						"Стихия: <font color=ELEMENT_NATURE>Природа</font> / <font color=ELEMENT_EARTH>Земля</font><br>Djanghor сотрясает землю под собой мощным ударом лапы, нанося урон ближайшим врагам и оглушая их."
 		"DOTA_Tooltip_ability_djanghor_bear_war_stomp_damage"							"УРОН:"
 		"DOTA_Tooltip_ability_djanghor_bear_war_stomp_stun_duration"					"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
 
@@ -108,7 +108,7 @@
 		"DOTA_Tooltip_modifier_bear_charging"										"Battle Charge"
 
 		"DOTA_Tooltip_ability_draghor_hawk_screech"									"Screech"
-		"DOTA_Tooltip_ability_draghor_hawk_screech_Description"						"Стихия: <font color=\"#B5FFB7\">Время</font> / <font color=\"#69BC71\">Природа</font><br>Мощная звуковая волна поражает врагов в конусе перед героем. Все задетые волной враги теряют Магическую Защиту."
+		"DOTA_Tooltip_ability_draghor_hawk_screech_Description"						"Стихия: <font color=ELEMENT_TIME>Время</font> / <font color=ELEMENT_NATURE>Природа</font><br>Мощная звуковая волна поражает врагов в конусе перед героем. Все задетые волной враги теряют Магическую Защиту."
 		"DOTA_Tooltip_ability_draghor_hawk_screech_damage"							"УРОН:"
 		"DOTA_Tooltip_ability_draghor_hawk_screech_magic_armor_reduction"					"СНИЖЕНИЕ МАГ. ЗАЩИТЫ:"
 		"DOTA_Tooltip_ability_draghor_hawk_screech_debuff_duration"					"ДЛИТЕЛЬНОСТЬ УСИЛЕНИЯ:"
@@ -117,7 +117,7 @@
 		"DOTA_Tooltip_modifier_draghor_hawk_screech_Description"					"Теряет Магическую Защиту."
 
 		"DOTA_Tooltip_ability_draghor_hawk_tornado"									"Aerial Tornado"
-		"DOTA_Tooltip_ability_draghor_hawk_tornado_Description"						"Стихия: <font color=\"#7AE2A7\">Ветер</font> / <font color=\"#69BC71\">Природа</font><br>Djanghor пораждает сокрушительный смерч взмахом своих крыльев. Враги, задетые смерчем замедляются."
+		"DOTA_Tooltip_ability_draghor_hawk_tornado_Description"						"Стихия: <font color=ELEMENT_WIND>Ветер</font> / <font color=ELEMENT_NATURE>Природа</font><br>Djanghor пораждает сокрушительный смерч взмахом своих крыльев. Враги, задетые смерчем замедляются."
 		"DOTA_Tooltip_ability_draghor_hawk_tornado_bonus_movement_speed"			"СНИЖЕНИЕ СКОРОСТИ ПЕРЕДВИЖЕНИЯ:"
 		"DOTA_Tooltip_ability_draghor_hawk_tornado_attack_speed"					"СНИЖЕНИЕ СКОРОСТИ АТАКИ, %:"
 		"DOTA_Tooltip_ability_draghor_hawk_tornado_damage"							"БАЗОВЫЙ УРОН:"
@@ -165,7 +165,7 @@
     	"DOTA_Tooltip_ability_djanghor_rune_q_4_suffix"								"%"
 
     	"DOTA_Tooltip_ability_djanghor_rune_w_1"									"[W1] Nature's Bite"
-    	"DOTA_Tooltip_ability_djanghor_rune_w_1_Description"						"Вместе с обычными атаками в любой форме враги получат дополнительный стихийный урон <font color=\"#69BC71\">Природы</font>."
+    	"DOTA_Tooltip_ability_djanghor_rune_w_1_Description"						"Вместе с обычными атаками в любой форме враги получат дополнительный стихийный урон <font color=ELEMENT_NATURE>Природы</font>."
     	"DOTA_Tooltip_ability_djanghor_rune_w_1_property_one"						"Урон"
     	"DOTA_Tooltip_ability_djanghor_rune_w_1_suffix"								"% от нанесённого урона"
 
@@ -180,8 +180,8 @@
     	"DOTA_Tooltip_ability_djanghor_rune_w_3_suffix"								"% от урона героя"
 
     	"DOTA_Tooltip_ability_djanghor_rune_w_4"									"[W4] Natural Selection"
-    	"DOTA_Tooltip_ability_djanghor_rune_w_4_Description"						"Пассивно увеличивает стихийный урон <font color=\"#69BC71\">Природы</font>."
-    	"DOTA_Tooltip_ability_djanghor_rune_w_4_property_one"						"Усиление стихийного урона <font color=\"#69BC71\">Природы</font>"
+    	"DOTA_Tooltip_ability_djanghor_rune_w_4_Description"						"Пассивно увеличивает стихийный урон <font color=ELEMENT_NATURE>Природы</font>."
+    	"DOTA_Tooltip_ability_djanghor_rune_w_4_property_one"						"Усиление стихийного урона <font color=ELEMENT_NATURE>Природы</font>"
     	"DOTA_Tooltip_ability_djanghor_rune_w_4_suffix"								"%"
 
     	"DOTA_Tooltip_ability_djanghor_rune_e_1"									"[E1] Marshlands"
@@ -210,7 +210,7 @@
     	"DOTA_Tooltip_ability_djanghor_rune_e_4_suffix"								" сек."
 
     	"DOTA_Tooltip_ability_djanghor_rune_r_1"									"[R1] Savagery"
-    	"DOTA_Tooltip_ability_djanghor_rune_r_1_Description"						"Увеличивает урон в форме любого зверя за счёт своих атрибутов. Урон волка увеличивается от <font color=\"<% COLOR_AGILITY%>\">Ловкости</font><br>, медведя от <font color=\"<% COLOR_STRENGTH %>\">Силы</font>, а ястреб получает бонус к урону от <font color=\"<% COLOR_INTELLIGENCE %>\">Интеллекта</font>. Форма обезьяны получает бонус от <font color=\"<% COLOR_SPIRIT %>\">Духа</font>."
+    	"DOTA_Tooltip_ability_djanghor_rune_r_1_Description"						"Увеличивает урон в форме любого зверя за счёт своих атрибутов. Урон волка увеличивается от <font color=ATTRIBUTE_AGILITY>Ловкости</font><br>, медведя от <font color=ATTRIBUTE_STRENGTH>Силы</font>, а ястреб получает бонус к урону от <font color=ATTRIBUTE_INTELLIGENCE>Интеллекта</font>. Форма обезьяны получает бонус от <font color=ATTRIBUTE_SPIRIT>Духа</font>."
     	"DOTA_Tooltip_ability_djanghor_rune_r_1_property_one"						"Базовый Урон Атаки"
     	"DOTA_Tooltip_ability_djanghor_rune_r_1_suffix"								" за ед. атрибута"
 
@@ -243,7 +243,7 @@
     	"DOTA_Tooltip_ability_draghor_shapeshift_year_beast_all_attributes_bonus"						"ДОП. АТРИБУТЫ В ФОРМЕ ГОДНЯ:"
 
     	"DOTA_Tooltip_ability_draghor_year_beast_thunderous_roar"									"Thunderous Roar"
-		"DOTA_Tooltip_ability_draghor_year_beast_thunderous_roar_Description"						"Стихия: <font color=\"#B5FFB7\">Время</font> / <font color=\"#69BC71\">Природа</font><br>Мощным криком, Годень порождает сильную звуковую волну, задевающую врагов в конусе перед собой. Все задетые враги теряют Магическую Защиту. Годень провоцирует всех пораженных звуковой волной врагов атаковать только его. На время провокации получает бонус к броне."
+		"DOTA_Tooltip_ability_draghor_year_beast_thunderous_roar_Description"						"Стихия: <font color=ELEMENT_TIME>Время</font> / <font color=ELEMENT_NATURE>Природа</font><br>Мощным криком, Годень порождает сильную звуковую волну, задевающую врагов в конусе перед собой. Все задетые враги теряют Магическую Защиту. Годень провоцирует всех пораженных звуковой волной врагов атаковать только его. На время провокации получает бонус к броне."
 		"DOTA_Tooltip_ability_draghor_year_beast_thunderous_roar_damage"							"УРОН:"
 		"DOTA_Tooltip_ability_draghor_year_beast_thunderous_roar_magic_armor_reduction"				"СНИЖЕНИЕ МАГИЧЕСКОЙ ЗАЩИТЫ:"
 		"DOTA_Tooltip_ability_draghor_year_beast_thunderous_roar_debuff_duration"					"ДЛИТЕЛЬНОСТЬ:"
@@ -251,7 +251,7 @@
 		"DOTA_Tooltip_ability_draghor_year_beast_thunderous_roar_armor_bonus"						"ДОП. БРОНЯ:"
 
 		"DOTA_Tooltip_ability_draghor_year_beast_rending_gale"										"Rending Gale"
-		"DOTA_Tooltip_ability_draghor_year_beast_rending_gale_Description"							"Стихия: <font color=\"#DDDDDD\">Нормальный</font><br><font color=\"#7AE2A7\">Ветер</font> / <font color=\"#69BC71\">Природа</font><br>Сильным взмахом своей лапы рассекает воздух перед собой, нанося урон задетым врагам, зависящий от урона героя, а так же создавая несколько вихрей. Каждый успешный удар лапой снижает броню врагов. Складывается до двух раз. Последующие удары оставляют кровоточащие раны. Враги, задетые вихрями, также получают кровотечение и замедление."
+		"DOTA_Tooltip_ability_draghor_year_beast_rending_gale_Description"							"Стихия: <font color=ELEMENT_NORMAL>Нормальный</font><br><font color=ELEMENT_WIND>Ветер</font> / <font color=ELEMENT_NATURE>Природа</font><br>Сильным взмахом своей лапы рассекает воздух перед собой, нанося урон задетым врагам, зависящий от урона героя, а так же создавая несколько вихрей. Каждый успешный удар лапой снижает броню врагов. Складывается до двух раз. Последующие удары оставляют кровоточащие раны. Враги, задетые вихрями, также получают кровотечение и замедление."
 		"DOTA_Tooltip_ability_draghor_year_beast_rending_gale_damage_mult"							"УРОН ОТ УДАРА ЛАПОЙ, % ОТ УРОНА ГЕРОЯ:"
 		"DOTA_Tooltip_ability_draghor_year_beast_rending_gale_bleed_damage"							"УРОН ОТ КРОВОТОКА, % ОТ УРОНА ГЕРОЯ:"	
 		"DOTA_Tooltip_ability_draghor_year_beast_rending_gale_bleed_duration"						"ДЛИТЕЛЬНОСТЬ КРОВОТОКА:"
@@ -270,7 +270,7 @@
 		"DOTA_Tooltip_ability_djanghor_year_beast_charge_duration"							"ДЛИТЕЛЬНОСТЬ УСКОРЕНИЯ:"
 
 		"DOTA_Tooltip_ability_draghor_year_beast_leap"									"Majestic Leap"
-		"DOTA_Tooltip_ability_draghor_year_beast_leap_Description"						"Стихия: <font color=\"#69BC71\">Природа</font> / <font color=\"#AF843D\">Земля</font><br>Годень прыгает в указанную точку и создает на месте приземления сильное землетрясение, оглушающее всех задетых врагов и наносящее им урон."
+		"DOTA_Tooltip_ability_draghor_year_beast_leap_Description"						"Стихия: <font color=ELEMENT_NATURE>Природа</font> / <font color=ELEMENT_EARTH>Земля</font><br>Годень прыгает в указанную точку и создает на месте приземления сильное землетрясение, оглушающее всех задетых врагов и наносящее им урон."
 		"DOTA_Tooltip_ability_draghor_year_beast_leap_stomp_damage"						"УРОН:"
 		"DOTA_Tooltip_ability_draghor_year_beast_leap_stun_duration"					"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
 		"DOTA_Tooltip_ability_draghor_year_beast_leap_cast_range"						"ДАЛЬНОСТЬ ПРИМЕНЕНИЯ:"
@@ -331,7 +331,7 @@
 		"DOTA_Tooltip_modifier_glyph_7_bash_Description"		"Шанс оглушить цель при атаке и нанести дополнительный урон."
 
 		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_5_a"		"[T5-a] Глиф природной катастрофы"
-		"item_rpc_djanghor_glyph_5_a_description" 				"Ко всему урону, имеющему <font color=\"#DDDDDD\">Нормальную</font> основную стихию добавляется вторая стихия <font color=\"#69BC71\">Природы</font>."
+		"item_rpc_djanghor_glyph_5_a_description" 				"Ко всему урону, имеющему <font color=ELEMENT_NORMAL>Нормальную</font> основную стихию добавляется вторая стихия <font color=ELEMENT_NATURE>Природы</font>."
 		
 	
 		//Weapons

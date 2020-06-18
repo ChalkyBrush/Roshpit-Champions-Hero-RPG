@@ -1,6 +1,6 @@
 		//Abilities
 		"DOTA_Tooltip_ability_sephyr_lightbomb"										"Lightbomb"
-    	"DOTA_Tooltip_ability_sephyr_lightbomb_Description"							"Стихия: <font color=\"#F6FFB5\">Свет</font> / <font color=\"#7AE2A7\">Ветер</font><br> Sephyr взлетает высоко к небесам, возвращаясь в указанной точке спустя 0.8 секунды в виде мощного пучка света, оглушая и нанося урон всем задетым врагам в момент приземления.<br> Применение Lightbomb во время активного умения Strafe позволяет герою повернуться в нужную сторону за время прочтения."
+    	"DOTA_Tooltip_ability_sephyr_lightbomb_Description"							"Стихия: <font color=ELEMENT_HOLY>Свет</font> / <font color=ELEMENT_WIND>Ветер</font><br> Sephyr взлетает высоко к небесам, возвращаясь в указанной точке спустя 0.8 секунды в виде мощного пучка света, оглушая и нанося урон всем задетым врагам в момент приземления.<br> Применение Lightbomb во время активного умения Strafe позволяет герою повернуться в нужную сторону за время прочтения."
     	"DOTA_Tooltip_ability_sephyr_lightbomb_cast_range"							"РАДИУС ПРИМЕНЕНИЯ:"
     	"DOTA_Tooltip_ability_sephyr_lightbomb_base_damage"							"УРОН:"
     	"DOTA_Tooltip_ability_sephyr_lightbomb_int_damage"							"ДОП. УРОН, Х ИНТЕЛЛЕКТА:"
@@ -23,7 +23,7 @@
     	"DOTA_Tooltip_modifier_lightbomb_magic_armor_loss_Description"					"Магическая Защита снижена"
 
     	"DOTA_Tooltip_ability_sephyr_rune_q_3"									"[Q3] Clearfire"
-    	"DOTA_Tooltip_ability_sephyr_rune_q_3_Description"						"С прочтением @Ability1, герой получит заряды этой руны. Когда количество зарядов больше или равно 10, прочтение @Ability1 не будет перезаряжаться. Заряды не будут добавляться, пока последнее прочтение не задействует перезарядку умения. Каждый заряд усиливает урон <font color=\"#F6FFB5\">Света</font> на <% SEPHYR_Q3_HOLY_AMP_PCT %>%."
+    	"DOTA_Tooltip_ability_sephyr_rune_q_3_Description"						"С прочтением @Ability1, герой получит заряды этой руны. Когда количество зарядов больше или равно 10, прочтение @Ability1 не будет перезаряжаться. Заряды не будут добавляться, пока последнее прочтение не задействует перезарядку умения. Каждый заряд усиливает урон <font color=ELEMENT_HOLY>Света</font> на <% SEPHYR_Q3_HOLY_AMP_PCT %>%."
     	"DOTA_Tooltip_ability_sephyr_rune_q_3_property_one"						"Получение зарядов Clearfire"
     	"DOTA_Tooltip_ability_sephyr_rune_q_3_suffix"							""
 
@@ -31,12 +31,12 @@
     	"DOTA_Tooltip_modifier_lightbomb_freecast_Description"					"10 зарядов снимают время перезарядки у следующего прочтения (Q) Lightbomb"
 
     	"DOTA_Tooltip_ability_sephyr_rune_q_4"									"[Q4] Sunny Disposition"
-    	"DOTA_Tooltip_ability_sephyr_rune_q_4_Description"						"Урон <font color=\"#F6FFB5\">Света</font> героя пассивно увеличивает бонусный урон атаки."
+    	"DOTA_Tooltip_ability_sephyr_rune_q_4_Description"						"Урон <font color=ELEMENT_HOLY>Света</font> героя пассивно увеличивает бонусный урон атаки."
     	"DOTA_Tooltip_ability_sephyr_rune_q_4_property_one"						"Бонусный Урона Атаки %"
-    	"DOTA_Tooltip_ability_sephyr_rune_q_4_suffix"							"x урона <font color=\"#F6FFB5\">Света</font>"
+    	"DOTA_Tooltip_ability_sephyr_rune_q_4_suffix"							"x урона <font color=ELEMENT_HOLY>Света</font>"
 		
 		"DOTA_Tooltip_ability_piercing_gale"										"Piercing Gale"
-    	"DOTA_Tooltip_ability_piercing_gale_Description"							"Стихия: <font color=\"#7AE2A7\">Ветер</font><br>Sephyr создаёт перед собой рассекающее копьё ветра и слегка движется вперед."
+    	"DOTA_Tooltip_ability_piercing_gale_Description"							"Стихия: <font color=ELEMENT_WIND>Ветер</font><br>Sephyr создаёт перед собой рассекающее копьё ветра и слегка движется вперед."
     	"DOTA_Tooltip_ability_piercing_gale_damage"									"УРОН:"
 		
 		"DOTA_Tooltip_ability_sephyr_rune_w_1"									"[W1] Bright Eyes"
@@ -55,8 +55,8 @@
     	"DOTA_Tooltip_ability_sephyr_rune_w_3_suffix"								"%"
 
     	"DOTA_Tooltip_ability_sephyr_rune_w_4"									"[W4] Aeromancer"
-    	"DOTA_Tooltip_ability_sephyr_rune_w_4_Description"						"Пассивно увеличивает урон <font color=\"#7AE2A7\">Ветра</font>."
-    	"DOTA_Tooltip_ability_sephyr_rune_w_4_property_one"						"Урон <font color=\"#7AE2A7\">Ветра</font>"
+    	"DOTA_Tooltip_ability_sephyr_rune_w_4_Description"						"Пассивно увеличивает урон <font color=ELEMENT_WIND>Ветра</font>."
+    	"DOTA_Tooltip_ability_sephyr_rune_w_4_property_one"						"Урон <font color=ELEMENT_WIND>Ветра</font>"
     	"DOTA_Tooltip_ability_sephyr_rune_w_4_suffix"							"%"
 		
 		"DOTA_Tooltip_ability_sephyr_strafe"										"Strafe"
@@ -144,7 +144,7 @@
     	"property_sephyr_arcana1_description"								"Заменяет (W) @Ability2 и все соответствующие руны на (W) Icewind Gale."
 
     	"DOTA_Tooltip_ability_icewind_gale"						"Icewind Gale"
-    	"DOTA_Tooltip_ability_icewind_gale_Description"			"Стихия: <font color=\"#87D9FF\">Лед</font> / <font color=\"#7AE2A7\">Ветер</font><br>Sephyr призывает ревущий поток ледяного ветра прямо перед собой. Холодный воздух замедляет врагов на 4 секунды, а каждый каст Icewind Gale с 15% шансом может быть критическим, усиливая все порции урона от потока."
+    	"DOTA_Tooltip_ability_icewind_gale_Description"			"Стихия: <font color=ELEMENT_ICE>Лед</font> / <font color=ELEMENT_WIND>Ветер</font><br>Sephyr призывает ревущий поток ледяного ветра прямо перед собой. Холодный воздух замедляет врагов на 4 секунды, а каждый каст Icewind Gale с 15% шансом может быть критическим, усиливая все порции урона от потока."
     	"DOTA_Tooltip_ability_icewind_gale_damage"				"БАЗОВЫЙ УРОН:"
     	"DOTA_Tooltip_ability_icewind_gale_as_loss"				"СНИЖЕНИЕ СКОРОСТИ АТАКИ:"
     	"DOTA_Tooltip_ability_icewind_gale_ms_loss"				"СНИЖЕНИЕ СКОРОСТИ ПЕРЕДВИЖЕНИЯ:"
@@ -172,8 +172,8 @@
     	"DOTA_Tooltip_modifier_icewind_shield_Description"						"Полностью поглощает входящий урон 1 раз за заряд"		
 
     	"DOTA_Tooltip_ability_sephyr_rune_w_4_arcana1"							"[W4] Grand Aeromancer"
-    	"DOTA_Tooltip_ability_sephyr_rune_w_4_arcana1_Description"				"Пассивно увеличивает урон <font color=\"#7AE2A7\">Ветра</font>."
-    	"DOTA_Tooltip_ability_sephyr_rune_w_4_arcana1_property_one"				"Урон <font color=\"#7AE2A7\">Ветра</font>"
+    	"DOTA_Tooltip_ability_sephyr_rune_w_4_arcana1_Description"				"Пассивно увеличивает урон <font color=ELEMENT_WIND>Ветра</font>."
+    	"DOTA_Tooltip_ability_sephyr_rune_w_4_arcana1_property_one"				"Урон <font color=ELEMENT_WIND>Ветра</font>"
     	"DOTA_Tooltip_ability_sephyr_rune_w_4_arcana1_suffix"					"%"
 		
 		//Arcana2
@@ -191,7 +191,7 @@
         "DOTA_Tooltip_ability_sephyr_hurricane_cooldown_base"         "БАЗОВАЯ ПЕРЕЗАРЯДКА:"
 
         "DOTA_Tooltip_ability_sephyr_rune_q_1_arcana2"                      "[Q1] Concordia"
-        "DOTA_Tooltip_ability_sephyr_rune_q_1_arcana2_Description"          "Повышает Скорость Перемещениея, Лимит Скорости Перемещения и Ловкость на <% SEPHYR_ARCANA2_Q1_DURATION %> сек после создания урагана. Пока бонус активен, стандартные атаки будут наносить Магический урон <font color=\"#7AE2A7\">Ветра</font>."
+        "DOTA_Tooltip_ability_sephyr_rune_q_1_arcana2_Description"          "Повышает Скорость Перемещениея, Лимит Скорости Перемещения и Ловкость на <% SEPHYR_ARCANA2_Q1_DURATION %> сек после создания урагана. Пока бонус активен, стандартные атаки будут наносить Магический урон <font color=ELEMENT_WIND>Ветра</font>."
         "DOTA_Tooltip_ability_sephyr_rune_q_1_arcana2_property_one"         "Скорость Перемещения и Лимит Скорости"
         "DOTA_Tooltip_ability_sephyr_rune_q_1_arcana2_suffix"               ""      
         "DOTA_Tooltip_ability_sephyr_rune_q_1_arcana2_property_two"         "Ловкость"

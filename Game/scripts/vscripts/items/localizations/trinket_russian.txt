@@ -18,7 +18,7 @@
 
         "item_rpc_ancient_tanari_waterstone_ruby1"                      "Увеличивает запас Здоровья на @ruby_property1 и максимальной Маны на @ruby_property2"
         "item_rpc_ancient_tanari_waterstone_emerald1"                       "Интеллект увеличивает Магическую Защиту на @emerald_property1"
-        "item_rpc_ancient_tanari_waterstone_sapphire1"                      "Увеличивает Урон Предметов и урон <font color=\"#3894FF\">Воды</font> на @sapphire_property1%"
+        "item_rpc_ancient_tanari_waterstone_sapphire1"                      "Увеличивает Урон Предметов и урон <font color=ELEMENT_WATER>Воды</font> на @sapphire_property1%"
         "item_rpc_ancient_tanari_waterstone_amethyst1"                      "Увеличивает Дух на @amethyst_property1"
 
         "DOTA_Tooltip_ability_item_rpc_ankh_of_the_ancients"                            "Ankh of the Ancients"
@@ -84,7 +84,7 @@
         "item_rpc_arcane_charm_ruby1"                                   "Интеллект увеличивает Магическую Защиту на @ruby_property1"
         "item_rpc_arcane_charm_emerald1"                                    "@emerald_property1% от Магической Защиты увеличивает Пробитие Магической Защиты"
         "item_rpc_arcane_charm_sapphire1"                                   "Входящий Магический или Чистый урон мгновенно исцеляет героя на @sapphire_property1% от полученного урона"
-        "item_rpc_arcane_charm_amethyst1"                                   "Урон Предметов и урон <font color=\"#E1A2E8\">Тайны</font> увеличен на @amethyst_property1%"
+        "item_rpc_arcane_charm_amethyst1"                                   "Урон Предметов и урон <font color=ELEMENT_ARCANE>Тайны</font> увеличен на @amethyst_property1%"
 		
         "DOTA_Tooltip_ability_item_rpc_auric_ring_of_inspiration"   "Auric Ring of Inspiration"
 
@@ -95,7 +95,7 @@
         "DOTA_Tooltip_modifier_auric_ring_bkb_Description"          "Spell Immunity"
 
         "item_rpc_auric_ring_of_inspiration_ruby1"  "Пока эффект Cycle of Divinity активен, Пробитие Магической Защиты увеличено на @ruby_property1"
-        "item_rpc_auric_ring_of_inspiration_emerald1"   "Увеличивает Урон Предметов и урон <font color=\"#F6FFB5\">Света</font> на @emerald_property1%"
+        "item_rpc_auric_ring_of_inspiration_emerald1"   "Увеличивает Урон Предметов и урон <font color=ELEMENT_HOLY>Света</font> на @emerald_property1%"
         "item_rpc_auric_ring_of_inspiration_sapphire1"  "Увеличивает длительность Cycle of Divinity на @sapphire_property1"
         "item_rpc_auric_ring_of_inspiration_amethyst1"  "При активации эффекта восстанавливается @amethyst_property1% от максимального запаса Здоровья"
 
@@ -135,7 +135,7 @@
 
         "item_rpc_beryl_ring_of_intuition_ruby1"    "Активация эффекта восстанавливает @ruby_property1% от запаса Здоровья"
         "item_rpc_beryl_ring_of_intuition_emerald1"     "Активация Cycle of Respiration повышает Пробитие Брони на @emerald_property1 в течение <% ITEM_RPC_BERYL_RING_OF_INTUITION_EMERALD_DURATION %> сек"
-        "item_rpc_beryl_ring_of_intuition_sapphire1"    "Увеличивает Урон Предметов и урон <font color=\"#F6FFB5\">Льда</font> на @sapphire_property1%"
+        "item_rpc_beryl_ring_of_intuition_sapphire1"    "Увеличивает Урон Предметов и урон <font color=ELEMENT_ICE>Льда</font> на @sapphire_property1%"
         "item_rpc_beryl_ring_of_intuition_amethyst1"    "При активации Cycle of Respiration восстанавливает @amethyst_property1% от максимального запаса Маны"
 
         "DOTA_Tooltip_modifier_beryl_ring_of_intuition_emerald_armor_pierce"	"Cycle of Respiration (Emerald)"
@@ -214,7 +214,7 @@
         "item_rpc_epsilons_eyeglass_ruby1"                              "Обычные атаки наносят дополнительную порцию урона, равную @ruby_property1x от расстояния между целью и героем"
         "item_rpc_epsilons_eyeglass_emerald1"                               "Увеличивает радиус атаки на @emerald_property1 (только героям дальнего боя)"
         "item_rpc_epsilons_eyeglass_sapphire1"                              "Увеличивает скорость полёта снаряда атаки еще на @sapphire_property1 и Силу Атаки на @sapphire_property2%"
-        "item_rpc_epsilons_eyeglass_amethyst1"                              "Увеличивает урон <font color=\"#C25DFC\">Космоса</font> и Урон Предметов на @amethyst_property1%"
+        "item_rpc_epsilons_eyeglass_amethyst1"                              "Увеличивает урон <font color=ELEMENT_COSMOS>Космоса</font> и Урон Предметов на @amethyst_property1%"
 
         "DOTA_Tooltip_ability_item_rpc_eye_of_avernus"                                  "Eye of Avernus"
         "item_property_avernus"                     "Commanding Vision"                             
@@ -253,7 +253,7 @@
         "property_firelock_description"                 "Сила увеличивает Пробитие Брони на <% ITEM_RPC_FIRELOCK_PENDANT_STR_TO_ARMOR_PIERCE %>."
         
         "item_rpc_firelock_pendant_ruby1"                               "Увеличивает Силу и Ловкость на @ruby_property1"
-        "item_rpc_firelock_pendant_emerald1"                                 "Увеличивает Урон Предметов и урон <font color=\"#EF4126\">Огня</font> на @emerald_property1%"
+        "item_rpc_firelock_pendant_emerald1"                                 "Увеличивает Урон Предметов и урон <font color=ELEMENT_FIRE>Огня</font> на @emerald_property1%"
         "item_rpc_firelock_pendant_sapphire1"                               "Ловкость и Сила увеличивают Скорость Атаки на @sapphire_property1"
         "item_rpc_firelock_pendant_amethyst1"                               "Дух увеличивает Базовый Урон Атаки на @amethyst_property1"
 
@@ -317,7 +317,7 @@
         "item_rpc_galaxy_orb_ruby1"                                     "Увеличивает радиус на @ruby_property1 и скорость притяжения на @ruby_property2"
         "item_rpc_galaxy_orb_emerald1"                                      "Противники, находящиеся в области действия  ловушки в течение <% ITEM_RPC_GALAXY_ORB_EMERALD_TIME_TO_FREEZE %> сек замораживаются и имеют сниженные Броню и Магическую Защиту на @emerald_property1 на @emerald_property2 сек"
         "item_rpc_galaxy_orb_sapphire1"                                     "Область эффекта сохраняется на @sapphire_property1 сек после завершения заряда способности, Урон Способности [R] увеличен на @sapphire_property2%."
-        "item_rpc_galaxy_orb_amethyst1"                                     "Увеличивает Урон Предметов и урон <font color=\"#C25DFC\">Космоса</font> на @amethyst_property1%"
+        "item_rpc_galaxy_orb_amethyst1"                                     "Увеличивает Урон Предметов и урон <font color=ELEMENT_COSMOS>Космоса</font> на @amethyst_property1%"
 
         "DOTA_Tooltip_ability_item_rpc_galvanized_razor_band"           "Galvanized Razor Band"
 
@@ -350,7 +350,7 @@
 
         "item_rpc_gem_of_eternal_frost_ruby1"                           "Обездвиженные противники наносят на @ruby_property1% меньше урона герою"
         "item_rpc_gem_of_eternal_frost_emerald1"                            "Увеличивает радиус эффекта на @emerald_property1 и урон эффекта на @emerald_property2"
-        "item_rpc_gem_of_eternal_frost_sapphire1"                           "Увеличивает Урон Предметов и урон <font color=\"#87D9FF\">Льда</font> на @sapphire_property1%"
+        "item_rpc_gem_of_eternal_frost_sapphire1"                           "Увеличивает Урон Предметов и урон <font color=ELEMENT_ICE>Льда</font> на @sapphire_property1%"
         "item_rpc_gem_of_eternal_frost_amethyst1"                           "Противники в радиусе <% ITEM_RPC_GEM_OF_ETERNAL_FROST_AMETHYST_AURA_RADIUS %> замедляются на @amethyst_property1 каждые <% ITEM_RPC_GEM_OF_ETERNAL_FROST_AMETHYST_STACK_INTERVAL %> сек. Когда их скорость передвижения становится ниже <% ITEM_RPC_GEM_OF_ETERNAL_FROST_AMETHYST_MS_THRESHOLD %>, они обездвиживаются на @amethyst_property2 сек."
 
         "DOTA_Tooltip_ability_item_rpc_guardian_stone"                  "Guardian Stone"
@@ -444,7 +444,7 @@
         "item_rpc_raven_idol_ruby1"                                     "Снижает ограничитель Здоровья еще на @ruby_property1% от запаса Здоровья, но увеличивает сопротивление урону еще на @ruby_property2%"
         "item_rpc_raven_idol_emerald1"                                      "Исцеляющие эффекты действуют на героя на @emerald_property1% слабее. Увеличивает Базовый Урон Способностей на @emerald_property2% и Силу Атаки на @emerald_property3"
         "item_rpc_raven_idol_sapphire1"                                     "Уменьшает Дух на @sapphire_property1 и увеличивает Силу на @sapphire_property2"
-        "item_rpc_raven_idol_amethyst1"                                     "Увеличивает Урон Предметов и урон <font color=\"#7F4F84\">Тени</font> на @amethyst_property1%"
+        "item_rpc_raven_idol_amethyst1"                                     "Увеличивает Урон Предметов и урон <font color=ELEMENT_SHADOW>Тени</font> на @amethyst_property1%"
 
         "DOTA_Tooltip_ability_item_rpc_ring_of_nobility"                                "Ring of Nobility"
         "item_rpc_ring_of_nobility_ruby1"                               "Когда это кольцо улучшается, этот Рубин улучшится до @ruby_property1го уровня, что повысит все руны 1 строки на @ruby_property2."
@@ -494,10 +494,10 @@
         "item_rpc_sapphire_lotus_amethyst1"                                 "Текущая Мана увеличивает Пробитие Магической Защиты на @amethyst_property1"
 		
         "DOTA_Tooltip_ability_item_rpc_serengaard_sun_crystal"                          "Serengaard Sun Crystal"
-        "item_rpc_serengaard_sun_crystal_ruby1"                         "Увеличивает урон <font color='<% RPC_ELEMENT_FIRE_COLOR %>'>Огня</font>, <font color='<% RPC_ELEMENT_EARTH_COLOR %>'>Земли</font>, <font color='<% RPC_ELEMENT_LIGHTNING_COLOR %>'>Молнии</font> и <font color='<% RPC_ELEMENT_POISON_COLOR %>'>Яда</font> на @ruby_property1%"
-        "item_rpc_serengaard_sun_crystal_emerald1"                          "Увеличивает урон <font color='<% RPC_ELEMENT_ARCANE_COLOR %>'>Тайны</font>, <font color='<% RPC_ELEMENT_SHADOW_COLOR %>'>Тени</font>, <font color='<% RPC_ELEMENT_WIND_COLOR %>'>Ветра</font> и <font color='<% RPC_ELEMENT_GHOST_COLOR %>'>Призрака</font> на @emerald_property1%"  
-        "item_rpc_serengaard_sun_crystal_sapphire1"                         "Увеличивает урон <font color='<% RPC_ELEMENT_TIME_COLOR %>'>Времени</font>, <font color='<% RPC_ELEMENT_HOLY_COLOR %>'>Света</font>, <font color='<% RPC_ELEMENT_COSMOS_COLOR %>'>Космоса</font> и <font color='<% RPC_ELEMENT_ICE_COLOR %>'>Льда</font> на @sapphire_property1%"
-        "item_rpc_serengaard_sun_crystal_amethyst1"                         "Увеличивает урон <font color='<% RPC_ELEMENT_WATER_COLOR %>'>Воды</font>, <font color='<% RPC_ELEMENT_DEMON_COLOR %>'>Демона</font>, <font color='<% RPC_ELEMENT_NATURE_COLOR %>'>Природы</font>, <font color='<% RPC_ELEMENT_UNDEAD_COLOR %>'>Нежити</font> и <font color='<% RPC_ELEMENT_DRAGON_COLOR %>'>Дракона</font> на @amethyst_property1%"
+        "item_rpc_serengaard_sun_crystal_ruby1"                         "Увеличивает урон <font color=ELEMENT_FIRE>Огня</font>, <font color=ELEMENT_EARTH>Земли</font>, <font color=ELEMENT_LIGHTNING>Молнии</font> и <font color=ELEMENT_POISON>Яда</font> на @ruby_property1%"
+        "item_rpc_serengaard_sun_crystal_emerald1"                          "Увеличивает урон <font color=ELEMENT_ARCANE>Тайны</font>, <font color=ELEMENT_SHADOW>Тени</font>, <font color=ELEMENT_WIND>Ветра</font> и <font color=ELEMENT_GHOST>Призрака</font> на @emerald_property1%"  
+        "item_rpc_serengaard_sun_crystal_sapphire1"                         "Увеличивает урон <font color=ELEMENT_TIME>Времени</font>, <font color=ELEMENT_HOLY>Света</font>, <font color=ELEMENT_COSMOS>Космоса</font> и <font color=ELEMENT_ICE>Льда</font> на @sapphire_property1%"
+        "item_rpc_serengaard_sun_crystal_amethyst1"                         "Увеличивает урон <font color=ELEMENT_WATER>Воды</font>, <font color=ELEMENT_DEMON>Демона</font>, <font color=ELEMENT_NATURE>Природы</font>, <font color=ELEMENT_UNDEAD>Нежити</font> и <font color=ELEMENT_DRAGON>Дракона</font> на @amethyst_property1%"
 
         "DOTA_Tooltip_ability_item_rpc_signus_charm"                                    "Signus Charm"
         "item_property_signus"                      "Authority"
@@ -531,7 +531,7 @@
         "item_rpc_stargazers_sphere_ruby1"            "Приказ атаки по уже существующей окружности закроет её и уронит метеорит, наносящий @ruby_property1% от Силы Атаки героя и оглушающий противников на @ruby_property2 сек."
         "item_rpc_stargazers_sphere_emerald1"            "Снижает перезарядку окружности на @emerald_property1 и увеличивает дистанцию, на которой можно создавать окружность, на @emerald_property2"
         "item_rpc_stargazers_sphere_sapphire1"            "Снижает интервал падающих звезд на @sapphire_property1 сек и увеличивает урон звезд на @sapphire_property2"
-        "item_rpc_stargazers_sphere_amethyst1"            "Увеличивает Урон Предметов и урон <font color=\"#C25DFC\">Космоса</font> на @amethyst_property1%"
+        "item_rpc_stargazers_sphere_amethyst1"            "Увеличивает Урон Предметов и урон <font color=ELEMENT_COSMOS>Космоса</font> на @amethyst_property1%"
 
         "DOTA_Tooltip_modifier_in_stargazer_area"                   "Stargazer's Sphere"
         "DOTA_Tooltip_modifier_in_stargazer_area_Description"       "При нанесении урона по этому юниту он дополнительно получит урон от падающей звезды"
@@ -551,7 +551,7 @@
         "item_rpc_tempest_falcon_ring_ruby1"                                "Увеличивает Скорость Передвижения на @ruby_property1 и Лимит Скорости на @ruby_property2"
         "item_rpc_tempest_falcon_ring_emerald1"                             "Увеличивает Скорость Атаки на @emerald_property1 и Ловкость на @emerald_property2"
         "item_rpc_tempest_falcon_ring_sapphire1"                                "Обычные атаки увеличивают Броню и Магическую Защиту героя на @sapphire_property1 и убирают эффект увеличения Силы Атаки от этого самоцвета, а получение урона увеличивает Силу Атаки на @sapphire_property2% и убирает эффект увеличения Брони и Магической Защиты самоцвета."
-        "item_rpc_tempest_falcon_ring_amethyst1"                                "Увеличивает Урон Предметов и урон <font color=\"#7AE2A7\">Ветра</font> на @amethyst_property1%"
+        "item_rpc_tempest_falcon_ring_amethyst1"                                "Увеличивает Урон Предметов и урон <font color=ELEMENT_WIND>Ветра</font> на @amethyst_property1%"
 		
 		
         "DOTA_Tooltip_ability_item_rpc_tome_of_chaos"                                   "Tome of Chaos"
@@ -588,7 +588,7 @@
         "item_rpc_torch_of_gengar_ruby1"                                    "Уменьшает время отключения эффекта на @ruby_property1 сек"
         "item_rpc_torch_of_gengar_emerald1"                                 "При отключении эффекта герой повышает Базовый Урон Способностей на @emerald_property1% и Магическую Защиту на @emerald_property2"
         "item_rpc_torch_of_gengar_sapphire1"                                    "Уменьшает пенальти к Силе Атаки во время эффекта на @sapphire_property1%"
-        "item_rpc_torch_of_gengar_amethyst1"                                    "Увеличивает Урон Предметов и урон <font color=\"#9ACCD1\">Призрака</font> на @amethyst_property1%"
+        "item_rpc_torch_of_gengar_amethyst1"                                    "Увеличивает Урон Предметов и урон <font color=ELEMENT_GHOST>Призрака</font> на @amethyst_property1%"
 	
         "DOTA_Tooltip_ability_item_rpc_twig_of_the_enlightened"                         "Twig of the Enlightened"
 
@@ -639,7 +639,7 @@
         "item_rpc_world_trees_flower_cache_ruby1"                       "Эффект также увеличивает Пробития героя на @ruby_property1"
         "item_rpc_world_trees_flower_cache_emerald1"                        "Снижает перезарядку эффекта на @emerald_property1 сек"
         "item_rpc_world_trees_flower_cache_sapphire1"                       "Увеличивает длительность действия эффекта на @sapphire_property1 сек"
-        "item_rpc_world_trees_flower_cache_amethyst1"                       "Увеличивает Урон Предметов и урон <font color=\"#69BC71\">Nature</font> на @amethyst_property1%"
+        "item_rpc_world_trees_flower_cache_amethyst1"                       "Увеличивает Урон Предметов и урон <font color=ELEMENT_NATURE>Nature</font> на @amethyst_property1%"
         	
 		"DOTA_Tooltip_ability_item_rpc_sparkling_sea_crystal"					"Sparkling Sea Crystal"	
 		"item_rpc_sparkling_sea_crystal_ruby1"					"No Effect"

@@ -134,7 +134,7 @@
 
 		"item_rpc_dark_emissary_glove_ruby1"						"Увеличивает урон облака на @ruby_property1, а Пробитие Магической Защиты героя на @ruby_property2"
 		"item_rpc_dark_emissary_glove_emerald1"						"Создаётся дополнительное облако на @emerald_property1 сек, и все противники в нем получают урон в @emerald_property2% от изначального с каждые <% ITEM_RPC_DARK_EMISSARY_GLOVE_EMERALD_DOT_INTERVAL %> сек"
-		"item_rpc_dark_emissary_glove_sapphire1"						"Увеличивает урон <font color=\"#9ACCD1\">Призрака</font> и Урон Предметов на @sapphire_property1%"
+		"item_rpc_dark_emissary_glove_sapphire1"						"Увеличивает урон <font color=ELEMENT_GHOST>Призрака</font> и Урон Предметов на @sapphire_property1%"
 		"item_rpc_dark_emissary_glove_amethyst1"						"Прочтение [Q] делает героя невидимым на @amethyst_property1 сек. Атака или прочтение заклинания разрушает невидимость. Пробитие Магической Защиты повышено на @amethyst_property2, если герой невидим (от любого эффекта)."
 
     	"DOTA_Tooltip_ability_item_rpc_demonfire_gauntlet"								"Demonfire Gauntlet"
@@ -152,7 +152,7 @@
 		"DOTA_Tooltip_ability_item_rpc_depth_demon_claw"			"Depth Demon Claw"	
 
 		"property_depth_demon_claw"												"Metamorphose"
-		"property_depth_demon_claw_Description"									"Вторичный элемент любого элементального урона конвертируется в урон <font color=\"#5B648C\">Демона</font>."
+		"property_depth_demon_claw_Description"									"Вторичный элемент любого элементального урона конвертируется в урон <font color=ELEMENT_DEMON>Демона</font>."
 
 		"item_rpc_depth_demon_claw_ruby1"			"Увеличивает Силу Атаки на @ruby_property1%, но атаки забирают @ruby_property2% от максимального Здоровья. Потеря здоровья от предмета не летальна и не разбивает щиты"
 		"item_rpc_depth_demon_claw_emerald1"			"Уменьшает регенерацию Здоровья на @emerald_property1 и увеличивает регенерацию Маны на @emerald_property2"
@@ -224,9 +224,9 @@
 
     	"DOTA_Tooltip_ability_item_rpc_gauntlet_of_divine_purity"						"Gauntlet of Divine Purity"
 		"item_property_divine_purity"				"Divine Purity"
-		"property_divine_purity_description"		"Обычные атаки героя наносят на <% ITEM_RPC_GAUNTLET_OF_DIVINE_PURITY_DMG_REDUCTION %>% меньше урона. Основной элемент обычных атак конвертируется в <font color=\"#F6FFB5\">Свет</font> и они наносят Чистый урон."
+		"property_divine_purity_description"		"Обычные атаки героя наносят на <% ITEM_RPC_GAUNTLET_OF_DIVINE_PURITY_DMG_REDUCTION %>% меньше урона. Основной элемент обычных атак конвертируется в <font color=ELEMENT_HOLY>Свет</font> и они наносят Чистый урон."
     	"item_rpc_gauntlet_of_divine_purity_ruby1"						"Увеличивает Броню и Магическую Защиту на @ruby_property1"
-    	"item_rpc_gauntlet_of_divine_purity_emerald1"						"Увеличивает урон <font color=\"#F6FFB5\">Света</font> на @emerald_property1%"
+    	"item_rpc_gauntlet_of_divine_purity_emerald1"						"Увеличивает урон <font color=ELEMENT_HOLY>Света</font> на @emerald_property1%"
     	"item_rpc_gauntlet_of_divine_purity_sapphire1"						"Увеличивает Базовый Урон Атаки на @sapphire_property1"
     	"item_rpc_gauntlet_of_divine_purity_amethyst1"						"Атаки исцеляют героя на @amethyst_property1% от максимального запаса здоровья"
 
@@ -235,10 +235,10 @@
 		"item_property_forgotten_ghost"					"Afterburn"
 		 "property_forgotten_ghost_description"				"Все дебаффы накладываемые на противников героем будут длится на  <% ITEM_RPC_GLOVE_OF_THE_FORGOTTEN_GHOST_DURATION_INCREASE_PCT %>% дольше."
 
-    	"item_rpc_glove_of_the_forgotten_ghost_ruby1"					"Увеличивает урон <font color=\"#9ACCD1\">Призрака</font> и Базовый Урон Способностей на @ruby_property1%"
+    	"item_rpc_glove_of_the_forgotten_ghost_ruby1"					"Увеличивает урон <font color=ELEMENT_GHOST>Призрака</font> и Базовый Урон Способностей на @ruby_property1%"
     	"item_rpc_glove_of_the_forgotten_ghost_emerald1"					"Увеличивает базовую длительность исходящих дебаффов на @emerald_property1 сек"
     	"item_rpc_glove_of_the_forgotten_ghost_sapphire1"					"Любой исходящий от героя дебафф будет дополнительно снижать Магическую Защиту противников на @sapphire_property1 на <% ITEM_RPC_GLOVE_OF_THE_FORGOTTEN_GHOST_SAPPHIRE_DURATION_PCT %>% от длительности дебаффа"
-    	"item_rpc_glove_of_the_forgotten_ghost_amethyst1"					"Увеличивает урон <font color=\"#9ACCD1\">Призрака</font> и Урон Предметов на @amethyst_property1%"
+    	"item_rpc_glove_of_the_forgotten_ghost_amethyst1"					"Увеличивает урон <font color=ELEMENT_GHOST>Призрака</font> и Урон Предметов на @amethyst_property1%"
 
       	"DOTA_Tooltip_ability_item_rpc_gloves_of_sweeping_wind"							"Gloves of Sweeping Winds"
 
@@ -248,7 +248,7 @@
 		"DOTA_Tooltip_modifier_sweeping_wind_stackable_Description"	"Каждый заряд увеличивает Атаку и наносит урон ближайшим противникам."
 
     	"item_rpc_gloves_of_sweeping_wind_ruby1"							"@ruby_property1% шанс не потратить заряд при атаке"
-    	"item_rpc_gloves_of_sweeping_wind_emerald1"							"Каждый заряд увеличивает урон <font color=\"#7AE2A7\">Ветра</font> на @emerald_property1%"
+    	"item_rpc_gloves_of_sweeping_wind_emerald1"							"Каждый заряд увеличивает урон <font color=ELEMENT_WIND>Ветра</font> на @emerald_property1%"
     	"item_rpc_gloves_of_sweeping_wind_sapphire1"							"Прочтение [W] имеет @sapphire_property1% добавить 1 заряд предмета"
     	"item_rpc_gloves_of_sweeping_wind_amethyst1"							"Увеличивает урон от эффекта на @amethyst_property1. Каждый заряд дополнительно увеличивает Базовый Урон Атаки на @amethyst_property2"
 
@@ -343,7 +343,7 @@
 		"item_property_ironbound_gloves"					"Ironfist"
 		"property_ironbound_gloves_description"				"Базовый Урон Атаки увеличен на <% ITEM_RPC_IRONBOUND_GLOVES_ATTACK_PER_ARMOR %>x от Брони героя. Снижает Скорость Атаки на <% ITEM_RPC_IRONBOUND_GLOVES_ATTACKSPEED_LOSS %>."
 
-    	"item_rpc_ironbound_gloves_ruby1"								"Увеличивает весь <font color=\"#DDDDDD\">Нормальный</font> урон на @ruby_property1%"
+    	"item_rpc_ironbound_gloves_ruby1"								"Увеличивает весь <font color=ELEMENT_NORMAL>Нормальный</font> урон на @ruby_property1%"
     	"item_rpc_ironbound_gloves_emerald1"								"@emerald_property1% шанс полностью заблокировать входящий Физический урон"
     	"item_rpc_ironbound_gloves_sapphire1"								"Ловкость, Интеллект и Дух увеличивают Броню героя на @sapphire_property1"
     	"item_rpc_ironbound_gloves_amethyst1"								"Сила увеличивает Пробитие Брони на @amethyst_property1"
@@ -432,7 +432,7 @@
 		"item_property_phoenix_gloves"				"Perpetual Rebirth" 
 		"property_phoenix_gloves_description"		"Герой получает <% ITEM_RPC_PHOENIX_GLOVES_HP_REGEN_PER_MISSING_HP %> регенерации Здоровья за каждое отсутствующее очко Здоровья."
 
-    	"item_rpc_phoenix_gloves_ruby1"									"Увеличивает Скорость Атаки на @ruby_property1 и обычные атаки получают элемент <font color=\"#EF4126\">Огня</font>"
+    	"item_rpc_phoenix_gloves_ruby1"									"Увеличивает Скорость Атаки на @ruby_property1 и обычные атаки получают элемент <font color=ELEMENT_FIRE>Огня</font>"
     	"item_rpc_phoenix_gloves_emerald1"									"Повышает Ловкость на @emerald_property1, а каждое очко Ловкости увеличивает Здоровье на @emerald_property2"
     	"item_rpc_phoenix_gloves_sapphire1"									"Базовый Урон Атаки увеличивается на @sapphire_property1 за каждое текущее очко Здоровья"
     	"item_rpc_phoenix_gloves_amethyst1"									"Повышает Дух на @amethyst_property1, а каждое очко Духа увеличивает Здоровье на @amethyst_property2"
@@ -480,7 +480,7 @@
 		"property_shadow_armlet_description"	"При получении урона с шансом <% ITEM_RPC_SHADOW_ARMLET_INVIS_CHANCE %>% Герой становится невидимым на <% ITEM_RPC_SHADOW_ARMLET_INVIS_DURATION %> сек. Обычная атака или прочтение заклинания прекращают невидимость."
 
     	"item_rpc_shadow_armlet_ruby1"									"@ruby_property1% при получении урона мгновенно исцелиться на такое же значение"
-    	"item_rpc_shadow_armlet_emerald1"									"Увеличивает урон <font color=\"#7F4F84\">Тени</font> и Урон Предметов на @emerald_property1%"
+    	"item_rpc_shadow_armlet_emerald1"									"Увеличивает урон <font color=ELEMENT_SHADOW>Тени</font> и Урон Предметов на @emerald_property1%"
     	"item_rpc_shadow_armlet_sapphire1"									"Вдобавок к невидимости увеличивает регенерацию Здоровья на @sapphire_property1% от максимального запаса Здоровья и увеличивает длительность невидимости на @sapphire_property2 сек"
     	"item_rpc_shadow_armlet_amethyst1"									"Повышает Пробития Брони и Магической Защиты на @amethyst_property1 во время невидимости от эффекта"
 

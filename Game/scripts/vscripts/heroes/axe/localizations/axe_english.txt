@@ -1,5 +1,5 @@
 	"DOTA_Tooltip_ability_red_general_ability_base_q_skull_basher"							"Skull Basher"
-	"DOTA_Tooltip_ability_red_general_ability_base_q_skull_basher_Description"			"Element: <font color=\"#DDDDDD\">Normal</font><br>Leap to the targeted point, and gain a buff offering massive stunning blows and increased attack speed for the duration. Skull Basher and Berserker Rage durations are refreshed and paused while leaping."
+	"DOTA_Tooltip_ability_red_general_ability_base_q_skull_basher_Description"			"Element: <font color=ELEMENT_NORMAL>Normal</font><br>Leap to the targeted point, and gain a buff offering massive stunning blows and increased attack speed for the duration. Skull Basher and Berserker Rage durations are refreshed and paused while leaping."
 	"DOTA_Tooltip_ability_red_general_ability_base_q_skull_basher_Lore"					""
 	"DOTA_Tooltip_ability_red_general_ability_base_q_skull_basher_attack_speed"			"ATTACK SPEED BONUS:"
 	"DOTA_Tooltip_ability_red_general_ability_base_q_skull_basher_bolt_damage"			"SPLASH DAMAGE:"
@@ -41,7 +41,7 @@
 		
 		
 	"DOTA_Tooltip_ability_red_general_ability_base_w_backshock"				"Spur Shock"
-        "DOTA_Tooltip_ability_red_general_ability_base_w_backshock_Description"			"Element: <font color=\"#DDDDDD\">Normal</font><br>Emits 3 shockwaves behind The Red General."
+        "DOTA_Tooltip_ability_red_general_ability_base_w_backshock_Description"			"Element: <font color=ELEMENT_NORMAL>Normal</font><br>Emits 3 shockwaves behind The Red General."
         "DOTA_Tooltip_ability_red_general_ability_base_w_backshock_Lore"			""
         "DOTA_Tooltip_ability_red_general_ability_base_w_backshock_main_damage"			"DAMAGE PER WAVE:"
         "DOTA_Tooltip_ability_red_general_ability_base_w_backshock_speed"			"WAVE SPEED:"
@@ -117,7 +117,7 @@
         "DOTA_Tooltip_modifier_axe_rune_e_4_furnace_Description"        "Casting Spur Shock unleashes charges."
  
         "DOTA_Tooltip_ability_red_general_ability_base_r_sunder"                                   "Sunder"
-        "DOTA_Tooltip_ability_red_general_ability_base_r_sunder_Description"                       "Element: <font color=\"#DDDDDD\">Normal</font><br>The Red General winds up his weapon for 2 seconds and then smashes the ground in front of him. Damage dealt is based on a multiple of The Red General's Current Health."
+        "DOTA_Tooltip_ability_red_general_ability_base_r_sunder_Description"                       "Element: <font color=ELEMENT_NORMAL>Normal</font><br>The Red General winds up his weapon for 2 seconds and then smashes the ground in front of him. Damage dealt is based on a multiple of The Red General's Current Health."
         "DOTA_Tooltip_ability_red_general_ability_base_r_sunder_Lore"                              ""
         "DOTA_Tooltip_ability_red_general_ability_base_r_sunder_main_damage"                       "DAMAGE AS % OF CURRENT HP:"
 		
@@ -163,7 +163,7 @@
         "property_axe_arcana1_description"                              "Replaces @Ability4 and all of its runes with Terraforming."
  
         "DOTA_Tooltip_ability_red_general_ability_arcana1_r_tectonic_sunder"                         "Terraforming"
-        "DOTA_Tooltip_ability_red_general_ability_arcana1_r_tectonic_sunder_Description"             "Element: <font color=\"#DDDDDD\">Normal</font><br>The Red General threatens to shatter the surface of the planet. A rupture begins to form, and after 2 seconds it will explode, stunning and damaging all enemy units caught inside the faultline."
+        "DOTA_Tooltip_ability_red_general_ability_arcana1_r_tectonic_sunder_Description"             "Element: <font color=ELEMENT_NORMAL>Normal</font><br>The Red General threatens to shatter the surface of the planet. A rupture begins to form, and after 2 seconds it will explode, stunning and damaging all enemy units caught inside the faultline."
         "DOTA_Tooltip_ability_red_general_ability_arcana1_r_tectonic_sunder_attack_power_mult_percent"   "DAMAGE AS % OF ATTACK POWER:"
         "DOTA_Tooltip_ability_red_general_ability_arcana1_r_tectonic_sunder_stun_duration"           "STUN DURATION:"
  

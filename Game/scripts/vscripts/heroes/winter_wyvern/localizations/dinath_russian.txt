@@ -1,6 +1,6 @@
 		//Abilities
 		"DOTA_Tooltip_ability_dinath_arctic_burn"								"Wyvern Fire"
-    	"DOTA_Tooltip_ability_dinath_arctic_burn_Description"					"Element: <font color=\"#3289C7\">Дракон</font> / <font color=\"#EF4126\">Огонь</font><br> В область применения выдыхается огонь, который поджигает землю. Противникам в огне наносится урон каждый 0.5 секунды. Радиус распространения огня зависит от вертикальной позиции Dinath относительно точки приземления пламени. Dinath накапливает заряды способности каждый 8 секунд и может иметь до 2 дополнительных зарядов. Каждый заряд позволяет сделать каст Wyvern Fire без перезарядки. Огонь остается на земле в течение 7 секунд. "
+    	"DOTA_Tooltip_ability_dinath_arctic_burn_Description"					"Element: <font color=ELEMENT_DRAGON>Дракон</font> / <font color=ELEMENT_FIRE>Огонь</font><br> В область применения выдыхается огонь, который поджигает землю. Противникам в огне наносится урон каждый 0.5 секунды. Радиус распространения огня зависит от вертикальной позиции Dinath относительно точки приземления пламени. Dinath накапливает заряды способности каждый 8 секунд и может иметь до 2 дополнительных зарядов. Каждый заряд позволяет сделать каст Wyvern Fire без перезарядки. Огонь остается на земле в течение 7 секунд. "
     	"DOTA_Tooltip_ability_dinath_arctic_burn_damage_base"					"БАЗОВЫЙ УРОН:"
     	"DOTA_Tooltip_ability_dinath_arctic_burn_damage_attack_power"			"% АТАКИ ДОБАВЛЕНО К УРОНУ:"
 		
@@ -34,7 +34,7 @@
     	"DOTA_Tooltip_ability_dinath_rune_q_4_suffix"							"%"
 		
 		"DOTA_Tooltip_ability_dinath_drake_ring"								"Eye of the Drake"
-    	"DOTA_Tooltip_ability_dinath_drake_ring_Description"					"Element: <font color=\"#3289C7\">Дракон</font> / <font color=\"#87D9FF\">Лёд</font><br>Кристалльное дыхание создает помеченную на земле зону через 1 секунду после каста. Противники внутри зоны атакуются Dinath автоматически если находятся в радиусе атаки. Пассивно увеличивает радиус атаки Dinath и добавляет дополнительный физический урон к её атакам."
+    	"DOTA_Tooltip_ability_dinath_drake_ring_Description"					"Element: <font color=ELEMENT_DRAGON>Дракон</font> / <font color=ELEMENT_ICE>Лёд</font><br>Кристалльное дыхание создает помеченную на земле зону через 1 секунду после каста. Противники внутри зоны атакуются Dinath автоматически если находятся в радиусе атаки. Пассивно увеличивает радиус атаки Dinath и добавляет дополнительный физический урон к её атакам."
     	"DOTA_Tooltip_ability_dinath_drake_ring_radius"							"РАДИУС:"
     	"DOTA_Tooltip_ability_dinath_drake_ring_attack_range_bonus"				"ПАССИВНЫЙ БОНУС К РАДИУСУ АТАКИ:"
     	"DOTA_Tooltip_ability_dinath_drake_ring_damage_mult"					"% ЧИСТОГО УРОНА ОТ АТАКИ:"
@@ -125,7 +125,7 @@
     	"DOTA_Tooltip_ability_dinath_rune_r_3_suffix"							"%"
 
     	"DOTA_Tooltip_ability_dinath_rune_r_4"									"[R4] Blood of Tiamat"
-    	"DOTA_Tooltip_ability_dinath_rune_r_4_Description"				"Атрибуты Dinath увеличивают урон от элемента <font color=\"#3289C7\">Дракон</font>."
+    	"DOTA_Tooltip_ability_dinath_rune_r_4_Description"				"Атрибуты Dinath увеличивают урон от элемента <font color=ELEMENT_DRAGON>Дракон</font>."
     	"DOTA_Tooltip_ability_dinath_rune_r_4_property_one"				"Усиление урона"
     	"DOTA_Tooltip_ability_dinath_rune_r_4_suffix"					"%"
 		
@@ -134,7 +134,7 @@
     	"property_dinath_arcana1_description"								"Заменяет @Ability2 и все соответствующие руны на Spire Breath."
 
     	"DOTA_Tooltip_ability_dinath_dragon_fire"						"Spire Breath"
-    	"DOTA_Tooltip_ability_dinath_dragon_fire_Description"			"Element: <font color=\"#3289C7\">Дракон</font> / <font color=\"#87D9FF\">Лёд</font><br>Пассивно добавляет чистый урон к атакам Dinath. В аткивном режиме атаки имеют повышенную дальность и могут разделяться на несколько целей. Каждая атака забирает ману, и также мана забирается за каждую секунду активного режима."
+    	"DOTA_Tooltip_ability_dinath_dragon_fire_Description"			"Element: <font color=ELEMENT_DRAGON>Дракон</font> / <font color=ELEMENT_ICE>Лёд</font><br>Пассивно добавляет чистый урон к атакам Dinath. В аткивном режиме атаки имеют повышенную дальность и могут разделяться на несколько целей. Каждая атака забирает ману, и также мана забирается за каждую секунду активного режима."
     	"DOTA_Tooltip_ability_dinath_dragon_fire_damage_mult"				"% УРОНА ОТ УРОНА АТАКИ:"
     	"DOTA_Tooltip_ability_dinath_dragon_fire_mana_cost"				"МАНЫ ЗА АТАКУ:"
     	"DOTA_Tooltip_ability_dinath_dragon_fire_extra_range"				"ДОП. ДАЛЬНОСТЬ:"
@@ -175,7 +175,7 @@
         "property_dinath_arcana2_description"                               "Заменяет @Ability4 и её руны на Wrath of the Frost Wyrm."
 
         "DOTA_Tooltip_ability_dinath_frost_wyrm"                       "Wrath of the Frost Wyrm"
-        "DOTA_Tooltip_ability_dinath_frost_wyrm_Description"           "Элемент: <font color=\"#3289C7\">Дракон</font> / <font color=\"#87D9FF\">Лёд</font><br>После 2-секундной зарядки способности, герой летит к точке прочтения и взлетает на максимально доступную высоту и выдыхает ледяные снаряды, направленные по вектору. Снаряды наносят урон и замедляют противников."
+        "DOTA_Tooltip_ability_dinath_frost_wyrm_Description"           "Элемент: <font color=ELEMENT_DRAGON>Дракон</font> / <font color=ELEMENT_ICE>Лёд</font><br>После 2-секундной зарядки способности, герой летит к точке прочтения и взлетает на максимально доступную высоту и выдыхает ледяные снаряды, направленные по вектору. Снаряды наносят урон и замедляют противников."
         "DOTA_Tooltip_ability_dinath_frost_wyrm_damage_mult"               "% УРОН ОТ СИЛЫ АТАКИ:"
         "DOTA_Tooltip_ability_dinath_frost_wyrm_cast_range"             "ДАЛЬНОСТЬ ПРИМЕНЕНИЯ:"
         "DOTA_Tooltip_ability_dinath_frost_wyrm_cooldown"               "ПЕРЕЗАРЯДКА:"
@@ -233,7 +233,7 @@
 		"item_rpc_dinath_glyph_5_1_description" 				"Нанесение атаки снижает перезарядку способностей на <% DINATH_GLYPH_5_1_CD_REDUCTION_PER_ATTACK %> секунды."
 
 		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_6_1"		"[T6-1] Glyph of Calamity"
-		"item_rpc_dinath_glyph_6_1_description" 				"Урон элементов <font color=\"#EF4126\">Огонь</font>, <font color=\"#87D9FF\">Лёд</font>, <font color=\"#5CCDF9\">Молния</font>, и <font color=\"#C25DFC\">Космос</font> увеличен на <% DINATH_GLYPH_6_1_FIRE_ICE_LIGHTING_COSMIC_AMP %>%."
+		"item_rpc_dinath_glyph_6_1_description" 				"Урон элементов <font color=ELEMENT_FIRE>Огонь</font>, <font color=ELEMENT_ICE>Лёд</font>, <font color=ELEMENT_LIGHTNING>Молния</font>, и <font color=ELEMENT_COSMOS>Космос</font> увеличен на <% DINATH_GLYPH_6_1_FIRE_ICE_LIGHTING_COSMIC_AMP %>%."
 
 		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_7_1"		"[T7-1] Glyph of the Mana Dragon"
 		"item_rpc_dinath_glyph_7_1_description" 				"Урон @Ability2 увеличен на <% DINATH_GLYPH_7_1_CURR_MANA_TO_W_DAMAGE %>x от текущей маны, и атаки восстанавливают <% DINATH_GLYPH_7_1_MANA_RESTORED_PER_ATTACK_PCT %>% от максимальной маны."
@@ -269,4 +269,4 @@
 
         "DOTA_Tooltip_ability_item_rpc_dinath_immortal_weapon_3"            "Chaos Orchid"
         "item_property_dinath_immortal_weapon3"                             "Cosmic Origin"
-        "property_dinath_immortal_weapon3_description"                      "Весь нанесенный урон элементом <font color=\"#3289C7\">Дракон</font> наносит еще одну порцию урона с элементом <font color=\"#C25DFC\">Космос</font>"
+        "property_dinath_immortal_weapon3_description"                      "Весь нанесенный урон элементом <font color=ELEMENT_DRAGON>Дракон</font> наносит еще одну порцию урона с элементом <font color=ELEMENT_COSMOS>Космос</font>"

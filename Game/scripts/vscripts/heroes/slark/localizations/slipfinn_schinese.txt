@@ -1,7 +1,7 @@
 		//Abilities
 		
 		"DOTA_Tooltip_ability_slipfinn_prone"										"质化"
-    	"DOTA_Tooltip_ability_slipfinn_prone_Description"							"元素： <font color=\"#3894FF\">水</font> / <font color=\"#DDDDDD\">普通</font><br>黑礁守卫转硬化全身，僵硬的身体可以在地面滑行，硬化的驱壳免疫将部分魔法和纯粹的伤害。如果在空中激活硬化，黑礁守卫的硬壳将重重砸向地面。激活硬化时，离地面高度越高，重击地面的范围将越大。"
+    	"DOTA_Tooltip_ability_slipfinn_prone_Description"							"元素： <font color=ELEMENT_WATER>水</font> / <font color=ELEMENT_NORMAL>普通</font><br>黑礁守卫转硬化全身，僵硬的身体可以在地面滑行，硬化的驱壳免疫将部分魔法和纯粹的伤害。如果在空中激活硬化，黑礁守卫的硬壳将重重砸向地面。激活硬化时，离地面高度越高，重击地面的范围将越大。"
     	"DOTA_Tooltip_ability_slipfinn_prone_damage"								"伤害："
     	"DOTA_Tooltip_ability_slipfinn_prone_magic_pure_resist"						"魔法与纯粹伤害减免 % ："
 
@@ -26,7 +26,7 @@
     	"DOTA_Tooltip_ability_slipfinn_rune_q_3_suffix"								"x 高度的平方"
 
     	"DOTA_Tooltip_ability_slipfinn_rune_q_4"									"[Q4] 黑礁杀手"
-    	"DOTA_Tooltip_ability_slipfinn_rune_q_4_Description"						"提高所有 <font color=\"#7F4F84\">暗</font>和 <font color=\"#3894FF\">水</font> 元素的伤害。"
+    	"DOTA_Tooltip_ability_slipfinn_rune_q_4_Description"						"提高所有 <font color=ELEMENT_SHADOW>暗</font>和 <font color=ELEMENT_WATER>水</font> 元素的伤害。"
     	"DOTA_Tooltip_ability_slipfinn_rune_q_4_property_one"						"暗、水元素伤害提高"
     	"DOTA_Tooltip_ability_slipfinn_rune_q_4_suffix"								"%"
 		
@@ -76,7 +76,7 @@
     	"DOTA_Tooltip_ability_slipfinn_shadow_warp_cast_range"						"施法范围："
 		
 		"DOTA_Tooltip_ability_slipfinn_rune_e_1"									"[E1] 暗影刀"
-    	"DOTA_Tooltip_ability_slipfinn_rune_e_1_Description"						"攻击将额外造成一次 <font color=\"#7F4F84\">暗</font> 元素伤害。伤害类型为纯粹。"
+    	"DOTA_Tooltip_ability_slipfinn_rune_e_1_Description"						"攻击将额外造成一次 <font color=ELEMENT_SHADOW>暗</font> 元素伤害。伤害类型为纯粹。"
     	"DOTA_Tooltip_ability_slipfinn_rune_e_1_property_one"						"伤害"
     	"DOTA_Tooltip_ability_slipfinn_rune_e_1_suffix"								"% 攻击所造成的伤害"
 
@@ -142,9 +142,9 @@
         "property_slipfinn_arcana1_description"                               "将 @Ability3 和他的所有符文替换为泥沼滚滚。"
 
         "DOTA_Tooltip_ability_slipfinn_bog_roller"                       "泥沼滚滚"
-        "DOTA_Tooltip_ability_slipfinn_bog_roller_Description"           "元素： <font color=\"#7F4F84\">暗</font><br>黑礁守卫卷成一个具有坚硬的外壳的球体，这个球体能够穿过危险的地形并且提供技能免疫。在球体中时，黑礁守卫将无情的向前滚动并且每0.06秒攻击周围最近的敌人。<br>泥沼滚滚同时也会被动的使你的普通攻击附加一次<font color=\"#7F4F84\">暗</font>伤害，并且使你的普通攻击能够降低敌人的护甲。切换至泥沼滚滚或切换至常态可以躲避弹道。"
+        "DOTA_Tooltip_ability_slipfinn_bog_roller_Description"           "元素： <font color=ELEMENT_SHADOW>暗</font><br>黑礁守卫卷成一个具有坚硬的外壳的球体，这个球体能够穿过危险的地形并且提供技能免疫。在球体中时，黑礁守卫将无情的向前滚动并且每0.06秒攻击周围最近的敌人。<br>泥沼滚滚同时也会被动的使你的普通攻击附加一次<font color=ELEMENT_SHADOW>暗</font>伤害，并且使你的普通攻击能够降低敌人的护甲。切换至泥沼滚滚或切换至常态可以躲避弹道。"
         "DOTA_Tooltip_ability_slipfinn_bog_roller_armor_break_percent"      " 护甲降低% :"
-        "DOTA_Tooltip_ability_slipfinn_bog_roller_shadow_damage_on_attack"  " %攻击力造成的 <font color=\"#7F4F84\">暗</font> 伤害："
+        "DOTA_Tooltip_ability_slipfinn_bog_roller_shadow_damage_on_attack"  " %攻击力造成的 <font color=ELEMENT_SHADOW>暗</font> 伤害："
 
         "DOTA_Tooltip_modifier_slipfinn_bog_roller"                     "泥沼滚滚"
         "DOTA_Tooltip_modifier_slipfinn_bog_roller_Description"         "向前冲鸭"
@@ -164,10 +164,10 @@
         "DOTA_Tooltip_modifier_bog_roller_razor_Description"                "获得加速效果并且对周围敌人造成伤害" 
 
         "DOTA_Tooltip_ability_slipfinn_rune_e_2_arcana1"                          "[E2] 海光剃刀"
-        "DOTA_Tooltip_ability_slipfinn_rune_e_2_arcana1_Description"              "在泥沼滚滚中时会获得额外攻击力加成。你的所有攻击将会额外造成一次魔法 <font color=\"#3894FF\">水</font> 伤害。"
+        "DOTA_Tooltip_ability_slipfinn_rune_e_2_arcana1_Description"              "在泥沼滚滚中时会获得额外攻击力加成。你的所有攻击将会额外造成一次魔法 <font color=ELEMENT_WATER>水</font> 伤害。"
         "DOTA_Tooltip_ability_slipfinn_rune_e_2_arcana1_property_one"             "攻击力加成"
         "DOTA_Tooltip_ability_slipfinn_rune_e_2_arcana1_suffix"                   "%"
-        "DOTA_Tooltip_ability_slipfinn_rune_e_2_arcana1_property_two"             "魔法 <font color=\"#3894FF\">水</font> 伤害"
+        "DOTA_Tooltip_ability_slipfinn_rune_e_2_arcana1_property_two"             "魔法 <font color=ELEMENT_WATER>水</font> 伤害"
         "DOTA_Tooltip_ability_slipfinn_rune_e_2_arcana1_suffix_two"               "% 攻击力造成的伤害"
 
         "DOTA_Tooltip_ability_slipfinn_rune_e_3_arcana1"                          "[E3] 金刚之壳"
@@ -234,4 +234,4 @@
 
         "DOTA_Tooltip_ability_item_rpc_slipfinn_immortal_weapon_3"            "黑礁手里剑"
         "item_property_slipfinn_immortal_weapon3"                             "暗黑之心"
-        "property_slipfinn_immortal_weapon3_description"                      "所有 @Ability4 复制的技能都将拥有<font color=\"#7F4F84\">暗</font> 元素。"
+        "property_slipfinn_immortal_weapon3_description"                      "所有 @Ability4 复制的技能都将拥有<font color=ELEMENT_SHADOW>暗</font> 元素。"

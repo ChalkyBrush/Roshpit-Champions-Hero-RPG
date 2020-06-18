@@ -1,6 +1,6 @@
 		//Abilities
 		"DOTA_Tooltip_ability_dinath_arctic_burn"								"霜龙怒火"
-    	"DOTA_Tooltip_ability_dinath_arctic_burn_Description"					"元素: <font color=\"#3289C7\">龙</font> / <font color=\"#EF4126\">火</font><br>帝纳斯向目标区域喷吐霜龙之火，受影响的区域范围将会持续灼烧7秒。 在该区域的敌人每0.5秒承受一次火焰的伤害。当帝纳斯距离地面越高时，喷吐的火焰区域越大。"
+    	"DOTA_Tooltip_ability_dinath_arctic_burn_Description"					"元素: <font color=ELEMENT_DRAGON>龙</font> / <font color=ELEMENT_FIRE>火</font><br>帝纳斯向目标区域喷吐霜龙之火，受影响的区域范围将会持续灼烧7秒。 在该区域的敌人每0.5秒承受一次火焰的伤害。当帝纳斯距离地面越高时，喷吐的火焰区域越大。"
     	"DOTA_Tooltip_ability_dinath_arctic_burn_damage_base"					"基础伤害:"
     	"DOTA_Tooltip_ability_dinath_arctic_burn_damage_attack_power"			"%攻击力加入到火焰伤害中:"
 		
@@ -34,7 +34,7 @@
     	"DOTA_Tooltip_ability_dinath_rune_q_4_suffix"							"%"
 		
 		"DOTA_Tooltip_ability_dinath_drake_ring"								"德雷克之眼"
-    	"DOTA_Tooltip_ability_dinath_drake_ring_Description"					"元素: <font color=\"#3289C7\">龙</font> / <font color=\"#87D9FF\">冰</font><br>帝纳斯控制一缕晶莹的空气在目标地点产生一个环形区域，需要1秒的时间完成该过程。 站在该区域的所有敌人，只要他们在攻击范围内都会全部自动的被帝纳斯攻击。被动提升帝纳斯的攻击范围，被动为帝纳斯的普通攻击加入额外的纯粹伤害。"
+    	"DOTA_Tooltip_ability_dinath_drake_ring_Description"					"元素: <font color=ELEMENT_DRAGON>龙</font> / <font color=ELEMENT_ICE>冰</font><br>帝纳斯控制一缕晶莹的空气在目标地点产生一个环形区域，需要1秒的时间完成该过程。 站在该区域的所有敌人，只要他们在攻击范围内都会全部自动的被帝纳斯攻击。被动提升帝纳斯的攻击范围，被动为帝纳斯的普通攻击加入额外的纯粹伤害。"
     	"DOTA_Tooltip_ability_dinath_drake_ring_radius"							"半径："
     	"DOTA_Tooltip_ability_dinath_drake_ring_attack_range_bonus"				"被动提升攻击力范围:"
     	"DOTA_Tooltip_ability_dinath_drake_ring_damage_mult"					"x%攻击力加入到纯粹伤害中:"
@@ -125,7 +125,7 @@
     	"DOTA_Tooltip_ability_dinath_rune_r_3_suffix"							"%"
 
     	"DOTA_Tooltip_ability_dinath_rune_r_4"									"[R4] 海德拉的血脉"
-    	"DOTA_Tooltip_ability_dinath_rune_r_4_Description"				"提高所有 <font color=\"#3289C7\">龙</font> 元素伤害。"
+    	"DOTA_Tooltip_ability_dinath_rune_r_4_Description"				"提高所有 <font color=ELEMENT_DRAGON>龙</font> 元素伤害。"
     	"DOTA_Tooltip_ability_dinath_rune_r_4_property_one"				"龙元素伤害提高"
     	"DOTA_Tooltip_ability_dinath_rune_r_4_suffix"					"%"
 		
@@ -134,7 +134,7 @@
     	"property_dinath_arcana1_description"								"用螺旋吐息替换 @Ability2 及其所有符文。"
 
     	"DOTA_Tooltip_ability_dinath_dragon_fire"						"螺旋吐息"
-    	"DOTA_Tooltip_ability_dinath_dragon_fire_Description"			"元素: <font color=\"#3289C7\">龙</font> / <font color=\"#87D9FF\">冰</font><br>被动地为帝纳斯的攻击加入纯粹伤害。技能开启后，获得额外的攻击距离加成和额外的分裂攻击目标。每次攻击汲取自身魔法值，而且技能开启后，也会每秒消耗魔法值。"
+    	"DOTA_Tooltip_ability_dinath_dragon_fire_Description"			"元素: <font color=ELEMENT_DRAGON>龙</font> / <font color=ELEMENT_ICE>冰</font><br>被动地为帝纳斯的攻击加入纯粹伤害。技能开启后，获得额外的攻击距离加成和额外的分裂攻击目标。每次攻击汲取自身魔法值，而且技能开启后，也会每秒消耗魔法值。"
     	"DOTA_Tooltip_ability_dinath_dragon_fire_damage_mult"				"x%攻击力加入到纯粹伤害中:"
     	"DOTA_Tooltip_ability_dinath_dragon_fire_mana_cost"				"魔法消耗:"
     	"DOTA_Tooltip_ability_dinath_dragon_fire_extra_range"				"额外攻击距离:"
@@ -147,7 +147,7 @@
     	"DOTA_Tooltip_ability_dinath_rune_w_1_arcana1_suffix"				"%"
 
     	"DOTA_Tooltip_ability_dinath_rune_w_2_arcana1"							"[W2] 冰霜震颤"
-    	"DOTA_Tooltip_ability_dinath_rune_w_2_arcana1_Description"				"<font color=\"#87D9FF\">冰</font> 元素伤害受移速加成."
+    	"DOTA_Tooltip_ability_dinath_rune_w_2_arcana1_Description"				"<font color=ELEMENT_ICE>冰</font> 元素伤害受移速加成."
     	"DOTA_Tooltip_ability_dinath_rune_w_2_arcana1_property_one"				"冰元素伤害提高"
     	"DOTA_Tooltip_ability_dinath_rune_w_2_arcana1_suffix"					"% 移动速度"
 
@@ -175,7 +175,7 @@
         "property_dinath_arcana2_description"                               "用冰龙之怒替换 @Ability4 及其所有符文."
 
         "DOTA_Tooltip_ability_dinath_frost_wyrm"                       "冰龙之怒"
-        "DOTA_Tooltip_ability_dinath_frost_wyrm_Description"           "元素: <font color=\"#3289C7\">龙</font> / <font color=\"#87D9FF\">冰</font><br>持续施法2秒后, 帝纳斯向施法点冲去并提升至最大高度，同时朝目标位置发射矢量冰弹，爆炸后对半径内的敌人造成毁灭性伤害并使其减速."
+        "DOTA_Tooltip_ability_dinath_frost_wyrm_Description"           "元素: <font color=ELEMENT_DRAGON>龙</font> / <font color=ELEMENT_ICE>冰</font><br>持续施法2秒后, 帝纳斯向施法点冲去并提升至最大高度，同时朝目标位置发射矢量冰弹，爆炸后对半径内的敌人造成毁灭性伤害并使其减速."
         "DOTA_Tooltip_ability_dinath_frost_wyrm_damage_mult"               "% 总攻击力的伤害:"
         "DOTA_Tooltip_ability_dinath_frost_wyrm_cast_range"             "施法范围:"
         "DOTA_Tooltip_ability_dinath_frost_wyrm_cooldown"               "冷却时间:"
@@ -234,7 +234,7 @@
 		"item_rpc_dinath_glyph_5_1_description" 				"每次造成一次普通攻击，就能降低全部技能的冷却时间 <% DINATH_GLYPH_5_1_CD_REDUCTION_PER_ATTACK %> 秒。"
 
 		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_6_1"		"[T6-1] 灾难雕文"
-		"item_rpc_dinath_glyph_6_1_description" 				"提高 <font color=\"#EF4126\">火</font>, <font color=\"#87D9FF\">冰</font>, <font color=\"#5CCDF9\">电</font>, 和 <font color=\"#C25DFC\">宇宙</font> 元素伤害 <% DINATH_GLYPH_6_1_FIRE_ICE_LIGHTING_COSMIC_AMP %>%."
+		"item_rpc_dinath_glyph_6_1_description" 				"提高 <font color=ELEMENT_FIRE>火</font>, <font color=ELEMENT_ICE>冰</font>, <font color=ELEMENT_LIGHTNING>电</font>, 和 <font color=ELEMENT_COSMOS>宇宙</font> 元素伤害 <% DINATH_GLYPH_6_1_FIRE_ICE_LIGHTING_COSMIC_AMP %>%."
 
 		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_7_1"		"[T7-1] 魔法之龙雕文"
 		"item_rpc_dinath_glyph_7_1_description" 				"@Ability2 的伤害中加入 <% DINATH_GLYPH_7_1_CURR_MANA_TO_W_DAMAGE %>x 当前魔法值, 同时每次攻击可以回复 <% DINATH_GLYPH_7_1_MANA_RESTORED_PER_ATTACK_PCT %>% 的最大魔法值"
@@ -270,4 +270,4 @@
 
         "DOTA_Tooltip_ability_item_rpc_dinath_immortal_weapon_3"            "混沌初开之花"
         "item_property_dinath_immortal_weapon3"                             "宇宙起源"
-        "property_dinath_immortal_weapon3_description"                      "所有<font color=\"#3289C7\">龙</font> 元素的伤害，将同时基于其技能的基础伤害造成一次额外的<font color=\"#C25DFC\">宇宙</font> 元素伤害（不与龙元素伤害叠乘）。"
+        "property_dinath_immortal_weapon3_description"                      "所有<font color=ELEMENT_DRAGON>龙</font> 元素的伤害，将同时基于其技能的基础伤害造成一次额外的<font color=ELEMENT_COSMOS>宇宙</font> 元素伤害（不与龙元素伤害叠乘）。"

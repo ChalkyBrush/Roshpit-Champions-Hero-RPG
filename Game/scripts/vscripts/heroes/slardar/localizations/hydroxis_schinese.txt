@@ -1,6 +1,6 @@
 		//Abilities
 		"DOTA_Tooltip_ability_hydroxis_hydro_pump"									"洪流"
-    	"DOTA_Tooltip_ability_hydroxis_hydro_pump_Description"						"元素： <font color=\"#3894FF\">水</font><br>重击地面，沿着一条线向目标方向泵出多股洪流。被洪流击中的敌人会飞到空中并且眩晕"
+    	"DOTA_Tooltip_ability_hydroxis_hydro_pump_Description"						"元素： <font color=ELEMENT_WATER>水</font><br>重击地面，沿着一条线向目标方向泵出多股洪流。被洪流击中的敌人会飞到空中并且眩晕"
     	"DOTA_Tooltip_ability_hydroxis_hydro_pump_damage"							"洪流伤害："
     	"DOTA_Tooltip_ability_hydroxis_hydro_pump_torrents"							"洪流个数:"
 
@@ -41,7 +41,7 @@
 	"DOTA_Tooltip_ability_hydroxis_rune_q_4_suffix_two"                             "X 全属性"
 		
 		"DOTA_Tooltip_ability_hydroxis_water_blade"									"惊涛骇浪"
-    	"DOTA_Tooltip_ability_hydroxis_water_blade_Description"						"元素： <font color=\"#3894FF\">水</font><br>胖头鱼的武器喷射出一股水流，冲击目标范围。范围内的敌人将被减速。"	
+    	"DOTA_Tooltip_ability_hydroxis_water_blade_Description"						"元素： <font color=ELEMENT_WATER>水</font><br>胖头鱼的武器喷射出一股水流，冲击目标范围。范围内的敌人将被减速。"	
     	"DOTA_Tooltip_ability_hydroxis_water_blade_damage"							"伤害："
     	"DOTA_Tooltip_ability_hydroxis_water_blade_slow_movespeed"					"移动速度降低："
     	"DOTA_Tooltip_ability_hydroxis_water_blade_slow_attackspeed"				"攻击速度降低："
@@ -93,14 +93,14 @@
     	"DOTA_Tooltip_modifier_hydroxis_c_c_Description"					"攻击速度提高"
 		
 		"DOTA_Tooltip_ability_hydroxis_rune_e_4"							"[E4] 闪亮的鳞片"
-    	"DOTA_Tooltip_ability_hydroxis_rune_e_4_Description"				"敏捷和智力值提高。同时提高所有 <font color=\"#3894FF\">水</font> 元素的伤害。"
+    	"DOTA_Tooltip_ability_hydroxis_rune_e_4_Description"				"敏捷和智力值提高。同时提高所有 <font color=ELEMENT_WATER>水</font> 元素的伤害。"
     	"DOTA_Tooltip_ability_hydroxis_rune_e_4_property_one"				"敏捷和智力值提高"
     	"DOTA_Tooltip_ability_hydroxis_rune_e_4_suffix"						""
     	"DOTA_Tooltip_ability_hydroxis_rune_e_4_property_two"				"水元素伤害提高"
     	"DOTA_Tooltip_ability_hydroxis_rune_e_4_suffix_two"					"%"
 		
 		"DOTA_Tooltip_ability_hydroxis_tsunami"										"海洋地震"		
-    	"DOTA_Tooltip_ability_hydroxis_tsunami_Description"							"元素： <font color=\"#3894FF\">水</font> / <font color=\"#AF843D\">土</font><br>胖头鱼击碎地面，向周围喷溅水花，造成眩晕和减速。伤害基于力量值。"	
+    	"DOTA_Tooltip_ability_hydroxis_tsunami_Description"							"元素： <font color=ELEMENT_WATER>水</font> / <font color=ELEMENT_EARTH>土</font><br>胖头鱼击碎地面，向周围喷溅水花，造成眩晕和减速。伤害基于力量值。"	
     	"DOTA_Tooltip_ability_hydroxis_tsunami_strength_damage"						"伤害为力量值的倍数："			
     	"DOTA_Tooltip_ability_hydroxis_tsunami_stun_duration"						"眩晕持续时间："
     	"DOTA_Tooltip_ability_hydroxis_tsunami_slow_duration"						"减速持续时间："
@@ -177,7 +177,7 @@
         "DOTA_Tooltip_ability_hydroxis_rune_w_3_arcana1_suffix_two"         ""
 	
   		"DOTA_Tooltip_ability_hydroxis_rune_w_4_arcana1"						"[W4] 狂风巨浪"
-    	"DOTA_Tooltip_ability_hydroxis_rune_w_4_arcana1_Description"			"受到 <font color=\"#3894FF\">水</font> 元素伤害的敌人将同时受到水之迷雾的debuff。同时，每次普通攻击和海洋之怒攻击都将增加一层buff，提高基础攻击力，持续 10秒。最多30层。"
+    	"DOTA_Tooltip_ability_hydroxis_rune_w_4_arcana1_Description"			"受到 <font color=ELEMENT_WATER>水</font> 元素伤害的敌人将同时受到水之迷雾的debuff。同时，每次普通攻击和海洋之怒攻击都将增加一层buff，提高基础攻击力，持续 10秒。最多30层。"
     	"DOTA_Tooltip_ability_hydroxis_rune_w_4_arcana1_property_one"		"水之迷雾debuff持续时间"
     	"DOTA_Tooltip_ability_hydroxis_rune_w_4_arcana1_suffix"				" 秒"
     	"DOTA_Tooltip_ability_hydroxis_rune_w_4_arcana1_property_two"		"每层提高攻击力"
@@ -211,7 +211,7 @@
     	"DOTA_Tooltip_ability_hydroxis_rune_r_2_arcana2_suffix"				" 秒"
 
   		"DOTA_Tooltip_ability_hydroxis_rune_r_3_arcana2"						"[R3] 暗流"
-    	"DOTA_Tooltip_ability_hydroxis_rune_r_3_arcana2_Description"			"陷入洪水领域的敌人会立刻被缠绕，并且被持续拖向中心。敌人站在洪水领域中还会承受额外的 <font color=\"#3894FF\">水</font> 元素伤害。"
+    	"DOTA_Tooltip_ability_hydroxis_rune_r_3_arcana2_Description"			"陷入洪水领域的敌人会立刻被缠绕，并且被持续拖向中心。敌人站在洪水领域中还会承受额外的 <font color=ELEMENT_WATER>水</font> 元素伤害。"
     	"DOTA_Tooltip_ability_hydroxis_rune_r_3_arcana2_property_one"		"缠绕持续时间"
     	"DOTA_Tooltip_ability_hydroxis_rune_r_3_arcana2_suffix"				" 秒"
     	"DOTA_Tooltip_ability_hydroxis_rune_r_3_arcana2_property_two"		"提高水元素伤害"

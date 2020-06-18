@@ -41,15 +41,15 @@
 	"DOTA_Tooltip_ability_onibi_invoke_Description"	"Onibi synthesizes his elemental modules and grants a new ability for Jex."
 
 	"DOTA_Tooltip_ability_jex_base_cannon_nature"	"Base Cannon: Nature"
-	"DOTA_Tooltip_ability_jex_base_cannon_nature_Description"	"Element: <font color=\"#69BC71\">Nature</font><br>Target an enemy and deal damage."
+	"DOTA_Tooltip_ability_jex_base_cannon_nature_Description"	"Element: <font color=ELEMENT_NATURE>Nature</font><br>Target an enemy and deal damage."
 	"DOTA_Tooltip_ability_jex_base_cannon_nature_damage"		"DAMAGE:"
 
 	"DOTA_Tooltip_ability_jex_base_cannon_lightning"	"Base Cannon: Lightning"
-	"DOTA_Tooltip_ability_jex_base_cannon_lightning_Description"	"Element: <font color=\"#5CCDF9\">Lightning</font><br>Target an enemy and deal damage."
+	"DOTA_Tooltip_ability_jex_base_cannon_lightning_Description"	"Element: <font color=ELEMENT_LIGHTNING>Lightning</font><br>Target an enemy and deal damage."
 	"DOTA_Tooltip_ability_jex_base_cannon_lightning_damage"		"DAMAGE:"
 
 	"DOTA_Tooltip_ability_jex_base_cannon_cosmic"	"Base Cannon: Cosmic"
-	"DOTA_Tooltip_ability_jex_base_cannon_cosmic_Description"	"Element: <font color=\"#C25DFC\">Cosmic</font><br>Target an enemy and deal damage."
+	"DOTA_Tooltip_ability_jex_base_cannon_cosmic_Description"	"Element: <font color=ELEMENT_COSMOS>Cosmic</font><br>Target an enemy and deal damage."
 	"DOTA_Tooltip_ability_jex_base_cannon_cosmic_damage"		"DAMAGE:"
 
 	"DOTA_Tooltip_ability_jex_essence_harvest"	"Essence Harvest"
@@ -67,7 +67,7 @@
 	"DOTA_Tooltip_modifier_jex_magic_immunity_Description"	"Magic Immune"	
 
 	"DOTA_Tooltip_ability_jex_cosmic_cosmic_q"					"Galaxy Laser"
-	"DOTA_Tooltip_ability_jex_cosmic_cosmic_q_Description"		"Element: <font color=\"#C25DFC\">Cosmic</font><br>Jex powers up and fires a galactic laser toward the target location. Enemies closer to the starting point of the beam can take multiple instances of damage depending on the beam's total length. Enemies who are hit by the beam receive a debuff that makes them lose Magic Armor."
+	"DOTA_Tooltip_ability_jex_cosmic_cosmic_q_Description"		"Element: <font color=ELEMENT_COSMOS>Cosmic</font><br>Jex powers up and fires a galactic laser toward the target location. Enemies closer to the starting point of the beam can take multiple instances of damage depending on the beam's total length. Enemies who are hit by the beam receive a debuff that makes them lose Magic Armor."
 
 	"DOTA_Tooltip_ability_jex_cosmic_cosmic_q_attack_damage_added_per_tech"		"%<font color=\"#f4b942\">ATTACK DAMAGE ADDED TO LASER BASE DAMAGE PER TECH</font>:"
 	"DOTA_Tooltip_ability_jex_cosmic_cosmic_q_magic_armor_loss_per_tech"			"<font color=\"#f4b942\">MAGIC ARMOR LOSS DEBUFF PER TECH</font>:"
@@ -80,7 +80,7 @@
 	"DOTA_Tooltip_modifier_jex_q_cosmic_cosmic_postmitigation_Description"	"Reduced Magic Armor"
 
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q"				"Wrath of Lightning"
-	"DOTA_Tooltip_ability_jex_thunder_thunder_q_Description"	"Element: <font color=\"#5CCDF9\">Lightning</font><br>A ring of electricity flashes around Jex. All enemies inside the area are struck by a bolt of lightning. If there are fewer enemies than the ability's minimum bolts, some enemies will get hit multiple times."
+	"DOTA_Tooltip_ability_jex_thunder_thunder_q_Description"	"Element: <font color=ELEMENT_LIGHTNING>Lightning</font><br>A ring of electricity flashes around Jex. All enemies inside the area are struck by a bolt of lightning. If there are fewer enemies than the ability's minimum bolts, some enemies will get hit multiple times."
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_attack_damage_per_tech"	"%<font color=\"#f4b942\">ATTACK DAMAGE ADDED TO BASE DAMAGE PER TECH</font>:"
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_radius_per_tech"		"<font color=\"#f4b942\">RADIUS PER TECH</font>:"
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_minimum_bolts_per_tech"	"<font color=\"#f4b942\">MINIMUM BOLTS PER TECH</font>:"
@@ -102,7 +102,7 @@
 	"DOTA_Tooltip_modifier_jex_lightning_cosmic_shield_Description"				"Health can't fall below %%min_health"
 
 	"DOTA_Tooltip_ability_jex_lightning_nature_q"				"Charged Sproutling"
-	"DOTA_Tooltip_ability_jex_lightning_nature_q_Description"	"Element: <font color=\"#5CCDF9\">Lightning</font> / <font color=\"#69BC71\">Nature</font><br>An electrified sproutling warrior is summoned to fight for Jex. The minion inherits armor, magic armor, pierces and attack damage from their summoner, and their attacks have a 30% chance to trigger a chain lightning effect that deals magic damage based on attack power."
+	"DOTA_Tooltip_ability_jex_lightning_nature_q_Description"	"Element: <font color=ELEMENT_LIGHTNING>Lightning</font> / <font color=ELEMENT_NATURE>Nature</font><br>An electrified sproutling warrior is summoned to fight for Jex. The minion inherits armor, magic armor, pierces and attack damage from their summoner, and their attacks have a 30% chance to trigger a chain lightning effect that deals magic damage based on attack power."
 	"DOTA_Tooltip_ability_jex_lightning_nature_q_chain_lightning_max_targets_per_tech"	"<font color=\"#f4b942\">SPROUTLING CHAIN LIGHTNING MAX TARGETS PER TECH</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_q_roshpit_attr_per_tech"		"<font color=\"#f4b942\">SPROUTLING ARMOR/PIERCES AS A MULTIPLE OF JEX'S PER TECH</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_q_attack_mult_per_tech"		"<font color=\"#f4b942\">SPROUTLING ATTACK DAMAGE AS A MULTIPLE OF JEX'S PER TECH</font>:"
@@ -125,7 +125,7 @@
 	"DOTA_Tooltip_modifier_jex_nature_nature_shield_visible_Description"	"Increased armor and health regen"
 
 	"DOTA_Tooltip_ability_jex_cosmic_cosmic_w"					"Nebula Bomb"
-	"DOTA_Tooltip_ability_jex_cosmic_cosmic_w_Description"		"Element: <font color=\"#C25DFC\">Cosmic</font><br>Tosses a bomb into the sky that vacuums, damages and roots enemies at the impact point."
+	"DOTA_Tooltip_ability_jex_cosmic_cosmic_w_Description"		"Element: <font color=ELEMENT_COSMOS>Cosmic</font><br>Tosses a bomb into the sky that vacuums, damages and roots enemies at the impact point."
 	"DOTA_Tooltip_ability_jex_cosmic_cosmic_w_root_duration_per_tech"		"<font color=\"#f4b942\">ROOT DURATION PER TECH</font>:"
 	"DOTA_Tooltip_ability_jex_cosmic_cosmic_w_aoe_per_tech_level"			"<font color=\"#f4b942\">AOE RADIUS INCREASE PER TECH</font>:"
 	"DOTA_Tooltip_ability_jex_cosmic_cosmic_w_attack_power_added_per_tech"	"%<font color=\"#f4b942\">ATTACK POWER ADDED TO BASE DAMAGE PER TECH</font>:"
@@ -135,7 +135,7 @@
 	"DOTA_Tooltip_ability_jex_cosmic_cosmic_w_e_4_damage_increase_pct"		"%<font color=\"#7DFF12\">[E4] Nebula Bomb base damage increase</font>:"	
 
 	"DOTA_Tooltip_ability_jex_lightning_lightning_w"			"Vortex Weapon"
-	"DOTA_Tooltip_ability_jex_lightning_lightning_w_Description"	"Element: <font color=\"#5CCDF9\">Lightning</font><br>Jex activates his lightning module, increasing his attack damage by a percentage as well as his attack speed. His attacks have a chain lightning effect that jumps between enemies. Each attack landed drains mana, and if mana falls below the cost then Vortex Weapon is turned off."
+	"DOTA_Tooltip_ability_jex_lightning_lightning_w_Description"	"Element: <font color=ELEMENT_LIGHTNING>Lightning</font><br>Jex activates his lightning module, increasing his attack damage by a percentage as well as his attack speed. His attacks have a chain lightning effect that jumps between enemies. Each attack landed drains mana, and if mana falls below the cost then Vortex Weapon is turned off."
 	"DOTA_Tooltip_ability_jex_lightning_lightning_w_jumps_per_tech"	"<font color=\"#f4b942\">CHAIN LIGHTNING JUMPS PER TECH</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_lightning_w_attack_dmg_pct_per_tech"	"%<font color=\"#f4b942\">ATTACK DAMAGE BONUS WHILE VORTEX ACTIVE PER TECH</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_lightning_w_damage_mult"				"LIGHTNING DAMAGE AS % OF ATTACK POWER:"
@@ -149,7 +149,7 @@
 	"DOTA_Tooltip_modifier_jex_lightning_lightning_w_damage_buff_Description"		"Caster's bonus attack damage increased."
 
 	"DOTA_Tooltip_ability_jex_lightning_nature_w"				"Thunderleaf Petals"
-	"DOTA_Tooltip_ability_jex_lightning_nature_w_Description"	"Element: <font color=\"#5CCDF9\">Lightning</font> / <font color=\"#69BC71\">Nature</font><br>Unleashes a quick spray of electrified Thunderleaf Petals directly in front of jex. Enemies hit by the leaves are paralyzed for a short duration. Enemies who have been paralyzed 5 times in a row become immune for 4 seconds."
+	"DOTA_Tooltip_ability_jex_lightning_nature_w_Description"	"Element: <font color=ELEMENT_LIGHTNING>Lightning</font> / <font color=ELEMENT_NATURE>Nature</font><br>Unleashes a quick spray of electrified Thunderleaf Petals directly in front of jex. Enemies hit by the leaves are paralyzed for a short duration. Enemies who have been paralyzed 5 times in a row become immune for 4 seconds."
 	"DOTA_Tooltip_ability_jex_lightning_nature_w_range_per_tech"	"<font color=\"#f4b942\">BONUS LEAF RANGE PER TECH</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_w_paralyze_duration_per_tech"	"<font color=\"#f4b942\">PARALYZE DURATION PER TECH</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_w_damage_attack_power_per_tech"	"%<font color=\"#f4b942\">BONUS LEAF DAMAGE AS % OF ATTACK POWER PER TECH</font>:"
@@ -161,7 +161,7 @@
 	"DOTA_Tooltip_ability_jex_lightning_nature_w_w_4_damage_increase_pct"		"%<font color=\"#7DFF12\">[W4] Thunderleaf damage increase</font>:"
 
 	"DOTA_Tooltip_ability_jex_lightning_cosmic_w"				"Ion Cannon"
-	"DOTA_Tooltip_ability_jex_lightning_cosmic_w_Description"	"Element: <font color=\"#C25DFC\">Cosmic</font> / <font color=\"#5CCDF9\">Lightning</font><br>Jex tosses an electron deficient mass of energy toward the target enemy. When an enemy is hit, the Ion Cannon splits and hits multiple nearby enemies. Greater than 100% split chance means it splits multiple times."
+	"DOTA_Tooltip_ability_jex_lightning_cosmic_w_Description"	"Element: <font color=ELEMENT_COSMOS>Cosmic</font> / <font color=ELEMENT_LIGHTNING>Lightning</font><br>Jex tosses an electron deficient mass of energy toward the target enemy. When an enemy is hit, the Ion Cannon splits and hits multiple nearby enemies. Greater than 100% split chance means it splits multiple times."
 	"DOTA_Tooltip_ability_jex_lightning_cosmic_w_damage_attack_power_per_tech"	"%<font color=\"#f4b942\">BONUS CANNON DAMAGE AS A % OF ATTACK POWER PER TECH</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_cosmic_w_split_chance_per_tech"			"%<font color=\"#f4b942\">SPLIT CHANCE PER TECH</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_cosmic_w_cast_range"					"CAST RANGE:"
@@ -171,7 +171,7 @@
 	"DOTA_Tooltip_ability_jex_lightning_cosmic_w_e_4_split_search_radius"		"<font color=\"#7DFF12\">[E4] Split target search radius increase</font>:"
 
 	"DOTA_Tooltip_ability_jex_nature_nature_w"					"Root Weaver"
-	"DOTA_Tooltip_ability_jex_nature_nature_w_Description"		"Element: <font color=\"#69BC71\">Nature</font><br>Creates a small area of enhanced fertility that causes roots to grow on enemies who enter on a 0.5 second delay. Rooted enemies have reduced attack range and take damage every 0.5 seconds."
+	"DOTA_Tooltip_ability_jex_nature_nature_w_Description"		"Element: <font color=ELEMENT_NATURE>Nature</font><br>Creates a small area of enhanced fertility that causes roots to grow on enemies who enter on a 0.5 second delay. Rooted enemies have reduced attack range and take damage every 0.5 seconds."
 	"DOTA_Tooltip_ability_jex_nature_nature_w_root_per_tech_level"	"<font color=\"#f4b942\">ROOT DURATION PER TECH LEVEL</font>:"
 	"DOTA_Tooltip_ability_jex_nature_nature_w_attack_power_added_to_tick_per_tech"	"%<font color=\"#f4b942\">ATTACK POWER ADDED TO DAMAGE PER TECH</font>:"
 	"DOTA_Tooltip_ability_jex_nature_nature_w_radius"							"RADIUS:"
@@ -207,7 +207,7 @@
 	"DOTA_Tooltip_modifier_jex_warp_freecast"					"Xenon Warp freecast"
 
 	"DOTA_Tooltip_ability_jex_lightning_nature_e"				"Thunder Blossom"
-	"DOTA_Tooltip_ability_jex_lightning_nature_e_Description"	"Element: <font color=\"#5CCDF9\">Lightning</font> / <font color=\"#69BC71\">Nature</font><br>Summons an immobile Thunder Blossom at the target location. Blossoms can attack enemies and their attacks have a 30% chance to strike the enemy with a lightning bolt. Jex can be ordered to attack a ThunderBlossom to teleport to it on a 0.3 second delay."
+	"DOTA_Tooltip_ability_jex_lightning_nature_e_Description"	"Element: <font color=ELEMENT_LIGHTNING>Lightning</font> / <font color=ELEMENT_NATURE>Nature</font><br>Summons an immobile Thunder Blossom at the target location. Blossoms can attack enemies and their attacks have a 30% chance to strike the enemy with a lightning bolt. Jex can be ordered to attack a ThunderBlossom to teleport to it on a 0.3 second delay."
 	"DOTA_Tooltip_ability_jex_lightning_nature_e_duration_per_tech"	"<font color=\"#f4b942\">LIFE DURATION PER TECH</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_e_roshpit_attr_per_tech"	"<font color=\"#f4b942\">ARMORS/PIERCES AS MULTIPLE OF JEX'S PER TECH</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_e_attack_mult_per_tech"	"<font color=\"#f4b942\">ATTACK DAMAGE AS MULTIPLE OF JEX'S PER TECH</font>:"
@@ -269,62 +269,62 @@
 	"DOTA_Tooltip_modifier_natures_path_master_buff_Description"		"Incoming damage reduced, health regen increased, cliffwalking granted."	
 
 	"DOTA_Tooltip_ability_jex_rune_q_1"								"[Q1] Nature Module I"
-	"DOTA_Tooltip_ability_jex_rune_q_1_Description"					"Onibi's <font color=\"#69BC71\">Nature</font> level increases Jex's base attack damage."
+	"DOTA_Tooltip_ability_jex_rune_q_1_Description"					"Onibi's <font color=ELEMENT_NATURE>Nature</font> level increases Jex's base attack damage."
 	"DOTA_Tooltip_ability_jex_rune_q_1_property_one"				"Attack Damage Bonus"
 	"DOTA_Tooltip_ability_jex_rune_q_1_suffix"						"x Onibi's Module Level"
 
 	"DOTA_Tooltip_ability_jex_rune_q_2"								"[Q2] Nature Module II"
-	"DOTA_Tooltip_ability_jex_rune_q_2_Description"					"Increases all <font color=\"#69BC71\">Nature</font> damage."
+	"DOTA_Tooltip_ability_jex_rune_q_2_Description"					"Increases all <font color=ELEMENT_NATURE>Nature</font> damage."
 	"DOTA_Tooltip_ability_jex_rune_q_2_property_one"				"Elemental Damage Bonus"
 	"DOTA_Tooltip_ability_jex_rune_q_2_suffix"						"%"
 
 	"DOTA_Tooltip_ability_jex_rune_q_3"								"[Q3] Nature Module III"
-	"DOTA_Tooltip_ability_jex_rune_q_3_Description"					"Onibi's <font color=\"#69BC71\">Nature</font> level increases Jex's attributes."
+	"DOTA_Tooltip_ability_jex_rune_q_3_Description"					"Onibi's <font color=ELEMENT_NATURE>Nature</font> level increases Jex's attributes."
 	"DOTA_Tooltip_ability_jex_rune_q_3_property_one"				"Attribute Bonus"
 	"DOTA_Tooltip_ability_jex_rune_q_3_suffix"						"x Onibi's Module Level"
 
 	"DOTA_Tooltip_ability_jex_rune_q_4"								"[Q4] Nature Module IV"
-	"DOTA_Tooltip_ability_jex_rune_q_4_Description"					"Each ability that has <font color=\"#69BC71\">Nature</font> element receives a special bonus. The bottom of each ability's tooltip describes the perk provided by this rune."
+	"DOTA_Tooltip_ability_jex_rune_q_4_Description"					"Each ability that has <font color=ELEMENT_NATURE>Nature</font> element receives a special bonus. The bottom of each ability's tooltip describes the perk provided by this rune."
 	"DOTA_Tooltip_ability_jex_rune_q_4_property_one"				"Bonus Upgrade Multiple"
 	"DOTA_Tooltip_ability_jex_rune_q_4_suffix"						""
 
 	"DOTA_Tooltip_ability_jex_rune_w_1"								"[W1] Lightning Module I"
-	"DOTA_Tooltip_ability_jex_rune_w_1_Description"					"Onibi's <font color=\"#5CCDF9\">Lightning</font> level increases Jex's base attack damage."
+	"DOTA_Tooltip_ability_jex_rune_w_1_Description"					"Onibi's <font color=ELEMENT_LIGHTNING>Lightning</font> level increases Jex's base attack damage."
 	"DOTA_Tooltip_ability_jex_rune_w_1_property_one"				"Attack Damage Bonus"
 	"DOTA_Tooltip_ability_jex_rune_w_1_suffix"						"x Onibi's Module Level"
 
 	"DOTA_Tooltip_ability_jex_rune_w_2"								"[W2] Lightning Module II"
-	"DOTA_Tooltip_ability_jex_rune_w_2_Description"					"Increases all <font color=\"#5CCDF9\">Lightning</font> damage."
+	"DOTA_Tooltip_ability_jex_rune_w_2_Description"					"Increases all <font color=ELEMENT_LIGHTNING>Lightning</font> damage."
 	"DOTA_Tooltip_ability_jex_rune_w_2_property_one"				"Elemental Damage Bonus"
 	"DOTA_Tooltip_ability_jex_rune_w_2_suffix"						"%"
 
 	"DOTA_Tooltip_ability_jex_rune_w_3"								"[W3] Lightning Module III"
-	"DOTA_Tooltip_ability_jex_rune_w_3_Description"					"Onibi's <font color=\"#5CCDF9\">Lightning</font> level increases Jex's attributes."
+	"DOTA_Tooltip_ability_jex_rune_w_3_Description"					"Onibi's <font color=ELEMENT_LIGHTNING>Lightning</font> level increases Jex's attributes."
 	"DOTA_Tooltip_ability_jex_rune_w_3_property_one"				"Attribute Bonus"
 	"DOTA_Tooltip_ability_jex_rune_w_3_suffix"						"x Onibi's Module Level"
 
 	"DOTA_Tooltip_ability_jex_rune_w_4"								"[W4] Lightning Module IV"
-	"DOTA_Tooltip_ability_jex_rune_w_4_Description"					"Each ability that has <font color=\"#5CCDF9\">Lightning</font> element receives a special bonus. The bottom of each ability's tooltip describes the perk provided by this rune."
+	"DOTA_Tooltip_ability_jex_rune_w_4_Description"					"Each ability that has <font color=ELEMENT_LIGHTNING>Lightning</font> element receives a special bonus. The bottom of each ability's tooltip describes the perk provided by this rune."
 	"DOTA_Tooltip_ability_jex_rune_w_4_property_one"				"Bonus Upgrade Multiple"
 	"DOTA_Tooltip_ability_jex_rune_w_4_suffix"						""
 
 	"DOTA_Tooltip_ability_jex_rune_e_1"								"[E1] Cosmic Module I"
-	"DOTA_Tooltip_ability_jex_rune_e_1_Description"					"Onibi's <font color=\"#C25DFC\">Cosmic</font> level increases Jex's base attack damage."
+	"DOTA_Tooltip_ability_jex_rune_e_1_Description"					"Onibi's <font color=ELEMENT_COSMOS>Cosmic</font> level increases Jex's base attack damage."
 	"DOTA_Tooltip_ability_jex_rune_e_1_property_one"				"Attack Damage Bonus"
 	"DOTA_Tooltip_ability_jex_rune_e_1_suffix"						"x Onibi's Module Level"
 
 	"DOTA_Tooltip_ability_jex_rune_e_2"								"[E2] Cosmic Module II"
-	"DOTA_Tooltip_ability_jex_rune_e_2_Description"					"Increases all <font color=\"#C25DFC\">Cosmic</font> damage."
+	"DOTA_Tooltip_ability_jex_rune_e_2_Description"					"Increases all <font color=ELEMENT_COSMOS>Cosmic</font> damage."
 	"DOTA_Tooltip_ability_jex_rune_e_2_property_one"				"Elemental Damage Bonus"
 	"DOTA_Tooltip_ability_jex_rune_e_2_suffix"						"%"
 
 	"DOTA_Tooltip_ability_jex_rune_e_3"								"[E3] Cosmic Module III"
-	"DOTA_Tooltip_ability_jex_rune_e_3_Description"					"Onibi's <font color=\"#C25DFC\">Cosmic</font> level increases Jex's attributes."
+	"DOTA_Tooltip_ability_jex_rune_e_3_Description"					"Onibi's <font color=ELEMENT_COSMOS>Cosmic</font> level increases Jex's attributes."
 	"DOTA_Tooltip_ability_jex_rune_e_3_property_one"				"Attribute Bonus"
 	"DOTA_Tooltip_ability_jex_rune_e_3_suffix"						"x Onibi's Module Level"
 
 	"DOTA_Tooltip_ability_jex_rune_e_4"								"[E4] Cosmic Module IV"
-	"DOTA_Tooltip_ability_jex_rune_e_4_Description"					"Each ability that has <font color=\"#C25DFC\">Cosmic</font> element receives a special bonus. The bottom of each ability's tooltip describes the perk provided by this rune."
+	"DOTA_Tooltip_ability_jex_rune_e_4_Description"					"Each ability that has <font color=ELEMENT_COSMOS>Cosmic</font> element receives a special bonus. The bottom of each ability's tooltip describes the perk provided by this rune."
 	"DOTA_Tooltip_ability_jex_rune_e_4_property_one"				"Bonus Upgrade Multiple"
 	"DOTA_Tooltip_ability_jex_rune_e_4_suffix"						""
 
@@ -365,15 +365,15 @@
 
 	"DOTA_Tooltip_ability_item_rpc_jex_immortal_weapon_1"           "Biosynthesizer"
 	"item_property_jex_immortal_weapon"                             "Nature Enhancement"
-	"property_jex_immortal_weapon_description"                      "All tech abilities with <font color=\"#69BC71\">Nature</font> element receive @special_property1 Tech Level. Double <font color=\"#69BC71\">Nature</font> abilities gain @special_property2 bonus Tech Levels."
+	"property_jex_immortal_weapon_description"                      "All tech abilities with <font color=ELEMENT_NATURE>Nature</font> element receive @special_property1 Tech Level. Double <font color=ELEMENT_NATURE>Nature</font> abilities gain @special_property2 bonus Tech Levels."
 
 	"DOTA_Tooltip_ability_item_rpc_jex_immortal_weapon_2"            "Venus Atomizer"
 	"item_property_jex_immortal_weapon2"                             "Lightning Enhancement"
-	"property_jex_immortal_weapon2_description"                      "All tech abilities with <font color=\"#5CCDF9\">Lightning</font> element receive @special_property1 Tech Level. Double <font color=\"#5CCDF9\">Lightning</font> abilities gain @special_property2 bonus Tech Levels."
+	"property_jex_immortal_weapon2_description"                      "All tech abilities with <font color=ELEMENT_LIGHTNING>Lightning</font> element receive @special_property1 Tech Level. Double <font color=ELEMENT_LIGHTNING>Lightning</font> abilities gain @special_property2 bonus Tech Levels."
 
 	"DOTA_Tooltip_ability_item_rpc_jex_immortal_weapon_3"            "Exodius Plasma Cannon"
 	"item_property_jex_immortal_weapon3"                             "Cosmic Enhancement"
-	"property_jex_immortal_weapon3_description"                      "All tech abilities with <font color=\"#C25DFC\">Cosmic</font> element receive @special_property1 Tech Level. Double <font color=\"#C25DFC\">Cosmic</font> abilities gain @special_property2 bonus Tech Levels."
+	"property_jex_immortal_weapon3_description"                      "All tech abilities with <font color=ELEMENT_COSMOS>Cosmic</font> element receive @special_property1 Tech Level. Double <font color=ELEMENT_COSMOS>Cosmic</font> abilities gain @special_property2 bonus Tech Levels."
 
 
 	"DOTA_Tooltip_ability_item_rpc_jex_glyph_1_1"		"[T1-1] Glyph of Biosynthesis"
@@ -407,7 +407,7 @@
     "DOTA_Tooltip_ability_item_rpc_jex_arcana1"						"Flamesynth Cybernetics"
 
 	"item_property_jex_arcana1"                                     "Fire Module"
-    "property_jex_arcana1_description"                              "Replaces Onibi's <font color=\"#5CCDF9\">Lightning</font> module with a <font color=\"#EF4126\">Fire</font> module."
+    "property_jex_arcana1_description"                              "Replaces Onibi's <font color=ELEMENT_LIGHTNING>Lightning</font> module with a <font color=ELEMENT_FIRE>Fire</font> module."
 
 	"DOTA_Tooltip_ability_onibi_fire_1"		"Fire Module"
 	"DOTA_Tooltip_ability_onibi_fire_1_Description"		"Enables the activation of Fire abilities. Enemies who die near Jex will leave behind fire flowers for harvesting."
@@ -416,11 +416,11 @@
 	"DOTA_Tooltip_ability_onibi_fire_2_Description"		"Enables the activation of Fire abilities. Enemies who die near Jex will leave behind fire flowers for harvesting."
 
 	"DOTA_Tooltip_ability_jex_base_cannon_fire"	"Base Cannon: Fire"
-	"DOTA_Tooltip_ability_jex_base_cannon_fire_Description"	"Element: <font color=\"#EF4126\">Fire</font><br>Target an enemy and deal damage."
+	"DOTA_Tooltip_ability_jex_base_cannon_fire_Description"	"Element: <font color=ELEMENT_FIRE>Fire</font><br>Target an enemy and deal damage."
 	"DOTA_Tooltip_ability_jex_base_cannon_fire_damage"		"DAMAGE:"
 
     "DOTA_Tooltip_ability_jex_fire_fire_q"				"Ring of Fire"
-    "DOTA_Tooltip_ability_jex_fire_fire_q_Description"	"Element: <font color=\"#EF4126\">Fire</font><br>A ring of fire expands and contracts, dealing damage to enemies that come into contact with it."
+    "DOTA_Tooltip_ability_jex_fire_fire_q_Description"	"Element: <font color=ELEMENT_FIRE>Fire</font><br>A ring of fire expands and contracts, dealing damage to enemies that come into contact with it."
     "DOTA_Tooltip_ability_jex_fire_fire_q_attack_damage_per_tech"		"%<font color=\"#f4b942\">ATTACK DAMAGE ADDED TO BASE DAMAGE PER TECH</font>:"
     "DOTA_Tooltip_ability_jex_fire_fire_q_cooldown_reduction_per_tech"	"<font color=\"#f4b942\">COOLDOWN REDUCTION PER TECH</font>:"
     "DOTA_Tooltip_ability_jex_fire_fire_q_base_damage"					"BASE DAMAGE:"
@@ -448,7 +448,7 @@
     "DOTA_Tooltip_modifier_jex_fire_nature_q_attack_power_Description"	"Increased attack power"
 
     "DOTA_Tooltip_ability_jex_fire_cosmic_q"				"Meteor Shower"
-    "DOTA_Tooltip_ability_jex_fire_cosmic_q_Description"	"Element: <font color=\"#EF4126\">Fire</font>/<font color=\"#C25DFC\">Cosmic</font><br>Jex creates a magnetic field that draws multiple meteors to crash down into the target area."
+    "DOTA_Tooltip_ability_jex_fire_cosmic_q_Description"	"Element: <font color=ELEMENT_FIRE>Fire</font>/<font color=ELEMENT_COSMOS>Cosmic</font><br>Jex creates a magnetic field that draws multiple meteors to crash down into the target area."
     "DOTA_Tooltip_ability_jex_fire_cosmic_q_meteors_per_tech"			"<font color=\"#f4b942\">METEORS PER TECH</font>:"
     "DOTA_Tooltip_ability_jex_fire_cosmic_q_attack_damage_percent_added_per_tech"	"%<font color=\"#f4b942\">ATTACK DAMAGE ADDED TO BASE PER TECH</font>:"
     "DOTA_Tooltip_ability_jex_fire_cosmic_q_base_damage"		"BASE DAMAGE:"
@@ -458,7 +458,7 @@
     "DOTA_Tooltip_ability_jex_fire_cosmic_q_e_4_stun_duration"	"<font color=\"#7DFF12\">[E4] Stun Duration</font>:"
 
     "DOTA_Tooltip_ability_jex_fire_fire_w"					"Fire Juggler"
-    "DOTA_Tooltip_ability_jex_fire_fire_w_Description"		"Element: <font color=\"#EF4126\">Fire</font><br>Jex tosses out a disorderly cluster of fireballs that impact enemies in a tight radius around the casting point."
+    "DOTA_Tooltip_ability_jex_fire_fire_w_Description"		"Element: <font color=ELEMENT_FIRE>Fire</font><br>Jex tosses out a disorderly cluster of fireballs that impact enemies in a tight radius around the casting point."
     "DOTA_Tooltip_ability_jex_fire_fire_w_flames_per_tech"	"<font color=\"#f4b942\">FIREBALLS PER TECH</font>:"	
     "DOTA_Tooltip_ability_jex_fire_fire_w_attack_damage_percent_added_per_tech"	"%<font color=\"#f4b942\">ATTACK DAMAGE ADDED TO BASE PER TECH</font>:"
     "DOTA_Tooltip_ability_jex_fire_fire_w_base_damage"		"BASE DAMAGE:"
@@ -479,7 +479,7 @@
     "DOTA_Tooltip_modifier_jex_orbital_flame_effect_Description" "Increased Base Ability damage and absorbing damage instances"
 
     "DOTA_Tooltip_ability_jex_nature_fire_w"				"Living Bomb"
-    "DOTA_Tooltip_ability_jex_nature_fire_w_Description"	"Element: <font color=\"#EF4126\">Fire</font>/<font color=\"#69BC71\">Nature</font><br>Jex translates a biological entity into a living explosive for 2 seconds. When its duration runs out or on death, the affected entity explodes and damages enemies in a 600 radius. Can target enemies or allies."	
+    "DOTA_Tooltip_ability_jex_nature_fire_w_Description"	"Element: <font color=ELEMENT_FIRE>Fire</font>/<font color=ELEMENT_NATURE>Nature</font><br>Jex translates a biological entity into a living explosive for 2 seconds. When its duration runs out or on death, the affected entity explodes and damages enemies in a 600 radius. Can target enemies or allies."	
     "DOTA_Tooltip_ability_jex_nature_fire_w_attack_damage_of_target_per_tech"	"%<font color=\"#f4b942\">ADDITIONAL DAMAGE FROM BOMB CARRIER'S ATTACK POWER PER TECH</font>:"
     "DOTA_Tooltip_ability_jex_nature_fire_w_base_damage"						"BASE DAMAGE:"
     "DOTA_Tooltip_ability_jex_nature_fire_w_cast_range"							"CAST RANGE:"
@@ -499,7 +499,7 @@
 
 
     "DOTA_Tooltip_ability_jex_fire_fire_e"					"Flame Sweep"
-    "DOTA_Tooltip_ability_jex_fire_fire_e_Description"		"<font color=\"#A8C8FF\">VECTOR TARGET</font><br>Element: <font color=\"#EF4126\">Fire</font><br>Throw a sweeping flame from the starting cast point toward the second cast point. If the flame hits Jex, it launches him in the direction of the fire. Enemies are damaged by the sweeping flame."
+    "DOTA_Tooltip_ability_jex_fire_fire_e_Description"		"<font color=\"#A8C8FF\">VECTOR TARGET</font><br>Element: <font color=ELEMENT_FIRE>Fire</font><br>Throw a sweeping flame from the starting cast point toward the second cast point. If the flame hits Jex, it launches him in the direction of the fire. Enemies are damaged by the sweeping flame."
     "DOTA_Tooltip_ability_jex_fire_fire_e_attack_damage_added_per_tech"	"%<font color=\"#f4b942\">ATTACK DAMAGE ADDED PER TECH</font>:"
     "DOTA_Tooltip_ability_jex_fire_fire_e_fire_speed_per_tech"			"<font color=\"#f4b942\">FLAME MOVESPEED PER TECH</font>:"	
     "DOTA_Tooltip_ability_jex_fire_fire_e_fire_speed_base"				"FLAME SPEED BASE:"
@@ -523,7 +523,7 @@
     "DOTA_Tooltip_ability_jex_nature_fire_e_w_4_burn_damage_explosion_damage"		"%<font color=\"#7DFF12\">[W4] 5 second burn from detonation, percentage of detonation base damage every 0.5 seconds</font>:"
 
     "DOTA_Tooltip_ability_cinderbark_detonate"				"Detonate"
-    "DOTA_Tooltip_ability_cinderbark_detonate_Description"	"Element: <font color=\"#EF4126\">Fire</font><br>Immediately kills the Cinderbark Treant."
+    "DOTA_Tooltip_ability_cinderbark_detonate_Description"	"Element: <font color=ELEMENT_FIRE>Fire</font><br>Immediately kills the Cinderbark Treant."
 
     "DOTA_Tooltip_modifier_cinderbark_burning"				"Cinderbark Burning"
     "DOTA_Tooltip_modifier_cinderbark_burning_Description"	"Taking damage based on Cinderbark's detonation damage and Jex's W4 level every 0.5 seconds"
@@ -532,25 +532,25 @@
     "DOTA_Tooltip_ability_jex_cinderbark_teleport_Description"	"Brings Jex toward the location of the Cinderbark Treant."
 
 	"DOTA_Tooltip_ability_jex_rune_w_1_arcana1"								"[W1] Fire Module I"
-	"DOTA_Tooltip_ability_jex_rune_w_1_arcana1_Description"					"Onibi's <font color=\"#EF4126\">Fire</font> level increases Jex's base attack damage."
+	"DOTA_Tooltip_ability_jex_rune_w_1_arcana1_Description"					"Onibi's <font color=ELEMENT_FIRE>Fire</font> level increases Jex's base attack damage."
 	"DOTA_Tooltip_ability_jex_rune_w_1_arcana1_property_one"				"Attack Damage Bonus"
 	"DOTA_Tooltip_ability_jex_rune_w_1_arcana1_suffix"						"x Onibi's Module Level"
 
 	"DOTA_Tooltip_ability_jex_rune_w_2_arcana1"								"[W2] Fire Module II"
-	"DOTA_Tooltip_ability_jex_rune_w_2_arcana1_Description"					"Increases all <font color=\"#EF4126\">Fire</font> damage."
+	"DOTA_Tooltip_ability_jex_rune_w_2_arcana1_Description"					"Increases all <font color=ELEMENT_FIRE>Fire</font> damage."
 	"DOTA_Tooltip_ability_jex_rune_w_2_arcana1_property_one"				"Elemental Damage Bonus"
 	"DOTA_Tooltip_ability_jex_rune_w_2_arcana1_suffix"						"%"
 
 	"DOTA_Tooltip_ability_jex_rune_w_3_arcana1"								"[W3] Fire Module III"
-	"DOTA_Tooltip_ability_jex_rune_w_3_arcana1_Description"					"Onibi's <font color=\"#EF4126\">Fire</font> level increases Jex's attributes."
+	"DOTA_Tooltip_ability_jex_rune_w_3_arcana1_Description"					"Onibi's <font color=ELEMENT_FIRE>Fire</font> level increases Jex's attributes."
 	"DOTA_Tooltip_ability_jex_rune_w_3_arcana1_property_one"				"Attribute Bonus"
 	"DOTA_Tooltip_ability_jex_rune_w_3_arcana1_suffix"						"x Onibi's Module Level"
 
 	"DOTA_Tooltip_ability_jex_rune_w_4_arcana1"								"[W4] Fire Module IV"
-	"DOTA_Tooltip_ability_jex_rune_w_4_arcana1_Description"					"Each ability that has <font color=\"#EF4126\">Fire</font> element receives a special bonus. The bottom of each ability's tooltip describes the perk provided by this rune."
+	"DOTA_Tooltip_ability_jex_rune_w_4_arcana1_Description"					"Each ability that has <font color=ELEMENT_FIRE>Fire</font> element receives a special bonus. The bottom of each ability's tooltip describes the perk provided by this rune."
 	"DOTA_Tooltip_ability_jex_rune_w_4_arcana1_property_one"				"Bonus Upgrade Multiple"
 	"DOTA_Tooltip_ability_jex_rune_w_4_arcana1_suffix"						""
 
 	"DOTA_Tooltip_ability_item_rpc_jex_immortal_weapon_2_a"            "Lava Boiler"
 	"item_property_jex_immortal_weapon2_a"                             "Fire Enhancement"
-	"property_jex_immortal_weapon2_a_description"                      "All tech abilities with <font color=\"#EF4126\">Fire</font> element receive @special_property1 Tech Level. Double <font color=\"#EF4126\">Fire</font> abilities gain @special_property2 bonus Tech Levels."
+	"property_jex_immortal_weapon2_a_description"                      "All tech abilities with <font color=ELEMENT_FIRE>Fire</font> element receive @special_property1 Tech Level. Double <font color=ELEMENT_FIRE>Fire</font> abilities gain @special_property2 bonus Tech Levels."

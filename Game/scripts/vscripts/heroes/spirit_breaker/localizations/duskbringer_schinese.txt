@@ -1,7 +1,7 @@
 "tooltip_duskbringer_Q"											"螺旋枷和冥火枷"
 
 		"DOTA_Tooltip_ability_whirling_flail"							"螺旋枷"
-		"DOTA_Tooltip_ability_whirling_flail_Description"				"元素： <font color=\"#DDDDDD\">普通</font><br>夜幕使者快速挥动他的武器（每0.5秒挥动一次，持续3.5秒），击退附近所有敌人。施放幽灵冲刺之后可立即使用该技能，在冲刺的同时攻击敌人。"
+		"DOTA_Tooltip_ability_whirling_flail_Description"				"元素： <font color=ELEMENT_NORMAL>普通</font><br>夜幕使者快速挥动他的武器（每0.5秒挥动一次，持续3.5秒），击退附近所有敌人。施放幽灵冲刺之后可立即使用该技能，在冲刺的同时攻击敌人。"
 		"DOTA_Tooltip_ability_whirling_flail_Lore"						""
 		"DOTA_Tooltip_ability_whirling_flail_damage"					"每次挥动武器造成伤害"
 		"DOTA_Tooltip_ability_whirling_flail_knockback"					"击退距离"		
@@ -115,7 +115,7 @@
 		"DOTA_Tooltip_modifier_duskbringer_ghost_form_active_Description"	"死亡延迟"
 		
 		"DOTA_Tooltip_ability_seven_visions"							"七重梦境"
-		"DOTA_Tooltip_ability_seven_visions_Description"				"元素： <font color=\"#9ACCD1\">鬼</font> / <font color=\"#DDDDDD\">普通</font><br>夜幕使者从四面八方攻击敌军，造成眩晕和额外伤害。持续时间内物理和魔法免疫。"
+		"DOTA_Tooltip_ability_seven_visions_Description"				"元素： <font color=ELEMENT_GHOST>鬼</font> / <font color=ELEMENT_NORMAL>普通</font><br>夜幕使者从四面八方攻击敌军，造成眩晕和额外伤害。持续时间内物理和魔法免疫。"
 		"DOTA_Tooltip_ability_seven_visions_Lore"						""
 		"DOTA_Tooltip_ability_seven_visions_attacks"					"攻击次数"
 		"DOTA_Tooltip_ability_seven_visions_bonus_damage"				"额外伤害"
@@ -141,7 +141,7 @@
 		"DOTA_Tooltip_modifier_duskbringer_rune_r_3_Description"		"获得额外攻击力"
 		
 		"DOTA_Tooltip_ability_duskbringer_rune_r_4"						"[R4] 暗夜之力"
-		"DOTA_Tooltip_ability_duskbringer_rune_r_4_Description"			"提高所有 <font color=\"#9ACCD1\">鬼</font> 元素的伤害。"
+		"DOTA_Tooltip_ability_duskbringer_rune_r_4_Description"			"提高所有 <font color=ELEMENT_GHOST>鬼</font> 元素的伤害。"
 		"DOTA_Tooltip_ability_duskbringer_rune_r_4_property_one"		"鬼元素伤害提高"
 		"DOTA_Tooltip_ability_duskbringer_rune_r_4_suffix"				"%"
 		
@@ -159,7 +159,7 @@
 		"property_duskbringer_arcana1_description"								"用暗影突袭替换 @Ability2 和它的全部符文。"
 
 		"DOTA_Tooltip_ability_duskbringer_arcana_ability"						"暗影突袭"
-		"DOTA_Tooltip_ability_duskbringer_arcana_ability_Description"			"元素： <font color=\"#9ACCD1\">鬼</font> / <font color=\"#7F4F84\">暗</font><br>夜幕使者向目标点飞跃，落地时制造一束耀眼的蕴含光谱能量的闪光。"
+		"DOTA_Tooltip_ability_duskbringer_arcana_ability_Description"			"元素： <font color=ELEMENT_GHOST>鬼</font> / <font color=ELEMENT_SHADOW>暗</font><br>夜幕使者向目标点飞跃，落地时制造一束耀眼的蕴含光谱能量的闪光。"
 		"DOTA_Tooltip_ability_duskbringer_arcana_ability_damage"				"伤害："
 		"DOTA_Tooltip_ability_duskbringer_arcana_ability_stun_duration"			"眩晕持续时间："
 
@@ -202,11 +202,11 @@
 		"DOTA_Tooltip_modifier_terrorize_thinking_Description"					"没有施法角度。免疫魔法伤害和普通攻击。"
 
 		"DOTA_Tooltip_ability_duskbringer_arcana_terrorize"						"威吓"
-		"DOTA_Tooltip_ability_duskbringer_arcana_terrorize_Description"			"元素：<font color=\"#9ACCD1\">鬼</font><br>夜幕使者向前跳跃，并且以恐怖的形象漂浮在目标地点上方。在威吓状态下时，夜幕使者免疫魔法伤害和普通攻击并且他的施法角度限制被移除。在持续时间内，夜幕使者的威吓将会变为幻影冲击。在威吓状态中发出移动指令将会立刻结束这个效果。"
+		"DOTA_Tooltip_ability_duskbringer_arcana_terrorize_Description"			"元素：<font color=ELEMENT_GHOST>鬼</font><br>夜幕使者向前跳跃，并且以恐怖的形象漂浮在目标地点上方。在威吓状态下时，夜幕使者免疫魔法伤害和普通攻击并且他的施法角度限制被移除。在持续时间内，夜幕使者的威吓将会变为幻影冲击。在威吓状态中发出移动指令将会立刻结束这个效果。"
 		"DOTA_Tooltip_ability_duskbringer_arcana_terrorize_base_duration"		"威吓持续时间："
 
 		"DOTA_Tooltip_ability_duskbringer_arcana_terrorize_phantom_plasma"		"幻影冲击"
-		"DOTA_Tooltip_ability_duskbringer_arcana_terrorize_phantom_plasma_Description"			"元素： <font color=\"#9ACCD1\">鬼</font><br>发射一个充满虚无能量的光球冲向目标并在抵达时爆炸。被幻影冲击击中的敌人的移动速度将会降低，持续10秒。"
+		"DOTA_Tooltip_ability_duskbringer_arcana_terrorize_phantom_plasma_Description"			"元素： <font color=ELEMENT_GHOST>鬼</font><br>发射一个充满虚无能量的光球冲向目标并在抵达时爆炸。被幻影冲击击中的敌人的移动速度将会降低，持续10秒。"
 		"DOTA_Tooltip_ability_duskbringer_arcana_terrorize_phantom_plasma_damage"				"伤害："
 		"DOTA_Tooltip_ability_duskbringer_arcana_terrorize_phantom_plasma_additional_damage_atk_power_pct"	"基于攻击力%的基础伤害 ："
 		"DOTA_Tooltip_ability_duskbringer_arcana_terrorize_phantom_plasma_move_slow_percent"				"移动速度降低%："
@@ -283,11 +283,11 @@
 		"item_rpc_duskbringer_glyph_6_2_description" 				"每 <% DUSKBRINGER_GLYPH_6_2_CLEANCE_INTERVAL %>秒 清除沉默和眩晕。"
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_7_2"		"[T7-2] 魔鬼吞噬雕文"
-		"item_rpc_duskbringer_glyph_7_2_description" 				"直接装备伤害将获得<font color=\"#9ACCD1\">鬼</font>元素作为第二元素伤害。（不作用于基于 基础技能伤害 而造成伤害的装备）"
+		"item_rpc_duskbringer_glyph_7_2_description" 				"直接装备伤害将获得<font color=ELEMENT_GHOST>鬼</font>元素作为第二元素伤害。（不作用于基于 基础技能伤害 而造成伤害的装备）"
 
 
     	"DOTA_Tooltip_ability_manifestation"						"示威"
-    	"DOTA_Tooltip_ability_manifestation_Description"			"元素： <font color=\"#9ACCD1\">鬼</font><br> 夜幕使者立即在目标点显现，对周围每个敌人施放虚实相生。"
+    	"DOTA_Tooltip_ability_manifestation_Description"			"元素： <font color=ELEMENT_GHOST>鬼</font><br> 夜幕使者立即在目标点显现，对周围每个敌人施放虚实相生。"
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_5_a"		"[T5-a] 甲骨文雕文"
 		"item_rpc_duskbringer_glyph_5_a_description" 				"友军在冥魂状态结束时将不会死亡。起死回生效果冷却时间 <% DUSKBRINGER_GLYPH_5_a_CD %> 秒。"

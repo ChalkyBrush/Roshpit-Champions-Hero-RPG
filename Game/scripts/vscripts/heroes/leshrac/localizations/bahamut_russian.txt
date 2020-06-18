@@ -1,6 +1,6 @@
 		//Abilities
 		"DOTA_Tooltip_ability_leshrac_wall"								"Wall of Impunity"
-    	"DOTA_Tooltip_ability_leshrac_wall_Description"					"Стихия: <font color=\"#F6FFB5\">Свет</font><br>Bahamut призывает стену, которая разрушает разум врагов, прошедших сквозь нее. Все враги, находящиеся рядом со Стеной будут получать урон, а их урон будет снижен."
+    	"DOTA_Tooltip_ability_leshrac_wall_Description"					"Стихия: <font color=ELEMENT_HOLY>Свет</font><br>Bahamut призывает стену, которая разрушает разум врагов, прошедших сквозь нее. Все враги, находящиеся рядом со Стеной будут получать урон, а их урон будет снижен."
     	"DOTA_Tooltip_ability_leshrac_wall_Lore"						"Стена знаний, через которую свободно перемещаются только достойнейшие"
     	"DOTA_Tooltip_ability_leshrac_wall_damage"						"УРОН/ТИК"
     	"DOTA_Tooltip_ability_leshrac_wall_wall_length"					"ШИРИНА"
@@ -43,7 +43,7 @@
 		
 		
 		"DOTA_Tooltip_ability_leshrac_nuke"								"Judgement"
-    	"DOTA_Tooltip_ability_leshrac_nuke_Description"					"Стихия: <font color=\"#F6FFB5\">Свет</font><br>Bahamut воздает противникам по заслугам в небольшом радиусе перед собой."
+    	"DOTA_Tooltip_ability_leshrac_nuke_Description"					"Стихия: <font color=ELEMENT_HOLY>Свет</font><br>Bahamut воздает противникам по заслугам в небольшом радиусе перед собой."
     	"DOTA_Tooltip_ability_leshrac_nuke_Lore"						""
     	"DOTA_Tooltip_ability_leshrac_nuke_damage"						"УРОН"
     	"DOTA_Tooltip_ability_leshrac_nuke_radius"						"РАДИУС"
@@ -119,13 +119,13 @@
 		
 		
 		"DOTA_Tooltip_ability_bahamut_rune_e_4"							"[E4] Harmony"
-    	"DOTA_Tooltip_ability_bahamut_rune_e_4_Description"				"Увеличивает урон стихии <font color=\"#F6FFB5\">Света</font>."
+    	"DOTA_Tooltip_ability_bahamut_rune_e_4_Description"				"Увеличивает урон стихии <font color=ELEMENT_HOLY>Света</font>."
     	"DOTA_Tooltip_ability_bahamut_rune_e_4_property_one"			"Урон Света"
     	"DOTA_Tooltip_ability_bahamut_rune_e_4_suffix"					"%"
 		
 		
 		"DOTA_Tooltip_ability_charge_of_light"							"Megaflare"
-    	"DOTA_Tooltip_ability_charge_of_light_Description"				"Стихия: <font color=\"#F6FFB5\">Свет</font><br>После 2 секундной подготовки Bahamut устремляется вперед, высвобождая взрывную энергию, способную стереть низших существ. Во время разбега, Bahamut неуязвим к физическому и магическому урону. <br><font color='#70EA72'>Если приказать герою через Shift сразу при прочтении поставить стену немного впереди, то он может успеть это сделать, пока бежит.</font>."
+    	"DOTA_Tooltip_ability_charge_of_light_Description"				"Стихия: <font color=ELEMENT_HOLY>Свет</font><br>После 2 секундной подготовки Bahamut устремляется вперед, высвобождая взрывную энергию, способную стереть низших существ. Во время разбега, Bahamut неуязвим к физическому и магическому урону. <br><font color='#70EA72'>Если приказать герою через Shift сразу при прочтении поставить стену немного впереди, то он может успеть это сделать, пока бежит.</font>."
     	"DOTA_Tooltip_ability_charge_of_light_Lore"						""
     	"DOTA_Tooltip_ability_charge_of_light_damage"					"УРОН"	
     	"DOTA_Tooltip_ability_charge_of_light_range"					"РАДИУС ВЗРЫВА"
@@ -175,7 +175,7 @@
 		//Arcanas
 		
 		"DOTA_Tooltip_ability_bahamut_arcana_ulti" 						"Demigod's Vengeance"
-    	"DOTA_Tooltip_ability_bahamut_arcana_ulti_Description"			"Стихия: <font color=\"#F6FFB5\">Свет</font><br>Bahamut наполняется энергией истинного величия - накладывает на себя усиление, позволяющее каждые 0.1 секунды поражать молнией ближайших врагов, которая замедляет их на 65% на 0.2 секунды."
+    	"DOTA_Tooltip_ability_bahamut_arcana_ulti_Description"			"Стихия: <font color=ELEMENT_HOLY>Свет</font><br>Bahamut наполняется энергией истинного величия - накладывает на себя усиление, позволяющее каждые 0.1 секунды поражать молнией ближайших врагов, которая замедляет их на 65% на 0.2 секунды."
     	"DOTA_Tooltip_ability_bahamut_arcana_ulti_duration"				"ДЛИТЕЛЬНОСТЬ:"
     	"DOTA_Tooltip_ability_bahamut_arcana_ulti_damage"				"УРОН:"
 

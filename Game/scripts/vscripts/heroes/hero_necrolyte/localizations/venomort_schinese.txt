@@ -1,6 +1,6 @@
 		//Abilities
 		"DOTA_Tooltip_ability_gale_nova"										"瘟疫散播"
-		"DOTA_Tooltip_ability_gale_nova_Description"							"元素： <font color=\"#37DD3D\">毒</font><br>剧毒巫师散播出一大片有毒的烟雾，使附近的所有敌人感染疫病，每0.4秒造成一次伤害。"
+		"DOTA_Tooltip_ability_gale_nova_Description"							"元素： <font color=ELEMENT_POISON>毒</font><br>剧毒巫师散播出一大片有毒的烟雾，使附近的所有敌人感染疫病，每0.4秒造成一次伤害。"
 		"DOTA_Tooltip_ability_gale_nova_Lore"									""
     	"DOTA_Tooltip_ability_gale_nova_damage"							        "毒素伤害/每次:"
     	"DOTA_Tooltip_ability_gale_nova_duration"								"毒素持续时间:"
@@ -39,7 +39,7 @@
 
 		
 		"DOTA_Tooltip_ability_nether_blaster"								"死灵融合"
-		"DOTA_Tooltip_ability_nether_blaster_Description"					"元素： <font color=\"#37DD3D\">毒</font> / <font color=\"#9ACCD1\">鬼</font> <br>剧毒巫师在面前释放一串骷髅毒药，伤害并减速被击中的敌人。"
+		"DOTA_Tooltip_ability_nether_blaster_Description"					"元素： <font color=ELEMENT_POISON>毒</font> / <font color=ELEMENT_GHOST>鬼</font> <br>剧毒巫师在面前释放一串骷髅毒药，伤害并减速被击中的敌人。"
 		"DOTA_Tooltip_ability_nether_blaster_Lore"							""
 		"DOTA_Tooltip_ability_nether_blaster_movespeed_slow"				"移速降低:"
 		"DOTA_Tooltip_ability_nether_blaster_damage"					    "伤害:"
@@ -75,7 +75,7 @@
 		"DOTA_Tooltip_ability_venomort_ghost_warp_cast_range"			"施法距离:"
 
 		"DOTA_Tooltip_ability_venomort_rune_e_1"							"[E1] 感染"
-    	"DOTA_Tooltip_ability_venomort_rune_e_1_Description"				"提高剧毒巫师的全部 <font color=\"#37DD3D\">毒</font> 元素伤害。"
+    	"DOTA_Tooltip_ability_venomort_rune_e_1_Description"				"提高剧毒巫师的全部 <font color=ELEMENT_POISON>毒</font> 元素伤害。"
     	"DOTA_Tooltip_ability_venomort_rune_e_1_property_one"				"毒元素伤害提高"
     	"DOTA_Tooltip_ability_venomort_rune_e_1_suffix"						"%"
 		
@@ -142,7 +142,7 @@
     	"property_venomort_arcana1_description"								"用死神审判替换 @Ability4 及其所有符文。"
 
     	"DOTA_Tooltip_ability_venom_reaper_slice"								"死神审判"
-    	"DOTA_Tooltip_ability_venom_reaper_slice_Description"					"元素： <font color=\"#37DD3D\">毒</font> / <font color=\"#5C776E\">亡灵</font><br>开启后解封三把死神镰刀，随机收割600码范围内的敌人。伤害基于剧毒巫师总攻击力的倍数。但同时，剧毒巫师的的基础移动速度固定为100。"
+    	"DOTA_Tooltip_ability_venom_reaper_slice_Description"					"元素： <font color=ELEMENT_POISON>毒</font> / <font color=ELEMENT_UNDEAD>亡灵</font><br>开启后解封三把死神镰刀，随机收割600码范围内的敌人。伤害基于剧毒巫师总攻击力的倍数。但同时，剧毒巫师的的基础移动速度固定为100。"
     	"DOTA_Tooltip_ability_venom_reaper_slice_damage_mult"					"打击伤害为攻击力的倍数："
 
   		"DOTA_Tooltip_ability_venomort_rune_r_1_arcana1"						"[R1] 炼狱"
@@ -182,7 +182,7 @@
     	"DOTA_Tooltip_modifier_chilled_stacking"							"寒霜剧毒之触"
 
     	"DOTA_Tooltip_ability_venomort_frostvenom_grasp"								"寒霜剧毒之触"
-    	"DOTA_Tooltip_ability_venomort_frostvenom_grasp_Description"					"元素： <font color=\"#37DD3D\">毒</font> / <font color=\"#87D9FF\">冰</font><br> 剧毒巫师的邪恶法杖中迸发出多股冰霜剧毒，随机打击周围的敌人。 每一股冰霜剧毒都将造成 AOE 伤害，并且对其所攻击的目标造成减速。"
+    	"DOTA_Tooltip_ability_venomort_frostvenom_grasp_Description"					"元素： <font color=ELEMENT_POISON>毒</font> / <font color=ELEMENT_ICE>冰</font><br> 剧毒巫师的邪恶法杖中迸发出多股冰霜剧毒，随机打击周围的敌人。 每一股冰霜剧毒都将造成 AOE 伤害，并且对其所攻击的目标造成减速。"
     	"DOTA_Tooltip_ability_venomort_frostvenom_grasp_explosions"						"每次冰霜剧毒释放数目："
     	"DOTA_Tooltip_ability_venomort_frostvenom_grasp_damage"							"伤害："
     	"DOTA_Tooltip_ability_venomort_frostvenom_grasp_bonus_attack_speed"				"敌人攻击速度降低："
@@ -225,7 +225,7 @@
 		"item_rpc_venomort_glyph_3_1_description" 				"在 @Ability3 的隐形期间, 剧毒巫师的生命回复速度提高为 @glyph_property1% 的最大生命值/每秒。"
 
 		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_4_1"		"[T4-1] 忧郁雕文"
-		"item_rpc_venomort_glyph_4_1_description" 				"[E1] 还能同时提高 <font color=\"#9ACCD1\">鬼</font>, <font color=\"#5C776E\">亡灵</font>, 和 <font color=\"#7F4F84\">暗</font> 元素伤害。"
+		"item_rpc_venomort_glyph_4_1_description" 				"[E1] 还能同时提高 <font color=ELEMENT_GHOST>鬼</font>, <font color=ELEMENT_UNDEAD>亡灵</font>, 和 <font color=ELEMENT_SHADOW>暗</font> 元素伤害。"
 
 		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_5_1"		"[T5-1] 疯狂食尸鬼雕文"
 		"item_rpc_venomort_glyph_5_1_description" 				"[W3] 的效果提高为 @glyph_property1 倍."

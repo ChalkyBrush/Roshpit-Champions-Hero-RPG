@@ -1,6 +1,6 @@
         //Abilities
         "DOTA_Tooltip_ability_flamewaker_seismic_flare"                                     "地震爆发"
-        "DOTA_Tooltip_ability_flamewaker_seismic_flare_Description"                         "元素: <font color=\"#EF4126\">火</font> / <font color=\"#AF843D\">土</font><br>在目标地点引起一次地震，将所有目标地点周围的所有敌人拖向释放地点并且眩晕他们。"
+        "DOTA_Tooltip_ability_flamewaker_seismic_flare_Description"                         "元素: <font color=ELEMENT_FIRE>火</font> / <font color=ELEMENT_EARTH>土</font><br>在目标地点引起一次地震，将所有目标地点周围的所有敌人拖向释放地点并且眩晕他们。"
         "DOTA_Tooltip_ability_flamewaker_seismic_flare_Lore"                                    "基础技能: Q"
         "DOTA_Tooltip_ability_flamewaker_seismic_flare_damage"              "伤害:"
         "DOTA_Tooltip_ability_flamewaker_seismic_flare_stun_duration"       "眩晕持续时间:"
@@ -41,7 +41,7 @@
         "DOTA_Tooltip_modifier_flamewaker_rune_q_4_description"                 "[R] 可以立即释放"
         
         "DOTA_Tooltip_ability_flamewaker_dragon_breath"                                     "龙息"
-        "DOTA_Tooltip_ability_flamewaker_dragon_breath_Description"                         "元素: <font color=\"#EF4126\">火</font> / <font color=\"#3289C7\">龙</font><br>烈焰行者的脉搏与火焰一起律动，对他前方区域内的敌人造成伤害。"
+        "DOTA_Tooltip_ability_flamewaker_dragon_breath_Description"                         "元素: <font color=ELEMENT_FIRE>火</font> / <font color=ELEMENT_DRAGON>龙</font><br>烈焰行者的脉搏与火焰一起律动，对他前方区域内的敌人造成伤害。"
         "DOTA_Tooltip_ability_flamewaker_dragon_breath_Lore"                                    "基础技能: W"
         "DOTA_Tooltip_ability_flamewaker_dragon_breath_damage"                                  "伤害:"
 
@@ -76,7 +76,7 @@
         "DOTA_Tooltip_ability_flamewaker_rune_w_4_suffix_two"                   "%"
         
         "DOTA_Tooltip_ability_flamewaker_heat_wave"                                     "炽热冲锋"
-        "DOTA_Tooltip_ability_flamewaker_heat_wave_Description"                         "元素: <font color=\"#EF4126\">火</font><br>烈焰行者释放出一股强烈的热能，获得额外移动速度，攻击速度，无视地形并且增加最大移动速度上限。"
+        "DOTA_Tooltip_ability_flamewaker_heat_wave_Description"                         "元素: <font color=ELEMENT_FIRE>火</font><br>烈焰行者释放出一股强烈的热能，获得额外移动速度，攻击速度，无视地形并且增加最大移动速度上限。"
         "DOTA_Tooltip_ability_flamewaker_heat_wave_Lore"                                    "基础技能: E"
         "DOTA_Tooltip_ability_flamewaker_heat_wave_ms_cap_bonus"                            "移动速度上限提高:"
         "DOTA_Tooltip_ability_flamewaker_heat_wave_movespeed"                               "移动速度:"
@@ -114,7 +114,7 @@
         "DOTA_Tooltip_ability_flamewaker_rune_e_4_suffix"                       ""
         
         "DOTA_Tooltip_ability_flamewaker_cataclysm"                                 "大灾变"
-        "DOTA_Tooltip_ability_flamewaker_cataclysm_Description"                     "元素: <font color=\"#EF4126\">火</font> / <font color=\"#AF843D\">土</font><br>凝聚火焰之力2秒之后爆炸,造成伤害并眩晕、减速周围所有单位。"
+        "DOTA_Tooltip_ability_flamewaker_cataclysm_Description"                     "元素: <font color=ELEMENT_FIRE>火</font> / <font color=ELEMENT_EARTH>土</font><br>凝聚火焰之力2秒之后爆炸,造成伤害并眩晕、减速周围所有单位。"
         "DOTA_Tooltip_ability_flamewaker_cataclysm_Lore"                            "基础技能: R"
         "DOTA_Tooltip_ability_flamewaker_cataclysm_damage"                          "伤害:"
         "DOTA_Tooltip_ability_flamewaker_cataclysm_radius"                          "范围:"
@@ -142,13 +142,13 @@
         "DOTA_Tooltip_modifier_flamewaker_rune_r_3_description"                 "增加力量值"
         
         "DOTA_Tooltip_ability_flamewaker_rune_r_4"                              "[R4] 火山之血"
-        "DOTA_Tooltip_ability_flamewaker_rune_r_4_Description"                  "增加所有 <font color=\"#EF4126\">火</font> 和 <font color=\"#AF843D\">土</font> 伤害。"
+        "DOTA_Tooltip_ability_flamewaker_rune_r_4_Description"                  "增加所有 <font color=ELEMENT_FIRE>火</font> 和 <font color=ELEMENT_EARTH>土</font> 伤害。"
         "DOTA_Tooltip_ability_flamewaker_rune_r_4_property_one"                 "火和土伤害提高"
         "DOTA_Tooltip_ability_flamewaker_rune_r_4_suffix"                       "%"
         
         //Arcanas
         "DOTA_Tooltip_ability_flamewaker_dragon_fire"                       "龙王吐息"
-        "DOTA_Tooltip_ability_flamewaker_dragon_fire_Description"           "元素: <font color=\"#EF4126\">火</font> / <font color=\"#3289C7\">龙</font><br>在目标地点引起一次剧烈的火焰爆发，对目标区域内的敌人造成伤害并且眩晕他们。这个技能在进入冷却时间前的<% FLAMEWAKER_ARCANA_Q_FREE_CAST_DURATION %>秒内可以再次释放<% FLAMEWAKER_ARCANA_Q_FREE_CAST_COUNT %> 次。<br>这个技能的基础伤害将会被力量值进一步提高。"
+        "DOTA_Tooltip_ability_flamewaker_dragon_fire_Description"           "元素: <font color=ELEMENT_FIRE>火</font> / <font color=ELEMENT_DRAGON>龙</font><br>在目标地点引起一次剧烈的火焰爆发，对目标区域内的敌人造成伤害并且眩晕他们。这个技能在进入冷却时间前的<% FLAMEWAKER_ARCANA_Q_FREE_CAST_DURATION %>秒内可以再次释放<% FLAMEWAKER_ARCANA_Q_FREE_CAST_COUNT %> 次。<br>这个技能的基础伤害将会被力量值进一步提高。"
         "DOTA_Tooltip_ability_flamewaker_dragon_fire_damage"                "伤害:"
         "DOTA_Tooltip_ability_flamewaker_dragon_fire_strength_mult"         "力量系数伤害:"
         "DOTA_Tooltip_ability_flamewaker_dragon_fire_stun_duration"         "眩晕持续时间:"
@@ -164,14 +164,14 @@
         "DOTA_Tooltip_ability_flamewaker_rune_q_1_arcana1_suffix_two"           "每 1% 丢失生命值"
 
         "DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1"                      "[Q2] 过热"
-        "DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1_Description"          "释放 @Ability1后, 获得额外移动速度和 <font color=\"#EF4126\">火</font> 元素伤害，持续 <% FLAMEWAKER_ARCANA_Q2_DURATION %> 秒"
+        "DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1_Description"          "释放 @Ability1后, 获得额外移动速度和 <font color=ELEMENT_FIRE>火</font> 元素伤害，持续 <% FLAMEWAKER_ARCANA_Q2_DURATION %> 秒"
         "DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1_property_one"         "移动速度"
         "DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1_suffix"               ""
-        "DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1_property_two"         "<font color=\"#EF4126\">火</font> 伤害"
+        "DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1_property_two"         "<font color=ELEMENT_FIRE>火</font> 伤害"
         "DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1_suffix_two"           "%"
 
         "DOTA_Tooltip_modifier_flamewaker_arcana_q2_buff"                        "过热"
-        "DOTA_Tooltip_modifier_flamewaker_arcana_q2_buff_Description"           "增加移动速度以及 <font color=\"#EF4126\">火</font> 伤害"
+        "DOTA_Tooltip_modifier_flamewaker_arcana_q2_buff_Description"           "增加移动速度以及 <font color=ELEMENT_FIRE>火</font> 伤害"
 
         "DOTA_Tooltip_ability_flamewaker_rune_q_3_arcana1"                      "[Q3] 烈焰风暴"
         "DOTA_Tooltip_ability_flamewaker_rune_q_3_arcana1_Description"          "每次释放 @Ability1 有一定概率引发第二次爆发，这个爆发会出现在目标地点或者 <% FLAMEWAKER_ARCANA_Q3_RANGE %> 范围内随机敌人的身下。大于 100% 意味着可以多次触发。"
@@ -189,7 +189,7 @@
         "DOTA_Tooltip_modifier_flamewaker_arcana_d_a_aura_Description"          "受到伤害并且对烈焰行者造成的伤害将会降低"
 
         "DOTA_Tooltip_ability_flamewaker_fireborne"                     "焰之起源式"
-        "DOTA_Tooltip_ability_flamewaker_fireborne_Description"         "元素: <font color=\"#EF4126\">火</font><br>烈焰行者停止移动，并且向前方放出高热龙焰，每0.1秒对区域内的敌人造成伤害。在激活 <% FLAMEWAKER_ARCANA2_W_SHIELD_DELAY %> 秒后获得一个护盾，护盾将会降低你受到的伤害。这个效果不会被眩晕或者沉默影响。每0.1秒汲取10%魔法消耗，当魔法值为0时将会自动关闭。被龙焰击中的敌人的护甲将会被降低，减甲debuff最多叠加<% FLAMEWAKER_ARCANA2_W_MAX_ARMOR_SHRED_STACKS %> 层。"
+        "DOTA_Tooltip_ability_flamewaker_fireborne_Description"         "元素: <font color=ELEMENT_FIRE>火</font><br>烈焰行者停止移动，并且向前方放出高热龙焰，每0.1秒对区域内的敌人造成伤害。在激活 <% FLAMEWAKER_ARCANA2_W_SHIELD_DELAY %> 秒后获得一个护盾，护盾将会降低你受到的伤害。这个效果不会被眩晕或者沉默影响。每0.1秒汲取10%魔法消耗，当魔法值为0时将会自动关闭。被龙焰击中的敌人的护甲将会被降低，减甲debuff最多叠加<% FLAMEWAKER_ARCANA2_W_MAX_ARMOR_SHRED_STACKS %> 层。"
         "DOTA_Tooltip_ability_flamewaker_fireborne_base_damage"         "伤害:"
         "DOTA_Tooltip_ability_flamewaker_fireborne_mana_drain"          "每秒魔法汲取:"
         "DOTA_Tooltip_ability_flamewaker_fireborne_damage_reduce"           "伤害减免:"

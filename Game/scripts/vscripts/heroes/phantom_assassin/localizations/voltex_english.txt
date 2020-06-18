@@ -1,6 +1,6 @@
 		//Abilities
 		"DOTA_Tooltip_ability_voltex_overcharge"								"Overcharge"
-		"DOTA_Tooltip_ability_voltex_overcharge_Description"					"Element: <font color=\"#5CCDF9\">Lightning</font><br>Greatly increases attack speed and provides a forked lightning effect upon striking enemy units."
+		"DOTA_Tooltip_ability_voltex_overcharge_Description"					"Element: <font color=ELEMENT_LIGHTNING>Lightning</font><br>Greatly increases attack speed and provides a forked lightning effect upon striking enemy units."
 		"DOTA_Tooltip_ability_voltex_overcharge_Lore"						""
 		"DOTA_Tooltip_ability_voltex_overcharge_attack_speed"				"ATTACK SPEED BONUS:"
 		"DOTA_Tooltip_ability_voltex_overcharge_proc_targets"				"MAX TARGETS:"
@@ -38,7 +38,7 @@
         "DOTA_Tooltip_modifier_voltex_q_4_paralyze_Description"             "Paralyzed"
 		
 		"DOTA_Tooltip_ability_voltex_static"									"Static"
-		"DOTA_Tooltip_ability_voltex_static_Description"						"Element: <font color=\"#5CCDF9\">Lightning</font><br>Voltex rebalances her ions, releasing a static discharge that deals damage and knocks back all surrounding units."
+		"DOTA_Tooltip_ability_voltex_static_Description"						"Element: <font color=ELEMENT_LIGHTNING>Lightning</font><br>Voltex rebalances her ions, releasing a static discharge that deals damage and knocks back all surrounding units."
 		"DOTA_Tooltip_ability_voltex_static_Lore"								""
 		"DOTA_Tooltip_ability_voltex_static_damage"							"DAMAGE:"
     	"DOTA_Tooltip_ability_voltex_static_radius"							"RADIUS:"
@@ -83,14 +83,14 @@
     	"DOTA_Tooltip_modifier_voltex_d_b_debuff_Description"				"Reduced Magic Armor"
 		
 		"DOTA_Tooltip_ability_voltex_azure_leap"								"Azure Leap"
-		"DOTA_Tooltip_ability_voltex_azure_leap_Description"					"Element: <font color=\"#5CCDF9\">Lightning</font><br>Voltex leaps forward and slams the ground, stunning units on impact and dealing damage."
+		"DOTA_Tooltip_ability_voltex_azure_leap_Description"					"Element: <font color=ELEMENT_LIGHTNING>Lightning</font><br>Voltex leaps forward and slams the ground, stunning units on impact and dealing damage."
 		"DOTA_Tooltip_ability_voltex_azure_leap_Lore"							""
 		"DOTA_Tooltip_ability_voltex_azure_leap_land_stun_duration"				"IMPACT STUN:"
     	"DOTA_Tooltip_ability_voltex_azure_leap_land_radius"					"IMPACT RADIUS:"
     	"DOTA_Tooltip_ability_voltex_azure_leap_land_damage"					"IMPACT DAMAGE:"
 		
 		"DOTA_Tooltip_ability_voltex_rune_e_3_heavens_charge"								"Heaven's Charge"
-		"DOTA_Tooltip_ability_voltex_rune_e_3_heavens_charge_Description"					"Element: <font color=\"#5CCDF9\">Lightning</font><br>Teleport to the target location, dealing damage and stunning at the impact point. Switches back to Azure Leap after use."
+		"DOTA_Tooltip_ability_voltex_rune_e_3_heavens_charge_Description"					"Element: <font color=ELEMENT_LIGHTNING>Lightning</font><br>Teleport to the target location, dealing damage and stunning at the impact point. Switches back to Azure Leap after use."
 		"DOTA_Tooltip_ability_voltex_rune_e_3_heavens_charge_Lore"							""
 		
 		"DOTA_Tooltip_ability_voltex_rune_e_1"								"[E1] Lightning Remnant"
@@ -120,12 +120,12 @@
     	"DOTA_Tooltip_ability_voltex_rune_e_3_suffix_two"					""
 		
 		"DOTA_Tooltip_ability_voltex_rune_e_4"								"[E4] Winged Lightning"
-    	"DOTA_Tooltip_ability_voltex_rune_e_4_Description"					"All <font color=\"#5CCDF9\">Lightning</font> damage is increased."
+    	"DOTA_Tooltip_ability_voltex_rune_e_4_Description"					"All <font color=ELEMENT_LIGHTNING>Lightning</font> damage is increased."
     	"DOTA_Tooltip_ability_voltex_rune_e_4_property_one"					"Lightning Amp"
     	"DOTA_Tooltip_ability_voltex_rune_e_4_suffix"						"%"
 		
 		"DOTA_Tooltip_ability_voltex_static_field"									"Static Field"
-		"DOTA_Tooltip_ability_voltex_static_field_Description"						"Element: <font color=\"#5CCDF9\">Lightning</font><br>Voltex discharges accumulated static power, launching wild ball lightning sparks in a cone in front of her. Each time an enemy is hit by a spark, they receive a stacking debuff for 12 seconds that reduces their Magic Armor."
+		"DOTA_Tooltip_ability_voltex_static_field_Description"						"Element: <font color=ELEMENT_LIGHTNING>Lightning</font><br>Voltex discharges accumulated static power, launching wild ball lightning sparks in a cone in front of her. Each time an enemy is hit by a spark, they receive a stacking debuff for 12 seconds that reduces their Magic Armor."
 		"DOTA_Tooltip_ability_voltex_static_field_Lore"							""
 		"DOTA_Tooltip_ability_voltex_static_field_damage"							"DAMAGE PER SPARK:"
     	"DOTA_Tooltip_ability_voltex_static_field_num_sparks"						"NUMBER OF SPARKS:"
@@ -205,7 +205,7 @@
     	"DOTA_Tooltip_modifier_voltex_lightning_dash_regen_Description"		"Increased Health Regen"
 
     	"DOTA_Tooltip_ability_voltex_rune_e_4_arcana1"								"[E4] Heaven's Lightning"
-    	"DOTA_Tooltip_ability_voltex_rune_e_4_arcana1_Description"					"All <font color=\"#5CCDF9\">Lightning</font> damage is enhanced."
+    	"DOTA_Tooltip_ability_voltex_rune_e_4_arcana1_Description"					"All <font color=ELEMENT_LIGHTNING>Lightning</font> damage is enhanced."
     	"DOTA_Tooltip_ability_voltex_rune_e_4_arcana1_property_one"					"Lightning Amp"
     	"DOTA_Tooltip_ability_voltex_rune_e_4_arcana1_suffix"						"%"
 

@@ -52,7 +52,7 @@
 		"property_shadow_armlet_description"	"受到伤害时有<% ITEM_RPC_SHADOW_ARMLET_INVIS_CHANCE %>% 概率隐身 <% ITEM_RPC_SHADOW_ARMLET_INVIS_DURATION %> 秒. 攻击或施法会显形."
 
     	"item_rpc_shadow_armlet_ruby1"									"受到伤害时有 @ruby_property1% 概率立即回复与受到伤害等量的生命值"
-    	"item_rpc_shadow_armlet_emerald1"									"提高所有 <font color=\"#7F4F84\">暗</font> 元素伤害和物品伤害 @emerald_property1%"
+    	"item_rpc_shadow_armlet_emerald1"									"提高所有 <font color=ELEMENT_SHADOW>暗</font> 元素伤害和物品伤害 @emerald_property1%"
     	"item_rpc_shadow_armlet_sapphire1"									"当暗影步的隐身效果触发时, 回复 @sapphire_property1% 最大生命值的血量 并提高隐身持续时间 @sapphire_property2 秒"
     	"item_rpc_shadow_armlet_amethyst1"									"在暗影步的隐身状态下，获得 @amethyst_property1 物理穿透和魔法穿透"
 
@@ -98,9 +98,9 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_gauntlet_of_divine_purity"						"纯净护腕"
 		"item_property_divine_purity"				"纯净"
-		"property_divine_purity_description"		"你的普通攻击降低 <% ITEM_RPC_GAUNTLET_OF_DIVINE_PURITY_DMG_REDUCTION %>% 伤害. 攻击的第一元素变为 <font color=\"#F6FFB5\">圣</font> 并且造成纯粹伤害."
+		"property_divine_purity_description"		"你的普通攻击降低 <% ITEM_RPC_GAUNTLET_OF_DIVINE_PURITY_DMG_REDUCTION %>% 伤害. 攻击的第一元素变为 <font color=ELEMENT_HOLY>圣</font> 并且造成纯粹伤害."
     	"item_rpc_gauntlet_of_divine_purity_ruby1"						"提高护甲和魔甲 @ruby_property1"
-    	"item_rpc_gauntlet_of_divine_purity_emerald1"						"提高所有 <font color=\"#F6FFB5\">圣</font> 元素伤害 @emerald_property1%"
+    	"item_rpc_gauntlet_of_divine_purity_emerald1"						"提高所有 <font color=ELEMENT_HOLY>圣</font> 元素伤害 @emerald_property1%"
     	"item_rpc_gauntlet_of_divine_purity_sapphire1"						"提高基础攻击力 @sapphire_property1"
     	"item_rpc_gauntlet_of_divine_purity_amethyst1"						"每次攻击能够治疗自身 @amethyst_property1% 最大生命值"
 		
@@ -158,7 +158,7 @@
 		"item_property_phoenix_gloves"				"永生" 
 		"property_phoenix_gloves_description"		"每点损失的生命提高生命回复 <% ITEM_RPC_PHOENIX_GLOVES_HP_REGEN_PER_MISSING_HP %> ."
 
-    	"item_rpc_phoenix_gloves_ruby1"									"提高攻击速度 @ruby_property1 并且使你的普通攻击拥有 <font color=\"#EF4126\">火</font> 元素"
+    	"item_rpc_phoenix_gloves_ruby1"									"提高攻击速度 @ruby_property1 并且使你的普通攻击拥有 <font color=ELEMENT_FIRE>火</font> 元素"
     	"item_rpc_phoenix_gloves_emerald1"									"提高敏捷 @emerald_property1 并且每点敏捷提高最大生命值 @emerald_property2"
     	"item_rpc_phoenix_gloves_sapphire1"									"每点现有生命值提高 @sapphire_property1 基础攻击力"
     	"item_rpc_phoenix_gloves_amethyst1"									"提高精神 @amethyst_property1, 并且每点精神提高最大生命值 @amethyst_property2"
@@ -298,7 +298,7 @@
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_ironbound_gloves"								"钢铁手套"
-    	"item_rpc_ironbound_gloves_ruby1"								"提高所有 <font color=\"#DDDDDD\">普通</font> 元素伤害 @ruby_property1%"
+    	"item_rpc_ironbound_gloves_ruby1"								"提高所有 <font color=ELEMENT_NORMAL>普通</font> 元素伤害 @ruby_property1%"
     	"item_rpc_ironbound_gloves_emerald1"								"@emerald_property1% 概率完全抵挡物理伤害"
     	"item_rpc_ironbound_gloves_sapphire1"								"每点敏捷，智力和精神提高护甲 @sapphire_property1"
     	"item_rpc_ironbound_gloves_amethyst1"								"每点力量提高物理穿透 @amethyst_property1"
@@ -308,7 +308,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_gloves_of_sweeping_wind"							"狂风手套"
     	"item_rpc_gloves_of_sweeping_wind_ruby1"							"@ruby_property1% 概率在攻击时不损失狂风层数"
-    	"item_rpc_gloves_of_sweeping_wind_emerald1"							"每层狂风buff提高 <font color=\"#7AE2A7\">风</font> 元素伤害 @emerald_property1%"
+    	"item_rpc_gloves_of_sweeping_wind_emerald1"							"每层狂风buff提高 <font color=ELEMENT_WIND>风</font> 元素伤害 @emerald_property1%"
     	"item_rpc_gloves_of_sweeping_wind_sapphire1"							"释放 [W] 有 @sapphire_property1% 概率获得一层狂风buff"
     	"item_rpc_gloves_of_sweeping_wind_amethyst1"							"提高狂风的伤害 @amethyst_property1 并且每层狂风buff提高基础攻击力 @amethyst_property2"
 		"item_property_sweeping_wind"						"狂风"
@@ -341,10 +341,10 @@
 		"item_property_forgotten_ghost"					"后燃"
 		 "property_forgotten_ghost_description"				"所有你对敌人施加的debuff持续时间增加 <% ITEM_RPC_GLOVE_OF_THE_FORGOTTEN_GHOST_DURATION_INCREASE_PCT %>% ."
 
-    	"item_rpc_glove_of_the_forgotten_ghost_ruby1"					"提高所有 <font color=\"#9ACCD1\">鬼</font> 元素伤害和基础技能伤害 @ruby_property1%"
+    	"item_rpc_glove_of_the_forgotten_ghost_ruby1"					"提高所有 <font color=ELEMENT_GHOST>鬼</font> 元素伤害和基础技能伤害 @ruby_property1%"
     	"item_rpc_glove_of_the_forgotten_ghost_emerald1"					"直接提高你对敌人施加的debuff的基础持续时间 @emerald_property1 秒"
     	"item_rpc_glove_of_the_forgotten_ghost_sapphire1"					"当你对敌人施加任意debuff时, 他们的魔甲将被降低 @sapphire_property1 ，魔甲降低持续时间为 <% ITEM_RPC_GLOVE_OF_THE_FORGOTTEN_GHOST_SAPPHIRE_DURATION_PCT %>% 触发debuff的持续时间"
-    	"item_rpc_glove_of_the_forgotten_ghost_amethyst1"					"提高所有 <font color=\"#9ACCD1\">鬼</font> 元素伤害和基础技能伤害 @amethyst_property1%"
+    	"item_rpc_glove_of_the_forgotten_ghost_amethyst1"					"提高所有 <font color=ELEMENT_GHOST>鬼</font> 元素伤害和基础技能伤害 @amethyst_property1%"
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_spiritual_empowerment_glove"						"心灵赋权手套"
@@ -490,7 +490,7 @@
 
 		"item_rpc_dark_emissary_glove_ruby1"						"提高彩虹迷雾的伤害 @ruby_property1 和魔法穿透 @ruby_property2"
 		"item_rpc_dark_emissary_glove_emerald1"						"彩虹迷雾额外产生一团粘滞 @emerald_property1 秒的迷雾, 处于其中的敌人每 <% ITEM_RPC_DARK_EMISSARY_GLOVE_EMERALD_DOT_INTERVAL %>秒受到 @emerald_property2% 起始伤害的持续伤害"
-		"item_rpc_dark_emissary_glove_sapphire1"						"提高所有 <font color=\"#9ACCD1\">鬼</font> 元素伤害和物品伤害 @sapphire_property1%"
+		"item_rpc_dark_emissary_glove_sapphire1"						"提高所有 <font color=ELEMENT_GHOST>鬼</font> 元素伤害和物品伤害 @sapphire_property1%"
 		"item_rpc_dark_emissary_glove_amethyst1"						"彩虹迷雾为你提供 @amethyst_property1 秒的隐身效果. 攻击或者施法会显形. 并且用任意方式进入的隐身状态下提高魔法穿透@amethyst_property2 ."
 		
 		

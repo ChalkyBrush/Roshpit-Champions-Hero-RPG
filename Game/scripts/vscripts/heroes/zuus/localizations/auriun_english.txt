@@ -50,7 +50,7 @@
     	"DOTA_Tooltip_ability_auriun_rune_w_1_suffix_two"				"x Intelligence"
 		
 		"DOTA_Tooltip_ability_auriun_rune_w_2"						"[W2] Discipline"
-    	"DOTA_Tooltip_ability_auriun_rune_w_2_Description"			"Increases all healing and all <font color=\"#7F4F84\">Shadow</font> and <font color=\"#F6FFB5\">Holy</font> damage"
+    	"DOTA_Tooltip_ability_auriun_rune_w_2_Description"			"Increases all healing and all <font color=ELEMENT_SHADOW>Shadow</font> and <font color=ELEMENT_HOLY>Holy</font> damage"
     	"DOTA_Tooltip_ability_auriun_rune_w_2_property_one"			"Shadow/Holy Amp"
     	"DOTA_Tooltip_ability_auriun_rune_w_2_suffix"				"%"
     	"DOTA_Tooltip_ability_auriun_rune_w_2_property_two"			"Healing Amp"
@@ -184,7 +184,7 @@
     	"DOTA_Tooltip_ability_auriun_rune_q_2_arcana1_suffix"					"%"
 
     	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana1"							"[Q3] Holy Vengeance"
-    	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana1_Description"				"Increases all <font color=\"#F6FFB5\">Holy</font> damage."
+    	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana1_Description"				"Increases all <font color=ELEMENT_HOLY>Holy</font> damage."
     	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana1_property_one"				"Holy Amp"
     	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana1_suffix"					"%"
 
@@ -224,7 +224,7 @@
     	"DOTA_Tooltip_ability_auriun_rune_q_2_arcana2_suffix"					"%"
 
     	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana2"							"[Q3] Dark Sympathy"
-    	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana2_Description"				"Increases all <font color=\"#7F4F84\">Shadow</font> damage."
+    	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana2_Description"				"Increases all <font color=ELEMENT_SHADOW>Shadow</font> damage."
     	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana2_property_one"				"Shadow Amp"
     	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana2_suffix"					"%"
 

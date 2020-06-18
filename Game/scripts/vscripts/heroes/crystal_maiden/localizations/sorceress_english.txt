@@ -3,7 +3,7 @@
 		"Tooltip_sorceress_q"											"Blizzard and Ice Lance"
 		
 		"DOTA_Tooltip_ability_blizzard"									"Blizzard"
-		"DOTA_Tooltip_ability_blizzard_Description"						"Element: <font color=\"#87D9FF\">Ice</font><br>Drops waves of ice on enemies within the target area, damaging and slowing them. Each wave that hits an enemy reduces their <font color=\"#87D9FF\">Ice</font> resistance by for 8 seconds, stacking infinitely."
+		"DOTA_Tooltip_ability_blizzard_Description"						"Element: <font color=ELEMENT_ICE>Ice</font><br>Drops waves of ice on enemies within the target area, damaging and slowing them. Each wave that hits an enemy reduces their <font color=ELEMENT_ICE>Ice</font> resistance by for 8 seconds, stacking infinitely."
 		"DOTA_Tooltip_ability_blizzard_Lore"							""
 		"DOTA_Tooltip_ability_blizzard_wave_damage"						"DAMAGE PER WAVE:"
 		"DOTA_Tooltip_ability_blizzard_movement_slow"					"MOVE SLOW:"
@@ -13,7 +13,7 @@
 		"DOTA_Tooltip_modifier_blizzard_ice_resist_loss_Description"	"Taking increased Ice Damage"
 		
 		"DOTA_Tooltip_ability_ice_lance"								"Ice Lance"
-		"DOTA_Tooltip_ability_ice_lance_Description"					"Element: <font color=\"#87D9FF\">Ice</font><br>Fires an icy projectile toward the target location. On impact, the struck target receives a stacking movement slow debuff. Additionally fractures and deals 50% damage to 2 nearby targets."
+		"DOTA_Tooltip_ability_ice_lance_Description"					"Element: <font color=ELEMENT_ICE>Ice</font><br>Fires an icy projectile toward the target location. On impact, the struck target receives a stacking movement slow debuff. Additionally fractures and deals 50% damage to 2 nearby targets."
 		"DOTA_Tooltip_ability_ice_lance_Lore"							""
 		
 		"DOTA_Tooltip_modifier_ice_lance_cold"							"Ice Lance Slow"
@@ -48,13 +48,13 @@
     	"DOTA_Tooltip_ability_sorceress_rune_q_3_suffix_two"				" seconds"
 		
 		"DOTA_Tooltip_ability_sorceress_rune_q_4"							"[Q4] Ice Mastery"
-    	"DOTA_Tooltip_ability_sorceress_rune_q_4_Description"				"Increases all <font color=\"#87D9FF\">Ice</font> damage."
+    	"DOTA_Tooltip_ability_sorceress_rune_q_4_Description"				"Increases all <font color=ELEMENT_ICE>Ice</font> damage."
     	"DOTA_Tooltip_ability_sorceress_rune_q_4_property_one"				"Ice Damage"
     	"DOTA_Tooltip_ability_sorceress_rune_q_4_suffix"					"%"
 
 
 		"DOTA_Tooltip_ability_arcane_explosion"							"Arcane Explosion"
-		"DOTA_Tooltip_ability_arcane_explosion_Description"				"Element: <font color=\"#E1A2E8\">Arcane</font><br>A powerful burst of Arcane Energy instantly damages nearby enemies based on current mana."
+		"DOTA_Tooltip_ability_arcane_explosion_Description"				"Element: <font color=ELEMENT_ARCANE>Arcane</font><br>A powerful burst of Arcane Energy instantly damages nearby enemies based on current mana."
 		"DOTA_Tooltip_ability_arcane_explosion_Lore"					""
 		"DOTA_Tooltip_ability_arcane_explosion_damage"					"DAMAGE AS % OF CURRENT MANA:"
 		"DOTA_Tooltip_ability_arcane_explosion_radius"					"RADIUS:"
@@ -144,14 +144,14 @@
 		"Tooltip_sorceress_r"											"Pyroblast and Fireball"
 		
 		"DOTA_Tooltip_ability_pyroblast"								"Pyroblast"
-		"DOTA_Tooltip_ability_pyroblast_Description"					"Element: <font color=\"#EF4126\">Fire</font><br>Channels a massive fireball that travels slowly towards the cast location, dealing damage and stunning enemies on impact."
+		"DOTA_Tooltip_ability_pyroblast_Description"					"Element: <font color=ELEMENT_FIRE>Fire</font><br>Channels a massive fireball that travels slowly towards the cast location, dealing damage and stunning enemies on impact."
 		"DOTA_Tooltip_ability_pyroblast_Lore"							""
 		"DOTA_Tooltip_ability_pyroblast_damage"							"DAMAGE:"
 		"DOTA_Tooltip_ability_pyroblast_range"							"DISTANCE:"
 		"DOTA_Tooltip_ability_pyroblast_stun_duration"					"STUN DURATION:"
 		
 		"DOTA_Tooltip_ability_fireball"										"Fireball"
-		"DOTA_Tooltip_ability_fireball_Description"							"Element: <font color=\"#EF4126\">Fire</font><br>Fires a flaming projectile directly in front of the caster. When it strikes a target, it explodes and deals AOE damage. Gain attackspeed and movespeed on impact, and gain attack damage from 100% of the base ability damage."
+		"DOTA_Tooltip_ability_fireball_Description"							"Element: <font color=ELEMENT_FIRE>Fire</font><br>Fires a flaming projectile directly in front of the caster. When it strikes a target, it explodes and deals AOE damage. Gain attackspeed and movespeed on impact, and gain attack damage from 100% of the base ability damage."
 		"DOTA_Tooltip_ability_fireball_Lore"								""
 
 		"DOTA_Tooltip_modifier_fireball_stacks"						"Fireball Surge"
@@ -184,7 +184,7 @@
 
 
 		"DOTA_Tooltip_ability_sorceress_rune_r_4"							"[R4] Fire Mastery"
-    	"DOTA_Tooltip_ability_sorceress_rune_r_4_Description"				"Increases all <font color=\"#EF4126\">Fire</font> damage."
+    	"DOTA_Tooltip_ability_sorceress_rune_r_4_Description"				"Increases all <font color=ELEMENT_FIRE>Fire</font> damage."
     	"DOTA_Tooltip_ability_sorceress_rune_r_4_property_one"				"Fire Amp"
     	"DOTA_Tooltip_ability_sorceress_rune_r_4_suffix"					"%"
 		
@@ -193,7 +193,7 @@
     	"property_sorceress_arcana1_description"								"Replaces @Ability4 and all of its runes with Glacial Vortex."
 
     	"DOTA_Tooltip_ability_sorceress_arcana_ice_tornado"								"Glacial Vortex"
-    	"DOTA_Tooltip_ability_sorceress_arcana_ice_tornado_Description"					"Element: <font color=\"#87D9FF\">Ice</font> / <font color=\"#7AE2A7\">Wind</font><br>Summons a violent icy storm that travels towards the target location and circles around the cast point. Enemies near the vortex are chilled, vacuumed and damaged every 0.5 seconds."
+    	"DOTA_Tooltip_ability_sorceress_arcana_ice_tornado_Description"					"Element: <font color=ELEMENT_ICE>Ice</font> / <font color=ELEMENT_WIND>Wind</font><br>Summons a violent icy storm that travels towards the target location and circles around the cast point. Enemies near the vortex are chilled, vacuumed and damaged every 0.5 seconds."
     	"DOTA_Tooltip_ability_sorceress_arcana_ice_tornado_damage"					"DAMAGE:"
     	"DOTA_Tooltip_ability_sorceress_arcana_ice_tornado_move_slow"				"MOVE SLOW:"
     	"DOTA_Tooltip_ability_sorceress_arcana_ice_tornado_max_tornados"			"MAX TORNADOS:"
@@ -216,7 +216,7 @@
     	"DOTA_Tooltip_ability_sorceress_rune_r_2_arcana1_suffix_two"				"%"
 
   		"DOTA_Tooltip_ability_sorceress_rune_r_3_arcana1"						"[R3] Glacial Chill"
-    	"DOTA_Tooltip_ability_sorceress_rune_r_3_arcana1_Description"			"Enemies within a Glacial Vortex gain a Glacial Chill stack every 0.5 seconds, up to maximum of <% SORCERESS_ARCANA1_R3_MAX_STACKS %> stacks. Glacial Chill stacks cause enemies to take enhanced <font color=\"#87D9FF\">Ice</font> damage from all sources."
+    	"DOTA_Tooltip_ability_sorceress_rune_r_3_arcana1_Description"			"Enemies within a Glacial Vortex gain a Glacial Chill stack every 0.5 seconds, up to maximum of <% SORCERESS_ARCANA1_R3_MAX_STACKS %> stacks. Glacial Chill stacks cause enemies to take enhanced <font color=ELEMENT_ICE>Ice</font> damage from all sources."
     	"DOTA_Tooltip_ability_sorceress_rune_r_3_arcana1_property_one"			"Ice Damage Amp"
     	"DOTA_Tooltip_ability_sorceress_rune_r_3_arcana1_suffix"					"%"
 
@@ -224,7 +224,7 @@
     	"DOTA_Tooltip_modifier_tornado_ice_resist_loss_visible_Description"		"Taking increased Ice damage from all sources"
 
   		"DOTA_Tooltip_ability_sorceress_rune_r_4_arcana1"						"[R4] Avatar of Frost"
-    	"DOTA_Tooltip_ability_sorceress_rune_r_4_arcana1_Description"			"Casting Glacial Vortex activates Avatar of Frost form. During Avatar, all elemental damage is converted to <font color=\"#87D9FF\">Ice</font> and all <font color=\"#87D9FF\">Ice</font> damage is enhanced."
+    	"DOTA_Tooltip_ability_sorceress_rune_r_4_arcana1_Description"			"Casting Glacial Vortex activates Avatar of Frost form. During Avatar, all elemental damage is converted to <font color=ELEMENT_ICE>Ice</font> and all <font color=ELEMENT_ICE>Ice</font> damage is enhanced."
     	"DOTA_Tooltip_ability_sorceress_rune_r_4_arcana1_property_one"			"Duration"
     	"DOTA_Tooltip_ability_sorceress_rune_r_4_arcana1_suffix"					" seconds"
     	"DOTA_Tooltip_ability_sorceress_rune_r_4_arcana1_property_two"			"Ice Damage Increase"
@@ -237,7 +237,7 @@
     	"property_sorceress_arcana2_description"								"Replaces @Ability1 and all of its runes with Incineration."
 
     	"DOTA_Tooltip_ability_sorceress_fire_arcana_q"								"Inceration"
-    	"DOTA_Tooltip_ability_sorceress_fire_arcana_q_Description"					"Element: <font color=\"#EF4126\">Fire</font><br>Conjures a pit of enchanted fire that marks all enemies for incineration. Every 0.2 seconds, enemies has a 17% chance to get scorched and damage itself and nearby enemies. Enemies inside the burn area are damaged every 0.5 seconds."
+    	"DOTA_Tooltip_ability_sorceress_fire_arcana_q_Description"					"Element: <font color=ELEMENT_FIRE>Fire</font><br>Conjures a pit of enchanted fire that marks all enemies for incineration. Every 0.2 seconds, enemies has a 17% chance to get scorched and damage itself and nearby enemies. Enemies inside the burn area are damaged every 0.5 seconds."
     	"DOTA_Tooltip_ability_sorceress_fire_arcana_q_damage"					"DAMAGE:"
     	"DOTA_Tooltip_ability_sorceress_fire_arcana_q_aoe_radius"				"RADIUS:"
     	"DOTA_Tooltip_ability_sorceress_fire_arcana_q_duration"					"DEBUFF DURATION:"
@@ -252,7 +252,7 @@
     	"DOTA_Tooltip_ability_sorceress_rune_q_1_arcana2_property_two"				"Additional Damage"
     	"DOTA_Tooltip_ability_sorceress_rune_q_1_arcana2_suffix_two"				"% of attack power"
 		"DOTA_Tooltip_ability_sorceress_sun_lance"								"Sun Lance"
-		"DOTA_Tooltip_ability_sorceress_sun_lance_Description"					"Element: <font color=\"#EF4126\">Fire</font><br>Fires a beam of red hot fire toward the target location, traveling through enemies and singing them."
+		"DOTA_Tooltip_ability_sorceress_sun_lance_Description"					"Element: <font color=ELEMENT_FIRE>Fire</font><br>Fires a beam of red hot fire toward the target location, traveling through enemies and singing them."
 		"DOTA_Tooltip_ability_sorceress_sun_lance_Lore"							""
 
   		"DOTA_Tooltip_ability_sorceress_rune_q_2_arcana2"						"[Q2] Ring of Fire"
@@ -284,7 +284,7 @@
     	"DOTA_Tooltip_modifier_sun_lance_burn"									"Burning"
 
   		"DOTA_Tooltip_ability_sorceress_rune_q_4_arcana2"						"[Q4] Avatar of Fire"
-    	"DOTA_Tooltip_ability_sorceress_rune_q_4_arcana2_Description"			"Casting Incineration activates Avatar of Fire form for 12 seconds. During Avatar, all elemental damage is converted to <font color=\"#EF4126\">Fire</font> and all <font color=\"#EF4126\">Fire</font> damage is enhanced."
+    	"DOTA_Tooltip_ability_sorceress_rune_q_4_arcana2_Description"			"Casting Incineration activates Avatar of Fire form for 12 seconds. During Avatar, all elemental damage is converted to <font color=ELEMENT_FIRE>Fire</font> and all <font color=ELEMENT_FIRE>Fire</font> damage is enhanced."
     	"DOTA_Tooltip_ability_sorceress_rune_q_4_arcana2_property_one"			"Fire Damage Increase"
     	"DOTA_Tooltip_ability_sorceress_rune_q_4_arcana2_suffix"					"%"
 
@@ -311,7 +311,7 @@
 		"item_rpc_sorceress_glyph_5_1_description" 				"Replaces Arcane Explosion with Arcane Torrent, which channels onto a single enemy from long range (<% SORCERESS_GLYPH_5_1_RADIUS %>) and deals damage equal to <% SORCERESS_GLYPH_5_1_AMPLIFY %>x Arcane Explosion damage. [W1] applies <% SORCERESS_GLYPH_4_1_W1_STACKS_GENERATION %> shield each cast up to maximum of <% SORCERESS_GLYPH_4_1_W1_SHIELDS %> shields."
 
 		"DOTA_Tooltip_ability_arcane_torrent"					"Arcane Torrent"
-		"DOTA_Tooltip_ability_arcane_torrent_Description"		"Element: <font color=\"#E1A2E8\">Arcane</font><br>Toggle on to fire a missle at the closest nearby enemy every <% SORCERESS_GLYPH_5_1_INTERVAL %> seconds. Damage dealt is based on <% SORCERESS_GLYPH_5_1_AMPLIFY %>x Arcane Explosion's damage * the percentage of your mana compared to max mana."
+		"DOTA_Tooltip_ability_arcane_torrent_Description"		"Element: <font color=ELEMENT_ARCANE>Arcane</font><br>Toggle on to fire a missle at the closest nearby enemy every <% SORCERESS_GLYPH_5_1_INTERVAL %> seconds. Damage dealt is based on <% SORCERESS_GLYPH_5_1_AMPLIFY %>x Arcane Explosion's damage * the percentage of your mana compared to max mana."
 		"DOTA_Tooltip_ability_arcane_torrent_range"				"RANGE:"
 		"DOTA_Tooltip_ability_arcane_torrent_mana_drain_per_second" "MANA COST PER SECOND:"
 		"DOTA_Tooltip_ability_arcane_torrent_damage"			"DAMAGE (ARCANE EXPLOSION), % OF CURRENT MANA:"

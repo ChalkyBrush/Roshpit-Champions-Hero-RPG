@@ -41,15 +41,15 @@
 	"DOTA_Tooltip_ability_onibi_invoke_Description"	"鬼火将他的元素模块们结合并且给杰克斯提供一个新的技能。"
 
 	"DOTA_Tooltip_ability_jex_base_cannon_nature"	"基础加农：自然"
-	"DOTA_Tooltip_ability_jex_base_cannon_nature_Description"	"元素： <font color=\"#69BC71\">自然</font><br>指定一个敌人并对其造成伤害。"
+	"DOTA_Tooltip_ability_jex_base_cannon_nature_Description"	"元素： <font color=ELEMENT_NATURE>自然</font><br>指定一个敌人并对其造成伤害。"
 	"DOTA_Tooltip_ability_jex_base_cannon_nature_damage"		"伤害："
 
 	"DOTA_Tooltip_ability_jex_base_cannon_lightning"	"基础加农：雷霆"
-	"DOTA_Tooltip_ability_jex_base_cannon_lightning_Description"	"元素： <font color=\"#5CCDF9\">电</font><br>指定一个敌人并对其造成伤害。"
+	"DOTA_Tooltip_ability_jex_base_cannon_lightning_Description"	"元素： <font color=ELEMENT_LIGHTNING>电</font><br>指定一个敌人并对其造成伤害。"
 	"DOTA_Tooltip_ability_jex_base_cannon_lightning_damage"		"伤害："
 
 	"DOTA_Tooltip_ability_jex_base_cannon_cosmic"	"基础加农：宇宙"
-	"DOTA_Tooltip_ability_jex_base_cannon_cosmic_Description"	"元素： <font color=\"#C25DFC\">宇宙</font><br>指定一个敌人并对其造成伤害。"
+	"DOTA_Tooltip_ability_jex_base_cannon_cosmic_Description"	"元素： <font color=ELEMENT_COSMOS>宇宙</font><br>指定一个敌人并对其造成伤害。"
 	"DOTA_Tooltip_ability_jex_base_cannon_cosmic_damage"		"伤害："
 
 	"DOTA_Tooltip_ability_jex_essence_harvest"	"精华收割"
@@ -67,7 +67,7 @@
 	"DOTA_Tooltip_modifier_jex_magic_immunity_Description"	"技能免疫"	
 
 	"DOTA_Tooltip_ability_jex_cosmic_cosmic_q"					"群星镭射"
-	"DOTA_Tooltip_ability_jex_cosmic_cosmic_q_Description"		"元素： <font color=\"#C25DFC\">宇宙</font><br>杰克斯提升自己的能量并且向目标地点发射群星镭射。敌人站在激光的起始点附近会受到多次的伤害，伤害次数取决于激光的总长度。敌人被激光击中后会被施加一个debuff，这个debuff会降低他们的魔甲。"
+	"DOTA_Tooltip_ability_jex_cosmic_cosmic_q_Description"		"元素： <font color=ELEMENT_COSMOS>宇宙</font><br>杰克斯提升自己的能量并且向目标地点发射群星镭射。敌人站在激光的起始点附近会受到多次的伤害，伤害次数取决于激光的总长度。敌人被激光击中后会被施加一个debuff，这个debuff会降低他们的魔甲。"
 
 	"DOTA_Tooltip_ability_jex_cosmic_cosmic_q_attack_damage_added_per_tech"		"%<font color=\"#f4b942\">每点科技点提供的攻击力加入到镭射中的百分比</font>："
 	"DOTA_Tooltip_ability_jex_cosmic_cosmic_q_magic_armor_loss_per_tech"		"%<font color=\"#f4b942\">每点科技点提供的debuff的魔甲降低</font>："
@@ -80,7 +80,7 @@
 	"DOTA_Tooltip_modifier_jex_q_cosmic_cosmic_postmitigation_Description"	"魔甲降低"
 
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q"				"雷霆之怒"
-	"DOTA_Tooltip_ability_jex_thunder_thunder_q_Description"	"元素：<font color=\"#5CCDF9\">电</font><br>产生一个闪电环围绕在杰克斯身边。所有在区域内的敌人将会被一道闪电打击。 如果周围敌人的数量少于该技能的最低闪电数时，一些敌人将会被打击多次。"
+	"DOTA_Tooltip_ability_jex_thunder_thunder_q_Description"	"元素：<font color=ELEMENT_LIGHTNING>电</font><br>产生一个闪电环围绕在杰克斯身边。所有在区域内的敌人将会被一道闪电打击。 如果周围敌人的数量少于该技能的最低闪电数时，一些敌人将会被打击多次。"
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_attack_damage_per_tech"	"%<font color=\"#f4b942\">每点科技点提供的基于攻击力的闪电伤害</font>："
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_radius_per_tech"		"<font color=\"#f4b942\">每点科技点提供的范围</font>："
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_minimum_bolts_per_tech"	"<font color=\"#f4b942\">每点科技点提供的最低闪电数MINIMUM BOLTS PER TECH</font>："
@@ -102,7 +102,7 @@
 	"DOTA_Tooltip_modifier_jex_lightning_cosmic_shield_Description"				"生命值不能低于 %min_health"
 
 	"DOTA_Tooltip_ability_jex_lightning_nature_q"				"充能之芽"
-	"DOTA_Tooltip_ability_jex_lightning_nature_q_Description"	"元素： <font color=\"#5CCDF9\">电</font> / <font color=\"#69BC71\">自然</font><br>一个闪电之芽战士将会被召唤，为杰克斯战斗。召唤物的攻击力和护甲基于他们的召唤者，并且他们的攻击有30%的概率触发一个连环闪电，造成基于攻击力的魔法伤害。"
+	"DOTA_Tooltip_ability_jex_lightning_nature_q_Description"	"元素： <font color=ELEMENT_LIGHTNING>电</font> / <font color=ELEMENT_NATURE>自然</font><br>一个闪电之芽战士将会被召唤，为杰克斯战斗。召唤物的攻击力和护甲基于他们的召唤者，并且他们的攻击有30%的概率触发一个连环闪电，造成基于攻击力的魔法伤害。"
 	"DOTA_Tooltip_ability_jex_lightning_nature_q_chain_lightning_max_targets_per_tech"	"<font color=\"#f4b942\">每点技能点提供的闪电能击中的最大目标数</font>："
 	"DOTA_Tooltip_ability_jex_lightning_nature_q_roshpit_attr_per_tech"		"%<font color=\"#f4b942\">每点科技点提供的双甲/双穿倍数（基于杰克斯）</font>："
 	"DOTA_Tooltip_ability_jex_lightning_nature_q_attack_mult_per_tech"		"%<font color=\"#f4b942\">每点科技点提供的基于杰克斯攻击力的闪电伤害</font>："
@@ -125,7 +125,7 @@
 	"DOTA_Tooltip_modifier_jex_nature_nature_shield_visible_Description"	"增加护甲值和生命回复"
 
 	"DOTA_Tooltip_ability_jex_cosmic_cosmic_w"					"星云炸弹"
-	"DOTA_Tooltip_ability_jex_cosmic_cosmic_w_Description"		"元素： <font color=\"#C25DFC\">宇宙</font><br>向空中投掷一个炸弹，对敌人造成伤害并且缠绕敌人。"
+	"DOTA_Tooltip_ability_jex_cosmic_cosmic_w_Description"		"元素： <font color=ELEMENT_COSMOS>宇宙</font><br>向空中投掷一个炸弹，对敌人造成伤害并且缠绕敌人。"
 	"DOTA_Tooltip_ability_jex_cosmic_cosmic_w_root_duration_per_tech"		"<font color=\"#f4b942\">每点科技点提供的缠绕持续时间</font>："
 	"DOTA_Tooltip_ability_jex_cosmic_cosmic_w_aoe_per_tech_level"			"<font color=\"#f4b942\">每点科技点提供的范围</font>："
 	"DOTA_Tooltip_ability_jex_cosmic_cosmic_w_attack_power_added_per_tech"	"%<font color=\"#f4b942\">每点科技点提供的攻击力百分比加入到基础伤害中</font>："
@@ -135,7 +135,7 @@
 	"DOTA_Tooltip_ability_jex_cosmic_cosmic_w_e_4_damage_increase_pct"		"%<font color=\"#7DFF12\">[E4] 增加星云炸弹的基础伤害</font>："	
 
 	"DOTA_Tooltip_ability_jex_lightning_lightning_w"			"伏特武器"
-	"DOTA_Tooltip_ability_jex_lightning_lightning_w_Description"	"元素： <font color=\"#5CCDF9\">电</font><br>杰克斯激活他的雷霆模块，增加他的攻击力一定百分比和攻击速度。他的攻击有连环闪电的效果，闪电能在敌人之间跳跃。每一次攻击都会消耗一定魔法值，并且如果魔法值低于伏特武器魔法消耗时，伏特武器自动关闭。"
+	"DOTA_Tooltip_ability_jex_lightning_lightning_w_Description"	"元素： <font color=ELEMENT_LIGHTNING>电</font><br>杰克斯激活他的雷霆模块，增加他的攻击力一定百分比和攻击速度。他的攻击有连环闪电的效果，闪电能在敌人之间跳跃。每一次攻击都会消耗一定魔法值，并且如果魔法值低于伏特武器魔法消耗时，伏特武器自动关闭。"
 	"DOTA_Tooltip_ability_jex_lightning_lightning_w_jumps_per_tech"	"<font color=\"#f4b942\">每点科技点提供的闪电跳跃目标数</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_lightning_w_attack_dmg_pct_per_tech"	"<font color=\"#f4b942\">每点技科技点提供的激活时的攻击力加成</font>%："
 	"DOTA_Tooltip_ability_jex_lightning_lightning_w_damage_mult"				"连环闪电伤害为攻击力%："
@@ -144,7 +144,7 @@
 	"DOTA_Tooltip_ability_jex_lightning_lightning_w_w_4_agility_added_to_lightning_damage"	"<font color=\"#7DFF12\">[W4] 敏捷的一定倍数加入到连环闪电的基础伤害中</font>："
 
 	"DOTA_Tooltip_ability_jex_lightning_nature_w"				"雷霆之叶"
-	"DOTA_Tooltip_ability_jex_lightning_nature_w_Description"	"元素： <font color=\"#5CCDF9\">电</font> / <font color=\"#69BC71\">自然</font><br>向杰克斯的前方释放一道雷霆之叶。被击中的敌人将会被短暂麻痹。敌人在被麻痹5次后将会对麻痹免疫4秒。"
+	"DOTA_Tooltip_ability_jex_lightning_nature_w_Description"	"元素： <font color=ELEMENT_LIGHTNING>电</font> / <font color=ELEMENT_NATURE>自然</font><br>向杰克斯的前方释放一道雷霆之叶。被击中的敌人将会被短暂麻痹。敌人在被麻痹5次后将会对麻痹免疫4秒。"
 	"DOTA_Tooltip_ability_jex_lightning_nature_w_range_per_tech"	"<font color=\"#f4b942\">每点科技点增加的叶片距离</font>："
 	"DOTA_Tooltip_ability_jex_lightning_nature_w_paralyze_duration_per_tech"	"<font color=\"#f4b942\">每点科技点增加的麻痹持续时间</font>："
 	"DOTA_Tooltip_ability_jex_lightning_nature_w_damage_attack_power_per_tech"	"%<font color=\"#f4b942\">攻击力%加入到叶片的伤害</font>："
@@ -156,7 +156,7 @@
 	"DOTA_Tooltip_ability_jex_lightning_nature_w_w_4_damage_increase_pct"		"%<font color=\"#7DFF12\">[W4] 增加雷霆之叶的伤害</font>："
 
 	"DOTA_Tooltip_ability_jex_lightning_cosmic_w"				"离子加农"
-	"DOTA_Tooltip_ability_jex_lightning_cosmic_w_Description"	"元素： <font color=\"#C25DFC\">宇宙</font> / <font color=\"#5CCDF9\">电</font><br>杰克斯向目标敌人投掷一个巨大的电子能量。当敌人被击中时，离子加农将会分裂，击中附近的多个敌人。大于100%意味着他能分裂多次。"
+	"DOTA_Tooltip_ability_jex_lightning_cosmic_w_Description"	"元素： <font color=ELEMENT_COSMOS>宇宙</font> / <font color=ELEMENT_LIGHTNING>电</font><br>杰克斯向目标敌人投掷一个巨大的电子能量。当敌人被击中时，离子加农将会分裂，击中附近的多个敌人。大于100%意味着他能分裂多次。"
 	"DOTA_Tooltip_ability_jex_lightning_cosmic_w_damage_attack_power_per_tech"	"%<font color=\"#f4b942\">每点科技点提供的攻击力%的额外加农伤害 </font>："
 	"DOTA_Tooltip_ability_jex_lightning_cosmic_w_split_chance_per_tech"			"%<font color=\"#f4b942\">每点科技点提供的分裂几率</font>："
 	"DOTA_Tooltip_ability_jex_lightning_cosmic_w_cast_range"					"施法距离："
@@ -166,7 +166,7 @@
 	"DOTA_Tooltip_ability_jex_lightning_cosmic_w_e_4_split_search_radius"		"<font color=\"#7DFF12\">[E4] 增加分裂搜索范围</font>："
 
 	"DOTA_Tooltip_ability_jex_nature_nature_w"					"缠绕编织者"
-	"DOTA_Tooltip_ability_jex_nature_nature_w_Description"		"元素： <font color=\"#69BC71\">自然</font><br>在小范围内创造一片肥沃的土壤，使得进入该区域的敌人0.5秒后被缠绕。被缠绕的敌人的攻击距离将会被降低并且每0.5秒受到一次伤害。"
+	"DOTA_Tooltip_ability_jex_nature_nature_w_Description"		"元素： <font color=ELEMENT_NATURE>自然</font><br>在小范围内创造一片肥沃的土壤，使得进入该区域的敌人0.5秒后被缠绕。被缠绕的敌人的攻击距离将会被降低并且每0.5秒受到一次伤害。"
 	"DOTA_Tooltip_ability_jex_nature_nature_w_root_per_tech_level"	"<font color=\"#f4b942\">每点科技点提供的缠绕持续时间</font>："
 	"DOTA_Tooltip_ability_jex_nature_nature_w_attack_power_added_to_tick_per_tech"	"<font color=\"#f4b942\">每点科技点提供的攻击力%的伤害</font>："
 	"DOTA_Tooltip_ability_jex_nature_nature_w_radius"							"范围："
@@ -202,7 +202,7 @@
 	"DOTA_Tooltip_modifier_jex_warp_freecast"					"氙折跃自由释放"
 
 	"DOTA_Tooltip_ability_jex_lightning_nature_e"				"雷霆之花"
-	"DOTA_Tooltip_ability_jex_lightning_nature_e_Description"	"元素： <font color=\"#5CCDF9\">电</font> / <font color=\"#69BC71\">自然</font><br>在目标地点召唤一个不能移动的雷霆之花。雷霆之花能够攻击敌人并且他们的攻击有30%的概率对敌人释放雷电打击。杰克斯能够右键一个雷霆之花来传送他，有0.3秒的延迟。"
+	"DOTA_Tooltip_ability_jex_lightning_nature_e_Description"	"元素： <font color=ELEMENT_LIGHTNING>电</font> / <font color=ELEMENT_NATURE>自然</font><br>在目标地点召唤一个不能移动的雷霆之花。雷霆之花能够攻击敌人并且他们的攻击有30%的概率对敌人释放雷电打击。杰克斯能够右键一个雷霆之花来传送他，有0.3秒的延迟。"
 	"DOTA_Tooltip_ability_jex_lightning_nature_e_duration_per_tech"	"<font color=\"#f4b942\">每点技能点提供的持续时间</font>："
 	"DOTA_Tooltip_ability_jex_lightning_nature_e_roshpit_attr_per_tech"	"<font color=\"#f4b942\">每点科技点增加的双甲/双穿倍数（基于杰克斯）</font>："
 	"DOTA_Tooltip_ability_jex_lightning_nature_e_attack_mult_per_tech"	"<font color=\"#f4b942\">每点科技点增加的攻击力倍数（基于杰克斯）</font>："
@@ -261,62 +261,62 @@
 	"DOTA_Tooltip_ability_jex_nature_nature_e_q_4_cooldown_reduce"		"<font color=\"#7DFF12\">[Q4] 降低冷却时间</font>："	
 
 	"DOTA_Tooltip_ability_jex_rune_q_1"								"[Q1] 自然模块 I"
-	"DOTA_Tooltip_ability_jex_rune_q_1_Description"					"鬼火的 <font color=\"#69BC71\">自然</font> 等级增加杰克斯的基础攻击力。"
+	"DOTA_Tooltip_ability_jex_rune_q_1_Description"					"鬼火的 <font color=ELEMENT_NATURE>自然</font> 等级增加杰克斯的基础攻击力。"
 	"DOTA_Tooltip_ability_jex_rune_q_1_property_one"				"攻击力加成"
 	"DOTA_Tooltip_ability_jex_rune_q_1_suffix"						"x 鬼火的模块等级："
 
 	"DOTA_Tooltip_ability_jex_rune_q_2"								"[Q2] 自然模块 II"
-	"DOTA_Tooltip_ability_jex_rune_q_2_Description"					"增加所有 <font color=\"#69BC71\">自然</font> 伤害。"
+	"DOTA_Tooltip_ability_jex_rune_q_2_Description"					"增加所有 <font color=ELEMENT_NATURE>自然</font> 伤害。"
 	"DOTA_Tooltip_ability_jex_rune_q_2_property_one"				"元素加成"
 	"DOTA_Tooltip_ability_jex_rune_q_2_suffix"						"%"
 
 	"DOTA_Tooltip_ability_jex_rune_q_3"								"[Q3] 自然模块 III"
-	"DOTA_Tooltip_ability_jex_rune_q_3_Description"					"鬼火的 <font color=\"#69BC71\">自然</font> 等级增加杰克斯的属性。"
+	"DOTA_Tooltip_ability_jex_rune_q_3_Description"					"鬼火的 <font color=ELEMENT_NATURE>自然</font> 等级增加杰克斯的属性。"
 	"DOTA_Tooltip_ability_jex_rune_q_3_property_one"				"属性加成"
 	"DOTA_Tooltip_ability_jex_rune_q_3_suffix"						"x 鬼火的模块等级："
 
 	"DOTA_Tooltip_ability_jex_rune_q_4"								"[Q4] 自然模块 IV"
-	"DOTA_Tooltip_ability_jex_rune_q_4_Description"					"每个拥有 <font color=\"#69BC71\">自然</font> 元素的技能获得一个特殊加成。在每个技能的描述底部显示着由该符文提供的加成。"
+	"DOTA_Tooltip_ability_jex_rune_q_4_Description"					"每个拥有 <font color=ELEMENT_NATURE>自然</font> 元素的技能获得一个特殊加成。在每个技能的描述底部显示着由该符文提供的加成。"
 	"DOTA_Tooltip_ability_jex_rune_q_4_property_one"				"额外升级加成"
 	"DOTA_Tooltip_ability_jex_rune_q_4_suffix"						""
 
 	"DOTA_Tooltip_ability_jex_rune_w_1"								"[W1] 雷霆模块 I"
-	"DOTA_Tooltip_ability_jex_rune_w_1_Description"					"鬼火的 <font color=\"#5CCDF9\">电</font> 等级增加杰克斯的攻击力。"
+	"DOTA_Tooltip_ability_jex_rune_w_1_Description"					"鬼火的 <font color=ELEMENT_LIGHTNING>电</font> 等级增加杰克斯的攻击力。"
 	"DOTA_Tooltip_ability_jex_rune_w_1_property_one"				"攻击力加成"
 	"DOTA_Tooltip_ability_jex_rune_w_1_suffix"						"x 鬼火的模块等级"
 
 	"DOTA_Tooltip_ability_jex_rune_w_2"								"[W2] 雷霆模块 II"
-	"DOTA_Tooltip_ability_jex_rune_w_2_Description"					"增加所有 <font color=\"#5CCDF9\">电</font>伤害。"
+	"DOTA_Tooltip_ability_jex_rune_w_2_Description"					"增加所有 <font color=ELEMENT_LIGHTNING>电</font>伤害。"
 	"DOTA_Tooltip_ability_jex_rune_w_2_property_one"				"元素加成"
 	"DOTA_Tooltip_ability_jex_rune_w_2_suffix"						"%"
 
 	"DOTA_Tooltip_ability_jex_rune_w_3"								"[W3] 雷霆模块 III"
-	"DOTA_Tooltip_ability_jex_rune_w_3_Description"					"鬼火的 <font color=\"#5CCDF9\">电</font> 等级增加杰克斯的属性。"
+	"DOTA_Tooltip_ability_jex_rune_w_3_Description"					"鬼火的 <font color=ELEMENT_LIGHTNING>电</font> 等级增加杰克斯的属性。"
 	"DOTA_Tooltip_ability_jex_rune_w_3_property_one"				"属性加成"
 	"DOTA_Tooltip_ability_jex_rune_w_3_suffix"						"x 鬼火的模块等级"
 
 	"DOTA_Tooltip_ability_jex_rune_w_4"								"[W4] 雷霆模块 IV"
-	"DOTA_Tooltip_ability_jex_rune_w_4_Description"					"每个带有 <font color=\"#5CCDF9\">电</font> 元素的技能获得一个特殊加成。在每个技能的描述底部显示着由该符文提供的加成。"
+	"DOTA_Tooltip_ability_jex_rune_w_4_Description"					"每个带有 <font color=ELEMENT_LIGHTNING>电</font> 元素的技能获得一个特殊加成。在每个技能的描述底部显示着由该符文提供的加成。"
 	"DOTA_Tooltip_ability_jex_rune_w_4_property_one"				"额外升级加成"
 	"DOTA_Tooltip_ability_jex_rune_w_4_suffix"						""
 
 	"DOTA_Tooltip_ability_jex_rune_e_1"								"[E1] 宇宙模块 I"
-	"DOTA_Tooltip_ability_jex_rune_e_1_Description"					"鬼火的 <font color=\"#C25DFC\">宇宙</font> 等级增加杰克斯的基础攻击力。"
+	"DOTA_Tooltip_ability_jex_rune_e_1_Description"					"鬼火的 <font color=ELEMENT_COSMOS>宇宙</font> 等级增加杰克斯的基础攻击力。"
 	"DOTA_Tooltip_ability_jex_rune_e_1_property_one"				"攻击力加成"
 	"DOTA_Tooltip_ability_jex_rune_e_1_suffix"						"x 鬼火的模块等级"
 
 	"DOTA_Tooltip_ability_jex_rune_e_2"								"[E2] 宇宙模块 II"
-	"DOTA_Tooltip_ability_jex_rune_e_2_Description"					"增加所有 <font color=\"#C25DFC\">宇宙</font>伤害。"
+	"DOTA_Tooltip_ability_jex_rune_e_2_Description"					"增加所有 <font color=ELEMENT_COSMOS>宇宙</font>伤害。"
 	"DOTA_Tooltip_ability_jex_rune_e_2_property_one"				"元素伤害加成"
 	"DOTA_Tooltip_ability_jex_rune_e_2_suffix"						"%"
 
 	"DOTA_Tooltip_ability_jex_rune_e_3"								"[E3] 宇宙模块 III"
-	"DOTA_Tooltip_ability_jex_rune_e_3_Description"					"鬼火的 <font color=\"#C25DFC\">宇宙</font> 等级增加杰克斯的属性。"
+	"DOTA_Tooltip_ability_jex_rune_e_3_Description"					"鬼火的 <font color=ELEMENT_COSMOS>宇宙</font> 等级增加杰克斯的属性。"
 	"DOTA_Tooltip_ability_jex_rune_e_3_property_one"				"属性加成"
 	"DOTA_Tooltip_ability_jex_rune_e_3_suffix"						"x 鬼火的模块等级"
 
 	"DOTA_Tooltip_ability_jex_rune_e_4"								"[E4] 宇宙模块 IV"
-	"DOTA_Tooltip_ability_jex_rune_e_4_Description"					"每个拥有 <font color=\"#C25DFC\">宇宙</font> 元素的技能获得一个特殊加成。在每个技能的描述底部显示着由该符文提供的加成。"
+	"DOTA_Tooltip_ability_jex_rune_e_4_Description"					"每个拥有 <font color=ELEMENT_COSMOS>宇宙</font> 元素的技能获得一个特殊加成。在每个技能的描述底部显示着由该符文提供的加成。"
 	"DOTA_Tooltip_ability_jex_rune_e_4_property_one"				"额外升级加成"
 	"DOTA_Tooltip_ability_jex_rune_e_4_suffix"						""
 
@@ -357,15 +357,15 @@
 
 	"DOTA_Tooltip_ability_item_rpc_jex_immortal_weapon_1"           "生物质合成器"
 	"item_property_jex_immortal_weapon"                             "自然强化"
-	"property_jex_immortal_weapon_description"                      "所有<font color=\"#69BC71\">自然</font>元素的科技技能获得 @special_property1 科技等级. 双 <font color=\"#69BC71\">自然</font> 技能获得 @special_property2 级额外科技等级."
+	"property_jex_immortal_weapon_description"                      "所有<font color=ELEMENT_NATURE>自然</font>元素的科技技能获得 @special_property1 科技等级. 双 <font color=ELEMENT_NATURE>自然</font> 技能获得 @special_property2 级额外科技等级."
 
 	"DOTA_Tooltip_ability_item_rpc_jex_immortal_weapon_2"            "维纳斯放射器"
 	"item_property_jex_immortal_weapon2"                             "闪电强化"
-	"property_jex_immortal_weapon2_description"                      "所有<font color=\"#5CCDF9\">电</font>元素的科技技能获得 @special_property1 科技等级. 双 <font color=\"#5CCDF9\">电</font> 技能获得 @special_property2 级额外科技等级."
+	"property_jex_immortal_weapon2_description"                      "所有<font color=ELEMENT_LIGHTNING>电</font>元素的科技技能获得 @special_property1 科技等级. 双 <font color=ELEMENT_LIGHTNING>电</font> 技能获得 @special_property2 级额外科技等级."
 
 	"DOTA_Tooltip_ability_item_rpc_jex_immortal_weapon_3"            "等离子爆裂加农炮"
 	"item_property_jex_immortal_weapon3"                             "宇宙强化"
-	"property_jex_immortal_weapon3_description"                      "所有<font color=\"#C25DFC\">宇宙</font>元素的科技技能获得 @special_property1 科技等级. 双 <font color=\"#C25DFC\">宇宙</font> 技能获得 @special_property2 级额外科技等级."
+	"property_jex_immortal_weapon3_description"                      "所有<font color=ELEMENT_COSMOS>宇宙</font>元素的科技技能获得 @special_property1 科技等级. 双 <font color=ELEMENT_COSMOS>宇宙</font> 技能获得 @special_property2 级额外科技等级."
 
 
 	"DOTA_Tooltip_ability_item_rpc_jex_glyph_1_1"		"[T1-1] 生命合成雕文"
@@ -398,7 +398,7 @@
     "DOTA_Tooltip_ability_item_rpc_jex_arcana1"						"神经机械：火烈鸟"
 
 	"item_property_jex_arcana1"                                     "烈火模块"
-    "property_jex_arcana1_description"                              "将鬼火的 <font color=\"#5CCDF9\">电</font>模块替换为 <font color=\"#EF4126\">火</font>模块."
+    "property_jex_arcana1_description"                              "将鬼火的 <font color=ELEMENT_LIGHTNING>电</font>模块替换为 <font color=ELEMENT_FIRE>火</font>模块."
 
 	"DOTA_Tooltip_ability_onibi_fire_1"		"烈火模块"
 	"DOTA_Tooltip_ability_onibi_fire_1_Description"		"激活火焰技能。敌人在杰克斯附近死亡会留下用于收割的烈火玫瑰."
@@ -407,11 +407,11 @@
 	"DOTA_Tooltip_ability_onibi_fire_2_Description"		"激活火焰技能。敌人在杰克斯附近死亡会留下用于收割的烈火玫瑰."
 
 	"DOTA_Tooltip_ability_jex_base_cannon_fire"	"基础加农：烈火"
-	"DOTA_Tooltip_ability_jex_base_cannon_fire_Description"	"元素: <font color=\"#EF4126\">火</font><br>指定一个敌人并对其造成伤害."
+	"DOTA_Tooltip_ability_jex_base_cannon_fire_Description"	"元素: <font color=ELEMENT_FIRE>火</font><br>指定一个敌人并对其造成伤害."
 	"DOTA_Tooltip_ability_jex_base_cannon_fire_damage"		"伤害:"
 
     "DOTA_Tooltip_ability_jex_fire_fire_q"				"灼热火环"
-    "DOTA_Tooltip_ability_jex_fire_fire_q_Description"	"元素: <font color=\"#EF4126\">火</font><br>释放一圈火炎，到达最大距离时收缩，火炎对与之接触的敌人造成伤害."
+    "DOTA_Tooltip_ability_jex_fire_fire_q_Description"	"元素: <font color=ELEMENT_FIRE>火</font><br>释放一圈火炎，到达最大距离时收缩，火炎对与之接触的敌人造成伤害."
     "DOTA_Tooltip_ability_jex_fire_fire_q_attack_damage_per_tech"		"%<font color=\"#f4b942\">每点科技点增加%攻击力至基础伤害</font>:"
     "DOTA_Tooltip_ability_jex_fire_fire_q_cooldown_reduction_per_tech"	"<font color=\"#f4b942\">每点科技点减少冷却时间</font>:"
     "DOTA_Tooltip_ability_jex_fire_fire_q_base_damage"					"基础伤害:"
@@ -437,7 +437,7 @@
     "DOTA_Tooltip_modifier_jex_fire_nature_q_attack_power_Description"	"增加攻击力"
 
     "DOTA_Tooltip_ability_jex_fire_cosmic_q"				"火星陨"
-    "DOTA_Tooltip_ability_jex_fire_cosmic_q_Description"	"元素: <font color=\"#EF4126\">火</font>/<font color=\"#C25DFC\">宇宙</font><br>杰克斯创造一个磁场，吸引多颗流星坠落到目标区域造成伤害."
+    "DOTA_Tooltip_ability_jex_fire_cosmic_q_Description"	"元素: <font color=ELEMENT_FIRE>火</font>/<font color=ELEMENT_COSMOS>宇宙</font><br>杰克斯创造一个磁场，吸引多颗流星坠落到目标区域造成伤害."
     "DOTA_Tooltip_ability_jex_fire_cosmic_q_meteors_per_tech"			"<font color=\"#f4b942\">每点科技点增加流星数量</font>:"
     "DOTA_Tooltip_ability_jex_fire_cosmic_q_attack_damage_percent_added_per_tech"	"%<font color=\"#f4b942\">每点科技点增加%攻击力至基础伤害</font>:"
     "DOTA_Tooltip_ability_jex_fire_cosmic_q_base_damage"		"基础伤害:"
@@ -447,7 +447,7 @@
     "DOTA_Tooltip_ability_jex_fire_cosmic_q_e_4_stun_duration"	"<font color=\"#7DFF12\">[E4] 增加眩晕时间</font>:"
 
     "DOTA_Tooltip_ability_jex_fire_fire_w"					"小火球"
-    "DOTA_Tooltip_ability_jex_fire_fire_w_Description"		"元素: <font color=\"#EF4126\">火</font><br>杰克斯抛出一团杂乱无章的火球，这些火球会在投射点周围的一个很小的半径内撞击敌人。."
+    "DOTA_Tooltip_ability_jex_fire_fire_w_Description"		"元素: <font color=ELEMENT_FIRE>火</font><br>杰克斯抛出一团杂乱无章的火球，这些火球会在投射点周围的一个很小的半径内撞击敌人。."
     "DOTA_Tooltip_ability_jex_fire_fire_w_flames_per_tech"	"<font color=\"#f4b942\">每点科技点增加火球数量</font>:"	
     "DOTA_Tooltip_ability_jex_fire_fire_w_attack_damage_percent_added_per_tech"	"%<font color=\"#f4b942\">每点科技点增加%攻击力至基础伤害</font>:"
     "DOTA_Tooltip_ability_jex_fire_fire_w_base_damage"		"基础伤害:"
@@ -487,7 +487,7 @@
     "DOTA_Tooltip_modifier_jex_cipher_bolt_burn_Description"	"每0.5秒受到一次与杰克斯攻击力及其W4等级相关的伤害"
 
     "DOTA_Tooltip_ability_jex_fire_fire_e"					"猛火横扫"
-    "DOTA_Tooltip_ability_jex_fire_fire_e_Description"		"<font color=\"#A8C8FF\">以矢量施法</font><br>元素: <font color=\"#EF4126\">火</font><br>从第一个施法点向第二个施法点投射扫射火焰。如果火焰击中杰克斯，它就会把他朝着火的方向推进。被火焰触及的敌人受到伤害."
+    "DOTA_Tooltip_ability_jex_fire_fire_e_Description"		"<font color=\"#A8C8FF\">以矢量施法</font><br>元素: <font color=ELEMENT_FIRE>火</font><br>从第一个施法点向第二个施法点投射扫射火焰。如果火焰击中杰克斯，它就会把他朝着火的方向推进。被火焰触及的敌人受到伤害."
     "DOTA_Tooltip_ability_jex_fire_fire_e_attack_damage_added_per_tech"	"%<font color=\"#f4b942\">每点科技点增加%攻击力至基础伤害</font>:"
     "DOTA_Tooltip_ability_jex_fire_fire_e_fire_speed_per_tech"			"<font color=\"#f4b942\">每点科技点增加火焰移动速度</font>:"	
     "DOTA_Tooltip_ability_jex_fire_fire_e_fire_speed_base"				"火焰基础移动速度:"
@@ -511,7 +511,7 @@
     "DOTA_Tooltip_ability_jex_nature_fire_e_w_4_burn_damage_explosion_damage"		"%<font color=\"#7DFF12\">[W4] 被引爆伤害的敌人5秒内每0.5秒受到一次基于引爆伤害%的燃烧伤害</font>:"
 
     "DOTA_Tooltip_ability_cinderbark_detonate"				"引爆"
-    "DOTA_Tooltip_ability_cinderbark_detonate_Description"	"元素: <font color=\"#EF4126\">火</font><br>立即杀死灰烬树精."
+    "DOTA_Tooltip_ability_cinderbark_detonate_Description"	"元素: <font color=ELEMENT_FIRE>火</font><br>立即杀死灰烬树精."
 
     "DOTA_Tooltip_modifier_cinderbark_burning"				"灰烬燃烧"
     "DOTA_Tooltip_modifier_cinderbark_burning_Description"	"每0.5秒受到一次与杰克斯攻击力及其W4等级相关的伤害"
@@ -520,26 +520,26 @@
     "DOTA_Tooltip_ability_jex_cinderbark_teleport_Description"	"将杰克斯移动至灰烬树精所在的位置."
 
 	"DOTA_Tooltip_ability_jex_rune_w_1_arcana1"								"[W1] 烈火模块 I"
-	"DOTA_Tooltip_ability_jex_rune_w_1_arcana1_Description"					"鬼火的 <font color=\"#EF4126\">火</font> 等级 增加杰克斯的攻击力."
+	"DOTA_Tooltip_ability_jex_rune_w_1_arcana1_Description"					"鬼火的 <font color=ELEMENT_FIRE>火</font> 等级 增加杰克斯的攻击力."
 	"DOTA_Tooltip_ability_jex_rune_w_1_arcana1_property_one"				"攻击力加成"
 	"DOTA_Tooltip_ability_jex_rune_w_1_arcana1_suffix"						"x 鬼火的模块等级"
 
 	"DOTA_Tooltip_ability_jex_rune_w_2_arcana1"								"[W2] 烈火模块 II"
-	"DOTA_Tooltip_ability_jex_rune_w_2_arcana1_Description"					"增加所有 <font color=\"#EF4126\">火</font> 伤害."
+	"DOTA_Tooltip_ability_jex_rune_w_2_arcana1_Description"					"增加所有 <font color=ELEMENT_FIRE>火</font> 伤害."
 	"DOTA_Tooltip_ability_jex_rune_w_2_arcana1_property_one"				"元素加成"
 	"DOTA_Tooltip_ability_jex_rune_w_2_arcana1_suffix"						"%"
 
 	"DOTA_Tooltip_ability_jex_rune_w_3_arcana1"								"[W3] 烈火模块 III"
-	"DOTA_Tooltip_ability_jex_rune_w_3_arcana1_Description"					"鬼火的 <font color=\"#EF4126\">火</font> 等级增加杰克斯的属性."
+	"DOTA_Tooltip_ability_jex_rune_w_3_arcana1_Description"					"鬼火的 <font color=ELEMENT_FIRE>火</font> 等级增加杰克斯的属性."
 	"DOTA_Tooltip_ability_jex_rune_w_3_arcana1_property_one"				"属性加成"
 	"DOTA_Tooltip_ability_jex_rune_w_3_arcana1_suffix"						"x 鬼火的模块等级"
 
 	"DOTA_Tooltip_ability_jex_rune_w_4_arcana1"								"[W4] 烈火模块 IV"
-	"DOTA_Tooltip_ability_jex_rune_w_4_arcana1_Description"					"每个带有 <font color=\"#EF4126\">火</font> 元素的技能获得一个特殊加成。在每个技能的描述底部显示着由该符文提供的加成."
+	"DOTA_Tooltip_ability_jex_rune_w_4_arcana1_Description"					"每个带有 <font color=ELEMENT_FIRE>火</font> 元素的技能获得一个特殊加成。在每个技能的描述底部显示着由该符文提供的加成."
 	"DOTA_Tooltip_ability_jex_rune_w_4_arcana1_property_one"				"额外等级加成"
 	"DOTA_Tooltip_ability_jex_rune_w_4_arcana1_suffix"						""
 
 	"DOTA_Tooltip_ability_item_rpc_jex_immortal_weapon_2_a"            "炽热熔炉"
 	"item_property_jex_immortal_weapon2_a"                             "火焰强化"
-	"property_jex_immortal_weapon2_a_description"                      "所有 <font color=\"#EF4126\">火</font> 元素的科技技能获得@special_property1 科技等级.双 <font color=\"#EF4126\">火</font> 技能获得额外@special_property2 科技等级."
+	"property_jex_immortal_weapon2_a_description"                      "所有 <font color=ELEMENT_FIRE>火</font> 元素的科技技能获得@special_property1 科技等级.双 <font color=ELEMENT_FIRE>火</font> 技能获得额外@special_property2 科技等级."
 

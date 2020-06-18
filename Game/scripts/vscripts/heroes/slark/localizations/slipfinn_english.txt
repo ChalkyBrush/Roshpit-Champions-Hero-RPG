@@ -1,7 +1,7 @@
 		//Abilities
 		
 		"DOTA_Tooltip_ability_slipfinn_prone"										"Prone"
-    	"DOTA_Tooltip_ability_slipfinn_prone_Description"							"Element: <font color=\"#3894FF\">Water</font> / <font color=\"#DDDDDD\">Normal</font><br>Slipfinn changes his stance, making him glide across the ground and take reduced magic and pure damage. If activated while Jumping, he performs a flip and crashes into the ground, dealing damage with a scaling radius based on how high he was when he initiated the move."
+    	"DOTA_Tooltip_ability_slipfinn_prone_Description"							"Element: <font color=ELEMENT_WATER>Water</font> / <font color=ELEMENT_NORMAL>Normal</font><br>Slipfinn changes his stance, making him glide across the ground and take reduced magic and pure damage. If activated while Jumping, he performs a flip and crashes into the ground, dealing damage with a scaling radius based on how high he was when he initiated the move."
     	"DOTA_Tooltip_ability_slipfinn_prone_damage"								"DAMAGE:"
     	"DOTA_Tooltip_ability_slipfinn_prone_magic_pure_resist"						"MAGIC AND PURE RESISTANCE %:"
 
@@ -26,7 +26,7 @@
     	"DOTA_Tooltip_ability_slipfinn_rune_q_3_suffix"								"x height"
 
     	"DOTA_Tooltip_ability_slipfinn_rune_q_4"									"[Q4] Murkwood Hunter"
-    	"DOTA_Tooltip_ability_slipfinn_rune_q_4_Description"						"Passively increases <font color=\"#7F4F84\">Shadow</font> and <font color=\"#3894FF\">Water</font> damage."
+    	"DOTA_Tooltip_ability_slipfinn_rune_q_4_Description"						"Passively increases <font color=ELEMENT_SHADOW>Shadow</font> and <font color=ELEMENT_WATER>Water</font> damage."
     	"DOTA_Tooltip_ability_slipfinn_rune_q_4_property_one"						"Shadow and Water Damage Bonus"
     	"DOTA_Tooltip_ability_slipfinn_rune_q_4_suffix"								"%"
 		
@@ -76,7 +76,7 @@
     	"DOTA_Tooltip_ability_slipfinn_shadow_warp_cast_range"						"CAST RANGE:"
 		
 		"DOTA_Tooltip_ability_slipfinn_rune_e_1"									"[E1] Shadow Shank"
-    	"DOTA_Tooltip_ability_slipfinn_rune_e_1_Description"						"Attacks deal an additional instance of physical <font color=\"#7F4F84\">Shadow</font> damage."
+    	"DOTA_Tooltip_ability_slipfinn_rune_e_1_Description"						"Attacks deal an additional instance of physical <font color=ELEMENT_SHADOW>Shadow</font> damage."
     	"DOTA_Tooltip_ability_slipfinn_rune_e_1_property_one"						"Damage"
     	"DOTA_Tooltip_ability_slipfinn_rune_e_1_suffix"								"% of Damage Dealt"
 
@@ -147,9 +147,9 @@
         "property_slipfinn_arcana1_description"                               "Replaces @Ability3 and all of its runes with Bog Roller."
 
         "DOTA_Tooltip_ability_slipfinn_bog_roller"                       "Bog Roller"
-        "DOTA_Tooltip_ability_slipfinn_bog_roller_Description"           "Element: <font color=\"#7F4F84\">Shadow</font><br>Slipfinn curls up into a hardy shell that can traverse hazardous terrain and provides magic immunity. While in the shell, Slipfinn barrels forward unrelentingly and attacks the closest nearby enemy every 0.06 seconds.<br>Bog Roller also passively adds an instance of <font color=\"#7F4F84\">Shadow</font> damage to basic attacks, and causes basic attacks to reduce armor. Switching in and out of Bog Roller disjoints projectiles."
+        "DOTA_Tooltip_ability_slipfinn_bog_roller_Description"           "Element: <font color=ELEMENT_SHADOW>Shadow</font><br>Slipfinn curls up into a hardy shell that can traverse hazardous terrain and provides magic immunity. While in the shell, Slipfinn barrels forward unrelentingly and attacks the closest nearby enemy every 0.06 seconds.<br>Bog Roller also passively adds an instance of <font color=ELEMENT_SHADOW>Shadow</font> damage to basic attacks, and causes basic attacks to reduce armor. Switching in and out of Bog Roller disjoints projectiles."
         "DOTA_Tooltip_ability_slipfinn_bog_roller_armor_break"      "ARMOR BREAK:"
-        "DOTA_Tooltip_ability_slipfinn_bog_roller_shadow_damage_on_attack"  "% <font color=\"#7F4F84\">SHADOW</font> DAMAGE BASED ON ATTACK POWER"
+        "DOTA_Tooltip_ability_slipfinn_bog_roller_shadow_damage_on_attack"  "% <font color=ELEMENT_SHADOW>SHADOW</font> DAMAGE BASED ON ATTACK POWER"
 
         "DOTA_Tooltip_modifier_slipfinn_bog_roller"                     "Bog Roller"
         "DOTA_Tooltip_modifier_slipfinn_bog_roller_Description"         "Rolling around at a fervid pace"
@@ -169,10 +169,10 @@
         "DOTA_Tooltip_modifier_bog_roller_razor_Description"                "Receiving a speed slow and damaging nearby enemies" 
 
         "DOTA_Tooltip_ability_slipfinn_rune_e_2_arcana1"                          "[E2] Sparkling Dagger"
-        "DOTA_Tooltip_ability_slipfinn_rune_e_2_arcana1_Description"              "Gain bonus attack damage during Bog Roller. All attacks deal an additional instance of magical <font color=\"#3894FF\">Water</font> damage."
+        "DOTA_Tooltip_ability_slipfinn_rune_e_2_arcana1_Description"              "Gain bonus attack damage during Bog Roller. All attacks deal an additional instance of magical <font color=ELEMENT_WATER>Water</font> damage."
         "DOTA_Tooltip_ability_slipfinn_rune_e_2_arcana1_property_one"             "Attack Power Bonus"
         "DOTA_Tooltip_ability_slipfinn_rune_e_2_arcana1_suffix"                   "%"
-        "DOTA_Tooltip_ability_slipfinn_rune_e_2_arcana1_property_two"             "Magic <font color=\"#3894FF\">Water</font> Damage Instance"
+        "DOTA_Tooltip_ability_slipfinn_rune_e_2_arcana1_property_two"             "Magic <font color=ELEMENT_WATER>Water</font> Damage Instance"
         "DOTA_Tooltip_ability_slipfinn_rune_e_2_arcana1_suffix_two"               "% of attack power"
 
         "DOTA_Tooltip_ability_slipfinn_rune_e_3_arcana1"                          "[E3] Adamantium Shell"
@@ -240,4 +240,4 @@
 
         "DOTA_Tooltip_ability_item_rpc_slipfinn_immortal_weapon_3"            "Blade of the Black Lagoon"
         "item_property_slipfinn_immortal_weapon3"                             "Shadow of the Enemy"
-        "property_slipfinn_immortal_weapon3_description"                      "All copied abilities from @Ability4 have <font color=\"#7F4F84\">Shadow</font> element."
+        "property_slipfinn_immortal_weapon3_description"                      "All copied abilities from @Ability4 have <font color=ELEMENT_SHADOW>Shadow</font> element."

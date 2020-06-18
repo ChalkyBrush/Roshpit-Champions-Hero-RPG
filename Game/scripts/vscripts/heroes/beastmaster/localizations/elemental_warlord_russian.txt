@@ -95,20 +95,20 @@
 		"DOTA_Tooltip_modifier_elemental_axe_fire_Description"	"Активны способности Огня."
 		
 		"DOTA_Tooltip_ability_axe_throw_earth"							"Axe Throw: Earth"
-		"DOTA_Tooltip_ability_axe_throw_earth_Description"				"Стихия: <font color=\"#AF843D\">Земля</font> / <font color=\"#DDDDDD\">Нормальный</font><br>Бросает в указанную точку топор земли, который при попадании по одному врагу кратковременно его оглушает и наносит урон."
+		"DOTA_Tooltip_ability_axe_throw_earth_Description"				"Стихия: <font color=ELEMENT_EARTH>Земля</font> / <font color=ELEMENT_NORMAL>Нормальный</font><br>Бросает в указанную точку топор земли, который при попадании по одному врагу кратковременно его оглушает и наносит урон."
 		"DOTA_Tooltip_ability_axe_throw_earth_Lore"						""
 		"DOTA_Tooltip_ability_axe_throw_earth_damage"					"УРОН:" 
 		"DOTA_Tooltip_ability_axe_throw_earth_stun_duration"			"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:" 	
 
  		"DOTA_Tooltip_ability_axe_throw_ice"							"Axe Throw: Ice"
-		"DOTA_Tooltip_ability_axe_throw_ice_Description"				"Стихия: <font color=\"#87D9FF\">Лёд</font> / <font color=\"#DDDDDD\">Нормальный</font><br>Бросает в указанную точку топор льда, который при попадании по врагу взрывается, нанося урон по области и замедляя задетых противников."
+		"DOTA_Tooltip_ability_axe_throw_ice_Description"				"Стихия: <font color=ELEMENT_ICE>Лёд</font> / <font color=ELEMENT_NORMAL>Нормальный</font><br>Бросает в указанную точку топор льда, который при попадании по врагу взрывается, нанося урон по области и замедляя задетых противников."
 		"DOTA_Tooltip_ability_axe_throw_ice_Lore"						""
 		"DOTA_Tooltip_ability_axe_throw_ice_damage"						"УРОН:" 
 		"DOTA_Tooltip_ability_axe_throw_ice_slow_duration"				"ДЛИТЕЛЬНОСТЬ ЗАМЕДЛЕНИЯ:" 
 		"DOTA_Tooltip_ability_axe_throw_ice_radius"						"РАДИУС ВЗРЫВА:" 
 
  		"DOTA_Tooltip_ability_axe_throw_fire"							"Axe Throw: Fire"
-		"DOTA_Tooltip_ability_axe_throw_fire_Description"				"Стихия: <font color=\"#EF4126\">Огонь</font> / <font color=\"#DDDDDD\">Нормальный</font><br>Бросает в указанную точку топор огня, который при пропадании по врагу взрывается, нанося урон по области и понижая броню задетых противников."
+		"DOTA_Tooltip_ability_axe_throw_fire_Description"				"Стихия: <font color=ELEMENT_FIRE>Огонь</font> / <font color=ELEMENT_NORMAL>Нормальный</font><br>Бросает в указанную точку топор огня, который при пропадании по врагу взрывается, нанося урон по области и понижая броню задетых противников."
 		"DOTA_Tooltip_ability_axe_throw_fire_Lore"						""
 		"DOTA_Tooltip_ability_axe_throw_fire_damage"					"УРОН:" 
 		"DOTA_Tooltip_ability_axe_throw_fire_armor_reduction"			"УМЕНЬШЕНИЕ БРОНИ:" 
@@ -145,7 +145,7 @@
 		"Tooltip_jump_abilities"										"Firedrop, Earth Slam & Arctic Sprint"
 
 		"DOTA_Tooltip_ability_warlord_jump_earth"							"Earth Slam"
-		"DOTA_Tooltip_ability_warlord_jump_earth_Description"				"Стихия: <font color=\"#AF843D\">Земля</font><br>Warlord прыгает в указанную точку, вызывая землетрясение по приземлении. Наносит урон и оглушает врагов."
+		"DOTA_Tooltip_ability_warlord_jump_earth_Description"				"Стихия: <font color=ELEMENT_EARTH>Земля</font><br>Warlord прыгает в указанную точку, вызывая землетрясение по приземлении. Наносит урон и оглушает врагов."
 		"DOTA_Tooltip_ability_warlord_jump_earth_Lore"						""
 		"DOTA_Tooltip_ability_warlord_jump_earth_damage"					"УРОН:"
 		"DOTA_Tooltip_ability_warlord_jump_earth_radius"					"РАДИУС:"  
@@ -153,20 +153,20 @@
 		"DOTA_Tooltip_ability_warlord_jump_earth_cast_range"				"МАКСИМАЛЬНОЕ РАССТОЯНИЕ:"
 
  		"DOTA_Tooltip_ability_warlord_jump_fire"							"Firedrop"
-		"DOTA_Tooltip_ability_warlord_jump_fire_Description"				"Стихия: <font color=\"#EF4126\">Огонь</font><br>Warlord прыгает в воздух, затем падает огненным шаром на землю, нанося урон по области."
+		"DOTA_Tooltip_ability_warlord_jump_fire_Description"				"Стихия: <font color=ELEMENT_FIRE>Огонь</font><br>Warlord прыгает в воздух, затем падает огненным шаром на землю, нанося урон по области."
 		"DOTA_Tooltip_ability_warlord_jump_fire_Lore"						""
 		"DOTA_Tooltip_ability_warlord_jump_fire_damage"						"УРОН:"
 		"DOTA_Tooltip_ability_warlord_jump_fire_radius"						"РАДИУС:"  
 		
 		"DOTA_Tooltip_ability_warlord_jump_ice"								"Arctic Sprint"
-		"DOTA_Tooltip_ability_warlord_jump_ice_Description"					"Стихия: <font color=\"#87D9FF\">Лёд</font><br>Warlord бросается вперёд, оставляя ледяной след позади. Во время действия уклоняется от всех атак."
+		"DOTA_Tooltip_ability_warlord_jump_ice_Description"					"Стихия: <font color=ELEMENT_ICE>Лёд</font><br>Warlord бросается вперёд, оставляя ледяной след позади. Во время действия уклоняется от всех атак."
 		"DOTA_Tooltip_ability_warlord_jump_ice_Lore"						""
 		"DOTA_Tooltip_ability_warlord_jump_ice_damage"						"УРОН:"
 		"DOTA_Tooltip_ability_warlord_jump_ice_radius"						"РАДИУС:"
 		"DOTA_Tooltip_ability_warlord_jump_ice_duration"					"ДЛИТЕЛЬНОСТЬ СПРИНТА:"
 
 		"DOTA_Tooltip_ability_elemental_overload"							"Elemental Overload"
-		"DOTA_Tooltip_ability_elemental_overload_Description"				"Стихия: <font color=\"#EF4126\">Огонь</font> / <font color=\"#87D9FF\">Лёд</font><br>Warlord выпускает перед собой мощный поток энергии, нанося огромный урон задетым противникам. Повторное нажатие остановит прочтение."
+		"DOTA_Tooltip_ability_elemental_overload_Description"				"Стихия: <font color=ELEMENT_FIRE>Огонь</font> / <font color=ELEMENT_ICE>Лёд</font><br>Warlord выпускает перед собой мощный поток энергии, нанося огромный урон задетым противникам. Повторное нажатие остановит прочтение."
 		"DOTA_Tooltip_ability_elemental_overload_Lore"						""
 		"DOTA_Tooltip_ability_elemental_overload_damage"					"УРОН/СЕК:" 
 
@@ -190,12 +190,12 @@
     	"DOTA_Tooltip_ability_warlord_rune_e_3_suffix_two"				""
 		
 		"DOTA_Tooltip_ability_warlord_rune_e_4"							"[E4] Elemental Thunder"
-    	"DOTA_Tooltip_ability_warlord_rune_e_4_Description"				"Пассивное увеличение усиления элементов <font color=\"#EF4126\">Огня</font>,  <font color=\"#AF843D\">Земли</font> и <font color=\"#87D9FF\">Льда</font>."
+    	"DOTA_Tooltip_ability_warlord_rune_e_4_Description"				"Пассивное увеличение усиления элементов <font color=ELEMENT_FIRE>Огня</font>,  <font color=ELEMENT_EARTH>Земли</font> и <font color=ELEMENT_ICE>Льда</font>."
     	"DOTA_Tooltip_ability_warlord_rune_e_4_property_one"			"Увеличение стихийного урона Огня, Земли и Льда на "
     	"DOTA_Tooltip_ability_warlord_rune_e_4_suffix"					"%"
 
  		"DOTA_Tooltip_ability_elemental_overload_2"							"Elemental Overload"
-		"DOTA_Tooltip_ability_elemental_overload_2_Description"				"Стихия: <font color=\"#EF4126\">Огонь</font> / <font color=\"#87D9FF\">Лёд</font><br>Высвобождает энергию накопленных зарядов: элемент Земли - восстанавливают здоровье и сокращают весь входящий урон на <% WARLORD_R_EARTH_SHIELD_DAMAGE_REDUCTION %>%, Льда - радиус действия ледяных осколков, а заряды Огня выпускают огненные шары. Заряды накапливаются, когда герой атакует врагов или попадает по ним брошенными топорами. При прочтении поглощается половина зарядов."
+		"DOTA_Tooltip_ability_elemental_overload_2_Description"				"Стихия: <font color=ELEMENT_FIRE>Огонь</font> / <font color=ELEMENT_ICE>Лёд</font><br>Высвобождает энергию накопленных зарядов: элемент Земли - восстанавливают здоровье и сокращают весь входящий урон на <% WARLORD_R_EARTH_SHIELD_DAMAGE_REDUCTION %>%, Льда - радиус действия ледяных осколков, а заряды Огня выпускают огненные шары. Заряды накапливаются, когда герой атакует врагов или попадает по ним брошенными топорами. При прочтении поглощается половина зарядов."
 		"DOTA_Tooltip_ability_elemental_overload_2_Lore"					""
 		"DOTA_Tooltip_ability_elemental_overload_2_heal_per_earth_charge"	"ЛЕЧЕНИЕ ЗА ЗАРЯД ЗЕМЛИ:" 
 		"DOTA_Tooltip_ability_elemental_overload_2_protection_per_earth_charge"	"ДЛИТЕЛЬНОСТЬ ЩИТА ЗА КАЖДЫЙ ЗАРЯД ЗЕМЛИ:" 
@@ -292,14 +292,14 @@
         "property_warlord_arcana2_description"                              "Заменяет @Ability1 на Catastrophe Shaker, Frost Scathe, и Flame Wreck."
 		
         "DOTA_Tooltip_ability_warlord_cataclysm_shaker"                     "Catastrophe Shaker"
-        "DOTA_Tooltip_ability_warlord_cataclysm_shaker_Description"         "Элемент: <font color=\"#AF843D\">Земля</font> / <font color=\"#3289C7\">Дракон</font><br>Земля расщепляется по выбранному вектору и образует стену из камня. Длина стены зависит от выбранного вектора. Стена наносит урон по противникам, оглушает их и работает как физическое препятствие. Урон скалируется от Силы героя."
+        "DOTA_Tooltip_ability_warlord_cataclysm_shaker_Description"         "Элемент: <font color=ELEMENT_EARTH>Земля</font> / <font color=ELEMENT_DRAGON>Дракон</font><br>Земля расщепляется по выбранному вектору и образует стену из камня. Длина стены зависит от выбранного вектора. Стена наносит урон по противникам, оглушает их и работает как физическое препятствие. Урон скалируется от Силы героя."
         "DOTA_Tooltip_ability_warlord_cataclysm_shaker_distance"            "МАКСИМАЛЬНАЯ ДЛИНА:"
         "DOTA_Tooltip_ability_warlord_cataclysm_shaker_stun_duration"       "ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
         "DOTA_Tooltip_ability_warlord_cataclysm_shaker_damage"              "БАЗОВЫЙ УРОН:"
         "DOTA_Tooltip_ability_warlord_cataclysm_shaker_str_mult"            "БОНУСНЫЙ УРОН ОТ СИЛЫ:"
 
         "DOTA_Tooltip_ability_warlord_frost_scathe"                         "Frost Scathe"
-        "DOTA_Tooltip_ability_warlord_frost_scathe_Description"             "Элемент: <font color=\"#87D9FF\">Лёд</font> / <font color=\"#3289C7\">Дракон</font><br>Ледяное дыхание замораживает выбранную зону. Противники, наступившие в нее, замедлены и прокляты, дополнительно замораживая и нанося урон по юнитам рядом с задержкой. Способность имеет 2 свободных заряда, перезаряжающихся каждые 3 секунды."
+        "DOTA_Tooltip_ability_warlord_frost_scathe_Description"             "Элемент: <font color=ELEMENT_ICE>Лёд</font> / <font color=ELEMENT_DRAGON>Дракон</font><br>Ледяное дыхание замораживает выбранную зону. Противники, наступившие в нее, замедлены и прокляты, дополнительно замораживая и нанося урон по юнитам рядом с задержкой. Способность имеет 2 свободных заряда, перезаряжающихся каждые 3 секунды."
         "DOTA_Tooltip_ability_warlord_frost_scathe_radius"                  "РАДИУС:"
         "DOTA_Tooltip_ability_warlord_frost_scathe_main_aoe_duration"       "ДЛИТЕЛЬНОСТЬ:"
         "DOTA_Tooltip_ability_warlord_frost_scathe_freeze_delay"            "ЗАДЕРЖКА ВЗРЫВА ЗАМОРОЗКИ:"
@@ -320,7 +320,7 @@
         "DOTA_Tooltip_modifier_ice_scathe_freeze"                       "Заморозка Frost Scathe"
 
         "DOTA_Tooltip_ability_warlord_flame_wreck"                     "Flame Wreck"
-        "DOTA_Tooltip_ability_warlord_flame_wreck_Description"         "Элемент: <font color=\"#EF4126\">Огонь</font> / <font color=\"#3289C7\">Дракон</font><br>Герой высвобождает огненое цунами, поджигающее противников с интервалом 0.5 сек. Пока герой стоит в огне, он получает бонусные лимит и скорость передвижения."
+        "DOTA_Tooltip_ability_warlord_flame_wreck_Description"         "Элемент: <font color=ELEMENT_FIRE>Огонь</font> / <font color=ELEMENT_DRAGON>Дракон</font><br>Герой высвобождает огненое цунами, поджигающее противников с интервалом 0.5 сек. Пока герой стоит в огне, он получает бонусные лимит и скорость передвижения."
         "DOTA_Tooltip_ability_warlord_flame_wreck_range"               "ДИСТАНЦИЯ:"
         "DOTA_Tooltip_ability_warlord_flame_wreck_wreck_duration"      "ДЛИТЕЛЬНОСТЬ ОГНЯ:"
         "DOTA_Tooltip_ability_warlord_flame_wreck_base_damage"         "БАЗОВЫЙ УРОН:"
@@ -354,7 +354,7 @@
         "DOTA_Tooltip_modifier_flame_wreck_q3_atk_power_Description"        "Бонусная атака и скорость атаки увеличена"
 
         "DOTA_Tooltip_ability_warlord_rune_q_4_arcana2"                     "[Q4] Dragon Wrath"
-        "DOTA_Tooltip_ability_warlord_rune_q_4_arcana2_Description"         "Пассивно увеличивает все атрибуты и урон элемента <font color=\"#3289C7\">Дракон</font>."
+        "DOTA_Tooltip_ability_warlord_rune_q_4_arcana2_Description"         "Пассивно увеличивает все атрибуты и урон элемента <font color=ELEMENT_DRAGON>Дракон</font>."
         "DOTA_Tooltip_ability_warlord_rune_q_4_arcana2_property_one"        "Бонус Атрибутов"
         "DOTA_Tooltip_ability_warlord_rune_q_4_arcana2_suffix"              ""
         "DOTA_Tooltip_ability_warlord_rune_q_4_arcana2_property_two"        "Бонус урона элемента"
@@ -388,7 +388,7 @@
 		"item_rpc_warlord_glyph_6_1_description" 				"Увеличивает максимальное количество зарядов Земли, Льда и Огня на <% WARLORD_GLYPH_6_1_ADDITIONAL_CHARGES %>."
 
 		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_7_1"		"[T7-1] Glyph of Warfare"
-		"item_rpc_warlord_glyph_7_1_description" 				"Каждая базовая атака становится взрывом, нанося <% WARLORD_GLYPH_7_1_MAGICAL_SPLASH_PCT %>% от урона героя Магическим <font color=\"#EF4126\">Огонь</font>/<font color=\"#87D9FF\">Лёд</font> АОЕ радиусом <% WARLORD_GLYPH_7_1_MAGICAL_SPLASH_AOE %>. Считается Уроном Предметов."
+		"item_rpc_warlord_glyph_7_1_description" 				"Каждая базовая атака становится взрывом, нанося <% WARLORD_GLYPH_7_1_MAGICAL_SPLASH_PCT %>% от урона героя Магическим <font color=ELEMENT_FIRE>Огонь</font>/<font color=ELEMENT_ICE>Лёд</font> АОЕ радиусом <% WARLORD_GLYPH_7_1_MAGICAL_SPLASH_AOE %>. Считается Уроном Предметов."
 
 		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_5_a"		"[T5-a] Glyph of Thermogenesis"
 		"item_rpc_warlord_glyph_5_a_description" 				"Получаемый урон конвертируется в <% WARLORD_GLYPH_5_A_FIRE_CHARGES_PER_DMG_TAKEN %> Заряд(а) Огня. Каждый Заряд Льда увеличивает Пробитие Магической Брони на <% WARLORD_GLYPH_5_A_SPELL_PIERCE_PER_ICE_CHARGE %>."

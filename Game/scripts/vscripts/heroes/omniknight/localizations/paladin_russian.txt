@@ -1,5 +1,5 @@
 		"DOTA_Tooltip_ability_heroic_fury"								"Heroic Fury"
-		"DOTA_Tooltip_ability_heroic_fury_Description"					"Стихия: <font color=\"#F6FFB5\">Свет</font> / <font color=\"#DDDDDD\">Нормальный</font><br>Наделяет оружие Paladin силой, способной наносить урон соседним целям, замедляя их, и восполняя здоровье героя за каждый успешный удар."
+		"DOTA_Tooltip_ability_heroic_fury_Description"					"Стихия: <font color=ELEMENT_HOLY>Свет</font> / <font color=ELEMENT_NORMAL>Нормальный</font><br>Наделяет оружие Paladin силой, способной наносить урон соседним целям, замедляя их, и восполняя здоровье героя за каждый успешный удар."
 		"DOTA_Tooltip_ability_heroic_fury_Lore"							""
 		"DOTA_Tooltip_ability_heroic_fury_duration"						"ДЛИТЕЛЬНОСТЬ:"
 		"DOTA_Tooltip_ability_heroic_fury_damage"						"УРОН СОСЕДНИМ ЦЕЛЯМ:"
@@ -42,14 +42,14 @@
     	"DOTA_Tooltip_modifier_paladin_q3_shield_Description"		"Поглощает следующий входящий урон и наносит урон врагам, разрушившим щит."
 		
 		"DOTA_Tooltip_ability_paladin_rune_q_4"							"[Q4] Holy Crusader"
-    	"DOTA_Tooltip_ability_paladin_rune_q_4_Description"				"Любое сверхлечение, совершенное героем создаёт щит, поглощающий входящий урон. Дополнительно увеличивает стихийный урон <font color=\"#F6FFB5\">Света</font>."
+    	"DOTA_Tooltip_ability_paladin_rune_q_4_Description"				"Любое сверхлечение, совершенное героем создаёт щит, поглощающий входящий урон. Дополнительно увеличивает стихийный урон <font color=ELEMENT_HOLY>Света</font>."
     	"DOTA_Tooltip_ability_paladin_rune_q_4_property_one"			"Максимальное поглощение урона у щита"
     	"DOTA_Tooltip_ability_paladin_rune_q_4_suffix"					"% от макс. здоровья цели"
-    	"DOTA_Tooltip_ability_paladin_rune_q_4_property_two"			"Урон <font color=\"#F6FFB5\">Света</font>"
+    	"DOTA_Tooltip_ability_paladin_rune_q_4_property_two"			"Урон <font color=ELEMENT_HOLY>Света</font>"
     	"DOTA_Tooltip_ability_paladin_rune_q_4_suffix_two"				"%"
 		
 		"DOTA_Tooltip_ability_justice_overwhelming"								"Justice Overwhelming"
-		"DOTA_Tooltip_ability_justice_overwhelming_Description"					"Стихия: <font color=\"#F6FFB5\">Свет</font><br>Чистая взрывная волна святого правосудия вырывается из рук Паладина, отбрасывает его назад и наносит урон врагам перед собой."
+		"DOTA_Tooltip_ability_justice_overwhelming_Description"					"Стихия: <font color=ELEMENT_HOLY>Свет</font><br>Чистая взрывная волна святого правосудия вырывается из рук Паладина, отбрасывает его назад и наносит урон врагам перед собой."
 		"DOTA_Tooltip_ability_justice_overwhelming_Lore"							""
 		"DOTA_Tooltip_ability_justice_overwhelming_damage"							"УРОН:"
 		
@@ -192,7 +192,7 @@
     	"property_paladin_arcana1_description"								"Заменяет (W) @Ability2 и все соответствующие руны на (W) Penance."
 
     	"DOTA_Tooltip_ability_paladin_penance"								"Penance"
-    	"DOTA_Tooltip_ability_paladin_penance_Description"					"Стихия: <font color=\"#F6FFB5\">Свет</font> / <font color=\"#9ACCD1\">Призрак</font><br>Paladin создаёт копьё, состоящее из чистого света, которое он может направить на врагов или союзников. Очищающий свет наносит урон изначальной вражеской цели и всем противникам рядом с ней. Союзные герои исцеляются на 10% от базового урона (W) Penance."
+    	"DOTA_Tooltip_ability_paladin_penance_Description"					"Стихия: <font color=ELEMENT_HOLY>Свет</font> / <font color=ELEMENT_GHOST>Призрак</font><br>Paladin создаёт копьё, состоящее из чистого света, которое он может направить на врагов или союзников. Очищающий свет наносит урон изначальной вражеской цели и всем противникам рядом с ней. Союзные герои исцеляются на 10% от базового урона (W) Penance."
     	"DOTA_Tooltip_ability_paladin_penance_damage"						"УРОН:"
     	"DOTA_Tooltip_ability_paladin_penance_heal_percentage"				"ЛЕЧЕНИЕ, %:"
 		"DOTA_Tooltip_ability_paladin_penance_cast_range"					"ДАЛЬНОСТЬ КАСТА:"
@@ -235,7 +235,7 @@
     	"property_paladin_arcana2_description"								"Заменяет (E) @Ability3 и все соответствующие руны на (E) Wings of Sanctity."
 
     	"DOTA_Tooltip_ability_paladin_crusader_comet"						"Wings of Sanctity"
-    	"DOTA_Tooltip_ability_paladin_crusader_comet_Description"			"Стихия: <font color=\"#F6FFB5\">Свет</font><br>Paladin поднимается к небесам, после чего с яростью бури приземляется в указанную точку, нанося урон всем задетым врагам в точке приземления."
+    	"DOTA_Tooltip_ability_paladin_crusader_comet_Description"			"Стихия: <font color=ELEMENT_HOLY>Свет</font><br>Paladin поднимается к небесам, после чего с яростью бури приземляется в указанную точку, нанося урон всем задетым врагам в точке приземления."
     	"DOTA_Tooltip_ability_paladin_crusader_comet_cast_range"			"ДАЛЬНОСТЬ ПРИМЕНЕНИЯ:"
     	"DOTA_Tooltip_ability_paladin_crusader_comet_base_damage"			"УРОН:"
     	"DOTA_Tooltip_ability_paladin_crusader_comet_damage_from_str"		"ДОП. УРОН, МНОЖИТЕЛЬ ОТ СИЛЫ"
@@ -250,7 +250,7 @@
     	"DOTA_Tooltip_modifier_paladin_heal_on_lethal_cooldown"				"Руна [E1] Devotion перезаряжается"
 
   		"DOTA_Tooltip_ability_paladin_rune_e_2_arcana2"						"[E2] Benediction"
-    	"DOTA_Tooltip_ability_paladin_rune_e_2_arcana2_Description"			"Каждый % от усиления стихии <font color=\"#F6FFB5\">Света</font> даёт бонус к базовому урону."
+    	"DOTA_Tooltip_ability_paladin_rune_e_2_arcana2_Description"			"Каждый % от усиления стихии <font color=ELEMENT_HOLY>Света</font> даёт бонус к базовому урону."
     	"DOTA_Tooltip_ability_paladin_rune_e_2_arcana2_property_one"		"Доп. урон, множитель от усиления Света"
     	"DOTA_Tooltip_ability_paladin_rune_e_2_arcana2_suffix"				"x"
 
@@ -260,8 +260,8 @@
     	"DOTA_Tooltip_ability_paladin_rune_e_3_arcana2_suffix"				" сек."
 
   		"DOTA_Tooltip_ability_paladin_rune_e_4_arcana2"						"[E4] Spirit of Resolution"
-    	"DOTA_Tooltip_ability_paladin_rune_e_4_arcana2_Description"			"Показатель Духа увеличивает урон <font color=\"#F6FFB5\">Света</font> и Пробитие Магической Защиты."
-    	"DOTA_Tooltip_ability_paladin_rune_e_4_arcana2_property_one"		"Урон <font color=\"#F6FFB5\">Света</font>"
+    	"DOTA_Tooltip_ability_paladin_rune_e_4_arcana2_Description"			"Показатель Духа увеличивает урон <font color=ELEMENT_HOLY>Света</font> и Пробитие Магической Защиты."
+    	"DOTA_Tooltip_ability_paladin_rune_e_4_arcana2_property_one"		"Урон <font color=ELEMENT_HOLY>Света</font>"
     	"DOTA_Tooltip_ability_paladin_rune_e_4_arcana2_suffix"				"% от Духа"
         "DOTA_Tooltip_ability_paladin_rune_e_4_arcana2_property_two"        "Пробитие Магической Защиты"
         "DOTA_Tooltip_ability_paladin_rune_e_4_arcana2_suffix_two"          " за Дух"
@@ -314,7 +314,7 @@
         "item_rpc_paladin_glyph_4_2_description"                "@Ability2 имеет <% PALADIN_GLYPH_4_2_CAST_POINT %> время каста и толкает вперед."
 
         "DOTA_Tooltip_ability_item_rpc_paladin_glyph_5_2"       "[T5-2] Glyph of Penitence"
-        "item_rpc_paladin_glyph_5_2_description"                "@Ability4 могут атаковать, нанося при ударах чистый урон с элементом <font color=\"#F6FFB5\">Света</font> в размере <% PALADIN_GLYPH_5_2_ATTACK_MULT %>x от атаки Паладина."
+        "item_rpc_paladin_glyph_5_2_description"                "@Ability4 могут атаковать, нанося при ударах чистый урон с элементом <font color=ELEMENT_HOLY>Света</font> в размере <% PALADIN_GLYPH_5_2_ATTACK_MULT %>x от атаки Паладина."
 
         "DOTA_Tooltip_ability_item_rpc_paladin_glyph_6_2"       "[T6-2] Glyph of Magic Protection"
         "item_rpc_paladin_glyph_6_2_description"                "Магическая Защита увеличивается на <% PALADIN_GLYPH_6_2_MAGIC_ARMOR_PCT %>%."

@@ -1,6 +1,6 @@
 		//Abilities
 		"DOTA_Tooltip_ability_moon_shroud"								"Moon Shroud"
-		"DOTA_Tooltip_ability_moon_shroud_Description"					"Стихия: <font color=\"#C25DFC\">Космос</font><br>Astral Ranger создаёт прямо перед собой облако лунной пыли. Враги находящиеся внутри пыли замедляются, не могут попасть по цели, а также получают урон."
+		"DOTA_Tooltip_ability_moon_shroud_Description"					"Стихия: <font color=ELEMENT_COSMOS>Космос</font><br>Astral Ranger создаёт прямо перед собой облако лунной пыли. Враги находящиеся внутри пыли замедляются, не могут попасть по цели, а также получают урон."
 		"DOTA_Tooltip_ability_moon_shroud_Lore"							""
 		"DOTA_Tooltip_ability_moon_shroud_duration"						"ДЛИТЕЛЬНОСТЬ:"
 		"DOTA_Tooltip_ability_moon_shroud_damage"						"УРОН/СЕК"
@@ -43,7 +43,7 @@
     	"DOTA_Tooltip_modifier_astral_rune_q_4_visible_Description"		"Урон увеличен"
 		
 		"DOTA_Tooltip_ability_split_shot"								"Split Shot"
-		"DOTA_Tooltip_ability_split_shot_Description"					"Стихия: <font color=\"#DDDDDD\">Космос</font><br>Astral Ranger натягивает тетиву в течение 0.8 сек, после чего выпускает 15 стрел веером прямо перед собой. Действует на цели с иммунитетом к магии, но не наносит урона."
+		"DOTA_Tooltip_ability_split_shot_Description"					"Стихия: <font color=ELEMENT_COSMOS>Космос</font><br>Astral Ranger натягивает тетиву в течение 0.8 сек, после чего выпускает 15 стрел веером прямо перед собой. Действует на цели с иммунитетом к магии, но не наносит урона."
 		"DOTA_Tooltip_ability_split_shot_Lore"							""
 		"DOTA_Tooltip_ability_split_shot_damage"						"УРОН КАЖДОЙ СТРЕЛОЙ:"
     	"DOTA_Tooltip_ability_split_shot_range"							"РАДИУС:"
@@ -62,7 +62,7 @@
     	"DOTA_Tooltip_ability_astral_rune_w_2_suffix"					"%"
 		
 		"DOTA_Tooltip_ability_astral_rune_w_3"							"[W3] Empyral Arrows"
-    	"DOTA_Tooltip_ability_astral_rune_w_3_Description"				"Каждая стрела, выпущенная умением @Ability2 с 20% шансом может быть зачарована, тем самым нанесёт дополнительный стихийный урон <font color=\"#C25DFC\">Космоса</font>."
+    	"DOTA_Tooltip_ability_astral_rune_w_3_Description"				"Каждая стрела, выпущенная умением @Ability2 с 20% шансом может быть зачарована, тем самым нанесёт дополнительный стихийный урон <font color=ELEMENT_COSMOS>Космоса</font>."
     	"DOTA_Tooltip_ability_astral_rune_w_3_property_one"				"Доп. урон"
     	"DOTA_Tooltip_ability_astral_rune_w_3_suffix"					"%"
 		
@@ -75,7 +75,7 @@
     	"DOTA_Tooltip_modifier_astral_d_b_visible_Description"			"Astral Ranger наносит больше урона"
 		
 		"DOTA_Tooltip_ability_star_blink"								"Astral Rift"
-		"DOTA_Tooltip_ability_star_blink_Description"					"Стихия: <font color=\"#C25DFC\">Космос</font><br>В указанной точке появляется звезда, которая оглушает всех врагов. Через 2 секунды Astral Ranger телепортируется к звезде."
+		"DOTA_Tooltip_ability_star_blink_Description"					"Стихия: <font color=ELEMENT_COSMOS>Космос</font><br>В указанной точке появляется звезда, которая оглушает всех врагов. Через 2 секунды Astral Ranger телепортируется к звезде."
 		"DOTA_Tooltip_ability_star_blink_Lore"							""
 		"DOTA_Tooltip_ability_star_blink_star_range"					"ДАЛЬНОСТЬ ПРИМЕНЕНИЯ:"
     	"DOTA_Tooltip_ability_star_blink_star_stun_duration"			"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
@@ -112,10 +112,10 @@
 		"DOTA_Tooltip_modifier_astral_c_c_visible_description" 			"<% ASTRAL_RANGER_E3_DAMAGE_REDUCTION %>%% снижение урона, бонус к Магической Зашите. Каждые 0.5 секунды снимаются эффекты оглушения и безмолвия."
 		
 		"DOTA_Tooltip_ability_astral_rune_e_4"							"[E4] Shooting Star"
-    	"DOTA_Tooltip_ability_astral_rune_e_4_Description"				"Пассивно дарует дополнительные атрибуты и увеличивает стихийный урон <font color=\"#C25DFC\">Космоса</font>."
+    	"DOTA_Tooltip_ability_astral_rune_e_4_Description"				"Пассивно дарует дополнительные атрибуты и увеличивает стихийный урон <font color=ELEMENT_COSMOS>Космоса</font>."
     	"DOTA_Tooltip_ability_astral_rune_e_4_property_one"				"Доп. атрибутов"
     	"DOTA_Tooltip_ability_astral_rune_e_4_suffix"					""
-    	"DOTA_Tooltip_ability_astral_rune_e_4_property_two"				"Доп. урон <font color=\"#C25DFC\">Космоса</font>"
+    	"DOTA_Tooltip_ability_astral_rune_e_4_property_two"				"Доп. урон <font color=ELEMENT_COSMOS>Космоса</font>"
     	"DOTA_Tooltip_ability_astral_rune_e_4_suffix_two"				"%"
 		
 		"DOTA_Tooltip_modifier_astral_d_c_visible"						"Shooting Star"
@@ -125,7 +125,7 @@
     	"DOTA_Tooltip_modifier_astral_rune_e_4_visible_Description"		"Дополнительные очки атрибутов, урон Космоса увеличен"
 		
 		"DOTA_Tooltip_ability_ranger_aoe_explosion"						"Celestial Burst"
-		"DOTA_Tooltip_ability_ranger_aoe_explosion_Description"			"Стихия: <font color=\"#C25DFC\">Космос</font><br>Astral Ranger концентрируют всю свою силу и призывает из под земли обломки павшей звезды, нанося урон и подбрасывая врагов."
+		"DOTA_Tooltip_ability_ranger_aoe_explosion_Description"			"Стихия: <font color=ELEMENT_COSMOS>Космос</font><br>Astral Ranger концентрируют всю свою силу и призывает из под земли обломки павшей звезды, нанося урон и подбрасывая врагов."
 		"DOTA_Tooltip_ability_ranger_aoe_explosion_Lore"				""
 		"DOTA_Tooltip_ability_ranger_aoe_explosion_damage"				"УРОН:"
     	"DOTA_Tooltip_ability_ranger_aoe_explosion_duration"			"ДЛИТЕЛЬНОСТЬ ПОДБРАСЫВАНИЯ:"
@@ -237,7 +237,7 @@
     	"property_astral_arcana3_description"								"Заменяет (R) @Ability4 и все соответствующие руны на (R) Crystal Arrow."
 
     	"DOTA_Tooltip_ability_crystal_arrow"						"Crystal Arrow"
-    	"DOTA_Tooltip_ability_crystal_arrow_Description"			"Стихия: <font color=\"#87D9FF\">Лед</font> / <font color=\"#C25DFC\">Космос</font><br>Astral Ranger выхватывает из колчана ледяную стрелу и целится в небо. По завершении прочтения, выпускает благославленную Азалией стрелу в указанную точку, нанося урон в небольшой области."
+    	"DOTA_Tooltip_ability_crystal_arrow_Description"			"Стихия: <font color=ELEMENT_ICE>Лед</font> / <font color=ELEMENT_COSMOS>Космос</font><br>Astral Ranger выхватывает из колчана ледяную стрелу и целится в небо. По завершении прочтения, выпускает благославленную Азалией стрелу в указанную точку, нанося урон в небольшой области."
     	"DOTA_Tooltip_ability_crystal_arrow_damage"					"УРОН:"
 
     	"DOTA_Tooltip_ability_astral_rune_r_1_arcana3"						"[R1] Azalea's Window"
@@ -329,7 +329,7 @@
         "item_rpc_astral_glyph_6_2_description"                "Стандартные атаки имеют <% ASTRAL_RANGER_GLYPH_6_2_FREEZE_CHANCE %>% шанс обездвижить противника на <% ASTRAL_RANGER_GLYPH_6_2_FREEZE_DURATION %> сек."
 
         "DOTA_Tooltip_ability_item_rpc_astral_glyph_7_2"       "[T7-2] Glyph of Inner Quasar"
-        "item_rpc_astral_glyph_7_2_description"                "Каждая руна 4го ряда дополнительно увеличивает урон <font color=\"#C25DFC\">Космоса</font> на <% ASTRAL_RANGER_GLYPH_7_2_COSMIC_DMG_PER_T4 %>%."
+        "item_rpc_astral_glyph_7_2_description"                "Каждая руна 4го ряда дополнительно увеличивает урон <font color=ELEMENT_COSMOS>Космоса</font> на <% ASTRAL_RANGER_GLYPH_7_2_COSMIC_DMG_PER_T4 %>%."
 		
 		//Weapons
 		"astral_weapon_01"			"Mithril String Bow"

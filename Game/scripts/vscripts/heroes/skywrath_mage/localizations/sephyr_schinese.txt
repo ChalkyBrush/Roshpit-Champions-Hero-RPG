@@ -1,6 +1,6 @@
 		//Abilities
 		"DOTA_Tooltip_ability_sephyr_lightbomb"										"神圣之光"
-    	"DOTA_Tooltip_ability_sephyr_lightbomb_Description"							"元素： <font color=\"#F6FFB5\">圣</font> / <font color=\"#7AE2A7\">风</font><br> 鼓翼升入云霄，并随着苍穹之怒一并降下，0.8 秒后，希芙尔在目标点震碎神圣光弹，眩晕并伤害范围内的敌人。<br>在风舞状态下施放神圣之光将使希芙尔转向施法方向。"
+    	"DOTA_Tooltip_ability_sephyr_lightbomb_Description"							"元素： <font color=ELEMENT_HOLY>圣</font> / <font color=ELEMENT_WIND>风</font><br> 鼓翼升入云霄，并随着苍穹之怒一并降下，0.8 秒后，希芙尔在目标点震碎神圣光弹，眩晕并伤害范围内的敌人。<br>在风舞状态下施放神圣之光将使希芙尔转向施法方向。"
     	"DOTA_Tooltip_ability_sephyr_lightbomb_cast_range"							"施法范围："
     	"DOTA_Tooltip_ability_sephyr_lightbomb_base_damage"							"伤害："
     	"DOTA_Tooltip_ability_sephyr_lightbomb_int_damage"							"额外伤害为智力值的倍数："
@@ -20,7 +20,7 @@
     	"DOTA_Tooltip_modifier_lightbomb_magic_armor_loss_Description"					"魔甲降低"
 
     	"DOTA_Tooltip_ability_sephyr_rune_q_3"									"[Q3] 明澈之火"
-    	"DOTA_Tooltip_ability_sephyr_rune_q_3_Description"						"每次施放神圣之光后都将获得多层 明澈之火 的buff。拥有超过 10 层 明澈之火 buff后，神圣之光可以自由释放而不触发冷却，自由释放的神圣之光每次将消耗 10 层 明澈之火 buff，并且不增加新的明澈之火层数。每一层明澈之火增加 <font color=\"#F6FFB5\">圣</font> 伤害。"
+    	"DOTA_Tooltip_ability_sephyr_rune_q_3_Description"						"每次施放神圣之光后都将获得多层 明澈之火 的buff。拥有超过 10 层 明澈之火 buff后，神圣之光可以自由释放而不触发冷却，自由释放的神圣之光每次将消耗 10 层 明澈之火 buff，并且不增加新的明澈之火层数。每一层明澈之火增加 <font color=ELEMENT_HOLY>圣</font> 伤害。"
     	"DOTA_Tooltip_ability_sephyr_rune_q_3_property_one"						"每次获得明澈之火层数"
     	"DOTA_Tooltip_ability_sephyr_rune_q_3_suffix"							""
 	  "DOTA_Tooltip_ability_sephyr_rune_q_3_property_two"                     "圣元素伤害提高"
@@ -30,12 +30,12 @@
     	"DOTA_Tooltip_modifier_lightbomb_freecast_Description"					"10 层将免除神圣之火冷却"
 
     	"DOTA_Tooltip_ability_sephyr_rune_q_4"									"[Q4] 晴明烈性"
-    	"DOTA_Tooltip_ability_sephyr_rune_q_4_Description"						" <font color=\"#F6FFB5\">圣</font> 元素伤害将同时提高攻击力。"
+    	"DOTA_Tooltip_ability_sephyr_rune_q_4_Description"						" <font color=ELEMENT_HOLY>圣</font> 元素伤害将同时提高攻击力。"
     	"DOTA_Tooltip_ability_sephyr_rune_q_4_property_one"						"攻击力提高 %"
     	"DOTA_Tooltip_ability_sephyr_rune_q_4_suffix"							"x 圣元素伤害"
 		
 		"DOTA_Tooltip_ability_piercing_gale"										"风之触"
-    	"DOTA_Tooltip_ability_piercing_gale_Description"							"元素： <font color=\"#7AE2A7\">风</font><br>希芙尔在面前召唤一束锋利的疾风。"
+    	"DOTA_Tooltip_ability_piercing_gale_Description"							"元素： <font color=ELEMENT_WIND>风</font><br>希芙尔在面前召唤一束锋利的疾风。"
     	"DOTA_Tooltip_ability_piercing_gale_damage"									"伤害："
 		
 		"DOTA_Tooltip_ability_sephyr_rune_w_1"									"[W1] 明眸"
@@ -54,7 +54,7 @@
     	"DOTA_Tooltip_ability_sephyr_rune_w_3_suffix"								"%"
 
     	"DOTA_Tooltip_ability_sephyr_rune_w_4"									"[W4] 宇宙风"
-    	"DOTA_Tooltip_ability_sephyr_rune_w_4_Description"						"提高所有<font color=\"#7AE2A7\">风</font> 元素的伤害。"
+    	"DOTA_Tooltip_ability_sephyr_rune_w_4_Description"						"提高所有<font color=ELEMENT_WIND>风</font> 元素的伤害。"
     	"DOTA_Tooltip_ability_sephyr_rune_w_4_property_one"						"风元素伤害提高"
     	"DOTA_Tooltip_ability_sephyr_rune_w_4_suffix"							"%"
 		
@@ -143,7 +143,7 @@
     	"property_sephyr_arcana1_description"								"用冰霜飓风替换 @Ability2 及其全部符文。"
 
     	"DOTA_Tooltip_ability_icewind_gale"						"冰霜飓风"
-    	"DOTA_Tooltip_ability_icewind_gale_Description"			"元素: <font color=\"#87D9FF\">冰</font> / <font color=\"#7AE2A7\">风</font><br>希芙尔在他面前制造一股凛冽的冰霜飓风。飓风使敌人减速4秒钟，每一股飓风都有15%的概率造成暴击伤害。"
+    	"DOTA_Tooltip_ability_icewind_gale_Description"			"元素: <font color=ELEMENT_ICE>冰</font> / <font color=ELEMENT_WIND>风</font><br>希芙尔在他面前制造一股凛冽的冰霜飓风。飓风使敌人减速4秒钟，每一股飓风都有15%的概率造成暴击伤害。"
     	"DOTA_Tooltip_ability_icewind_gale_damage"				"基础伤害:"
     	"DOTA_Tooltip_ability_icewind_gale_as_loss"				"攻速降低:"
     	"DOTA_Tooltip_ability_icewind_gale_ms_loss"				"移速降低:"
@@ -171,7 +171,7 @@
     	"DOTA_Tooltip_modifier_icewind_shield_Description"						"吸收伤害"		
 
     	"DOTA_Tooltip_ability_sephyr_rune_w_4_arcana1"							"[W4] 冰风宗师"
-    	"DOTA_Tooltip_ability_sephyr_rune_w_4_arcana1_Description"				"提高所有 <font color=\"#7AE2A7\">风</font> 元素伤害。"
+    	"DOTA_Tooltip_ability_sephyr_rune_w_4_arcana1_Description"				"提高所有 <font color=ELEMENT_WIND>风</font> 元素伤害。"
     	"DOTA_Tooltip_ability_sephyr_rune_w_4_arcana1_property_one"				"风元素伤害提高"
     	"DOTA_Tooltip_ability_sephyr_rune_w_4_arcana1_suffix"					"% 每10点全属性值"
 	
@@ -190,7 +190,7 @@
         "DOTA_Tooltip_ability_sephyr_hurricane_cooldown_base"         "基础冷却时间:"
 
         "DOTA_Tooltip_ability_sephyr_rune_q_1_arcana2"                      "[Q1] 疾风法则"
-        "DOTA_Tooltip_ability_sephyr_rune_q_1_arcana2_Description"          "释放风暴降临之后的 <% SEPHYR_ARCANA2_Q1_DURATION %> 秒内获得额外的移动速度，最大移动速度和敏捷值. 此buff生效期间, 普通攻击造成额外 <font color=\"#7AE2A7\">风</font> 属性魔法伤害"
+        "DOTA_Tooltip_ability_sephyr_rune_q_1_arcana2_Description"          "释放风暴降临之后的 <% SEPHYR_ARCANA2_Q1_DURATION %> 秒内获得额外的移动速度，最大移动速度和敏捷值. 此buff生效期间, 普通攻击造成额外 <font color=ELEMENT_WIND>风</font> 属性魔法伤害"
         "DOTA_Tooltip_ability_sephyr_rune_q_1_arcana2_property_one"         "额外移动速度和最大移动速度"
         "DOTA_Tooltip_ability_sephyr_rune_q_1_arcana2_suffix"               ""      
         "DOTA_Tooltip_ability_sephyr_rune_q_1_arcana2_property_two"         "额外敏捷值"

@@ -1,6 +1,6 @@
         //Abilities
         "DOTA_Tooltip_ability_chernobog_charons_claw"                           "卡戎之爪"
-        "DOTA_Tooltip_ability_chernobog_charons_claw_Description"               "元素： <font color=\"#5B648C\">恶魔</font> / <font color=\"#7F4F84\">暗</font><br>沿着路径创造一條深海之夜的鬼刃，敌人在鬼刃的路径中会减少移动速度和攻击力。暗夜魔王将增加移动速度并且具有相位移动的能力。"
+        "DOTA_Tooltip_ability_chernobog_charons_claw_Description"               "元素： <font color=ELEMENT_DEMON>恶魔</font> / <font color=ELEMENT_SHADOW>暗</font><br>沿着路径创造一條深海之夜的鬼刃，敌人在鬼刃的路径中会减少移动速度和攻击力。暗夜魔王将增加移动速度并且具有相位移动的能力。"
         "DOTA_Tooltip_ability_chernobog_charons_claw_range"                     "路径长度："
         "DOTA_Tooltip_ability_chernobog_charons_claw_move_and_attack_slow"      "敌人移动速度和攻击伤害减少："
         "DOTA_Tooltip_ability_chernobog_charons_claw_move_speed_increase"       "暗夜魔王移动速度提高"
@@ -39,7 +39,7 @@
     	"DOTA_Tooltip_ability_chernobog_rune_q_4_suffix_three"					"%"
 
         "DOTA_Tooltip_ability_chernobog_demon_hunter"                           "恶魔猎人"
-        "DOTA_Tooltip_ability_chernobog_demon_hunter_Description"               "元素： <font color=\"#5B648C\">恶魔</font><br>暗夜魔王进入猎人模式使他的攻击额外造成基于攻击力的魔法伤害。猎人模式下暗夜魔王所受到的伤害不会超过他自身最大血量的 a%，受到的伤害溢出时也仅扣除暗夜魔王的一定魔法值。但是在猎人状态下血量恢复关闭。"
+        "DOTA_Tooltip_ability_chernobog_demon_hunter_Description"               "元素： <font color=ELEMENT_DEMON>恶魔</font><br>暗夜魔王进入猎人模式使他的攻击额外造成基于攻击力的魔法伤害。猎人模式下暗夜魔王所受到的伤害不会超过他自身最大血量的 a%，受到的伤害溢出时也仅扣除暗夜魔王的一定魔法值。但是在猎人状态下血量恢复关闭。"
         "DOTA_Tooltip_ability_chernobog_demon_hunter_mana_drain_per_attack"                     "猎人状态下每次攻击汲取自身魔法值："
         "DOTA_Tooltip_ability_chernobog_demon_hunter_health_cost_percent"                       "猎人状态下每次攻击汲取自身生命值："
         "DOTA_Tooltip_ability_chernobog_demon_hunter_max_damage_taken_percent_of_health"        "受到的伤害不超过最大血量值的 % ："
@@ -144,7 +144,7 @@
         "DOTA_Tooltip_modifier_charons_claw_rune_q_1_effect_Description"        "受到卡戎之爪的影响，降低护甲和魔甲"
         
         "DOTA_Tooltip_ability_chernobog_rune_r_1"                               "[R1] 恶魔之爪"
-       "DOTA_Tooltip_ability_chernobog_rune_r_1_Description"					"提高所有 <font color=\"#5B648C\">恶魔</font> 元素伤害."
+       "DOTA_Tooltip_ability_chernobog_rune_r_1_Description"					"提高所有 <font color=ELEMENT_DEMON>恶魔</font> 元素伤害."
     	"DOTA_Tooltip_ability_chernobog_rune_r_1_property_one"					"恶魔元素伤害提高"
     	"DOTA_Tooltip_ability_chernobog_rune_r_1_suffix"						"%"
 
@@ -211,7 +211,7 @@
         "DOTA_Tooltip_ability_chernobog_rune_r_3_arcana1_suffix_two"                "%"
 
         "DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1"                       "[R4] 黑暗化身"
-        "DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_Description"           "增加恶魔霸权的持续时间，并且提高所有<font color=\"#5B648C\">恶魔</font> 元素的伤害。"
+        "DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_Description"           "增加恶魔霸权的持续时间，并且提高所有<font color=ELEMENT_DEMON>恶魔</font> 元素的伤害。"
         "DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_property_one"          "持续时间延长："
         "DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_suffix"                " 秒"
         "DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_property_two"          "恶魔元素伤害提高："
@@ -254,7 +254,7 @@
         "DOTA_Tooltip_modifier_demonflight_b_c_visible_Description"             "根据周围的敌人数量提高攻击力"    
 
         "DOTA_Tooltip_ability_chernobog_rune_e_3_arcana2"                       "[E3] 撒旦·低语"
-        "DOTA_Tooltip_ability_chernobog_rune_e_3_arcana2_Description"           "恶魔猎人的 <font color=\"#5B648C\">恶魔</font> 元素伤害提高将提高 基础攻击力。"
+        "DOTA_Tooltip_ability_chernobog_rune_e_3_arcana2_Description"           "恶魔猎人的 <font color=ELEMENT_DEMON>恶魔</font> 元素伤害提高将提高 基础攻击力。"
         "DOTA_Tooltip_ability_chernobog_rune_e_3_arcana2_property_one"          "基础攻击力提高"
         "DOTA_Tooltip_ability_chernobog_rune_e_3_arcana2_suffix"                " 每 1% 恶魔元素伤害提高"
 

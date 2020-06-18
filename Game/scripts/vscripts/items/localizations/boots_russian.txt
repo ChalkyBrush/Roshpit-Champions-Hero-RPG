@@ -42,7 +42,7 @@
     	"item_rpc_arcanys_slipper_ruby1"									"Каждый хлопок наносит @ruby_property1% урона от Силы Атаки героя в <% ITEM_RPC_ARCANYS_SLIPPER_RUBY_RADIUS %> радиусе"
     	"item_rpc_arcanys_slipper_emerald1"									"Затраченная Мана также увеличивает Пробитие Магической защиты, @emerald_property1 за каждую единицу полученной атаки от основного эффекта"
     	"item_rpc_arcanys_slipper_sapphire1"									"Увеличивает запас Маны на @sapphire_property1"
-    	"item_rpc_arcanys_slipper_amethyst1"									"Повышает Интеллект на @amethyst_property1 и даёт @amethyst_property2% урона элемента <font color=\"#E1A2E8\">Тайны</font>"
+    	"item_rpc_arcanys_slipper_amethyst1"									"Повышает Интеллект на @amethyst_property1 и даёт @amethyst_property2% урона элемента <font color=ELEMENT_ARCANE>Тайны</font>"
 
     	"DOTA_Tooltip_ability_item_rpc_bloodstone_boots"								"Bloodstone Boots"
 
@@ -76,7 +76,7 @@
     	"item_rpc_blue_dragon_greaves_ruby1"								"Прочтение [E] применяет Танец Драконов на @ruby_property1 сек. Танец Драконов даёт @ruby_property2 Базового Урона Атаки герою"
     	"item_rpc_blue_dragon_greaves_emerald1"								"Танец Драконов увеличивает Ловкость и Дух на @emerald_property1"
     	"item_rpc_blue_dragon_greaves_sapphire1"								"Увеличивает длительность эффекта на @sapphire_property1%. Танец Драконов увеличивает Скорость Атаки на @sapphire_property2"
-    	"item_rpc_blue_dragon_greaves_amethyst1"								"Увеличивает урон <font color=\"#3289C7\">Дракона</font> и Урон Предметов на @amethyst_property1%"
+    	"item_rpc_blue_dragon_greaves_amethyst1"								"Увеличивает урон <font color=ELEMENT_DRAGON>Дракона</font> и Урон Предметов на @amethyst_property1%"
 
     	"DOTA_Tooltip_ability_item_rpc_boots_of_ashara"									"Boots of Ashara"
 
@@ -282,7 +282,7 @@
 
 		"item_rpc_ice_floe_slippers_ruby1"	"Увеличивает максимальную дистанцию на @ruby_property1 и герой может использовать способность в Обездвиживании"
 		"item_rpc_ice_floe_slippers_emerald1"	"Увеличивает руну [E4] на @emerald_property1. Скорость скольжения повышена на @emerald_property2%"
-		"item_rpc_ice_floe_slippers_sapphire1"	"Увеличивает урон <font color=\"#87D9FF\">Льда</font> Elemental и Базовый Урон Способностей на @sapphire_property1%, а также скорость скольжения на @sapphire_property2%"
+		"item_rpc_ice_floe_slippers_sapphire1"	"Увеличивает урон <font color=ELEMENT_ICE>Льда</font> Elemental и Базовый Урон Способностей на @sapphire_property1%, а также скорость скольжения на @sapphire_property2%"
 		"item_rpc_ice_floe_slippers_amethyst1"	"Когда активируется скольжение, накладывает на героя щит, поглощающий @amethyst_property1 порций Магического или Чистого урона в течение <% ITEM_RPC_ICE_FLOE_SLIPPERS_MAGIC_SHIELD_DURATION %> сек."
 
 		"DOTA_Tooltip_modifier_ice_floe_amethyst_shield"	"Ice Floe (Amethyst)"
@@ -319,7 +319,7 @@
     	"item_rpc_moon_tech_runners_ruby1"								"Противники в облаке пыли имеют сниженную на @ruby_property1 скорость атаки и получают урон @ruby_property2% от Силы Атаки героя каждые <% ITEM_RPC_MOON_TECH_RUNNERS_RUBY_INTERVAL %> сек"
     	"item_rpc_moon_tech_runners_emerald1"								"Приказ передвижения внутри облака телепортирует героя в эту точку и сбрасывает летящие в него снаряды. Перезарядка @emerald_property1 сек."
     	"item_rpc_moon_tech_runners_sapphire1"								"Противники в облаке пыли имеют сниженную на @sapphire_property1 Магическую Защиту и дополнительный @sapphire_property2% шанс промахнуться атакой"
-    	"item_rpc_moon_tech_runners_amethyst1"								"Увеличивает Урон Предметов и урон <font color=\"#C25DFC\">Космоса</font> на @amethyst_property1%"
+    	"item_rpc_moon_tech_runners_amethyst1"								"Увеличивает Урон Предметов и урон <font color=ELEMENT_COSMOS>Космоса</font> на @amethyst_property1%"
 
         "DOTA_Tooltip_modifier_moon_tech_emerald_cd"    "Moon Tech Runners (Emerald) Перезарядка"
 
@@ -523,7 +523,7 @@
         "DOTA_Tooltip_modifier_temporal_warp_cooldown"      "Time Warp Cooldown"
 
         "item_rpc_temporal_warp_boots_ruby1"                                "Прочтение [E] возращает Ману, Здоровье, Перезарядки способностей (кроме [E]) а также позицию героя на @ruby_property1 секунды назад. Перезарядка <% ITEM_RPC_TEMPORAL_WARP_BOOTS_RUBY_COOLDOWN %> сек."
-        "item_rpc_temporal_warp_boots_emerald1"                             "Увеличивает Урон Предметов и урон <font color=\"#B5FFB7\">Времени</font> на @emerald_property1%"
+        "item_rpc_temporal_warp_boots_emerald1"                             "Увеличивает Урон Предметов и урон <font color=ELEMENT_TIME>Времени</font> на @emerald_property1%"
         "item_rpc_temporal_warp_boots_sapphire1"                                "Уменьшает время подготовки для телепортации на @sapphire_property1 сек"
         "item_rpc_temporal_warp_boots_amethyst1"                                "Флаг возрождения обеспечивает зону видимости @amethyst_property1 в течение @amethyst_property2 минут"
 
@@ -534,7 +534,7 @@
         "DOTA_Tooltip_modifier_rpc_terrasic_lava_boot_effect"   "Magma Tread"
         "DOTA_Tooltip_modifier_rpc_terrasic_lava_boot_effect_Description"   "Урон атаки и скорость атаки повышены."
 
-        "item_rpc_terrasic_lava_boots_ruby1"                                "Увеличивает Урон Предметов и урон <font color=\"#EF4126\">Огня</font> на @ruby_property1%"
+        "item_rpc_terrasic_lava_boots_ruby1"                                "Увеличивает Урон Предметов и урон <font color=ELEMENT_FIRE>Огня</font> на @ruby_property1%"
         "item_rpc_terrasic_lava_boots_emerald1"                             "Прочтение [E] вызывает пламя дальностью @emerald_property1 <% ITEM_RPC_TERRASIC_LAVA_BOOTS_EMERALD_FLAME_RANGE %> из, так сказать, задней части героя, наносящее @emerald_property2% от Силы Атаки героя"
         "item_rpc_terrasic_lava_boots_sapphire1"                                "Каждые <% ITEM_RPC_TERRASIC_LAVA_BOOTS_SAPPHIRE_DISTANCE %> пройденной дистанции вызывает огненного демона с активным эффектом Magma Tread. Демон имеет <% ITEM_RPC_TERRASIC_LAVA_BOOTS_SAPPHIRE_ATTACK_RANGE %> радиус атаки, @sapphire_property1% от Здоровья героя и @sapphire_property2% от Атаки героя. Продолжительность жизни <% ITEM_RPC_TERRASIC_LAVA_BOOTS_SAPPHIRE_DURATION %> сек."
         "item_rpc_terrasic_lava_boots_amethyst1"                                "Прочтение [E] применяет активный эффект на @amethyst_property1 сек"

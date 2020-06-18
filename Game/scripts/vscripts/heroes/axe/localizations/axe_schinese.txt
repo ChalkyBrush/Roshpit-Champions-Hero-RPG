@@ -1,5 +1,5 @@
 	"DOTA_Tooltip_ability_red_general_ability_base_q_skull_basher"							"骷髅锤"
-	"DOTA_Tooltip_ability_red_general_ability_base_q_skull_basher_Description"			"元素： <font color=\"#DDDDDD\">普通</font><br>跳跃至目标地点，获得骷髅锤buff。buff持续时间内每次攻击都可眩晕范围内敌人，造成溅射伤害，并提高攻击速度。<br>飞跃时骷髅锤、复原、狂暴之怒的持续时间将刷新并暂停。"
+	"DOTA_Tooltip_ability_red_general_ability_base_q_skull_basher_Description"			"元素： <font color=ELEMENT_NORMAL>普通</font><br>跳跃至目标地点，获得骷髅锤buff。buff持续时间内每次攻击都可眩晕范围内敌人，造成溅射伤害，并提高攻击速度。<br>飞跃时骷髅锤、复原、狂暴之怒的持续时间将刷新并暂停。"
 	"DOTA_Tooltip_ability_red_general_ability_base_q_skull_basher_Lore"					""
 	"DOTA_Tooltip_ability_red_general_ability_base_q_skull_basher_attack_speed"			"攻击速度增加:"
 	"DOTA_Tooltip_ability_red_general_ability_base_q_skull_basher_bolt_damage"			"溅射伤害:"
@@ -40,7 +40,7 @@
 		
 		
 		"DOTA_Tooltip_ability_red_general_ability_base_w_backshock"                                "冲击波"
-        "DOTA_Tooltip_ability_red_general_ability_base_w_backshock_Description"                    "元素： <font color=\"#DDDDDD\">普通</font><br>向上将身后释放3道冲击波。"
+        "DOTA_Tooltip_ability_red_general_ability_base_w_backshock_Description"                    "元素： <font color=ELEMENT_NORMAL>普通</font><br>向上将身后释放3道冲击波。"
         "DOTA_Tooltip_ability_red_general_ability_base_w_backshock_Lore"                           ""
         "DOTA_Tooltip_ability_red_general_ability_base_w_backshock_main_damage"                    "每道伤害："
         "DOTA_Tooltip_ability_red_general_ability_base_w_backshock_speed"                          "冲击波速度："
@@ -116,7 +116,7 @@
         "DOTA_Tooltip_modifier_axe_rune_e_4_furnace_Description"        "Casting Spur Shock unleashes charges."
  
         "DOTA_Tooltip_ability_red_general_ability_base_r_sunder"                                   "破甲"
-        "DOTA_Tooltip_ability_red_general_ability_base_r_sunder_Description"                       "元素： <font color=\"#DDDDDD\">普通</font><br>上将高擎他的武器，持续2.5秒，重击地面，造成的伤害为当前生命值的倍数。"
+        "DOTA_Tooltip_ability_red_general_ability_base_r_sunder_Description"                       "元素： <font color=ELEMENT_NORMAL>普通</font><br>上将高擎他的武器，持续2.5秒，重击地面，造成的伤害为当前生命值的倍数。"
         "DOTA_Tooltip_ability_red_general_ability_base_r_sunder_Lore"                              ""
         "DOTA_Tooltip_ability_red_general_ability_base_r_sunder_main_damage"                       "伤害为当前生命值的%："
 		

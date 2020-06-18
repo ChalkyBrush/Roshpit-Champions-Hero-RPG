@@ -1,6 +1,6 @@
 		//Abilities
 		"DOTA_Tooltip_ability_voltex_overcharge"								"过载"
-		"DOTA_Tooltip_ability_voltex_overcharge_Description"					"元素： <font color=\"#5CCDF9\">电</font><br>极大提高攻击速度，并在击中敌方单位时施加叉状闪电效果。"
+		"DOTA_Tooltip_ability_voltex_overcharge_Description"					"元素： <font color=ELEMENT_LIGHTNING>电</font><br>极大提高攻击速度，并在击中敌方单位时施加叉状闪电效果。"
 		"DOTA_Tooltip_ability_voltex_overcharge_Lore"						""
 		"DOTA_Tooltip_ability_voltex_overcharge_attack_speed"				"攻击速度增加："
 		"DOTA_Tooltip_ability_voltex_overcharge_proc_targets"				"叉状最多目标："
@@ -39,7 +39,7 @@
         "DOTA_Tooltip_modifier_voltex_q_4_paralyze_Description"             "被麻痹"
 		
 		"DOTA_Tooltip_ability_voltex_static"									"静电"
-		"DOTA_Tooltip_ability_voltex_static_Description"						"元素： <font color=\"#5CCDF9\">电</font><br>电光使者平衡她的离子，释放静电造成伤害并击退周围所有单位。"
+		"DOTA_Tooltip_ability_voltex_static_Description"						"元素： <font color=ELEMENT_LIGHTNING>电</font><br>电光使者平衡她的离子，释放静电造成伤害并击退周围所有单位。"
 		"DOTA_Tooltip_ability_voltex_static_Lore"								""
 		"DOTA_Tooltip_ability_voltex_static_damage"							"伤害："
     	"DOTA_Tooltip_ability_voltex_static_radius"							"范围："
@@ -84,14 +84,14 @@
     	"DOTA_Tooltip_modifier_voltex_d_b_debuff_Description"				"魔甲降低"
 		
 		"DOTA_Tooltip_ability_voltex_azure_leap"								"飞跃"
-		"DOTA_Tooltip_ability_voltex_azure_leap_Description"					"元素： <font color=\"#5CCDF9\">电</font><br>电光使者飞跃后重击地面，眩晕周围单位并造成伤害。"
+		"DOTA_Tooltip_ability_voltex_azure_leap_Description"					"元素： <font color=ELEMENT_LIGHTNING>电</font><br>电光使者飞跃后重击地面，眩晕周围单位并造成伤害。"
 		"DOTA_Tooltip_ability_voltex_azure_leap_Lore"							""
 		"DOTA_Tooltip_ability_voltex_azure_leap_land_stun_duration"				"眩晕持续时间"
     	"DOTA_Tooltip_ability_voltex_azure_leap_land_radius"					"范围:"
     	"DOTA_Tooltip_ability_voltex_azure_leap_land_damage"					"伤害:"
 		
 		"DOTA_Tooltip_ability_voltex_rune_e_3_heavens_charge"								"雷电充能"
-		"DOTA_Tooltip_ability_voltex_rune_e_3_heavens_charge_Description"					"元素： <font color=\"#5CCDF9\">电</font><br>传送至目标位置，对落地点附近敌人造成伤害和眩晕。使用后重新替换为飞跃技能。"
+		"DOTA_Tooltip_ability_voltex_rune_e_3_heavens_charge_Description"					"元素： <font color=ELEMENT_LIGHTNING>电</font><br>传送至目标位置，对落地点附近敌人造成伤害和眩晕。使用后重新替换为飞跃技能。"
 		"DOTA_Tooltip_ability_voltex_rune_e_3_heavens_charge_Lore"							""
 		
 		"DOTA_Tooltip_ability_voltex_rune_e_1"								"[E1] 电流印迹"
@@ -121,12 +121,12 @@
     	"DOTA_Tooltip_ability_voltex_rune_e_3_suffix_two"					""
 		
 		"DOTA_Tooltip_ability_voltex_rune_e_4"								"[E4] 飞舞闪电"
-    	"DOTA_Tooltip_ability_voltex_rune_e_4_Description"					"提高所有 <font color=\"#5CCDF9\">电</font> 元素的伤害"
+    	"DOTA_Tooltip_ability_voltex_rune_e_4_Description"					"提高所有 <font color=ELEMENT_LIGHTNING>电</font> 元素的伤害"
     	"DOTA_Tooltip_ability_voltex_rune_e_4_property_one"					"电元素伤害提高"
     	"DOTA_Tooltip_ability_voltex_rune_e_4_suffix"						"%"
 		
 		"DOTA_Tooltip_ability_voltex_static_field"									"静电场"
-		"DOTA_Tooltip_ability_voltex_static_field_Description"						"元素： <font color=\"#5CCDF9\">电</font><br>电光使者充电后驱散离子，向前方锥形区域发射电球造成伤害。每当敌人被一个闪电球击中后他们的魔甲将被降低，可以叠加。debuff持续12秒。"
+		"DOTA_Tooltip_ability_voltex_static_field_Description"						"元素： <font color=ELEMENT_LIGHTNING>电</font><br>电光使者充电后驱散离子，向前方锥形区域发射电球造成伤害。每当敌人被一个闪电球击中后他们的魔甲将被降低，可以叠加。debuff持续12秒。"
        
 		"DOTA_Tooltip_ability_voltex_static_field_Lore"							""
 		"DOTA_Tooltip_ability_voltex_static_field_damage"							"每个电球伤害："
@@ -207,7 +207,7 @@
     	"DOTA_Tooltip_modifier_voltex_lightning_dash_regen_Description"		"生命回复速度提高"
 
     	"DOTA_Tooltip_ability_voltex_rune_e_4_arcana1"								"[E4] 九霄雷霆"
-    	"DOTA_Tooltip_ability_voltex_rune_e_4_arcana1_Description"					"提高所有 <font color=\"#5CCDF9\">电</font> 元素伤害。"
+    	"DOTA_Tooltip_ability_voltex_rune_e_4_arcana1_Description"					"提高所有 <font color=ELEMENT_LIGHTNING>电</font> 元素伤害。"
     	"DOTA_Tooltip_ability_voltex_rune_e_4_arcana1_property_one"					"电元素伤害提高"
     	"DOTA_Tooltip_ability_voltex_rune_e_4_arcana1_suffix"						"%"
 

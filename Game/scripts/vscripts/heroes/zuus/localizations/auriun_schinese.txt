@@ -48,7 +48,7 @@
 	"DOTA_Tooltip_ability_auriun_rune_w_1_suffix_two" 			"x 智力"
 		
 		"DOTA_Tooltip_ability_auriun_rune_w_2"						"[W2] 神罚"
-   	"DOTA_Tooltip_ability_auriun_rune_w_2_Description"			"每10点智力增加你的治疗量，以及所有的 <font color=\"#7F4F84\">暗</font> 和 <font color=\"#F6FFB5\">圣</font> 伤害。"
+   	"DOTA_Tooltip_ability_auriun_rune_w_2_Description"			"每10点智力增加你的治疗量，以及所有的 <font color=ELEMENT_SHADOW>暗</font> 和 <font color=ELEMENT_HOLY>圣</font> 伤害。"
     	"DOTA_Tooltip_ability_auriun_rune_w_2_property_one"			"暗/圣伤害加成"
     	"DOTA_Tooltip_ability_auriun_rune_w_2_suffix"				"%"
     	"DOTA_Tooltip_ability_auriun_rune_w_2_property_two"			"治疗加成"
@@ -178,7 +178,7 @@
     	"DOTA_Tooltip_ability_auriun_rune_q_2_arcana1_suffix"					"%"
 
     	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana1"							"[Q3] 神圣复仇"
-    	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana1_Description"				"提高所有 <font color=\"#F6FFB5\">圣</font> 元素伤害。"
+    	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana1_Description"				"提高所有 <font color=ELEMENT_HOLY>圣</font> 元素伤害。"
     	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana1_property_one"				"圣元素伤害提高"
     	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana1_suffix"					"%"
 
@@ -218,7 +218,7 @@
     	"DOTA_Tooltip_ability_auriun_rune_q_2_arcana2_suffix"					"%"
 
     	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana2"							"[Q3] 邪恶之力"
-    	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana2_Description"				"提高所有 <font color=\"#7F4F84\">暗</font> 元素伤害。"
+    	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana2_Description"				"提高所有 <font color=ELEMENT_SHADOW>暗</font> 元素伤害。"
     	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana2_property_one"				"暗元素伤害提高"
     	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana2_suffix"					"%"
 

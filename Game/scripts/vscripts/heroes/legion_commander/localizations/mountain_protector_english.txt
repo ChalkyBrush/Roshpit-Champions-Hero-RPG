@@ -1,5 +1,5 @@
 		"DOTA_Tooltip_ability_mountain_protector_shockwave"			"Shockwave"
-    	"DOTA_Tooltip_ability_mountain_protector_shockwave_Description"	"Element: <font color=\"#DDDDDD\">Normal</font> / <font color=\"#AF843D\">Earth</font><br>Unearths a cascade of force that damage and stuns everyone in its path."
+    	"DOTA_Tooltip_ability_mountain_protector_shockwave_Description"	"Element: <font color=ELEMENT_NORMAL>Normal</font> / <font color=ELEMENT_EARTH>Earth</font><br>Unearths a cascade of force that damage and stuns everyone in its path."
     	"DOTA_Tooltip_ability_mountain_protector_shockwave_stun_duration"	"STUN DURATION:"
     	"DOTA_Tooltip_ability_mountain_protector_shockwave_range"			"WAVE RANGE:"
 
@@ -121,7 +121,7 @@
     	"DOTA_Tooltip_modifier_mountain_rune_e_4_effect_Description"	"Increased attack damage and base ability damage"
 		
     	"DOTA_Tooltip_ability_mountain_protector_aeon_fracture"					"Aeon Fracture"
-    	"DOTA_Tooltip_ability_mountain_protector_aeon_fracture_Description"		"Element: <font color=\"#AF843D\">Earth</font> / <font color=\"#EF4126\">Fire</font><br>Core flares shatter the earth for 10 seconds within the area of effect. Each explosion that hits at least 1 enemy has a chance to refresh [E] ability."
+    	"DOTA_Tooltip_ability_mountain_protector_aeon_fracture_Description"		"Element: <font color=ELEMENT_EARTH>Earth</font> / <font color=ELEMENT_FIRE>Fire</font><br>Core flares shatter the earth for 10 seconds within the area of effect. Each explosion that hits at least 1 enemy has a chance to refresh [E] ability."
     	"DOTA_Tooltip_ability_mountain_protector_aeon_fracture_stun_duration"	"STUN DURATION:"
     	"DOTA_Tooltip_ability_mountain_protector_aeon_fracture_explosions"		"EXPLOSIONS:"
         "DOTA_Tooltip_ability_mountain_protector_aeon_fracture_refresh_chance"  "E REFRESH CHANCE: %"
@@ -149,7 +149,7 @@
     	"DOTA_Tooltip_ability_mountain_protector_rune_r_3_suffix_two"	"x Strength"
 		
 		"DOTA_Tooltip_ability_mountain_protector_rune_r_4"						"[R4] Force of Mountains"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_r_4_Description"			"<font color=\"#AF843D\">Earth</font> and <font color=\"#EF4126\">Fire</font> damage passively increased."
+    	"DOTA_Tooltip_ability_mountain_protector_rune_r_4_Description"			"<font color=ELEMENT_EARTH>Earth</font> and <font color=ELEMENT_FIRE>Fire</font> damage passively increased."
     	"DOTA_Tooltip_ability_mountain_protector_rune_r_4_property_one"			"Damage Increase"
     	"DOTA_Tooltip_ability_mountain_protector_rune_r_4_suffix"				"%"
 		
@@ -199,7 +199,7 @@
     	"property_mountain_protector_arcana2_description"								"Replaces @Ability4 and all of its runes with Hailstorm."
 
     	"DOTA_Tooltip_ability_mountain_protector_hailstorm"								"Hailstorm"
-    	"DOTA_Tooltip_ability_mountain_protector_hailstorm_Description"					"Element: <font color=\"#AF843D\">Earth</font> / <font color=\"#87D9FF\">Ice</font><br>Calls upon the Northern Mountains to generate a devastating snow storm in the target area. Enemies in the area have their attack and movespeed slowed and can also be hit by icy fissures. Each explosion that hits at least 1 enemy has a chance to refresh [E] ability."
+    	"DOTA_Tooltip_ability_mountain_protector_hailstorm_Description"					"Element: <font color=ELEMENT_EARTH>Earth</font> / <font color=ELEMENT_ICE>Ice</font><br>Calls upon the Northern Mountains to generate a devastating snow storm in the target area. Enemies in the area have their attack and movespeed slowed and can also be hit by icy fissures. Each explosion that hits at least 1 enemy has a chance to refresh [E] ability."
     	"DOTA_Tooltip_ability_mountain_protector_hailstorm_Lore"						""
     	"DOTA_Tooltip_ability_mountain_protector_hailstorm_stun_duration"				"STUN DURATION:"
     	"DOTA_Tooltip_ability_mountain_protector_hailstorm_damage"						"DAMAGE:"
@@ -240,7 +240,7 @@
         "DOTA_Tooltip_modifier_hailstorm_armor_and_magic_armor_loss_Description"        "Reduced Armor and Magic Armor"  
 
       	"DOTA_Tooltip_ability_mountain_protector_rune_r_4_arcana2"						"[R4] Frozen Peak"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_r_4_arcana2_Description"			"Increases all <font color=\"#AF843D\">Earth</font> and <font color=\"#87D9FF\">Ice</font> damage."
+    	"DOTA_Tooltip_ability_mountain_protector_rune_r_4_arcana2_Description"			"Increases all <font color=ELEMENT_EARTH>Earth</font> and <font color=ELEMENT_ICE>Ice</font> damage."
     	"DOTA_Tooltip_ability_mountain_protector_rune_r_4_arcana2_property_one"			"Earth and Ice Amp"
     	"DOTA_Tooltip_ability_mountain_protector_rune_r_4_arcana2_suffix"				"%"	
 
@@ -248,7 +248,7 @@
     	"property_mountain_protector_arcana3_description"								"Replaces @Ability3 and all of its runes with Rockfall and Volcanic Glissade."
 
     	"DOTA_Tooltip_ability_mountain_protector_rockfall"								"Rockfall"
-    	"DOTA_Tooltip_ability_mountain_protector_rockfall_Description"					"Element: <font color=\"#AF843D\">Earth</font> / <font color=\"#EF4126\">Fire</font><br>Summon 3 sets of lava hot boulders that damage and stun enemies in the target area. Each enemy hit damages Mountain Protector based on her max health, but the damage can not be lethal. Enemies have reduced Magic Armor for 10 seconds after being hit by Rockfall."
+    	"DOTA_Tooltip_ability_mountain_protector_rockfall_Description"					"Element: <font color=ELEMENT_EARTH>Earth</font> / <font color=ELEMENT_FIRE>Fire</font><br>Summon 3 sets of lava hot boulders that damage and stun enemies in the target area. Each enemy hit damages Mountain Protector based on her max health, but the damage can not be lethal. Enemies have reduced Magic Armor for 10 seconds after being hit by Rockfall."
     	"DOTA_Tooltip_ability_mountain_protector_rockfall_Lore"							""
     	"DOTA_Tooltip_ability_mountain_protector_rockfall_stun_duration"				"STUN DURATION:"
     	"DOTA_Tooltip_ability_mountain_protector_rockfall_damage"						"DAMAGE:"

@@ -1,7 +1,7 @@
 		//Abilities
 		
 		"DOTA_Tooltip_ability_slipfinn_prone"										"Prone"
-    	"DOTA_Tooltip_ability_slipfinn_prone_Description"							"Стихия: <font color=\"#3894FF\">Вода</font> / <font color=\"#DDDDDD\">Нормальный</font><br>Slipfinn меняет свое поведение, перемещаясь пригнувшись, что позволяет ему скользить по земле и получать меньше магического и чистого урона. Применяя во время прыжка, герой перевернется и приземлится, сотрясая землю и нанося урон, зависящий от высоты, на которой была активирована эта способность."
+    	"DOTA_Tooltip_ability_slipfinn_prone_Description"							"Стихия: <font color=ELEMENT_WATER>Вода</font> / <font color=ELEMENT_NORMAL>Нормальный</font><br>Slipfinn меняет свое поведение, перемещаясь пригнувшись, что позволяет ему скользить по земле и получать меньше магического и чистого урона. Применяя во время прыжка, герой перевернется и приземлится, сотрясая землю и нанося урон, зависящий от высоты, на которой была активирована эта способность."
     	"DOTA_Tooltip_ability_slipfinn_prone_damage"								"УРОН:"
     	"DOTA_Tooltip_ability_slipfinn_prone_magic_pure_resist"						"СОПРОТИВЛЕНИЕ МАГИЧЕСКОМУ И ЧИСТОМУ УРОНУ, %:"
 
@@ -26,7 +26,7 @@
     	"DOTA_Tooltip_ability_slipfinn_rune_q_3_suffix"								"x от высоты"
 
     	"DOTA_Tooltip_ability_slipfinn_rune_q_4"									"[Q4] Murkwood Hunter"
-    	"DOTA_Tooltip_ability_slipfinn_rune_q_4_Description"						"Пассивно увеличивает урон <font color=\"#7F4F84\">Тени</font> и <font color=\"#3894FF\">Воды</font>."
+    	"DOTA_Tooltip_ability_slipfinn_rune_q_4_Description"						"Пассивно увеличивает урон <font color=ELEMENT_SHADOW>Тени</font> и <font color=ELEMENT_WATER>Воды</font>."
     	"DOTA_Tooltip_ability_slipfinn_rune_q_4_property_one"						"Доп. урон Воды и Тени"
     	"DOTA_Tooltip_ability_slipfinn_rune_q_4_suffix"								"%"
 		"DOTA_Tooltip_ability_slipfinn_jump"										"Puddle Jump"
@@ -75,7 +75,7 @@
     	"DOTA_Tooltip_ability_slipfinn_shadow_warp_cast_range"						"ДАЛЬНОСТЬ ПРИМЕНЕНИЯ:"
 		
 		"DOTA_Tooltip_ability_slipfinn_rune_e_1"									"[E1] Shadow Shank"
-    	"DOTA_Tooltip_ability_slipfinn_rune_e_1_Description"						"Атаки наносят дополнительный физический урон <font color=\"#7F4F84\">Тени</font>."
+    	"DOTA_Tooltip_ability_slipfinn_rune_e_1_Description"						"Атаки наносят дополнительный физический урон <font color=ELEMENT_SHADOW>Тени</font>."
     	"DOTA_Tooltip_ability_slipfinn_rune_e_1_property_one"						"Урон"
     	"DOTA_Tooltip_ability_slipfinn_rune_e_1_suffix"								"% от нанесенного урона"
 
@@ -145,9 +145,9 @@
         "property_slipfinn_arcana1_description"                               "Заменяет @Ability3 и все ее руны на Bog Roller."
 
         "DOTA_Tooltip_ability_slipfinn_bog_roller"                       "Bog Roller"
-        "DOTA_Tooltip_ability_slipfinn_bog_roller_Description"           "Элемент: <font color=\"#7F4F84\">Тень</font><br>Slipfinn заворачивается в прочный панцирь и может перемещаться по местности в нем. Дает неуязвимость к магии. Внутри панциря герой атакует ближайшего противника каждые 0.06 секунды и движется вперед.<br>Bog Roller также даёт базовым атакам разрушение брони противника и пассивно добавляет к ним урон <font color=\"#7F4F84\">Тени</font>. Переключение способности сбрасывает летящие снаряды."
+        "DOTA_Tooltip_ability_slipfinn_bog_roller_Description"           "Элемент: <font color=ELEMENT_SHADOW>Тень</font><br>Slipfinn заворачивается в прочный панцирь и может перемещаться по местности в нем. Дает неуязвимость к магии. Внутри панциря герой атакует ближайшего противника каждые 0.06 секунды и движется вперед.<br>Bog Roller также даёт базовым атакам разрушение брони противника и пассивно добавляет к ним урон <font color=ELEMENT_SHADOW>Тени</font>. Переключение способности сбрасывает летящие снаряды."
         "DOTA_Tooltip_ability_slipfinn_bog_roller_armor_break_percent"      "% РАЗРУШЕНИЕ БРОНИ:"
-        "DOTA_Tooltip_ability_slipfinn_bog_roller_shadow_damage_on_attack"  "% УРОНА <font color=\"#7F4F84\">ТЕНИ</font> ОТ АТАКИ"
+        "DOTA_Tooltip_ability_slipfinn_bog_roller_shadow_damage_on_attack"  "% УРОНА <font color=ELEMENT_SHADOW>ТЕНИ</font> ОТ АТАКИ"
 
         "DOTA_Tooltip_modifier_slipfinn_bog_roller"                     "Bog Roller"
         "DOTA_Tooltip_modifier_slipfinn_bog_roller_Description"         "Катится в панцире"
@@ -167,10 +167,10 @@
         "DOTA_Tooltip_modifier_bog_roller_razor_Description"                "Получает замедление и наносит урон по противникам поблизости" 
 
         "DOTA_Tooltip_ability_slipfinn_rune_e_2_arcana1"                          "[E2] Sparkling Dagger"
-        "DOTA_Tooltip_ability_slipfinn_rune_e_2_arcana1_Description"              "Дает Бонусную Атаку во время Bog Roller. Атаки нанесут дополнительно удар магическим уроном <font color=\"#3894FF\">Воды</font>."
+        "DOTA_Tooltip_ability_slipfinn_rune_e_2_arcana1_Description"              "Дает Бонусную Атаку во время Bog Roller. Атаки нанесут дополнительно удар магическим уроном <font color=ELEMENT_WATER>Воды</font>."
         "DOTA_Tooltip_ability_slipfinn_rune_e_2_arcana1_property_one"             "Бонусная Атака"
         "DOTA_Tooltip_ability_slipfinn_rune_e_2_arcana1_suffix"                   "%"
-        "DOTA_Tooltip_ability_slipfinn_rune_e_2_arcana1_property_two"             "Урон <font color=\"#3894FF\">Воды</font>"
+        "DOTA_Tooltip_ability_slipfinn_rune_e_2_arcana1_property_two"             "Урон <font color=ELEMENT_WATER>Воды</font>"
         "DOTA_Tooltip_ability_slipfinn_rune_e_2_arcana1_suffix_two"               "% от силы Aтаки"
 
         "DOTA_Tooltip_ability_slipfinn_rune_e_3_arcana1"                          "[E3] Adamantium Shell"
@@ -238,4 +238,4 @@
 
         "DOTA_Tooltip_ability_item_rpc_slipfinn_immortal_weapon_3"            "Blade of the Black Lagoon"
         "item_property_slipfinn_immortal_weapon3"                             "Shadow of the Enemy"
-        "property_slipfinn_immortal_weapon3_description"                      "Вторая стихия всех украденных способностей заменяетс на стихию <font color=\"#7F4F84\">Тени</font>."
+        "property_slipfinn_immortal_weapon3_description"                      "Вторая стихия всех украденных способностей заменяетс на стихию <font color=ELEMENT_SHADOW>Тени</font>."
