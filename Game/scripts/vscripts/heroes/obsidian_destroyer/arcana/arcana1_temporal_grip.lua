@@ -113,6 +113,13 @@ function modifier_epoch_arcana_q_root:CheckState()
 	return state
 end
 
+function modifier_epoch_arcana_q_root:DeclareFunctions()
+	local funcs = {
+
+	}
+	return funcs
+end
+
 function modifier_epoch_arcana_q_root:GetEffectName()
 	return "particles/roshpit/epoch/arcana_root.vpcf"
 end
@@ -125,6 +132,9 @@ function modifier_epoch_arcana_q_root:OnCreated()
 	if not IsServer() then
 		return false
 	end
+    self:SetSpecialTypes({ 
+        MODIFIER_ROSHPIT_EVENT_ON_DEATH
+    })
 	local ability = self:GetAbility()
 	local parent = self:GetParent()
 	ability.bind_table[parent:GetEntityIndex()] = true
@@ -149,6 +159,16 @@ function modifier_epoch_arcana_q_root:OnIntervalThink()
 	local caster = ability:GetCaster()
 	if caster:HasModifier("modifier_epoch_glyph_3_2") then
 		Filters:ApplyStun(caster, EPOCH_GLYPH_3_2_STUN_DURATION, target)
+	end
+end
+
+function modifier_epoch_arcana_q_root:RoshpitOnDeath(event)
+	if not IsServer() then
+		return false
+	end
+	local caster = self:GetCaster()
+	if caster:HasModifier("modifier_epoch_glyph_6_2") then
+		caster:ReduceAllCurrentCooldowns(EPOCH_GLYPH_6_2_CURRENT_CD_REDUCE)
 	end
 end
 

@@ -469,6 +469,9 @@ function modifier_epoch_time_bind:OnCreated()
 	if not IsServer() then
 		return false
 	end
+    self:SetSpecialTypes({ 
+        MODIFIER_ROSHPIT_EVENT_ON_DEATH
+    })
 	self:StartIntervalThink(1)
 end
 
@@ -536,6 +539,16 @@ function modifier_epoch_time_bind:CheckState()
 	return state
 end
 
+function modifier_epoch_time_bind:RoshpitOnDeath(event)
+	if not IsServer() then
+		return false
+	end
+	local caster = self:GetCaster()
+	if caster:HasModifier("modifier_epoch_glyph_6_2") then
+		caster:ReduceAllCurrentCooldowns(EPOCH_GLYPH_6_2_CURRENT_CD_REDUCE)
+	end
+end
+-- RoshpitOnDeath', { MODIFIER_ROSHPIT_EVENT_ON_DEATH
 -- EON PHANTOM MODIFIER
 
 function modifier_epoch_eon_phantom:IsHidden()

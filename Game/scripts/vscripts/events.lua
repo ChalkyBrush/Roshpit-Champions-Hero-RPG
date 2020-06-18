@@ -1622,6 +1622,10 @@ function GameMode:OnEntityKilled(keys)
 	if killedUnit.itemLevel then
 		Dungeons.itemLevel = killedUnit.itemLevel
 	end
+	Util.Modifier:SimpleEvent(killedUnit, 'RoshpitOnDeath', { MODIFIER_ROSHPIT_EVENT_ON_DEATH }, {unit = killedUnit}, 
+		function(result, data)
+		end
+	)
 	if killedUnit:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
 		Enemies:EnemySlain(killedUnit, killerEntity)
 		Events:UpdateKillScores(killedUnit, killerEntity)

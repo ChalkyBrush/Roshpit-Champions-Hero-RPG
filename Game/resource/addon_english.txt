@@ -6686,13 +6686,15 @@
         "item_rpc_epoch_glyph_4_2_description"              "[W3] also increases Spirit, and <font color='#ccff66'>1</font>x Epoch's spirit is added to the base damage of @Ability2."
 
         "DOTA_Tooltip_ability_item_rpc_epoch_glyph_5_2"     "[T5-2] Glyph of Alpha Seed"
-        "item_rpc_epoch_glyph_5_2_description"              "Enemies hit by the explosion of @Ability4 immediately have @Ability2 thrown at them. Max count of @Ability2 is 0."
+        "item_rpc_epoch_glyph_5_2_description"              "Enemies hit by the explosion of @Ability4 immediately have @Ability2 thrown at them. Max count of @Ability2 is <font color='#ccff66'>6</font>."
 
         "DOTA_Tooltip_ability_item_rpc_epoch_glyph_6_2"     "[T6-2] Glyph of Tide Coil"
-        "item_rpc_epoch_glyph_6_2_description"              "Whenever an enemy dies while under the effect of @Ability1, reduce all current cooldowns by 0 second."
+        "item_rpc_epoch_glyph_6_2_description"              "Whenever an enemy dies while under the effect of @Ability1, reduce all current cooldowns by <font color='#ccff66'>0.5</font> seconds."
 
         "DOTA_Tooltip_ability_item_rpc_epoch_glyph_7_2"     "[T7-2] Glyph of Generational Void"
-        "item_rpc_epoch_glyph_7_2_description"              "Increases the channel time of @Ability4 by 0, and its explosion will trigger whether the channel finishes or not."
+        "item_rpc_epoch_glyph_7_2_description"              "Increases the channel time of @Ability4 by <font color='#ccff66'>3</font> seconds, and its explosion will trigger whether the channel finishes or not."
+
+        "DOTA_Tooltip_ability_item_rpc_epoch_glyph_book"    "Epoch Guardian Glyph Book"
 		
 		//Weapons
 		"epoch_weapon_01"			"Distortion Staff"
@@ -7022,6 +7024,9 @@
 
         "DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_7_2"    "[T7-2] Glyph of Draconic Might"
         "item_rpc_flamewaker_glyph_7_2_description"             "Increases Strength by <font color='#ccff66'>35</font>%."
+
+        "DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_book"    "Flamewaker Glyph Book"
+
 		//Weapons
 		"flamewaker_weapon_00"			"Basic Sword"
 		"flamewaker_weapon_01"			"Earth Dragon Blade"

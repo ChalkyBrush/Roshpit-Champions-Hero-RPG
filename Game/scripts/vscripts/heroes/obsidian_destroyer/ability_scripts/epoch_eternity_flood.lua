@@ -42,7 +42,12 @@ function epoch_eternity_flood:GetCastRange()
 end
 
 function epoch_eternity_flood:GetChannelTimeBase()
-    return 2.0
+	local caster = self:GetCaster()
+	local channelTime = 2.0
+	if caster:HasModifier("modifier_epoch_glyph_7_2") then
+		channelTime = channelTime + EPOCH_GLYPH_7_2_CHANNEL_TIME_INCREASE
+	end
+    return channelTime
 end
 
 function epoch_eternity_flood:GetCastAnimation()
@@ -104,6 +109,9 @@ function epoch_eternity_flood:OnChannelFinish(interrupted)
 			UTIL_Remove(ability.black_hole_dummy)
 			ability.black_hole_dummy = nil
 		end
+		if caster:HasModifier("modifier_epoch_glyph_7_2") then
+			interrupted = false
+		end
     	if interrupted then
 
     	else
@@ -130,6 +138,9 @@ function epoch_eternity_flood:OnChannelFinish(interrupted)
 					ability.freeze_table[enemy:GetEntityIndex()] = {lift_speed = 22, lift_direction = lift_direction, is_frozen = false, is_falling = false, interval = 0}
 					enemy:AddNewModifier(caster, ability, "modifier_epoch_r_freeze", {duration = freeze_duration})
 				end
+			end
+			if caster:HasModifier("modifier_epoch_glyph_5_2") then
+				self:Glyph_5_2(enemies)
 			end
 			Filters:CastSkillArguments(BASE_ABILITY_R, caster)
 			if caster:HasModifier("modifier_epoch_glyph_6_1") then
@@ -159,6 +170,20 @@ function epoch_eternity_flood:GetBaseDamage()
 	local caster = self:GetCaster()
 	local damage = self:GetSpecialValueFor("damage") + self:GetSpecialValueFor("damage_sum_attrs")*caster:GetSumOfAllAttributes() + caster:GetRuneValue("r", 3)*OverflowProtectedGetAverageTrueAttackDamage(caster)*(EPOCH_R3_DMG_ADDED_PCT_ATTACK_PWR/100)
 	return damage
+end
+
+function epoch_eternity_flood:Glyph_5_2(enemies)
+	local caster = self:GetCaster()
+	local enemies_hit = 0
+	if #enemies > 0 then
+		local w_ability = caster:GetAbilityByIndex(DOTA_W_SLOT)
+		for _, enemy in pairs(enemies) do
+			if enemies_hit < EPOCH_GLYPH_5_2_MAX_W_CASTS then
+				w_ability:MainProjectile(caster, enemy, nil, nil)
+			end
+			enemies_hit = enemies_hit + 1
+		end
+	end	
 end
 
 -- PASSIVE

@@ -224,10 +224,12 @@
         "item_rpc_epoch_glyph_5_2_description"              "Enemies hit by the explosion of @Ability4 immediately have @Ability2 thrown at them. Max count of @Ability2 is <% EPOCH_GLYPH_5_2_MAX_W_CASTS %>."
 
         "DOTA_Tooltip_ability_item_rpc_epoch_glyph_6_2"     "[T6-2] Glyph of Tide Coil"
-        "item_rpc_epoch_glyph_6_2_description"              "Whenever an enemy dies while under the effect of @Ability1, reduce all current cooldowns by <% EPOCH_GLYPH_6_2_CURRENT_CD_REDUCE %> second."
+        "item_rpc_epoch_glyph_6_2_description"              "Whenever an enemy dies while under the effect of @Ability1, reduce all current cooldowns by <% EPOCH_GLYPH_6_2_CURRENT_CD_REDUCE %> seconds."
 
         "DOTA_Tooltip_ability_item_rpc_epoch_glyph_7_2"     "[T7-2] Glyph of Generational Void"
-        "item_rpc_epoch_glyph_7_2_description"              "Increases the channel time of @Ability4 by <% EPOCH_GLYPH_7_2_CHANNEL_TIME_INCREASE %>, and its explosion will trigger whether the channel finishes or not."
+        "item_rpc_epoch_glyph_7_2_description"              "Increases the channel time of @Ability4 by <% EPOCH_GLYPH_7_2_CHANNEL_TIME_INCREASE %> seconds, and its explosion will trigger whether the channel finishes or not."
+
+        "DOTA_Tooltip_ability_item_rpc_epoch_glyph_book"    "Epoch Guardian Glyph Book"
 		
 		//Weapons
 		"epoch_weapon_01"			"Distortion Staff"
