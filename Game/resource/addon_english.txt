@@ -6649,42 +6649,50 @@
     	"DOTA_Tooltip_ability_epoch_rune_q_4_arcana1_suffix_two"				""
 
 		//Glyphs
-		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_1_1"		"[T1-1] Glyph of Crumbling Bonds"
-		"item_rpc_epoch_glyph_1_1_description" 				"Enemies affected by @Ability1 and [Q1] take @glyph_property1% increased damage from all sources."
+		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_1_1"		"[T1-1] Glyph of Eternal Bonds"
+		"item_rpc_epoch_glyph_1_1_description" 				"Increases the duration of @Ability1 by 0."
 
-		"DOTA_Tooltip_modifier_epoch_glyph_1_1_effect"		"Crumbling Bonds"
-		"DOTA_Tooltip_modifier_epoch_glyph_1_1_effect_Description"	"Taking Additional Damage from All Sources"
+		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_2_1"		"[T2-1] Glyph of Preconception"
+		"item_rpc_epoch_glyph_2_1_description" 				"Attacking does not consume stacks of [W2]."
 
-		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_2_1"		"[T2-1] Glyph of Distorted Time"
-		"item_rpc_epoch_glyph_2_1_description" 				"@Ability3 travels <font color='#ccff66'>60</font>% farther and <font color='#ccff66'>60</font>% faster. Additionally, the duration of [E1] is doubled."
+		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_3_1"		"[T3-1] Glyph of Rewind"
+		"item_rpc_epoch_glyph_3_1_description" 				"Attacking triggers [W1]."
 
-		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_3_1"		"[T3-1] Glyph of Cracking"
-		"item_rpc_epoch_glyph_3_1_description" 				"@Ability2 deals additional damage based on <font color='#ccff66'>2</font>% of current mana times the ability's level."
+		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_4_1"		"[T4-1] Glyph of Aeon"
+		"item_rpc_epoch_glyph_4_1_description" 				"Mana drained by [Q1] is reduced by 0%, and damage per mana drained is increased by 0x."
 
-
-		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_4_1"		"[T4-1] Glyph of Ages"
-		"item_rpc_epoch_glyph_4_1_description" 				"Attacking no longer consumes stacks of the [W3] buff (the Intelligence bonus is mantained while restoring health on every attack)."
-
-		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_5_1"		"[T5-1] Glyph of Substituted Time"
-		"item_rpc_epoch_glyph_5_1_description" 				"Attacking an enemy unit applies the [W2] debuff to it."
-
-		//"DOTA_Tooltip_modifier_epoch_glyph_5_1_effect"		"Substituted Time"
-		//"DOTA_Tooltip_modifier_epoch_glyph_5_1_effect_Description"	"Increasing attack damage while focusing the same target."
+		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_5_1"		"[T5-1] Glyph of Dimensional Wisdom"
+		"item_rpc_epoch_glyph_5_1_description" 				"Each point of Intelligence increases Max Health by 0."
 
 		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_6_1"		"[T6-1] Glyph of Tangled Flow"
-		"item_rpc_epoch_glyph_6_1_description" 				"Enemies effected by @Ability1 and [Q1] have <font color='#ccff66'>80</font>% reduced attack damage. Additionally, the effects of [Q2] are multiplied by <font color='#ccff66'>2</font>."
-
-		"DOTA_Tooltip_modifier_epoch_glyph_6_1_effect"		"Tangled Flow"
-		"DOTA_Tooltip_modifier_epoch_glyph_6_1_effect_Description"	"Reduced Attack Damage"
+		"item_rpc_epoch_glyph_6_1_description" 				"Triggers @Ability1 effect upon a successful cast of @Ability4."
 
 		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_7_1"		"[T7-1] Glyph of Shifting Dimensions"
-		"item_rpc_epoch_glyph_7_1_description" 				"While @Ability3 is travelling Epoch Guardian is phased out of this dimension, disabling him and disjointing all oncoming projectiles."
+		"item_rpc_epoch_glyph_7_1_description" 				"The first enemy hit by the main orb of @Ability3 triggers a cast of @Ability4."
 
-		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_5_a"		"[T5-a] Glyph of Time Travel"
-		"item_rpc_epoch_glyph_5_a_description" 				"Allow you to survive on lethal damage, refreshes health, mana, abilities. <font color='#ccff66'>15</font> second cooldown."
+		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_5_a"		"[T5-a] Glyph of Hybrid Distortion"
+		"item_rpc_epoch_glyph_5_a_description" 				"Every 0 seconds, the main orb of @Ability3 throws an @Ability2 at a random enemy within 0 range."
 
-		"DOTA_Tooltip_modifier_epoch_glyph_5_a_cooldown"	"Time Travel Cooldown"
-		"DOTA_Tooltip_modifier_epoch_glyph_5_a_little_shield"	"Time Travel Damage immune"
+        "DOTA_Tooltip_ability_item_rpc_epoch_glyph_1_2"     "[T1-2] Glyph of Propagation"
+        "item_rpc_epoch_glyph_1_2_description"              "Increases the cast range of @Ability2 by 0 and its max number of bounces by 0."
+
+        "DOTA_Tooltip_ability_item_rpc_epoch_glyph_2_2"     "[T2-2] Glyph of Time Bend"
+        "item_rpc_epoch_glyph_2_2_description"              "Gain 100% evasion while @Ability3 is travelling."
+
+        "DOTA_Tooltip_ability_item_rpc_epoch_glyph_3_2"     "[T3-2] Glyph of Ephemeral Chains"
+        "item_rpc_epoch_glyph_3_2_description"              "Enemies affected by @Ability1 are stunned for 0 seconds every 0.5 seconds."
+
+        "DOTA_Tooltip_ability_item_rpc_epoch_glyph_4_2"     "[T4-2] Glyph of Transient Spirit"
+        "item_rpc_epoch_glyph_4_2_description"              "[W3] also increases Spirit, and 0x Epoch's spirit is added to the base damage of @Ability2."
+
+        "DOTA_Tooltip_ability_item_rpc_epoch_glyph_5_2"     "[T5-2] Glyph of Alpha Seed"
+        "item_rpc_epoch_glyph_5_2_description"              "Enemies hit by the explosion of @Ability4 immediately have @Ability2 thrown at them. Max count of @Ability2 is 0."
+
+        "DOTA_Tooltip_ability_item_rpc_epoch_glyph_6_2"     "[T6-2] Glyph of Tide Coil"
+        "item_rpc_epoch_glyph_6_2_description"              "Whenever an enemy dies while under the effect of @Ability1, reduce all current cooldowns by 0 second."
+
+        "DOTA_Tooltip_ability_item_rpc_epoch_glyph_7_2"     "[T7-2] Glyph of Generational Void"
+        "item_rpc_epoch_glyph_7_2_description"              "Increases the channel time of @Ability4 by 0, and its explosion will trigger whether the channel finishes or not."
 		
 		//Weapons
 		"epoch_weapon_01"			"Distortion Staff"
