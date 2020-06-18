@@ -121,7 +121,9 @@ function epoch_distortion_orb:OnSpellStart()
 	    self:E4(projectileOrigin, fv)
 	    if caster:HasModifier("modifier_epoch_glyph_7_1") then
 	    	ability.glyph_7_1 = true
-	    	ability.glyph_7_1_interval = 0
+	    end
+	    if caster:HasModifier("modifier_epoch_glyph_5_a") then
+	    	ability.glyph_5_a_interval = 0
 	    end
 	end
 end
@@ -161,8 +163,8 @@ function epoch_distortion_orb:OnProjectileThink_ExtraData(vLoc, extraData)
 		local ability = self
 		ability.projectilePosition = vLoc
 		if caster:HasModifier("modifier_epoch_glyph_5_a") then
-			ability.glyph_7_1_interval = ability.glyph_7_1_interval + 1
-			if ability.glyph_7_1_interval%(EPOCH_GLYPH_5_A_INTERVAL/0.03) == 0 then
+			ability.glyph_5_a_interval = ability.glyph_5_a_interval + 1
+			if ability.glyph_5_a_interval%(EPOCH_GLYPH_5_A_INTERVAL/0.03) == 0 then
 				local enemies = FindUnitsInRadius(caster:GetTeamNumber(), vLoc, nil, EPOCH_GLYPH_5_A_ENEMY_SEARCH_RANGE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false)
 				if #enemies > 0 then
 					local w_ability = caster:GetAbilityByIndex(DOTA_W_SLOT)
