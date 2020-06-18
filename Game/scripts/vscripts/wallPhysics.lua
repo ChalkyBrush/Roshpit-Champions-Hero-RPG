@@ -777,3 +777,11 @@ function WallPhysics:RandomPointInBlockCollection(vertices)
 	local random_y = baseY + RandomInt(0, deltaY)
 	return Vector(random_x, random_y)
 end
+
+function WallPhysics:CountItemsInHash(hash)
+	local count = 0
+	for k, v in pairs(hash) do
+		count = count + 1
+	end
+	return count
+end

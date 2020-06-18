@@ -196,7 +196,7 @@ function modifier_flamewaker_arcana_fireborne:OnIntervalThink()
 				Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 			end
 		end
-		local shield_delay = FLAMEWAKER_ARCANA2_W_SHIELD_DELAY - caster:GetRuneValue("w", 1)*FLAMEWAKER_ARCANA2_W1_SHIELD_DELAY
+		local shield_delay = FLAMEWAKER_ARCANA2_W_SHIELD_DELAY + caster:GetRuneValue("w", 1)*FLAMEWAKER_ARCANA2_W1_SHIELD_DELAY
 		if GameRules:GetGameTime() - ability.activation_time >= shield_delay then
 			caster:AddNewModifier(caster, ability, "modifier_flamewaker_fireborne_shield", {})
 		end

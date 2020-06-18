@@ -114,9 +114,6 @@ function Weapons:RollLegendWeapon1(location, class, strictMaxItemLevel, disableD
 	elseif internalName == "astral" then	
 		Weapons:SetLegendWeaponProperty1(weapon, internalName, "immortal_weapon_1", "#BCA7E8", nil)
 		Weapons:SetLegendWeaponProperty2(weapon, "all_attributes", 2)
-	elseif internalName == "epoch" then	
-		Weapons:SetLegendWeaponProperty1(weapon, internalName, "immortal_weapon_1", "#42F48F", nil)
-		Weapons:SetLegendWeaponProperty2(weapon, "attack_damage", 2)
 	elseif internalName == "paladin" then	
 		Weapons:SetLegendWeaponProperty1(weapon, internalName, "immortal_weapon_1", "#E3ED87", nil)
 		Weapons:SetLegendWeaponProperty2(weapon, "strength", 2)
@@ -248,9 +245,6 @@ function Weapons:RollLegendWeapon2(location, class, strictMaxItemLevel, disableD
 	elseif internalName == "astral" then	
 		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_2", "#A86BFF", nil, 2)
 		Weapons:SetLegendWeaponProperty2(weapon, "armor_pierce", 3)
-	elseif internalName == "epoch" then	
-		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_2", "#6BEF9A", nil, 2)
-		Weapons:SetLegendWeaponProperty2(weapon, "strength", 2)
 	elseif internalName == "paladin" then	
 		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_2", "#82C46D", nil, 2)
 		Weapons:SetLegendWeaponProperty2(weapon, "element_holy", 2)
@@ -397,9 +391,6 @@ function Weapons:RollLegendWeapon3(location, class, strictMaxItemLevel, disableD
 	elseif internalName == "astral" then	
 		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_3", "#BC96F2", nil, 3)
 		Weapons:SetLegendWeaponProperty2(weapon, "element_cosmic", 3)
-	elseif internalName == "epoch" then	
-		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_3", "#6EB788", nil, 3)
-		Weapons:SetLegendWeaponProperty2(weapon, "intelligence", 3)
 	elseif internalName == "paladin" then	
 		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_3", "#82C46D", nil, 3)
 		Weapons:SetLegendWeaponProperty2(weapon, "strength", 2)

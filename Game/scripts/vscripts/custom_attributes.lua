@@ -595,6 +595,7 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitAttributes()
 	end
 	self:CalculateAndSaveMasterMovespeedBuff()
 	self:CalculateAndSaveMasterGreenDamageBuff()
+	self:CalculateAndSaveMasterAttackRangeBuff()
 	self:CalculateAndSaveMasterHealthRegen()
 end
 
@@ -1409,12 +1410,6 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 		local r_1_value = caster:GetRuneValue("r", 1)
 		magic_armor_modify = magic_armor_modify + r_1_value*ASTRAL_RANGER_ARCANA3_ARMOR_AND_SPELL_PIERCE_REDUCE
 	end
-	if unit:HasModifier("modifier_epoch_rune_w_2_visible") then
-		local modifier = unit:FindModifierByName("modifier_epoch_rune_w_2_visible")
-		local caster = modifier:GetCaster()
-		local w_2_value = caster:GetRuneValue("w", 2)
-		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*w_2_value*EPOCH_W2_MAGIC_ARMOR_REDUCTION
-	end
 	if unit:HasModifier("modifier_paladin_d_c") then
 		local modifier = unit:FindModifierByName("modifier_paladin_d_c")
 		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*PALADIN_E4_MAGIC_ARMOR
@@ -1887,10 +1882,6 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 			armor_pierce_modify = armor_pierce_modify + modifier:GetStackCount()*ASTRAL_RANGER_ARCANA2_W_4_ARMOR_PIERCE
 		end
 	end
-	if unit:GetUnitName() == "npc_dota_hero_obsidian_destroyer" and unit:HasAbility("epoch_arcana_ability") then
-		local q_2_level = unit:GetRuneValue("q", 2)
-		armor_pierce_modify = armor_pierce_modify + q_2_level*EPOCH_ARCANA_Q2_ARMOR_AND_SPELL_PIERCE
-	end
 	if unit:HasModifier("modifier_conjuror_glyph_5_a") or unit:HasModifier("modifier_conjuror_glyph_5_a_summon") then
 		armor_pierce_modify = armor_pierce_modify + CONJUROR_GLYPH_5_A_ARMOR_AND_SPELL_PIERCE
 	end
@@ -2254,10 +2245,6 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	end
 	if unit:HasModifier("modifier_voltex_magnet") then
 		spell_pierce_modify = spell_pierce_modify + unit:GetRuneValue("q", 2)*VOLTEX_ARCANA2_Q2_PIERCE
-	end
-	if unit:GetUnitName() == "npc_dota_hero_obsidian_destroyer" and unit:HasAbility("epoch_arcana_ability") then
-		local q_2_level = unit:GetRuneValue("q", 2)
-		spell_pierce_modify = spell_pierce_modify + q_2_level*EPOCH_ARCANA_Q2_ARMOR_AND_SPELL_PIERCE
 	end
 	if unit:GetUnitName() == "npc_dota_hero_omniknight" and unit:HasAbility("paladin_crusader_comet") then
 		local e_4_level = unit:GetRuneValue("e", 4)
@@ -2821,9 +2808,6 @@ function CustomAttributes:SetAttributes(hero)
 	end
 	if hero:HasModifier("modifier_sorcerers_regalia_spirit") then
 		spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_sorcerers_regalia_spirit", 1)
-	end
-	if hero:HasModifier("modifier_epoch_rune_w_3_invisible") then
-		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_epoch_rune_w_3_invisible", EPOCH_W3_INT)
 	end
 	if hero:HasModifier("modifier_conjuror_a_c_buff_invisible") then
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_conjuror_a_c_buff_invisible", CustomAttributes.CONJUROR_E1_AGI)
@@ -3925,6 +3909,27 @@ function CDOTA_BaseNPC:CalculateAndSaveMasterGreenDamageBuff()
 	else
 		self:RemoveModifierByName("modifier_master_green_damage_negative_buff")
 		self:RemoveModifierByName("modifier_master_green_damage_buff")
+	end
+end
+
+function CDOTA_BaseNPC:CalculateAndSaveMasterAttackRangeBuff()
+	local atk_range_buff = 0
+	Util.Modifier:SimpleEvent(self, 'GetRoshpitMasterAttackRange', { MODIFIER_ROSHPIT_MASTER_ATTACK_RANGE }, { }, 
+		function(result, data)
+			atk_range_buff = atk_range_buff + result
+		end
+	)
+	if atk_range_buff > 0 then
+		Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_master_attack_range_buff", {})
+		self:SetModifierStackCount("modifier_master_attack_range_buff", self, atk_range_buff)
+		self:RemoveModifierByName("modifier_master_attack_range_negative_buff")
+	elseif atk_range_buff < 0 then
+		Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_master_attack_range_negative_buff", {})
+		self:SetModifierStackCount("modifier_master_attack_range_negative_buff", self, atk_range_buff*-1)
+		self:RemoveModifierByName("modifier_master_attack_range_buff")
+	else
+		self:RemoveModifierByName("modifier_master_attack_range_negative_buff")
+		self:RemoveModifierByName("modifier_master_attack_range_buff")
 	end
 end
 

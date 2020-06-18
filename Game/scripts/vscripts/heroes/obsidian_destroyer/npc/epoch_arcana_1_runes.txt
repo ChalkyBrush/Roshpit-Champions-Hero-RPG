@@ -7,18 +7,23 @@
 		"AbilityTextureName"	"epoch/epoch_rune_q_1_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"AbilitySpecial"
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% EPOCH_ARCANA_Q1_DMG_MULTI_PCT %>"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"<% EPOCH_ARCANA_Q1_DMG_PER_MANA_DRAIN %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_base"			"5"
+				"base_ability"			"1"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"<% RPC_ELEMENT_TIME %>"
 			}
 		}
 	}
@@ -36,7 +41,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% EPOCH_ARCANA_Q2_ARMOR_AND_SPELL_PIERCE %>"
+				"property_one"			"<% EPOCH_ARCANA_Q2_STAT_PCT %>"
 			}
 		}
 	}
@@ -48,34 +53,18 @@
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityTextureName"	"epoch/epoch_rune_q_3_arcana1"
 		"MaxLevel"				"20"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% EPOCH_ARCANA_Q3_DMG_MULTI_PCT %>"
+				"property_one"			"<% EPOCH_ARCANA_Q3_BASE_ATTACK_DAMAGE %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% EPOCH_ARCANA_Q3_EXTRA_BASE_ATT_DMG_PCT %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"6"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_two"			"-1"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"1"
+				"property_two"			"<% EPOCH_ARCANA_Q3_SPELL_PIERCE %>"
 			}
 		}
 	}
@@ -93,13 +82,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% EPOCH_ARCANA_Q4_PROCS_PCT %>"
+				"property_one"			"<% EPOCH_ARCANA_Q4_CAST_RANGE %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"5"
+				"property_two"			"<% EPOCH_ARCANA_Q4_AOE %>"
 			}
 		}
 	}
-
