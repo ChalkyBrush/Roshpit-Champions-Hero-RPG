@@ -119,6 +119,10 @@ function epoch_distortion_orb:OnSpellStart()
 	    Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 	    ability:EndCooldown()
 	    self:E4(projectileOrigin, fv)
+	    if caster:HasModifier("modifier_epoch_glyph_7_1") then
+	    	ability.glyph_7_1 = true
+	    	ability.glyph_7_1_interval = 0
+	    end
 	end
 end
 
@@ -135,6 +139,12 @@ function epoch_distortion_orb:OnProjectileHit_ExtraData(target, vLocation, extra
 		else
 			local damage = self:GetSpecialValueFor("damage")
 			Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_E, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
+			if ability.glyph_7_1 then
+				ability.glyph_7_1 = false
+			    local r_ability = caster:GetAbilityByIndex(DOTA_R_SLOT)
+			    r_ability.cast_position_override = vLocation
+			    r_ability:OnChannelFinish(false)			
+			end
 		end
 	elseif extraData.projectileType == 2 then
 		if target then
@@ -145,9 +155,21 @@ function epoch_distortion_orb:OnProjectileHit_ExtraData(target, vLocation, extra
 end
 
 function epoch_distortion_orb:OnProjectileThink_ExtraData(vLoc, extraData)
+	local caster = self:GetCaster()
+	local ability = self
 	if extraData.projectileType == 1 then
 		local ability = self
 		ability.projectilePosition = vLoc
+		if caster:HasModifier("modifier_epoch_glyph_5_a") then
+			ability.glyph_7_1_interval = ability.glyph_7_1_interval + 1
+			if ability.glyph_7_1_interval%(EPOCH_GLYPH_5_A_INTERVAL/0.03) == 0 then
+				local enemies = FindUnitsInRadius(caster:GetTeamNumber(), vLoc, nil, EPOCH_GLYPH_5_A_ENEMY_SEARCH_RANGE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false)
+				if #enemies > 0 then
+					local w_ability = caster:GetAbilityByIndex(DOTA_W_SLOT)
+					w_ability:MainProjectile(caster, enemies[1], nil, vLoc)
+				end
+			end
+		end
 		return true
 	end
 end

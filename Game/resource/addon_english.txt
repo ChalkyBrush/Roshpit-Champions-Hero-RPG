@@ -6650,10 +6650,10 @@
 
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_1_1"		"[T1-1] Glyph of Eternal Bonds"
-		"item_rpc_epoch_glyph_1_1_description" 				"Increases the duration of @Ability1 by <font color='#ccff66'>50</font>."
+		"item_rpc_epoch_glyph_1_1_description" 				"Increases the duration of @Ability1 by <font color='#ccff66'>50</font>%."
 
 		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_2_1"		"[T2-1] Glyph of Preconception"
-		"item_rpc_epoch_glyph_2_1_description" 				"Attacking does not consume stacks of [W2]."
+		"item_rpc_epoch_glyph_2_1_description" 				"Attacking does not consume stacks of [W3]."
 
 		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_3_1"		"[T3-1] Glyph of Rewind"
 		"item_rpc_epoch_glyph_3_1_description" 				"Attacking triggers [W1]."
@@ -6668,10 +6668,10 @@
 		"item_rpc_epoch_glyph_6_1_description" 				"Triggers @Ability1 effect upon a successful cast of @Ability4."
 
 		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_7_1"		"[T7-1] Glyph of Shifting Dimensions"
-		"item_rpc_epoch_glyph_7_1_description" 				"The first enemy hit by the main orb of @Ability3 triggers a cast of @Ability4."
+		"item_rpc_epoch_glyph_7_1_description" 				"The first enemy hit by the main orb of @Ability3 triggers the final cast of @Ability4."
 
 		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_5_a"		"[T5-a] Glyph of Hybrid Distortion"
-		"item_rpc_epoch_glyph_5_a_description" 				"Every 0 seconds, the main orb of @Ability3 throws an @Ability2 at a random enemy within 0 range."
+		"item_rpc_epoch_glyph_5_a_description" 				"Every <font color='#ccff66'>0.24</font> seconds, the main orb of @Ability3 throws an @Ability2 at a random enemy within <font color='#ccff66'>500</font> range."
 
         "DOTA_Tooltip_ability_item_rpc_epoch_glyph_1_2"     "[T1-2] Glyph of Propagation"
         "item_rpc_epoch_glyph_1_2_description"              "Increases the cast range of @Ability2 by 0 and its max number of bounces by 0."

@@ -64,12 +64,12 @@ function epoch_genesis_orb:OnSpellStart()
 	local caster = self:GetCaster()
     local target = self:GetCastTarget()
     
-    self:MainProjectile(caster, target, nil)
+    self:MainProjectile(caster, target, nil, nil)
     
     Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 end
 
-function epoch_genesis_orb:MainProjectile(source, target, extraData)
+function epoch_genesis_orb:MainProjectile(source, target, extraData, sourceLoc)
 	local caster = self:GetCaster()
 	local travel_speed = self:GetSpecialValueFor("base_projectile_speed")
 	if not extraData then
@@ -95,6 +95,10 @@ function epoch_genesis_orb:MainProjectile(source, target, extraData)
 		iVisionTeamNumber = caster:GetTeamNumber(),
 		ExtraData = extraData
 	}
+	if sourceLoc then
+		info.vSourceLoc = sourceLoc
+		info.Source = nil
+	end
 	projectile = Filters:TrackingProjectile(info)    
 end
 
@@ -109,7 +113,7 @@ function epoch_genesis_orb:OnProjectileHit_ExtraData(target, vLocation, extraDat
 		local q_ability = caster:GetAbilityByIndex(DOTA_Q_SLOT)
 		next_target = q_ability:FindNextTargetForW(target, extraData)
 		if next_target and extraData.bounces > 0 then
-			self:MainProjectile(target, next_target, extraData)
+			self:MainProjectile(target, next_target, extraData, nil)
 		end
 	end
     local limitKey = caster:GetEntityIndex().."_genesis_orb_sound"
