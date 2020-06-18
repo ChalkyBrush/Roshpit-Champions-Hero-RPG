@@ -270,3 +270,31 @@ function modifier_epoch_e_in_motion:IsHidden()
 	return true
 end
 
+function modifier_epoch_e_in_motion:DeclareFunctions()
+	local funcs = {
+		MODIFIER_PROPERTY_EVASION_CONSTANT
+	}
+	return funcs
+end
+
+function modifier_epoch_e_in_motion:GetModifierEvasion_Constant()
+	local caster = self:GetParent()
+	if caster:HasModifier("modifier_epoch_glyph_2_2") then
+		return 100
+	else
+		return 0
+	end
+end
+
+function modifier_epoch_e_in_motion:GetEffectName()
+	local caster = self:GetParent()
+	if caster:HasModifier("modifier_epoch_glyph_2_2") then
+		return "particles/units/heroes/hero_phantom_assassin/epoch_rune_a_c.vpcf"
+	else
+		return nil
+	end
+end
+
+function modifier_epoch_e_in_motion:GetEffectAttachType()
+	return PATTACH_CUSTOMORIGIN
+end

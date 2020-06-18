@@ -492,6 +492,9 @@ function modifier_epoch_time_bind:OnIntervalThink()
 		Filters:TakeArgumentsAndApplyDamage(target, caster, burn_damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
 		CustomAbilities:QuickAttachParticle("particles/econ/items/antimage/antimage_weapon_basher_ti5/time_bind_damage.vpcf", target, 1)
 		AddFOWViewer(caster:GetTeamNumber(), target:GetAbsOrigin(), 300, 1.2, false)
+		if caster:HasModifier("modifier_epoch_glyph_3_2") then
+			Filters:ApplyStun(caster, EPOCH_GLYPH_3_2_STUN_DURATION, target)
+		end
 	end
 end
 

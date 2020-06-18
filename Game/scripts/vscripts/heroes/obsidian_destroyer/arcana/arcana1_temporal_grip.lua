@@ -128,6 +128,7 @@ function modifier_epoch_arcana_q_root:OnCreated()
 	local ability = self:GetAbility()
 	local parent = self:GetParent()
 	ability.bind_table[parent:GetEntityIndex()] = true
+	self:StartIntervalThink(1)
 end
 
 function modifier_epoch_arcana_q_root:OnRemoved()
@@ -137,6 +138,18 @@ function modifier_epoch_arcana_q_root:OnRemoved()
 	local ability = self:GetAbility()
 	local parent = self:GetParent()
 	ability.bind_table[parent:GetEntityIndex()] = nil
+end
+
+function modifier_epoch_arcana_q_root:OnIntervalThink()
+	if not IsServer() then
+		return false
+	end
+	local target = self:GetParent()
+	local ability = self:GetAbility()
+	local caster = ability:GetCaster()
+	if caster:HasModifier("modifier_epoch_glyph_3_2") then
+		Filters:ApplyStun(caster, EPOCH_GLYPH_3_2_STUN_DURATION, target)
+	end
 end
 
 -- BOUNCES FOR W

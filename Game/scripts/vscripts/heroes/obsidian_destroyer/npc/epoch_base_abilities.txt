@@ -195,6 +195,7 @@
 			"particle"		"particles/units/heroes/hero_oracle/oracle_false_promise_cast.vpcf"
 			"particle"		"particles/units/heroes/hero_puck/time_warp.vpcf"
 			"particle"		"particles/units/heroes/hero_alchemist/epoch_rune_a_d_concoction_projectile.vpcf"
+			"particle"		"particles/units/heroes/hero_phantom_assassin/epoch_rune_a_c.vpcf"
 		}
 
 		// Casting

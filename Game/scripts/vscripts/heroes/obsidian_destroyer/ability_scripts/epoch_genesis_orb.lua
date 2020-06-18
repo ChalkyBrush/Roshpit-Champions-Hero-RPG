@@ -40,7 +40,12 @@ function epoch_genesis_orb:GetCastPoint()
 end
 
 function epoch_genesis_orb:GetCastRange()
-    return 1000
+	local caster = self:GetCaster()
+	local range = 1000
+	if caster:HasModifier("modifier_epoch_glyph_1_2") then
+		range = range + EPOCH_GLYPH_1_2_CAST_RANGE
+	end
+    return range
 end
 
 function epoch_genesis_orb:GetCooldownBase(level)
@@ -74,6 +79,9 @@ function epoch_genesis_orb:MainProjectile(source, target, extraData, sourceLoc)
 	local travel_speed = self:GetSpecialValueFor("base_projectile_speed")
 	if not extraData then
 		local bounces = self:GetSpecialValueFor("max_bounces")
+		if caster:HasModifier("modifier_epoch_glyph_1_2") then
+			bounces = bounces + EPOCH_GLYPH_1_2_ADDITIONAL_BOUNCES
+		end
 		extraData = {bounces = bounces, speed = travel_speed}
 	end
 	local info =
@@ -183,7 +191,8 @@ function modifier_epoch_w_passive:OnCreated()
     self:SetSpecialTypes({ 
     	MODIFIER_ROSHPIT_W_BASE_ABILITY_DMG_BONUS,
     	MODIFIER_ROSHPIT_W_PCT_MANA_COST,
-    	MODIFIER_ROSHPIT_EVENT_ATTACK_LAND 
+    	MODIFIER_ROSHPIT_EVENT_ATTACK_LAND,
+    	MODIFIER_ROSHPIT_W_BASE_DMG_FLAT
     })
 end
 
@@ -205,6 +214,15 @@ function modifier_epoch_w_passive:GetRoshpitWPctManaCostModifier()
 	return caster:GetRuneValue("w", 4)*EPOCH_W4_W_MANA_PCT/100
 end
 
+function modifier_epoch_w_passive:GetRoshpitWBaseDmgFlat()
+	local caster = self:GetCaster()
+	if caster:HasModifier("modifier_epoch_glyph_4_2") then
+		return caster:GetSpirit()*EPOCH_GLYPH_4_2_SPIRIT_TO_W_DMG
+	else
+		return 0
+	end
+end
+
 -- W3 INT MODIFIER
 
 function modifier_epoch_w_3_int:IsHidden()
@@ -217,13 +235,23 @@ function modifier_epoch_w_3_int:OnCreated()
     end
     self:SetSpecialTypes({ 
     	MODIFIER_ROSHPIT_INTELLIGENCE_BONUS,
-    	MODIFIER_ROSHPIT_EVENT_ATTACK_LAND
+    	MODIFIER_ROSHPIT_EVENT_ATTACK_LAND,
+    	MODIFIER_ROSHPIT_SPIRIT_BONUS
     })	
 end
 
 function modifier_epoch_w_3_int:GetRoshpitIntelligenceBonus()
 	local caster = self:GetCaster()
 	return self:GetStackCount()*(caster:GetRuneValue("w", 3)*EPOCH_W3_INT)
+end
+
+function modifier_epoch_w_3_int:GetRoshpitSpiritBonus()
+	local caster = self:GetCaster()
+	if caster:HasModifier("modifier_epoch_glyph_4_2") then
+		return self:GetRoshpitIntelligenceBonus()
+	else
+		return 0
+	end
 end
 
 function modifier_epoch_w_3_int:GetEffectName()

@@ -215,7 +215,7 @@
         "item_rpc_epoch_glyph_2_2_description"              "Gain 100% evasion while @Ability3 is travelling."
 
         "DOTA_Tooltip_ability_item_rpc_epoch_glyph_3_2"     "[T3-2] Glyph of Ephemeral Chains"
-        "item_rpc_epoch_glyph_3_2_description"              "Enemies affected by @Ability1 are stunned for <% EPOCH_GLYPH_3_2_STUN_DURATION %> seconds every 0.5 seconds."
+        "item_rpc_epoch_glyph_3_2_description"              "Enemies affected by @Ability1 are stunned for <% EPOCH_GLYPH_3_2_STUN_DURATION %> seconds every 1 second."
 
         "DOTA_Tooltip_ability_item_rpc_epoch_glyph_4_2"     "[T4-2] Glyph of Transient Spirit"
         "item_rpc_epoch_glyph_4_2_description"              "[W3] also increases Spirit, and <% EPOCH_GLYPH_4_2_SPIRIT_TO_W_DMG %>x Epoch's spirit is added to the base damage of @Ability2."

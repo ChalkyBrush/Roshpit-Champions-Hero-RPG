@@ -6674,16 +6674,16 @@
 		"item_rpc_epoch_glyph_5_a_description" 				"Every <font color='#ccff66'>0.24</font> seconds, the main orb of @Ability3 throws an @Ability2 at a random enemy within <font color='#ccff66'>500</font> range."
 
         "DOTA_Tooltip_ability_item_rpc_epoch_glyph_1_2"     "[T1-2] Glyph of Propagation"
-        "item_rpc_epoch_glyph_1_2_description"              "Increases the cast range of @Ability2 by 0 and its max number of bounces by 0."
+        "item_rpc_epoch_glyph_1_2_description"              "Increases the cast range of @Ability2 by <font color='#ccff66'>750</font> and its max number of bounces by <font color='#ccff66'>1</font>."
 
         "DOTA_Tooltip_ability_item_rpc_epoch_glyph_2_2"     "[T2-2] Glyph of Time Bend"
         "item_rpc_epoch_glyph_2_2_description"              "Gain 100% evasion while @Ability3 is travelling."
 
         "DOTA_Tooltip_ability_item_rpc_epoch_glyph_3_2"     "[T3-2] Glyph of Ephemeral Chains"
-        "item_rpc_epoch_glyph_3_2_description"              "Enemies affected by @Ability1 are stunned for 0 seconds every 0.5 seconds."
+        "item_rpc_epoch_glyph_3_2_description"              "Enemies affected by @Ability1 are stunned for <font color='#ccff66'>0.35</font> seconds every 1 second."
 
         "DOTA_Tooltip_ability_item_rpc_epoch_glyph_4_2"     "[T4-2] Glyph of Transient Spirit"
-        "item_rpc_epoch_glyph_4_2_description"              "[W3] also increases Spirit, and 0x Epoch's spirit is added to the base damage of @Ability2."
+        "item_rpc_epoch_glyph_4_2_description"              "[W3] also increases Spirit, and <font color='#ccff66'>1</font>x Epoch's spirit is added to the base damage of @Ability2."
 
         "DOTA_Tooltip_ability_item_rpc_epoch_glyph_5_2"     "[T5-2] Glyph of Alpha Seed"
         "item_rpc_epoch_glyph_5_2_description"              "Enemies hit by the explosion of @Ability4 immediately have @Ability2 thrown at them. Max count of @Ability2 is 0."
