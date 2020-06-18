@@ -527,7 +527,7 @@
         "DOTA_Tooltip_ability_item_rpc_justice_greaves"                                "正义胫甲"
 
         "item_property_justice_greaves"                    "公正"
-        "property_justice_greaves_description"         "增加护甲，魔甲，物理穿透和魔法穿透， 数值为<% ITEM_RPC_JUSTICE_GREAVES_PCT_STAT %>%范围内最高敌人计数的<% ITEM_RPC_JUSTICE_GREAVES_RANGE %>"
+        "property_justice_greaves_description"         "增加护甲，魔甲，物理穿透和魔法穿透， 数值为<% ITEM_RPC_JUSTICE_GREAVES_PCT_STAT %>%范围内的敌人的属性最大值的<% ITEM_RPC_JUSTICE_GREAVES_RANGE %>"
 
         "item_rpc_justice_greaves_ruby1"                                        "增加 @ruby_property1点力量和 @ruby_property2最大生命值"
         "item_rpc_justice_greaves_emerald1"                                     "降低来自正面的伤害 (<% ITEM_RPC_JUSTICE_GREAVES_EMERALD_ANGLE %> °以内) @emerald_property1"
