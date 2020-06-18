@@ -133,6 +133,9 @@ function epoch_time_binder:OnProjectileHit(target, vLoc)
 			local link_set = {}
 			local max_links = ability:GetSpecialValueFor("max_links")
 			local link_duration = self:GetSpecialValueFor("link_duration")
+			if caster:HasModifier("modifier_epoch_glyph_1_1") then
+				link_duration = link_duration * (1 + (EPOCH_GLYPH_1_1_PCT_DURATION_INCREASE/100))
+			end
 			target:AddNewModifier(caster, ability, "modifier_epoch_time_bind", {duration = link_duration})
 			self:e_3_phantom(target, link_set)
 			local link_target = self:SetupLink(target, link_set)
@@ -311,6 +314,9 @@ function modifier_epoch_q_passive:BasicAttackOverride(event)
     	if ability.q_1_attacks[target:GetEntityIndex()] and #ability.q_1_attacks[target:GetEntityIndex()] > 0 then
 			local attack_data = ability.q_1_attacks[target:GetEntityIndex()][1]
 			local damage = attack_data.mana_drain*EPOCH_Q1_DMG_PER_MANA_DRAIN*caster:GetRuneValue("q", 1) + OverflowProtectedGetAverageTrueAttackDamage(caster)
+			if caster:HasModifier("modifier_epoch_glyph_4_1") then
+				damage = damage * EPOCH_GLYPH_4_1_INCREASED_DMG_PER_MANA_MULT
+			end
 			attack_data.hit = true
 			override = 1
 			Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
@@ -371,9 +377,13 @@ function modifier_epoch_q_passive:OnAttackStart(event)
     local q_1_level = caster:GetRuneValue("q", 1)
     if q_1_level > 0 then
     	local mana_pct = (caster:GetMana() / caster:GetMaxMana())*100
-    	if mana_pct >= EPOCH_Q1_MANA_DRAIN_PCT then
+    	local mana_drain_pct = EPOCH_Q1_MANA_DRAIN_PCT
+    	if caster:HasModifier("modifier_epoch_glyph_4_1") then
+    		mana_drain_pct = mana_drain_pct * (EPOCH_GLYPH_4_1_MANA_DRAIN_REDUCE/100)
+    	end
+    	if mana_pct >= mana_drain_pct then
     		caster:SetModifierStackCount("modifier_epoch_q_passive", caster, 1)
-    		local mana_drain = caster:GetMaxMana()*(EPOCH_Q1_MANA_DRAIN_PCT/100)
+    		local mana_drain = caster:GetMaxMana()*(mana_drain_pct/100)
     		caster:ReduceMana(mana_drain)
     		if not ability.q_1_attacks then
     			ability.q_1_attacks = {}

@@ -28,7 +28,7 @@ function modifierClass:OnCreated()
         return
     end
     self:SetSpecialTypes({ 
-
+        MODIFIER_ROSHPIT_FLAT_HEALTH_BONUS
     })
 end
 
@@ -40,4 +40,9 @@ function modifierClass:IsBuff()
 end
 function modifierClass:RemoveOnDeath()
     return false
+end
+
+function modifierClass:GetFlatHealthBonus()
+    local caster = self:GetParent()
+    return caster:GetIntellect()*EPOCH_GLYPH_5_1_MAX_HEALTH_PER_INT
 end

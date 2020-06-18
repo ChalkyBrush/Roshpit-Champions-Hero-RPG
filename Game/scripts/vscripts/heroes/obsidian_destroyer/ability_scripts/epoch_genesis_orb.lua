@@ -178,8 +178,17 @@ function modifier_epoch_w_passive:OnCreated()
     end
     self:SetSpecialTypes({ 
     	MODIFIER_ROSHPIT_W_BASE_ABILITY_DMG_BONUS,
-    	MODIFIER_ROSHPIT_W_PCT_MANA_COST
+    	MODIFIER_ROSHPIT_W_PCT_MANA_COST,
+    	MODIFIER_ROSHPIT_EVENT_ATTACK_LAND 
     })
+end
+
+function modifier_epoch_w_passive:RoshpitAttackLand()
+	local caster = self:GetCaster()
+	if caster:HasModifier("modifier_epoch_glyph_3_1") then
+		local ability = self:GetAbility()
+		ability:W1()
+	end
 end
 
 function modifier_epoch_w_passive:GetRoshpitWBaseAbilityDmgBonus()
@@ -241,11 +250,13 @@ function modifier_epoch_w_3_int:RoshpitAttackLand()
 			ability.w_3_heal_pfx = false
 		end
 	end)	
-	local new_stacks = self:GetStackCount() - 1
-	if new_stacks > 0 then
-		self:SetStackCount(new_stacks)
-	else
-		caster:RemoveModifierByName("modifier_epoch_w_3_int")
+	if not caster:HasModifier("modifier_epoch_glyph_2_1") then
+		local new_stacks = self:GetStackCount() - 1
+		if new_stacks > 0 then
+			self:SetStackCount(new_stacks)
+		else
+			caster:RemoveModifierByName("modifier_epoch_w_3_int")
+		end
 	end
 end
 

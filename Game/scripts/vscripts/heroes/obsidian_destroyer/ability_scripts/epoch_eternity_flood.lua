@@ -132,8 +132,27 @@ function epoch_eternity_flood:OnChannelFinish(interrupted)
 				end
 			end
 			Filters:CastSkillArguments(BASE_ABILITY_R, caster)
+			if caster:HasModifier("modifier_epoch_glyph_6_1") then
+				self:Glyph_6_1(position)
+			end
 		end
     end
+end
+
+function epoch_eternity_flood:Glyph_6_1(position)
+	local caster = self:GetCaster()
+	local q_ability = caster:GetAbilityByIndex(DOTA_Q_SLOT)
+	if q_ability:GetAbilityName() == "epoch_time_binder" then
+		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, self:GetAOERadius(), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false)
+		if #enemies > 0 then
+			q_ability:OnProjectileHit(enemies[1], position)
+		else
+			q_ability:OnProjectileHit(nil, position)
+		end
+	elseif q_ability:GetAbilityName() == "epoch_temporal_grip" then
+		q_ability.cast_position_override = position
+		q_ability:OnSpellStart()
+	end
 end
 
 function epoch_eternity_flood:GetBaseDamage()

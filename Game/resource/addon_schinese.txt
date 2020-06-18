@@ -7010,16 +7010,16 @@
 
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_1_1"		"[T1-1] 衰落雕文"
-		"item_rpc_epoch_glyph_1_1_description" 				"受@Ability1 和[Q1]影响的敌人受到的所有伤害将提高 <font color='#ccff66'>50</font>%"
+		"item_rpc_epoch_glyph_1_1_description" 				"受@Ability1 和[Q1]影响的敌人受到的所有伤害将提高 0%"
 
 		"DOTA_Tooltip_modifier_epoch_glyph_1_1_effect"		"衰落"
 		"DOTA_Tooltip_modifier_epoch_glyph_1_1_effect_Description"	"受到所有伤害提高"
 
 		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_2_1"		"[T2-1] 扭曲雕文"
-		"item_rpc_epoch_glyph_2_1_description" 				"@Ability3移动距离提高 <font color='#ccff66'>60</font>% 并且速度提高 <font color='#ccff66'>60</font>%。额外地，[E1]持续时间提高一倍。"
+		"item_rpc_epoch_glyph_2_1_description" 				"@Ability3移动距离提高 0% 并且速度提高 0%。额外地，[E1]持续时间提高一倍。"
 
 		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_3_1"		"[T3-1] 裂隙雕文"
-		"item_rpc_epoch_glyph_3_1_description" 				"@Ability2造成基于 <font color='#ccff66'>2</font>% 当前魔法值 乘以技能等级的额外的伤害。"
+		"item_rpc_epoch_glyph_3_1_description" 				"@Ability2造成基于 0% 当前魔法值 乘以技能等级的额外的伤害。"
 
 		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_4_1"		"[T4-1] 世纪雕文"
 		"item_rpc_epoch_glyph_4_1_description" 				"攻击不再消耗 [W3] buff。（智力加成不降低，同时每次攻击都恢复相应的生命值）"
@@ -7031,7 +7031,7 @@
 		//"DOTA_Tooltip_modifier_epoch_glyph_5_1_effect_Description"	"Increasing attack damage while focusing the same target."
 
 		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_6_1"		"[T6-1] 凝结雕文"
-		"item_rpc_epoch_glyph_6_1_description" 				"受@Ability1和[Q1] 影响的敌人基础攻击力降低 <font color='#ccff66'>80</font>%，同时 [Q2] 的效果 X<font color='#ccff66'>2</font>。"
+		"item_rpc_epoch_glyph_6_1_description" 				"受@Ability1和[Q1] 影响的敌人基础攻击力降低 0%，同时 [Q2] 的效果 X0。"
 
 		"DOTA_Tooltip_modifier_epoch_glyph_6_1_effect"		"凝结"
 		"DOTA_Tooltip_modifier_epoch_glyph_6_1_effect_Description"	"攻击力降低"
@@ -7040,7 +7040,7 @@
 		"item_rpc_epoch_glyph_7_1_description" 				"当@Ability3移动时，时光守卫离开此空间维度，无法攻击并闪避所有弹道。"
 
 		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_5_a"		"[T5-a] 时光旅行雕文"
-		"item_rpc_epoch_glyph_5_a_description" 				"时光守卫受到致命伤害时，立刻发动时光宝石回到过去，恢复全部生命值、魔法值、刷新技能冷却。<font color='#ccff66'>15</font> 秒冷却时间。"
+		"item_rpc_epoch_glyph_5_a_description" 				"时光守卫受到致命伤害时，立刻发动时光宝石回到过去，恢复全部生命值、魔法值、刷新技能冷却。0 秒冷却时间。"
 
 		"DOTA_Tooltip_modifier_epoch_glyph_5_a_cooldown"	"时光旅行冷却中"
 		"DOTA_Tooltip_modifier_epoch_glyph_5_a_little_shield"	"时光旅行伤害抵御"

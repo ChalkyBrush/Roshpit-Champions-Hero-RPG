@@ -6650,7 +6650,7 @@
 
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_1_1"		"[T1-1] Glyph of Eternal Bonds"
-		"item_rpc_epoch_glyph_1_1_description" 				"Increases the duration of @Ability1 by 0."
+		"item_rpc_epoch_glyph_1_1_description" 				"Increases the duration of @Ability1 by <font color='#ccff66'>50</font>."
 
 		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_2_1"		"[T2-1] Glyph of Preconception"
 		"item_rpc_epoch_glyph_2_1_description" 				"Attacking does not consume stacks of [W2]."
@@ -6659,10 +6659,10 @@
 		"item_rpc_epoch_glyph_3_1_description" 				"Attacking triggers [W1]."
 
 		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_4_1"		"[T4-1] Glyph of Aeon"
-		"item_rpc_epoch_glyph_4_1_description" 				"Mana drained by [Q1] is reduced by 0%, and damage per mana drained is increased by 0x."
+		"item_rpc_epoch_glyph_4_1_description" 				"Mana drained by [Q1] is reduced by <font color='#ccff66'>50</font>%, and damage per mana drained is increased by <font color='#ccff66'>1.5</font>x."
 
 		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_5_1"		"[T5-1] Glyph of Dimensional Wisdom"
-		"item_rpc_epoch_glyph_5_1_description" 				"Each point of Intelligence increases Max Health by 0."
+		"item_rpc_epoch_glyph_5_1_description" 				"Each point of Intelligence increases Max Health by <font color='#ccff66'>3</font>."
 
 		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_6_1"		"[T6-1] Glyph of Tangled Flow"
 		"item_rpc_epoch_glyph_6_1_description" 				"Triggers @Ability1 effect upon a successful cast of @Ability4."

@@ -77,6 +77,9 @@ function epoch_temporal_grip:OnSpellStart()
 	end)
 	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * (self:GetSpecialValueFor('dmg_atk_power')/100)
 	local rootDuration = self:GetSpecialValueFor("root_duration")
+	if caster:HasModifier("modifier_epoch_glyph_1_1") then
+		rootDuration = rootDuration * (1 + (EPOCH_GLYPH_1_1_PCT_DURATION_INCREASE/100))
+	end
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do
@@ -199,6 +202,9 @@ function modifier_epoch_arcana_q_passive:BasicAttackOverride(event)
     	if ability.q_1_attacks[target:GetEntityIndex()] and #ability.q_1_attacks[target:GetEntityIndex()] > 0 then
 			local attack_data = ability.q_1_attacks[target:GetEntityIndex()][1]
 			local damage = attack_data.mana_drain*EPOCH_ARCANA_Q1_DMG_PER_MANA_DRAIN*caster:GetRuneValue("q", 1) + OverflowProtectedGetAverageTrueAttackDamage(caster)
+			if caster:HasModifier("modifier_epoch_glyph_4_1") then
+				damage = damage * EPOCH_GLYPH_4_1_INCREASED_DMG_PER_MANA_MULT
+			end
 			attack_data.hit = true
 			override = 1
 			Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
@@ -258,9 +264,13 @@ function modifier_epoch_arcana_q_passive:OnAttackStart(event)
     local q_1_level = caster:GetRuneValue("q", 1)
     if q_1_level > 0 then
     	local mana_pct = (caster:GetMana() / caster:GetMaxMana())*100
-    	if mana_pct >= EPOCH_Q1_MANA_DRAIN_PCT then
+    	local mana_drain_pct = EPOCH_Q1_MANA_DRAIN_PCT
+    	if caster:HasModifier("modifier_epoch_glyph_4_1") then
+    		mana_drain_pct = mana_drain_pct * (EPOCH_GLYPH_4_1_MANA_DRAIN_REDUCE/100)
+    	end
+    	if mana_pct >= mana_drain_pct then
     		caster:SetModifierStackCount("modifier_epoch_arcana_q_passive", caster, 1)
-    		local mana_drain = caster:GetMaxMana()*(EPOCH_Q1_MANA_DRAIN_PCT/100)
+    		local mana_drain = caster:GetMaxMana()*(mana_drain_pct/100)
     		caster:ReduceMana(mana_drain)
     		if not ability.q_1_attacks then
     			ability.q_1_attacks = {}
