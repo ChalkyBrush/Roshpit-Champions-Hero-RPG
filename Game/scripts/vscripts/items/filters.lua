@@ -665,6 +665,11 @@ function Filters:LinearProjectile(projectile_data)
     return projectile
 end
 
+function Filters:TrackingProjectile(projectile_data)
+    local projectile = ProjectileManager:CreateTrackingProjectile(projectile_data)
+    return projectile
+end
+
 function Filters:ApplyStun(caster, duration, target)
     local mult = 1
     if caster:HasModifier("modifier_knight_crusher_armor") then
@@ -2591,13 +2596,6 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 local e_4_level = attacker:GetRuneValue("e", 4)
                 mult = mult + ZHONIK_E4_ARCANA_TEMPORAL_AMP_PCT / 100 * e_4_level
             end
-        elseif unitName == "npc_dota_hero_obsidian_destroyer" then
-            ----print("OD HERE")
-            local d_d_level = attacker:GetRuneValue("r", 4)
-            if d_d_level > 0 then
-                ----print("OD HERE2 r4: "..r_4_level)
-                mult = mult + d_d_level * EPOCH_R4_TIME_AMP
-            end
         end
         mult = mult + (CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_head_element_time", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_weapon_element_time", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_hands_element_time", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_feet_element_time", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_body_element_time", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_amulet_element_time", 1))/100
     end
@@ -2953,9 +2951,9 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         end
         mult = mult + (CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_head_element_dragon", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_weapon_element_dragon", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_hands_element_dragon", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_feet_element_dragon", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_body_element_dragon", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_amulet_element_dragon", 1))/100
     end
-    if bIsRealDamage and not damageData.ignoreMultipliers and not damageData.ignoreElements then
-        Filters:PostElementalDamage(victim, attacker, damage * mult, damage_type, slot, element1, element2, bIsRealDamage)
-    end
+    -- if bIsRealDamage and not damageData.ignoreMultipliers and not damageData.ignoreElements then
+    --     Filters:PostElementalDamage(victim, attacker, damage * mult, damage_type, slot, element1, element2, bIsRealDamage)
+    -- end
     if not damageData.ignoreMultipliers and not damageData.ignoreElements then
         damage = damage * mult/divisor
     end
@@ -2963,33 +2961,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
 end
 
 function Filters:PostElementalDamage(victim, attacker, damage, damage_type, slot, element1, element2, bIsRealDamage)
-    if attacker:GetUnitName() == "npc_dota_hero_obsidian_destroyer" then
-        if element1 == RPC_ELEMENT_TIME or element2 == RPC_ELEMENT_TIME then
-            if attacker:HasAbility("epoch_time_binder") then
-                local time_binder = attacker:FindAbilityByName("epoch_time_binder")
-                local q_2_level = attacker:GetRuneValue("q", 2)
-                if q_2_level > 0 then
-                    local q_2_damage = damage * (EPOCH_Q2_DAMAGE_SHARE / 100)
-                    if time_binder.linked_enemies_base then
-                        for i = 1, #time_binder.linked_enemies_base, 1 do
-                            local enemy = time_binder.linked_enemies_base[i]
-                            if enemy and IsValidEntity(enemy) and enemy:HasModifier("modifier_time_bound") and enemy:IsAlive() then
-                                Filters:TakeArgumentsAndApplyDamage(enemy, attacker, q_2_damage, DAMAGE_TYPE_PURE, slot, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE)
-                            end
-                        end
-                    end
-                    if time_binder.linked_enemies_q1 then
-                        for i = 1, #time_binder.linked_enemies_q1, 1 do
-                            local enemy = time_binder.linked_enemies_q1[i]
-                            if enemy and IsValidEntity(enemy) and enemy:HasModifier("modifier_space_link") and enemy:IsAlive() then
-                                Filters:TakeArgumentsAndApplyDamage(enemy, attacker, q_2_damage, DAMAGE_TYPE_PURE, slot, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE)
-                            end
-                        end
-                    end
-                end
-            end
-        end
-    end
+
 end
 
 

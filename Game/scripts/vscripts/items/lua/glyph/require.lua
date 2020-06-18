@@ -32,3 +32,4 @@ require(chernobogPrefix..'chernobog_glyph_1_1')
 
 -- HEROES
 require('heroes/dragon_knight/glyph_scripts/require')
+require('heroes/obsidian_destroyer/glyph_scripts/require')

@@ -4,7 +4,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"wisp_tether"
+		"AbilityTextureName"	"epoch/epoch_rune_q_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
@@ -12,8 +12,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% EPOCH_Q1_DMG_MULTI_PCT %>"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"<% EPOCH_Q1_DMG_PER_MANA_DRAIN %>"
 			}
 			"02"
 			{
@@ -23,12 +23,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"element_one"			"6"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% EPOCH_Q1_ADDITIONAL_LINKS_CHANCE %>"
+				"element_one"			"<% RPC_ELEMENT_TIME %>"
 			}
 		}
 	}
@@ -38,26 +33,15 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"ember_spirit_searing_chains"
+		"AbilityTextureName"	"epoch/epoch_rune_q_2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"AbilitySpecial"
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% EPOCH_Q2_FLAT_DMG %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% EPOCH_Q2_DAMAGE_SHARE %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"1"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"<% EPOCH_Q2_INT_PCT %>"
 			}
 		}
 	}
@@ -70,41 +54,12 @@
 		"AbilityTextureName"	"epoch/epoch_rune_q_3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% EPOCH_Q3_TIMES_MANA_DRAINED %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"6"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_two"			"-1"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"1"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_epoch_q_3"
-			{
-				"IsHidden"	"0"
-				"IsBuff"	"1"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-			}
-			"modifier_epoch_q_3_lock"
-			{
-				"IsHidden"	"1"
+				"property_one"			"<% EPOCH_Q3_PHANTOM_CHANCE %>"
 			}
 		}
 	}
@@ -114,7 +69,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"epoch/epoch_q_4"
+		"AbilityTextureName"	"epoch/epoch_rune_q_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -122,12 +77,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% EPOCH_Q4_DMG_BONUS_PCT %>"
+				"property_one"			"<% EPOCH_Q4_PROJECTILE_SPEED %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.1"
+				"property_two"			"<% EPOCH_Q4_CD_REDUCE_PCT %>"
 			}
 		}
 	}
@@ -137,7 +92,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"obsidian_destroyer/lucent_gate_icons/obsidian_destroyer_essence_aura"
+		"AbilityTextureName"	"epoch/epoch_rune_w_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -145,38 +100,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% EPOCH_W1_MANA_RESTORE_PCT %>"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_epoch_rune_w_1"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"0"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_epoch_rune_w_1_effect"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Duration"			"1"
-
-				"EffectName"		"particles/items2_fx/refresher.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"OnCreated"
-				{
-					"FireEffect"
-					{
-						"EffectName"        "particles/items2_fx/refresher.vpcf"
-						"EffectAttachType"  "follow_origin"
-						"Target"            "TARGET"
-					}
-				}
+				"property_one"			"<% EPOCH_W1_MANA_RESTORE %>"
 			}
 		}
 	}
@@ -186,15 +110,15 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"obsidian_destroyer/lucent_gate_icons/obsidian_destroyer_sanity_eclipse"
+		"AbilityTextureName"	"epoch/epoch_rune_w_2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% EPOCH_W2_MAGIC_ARMOR_REDUCTION %>"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"<% EPOCH_W2_ATK_POWER_PCT_ADDED_TO_W_DMG %>"
 			}
 		}
 	}
@@ -204,7 +128,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"obsidian_destroyer_essence_aura"
+		"AbilityTextureName"	"epoch/epoch_rune_w_3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -222,12 +146,14 @@
 		}
 	}
 
+
+
 	"epoch_rune_w_4"
 	{
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"epoch/epoch_w_4"
+		"AbilityTextureName"	"epoch/epoch_rune_w_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -235,7 +161,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% EPOCH_W4_DMG_MULTI_PCT %>"
+				"property_one"			"<% EPOCH_W4_W_BAD %>"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"<% EPOCH_W4_W_MANA_PCT %>"
 			}
 		}
 	}
@@ -245,38 +176,15 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"enchantress_untouchable"
+		"AbilityTextureName"	"epoch/epoch_rune_e_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one_base"		"0.4"
-			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% EPOCH_E1_DURATION %>"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_epoch_rune_e_1"
-			{
-				"Passive"	"0"
-				"EffectName"		"particles/units/heroes/hero_phantom_assassin/epoch_rune_a_c.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "300"
-					"MODIFIER_PROPERTY_EVASION_CONSTANT"		"100"
-				}
-				"States"
-				{
-					"MODIFIER_STATE_NO_UNIT_COLLISION"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
+				"property_one"			"<% EPOCH_E1_ARMOR_AND_MAGIC_ARMOR_PER_ATTR %>"
 			}
 		}
 	}
@@ -286,41 +194,20 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"medusa_mana_shield"
+		"AbilityTextureName"	"epoch/epoch_rune_e_2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% EPOCH_E2_ORBS %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one_max"			"<% EPOCH_E2_ORBS_MAX %>"
+				"property_one"			"<% EPOCH_E2_RANGE %>"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% EPOCH_E2_DMG %>"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two_base"		"<% EPOCH_E2_DMG_BASE %>"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"3"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"6"
+				"property_two"			"<% EPOCH_E2_SPEED %>"
 			}
 		}
 	}
@@ -330,7 +217,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"invoker/magus_apex/invoker_exort"
+		"AbilityTextureName"	"epoch/epoch_rune_e_3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -338,29 +225,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
+				"property_one"			"<% EPOCH_E3_MAX_HEALTH %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"2"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_epoch_rune_e_3"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"0"
-
-				"StatusEffectName" 		"particles/status_fx/status_effect_huskar_lifebreak_experimental.vpcf"
-				"StatusEffectPriority"  "10"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% EPOCH_E3_ATTACK_DAMAGE_PCT %>"
-				}
+				"property_two"			"<% EPOCH_E3_MAX_MANA %>"
 			}
 		}
 	}
@@ -370,15 +240,36 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"epoch/epoch_e_4"
+		"AbilityTextureName"	"epoch/epoch_rune_e_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% EPOCH_E4_DMG_MULTI_PCT %>"
+				"property_one"			"<% EPOCH_E4_DMG_ATK_PWR_PCT %>"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"1"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two_max"			"<% EPOCH_E4_ORBS_MAX %>"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"<% RPC_ELEMENT_TIME %>"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"3"
 			}
 		}
 	}
@@ -388,7 +279,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rubick/harlequin_icons/rubick_telekinesis_land"
+		"AbilityTextureName"	"epoch/epoch_rune_r_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -398,11 +289,6 @@
 				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% EPOCH_R1_DMG_PCT %>"
 			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% EPOCH_R1_EXTRA_DURATION %>"
-			}
 		}
 	}
 
@@ -411,7 +297,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"obsidian_destroyer/lucent_gate_icons/obsidian_destroyer_arcane_orb"
+		"AbilityTextureName"	"epoch/epoch_rune_r_2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -427,22 +313,6 @@
 				"property_two"			"<% EPOCH_R2_ATTACK_SPEED %>"
 			}
 		}
-
-		"Modifiers"
-		{
-			"modifier_epoch_r_2_buff"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"0"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "%property_one"
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%property_two"
-				}
-			}
-		}
 	}
 
 	"epoch_rune_r_3"
@@ -450,7 +320,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rubick_telekinesis"
+		"AbilityTextureName"	"epoch/epoch_rune_r_3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
@@ -459,17 +329,27 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% EPOCH_R3_DMG_MULTI_PCT %>"
+				"property_one"			"<% EPOCH_R3_DMG_ADDED_PCT_ATTACK_PWR %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"4"
+				"property_one"			"<% EPOCH_R3_CRACKLE_DMG_PCT_INITIAL %>"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"element_one"			"6"
+				"base_ability"			"4"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"<% RPC_ELEMENT_TIME %>"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_two"			"<% RPC_ELEMENT_COSMOS %>"
 			}
 		}
 	}
@@ -479,7 +359,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"kunkka_torrent"
+		"AbilityTextureName"	"epoch/epoch_rune_r_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -487,8 +367,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% EPOCH_R4_TIME_AMP * 100 %>"
+				"property_one"			"<% EPOCH_R4_TIME_AMP %>"
 			}
 		}
 	}
-

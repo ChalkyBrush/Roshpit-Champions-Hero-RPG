@@ -21099,17 +21099,17 @@
 
 
 
-
-	"item_rpc_epoch_glyph_1_1"
+	"item_rpc_epoch_glyph_book"
 	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
 		"BaseClass"	"item_datadriven"
-		"AbilityTextureName"	"glyphs/glyph_epoch_1_1"
+		"AbilityTextureName"	"glyphs/book/glyph_book_epoch"
 		"AbilityCastRange"	"900"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
 		"AbilityCastPoint"	"0"
-		"AbilityCooldown"	"0"
+		"AbilityCooldown"	"10"
 		"AbilityManaCost"	"0"
 		"ItemPermanent"			"0"
 		"ItemQuality"			"common"
@@ -21118,333 +21118,346 @@
 		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
-		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
-		"Modifiers"
+		"Model" 		"models/gameplay/attrib_tome_int.vmdl"
+		"OnSpellStart"
 		{
-			"modifier_epoch_glyph_1_1"
+			"RunScript"
 			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"ScriptFile"	"items/glyph_abilities.lua"
+				"Function"		"use_glyph_book"
+				"hero"          "epoch"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"50"
-			}
-		}
+	}
+
+	"item_rpc_epoch_glyph_1_1"
+	{
+		"AbilityBehavior"	    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	            "item_lua"
+        "ScriptFile"            "heroes/obsidian_destroyer/glyph_scripts/epoch_glyph_1_1.lua"
+		"AbilityTextureName"	"glyphs/glyph_epoch_1_1"
+		"AbilityCastRange"	    "900"
+		"AbilityCastPoint"	    "0"
+		"AbilityCooldown"	    "0"
+		"AbilityManaCost"	    "0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	        "1"
+		"ItemShareability"	    "ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	    "1"
+		"ItemBaseLevel"	        "1"
+		"Model" 		        "models/props_gameplay/tpscroll01.vmdl"
 	}
 
 	"item_rpc_epoch_glyph_2_1"
 	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"	    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	            "item_lua"
+        "ScriptFile"            "heroes/obsidian_destroyer/glyph_scripts/epoch_glyph_2_1.lua"
 		"AbilityTextureName"	"glyphs/glyph_epoch_2_1"
-		"AbilityCastRange"	"900"
-		"AbilityCastPoint"	"0"
-		"AbilityCooldown"	"0"
-		"AbilityManaCost"	"0"
+		"AbilityCastRange"	    "900"
+		"AbilityCastPoint"	    "0"
+		"AbilityCooldown"	    "0"
+		"AbilityManaCost"	    "0"
 		"ItemPermanent"			"0"
 		"ItemQuality"			"common"
-		"ItemDroppable"	"1"
-		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"MaxUpgradeLevel"	"1"
-		"ItemBaseLevel"	"1"
-		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
-		"Modifiers"
-		{
-			"modifier_epoch_glyph_2_1"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}
-		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"60"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"60"
-			}
-		}
+		"ItemDroppable"	        "1"
+		"ItemShareability"	    "ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	    "1"
+		"ItemBaseLevel"	        "1"
+		"Model" 		        "models/props_gameplay/tpscroll01.vmdl"
 	}
 
 	"item_rpc_epoch_glyph_3_1"
 	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"	    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	            "item_lua"
+        "ScriptFile"            "heroes/obsidian_destroyer/glyph_scripts/epoch_glyph_3_1.lua"
 		"AbilityTextureName"	"glyphs/glyph_epoch_3_1"
-		"AbilityCastRange"	"900"
-		"AbilityCastPoint"	"0"
-		"AbilityCooldown"	"0"
-		"AbilityManaCost"	"0"
+		"AbilityCastRange"	    "900"
+		"AbilityCastPoint"	    "0"
+		"AbilityCooldown"	    "0"
+		"AbilityManaCost"	    "0"
 		"ItemPermanent"			"0"
 		"ItemQuality"			"common"
-		"ItemDroppable"	"1"
-		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"MaxUpgradeLevel"	"1"
-		"ItemBaseLevel"	"1"
-		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
-		"Modifiers"
-		{
-			"modifier_epoch_glyph_3_1"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}
-		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"200"
-			}
-		}
+		"ItemDroppable"	        "1"
+		"ItemShareability"	    "ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	    "1"
+		"ItemBaseLevel"	        "1"
+		"Model" 		        "models/props_gameplay/tpscroll01.vmdl"
 	}
 
 	"item_rpc_epoch_glyph_4_1"
 	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"	    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	            "item_lua"
+        "ScriptFile"            "heroes/obsidian_destroyer/glyph_scripts/epoch_glyph_4_1.lua"
 		"AbilityTextureName"	"glyphs/glyph_epoch_4_1"
-		"AbilityCastRange"	"900"
-		"AbilityCastPoint"	"0"
-		"AbilityCooldown"	"0"
-		"AbilityManaCost"	"0"
+		"AbilityCastRange"	    "900"
+		"AbilityCastPoint"	    "0"
+		"AbilityCooldown"	    "0"
+		"AbilityManaCost"	    "0"
 		"ItemPermanent"			"0"
 		"ItemQuality"			"common"
-		"ItemDroppable"	"1"
-		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"MaxUpgradeLevel"	"1"
-		"ItemBaseLevel"	"1"
-		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
-		"Modifiers"
-		{
-			"modifier_epoch_glyph_4_1"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}
-		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"4"
-			}
-		}
+		"ItemDroppable"	        "1"
+		"ItemShareability"	    "ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	    "1"
+		"ItemBaseLevel"	        "1"
+		"Model" 		        "models/props_gameplay/tpscroll01.vmdl"
 	}
 
 	"item_rpc_epoch_glyph_5_1"
 	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"	    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	            "item_lua"
+        "ScriptFile"            "heroes/obsidian_destroyer/glyph_scripts/epoch_glyph_5_1.lua"
 		"AbilityTextureName"	"glyphs/glyph_epoch_5_1"
-		"AbilityCastRange"	"900"
-		"AbilityCastPoint"	"0"
-		"AbilityCooldown"	"0"
-		"AbilityManaCost"	"0"
+		"AbilityCastRange"	    "900"
+		"AbilityCastPoint"	    "0"
+		"AbilityCooldown"	    "0"
+		"AbilityManaCost"	    "0"
 		"ItemPermanent"			"0"
 		"ItemQuality"			"common"
-		"ItemDroppable"	"1"
-		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"MaxUpgradeLevel"	"1"
-		"ItemBaseLevel"	"1"
-		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
-		"Modifiers"
-		{
-			"modifier_epoch_glyph_5_1"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}
-		}
+		"ItemDroppable"	        "1"
+		"ItemShareability"	    "ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	    "1"
+		"ItemBaseLevel"	        "1"
+		"Model" 		        "models/props_gameplay/tpscroll01.vmdl"
 	}
 
 	"item_rpc_epoch_glyph_6_1"
 	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"	    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	            "item_lua"
+        "ScriptFile"            "heroes/obsidian_destroyer/glyph_scripts/epoch_glyph_6_1.lua"
 		"AbilityTextureName"	"glyphs/glyph_epoch_6_1"
-		"AbilityCastRange"	"900"
-		"AbilityCastPoint"	"0"
-		"AbilityCooldown"	"0"
-		"AbilityManaCost"	"0"
+		"AbilityCastRange"	    "900"
+		"AbilityCastPoint"	    "0"
+		"AbilityCooldown"	    "0"
+		"AbilityManaCost"	    "0"
 		"ItemPermanent"			"0"
 		"ItemQuality"			"common"
-		"ItemDroppable"	"1"
-		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"MaxUpgradeLevel"	"1"
-		"ItemBaseLevel"	"1"
-		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
-		"Modifiers"
-		{
-			"modifier_epoch_glyph_6_1"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}
-		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"80"
-			}
-		}
+		"ItemDroppable"	        "1"
+		"ItemShareability"	    "ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	    "1"
+		"ItemBaseLevel"	        "1"
+		"Model" 		        "models/props_gameplay/tpscroll01.vmdl"
 	}
 
 	"item_rpc_epoch_glyph_7_1"
 	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"	    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	            "item_lua"
+        "ScriptFile"            "heroes/obsidian_destroyer/glyph_scripts/epoch_glyph_7_1.lua"
 		"AbilityTextureName"	"glyphs/glyph_epoch_7_1"
-		"AbilityCastRange"	"900"
-		"AbilityCastPoint"	"0"
-		"AbilityCooldown"	"0"
-		"AbilityManaCost"	"0"
+		"AbilityCastRange"	    "900"
+		"AbilityCastPoint"	    "0"
+		"AbilityCooldown"	    "0"
+		"AbilityManaCost"	    "0"
 		"ItemPermanent"			"0"
 		"ItemQuality"			"common"
-		"ItemDroppable"	"1"
-		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"MaxUpgradeLevel"	"1"
-		"ItemBaseLevel"	"1"
-		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
-		"Modifiers"
-		{
-			"modifier_epoch_glyph_7_1"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}
-		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"80"
-			}
-		}
+		"ItemDroppable"	        "1"
+		"ItemShareability"	    "ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	    "1"
+		"ItemBaseLevel"	        "1"
+		"Model" 		        "models/props_gameplay/tpscroll01.vmdl"
 	}
 
 	"item_rpc_epoch_glyph_5_a"
 	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"	    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	            "item_lua"
+        "ScriptFile"            "heroes/obsidian_destroyer/glyph_scripts/epoch_glyph_5_a.lua"
 		"AbilityTextureName"	"glyphs/glyph_epoch_5_a"
-		"AbilityCastRange"	"900"
-		"AbilityCastPoint"	"0"
-		"AbilityCooldown"	"0"
-		"AbilityManaCost"	"0"
+		"AbilityCastRange"	    "900"
+		"AbilityCastPoint"	    "0"
+		"AbilityCooldown"	    "0"
+		"AbilityManaCost"	    "0"
 		"ItemPermanent"			"0"
 		"ItemQuality"			"common"
-		"ItemDroppable"	"1"
-		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"MaxUpgradeLevel"	"1"
-		"ItemBaseLevel"	"1"
-		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
-		"Modifiers"
-		{
-			"modifier_epoch_glyph_5_a"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+		"ItemDroppable"	        "1"
+		"ItemShareability"	    "ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	    "1"
+		"ItemBaseLevel"	        "1"
+		"Model" 		        "models/props_gameplay/tpscroll01.vmdl"
+	}
 
-				"OnDestroy"
-				{
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_epoch_glyph_5_a_effect"
-						"Target" 		"TARGET"
-					}
-				}
-				"OnCreated"
-				{
-					"ApplyModifier"
-					{
-						"ModifierName"	"modifier_epoch_glyph_5_a_effect"
-						"Target" 		"TARGET"
-					}
-				}
-			}
-			"modifier_epoch_glyph_5_a_effect"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}
-			"modifier_epoch_glyph_5_a_cooldown"
-			{
-				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
-				"IsHidden"	"0"
-				"TextureName"	"weaver_time_lapse"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-			}			
-			"modifier_epoch_glyph_5_a_little_shield"
-			{
-				"IsDebuff"	"0"
-				"IsHidden"	"0"
-				"TextureName"	"weaver_time_lapse"
-			}
-		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
-			}
-		}
+	"item_rpc_epoch_glyph_1_2"
+	{
+		"AbilityBehavior"	    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	            "item_lua"
+        "ScriptFile"            "heroes/obsidian_destroyer/glyph_scripts/epoch_glyph_1_2.lua"
+		"AbilityTextureName"	"glyphs/glyph_epoch_1_1"
+		"AbilityCastRange"	    "900"
+		"AbilityCastPoint"	    "0"
+		"AbilityCooldown"	    "0"
+		"AbilityManaCost"	    "0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	        "1"
+		"ItemShareability"	    "ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	    "1"
+		"ItemBaseLevel"	        "1"
+		"Model" 		        "models/props_gameplay/tpscroll01.vmdl"
+	}
+
+	"item_rpc_epoch_glyph_2_2"
+	{
+		"AbilityBehavior"	    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	            "item_lua"
+        "ScriptFile"            "heroes/obsidian_destroyer/glyph_scripts/epoch_glyph_2_2.lua"
+		"AbilityTextureName"	"glyphs/glyph_epoch_2_1"
+		"AbilityCastRange"	    "900"
+		"AbilityCastPoint"	    "0"
+		"AbilityCooldown"	    "0"
+		"AbilityManaCost"	    "0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	        "1"
+		"ItemShareability"	    "ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	    "1"
+		"ItemBaseLevel"	        "1"
+		"Model" 		        "models/props_gameplay/tpscroll01.vmdl"
+	}
+
+	"item_rpc_epoch_glyph_3_2"
+	{
+		"AbilityBehavior"	    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	            "item_lua"
+        "ScriptFile"            "heroes/obsidian_destroyer/glyph_scripts/epoch_glyph_3_2.lua"
+		"AbilityTextureName"	"glyphs/glyph_epoch_3_1"
+		"AbilityCastRange"	    "900"
+		"AbilityCastPoint"	    "0"
+		"AbilityCooldown"	    "0"
+		"AbilityManaCost"	    "0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	        "1"
+		"ItemShareability"	    "ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	    "1"
+		"ItemBaseLevel"	        "1"
+		"Model" 		        "models/props_gameplay/tpscroll01.vmdl"
+	}
+
+	"item_rpc_epoch_glyph_4_2"
+	{
+		"AbilityBehavior"	    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	            "item_lua"
+        "ScriptFile"            "heroes/obsidian_destroyer/glyph_scripts/epoch_glyph_4_2.lua"
+		"AbilityTextureName"	"glyphs/glyph_epoch_4_1"
+		"AbilityCastRange"	    "900"
+		"AbilityCastPoint"	    "0"
+		"AbilityCooldown"	    "0"
+		"AbilityManaCost"	    "0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	        "1"
+		"ItemShareability"	    "ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	    "1"
+		"ItemBaseLevel"	        "1"
+		"Model" 		        "models/props_gameplay/tpscroll01.vmdl"
+	}
+
+	"item_rpc_epoch_glyph_5_2"
+	{
+		"AbilityBehavior"	    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	            "item_lua"
+        "ScriptFile"            "heroes/obsidian_destroyer/glyph_scripts/epoch_glyph_5_2.lua"
+		"AbilityTextureName"	"glyphs/glyph_epoch_5_1"
+		"AbilityCastRange"	    "900"
+		"AbilityCastPoint"	    "0"
+		"AbilityCooldown"	    "0"
+		"AbilityManaCost"	    "0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	        "1"
+		"ItemShareability"	    "ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	    "1"
+		"ItemBaseLevel"	        "1"
+		"Model" 		        "models/props_gameplay/tpscroll01.vmdl"
+	}
+
+	"item_rpc_epoch_glyph_6_2"
+	{
+		"AbilityBehavior"	    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	            "item_lua"
+        "ScriptFile"            "heroes/obsidian_destroyer/glyph_scripts/epoch_glyph_6_2.lua"
+		"AbilityTextureName"	"glyphs/glyph_epoch_6_1"
+		"AbilityCastRange"	    "900"
+		"AbilityCastPoint"	    "0"
+		"AbilityCooldown"	    "0"
+		"AbilityManaCost"	    "0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	        "1"
+		"ItemShareability"	    "ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	    "1"
+		"ItemBaseLevel"	        "1"
+		"Model" 		        "models/props_gameplay/tpscroll01.vmdl"
+	}
+
+	"item_rpc_epoch_glyph_7_2"
+	{
+		"AbilityBehavior"	    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	            "item_lua"
+        "ScriptFile"            "heroes/obsidian_destroyer/glyph_scripts/epoch_glyph_7_2.lua"
+		"AbilityTextureName"	"glyphs/glyph_epoch_7_1"
+		"AbilityCastRange"	    "900"
+		"AbilityCastPoint"	    "0"
+		"AbilityCooldown"	    "0"
+		"AbilityManaCost"	    "0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	        "1"
+		"ItemShareability"	    "ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	    "1"
+		"ItemBaseLevel"	        "1"
+		"Model" 		        "models/props_gameplay/tpscroll01.vmdl"
 	}
 
 
@@ -21832,7 +21845,8 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	"item_lua"
+        "ScriptFile" "heroes/obsidian_destroyer/weapon_scripts/epoch_immortal_weapon_1.lua"
 		"AbilityTextureName"	"weapons/legends/epoch_immortal_weapon_1"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -21846,24 +21860,6 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/red_box.vmdl"
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/equipment.lua"
-				"Function"		"equip_item"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_epoch_immortal_weapon_1"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}
-		}
 	}
 
 	"item_rpc_epoch_immortal_weapon_2"
@@ -21871,7 +21867,8 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	"item_lua"
+        "ScriptFile" "heroes/obsidian_destroyer/weapon_scripts/epoch_immortal_weapon_2.lua"
 		"AbilityTextureName"	"weapons/legends/epoch_immortal_weapon_2"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -21885,45 +21882,6 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/red_box.vmdl"
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/equipment.lua"
-				"Function"		"equip_item"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_epoch_immortal_weapon_2"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"OnDeath"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/obsidian_destroyer/epoch_4_r.lua"
-						"Function"		"immortal_weapon_2_die"
-					}
-				}
-			}
-		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"3"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"property_two"			"1.5"
-			}
-		}
 	}
 
 	"item_rpc_epoch_immortal_weapon_3"
@@ -21931,7 +21889,8 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	"item_lua"
+        "ScriptFile" "heroes/obsidian_destroyer/weapon_scripts/epoch_immortal_weapon_3.lua"
 		"AbilityTextureName"	"weapons/legends/epoch_immortal_weapon_3"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -21945,32 +21904,6 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/red_box.vmdl"
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/equipment.lua"
-				"Function"		"equip_item"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_epoch_immortal_weapon_3"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}
-		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"property_one"			"0.8"
-			}
-		}
 	}
 
 

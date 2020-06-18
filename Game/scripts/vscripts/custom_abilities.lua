@@ -44,29 +44,6 @@ function CustomAbilities:StargazerSphereTakeDamage(caster, ability, unit, damage
 
 end
 
-function CustomAbilities:EpochTimeTravelGlyph(victim)
-	local modifier = victim:FindModifierByName("modifier_epoch_glyph_5_a")
-	local glyphUnit = modifier:GetCaster()
-	local glyph = modifier:GetAbility()
-
-	local inventoryUnit = victim.InventoryUnit
-	-- ability:ApplyDataDrivenModifier(inventoryUnit, victim, "modifier_epoch_glyph_5_a_cooldown", {duration = 15})
-
-	glyph:ApplyDataDrivenModifier(glyphUnit, victim, "modifier_epoch_glyph_5_a_cooldown", {duration = EPOCH_GLYPH_5_A_SECOND_LIFE_CD})
-	glyph:ApplyDataDrivenModifier(glyphUnit, victim, "modifier_epoch_glyph_5_a_little_shield", {duration = 2})
-
-	--print("EpochTimeTravelGlyph shield trigger - custom abilities")
-	EmitSoundOn("RPC.MagicImmuneBreakAttacker", victim)
-	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_faceless_void/faceless_void_backtrack.vpcf", victim, 2)
-	ProjectileManager:ProjectileDodge(victim)
-	victim:SetHealth(victim:GetMaxHealth())
-	victim:SetMana(victim:GetMaxMana())
-	victim:GetAbilityByIndex(DOTA_Q_SLOT):EndCooldown()
-	victim:GetAbilityByIndex(DOTA_W_SLOT):EndCooldown()
-	victim:GetAbilityByIndex(DOTA_E_SLOT):EndCooldown()
-	victim:GetAbilityByIndex(DOTA_R_SLOT):EndCooldown()
-end
-
 function CustomAbilities:UpdateAuriunCursorPosition(msg)
 	local auriun = EntIndexToHScript(msg.auriun)
 	auriun.cursorPos = Vector(msg.xPos, msg.yPos)
@@ -1105,5 +1082,34 @@ function CDOTABaseAbility:GetCastPosition()
 		return position
 	else
 		return self:GetCursorPosition()
+	end
+end
+
+function CDOTABaseAbility:GetCastTarget()
+	if self.cast_target_override then
+		local target = self.cast_target_override
+		self.cast_target_override = nil
+		return target
+	else
+		return self:GetCursorTarget()
+	end
+end
+
+function CDOTA_BaseNPC_Hero:ReduceAllCurrentCooldowns(time)
+	local ability_slots = {DOTA_Q_SLOT, DOTA_W_SLOT, DOTA_E_SLOT, DOTA_R_SLOT}
+	for i = 1, #ability_slots, 1 do
+		local ability = self:GetAbilityByIndex(ability_slots[i])
+		if ability then
+			local remainingCD = ability:GetCooldownTimeRemaining()
+			if remainingCD > 0 then
+				local newCD = remainingCD - time
+				if newCD > 0 then
+					ability:EndCooldown()
+					ability:StartCooldown(newCD)
+				else
+					ability:EndCooldown()
+				end
+			end
+		end
 	end
 end
