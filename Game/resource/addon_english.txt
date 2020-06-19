@@ -6474,13 +6474,13 @@
         "DOTA_Tooltip_ability_epoch_time_binder_impact_radius"          "PROJECTILE IMPACT RADIUS:"
         "DOTA_Tooltip_ability_epoch_time_binder_impact_damage_base"          "PROJECTILE IMPACT BASE DAMAGE:"
         "DOTA_Tooltip_ability_epoch_time_binder_impact_damage_int_mult"          "ADDITIONAL IMPACT DAMAGE MULTIPLE OF EPOCH INTELLIGENCE:"
-        "DOTA_Tooltip_ability_epoch_time_binder_dot_damage_pct_impact"          "% DOT DAMAGE % OF IMPACT DAMAGE TIME NUMBER OF LINKS:"
+        "DOTA_Tooltip_ability_epoch_time_binder_dot_damage_pct_impact"          "% DOT DAMAGE AS % OF IMPACT DAMAGE TIMES NUMBER OF LINKS:"
 
 		"DOTA_Tooltip_modifier_epoch_time_bind" 										"Time Bind"
 		"DOTA_Tooltip_modifier_epoch_time_bind_description" 							"Linked to nearby allies. Stack count indicates the number of linked targets."
 		
     	"DOTA_Tooltip_ability_epoch_rune_q_1"									"[Q1] Aeon Strike"
-    	"DOTA_Tooltip_ability_epoch_rune_q_1_Description"						"Attacks drain <font color='#ccff66'>3</font>% of Max Mana and deal additional damage based on the mana drained. Aeon Strike overrides the basic attack effect."
+    	"DOTA_Tooltip_ability_epoch_rune_q_1_Description"						"Attacks drain <font color='#ccff66'>3</font>% of Max Mana and deal additional damage based on the mana drained. Aeon Strike replaces the Physical damage instances dealt by Epoch Guardian's basic attacks."
     	"DOTA_Tooltip_ability_epoch_rune_q_1_property_one"						"Additional Damage"
     	"DOTA_Tooltip_ability_epoch_rune_q_1_suffix"							"% of Drained Mana"
 
@@ -6519,7 +6519,7 @@
         "DOTA_Tooltip_ability_epoch_rune_w_2_suffix"                    "% of Attack Power"
 
         "DOTA_Tooltip_ability_epoch_rune_w_3"                           "[W3] Foresight"
-        "DOTA_Tooltip_ability_epoch_rune_w_3_Description"               "Each time an enemy is hit by @Ability2, gain bonus intelligence up to a maximum of <font color='#ccff66'>30</font> stacks. Attacking consumes a stack and restores health."
+        "DOTA_Tooltip_ability_epoch_rune_w_3_Description"               "Each time an enemy is hit by @Ability2, gain bonus Intelligence up to a maximum of <font color='#ccff66'>30</font> stacks. Attacking consumes a stack and restores health."
         "DOTA_Tooltip_ability_epoch_rune_w_3_property_one"              "Intelligence per stack"
         "DOTA_Tooltip_ability_epoch_rune_w_3_suffix"                    ""
         "DOTA_Tooltip_ability_epoch_rune_w_3_property_two"              "Health Restore on Attack"
@@ -6553,7 +6553,7 @@
         "DOTA_Tooltip_ability_epoch_rune_e_1_suffix_two"                " per Attribute"
 
     	"DOTA_Tooltip_ability_epoch_rune_e_2"							"[E2] Orb Rush"
-    	"DOTA_Tooltip_ability_epoch_rune_e_2_Description"				"Increases the Range and Speed of Distortion Orb"
+    	"DOTA_Tooltip_ability_epoch_rune_e_2_Description"				"Increases the travel speed and max distance of @Ability3."
     	"DOTA_Tooltip_ability_epoch_rune_e_2_property_one"				"Additional Range"
     	"DOTA_Tooltip_ability_epoch_rune_e_2_suffix"					""
     	"DOTA_Tooltip_ability_epoch_rune_e_2_property_two"				"Additional Speed"
@@ -6574,7 +6574,7 @@
         "DOTA_Tooltip_ability_epoch_rune_e_4_suffix_two"                ""
 		
 		"DOTA_Tooltip_ability_epoch_eternity_flood"									"Eternity Flood"
-		"DOTA_Tooltip_ability_epoch_eternity_flood_Description"						"Element: <font color=\"#B5FFB7\">Temporal</font>/<font color=\"#C25DFC\">Cosmic</font><br>Creates a Universe at the target location while channeling, vacuuming nearby matter and freezing it in time. Upon successful cast it collapses, dealing damage and launching all matter backwards and freezing them in time."
+		"DOTA_Tooltip_ability_epoch_eternity_flood_Description"						"Element: <font color=\"#B5FFB7\">Temporal</font>/<font color=\"#C25DFC\">Cosmic</font><br>Creates a Universe at the target location while channeling, vacuuming nearby emnemies and freezing them in time. Upon successful cast it collapses, dealing damage and launching all matter backwards and freezing them in time."
 		"DOTA_Tooltip_ability_epoch_eternity_flood_Lore"								""
 		"DOTA_Tooltip_ability_epoch_eternity_flood_damage"							"BASE DAMAGE:"
     	"DOTA_Tooltip_ability_epoch_eternity_flood_damage_sum_attrs"				"ADDITIONAL DAMAGE SUM OF ALL ATTRIBUTES:"
@@ -6588,7 +6588,7 @@
         "DOTA_Tooltip_modifier_epoch_r_vacuum_description"              "Caught in a Black Hole."
 
     	"DOTA_Tooltip_ability_epoch_rune_r_1"							"[R1] Tides of Time"
-    	"DOTA_Tooltip_ability_epoch_rune_r_1_Description"				"Passively increases Attack Power based on Epoch's Current Mana Pool."
+    	"DOTA_Tooltip_ability_epoch_rune_r_1_Description"				"Increases bonus attack damage based on Epoch Guardian's percentage of current mana."
     	"DOTA_Tooltip_ability_epoch_rune_r_1_property_one"				"Damage Increase %"
     	"DOTA_Tooltip_ability_epoch_rune_r_1_suffix"					" for every 1% of current mana"
 
@@ -6600,7 +6600,7 @@
     	"DOTA_Tooltip_ability_epoch_rune_r_2_suffix_two"				""
 
     	"DOTA_Tooltip_ability_epoch_rune_r_3"							"[R3] Time Crackle"
-    	"DOTA_Tooltip_ability_epoch_rune_r_3_Description"				"Epoch Guardian's Attack Power increases the damage of Eternity Flood. Enemies frozen in time by @Ability4 are eroded away every 0.33 seconds based on the initial damage."
+    	"DOTA_Tooltip_ability_epoch_rune_r_3_Description"				"Epoch Guardian's Attack Power increases the damage of @Ability4. Enemies frozen in time by @Ability4 are eroded away every 0.33 seconds based on the initial damage."
     	"DOTA_Tooltip_ability_epoch_rune_r_3_property_one"				"Additional Eternity Flood Damage"
     	"DOTA_Tooltip_ability_epoch_rune_r_3_suffix"					"% of Attack Power"
         "DOTA_Tooltip_ability_epoch_rune_r_3_property_two"              "Crackle Damage"
@@ -6625,12 +6625,12 @@
     	"DOTA_Tooltip_modifier_epoch_arcana_root_Description"				"Rooted"	
 
         "DOTA_Tooltip_ability_epoch_rune_q_1_arcana1"                       "[Q1] Aeon Blast"
-        "DOTA_Tooltip_ability_epoch_rune_q_1_arcana1_Description"           "Attacks drain <font color='#ccff66'>3</font>% of Max Mana and deal additional damage based on the mana drained. Aeon Blast overrides the basic attack effect."
+        "DOTA_Tooltip_ability_epoch_rune_q_1_arcana1_Description"           "Attacks drain <font color='#ccff66'>3</font>% of Max Mana and deal additional damage based on the mana drained. Aeon Blast replaces the Physical damage instances dealt by Epoch Guardian's basic attacks."
         "DOTA_Tooltip_ability_epoch_rune_q_1_arcana1_property_one"          "Additional Damage"
         "DOTA_Tooltip_ability_epoch_rune_q_1_arcana1_suffix"                "% of Drained Mana"
 
     	"DOTA_Tooltip_ability_epoch_rune_q_2_arcana1"							"[Q2] Heart of Ages"
-    	"DOTA_Tooltip_ability_epoch_rune_q_2_arcana1_Description"				"Increases All Stats by a %."
+    	"DOTA_Tooltip_ability_epoch_rune_q_2_arcana1_Description"				"Increases All Attributes by a %."
     	"DOTA_Tooltip_ability_epoch_rune_q_2_arcana1_property_one"				"All Attributes Increase"
     	"DOTA_Tooltip_ability_epoch_rune_q_2_arcana1_suffix"					"%"
 
@@ -6671,7 +6671,7 @@
 		"item_rpc_epoch_glyph_7_1_description" 				"The first enemy hit by the main orb of @Ability3 triggers the final cast of @Ability4."
 
 		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_5_a"		"[T5-a] Glyph of Hybrid Distortion"
-		"item_rpc_epoch_glyph_5_a_description" 				"Every <font color='#ccff66'>0.24</font> seconds, the main orb of @Ability3 throws an @Ability2 at a random enemy within <font color='#ccff66'>500</font> range."
+		"item_rpc_epoch_glyph_5_a_description" 				"Every <font color='#ccff66'>0.24</font> seconds, the main orb of @Ability3 throws a @Ability2 at a random enemy within <font color='#ccff66'>500</font> range."
 
         "DOTA_Tooltip_ability_item_rpc_epoch_glyph_1_2"     "[T1-2] Glyph of Propagation"
         "item_rpc_epoch_glyph_1_2_description"              "Increases the cast range of @Ability2 by <font color='#ccff66'>750</font> and its max number of bounces by <font color='#ccff66'>1</font>."
@@ -6683,16 +6683,16 @@
         "item_rpc_epoch_glyph_3_2_description"              "Enemies affected by @Ability1 are stunned for <font color='#ccff66'>0.35</font> seconds every 1 second."
 
         "DOTA_Tooltip_ability_item_rpc_epoch_glyph_4_2"     "[T4-2] Glyph of Transient Spirit"
-        "item_rpc_epoch_glyph_4_2_description"              "[W3] also increases Spirit, and <font color='#ccff66'>1</font>x Epoch's spirit is added to the base damage of @Ability2."
+        "item_rpc_epoch_glyph_4_2_description"              "[W3] also increases Spirit, and <font color='#ccff66'>1</font>x Epoch's Spirit is added to the base damage of @Ability2."
 
         "DOTA_Tooltip_ability_item_rpc_epoch_glyph_5_2"     "[T5-2] Glyph of Alpha Seed"
-        "item_rpc_epoch_glyph_5_2_description"              "Enemies hit by the explosion of @Ability4 immediately have @Ability2 thrown at them. Max count of @Ability2 is <font color='#ccff66'>6</font>."
+        "item_rpc_epoch_glyph_5_2_description"              "Each enemy caught in the final explosion of @Ability4 is targeted with a @Ability2, to a maximum of <font color='#ccff66'>6</font> enemies per explosion."
 
         "DOTA_Tooltip_ability_item_rpc_epoch_glyph_6_2"     "[T6-2] Glyph of Tide Coil"
         "item_rpc_epoch_glyph_6_2_description"              "Whenever an enemy dies while under the effect of @Ability1, reduce all current cooldowns by <font color='#ccff66'>0.5</font> seconds."
 
         "DOTA_Tooltip_ability_item_rpc_epoch_glyph_7_2"     "[T7-2] Glyph of Generational Void"
-        "item_rpc_epoch_glyph_7_2_description"              "Increases the channel time of @Ability4 by <font color='#ccff66'>3</font> seconds, and its explosion will trigger whether the channel finishes or not."
+        "item_rpc_epoch_glyph_7_2_description"              "Increases the channel time of @Ability4 by <font color='#ccff66'>3</font> seconds, and its explosion will trigger whether or not the channel was interrupted."
 
         "DOTA_Tooltip_ability_item_rpc_epoch_glyph_book"    "Epoch Guardian Glyph Book"
 		
@@ -6725,17 +6725,17 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_epoch_immortal_weapon_1"			"Eye of Chronos"
 		"item_property_epoch_immortal_weapon"								"Eye of Chronos"
-		"property_epoch_immortal_weapon_description"						"Attacking an enemy bound by @Ability1 will create an attack on all other bound units as well."
+		"property_epoch_immortal_weapon_description"						"Attacking an enemy bound by @Ability1 will launch attacks against all other bound units as well."
         
 		"DOTA_Tooltip_ability_item_rpc_epoch_immortal_weapon_2"				"Staff of the Eternal Guardian"
     	"item_property_epoch_immortal_weapon2"								"Guardian of Eternity"
-    	"property_epoch_immortal_weapon2_description"						"On taking lethal damage, go invulnerable for <font color='#ccff66'>3</font> seconds and channel @Ability4 while restoring health and mana. Upon respawning complete the @Ability4 channel. <font color='#ccff66'>16</font> cooldown."
+    	"property_epoch_immortal_weapon2_description"						"On taking lethal damage, go invulnerable for <font color='#ccff66'>3</font> seconds and channel @Ability4 while restoring health and mana. Upon respawning complete the @Ability4 channel. <font color='#ccff66'>16</font> second cooldown."
 
         "DOTA_Tooltip_modifier_epoch_immortal_weapon_2_death_prevent_effect"    "Guardian of Eternity"
 
     	"DOTA_Tooltip_ability_item_rpc_epoch_immortal_weapon_3"				"Aion Eternus"
     	"item_property_epoch_immortal_weapon3"								"Spatial Distortion"
-    	"property_epoch_immortal_weapon3_description"						"If you do not jaunt to the orb of @Ability3, do not trigger its cooldown."
+    	"property_epoch_immortal_weapon3_description"						"If a @Ability3 expires without Epoch Guardian having teleported to it, the spell will not go on cooldown."
 
 		//Abilities
 		"DOTA_Tooltip_ability_flamewaker_seismic_flare"										"Seismic Flare"
