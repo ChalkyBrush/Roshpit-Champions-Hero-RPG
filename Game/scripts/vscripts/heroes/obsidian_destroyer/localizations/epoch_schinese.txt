@@ -221,7 +221,7 @@
         "item_rpc_epoch_glyph_4_2_description"              "[W3] 也会提高精神值并且 <% EPOCH_GLYPH_4_2_SPIRIT_TO_W_DMG %>x 时光守卫的精神值将会提高 @Ability2的基础伤害。"
 
         "DOTA_Tooltip_ability_item_rpc_epoch_glyph_5_2"     "[T5-2] 原初之种雕文"
-        "item_rpc_epoch_glyph_5_2_description"              "立即向被 @Ability4 的爆发击中的敌人放出 @Ability2 。提高 @Ability2 的最大数量 <% EPOCH_GLYPH_5_2_MAX_W_CASTS %>。"
+        "item_rpc_epoch_glyph_5_2_description"              "立即向被 @Ability4 的爆发击中的敌人放出 @Ability2 。@Ability2 的最大数量为 <% EPOCH_GLYPH_5_2_MAX_W_CASTS %>。"
 
         "DOTA_Tooltip_ability_item_rpc_epoch_glyph_6_2"     "[T6-2] 潮流萦绕雕文"
         "item_rpc_epoch_glyph_6_2_description"              "当一个受到 @Ability1影响的敌人死亡时, 降低所有技能的当前冷却时间 <% EPOCH_GLYPH_6_2_CURRENT_CD_REDUCE %> 秒。"
