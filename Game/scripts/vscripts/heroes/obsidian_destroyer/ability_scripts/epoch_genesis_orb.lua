@@ -84,53 +84,57 @@ function epoch_genesis_orb:MainProjectile(source, target, extraData, sourceLoc)
 		end
 		extraData = {bounces = bounces, speed = travel_speed}
 	end
-	local info =
-	{
-		Target = target,
-		Source = source,
-		Ability = self,
-		EffectName = "particles/roshpit/epoch/v2_genesis_orb.vpcf",
-		StartPosition = "attach_attack1",
-		bDrawsOnMinimap = false,
-		bDodgeable = true,
-		bIsAttack = false,
-		bVisibleToEnemies = true,
-		bReplaceExisting = false,
-		flExpireTime = GameRules:GetGameTime() + 7,
-		bProvidesVision = true,
-		iVisionRadius = 100,
-		iMoveSpeed = extraData.speed,
-		iVisionTeamNumber = caster:GetTeamNumber(),
-		ExtraData = extraData
-	}
-	if sourceLoc then
-		info.vSourceLoc = sourceLoc
-		info.Source = nil
+	if target and target:EntityExistsAndIsAlive() then
+		local info =
+		{
+			Target = target,
+			Source = source,
+			Ability = self,
+			EffectName = "particles/roshpit/epoch/v2_genesis_orb.vpcf",
+			StartPosition = "attach_attack1",
+			bDrawsOnMinimap = false,
+			bDodgeable = true,
+			bIsAttack = false,
+			bVisibleToEnemies = true,
+			bReplaceExisting = false,
+			flExpireTime = GameRules:GetGameTime() + 7,
+			bProvidesVision = true,
+			iVisionRadius = 100,
+			iMoveSpeed = extraData.speed,
+			iVisionTeamNumber = caster:GetTeamNumber(),
+			ExtraData = extraData
+		}
+		if sourceLoc then
+			info.vSourceLoc = sourceLoc
+			info.Source = nil
+		end
+		projectile = Filters:TrackingProjectile(info)    
 	end
-	projectile = Filters:TrackingProjectile(info)    
 end
 
 function epoch_genesis_orb:OnProjectileHit_ExtraData(target, vLocation, extraData)
 	local caster = self:GetCaster()
 	local damage = self:CalculateImpactDamage()
-	if target:HasModifier("modifier_epoch_time_bind") or target:HasModifier("modifier_epoch_arcana_q_root") then
-		extraData.bounces = extraData.bounces - 1
-		extraData[target:GetEntityIndex()] = 1
-		extraData.speed = extraData.speed + self:GetSpecialValueFor("projectile_speed_gain")
-		local next_target = nil
-		local q_ability = caster:GetAbilityByIndex(DOTA_Q_SLOT)
-		next_target = q_ability:FindNextTargetForW(target, extraData)
-		if next_target and extraData.bounces > 0 then
-			self:MainProjectile(target, next_target, extraData, nil)
+	if target and target:EntityExistsAndIsAlive() then
+		if target:HasModifier("modifier_epoch_time_bind") or target:HasModifier("modifier_epoch_arcana_q_root") then
+			extraData.bounces = extraData.bounces - 1
+			extraData[target:GetEntityIndex()] = 1
+			extraData.speed = extraData.speed + self:GetSpecialValueFor("projectile_speed_gain")
+			local next_target = nil
+			local q_ability = caster:GetAbilityByIndex(DOTA_Q_SLOT)
+			next_target = q_ability:FindNextTargetForW(target, extraData)
+			if next_target and extraData.bounces > 0 then
+				self:MainProjectile(target, next_target, extraData, nil)
+			end
 		end
+	    local limitKey = caster:GetEntityIndex().."_genesis_orb_sound"
+	    Util.Common:LimitPerTime(3, 0.3, limitKey, function()
+			EmitSoundOn("Epoch.GenesisOrb.Impact", target)
+		end)
+		Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
+		self:W1()
+		self:W3()
 	end
-    local limitKey = caster:GetEntityIndex().."_genesis_orb_sound"
-    Util.Common:LimitPerTime(3, 0.3, limitKey, function()
-		EmitSoundOn("Epoch.GenesisOrb.Impact", target)
-	end)
-	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
-	self:W1()
-	self:W3()
 end
 
 function epoch_genesis_orb:W1()
