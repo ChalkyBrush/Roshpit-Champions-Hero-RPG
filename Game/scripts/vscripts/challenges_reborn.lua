@@ -314,28 +314,21 @@ function Challenges:PanoramaInput(msg)
 			if msg.action == "exp-orb-1" then
 				amount = 20000
 				if mithril >= amount then
-					item = Challenges:CreateEXPOrb()
+					-- item = Challenges:CreateEXPOrb()
 				else
 					return false
 				end
 			elseif msg.action == "exp-orb-2" then
 				amount = 300000
 				if mithril >= amount then
-					item = Challenges:CreateGreaterEXPOrb()
+					-- item = Challenges:CreateGreaterEXPOrb()
 				else
 					return false
 				end
 			end
-			
-			local cost = amount*-1
-			Challenges:ModifyMithril(cost, hero, "exp-orb")
-			RPCItems:GiveItemToHeroWithSlotCheck(hero, item)
-			CustomAbilities:QuickAttachParticle("particles/roshpit/exp_orb.vpcf", hero, 3)
-			EmitSoundOn("RPCItems.PurchaseExpOrb", hero)
 			hero.exp_orb_lock = true
-			Timers:CreateTimer(2, function()
-				hero.exp_orb_lock = false
-			end)
+			local cost = amount*-1
+			Challenges:ModifyMithrilWithCallback(cost, hero, msg.action)
 		end
 	elseif msg.event_type == "refine_inventory_gemstones" then
 		local playerID = msg.PlayerID
@@ -644,4 +637,55 @@ function Challenges:HeroDied()
 		Notifications:BottomToAll({text = "ui_challenge_failed", duration = 7})
 		Challenges.NoDeaths = 1
 	end
+end
+
+function Challenges:ModifyMithrilWithCallback(amount, hero, reason)
+	local playerID = hero:GetPlayerOwnerID()
+	local steamID = PlayerResource:GetSteamAccountID(playerID)
+	local player = PlayerResource:GetPlayer(playerID)
+	print("MITRHIL WITH CALLBACK")
+	local url = ROSHPIT_URL.."/champions/modifyMithrilShards?"
+	url = url.."steam_id="..steamID
+	url = url.."&amount="..amount
+	url = url.."&reason="..reason
+	url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
+	--print("CHANGE MITHRIL: "..amount)
+	CreateHTTPRequestScriptVM("POST", url):Send(function(result)
+		--SaveLoad:NewKey()
+		local resultTable = {}
+		--print( "GET response:\n" )
+		for k, v in pairs(result) do
+			--print( string.format( "%s : %s\n", k, v ) )
+		end
+		--print( "Done." )
+		local resultTable = JSON:decode(result.Body)
+		local shards = resultTable.mithril_shards
+		Statistics.dispatch("mithril:change", {playerID = playerID});
+		CustomNetTables:SetTableValue("player_stats", tostring(playerID) .. "-mithril", {mithril = shards})
+		CustomGameEventManager:Send_ServerToPlayer(player, "update_main_mithril", {mithril = shards, player = playerID})
+		if reason then
+			Challenges:ModifyMithrilCallback(hero, reason)
+		end
+	end)
+end
+
+function Challenges:ModifyMithrilCallback(hero, reason)
+	print("CALLBACK START")
+	if reason == "exp-orb-1" or reason == "exp-orb-2" then
+		Challenges:GrantEXPOrbAfterResourceDebit(hero, reason)
+	end
+end
+
+function Challenges:GrantEXPOrbAfterResourceDebit(hero, reason)
+	local item = nil
+	print("GRANT EXP ORB AFTER RESOURCE DEBIT")
+	if reason == "exp-orb-1" then
+		item = Challenges:CreateEXPOrb()
+	elseif reason == "exp-orb-2" then
+		item = Challenges:CreateGreaterEXPOrb()
+	end
+	RPCItems:GiveItemToHeroWithSlotCheck(hero, item)
+	CustomAbilities:QuickAttachParticle("particles/roshpit/exp_orb.vpcf", hero, 3)
+	EmitSoundOn("RPCItems.PurchaseExpOrb", hero)
+	hero.exp_orb_lock = false
 end
