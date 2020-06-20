@@ -51118,7 +51118,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"max_links"			"7 8 9 10 11 12 13 14"
+				"max_links"			"7 8 9 10 11 12 13"
 			}
 			"04"
 			{
@@ -51148,7 +51148,7 @@
 			"09"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"impact_damage_base"			"100 300 800 2000 6000 16000"
+				"impact_damage_base"			"100 300 800 2000 4000 8000 16000"
 			}
 			"10"
 			{
