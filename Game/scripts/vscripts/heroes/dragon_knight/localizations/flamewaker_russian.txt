@@ -282,6 +282,9 @@
 
         "DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_7_2"    "[T7-2] Glyph of Draconic Might"
         "item_rpc_flamewaker_glyph_7_2_description"             "Увеличивает Силу героя на <% FLAMEWAKER_GLYPH_7_2_STRENGTH_PCT %>%."
+		
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_book"    "Книга Глифов Flamewaker"
+		 
         //Weapons
         "flamewaker_weapon_00"          "Basic Sword"
         "flamewaker_weapon_01"          "Earth Dragon Blade"
