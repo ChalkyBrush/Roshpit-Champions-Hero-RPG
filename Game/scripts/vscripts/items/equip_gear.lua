@@ -1850,13 +1850,13 @@ function RPCItems:AdjustPropertyForMonarchRing(hero, item, property_value, prope
 	end
 	local ring = hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]
 	if ring then
-		if property_name == "strength" then
+		if property_name_to_return == "strength" then
 			property_value = property_value*(1 + ring:GetFinalGemPropertyValue("ruby", ITEM_RPC_MONARCH_RING_GEM_RUBY)/100)
-		elseif property_name == "agility" then
+		elseif property_name_to_return == "agility" then
 			property_value = property_value*(1 + ring:GetFinalGemPropertyValue("emerald", ITEM_RPC_MONARCH_RING_GEM_EMERALD)/100)
-		elseif property_name == "intelligence" then
+		elseif property_name_to_return == "intelligence" then
 			property_value = property_value*(1 + ring:GetFinalGemPropertyValue("sapphire", ITEM_RPC_MONARCH_RING_GEM_SAPPHIRE)/100)
-		elseif property_name == "spirit" then
+		elseif property_name_to_return == "spirit" then
 			property_value = property_value*(1 + ring:GetFinalGemPropertyValue("amethyst", ITEM_RPC_MONARCH_RING_GEM_AMETHYST)/100)
 		end
 	end
