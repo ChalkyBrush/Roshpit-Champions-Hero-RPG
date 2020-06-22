@@ -62991,7 +62991,7 @@
 			}
 			"modifier_selethas_sun_active"
 			{
-				"Passive"			"1"
+				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 
@@ -63818,7 +63818,7 @@
 		}
 	}
 
-	"solunia_supernova"
+	"solunia_supernova_old"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_AOE"
 		"BaseClass"	"ability_datadriven"
@@ -64060,7 +64060,7 @@
 		}
 	}
 
-	"solunia_eclipse"
+	"solunia_eclipse_old"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_AOE"
 		"BaseClass"	"ability_datadriven"
@@ -64296,6 +64296,83 @@
 			{
 				"var_type"	"FIELD_FLOAT"
 				"stun_duration"	"2.0 2.3 2.6 2.9 3.2 3.5 3.8"
+			}
+		}
+	}
+
+	"solunia_supernova_solar"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_AOE"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/vengeful_spirit/ability_scripts/supernova/solunia_supernova_solar.lua"
+		"AbilityType"            		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"AbilityTextureName"			"solunia/solunia_supernova"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AOERadius"						"%radius"
+		"precache"
+		{
+			"particle"	"particles/units/heroes/hero_phoenix/phoenix_supernova_egg.vpcf"
+			"particle"	"particles/units/heroes/hero_phoenix/phoenix_supernova_reborn.vpcf"
+			"particle"	"particles/roshpit/solunia/eclipse.vpcf"
+			"particle"	"particles/roshpit/solunia/channel_eclipse.vpcf"
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"damage"	"200 500 800 1600 3000 5000 10000"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"stun_duration"	"2.0 2.3 2.6 2.9 3.2 3.5 3.8"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"radius"	"580"
+			}
+		}
+	}
+
+	"solunia_supernova_lunar"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_AOE"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/vengeful_spirit/ability_scripts/supernova/solunia_supernova_lunar.lua"
+		"AbilityType"            		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"AbilityTextureName"			"solunia/solunia_eclipse"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AOERadius"						"%radius"
+		"precache"
+		{
+
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"damage"	"200 500 800 1600 3000 5000 10000"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"stun_duration"	"2.0 2.3 2.6 2.9 3.2 3.5 3.8"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"radius"	"580"
 			}
 		}
 	}

@@ -1029,7 +1029,7 @@
 		"Ability3"	"solunia_warp_flare"
 		"Ability4"	"generic_hidden"
 		"Ability5"	"generic_hidden"
-		"Ability6"	"solunia_supernova"
+		"Ability6"	"solunia_supernova_solar"
 		"Ability7"	""
 		"Ability8"	""
 		"Ability9"	""
