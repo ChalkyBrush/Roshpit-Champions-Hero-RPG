@@ -15,3 +15,15 @@ end
 function solunia_supernova_lunar:GetMainExplosionParticleName()
 	return "particles/roshpit/solunia/eclipse.vpcf"
 end
+
+function solunia_supernova_lunar:GetAbilityDamageType()
+	return DAMAGE_TYPE_MAGICAL
+end
+
+function solunia_supernova_lunar:GetAbilityElement(index)
+	if index == 1 then
+		return RPC_ELEMENT_COSMOS
+	elseif index == 2 then
+		return RPC_ELEMENT_ICE
+	end
+end

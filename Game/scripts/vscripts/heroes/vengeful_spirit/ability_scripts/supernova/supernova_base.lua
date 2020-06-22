@@ -79,18 +79,20 @@ function supernova_base:SuperNovaChannelFinish(interrupted)
 	caster:AddNewModifier(caster, ability, "modifier_solunia_falling", {duration = 2})
 	StopSoundEvent("Solunia.Supernova", caster)
 	if not interrupted then
-		self:MainExplosion()
+		local position = caster:GetAbsOrigin()
+		self:MainExplosion(position)
 		self:SoluniaStateSwap()
+		Filters:CastSkillArguments(BASE_ABILITY_R, caster)
 	end
 end
 
-function supernova_base:MainExplosion()
+function supernova_base:MainExplosion(position)
 	local caster = self:GetCaster()
 	local ability = self
 	local particleName = self:GetMainExplosionParticleName()
 	local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
-	local origin = caster:GetAbsOrigin()
-	ParticleManager:SetParticleControl(particle1, 0, origin + Vector(0, 0, -120))
+
+	ParticleManager:SetParticleControl(particle1, 0, position + Vector(0, 0, -120))
 	ParticleManager:SetParticleControl(particle1, 1, Vector(550, 2, 1000))
 	ParticleManager:SetParticleControl(particle1, 3, Vector(550, 550, 550))
 	Timers:CreateTimer(3, function()
@@ -98,18 +100,45 @@ function supernova_base:MainExplosion()
 	end)
 	-- caster:RemoveModifierByName("modifier_solunia_ulti_above_ground")
 	EmitSoundOn("Solunia.Supernova.Explode", caster)
+	local stun_duration = self:GetSpecialValueFor("stun_duration")
+	local damage = self:GetSpecialValueFor("damage")
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, self:GetAOERadius(), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+	if #enemies > 0 then
+		for _, enemy in pairs(enemies) do
+			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, self:GetAbilityDamageType(), BASE_ABILITY_R, self:GetAbilityElement(1), self:GetAbilityElement(2))
+			Filters:ApplyStun(caster, stun_duration, enemy)
+		end
+	end
+	GridNav:DestroyTreesAroundPoint(position, 240, false)
 end
 
 function supernova_base:SoluniaStateSwap()
 	local caster = self:GetCaster()
-	caster:RemoveModifierByName("modifier_solunia_r_passive")
+	local ability_slots = {DOTA_Q_SLOT, DOTA_W_SLOT, DOTA_E_SLOT, DOTA_R_SLOT}
+	for i = 1, #ability_slots, 1 do
+		local old_ability = caster:GetAbilityByIndex(ability_slots[i])
+		local modifier_name_to_remove = old_ability:GetIntrinsicModifierName()
+		if modifier_name_to_remove then
+			caster:RemoveModifierByName(modifier_name_to_remove)
+		end
+	end
+	
 	if self:IsSoluniaState(SOLUNIA_STATE_SOLAR) then
+		CustomAbilities:AddAndOrSwapSkill(caster, "solunia_warp_flare_solar", "solunia_warp_flare_lunar", DOTA_E_SLOT)
 		CustomAbilities:AddAndOrSwapSkill(caster, "solunia_supernova_solar", "solunia_supernova_lunar", DOTA_R_SLOT)
 	elseif self:IsSoluniaState(SOLUNIA_STATE_LUNAR) then
+		CustomAbilities:AddAndOrSwapSkill(caster, "solunia_warp_flare_lunar", "solunia_warp_flare_solar", DOTA_E_SLOT)
 		CustomAbilities:AddAndOrSwapSkill(caster, "solunia_supernova_lunar", "solunia_supernova_solar", DOTA_R_SLOT)
 	end
-	local new_r_ability = caster:GetAbilityByIndex(DOTA_R_SLOT)
-	caster:AddNewModifier(caster, new_r_ability, "modifier_solunia_r_passive", {})
+
+	local ability_slots = {DOTA_Q_SLOT, DOTA_W_SLOT, DOTA_E_SLOT, DOTA_R_SLOT}
+	for i = 1, #ability_slots, 1 do
+		local new_ability = caster:GetAbilityByIndex(ability_slots[i])
+		local modifier_name_swap = new_ability:GetIntrinsicModifierName()
+		if modifier_name_swap then
+			caster:AddNewModifier(caster, new_ability, modifier_name_swap, {})
+		end
+	end
 end
 
 

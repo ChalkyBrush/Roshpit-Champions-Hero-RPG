@@ -15,3 +15,15 @@ end
 function solunia_supernova_solar:GetMainExplosionParticleName()
 	return "particles/units/heroes/hero_phoenix/phoenix_supernova_reborn.vpcf"
 end
+
+function solunia_supernova_solar:GetAbilityDamageType()
+	return DAMAGE_TYPE_PHYSICAL
+end
+
+function solunia_supernova_solar:GetAbilityElement(index)
+	if index == 1 then
+		return RPC_ELEMENT_COSMOS
+	elseif index == 2 then
+		return RPC_ELEMENT_FIRE
+	end
+end
