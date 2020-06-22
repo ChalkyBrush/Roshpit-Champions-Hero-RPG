@@ -119,6 +119,10 @@ end
 
 -- PASSIVE
 
+function modifier_solunia_r_passive:IsHidden()
+	return true
+end
+
 function modifier_solunia_r_passive:GetStatusEffectName()
 	local ability = self:GetAbility()
 	if ability:IsSoluniaState(SOLUNIA_STATE_SOLAR) then
