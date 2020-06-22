@@ -461,7 +461,7 @@ function Gems:InsertGem(msg)
 			CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_stormspirit/stormspirit_static_remnant.vpcf", Gems.GemForger, 0.03)
 			Gems:ModifyPrismaticGemstones(playerID, cost, "forge_gem", "subtract")
 			if hero.equipped_gear[item.newItemTable.gear_slot] == item then
-				hero:EquipItem(item, true)
+				hero:EquipItem(item, true, true)
 				SaveLoad:GenericSaveWithPremiumCheck(hero)
 			end
 			CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "update_inventory", {})
@@ -518,7 +518,7 @@ function Gems:SalvageGemsFromitem(msg)
 		Timers:CreateTimer(0.1, function()
 			Gems:ModifyPrismaticGemstones(playerID, refund, "salvage", "add")
 			if hero.equipped_gear[item.newItemTable.gear_slot] == item then
-				hero:EquipItem(item, true)
+				hero:EquipItem(item, true, true)
 				if hero.saveSlot and hero.saveSlot > 0 then
 					local save_message = {}
 					save_message.playerID = playerID
