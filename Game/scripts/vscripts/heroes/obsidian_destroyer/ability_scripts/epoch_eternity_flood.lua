@@ -385,9 +385,6 @@ function modifier_epoch_r_freeze:OnIntervalThink()
 		return false
 	end
 	local target = self:GetParent()
-	if target.pushLock or target.jumpLock then
-		return false
-	end
 	local caster = self:GetCaster()
 	local ability = self:GetAbility()
 	if ability.r_3_level > 0 then
@@ -399,6 +396,9 @@ function modifier_epoch_r_freeze:OnIntervalThink()
 			  CustomAbilities:QuickAttachParticle("particles/econ/items/morphling/morphling_crown_of_tears/morphling_crown_waveform_dmg_flash.vpcf", target, 1)
 			end
 		end
+	end
+	if target.pushLock or target.jumpLock then
+		return false
 	end
 	if ability.freeze_table[target:GetEntityIndex()].is_frozen then
 		return false
