@@ -64305,7 +64305,7 @@
 		// General
 		//-------------------------------------------------------
 		"BaseClass"						"ability_lua"
-		"ScriptFile"					"heroes/vengeful_spirit/ability_scripts/solunia_warp_flare_solar.lua"
+		"ScriptFile"					"heroes/vengeful_spirit/ability_scripts/warp_flare/solunia_warp_flare_solar.lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"solunia/solunia_solar_warp_flare"
@@ -64340,7 +64340,7 @@
 		// General
 		//-------------------------------------------------------
 		"BaseClass"						"ability_lua"
-		"ScriptFile"					"heroes/vengeful_spirit/ability_scripts/solunia_warp_flare_lunar.lua"
+		"ScriptFile"					"heroes/vengeful_spirit/ability_scripts/warp_flare/solunia_warp_flare_lunar.lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"solunia/solunia_lunar_warp_flare"
@@ -64368,7 +64368,7 @@
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_AOE"
 		"BaseClass"						"ability_lua"
-		"ScriptFile"					"heroes/vengeful_spirit/ability_scripts/warp_flare/solunia_warp_flare_solar.lua"
+		"ScriptFile"					"heroes/vengeful_spirit/ability_scripts/supernova/solunia_supernova_solar.lua"
 		"AbilityType"            		"DOTA_ABILITY_TYPE_ULTIMATE"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 		"AbilityTextureName"			"solunia/solunia_supernova"

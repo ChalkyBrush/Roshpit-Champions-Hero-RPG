@@ -27,3 +27,7 @@ function solunia_supernova_lunar:GetAbilityElement(index)
 		return RPC_ELEMENT_ICE
 	end
 end
+
+function solunia_supernova_lunar:GetSwapAbilityName()
+	return "solunia_supernova_solar"
+end

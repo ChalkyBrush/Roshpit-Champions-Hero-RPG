@@ -27,3 +27,7 @@ function solunia_supernova_solar:GetAbilityElement(index)
 		return RPC_ELEMENT_FIRE
 	end
 end
+
+function solunia_supernova_solar:GetSwapAbilityName()
+	return "solunia_supernova_lunar"
+end

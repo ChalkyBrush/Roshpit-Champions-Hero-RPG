@@ -5,3 +5,15 @@ solunia_warp_flare_lunar = class(warp_flare_base)
 function solunia_warp_flare_lunar:OnSpellStartBase()
     self:WarpFlareStart()
 end
+
+function solunia_warp_flare_lunar:GetSwapAbilityName()
+	return "solunia_warp_flare_solar"
+end
+
+function solunia_warp_flare_lunar:GetTravelBandPFXName()
+	return "particles/roshpit/solunia/lunar_warp_beam_blade_golden.vpcf"
+end
+
+function solunia_warp_flare_lunar:GetTravelEndParticle()
+	return "particles/roshpit/solunia/lunar_flare_explosion_immortal1.vpcf"
+end

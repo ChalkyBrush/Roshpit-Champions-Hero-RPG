@@ -69,6 +69,7 @@ function supernova_base:SuperNovaChannelStart()
 	ability.fallVelocity = 1
 	ability.startRotation = vectorToAngle(caster:GetForwardVector())
 	caster:AddNewModifier(caster, self, "modifier_solunia_r_channeling", {duration = self:GetChannelTimeBase()})
+	caster:RemoveModifierByName("modifier_solunia_between_warp")
 end
 
 function supernova_base:SuperNovaChannelFinish(interrupted)
@@ -114,31 +115,40 @@ end
 
 function supernova_base:SoluniaStateSwap()
 	local caster = self:GetCaster()
-	local ability_slots = {DOTA_Q_SLOT, DOTA_W_SLOT, DOTA_E_SLOT, DOTA_R_SLOT}
+	local ability_slots = {DOTA_E_SLOT, DOTA_R_SLOT}
 	for i = 1, #ability_slots, 1 do
-		local old_ability = caster:GetAbilityByIndex(ability_slots[i])
+		local ability_slot = ability_slots[i]
+		local old_ability = caster:GetAbilityByIndex(ability_slot)
 		local modifier_name_to_remove = old_ability:GetIntrinsicModifierName()
 		if modifier_name_to_remove then
 			caster:RemoveModifierByName(modifier_name_to_remove)
 		end
-	end
-	
-	if self:IsSoluniaState(SOLUNIA_STATE_SOLAR) then
-		CustomAbilities:AddAndOrSwapSkill(caster, "solunia_warp_flare_solar", "solunia_warp_flare_lunar", DOTA_E_SLOT)
-		CustomAbilities:AddAndOrSwapSkill(caster, "solunia_supernova_solar", "solunia_supernova_lunar", DOTA_R_SLOT)
-	elseif self:IsSoluniaState(SOLUNIA_STATE_LUNAR) then
-		CustomAbilities:AddAndOrSwapSkill(caster, "solunia_warp_flare_lunar", "solunia_warp_flare_solar", DOTA_E_SLOT)
-		CustomAbilities:AddAndOrSwapSkill(caster, "solunia_supernova_lunar", "solunia_supernova_solar", DOTA_R_SLOT)
-	end
 
-	local ability_slots = {DOTA_Q_SLOT, DOTA_W_SLOT, DOTA_E_SLOT, DOTA_R_SLOT}
-	for i = 1, #ability_slots, 1 do
-		local new_ability = caster:GetAbilityByIndex(ability_slots[i])
+		CustomAbilities:AddAndOrSwapSkill(caster, old_ability:GetAbilityName(), old_ability:GetSwapAbilityName(), ability_slot)
+
+		local new_ability = caster:GetAbilityByIndex(ability_slot)
 		local modifier_name_swap = new_ability:GetIntrinsicModifierName()
 		if modifier_name_swap then
 			caster:AddNewModifier(caster, new_ability, modifier_name_swap, {})
 		end
 	end
+	
+	-- if self:IsSoluniaState(SOLUNIA_STATE_SOLAR) then
+	-- 	CustomAbilities:AddAndOrSwapSkill(caster, "solunia_warp_flare_solar", "solunia_warp_flare_lunar", DOTA_E_SLOT)
+	-- 	CustomAbilities:AddAndOrSwapSkill(caster, "solunia_supernova_solar", "solunia_supernova_lunar", DOTA_R_SLOT)
+	-- elseif self:IsSoluniaState(SOLUNIA_STATE_LUNAR) then
+	-- 	CustomAbilities:AddAndOrSwapSkill(caster, "solunia_warp_flare_lunar", "solunia_warp_flare_solar", DOTA_E_SLOT)
+	-- 	CustomAbilities:AddAndOrSwapSkill(caster, "solunia_supernova_lunar", "solunia_supernova_solar", DOTA_R_SLOT)
+	-- end
+
+
+	-- for i = 1, #ability_slots, 1 do
+	-- 	local new_ability = caster:GetAbilityByIndex(ability_slots[i])
+	-- 	local modifier_name_swap = new_ability:GetIntrinsicModifierName()
+	-- 	if modifier_name_swap then
+	-- 		caster:AddNewModifier(caster, new_ability, modifier_name_swap, {})
+	-- 	end
+	-- end
 end
 
 
@@ -248,6 +258,9 @@ end
 function modifier_solunia_falling:OnIntervalThink()
     local caster = self:GetCaster()
     local ability = self:GetAbility()
+    if caster:HasModifier("modifier_solunia_r_channeling") then
+    	return false
+    end
 	caster:SetAbsOrigin(caster:GetAbsOrigin() - Vector(0, 0, ability.fallVelocity))
 	local acceleration = 2
 	acceleration = Filters:GetAdjustedESpeed(caster, acceleration, false)
