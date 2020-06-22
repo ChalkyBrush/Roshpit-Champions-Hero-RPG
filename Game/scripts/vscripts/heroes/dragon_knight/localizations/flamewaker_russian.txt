@@ -51,7 +51,7 @@
         "DOTA_Tooltip_ability_flamewaker_rune_w_1_suffix"                       "% of attack damage."
 
         "DOTA_Tooltip_modifier_flamewaker_rune_w_1"                             "Incendiary Blade"
-        "DOTA_Tooltip_modifier_flamewaker_rune_w_1_description"                 ""Базовые атаки взрываются и наносят урон по области."
+        "DOTA_Tooltip_modifier_flamewaker_rune_w_1_description"                 "Базовые атаки взрываются и наносят урон по области."
 
         "DOTA_Tooltip_ability_flamewaker_rune_w_2"                              "[W2] Volcanic Pulse"
         "DOTA_Tooltip_ability_flamewaker_rune_w_2_Description"                  "Скорость и дальность огня Dragon Breath увеличиваются."
