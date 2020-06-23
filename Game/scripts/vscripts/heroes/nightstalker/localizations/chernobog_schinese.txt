@@ -204,11 +204,9 @@
         "DOTA_Tooltip_modifier_chernobog_demon_form_aura_effect_Description"    "攻击速度和移动速度降低"
 
         "DOTA_Tooltip_ability_chernobog_rune_r_3_arcana1"                       "[R3] 混乱之雨"
-        "DOTA_Tooltip_ability_chernobog_rune_r_3_arcana1_Description"           "暗夜魔王的攻击有几率分裂，在攻击开始时对额外的敌方单位造成伤害。概率大于 100% 将会多重分裂。此外被动增加暗夜魔王的税后伤害，即使不在 @Ability4 形态下。"
+        "DOTA_Tooltip_ability_chernobog_rune_r_3_arcana1_Description"           "暗夜魔王的攻击有几率分裂，在攻击开始时对额外的敌方单位造成伤害。概率大于 100% 将会多重分裂。"
         "DOTA_Tooltip_ability_chernobog_rune_r_3_arcana1_property_one"          "分裂几率"
         "DOTA_Tooltip_ability_chernobog_rune_r_3_arcana1_suffix"                "%"
-    "DOTA_Tooltip_ability_chernobog_rune_r_3_arcana1_property_two"          "税后伤害增加"
-        "DOTA_Tooltip_ability_chernobog_rune_r_3_arcana1_suffix_two"                "%"
 
         "DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1"                       "[R4] 黑暗化身"
         "DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_Description"           "增加恶魔霸权的持续时间，并且提高所有<font color=ELEMENT_DEMON>恶魔</font> 元素的伤害。"
@@ -254,7 +252,7 @@
         "DOTA_Tooltip_modifier_demonflight_b_c_visible_Description"             "根据周围的敌人数量提高攻击力"    
 
         "DOTA_Tooltip_ability_chernobog_rune_e_3_arcana2"                       "[E3] 撒旦·低语"
-        "DOTA_Tooltip_ability_chernobog_rune_e_3_arcana2_Description"           "恶魔猎人的 <font color=ELEMENT_DEMON>恶魔</font> 元素伤害提高将提高 基础攻击力。"
+        "DOTA_Tooltip_ability_chernobog_rune_e_3_arcana2_Description"           "恶魔猎人的 <font color=ELEMENT_DEMON>恶魔</font> 元素伤害将会提高基础攻击力。"
         "DOTA_Tooltip_ability_chernobog_rune_e_3_arcana2_property_one"          "基础攻击力提高"
         "DOTA_Tooltip_ability_chernobog_rune_e_3_arcana2_suffix"                " 每 1% 恶魔元素伤害提高"
 
