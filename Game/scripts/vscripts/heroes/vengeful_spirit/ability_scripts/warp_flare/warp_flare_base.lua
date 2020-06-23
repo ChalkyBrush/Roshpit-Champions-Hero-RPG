@@ -95,7 +95,7 @@ function warp_flare_base:WarpToPosition(position)
 
 	EmitSoundOn("Solunia.WarpFlare", caster)
 	ability.warp_count = ability.warp_count + 1
-	if ability.warp_count > 1 then
+	if ability.warp_count > 0 then
 		StartAnimation(caster, {duration = 0.4, activity = ACT_DOTA_CAST_ABILITY_2, rate = 1.6})
 	end
 	local travel_obj = {}
@@ -153,6 +153,7 @@ function warp_flare_base:EndWarpFlare()
 		ParticleManager:DestroyParticle(ability.travel_data[i]["pfx"], false)
 		ParticleManager:ReleaseParticleIndex(ability.travel_data[i]["pfx"])
 	end
+	StartAnimation(caster, {duration = 0.25, activity = ACT_DOTA_CHANNEL_END_ABILITY_4, rate = 2})
 end
 
 -- PASSIVE

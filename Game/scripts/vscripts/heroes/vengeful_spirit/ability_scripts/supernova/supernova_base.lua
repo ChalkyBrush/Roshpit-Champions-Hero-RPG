@@ -49,10 +49,6 @@ function supernova_base:GetAOERadius()
 	return self:GetSpecialValueFor("radius")
 end
 
-function supernova_base:GetTexture()
-    return "arkimus/supernova_base"
-end
-
 function supernova_base:GetChannelTimeBase()
     return 3.0
 end
@@ -115,7 +111,7 @@ end
 
 function supernova_base:SoluniaStateSwap()
 	local caster = self:GetCaster()
-	local ability_slots = {DOTA_E_SLOT, DOTA_R_SLOT}
+	local ability_slots = {DOTA_W_SLOT, DOTA_E_SLOT, DOTA_R_SLOT}
 	for i = 1, #ability_slots, 1 do
 		local ability_slot = ability_slots[i]
 		local old_ability = caster:GetAbilityByIndex(ability_slot)
@@ -132,23 +128,6 @@ function supernova_base:SoluniaStateSwap()
 			caster:AddNewModifier(caster, new_ability, modifier_name_swap, {})
 		end
 	end
-	
-	-- if self:IsSoluniaState(SOLUNIA_STATE_SOLAR) then
-	-- 	CustomAbilities:AddAndOrSwapSkill(caster, "solunia_warp_flare_solar", "solunia_warp_flare_lunar", DOTA_E_SLOT)
-	-- 	CustomAbilities:AddAndOrSwapSkill(caster, "solunia_supernova_solar", "solunia_supernova_lunar", DOTA_R_SLOT)
-	-- elseif self:IsSoluniaState(SOLUNIA_STATE_LUNAR) then
-	-- 	CustomAbilities:AddAndOrSwapSkill(caster, "solunia_warp_flare_lunar", "solunia_warp_flare_solar", DOTA_E_SLOT)
-	-- 	CustomAbilities:AddAndOrSwapSkill(caster, "solunia_supernova_lunar", "solunia_supernova_solar", DOTA_R_SLOT)
-	-- end
-
-
-	-- for i = 1, #ability_slots, 1 do
-	-- 	local new_ability = caster:GetAbilityByIndex(ability_slots[i])
-	-- 	local modifier_name_swap = new_ability:GetIntrinsicModifierName()
-	-- 	if modifier_name_swap then
-	-- 		caster:AddNewModifier(caster, new_ability, modifier_name_swap, {})
-	-- 	end
-	-- end
 end
 
 

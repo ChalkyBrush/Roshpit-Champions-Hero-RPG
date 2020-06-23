@@ -64300,6 +64300,91 @@
 		}
 	}
 
+	"solunia_boomerang_solar"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/vengeful_spirit/ability_scripts/boomerang/solunia_boomerang_solar.lua"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"solunia/solunia_solarang"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastPoint"				"0.26"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"precache"
+		{
+			"model"			"models/selethas/solarang.vmdl"
+			"soundfile"		"soundevents/game_sounds_solunia.vsndevts"
+			"particle"	"particles/units/heroes/hero_lina/lina_flame_hand.vpcf"
+			"particle"	"particles/roshpit/solunia/lunarang_ambient.vpcf"
+			"particle"	"particles/roshpit/solunia/boomerang_impact.vpcf"
+			"particle"	"particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf"
+			"particle"	"particles/roshpit/solunia/magic_marker_shield.vpcf"
+			"particle"	"particles/roshpit/solunia/black_widow_buff.vpcf"
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"cast_range"			"1400"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"max_boomerangs"			"2 2 3 3 4 4 5"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"40 120 200 340 540 800 1240"
+			}
+		}
+	}
+
+	"solunia_boomerang_lunar"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/vengeful_spirit/ability_scripts/boomerang/solunia_boomerang_lunar.lua"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"solunia/solunia_lunarang"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastPoint"				"0.26"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"precache"
+		{
+
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"cast_range"			"1400"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"max_boomerangs"			"2 2 3 3 4 4 5"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"40 120 200 340 540 800 1240"
+			}
+		}
+	}
+
 	"solunia_warp_flare_solar"
 	{
 		// General
