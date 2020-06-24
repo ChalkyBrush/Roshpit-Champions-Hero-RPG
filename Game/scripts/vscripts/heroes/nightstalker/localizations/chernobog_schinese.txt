@@ -17,7 +17,7 @@
     	"DOTA_Tooltip_ability_chernobog_rune_q_1_suffix"						""
 
         "DOTA_Tooltip_ability_chernobog_rune_q_2"                               "[Q2] 暗夜之爪"
-        "DOTA_Tooltip_ability_chernobog_rune_q_2_Description"                   "被@Ability1 影响的敌人每 <% CHERNOBOG_Q2_INTERVAL_THINK %>秒受到一次伤害。"
+        "DOTA_Tooltip_ability_chernobog_rune_q_2_Description"                   "每 <% CHERNOBOG_Q2_INTERVAL_THINK %> 秒对在@Ability1中行走的敌人造成一次伤害。"
         "DOTA_Tooltip_ability_chernobog_rune_q_2_property_one"                  "伤害"
         "DOTA_Tooltip_ability_chernobog_rune_q_2_suffix"                        ""
     
@@ -39,7 +39,7 @@
     	"DOTA_Tooltip_ability_chernobog_rune_q_4_suffix_three"					"%"
 
         "DOTA_Tooltip_ability_chernobog_demon_hunter"                           "恶魔猎人"
-        "DOTA_Tooltip_ability_chernobog_demon_hunter_Description"               "元素： <font color=ELEMENT_DEMON>恶魔</font><br>暗夜魔王进入猎人模式使他的攻击额外造成基于攻击力的魔法伤害。猎人模式下暗夜魔王所受到的伤害不会超过他自身最大血量的 a%，受到的伤害溢出时也仅扣除暗夜魔王的一定魔法值。但是在猎人状态下血量恢复关闭。"
+        "DOTA_Tooltip_ability_chernobog_demon_hunter_Description"               "元素： <font color=ELEMENT_DEMON>恶魔</font><br>暗夜魔王进入猎人模式使他的攻击额外造成基于攻击力的魔法伤害。猎人模式下暗夜魔王所受到的伤害不会超过他自身最大血量的 a%，受到的伤害溢出时也仅扣除暗夜魔王的一定魔法值。但是在开启状态下时你不能接受治疗或者回复生命值。"
         "DOTA_Tooltip_ability_chernobog_demon_hunter_mana_drain_per_attack"                     "猎人状态下每次攻击汲取自身魔法值："
         "DOTA_Tooltip_ability_chernobog_demon_hunter_health_cost_percent"                       "猎人状态下每次攻击汲取自身生命值："
         "DOTA_Tooltip_ability_chernobog_demon_hunter_max_damage_taken_percent_of_health"        "受到的伤害不超过最大血量值的 % ："
@@ -78,7 +78,7 @@
         "DOTA_Tooltip_modifier_chernobog_rune_w_3_fervor_self_visible_Description"  "攻击力提高"
 
         "DOTA_Tooltip_ability_chernobog_rune_w_4"                               "[W4] 猎人的骨髓"
-        "DOTA_Tooltip_ability_chernobog_rune_w_4_Description"                   "当关闭恶魔猎人时增加额外的力量值。开启时，增加敏捷值。"
+        "DOTA_Tooltip_ability_chernobog_rune_w_4_Description"                   "当关闭恶魔猎人时将会增加额外的力量值而当恶魔猎人开启时将会增加敏捷值。"
         "DOTA_Tooltip_ability_chernobog_rune_w_4_property_one"                  "额外的力量值（关闭时）"
         "DOTA_Tooltip_ability_chernobog_rune_w_4_suffix"                        ""
         "DOTA_Tooltip_ability_chernobog_rune_w_4_property_two"                  "额外的敏捷值（开启时）"
@@ -220,19 +220,19 @@
         "property_chernobog_arcana2_description"                                "用 恶魔之翼 替换 @Ability3 及其全部符文。"
 
         "DOTA_Tooltip_ability_chernobog_demon_flight"                               "恶魔之翼"
-        "DOTA_Tooltip_ability_chernobog_demon_flight_Description"                   "恶魔猎人张开恶魔之翼升入夜空，穿越地形。 在飞行中执行攻击指令，无论朝向，只要目标仍在 900 码范围内，恶魔猎人都会持续每 0.15 秒攻击一次该目标。被眩晕或被障碍物阻碍将立即结束恶魔飞行。被动提高<% CHERNOBOG_ARCANA2_EVASION %>%闪避。"
+        "DOTA_Tooltip_ability_chernobog_demon_flight_Description"                   "暗夜魔王张开恶魔之翼升入夜空，穿越地形。 在飞行中对敌人释放攻击指令时将会无视自身朝向攻击目标，攻击频率为0.15 秒，攻击范围为900，脱离范围将会自动停止。被眩晕或被障碍物阻碍将立即结束恶魔飞行。被动提高<% CHERNOBOG_ARCANA2_EVASION %>%闪避。"
         "DOTA_Tooltip_ability_chernobog_demon_flight_duration"                  "持续时间："
 
         "DOTA_Tooltip_modifier_chernobog_demon_flight"                          "恶魔之翼"
 
         "DOTA_Tooltip_ability_chernobog_demon_walk"                             "影·幽暗之爪"
-        "DOTA_Tooltip_ability_chernobog_demon_walk_Description"                 "恶魔猎人遁入绝对黑暗之中，使敌人暂时无法察觉它的踪影。隐身时仍可攻击。"   
+        "DOTA_Tooltip_ability_chernobog_demon_walk_Description"                 "暗夜魔王遁入绝对黑暗之中，使敌人暂时无法察觉它的踪影。隐身时仍可攻击。"   
         "DOTA_Tooltip_ability_chernobog_demon_walk_duration"                    "持续时间："
 
         "DOTA_Tooltip_modifier_demon_walk"                                      "影·幽暗之爪"
 
         "DOTA_Tooltip_ability_chernobog_demon_warp"                             "欧里亚斯·魔神闪"
-        "DOTA_Tooltip_ability_chernobog_demon_warp_Description"                 "恶魔猎人踏入虚空之门，虚无之影包裹全身，从另一个位面穿梭至新的目标地点，闪避弹道。" 
+        "DOTA_Tooltip_ability_chernobog_demon_warp_Description"                 "暗夜魔王踏入虚空之门，虚无之影包裹全身，从另一个位面穿梭至新的目标地点，闪避弹道。" 
 
         "DOTA_Tooltip_modifier_demon_warp_freecast"                             "欧里亚斯·魔神闪自由释放层数"
 
@@ -244,7 +244,7 @@
         "DOTA_Tooltip_ability_chernobog_rune_e_1_arcana2_suffix_two"                "%"
 
         "DOTA_Tooltip_ability_chernobog_rune_e_2_arcana2"                       "[E2] 德古拉·血之祭"
-        "DOTA_Tooltip_ability_chernobog_rune_e_2_arcana2_Description"           "根据恶魔猎人周围 600码 范围内的敌人数量提高恶魔猎人的 % 攻击力。"
+        "DOTA_Tooltip_ability_chernobog_rune_e_2_arcana2_Description"           "根据暗夜魔王周围 600码 范围内的敌人数量提高恶魔猎人的 % 攻击力。"
         "DOTA_Tooltip_ability_chernobog_rune_e_2_arcana2_property_one"          "攻击力提高"
         "DOTA_Tooltip_ability_chernobog_rune_e_2_arcana2_suffix"                "% 每个敌人"
 
@@ -252,12 +252,12 @@
         "DOTA_Tooltip_modifier_demonflight_b_c_visible_Description"             "根据周围的敌人数量提高攻击力"    
 
         "DOTA_Tooltip_ability_chernobog_rune_e_3_arcana2"                       "[E3] 撒旦·低语"
-        "DOTA_Tooltip_ability_chernobog_rune_e_3_arcana2_Description"           "恶魔猎人的 <font color=ELEMENT_DEMON>恶魔</font> 元素伤害将会提高基础攻击力。"
+        "DOTA_Tooltip_ability_chernobog_rune_e_3_arcana2_Description"           "暗夜魔王的 <font color=ELEMENT_DEMON>恶魔</font> 元素伤害将会提高基础攻击力。"
         "DOTA_Tooltip_ability_chernobog_rune_e_3_arcana2_property_one"          "基础攻击力提高"
         "DOTA_Tooltip_ability_chernobog_rune_e_3_arcana2_suffix"                " 每 1% 恶魔元素伤害提高"
 
         "DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2"                       "[E4] 哈迪斯·恶魔狩猎"
-        "DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2_Description"           "暗夜魔王周围的暗影将会撕裂周围<% CHERNOBOG_ARCANA2_E4_RADIUS %>范围内的敌人，每 <% CHERNOBOG_ARCANA2_E4_INTERVAL %> 秒攻击一次。暗夜魔王在离开后将会留下隐形空间，在这个空间中敌人将会被攻击，即使在他离开这片区域后。"
+        "DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2_Description"           "暗夜魔王周围的暗影将会撕裂周围<% CHERNOBOG_ARCANA2_E4_RADIUS %>范围内的敌人，每 <% CHERNOBOG_ARCANA2_E4_INTERVAL %> 秒攻击一次。暗夜魔王在离开后将会留下隐形空间，在这个空间中的敌人也会受到暗影的攻击。"
         "DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2_property_one"          "暗影的伤害"
         "DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2_suffix"                "% 暗夜魔王的总攻击力"
         "DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2_property_two"          "空间持续时间"
