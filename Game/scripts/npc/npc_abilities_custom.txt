@@ -64313,7 +64313,7 @@
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"
-		"AbilityCastPoint"				"0.26"
+		"AbilityCastPoint"				"0.36"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 		"precache"
 		{
@@ -64331,7 +64331,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"cast_range"			"1400"
+				"range"			"1400"
 			}
 			"02"
 			{
@@ -64359,7 +64359,7 @@
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"
-		"AbilityCastPoint"				"0.26"
+		"AbilityCastPoint"				"0.36"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"precache"
 		{

@@ -17,3 +17,7 @@ end
 function solunia_warp_flare_solar:GetTravelEndParticle()
 	return "particles/roshpit/solunia/solar_flare_no_ground.vpcf"
 end
+
+function solunia_warp_flare_solar:GetEffectParticleName()
+	return "particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
+end
