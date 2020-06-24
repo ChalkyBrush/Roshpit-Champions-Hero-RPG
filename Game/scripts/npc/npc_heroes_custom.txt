@@ -1024,7 +1024,7 @@
 	{
 		"AbilityLayout"	"4"
 		"override_hero"	"npc_dota_hero_vengefulspirit"
-		"Ability1"	"solunia_solar_glow"
+		"Ability1"	"solunia_napalm_solar"
 		"Ability2"	"solunia_boomerang_solar"
 		"Ability3"	"solunia_warp_flare_solar"
 		"Ability4"	"generic_hidden"

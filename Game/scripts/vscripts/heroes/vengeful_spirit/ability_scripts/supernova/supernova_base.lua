@@ -111,7 +111,7 @@ end
 
 function supernova_base:SoluniaStateSwap()
 	local caster = self:GetCaster()
-	local ability_slots = {DOTA_W_SLOT, DOTA_E_SLOT, DOTA_R_SLOT}
+	local ability_slots = {DOTA_Q_SLOT, DOTA_W_SLOT, DOTA_E_SLOT, DOTA_R_SLOT}
 	for i = 1, #ability_slots, 1 do
 		local ability_slot = ability_slots[i]
 		local old_ability = caster:GetAbilityByIndex(ability_slot)

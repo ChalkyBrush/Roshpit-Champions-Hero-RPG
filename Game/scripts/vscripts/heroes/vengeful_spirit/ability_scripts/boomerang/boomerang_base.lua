@@ -31,7 +31,7 @@ function boomerang_base:GetCastAnimation()
 end
 
 function boomerang_base:GetAbilitySlot()
-    return DOTA_E_SLOT
+    return DOTA_W_SLOT
 end
 
 function boomerang_base:GetCastPoint()

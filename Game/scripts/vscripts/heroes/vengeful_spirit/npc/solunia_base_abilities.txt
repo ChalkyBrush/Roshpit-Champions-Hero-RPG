@@ -1743,6 +1743,67 @@
 		}
 	}
 
+	"solunia_napalm_solar"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/vengeful_spirit/ability_scripts/napalm/solunia_napalm_solar.lua"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"solunia/solunia_solar_napalm"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastPoint"				"0.36"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"precache"
+		{
+			"model"		"models/items/crystal_maiden/ward_staff/ward_staff_crystal.vmdl"
+			"particle"	"particles/econ/items/invoker/invoker_apex/invoker_sun_strike_immortal1.vpcf"
+			"particle"	"particles/roshpit/solunia/a_a_wave_lunar.vpcf"
+			"particle"	"particles/roshpit/solunia/a_a_wave_solar.vpcf"
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"range"			"1400"
+			}
+		}
+	}
+
+	"solunia_napalm_lunar"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/vengeful_spirit/ability_scripts/napalm/solunia_napalm_lunar.lua"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"solunia/solunia_lunar_napalm"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastPoint"				"0.36"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"precache"
+		{
+
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"range"			"1400"
+			}
+		}
+	}
+
 	"solunia_boomerang_solar"
 	{
 		// General
