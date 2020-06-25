@@ -19,7 +19,10 @@ function boomerang_base:IsSoluniaState(state)
 end
 
 function boomerang_base:GetManaCostBase(level)
-    return 0
+    if level == -1 then
+        level = self:GetLevel() - 1
+    end
+    return SOLUNIA_W_MANA_COST[level]
 end
 
 function boomerang_base:GetBehaviorBase()
@@ -266,7 +269,7 @@ function modifier_boomerang_thinker:OnIntervalThink()
 			distanceThreshold = 80
 		end
 		if distance < distanceThreshold then
-			StartAnimation(caster, {duration = 0.5, activity = ACT_DOTA_SPAWN, rate = 2.5})
+			StartAnimation(caster, {duration = 0.5, activity = ACT_DOTA_TELEPORT_END, rate = 2.5})
 			boomerang.disabled = true
 			Timers:CreateTimer(0.03, function()
 				UTIL_Remove(boomerang)

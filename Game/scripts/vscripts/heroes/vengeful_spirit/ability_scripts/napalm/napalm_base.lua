@@ -22,8 +22,12 @@ function napalm_base:GetManaCostBase(level)
     return 0
 end
 
+function napalm_base:GetAOERadius()
+	return 260
+end
+
 function napalm_base:GetBehaviorBase()
-	return DOTA_ABILITY_BEHAVIOR_DIRECTIONAL + DOTA_ABILITY_BEHAVIOR_POINT + DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING
+	return DOTA_ABILITY_BEHAVIOR_DIRECTIONAL + DOTA_ABILITY_BEHAVIOR_POINT + DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING + DOTA_ABILITY_BEHAVIOR_AOE
 end
 
 function napalm_base:GetCastAnimation()
@@ -60,6 +64,99 @@ function napalm_base:OnAbilityPhaseStart()
 end
 
 function napalm_base:NapalmStart()
+	local caster = self:GetCaster()
+	local ability = self
+
+	local target = self:GetCastPosition()
+	ability.targetPoint = target
+
+
+
+	local projectiles = self:GetSpecialValueFor("projectiles")
+
+	for i = 0, projectiles - 1, 1 do
+		Timers:CreateTimer(i * 0.2, function()
+			self:ThrowNapalm(caster:GetAbsOrigin(), target)
+		end)
+	end
+	local pfx = ParticleManager:CreateParticle(self:GetCastParticleName(), PATTACH_CUSTOMORIGIN, caster)
+	ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin())
+	Timers:CreateTimer(4, function()
+		ParticleManager:DestroyParticle(pfx, false)
+		ParticleManager:ReleaseParticleIndex(pfx)
+	end)
+	EmitSoundOn("Solunia.NitroInitialCast", caster)
+	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
+end
+
+function napalm_base:ThrowNapalm(startPosition, target)
+	local caster = self:GetCaster()
+	local ability = self
+	local baseFV = (target * Vector(1, 1, 0) - startPosition * Vector(1, 1, 0)):Normalized()
+	ability.baseFV = baseFV
+	local forwardVelocity = self:GetNapalmForwardVelocity(target, startPosition)
+
+	local randomOffset = self:GetNapalmRandomOffsetFactor()
+	local flareAngle = self:GetFlareAngle(baseFV, randomOffset)
+	local flare = CreateUnitByName("selethas_boomerang", startPosition + Vector(0, 0, 100), false, caster, nil, caster:GetTeamNumber())
+	flare:SetAbsOrigin(startPosition + self:GetNapalmStartingOffsetVector())
+	flare:SetOriginalModel("models/items/crystal_maiden/ward_staff/ward_staff_crystal.vmdl")
+	flare:SetModel("models/items/crystal_maiden/ward_staff/ward_staff_crystal.vmdl")
+	local render_color = self:GetNapalmRenderColor()
+	flare:SetRenderColor(render_color.x, render_color.y, render_color.z)
+	flare:SetModelScale(0.1)
+	flare.fv = flareAngle
+	flare.perpFV = WallPhysics:rotateVector(flareAngle, math.pi / 2)
+	flare.liftVelocity = self:GetNapalmLiftSpeed(startPosition, target)
+
+	flare.forwardVelocity = forwardVelocity + self:GetNapalmRandomSpeedAdjustment()
+	flare.interval = 0
+	EmitSoundOn("Solunia.SolarGlowThrow", flare)
+	flare:AddNewModifier(caster, ability, "modifier_napalm_thinker", {})
+end
+
+function napalm_base:NapalmExplosion(position)
+	local caster = self:GetCaster()
+	local ability = self
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, self:GetAOERadius(), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+	local damage = self:GetSpecialValueFor("damage")
+	local stun_duration = self:GetSpecialValueFor("stun_duration")
+	if #enemies > 0 then
+		for _, enemy in pairs(enemies) do
+			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, self:GetAbilityDamageType(), BASE_ABILITY_Q, self:GetAbilityElement(1), self:GetAbilityElement(2))
+			Filters:ApplyStun(caster, stun_duration, enemy)
+		end
+	end
+	CustomAbilities:QuickParticleAtPoint(self:GetNapalmExplosionParticleName(), position, 3)
+	EmitSoundOnLocationWithCaster(position, "Solunia.SolarGlow.Impact", caster)
 end
 
 -- PASSIVE
+
+
+-- NAPALM THINKER
+function modifier_napalm_thinker:OnCreated()
+	if not IsServer() then
+		return false
+	end
+	self:StartIntervalThink(0.03)
+end
+
+function modifier_napalm_thinker:CheckState()
+	local state = {
+		[MODIFIER_STATE_UNSELECTABLE] = true,
+		[MODIFIER_STATE_INVULNERABLE] = true,
+		[MODIFIER_STATE_NOT_ON_MINIMAP] = true,
+		[MODIFIER_STATE_NO_HEALTH_BAR] = true,
+		[MODIFIER_STATE_NO_UNIT_COLLISION] = true
+	}
+	return state	
+end
+
+function modifier_napalm_thinker:OnIntervalThink()
+	if not IsServer() then
+		return false
+	end
+	local ability = self:GetAbility()
+	ability:NapalmThinker(self:GetParent())
+end

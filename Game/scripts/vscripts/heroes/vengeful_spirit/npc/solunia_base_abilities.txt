@@ -1772,6 +1772,21 @@
 				"var_type"			"FIELD_INTEGER"
 				"range"			"1400"
 			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"95 215 425 835 1445 2555 4665"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"projectiles"		"3 3 4 4 5 5 6"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"stun_duration"		"1.2"
+			}
 		}
 	}
 
@@ -1800,6 +1815,21 @@
 			{
 				"var_type"			"FIELD_INTEGER"
 				"range"			"1400"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"95 215 425 835 1445 2555 4665"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"projectiles"		"3 3 4 4 5 5 6"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"stun_duration"		"1.2"
 			}
 		}
 	}

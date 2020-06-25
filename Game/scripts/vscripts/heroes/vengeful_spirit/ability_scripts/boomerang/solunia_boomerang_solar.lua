@@ -14,7 +14,7 @@ function solunia_boomerang_solar:GetSwapAbilityName()
 end
 
 function solunia_boomerang_solar:GetBoomerangRenderColor()
-	return Vector(0, 100, 255)
+	return Vector(200, 200, 0)
 end
 
 function solunia_boomerang_solar:GetEffectParticleName()
