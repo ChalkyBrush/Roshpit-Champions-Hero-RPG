@@ -40,9 +40,9 @@
 		
 		"DOTA_Tooltip_ability_solunia_rune_q_3"								"[Q3] Natura"
     	"DOTA_Tooltip_ability_solunia_rune_q_3_Description"					"Increases Napalm travel speed and [Q] Base Ability Damage."
-    	"DOTA_Tooltip_ability_solunia_rune_q_3_property_one"				"Napalm Travel Speed"
-    	"DOTA_Tooltip_ability_solunia_rune_q_3_suffix"						""	
-    	"DOTA_Tooltip_ability_solunia_rune_q_3_property_two"				"[Q] Base Ability Damage"
+    	"DOTA_Tooltip_ability_solunia_rune_q_3_property_one"				"[Q] Base Ability Damage"
+    	"DOTA_Tooltip_ability_solunia_rune_q_3_suffix"						"%"	
+    	"DOTA_Tooltip_ability_solunia_rune_q_3_property_two"				"Napalm Travel Speed"
     	"DOTA_Tooltip_ability_solunia_rune_q_3_suffix_two"					"%"
 		
 		"DOTA_Tooltip_ability_solunia_rune_q_4"								"[Q4] Mercuria"

@@ -64691,12 +64691,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0"
+				"property_one"			"10"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0"
+				"property_two"			"3"
 			}
 		}
 	}
@@ -64717,7 +64717,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0"
+				"property_one"			"12"
 			}
 		}
 	}

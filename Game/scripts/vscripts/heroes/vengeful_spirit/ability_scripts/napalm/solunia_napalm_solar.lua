@@ -22,7 +22,7 @@ function solunia_napalm_solar:GetCastParticleName()
 end
 
 function solunia_napalm_solar:GetNapalmForwardVelocity(target, startPosition)
-	return WallPhysics:GetDistance2d(target, startPosition) / 35 + 6
+	return (WallPhysics:GetDistance2d(target, startPosition) / 35 + 6)*(1 + (self:GetCaster():GetRuneValue("q", 3)*SOLUNIA_Q3_Q_SPEED_INCREASE_PCT/100))
 end
 
 function solunia_napalm_solar:GetNapalmRandomOffsetFactor()
@@ -38,7 +38,7 @@ function solunia_napalm_solar:GetNapalmStartingOffsetVector()
 end
 
 function solunia_napalm_solar:GetNapalmLiftSpeed(startPosition, target)
-	return 40
+	return 40/(1 + (self:GetCaster():GetRuneValue("q", 3)*SOLUNIA_Q3_Q_SPEED_INCREASE_PCT/100))
 end
 
 function solunia_napalm_solar:GetNapalmRandomSpeedAdjustment()

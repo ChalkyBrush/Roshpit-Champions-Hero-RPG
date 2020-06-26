@@ -9,9 +9,9 @@ modifier_napalm_thinker = class(npc_base_modifier, nil, npc_base_modifier)
 LinkLuaModifier("modifier_napalm_thinker", "heroes/vengeful_spirit/ability_scripts/napalm/napalm_base.lua", LUA_MODIFIER_MOTION_NONE)
 
 function napalm_base:IsSoluniaState(state)
-	if self:GetAbilityName() == "solonua_napalm_solar" and state == SOLUNIA_STATE_SOLAR then
+	if self:GetAbilityName() == "solunia_napalm_solar" and state == SOLUNIA_STATE_SOLAR then
 		return true
-	elseif self:GetAbilityName() == "solonua_napalm_lunar" and state == SOLUNIA_STATE_LUNAR then
+	elseif self:GetAbilityName() == "solunia_napalm_lunar" and state == SOLUNIA_STATE_LUNAR then
 		return true
 	else
 		return false
@@ -109,7 +109,8 @@ function napalm_base:ThrowNapalm(startPosition, target)
 	flare.fv = flareAngle
 	flare.perpFV = WallPhysics:rotateVector(flareAngle, math.pi / 2)
 	flare.liftVelocity = self:GetNapalmLiftSpeed(startPosition, target)
-
+	flare.target_point = target
+	flare.start_point = flare:GetAbsOrigin()
 	flare.forwardVelocity = forwardVelocity + self:GetNapalmRandomSpeedAdjustment()
 	flare.interval = 0
 	EmitSoundOn("Solunia.SolarGlowThrow", flare)
@@ -168,6 +169,17 @@ function modifier_solunia_q_passive:OnCreated()
 	if not IsServer() then
 		return false
 	end
+	if self:GetAbility():IsSoluniaState(SOLUNIA_STATE_SOLAR) then
+	    self:SetSpecialTypes({ 
+	    	MODIFIER_ROSHPIT_Q_BASE_ABILITY_DMG_BONUS,
+	    	RPC_ELEMENT_FIRE
+	    })
+	elseif self:GetAbility():IsSoluniaState(SOLUNIA_STATE_LUNAR) then
+	    self:SetSpecialTypes({ 
+	    	MODIFIER_ROSHPIT_Q_BASE_ABILITY_DMG_BONUS,
+	    	RPC_ELEMENT_ICE
+	    })
+	end
 	self:StartIntervalThink(0.1)
 end
 
@@ -175,7 +187,16 @@ function modifier_solunia_q_passive:OnIntervalThink()
 	self:SetStackCount(self:GetCaster():GetRuneValue("q", 2))
 end
 
+function modifier_solunia_q_passive:GetRoshpitQBaseAbilityDmgBonus()
+	return self:GetCaster():GetRuneValue("q", 3)*SOLUNIA_Q3_Q_BAD/100
+end
+
+function modifier_solunia_q_passive:GetRoshpitElementalDmgBonus()
+	return self:GetCaster():GetRuneValue("q", 4)*(SOLUNIA_Q4_ELEMENTAL_AMP/100)
+end
+
 -- NAPALM THINKER
+
 function modifier_napalm_thinker:OnCreated()
 	if not IsServer() then
 		return false

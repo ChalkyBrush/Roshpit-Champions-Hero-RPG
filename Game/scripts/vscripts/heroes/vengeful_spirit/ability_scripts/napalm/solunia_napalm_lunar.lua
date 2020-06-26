@@ -22,7 +22,7 @@ function solunia_napalm_lunar:GetCastParticleName()
 end
 
 function solunia_napalm_lunar:GetNapalmForwardVelocity(target, startPosition)
-	return WallPhysics:GetDistance2d(target, startPosition) / 100 + 11
+	return (WallPhysics:GetDistance2d(target, startPosition) / 100 + 11)*(1 + (self:GetCaster():GetRuneValue("q", 3)*SOLUNIA_Q3_Q_SPEED_INCREASE_PCT/100))
 end
 
 function solunia_napalm_lunar:GetNapalmRandomOffsetFactor()
@@ -57,7 +57,8 @@ function solunia_napalm_lunar:NapalmThinker(napalm)
 	napalm:SetAngles(napalm.interval * 3, vectorToAngle(newFV), napalm.interval * 3)
 	napalm.interval = napalm.interval + 1
 	local groundHeight = GetGroundHeight(napalm:GetAbsOrigin(), napalm)
-	if napalm.interval > napalm.forwardVelocity * 2 then
+	local distance = WallPhysics:GetDistance2d(napalm.start_point, napalm.target_point)
+	if napalm.interval > (distance / (napalm.forwardVelocity)) then
 		local explosionPosition = GetGroundPosition(napalm:GetAbsOrigin(), napalm)
 		self:NapalmExplosion(explosionPosition)
 		napalm.disabled = true
