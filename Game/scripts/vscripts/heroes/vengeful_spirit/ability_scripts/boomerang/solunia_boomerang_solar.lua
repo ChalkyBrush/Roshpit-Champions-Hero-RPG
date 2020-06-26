@@ -40,3 +40,23 @@ function solunia_boomerang_solar:GetAbilityElement(index)
 		return RPC_ELEMENT_NORMAL
 	end
 end
+
+function solunia_boomerang_solar:GetW2ParticleName()
+	return "particles/roshpit/solunia/solar_flare_no_ground.vpcf"
+end
+
+-- COUNTER
+
+function modifier_boomerang_counter_solar:OnCreated()
+	if not IsServer() then
+		return false
+	end
+    self:SetSpecialTypes({ 
+    	MODIFIER_ROSHPIT_ARMOR_PIERCE_BONUS 
+    })	
+end
+
+function modifier_boomerang_counter_solar:GetRoshpitArmorPierceBonus()
+	local caster = self:GetCaster()
+	return caster:GetRuneValue("w", 4)*SOLUNIA_W4_PIERCE_PER_BOOMERANG*self:GetStackCount()
+end

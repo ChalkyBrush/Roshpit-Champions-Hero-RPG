@@ -64434,7 +64434,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"range"			"1400"
+				"range"			"1000"
 			}
 			"02"
 			{
@@ -64445,6 +64445,11 @@
 			{
 				"var_type"			"FIELD_INTEGER"
 				"damage"			"40 120 200 340 540 800 1240"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"atk_power_added_to_dmg"			"30"
 			}
 		}
 	}
@@ -64473,7 +64478,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"cast_range"			"1400"
+				"cast_range"			"1000"
 			}
 			"02"
 			{
@@ -64484,6 +64489,11 @@
 			{
 				"var_type"			"FIELD_INTEGER"
 				"damage"			"40 120 200 340 540 800 1240"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"atk_power_added_to_dmg"			"30"
 			}
 		}
 	}
@@ -64735,18 +64745,8 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0"
+				"property_one"			"15"
 			}	
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one_base"			"0"
-			}			
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"0"
-			}
 		}
 	}
 
@@ -64763,7 +64763,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"0"
+				"property_one"			"15"
 			}
 		}
 	}
@@ -64781,7 +64781,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0"
+				"property_one"			"40"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"1.5"
 			}
 		}
 	}
@@ -64796,24 +64801,13 @@
 		"AbilityTextureName"	"spectre_haunt"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two_base"		"0"
+				"property_one"			"150"
 			}
 		}
 	}

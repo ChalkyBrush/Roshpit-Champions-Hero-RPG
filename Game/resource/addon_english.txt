@@ -10157,61 +10157,50 @@
     	"DOTA_Tooltip_ability_solunia_rune_q_4_property_one"				"<font color='#EF4126'>Fire</font> or <font color='#87D9FF'>Ice</font> Amp"
     	"DOTA_Tooltip_ability_solunia_rune_q_4_suffix"						"%"
 		
-		"DOTA_Tooltip_ability_solunia_solarang"								"Solarang"
-    	"DOTA_Tooltip_ability_solunia_solarang_Description"					"Element: <font color='#C25DFC'>Cosmic</font> / <font color='#DDDDDD'>Normal</font><br>Solunia's weapon is tossed as a boomerang towards the target location. The blade deals damage every 0.2 seconds to all enemies it collides with. If it gets close enough to enemy, it latches on to them."
-    	"DOTA_Tooltip_ability_solunia_solarang_max_boomerangs"				"MAX CONCURRENT SOLARANGS:"
-    	"DOTA_Tooltip_ability_solunia_solarang_damage"						"DAMAGE:"
+		"DOTA_Tooltip_ability_solunia_boomerang_solar"								"Solarang"
+    	"DOTA_Tooltip_ability_solunia_boomerang_solar_Description"					"Element: <font color='#C25DFC'>Cosmic</font> / <font color='#DDDDDD'>Normal</font><br>Solunia's weapon is tossed as a boomerang towards the target location. The blade deals damage every 0.2 seconds to all enemies it collides with. Solunia's Attack Power increases the boomerang's damage."
+    	"DOTA_Tooltip_ability_solunia_boomerang_solar_max_boomerangs"				"MAX CONCURRENT SOLARANGS:"
+    	"DOTA_Tooltip_ability_solunia_boomerang_solar_damage"						"DAMAGE:"
+        "DOTA_Tooltip_ability_solunia_boomerang_solar_atk_power_added_to_dmg"       "% ATTACK POWER ADDED TO BASE DAMAGE:"
 
-    	"DOTA_Tooltip_modifier_outgoing_solarang"							"Outbound Solarangs"
-    	"DOTA_Tooltip_modifier_outgoing_lunarang"							"Outbound Lunarangs"
+    	"DOTA_Tooltip_modifier_boomerang_counter_solar"							"Outbound Solarangs"
+    	"DOTA_Tooltip_modifier_boomerang_counter_lunar"							"Outbound Lunarangs"
 
-    	"DOTA_Tooltip_ability_solunia_lunarang"								"Lunarang"
-    	"DOTA_Tooltip_ability_solunia_lunarang_Description"					"Element: <font color='#C25DFC'>Cosmic</font> / <font color='#DDDDDD'>Normal</font><br>Solunia's weapon is tossed as a boomerang towards the target location. The blade deals damage every 0.2 seconds to all enemies in its razor-sharp spin. If it gets close enough to enemy, it latches on to them."
-    	"DOTA_Tooltip_ability_solunia_lunarang_max_boomerangs"				"MAX CONCURRENT LUNARANGS:"
-    	"DOTA_Tooltip_ability_solunia_lunarang_damage"						"DAMAGE:"
+    	"DOTA_Tooltip_ability_solunia_boomerang_lunar"								"Lunarang"
+    	"DOTA_Tooltip_ability_solunia_boomerang_lunar_Description"					"Element: <font color='#C25DFC'>Cosmic</font> / <font color='#DDDDDD'>Normal</font><br>Solunia's weapon is tossed as a boomerang towards the target location. The blade deals damage every 0.2 seconds to all enemies in its razor-sharp spin. Solunia's Attack Power increases the boomerang's damage."
+    	"DOTA_Tooltip_ability_solunia_boomerang_lunar_max_boomerangs"				"MAX CONCURRENT LUNARANGS:"
+    	"DOTA_Tooltip_ability_solunia_boomerang_lunar_damage"						"DAMAGE:"
+        "DOTA_Tooltip_ability_solunia_boomerang_lunar_atk_power_added_to_dmg"       "% ATTACK POWER ADDED TO BASE DAMAGE:"
 		
 		"DOTA_Tooltip_ability_solunia_rune_w_1"                             "[W1] Razor Blades"
-        "DOTA_Tooltip_ability_solunia_rune_w_1_Description"                 "Boomerangs have a chance to do increased damage."
-        "DOTA_Tooltip_ability_solunia_rune_w_1_property_one"                "Critical Chance"
+        "DOTA_Tooltip_ability_solunia_rune_w_1_Description"                 "Boomerangs have a <font color='#ccff66'>10</font>% chance to do increased damage."
+        "DOTA_Tooltip_ability_solunia_rune_w_1_property_one"                "Additional Critical Damage"
         "DOTA_Tooltip_ability_solunia_rune_w_1_suffix"                      "%"
-        "DOTA_Tooltip_ability_solunia_rune_w_1_property_two"                "Additional Critical Damage"
-        "DOTA_Tooltip_ability_solunia_rune_w_1_suffix_two"                  "%"
 		
-		"DOTA_Tooltip_ability_solunia_rune_w_2"								"[W2] Magic Marker"
-    	"DOTA_Tooltip_ability_solunia_rune_w_2_Description"					"Enemies hit by a boomerang receive a mark. Any marked enemy receives a massive damage boost from Solar or Lunar Napalm."
-    	"DOTA_Tooltip_ability_solunia_rune_w_2_property_one"				"Damage Amp"
-    	"DOTA_Tooltip_ability_solunia_rune_w_2_suffix"						"%"	
+		"DOTA_Tooltip_ability_solunia_rune_w_2"								"[W2] Galaxy Nitro"
+    	"DOTA_Tooltip_ability_solunia_rune_w_2_Description"					"Casting @Ability3 creates an explosion around all active boomerangs that deal damage in a <font color='#ccff66'>260</font> radius based on the boomerang's damage. The explosions can be critical hits from [W1]."
+    	"DOTA_Tooltip_ability_solunia_rune_w_2_property_one"				"Explosion Damage"
+    	"DOTA_Tooltip_ability_solunia_rune_w_2_suffix"						"% of base boomerang damage"	
+		
+		"DOTA_Tooltip_ability_solunia_rune_w_3"								"[W3] Ricochet"
+    	"DOTA_Tooltip_ability_solunia_rune_w_3_Description"					"Solarang and Lunarangs have reduced cast point and increased cast range."
+    	"DOTA_Tooltip_ability_solunia_rune_w_3_property_one"				"Cast Range Increase"
+    	"DOTA_Tooltip_ability_solunia_rune_w_3_suffix"						""
+        "DOTA_Tooltip_ability_solunia_rune_w_3_property_two"                "Cast Point Reduction"
+        "DOTA_Tooltip_ability_solunia_rune_w_3_suffix_two"                  "%"
+		
+		"DOTA_Tooltip_ability_solunia_rune_w_4"								"[W4] Fortuna"
+    	"DOTA_Tooltip_ability_solunia_rune_w_4_Description"					"Each outstanding Solarang increases Armor Pierce, and each outstanding Lunarang increases Spell Pierce."
+    	"DOTA_Tooltip_ability_solunia_rune_w_4_property_one"				"Armor Pierce or Spell Pierce"
+    	"DOTA_Tooltip_ability_solunia_rune_w_4_suffix"						" per boomerang"
+		
+		"DOTA_Tooltip_ability_solunia_warp_flare_solar"							"Solar Warp Flare"
+    	"DOTA_Tooltip_ability_solunia_warp_flare_solar_Description"				"Hyperdash towards the target location while climbing space. Can be used 3 times in succession before the cooldown activates."
+    	"DOTA_Tooltip_ability_solunia_warp_flare_solar_cast_range"				"MAX WARP DISTANCE:"
 
-    	"DOTA_Tooltip_modifier_boomerang_magic_marker"						"Magic Marker"
-    	"DOTA_Tooltip_modifier_boomerang_magic_marker_Description"			"Taking increased damage from Solunia's Napalm"
-		
-		"DOTA_Tooltip_ability_solunia_rune_w_3"								"[W3] Fortuna"
-    	"DOTA_Tooltip_ability_solunia_rune_w_3_Description"					"Solarang and Lunarangs have increased damage based on Solunia's attack power."
-    	"DOTA_Tooltip_ability_solunia_rune_w_3_property_one"				"Boomerang Damage Bonus"
-    	"DOTA_Tooltip_ability_solunia_rune_w_3_suffix"						"% of attack damage"
-		
-		"DOTA_Tooltip_ability_solunia_rune_w_4"								"[W4] Black Widow"
-    	"DOTA_Tooltip_ability_solunia_rune_w_4_Description"					"Striking an enemy with a boomerang adds a Black Widow stack. Casting another boomerang at 50 stacks activates Black Widow form, where Solunia has magic immunity and bonus attack damage. Also has melee attacks that make targets bleed for 240% of attack damage over 3 seconds."
-    	"DOTA_Tooltip_ability_solunia_rune_w_4_property_one"				"Attack Damage Bonus"
-    	"DOTA_Tooltip_ability_solunia_rune_w_4_suffix"						"%"
-    	"DOTA_Tooltip_ability_solunia_rune_w_4_property_two"				"Duration"
-    	"DOTA_Tooltip_ability_solunia_rune_w_4_suffix_two"					" seconds"
-		
-		"DOTA_Tooltip_modifier_black_widow_stacks"							"Black Widow Stacks"
-    	"DOTA_Tooltip_modifier_black_widow_stacks_Description"				"At 50, the next boomerang thrown will activate black widow form."
-		
-		"DOTA_Tooltip_modifier_black_widow"									"Black Widow"	
-    	"DOTA_Tooltip_modifier_black_widow_Description"						"Magic Immunity and Bleeding Attack"
-
-    	"DOTA_Tooltip_modifier_black_widow_bleed"							"Black Widow Bleed"
-		
-		"DOTA_Tooltip_ability_solunia_warp_flare"							"Solar Warp Flare"
-    	"DOTA_Tooltip_ability_solunia_warp_flare_Description"				"Hyperdash towards the target location while climbing space. Can be used 3 times in succession before the cooldown activates."
-    	"DOTA_Tooltip_ability_solunia_warp_flare_cast_range"				"MAX WARP DISTANCE:"
-
-    	"DOTA_Tooltip_ability_solunia_lunar_warp_flare"						"Lunar Warp Flare"
-    	"DOTA_Tooltip_ability_solunia_lunar_warp_flare_Description"				"Hyperdash towards the target location while climbing space. Can be used 3 times in succession before the cooldown activates."
-    	"DOTA_Tooltip_ability_solunia_lunar_warp_flare_cast_range"				"MAX WARP DISTANCE:"
+    	"DOTA_Tooltip_ability_solunia_warp_flare_lunar"						    "Lunar Warp Flare"
+    	"DOTA_Tooltip_ability_solunia_warp_flare_lunar_Description"				"Hyperdash towards the target location while climbing space. Can be used 3 times in succession before the cooldown activates."
+    	"DOTA_Tooltip_ability_solunia_warp_flare_lunar_cast_range"				"MAX WARP DISTANCE:"
 
     	"DOTA_Tooltip_modifier_solunia_in_between_flare"					"Warp Flare"
 		

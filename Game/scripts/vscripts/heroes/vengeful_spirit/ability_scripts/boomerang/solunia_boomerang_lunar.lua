@@ -40,3 +40,23 @@ function solunia_boomerang_lunar:GetAbilityElement(index)
 		return RPC_ELEMENT_NORMAL
 	end
 end
+
+function solunia_boomerang_lunar:GetW2ParticleName()
+	return "particles/roshpit/solunia/lunar_flare_explosion_immortal1.vpcf"
+end
+
+-- COUNTER
+
+function modifier_boomerang_counter_lunar:OnCreated()
+	if not IsServer() then
+		return false
+	end
+    self:SetSpecialTypes({ 
+    	MODIFIER_ROSHPIT_SPELL_PIERCE_BONUS 
+    })	
+end
+
+function modifier_boomerang_counter_lunar:GetRoshpitSpellPierceBonus()
+	local caster = self:GetCaster()
+	return caster:GetRuneValue("w", 4)*SOLUNIA_W4_PIERCE_PER_BOOMERANG*self:GetStackCount()
+end

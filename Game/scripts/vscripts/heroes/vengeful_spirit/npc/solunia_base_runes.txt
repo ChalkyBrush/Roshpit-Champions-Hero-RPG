@@ -102,18 +102,8 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SOLUNIA_W1_CRIT_CHANCE %>"
+				"property_one"			"<% SOLUNIA_W1_CRIT_DAMAGE %>"
 			}	
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one_base"			"<% SOLUNIA_W1_CRIT_CHANCE_BASE %>"
-			}			
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% SOLUNIA_W1_CRIT_DAMAGE_PCT %>"
-			}
 		}
 	}
 
@@ -130,7 +120,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SOLUNIA_W2_DMG_AMP %>"
+				"property_one"			"<% SOLUNIA_W2_EXPLOSION_DAMAGE %>"
 			}
 		}
 	}
@@ -148,7 +138,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SOLUNIA_W3_ATTACK_TO_DMG_PCT %>"
+				"property_one"			"<% SOLUNIA_W3_CAST_RANGE %>"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"<% SOLUNIA_W3_CAST_POINT_REDUCTION_PCT %>"
 			}
 		}
 	}
@@ -163,24 +158,13 @@
 		"AbilityTextureName"	"spectre_haunt"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SOLUNIA_W4_BONUS_DAMAGE_PCT %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% SOLUNIA_W4_DURATION %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two_base"		"<% SOLUNIA_W4_DURATION_BASE %>"
+				"property_one"			"<% SOLUNIA_W4_PIERCE_PER_BOOMERANG %>"
 			}
 		}
 	}

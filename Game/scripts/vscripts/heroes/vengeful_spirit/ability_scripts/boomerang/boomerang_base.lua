@@ -38,11 +38,13 @@ function boomerang_base:GetAbilitySlot()
 end
 
 function boomerang_base:GetCastPoint()
-    return 0.36
+	local caster = self:GetCaster()
+    return math.max(0.36 * (1 - (SOLUNIA_W3_CAST_POINT_REDUCTION_PCT*caster:GetModifierStackCount("modifier_solunia_w_passive", caster)/100)), 0)
 end
 
 function boomerang_base:GetCastRange()
-    return self:GetSpecialValueFor("range")
+	local caster = self:GetCaster()
+    return self:GetSpecialValueFor("range") + caster:GetModifierStackCount("modifier_solunia_w_passive", caster)*SOLUNIA_W3_CAST_RANGE
 end
 
 function boomerang_base:GetCooldownBase(level)
@@ -91,6 +93,7 @@ function boomerang_base:BoomerangStart()
 	boomerang.rotationAngle = 0
 	boomerang.interval = 0
 	boomerang:SetModelScale(0)
+	boomerang.w_1_level = caster:GetRuneValue("w", 1)
 
 	local modelName = self:GetBoomerangModelName()
 	boomerang:SetModel(modelName)
@@ -138,7 +141,25 @@ function boomerang_base:ReindexBoomerangs()
 end
 
 function boomerang_base:GetBoomerangBaseDamage()
-	return self:GetSpecialValueFor("damage")
+	local caster = self:GetCaster()
+	return self:GetSpecialValueFor("damage") + (self:GetSpecialValueFor("atk_power_added_to_dmg")/100)*OverflowProtectedGetAverageTrueAttackDamage(caster)
+end
+
+function boomerang_base:GetCrit(boomerang)
+	if boomerang.w_1_level > 0 then
+		local proc = Runes:ProcsByTotalChance(SOLUNIA_W1_CRIT_CHANCE)
+		if proc >= 1 then
+			return true
+		else
+			return false
+		end
+	end
+end
+
+function boomerang_base:AdjustCritDamage(boomerang, base_damage)
+	if boomerang.w_1_level > 0 then
+		return base_damage * (1 + (SOLUNIA_W1_CRIT_DAMAGE*boomerang.w_1_level)/100)
+	end
 end
 
 -- PASSIVE
@@ -163,6 +184,43 @@ function modifier_solunia_w_passive:OnCreated()
 			end
 		end
 		ability.initiated = true
+	end
+    self:SetSpecialTypes({ 
+    	MODIFIER_SPECIAL_TYPE_CAST_E_ABILITY
+    })
+    self:StartIntervalThink(1)
+end
+
+function modifier_solunia_w_passive:OnIntervalThink()
+	if not IsServer() then
+		return false
+	end
+	self:SetStackCount(self:GetCaster():GetRuneValue("w", 3))
+end
+
+function modifier_solunia_w_passive:OnCastEAbility()
+	local ability = self:GetAbility()
+	local caster = self:GetCaster()
+	local w_2_level = caster:GetRuneValue("w", 2)
+	if w_2_level > 0 then
+		for i = 1, #ability.boomerangTable, 1 do
+			local boomerang = ability.boomerangTable[i]
+			ParticleManager:QuickParticleAtPoint(ability:GetW2ParticleName(), boomerang:GetAbsOrigin(), 3)
+			local crit = ability:GetCrit(boomerang)
+			local damage = ability:GetBoomerangBaseDamage() * (SOLUNIA_W2_EXPLOSION_DAMAGE/100)*w_2_level
+			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), boomerang:GetAbsOrigin(), nil, SOLUNIA_W2_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+			if #enemies > 0 then
+				for _, enemy in pairs(enemies) do
+					if crit then
+						damage = ability:AdjustCritDamage(boomerang, damage)
+						-- EmitSoundOn("Solunia.BoomerangCrit", boomerang)
+						PopupDamage(target, math.floor(damage))
+					end
+					Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, ability:GetAbilityDamageType(), BASE_ABILITY_W, ability:GetAbilityElement(1), ability:GetAbilityElement(2))
+				end
+			end		
+			EmitSoundOnLocationWithCaster(boomerang:GetAbsOrigin(), "Solunia.SolarGlow.Impact", caster)	
+		end	
 	end
 end
 
@@ -287,12 +345,13 @@ function modifier_boomerang_thinker:DamageThinker()
 	local caster = self:GetCaster()
 	local ability = self:GetAbility()
 	local boomerang = self:GetParent()
-	local crit = false
+	local crit = ability:GetCrit(boomerang)
 	local damage = ability:GetBoomerangBaseDamage()
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), boomerang:GetAbsOrigin(), nil, 120, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do
 			if crit then
+				damage = ability:AdjustCritDamage(boomerang, damage)
 				EmitSoundOn("Solunia.BoomerangCrit", boomerang)
 				PopupDamage(target, math.floor(damage))
 				local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf", PATTACH_ABSORIGIN_FOLLOW, enemy)

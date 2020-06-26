@@ -1877,7 +1877,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"range"			"1400"
+				"range"			"1000"
 			}
 			"02"
 			{
@@ -1888,6 +1888,11 @@
 			{
 				"var_type"			"FIELD_INTEGER"
 				"damage"			"40 120 200 340 540 800 1240"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"atk_power_added_to_dmg"			"30"
 			}
 		}
 	}
@@ -1916,7 +1921,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"cast_range"			"1400"
+				"cast_range"			"1000"
 			}
 			"02"
 			{
@@ -1927,6 +1932,11 @@
 			{
 				"var_type"			"FIELD_INTEGER"
 				"damage"			"40 120 200 340 540 800 1240"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"atk_power_added_to_dmg"			"30"
 			}
 		}
 	}
