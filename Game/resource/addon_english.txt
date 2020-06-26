@@ -10173,7 +10173,7 @@
         "DOTA_Tooltip_ability_solunia_boomerang_lunar_atk_power_added_to_dmg"       "% ATTACK POWER ADDED TO BASE DAMAGE:"
 		
 		"DOTA_Tooltip_ability_solunia_rune_w_1"                             "[W1] Razor Blades"
-        "DOTA_Tooltip_ability_solunia_rune_w_1_Description"                 "Boomerangs have a <font color='#ccff66'>10</font>% chance to do increased damage."
+        "DOTA_Tooltip_ability_solunia_rune_w_1_Description"                 "Boomerangs have a <font color='#ccff66'>15</font>% chance to do increased damage."
         "DOTA_Tooltip_ability_solunia_rune_w_1_property_one"                "Additional Critical Damage"
         "DOTA_Tooltip_ability_solunia_rune_w_1_suffix"                      "%"
 		

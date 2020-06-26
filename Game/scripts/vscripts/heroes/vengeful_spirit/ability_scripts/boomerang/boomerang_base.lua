@@ -22,7 +22,7 @@ function boomerang_base:GetManaCostBase(level)
     if level == -1 then
         level = self:GetLevel() - 1
     end
-    return SOLUNIA_W_MANA_COST[level]
+    return SOLUNIA_W_MANA_COST[level + 1]
 end
 
 function boomerang_base:GetBehaviorBase()
@@ -101,7 +101,7 @@ function boomerang_base:BoomerangStart()
 
 	boomerang:SetAbsOrigin(caster:GetAbsOrigin() + Vector(0,0,90) + fv * 58 - boomerang.spinAngularVelocity * 28)
 
-	boomerang.throwPower = WallPhysics:GetDistance2d(target, caster:GetAbsOrigin()) / 30 + 6
+	boomerang.throwPower = WallPhysics:GetDistance2d(target, caster:GetAbsOrigin()) / 45 + 12
 	local renderColor = self:GetBoomerangRenderColor()
 	boomerang:SetRenderColor(renderColor.x, renderColor.y, renderColor.z)
 
@@ -205,7 +205,7 @@ function modifier_solunia_w_passive:OnCastEAbility()
 	if w_2_level > 0 then
 		for i = 1, #ability.boomerangTable, 1 do
 			local boomerang = ability.boomerangTable[i]
-			ParticleManager:QuickParticleAtPoint(ability:GetW2ParticleName(), boomerang:GetAbsOrigin(), 3)
+			CustomAbilities:QuickParticleAtPoint(ability:GetW2ParticleName(), boomerang:GetAbsOrigin(), 3)
 			local crit = ability:GetCrit(boomerang)
 			local damage = ability:GetBoomerangBaseDamage() * (SOLUNIA_W2_EXPLOSION_DAMAGE/100)*w_2_level
 			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), boomerang:GetAbsOrigin(), nil, SOLUNIA_W2_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)

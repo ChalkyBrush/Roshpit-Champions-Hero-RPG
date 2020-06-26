@@ -74,7 +74,7 @@ function warp_flare_base:OnSpellStart()
 	caster:AddNewModifier(caster, ability, "modifier_solunia_warp_flare", {})
 	ability:WarpToPosition(target_position)
 
-    
+    Filters:CastSkillArguments(BASE_ABILITY_E, caster)
     ability:EndCooldown()
 end
 
