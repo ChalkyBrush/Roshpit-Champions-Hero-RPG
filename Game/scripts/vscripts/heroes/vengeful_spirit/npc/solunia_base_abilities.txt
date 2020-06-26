@@ -1758,6 +1758,7 @@
 		"MaxLevel"				 		"7"
 		"AbilityCastPoint"				"0.36"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"AOERadius"						"260"
 		"precache"
 		{
 			"model"		"models/items/crystal_maiden/ward_staff/ward_staff_crystal.vmdl"
@@ -1787,6 +1788,11 @@
 				"var_type"			"FIELD_FLOAT"
 				"stun_duration"		"1.2"
 			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"damage_add_agility"		"1.5"
+			}
 		}
 	}
 
@@ -1804,7 +1810,8 @@
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"
 		"AbilityCastPoint"				"0.36"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AOERadius"						"260"
 		"precache"
 		{
 
@@ -1830,6 +1837,11 @@
 			{
 				"var_type"			"FIELD_FLOAT"
 				"stun_duration"		"1.2"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"damage_add_intelligence"		"1.5"
 			}
 		}
 	}

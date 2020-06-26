@@ -7,28 +7,17 @@
 		"AbilityTextureName"	"solunia/solunia_rune_q_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"AbilitySpecial"
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SOLUNIA_Q1_DMG_PER_ATT_PCT %>"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"<% SOLUNIA_Q1_BASE_DMG_PER_STACK_SOLAR %>"
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"<% SOLUNIA_Q1_PUSH_FORCE %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"1"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"8"
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"<% SOLUNIA_Q1_DMG_PCT_PER_STACK_LUNAR %>"
 			}
 		}
 	}
@@ -45,13 +34,13 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SOLUNIA_Q2_BASE_ATTACK %>"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"<% SOLUNIA_Q2_BASE_DMG_INCREASE_PCT %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% SOLUNIA_Q2_BONUS_ATTACK_PCT %>"
+				"property_two"			"<% SOLUNIA_Q2_MANA_COST %>"
 			}
 		}
 	}

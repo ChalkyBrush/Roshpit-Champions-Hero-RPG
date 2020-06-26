@@ -62687,7 +62687,7 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "2"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "0"
 				}
 			}
 		}
@@ -62879,7 +62879,7 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "0.05"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "0"
 				}
 			}
 		}
@@ -63110,7 +63110,7 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "12"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "0"
 				}
 			}
 			"modifier_black_widow_invis_range_debuff"
@@ -64315,6 +64315,7 @@
 		"MaxLevel"				 		"7"
 		"AbilityCastPoint"				"0.36"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"AOERadius"						"260"
 		"precache"
 		{
 			"model"		"models/items/crystal_maiden/ward_staff/ward_staff_crystal.vmdl"
@@ -64344,6 +64345,11 @@
 				"var_type"			"FIELD_FLOAT"
 				"stun_duration"		"1.2"
 			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"damage_add_agility"		"1.5"
+			}
 		}
 	}
 
@@ -64361,7 +64367,8 @@
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"
 		"AbilityCastPoint"				"0.36"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AOERadius"						"260"
 		"precache"
 		{
 
@@ -64387,6 +64394,11 @@
 			{
 				"var_type"			"FIELD_FLOAT"
 				"stun_duration"		"1.2"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"damage_add_intelligence"		"1.5"
 			}
 		}
 	}
@@ -64628,28 +64640,17 @@
 		"AbilityTextureName"	"solunia/solunia_rune_q_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"AbilitySpecial"
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"8"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"15"
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"1"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"1"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"8"
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"0.3"
 			}
 		}
 	}
@@ -64666,13 +64667,13 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.05"
+				"property_two"			"60"
 			}
 		}
 	}
@@ -64690,12 +64691,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.4"
+				"property_one"			"0"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.4"
+				"property_two"			"0"
 			}
 		}
 	}
@@ -64716,7 +64717,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"10"
+				"property_one"			"0"
 			}
 		}
 	}
@@ -64734,17 +64735,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.1"
+				"property_one"			"0"
 			}	
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_base"			"4"
+				"property_one_base"			"0"
 			}			
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"12"
+				"property_two"			"0"
 			}
 		}
 	}
@@ -64762,7 +64763,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"property_one"			"0"
 			}
 		}
 	}
@@ -64780,7 +64781,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"1"
+				"property_one"			"0"
 			}
 		}
 	}
@@ -64802,17 +64803,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"12"
+				"property_one"			"0"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.9"
+				"property_two"			"0"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two_base"		"3"
+				"property_two_base"		"0"
 			}
 		}
 	}
@@ -64830,17 +64831,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"25"
+				"property_one"			"0"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"100"
+				"property_one_base"		"0"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.08"
+				"property_two"			"0"
 			}
 			"04"
 			{
@@ -64863,12 +64864,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"8"
+				"property_one"			"0"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.05"
+				"property_two"			"0"
 			}
 			"03"
 			{
@@ -64891,17 +64892,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one_base"			"1"
+				"property_one_base"			"0"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.5"
+				"property_one"			"0"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"-50"
+				"property_two"			"0"
 			}
 		}
 	}
@@ -64923,7 +64924,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"800"
+				"property_one"			"0"
 			}
 		}
 		"Modifiers"
@@ -64965,12 +64966,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"300"
+				"property_one"			"0"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"300"
+				"property_two"			"0"
 			}
 		}
 	}
@@ -64989,12 +64990,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.8"
+				"property_one"			"0"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"4"
+				"property_two"			"0"
 			}
 			"03"
 			{
@@ -65023,17 +65024,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5"
+				"property_one"			"0"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"6"
+				"property_two"			"0"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two_base"		"600"
+				"property_two_base"		"0"
 			}
 			"04"
 			{
@@ -65059,12 +65060,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.3"
+				"property_one"			"0"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.5"
+				"property_two"			"0"
 			}
 		}
 	}

@@ -2,8 +2,8 @@ require('heroes/vengeful_spirit/solunia_constants')
 require('heroes/vengeful_spirit/ability_scripts/napalm/napalm_base')
 solunia_napalm_lunar = class(napalm_base)
 
-modifier_napalm_counter_lunar = class(npc_base_modifier, nil, npc_base_modifier)
-LinkLuaModifier("modifier_napalm_counter_lunar", "heroes/vengeful_spirit/ability_scripts/napalm/solunia_napalm_lunar.lua", LUA_MODIFIER_MOTION_NONE)
+modifier_napalm_q_1_lunar = class(npc_base_modifier, nil, npc_base_modifier)
+LinkLuaModifier("modifier_napalm_q_1_lunar", "heroes/vengeful_spirit/ability_scripts/napalm/solunia_napalm_lunar.lua", LUA_MODIFIER_MOTION_NONE)
 
 function solunia_napalm_lunar:OnSpellStartBase()
     self:NapalmStart()
@@ -71,6 +71,10 @@ function solunia_napalm_lunar:GetAbilityDamageType()
 	return DAMAGE_TYPE_MAGICAL
 end
 
+function solunia_napalm_lunar:GetFlatDamageBonusFromAttribute()
+	return self:GetCaster():GetIntellect()*self:GetSpecialValueFor("damage_add_intelligence")
+end
+
 function solunia_napalm_lunar:GetAbilityElement(index)
 	if index == 1 then
 		return RPC_ELEMENT_COSMOS
@@ -81,4 +85,51 @@ end
 
 function solunia_napalm_lunar:GetNapalmExplosionParticleName()
 	return "particles/roshpit/solunia/lunar_flare_explosion_immortal1.vpcf"
+end
+
+function solunia_napalm_lunar:GetQ1ModifierName()
+	return "modifier_napalm_q_1_lunar"
+end
+
+-- Q1 MODIFIER
+
+function modifier_napalm_q_1_lunar:IsBuff()
+	return true
+end
+
+function modifier_napalm_q_1_lunar:OnCreated()
+	if not IsServer() then
+		return false
+	end
+    self:SetSpecialTypes({ 
+    	MODIFIER_ROSHPIT_MASTER_GREEN_DMG
+    })
+    self:StartIntervalThink(0.1)
+end
+
+function modifier_napalm_q_1_lunar:OnIntervalThink()
+	local ability = self:GetAbility()
+	local caster = self:GetParent()
+	local new_stacks = {}
+	for i = 1, #ability.q_1_stacks, 1 do
+		local time = ability.q_1_stacks[1]
+		if (GameRules:GetGameTime() - time) < SOLUNIA_Q1_BUFF_DURATION then
+			table.insert(new_stacks, time)
+		end
+	end
+	ability.q_1_stacks = new_stacks
+	if #new_stacks > 0 then
+		self:SetStackCount(#ability.q_1_stacks)
+	else
+		caster:RemoveModifierByName(ability:GetQ1ModifierName())
+	end
+end
+
+function modifier_napalm_q_1_lunar:GetRoshpitMasterGreenDMG()
+	return self:GetStackCount() * SOLUNIA_Q1_DMG_PCT_PER_STACK_LUNAR * self:GetCaster():GetRuneValue("q", 1)
+end
+
+function modifier_napalm_q_1_lunar:OnRemoved()
+	local ability = self:GetAbility()
+	ability.q_1_stacks = {}
 end

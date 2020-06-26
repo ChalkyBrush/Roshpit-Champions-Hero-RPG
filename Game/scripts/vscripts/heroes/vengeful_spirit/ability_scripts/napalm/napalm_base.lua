@@ -3,7 +3,7 @@ require('heroes/base_ability')
 napalm_base = class(base_ability)
 
 modifier_solunia_q_passive = class(npc_base_modifier, nil, npc_base_modifier)
-LinkLuaModifier("modifier_solunia_w_passive", "heroes/vengeful_spirit/ability_scripts/napalm/napalm_base.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_solunia_q_passive", "heroes/vengeful_spirit/ability_scripts/napalm/napalm_base.lua", LUA_MODIFIER_MOTION_NONE)
 
 modifier_napalm_thinker = class(npc_base_modifier, nil, npc_base_modifier)
 LinkLuaModifier("modifier_napalm_thinker", "heroes/vengeful_spirit/ability_scripts/napalm/napalm_base.lua", LUA_MODIFIER_MOTION_NONE)
@@ -19,7 +19,8 @@ function napalm_base:IsSoluniaState(state)
 end
 
 function napalm_base:GetManaCostBase(level)
-    return 0
+	local caster = self:GetCaster()
+    return caster:GetModifierStackCount("modifier_solunia_q_passive", caster)*SOLUNIA_Q2_MANA_COST
 end
 
 function napalm_base:GetAOERadius()
@@ -47,7 +48,7 @@ function napalm_base:GetCastRange()
 end
 
 function napalm_base:GetCooldownBase(level)
-    return 0
+    return 9
 end
 
 function napalm_base:GetIntrinsicModifierName()
@@ -115,24 +116,64 @@ function napalm_base:ThrowNapalm(startPosition, target)
 	flare:AddNewModifier(caster, ability, "modifier_napalm_thinker", {})
 end
 
+function napalm_base:GetNapalmDamage()
+	return self:GetSpecialValueFor("damage") + self:GetFlatDamageBonusFromAttribute() + self:GetManaCostBase()*SOLUNIA_Q2_BASE_DMG_INCREASE_PER_MANA
+end
+
 function napalm_base:NapalmExplosion(position)
 	local caster = self:GetCaster()
 	local ability = self
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, self:GetAOERadius(), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
-	local damage = self:GetSpecialValueFor("damage")
+	local damage = self:GetNapalmDamage()
 	local stun_duration = self:GetSpecialValueFor("stun_duration")
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do
 			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, self:GetAbilityDamageType(), BASE_ABILITY_Q, self:GetAbilityElement(1), self:GetAbilityElement(2))
 			Filters:ApplyStun(caster, stun_duration, enemy)
 		end
+		self:NapalmQ1Increment()
 	end
 	CustomAbilities:QuickParticleAtPoint(self:GetNapalmExplosionParticleName(), position, 3)
 	EmitSoundOnLocationWithCaster(position, "Solunia.SolarGlow.Impact", caster)
 end
 
+function napalm_base:NapalmQ1Increment()
+	local caster = self:GetCaster()
+	local ability = self
+	if caster:GetRuneValue("q", 1) > 0 then
+		caster:AddNewModifier(caster, self, self:GetQ1ModifierName(), {duration = SOLUNIA_Q1_BUFF_DURATION})
+		if not ability.q_1_stacks then
+			ability.q_1_stacks = {}
+		end
+		if #ability.q_1_stacks < SOLUNIA_Q1_MAX_STACKS then
+			table.insert(ability.q_1_stacks, GameRules:GetGameTime())
+			local modifier = caster:FindModifierByName(self:GetQ1ModifierName())
+			modifier:OnIntervalThink()
+		else
+			table.sort(ability.q_1_stacks)
+			ability.q_1_stacks[1] = GameRules:GetGameTime()
+			local modifier = caster:FindModifierByName(self:GetQ1ModifierName())
+			modifier:OnIntervalThink()
+		end
+	end
+end
+
 -- PASSIVE
 
+function modifier_solunia_q_passive:IsHidden()
+	return true
+end
+
+function modifier_solunia_q_passive:OnCreated()
+	if not IsServer() then
+		return false
+	end
+	self:StartIntervalThink(0.1)
+end
+
+function modifier_solunia_q_passive:OnIntervalThink()
+	self:SetStackCount(self:GetCaster():GetRuneValue("q", 2))
+end
 
 -- NAPALM THINKER
 function modifier_napalm_thinker:OnCreated()
