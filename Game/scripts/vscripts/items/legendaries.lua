@@ -6653,6 +6653,7 @@ function RPCItems:CreateAugmentedRingOfNobility(hero, ability)
     if type(item.newItemTable.socket2value) == "number" then
         item.newItemTable.socket2value = math.min(item.newItemTable.socket2value + 1, 5)
     end
+    item.newItemTable.soulbound = ability.newItemTable.soulbound
     item.pickedUp = true
     RPCItems:ItemUpdateCustomNetTables(item)
     hero:EquipItem(item, true, true)
