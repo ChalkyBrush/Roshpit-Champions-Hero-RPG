@@ -690,35 +690,6 @@ function scarecrow_gloves_think(event)
 	end
 end
 
-function legion_think(event)
-	local target = event.target
-	local ability = event.ability
-	local caster = event.caster
-	local strStacks = math.floor(target:GetBaseStrength() * (ITEM_RPC_LEGION_VESTMENTS_ATTRIBUTE_INCREASE + ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_LEGION_VESTMENTS_GEM_RUBY)/100))
-	local intStacks = math.floor(target:GetBaseIntellect() * (ITEM_RPC_LEGION_VESTMENTS_ATTRIBUTE_INCREASE + ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_LEGION_VESTMENTS_GEM_SAPPHIRE)/100))
-	local agiStacks = math.floor(target:GetBaseAgility() * (ITEM_RPC_LEGION_VESTMENTS_ATTRIBUTE_INCREASE + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_LEGION_VESTMENTS_GEM_EMERALD)/100))
-	local sprStacks = math.floor(target:GetBaseSpirit() * (ITEM_RPC_LEGION_VESTMENTS_ATTRIBUTE_INCREASE + ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_LEGION_VESTMENTS_GEM_AMETHYST)/100))
-	if not target:HasModifier("modifier_legion_vestments_effect_str") then
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_legion_vestments_effect_str", {})
-	end
-	target:SetModifierStackCount("modifier_legion_vestments_effect_str", ability, strStacks)
-
-	if not target:HasModifier("modifier_legion_vestments_effect_int") then
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_legion_vestments_effect_int", {})
-	end
-	target:SetModifierStackCount("modifier_legion_vestments_effect_int", ability, intStacks)
-
-	if not target:HasModifier("modifier_legion_vestments_effect_agi") then
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_legion_vestments_effect_agi", {})
-	end
-	target:SetModifierStackCount("modifier_legion_vestments_effect_agi", ability, agiStacks)
-
-	if not target:HasModifier("modifier_legion_vestments_effect_spr") then
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_legion_vestments_effect_spr", {})
-	end
-	target:SetModifierStackCount("modifier_legion_vestments_effect_spr", ability, sprStacks)
-end
-
 function living_gauntlet_think(event)
 	local target = event.target
 	local ability = event.ability

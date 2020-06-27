@@ -2153,30 +2153,6 @@ function RPCItems:RollGoldenWarPlate(item_level)
     return item
 end
 
-function RPCItems:RollGoldPlateOfLeon(item_level)
-    local item_slot = RPC_GEAR_SLOT_BODY
-    local rarity = RPC_ITEMS_RARITY_IMMORTAL
-
-    local item = RPCItems:CreateVariant("item_rpc_gold_plate_of_leon", "immortal", "Gold Plate of Leon", "body", true, "Slot: Body")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "!immortal!_modifier_gold_plate_of_leon"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_gold_plate_of_leon", "#E6E617", 1, "#property_gold_plate_of_leon_description")
-
-    local attr_rolls = {"strength", "agility", "intelligence", "spirit"}
-    local attr_roll = attr_rolls[RandomInt(1, #attr_rolls)]
-    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, attr_roll, 2)
-
-    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
-    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
-
-    RPCItems:GrantItemBaseArmor(item, item_level, 3)
-    RPCItems:GrantItemBaseMagicArmor(item, item_level, 0)
-    RPCItems:SocketsChance(item)
-    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
-    return item
-end
-
 function RPCItems:RollGuardOfFeronia(item_level)
     local item_slot = RPC_GEAR_SLOT_BODY
     local rarity = RPC_ITEMS_RARITY_IMMORTAL
@@ -2309,34 +2285,6 @@ function RPCItems:RollMageplate(item_level)
 
     RPCItems:GrantItemBaseArmor(item, item_level, 3.5)
     RPCItems:GrantItemBaseMagicArmor(item, item_level, 3.5)
-    RPCItems:SocketsChance(item)
-    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
-    return item
-end
-
-function RPCItems:RollLegionVestments(item_level)
-    local item_slot = RPC_GEAR_SLOT_BODY
-    local rarity = RPC_ITEMS_RARITY_IMMORTAL
-
-    local item = RPCItems:CreateVariant("item_rpc_legion_vestments", "immortal", "Legion Vestments", "body", true, "Slot: Body")
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "!immortal!_modifier_legion_vestments"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_legion_vestments", "#D45757", 1, "#property_legion_vestments_description")
-
-    local attr_rolls = {"strength", "agility", "intelligence", "spirit"}
-    local attr_roll = attr_rolls[RandomInt(1, #attr_rolls)]
-    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, attr_roll, 1.5)
-
-    local attr_rolls = {"strength", "agility", "intelligence", "spirit"}
-    local attr_roll = attr_rolls[RandomInt(1, #attr_rolls)]
-    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, attr_roll, 1.75)
-
-    local attr_rolls = {"strength", "agility", "intelligence", "spirit"}
-    local attr_roll = attr_rolls[RandomInt(1, #attr_rolls)]
-    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, attr_roll, 2.0)
-
-    RPCItems:GrantItemBaseArmor(item, item_level, 2)
-    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2)
     RPCItems:SocketsChance(item)
     RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
     return item
@@ -7138,8 +7086,6 @@ function RPCItems:RollImmortalByName(itemName, item_level)
         newItem = RPCItems:RollVampiricBreastplate(item_level)
     elseif itemName == "item_rpc_skyforge_flurry_plate" then
         newItem = RPCItems:RollSkyforgeFlurryPlate(item_level)
-    elseif itemName == "item_rpc_legion_vestments" then
-        newItem = RPCItems:RollLegionVestments(item_level)
     elseif itemName == "item_rpc_nightmare_rider_mantle" then
         newItem = RPCItems:RollNightmareRiderMantle(item_level)
     elseif itemName == "item_rpc_space_tech_vest" then
@@ -7344,8 +7290,6 @@ function RPCItems:RollImmortalByName(itemName, item_level)
         newItem = RPCItems:RollChampionsGearBoots(item_level)
     elseif itemName == "item_rpc_greensand_copper_gauntlets" then
         newItem = RPCItems:RollGreensandCopperGauntlets(item_level)
-    elseif itemName == "item_rpc_gold_plate_of_leon" then
-        newItem = RPCItems:RollGoldPlateOfLeon(item_level)
     elseif itemName == "item_rpc_staggering_knight_crusher_armor" then
         newItem = RPCItems:RollKnightCrusherArmor(item_level)
     elseif itemName == "item_rpc_stormcrack_helm" then

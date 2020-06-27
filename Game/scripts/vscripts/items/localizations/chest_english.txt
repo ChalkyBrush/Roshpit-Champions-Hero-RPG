@@ -252,7 +252,7 @@
 		"item_rpc_gold_plate_of_leon_ruby1"								"Your primary attribute is always Strength. Increases Strength by @ruby_property1."
 		"item_rpc_gold_plate_of_leon_emerald1"								"Increases all attributes by @emerald_property1"
 		"item_rpc_gold_plate_of_leon_sapphire1"								"Increases your base attack damage by an additional @sapphire_property1x your primary attribute"
-		"item_rpc_gold_plate_of_leon_amethyst1"								"Increases your primary attribute by an additional @amethyst_property1%"
+		"item_rpc_gold_plate_of_leon_amethyst1"								"Increases Spirit by @amethyst_property1%"
 
 		"DOTA_Tooltip_ability_item_rpc_guard_of_feronia"								"Guard of Feronia"
 
@@ -327,7 +327,7 @@
 
 		"DOTA_Tooltip_ability_item_rpc_legion_vestments"								"Legion Vestments"
 		"item_property_legion_vestments"			"Legion Command"
-		"property_legion_vestments_description"		"Increases All Attributes by <% ITEM_RPC_LEGION_VESTMENTS_ATTRIBUTE_INCREASE * 100 %>%."
+		"property_legion_vestments_description"		"Increases All Attributes by <% ITEM_RPC_LEGION_VESTMENTS_ATTRIBUTE_INCREASE %>%."
 
 		"item_rpc_legion_vestments_ruby1"								"Increases Strength by an additional @ruby_property1%"
 		"item_rpc_legion_vestments_emerald1"								"Increases Agility by an additional @emerald_property1%"
