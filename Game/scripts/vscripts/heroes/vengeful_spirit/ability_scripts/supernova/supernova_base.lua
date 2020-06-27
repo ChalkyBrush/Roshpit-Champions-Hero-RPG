@@ -38,7 +38,8 @@ function supernova_base:GetCastPoint()
 end
 
 function supernova_base:GetCooldownBase(level)
-    return 1
+	local caster = self:GetCaster()
+    return math.max(0, 14 - caster:GetModifierStackCount("modifier_solunia_r_passive", caster)*SOLUNIA_R4_CD_REDUCE)
 end
 
 function supernova_base:GetCastRange()
@@ -79,6 +80,7 @@ function supernova_base:SuperNovaChannelFinish(interrupted)
 		local position = caster:GetAbsOrigin()
 		self:MainExplosion(position)
 		self:SoluniaStateSwap()
+		self:RuneR1Cooldowns()
 		Filters:CastSkillArguments(BASE_ABILITY_R, caster)
 	end
 end
@@ -88,7 +90,7 @@ function supernova_base:MainExplosion(position)
 	local ability = self
 	local particleName = self:GetMainExplosionParticleName()
 	local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
-
+	local r_2_level = caster:GetRuneValue("r", 2)
 	ParticleManager:SetParticleControl(particle1, 0, position + Vector(0, 0, -120))
 	ParticleManager:SetParticleControl(particle1, 1, Vector(550, 2, 1000))
 	ParticleManager:SetParticleControl(particle1, 3, Vector(550, 550, 550))
@@ -98,12 +100,15 @@ function supernova_base:MainExplosion(position)
 	-- caster:RemoveModifierByName("modifier_solunia_ulti_above_ground")
 	EmitSoundOn("Solunia.Supernova.Explode", caster)
 	local stun_duration = self:GetSpecialValueFor("stun_duration")
-	local damage = self:GetSpecialValueFor("damage")
+	local damage = self:GetDamage()
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, self:GetAOERadius(), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do
 			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, self:GetAbilityDamageType(), BASE_ABILITY_R, self:GetAbilityElement(1), self:GetAbilityElement(2))
 			Filters:ApplyStun(caster, stun_duration, enemy)
+			if r_2_level > 0 then
+				enemy:AddNewModifier(caster, ability, self:GetDualBurnModifierName(), {duration = SOLUNIA_R2_DUAL_BURN_DURATION})
+			end
 		end
 	end
 	GridNav:DestroyTreesAroundPoint(position, 240, false)
@@ -135,10 +140,65 @@ function supernova_base:GetIntrinsicModifierName()
 	return "modifier_solunia_r_passive"
 end
 
+function supernova_base:GetDamage()
+	local caster = self:GetCaster()
+	return self:GetSpecialValueFor("damage") + self:GetSpecialValueFor("all_attributes_damage")*caster:GetSumOfAllAttributes()
+end
+
+function supernova_base:RuneR1Cooldowns()
+	local caster = self:GetCaster()
+	local r_1_level = caster:GetRuneValue("r", 1)
+	if r_1_level > 0 then
+		local CDReduce = r_1_level*SOLUNIA_R1_CD_REDUCE
+		caster:ReduceAllCurrentCooldowns(CDReduce)
+	end
+end
+
+function supernova_base:GetR2DualBurnDamage(target)
+	local caster = self:GetCaster()
+	local damage = self:GetDamage()*(SOLUNIA_R2_DUAL_BURN_DMG_PCT_SUPERNOVA*caster:GetRuneValue("r", 2)/100)
+	if target:HasModifier(self:GetAlternateDualBurnModifierName()) then
+		damage = damage * SOLUNIA_R2_DUAL_BURN_MULT 
+	end
+	return damage
+end
+
 -- PASSIVE
 
 function modifier_solunia_r_passive:IsHidden()
 	return true
+end
+
+function modifier_solunia_r_passive:OnCreated()
+	if not IsServer() then
+		return false
+	end
+	if self:GetAbility():IsSoluniaState(SOLUNIA_STATE_SOLAR) then
+	    self:SetSpecialTypes({ 
+	    	MODIFIER_ROSHPIT_AGILITY_BONUS,
+	    	RPC_ELEMENT_COSMOS,
+	    	MODIFIER_ROSHPIT_R_BASE_ABILITY_DMG_BONUS
+	    })
+	elseif self:GetAbility():IsSoluniaState(SOLUNIA_STATE_LUNAR) then
+	    self:SetSpecialTypes({ 
+	    	MODIFIER_ROSHPIT_INTELLIGENCE_BONUS,
+	    	RPC_ELEMENT_COSMOS,
+	    	MODIFIER_ROSHPIT_R_BASE_ABILITY_DMG_BONUS
+	    })
+	end
+	self:StartIntervalThink(1)
+end
+
+function modifier_solunia_r_passive:GetRoshpitRBaseAbilityDmgBonus()
+	return self:GetCaster():GetRuneValue("r", 1)*SOLUNIA_R1_R_BAD/100
+end
+
+function modifier_solunia_r_passive:GetRoshpitAgilityBonus()
+	return self:GetCaster():GetRuneValue("r", 3)*SOLUNIA_R3_ATTRIBUTE_BONUS
+end
+
+function modifier_solunia_r_passive:GetRoshpitIntelligenceBonus()
+	return self:GetCaster():GetRuneValue("r", 3)*SOLUNIA_R3_ATTRIBUTE_BONUS
 end
 
 function modifier_solunia_r_passive:GetStatusEffectName()
@@ -152,6 +212,17 @@ end
 
 function modifier_solunia_r_passive:StatusEffectPriority()
 	return 10
+end
+
+function modifier_solunia_r_passive:GetRoshpitElementalDmgBonus()
+	return self:GetCaster():GetRuneValue("r", 4)*SOLUNIA_R4_COSMIC_AMP/100
+end
+
+function modifier_solunia_r_passive:OnIntervalThink()
+	if not IsServer() then
+		return false
+	end
+	self:SetStackCount(self:GetCaster():GetRuneValue("r", 4))
 end
 
 -- CHANNELING MODIFIER
@@ -182,11 +253,20 @@ function modifier_solunia_r_channeling:OnIntervalThink()
 	-- end
 	local rotation = ability.rotationIndex * 6 + ability.startRotation
 	caster:SetAngles(0, rotation, 0)
-	caster:SetAbsOrigin(caster:GetAbsOrigin() + Vector(0, 0, 2) + Vector(0, 0, math.sin(math.pi * ability.rotationIndex / 30) * 6))
-	if (caster:GetAbsOrigin().z - GetGroundHeight(caster:GetAbsOrigin(), caster)) > 199 then
-		-- ability:ApplyDataDrivenModifier(caster, caster, "modifier_solunia_ulti_above_ground", {})
+	local verticalMotion = Vector(0, 0, 2)
+	local distanceFromGround =caster:GetDistanceFromGround()
+	if distanceFromGround > 500 then
+		verticalMotion = Vector(0,0,0)
+	elseif distanceFromGround > 600 then
+		verticalMotion = Vector(0,0,-1)
+	elseif distanceFromGround > 700 then
+		verticalMotion = Vector(0,0,-2)
+	end
+	caster:SetAbsOrigin(caster:GetAbsOrigin() + verticalMotion + Vector(0, 0, math.sin(math.pi * ability.rotationIndex / 30) * 6))
+	if distanceFromGround >= SOLUNIA_R_HEIGHT_FOR_ATTACK_IMMUNE then
+		ability.above_ground_immunity = true
 	else
-		-- caster:RemoveModifierByName("modifier_solunia_ulti_above_ground")
+		ability.above_ground_immunity = true
 	end
 	ability.rotationIndex = ability.rotationIndex + 1
 end
@@ -212,6 +292,19 @@ function modifier_solunia_r_channeling:OnDestroy()
 		return false
 	end
 	self:DestroyRoshpitModifierParticle()
+	self:GetAbility().above_ground_immunity = false
+end
+
+function modifier_solunia_r_channeling:CheckState()
+	local ability = self:GetAbility()
+	if not IsServer() then
+		return false
+	end
+	local state = {
+		[MODIFIER_STATE_ATTACK_IMMUNE] = ability.above_ground_immunity,
+		[MODIFIER_STATE_MAGIC_IMMUNE] = ability.above_ground_immunity
+	}
+	return state
 end
 
 -- FALLING MODIFIER

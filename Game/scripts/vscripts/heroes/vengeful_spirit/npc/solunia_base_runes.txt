@@ -272,13 +272,13 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SOLUNIA_R1_HP %>"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"<% SOLUNIA_R1_CD_REDUCE %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% SOLUNIA_R1_HP %>"
+				"property_two"			"<% SOLUNIA_R1_R_BAD %>"
 			}
 		}
 	}
@@ -290,29 +290,18 @@
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityTextureName"	"solunia/solunia_rune_r_2"
 		"MaxLevel"				"20"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SOLUNIA_R2_DMG_PER_DMG * 100 %>"
+				"property_one"			"<% SOLUNIA_R2_DUAL_BURN_DMG_PCT_SUPERNOVA %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% SOLUNIA_R2_DUAL_BURN_AMP * 100 %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"8"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_two"			"2"
+				"base_ability"			"4"
 			}
 		}
 	}
@@ -324,29 +313,13 @@
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityTextureName"	"solunia/solunia_rune_r_3"
 		"MaxLevel"				"20"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SOLUNIA_R3_WAVE_DMG_PCT %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% SOLUNIA_R3_RANGE %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two_base"		"<% SOLUNIA_R3_RANGE_BASE %>"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"8"
+				"property_one"			"<% SOLUNIA_R3_ATTRIBUTE_BONUS %>"
 			}
 		}
 	}
@@ -367,13 +340,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SOLUNIA_R4_CD_RED %>"
+				"property_one"			"<% SOLUNIA_R4_CD_REDUCE %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% SOLUNIA_R4_ADD_DMG_PER_ATTR %>"
+				"property_two"			"<% SOLUNIA_R4_COSMIC_AMP %>"
 			}
 		}
 	}
-
