@@ -54,7 +54,7 @@ function solunia_napalm_solar:NapalmThinker(napalm)
 	napalm:SetModelScale(math.min((0.5 + napalm.interval / 5), 3.0))
 	local newFV = WallPhysics:rotateVector(napalm:GetForwardVector(), math.pi / 30)
 	napalm:SetForwardVector(newFV)
-	napalm:SetAngles(napalm.interval * 4, vectorToAngle(newFV), napalm.interval * 4)
+	napalm:SetAngles(napalm.interval * 4, WallPhysics:vectorToAngle(newFV), napalm.interval * 4)
 	napalm.interval = napalm.interval + 1
 	local groundHeight = GetGroundHeight(napalm:GetAbsOrigin(), napalm)
 	if napalm:GetAbsOrigin().z - groundHeight < 10 then

@@ -3856,7 +3856,13 @@ function CDOTA_BaseNPC:CalculateAndSaveMasterMovespeedBuff()
 	if ms_buff > 0 then
 		Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_master_ms_buff", {})
 		self:SetModifierStackCount("modifier_master_ms_buff", self, ms_buff)
-	elseif self:HasModifier("modifier_master_ms_buff") then
+		self:RemoveModifierByName("modifier_master_ms_negative_buff")
+	elseif ms_buff < 0 then
+		Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_master_ms_negative_buff", {})
+		self:SetModifierStackCount("modifier_master_ms_negative_buff", self, ms_buff*-1)
+		self:RemoveModifierByName("modifier_master_ms_buff")
+	else
+		self:RemoveModifierByName("modifier_master_ms_negative_buff")
 		self:RemoveModifierByName("modifier_master_ms_buff")
 	end
 end

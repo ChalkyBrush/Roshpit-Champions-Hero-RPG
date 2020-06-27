@@ -63,7 +63,7 @@ function supernova_base:SuperNovaChannelStart()
 	StartSoundEvent("Solunia.Supernova", caster)
 	ability.rotationIndex = 0
 	ability.fallVelocity = 1
-	ability.startRotation = vectorToAngle(caster:GetForwardVector())
+	ability.startRotation = WallPhysics:vectorToAngle(caster:GetForwardVector())
 	caster:AddNewModifier(caster, self, "modifier_solunia_r_channeling", {duration = self:GetChannelTimeBase()})
 	caster:RemoveModifierByName("modifier_solunia_between_warp")
 end

@@ -10220,6 +10220,9 @@
     	"DOTA_Tooltip_ability_solunia_rune_e_2_suffix"						""	
     	"DOTA_Tooltip_ability_solunia_rune_e_2_property_two"					"Armor (Solar) or Magic Armor (Lunar) Reduction"
     	"DOTA_Tooltip_ability_solunia_rune_e_2_suffix_two"					""
+
+        "DOTA_Tooltip_modifier_solunia_warp_flare_e2_debuff"                "Warp Core"
+        "DOTA_Tooltip_modifier_solunia_warp_flare_e2_debuff_Description"    "Reduced Movespeed and Armor (Solar) or Magic Armor (Lunar)"
 		
 		"DOTA_Tooltip_ability_solunia_rune_e_3"								"[E3] Hydrogen"
     	"DOTA_Tooltip_ability_solunia_rune_e_3_Description"					"Increases Solunia's Max Health."

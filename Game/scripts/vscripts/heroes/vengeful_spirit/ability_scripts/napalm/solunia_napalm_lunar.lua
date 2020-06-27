@@ -54,7 +54,7 @@ function solunia_napalm_lunar:NapalmThinker(napalm)
 	napalm:SetModelScale(math.min((0.5 + napalm.interval / 5), 3.0))
 	local newFV = WallPhysics:rotateVector(napalm:GetForwardVector(), math.pi / 30)
 	napalm:SetForwardVector(newFV)
-	napalm:SetAngles(napalm.interval * 3, vectorToAngle(newFV), napalm.interval * 3)
+	napalm:SetAngles(napalm.interval * 3, WallPhysics:vectorToAngle(newFV), napalm.interval * 3)
 	napalm.interval = napalm.interval + 1
 	local groundHeight = GetGroundHeight(napalm:GetAbsOrigin(), napalm)
 	local distance = WallPhysics:GetDistance2d(napalm.start_point, napalm.target_point)

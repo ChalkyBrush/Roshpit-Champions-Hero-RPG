@@ -180,14 +180,16 @@ end
 
 function warp_flare_base:RuneE2()
 	local caster = self:GetCaster()
-	local ability = self
-	local position = GetGroundPosition(caster:GetAbsOrigin(), caster)
-	local duration = SOLUNIA_E2_PAD_DURATION
-	local radius = self:GetE2Radius()
-	local pfx = CustomAbilities:QuickParticleAtPoint(self:GetE2ParticleName(), position, duration)
-	ParticleManager:SetParticleControl(pfx, 1, Vector(radius, 1, 240))
-	ParticleManager:SetParticleControl(pfx, 2, Vector(6, 6, 6))
-	Util.Ability:MakeThinker(caster, ability, "modifier_solunia_warp_flare_e2", position, duration)
+	if caster:GetRuneValue("e", 2) > 0 then
+		local ability = self
+		local position = GetGroundPosition(caster:GetAbsOrigin(), caster)
+		local duration = SOLUNIA_E2_PAD_DURATION
+		local radius = self:GetE2Radius()
+		local pfx = CustomAbilities:QuickParticleAtPoint(self:GetE2ParticleName(), position, duration)
+		ParticleManager:SetParticleControl(pfx, 1, Vector(radius, 1, 240))
+		ParticleManager:SetParticleControl(pfx, 2, Vector(duration, duration, duration))
+		Util.Ability:MakeThinker(caster, ability, "modifier_solunia_warp_flare_e2", position, duration)
+	end
 end
 
 function warp_flare_base:GetE2Radius()
@@ -195,6 +197,7 @@ function warp_flare_base:GetE2Radius()
 end
 
 function warp_flare_base:GetWarpingSpeed()
+	local caster = self:GetCaster()
 	return SOLUNIA_E_TRAVEL_SPEED * ((1 + (caster:GetRuneValue("e", 4)*SOLUNIA_E4_WARPSPEED_PCT)/100))
 end
 
@@ -492,15 +495,16 @@ function modifier_solunia_warp_flare_e2_debuff:OnCreated()
     	MODIFIER_ROSHPIT_ARMOR_BONUS,
     	MODIFIER_ROSHPIT_MAGIC_ARMOR_BONUS
     })
+    self:GetParent():CalculateAndSaveRoshpitAttributes()
 end
 
 function modifier_solunia_warp_flare_e2_debuff:GetRoshpitMasterMS()
-	return self:GetCaster():GetRuneValue("e", 2)*SOLUNIA_E2_MS_LOSS
+	return self:GetAbility():GetCaster():GetRuneValue("e", 2)*SOLUNIA_E2_MS_LOSS
 end
 
 function modifier_solunia_warp_flare_e2_debuff:GetRoshpitArmorBonus()
 	if self:GetAbility():IsSoluniaState(SOLUNIA_STATE_SOLAR) then
-		return self:GetCaster():GetRuneValue("e", 2)*SOLUNIA_E2_ARMORS_LOSS
+		return self:GetAbility():GetCaster():GetRuneValue("e", 2)*SOLUNIA_E2_ARMORS_LOSS
 	else
 		return 0
 	end
@@ -508,8 +512,15 @@ end
 
 function modifier_solunia_warp_flare_e2_debuff:GetRoshpitMagicArmorBonus()
 	if self:GetAbility():IsSoluniaState(SOLUNIA_STATE_LUNAR) then
-		return self:GetCaster():GetRuneValue("e", 2)*SOLUNIA_E2_ARMORS_LOSS
+		return self:GetAbility():GetCaster():GetRuneValue("e", 2)*SOLUNIA_E2_ARMORS_LOSS
 	else
 		return 0
 	end
+end
+
+function modifier_solunia_warp_flare_e2_debuff:OnRemoved()
+	if not IsServer() then
+		return false
+	end
+	self:GetParent():CalculateAndSaveRoshpitAttributes()
 end

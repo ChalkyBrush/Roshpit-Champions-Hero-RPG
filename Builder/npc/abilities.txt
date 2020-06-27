@@ -12653,6 +12653,15 @@
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "1"
 				}			
 			}
+			"modifier_master_ms_negative_buff"
+			{
+				"IsHidden"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-1"
+				}			
+			}
 			"modifier_master_as_buff"
 			{
 				"IsHidden"	"1"
