@@ -164,11 +164,6 @@ function CDOTA_BaseNPC_Hero:GetBaseStrength()
 		strength = strength - modifier:GetStackCount()
 	end
 
-	modifier = self:FindModifierByName('modifier_legion_vestments_effect_str')
-	if modifier then
-		strength = strength - modifier:GetStackCount()
-	end
-
 	modifier = self:FindModifierByName('modifier_eye_of_seasons_stats')
 	if modifier then
 		strength = strength - modifier:GetStackCount()
@@ -197,11 +192,6 @@ function CDOTA_BaseNPC_Hero:GetBaseAgility()
 	local modifier = nil
 
 	modifier = self:FindModifierByName('modifier_empyreal_agi')
-	if modifier then
-		agility = agility - modifier:GetStackCount()
-	end
-
-	modifier = self:FindModifierByName('modifier_legion_vestments_effect_agi')
 	if modifier then
 		agility = agility - modifier:GetStackCount()
 	end
@@ -248,10 +238,6 @@ function CDOTA_BaseNPC_Hero:GetBaseIntellect()
 		intellect = intellect - modifier:GetStackCount()
 	end
 
-	modifier = self:FindModifierByName('modifier_legion_vestments_effect_int')
-	if modifier then
-		intellect = intellect - modifier:GetStackCount()
-	end
 
 	modifier = self:FindModifierByName('modifier_blazing_fury_effect')
 	if modifier then
@@ -284,10 +270,6 @@ function CDOTA_BaseNPC_Hero:GetBaseSpirit()
 		spirit = spirit - modifier:GetStackCount()
 	end
 
-	modifier = self:FindModifierByName('modifier_legion_vestments_effect_spr')
-	if modifier then
-		spirit = spirit - modifier:GetStackCount()
-	end
 	modifier = self:FindModifierByName("modifier_sea_giant_spirit")
 	if modifier then
 		spirit = spirit - modifier:GetStackCount()
@@ -3143,12 +3125,6 @@ function CustomAttributes:SetAttributes(hero)
 		if hero:HasModifier("modifier_blazing_fury_spirit") then
 			spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_blazing_fury_spirit", 1)
 		end
-	end
-	if hero:HasModifier("modifier_legion_vestments") then
-		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_legion_vestments_effect_str", 1)
-		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_legion_vestments_effect_agi", 1)
-		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_legion_vestments_effect_int", 1)
-		spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_legion_vestments_effect_spr", 1)
 	end
 	if hero:HasModifier("modifier_mageplate_intelligence") then
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_mageplate_intelligence", 1)

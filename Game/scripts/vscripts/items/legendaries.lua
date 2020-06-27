@@ -2290,34 +2290,6 @@ function RPCItems:RollMageplate(item_level)
     return item
 end
 
-function RPCItems:RollLegionVestments(item_level)
-    local item_slot = RPC_GEAR_SLOT_BODY
-    local rarity = RPC_ITEMS_RARITY_IMMORTAL
-
-    local item = RPCItems:CreateVariant("item_rpc_legion_vestments", "immortal", "Legion Vestments", "body", true, "Slot: Body")
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "!immortal!_modifier_legion_vestments"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_legion_vestments", "#D45757", 1, "#property_legion_vestments_description")
-
-    local attr_rolls = {"strength", "agility", "intelligence", "spirit"}
-    local attr_roll = attr_rolls[RandomInt(1, #attr_rolls)]
-    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, attr_roll, 1.5)
-
-    local attr_rolls = {"strength", "agility", "intelligence", "spirit"}
-    local attr_roll = attr_rolls[RandomInt(1, #attr_rolls)]
-    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, attr_roll, 1.75)
-
-    local attr_rolls = {"strength", "agility", "intelligence", "spirit"}
-    local attr_roll = attr_rolls[RandomInt(1, #attr_rolls)]
-    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, attr_roll, 2.0)
-
-    RPCItems:GrantItemBaseArmor(item, item_level, 2)
-    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2)
-    RPCItems:SocketsChance(item)
-    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
-    return item
-end
-
 function RPCItems:RollMysticManaWall(item_level)
     local item_slot = RPC_GEAR_SLOT_BODY
     local rarity = RPC_ITEMS_RARITY_IMMORTAL
@@ -7114,8 +7086,6 @@ function RPCItems:RollImmortalByName(itemName, item_level)
         newItem = RPCItems:RollVampiricBreastplate(item_level)
     elseif itemName == "item_rpc_skyforge_flurry_plate" then
         newItem = RPCItems:RollSkyforgeFlurryPlate(item_level)
-    elseif itemName == "item_rpc_legion_vestments" then
-        newItem = RPCItems:RollLegionVestments(item_level)
     elseif itemName == "item_rpc_nightmare_rider_mantle" then
         newItem = RPCItems:RollNightmareRiderMantle(item_level)
     elseif itemName == "item_rpc_space_tech_vest" then
