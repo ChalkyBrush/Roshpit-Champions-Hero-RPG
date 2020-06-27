@@ -17,3 +17,7 @@ end
 function solunia_warp_flare_lunar:GetTravelEndParticle()
 	return "particles/roshpit/solunia/lunar_flare_explosion_immortal1.vpcf"
 end
+
+function solunia_warp_flare_lunar:GetE2ParticleName()
+	return "particles/roshpit/solunia/warp_core_lunar.vpcf"
+end

@@ -17,3 +17,7 @@ end
 function solunia_warp_flare_solar:GetTravelEndParticle()
 	return "particles/roshpit/solunia/solar_flare_no_ground.vpcf"
 end
+
+function solunia_warp_flare_solar:GetE2ParticleName()
+	return "particles/roshpit/solunia/warp_core_solar.vpcf"
+end

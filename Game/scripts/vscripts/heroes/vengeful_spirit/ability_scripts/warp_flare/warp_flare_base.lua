@@ -14,6 +14,11 @@ LinkLuaModifier("modifier_solunia_between_warp", "heroes/vengeful_spirit/ability
 modifier_solunia_warp_flare_e1 = class(npc_base_modifier, nil, npc_base_modifier)
 LinkLuaModifier("modifier_solunia_warp_flare_e1", "heroes/vengeful_spirit/ability_scripts/warp_flare/warp_flare_base.lua", LUA_MODIFIER_MOTION_NONE)
 
+modifier_solunia_warp_flare_e2 = class(npc_base_modifier, nil, npc_base_modifier)
+LinkLuaModifier("modifier_solunia_warp_flare_e2", "heroes/vengeful_spirit/ability_scripts/warp_flare/warp_flare_base.lua", LUA_MODIFIER_MOTION_NONE)
+
+modifier_solunia_warp_flare_e2_debuff = class(npc_base_modifier, nil, npc_base_modifier)
+LinkLuaModifier("modifier_solunia_warp_flare_e2_debuff", "heroes/vengeful_spirit/ability_scripts/warp_flare/warp_flare_base.lua", LUA_MODIFIER_MOTION_NONE)
 
 function warp_flare_base:GetManaCostBase(level)
     return 0
@@ -93,7 +98,8 @@ function warp_flare_base:OnSpellStart()
 end
 
 function warp_flare_base:GetMaxWarpDistance()
-	return self:GetSpecialValueFor("cast_range")
+	local caster = self:GetCaster()
+	return self:GetSpecialValueFor("cast_range") + caster:GetModifierStackCount("modifier_solunia_e_passive", caster)*SOLUNIA_E4_CAST_RANGE
 end
 
 function warp_flare_base:GetMaxWarpCount()
@@ -140,6 +146,7 @@ function warp_flare_base:WarpTravelEnd()
 	else
 		self:EndWarpFlare()
 	end
+	self:RuneE2()
 
 	caster:RemoveModifierByName("modifier_solunia_warp_flare")
 end
@@ -171,13 +178,54 @@ function warp_flare_base:EndWarpFlare()
 	caster:RemoveModifierByName("modifier_solunia_warp_flare_e1")
 end
 
+function warp_flare_base:RuneE2()
+	local caster = self:GetCaster()
+	local ability = self
+	local position = GetGroundPosition(caster:GetAbsOrigin(), caster)
+	local duration = SOLUNIA_E2_PAD_DURATION
+	local radius = self:GetE2Radius()
+	local pfx = CustomAbilities:QuickParticleAtPoint(self:GetE2ParticleName(), position, duration)
+	ParticleManager:SetParticleControl(pfx, 1, Vector(radius, 1, 240))
+	ParticleManager:SetParticleControl(pfx, 2, Vector(6, 6, 6))
+	Util.Ability:MakeThinker(caster, ability, "modifier_solunia_warp_flare_e2", position, duration)
+end
+
+function warp_flare_base:GetE2Radius()
+	return SOLUNIA_E2_PAD_RADIUS
+end
+
+function warp_flare_base:GetWarpingSpeed()
+	return SOLUNIA_E_TRAVEL_SPEED * ((1 + (caster:GetRuneValue("e", 4)*SOLUNIA_E4_WARPSPEED_PCT)/100))
+end
+
 -- PASSIVE
 
 function modifier_solunia_e_passive:IsHidden()
 	return true
 end
 
--- MAIN MODIFIER
+function modifier_solunia_e_passive:OnCreated()
+	if not IsServer() then
+		return false
+	end
+    self:SetSpecialTypes({ 
+    	MODIFIER_ROSHPIT_FLAT_HEALTH_BONUS
+    })
+    self:StartIntervalThink(1)
+end
+
+function modifier_solunia_e_passive:GetFlatHealthBonus()
+	return self:GetCaster():GetRuneValue("e", 3)*SOLUNIA_E3_HEALTH_BONUS
+end
+
+function modifier_solunia_e_passive:OnIntervalThink()
+	if not IsServer() then
+		return false
+	end
+	self:SetStackCount(self:GetCaster():GetRuneValue("e", 4))
+end
+
+-- WARP FLARE MODIFIER
 
 function modifier_solunia_warp_flare:IsHidden()
 	return false
@@ -242,7 +290,7 @@ function modifier_solunia_warp_flare:OnIntervalThink()
 		return false
 	end
 	local warp_travel_end = false
-	local forwardSpeed = SOLUNIA_E_TRAVEL_SPEED
+	local forwardSpeed = ability:GetWarpingSpeed()
 	forwardSpeed = Filters:GetAdjustedESpeed(caster, forwardSpeed, false)
 	local liftVector = Vector(0, 0, 0)
 	local groundHeight = GetGroundHeight(caster:GetAbsOrigin(), caster)
@@ -381,4 +429,87 @@ end
 
 function modifier_solunia_warp_flare_e1:GetRoshpitMagicArmorBonus()
 	return self:GetCaster():GetRuneValue("e", 1)*SOLUNIA_E1_ARMORS
+end
+
+-- E2 Base Modifier
+
+function modifier_solunia_warp_flare_e2:IsHidden()
+    return true
+end
+
+function modifier_solunia_warp_flare_e2:IsBuff()
+    return true
+end
+
+function modifier_solunia_warp_flare_e2:IsAura()
+    return true
+end
+
+function modifier_solunia_warp_flare_e2:IsAuraActiveOnDeath()
+    return false
+end
+
+function modifier_solunia_warp_flare_e2:GetAuraRadius()
+    return self:GetAbility():GetE2Radius()
+end
+
+function modifier_solunia_warp_flare_e2:GetAuraSearchTeam()
+    return DOTA_UNIT_TARGET_TEAM_ENEMY
+end
+
+function modifier_solunia_warp_flare_e2:GetAuraSearchType()
+    return (DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC)
+end
+
+function modifier_solunia_warp_flare_e2:GetAuraSearchFlags()
+    return DOTA_UNIT_TARGET_FLAG_NONE
+end
+
+function modifier_solunia_warp_flare_e2:RemoveOnDeath()
+    return false
+end
+
+function modifier_solunia_warp_flare_e2:GetModifierAura()
+    return "modifier_solunia_warp_flare_e2_debuff"
+end
+
+-- E2 DEBUFF
+
+function modifier_solunia_warp_flare_e2_debuff:IsHidden()
+	return false
+end
+
+function modifier_solunia_warp_flare_e2_debuff:IsDebuff()
+	return true
+end
+
+function modifier_solunia_warp_flare_e2_debuff:OnCreated()
+	if not IsServer() then
+		return false
+	end
+    self:SetSpecialTypes({ 
+    	MODIFIER_ROSHPIT_MASTER_MS,
+    	MODIFIER_ROSHPIT_ARMOR_BONUS,
+    	MODIFIER_ROSHPIT_MAGIC_ARMOR_BONUS
+    })
+end
+
+function modifier_solunia_warp_flare_e2_debuff:GetRoshpitMasterMS()
+	return self:GetCaster():GetRuneValue("e", 2)*SOLUNIA_E2_MS_LOSS
+end
+
+function modifier_solunia_warp_flare_e2_debuff:GetRoshpitArmorBonus()
+	if self:GetAbility():IsSoluniaState(SOLUNIA_STATE_SOLAR) then
+		return self:GetCaster():GetRuneValue("e", 2)*SOLUNIA_E2_ARMORS_LOSS
+	else
+		return 0
+	end
+end
+
+function modifier_solunia_warp_flare_e2_debuff:GetRoshpitMagicArmorBonus()
+	if self:GetAbility():IsSoluniaState(SOLUNIA_STATE_LUNAR) then
+		return self:GetCaster():GetRuneValue("e", 2)*SOLUNIA_E2_ARMORS_LOSS
+	else
+		return 0
+	end
 end

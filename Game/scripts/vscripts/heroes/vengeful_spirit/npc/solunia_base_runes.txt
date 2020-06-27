@@ -205,17 +205,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SOLUNIA_E2_EXPLOSION_PCT %>"
+				"property_one"			"<% SOLUNIA_E2_MS_LOSS %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% SOLUNIA_E2_STUN_DUR %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"8"
+				"property_two"			"<% SOLUNIA_E2_ARMORS_LOSS %>"
 			}
 		}
 	}
@@ -233,17 +228,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one_base"			"<% SOLUNIA_E3_DUR_BASE %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SOLUNIA_E3_DUR %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% SOLUNIA_E3_ARMOR_LOSS %>"
+				"property_one"			"<% SOLUNIA_E3_HEALTH_BONUS %>"
 			}
 		}
 	}
@@ -265,31 +250,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SOLUNIA_E4_HP %>"
+				"property_one"			"<% SOLUNIA_E4_CAST_RANGE %>"
 			}
-		}
-		"Modifiers"
-		{
-			"modifier_solunia_rune_e_4_passive"
+			"02"
 			{
-				"Passive"			"1"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  	"2"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/vengeful_spirit/warp_flare.lua"
-						"Function"		"rune_unit_4_think"
-					}
-				}
-			}
-			"modifier_solunia_rune_e_4_effect"
-			{
-				"IsBuff"	"1"
-				"IsHidden"	"1"
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"<% SOLUNIA_E4_WARPSPEED_PCT %>"
 			}
 		}
 	}

@@ -64848,17 +64848,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"0"
+				"property_one"			"-10"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"8"
+				"property_two"			"-150"
 			}
 		}
 	}
@@ -64876,17 +64871,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one_base"			"0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"0"
+				"property_one"			"500"
 			}
 		}
 	}
@@ -64908,31 +64893,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"0"
+				"property_one"			"50"
 			}
-		}
-		"Modifiers"
-		{
-			"modifier_solunia_rune_e_4_passive"
+			"02"
 			{
-				"Passive"			"1"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  	"2"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/vengeful_spirit/warp_flare.lua"
-						"Function"		"rune_unit_4_think"
-					}
-				}
-			}
-			"modifier_solunia_rune_e_4_effect"
-			{
-				"IsBuff"	"1"
-				"IsHidden"	"1"
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"3"
 			}
 		}
 	}
