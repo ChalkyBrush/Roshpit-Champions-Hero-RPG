@@ -97,15 +97,15 @@
 
     	"DOTA_Tooltip_modifier_solunia_in_between_flare"					"Warp Flare"
 		
-		"DOTA_Tooltip_ability_solunia_rune_e_1"								"[E1] Nova Surge"
-    	"DOTA_Tooltip_ability_solunia_rune_e_1_Description"					"After using Warp Flare, your next 2 boomerangs thrown will explode at low velocity, dealing the boomerang's damage in a 500 radius and stunning."
-    	"DOTA_Tooltip_ability_solunia_rune_e_1_property_one"					"Explosion Damage"
-    	"DOTA_Tooltip_ability_solunia_rune_e_1_suffix"						"% of boomerang's damage"	
-    	"DOTA_Tooltip_ability_solunia_rune_e_1_property_two"					"Stun Duration"
-    	"DOTA_Tooltip_ability_solunia_rune_e_1_suffix_two"					" seconds"	
+		"DOTA_Tooltip_ability_solunia_rune_e_1"								"[E1] Nova Shield"
+    	"DOTA_Tooltip_ability_solunia_rune_e_1_Description"					"During all phases of Warp Flare, Solunia has a shield that increases Health Regen, Armor and Magic Armor."
+    	"DOTA_Tooltip_ability_solunia_rune_e_1_property_one"				"Health Regen"
+    	"DOTA_Tooltip_ability_solunia_rune_e_1_suffix"						""	
+    	"DOTA_Tooltip_ability_solunia_rune_e_1_property_two"				"Armor and Magic Armor"
+    	"DOTA_Tooltip_ability_solunia_rune_e_1_suffix_two"					""	
 
-    	"DOTA_Tooltip_modifier_solunia_rune_e_1_ready"							"Nova Surge"
-    	"DOTA_Tooltip_modifier_solunia_rune_e_1_ready_Description"				"Your boomerangs will explode at low velocity."
+    	"DOTA_Tooltip_modifier_solunia_warp_flare_e1"                      "Nova Shield"
+        "DOTA_Tooltip_modifier_solunia_warp_flare_e1_Description"          "Increased Health Regen, Armor and Magic Armor" 
 		
 		"DOTA_Tooltip_ability_solunia_rune_e_2"								"[E2] Galaxy Nitro"
     	"DOTA_Tooltip_ability_solunia_rune_e_2_Description"					"Each cast of Warp Flare makes all existing boomerangs explode, dealing the boomerang's damage in an AOE."

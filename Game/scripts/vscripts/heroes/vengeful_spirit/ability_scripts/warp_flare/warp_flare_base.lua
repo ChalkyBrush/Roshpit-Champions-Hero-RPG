@@ -11,8 +11,22 @@ LinkLuaModifier("modifier_solunia_warp_flare", "heroes/vengeful_spirit/ability_s
 modifier_solunia_between_warp = class(npc_base_modifier, nil, npc_base_modifier)
 LinkLuaModifier("modifier_solunia_between_warp", "heroes/vengeful_spirit/ability_scripts/warp_flare/warp_flare_base.lua", LUA_MODIFIER_MOTION_NONE)
 
+modifier_solunia_warp_flare_e1 = class(npc_base_modifier, nil, npc_base_modifier)
+LinkLuaModifier("modifier_solunia_warp_flare_e1", "heroes/vengeful_spirit/ability_scripts/warp_flare/warp_flare_base.lua", LUA_MODIFIER_MOTION_NONE)
+
+
 function warp_flare_base:GetManaCostBase(level)
     return 0
+end
+
+function warp_flare_base:IsSoluniaState(state)
+	if self:GetAbilityName() == "solunia_warp_flare_solar" and state == SOLUNIA_STATE_SOLAR then
+		return true
+	elseif self:GetAbilityName() == "solunia_warp_flare_lunar" and state == SOLUNIA_STATE_LUNAR then
+		return true
+	else
+		return false
+	end
 end
 
 function warp_flare_base:GetBehaviorBase()
@@ -154,6 +168,7 @@ function warp_flare_base:EndWarpFlare()
 		ParticleManager:ReleaseParticleIndex(ability.travel_data[i]["pfx"])
 	end
 	StartAnimation(caster, {duration = 0.25, activity = ACT_DOTA_CHANNEL_END_ABILITY_4, rate = 2})
+	caster:RemoveModifierByName("modifier_solunia_warp_flare_e1")
 end
 
 -- PASSIVE
@@ -196,6 +211,16 @@ function modifier_solunia_warp_flare:OnCreated()
 		return false
 	end
 	self:StartIntervalThink(0.03)
+	local hero = self:GetParent()
+	if hero:GetRuneValue("e", 1) > 0 then
+		hero:AddNewModifier(hero, self:GetAbility(), "modifier_solunia_warp_flare_e1", {})
+	end
+end
+
+function modifier_solunia_warp_flare:OnRemoved()
+	if not IsServer() then
+		return false
+	end
 end
 
 function modifier_solunia_warp_flare:OnDestroy()
@@ -288,6 +313,7 @@ function modifier_solunia_between_warp:OnCreated()
 	local ability = self:GetAbility()
 	ability.floating_interval = 0
 	self:StartIntervalThink(0.03)
+
 end
 
 function modifier_solunia_between_warp:OnIntervalThink()
@@ -310,4 +336,49 @@ function modifier_solunia_between_warp:OnDestroy()
 	if not caster:HasModifier("modifier_solunia_warp_flare") then
 		ability:EndWarpFlare()
 	end
+end
+
+-- E1 Shield
+
+function modifier_solunia_warp_flare_e1:IsHidden()
+	return false
+end
+
+function modifier_solunia_warp_flare_e1:IsBuff()
+	return true
+end
+
+function modifier_solunia_warp_flare_e1:GetEffectName()
+	if self:GetAbility():IsSoluniaState(SOLUNIA_STATE_SOLAR) then
+		return "particles/roshpit/solunia/shooting_star_shield_solar.vpcf"
+	elseif self:GetAbility():IsSoluniaState(SOLUNIA_STATE_LUNAR) then
+		return "particles/roshpit/solunia/shooting_star_shield.vpcf"
+	end
+end
+
+function modifier_solunia_warp_flare_e1:GetEffectAttachType()
+	return "attach_hitloc"
+end
+
+function modifier_solunia_warp_flare_e1:OnCreated()
+	if not IsServer() then
+		return false
+	end
+    self:SetSpecialTypes({ 
+    	MODIFIER_ROSHPIT_MASTER_HEALTH_REGEN,
+    	MODIFIER_ROSHPIT_ARMOR_BONUS,
+    	MODIFIER_ROSHPIT_MAGIC_ARMOR_BONUS
+    })
+end
+
+function modifier_solunia_warp_flare_e1:GetRoshpitMasterHealthRegen()
+	return self:GetCaster():GetRuneValue("e", 1)*SOLUNIA_E1_HEALTH_REGEN
+end
+
+function modifier_solunia_warp_flare_e1:GetRoshpitArmorBonus()
+	return self:GetCaster():GetRuneValue("e", 1)*SOLUNIA_E1_ARMORS
+end
+
+function modifier_solunia_warp_flare_e1:GetRoshpitMagicArmorBonus()
+	return self:GetCaster():GetRuneValue("e", 1)*SOLUNIA_E1_ARMORS
 end

@@ -182,22 +182,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SOLUNIA_E1_EXPLOSION_PCT %>"
+				"property_one"			"<% SOLUNIA_E1_HEALTH_REGEN %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"<% SOLUNIA_E1_EXPLOSION_PCT_BASE %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% SOLUNIA_E1_STUN_DUR %>"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"8"
+				"property_two"			"<% SOLUNIA_E1_ARMORS %>"
 			}
 		}
 	}

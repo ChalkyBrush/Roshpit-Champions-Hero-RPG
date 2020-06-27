@@ -64306,7 +64306,7 @@
 		//-------------------------------------------------------
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"heroes/vengeful_spirit/ability_scripts/napalm/solunia_napalm_solar.lua"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_AOE"
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"solunia/solunia_solar_napalm"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
@@ -64359,7 +64359,7 @@
 		//-------------------------------------------------------
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"heroes/vengeful_spirit/ability_scripts/napalm/solunia_napalm_lunar.lua"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_AOE"
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"solunia/solunia_lunar_napalm"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
@@ -64825,22 +64825,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"0"
+				"property_one"			"60"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"0"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"8"
+				"property_two"			"120"
 			}
 		}
 	}
