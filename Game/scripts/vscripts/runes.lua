@@ -1151,22 +1151,9 @@ function Runes:EquipArcana(hero, index)
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_vengefulspirit" then
 		if index == 1 then
-			--print(hero.sunMoon)
-			if hero.sunMoon == "moon" then
-				if hero:HasAbility("solunia_solar_glow") then
-					hero:RemoveAbility("solunia_solar_glow")
-				end
-				Runes:EasySwapArcanaSkills(hero, 0, "solunia_lunar_glow", "solunia_arcana_lunar_comet", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
-				local ability = hero:FindAbilityByName("solunia_arcana_lunar_comet")
-				local max_charges = ability:GetLevelSpecialValueFor("max_charges", ability:GetLevel())
-				ability:ApplyDataDrivenModifier(hero, hero, "modifier_lunar_comet_free_cast", {})
-				hero:SetModifierStackCount("modifier_lunar_comet_free_cast", hero, max_charges)
-			else
-				if hero:HasAbility("solunia_lunar_glow") then
-					hero:RemoveAbility("solunia_lunar_glow")
-				end
-				Runes:EasySwapArcanaSkills(hero, 0, "solunia_solar_glow", "solunia_arcana_solar_comet", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
-			end
+			local q_ability = hero:GetAbilityByIndex(DOTA_Q_SLOT)
+			hero:RemoveModifierByName(q_ability:GetIntrinsicModifierName())
+			Runes:EasySwapArcanaSkills(hero, 0, q_ability:GetAbilityName(), q_ability:GetArcana1AbilityName(), HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 		elseif index == 2 then
 			if hero.sunMoon == "moon" then
 				if hero:HasAbility("solunia_supernova") then
@@ -1897,21 +1884,9 @@ function Runes:UnequipArcana(hero, index)
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_vengefulspirit" then
 		if index == 1 then
-			--print(hero.sunMoon)
-			hero:RemoveModifierByName("modifier_solar_comet_free_cast")
-			hero:RemoveModifierByName("modifier_lunar_comet_free_cast")
-			hero:RemoveModifierByName("modifier_solar_comet_passive")
-			if hero.sunMoon == "moon" then
-				if hero:HasAbility("solunia_arcana_solar_comet") then
-					hero:RemoveAbility("solunia_arcana_solar_comet")
-				end
-				Runes:EasyRevertArcanaSkills(hero, 0, "solunia_lunar_glow", "solunia_arcana_lunar_comet", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
-			else
-				if hero:HasAbility("solunia_arcana_lunar_comet") then
-					hero:RemoveAbility("solunia_arcana_lunar_comet")
-				end
-				Runes:EasyRevertArcanaSkills(hero, 0, "solunia_solar_glow", "solunia_arcana_solar_comet", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
-			end
+			local q_ability = hero:GetAbilityByIndex(DOTA_Q_SLOT)
+			hero:RemoveModifierByName(q_ability:GetIntrinsicModifierName())
+			Runes:EasyRevertArcanaSkills(hero, 0, q_ability:GetAbilityName(), q_ability:GetNonArcana1AbilityName(), HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 		elseif index == 2 then
 			if hero.sunMoon == "moon" then
 				if hero:HasAbility("solunia_solar_alpha_spark") then

@@ -562,6 +562,7 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitAttributes()
 	self:CalculateAndSaveMasterGreenDamageBuff()
 	self:CalculateAndSaveMasterAttackRangeBuff()
 	self:CalculateAndSaveMasterHealthRegen()
+	self:CalculateAndSaveMasterManaRegen()
 end
 
 function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
@@ -3904,6 +3905,21 @@ function CDOTA_BaseNPC:CalculateAndSaveMasterHealthRegen()
 		self:SetModifierStackCount("modifier_master_health_regen_buff", self, hp_regen_buff*10)
 	else
 		self:RemoveModifierByName("modifier_master_health_regen_buff")
+	end
+end
+
+function CDOTA_BaseNPC:CalculateAndSaveMasterManaRegen()
+	local mp_regen_buff = 0
+	Util.Modifier:SimpleEvent(self, 'GetRoshpitMasterManaRegen', { MODIFIER_ROSHPIT_MASTER_MANA_REGEN }, { }, 
+		function(result, data)
+			mp_regen_buff = mp_regen_buff + result
+		end
+	)
+	if mp_regen_buff > 0 then
+		Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_master_mana_regen_buff", {})
+		self:SetModifierStackCount("modifier_master_mana_regen_buff", self, mp_regen_buff*10)
+	else
+		self:RemoveModifierByName("modifier_master_mana_regen_buff")
 	end
 end
 

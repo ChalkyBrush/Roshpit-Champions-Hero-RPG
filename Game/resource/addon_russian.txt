@@ -9695,7 +9695,7 @@
 
 
     	"DOTA_Tooltip_ability_solunia_rune_q_3_arcana1"							"[Q3] Compression"
-    	"DOTA_Tooltip_ability_solunia_rune_q_3_arcana1_Description"				"Противники, задетые кометами, теряют Броню (если задеты Солнечным вариантом) или Магическую Защиту (если Лунным) на <font color='#ccff66'>60</font> секунд. Максимально 10 зарядов, оба дебаффа могут быть активны одновременно. Дополнительно часть силы атаки героя добавляется к урону комет."
+    	"DOTA_Tooltip_ability_solunia_rune_q_3_arcana1_Description"				"Противники, задетые кометами, теряют Броню (если задеты Солнечным вариантом) или Магическую Защиту (если Лунным) на 0 секунд. Максимально 10 зарядов, оба дебаффа могут быть активны одновременно. Дополнительно часть силы атаки героя добавляется к урону комет."
     	"DOTA_Tooltip_ability_solunia_rune_q_3_arcana1_property_one"			"Снижение Брони или Магической Защиты"
     	"DOTA_Tooltip_ability_solunia_rune_q_3_arcana1_suffix"					""
     	"DOTA_Tooltip_ability_solunia_rune_q_3_arcana1_property_two"			"Урона атаки добавлено к кометам"

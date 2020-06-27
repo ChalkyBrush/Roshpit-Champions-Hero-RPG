@@ -61453,11 +61453,12 @@
 
 
 
-	"solunia_arcana_solar_comet"
+	"solunia_comet_solar"
 	{
 		// General
 		//-------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/vengeful_spirit/arcana/comet/solunia_comet_solar.lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"solunia/solunia_solar_comet"
@@ -61486,6 +61487,11 @@
 				"var_type"			"FIELD_FLOAT"
 				"stun_duration"		"0.3"
 			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"damage_add_agility"		"1.5"
+			}
 		}
 		// Precache
 		//-------------------------------------------------------
@@ -61504,145 +61510,14 @@
 		// Cost
 		//-------------------------------------------------------
 		"AbilityManaCost"				"0"
-
-		// Special
-		//-------------------------------------------------------
-		"OnAbilityPhaseStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/vengeful_spirit/arcana_comet.lua"
-				"Function"		"arcana_comet_phase"
-			}
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/vengeful_spirit/arcana_comet.lua"
-				"Function"		"begin_arcana_comet"
-				"target"		"POINT"
-				"damage"		"%damage"
-				"projectiles"	"%projectiles"
-				"stun_duration"	"%stun_duration"
-				"sun_moon"			"sun"
-			}
-
-		}
-		"Modifiers"
-		{
-			"modifier_solar_comet_free_cast"
-			{
-				"IsHidden"	"0"
-				"IsBuff"	"1"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}
-			"modifier_solar_comet_passive"
-			{
-				"IsHidden"	"1"
-				"Passive"	"1"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"OnDealDamage"
-				// "%attack_damage" is set to the damage value after mitigation
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/vengeful_spirit/arcana_comet.lua"
-						"Function"		"deal_damage_with_arcana_equipped"
-					}
-				}
-				"ThinkInterval"  "0.1"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/vengeful_spirit/arcana_comet.lua"
-						"Function"		"arcana_passive_think"
-					}
-				}
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/vengeful_spirit/arcana_comet.lua"
-						"Function"		"apply_arcana_comet_stacks"
-						"max_charges"	"%max_charges"
-					}
-				}
-				"OnDestroy"
-				{
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_polythea_damage"
-						"Target" 		"CASTER"
-					}
-				}
-			}
-			"modifier_polythea_damage"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
-				}
-			}
-			"modifier_solunia_ultraviolet_damage"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "3"
-				}
-			}			
-			"modifier_solunia_ultraviolet"
-			{
-				"IsHidden"	"0"
-				"IsBuff"	"1"
-				"EffectName"	"particles/roshpit/solunia/ultraviolet.vpcf"
-				"EffectAttachType"	"attach_origin"
-				"TextureName"	"solunia/solunia_rune_q_1_arcana1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "60"
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "3"
-				}
-			}
-			"modifier_solar_compression_visible"
-			{
-				"IsHidden"	"0"
-				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
-				"EffectName"	"particles/roshpit/solunia/solunia_compression_solar_heal.vpcf"
-				"EffectAttachType"	"attach_origin"
-				"TextureName"	"solunia/solunia_rune_q_3_arcana1"
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"npc_abilities/general.lua"
-						"Function"		"utility_recalculate_roshpit_attributes"
-						"target"		"TARGET"
-					}
-				}
-			}
-			"modifier_solar_compression_invisible"
-			{
-				"IsHidden"	"1"
-			}
-		}
 	}
 
-	"solunia_arcana_lunar_comet"
+	"solunia_comet_lunar"
 	{
 		// General
 		//-------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/vengeful_spirit/arcana/comet/solunia_comet_lunar.lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"solunia/solunia_lunar_comet"
@@ -61652,7 +61527,7 @@
 		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
 		"AbilityCastRange"				"1400"
 		"AOERadius"						"240"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 
 		"AbilitySpecial"
 		{
@@ -61671,6 +61546,11 @@
 				"var_type"			"FIELD_FLOAT"
 				"stun_duration"		"0.3"
 			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"damage_add_intelligence"		"1.5"
+			}
 		}
 		// Precache
 		//-------------------------------------------------------
@@ -61689,75 +61569,6 @@
 		// Cost
 		//-------------------------------------------------------
 		"AbilityManaCost"				"0"
-
-		// Special
-		//-------------------------------------------------------
-		"OnAbilityPhaseStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/vengeful_spirit/arcana_comet.lua"
-				"Function"		"arcana_comet_phase"
-			}
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/vengeful_spirit/arcana_comet.lua"
-				"Function"		"begin_arcana_comet"
-				"target"		"POINT"
-				"damage"		"%damage"
-				"projectiles"	"%projectiles"
-				"stun_duration"	"%stun_duration"
-				"sun_moon"			"moon"
-			}
-
-		}
-		"Modifiers"
-		{
-			"modifier_lunar_comet_free_cast"
-			{
-				"IsHidden"	"0"
-				"IsBuff"	"1"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}
-			"modifier_solunia_ultraviolet"
-			{
-				"IsHidden"	"0"
-				"IsBuff"	"1"
-				"EffectName"	"particles/roshpit/solunia/ultraviolet.vpcf"
-				"EffectAttachType"	"attach_origin"
-				"TextureName"	"solunia/solunia_rune_q_1_arcana1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "60"
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "3"
-				}
-			}
-			"modifier_lunar_compression_visible"
-			{
-				"IsHidden"	"0"
-				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
-				"EffectName"	"particles/roshpit/solunia/solunia_compression_lunar_heal.vpcf"
-				"EffectAttachType"	"attach_origin"
-				"TextureName"	"solunia/solunia_rune_q_3_arcana1"
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"npc_abilities/general.lua"
-						"Function"		"utility_recalculate_roshpit_attributes"
-						"target"		"TARGET"
-					}
-				}
-			}
-			"modifier_lunar_compression_invisible"
-			{
-				"IsHidden"	"1"
-			}
-		}
 	}
 
 
@@ -61799,12 +61610,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.01"
+				"property_one"			"0.5"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"0.02"
+				"property_two"			"60"
 			}
 		}
 	}
@@ -61825,12 +61636,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"-8"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"2"
+				"property_one"			"1"
 			}
 		}
 	}
@@ -61851,7 +61657,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"15"
+				"property_one"			"0.4"
 			}
 		}
 	}
@@ -62943,7 +62749,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0"
+				"property_one"			"0.2"
 			}
 			"02"
 			{
@@ -106225,6 +106031,15 @@
 			"modifier_take_1_damage_only"
 			{
 				"IsHidden"	"1"
+			}
+			"modifier_master_mana_regen_buff"
+			{
+				"IsHidden"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "0.1"
+				}				
 			}
 		}
 		"AbilitySpecial"

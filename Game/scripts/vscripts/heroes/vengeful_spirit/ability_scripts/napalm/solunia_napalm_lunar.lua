@@ -92,6 +92,10 @@ function solunia_napalm_lunar:GetQ1ModifierName()
 	return "modifier_napalm_q_1_lunar"
 end
 
+function solunia_napalm_lunar:GetArcana1AbilityName()
+	return "solunia_comet_lunar"
+end
+
 -- Q1 MODIFIER
 
 function modifier_napalm_q_1_lunar:IsBuff()

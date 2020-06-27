@@ -10055,7 +10055,7 @@
 
 
     	"DOTA_Tooltip_ability_solunia_rune_q_3_arcana1"							"[Q3] 极压"
-    	"DOTA_Tooltip_ability_solunia_rune_q_3_arcana1_Description"				"被日之星/月之星击中的敌人将会叠加护甲（月之星）或魔甲（日之星）降低的debuff，持续<font color='#ccff66'>60</font> 秒. 最多叠加 10 层并且两者的效果可以同时存在。同时攻击力的一部分加入到日之星/月之星的基础伤害中."
+    	"DOTA_Tooltip_ability_solunia_rune_q_3_arcana1_Description"				"被日之星/月之星击中的敌人将会叠加护甲（月之星）或魔甲（日之星）降低的debuff，持续0 秒. 最多叠加 10 层并且两者的效果可以同时存在。同时攻击力的一部分加入到日之星/月之星的基础伤害中."
     	"DOTA_Tooltip_ability_solunia_rune_q_3_arcana1_property_one"			"护甲 (月) 或魔甲(日) 降低"
     	"DOTA_Tooltip_ability_solunia_rune_q_3_arcana1_suffix"					""
     	"DOTA_Tooltip_ability_solunia_rune_q_3_arcana1_property_two"			"攻击力加入到日之星/月之星的伤害"

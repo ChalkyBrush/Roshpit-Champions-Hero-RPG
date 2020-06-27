@@ -35,7 +35,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SOLUNIA_Q2_BASE_DMG_INCREASE_PCT %>"
+				"property_one"			"<% SOLUNIA_Q2_BASE_DMG_INCREASE_PER_MANA %>"
 			}
 			"02"
 			{
