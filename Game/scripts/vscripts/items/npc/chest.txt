@@ -5129,7 +5129,8 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	"item_lua"
+        "ScriptFile" "items/lua/body/gold_plate_of_leon.lua"
 		"AbilityTextureName"	"rpc/gold_plate_of_leon"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -5147,25 +5148,20 @@
 		{
 			"01"
 			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"50"
+				"var_type"			"FIELD_FLOAT"
+				"ruby1"				"<% ITEM_RPC_GOLD_PLATE_OF_LEON_GEM_RUBY %>"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_GOLD_PLATE_OF_LEON_GEM_RUBY %>"
+				"emerald1"			"<% ITEM_RPC_GOLD_PLATE_OF_LEON_GEM_EMERALD %>"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_GOLD_PLATE_OF_LEON_GEM_EMERALD %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
 				"sapphire1"			"<% ITEM_RPC_GOLD_PLATE_OF_LEON_GEM_SAPPHIRE %>"
 			}
-			"05"
+			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
 				"amethyst1"			"<% ITEM_RPC_GOLD_PLATE_OF_LEON_GEM_AMETHYST %>"
@@ -5177,86 +5173,6 @@
 			{
 				"ScriptFile"	"items/equipment.lua"
 				"Function"		"equip_item"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_gold_plate_of_leon"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  	"0.2"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"leon_think"
-						"target"		"TARGET"
-					}
-				}
-				"OnDestroy"
-				{
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_gold_plate_of_leon_str"
-						"Target" 		"TARGET"
-					}
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_gold_plate_of_leon_agi"
-						"Target" 		"TARGET"
-					}
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_gold_plate_of_leon_int"
-						"Target" 		"TARGET"
-					}
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_gold_plate_of_leon_spr"
-						"Target" 		"TARGET"
-					}
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_leon_extra_atk"
-						"Target" 		"TARGET"
-					}
-				}
-			}
-			"modifier_gold_plate_of_leon_str"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-			}
-			"modifier_gold_plate_of_leon_agi"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-			}
-			"modifier_gold_plate_of_leon_int"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-			}
-			"modifier_gold_plate_of_leon_spr"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-			}
-			"modifier_leon_extra_atk"
-			{
-				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
-				}
 			}
 		}
 	}
