@@ -421,7 +421,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_excavators_focus_cap"							"矿工帽"
 		"item_property_excavator"							"高级装置"
-		"property_excavator_description"					"物品直接造成的伤害将被你四个技能的平均基础技能伤害提高."
+		"property_excavator_description"					"增加所有来自装备的属性 <% EXCAVATOR_GEAR_AMP %>% 并且获得和平均基础技能伤害等量的物品伤害。"
 		"item_rpc_excavators_focus_cap_ruby1"	"提高 [Q3] 符文@ruby_property1"
 		"item_rpc_excavators_focus_cap_emerald1"	"提高 [W3] 符文 @emerald_property1"
 		"item_rpc_excavators_focus_cap_sapphire1" "提高 [E3] 符文 @sapphire_property1"
