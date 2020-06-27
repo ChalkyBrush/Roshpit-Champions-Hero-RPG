@@ -15,7 +15,7 @@ function solunia_comet_solar:GetCastParticleName()
 end
 
 function solunia_comet_solar:GetExplosionParticleName()
-	return "particles/units/heroes/hero_invoker/invoker_sun_strike.vpcf"
+	return "particles/roshpit/solunia/solar_flare_no_ground.vpcf"
 end
 
 function solunia_comet_solar:GetCometParticleName()

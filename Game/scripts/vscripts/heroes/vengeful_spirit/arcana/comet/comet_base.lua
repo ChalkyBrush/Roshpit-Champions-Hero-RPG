@@ -8,6 +8,9 @@ LinkLuaModifier("modifier_solunia_arcana_q_passive", "heroes/vengeful_spirit/arc
 modifier_solunia_ultraviolet = class(npc_base_modifier, nil, npc_base_modifier)
 LinkLuaModifier("modifier_solunia_ultraviolet", "heroes/vengeful_spirit/arcana/comet/comet_base.lua", LUA_MODIFIER_MOTION_NONE)
 
+modifier_solunia_arcana_q_charges = class(npc_base_modifier, nil, npc_base_modifier)
+LinkLuaModifier("modifier_solunia_arcana_q_charges", "heroes/vengeful_spirit/arcana/comet/comet_base.lua", LUA_MODIFIER_MOTION_NONE)
+
 function comet_base:IsSoluniaState(state)
 	if self:GetAbilityName() == "solunia_comet_solar" and state == SOLUNIA_STATE_SOLAR then
 		return true
@@ -48,7 +51,7 @@ function comet_base:GetCastRange()
 end
 
 function comet_base:GetCooldownBase(level)
-    return 9
+    return 0
 end
 
 function comet_base:GetIntrinsicModifierName()
@@ -79,6 +82,12 @@ function comet_base:CometStart()
 	Timers:CreateTimer(0.45, function()
 		self:CometImpact(target)
 	end)
+	local new_stacks = caster:GetModifierStackCount("modifier_solunia_arcana_q_charges", caster) - 1
+	if new_stacks > 0 then
+		caster:SetModifierStackCount("modifier_solunia_arcana_q_charges", caster, new_stacks)
+	else
+		caster:RemoveModifierByName("modifier_solunia_arcana_q_charges")
+	end
 	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 end
 
@@ -111,7 +120,7 @@ function comet_base:RuneQ1()
 	
 end
 
--- Q1 PASSIVE
+-- Q ARCANA1 PASSIVE
 
 function modifier_solunia_arcana_q_passive:IsHidden()
 	return true
@@ -128,7 +137,9 @@ function modifier_solunia_arcana_q_passive:OnCreated()
     	MODIFIER_ROSHPIT_MASTER_BASE_ATTACK_DMG
     })
 
-	self:StartIntervalThink(0.1)
+	self:StartIntervalThink(0.2)
+	self:GetAbility():SetActivated(true)
+	self:SetupCharges()
 end
 
 function modifier_solunia_arcana_q_passive:OnIntervalThink()
@@ -136,24 +147,45 @@ function modifier_solunia_arcana_q_passive:OnIntervalThink()
 		return false
 	end
 	self:SetStackCount(self:GetCaster():GetRuneValue("q", 2))
+	self:GetParent():SetStatsForLevel()
+	local caster = self:GetCaster()
+	if not caster:HasModifier("modifier_solunia_arcana_q_charges") then
+		self:GetAbility():SetActivated(false)
+	end
 end
 
 function modifier_solunia_arcana_q_passive:GetRoshpitStrengthPctBonus()
-	return self:GetStackCount()*SOLUNIA_ARCANA_Q3_STR_AND_SPR_PCT/100
+	return self:GetCaster():GetRuneValue("q", 3)*SOLUNIA_ARCANA_Q3_STR_AND_SPR_PCT
 end
 
 function modifier_solunia_arcana_q_passive:GetRoshpitSpiritPctBonus()
-	return self:GetStackCount()*SOLUNIA_ARCANA_Q3_STR_AND_SPR_PCT/100
+	return self:GetCaster():GetRuneValue("q", 3)*SOLUNIA_ARCANA_Q3_STR_AND_SPR_PCT
 end
 
 function modifier_solunia_arcana_q_passive:GetRoshpitMasterBaseDMG()
 	local ability = self:GetAbility()
 	local caster = self:GetCaster()
 	if ability:IsSoluniaState(SOLUNIA_STATE_SOLAR) then
-		return self:GetStackCount()*SOLUNIA_ARCANA_Q4_ATTACK_DMG_PER_ATTR*caster:GetAgility()
+		return self:GetCaster():GetRuneValue("q", 4)*SOLUNIA_ARCANA_Q4_ATTACK_DMG_PER_ATTR*caster:GetAgility()
 	elseif ability:IsSoluniaState(SOLUNIA_STATE_LUNAR) then
-		return self:GetStackCount()*SOLUNIA_ARCANA_Q4_ATTACK_DMG_PER_ATTR*caster:GetIntellect()
+		return self:GetCaster():GetRuneValue("q", 4)*SOLUNIA_ARCANA_Q4_ATTACK_DMG_PER_ATTR*caster:GetIntellect()
 	end
+end
+
+function modifier_solunia_arcana_q_passive:OnRemoved()
+	if not IsServer() then
+		return false
+	end
+	local caster = self:GetCaster()
+	caster:RemoveModifierByName("modifier_solunia_arcana_q_charges")
+	self:GetParent():SetStatsForLevel()
+end
+
+function modifier_solunia_arcana_q_passive:SetupCharges()
+	local caster = self:GetCaster()
+	local ability = self:GetAbility()
+	caster:AddNewModifier(caster, ability, "modifier_solunia_arcana_q_charges", {})
+	caster:SetModifierStackCount("modifier_solunia_arcana_q_charges", caster, SOLUNIA_ARCANA1_RELOAD_CHARGES[ability:GetLevel()])
 end
 
 -- Q1 Ultraviolet Modifier
@@ -192,4 +224,14 @@ end
 function modifier_solunia_ultraviolet:GetRoshpitMasterGreenDMG()
 	local caster = self:GetCaster()
 	return SOLUNIA_ARCANA_Q1_BONUS_ATTACK_PCT*caster:GetRuneValue("q", 1)
+end
+
+-- CHARGES MODIFIER
+
+function modifier_solunia_arcana_q_charges:IsHidden()
+	return false
+end
+
+function modifier_solunia_arcana_q_charges:IsBuff()
+	return true
 end

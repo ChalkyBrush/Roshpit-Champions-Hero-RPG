@@ -1886,7 +1886,7 @@ function Runes:UnequipArcana(hero, index)
 		if index == 1 then
 			local q_ability = hero:GetAbilityByIndex(DOTA_Q_SLOT)
 			hero:RemoveModifierByName(q_ability:GetIntrinsicModifierName())
-			Runes:EasyRevertArcanaSkills(hero, 0, q_ability:GetAbilityName(), q_ability:GetNonArcana1AbilityName(), HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+			Runes:EasyRevertArcanaSkills(hero, 0, q_ability:GetNonArcana1AbilityName(), q_ability:GetAbilityName(), HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 		elseif index == 2 then
 			if hero.sunMoon == "moon" then
 				if hero:HasAbility("solunia_solar_alpha_spark") then
