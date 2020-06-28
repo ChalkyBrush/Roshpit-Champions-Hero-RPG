@@ -27320,6 +27320,9 @@
 			"particle"	"particles/roshpit/solunia/galactic/galactic_warp_core.vpcf"
 			"particle"	"particles/roshpit/solunia/galactic/star_shield_galactic.vpcf"
 			"particle"	"particles/roshpit/solunia/galactic/galactic_boomerang_ambient.vpcf"
+			"particle"	"particles/roshpit/solunia/galactic/galactic_vorpal_blades.vpcf"
+			"particle"	"particles/roshpit/solunia/galactic/comet_cast_galactic.vpcf"
+			"particle"	"particles/roshpit/solunia/galactic/galactic_comet_attack.vpcf"	
 		}
 		"OnSpellStart"
 		{

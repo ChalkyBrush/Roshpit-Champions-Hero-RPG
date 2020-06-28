@@ -120,6 +120,10 @@ function comet_base:RuneQ1()
 	
 end
 
+function comet_base:GetGalacticName()
+	return "solunia_comet_galactic"
+end
+
 -- Q ARCANA1 PASSIVE
 
 function modifier_solunia_arcana_q_passive:IsHidden()

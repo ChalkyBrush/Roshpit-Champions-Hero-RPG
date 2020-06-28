@@ -148,6 +148,10 @@ function vorpal_blades_base:RecalculateOutstandingVorpals()
 	end
 end
 
+function vorpal_blades_base:GetGalacticName()
+	return "solunia_vorpal_blades_galactic"
+end
+
 -- PROCESSOR MODIFIER
 
 function vorpal_blades_base:VorpalThinker()

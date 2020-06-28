@@ -153,12 +153,6 @@ end
 function solunia_hypernova:InitGalacticForm()
 	local caster = self:GetCaster()
 
-	local old_r_ability = caster:GetAbilityByIndex(DOTA_R_SLOT)
-	local modifier_name_to_remove = old_r_ability:GetIntrinsicModifierName()
-	if modifier_name_to_remove then
-		caster:RemoveModifierByName(modifier_name_to_remove)
-	end
-
 	local ability_slots = {DOTA_Q_SLOT, DOTA_W_SLOT, DOTA_E_SLOT}
 	for i = 1, #ability_slots, 1 do
 		local ability_slot = ability_slots[i]
@@ -182,9 +176,6 @@ end
 
 function solunia_hypernova:EndGalacticForm()
 	local caster = self:GetCaster()
-
-	caster:RemoveModifierByName(self:GetIntrinsicModifierName())
-
 	local ability_slots = {DOTA_Q_SLOT, DOTA_W_SLOT, DOTA_E_SLOT}
 	for i = 1, #ability_slots, 1 do
 		local ability_slot = ability_slots[i]

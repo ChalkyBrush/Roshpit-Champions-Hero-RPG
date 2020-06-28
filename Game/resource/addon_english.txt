@@ -10124,6 +10124,14 @@
     	"DOTA_Tooltip_ability_solunia_napalm_lunar_projectiles"				"PROJECTILES:"
     	"DOTA_Tooltip_ability_solunia_napalm_lunar_stun_duration"				"STUN DURATION:"
         "DOTA_Tooltip_ability_solunia_napalm_lunar_damage_add_intelligence"      "ADDITIONAL DAMAGE INTELLIGENCE MULT:"
+
+        "DOTA_Tooltip_ability_solunia_napalm_galactic"                         "Galactic Napalm"
+        "DOTA_Tooltip_ability_solunia_napalm_galactic_Description"             "Element: <font color='#C25DFC'>Cosmic</font> / <font color='#87D9FF'>Ice</font><br>A barrage of hyper Galaxy Shards are emitted from Solunia towards the target location. Napalm Base Damage is increased by Solunia's Agility and Intelligence."
+        "DOTA_Tooltip_ability_solunia_napalm_galactic_damage"                  "DAMAGE:"
+        "DOTA_Tooltip_ability_solunia_napalm_galactic_projectiles"             "PROJECTILES:"
+        "DOTA_Tooltip_ability_solunia_napalm_galactic_stun_duration"               "STUN DURATION:"
+        "DOTA_Tooltip_ability_solunia_napalm_galactic_damage_add_agility"          "ADDITIONAL DAMAGE AGILITY MULT:"
+        "DOTA_Tooltip_ability_solunia_napalm_galactic_damage_add_intelligence"      "ADDITIONAL DAMAGE INTELLIGENCE MULT:"
 		
 		"DOTA_Tooltip_ability_solunia_rune_q_1"								"[Q1] Nitro Boost"
     	"DOTA_Tooltip_ability_solunia_rune_q_1_Description"					"When a Napalm bomb impacts at least 1 enemy, Solunia gains a stack of Nitro Boost. Each stack lasts <font color='#ccff66'>24</font> with an independant duration and can gain up to <font color='#ccff66'>12</font> stacks. Solar stacks increase Base Attack Damage and Lunar stacks increase Attack Power %."
@@ -10165,12 +10173,19 @@
 
     	"DOTA_Tooltip_modifier_boomerang_counter_solar"							"Outbound Solarangs"
     	"DOTA_Tooltip_modifier_boomerang_counter_lunar"							"Outbound Lunarangs"
+        "DOTA_Tooltip_modifier_boomerang_counter_galactic"                         "Outbound Galactic Boomerangs"
 
     	"DOTA_Tooltip_ability_solunia_boomerang_lunar"								"Lunarang"
     	"DOTA_Tooltip_ability_solunia_boomerang_lunar_Description"					"Element: <font color='#C25DFC'>Cosmic</font> / <font color='#DDDDDD'>Normal</font><br>Solunia's weapon is tossed as a boomerang towards the target location. The blade deals damage every 0.2 seconds to all enemies in its razor-sharp spin. Solunia's Attack Power increases the boomerang's damage."
     	"DOTA_Tooltip_ability_solunia_boomerang_lunar_max_boomerangs"				"MAX CONCURRENT LUNARANGS:"
     	"DOTA_Tooltip_ability_solunia_boomerang_lunar_damage"						"DAMAGE:"
         "DOTA_Tooltip_ability_solunia_boomerang_lunar_atk_power_added_to_dmg"       "% ATTACK POWER ADDED TO BASE DAMAGE:"
+
+        "DOTA_Tooltip_ability_solunia_boomerang_galactic"                              "Galactic Boomerang"
+        "DOTA_Tooltip_ability_solunia_boomerang_galactic_Description"                  "Element: <font color='#C25DFC'>Cosmic</font> / <font color='#DDDDDD'>Normal</font><br>Solunia's weapon is tossed as a boomerang towards the target location. The blade deals damage every 0.2 seconds to all enemies in its razor-sharp spin. Solunia's Attack Power increases the boomerang's damage."
+        "DOTA_Tooltip_ability_solunia_boomerang_galactic_max_boomerangs"               "MAX CONCURRENT GALACTIC BOOMERANGS:"
+        "DOTA_Tooltip_ability_solunia_boomerang_galactic_damage"                       "DAMAGE:"
+        "DOTA_Tooltip_ability_solunia_boomerang_galactic_atk_power_added_to_dmg"       "% ATTACK POWER ADDED TO BASE DAMAGE:"
 		
 		"DOTA_Tooltip_ability_solunia_rune_w_1"                             "[W1] Razor Blades"
         "DOTA_Tooltip_ability_solunia_rune_w_1_Description"                 "Boomerangs have a <font color='#ccff66'>15</font>% chance to do increased damage."
@@ -10201,6 +10216,10 @@
     	"DOTA_Tooltip_ability_solunia_warp_flare_lunar"						    "Lunar Warp Flare"
     	"DOTA_Tooltip_ability_solunia_warp_flare_lunar_Description"				"Hyperdash towards the target location while climbing space. Can be used 3 times in succession before the cooldown activates."
     	"DOTA_Tooltip_ability_solunia_warp_flare_lunar_cast_range"				"MAX WARP DISTANCE:"
+
+        "DOTA_Tooltip_ability_solunia_warp_flare_galactic"                         "Galactic Warp Flare"
+        "DOTA_Tooltip_ability_solunia_warp_flare_galactic_Description"             "Hyperdash towards the target location while climbing space. Can be used 3 times in succession before the cooldown activates."
+        "DOTA_Tooltip_ability_solunia_warp_flare_galactic_cast_range"              "MAX WARP DISTANCE:"
 
     	"DOTA_Tooltip_modifier_solunia_in_between_flare"					"Warp Flare"
 		
@@ -10288,12 +10307,21 @@
 
 
     	"DOTA_Tooltip_ability_solunia_comet_lunar"								"Lunar Comet"
-    	"DOTA_Tooltip_ability_solunia_comet_lunar_Description"					"Element: <font color='#C25DFC'>Cosmic</font> / <font color='#87D9FF'>Ice</font><br>Drops an icy comet at the target location that stuns and damages targets in an AOE when it comes into contact with earth. Deals additional damage based on Solunia's Intelligence. Deals additional damage based on Solunia's Agility. Comets have no cooldown but have charges, which can be restored by casting [R]."
+    	"DOTA_Tooltip_ability_solunia_comet_lunar_Description"					"Element: <font color='#C25DFC'>Cosmic</font> / <font color='#87D9FF'>Ice</font><br>Drops an icy comet at the target location that stuns and damages targets in an AOE when it comes into contact with earth. Deals additional damage based on Solunia's Intelligence. Comets have no cooldown but have charges, which can be restored by casting [R]."
     	"DOTA_Tooltip_ability_solunia_comet_lunar_damage"						"DAMAGE:"
     	"DOTA_Tooltip_ability_solunia_comet_lunar_stun_duration"					"STUN DURATION:"
     	"DOTA_Tooltip_ability_solunia_comet_lunar_max_charges"					"CHARGES BEFORE RELOAD:"
         "DOTA_Tooltip_ability_solunia_comet_lunar_damage_add_intelligence"      "ADDITIONAL DAMAGE INTELLIGENCE MULT:"
         "DOTA_Tooltip_ability_solunia_comet_lunar_max_charges"              "AVAILABLE CASTS ON RELOAD:"
+
+        "DOTA_Tooltip_ability_solunia_comet_galactic"                              "Galactic Comet"
+        "DOTA_Tooltip_ability_solunia_comet_galactic_Description"                  "Element: <font color='#C25DFC'>Cosmic</font> / <font color='#87D9FF'>Ice</font><br>Drops a galactic comet at the target location that stuns and damages targets in an AOE when it comes into contact with earth. Deals additional damage based on Solunia's Intelligence and Agility. Comets have no cooldown but have charges, which can be restored by casting [R]."
+        "DOTA_Tooltip_ability_solunia_comet_galactic_damage"                       "DAMAGE:"
+        "DOTA_Tooltip_ability_solunia_comet_galactic_stun_duration"                    "STUN DURATION:"
+        "DOTA_Tooltip_ability_solunia_comet_galactic_max_charges"                  "CHARGES BEFORE RELOAD:"
+        "DOTA_Tooltip_ability_solunia_comet_galactic_damage_add_agility"      "ADDITIONAL DAMAGE AGILITY MULT:"
+        "DOTA_Tooltip_ability_solunia_comet_galactic_damage_add_intelligence"      "ADDITIONAL DAMAGE INTELLIGENCE MULT:"
+        "DOTA_Tooltip_ability_solunia_comet_galactic_max_charges"              "AVAILABLE CASTS ON RELOAD:"
 
         "DOTA_Tooltip_modifier_solunia_arcana_q_charges"                    "Comet Charges"
 
@@ -10373,7 +10401,7 @@
         "DOTA_Tooltip_ability_solunia_vorpal_blades_solar_base_bounces"         "BOUNCES:"
         "DOTA_Tooltip_ability_solunia_vorpal_blades_solar_atk_power_added_to_dmg" "% ATTACK POWER ADDED TO BASE DAMAGE:"
 
-        "DOTA_Tooltip_modifier_active_sun_vorpals"                           "Active Solar Vorpal Blades"
+        "DOTA_Tooltip_modifier_vorpal_blades_counter_solar"                           "Active Solar Vorpal Blades"
 
         "DOTA_Tooltip_ability_solunia_vorpal_blades_lunar"                    "Lunar Vorpal Blades"             
         "DOTA_Tooltip_ability_solunia_vorpal_blades_lunar_Description"        "Element: <font color='#C25DFC'>Cosmic</font> / <font color='#87D9FF'>Ice</font><br>Throws out 3 lunar vorpal blades that seek out enemies within 1000 range of Solunia. The blades deal damage on hit and can bounce to other enemies if there are any nearby."
@@ -10382,7 +10410,16 @@
         "DOTA_Tooltip_ability_solunia_vorpal_blades_lunar_base_bounces"         "BOUNCES:"
         "DOTA_Tooltip_ability_solunia_vorpal_blades_lunar_atk_power_added_to_dmg" "% ATTACK POWER ADDED TO BASE DAMAGE:"
 
-        "DOTA_Tooltip_modifier_active_moon_vorpals"                           "Active Lunar Vorpal Blades"
+        "DOTA_Tooltip_modifier_vorpal_blades_counter_lunar"                         "Active Lunar Vorpal Blades"
+
+        "DOTA_Tooltip_ability_solunia_vorpal_blades_galactic"                    "Galactic Vorpal Blades"             
+        "DOTA_Tooltip_ability_solunia_vorpal_blades_galactic_Description"        "Element: <font color='#C25DFC'>Cosmic</font> / <font color='#EF4126'>Fire</font><br>Throws out 3 galactic vorpal blades that seek out enemies within 1000 range of Solunia. The blades deal damage on hit and can bounce to other enemies if there are any nearby."
+        "DOTA_Tooltip_ability_solunia_vorpal_blades_galactic_damage"             "DAMAGE:"
+        "DOTA_Tooltip_ability_solunia_vorpal_blades_galactic_max_blades"           "MAXIMUM ACTIVE CONCURRENT BLADES:"
+        "DOTA_Tooltip_ability_solunia_vorpal_blades_galactic_base_bounces"         "BOUNCES:"
+        "DOTA_Tooltip_ability_solunia_vorpal_blades_galactic_atk_power_added_to_dmg" "% ATTACK POWER ADDED TO BASE DAMAGE:"
+
+        "DOTA_Tooltip_modifier_vorpal_blades_counter_galactic"                         "Active Galactic Vorpal Blades"
 
         "DOTA_Tooltip_ability_solunia_rune_w_1_arcana3"                     "[W1] Binary Rift"
         "DOTA_Tooltip_ability_solunia_rune_w_1_arcana3_Description"         "Grants Vorpal Blades a <font color='#ccff66'>20</font>% chance to deal a critical strike."
