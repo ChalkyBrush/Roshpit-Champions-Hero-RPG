@@ -29,6 +29,8 @@ function warp_flare_base:IsSoluniaState(state)
 		return true
 	elseif self:GetAbilityName() == "solunia_warp_flare_lunar" and state == SOLUNIA_STATE_LUNAR then
 		return true
+	elseif self:GetAbilityName() == "solunia_warp_flare_galactic" and state == SOLUNIA_STATE_GALACTIC then
+		return true
 	else
 		return false
 	end
@@ -199,6 +201,10 @@ end
 function warp_flare_base:GetWarpingSpeed()
 	local caster = self:GetCaster()
 	return SOLUNIA_E_TRAVEL_SPEED * ((1 + (caster:GetRuneValue("e", 4)*SOLUNIA_E4_WARPSPEED_PCT)/100))
+end
+
+function warp_flare_base:GetGalacticName()
+	return "solunia_warp_flare_galactic"
 end
 
 -- PASSIVE
@@ -404,6 +410,8 @@ function modifier_solunia_warp_flare_e1:GetEffectName()
 		return "particles/roshpit/solunia/shooting_star_shield_solar.vpcf"
 	elseif self:GetAbility():IsSoluniaState(SOLUNIA_STATE_LUNAR) then
 		return "particles/roshpit/solunia/shooting_star_shield.vpcf"
+	elseif self:GetAbility():IsSoluniaState(SOLUNIA_STATE_GALACTIC) then
+		return "particles/roshpit/solunia/galactic/star_shield_galactic.vpcf"
 	end
 end
 
@@ -503,7 +511,7 @@ function modifier_solunia_warp_flare_e2_debuff:GetRoshpitMasterMS()
 end
 
 function modifier_solunia_warp_flare_e2_debuff:GetRoshpitArmorBonus()
-	if self:GetAbility():IsSoluniaState(SOLUNIA_STATE_SOLAR) then
+	if self:GetAbility():IsSoluniaState(SOLUNIA_STATE_SOLAR) or self:GetAbility():IsSoluniaState(SOLUNIA_STATE_GALACTIC) then
 		return self:GetAbility():GetCaster():GetRuneValue("e", 2)*SOLUNIA_E2_ARMORS_LOSS
 	else
 		return 0
@@ -511,7 +519,7 @@ function modifier_solunia_warp_flare_e2_debuff:GetRoshpitArmorBonus()
 end
 
 function modifier_solunia_warp_flare_e2_debuff:GetRoshpitMagicArmorBonus()
-	if self:GetAbility():IsSoluniaState(SOLUNIA_STATE_LUNAR) then
+	if self:GetAbility():IsSoluniaState(SOLUNIA_STATE_LUNAR) or self:GetAbility():IsSoluniaState(SOLUNIA_STATE_GALACTIC) then
 		return self:GetAbility():GetCaster():GetRuneValue("e", 2)*SOLUNIA_E2_ARMORS_LOSS
 	else
 		return 0

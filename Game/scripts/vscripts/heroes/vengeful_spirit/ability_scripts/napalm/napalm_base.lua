@@ -13,6 +13,8 @@ function napalm_base:IsSoluniaState(state)
 		return true
 	elseif self:GetAbilityName() == "solunia_napalm_lunar" and state == SOLUNIA_STATE_LUNAR then
 		return true
+	elseif self:GetAbilityName() == "solunia_napalm_galactic" and state == SOLUNIA_STATE_GALACTIC then
+		return true
 	else
 		return false
 	end
@@ -159,6 +161,10 @@ function napalm_base:NapalmQ1Increment()
 	end
 end
 
+function napalm_base:GetGalacticName()
+	return "solunia_napalm_galactic"
+end
+
 -- PASSIVE
 
 function modifier_solunia_q_passive:IsHidden()
@@ -177,6 +183,12 @@ function modifier_solunia_q_passive:OnCreated()
 	elseif self:GetAbility():IsSoluniaState(SOLUNIA_STATE_LUNAR) then
 	    self:SetSpecialTypes({ 
 	    	MODIFIER_ROSHPIT_Q_BASE_ABILITY_DMG_BONUS,
+	    	RPC_ELEMENT_ICE
+	    })
+	elseif self:GetAbility():IsSoluniaState(SOLUNIA_STATE_GALACTIC) then
+	    self:SetSpecialTypes({ 
+	    	MODIFIER_ROSHPIT_Q_BASE_ABILITY_DMG_BONUS,
+	    	RPC_ELEMENT_FIRE,
 	    	RPC_ELEMENT_ICE
 	    })
 	end

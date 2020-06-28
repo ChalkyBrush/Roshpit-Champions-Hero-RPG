@@ -177,18 +177,20 @@ function modifier_solunia_r_passive:OnCreated()
 	if not IsServer() then
 		return false
 	end
-	if self:GetAbility():IsSoluniaState(SOLUNIA_STATE_SOLAR) then
-	    self:SetSpecialTypes({ 
-	    	MODIFIER_ROSHPIT_AGILITY_BONUS,
-	    	RPC_ELEMENT_COSMOS,
-	    	MODIFIER_ROSHPIT_R_BASE_ABILITY_DMG_BONUS
-	    })
-	elseif self:GetAbility():IsSoluniaState(SOLUNIA_STATE_LUNAR) then
-	    self:SetSpecialTypes({ 
-	    	MODIFIER_ROSHPIT_INTELLIGENCE_BONUS,
-	    	RPC_ELEMENT_COSMOS,
-	    	MODIFIER_ROSHPIT_R_BASE_ABILITY_DMG_BONUS
-	    })
+	if self:GetAbility() then
+		if self:GetAbility():IsSoluniaState(SOLUNIA_STATE_SOLAR) then
+		    self:SetSpecialTypes({ 
+		    	MODIFIER_ROSHPIT_AGILITY_BONUS,
+		    	RPC_ELEMENT_COSMOS,
+		    	MODIFIER_ROSHPIT_R_BASE_ABILITY_DMG_BONUS
+		    })
+		elseif self:GetAbility():IsSoluniaState(SOLUNIA_STATE_LUNAR) then
+		    self:SetSpecialTypes({ 
+		    	MODIFIER_ROSHPIT_INTELLIGENCE_BONUS,
+		    	RPC_ELEMENT_COSMOS,
+		    	MODIFIER_ROSHPIT_R_BASE_ABILITY_DMG_BONUS
+		    })
+		end
 	end
 	self:StartIntervalThink(1)
 end

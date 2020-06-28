@@ -91,7 +91,7 @@ end
 function solunia_hypernova:MainExplosion(position)
 	local caster = self:GetCaster()
 	local ability = self
-	local particleName = "particles/roshpit/solunia/eclipse.vpcf"
+	local particleName = "particles/roshpit/solunia/galactic/galactic_supernova.vpcf"
 	local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
 	local r_2_level = caster:GetRuneValue("r", 2)
 	ParticleManager:SetParticleControl(particle1, 0, position + Vector(0, 0, -120))
@@ -150,6 +150,68 @@ function solunia_hypernova:GetDamage()
 	return self:GetSpecialValueFor("damage") + self:GetSpecialValueFor("all_attributes_damage")*caster:GetSumOfAllAttributes()
 end
 
+function solunia_hypernova:InitGalacticForm()
+	local caster = self:GetCaster()
+
+	local old_r_ability = caster:GetAbilityByIndex(DOTA_R_SLOT)
+	local modifier_name_to_remove = old_r_ability:GetIntrinsicModifierName()
+	if modifier_name_to_remove then
+		caster:RemoveModifierByName(modifier_name_to_remove)
+	end
+
+	local ability_slots = {DOTA_Q_SLOT, DOTA_W_SLOT, DOTA_E_SLOT}
+	for i = 1, #ability_slots, 1 do
+		local ability_slot = ability_slots[i]
+		local old_ability = caster:GetAbilityByIndex(ability_slot)
+		local galactic_ability_name = old_ability:GetGalacticName()
+
+		local modifier_name_to_remove = old_ability:GetIntrinsicModifierName()
+		if modifier_name_to_remove then
+			caster:RemoveModifierByName(modifier_name_to_remove)
+		end
+
+		CustomAbilities:AddAndOrSwapSkill(caster, old_ability:GetAbilityName(), galactic_ability_name, ability_slot)
+
+		local new_ability = caster:GetAbilityByIndex(ability_slot)
+		local modifier_name_swap = new_ability:GetIntrinsicModifierName()
+		if modifier_name_swap then
+			caster:AddNewModifier(caster, new_ability, modifier_name_swap, {})
+		end
+	end
+end
+
+function solunia_hypernova:EndGalacticForm()
+	local caster = self:GetCaster()
+
+	caster:RemoveModifierByName(self:GetIntrinsicModifierName())
+
+	local ability_slots = {DOTA_Q_SLOT, DOTA_W_SLOT, DOTA_E_SLOT}
+	for i = 1, #ability_slots, 1 do
+		local ability_slot = ability_slots[i]
+		local old_ability = caster:GetAbilityByIndex(ability_slot)
+
+		local modifier_name_to_remove = old_ability:GetIntrinsicModifierName()
+		if modifier_name_to_remove then
+			caster:RemoveModifierByName(modifier_name_to_remove)
+		end
+
+		local solar_ability_name = old_ability:GetSolarAbilityName()
+		CustomAbilities:AddAndOrSwapSkill(caster, old_ability:GetAbilityName(), solar_ability_name, ability_slot)
+
+		local new_ability = caster:GetAbilityByIndex(ability_slot)
+		local modifier_name_swap = new_ability:GetIntrinsicModifierName()
+		if modifier_name_swap then
+			caster:AddNewModifier(caster, new_ability, modifier_name_swap, {})
+		end
+	end
+
+	local new_r_ability = caster:GetAbilityByIndex(DOTA_R_SLOT)
+	local modifier_name_swap = new_r_ability:GetIntrinsicModifierName()
+	if modifier_name_swap then
+		caster:AddNewModifier(caster, new_r_ability, modifier_name_swap, {})
+	end
+end
+
 -- PASSIVE
 
 function modifier_solunia_r_arcana_passive:IsHidden()
@@ -168,6 +230,14 @@ function modifier_solunia_r_arcana_passive:OnCreated()
     	MODIFIER_ROSHPIT_SPIRIT_PCT_BONUS,
     })
 	self:StartIntervalThink(1)
+	self:GetAbility():InitGalacticForm()
+end
+
+function modifier_solunia_r_arcana_passive:OnRemoved()
+	if not IsServer() then
+		return false
+	end
+	self:GetAbility():EndGalacticForm()
 end
 
 function modifier_solunia_r_arcana_passive:GetStatusEffectName()
@@ -254,7 +324,7 @@ function modifier_solunia_r_channeling:OnIntervalThink()
 end
 
 function modifier_solunia_r_channeling:GetRoshpitParticleName()
-	return "particles/roshpit/solunia/channel_eclipse.vpcf"
+	return "particles/roshpit/solunia/galactic/galactic_channel_supernova.vpcf"
 end
 
 function modifier_solunia_r_channeling:GetEffectAttachType()
@@ -336,9 +406,24 @@ function modifier_solunia_hypernova_warpspeed:DeclareFunctions()
 end
 
 function modifier_solunia_hypernova_warpspeed:GetModifierMoveSpeedBonus_Constant()
+	if not IsServer() then
+		return false
+	end
 	return self:GetCaster():GetRuneValue("r", 1)*SOLUNIA_ARCANA_R1_MS
 end
 
 function modifier_solunia_hypernova_warpspeed:GetModifierMoveSpeed_Max_Increase(params)
+	if not IsServer() then
+		return false
+	end
 	return self:GetCaster():GetRuneValue("r", 1)*SOLUNIA_ARCANA_R1_MAX_MS
 end
+
+function modifier_solunia_hypernova_warpspeed:GetEffectName()
+	return "particles/roshpit/solunia/alpha_spark.vpcf"
+end
+
+function modifier_solunia_hypernova_warpspeed:GetEffectAttachType()
+	return "attach_hitloc"
+end
+

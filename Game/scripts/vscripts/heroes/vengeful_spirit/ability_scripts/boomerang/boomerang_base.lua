@@ -177,6 +177,10 @@ function boomerang_base:OnArcanaAbilitySwap()
 	end
 end
 
+function boomerang_base:GetGalacticName()
+	return "solunia_boomerang_galactic"
+end
+
 -- PASSIVE
 
 function modifier_solunia_w_passive:IsHidden()
