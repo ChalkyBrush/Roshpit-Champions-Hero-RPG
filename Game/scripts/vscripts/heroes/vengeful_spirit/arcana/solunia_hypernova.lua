@@ -84,6 +84,11 @@ function solunia_hypernova:OnChannelFinish(interrupted)
 			local duration = Filters:GetAdjustedBuffDuration(caster, SOLUNIA_ARCANA_R1_DURATION, false)
 			caster:AddNewModifier(caster, ability, "modifier_solunia_hypernova_warpspeed", {duration = duration})
 		end
+		local q_ability = caster:GetAbilityByIndex(DOTA_Q_SLOT)
+		if q_ability:GetAbilityName() == "solunia_comet_galactic" then
+			caster:RemoveModifierByName(q_ability:GetIntrinsicModifierName())
+			caster:AddNewModifier(caster, q_ability, q_ability:GetIntrinsicModifierName(), {})
+		end
 		Filters:CastSkillArguments(BASE_ABILITY_R, caster)
 	end
 end
@@ -191,15 +196,11 @@ function solunia_hypernova:EndGalacticForm()
 
 		local new_ability = caster:GetAbilityByIndex(ability_slot)
 		local modifier_name_swap = new_ability:GetIntrinsicModifierName()
-		if modifier_name_swap then
-			caster:AddNewModifier(caster, new_ability, modifier_name_swap, {})
+		if not caster:HasModifier(modifier_name_swap) then
+			if modifier_name_swap then
+				caster:AddNewModifier(caster, new_ability, modifier_name_swap, {})
+			end
 		end
-	end
-
-	local new_r_ability = caster:GetAbilityByIndex(DOTA_R_SLOT)
-	local modifier_name_swap = new_r_ability:GetIntrinsicModifierName()
-	if modifier_name_swap then
-		caster:AddNewModifier(caster, new_r_ability, modifier_name_swap, {})
 	end
 end
 

@@ -129,8 +129,10 @@ function supernova_base:SoluniaStateSwap()
 
 		local new_ability = caster:GetAbilityByIndex(ability_slot)
 		local modifier_name_swap = new_ability:GetIntrinsicModifierName()
-		if modifier_name_swap then
-			caster:AddNewModifier(caster, new_ability, modifier_name_swap, {})
+		if not caster:HasModifier(modifier_name_swap) then
+			if modifier_name_swap then
+				caster:AddNewModifier(caster, new_ability, modifier_name_swap, {})
+			end
 		end
 	end
 end

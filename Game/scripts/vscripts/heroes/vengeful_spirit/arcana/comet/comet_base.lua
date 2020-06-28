@@ -189,7 +189,11 @@ function modifier_solunia_arcana_q_passive:SetupCharges()
 	local caster = self:GetCaster()
 	local ability = self:GetAbility()
 	caster:AddNewModifier(caster, ability, "modifier_solunia_arcana_q_charges", {})
-	caster:SetModifierStackCount("modifier_solunia_arcana_q_charges", caster, SOLUNIA_ARCANA1_RELOAD_CHARGES[ability:GetLevel()])
+	local level = ability:GetLevel()
+	if level < 1 then
+		level = 1
+	end
+	caster:SetModifierStackCount("modifier_solunia_arcana_q_charges", caster, SOLUNIA_ARCANA1_RELOAD_CHARGES[level])
 end
 
 -- Q1 Ultraviolet Modifier
