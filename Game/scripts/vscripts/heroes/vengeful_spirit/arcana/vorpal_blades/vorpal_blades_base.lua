@@ -198,7 +198,7 @@ function vorpal_blades_base:VorpalThinker()
 						if vorpal.w_1_level > 0 then
 							local luck = RandomInt(1, 100)
 							if luck <= SOLUNIA_ARCANA_W1_CRIT_CHANCE then
-								damage = damage + damage*(SOLUNIA_ARCANA_W1_CRIT_DAMAGE/100)*vorpal.w_3_level
+								damage = damage + damage*(SOLUNIA_ARCANA_W1_CRIT_DAMAGE/100)*vorpal.w_1_level
 								CustomAbilities:QuickAttachParticle("particles/roshpit/solunia/vorpal_crit_blur.vpcf", vorpal.lock_entity, 3)
 								EmitSoundOn("Solunia.BoomerangCrit", vorpal.lock_entity)
 								PopupDamage(vorpal.lock_entity, math.floor(damage))

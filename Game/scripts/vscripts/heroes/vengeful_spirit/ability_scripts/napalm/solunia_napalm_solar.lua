@@ -38,7 +38,9 @@ function solunia_napalm_solar:GetNapalmStartingOffsetVector()
 end
 
 function solunia_napalm_solar:GetNapalmLiftSpeed(startPosition, target)
-	return 40/(1 + (self:GetCaster():GetRuneValue("q", 3)*SOLUNIA_Q3_Q_SPEED_INCREASE_PCT/100))
+	local baseLift = 40
+	baseLift = baseLift - math.max(0, (startPosition.z - target.z)/200)
+	return baseLift/(1 + (self:GetCaster():GetRuneValue("q", 3)*SOLUNIA_Q3_Q_SPEED_INCREASE_PCT/100))
 end
 
 function solunia_napalm_solar:GetNapalmRandomSpeedAdjustment()
