@@ -144,7 +144,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SOLUNIA_ARCANA_W1_ATK_DMG_ADDED_TO_VORPAL_PCT %>"
+				"property_one"			"<% SOLUNIA_ARCANA_W1_CRIT_DAMAGE %>"
 			}
 		}
 	}
@@ -185,7 +185,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SOLUNIA_ARCANA_W3_CRIT_DMG %>"
+				"property_one"			"<% SOLUNIA_ARCANA_W3_MANA_COST %>"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"<% SOLUNIA_ARCANA_W3_BAD_W %>"
 			}
 		}
 	}

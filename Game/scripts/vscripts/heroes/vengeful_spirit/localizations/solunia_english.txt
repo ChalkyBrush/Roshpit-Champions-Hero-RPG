@@ -288,10 +288,10 @@
 
         "DOTA_Tooltip_modifier_active_moon_vorpals"                           "Active Lunar Vorpal Blades"
 
-        "DOTA_Tooltip_ability_solunia_rune_w_1_arcana3"                     "[W1] Aphelion Weapon"
-        "DOTA_Tooltip_ability_solunia_rune_w_1_arcana3_Description"         "Solunia's attack damage is added to Vorpal Blade's base damage."
-        "DOTA_Tooltip_ability_solunia_rune_w_1_arcana3_property_one"            "Additional Damage"
-        "DOTA_Tooltip_ability_solunia_rune_w_1_arcana3_suffix"                  "% of attack power"
+        "DOTA_Tooltip_ability_solunia_rune_w_1_arcana3"                     "[W1] Binary Rift"
+        "DOTA_Tooltip_ability_solunia_rune_w_1_arcana3_Description"         "Grants Vorpal Blades a <% SOLUNIA_ARCANA_W1_CRIT_CHANCE %>% chance to deal a critical strike."
+        "DOTA_Tooltip_ability_solunia_rune_w_1_arcana3_property_one"        "Additional Critical Damage"
+        "DOTA_Tooltip_ability_solunia_rune_w_1_arcana3_suffix"              "%"
 
         "DOTA_Tooltip_ability_solunia_rune_w_2_arcana3"                     "[W2] Blades of Neptune"
         "DOTA_Tooltip_ability_solunia_rune_w_2_arcana3_Description"             "Vorpal Blades restore mana to Solunia when striking an enemy, and deal additional damage based on her current mana."
@@ -300,12 +300,17 @@
         "DOTA_Tooltip_ability_solunia_rune_w_2_arcana3_property_two"            "Additional Damage"
         "DOTA_Tooltip_ability_solunia_rune_w_2_arcana3_suffix_two"              "% of current mana" 
 
-        "DOTA_Tooltip_ability_solunia_rune_w_3_arcana3"                     "[W3] Binary Rift"
-        "DOTA_Tooltip_ability_solunia_rune_w_3_arcana3_Description"         "Grants Vorpal Blades a <% SOLUNIA_ARCANA_W3_CRIT_CHANCE %>% chance to deal a critical strike."
-        "DOTA_Tooltip_ability_solunia_rune_w_3_arcana3_property_one"        "Critical Damage"
-        "DOTA_Tooltip_ability_solunia_rune_w_3_arcana3_suffix"              "%"
 
-        "DOTA_Tooltip_ability_solunia_rune_w_4_arcana3"                     "[W4] Eccentric Orbit"
+        "DOTA_Tooltip_ability_solunia_rune_w_3_arcana3"                     "[W3] Aphelion Weapon"
+        "DOTA_Tooltip_ability_solunia_rune_w_3_arcana3_Description"         "Increases the Mana Cost of W and increases [W] Base Ability Damage."
+        "DOTA_Tooltip_ability_solunia_rune_w_3_arcana3_property_one"            "Additional Mana Cost"
+        "DOTA_Tooltip_ability_solunia_rune_w_3_arcana3_suffix"                  ""
+        "DOTA_Tooltip_ability_solunia_rune_w_3_arcana3_property_two"            "[W] Base Ability Damage"
+        "DOTA_Tooltip_ability_solunia_rune_w_3_arcana3_suffix_two"             "%"
+
+
+
+        "DOTA_Tooltip_ability_solunia_rune_w_4_arcana3"                     "[W4] Elliptical Orbit"
         "DOTA_Tooltip_ability_solunia_rune_w_4_arcana3_Description"         "Gives Vorpal Blades a chance to bounce additional times. Greater than 100% means they can gain multiple extra bounces."
         "DOTA_Tooltip_ability_solunia_rune_w_4_arcana3_property_one"        "Chance for additional bounce"
         "DOTA_Tooltip_ability_solunia_rune_w_4_arcana3_suffix"              "%"

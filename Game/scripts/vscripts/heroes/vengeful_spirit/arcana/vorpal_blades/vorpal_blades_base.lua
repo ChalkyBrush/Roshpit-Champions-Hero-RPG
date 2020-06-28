@@ -19,7 +19,8 @@ function vorpal_blades_base:GetManaCostBase(level)
     if level == -1 then
         level = self:GetLevel() - 1
     end
-    return SOLUNIA_ARCANA_W_MANA_COST[level + 1]
+    local caster = self:GetCaster()
+    return SOLUNIA_ARCANA_W_MANA_COST[level + 1] + caster:GetModifierStackCount("modifier_solunia_arcana_w_passive", caster)*SOLUNIA_ARCANA_W3_MANA_COST
 end
 
 function vorpal_blades_base:GetBehaviorBase()
@@ -56,11 +57,13 @@ end
 
 function vorpal_blades_base:GetTotalDamage()
 	local caster = self:GetCaster()
-	return self:GetSpecialValueFor("damage") + (self:GetSpecialValueFor("atk_power_added_to_dmg")/100)*OverflowProtectedGetAverageTrueAttackDamage(caster)
+	return self:GetSpecialValueFor("damage") + (self:GetSpecialValueFor("atk_power_added_to_dmg")/100)*OverflowProtectedGetAverageTrueAttackDamage(caster) + (caster:GetRuneValue("w", 2) * (SOLUNIA_ARCANA_W2_CURRENT_MANA_ADDED_TO_DAMAGE_PCT / 100) * caster:GetMana())
 end
 
 function vorpal_blades_base:GetBladeBounceCount()
-	return self:GetSpecialValueFor("base_bounces")
+	local caster = self:GetCaster()
+	local w_4_level = caster:GetRuneValue("w", 4)
+	return self:GetSpecialValueFor("base_bounces") + Runes:Procs(w_4_level, SOLUNIA_ARCANA_W4_EXTRA_BOUNCE_CHANCE, 1)
 end
 
 function vorpal_blades_base:CastVorpalBlades()
@@ -86,16 +89,9 @@ function vorpal_blades_base:CastVorpalBlades()
 	local vorpals_for_this_throw = self:GetVorpalsForThisThrow(total_max_blades)
 
 	local damage = self:GetTotalDamage()
-	-- local w_1_level = caster:GetRuneValue("w", 1)
-	-- damage = damage + w_1_level*(SOLUNIA_ARCANA_W1_ATK_DMG_ADDED_TO_VORPAL_PCT/100)*OverflowProtectedGetAverageTrueAttackDamage(caster)
 
-	-- local w_2_level = caster:GetRuneValue("w", 2)
-	-- damage = damage + w_2_level * (SOLUNIA_ARCANA_W2_CURRENT_MANA_ADDED_TO_DAMAGE_PCT / 100) * caster:GetMana()
-	-- local mana_restore = w_2_level * (SOLUNIA_ARCANA_W2_MANA_RESTORE_PER_HIT)
-	-- local w_3_level = caster:GetRuneValue("w", 3)
-
-	-- local bounces = event.base_bounces
-	-- local w_4_level = caster:GetRuneValue("w", 4)
+	mana_restore = caster:GetRuneValue("w", 2) * (SOLUNIA_ARCANA_W2_MANA_RESTORE_PER_HIT)
+	local w_1_level = caster:GetRuneValue("w", 1)
 	
 	for i = 1, vorpals_for_this_throw do
 		local vorpal = {}
@@ -105,8 +101,6 @@ function vorpal_blades_base:CastVorpalBlades()
 		local vorpal_speed = 1000
 		local vorpal_origin = caster:GetAbsOrigin() + Vector(0,0,160)
 
-		-- local bounces = event.base_bounces
-		-- bounces = bounces + Runes:Procs(w_4_level, SOLUNIA_ARCANA_W4_EXTRA_BOUNCE_CHANCE, 1)
 
 		vorpal.active = true
 		vorpal.speed = vorpal_speed
@@ -115,8 +109,8 @@ function vorpal_blades_base:CastVorpalBlades()
 		vorpal.interval = 0
 		vorpal.damage = damage
 
-		-- vorpal.mana_restore = mana_restore
-		-- vorpal.w_3_level = w_3_level
+		vorpal.mana_restore = mana_restore
+		vorpal.w_1_level = w_1_level
 		local pfx = ParticleManager:CreateParticle(vorpal_particle, PATTACH_CUSTOMORIGIN, nil)
 		ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin()+Vector())
 		ParticleManager:SetParticleControl(pfx, 1, vorpal_target)
@@ -178,13 +172,7 @@ function vorpal_blades_base:VorpalThinker()
 				vorpal.active = false
 			end
 
-			local distance = WallPhysics:GetDistance2d(vorpal.position, vorpal.target)
-			if vorpal.lock_entity then
-				print(vorpal.interval)
-				print(vorpal.lock_entity:GetUnitName())
-				print(vorpal.active)
-				print(distance)
-			end			
+			local distance = WallPhysics:GetDistance2d(vorpal.position, vorpal.target)	
 			if distance <= (vorpal.speed*think_interval) then
 				if vorpal.targets_hit < (vorpal.bounces) then
 					
@@ -202,32 +190,25 @@ function vorpal_blades_base:VorpalThinker()
 							new_target = nearby_enemies[1]
 						end
 					end
-					if vorpal.lock_entity then
-						print(vorpal.lock_entity:GetUnitName())
-					end
 					if IsValidEntity(vorpal.lock_entity) then
 						vorpal.targets_hit = vorpal.targets_hit + 1
 						EmitSoundOn("Solunia.Arcana3.Vorpal.Hit", vorpal.lock_entity)
 						EmitSoundOn("Solunia.Arcana3.Vorpal.Hit.Highlight", vorpal.lock_entity)
 						local damage = vorpal.damage
-						-- if vorpal.w_3_level > 0 then
-						-- 	local luck = RandomInt(1, 100)
-						-- 	if luck <= SOLUNIA_ARCANA_W3_CRIT_CHANCE then
-						-- 		damage = damage + damage*(SOLUNIA_ARCANA_W3_CRIT_DMG/100)*vorpal.w_3_level
-						-- 		CustomAbilities:QuickAttachParticle("particles/roshpit/solunia/vorpal_crit_blur.vpcf", vorpal.lock_entity, 3)
-						-- 		if caster:HasModifier("modifier_solunia_immortal_weapon_2") then
-						-- 			caster.origCaster = caster
-						-- 			immo_weapon_2_effect(caster, vorpal.lock_entity)
-						-- 		end
-						-- 		EmitSoundOn("Solunia.BoomerangCrit", vorpal.lock_entity)
-						-- 		PopupDamage(vorpal.lock_entity, math.floor(damage))
-						-- 	end
-						-- end
+						if vorpal.w_1_level > 0 then
+							local luck = RandomInt(1, 100)
+							if luck <= SOLUNIA_ARCANA_W1_CRIT_CHANCE then
+								damage = damage + damage*(SOLUNIA_ARCANA_W1_CRIT_DAMAGE/100)*vorpal.w_3_level
+								CustomAbilities:QuickAttachParticle("particles/roshpit/solunia/vorpal_crit_blur.vpcf", vorpal.lock_entity, 3)
+								EmitSoundOn("Solunia.BoomerangCrit", vorpal.lock_entity)
+								PopupDamage(vorpal.lock_entity, math.floor(damage))
+							end
+						end
 						Filters:TakeArgumentsAndApplyDamage(vorpal.lock_entity, caster, damage, self:GetAbilityDamageType(), BASE_ABILITY_W, self:GetAbilityElement(1), self:GetAbilityElement(2))
-						-- if vorpal.mana_restore > 0 then
-						-- 	caster:GiveMana(vorpal.mana_restore)
-						-- 	PopupMana(caster, vorpal.mana_restore)
-						-- end
+						if vorpal.mana_restore > 0 then
+							caster:GiveMana(vorpal.mana_restore)
+							PopupMana(caster, vorpal.mana_restore)
+						end
 
 					end
 					if IsValidEntity(new_target) then
@@ -254,4 +235,29 @@ function vorpal_blades_base:VorpalThinker()
 	end
 	ability.vorpals = new_vorpal_table
 	ability:RecalculateOutstandingVorpals()
+end
+
+-- PASSIVE
+
+function modifier_solunia_arcana_w_passive:IsHidden()
+	return true
+end
+
+function modifier_solunia_arcana_w_passive:OnCreated()
+	if not IsServer() then
+		return false
+	end
+    self:SetSpecialTypes({ 
+    	MODIFIER_ROSHPIT_W_BASE_ABILITY_DMG_BONUS
+    })
+
+	self:StartIntervalThink(0.1)
+end
+
+function modifier_solunia_arcana_w_passive:OnIntervalThink()
+	self:SetStackCount(self:GetCaster():GetRuneValue("w", 3))
+end
+
+function modifier_solunia_arcana_w_passive:GetRoshpitWBaseAbilityDmgBonus()
+	return self:GetCaster():GetRuneValue("w", 3)*SOLUNIA_ARCANA_W3_BAD_W/100
 end
