@@ -16,6 +16,8 @@ function comet_base:IsSoluniaState(state)
 		return true
 	elseif self:GetAbilityName() == "solunia_comet_lunar" and state == SOLUNIA_STATE_LUNAR then
 		return true
+	elseif self:GetAbilityName() == "solunia_comet_galactic" and state == SOLUNIA_STATE_GALACTIC then
+		return true
 	else
 		return false
 	end
@@ -173,6 +175,8 @@ function modifier_solunia_arcana_q_passive:GetRoshpitMasterBaseDMG()
 		return self:GetCaster():GetRuneValue("q", 4)*SOLUNIA_ARCANA_Q4_ATTACK_DMG_PER_ATTR*caster:GetAgility()
 	elseif ability:IsSoluniaState(SOLUNIA_STATE_LUNAR) then
 		return self:GetCaster():GetRuneValue("q", 4)*SOLUNIA_ARCANA_Q4_ATTACK_DMG_PER_ATTR*caster:GetIntellect()
+	elseif ability:IsSoluniaState(SOLUNIA_STATE_GALACTIC) then
+		return self:GetCaster():GetRuneValue("q", 4)*SOLUNIA_ARCANA_Q4_ATTACK_DMG_PER_ATTR*(caster:GetIntellect() + caster:GetAgility())
 	end
 end
 
