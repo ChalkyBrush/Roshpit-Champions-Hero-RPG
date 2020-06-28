@@ -45,6 +45,10 @@ function solunia_boomerang_lunar:GetW2ParticleName()
 	return "particles/roshpit/solunia/lunar_flare_explosion_immortal1.vpcf"
 end
 
+function solunia_boomerang_lunar:GetArcana3AbilityName()
+	return "solunia_vorpal_blades_lunar"
+end
+
 -- COUNTER
 
 function modifier_boomerang_counter_lunar:OnCreated()

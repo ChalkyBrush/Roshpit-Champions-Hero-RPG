@@ -45,6 +45,10 @@ function solunia_boomerang_solar:GetW2ParticleName()
 	return "particles/roshpit/solunia/solar_flare_no_ground.vpcf"
 end
 
+function solunia_boomerang_solar:GetArcana3AbilityName()
+	return "solunia_vorpal_blades_solar"
+end
+
 -- COUNTER
 
 function modifier_boomerang_counter_solar:OnCreated()

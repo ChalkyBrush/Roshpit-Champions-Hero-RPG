@@ -9793,7 +9793,7 @@
         "DOTA_Tooltip_ability_solunia_rune_w_2_arcana3_suffix_two"              "% от текущей маны" 
 
         "DOTA_Tooltip_ability_solunia_rune_w_3_arcana3"                     "[W3] Binary Rift"
-        "DOTA_Tooltip_ability_solunia_rune_w_3_arcana3_Description"         "Лезвия имеют <font color='#ccff66'>25</font>% шанс нанести критический удар с увеличенным уроном."
+        "DOTA_Tooltip_ability_solunia_rune_w_3_arcana3_Description"         "Лезвия имеют 0% шанс нанести критический удар с увеличенным уроном."
         "DOTA_Tooltip_ability_solunia_rune_w_3_arcana3_property_one"        "Критический Урон"
         "DOTA_Tooltip_ability_solunia_rune_w_3_arcana3_suffix"              "%"
 

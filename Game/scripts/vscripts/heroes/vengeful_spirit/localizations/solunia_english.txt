@@ -270,19 +270,21 @@
         "item_property_solunia_arcana3"                                     "Vorpal Blades"
         "property_solunia_arcana3_description"                              "Replaces @Ability2 and all of its runes with Solar and Lunar Vorpal Blades."
 
-        "DOTA_Tooltip_ability_solunia_solar_vorpal_blades"                    "Solar Vorpal Blades"             
-        "DOTA_Tooltip_ability_solunia_solar_vorpal_blades_Description"        "Element: <font color=ELEMENT_COSMOS>Cosmic</font> / <font color=ELEMENT_FIRE>Fire</font><br>Throws out 3 solar vorpal blades that seek out enemies within 1000 range of Solunia. The blades deal damage on hit and can bounce to other enemies if there are any nearby."
-        "DOTA_Tooltip_ability_solunia_solar_vorpal_blades_damage"             "DAMAGE:"
-        "DOTA_Tooltip_ability_solunia_solar_vorpal_blades_max_blades"           "MAXIMUM ACTIVE CONCURRENT BLADES:"
-        "DOTA_Tooltip_ability_solunia_solar_vorpal_blades_base_bounces"         "BOUNCES:"
+        "DOTA_Tooltip_ability_solunia_vorpal_blades_solar"                    "Solar Vorpal Blades"             
+        "DOTA_Tooltip_ability_solunia_vorpal_blades_solar_Description"        "Element: <font color=ELEMENT_COSMOS>Cosmic</font> / <font color=ELEMENT_FIRE>Fire</font><br>Throws out 3 solar vorpal blades that seek out enemies within 1000 range of Solunia. The blades deal damage on hit and can bounce to other enemies if there are any nearby."
+        "DOTA_Tooltip_ability_solunia_vorpal_blades_solar_damage"             "DAMAGE:"
+        "DOTA_Tooltip_ability_solunia_vorpal_blades_solar_max_blades"           "MAXIMUM ACTIVE CONCURRENT BLADES:"
+        "DOTA_Tooltip_ability_solunia_vorpal_blades_solar_base_bounces"         "BOUNCES:"
+        "DOTA_Tooltip_ability_solunia_vorpal_blades_solar_atk_power_added_to_dmg" "% ATTACK POWER ADDED TO BASE DAMAGE:"
 
         "DOTA_Tooltip_modifier_active_sun_vorpals"                           "Active Solar Vorpal Blades"
 
-        "DOTA_Tooltip_ability_solunia_lunar_vorpal_blades"                    "Lunar Vorpal Blades"             
-        "DOTA_Tooltip_ability_solunia_lunar_vorpal_blades_Description"        "Element: <font color=ELEMENT_COSMOS>Cosmic</font> / <font color=ELEMENT_ICE>Ice</font><br>Throws out 3 lunar vorpal blades that seek out enemies within 1000 range of Solunia. The blades deal damage on hit and can bounce to other enemies if there are any nearby."
-        "DOTA_Tooltip_ability_solunia_lunar_vorpal_blades_damage"             "DAMAGE:"
-        "DOTA_Tooltip_ability_solunia_lunar_vorpal_blades_max_blades"           "MAXIMUM ACTIVE CONCURRENT BLADES:"
-        "DOTA_Tooltip_ability_solunia_lunar_vorpal_blades_base_bounces"         "BOUNCES:"
+        "DOTA_Tooltip_ability_solunia_vorpal_blades_lunar"                    "Lunar Vorpal Blades"             
+        "DOTA_Tooltip_ability_solunia_vorpal_blades_lunar_Description"        "Element: <font color=ELEMENT_COSMOS>Cosmic</font> / <font color=ELEMENT_ICE>Ice</font><br>Throws out 3 lunar vorpal blades that seek out enemies within 1000 range of Solunia. The blades deal damage on hit and can bounce to other enemies if there are any nearby."
+        "DOTA_Tooltip_ability_solunia_vorpal_blades_lunar_damage"             "DAMAGE:"
+        "DOTA_Tooltip_ability_solunia_vorpal_blades_lunar_max_blades"           "MAXIMUM ACTIVE CONCURRENT BLADES:"
+        "DOTA_Tooltip_ability_solunia_vorpal_blades_lunar_base_bounces"         "BOUNCES:"
+        "DOTA_Tooltip_ability_solunia_vorpal_blades_lunar_atk_power_added_to_dmg" "% ATTACK POWER ADDED TO BASE DAMAGE:"
 
         "DOTA_Tooltip_modifier_active_moon_vorpals"                           "Active Lunar Vorpal Blades"
 

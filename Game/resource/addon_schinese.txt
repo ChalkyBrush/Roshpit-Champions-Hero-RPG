@@ -10215,7 +10215,7 @@
 
 		"DOTA_Tooltip_ability_solunia_rune_w_3_arcana3" "[W3] 二元裂隙"
 
-		"DOTA_Tooltip_ability_solunia_rune_w_3_arcana3_Description" "使你的飞刃获得<font color='#ccff66'>25</font>% 的概率造成致命一击。"
+		"DOTA_Tooltip_ability_solunia_rune_w_3_arcana3_Description" "使你的飞刃获得0% 的概率造成致命一击。"
 
 		"DOTA_Tooltip_ability_solunia_rune_w_3_arcana3_property_one" "致命一击伤害"
 

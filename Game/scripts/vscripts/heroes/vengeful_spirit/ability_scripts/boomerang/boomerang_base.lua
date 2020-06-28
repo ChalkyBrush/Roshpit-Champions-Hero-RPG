@@ -162,6 +162,21 @@ function boomerang_base:AdjustCritDamage(boomerang, base_damage)
 	end
 end
 
+function boomerang_base:OnArcanaAbilitySwap()
+	local ability = self
+	local caster = self:GetCaster()
+	if ability.boomerangTable then
+		for i = 1, #ability.boomerangTable, 1 do
+			local boomerang = ability.boomerangTable[i]
+			if boomerang and IsValidEntity(boomerang) then
+				boomerang.disabled = true
+				UTIL_Remove(boomerang)
+			end
+		end
+		ability:UpdateCasterOutgoingBoomerangCounter()
+	end
+end
+
 -- PASSIVE
 
 function modifier_solunia_w_passive:IsHidden()
