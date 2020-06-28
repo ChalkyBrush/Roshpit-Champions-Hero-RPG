@@ -9744,12 +9744,12 @@
     	"DOTA_Tooltip_ability_solunia_rune_r_2_arcana2_suffix_two"				""	
 
   		"DOTA_Tooltip_ability_solunia_rune_r_3_arcana2"						"[R3] Dimension Shell"
-    	"DOTA_Tooltip_ability_solunia_rune_r_3_arcana2_Description"			"После прочтения @Ability4, герой ненадолго получает различные бонусы: сокращение входящего урона на <font color='#ccff66'>90</font>%, прохождение сквозь юнитов и +100 к скорости передвижения."
+    	"DOTA_Tooltip_ability_solunia_rune_r_3_arcana2_Description"			"После прочтения @Ability4, герой ненадолго получает различные бонусы: сокращение входящего урона на 0%, прохождение сквозь юнитов и +100 к скорости передвижения."
     	"DOTA_Tooltip_ability_solunia_rune_r_3_arcana2_property_one"		"Длительность"
     	"DOTA_Tooltip_ability_solunia_rune_r_3_arcana2_suffix"				" сек."
 
     	"DOTA_Tooltip_modifier_solunia_c_d_arcana_shell"					"Dimension Shell"
-    	"DOTA_Tooltip_modifier_solunia_c_d_arcana_shell_Description"		"Входящий урон снижен на <font color='#ccff66'>0.9</font>%%, +100 к скорости передвижения и возможность проходить сквозь существ."
+    	"DOTA_Tooltip_modifier_solunia_c_d_arcana_shell_Description"		"Входящий урон снижен на 0%%, +100 к скорости передвижения и возможность проходить сквозь существ."
 
   		"DOTA_Tooltip_ability_solunia_rune_r_4_arcana2"						"[R4] Tellarias"
     	"DOTA_Tooltip_ability_solunia_rune_r_4_arcana2_Description"			"Пассивно увеличивает все атрибуты героя и стихийный урон <font color='#EF4126'>Огня</font>, <font color='#87D9FF'>Льда</font> и <font color='#C25DFC'>Космоса</font>."

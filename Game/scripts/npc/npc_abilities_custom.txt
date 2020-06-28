@@ -61969,6 +61969,47 @@
 		}
 	}
 
+	"solunia_hypernova"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_AOE"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/vengeful_spirit/arcana/solunia_hypernova.lua"
+		"AbilityType"            		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"AbilityTextureName"			"solunia/solunia_eclipse"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AOERadius"						"%radius"
+		"precache"
+		{
+
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"damage"	"200 500 800 1600 3000 5000 10000"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"stun_duration"	"2.0 2.3 2.6 2.9 3.2 3.5 3.8"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"radius"	"580"
+			}
+			"04"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"all_attributes_damage"	"2"
+			}
+		}
+	}
 
 
 
@@ -61985,12 +62026,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"6"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"400"
+				"property_two"			"6"
 			}
 		}
 	}
@@ -62002,29 +62043,13 @@
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityTextureName"	"solunia/solunia_rune_r_2_arcana2"
 		"MaxLevel"				"20"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"35"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"35"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"2"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_two"			"9"
+				"property_one"			"0.5"
 			}
 		}
 	}
@@ -62042,7 +62067,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.25"
+				"property_one"			"0.5"
 			}
 		}
 	}
@@ -62060,12 +62085,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"4"
+				"property_one"			"0.5"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"40"
+				"property_two"			"12"
 			}
 		}
 	}

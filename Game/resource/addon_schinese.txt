@@ -10101,12 +10101,12 @@
     	"DOTA_Tooltip_ability_solunia_rune_r_2_arcana2_property_two"			"物理穿透提高 (月之形态)"
     	"DOTA_Tooltip_ability_solunia_rune_r_2_arcana2_suffix_two"				""	
   		"DOTA_Tooltip_ability_solunia_rune_r_3_arcana2"						"[R3] 维度盾"
-    	"DOTA_Tooltip_ability_solunia_rune_r_3_arcana2_Description"			"在释放阿尔法星火后的短暂一段时间内，获得维度盾，减伤 <font color='#ccff66'>0.9</font>%，增加 100移动速度并且可以相位移动。"
+    	"DOTA_Tooltip_ability_solunia_rune_r_3_arcana2_Description"			"在释放阿尔法星火后的短暂一段时间内，获得维度盾，减伤 0%，增加 100移动速度并且可以相位移动。"
     	"DOTA_Tooltip_ability_solunia_rune_r_3_arcana2_property_one"		"持续时间"
     	"DOTA_Tooltip_ability_solunia_rune_r_3_arcana2_suffix"				" 秒"
 
     	"DOTA_Tooltip_modifier_solunia_c_d_arcana_shell"					"维度盾"
-    	"DOTA_Tooltip_modifier_solunia_c_d_arcana_shell_Description"		"<font color='#ccff66'>0.9</font>%减伤，+100移动速度并且相位移动"
+    	"DOTA_Tooltip_modifier_solunia_c_d_arcana_shell_Description"		"0%减伤，+100移动速度并且相位移动"
 
   		"DOTA_Tooltip_ability_solunia_rune_r_4_arcana2"						"[R4] 黑洞"
     	"DOTA_Tooltip_ability_solunia_rune_r_4_arcana2_Description"			"被动增加全属性，并且提高所有 <font color='#EF4126'>火</font> ，<font color='#87D9FF'>冰</font> ，和 <font color='#C25DFC'>宇宙</font> 元素的伤害。"

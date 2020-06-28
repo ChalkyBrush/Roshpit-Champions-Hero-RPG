@@ -1,94 +1,97 @@
 require('heroes/vengeful_spirit/solunia_constants')
 require('heroes/base_ability')
-supernova_base = class(base_ability)
+solunia_hypernova = class(base_ability)
 
-modifier_solunia_r_passive = class(npc_base_modifier, nil, npc_base_modifier)
-LinkLuaModifier("modifier_solunia_r_passive", "heroes/vengeful_spirit/ability_scripts/supernova/supernova_base.lua", LUA_MODIFIER_MOTION_NONE)
+modifier_solunia_r_arcana_passive = class(npc_base_modifier, nil, npc_base_modifier)
+LinkLuaModifier("modifier_solunia_r_arcana_passive", "heroes/vengeful_spirit/arcana/solunia_hypernova.lua", LUA_MODIFIER_MOTION_NONE)
 
 modifier_solunia_r_channeling = class(npc_base_modifier, nil, npc_base_modifier)
-LinkLuaModifier("modifier_solunia_r_channeling", "heroes/vengeful_spirit/ability_scripts/supernova/supernova_base.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_solunia_r_channeling", "heroes/vengeful_spirit/arcana/solunia_hypernova.lua", LUA_MODIFIER_MOTION_NONE)
 
 modifier_solunia_falling = class(npc_base_modifier, nil, npc_base_modifier)
-LinkLuaModifier("modifier_solunia_falling", "heroes/vengeful_spirit/ability_scripts/supernova/supernova_base.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_solunia_falling", "heroes/vengeful_spirit/arcana/solunia_hypernova.lua", LUA_MODIFIER_MOTION_NONE)
 
-function supernova_base:IsSoluniaState(state)
-	if self:GetAbilityName() == "solunia_supernova_solar" and state == SOLUNIA_STATE_SOLAR then
-		return true
-	elseif self:GetAbilityName() == "solunia_supernova_lunar" and state == SOLUNIA_STATE_LUNAR then
-		return true
-	else
-		return false
-	end
-end
+modifier_solunia_hypernova_warpspeed = class(npc_base_modifier, nil, npc_base_modifier)
+LinkLuaModifier("modifier_solunia_hypernova_warpspeed", "heroes/vengeful_spirit/arcana/solunia_hypernova.lua", LUA_MODIFIER_MOTION_NONE)
 
-function supernova_base:GetManaCostBase(level)
+
+function solunia_hypernova:GetManaCostBase(level)
     return 0
 end
 
-function supernova_base:GetBehaviorBase()
+function solunia_hypernova:GetBehaviorBase()
 	return DOTA_ABILITY_BEHAVIOR_NO_TARGET + DOTA_ABILITY_BEHAVIOR_CHANNELLED + DOTA_ABILITY_BEHAVIOR_AOE
 end
 
-function supernova_base:GetAbilitySlot()
+function solunia_hypernova:GetAbilitySlot()
     return DOTA_R_SLOT
 end
 
-function supernova_base:GetCastPoint()
+function solunia_hypernova:GetCastPoint()
     return 0
 end
 
-function supernova_base:GetCooldownBase(level)
+function solunia_hypernova:GetCooldownBase(level)
 	local caster = self:GetCaster()
-    return math.max(0, 14 - caster:GetModifierStackCount("modifier_solunia_r_passive", caster)*SOLUNIA_R4_CD_REDUCE)
+    return math.max(0, 14 - caster:GetModifierStackCount("modifier_solunia_r_arcana_passive", caster)*SOLUNIA_ARCANA_R4_CD_REDUCE)
 end
 
-function supernova_base:GetCastRange()
+function solunia_hypernova:GetCastRange()
 	return 0
 end
 
-function supernova_base:GetAOERadius()
+function solunia_hypernova:GetAOERadius()
 	return self:GetSpecialValueFor("radius")
 end
 
-function supernova_base:GetChannelTimeBase()
-    return 3.0
+function solunia_hypernova:GetChannelTimeBase()
+    return 1
 end
 
-function supernova_base:GetCastAnimation()
-    return ACT_DOTA_VICTORY
+function solunia_hypernova:GetCastAnimation()
+    return ACT_DOTA_VERSUS
 end
 
-function supernova_base:SuperNovaChannelStart()
+function solunia_hypernova:GetNonArcana2AbilityName()
+	return "solunia_supernova_solar"
+end
+
+function solunia_hypernova:OnSpellStartBase()
     local caster = self:GetCaster()
     local ability = self
-	StartSoundEvent("Solunia.Supernova", caster)
+	StartSoundEvent("Solunia.Hypernova.Channel", caster)
 	ability.rotationIndex = 0
 	ability.fallVelocity = 1
 	ability.startRotation = WallPhysics:vectorToAngle(caster:GetForwardVector())
-	caster:AddNewModifier(caster, self, "modifier_solunia_r_channeling", {duration = self:GetChannelTimeBase()})
 	caster:RemoveModifierByName("modifier_solunia_between_warp")
+	caster:AddNewModifier(caster, self, "modifier_solunia_r_channeling", {duration = self:GetChannelTimeBase()})
+	
 end
 
-function supernova_base:SuperNovaChannelFinish(interrupted)
+function solunia_hypernova:OnChannelFinish(interrupted)
 	local caster = self:GetCaster()
 	local ability = self
+	caster:RemoveModifierByName("modifier_solunia_between_warp")
 	caster:RemoveModifierByName("modifier_channel_start")
 	caster:RemoveModifierByName("modifier_solunia_r_channeling")
 	caster:AddNewModifier(caster, ability, "modifier_solunia_falling", {duration = 2})
-	StopSoundEvent("Solunia.Supernova", caster)
+	StopSoundEvent("Solunia.Hypernova.Channel", caster)
 	if not interrupted then
 		local position = caster:GetAbsOrigin()
 		self:MainExplosion(position)
-		self:SoluniaStateSwap()
-		self:RuneR1Cooldowns()
+		self:RefreshCooldowns()
+		if caster:GetRuneValue("r", 1) > 0 then
+			local duration = Filters:GetAdjustedBuffDuration(caster, SOLUNIA_ARCANA_R1_DURATION, false)
+			caster:AddNewModifier(caster, ability, "modifier_solunia_hypernova_warpspeed", {duration = duration})
+		end
 		Filters:CastSkillArguments(BASE_ABILITY_R, caster)
 	end
 end
 
-function supernova_base:MainExplosion(position)
+function solunia_hypernova:MainExplosion(position)
 	local caster = self:GetCaster()
 	local ability = self
-	local particleName = self:GetMainExplosionParticleName()
+	local particleName = "particles/roshpit/solunia/eclipse.vpcf"
 	local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
 	local r_2_level = caster:GetRuneValue("r", 2)
 	ParticleManager:SetParticleControl(particle1, 0, position + Vector(0, 0, -120))
@@ -98,7 +101,7 @@ function supernova_base:MainExplosion(position)
 		ParticleManager:DestroyParticle(particle1, false)
 	end)
 	-- caster:RemoveModifierByName("modifier_solunia_ulti_above_ground")
-	EmitSoundOn("Solunia.Supernova.Explode", caster)
+	EmitSoundOn("Solunia.Hypernova.Explode", caster)
 	local stun_duration = self:GetSpecialValueFor("stun_duration")
 	local damage = self:GetDamage()
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, self:GetAOERadius(), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
@@ -114,120 +117,95 @@ function supernova_base:MainExplosion(position)
 	GridNav:DestroyTreesAroundPoint(position, 240, false)
 end
 
-function supernova_base:SoluniaStateSwap()
-	local caster = self:GetCaster()
-	local ability_slots = {DOTA_Q_SLOT, DOTA_W_SLOT, DOTA_E_SLOT, DOTA_R_SLOT}
-	for i = 1, #ability_slots, 1 do
-		local ability_slot = ability_slots[i]
-		local old_ability = caster:GetAbilityByIndex(ability_slot)
-		local modifier_name_to_remove = old_ability:GetIntrinsicModifierName()
-		if modifier_name_to_remove then
-			caster:RemoveModifierByName(modifier_name_to_remove)
-		end
+function solunia_hypernova:GetAbilityDamageType()
+	return DAMAGE_TYPE_PURE
+end
 
-		CustomAbilities:AddAndOrSwapSkill(caster, old_ability:GetAbilityName(), old_ability:GetSwapAbilityName(), ability_slot)
-
-		local new_ability = caster:GetAbilityByIndex(ability_slot)
-		local modifier_name_swap = new_ability:GetIntrinsicModifierName()
-		if modifier_name_swap then
-			caster:AddNewModifier(caster, new_ability, modifier_name_swap, {})
-		end
+function solunia_hypernova:GetAbilityElement(index)
+	if index == 1 then
+		return RPC_ELEMENT_COSMOS
+	elseif index == 2 then
+		return RPC_ELEMENT_FIRE
 	end
 end
 
 
-function supernova_base:GetIntrinsicModifierName()
-	return "modifier_solunia_r_passive"
+function solunia_hypernova:RefreshCooldowns()
+	local caster = self:GetCaster()
+	local ability_slots = {DOTA_Q_SLOT, DOTA_W_SLOT, DOTA_E_SLOT}
+	for i = 1, #ability_slots, 1 do
+		local ability_slot = ability_slots[i]
+		local old_ability = caster:GetAbilityByIndex(ability_slot)
+		old_ability:EndCooldown()
+	end
 end
 
-function supernova_base:GetDamage()
+
+function solunia_hypernova:GetIntrinsicModifierName()
+	return "modifier_solunia_r_arcana_passive"
+end
+
+function solunia_hypernova:GetDamage()
 	local caster = self:GetCaster()
 	return self:GetSpecialValueFor("damage") + self:GetSpecialValueFor("all_attributes_damage")*caster:GetSumOfAllAttributes()
 end
 
-function supernova_base:RuneR1Cooldowns()
-	local caster = self:GetCaster()
-	local r_1_level = caster:GetRuneValue("r", 1)
-	if r_1_level > 0 then
-		local CDReduce = r_1_level*SOLUNIA_R1_CD_REDUCE
-		caster:ReduceAllCurrentCooldowns(CDReduce)
-	end
-end
-
-function supernova_base:GetR2DualBurnDamage(target)
-	local caster = self:GetCaster()
-	local damage = self:GetDamage()*(SOLUNIA_R2_DUAL_BURN_DMG_PCT_SUPERNOVA*caster:GetRuneValue("r", 2)/100)
-	if target:HasModifier(self:GetAlternateDualBurnModifierName()) then
-		damage = damage * SOLUNIA_R2_DUAL_BURN_MULT 
-	end
-	return damage
-end
-
-function supernova_base:GetArcana2AbilityName()
-	return "solunia_hypernova"
-end
-
 -- PASSIVE
 
-function modifier_solunia_r_passive:IsHidden()
+function modifier_solunia_r_arcana_passive:IsHidden()
 	return true
 end
 
-function modifier_solunia_r_passive:OnCreated()
+function modifier_solunia_r_arcana_passive:OnCreated()
 	if not IsServer() then
 		return false
 	end
-	if self:GetAbility():IsSoluniaState(SOLUNIA_STATE_SOLAR) then
-	    self:SetSpecialTypes({ 
-	    	MODIFIER_ROSHPIT_AGILITY_BONUS,
-	    	RPC_ELEMENT_COSMOS,
-	    	MODIFIER_ROSHPIT_R_BASE_ABILITY_DMG_BONUS
-	    })
-	elseif self:GetAbility():IsSoluniaState(SOLUNIA_STATE_LUNAR) then
-	    self:SetSpecialTypes({ 
-	    	MODIFIER_ROSHPIT_INTELLIGENCE_BONUS,
-	    	RPC_ELEMENT_COSMOS,
-	    	MODIFIER_ROSHPIT_R_BASE_ABILITY_DMG_BONUS
-	    })
-	end
+    self:SetSpecialTypes({ 
+    	RPC_ELEMENT_COSMOS,
+    	MODIFIER_ROSHPIT_STRENGTH_PCT_BONUS,
+    	MODIFIER_ROSHPIT_AGILITY_PCT_BONUS,
+    	MODIFIER_ROSHPIT_INTELLIGENCE_PCT_BONUS,
+    	MODIFIER_ROSHPIT_SPIRIT_PCT_BONUS,
+    })
 	self:StartIntervalThink(1)
 end
 
-function modifier_solunia_r_passive:GetRoshpitRBaseAbilityDmgBonus()
-	return self:GetCaster():GetRuneValue("r", 1)*SOLUNIA_R1_R_BAD/100
+function modifier_solunia_r_arcana_passive:GetStatusEffectName()
+	return "particles/status_fx/status_effect_maledict.vpcf"
 end
 
-function modifier_solunia_r_passive:GetRoshpitAgilityBonus()
-	return self:GetCaster():GetRuneValue("r", 3)*SOLUNIA_R3_ATTRIBUTE_BONUS
-end
-
-function modifier_solunia_r_passive:GetRoshpitIntelligenceBonus()
-	return self:GetCaster():GetRuneValue("r", 3)*SOLUNIA_R3_ATTRIBUTE_BONUS
-end
-
-function modifier_solunia_r_passive:GetStatusEffectName()
-	local ability = self:GetAbility()
-	if ability:IsSoluniaState(SOLUNIA_STATE_SOLAR) then
-		return "particles/status_fx/status_effect_gods_strength.vpcf"
-	else
-		return false
-	end
-end
-
-function modifier_solunia_r_passive:StatusEffectPriority()
+function modifier_solunia_r_arcana_passive:StatusEffectPriority()
 	return 10
 end
 
-function modifier_solunia_r_passive:GetRoshpitElementalDmgBonus()
-	return self:GetCaster():GetRuneValue("r", 4)*SOLUNIA_R4_COSMIC_AMP/100
+function modifier_solunia_r_arcana_passive:GetRoshpitElementalDmgBonus()
+	return self:GetCaster():GetRuneValue("r", 4)*SOLUNIA_ARCANA_R4_COSMIC_AMP/100
 end
 
-function modifier_solunia_r_passive:OnIntervalThink()
+function modifier_solunia_r_arcana_passive:OnIntervalThink()
 	if not IsServer() then
 		return false
 	end
 	self:SetStackCount(self:GetCaster():GetRuneValue("r", 4))
+	self:GetParent():SetStatsForLevel()
 end
+
+function modifier_solunia_r_arcana_passive:GetRoshpitStrengthPctBonus()
+	return self:GetCaster():GetRuneValue("r", 3)*SOLUNIA_ARCANA_R3_ATTR_PCT
+end
+
+function modifier_solunia_r_arcana_passive:GetRoshpitAgilityPctBonus()
+	return self:GetCaster():GetRuneValue("r", 3)*SOLUNIA_ARCANA_R3_ATTR_PCT
+end
+
+function modifier_solunia_r_arcana_passive:GetRoshpitIntelligencePctBonus()
+	return self:GetCaster():GetRuneValue("r", 3)*SOLUNIA_ARCANA_R3_ATTR_PCT
+end
+
+function modifier_solunia_r_arcana_passive:GetRoshpitSpiritPctBonus()
+	return self:GetCaster():GetRuneValue("r", 3)*SOLUNIA_ARCANA_R3_ATTR_PCT
+end
+
 
 -- CHANNELING MODIFIER
 
@@ -255,9 +233,9 @@ function modifier_solunia_r_channeling:OnIntervalThink()
 	-- if caster:HasModifier("modifier_solunia_in_between_flare") then
 	-- 	return false
 	-- end
-	local rotation = ability.rotationIndex * 6 + ability.startRotation
-	caster:SetAngles(0, rotation, 0)
-	local verticalMotion = Vector(0, 0, 2)
+	-- local rotation = ability.rotationIndex * 6 + ability.startRotation
+	-- caster:SetAngles(0, rotation, 0)
+	local verticalMotion = Vector(0, 0, 0.7)
 	local distanceFromGround =caster:GetDistanceFromGround()
 	if distanceFromGround > 500 then
 		verticalMotion = Vector(0,0,0)
@@ -266,7 +244,7 @@ function modifier_solunia_r_channeling:OnIntervalThink()
 	elseif distanceFromGround > 700 then
 		verticalMotion = Vector(0,0,-2)
 	end
-	caster:SetAbsOrigin(caster:GetAbsOrigin() + verticalMotion + Vector(0, 0, math.sin(math.pi * ability.rotationIndex / 30) * 6))
+	caster:SetAbsOrigin(caster:GetAbsOrigin() + verticalMotion + Vector(0, 0, math.sin(math.pi * ability.rotationIndex / 20) * 6))
 	if distanceFromGround >= SOLUNIA_R_HEIGHT_FOR_ATTACK_IMMUNE then
 		ability.above_ground_immunity = true
 	else
@@ -276,11 +254,7 @@ function modifier_solunia_r_channeling:OnIntervalThink()
 end
 
 function modifier_solunia_r_channeling:GetRoshpitParticleName()
-	if self:GetAbility():IsSoluniaState(SOLUNIA_STATE_SOLAR) then
-		return "particles/units/heroes/hero_phoenix/phoenix_supernova_egg.vpcf"
-	elseif self:GetAbility():IsSoluniaState(SOLUNIA_STATE_LUNAR) then
-		return "particles/roshpit/solunia/channel_eclipse.vpcf"
-	end
+	return "particles/roshpit/solunia/channel_eclipse.vpcf"
 end
 
 function modifier_solunia_r_channeling:GetEffectAttachType()
@@ -348,4 +322,23 @@ function modifier_solunia_falling:OnIntervalThink()
 		StartAnimation(caster, {duration = 0.3, activity = ACT_DOTA_SPAWN, rate = 1.8})
 		CustomAbilities:QuickParticleAtPoint("particles/econ/items/lanaya/lanaya_epit_trap/templar_assassin_epit_trap_start_dust.vpcf", caster:GetAbsOrigin(), 3)
 	end
+end
+
+-- R1 MODIFIER
+
+function modifier_solunia_hypernova_warpspeed:DeclareFunctions()
+	local funcs = {
+		MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
+		MODIFIER_PROPERTY_MOVESPEED_MAX,
+	}
+
+	return funcs
+end
+
+function modifier_solunia_hypernova_warpspeed:GetModifierMoveSpeedBonus_Constant()
+	return self:GetCaster():GetRuneValue("r", 1)*SOLUNIA_ARCANA_R1_MS
+end
+
+function modifier_solunia_hypernova_warpspeed:GetModifierMoveSpeed_Max_Increase(params)
+	return self:GetCaster():GetRuneValue("r", 1)*SOLUNIA_ARCANA_R1_MAX_MS
 end
