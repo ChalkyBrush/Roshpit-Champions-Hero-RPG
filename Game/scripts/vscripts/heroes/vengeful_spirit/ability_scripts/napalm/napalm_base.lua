@@ -168,6 +168,10 @@ function napalm_base:GetGalacticName()
 	return "solunia_napalm_galactic"
 end
 
+function napalm_base:Glyph2_1(position)
+	self:ThrowNapalm(self:GetCaster():GetAbsOrigin(), position)
+end
+
 -- PASSIVE
 
 function modifier_solunia_q_passive:IsHidden()

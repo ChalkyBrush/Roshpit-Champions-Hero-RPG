@@ -28,7 +28,7 @@ function modifierClass:OnCreated()
         return
     end
     self:SetSpecialTypes({ 
-
+        MODIFIER_SPECIAL_TYPE_CAST_E_ABILITY 
     })
 end
 
@@ -41,3 +41,17 @@ end
 function modifierClass:RemoveOnDeath()
     return false
 end
+
+function modifierClass:OnCastEAbility()
+    local hero = self:GetParent()
+    local e_ability = hero:GetAbilityByIndex(DOTA_E_SLOT)
+    local position = e_ability:GetCursorPosition()
+    local q_ability = hero:GetAbilityByIndex(DOTA_Q_SLOT)
+    print("CAST E")
+    for i = 0, SOLUNIA_GLYPH_2_1_BOMB_COUNT - 1, 1 do
+        Timers:CreateTimer(i*0.15, function()
+            q_ability:Glyph2_1(position)
+        end)
+    end
+end
+

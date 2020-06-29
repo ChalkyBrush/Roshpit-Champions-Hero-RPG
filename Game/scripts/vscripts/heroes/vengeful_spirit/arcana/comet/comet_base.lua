@@ -74,16 +74,7 @@ function comet_base:CometStart()
 
 	StartAnimation(caster, {duration = 0.3, activity = ACT_DOTA_CAST_ABILITY_1, rate = 1.8})
 
-	local cast_direction = ((target - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
-	CustomAbilities:QuickParticleAtPoint(self:GetCastParticleName(), caster:GetAbsOrigin(), 3)
-	local pfx = ParticleManager:CreateParticle(castParticle, PATTACH_CUSTOMORIGIN, caster)
-
-	EmitSoundOn("Solunia.Arcana1.Cast", caster)
-	EmitSoundOnLocationWithCaster(target, "Solunia.Arcana1.Comet", caster)
-	CustomAbilities:QuickParticleAtPoint(self:GetCometParticleName(), target, 4)
-	Timers:CreateTimer(0.45, function()
-		self:CometImpact(target)
-	end)
+	self:ThrowComet(target)
 	local new_stacks = caster:GetModifierStackCount("modifier_solunia_arcana_q_charges", caster) - 1
 	if new_stacks > 0 then
 		caster:SetModifierStackCount("modifier_solunia_arcana_q_charges", caster, new_stacks)
@@ -94,6 +85,18 @@ function comet_base:CometStart()
 		caster:FindModifierByName("modifier_solunia_glyph_1_1"):GlyphQCast(target, ability)
 	end
 	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
+end
+
+function comet_base:ThrowComet(target)
+	local caster = self:GetCaster()
+	local ability = self
+	CustomAbilities:QuickParticleAtPoint(self:GetCastParticleName(), caster:GetAbsOrigin(), 3)
+	EmitSoundOn("Solunia.Arcana1.Cast", caster)
+	EmitSoundOnLocationWithCaster(target, "Solunia.Arcana1.Comet", caster)
+	CustomAbilities:QuickParticleAtPoint(self:GetCometParticleName(), target, 4)
+	Timers:CreateTimer(0.45, function()
+		self:CometImpact(target)
+	end)
 end
 
 function comet_base:CometImpact(position)
@@ -127,6 +130,10 @@ end
 
 function comet_base:GetGalacticName()
 	return "solunia_comet_galactic"
+end
+
+function comet_base:Glyph2_1(position)
+	self:ThrowComet(position)
 end
 
 -- Q ARCANA1 PASSIVE
