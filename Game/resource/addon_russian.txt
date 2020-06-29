@@ -9804,19 +9804,19 @@
 		
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_1_1"		"[T1-1] Glyph of Crescents"
-		"item_rpc_solunia_glyph_1_1_description" 				"Увеличивает максимальное количество бросков бумерангов на <font color='#ccff66'>2</font>."
+		"item_rpc_solunia_glyph_1_1_description" 				"Увеличивает максимальное количество бросков бумерангов на 0."
 
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_2_1"		"[T2-1] Glyph of Gravitation"
-		"item_rpc_solunia_glyph_2_1_description" 				"Возвращение бумеранга, задевшего хотя бы одного врага снижает текущее время перезарядки (Q) Napalm на <font color='#ccff66'>2</font> сек."
+		"item_rpc_solunia_glyph_2_1_description" 				"Возвращение бумеранга, задевшего хотя бы одного врага снижает текущее время перезарядки (Q) Napalm на 0 сек."
 
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_3_1"		"[T3-1] Glyph of Hypernova"
-		"item_rpc_solunia_glyph_3_1_description" 				"Увеличивает время оглушения от (Q) @Ability1 на <font color='#ccff66'>1</font> сек."
+		"item_rpc_solunia_glyph_3_1_description" 				"Увеличивает время оглушения от (Q) @Ability1 на 0 сек."
 
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_4_1"		"[T4-1] Glyph of Umbra"
-		"item_rpc_solunia_glyph_4_1_description" 				"Увеличивает время полёта от (E) Warp Flare на <font color='#ccff66'>1.5</font> сек."
+		"item_rpc_solunia_glyph_4_1_description" 				"Увеличивает время полёта от (E) Warp Flare на 0 сек."
 
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_5_1"		"[T5-1] Glyph of Neutrino"
-		"item_rpc_solunia_glyph_5_1_description" 				"После прочтения @Ability4 дает щит, блокирующий <font color='#ccff66'>3</font> порций урона."
+		"item_rpc_solunia_glyph_5_1_description" 				"После прочтения @Ability4 дает щит, блокирующий 0 порций урона."
 		
 		"DOTA_Tooltip_modifier_solunia_glyph_5_1_shield"		"Neutrino"
 		"DOTA_Tooltip_modifier_solunia_glyph_5_1_shield_Description"		"Поглощает 1 порцию урона за щит."
@@ -9831,10 +9831,10 @@
 		"DOTA_Tooltip_modifier_solunia_glyph_6_1_ready_Description"	"Следующее прочтение (Q) Napalm не будет перезаряжаться."
 
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_7_1"		"[T7-1] Glyph of Light Years"
-		"item_rpc_solunia_glyph_7_1_description" 				"Увеличивает максимальное количество возможных прыжков (E) Warp Flares на <font color='#ccff66'>2</font>."
+		"item_rpc_solunia_glyph_7_1_description" 				"Увеличивает максимальное количество возможных прыжков (E) Warp Flares на 0."
 
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_5_a"		"[T5-a] Glyph of Protostar"
-		"item_rpc_solunia_glyph_5_a_description" 				"При получении смертельного урона герой поднимается в воздух, при этом сбрасывается время перезарядки (R) Supernova или (R) Eclipse и герой произносит умение (R). Перезаряжается <font color='#ccff66'>18</font> сек."
+		"item_rpc_solunia_glyph_5_a_description" 				"При получении смертельного урона герой поднимается в воздух, при этом сбрасывается время перезарядки (R) Supernova или (R) Eclipse и герой произносит умение (R). Перезаряжается 0 сек."
 
 		"DOTA_Tooltip_modifier_solunia_glyph_5_a_cooldown"		"Protostar Cooldown"
 		

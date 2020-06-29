@@ -10117,19 +10117,19 @@
 		
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_1_1"		"[T1-1] 新月雕文"
-		"item_rpc_solunia_glyph_1_1_description" 				"增加 <font color='#ccff66'>2</font> 个回旋镖（W）的数量。"
+		"item_rpc_solunia_glyph_1_1_description" 				"增加 0 个回旋镖（W）的数量。"
 
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_2_1"		"[T2-1] 引力雕文"
-		"item_rpc_solunia_glyph_2_1_description" 				"每收回一个击中至少1个单位的回旋镖会使日月之石的冷却时间降低 <font color='#ccff66'>2</font> 秒。"
+		"item_rpc_solunia_glyph_2_1_description" 				"每收回一个击中至少1个单位的回旋镖会使日月之石的冷却时间降低 0 秒。"
 
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_3_1"		"[T3-1] 超新星雕文"
-		"item_rpc_solunia_glyph_3_1_description" 				"增加日月之石眩晕时间 <font color='#ccff66'>1</font> 秒。"
+		"item_rpc_solunia_glyph_3_1_description" 				"增加日月之石眩晕时间 0 秒。"
 
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_4_1"		"[T4-1] 影子雕文"
-		"item_rpc_solunia_glyph_4_1_description" 				"增加弯曲火焰浮空时间 <font color='#ccff66'>1.5</font> 秒。"
+		"item_rpc_solunia_glyph_4_1_description" 				"增加弯曲火焰浮空时间 0 秒。"
 
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_5_1"		"[T5-1] 中微子雕文"
-		"item_rpc_solunia_glyph_5_1_description" 				"释放R技能，会获得<font color='#ccff66'>3</font>层护盾，直到护盾被破坏。"
+		"item_rpc_solunia_glyph_5_1_description" 				"释放R技能，会获得0层护盾，直到护盾被破坏。"
 
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_6_1"		"[T6-1] 奇點雕文"
 		"item_rpc_solunia_glyph_6_1_description" 				"施放超新星或者日食后，获得buff使日月之石没有冷却时间。"
@@ -10138,10 +10138,10 @@
 		"DOTA_Tooltip_modifier_solunia_glyph_6_1_ready_Description"	"日月之石没有冷却时间。"
 
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_7_1"		"[T7-1] 光年雕文"
-		"item_rpc_solunia_glyph_7_1_description" 				"增加弯曲火焰的最大数量 <font color='#ccff66'>2</font>。"
+		"item_rpc_solunia_glyph_7_1_description" 				"增加弯曲火焰的最大数量 0。"
 
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_5_a"		"[T5-a] 原恆星雕文"
-		"item_rpc_solunia_glyph_5_a_description" 				"受到致命伤害时日夜女神进入天空刷新超新星和日食并且施放。 <font color='#ccff66'>18</font> 冷却时间。"
+		"item_rpc_solunia_glyph_5_a_description" 				"受到致命伤害时日夜女神进入天空刷新超新星和日食并且施放。 0 冷却时间。"
 
 		"DOTA_Tooltip_modifier_solunia_glyph_5_a_cooldown"		"原恆星冷却时间"
 		

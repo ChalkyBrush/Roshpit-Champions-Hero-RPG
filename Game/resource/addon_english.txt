@@ -10452,46 +10452,46 @@
 		
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_1_1"		"[T1-1] Glyph of Orbital Nuke"
-		"item_rpc_solunia_glyph_1_1_description" 				"Create a vacuum of 0 radius at the cast point of @Ability1 that pushes enemies toward the target position."
+		"item_rpc_solunia_glyph_1_1_description" 				"Create a vacuum of <font color='#ccff66'>450</font> radius at the cast point of @Ability1 that pushes enemies toward the target position."
         
         "DOTA_Tooltip_ability_item_rpc_solunia_glyph_2_1"       "[T2-1] Glyph of Azimuth"
-        "item_rpc_solunia_glyph_2_1_description"                "Throw 0 @Ability1 at the cast point of @Ability3"
+        "item_rpc_solunia_glyph_2_1_description"                "Throw <font color='#ccff66'>3</font> @Ability1 at the cast point of @Ability3"
 
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_3_1"		"[T3-1] Glyph of Phoenixia"
 		"item_rpc_solunia_glyph_3_1_description" 				"Restore Max Health and Mana on successful cast of @Ability4"
 
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_4_1"		"[T4-1] Glyph of Crescents"
-		"item_rpc_solunia_glyph_4_1_description" 				"Increases the maximum number of conccurrent @Ability2 by 0"
+		"item_rpc_solunia_glyph_4_1_description" 				"Increases the maximum number of conccurrent @Ability2 by <font color='#ccff66'>3</font>"
 
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_5_1"		"[T5-1] Glyph of Neutrino"
-		"item_rpc_solunia_glyph_5_1_description" 				"Adds 0% of Attack Power to the base damage of @Ability1."
+		"item_rpc_solunia_glyph_5_1_description" 				"Adds <font color='#ccff66'>25</font>% of Attack Power to the base damage of @Ability1."
 		
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_6_1"		"[T6-1] Glyph of Light Years"
 		"item_rpc_solunia_glyph_6_1_description" 				"Warp Flare has 1 extra jump sequence."
 
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_7_1"		"[T7-1] Glyph of Cryoshock"
-		"item_rpc_solunia_glyph_7_1_description" 				"When @Ability2 crits, freeze all enemies in 0 range for 0 seconds."
+		"item_rpc_solunia_glyph_7_1_description" 				"When @Ability2 crits, freeze all enemies in <font color='#ccff66'>300</font> range for <font color='#ccff66'>1.5</font> seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_5_a"		"[T5-a] Glyph of Protostar"
 		"item_rpc_solunia_glyph_5_a_description" 				"The last jump of @Ability3 completes a successful cast of @Ability4 without activating its cooldown."
 
         "DOTA_Tooltip_ability_item_rpc_solunia_glyph_1_2"       "[T1-2] Glyph of Inertia"
-        "item_rpc_solunia_glyph_1_1_description"                "Casting @Ability3 throws an attack toward all enemies in 0 range."
+        "item_rpc_solunia_glyph_1_1_description"                "Casting @Ability3 throws an attack toward all enemies in <font color='#ccff66'>500</font> range."
 
         "DOTA_Tooltip_ability_item_rpc_solunia_glyph_2_2"       "[T2-2] Glyph of Gravitron"
-        "item_rpc_solunia_glyph_2_2_description"                "Create a vacuum of 0 radius while channeling @Ability4."
+        "item_rpc_solunia_glyph_2_2_description"                "Create a vacuum of <font color='#ccff66'>1000</font> radius while channeling @Ability4."
 
         "DOTA_Tooltip_ability_item_rpc_solunia_glyph_3_2"       "[T3-2] Glyph of Blueshift"
-        "item_rpc_solunia_glyph_3_2_description"                "Increases Turn Rate by 0%"
+        "item_rpc_solunia_glyph_3_2_description"                "Increases Turn Rate by <font color='#ccff66'>80</font>%"
 
         "DOTA_Tooltip_ability_item_rpc_solunia_glyph_4_2"       "[T4-2] Glyph of Helioshphere"
         "item_rpc_solunia_glyph_4_2_description"                "While channeling @Ability4 throw a @Ability1 every 0 seconds."
 
         "DOTA_Tooltip_ability_item_rpc_solunia_glyph_5_2"       "[T5-2] Glyph of Ion Blades"
-        "item_rpc_solunia_glyph_5_2_description"                "@Ability2 can stick to enemies (Boomerang) or throws up to 0 additional blades (Vorpal Blades)"
+        "item_rpc_solunia_glyph_5_2_description"                "@Ability2 can stick to enemies (Boomerang) or throws up to <font color='#ccff66'>2</font> additional blades (Vorpal Blades)"
         
         "DOTA_Tooltip_ability_item_rpc_solunia_glyph_6_2"       "[T6-2] Glyph of Event Horizon"
-        "item_rpc_solunia_glyph_6_2_description"                "When @Ability2 hits an enemy, there is a 0% chance to trigger an explosion of @Ability4."
+        "item_rpc_solunia_glyph_6_2_description"                "When @Ability2 hits an enemy, there is a <font color='#ccff66'>10</font>% chance to trigger an explosion of @Ability4."
 
         "DOTA_Tooltip_ability_item_rpc_solunia_glyph_7_2"       "[T7-2] Glyph of Magnetosphere"
         "item_rpc_solunia_glyph_7_2_description"                "Casting @Ability4 throws the maximum number of @Ability2 in all directions"
