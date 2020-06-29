@@ -169,7 +169,7 @@ function vorpal_blades_base:VorpalThinker()
 
 			if vorpal.interval >= 2 then
 				if IsValidEntity(vorpal.lock_entity) and vorpal.lock_entity:IsAlive() then
-					vorpal.target = vorpal.lock_entity:GetAbsOrigin()
+					vorpal.target = vorpal.lock_entity:GetAbsOrigin() + Vector(0,0,80)
 				end
 			end
 			if vorpal.interval >= 120 then
@@ -218,7 +218,7 @@ function vorpal_blades_base:VorpalThinker()
 					if IsValidEntity(new_target) then
 						vorpal.interval = math.ceil(vorpal.interval/2)
 						vorpal.lock_entity = new_target
-						vorpal.target = vorpal.lock_entity:GetAbsOrigin()
+						vorpal.target = vorpal.lock_entity:GetAbsOrigin() + Vector(0,0,80)
 					else
 						vorpal.active = false
 					end

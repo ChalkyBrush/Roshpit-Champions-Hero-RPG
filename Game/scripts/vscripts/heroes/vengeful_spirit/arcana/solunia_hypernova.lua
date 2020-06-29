@@ -5,8 +5,8 @@ solunia_hypernova = class(base_ability)
 modifier_solunia_r_arcana_passive = class(npc_base_modifier, nil, npc_base_modifier)
 LinkLuaModifier("modifier_solunia_r_arcana_passive", "heroes/vengeful_spirit/arcana/solunia_hypernova.lua", LUA_MODIFIER_MOTION_NONE)
 
-modifier_solunia_r_channeling = class(npc_base_modifier, nil, npc_base_modifier)
-LinkLuaModifier("modifier_solunia_r_channeling", "heroes/vengeful_spirit/arcana/solunia_hypernova.lua", LUA_MODIFIER_MOTION_NONE)
+modifier_solunia_r_arcana_channeling = class(npc_base_modifier, nil, npc_base_modifier)
+LinkLuaModifier("modifier_solunia_r_arcana_channeling", "heroes/vengeful_spirit/arcana/solunia_hypernova.lua", LUA_MODIFIER_MOTION_NONE)
 
 modifier_solunia_falling = class(npc_base_modifier, nil, npc_base_modifier)
 LinkLuaModifier("modifier_solunia_falling", "heroes/vengeful_spirit/arcana/solunia_hypernova.lua", LUA_MODIFIER_MOTION_NONE)
@@ -73,13 +73,11 @@ function solunia_hypernova:OnSpellStartBase()
     if self:GetChannelTimeBase() > 0 then
 		StartSoundEvent("Solunia.Hypernova.Channel", caster)
 		ability.rotationIndex = 0
-		ability.fallVelocity = 1
 		ability.startRotation = WallPhysics:vectorToAngle(caster:GetForwardVector())
-		caster:AddNewModifier(caster, self, "modifier_solunia_r_channeling", {duration = self:GetChannelTimeBase()})
+		caster:AddNewModifier(caster, self, "modifier_solunia_r_arcana_channeling", {duration = self:GetChannelTimeBase()})
 	end
+	ability.fallVelocity = 1
 	caster:RemoveModifierByName("modifier_solunia_between_warp")
-	
-	
 end
 
 function solunia_hypernova:OnChannelFinish(interrupted)
@@ -87,7 +85,7 @@ function solunia_hypernova:OnChannelFinish(interrupted)
 	local ability = self
 	caster:RemoveModifierByName("modifier_solunia_between_warp")
 	caster:RemoveModifierByName("modifier_channel_start")
-	caster:RemoveModifierByName("modifier_solunia_r_channeling")
+	caster:RemoveModifierByName("modifier_solunia_r_arcana_channeling")
 	caster:AddNewModifier(caster, ability, "modifier_solunia_falling", {duration = 2})
 	StopSoundEvent("Solunia.Hypernova.Channel", caster)
 	if not interrupted then
@@ -223,8 +221,9 @@ end
 
 function solunia_hypernova:ImmortalWeapon3Movement(position)
 	local caster = self:GetCaster()
-	local newPosition = WallPhysics:WallSearch(caster:GetAbsOrigin(), position, caster)
-	FindClearSpaceForUnit(caster, newPosition, false)
+	local search_position = WallPhysics:WallSearch(caster:GetAbsOrigin(), position, caster)
+	local new_position = Vector(search_position.x, search_position.y, caster:GetAbsOrigin().z)
+	caster:SetAbsOrigin(new_position)
 end
 
 -- PASSIVE
@@ -294,11 +293,11 @@ end
 
 -- CHANNELING MODIFIER
 
-function modifier_solunia_r_channeling:IsHidden()
+function modifier_solunia_r_arcana_channeling:IsHidden()
 	return true
 end
 
-function modifier_solunia_r_channeling:OnCreated()
+function modifier_solunia_r_arcana_channeling:OnCreated()
 	if not IsServer() then
 		return false
 	end
@@ -306,12 +305,12 @@ function modifier_solunia_r_channeling:OnCreated()
 	self:StartIntervalThink(0.03)
 end
 
-function modifier_solunia_r_channeling:SetRoshpitParticleControlPoints(pfx)
+function modifier_solunia_r_arcana_channeling:SetRoshpitParticleControlPoints(pfx)
 	-- ParticleManager:SetParticleControlEnt(pfx, 0, self:GetParent(), self:GetEffectAttachType(), self:GetRoshpitParticleAttachPoint(), self:GetParent():GetAbsOrigin(), true)
 	ParticleManager:SetParticleControlEnt(pfx, 1, self:GetParent(), self:GetEffectAttachType(), self:GetRoshpitParticleAttachPoint(), self:GetParent():GetAbsOrigin(), true)
 end
 
-function modifier_solunia_r_channeling:OnIntervalThink()
+function modifier_solunia_r_arcana_channeling:OnIntervalThink()
     local caster = self:GetCaster()
     local ability = self:GetAbility()
 
@@ -338,19 +337,19 @@ function modifier_solunia_r_channeling:OnIntervalThink()
 	ability.rotationIndex = ability.rotationIndex + 1
 end
 
-function modifier_solunia_r_channeling:GetRoshpitParticleName()
+function modifier_solunia_r_arcana_channeling:GetRoshpitParticleName()
 	return "particles/roshpit/solunia/galactic/galactic_channel_supernova.vpcf"
 end
 
-function modifier_solunia_r_channeling:GetEffectAttachType()
+function modifier_solunia_r_arcana_channeling:GetEffectAttachType()
 	return PATTACH_POINT_FOLLOW
 end
 
-function modifier_solunia_r_channeling:GetRoshpitParticleAttachPoint()
+function modifier_solunia_r_arcana_channeling:GetRoshpitParticleAttachPoint()
 	return "attach_hitloc"
 end
 
-function modifier_solunia_r_channeling:OnDestroy()
+function modifier_solunia_r_arcana_channeling:OnDestroy()
 	if not IsServer() then
 		return false
 	end
@@ -358,7 +357,7 @@ function modifier_solunia_r_channeling:OnDestroy()
 	self:GetAbility().above_ground_immunity = false
 end
 
-function modifier_solunia_r_channeling:CheckState()
+function modifier_solunia_r_arcana_channeling:CheckState()
 	local ability = self:GetAbility()
 	if not IsServer() then
 		return false
@@ -393,7 +392,7 @@ end
 function modifier_solunia_falling:OnIntervalThink()
     local caster = self:GetCaster()
     local ability = self:GetAbility()
-    if caster:HasModifier("modifier_solunia_r_channeling") then
+    if caster:HasModifier("modifier_solunia_r_arcana_channeling") then
     	return false
     end
 	caster:SetAbsOrigin(caster:GetAbsOrigin() - Vector(0, 0, ability.fallVelocity))

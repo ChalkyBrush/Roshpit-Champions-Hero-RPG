@@ -76,10 +76,10 @@ function supernova_base:SuperNovaChannelStart()
     if self:GetChannelTimeBase() > 0 then
 		StartSoundEvent("Solunia.Supernova", caster)
 		ability.rotationIndex = 0
-		ability.fallVelocity = 1
 		ability.startRotation = WallPhysics:vectorToAngle(caster:GetForwardVector())
 		caster:AddNewModifier(caster, self, "modifier_solunia_r_channeling", {duration = self:GetChannelTimeBase()})
 	end
+	ability.fallVelocity = 1
 	caster:RemoveModifierByName("modifier_solunia_between_warp")
 end
 
@@ -188,8 +188,9 @@ end
 
 function supernova_base:ImmortalWeapon3Movement(position)
 	local caster = self:GetCaster()
-	local newPosition = WallPhysics:WallSearch(caster:GetAbsOrigin(), position, caster)
-	FindClearSpaceForUnit(caster, newPosition, false)
+	local search_position = WallPhysics:WallSearch(caster:GetAbsOrigin(), position, caster)
+	local new_position = Vector(search_position.x, search_position.y, caster:GetAbsOrigin().z)
+	caster:SetAbsOrigin(new_position)
 end
 
 -- PASSIVE

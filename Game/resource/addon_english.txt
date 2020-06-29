@@ -10503,7 +10503,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_solunia_immortal_weapon_1"		"Shooting Star"
 		"item_property_solunia_immortal_weapon"							"Thales Shield"
-		"property_solunia_immortal_weapon_description"					"Issuing a Stop Order applies a shield that reduces all damage taken by 100% for <font color='#ccff66'>4</font> seconds. <font color='#ccff66'>8</font> second cooldown."
+		"property_solunia_immortal_weapon_description"					"Issuing a Stop Order applies a shield that reduces all damage taken by 100% for <font color='#ccff66'>5</font> seconds. <font color='#ccff66'>8</font> second cooldown."
 
         "DOTA_Tooltip_modifier_solunia_immortal_weapon_1_thales_shield"     "Thales Shield"
         "DOTA_Tooltip_modifier_solunia_immortal_weapon_1_thales_shield_Description" "All Damage taken reduced by 100%" 
