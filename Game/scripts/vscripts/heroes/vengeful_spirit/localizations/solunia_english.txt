@@ -372,7 +372,7 @@
 		"item_rpc_solunia_glyph_5_a_description" 				"The last jump of @Ability3 completes a successful cast of @Ability4 without activating its cooldown."
 
         "DOTA_Tooltip_ability_item_rpc_solunia_glyph_1_2"       "[T1-2] Glyph of Inertia"
-        "item_rpc_solunia_glyph_1_1_description"                "Casting @Ability3 throws an attack toward all enemies in <% SOLUNIA_GLYPH_1_2_ATTACK_RADIUS %> range."
+        "item_rpc_solunia_glyph_1_2_description"                "Casting @Ability3 throws an attack toward all enemies in <% SOLUNIA_GLYPH_1_2_ATTACK_RADIUS %> range."
 
         "DOTA_Tooltip_ability_item_rpc_solunia_glyph_2_2"       "[T2-2] Glyph of Gravitron"
         "item_rpc_solunia_glyph_2_2_description"                "Create a vacuum of <% SOLUNIA_GLYPH_2_2_RADIUS %> radius while channeling @Ability4."
@@ -380,11 +380,11 @@
         "DOTA_Tooltip_ability_item_rpc_solunia_glyph_3_2"       "[T3-2] Glyph of Blueshift"
         "item_rpc_solunia_glyph_3_2_description"                "Increases Turn Rate by <% SOLUNIA_GLYPH_3_2_TURN_RATE_BONUS %>% and Movespeed by <% SOLUNIA_GLYPH_3_2_MS_BONUS %>."
 
-        "DOTA_Tooltip_ability_item_rpc_solunia_glyph_4_2"       "[T4-2] Glyph of Helioshphere"
-        "item_rpc_solunia_glyph_4_2_description"                "While channeling @Ability4 throw a @Ability1 every <% SOLUNIA_GLYPH_4_2_BOMB_INTERVAL %> seconds."
+        "DOTA_Tooltip_ability_item_rpc_solunia_glyph_4_2"       "[T4-2] Glyph of Meteor Showers"
+        "item_rpc_solunia_glyph_4_2_description"                "While channeling @Ability4 throw a @Ability1 at a random enemy within <% SOLUNIA_GLYPH_4_2_RANGE %> range every <% SOLUNIA_GLYPH_4_2_BOMB_INTERVAL %> seconds."
 
         "DOTA_Tooltip_ability_item_rpc_solunia_glyph_5_2"       "[T5-2] Glyph of Ion Blades"
-        "item_rpc_solunia_glyph_5_2_description"                "@Ability2 can stick to enemies (Boomerang) or throws up to <% SOLUNIA_GLYPH_5_2_ADDITIONAL_VORPLAL_BLADES %> additional blades (Vorpal Blades)"
+        "item_rpc_solunia_glyph_5_2_description"                "@Ability2 can stick to enemies (Boomerang) or throws up to <% SOLUNIA_GLYPH_5_2_ADDITIONAL_VORPAL_BLADES %> additional blades (Vorpal Blades)"
         
         "DOTA_Tooltip_ability_item_rpc_solunia_glyph_6_2"       "[T6-2] Glyph of Event Horizon"
         "item_rpc_solunia_glyph_6_2_description"                "When @Ability2 hits an enemy, there is a <% SOLUNIA_GLYPH_6_2_EXPLOSION_CHANCE %>% chance to trigger an explosion of @Ability4."

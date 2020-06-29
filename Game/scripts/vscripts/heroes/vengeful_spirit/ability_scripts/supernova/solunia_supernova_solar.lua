@@ -43,6 +43,10 @@ function solunia_supernova_solar:GetAlternateDualBurnModifierName()
 	return "modifier_solunia_r2_dual_burn_lunar"
 end
 
+function solunia_supernova_solar:GetWaveProjectileName()
+	return "particles/roshpit/solunia/a_a_wave_solar.vpcf"
+end
+
 -- BURN MODIFIER
 
 function modifier_solunia_r2_dual_burn_solar:IsHidden()

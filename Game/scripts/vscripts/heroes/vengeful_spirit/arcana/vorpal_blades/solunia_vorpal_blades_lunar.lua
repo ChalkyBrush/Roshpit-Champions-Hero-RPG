@@ -9,7 +9,7 @@ modifier_vorpal_blades_thinker_lunar = class(npc_base_modifier, nil, npc_base_mo
 LinkLuaModifier("modifier_vorpal_blades_thinker_lunar", "heroes/vengeful_spirit/arcana/vorpal_blades/solunia_vorpal_blades_lunar.lua", LUA_MODIFIER_MOTION_NONE)
 
 function solunia_vorpal_blades_lunar:OnSpellStartBase()
-    self:CastVorpalBlades()
+    self:CastVorpalBlades(0)
 end
 
 function solunia_vorpal_blades_lunar:GetSwapAbilityName()

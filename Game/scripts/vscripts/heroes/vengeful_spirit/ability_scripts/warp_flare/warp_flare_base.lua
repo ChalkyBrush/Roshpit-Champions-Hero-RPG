@@ -162,6 +162,8 @@ function warp_flare_base:WarpTravelEnd()
 	self:RuneE2()
 
 	caster:RemoveModifierByName("modifier_solunia_warp_flare")
+
+	self:Glyph1_2()
 end
 
 function warp_flare_base:TravelEndParticle()
@@ -220,6 +222,18 @@ end
 
 function warp_flare_base:GetGalacticName()
 	return "solunia_warp_flare_galactic"
+end
+
+function warp_flare_base:Glyph1_2()
+	local caster = self:GetCaster()
+	if caster:HasModifier("modifier_solunia_glyph_1_2") then
+		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, SOLUNIA_GLYPH_1_2_ATTACK_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+		if #enemies > 0 then
+			for _, enemy in pairs(enemies) do
+				Filters:PerformAttackSpecial(caster, enemy, true, true, true, false, true, false, false)
+			end
+		end
+	end
 end
 
 -- PASSIVE

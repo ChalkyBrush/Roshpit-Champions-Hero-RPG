@@ -145,6 +145,8 @@ function end_warp_phase(caster, ability)
 		end
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_solunia_in_between_flare", {duration = inBetweenTime})
 	end
+	if caster:HasModifier("modifier_solunia_glyph_1_2") then
+	end
 end
 
 function flareParticle(position, caster, ability)

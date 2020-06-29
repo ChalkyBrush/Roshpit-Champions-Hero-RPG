@@ -28,7 +28,7 @@ function modifierClass:OnCreated()
         return
     end
     self:SetSpecialTypes({ 
-
+        MODIFIER_SPECIAL_TYPE_ON_HIT_W_ABILITY
     })
 end
 
@@ -40,4 +40,14 @@ function modifierClass:IsBuff()
 end
 function modifierClass:RemoveOnDeath()
     return false
+end
+
+function modifierClass:OnHitWAbility(event)
+    local luck = RandomInt(1, 100)
+    if luck <= SOLUNIA_GLYPH_6_2_EXPLOSION_CHANCE then
+        local parent = self:GetParent()
+        local position = event.victim:GetAbsOrigin()
+        local r_ability = parent:GetAbilityByIndex(DOTA_R_SLOT)
+        r_ability:MainExplosion(position)
+    end
 end

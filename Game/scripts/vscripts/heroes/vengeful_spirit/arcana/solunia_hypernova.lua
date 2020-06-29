@@ -226,6 +226,10 @@ function solunia_hypernova:Glyph5a()
 	self:OnChannelFinish(false)
 end
 
+function solunia_hypernova:GetWaveProjectileName()
+	return "particles/roshpit/solunia/galactic/a_a_wave_galactic_2.vpcf"
+end
+
 -- PASSIVE
 
 function modifier_solunia_r_arcana_passive:IsHidden()
@@ -335,6 +339,12 @@ function modifier_solunia_r_arcana_channeling:OnIntervalThink()
 		ability.above_ground_immunity = true
 	end
 	ability.rotationIndex = ability.rotationIndex + 1
+	if caster:HasModifier("modifier_solunia_glyph_2_2") and ability.rotationIndex%17 == 1 then
+		caster:FindModifierByName("modifier_solunia_glyph_2_2"):GlyphChannelThink(ability)
+	end
+	if caster:HasModifier("modifier_solunia_glyph_4_2") and ((ability.rotationIndex)%(SOLUNIA_GLYPH_4_2_BOMB_INTERVAL/0.03)) == 1 then
+		caster:FindModifierByName("modifier_solunia_glyph_4_2"):MeteorShower()
+	end
 end
 
 function modifier_solunia_r_arcana_channeling:GetRoshpitParticleName()

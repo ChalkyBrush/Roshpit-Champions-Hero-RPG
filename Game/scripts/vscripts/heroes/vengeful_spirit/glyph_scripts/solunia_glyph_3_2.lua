@@ -28,9 +28,19 @@ function modifierClass:OnCreated()
         return
     end
     self:SetSpecialTypes({ 
-
+        
+        MODIFIER_ROSHPIT_MASTER_MS
     })
 end
+
+function modifierClass:DeclareFunctions()
+    local funcs = {
+        MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE
+    }
+
+    return funcs
+end
+
 
 function modifierClass:IsHidden()
     return true
@@ -40,4 +50,12 @@ function modifierClass:IsBuff()
 end
 function modifierClass:RemoveOnDeath()
     return false
+end
+
+function modifierClass:GetModifierTurnRate_Percentage()
+    return SOLUNIA_GLYPH_3_2_TURN_RATE_BONUS
+end
+
+function modifierClass:GetRoshpitMasterMS()
+    return SOLUNIA_GLYPH_3_2_MS_BONUS
 end

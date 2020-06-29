@@ -305,6 +305,12 @@ function modifier_solunia_r_channeling:OnIntervalThink()
 		ability.above_ground_immunity = true
 	end
 	ability.rotationIndex = ability.rotationIndex + 1
+	if caster:HasModifier("modifier_solunia_glyph_2_2") and ability.rotationIndex%34 == 1 then
+		caster:FindModifierByName("modifier_solunia_glyph_2_2"):GlyphChannelThink(ability)
+	end
+	if caster:HasModifier("modifier_solunia_glyph_4_2") and ((ability.rotationIndex)%(SOLUNIA_GLYPH_4_2_BOMB_INTERVAL/0.03)) == 1 then
+		caster:FindModifierByName("modifier_solunia_glyph_4_2"):MeteorShower()
+	end
 end
 
 function modifier_solunia_r_channeling:GetRoshpitParticleName()

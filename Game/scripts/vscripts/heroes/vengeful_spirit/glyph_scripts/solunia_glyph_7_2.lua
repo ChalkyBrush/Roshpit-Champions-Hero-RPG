@@ -28,7 +28,7 @@ function modifierClass:OnCreated()
         return
     end
     self:SetSpecialTypes({ 
-
+        MODIFIER_SPECIAL_TYPE_CAST_R_ABILITY 
     })
 end
 
@@ -40,4 +40,9 @@ function modifierClass:IsBuff()
 end
 function modifierClass:RemoveOnDeath()
     return false
+end
+
+function modifierClass:OnCastRAbility()
+    local hero = self:GetParent()
+    hero:GetAbilityByIndex(DOTA_W_SLOT):Glyph7_2()
 end

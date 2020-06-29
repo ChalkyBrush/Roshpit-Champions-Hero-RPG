@@ -185,6 +185,19 @@ function boomerang_base:GetGalacticName()
 	return "solunia_boomerang_galactic"
 end
 
+function boomerang_base:Glyph7_2()
+	local total_max_blades = self:GetMaximumConcurrentBoomerangs()
+	local ability = self
+	for i = 1, total_max_blades, 1 do
+		local fv = WallPhysics:rotateVector(self:GetCaster():GetForwardVector(), 2*math.pi*i/total_max_blades)
+		local position = self:GetCaster():GetAbsOrigin() + fv*self:GetCastRange()
+		print(self:GetCastRange())
+		print(position)
+		ability.cast_position_override = position
+		ability:BoomerangStart()
+	end
+end
+
 -- PASSIVE
 
 function modifier_solunia_w_passive:IsHidden()
@@ -301,14 +314,14 @@ function modifier_boomerang_thinker:OnIntervalThink()
 
 	boomerang.throwPower = math.max(boomerang.throwPower - 0.4, 18)
 	local finalMoveVector = (boomerang.fv * boomerang.throwPower + targetPointFV * 0.2 * (boomerang.interval ^ 1.1))
-	-- local enemies = FindUnitsInRadius(boomerang:GetTeamNumber(), boomerang:GetAbsOrigin(), nil, 100, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+	local enemies = FindUnitsInRadius(boomerang:GetTeamNumber(), boomerang:GetAbsOrigin(), nil, 100, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 
 	local stickToTarget = nil
-	-- if #enemies > 0 then
-	-- 	stickToTarget = enemies[1]
-	-- end
+	if #enemies > 0 then
+		stickToTarget = enemies[1]
+	end
 
-	if stickToTarget then
+	if stickToTarget and caster:HasModifier("modifier_solunia_glyph_5_2") then
 		local distance3 = CalcDistanceBetweenEntityOBB(boomerang, stickToTarget)
 		if distance3 > 125 or boomerang.interval > 100 then
 			boomerang:SetAbsOrigin(boomerang:GetAbsOrigin() + finalMoveVector)

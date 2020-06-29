@@ -55,8 +55,16 @@ function vorpal_blades_base:GetTotalMaxBlades()
 	return max
 end
 
-function vorpal_blades_base:GetVorpalsForThisThrow(total_max_blades)
-	return math.min(3, total_max_blades-#self.vorpals)
+function vorpal_blades_base:GetVorpalsForThisThrow(total_max_blades, override)
+	local max_throw_count = 3
+	local caster = self:GetCaster()
+	if caster:HasModifier("modifier_solunia_glyph_5_2") then
+		max_throw_count = max_throw_count + SOLUNIA_GLYPH_5_2_ADDITIONAL_VORPAL_BLADES
+	end
+	if override > 0 then
+		max_throw_count = override
+	end
+	return math.min(max_throw_count, total_max_blades-#self.vorpals)
 end
 
 function vorpal_blades_base:GetTotalDamage()
@@ -70,7 +78,7 @@ function vorpal_blades_base:GetBladeBounceCount()
 	return self:GetSpecialValueFor("base_bounces") + Runes:Procs(w_4_level, SOLUNIA_ARCANA_W4_EXTRA_BOUNCE_CHANCE, 1)
 end
 
-function vorpal_blades_base:CastVorpalBlades()
+function vorpal_blades_base:CastVorpalBlades(override)
 	local caster = self:GetCaster()
 	local ability = self
 
@@ -90,7 +98,7 @@ function vorpal_blades_base:CastVorpalBlades()
 	end
 	local total_max_blades = self:GetTotalMaxBlades()
 
-	local vorpals_for_this_throw = self:GetVorpalsForThisThrow(total_max_blades)
+	local vorpals_for_this_throw = self:GetVorpalsForThisThrow(total_max_blades, override)
 
 	local damage = self:GetTotalDamage()
 
@@ -100,7 +108,7 @@ function vorpal_blades_base:CastVorpalBlades()
 	for i = 1, vorpals_for_this_throw do
 		local vorpal = {}
 		local vorpal_distance = 1300
-		local vorpal_fv = WallPhysics:rotateVector(baseFV, 2*math.pi*i/3)
+		local vorpal_fv = WallPhysics:rotateVector(baseFV, 2*math.pi*i/vorpals_for_this_throw)
 		local vorpal_target = caster:GetAbsOrigin()+vorpal_fv*vorpal_distance + Vector(0,0,160)
 		local vorpal_speed = 1000
 		local vorpal_origin = caster:GetAbsOrigin() + Vector(0,0,160)
@@ -154,6 +162,11 @@ end
 
 function vorpal_blades_base:GetGalacticName()
 	return "solunia_vorpal_blades_galactic"
+end
+
+function vorpal_blades_base:Glyph7_2()
+	local total_max_blades = self:GetTotalMaxBlades()
+	self:CastVorpalBlades(total_max_blades)
 end
 
 -- PROCESSOR MODIFIER
