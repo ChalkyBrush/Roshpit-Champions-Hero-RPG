@@ -59,7 +59,11 @@ function supernova_base:GetAOERadius()
 end
 
 function supernova_base:GetChannelTimeBase()
-    return 3.0
+	if self:GetCaster():HasModifier("modifier_solunia_immortal_weapon_3") then
+    	return 0
+	else
+		return 3
+	end
 end
 
 function supernova_base:GetCastAnimation()
@@ -69,11 +73,13 @@ end
 function supernova_base:SuperNovaChannelStart()
     local caster = self:GetCaster()
     local ability = self
-	StartSoundEvent("Solunia.Supernova", caster)
-	ability.rotationIndex = 0
-	ability.fallVelocity = 1
-	ability.startRotation = WallPhysics:vectorToAngle(caster:GetForwardVector())
-	caster:AddNewModifier(caster, self, "modifier_solunia_r_channeling", {duration = self:GetChannelTimeBase()})
+    if self:GetChannelTimeBase() > 0 then
+		StartSoundEvent("Solunia.Supernova", caster)
+		ability.rotationIndex = 0
+		ability.fallVelocity = 1
+		ability.startRotation = WallPhysics:vectorToAngle(caster:GetForwardVector())
+		caster:AddNewModifier(caster, self, "modifier_solunia_r_channeling", {duration = self:GetChannelTimeBase()})
+	end
 	caster:RemoveModifierByName("modifier_solunia_between_warp")
 end
 

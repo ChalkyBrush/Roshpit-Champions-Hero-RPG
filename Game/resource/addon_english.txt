@@ -10504,6 +10504,9 @@
 		"DOTA_Tooltip_ability_item_rpc_solunia_immortal_weapon_1"		"Shooting Star"
 		"item_property_solunia_immortal_weapon"							"Thales Shield"
 		"property_solunia_immortal_weapon_description"					"Issuing a Stop Order applies a shield that reduces all damage taken by 100% for <font color='#ccff66'>4</font> seconds. <font color='#ccff66'>8</font> second cooldown."
+
+        "DOTA_Tooltip_modifier_solunia_immortal_weapon_1_thales_shield"     "Thales Shield"
+        "DOTA_Tooltip_modifier_solunia_immortal_weapon_1_thales_shield_Description" "All Damage taken reduced by 100%" 
 		
 		"DOTA_Tooltip_ability_item_rpc_solunia_immortal_weapon_2"            "Alien Husk of Synesthesia"
         "item_property_solunia_immortal_weapon2"                             "Aetherion Rain"
@@ -10511,7 +10514,7 @@
 
         "DOTA_Tooltip_ability_item_rpc_solunia_immortal_weapon_3"            "Galactic Blades of Orbit"
         "item_property_solunia_immortal_weapon3"                             "Alpha Spark"
-        "property_solunia_immortal_weapon3_description"                      "@Ability4 has no channel time and teleports you to the target cast position with <font color='#ccff66'>500</font> range."
+        "property_solunia_immortal_weapon3_description"                      "@Ability4 has no channel time and teleports you to the target cast position with <font color='#ccff66'>600</font> range."
 
 		//Abilities
 		

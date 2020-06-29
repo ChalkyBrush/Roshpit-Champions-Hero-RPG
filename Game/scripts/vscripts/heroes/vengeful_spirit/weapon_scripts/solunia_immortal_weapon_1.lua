@@ -102,6 +102,7 @@ function modifierClass:ActivateShield()
     local hero = self:GetParent()
     hero:AddNewModifier(hero, ability, "modifier_solunia_immortal_weapon_1_thales_shield", {duration = SOLUNIA_IMMORTAL_WEAPON_1_DURATION})
     EmitSoundOn("Solunia.ImmortalWeapon1.Shield", hero)
+    StartAnimation(hero, {duration = 0.25, activity = ACT_DOTA_VERSUS, rate = 5})
 end
 
 -- SHIELD MODIFIER
@@ -129,7 +130,6 @@ function modifier_solunia_immortal_weapon_1_thales_shield:OnCreated()
 end
 
 function modifier_solunia_immortal_weapon_1_thales_shield:GetDamageReduction()
-    if not IsServer() then return end
     return 1
 end
 

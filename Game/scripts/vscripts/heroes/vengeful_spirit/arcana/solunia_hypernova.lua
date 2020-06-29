@@ -40,7 +40,7 @@ function solunia_hypernova:GetCooldownBase(level)
     return math.max(0, 14 - caster:GetModifierStackCount("modifier_solunia_r_arcana_passive", caster)*SOLUNIA_ARCANA_R4_CD_REDUCE)
 end
 
-function supernova_hypernova:GetCastRange()
+function solunia_hypernova:GetCastRange()
 	local range = 0
 	if self:GetCaster():HasModifier("modifier_solunia_immortal_weapon_3") then
 		range = SOLUNIA_IMMORTAL_WEAPON_3_CAST_RANGE
@@ -52,7 +52,11 @@ function solunia_hypernova:GetAOERadius()
 end
 
 function solunia_hypernova:GetChannelTimeBase()
-    return 1
+	if self:GetCaster():HasModifier("modifier_solunia_immortal_weapon_3") then
+    	return 0
+	else
+		return 1
+	end
 end
 
 function solunia_hypernova:GetCastAnimation()
@@ -66,12 +70,15 @@ end
 function solunia_hypernova:OnSpellStartBase()
     local caster = self:GetCaster()
     local ability = self
-	StartSoundEvent("Solunia.Hypernova.Channel", caster)
-	ability.rotationIndex = 0
-	ability.fallVelocity = 1
-	ability.startRotation = WallPhysics:vectorToAngle(caster:GetForwardVector())
+    if self:GetChannelTimeBase() > 0 then
+		StartSoundEvent("Solunia.Hypernova.Channel", caster)
+		ability.rotationIndex = 0
+		ability.fallVelocity = 1
+		ability.startRotation = WallPhysics:vectorToAngle(caster:GetForwardVector())
+		caster:AddNewModifier(caster, self, "modifier_solunia_r_channeling", {duration = self:GetChannelTimeBase()})
+	end
 	caster:RemoveModifierByName("modifier_solunia_between_warp")
-	caster:AddNewModifier(caster, self, "modifier_solunia_r_channeling", {duration = self:GetChannelTimeBase()})
+	
 	
 end
 
