@@ -384,6 +384,9 @@ function modifier_boomerang_thinker:DamageThinker()
 					ParticleManager:DestroyParticle(pfx, false)
 					ParticleManager:ReleaseParticleIndex(pfx)
 				end)
+				if caster:HasModifier("modifier_solunia_glyph_7_1") then
+					caster:FindModifierByName("modifier_solunia_glyph_7_1"):Cryoshock(caster, enemy)
+				end
 			end
 			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, ability:GetAbilityDamageType(), BASE_ABILITY_W, ability:GetAbilityElement(1), ability:GetAbilityElement(2))
 			CustomAbilities:QuickAttachParticle("particles/roshpit/solunia/boomerang_impact.vpcf", enemy, 0.3)

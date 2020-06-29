@@ -193,6 +193,10 @@ function supernova_base:ImmortalWeapon3Movement(position)
 	caster:SetAbsOrigin(new_position)
 end
 
+function supernova_base:Glyph5a()
+	self:SuperNovaChannelFinish(false)
+end
+
 -- PASSIVE
 
 function modifier_solunia_r_passive:IsHidden()

@@ -222,6 +222,10 @@ function solunia_hypernova:ImmortalWeapon3Movement(position)
 	caster:SetAbsOrigin(new_position)
 end
 
+function solunia_hypernova:Glyph5a()
+	self:OnChannelFinish(false)
+end
+
 -- PASSIVE
 
 function modifier_solunia_r_arcana_passive:IsHidden()

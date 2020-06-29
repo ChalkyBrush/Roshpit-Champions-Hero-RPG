@@ -210,6 +210,9 @@ function vorpal_blades_base:VorpalThinker()
 								CustomAbilities:QuickAttachParticle("particles/roshpit/solunia/vorpal_crit_blur.vpcf", vorpal.lock_entity, 3)
 								EmitSoundOn("Solunia.BoomerangCrit", vorpal.lock_entity)
 								PopupDamage(vorpal.lock_entity, math.floor(damage))
+								if caster:HasModifier("modifier_solunia_glyph_7_1") then
+									caster:FindModifierByName("modifier_solunia_glyph_7_1"):Cryoshock(caster, vorpal.lock_entity)
+								end
 							end
 						end
 						Filters:TakeArgumentsAndApplyDamage(vorpal.lock_entity, caster, damage, self:GetAbilityDamageType(), BASE_ABILITY_W, self:GetAbilityElement(1), self:GetAbilityElement(2))

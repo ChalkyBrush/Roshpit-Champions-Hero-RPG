@@ -110,6 +110,9 @@ function warp_flare_base:GetMaxWarpCount()
 	if caster:HasModifier("modifier_solunia_immortal_weapon_2") then
 		base_count = base_count + 1
 	end
+	if caster:HasModifier("modifier_solunia_glyph_6_1") then
+		base_count = base_count + 1
+	end
 	return base_count
 end
 
@@ -175,6 +178,9 @@ end
 function warp_flare_base:EndWarpFlare()
 	local ability = self
 	local caster = self:GetCaster()
+	if ability.warp_count == self:GetMaxWarpCount() and caster:HasModifier("modifier_solunia_glyph_5_a") then
+		caster:GetAbilityByIndex(DOTA_R_SLOT):Glyph5a()
+	end
 	ability.warp_count = 0
 	ability:StartCooldown(ability:GetCooldownBase())
 	local r_ability = caster:GetAbilityByIndex(DOTA_R_SLOT)
@@ -186,6 +192,7 @@ function warp_flare_base:EndWarpFlare()
 	end
 	StartAnimation(caster, {duration = 0.25, activity = ACT_DOTA_CHANNEL_END_ABILITY_4, rate = 2})
 	caster:RemoveModifierByName("modifier_solunia_warp_flare_e1")
+
 end
 
 function warp_flare_base:RuneE2()

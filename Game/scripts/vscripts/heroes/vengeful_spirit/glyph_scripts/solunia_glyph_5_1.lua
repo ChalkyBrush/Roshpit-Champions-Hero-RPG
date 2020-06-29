@@ -28,7 +28,7 @@ function modifierClass:OnCreated()
         return
     end
     self:SetSpecialTypes({ 
-
+        MODIFIER_ROSHPIT_Q_BASE_DMG_FLAT
     })
 end
 
@@ -40,4 +40,9 @@ function modifierClass:IsBuff()
 end
 function modifierClass:RemoveOnDeath()
     return false
+end
+
+function modifierClass:GetRoshpitQBaseDmgFlat()
+    local hero = self:GetParent()
+    return OverflowProtectedGetAverageTrueAttackDamage(hero)*(SOLUNIA_GLYPH_5_1_ATK_PWR_TO_Q/100)
 end
