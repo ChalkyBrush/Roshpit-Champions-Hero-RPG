@@ -105,7 +105,12 @@ function warp_flare_base:GetMaxWarpDistance()
 end
 
 function warp_flare_base:GetMaxWarpCount()
-	return 3
+	local caster = self:GetCaster()
+	local base_count = 3
+	if caster:HasModifier("modifier_solunia_immortal_weapon_2") then
+		base_count = base_count + 1
+	end
+	return base_count
 end
 
 function warp_flare_base:WarpToPosition(position)
@@ -143,6 +148,9 @@ function warp_flare_base:WarpTravelEnd()
 	self:TravelEndParticle()
 	if ability.warp_count < self:GetMaxWarpCount() then
 		local between_warp_time = SOLUNIA_E_FLOAT_TIME
+		if caster:HasModifier("modifier_solunia_immortal_weapon_2") then
+			between_warp_time = between_warp_time + SOLUNIA_IMMORTAL_WEAPON_2_FLOAT_DURATION_INCREASE
+		end
 		ability.startRotation = WallPhysics:vectorToAngle(caster:GetForwardVector())
 		caster:AddNewModifier(caster, ability, "modifier_solunia_between_warp", {duration = between_warp_time})
 	else

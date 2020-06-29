@@ -10502,22 +10502,16 @@
 		"DOTA_Tooltip_ability_item_rpc_solunia_weapon_25"		"Earthbound Meteor Razor"
 		
 		"DOTA_Tooltip_ability_item_rpc_solunia_immortal_weapon_1"		"Shooting Star"
-		"item_property_solunia_immortal_weapon"							"Nova Rift"
-		"property_solunia_immortal_weapon_description"					"While floating during Warp Flares, gain a shield that has magic and attack immunity."
-
-		"DOTA_Tooltip_ability_modifier_solunia_warp_flare_immortal_weapon_effect"	"Nova Rift"
-		"DOTA_Tooltip_ability_modifier_solunia_warp_flare_immortal_weapon_effect_Description"	"Immunity to attacks and spells"
+		"item_property_solunia_immortal_weapon"							"Thales Shield"
+		"property_solunia_immortal_weapon_description"					"Issuing a Stop Order applies a shield that reduces all damage taken by 100% for <font color='#ccff66'>4</font> seconds. <font color='#ccff66'>8</font> second cooldown."
 		
 		"DOTA_Tooltip_ability_item_rpc_solunia_immortal_weapon_2"            "Alien Husk of Synesthesia"
-        "item_property_solunia_immortal_weapon2"                             "Cryoshock"
-        "property_solunia_immortal_weapon2_description"                      "When @Ability2 crits, enemies in a <font color='#ccff66'>200</font> radius around the boomerang are frozen for <font color='#ccff66'>1.5</font> seconds."
-
-        "DOTA_Tooltip_modifier_solunia_cryoshock"							"Cryoshock"
-        "DOTA_Tooltip_modifier_solunia_cryoshock_Description"				"Frozen"
+        "item_property_solunia_immortal_weapon2"                             "Aetherion Rain"
+        "property_solunia_immortal_weapon2_description"                      "Increases the floating time in between Warp Flares by <font color='#ccff66'>3</font> and increases the maximum Warp Flare jumps by 1."
 
         "DOTA_Tooltip_ability_item_rpc_solunia_immortal_weapon_3"            "Galactic Blades of Orbit"
-        "item_property_solunia_immortal_weapon3"                             "Sun and Moon"
-        "property_solunia_immortal_weapon3_description"                      "Completing the final phase of @Ability3 immediately triggers @Ability4 if it is not on cooldown."
+        "item_property_solunia_immortal_weapon3"                             "Alpha Spark"
+        "property_solunia_immortal_weapon3_description"                      "@Ability4 has no channel time and teleports you to the target cast position with <font color='#ccff66'>500</font> range."
 
 		//Abilities
 		

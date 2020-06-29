@@ -384,6 +384,10 @@
 		"BaseClass"	"item_lua"
         "ScriptFile" "heroes/vengeful_spirit/weapon_scripts/solunia_immortal_weapon_1.lua"
 		"AbilityTextureName"	"weapons/legends/solunia_immortal_weapon_1"
+		"precache"
+		{
+			"particle"  "particles/roshpit/solunia/immortal_weapon_1_shield.vpcf"
+		}
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
 		"AbilityCooldown"	"0"

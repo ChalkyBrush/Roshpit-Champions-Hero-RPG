@@ -20,7 +20,11 @@ function solunia_hypernova:GetManaCostBase(level)
 end
 
 function solunia_hypernova:GetBehaviorBase()
-	return DOTA_ABILITY_BEHAVIOR_NO_TARGET + DOTA_ABILITY_BEHAVIOR_CHANNELLED + DOTA_ABILITY_BEHAVIOR_AOE
+	local behavior =  DOTA_ABILITY_BEHAVIOR_NO_TARGET + DOTA_ABILITY_BEHAVIOR_CHANNELLED + DOTA_ABILITY_BEHAVIOR_AOE
+	if self:GetCaster():HasModifier("modifier_solunia_immortal_weapon_3") then
+		behavior = behavior - DOTA_ABILITY_BEHAVIOR_NO_TARGET + DOTA_ABILITY_BEHAVIOR_POINT
+	end
+	return behavior
 end
 
 function solunia_hypernova:GetAbilitySlot()
@@ -36,10 +40,13 @@ function solunia_hypernova:GetCooldownBase(level)
     return math.max(0, 14 - caster:GetModifierStackCount("modifier_solunia_r_arcana_passive", caster)*SOLUNIA_ARCANA_R4_CD_REDUCE)
 end
 
-function solunia_hypernova:GetCastRange()
-	return 0
+function supernova_hypernova:GetCastRange()
+	local range = 0
+	if self:GetCaster():HasModifier("modifier_solunia_immortal_weapon_3") then
+		range = SOLUNIA_IMMORTAL_WEAPON_3_CAST_RANGE
+	end
+    return range
 end
-
 function solunia_hypernova:GetAOERadius()
 	return self:GetSpecialValueFor("radius")
 end
@@ -77,6 +84,9 @@ function solunia_hypernova:OnChannelFinish(interrupted)
 	caster:AddNewModifier(caster, ability, "modifier_solunia_falling", {duration = 2})
 	StopSoundEvent("Solunia.Hypernova.Channel", caster)
 	if not interrupted then
+	    if caster:HasModifier("modifier_solunia_immortal_weapon_3") then
+	    	 self:ImmortalWeapon3Movement(self:GetCastPosition())
+	    end
 		local position = caster:GetAbsOrigin()
 		self:MainExplosion(position)
 		self:RefreshCooldowns()
@@ -202,6 +212,12 @@ function solunia_hypernova:EndGalacticForm()
 			end
 		end
 	end
+end
+
+function solunia_hypernova:ImmortalWeapon3Movement(position)
+	local caster = self:GetCaster()
+	local newPosition = WallPhysics:WallSearch(caster:GetAbsOrigin(), position, caster)
+	FindClearSpaceForUnit(caster, newPosition, false)
 end
 
 -- PASSIVE

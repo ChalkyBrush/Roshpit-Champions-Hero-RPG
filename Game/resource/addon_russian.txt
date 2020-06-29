@@ -9862,7 +9862,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_solunia_immortal_weapon_2"            "Alien Husk of Synesthesia"
         "item_property_solunia_immortal_weapon2"                             "Cryoshock"
-        "property_solunia_immortal_weapon2_description"                      "Когда брошенный бумеранг от умения (W) @Ability2 наносит критический урон, враги в радиусе <font color='#ccff66'>200</font> от него замораживаются на <font color='#ccff66'>1.5</font> сек."
+        "property_solunia_immortal_weapon2_description"                      "Когда брошенный бумеранг от умения (W) @Ability2 наносит критический урон, враги в радиусе 0 от него замораживаются на 0 сек."
 
         "DOTA_Tooltip_modifier_solunia_cryoshock"							"Cryoshock"
         "DOTA_Tooltip_modifier_solunia_cryoshock_Description"				"Заморожен"

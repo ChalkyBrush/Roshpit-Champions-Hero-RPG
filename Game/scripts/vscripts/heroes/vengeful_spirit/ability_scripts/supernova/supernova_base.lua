@@ -26,7 +26,11 @@ function supernova_base:GetManaCostBase(level)
 end
 
 function supernova_base:GetBehaviorBase()
-	return DOTA_ABILITY_BEHAVIOR_NO_TARGET + DOTA_ABILITY_BEHAVIOR_CHANNELLED + DOTA_ABILITY_BEHAVIOR_AOE
+	local behavior =  DOTA_ABILITY_BEHAVIOR_NO_TARGET + DOTA_ABILITY_BEHAVIOR_CHANNELLED + DOTA_ABILITY_BEHAVIOR_AOE
+	if self:GetCaster():HasModifier("modifier_solunia_immortal_weapon_3") then
+		behavior = behavior - DOTA_ABILITY_BEHAVIOR_NO_TARGET + DOTA_ABILITY_BEHAVIOR_POINT
+	end
+	return behavior
 end
 
 function supernova_base:GetAbilitySlot()
@@ -43,7 +47,11 @@ function supernova_base:GetCooldownBase(level)
 end
 
 function supernova_base:GetCastRange()
-	return 0
+	local range = 0
+	if self:GetCaster():HasModifier("modifier_solunia_immortal_weapon_3") then
+		range = SOLUNIA_IMMORTAL_WEAPON_3_CAST_RANGE
+	end
+    return range
 end
 
 function supernova_base:GetAOERadius()
@@ -77,6 +85,9 @@ function supernova_base:SuperNovaChannelFinish(interrupted)
 	caster:AddNewModifier(caster, ability, "modifier_solunia_falling", {duration = 2})
 	StopSoundEvent("Solunia.Supernova", caster)
 	if not interrupted then
+	    if caster:HasModifier("modifier_solunia_immortal_weapon_3") then
+	    	 self:ImmortalWeapon3Movement(self:GetCastPosition())
+	    end
 		local position = caster:GetAbsOrigin()
 		self:MainExplosion(position)
 		self:SoluniaStateSwap()
@@ -167,6 +178,12 @@ end
 
 function supernova_base:GetArcana2AbilityName()
 	return "solunia_hypernova"
+end
+
+function supernova_base:ImmortalWeapon3Movement(position)
+	local caster = self:GetCaster()
+	local newPosition = WallPhysics:WallSearch(caster:GetAbsOrigin(), position, caster)
+	FindClearSpaceForUnit(caster, newPosition, false)
 end
 
 -- PASSIVE
