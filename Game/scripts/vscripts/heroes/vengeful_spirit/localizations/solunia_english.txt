@@ -346,6 +346,9 @@
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_1_1"		"[T1-1] Glyph of Orbital Nuke"
 		"item_rpc_solunia_glyph_1_1_description" 				"Create a vacuum of <% SOLUNIA_GLYPH_1_1_RADIUS %> radius at the cast point of @Ability1 that pushes enemies toward the target position."
+
+        "DOTA_Tooltip_modifier_solunia_glyph_1_1_pull"          "Orbital Nuke"
+        "DOTA_Tooltip_modifier_solunia_glyph_1_1_pull_Description"  "Rooted" 
         
         "DOTA_Tooltip_ability_item_rpc_solunia_glyph_2_1"       "[T2-1] Glyph of Azimuth"
         "item_rpc_solunia_glyph_2_1_description"                "Throw <% SOLUNIA_GLYPH_2_1_BOMB_COUNT %> @Ability1 at the cast point of @Ability3"

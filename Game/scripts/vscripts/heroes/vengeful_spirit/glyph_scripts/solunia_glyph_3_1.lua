@@ -28,7 +28,7 @@ function modifierClass:OnCreated()
         return
     end
     self:SetSpecialTypes({ 
-
+        MODIFIER_SPECIAL_TYPE_CAST_R_ABILITY 
     })
 end
 
@@ -41,3 +41,10 @@ end
 function modifierClass:RemoveOnDeath()
     return false
 end
+
+function modifierClass:OnCastRAbility()
+    local hero = self:GetParent()
+    hero:SetHealth(hero:GetMaxHealth())
+    hero:SetMana(hero:GetMaxMana())
+end
+

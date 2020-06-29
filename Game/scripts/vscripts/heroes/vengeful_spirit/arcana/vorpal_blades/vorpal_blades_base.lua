@@ -48,7 +48,11 @@ function vorpal_blades_base:GetIntrinsicModifierName()
 end
 
 function vorpal_blades_base:GetTotalMaxBlades()
-	return self:GetSpecialValueFor("max_blades")
+	local max = self:GetSpecialValueFor("max_blades")
+	if self:GetCaster():HasModifier("modifier_solunia_glyph_4_1") then
+		max = max + SOLUNIA_GLYPH_4_1_BOOMERANG_COUNT
+	end
+	return max
 end
 
 function vorpal_blades_base:GetVorpalsForThisThrow(total_max_blades)

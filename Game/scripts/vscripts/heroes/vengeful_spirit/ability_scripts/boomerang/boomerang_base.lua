@@ -65,7 +65,11 @@ function boomerang_base:OnAbilityPhaseStart()
 end
 
 function boomerang_base:GetMaximumConcurrentBoomerangs()
-	return self:GetSpecialValueFor("max_boomerangs")
+	local max = self:GetSpecialValueFor("max_boomerangs")
+	if self:GetCaster():HasModifier("modifier_solunia_glyph_4_1") then
+		max = max + SOLUNIA_GLYPH_4_1_BOOMERANG_COUNT
+	end
+	return max
 end
 
 function boomerang_base:BoomerangStart()
