@@ -452,7 +452,7 @@
 		"item_rpc_gold_plate_of_leon_ruby1"								"你的主属性将会被设定为力量。增加力量值@ruby_property1。"
 		"item_rpc_gold_plate_of_leon_emerald1"								"增加全属性 @emerald_property1"
 		"item_rpc_gold_plate_of_leon_sapphire1"								"每点主属性提供 @sapphire_property1点攻击力 "
-		"item_rpc_gold_plate_of_leon_amethyst1"								"增加你的主属性 @amethyst_property1%"
+		"item_rpc_gold_plate_of_leon_amethyst1"								"增加精神 @amethyst_property1%"
 		"item_property_gold_plate_of_leon"						"无畏英雄"
 		"property_gold_plate_of_leon_description"				"提高你的主属性<% ITEM_RPC_GOLD_PLATE_OF_LEON_PRIMARY_ATTRIBUTE_INCREASE %>%。"
 		 

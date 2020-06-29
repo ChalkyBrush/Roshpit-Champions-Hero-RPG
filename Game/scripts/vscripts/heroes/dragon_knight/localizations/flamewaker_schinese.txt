@@ -266,7 +266,7 @@
         "item_rpc_flamewaker_glyph_1_2_description"             "普通攻击将会释放出 [W] 。"
 
         "DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_2_2"    "[T2-2] 凝结雕文"
-        "item_rpc_flamewaker_glyph_2_2_description"             "[E] 不会降低移动速度而是降低受到的伤害 <% FLAMEWAKER_GLYPH_2_2_DAMAGE_REDUCTION %>%。"
+        "item_rpc_flamewaker_glyph_2_2_description"             "[E] 降低移动速度但是降低受到的伤害 <% FLAMEWAKER_GLYPH_2_2_DAMAGE_REDUCTION %>%。"
 
         "DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_3_2"    "[T3-2] 灼热之闪雕文"
         "item_rpc_flamewaker_glyph_3_2_description"             "增加 [E] 的基础持续时间 <% FLAMEWAKER_GLYPH_3_2_DURATION_INCREASE %> 秒。。"
