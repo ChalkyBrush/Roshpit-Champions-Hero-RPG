@@ -230,12 +230,14 @@
     	"DOTA_Tooltip_ability_chernobog_demon_flight"								"Demon Flight"
     	"DOTA_Tooltip_ability_chernobog_demon_flight_Description"					"Chernobog ascends into the night sky using his unhallowed wings, allowing him to traverse over obstacles. Issuing an attack order while in flight causes chernobog to attack that target every 0.15 seconds as long as the target is within 900 range, even if Chernobog is not facing them. Getting stunned or flying into an impassible obstruction immediately ends Demon Flight.<br>This ability passively grants <% CHERNOBOG_ARCANA2_EVASION %>% Evasion, even while inactive."
     	"DOTA_Tooltip_ability_chernobog_demon_flight_duration"					"DURATION:"
+	"DOTA_Tooltip_ability_chernobog_demon_flight_movespeed_bonus"				"BONUS MOVESPEED AND MOVESPEED CAP:"
 
     	"DOTA_Tooltip_modifier_chernobog_demon_flight"							"Demon Flight"
 
     	"DOTA_Tooltip_ability_chernobog_demon_walk"								"Shadow Stalk"
     	"DOTA_Tooltip_ability_chernobog_demon_walk_Description"					"Chernobog cloaks himself in absolute darkness, making him invisible to enemies for a short duration. Chernobog maintains this invisibility even while attacking.<br>This ability passively grants <% CHERNOBOG_ARCANA2_EVASION %>% Evasion, even while inactive."
     	"DOTA_Tooltip_ability_chernobog_demon_walk_duration"					"DURATION:"
+	"DOTA_Tooltip_ability_chernobog_demon_walk_movespeed_bonus"				"BONUS MOVESPEED AND MOVESPEED CAP:"
 
     	"DOTA_Tooltip_modifier_demon_walk"										"Shadow Stalk"
 
