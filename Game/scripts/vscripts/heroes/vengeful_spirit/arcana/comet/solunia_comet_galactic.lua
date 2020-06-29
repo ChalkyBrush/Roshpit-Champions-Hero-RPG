@@ -50,3 +50,7 @@ end
 function solunia_comet_galactic:GetSolarAbilityName()
 	return "solunia_comet_solar"
 end
+
+function solunia_comet_galactic:GetWaveProjectileName()
+	return "particles/roshpit/solunia/galactic/a_a_wave_galactic_2.vpcf"
+end

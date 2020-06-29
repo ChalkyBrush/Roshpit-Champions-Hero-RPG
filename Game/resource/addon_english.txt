@@ -10482,10 +10482,10 @@
         "item_rpc_solunia_glyph_2_2_description"                "Create a vacuum of <font color='#ccff66'>1000</font> radius while channeling @Ability4."
 
         "DOTA_Tooltip_ability_item_rpc_solunia_glyph_3_2"       "[T3-2] Glyph of Blueshift"
-        "item_rpc_solunia_glyph_3_2_description"                "Increases Turn Rate by <font color='#ccff66'>80</font>%"
+        "item_rpc_solunia_glyph_3_2_description"                "Increases Turn Rate by <font color='#ccff66'>80</font>% and Movespeed by <font color='#ccff66'>100</font>."
 
         "DOTA_Tooltip_ability_item_rpc_solunia_glyph_4_2"       "[T4-2] Glyph of Helioshphere"
-        "item_rpc_solunia_glyph_4_2_description"                "While channeling @Ability4 throw a @Ability1 every 0 seconds."
+        "item_rpc_solunia_glyph_4_2_description"                "While channeling @Ability4 throw a @Ability1 every <font color='#ccff66'>0.15</font> seconds."
 
         "DOTA_Tooltip_ability_item_rpc_solunia_glyph_5_2"       "[T5-2] Glyph of Ion Blades"
         "item_rpc_solunia_glyph_5_2_description"                "@Ability2 can stick to enemies (Boomerang) or throws up to <font color='#ccff66'>2</font> additional blades (Vorpal Blades)"

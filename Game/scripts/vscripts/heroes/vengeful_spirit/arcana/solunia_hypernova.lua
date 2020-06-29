@@ -113,7 +113,6 @@ function solunia_hypernova:MainExplosion(position)
 	local ability = self
 	local particleName = "particles/roshpit/solunia/galactic/galactic_supernova.vpcf"
 	local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
-	local r_2_level = caster:GetRuneValue("r", 2)
 	ParticleManager:SetParticleControl(particle1, 0, position + Vector(0, 0, -120))
 	ParticleManager:SetParticleControl(particle1, 1, Vector(550, 2, 1000))
 	ParticleManager:SetParticleControl(particle1, 3, Vector(550, 550, 550))
@@ -129,9 +128,6 @@ function solunia_hypernova:MainExplosion(position)
 		for _, enemy in pairs(enemies) do
 			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, self:GetAbilityDamageType(), BASE_ABILITY_R, self:GetAbilityElement(1), self:GetAbilityElement(2))
 			Filters:ApplyStun(caster, stun_duration, enemy)
-			if r_2_level > 0 then
-				enemy:AddNewModifier(caster, ability, self:GetDualBurnModifierName(), {duration = SOLUNIA_R2_DUAL_BURN_DURATION})
-			end
 		end
 	end
 	GridNav:DestroyTreesAroundPoint(position, 240, false)

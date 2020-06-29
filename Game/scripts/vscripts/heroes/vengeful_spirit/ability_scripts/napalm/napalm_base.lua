@@ -89,6 +89,9 @@ function napalm_base:NapalmStart()
 		ParticleManager:ReleaseParticleIndex(pfx)
 	end)
 	EmitSoundOn("Solunia.NitroInitialCast", caster)
+	if caster:HasModifier("modifier_solunia_glyph_1_1") then
+		caster:FindModifierByName("modifier_solunia_glyph_1_1"):GlyphQCast(target, ability)
+	end
 	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 end
 

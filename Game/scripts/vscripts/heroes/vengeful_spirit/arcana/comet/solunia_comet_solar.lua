@@ -41,3 +41,7 @@ end
 function solunia_comet_solar:GetNonArcana1AbilityName()
 	return "solunia_napalm_solar"
 end
+
+function solunia_comet_solar:GetWaveProjectileName()
+	return "particles/roshpit/solunia/a_a_wave_solar.vpcf"
+end

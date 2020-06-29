@@ -41,3 +41,7 @@ end
 function solunia_comet_lunar:GetNonArcana1AbilityName()
 	return "solunia_napalm_lunar"
 end
+
+function solunia_comet_lunar:GetWaveProjectileName()
+	return "particles/roshpit/solunia/a_a_wave_lunar.vpcf"
+end

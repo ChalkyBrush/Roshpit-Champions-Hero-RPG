@@ -96,6 +96,10 @@ function solunia_napalm_lunar:GetArcana1AbilityName()
 	return "solunia_comet_lunar"
 end
 
+function solunia_napalm_lunar:GetWaveProjectileName()
+	return "particles/roshpit/solunia/a_a_wave_lunar.vpcf"
+end
+
 -- Q1 MODIFIER
 
 function modifier_napalm_q_1_lunar:IsBuff()

@@ -115,6 +115,10 @@ function solunia_napalm_galactic:GetSolarAbilityName()
 	return "solunia_napalm_solar"
 end
 
+function solunia_napalm_galactic:GetWaveProjectileName()
+	return "particles/roshpit/solunia/galactic/a_a_wave_galactic_2.vpcf"
+end
+
 -- Q1 MODIFIER
 
 function modifier_napalm_q_1_galactic:IsBuff()

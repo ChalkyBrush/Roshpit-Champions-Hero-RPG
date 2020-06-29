@@ -375,7 +375,7 @@
         "item_rpc_solunia_glyph_2_2_description"                "Create a vacuum of <% SOLUNIA_GLYPH_2_2_RADIUS %> radius while channeling @Ability4."
 
         "DOTA_Tooltip_ability_item_rpc_solunia_glyph_3_2"       "[T3-2] Glyph of Blueshift"
-        "item_rpc_solunia_glyph_3_2_description"                "Increases Turn Rate by <% SOLUNIA_GLYPH_3_2_TURN_RATE_BONUS %>%"
+        "item_rpc_solunia_glyph_3_2_description"                "Increases Turn Rate by <% SOLUNIA_GLYPH_3_2_TURN_RATE_BONUS %>% and Movespeed by <% SOLUNIA_GLYPH_3_2_MS_BONUS %>."
 
         "DOTA_Tooltip_ability_item_rpc_solunia_glyph_4_2"       "[T4-2] Glyph of Helioshphere"
         "item_rpc_solunia_glyph_4_2_description"                "While channeling @Ability4 throw a @Ability1 every <% SOLUNIA_GLYPH_4_2_BOMB_INTERVAL %> seconds."

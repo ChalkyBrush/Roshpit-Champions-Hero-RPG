@@ -27323,6 +27323,7 @@
 			"particle"	"particles/roshpit/solunia/galactic/galactic_vorpal_blades.vpcf"
 			"particle"	"particles/roshpit/solunia/galactic/comet_cast_galactic.vpcf"
 			"particle"	"particles/roshpit/solunia/galactic/galactic_comet_attack.vpcf"	
+			"particle"	"particles/roshpit/solunia/galactic/a_a_wave_galactic_2.vpcf"
 		}
 		"OnSpellStart"
 		{

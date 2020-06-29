@@ -97,6 +97,10 @@ function solunia_napalm_solar:GetArcana1AbilityName()
 	return "solunia_comet_solar"
 end
 
+function solunia_napalm_solar:GetWaveProjectileName()
+	return "particles/roshpit/solunia/a_a_wave_solar.vpcf"
+end
+
 -- Q1 MODIFIER
 
 function modifier_napalm_q_1_solar:IsBuff()
