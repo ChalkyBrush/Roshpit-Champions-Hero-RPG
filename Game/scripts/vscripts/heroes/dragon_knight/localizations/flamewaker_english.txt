@@ -76,7 +76,7 @@
         "DOTA_Tooltip_ability_flamewaker_rune_w_4_suffix_two"                   "%"
 		
 		"DOTA_Tooltip_ability_flamewaker_heat_wave"										"Heat Wave"
-		"DOTA_Tooltip_ability_flamewaker_heat_wave_Description"							"Element: <font color=ELEMENT_FIRE>Fire</font><br>Flamewaker activates an intense heat energy, gaining movespeed, attack damage, cliff walking, and increased max movespeed. Enemies close to Flamewaker during heatwave have reduced armor."
+		"DOTA_Tooltip_ability_flamewaker_heat_wave_Description"							"Element: <font color=ELEMENT_FIRE>Fire</font><br>Flamewaker activates an intense heat energy, gaining movespeed, attack damage, cliff walking, and increased max movespeed. "
 		"DOTA_Tooltip_ability_flamewaker_heat_wave_Lore"									"Base Ability: E"
     	"DOTA_Tooltip_ability_flamewaker_heat_wave_ms_cap_bonus"							"MS-CAP BONUS:"
     	"DOTA_Tooltip_ability_flamewaker_heat_wave_movespeed"								"MOVESPEED:"
