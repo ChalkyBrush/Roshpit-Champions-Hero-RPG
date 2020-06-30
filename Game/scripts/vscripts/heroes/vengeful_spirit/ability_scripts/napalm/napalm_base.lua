@@ -123,7 +123,7 @@ function napalm_base:ThrowNapalm(startPosition, target)
 end
 
 function napalm_base:GetNapalmDamage()
-	return self:GetSpecialValueFor("damage") + self:GetFlatDamageBonusFromAttribute() + self:GetManaCostBase()*SOLUNIA_Q2_BASE_DMG_INCREASE_PER_MANA
+	return self:GetSpecialValueFor("damage") + self:GetFlatDamageBonusFromAttribute() + self:GetManaCostBase() * SOLUNIA_Q2_BASE_DMG_INCREASE_PER_MANA * self:GetCaster():GetRuneValue("q", 2)
 end
 
 function napalm_base:NapalmExplosion(position)
