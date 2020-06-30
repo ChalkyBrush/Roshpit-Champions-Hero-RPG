@@ -117,7 +117,7 @@ function comet_base:CometImpact(position)
 end
 
 function comet_base:GetCometDamage()
-	return self:GetSpecialValueFor("damage") + self:GetFlatDamageBonusFromAttribute() + self:GetManaCostBase()*SOLUNIA_ARCANA_Q2_BASE_DMG_INCREASE_PER_MANA
+	return self:GetSpecialValueFor("damage") + self:GetFlatDamageBonusFromAttribute() + self:GetManaCostBase() * SOLUNIA_ARCANA_Q2_BASE_DMG_INCREASE_PER_MANA * self:GetCaster():GetRuneValue("q", 2)
 end
 
 function comet_base:RuneQ1()
