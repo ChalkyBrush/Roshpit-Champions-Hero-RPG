@@ -220,7 +220,7 @@
         "property_chernobog_arcana2_description"                                "用 恶魔之翼 替换 @Ability3 及其全部符文。"
 
         "DOTA_Tooltip_ability_chernobog_demon_flight"                           "恶魔之翼"
-        "DOTA_Tooltip_ability_chernobog_demon_flight_Description"               "暗夜魔王张开恶魔之翼升入夜空，穿越地形。 在飞行中对敌人释放攻击指令时将会无视自身朝向攻击目标，攻击频率为0.15 秒，攻击范围为900，脱离范围将会自动停止。被眩晕或被障碍物阻碍将立即结束恶魔飞行。被动提高<% CHERNOBOG_ARCANA2_EVASION %>%闪避。"
+        "DOTA_Tooltip_ability_chernobog_demon_flight_Description"               "暗夜魔王张开恶魔之翼升入夜空，穿越地形。 在飞行中对敌人释放攻击指令时将会无视自身朝向攻击目标，攻击频率为0.15 秒，攻击范围为900，脱离范围将会自动停止。被动提高<% CHERNOBOG_ARCANA2_EVASION %>%闪避。"
         "DOTA_Tooltip_ability_chernobog_demon_flight_duration"                  "持续时间："
 	"DOTA_Tooltip_ability_chernobog_demon_flight_movespeed_bonus"		"额外移动速度和移动速度上限:"
 
