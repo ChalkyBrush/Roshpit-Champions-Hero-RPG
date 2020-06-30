@@ -267,6 +267,10 @@ function modifier_solunia_arcana_w_passive:IsHidden()
 	return true
 end
 
+function  modifier_solunia_arcana_w_passive:RemoveOnDeath()
+	return false
+end
+
 function modifier_solunia_arcana_w_passive:OnCreated()
 	if not IsServer() then
 		return false

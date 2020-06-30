@@ -223,6 +223,7 @@ function solunia_hypernova:ImmortalWeapon3Movement(position)
 end
 
 function solunia_hypernova:Glyph5a()
+	self.cast_position_override = self:GetCaster():GetAbsOrigin()
 	self:OnChannelFinish(false)
 end
 
@@ -234,6 +235,10 @@ end
 
 function modifier_solunia_r_arcana_passive:IsHidden()
 	return true
+end
+
+function modifier_solunia_r_arcana_passive:RemoveOnDeath()
+	return false
 end
 
 function modifier_solunia_r_arcana_passive:OnCreated()

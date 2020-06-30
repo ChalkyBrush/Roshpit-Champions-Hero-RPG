@@ -116,6 +116,14 @@ function warp_flare_base:GetMaxWarpCount()
 	return base_count
 end
 
+function warp_flare_base:GetActualCastPosition(position)
+	local caster = self:GetCaster()
+	local warp_distance = math.min(WallPhysics:GetDistance2d(caster:GetAbsOrigin(), position), self:GetMaxWarpDistance())
+	local fv = ((position - caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+	local pos = caster:GetAbsOrigin() + fv*warp_distance
+	return GetGroundPosition(pos, caster)
+end
+
 function warp_flare_base:WarpToPosition(position)
     local ability = self
 	local caster = self:GetCaster()
@@ -240,6 +248,10 @@ end
 
 function modifier_solunia_e_passive:IsHidden()
 	return true
+end
+
+function modifier_solunia_e_passive:RemoveOnDeath()
+	return false
 end
 
 function modifier_solunia_e_passive:OnCreated()
