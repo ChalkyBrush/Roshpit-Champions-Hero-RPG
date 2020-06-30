@@ -1783,9 +1783,6 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	if victim:HasModifier("modifier_gem_of_eternal_frost") and shouldConsumeShields and attacker:IsRooted() then
 		damage = damage * (1 - victim.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_GEM_OF_ETERNAL_FROST_GEM_RUBY)/100)
 	end
-	if victim:HasModifier("modifier_solunia_c_d_arcana_shell") then
-		damage = damage * (1 - SOLUNIA_ARCANA2_R3_DAMAGE_REDUCTION_PCT)
-	end
 	if victim:HasModifier("modifier_crystalline_slippers") and victim:IsRooted() then
 		damage = damage * (1 - victim.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_CRYSTALLINE_SLIPPERS_GEM_SAPPHIRE)/100)
 	end
@@ -3556,7 +3553,7 @@ function GameState:FilterDamage(filterTable)
 			end
 			if not victim:HasModifier("modifier_take_1_damage_only") then
 				if not death_prevented then
-					filterTable["damage"] = 0
+					-- filterTable["damage"] = 0
 				end
 			else
 				-- filterTable["damage"] = 25

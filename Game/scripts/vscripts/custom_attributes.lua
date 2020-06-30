@@ -562,6 +562,7 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitAttributes()
 	self:CalculateAndSaveMasterGreenDamageBuff()
 	self:CalculateAndSaveMasterAttackRangeBuff()
 	self:CalculateAndSaveMasterHealthRegen()
+	self:CalculateAndSaveMasterManaRegen()
 end
 
 function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
@@ -859,14 +860,6 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 		local modifier = unit:FindModifierByName("modifier_chernobog_rune_w_3_fervor_enemy_invisible")
 		armor_modify = armor_modify + modifier:GetStackCount() * CHERNOBOG_W3_ARMOR_REDUCE
     end
-	if unit:HasModifier("modifier_solunia_warp_core_aura_lunar") then
-		modifier = unit:FindModifierByName("modifier_solunia_warp_core_aura_lunar")
-		armor_modify = armor_modify + modifier:GetAbility().e_3_level * SOLUNIA_E3_ARMOR_LOSS
-	end
-	if unit:HasModifier("modifier_lunar_compression_invisible") then
-		local modifier = unit:FindModifierByName("modifier_lunar_compression_invisible")
-		armor_modify = armor_modify + modifier:GetStackCount()*SOLUNIA_ARCANA_Q3_ARMOR_LOSS
-	end
 	if unit:HasModifier("modifier_hydroxis_b_a_shield_invisible") then
 		local modifier = unit:FindModifierByName("modifier_hydroxis_b_a_shield_invisible")
 		armor_modify = armor_modify + modifier:GetStackCount()*HYDROXIS_Q2_ARMOR_AND_MAGIC_ARMOR
@@ -1500,14 +1493,6 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
     	local q_1_level = caster:GetRuneValue("q", 1)
     	magic_armor_modify = magic_armor_modify + q_1_level*CHERNOBOG_Q1_ARMOR_AND_MAGIC_ARMOR_LOSS
     end
-	if unit:HasModifier("modifier_solunia_warp_core_aura_solar") then
-		modifier = unit:FindModifierByName("modifier_solunia_warp_core_aura_solar")
-		magic_armor_modify = magic_armor_modify + modifier:GetAbility().e_3_level * SOLUNIA_E3_ARMOR_LOSS
-	end
-	if unit:HasModifier("modifier_solar_compression_invisible") then
-		local modifier = unit:FindModifierByName("modifier_solar_compression_invisible")
-		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*SOLUNIA_ARCANA_Q3_ARMOR_LOSS
-	end
 	if unit:HasModifier("modifier_hydroxis_b_a_shield_invisible") then
 		local modifier = unit:FindModifierByName("modifier_hydroxis_b_a_shield_invisible")
 		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*HYDROXIS_Q2_ARMOR_AND_MAGIC_ARMOR
@@ -1900,12 +1885,6 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 		local e_3_level = unit:GetRuneValue("e", 3)
 		armor_pierce_modify = armor_pierce_modify + e_3_level*CHERNOBOG_E3_ARMOR_PIERCE_AND_SPELL_PIERCE
 	end
-	if unit:HasModifier("modifier_solunia_arcana2") then
-		if unit.sunMoon == "moon" then
-			local r_2_level = unit:GetRuneValue("r", 2)
-			armor_pierce_modify = armor_pierce_modify + r_2_level*SOLUNIA_ARCANA_R2_PIERCE
-		end
-	end
 	if unit:HasModifier("modifier_drowning_pool_actual_effect") then
 		local r_4_level = unit:GetRuneValue("r", 4)
 		armor_pierce_modify = armor_pierce_modify + r_4_level*HYDROXIS_R4_ARMOR_PIERCE
@@ -2281,12 +2260,6 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	if unit:HasModifier('modifier_3_e_teleportation_buff') then
 		local e_3_level = unit:GetRuneValue("e", 3)
 		spell_pierce_modify = spell_pierce_modify + e_3_level*CHERNOBOG_E3_ARMOR_PIERCE_AND_SPELL_PIERCE
-	end
-	if unit:HasModifier("modifier_solunia_arcana2") then
-		if unit.sunMoon == "sun" or not unit.sunMoon then
-			local r_2_level = unit:GetRuneValue("r", 2)
-			spell_pierce_modify = spell_pierce_modify + r_2_level*SOLUNIA_ARCANA_R2_PIERCE
-		end
 	end
 	if unit:GetUnitName() == "npc_dota_hero_slardar" then
 		if unit:HasAbility("hydroxis_water_blade") then
@@ -3170,12 +3143,6 @@ function CustomAttributes:SetAttributes(hero)
 	if hero:HasModifier("modifier_fire_blossom_strength_bonus") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_fire_blossom_strength_bonus", 1)
 	end
-	if hero:HasModifier("modifier_solunia_d_d_stats") then
-		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_solunia_d_d_stats", SOLUNIA_ARCANA_R4_ATTRIBUTES)
-		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_solunia_d_d_stats", SOLUNIA_ARCANA_R4_ATTRIBUTES)
-		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_solunia_d_d_stats", SOLUNIA_ARCANA_R4_ATTRIBUTES)
-		spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_solunia_d_d_stats", SOLUNIA_ARCANA_R4_ATTRIBUTES)
-	end
 	if hero:HasModifier("modifier_arcane_intellect_visible") then
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_arcane_intellect_visible", SORCERESS_W3_INTELLECT)
 	end
@@ -3428,9 +3395,6 @@ function CustomAttributes:GetBaseHealth(hero, excludedModifier)
 	end
 	if excludedModifier ~= "modifier_venomort_e4_hero_bonus_invisible" and hero:HasModifier("modifier_venomort_e4_hero_bonus_invisible") then
 		flatHealthBonus = flatHealthBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_venomort_e4_hero_bonus_invisible", VENOMORT_E4_HP_PER_ENEMY)
-	end
-	if excludedModifier ~= "modifier_solunia_rune_e_4_effect" and hero:HasModifier("modifier_solunia_rune_e_4_effect") then
-		flatHealthBonus = flatHealthBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_solunia_rune_e_4_effect", SOLUNIA_E4_HP)
 	end
 	if excludedModifier ~= "modifier_bear_b_d" and hero:HasModifier("modifier_bear_b_d") then
 		flatHealthBonus = flatHealthBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_bear_b_d", CustomAttributes.DJANGHOR_BEAR_MAX_HEALTH)
@@ -3809,7 +3773,13 @@ function CDOTA_BaseNPC:CalculateAndSaveMasterMovespeedBuff()
 	if ms_buff > 0 then
 		Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_master_ms_buff", {})
 		self:SetModifierStackCount("modifier_master_ms_buff", self, ms_buff)
-	elseif self:HasModifier("modifier_master_ms_buff") then
+		self:RemoveModifierByName("modifier_master_ms_negative_buff")
+	elseif ms_buff < 0 then
+		Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_master_ms_negative_buff", {})
+		self:SetModifierStackCount("modifier_master_ms_negative_buff", self, ms_buff*-1)
+		self:RemoveModifierByName("modifier_master_ms_buff")
+	else
+		self:RemoveModifierByName("modifier_master_ms_negative_buff")
 		self:RemoveModifierByName("modifier_master_ms_buff")
 	end
 end
@@ -3898,6 +3868,21 @@ function CDOTA_BaseNPC:CalculateAndSaveMasterHealthRegen()
 		self:SetModifierStackCount("modifier_master_health_regen_buff", self, hp_regen_buff*10)
 	else
 		self:RemoveModifierByName("modifier_master_health_regen_buff")
+	end
+end
+
+function CDOTA_BaseNPC:CalculateAndSaveMasterManaRegen()
+	local mp_regen_buff = 0
+	Util.Modifier:SimpleEvent(self, 'GetRoshpitMasterManaRegen', { MODIFIER_ROSHPIT_MASTER_MANA_REGEN }, { }, 
+		function(result, data)
+			mp_regen_buff = mp_regen_buff + result
+		end
+	)
+	if mp_regen_buff > 0 then
+		Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_master_mana_regen_buff", {})
+		self:SetModifierStackCount("modifier_master_mana_regen_buff", self, mp_regen_buff*10)
+	else
+		self:RemoveModifierByName("modifier_master_mana_regen_buff")
 	end
 end
 

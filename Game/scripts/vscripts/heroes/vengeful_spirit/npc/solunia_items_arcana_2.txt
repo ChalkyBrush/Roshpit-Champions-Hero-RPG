@@ -22,7 +22,17 @@
 		"precache"
 		{
 			"particle"	"particles/roshpit/solunia/alpha_spark.vpcf"
-			"particle"	"particles/roshpit/solunia/status_arcana_shell.vpcf"
+			"particle"	"particles/roshpit/solunia/galactic/galactic_channel_supernova.vpcf"
+			"particle"	"particles/roshpit/solunia/galactic/galactic_supernova.vpcf"
+			"particle"	"particles/roshpit/solunia/galactic/warp_beam.vpcf"
+			"particle"	"particles/roshpit/solunia/galactic/flare_explosion_immortal1.vpcf"
+			"particle"	"particles/roshpit/solunia/galactic/galactic_warp_core.vpcf"
+			"particle"	"particles/roshpit/solunia/galactic/star_shield_galactic.vpcf"
+			"particle"	"particles/roshpit/solunia/galactic/galactic_boomerang_ambient.vpcf"
+			"particle"	"particles/roshpit/solunia/galactic/galactic_vorpal_blades.vpcf"
+			"particle"	"particles/roshpit/solunia/galactic/comet_cast_galactic.vpcf"
+			"particle"	"particles/roshpit/solunia/galactic/galactic_comet_attack.vpcf"	
+			"particle"	"particles/roshpit/solunia/galactic/a_a_wave_galactic_2.vpcf"
 		}
 		"OnSpellStart"
 		{

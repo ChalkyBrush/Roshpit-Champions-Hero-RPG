@@ -185,6 +185,7 @@
 	##SOLUNIA_ARCANA_3##
 	##SOLUNIA_BASE_ABILITIES##
 	##SOLUNIA_BASE_RUNES##
+	##SOLUNIA_GALACTIC_ABILITIES##
 
 	##DINATH_ARCANA_1_ABILITIES##
 	##DINATH_ARCANA_1_RUNES##
@@ -12653,6 +12654,15 @@
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "1"
 				}			
 			}
+			"modifier_master_ms_negative_buff"
+			{
+				"IsHidden"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-1"
+				}			
+			}
 			"modifier_master_as_buff"
 			{
 				"IsHidden"	"1"
@@ -12719,6 +12729,15 @@
 			"modifier_take_1_damage_only"
 			{
 				"IsHidden"	"1"
+			}
+			"modifier_master_mana_regen_buff"
+			{
+				"IsHidden"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "0.1"
+				}				
 			}
 		}
 		"AbilitySpecial"

@@ -85,7 +85,7 @@ function flamewaker_cataclysm:OnChannelFinish(interrupted)
     	else
 		    local position = caster:GetAbsOrigin()
 		    if caster:HasModifier("modifier_flamewaker_immortal_weapon_3") then
-		    	position = self:GetCursorPosition()
+		    	position = self:GetCastPosition()
 		    end
 		    local radius = ability:GetSpecialValueFor("radius")
 		    local stun_duration = ability:GetSpecialValueFor("stun_duration")

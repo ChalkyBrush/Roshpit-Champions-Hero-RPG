@@ -59,3 +59,47 @@ end
 function class:RemoveOnDeath()
     return false
 end
+
+function class:RoshpitDispellable()
+    return ROSHPIT_BUFF_NO_DISPEL
+end
+
+function class:GetRoshpitParticleName()
+    return false
+end
+
+function class:GetRoshpitParticleAttachPoint()
+    return "attach_hitloc"
+end
+
+function class:SetRoshpitParticleControlPoints(pfx)
+    return false
+end
+
+function class:CreateRoshpitModifierParticle()
+    if self:GetRoshpitParticleName() then
+        local ability = self:GetAbility()
+        if not ability.modifier_pfx_table then
+            ability.modifier_pfx_table = {}
+        end
+        local pfx = ability.modifier_pfx_table[self:GetName()]
+        if pfx then
+            ParticleManager:DestroyParticle(pfx, false)
+            ParticleManager:ReleaseParticleIndex(pfx)
+        end
+        local pfx = ParticleManager:CreateParticle(self:GetRoshpitParticleName(), self:GetEffectAttachType(), self:GetParent())
+        self:SetRoshpitParticleControlPoints(pfx)
+        ability.modifier_pfx_table[self:GetName()] = pfx
+    end
+end
+
+function class:DestroyRoshpitModifierParticle()
+    local ability = self:GetAbility()
+    if ability.modifier_pfx_table then
+        local pfx = ability.modifier_pfx_table[self:GetName()]
+        if pfx then
+            ParticleManager:DestroyParticle(pfx, false)
+            ParticleManager:ReleaseParticleIndex(pfx)
+        end
+    end
+end

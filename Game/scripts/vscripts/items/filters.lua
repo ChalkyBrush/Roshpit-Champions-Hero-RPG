@@ -2493,18 +2493,6 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                     fireMult = fireMult + MOUNTAIN_PROTECTOR_R4_EARTH_FIRE_AMP * attacker.r_4_level
                 end
             end
-        elseif unitName == "npc_dota_hero_axe" then
-            -- if attacker:HasModifier("modifier_axe_arcana_passive") then
-            --     local ratio = attacker:GetHealth()/attacker:GetMaxHealth()
-            --     local c_d_level = attacker:GetRuneValue("r", 3)
-            --     local multIncrease = ratio * 0.5 * c_d_level
-            --     mult = mult + multIncrease
-            -- end
-        elseif unitName == "npc_dota_hero_vengefulspirit" then
-            if attacker:HasModifier("modifier_solunia_arcana2") then
-                local d_d_level = attacker:GetRuneValue("r", 4)
-                fireMult = fireMult + SOLUNIA_ARCANA_R4_ELEM_AMP_PCT * d_d_level
-            end
         end
         if unitName == "npc_dota_hero_arc_warden" then
             if attacker:HasModifier("modifier_jex_arcana1") then
@@ -2664,18 +2652,6 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             --     cosmosMult = cosmosMult + 0.01 * victim:GetModifierStackCount("modifier_apollo_c_b_proc_invisible", attacker)
             -- end
         end
-        if unitName == "npc_dota_hero_vengefulspirit" then
-            local q_4_level = attacker:GetRuneValue("q", 4)
-            local d_a_mult = SOLUNIA_Q4_COSMIC_AMP_PCT
-            if attacker:HasModifier("modifier_solunia_arcana1") then
-                d_a_mult = SOLUNIA_ARCANA_Q4_COSMIC_AMP_PCT
-            end
-            cosmosMult = cosmosMult + d_a_mult * q_4_level
-            if attacker:HasModifier("modifier_solunia_arcana2") then
-                local d_d_level = attacker:GetRuneValue("r", 4)
-                cosmosMult = cosmosMult + SOLUNIA_ARCANA_R4_ELEM_AMP_PCT * d_d_level
-            end
-        end
         if attacker:GetUnitName() == "npc_dota_hero_arc_warden" then
             if attacker.e_2_level then
                 cosmosMult = cosmosMult + attacker.e_2_level * JEX_RUNE_ROW_2_VALUE
@@ -2719,11 +2695,6 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 if attacker.r_4_level then
                     mult = mult + MOUNTAIN_PROTECTOR_ARCANA2_R4_ICE_EARTH * attacker.r_4_level
                 end
-            end
-        elseif unitName == "npc_dota_hero_vengefulspirit" then
-            if attacker:HasModifier("modifier_solunia_arcana2") then
-                local d_d_level = attacker:GetRuneValue("r", 4)
-                mult = mult + SOLUNIA_ARCANA_R4_ELEM_AMP_PCT * d_d_level
             end
         elseif unitName == "npc_dota_hero_visage" then
             if attacker:HasModifier("modifier_ekkan_arcana2b") then

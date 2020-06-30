@@ -1,0 +1,256 @@
+	"solunia_napalm_galactic"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/vengeful_spirit/ability_scripts/napalm/solunia_napalm_galactic.lua"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_AOE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"solunia/solunia_galactic_napalm"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastPoint"				"0.36"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AOERadius"						"260"
+		"precache"
+		{
+
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"range"			"1400"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"95 215 425 835 1445 2555 4665"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"projectiles"		"3 3 4 4 5 5 6"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"stun_duration"		"1.2"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"damage_add_agility"		"1.5"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"damage_add_intelligence"		"1.5"
+			}
+		}
+	}
+
+	"solunia_boomerang_galactic"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/vengeful_spirit/ability_scripts/boomerang/solunia_boomerang_galactic.lua"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"solunia/solunia_boomerang_galactic"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastPoint"				"0.36"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"precache"
+		{
+
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"range"			"1000"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"max_boomerangs"			"2 2 3 3 4 4 5"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"40 120 200 340 540 800 1240"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"atk_power_added_to_dmg"			"30"
+			}
+		}
+	}
+
+	"solunia_warp_flare_galactic"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/vengeful_spirit/ability_scripts/warp_flare/solunia_warp_flare_galactic.lua"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"solunia/solunia_galactic_warp_flare"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastPoint"				"0.26"
+		"precache"
+		{
+
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"cast_range"			"700 750 800 850 900 950 1000"
+			}
+		}
+	}
+
+	"solunia_comet_galactic"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/vengeful_spirit/arcana/comet/solunia_comet_galactic.lua"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"solunia/solunia_galactic_comet"
+		"RequiredLevel"          		"0"
+		"LevelsBetweenUpgrades"  		"0"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+		"AbilityCastRange"				"1400"
+		"AOERadius"						"240"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"100 350 600 850 1100 1350 1600"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"max_charges"		"<% SOLUNIA_ARCANA1_RELOAD_CHARGES %>"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"stun_duration"		"0.3"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"damage_add_agility"		"1.5"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"damage_add_intelligence"		"1.5"
+			}
+		}
+		// Precache
+		//-------------------------------------------------------
+		"precache"
+		{
+
+		}
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"0"
+
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"0"
+	}
+
+	"solunia_vorpal_blades_galactic"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/vengeful_spirit/arcana/vorpal_blades/solunia_vorpal_blades_galactic.lua"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"solunia/galactic_vorpal"
+		"LevelsBetweenUpgrades"  "0"
+		"MaxLevel"				 "7"
+		"AbilityCastAnimation"	"ACT_DOTA_OVERRIDE_ABILITY_4"
+		"AOERadius"				"600"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0.5"
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"<% SOLUNIA_ARCANA_W_MANA_COST %>"
+		"AbilityCastRange"				"1200"
+
+		"precache"
+		{
+			"particle"  "particles/roshpit/omniro/chrono_path_sphere.vpcf"
+		}
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"100 300 500 700 900 1100 1300"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"search_radius"				"600"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"max_blades"				"3 4 5 6 7 8 9"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_bounces"				"2"
+			}	
+			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"atk_power_added_to_dmg"			"30"
+			}
+		}
+	}
