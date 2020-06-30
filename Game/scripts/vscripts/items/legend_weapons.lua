@@ -147,14 +147,6 @@ function Weapons:RollLegendWeapon1(location, class, strictMaxItemLevel, disableD
 	elseif internalName == "chernobog" then
 		Weapons:SetLegendWeaponProperty1(weapon, internalName, "immortal_weapon_1", "#457CF5", nil)
 		Weapons:SetLegendWeaponProperty2(weapon, "attack_damage", 2)
-	elseif internalName == "solunia" then
-		Weapons:SetLegendWeaponProperty1(weapon, internalName, "immortal_weapon_1", "#4286F4", nil)
-		local luck = RandomInt(1, 2)
-		if luck == 1 then
-			Weapons:SetLegendWeaponProperty2(weapon, "attack_damage", 2)
-		else
-			Weapons:SetLegendWeaponProperty2(weapon, "agility", 2)
-		end
 	elseif internalName == "hydroxis" then
 		Weapons:SetLegendWeaponProperty1(weapon, internalName, "immortal_weapon_1", "#4286F4", nil)
 		Weapons:SetLegendWeaponProperty2(weapon, "strength", 2)
@@ -297,9 +289,6 @@ function Weapons:RollLegendWeapon2(location, class, strictMaxItemLevel, disableD
 	elseif internalName == "chernobog" then
 		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_2", "#817BAD", nil, 2)
 		Weapons:SetLegendWeaponProperty2(weapon, "element_demon", 2)
-	elseif internalName == "solunia" then
-		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_2", "#90D7ED", nil, 2)
-		Weapons:SetLegendWeaponProperty2(weapon, "attack_damage", 2)
 	elseif internalName == "hydroxis" then
 		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_2", "#6D78BA", nil, 2)
 		Weapons:SetLegendWeaponProperty2(weapon, "attack_damage", 4)
@@ -427,9 +416,6 @@ function Weapons:RollLegendWeapon3(location, class, strictMaxItemLevel, disableD
 	elseif internalName == "chernobog" then
 		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_3", "#796DC6", nil, 3)
 		Weapons:SetLegendWeaponProperty2(weapon, "agility", 2)
-	elseif internalName == "solunia" then
-		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_3", "#D64FD3", nil, 3)
-		Weapons:SetLegendWeaponProperty2(weapon, "element_cosmic", 2)
 	elseif internalName == "hydroxis" then
 		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_3", "#5FB6F4", nil, 3)
 		Weapons:SetLegendWeaponProperty2(weapon, "strength", 3)

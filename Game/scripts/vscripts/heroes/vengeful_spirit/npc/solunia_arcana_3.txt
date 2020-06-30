@@ -1,125 +1,12 @@
-	"solunia_solar_vorpal_blades"
+	"solunia_vorpal_blades_solar"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/vengeful_spirit/arcana/vorpal_blades/solunia_vorpal_blades_solar.lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"solunia/solar_vorpal"
-		"LevelsBetweenUpgrades"  "0"
-		"MaxLevel"				 "7"
-		"AbilityCastAnimation"	"ACT_DOTA_OVERRIDE_ABILITY_4"
-		"AOERadius"				"600"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-
-		// Precache
-		//-------------------------------------------------------------------------------------------------------------
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0"
-
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"0.5"
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"80 180 280 380 480 580 680"
-		"AbilityCastRange"				"1200"
-
-		"precache"
-		{
-			"particle"  "particles/roshpit/omniro/chrono_path_sphere.vpcf"
-		}
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"100 300 500 700 900 1100 1300"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"search_radius"				"600"
-			}	
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"max_blades"				"3 4 5 6 7 8 9"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_bounces"				"2"
-			}
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/vengeful_spirit/arcana/vorpal_blades"
-				"Function"		"start_vorpal_blades"
-				"type"			"sun"
-				"target"		"POINT"
-				"search_radius"		"%search_radius"
-				"max_blades"			"%max_blades"
-				"damage"				"%damage"
-				"base_bounces"			"%base_bounces"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_vorpal_blade_thinker_solar"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"ThinkInterval"  "0.2"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/vengeful_spirit/arcana/vorpal_blades"
-						"Function"		"vorpal_blades_thinking"
-						"type"			"sun"
-					}
-				}
-			}
-			"modifier_selethas_sun_active"
-			{
-				"Passive"			"1"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-
-				"StatusEffectName"			"particles/status_fx/status_effect_gods_strength.vpcf"
-				"StatusEffectPriority"		"10"
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/vengeful_spirit/boomerang.lua"
-						"Function"		"begin_sun_form"
-					}
-				}
-			}
-			"modifier_active_sun_vorpals"
-			{
-				"IsHidden"	"0"
-			}
-		}
-	}
-
-	"solunia_lunar_vorpal_blades"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"solunia/lunar_vorpal"
 		"LevelsBetweenUpgrades"  "0"
 		"MaxLevel"				 "7"
 		"AbilityCastAnimation"	"ACT_DOTA_OVERRIDE_ABILITY_4"
@@ -138,7 +25,73 @@
 		"AbilityCooldown"				"0.5"
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"80 180 280 380 480 580 680"
+		"AbilityManaCost"				"<% SOLUNIA_ARCANA_W_MANA_COST %>"
+		"AbilityCastRange"				"1200"
+
+		"precache"
+		{
+			"particle"  "particles/roshpit/omniro/chrono_path_sphere.vpcf"
+		}
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"100 300 500 700 900 1100 1300"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"search_radius"				"600"
+			}	
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"max_blades"				"3 4 5 6 7 8 9"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_bounces"				"2"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"atk_power_added_to_dmg"			"30"
+			}
+		}
+	}
+
+	"solunia_vorpal_blades_lunar"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/vengeful_spirit/arcana/vorpal_blades/solunia_vorpal_blades_lunar.lua"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"solunia/lunar_vorpal"
+		"LevelsBetweenUpgrades"  "0"
+		"MaxLevel"				 "7"
+		"AbilityCastAnimation"	"ACT_DOTA_OVERRIDE_ABILITY_4"
+		"AOERadius"				"600"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0.5"
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"<% SOLUNIA_ARCANA_W_MANA_COST %>"
 		"AbilityCastRange"				"1200"
 
 		"precache"
@@ -169,42 +122,10 @@
 				"var_type"				"FIELD_INTEGER"
 				"base_bounces"				"2"
 			}	
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
+			"05"
 			{
-				"ScriptFile"	"heroes/vengeful_spirit/arcana/vorpal_blades"
-				"Function"		"start_vorpal_blades"
-				"type"			"moon"
-				"target"		"POINT"
-				"search_radius"		"%search_radius"
-				"max_blades"			"%max_blades"
-				"damage"			"%damage"
-				"base_bounces"			"%base_bounces"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_vorpal_blade_thinker_lunar"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"ThinkInterval"  "0.2"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/vengeful_spirit/arcana/vorpal_blades"
-						"Function"		"vorpal_blades_thinking"
-						"type"			"moon"
-					}
-				}
-			}
-			"modifier_active_moon_vorpals"
-			{
-				"IsHidden"	"0"
+				"var_type"			"FIELD_INTEGER"
+				"atk_power_added_to_dmg"			"30"
 			}
 		}
 	}
@@ -223,7 +144,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SOLUNIA_ARCANA_W1_ATK_DMG_ADDED_TO_VORPAL_PCT %>"
+				"property_one"			"<% SOLUNIA_ARCANA_W1_CRIT_DAMAGE %>"
 			}
 		}
 	}
@@ -264,7 +185,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SOLUNIA_ARCANA_W3_CRIT_DMG %>"
+				"property_one"			"<% SOLUNIA_ARCANA_W3_MANA_COST %>"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"<% SOLUNIA_ARCANA_W3_BAD_W %>"
 			}
 		}
 	}

@@ -12,12 +12,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SOLUNIA_ARCANA_R1_MIN %>"
+				"property_one"			"<% SOLUNIA_ARCANA_R1_MS %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% SOLUNIA_ARCANA_R1_MAX %>"
+				"property_two"			"<% SOLUNIA_ARCANA_R1_MAX_MS %>"
 			}
 		}
 	}
@@ -29,29 +29,13 @@
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityTextureName"	"solunia/solunia_rune_r_2_arcana2"
 		"MaxLevel"				"20"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SOLUNIA_ARCANA_R2_PIERCE %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% SOLUNIA_ARCANA_R2_PIERCE %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"2"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_two"			"9"
+				"property_one"			"<% SOLUNIA_ARCANA_R2_PURE_CHANCE %>"
 			}
 		}
 	}
@@ -69,7 +53,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SOLUNIA_ARCANA_R3_DURATION %>"
+				"property_one"			"<% SOLUNIA_ARCANA_R3_ATTR_PCT %>"
 			}
 		}
 	}
@@ -87,12 +71,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SOLUNIA_ARCANA_R4_ELEM_AMP_PCT * 100 %>"
+				"property_one"			"<% SOLUNIA_ARCANA_R4_CD_REDUCE %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% SOLUNIA_ARCANA_R4_ATTRIBUTES %>"
+				"property_two"			"<% SOLUNIA_ARCANA_R4_COSMIC_AMP %>"
 			}
 		}
 	}
