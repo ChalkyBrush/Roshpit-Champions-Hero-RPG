@@ -144,3 +144,7 @@ end
 function modifier_solunia_immortal_weapon_1_thales_shield:GetPureDamageReduction()
     return self:GetDamageReduction() 
 end
+
+function modifier_solunia_immortal_weapon_1_thales_shield:GetTexture()
+    return "solunia/solunia_thelas_shield"
+end
