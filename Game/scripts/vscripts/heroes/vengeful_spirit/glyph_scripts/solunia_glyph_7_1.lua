@@ -64,6 +64,9 @@ function modifierClass:Cryoshock(hero, target)
 end
 
 -- FREEZE MODIFIER
+function modifier_solunia_glyph_7_1_freeze:IsDebuff()
+    return true
+end
 
 function modifier_solunia_glyph_7_1_freeze:CheckState()
     local state = {
@@ -79,4 +82,8 @@ end
 
 function modifier_solunia_glyph_7_1_freeze:StatusEffectPriority()
     return 30
+end
+
+function modifier_solunia_glyph_7_1_freeze:GetTexture()
+    return "solunia/solunia_gravity_glyph"
 end

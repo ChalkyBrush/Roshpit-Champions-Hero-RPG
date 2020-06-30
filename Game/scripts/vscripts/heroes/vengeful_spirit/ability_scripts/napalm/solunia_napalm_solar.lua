@@ -143,3 +143,7 @@ function modifier_napalm_q_1_solar:OnRemoved()
 	local ability = self:GetAbility()
 	ability.q_1_stacks = {}
 end
+
+function modifier_napalm_q_1_solar:GetTexture()
+	return "solunia/solunia_rune_q_1_solar"
+end

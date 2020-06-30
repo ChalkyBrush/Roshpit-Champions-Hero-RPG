@@ -5,7 +5,7 @@
 		"ScriptFile"					"heroes/vengeful_spirit/arcana/solunia_hypernova.lua"
 		"AbilityType"            		"DOTA_ABILITY_TYPE_ULTIMATE"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
-		"AbilityTextureName"			"solunia/solunia_eclipse"
+		"AbilityTextureName"			"solunia/solunia_hypernova"
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"

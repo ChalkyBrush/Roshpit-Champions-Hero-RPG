@@ -79,3 +79,7 @@ end
 function modifier_solunia_r2_dual_burn_lunar:GetEffectAttachType()
 	return PATTACH_CUSTOMORIGIN_FOLLOW
 end
+
+function modifier_solunia_r2_dual_burn_lunar:GetTexture()
+	return "solunia/solunia_rune_r_2_lunar"
+end

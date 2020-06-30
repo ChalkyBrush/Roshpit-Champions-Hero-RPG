@@ -451,3 +451,6 @@ function modifier_solunia_hypernova_warpspeed:GetEffectAttachType()
 	return "attach_hitloc"
 end
 
+function modifier_solunia_hypernova_warpspeed:GetTexture()
+	return "solunia/solunia_rune_r_1_arcana2"
+end

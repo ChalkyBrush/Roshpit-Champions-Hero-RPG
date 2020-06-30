@@ -158,3 +158,7 @@ function modifier_solunia_glyph_2_2_pull:OnRemoved()
     FindClearSpaceForUnit(target, target:GetAbsOrigin(), false)
     ability.vacuum_table[target:GetEntityIndex()] = nil
 end
+
+function modifier_solunia_glyph_2_2_pull:GetTexture()
+    return "solunia/solunia_gravity_glyph"
+end

@@ -82,3 +82,7 @@ end
 function modifier_solunia_r2_dual_burn_solar:GetEffectAttachType()
 	return PATTACH_CUSTOMORIGIN_FOLLOW
 end
+
+function modifier_solunia_r2_dual_burn_solar:GetTexture()
+	return "solunia/solunia_rune_r_2_solar"
+end

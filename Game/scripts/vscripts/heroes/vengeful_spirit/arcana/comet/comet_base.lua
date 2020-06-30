@@ -248,6 +248,10 @@ function modifier_solunia_ultraviolet:GetRoshpitMasterGreenDMG()
 	return SOLUNIA_ARCANA_Q1_BONUS_ATTACK_PCT*caster:GetRuneValue("q", 1)
 end
 
+function modifier_solunia_ultraviolet:GetTexture()
+	return "solunia/solunia_rune_q_1_arcana1"
+end
+
 -- CHARGES MODIFIER
 
 function modifier_solunia_arcana_q_charges:IsHidden()

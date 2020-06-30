@@ -166,3 +166,7 @@ function modifier_napalm_q_1_galactic:OnRemoved()
 	local ability = self:GetAbility()
 	ability.q_1_stacks = {}
 end
+
+function modifier_napalm_q_1_galactic:GetTexture()
+	return "solunia/solunia_rune_q_1"
+end

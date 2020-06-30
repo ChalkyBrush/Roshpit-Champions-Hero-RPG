@@ -471,6 +471,10 @@ function modifier_solunia_warp_flare_e1:GetRoshpitMagicArmorBonus()
 	return self:GetCaster():GetRuneValue("e", 1)*SOLUNIA_E1_ARMORS
 end
 
+function modifier_solunia_warp_flare_e1:GetTexture()
+	return "solunia/solunia_rune_e_1"
+end
+
 -- E2 Base Modifier
 
 function modifier_solunia_warp_flare_e2:IsHidden()
@@ -560,4 +564,8 @@ function modifier_solunia_warp_flare_e2_debuff:OnRemoved()
 		return false
 	end
 	self:GetParent():CalculateAndSaveRoshpitAttributes()
+end
+
+function modifier_solunia_warp_flare_e2:GetTexture()
+	return "solunia/solunia_rune_e_2"
 end
