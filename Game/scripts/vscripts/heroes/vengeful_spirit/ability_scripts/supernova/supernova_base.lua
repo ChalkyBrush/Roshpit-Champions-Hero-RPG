@@ -141,7 +141,9 @@ function supernova_base:SoluniaStateSwap()
 		if modifier_name_to_remove then
 			caster:RemoveModifierByName(modifier_name_to_remove)
 		end
-
+		print("OLD ABILITY NAME: "..old_ability:GetAbilityName())
+		print("SWAP ABILITY NAME: "..old_ability:GetSwapAbilityName())
+		print("------")
 		CustomAbilities:AddAndOrSwapSkill(caster, old_ability:GetAbilityName(), old_ability:GetSwapAbilityName(), ability_slot)
 
 		local new_ability = caster:GetAbilityByIndex(ability_slot)

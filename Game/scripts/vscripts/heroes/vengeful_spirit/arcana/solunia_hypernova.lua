@@ -182,12 +182,24 @@ function solunia_hypernova:InitGalacticForm()
 
 		CustomAbilities:AddAndOrSwapSkill(caster, old_ability:GetAbilityName(), galactic_ability_name, ability_slot)
 
+		caster:RemoveAbility(old_ability:GetSwapAbilityName())
+		caster:RemoveAbility(old_ability:GetAbilityName())
+
 		local new_ability = caster:GetAbilityByIndex(ability_slot)
 		local modifier_name_swap = new_ability:GetIntrinsicModifierName()
 		if modifier_name_swap then
 			caster:AddNewModifier(caster, new_ability, modifier_name_swap, {})
 		end
 	end
+
+	local r_abilities = self:GetAllRAbilitiesToRemove()
+	for i = 1, #r_abilities, 1 do
+		caster:RemoveAbility(r_abilities[i])
+	end
+end
+
+function solunia_hypernova:GetAllRAbilitiesToRemove()
+	return {"solunia_supernova_solar", "solunia_supernova_lunar"}
 end
 
 function solunia_hypernova:EndGalacticForm()
@@ -204,6 +216,8 @@ function solunia_hypernova:EndGalacticForm()
 
 		local solar_ability_name = old_ability:GetSolarAbilityName()
 		CustomAbilities:AddAndOrSwapSkill(caster, old_ability:GetAbilityName(), solar_ability_name, ability_slot)
+
+		caster:RemoveAbility(old_ability:GetAbilityName())
 
 		local new_ability = caster:GetAbilityByIndex(ability_slot)
 		local modifier_name_swap = new_ability:GetIntrinsicModifierName()
@@ -408,6 +422,10 @@ function modifier_solunia_falling:OnIntervalThink()
     local caster = self:GetCaster()
     local ability = self:GetAbility()
     if caster:HasModifier("modifier_solunia_r_arcana_channeling") then
+    	return false
+    end
+    if not ability then
+    	caster:RemoveModifierByName("modifier_solunia_falling")
     	return false
     end
 	caster:SetAbsOrigin(caster:GetAbsOrigin() - Vector(0, 0, ability.fallVelocity))
