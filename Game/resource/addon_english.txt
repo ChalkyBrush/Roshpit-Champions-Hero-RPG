@@ -3918,7 +3918,7 @@
     	"property_chernobog_arcana2_description"								"Replaces @Ability3 and all of its runes with Demon Flight."
 
     	"DOTA_Tooltip_ability_chernobog_demon_flight"								"Demon Flight"
-    	"DOTA_Tooltip_ability_chernobog_demon_flight_Description"					"Chernobog ascends into the night sky using his unhallowed wings, allowing him to traverse over obstacles. Issuing an attack order while in flight causes chernobog to attack that target every 0.15 seconds as long as the target is within 900 range, even if Chernobog is not facing them. Getting stunned or flying into an impassible obstruction immediately ends Demon Flight.<br>This ability passively grants <font color='#ccff66'>50</font>% Evasion, even while inactive."
+    	"DOTA_Tooltip_ability_chernobog_demon_flight_Description"					"Chernobog ascends into the night sky using his unhallowed wings, allowing him to traverse over obstacles. Issuing an attack order while in flight causes chernobog to attack that target every 0.15 seconds as long as the target is within 900 range, even if Chernobog is not facing them. <br>This ability passively grants <font color='#ccff66'>50</font>% Evasion, even while inactive."
     	"DOTA_Tooltip_ability_chernobog_demon_flight_duration"					"DURATION:"
 	"DOTA_Tooltip_ability_chernobog_demon_flight_movespeed_bonus"				"BONUS MOVESPEED AND MOVESPEED CAP:"
 
