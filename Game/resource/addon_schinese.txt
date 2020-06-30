@@ -4295,15 +4295,17 @@
         "item_property_chernobog_arcana2"                                       "恶魔之翼"
         "property_chernobog_arcana2_description"                                "用 恶魔之翼 替换 @Ability3 及其全部符文。"
 
-        "DOTA_Tooltip_ability_chernobog_demon_flight"                               "恶魔之翼"
-        "DOTA_Tooltip_ability_chernobog_demon_flight_Description"                   "暗夜魔王张开恶魔之翼升入夜空，穿越地形。 在飞行中对敌人释放攻击指令时将会无视自身朝向攻击目标，攻击频率为0.15 秒，攻击范围为900，脱离范围将会自动停止。被眩晕或被障碍物阻碍将立即结束恶魔飞行。被动提高<font color='#ccff66'>50</font>%闪避。"
+        "DOTA_Tooltip_ability_chernobog_demon_flight"                           "恶魔之翼"
+        "DOTA_Tooltip_ability_chernobog_demon_flight_Description"               "暗夜魔王张开恶魔之翼升入夜空，穿越地形。 在飞行中对敌人释放攻击指令时将会无视自身朝向攻击目标，攻击频率为0.15 秒，攻击范围为900，脱离范围将会自动停止。被眩晕或被障碍物阻碍将立即结束恶魔飞行。被动提高<font color='#ccff66'>50</font>%闪避。"
         "DOTA_Tooltip_ability_chernobog_demon_flight_duration"                  "持续时间："
+	"DOTA_Tooltip_ability_chernobog_demon_flight_movespeed_bonus"		"额外移动速度和移动速度上限:"
 
         "DOTA_Tooltip_modifier_chernobog_demon_flight"                          "恶魔之翼"
 
         "DOTA_Tooltip_ability_chernobog_demon_walk"                             "影·幽暗之爪"
         "DOTA_Tooltip_ability_chernobog_demon_walk_Description"                 "暗夜魔王遁入绝对黑暗之中，使敌人暂时无法察觉它的踪影。隐身时仍可攻击。"   
         "DOTA_Tooltip_ability_chernobog_demon_walk_duration"                    "持续时间："
+	"DOTA_Tooltip_ability_chernobog_demon_walk_movespeed_bonus"		"额外移动速度和移动速度上限:"
 
         "DOTA_Tooltip_modifier_demon_walk"                                      "影·幽暗之爪"
 
@@ -7340,7 +7342,7 @@
         "item_rpc_flamewaker_glyph_1_2_description"             "普通攻击将会释放出 [W] 。"
 
         "DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_2_2"    "[T2-2] 凝结雕文"
-        "item_rpc_flamewaker_glyph_2_2_description"             "[E] 不会降低移动速度而是降低受到的伤害 <font color='#ccff66'>65</font>%。"
+        "item_rpc_flamewaker_glyph_2_2_description"             "[E] 降低移动速度但是降低受到的伤害 <font color='#ccff66'>65</font>%。"
 
         "DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_3_2"    "[T3-2] 灼热之闪雕文"
         "item_rpc_flamewaker_glyph_3_2_description"             "增加 [E] 的基础持续时间 <font color='#ccff66'>1</font> 秒。。"
@@ -13752,7 +13754,7 @@
 		"item_rpc_gold_plate_of_leon_ruby1"								"你的主属性将会被设定为力量。增加力量值@ruby_property1。"
 		"item_rpc_gold_plate_of_leon_emerald1"								"增加全属性 @emerald_property1"
 		"item_rpc_gold_plate_of_leon_sapphire1"								"每点主属性提供 @sapphire_property1点攻击力 "
-		"item_rpc_gold_plate_of_leon_amethyst1"								"增加你的主属性 @amethyst_property1%"
+		"item_rpc_gold_plate_of_leon_amethyst1"								"增加精神 @amethyst_property1%"
 		"item_property_gold_plate_of_leon"						"无畏英雄"
 		"property_gold_plate_of_leon_description"				"提高你的主属性<font color='#ccff66'>30</font>%。"
 		 
@@ -15124,7 +15126,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_excavators_focus_cap"							"矿工帽"
 		"item_property_excavator"							"高级装置"
-		"property_excavator_description"					"物品直接造成的伤害将被你四个技能的平均基础技能伤害提高."
+		"property_excavator_description"					"增加所有来自装备的属性 <font color='#ccff66'>25</font>% 并且获得和平均基础技能伤害等量的物品伤害。"
 		"item_rpc_excavators_focus_cap_ruby1"	"提高 [Q3] 符文@ruby_property1"
 		"item_rpc_excavators_focus_cap_emerald1"	"提高 [W3] 符文 @emerald_property1"
 		"item_rpc_excavators_focus_cap_sapphire1" "提高 [E3] 符文 @sapphire_property1"

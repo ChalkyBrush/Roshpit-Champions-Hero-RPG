@@ -3920,12 +3920,14 @@
     	"DOTA_Tooltip_ability_chernobog_demon_flight"								"Demon Flight"
     	"DOTA_Tooltip_ability_chernobog_demon_flight_Description"					"Chernobog ascends into the night sky using his unhallowed wings, allowing him to traverse over obstacles. Issuing an attack order while in flight causes chernobog to attack that target every 0.15 seconds as long as the target is within 900 range, even if Chernobog is not facing them. Getting stunned or flying into an impassible obstruction immediately ends Demon Flight.<br>This ability passively grants <font color='#ccff66'>50</font>% Evasion, even while inactive."
     	"DOTA_Tooltip_ability_chernobog_demon_flight_duration"					"DURATION:"
+	"DOTA_Tooltip_ability_chernobog_demon_flight_movespeed_bonus"				"BONUS MOVESPEED AND MOVESPEED CAP:"
 
     	"DOTA_Tooltip_modifier_chernobog_demon_flight"							"Demon Flight"
 
     	"DOTA_Tooltip_ability_chernobog_demon_walk"								"Shadow Stalk"
     	"DOTA_Tooltip_ability_chernobog_demon_walk_Description"					"Chernobog cloaks himself in absolute darkness, making him invisible to enemies for a short duration. Chernobog maintains this invisibility even while attacking.<br>This ability passively grants <font color='#ccff66'>50</font>% Evasion, even while inactive."
     	"DOTA_Tooltip_ability_chernobog_demon_walk_duration"					"DURATION:"
+	"DOTA_Tooltip_ability_chernobog_demon_walk_movespeed_bonus"				"BONUS MOVESPEED AND MOVESPEED CAP:"
 
     	"DOTA_Tooltip_modifier_demon_walk"										"Shadow Stalk"
 
@@ -4013,6 +4015,7 @@
         "DOTA_Tooltip_ability_item_rpc_chernobog_immortal_weapon_3"            "Unholy Claw of Osyluth"
         "item_property_chernobog_immortal_weapon3"                             "Vampiric Thirst"
         "property_chernobog_immortal_weapon3_description"                      "Landing an attack restores <font color='#ccff66'>0.65</font>% of max health, even if healing is disabled by @Ability2. Health restore value cannot be modified."
+
 
 		//Abilities
 		"earth_aspect"														"Earth Aspect"
@@ -6815,7 +6818,7 @@
         "DOTA_Tooltip_ability_flamewaker_rune_w_4_suffix_two"                   "%"
 		
 		"DOTA_Tooltip_ability_flamewaker_heat_wave"										"Heat Wave"
-		"DOTA_Tooltip_ability_flamewaker_heat_wave_Description"							"Element: <font color='#EF4126'>Fire</font><br>Flamewaker activates an intense heat energy, gaining movespeed, attack damage, cliff walking, and increased max movespeed. Enemies close to Flamewaker during heatwave have reduced armor."
+		"DOTA_Tooltip_ability_flamewaker_heat_wave_Description"							"Element: <font color='#EF4126'>Fire</font><br>Flamewaker activates an intense heat energy, gaining movespeed, attack damage, cliff walking, and increased max movespeed. "
 		"DOTA_Tooltip_ability_flamewaker_heat_wave_Lore"									"Base Ability: E"
     	"DOTA_Tooltip_ability_flamewaker_heat_wave_ms_cap_bonus"							"MS-CAP BONUS:"
     	"DOTA_Tooltip_ability_flamewaker_heat_wave_movespeed"								"MOVESPEED:"
@@ -7067,6 +7070,7 @@
     	"DOTA_Tooltip_ability_item_rpc_flamewaker_immortal_weapon_3"			"Gladius"
     	"item_property_flamewaker_immortal_weapon3"								"Meteor Break"
     	"property_flamewaker_immortal_weapon3_description"						"[R] becomes point target with <font color='#ccff66'>1000</font> cast range and has <font color='#ccff66'>40</font>% reduced cooldown."
+
 
 		//Abilities
 		"DOTA_Tooltip_ability_hydroxis_hydro_pump"									"Hydro Pump"
