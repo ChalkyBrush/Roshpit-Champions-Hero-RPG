@@ -9849,6 +9849,9 @@
         "DOTA_Tooltip_ability_item_rpc_solunia_glyph_7_1"       "[T7-1] Glyph of Cryoshock"
         "item_rpc_solunia_glyph_7_1_description"                "When @Ability2 crits, freeze all enemies in <font color='#ccff66'>300</font> range for <font color='#ccff66'>1.5</font> seconds."
 
+        "DOTA_Tooltip_modifier_solunia_glyph_7_1_freeze"        "Cryoshock"
+        "DOTA_Tooltip_modifier_solunia_glyph_7_1_freeze_Description"    "Frozen"
+
         "DOTA_Tooltip_ability_item_rpc_solunia_glyph_5_a"       "[T5-a] Glyph of Protostar"
         "item_rpc_solunia_glyph_5_a_description"                "The last jump of @Ability3 completes a successful cast of @Ability4 without activating its cooldown."
 
@@ -9857,6 +9860,9 @@
 
         "DOTA_Tooltip_ability_item_rpc_solunia_glyph_2_2"       "[T2-2] Glyph of Gravitron"
         "item_rpc_solunia_glyph_2_2_description"                "Create a vacuum of <font color='#ccff66'>1000</font> radius while channeling @Ability4."
+
+        "DOTA_Tooltip_modifier_solunia_glyph_2_2_pull"          "Orbital Nuke"
+        "DOTA_Tooltip_modifier_solunia_glyph_2_2_pull_Description"  "Rooted" 
 
         "DOTA_Tooltip_ability_item_rpc_solunia_glyph_3_2"       "[T3-2] Glyph of Blueshift"
         "item_rpc_solunia_glyph_3_2_description"                "Increases Turn Rate by <font color='#ccff66'>80</font>% and Movespeed by <font color='#ccff66'>100</font>."
@@ -9872,6 +9878,8 @@
 
         "DOTA_Tooltip_ability_item_rpc_solunia_glyph_7_2"       "[T7-2] Glyph of Magnetosphere"
         "item_rpc_solunia_glyph_7_2_description"                "Casting @Ability4 throws the maximum number of @Ability2 in all directions"
+
+        "DOTA_Tooltip_ability_item_rpc_solunia_glyph_book"      "Solunia Glyph Book"
 
         //Weapons
         "DOTA_Tooltip_ability_item_rpc_solunia_weapon_00"       "Razor"

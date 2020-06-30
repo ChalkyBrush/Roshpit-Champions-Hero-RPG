@@ -10505,6 +10505,8 @@
         "DOTA_Tooltip_ability_item_rpc_solunia_glyph_7_2"       "[T7-2] Glyph of Magnetosphere"
         "item_rpc_solunia_glyph_7_2_description"                "Casting @Ability4 throws the maximum number of @Ability2 in all directions"
 
+        "DOTA_Tooltip_ability_item_rpc_solunia_glyph_book"      "Solunia Glyph Book"
+
 		//Weapons
 		"DOTA_Tooltip_ability_item_rpc_solunia_weapon_00"		"Razor"
 		"DOTA_Tooltip_ability_item_rpc_solunia_weapon_01"		"Crescent Razor"
