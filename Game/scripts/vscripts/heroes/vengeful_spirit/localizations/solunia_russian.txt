@@ -335,68 +335,68 @@
 
 
         "DOTA_Tooltip_ability_solunia_rune_w_4_arcana3"                     "[W4] Elliptical Orbit"
-        "DOTA_Tooltip_ability_solunia_rune_w_4_arcana3_Description"         "Gives Vorpal Blades a chance to bounce additional times. Greater than 100% means they can gain multiple extra bounces."
-        "DOTA_Tooltip_ability_solunia_rune_w_4_arcana3_property_one"        "Chance for additional bounce"
+        "DOTA_Tooltip_ability_solunia_rune_w_4_arcana3_Description"         "Лезвия могут откакивать от целей несколько раз подряд. Шанс выше 100% означает возможность множественных отскоков."
+        "DOTA_Tooltip_ability_solunia_rune_w_4_arcana3_property_one"        "Шанс на дополнительный отскок"
         "DOTA_Tooltip_ability_solunia_rune_w_4_arcana3_suffix"              "%"
 
         
 		
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_1_1"		"[T1-1] Glyph of Orbital Nuke"
-		"item_rpc_solunia_glyph_1_1_description" 				"Create a vacuum of <% SOLUNIA_GLYPH_1_1_RADIUS %> radius at the cast point of @Ability1 that pushes enemies toward the target position."
+		"item_rpc_solunia_glyph_1_1_description" 				"Создаёт область с вакуумом радиусом <% SOLUNIA_GLYPH_1_1_RADIUS %> в точке каста @Ability1, которая толкает противников в сторону указанной точки."
 
         "DOTA_Tooltip_modifier_solunia_glyph_1_1_pull"          "Orbital Nuke"
-        "DOTA_Tooltip_modifier_solunia_glyph_1_1_pull_Description"  "Rooted" 
+        "DOTA_Tooltip_modifier_solunia_glyph_1_1_pull_Description"  "Обездвижен" 
         
         "DOTA_Tooltip_ability_item_rpc_solunia_glyph_2_1"       "[T2-1] Glyph of Azimuth"
-        "item_rpc_solunia_glyph_2_1_description"                "Throw <% SOLUNIA_GLYPH_2_1_BOMB_COUNT %> @Ability1 at the cast point of @Ability3"
+        "item_rpc_solunia_glyph_2_1_description"                "Запускает <% SOLUNIA_GLYPH_2_1_BOMB_COUNT %> @Ability1 в точку каста @Ability3"
 
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_3_1"		"[T3-1] Glyph of Phoenixia"
-		"item_rpc_solunia_glyph_3_1_description" 				"Restore Max Health and Mana on successful cast of @Ability4"
+		"item_rpc_solunia_glyph_3_1_description" 				"Восстанавливает всё Здоровье и Ману при успешном прочтении @Ability4"
 
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_4_1"		"[T4-1] Glyph of Crescents"
-		"item_rpc_solunia_glyph_4_1_description" 				"Increases the maximum number of conccurrent @Ability2 by <% SOLUNIA_GLYPH_4_1_BOOMERANG_COUNT %>"
+		"item_rpc_solunia_glyph_4_1_description" 				"Увеличивает максимальное количество бумерангов @Ability2 на <% SOLUNIA_GLYPH_4_1_BOOMERANG_COUNT %>"
 
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_5_1"		"[T5-1] Glyph of Neutrino"
-		"item_rpc_solunia_glyph_5_1_description" 				"Adds <% SOLUNIA_GLYPH_5_1_ATK_PWR_TO_Q %>% of Attack Power to the base damage of @Ability1."
+		"item_rpc_solunia_glyph_5_1_description" 				"Добавляет <% SOLUNIA_GLYPH_5_1_ATK_PWR_TO_Q %>% от Силы Атаки к урону @Ability1."
 		
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_6_1"		"[T6-1] Glyph of Light Years"
-		"item_rpc_solunia_glyph_6_1_description" 				"Warp Flare has 1 extra jump sequence."
+		"item_rpc_solunia_glyph_6_1_description" 				"Warp Flare имеет дополнительный прыжок."
 
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_7_1"		"[T7-1] Glyph of Cryoshock"
-		"item_rpc_solunia_glyph_7_1_description" 				"When @Ability2 crits, freeze all enemies in <% SOLUNIA_GLYPH_7_1_FREEZE_RADIUS %> range for <% SOLUNIA_GLYPH_7_1_FREEZE_DURATION %> seconds."
+		"item_rpc_solunia_glyph_7_1_description" 				"Если @Ability2 наносит критический удар, все противники в радиусе <% SOLUNIA_GLYPH_7_1_FREEZE_RADIUS %> замораживаются на <% SOLUNIA_GLYPH_7_1_FREEZE_DURATION %> сек."
 
         "DOTA_Tooltip_modifier_solunia_glyph_7_1_freeze"        "Cryoshock"
-        "DOTA_Tooltip_modifier_solunia_glyph_7_1_freeze_Description"    "Frozen"
+        "DOTA_Tooltip_modifier_solunia_glyph_7_1_freeze_Description"    "Заморожен"
 
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_5_a"		"[T5-a] Glyph of Protostar"
-		"item_rpc_solunia_glyph_5_a_description" 				"The last jump of @Ability3 completes a successful cast of @Ability4 without activating its cooldown."
+		"item_rpc_solunia_glyph_5_a_description" 				"Последний прыжок @Ability3 применяет @Ability4 без активации перезарядки."
 
         "DOTA_Tooltip_ability_item_rpc_solunia_glyph_1_2"       "[T1-2] Glyph of Inertia"
-        "item_rpc_solunia_glyph_1_2_description"                "Casting @Ability3 throws an attack toward all enemies in <% SOLUNIA_GLYPH_1_2_ATTACK_RADIUS %> range."
+        "item_rpc_solunia_glyph_1_2_description"                "Применение @Ability3 выпускает атаку по всем противникам в радиусе <% SOLUNIA_GLYPH_1_2_ATTACK_RADIUS %>."
 
         "DOTA_Tooltip_ability_item_rpc_solunia_glyph_2_2"       "[T2-2] Glyph of Gravitron"
-        "item_rpc_solunia_glyph_2_2_description"                "Create a vacuum of <% SOLUNIA_GLYPH_2_2_RADIUS %> radius while channeling @Ability4."
+        "item_rpc_solunia_glyph_2_2_description"                "Создает область с вакуумом радиусом <% SOLUNIA_GLYPH_2_2_RADIUS %> во время зарядки @Ability4."
 
         "DOTA_Tooltip_modifier_solunia_glyph_2_2_pull"          "Orbital Nuke"
-        "DOTA_Tooltip_modifier_solunia_glyph_2_2_pull_Description"  "Rooted" 
+        "DOTA_Tooltip_modifier_solunia_glyph_2_2_pull_Description"  "Обездвижен" 
 
         "DOTA_Tooltip_ability_item_rpc_solunia_glyph_3_2"       "[T3-2] Glyph of Blueshift"
-        "item_rpc_solunia_glyph_3_2_description"                "Increases Turn Rate by <% SOLUNIA_GLYPH_3_2_TURN_RATE_BONUS %>% and Movespeed by <% SOLUNIA_GLYPH_3_2_MS_BONUS %>."
+        "item_rpc_solunia_glyph_3_2_description"                "Увеличивает Скорость Поворота героя на <% SOLUNIA_GLYPH_3_2_TURN_RATE_BONUS %>% и Скорость Передвижения на <% SOLUNIA_GLYPH_3_2_MS_BONUS %>."
 
         "DOTA_Tooltip_ability_item_rpc_solunia_glyph_4_2"       "[T4-2] Glyph of Meteor Showers"
-        "item_rpc_solunia_glyph_4_2_description"                "While channeling @Ability4 throw a @Ability1 at a random enemy within <% SOLUNIA_GLYPH_4_2_RANGE %> range every <% SOLUNIA_GLYPH_4_2_BOMB_INTERVAL %> seconds."
+        "item_rpc_solunia_glyph_4_2_description"                "Во время зарядки @Ability4 запускает @Ability1 в случайного противника в радиусе <% SOLUNIA_GLYPH_4_2_RANGE %> каждые <% SOLUNIA_GLYPH_4_2_BOMB_INTERVAL %> сек."
 
         "DOTA_Tooltip_ability_item_rpc_solunia_glyph_5_2"       "[T5-2] Glyph of Ion Blades"
-        "item_rpc_solunia_glyph_5_2_description"                "@Ability2 can stick to enemies (Boomerang) or throws up to <% SOLUNIA_GLYPH_5_2_ADDITIONAL_VORPAL_BLADES %> additional blades (Vorpal Blades)"
+        "item_rpc_solunia_glyph_5_2_description"                "@Ability2 примагничивается к противникам (бумеранги), либо образует дополнительно <% SOLUNIA_GLYPH_5_2_ADDITIONAL_VORPAL_BLADES %> лезвий (Vorpal Blades)"
         
         "DOTA_Tooltip_ability_item_rpc_solunia_glyph_6_2"       "[T6-2] Glyph of Event Horizon"
-        "item_rpc_solunia_glyph_6_2_description"                "When @Ability2 hits an enemy, there is a <% SOLUNIA_GLYPH_6_2_EXPLOSION_CHANCE %>% chance to trigger an explosion of @Ability4."
+        "item_rpc_solunia_glyph_6_2_description"                "Если @Ability2 задевает противника, есть шанс <% SOLUNIA_GLYPH_6_2_EXPLOSION_CHANCE %>% активировать взрыв @Ability4."
 
         "DOTA_Tooltip_ability_item_rpc_solunia_glyph_7_2"       "[T7-2] Glyph of Magnetosphere"
-        "item_rpc_solunia_glyph_7_2_description"                "Casting @Ability4 throws the maximum number of @Ability2 in all directions"
 
-        "DOTA_Tooltip_ability_item_rpc_solunia_glyph_book"      "Solunia Glyph Book"
+        "item_rpc_solunia_glyph_7_2_description"                "Прочтение @Ability4 запускает максимально допустимое количество @Ability2 во все направления."
+        "DOTA_Tooltip_ability_item_rpc_solunia_glyph_book"      "Книга Глифов Solunia"
 
 		//Weapons
 		"DOTA_Tooltip_ability_item_rpc_solunia_weapon_00"		"Razor"
@@ -415,15 +415,15 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_solunia_immortal_weapon_1"		"Shooting Star"
 		"item_property_solunia_immortal_weapon"							"Thales Shield"
-		"property_solunia_immortal_weapon_description"					"Issuing a Stop Order applies a shield that reduces all damage taken by 100% for <% SOLUNIA_IMMORTAL_WEAPON_1_DURATION %> seconds. <% SOLUNIA_IMMORTAL_WEAPON_1_COOLDOWN %> second cooldown."
+		"property_solunia_immortal_weapon_description"					"Приказ остановки передвижения даёт герою щит, снижающий входящий урон на 100% на <% SOLUNIA_IMMORTAL_WEAPON_1_DURATION %> seconds. <% SOLUNIA_IMMORTAL_WEAPON_1_COOLDOWN %> сек перезарядки."
 
         "DOTA_Tooltip_modifier_solunia_immortal_weapon_1_thales_shield"     "Thales Shield"
-        "DOTA_Tooltip_modifier_solunia_immortal_weapon_1_thales_shield_Description" "All Damage taken reduced by 100%" 
+        "DOTA_Tooltip_modifier_solunia_immortal_weapon_1_thales_shield_Description" "Получаемый Урон снижен на 100%" 
 		
 		"DOTA_Tooltip_ability_item_rpc_solunia_immortal_weapon_2"            "Alien Husk of Synesthesia"
         "item_property_solunia_immortal_weapon2"                             "Aetherion Rain"
-        "property_solunia_immortal_weapon2_description"                      "Increases the floating time in between Warp Flares by <% SOLUNIA_IMMORTAL_WEAPON_2_FLOAT_DURATION_INCREASE %> and increases the maximum Warp Flare jumps by 1."
+        "property_solunia_immortal_weapon2_description"                      "Увеличивает время полёта между Warp Flares на <% SOLUNIA_IMMORTAL_WEAPON_2_FLOAT_DURATION_INCREASE %> и увеличивает максимум зарядов прыжков Warp Flare на 1."
 
         "DOTA_Tooltip_ability_item_rpc_solunia_immortal_weapon_3"            "Galactic Blades of Orbit"
         "item_property_solunia_immortal_weapon3"                             "Alpha Spark"
-        "property_solunia_immortal_weapon3_description"                      "@Ability4 has no channel time and teleports you to the target cast position with <% SOLUNIA_IMMORTAL_WEAPON_3_CAST_RANGE %> range."
+        "property_solunia_immortal_weapon3_description"                      "@Ability4 произносится мгновенно и телепортирует в выбранную точку, максимальная дальность <% SOLUNIA_IMMORTAL_WEAPON_3_CAST_RANGE %>."
