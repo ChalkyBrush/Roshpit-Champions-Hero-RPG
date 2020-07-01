@@ -518,7 +518,7 @@ function modifier_solunia_warp_flare_e2:GetAuraSearchType()
 end
 
 function modifier_solunia_warp_flare_e2:GetAuraSearchFlags()
-    return DOTA_UNIT_TARGET_FLAG_NONE
+    return DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
 end
 
 function modifier_solunia_warp_flare_e2:RemoveOnDeath()
