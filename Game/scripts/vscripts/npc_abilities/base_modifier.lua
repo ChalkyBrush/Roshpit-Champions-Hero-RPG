@@ -103,3 +103,20 @@ function class:DestroyRoshpitModifierParticle()
         end
     end
 end
+
+function class:GetGlyphFromModifierName(hero, glyph_name)
+    local glyph_ability = nil
+    if hero.glyphs_table then
+        for key, glyph in pairs(hero.glyphs_table) do
+            if glyph and IsValidEntity(glyph) and glyph:GetAbilityName() == glyph_name then
+                glyph_ability = glyph
+            end
+        end
+    end
+    if not glyph_ability then
+        if hero.InventoryUnit.skullGlyph then
+            glyph_ability = hero.InventoryUnit.skullGlyph
+        end
+    end
+    return glyph_ability
+end

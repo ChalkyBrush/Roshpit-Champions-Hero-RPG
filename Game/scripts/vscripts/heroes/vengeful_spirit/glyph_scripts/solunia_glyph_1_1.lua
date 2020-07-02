@@ -49,12 +49,7 @@ function modifierClass:GlyphQCast(position, ability)
 		self:VacuumWave(startPosition, rotatedFV*-1, ability:GetWaveProjectileName(), position)
 	end
 	local hero = self:GetParent()
-	local glyph_ability = nil
-	for key, glyph in pairs(hero.glyphs_table) do
-		if glyph and IsValidEntity(glyph) and glyph:GetAbilityName() == itemClassName then
-			glyph_ability = glyph
-		end
-	end
+	local glyph_ability = self:GetGlyphFromModifierName(hero, itemClassName)
 	if glyph_ability then
 		if not glyph_ability.vacuum_table then
 			glyph_ability.vacuum_table = {}

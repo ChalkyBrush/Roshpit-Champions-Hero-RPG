@@ -5333,7 +5333,11 @@ function skull_ring_init(event)
 	UTIL_Remove(caster.skullGlyph:GetContainer())
 	local modifierName = "modifier_"..glyphName
 	caster.skyllGlyphModifier = modifierName
-	caster.skullGlyph:ApplyDataDrivenModifier(caster, heroEntity, modifierName, {})
+	if _G["item_rpc_"..glyphName] then
+		caster.skullGlyph:AddSpecialModifiers(heroEntity)
+	else
+		caster.skullGlyph:ApplyDataDrivenModifier(caster, heroEntity, modifierName, {})
+	end
 end
 
 function skull_ring_end(event)
@@ -5342,6 +5346,7 @@ function skull_ring_end(event)
 	local caster = event.caster
 	heroEntity:RemoveModifierByName(caster.skyllGlyphModifier)
 	UTIL_Remove(caster.skullGlyph)
+	caster.skullGlyph = nil
 end
 
 function init_blacksmith_tablet(event)
