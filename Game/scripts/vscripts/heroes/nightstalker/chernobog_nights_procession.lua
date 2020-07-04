@@ -278,7 +278,7 @@ function modifier_chernobog_r_2:OnIntervalThink()
         local r_2_level = hero:GetRuneValue("r", 2)
         local r_4_level = hero:GetRuneValue("r", 4)
         if hero:HasAbility('chernobog_demon_flight') or hero:HasAbility('chernobog_demon_warp') then
-            local damage = e_4_level * CHERNOBOG_ARCANA2_E4_DMG_PCT * (1 + r_2_level * CHERNOBOG_R2_SHADOWS_AMP) * OverflowProtectedGetAverageTrueAttackDamage(hero)
+            local damage = e_4_level * CHERNOBOG_ARCANA2_E4_DMG_PCT / 100 * (1 + r_2_level * CHERNOBOG_R2_SHADOWS_AMP) * OverflowProtectedGetAverageTrueAttackDamage(hero)
             local interval = CHERNOBOG_ARCANA2_E4_INTERVAL
             local radius = CHERNOBOG_R_RADIUS + CHERNOBOG_R4_RADIUS * r_4_level
             if hero:HasModifier('modifier_chernobog_glyph_2_1') then
