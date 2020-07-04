@@ -149,7 +149,7 @@ function chernobog_nights_procession:DoMainThings()
     local r_2_level = hero:GetRuneValue("r", 2)
     local r_3_level = hero:GetRuneValue("r", 3)
     if r_2_level > 0 then
-        if hero:HasAbility('chernobog_3_e_arcana2') or hero:HasAbility('chernobog_3_e_arcana2_swapped') then
+        if hero:HasAbility('chernobog_demon_flight') or hero:HasAbility('chernobog_demon_warp') then
             local e_4_level = hero:GetRuneValue("e", 4)
             duration = Filters:GetAdjustedBuffDuration(hero, CHERNOBOG_R_DURATION + CHERNOBOG_ARCANA2_E4_BONUS_TIME * e_4_level)
         else
@@ -257,7 +257,7 @@ function modifier_chernobog_r_2:OnCreated()
         local hero = self:GetCaster()
         local e_2_level = hero:GetRuneValue("e", 2)
         local e_4_level = hero:GetRuneValue("e", 4)
-        if hero:HasAbility('chernobog_3_e_arcana2') or hero:HasAbility('chernobog_3_e_arcana2_swapped') then
+        if hero:HasAbility('chernobog_demon_flight') or hero:HasAbility('chernobog_demon_warp') then
             if e_4_level > 0 then
                 self:StartIntervalThink(CHERNOBOG_ARCANA2_E4_INTERVAL)
             end
@@ -277,7 +277,7 @@ function modifier_chernobog_r_2:OnIntervalThink()
         local e_4_level = hero:GetRuneValue("e", 4)
         local r_2_level = hero:GetRuneValue("r", 2)
         local r_4_level = hero:GetRuneValue("r", 4)
-        if hero:HasAbility('chernobog_3_e_arcana2') or hero:HasAbility('chernobog_3_e_arcana2_swapped') then
+        if hero:HasAbility('chernobog_demon_flight') or hero:HasAbility('chernobog_demon_warp') then
             local damage = e_4_level * CHERNOBOG_ARCANA2_E4_DMG_PCT * (1 + r_2_level * CHERNOBOG_R2_SHADOWS_AMP) * OverflowProtectedGetAverageTrueAttackDamage(hero)
             local interval = CHERNOBOG_ARCANA2_E4_INTERVAL
             local radius = CHERNOBOG_R_RADIUS + CHERNOBOG_R4_RADIUS * r_4_level
