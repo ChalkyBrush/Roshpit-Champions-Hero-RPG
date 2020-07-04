@@ -39,7 +39,8 @@ function RPCItems:CombineItems(msg)
 	end
 	if #vessel.itemTable == 2 then
 		if vessel.itemTable[1]:GetEntityIndex() == vessel.itemTable[2]:GetEntityIndex() or 
-		   vessel.itemTable[1].newItemTable.validator == vessel.itemTable[2].newItemTable.validator then
+		   vessel.itemTable[1].newItemTable.validator == vessel.itemTable[2].newItemTable.validator or
+		   vessel.itemTable[1]:IsSoulbound() or vessel.itemTable[2]:IsSoulbound() then
 			Notifications:Top(playerID, {text = "Can't do that", duration = 5, style = {color = "#EE2211"}, continue = true})
 			return false
 		end
