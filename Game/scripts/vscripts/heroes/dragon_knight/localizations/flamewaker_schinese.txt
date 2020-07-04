@@ -109,9 +109,11 @@
         "DOTA_Tooltip_ability_flamewaker_rune_e_3_suffix_two"                   "每点高于 <% FLAMEWAKER_E3_BASE_MS_REQ %>移动速度的移动速度"
         
         "DOTA_Tooltip_ability_flamewaker_rune_e_4"                              "[E4] 火焰冲刺"
-        "DOTA_Tooltip_ability_flamewaker_rune_e_4_Description"                  "炽热冲锋将会进一步提高移动速度上限。"
+        "DOTA_Tooltip_ability_flamewaker_rune_e_4_Description"                  "炽热冲锋将会进一步提高移动速度上限并且被动提高[E2]的伤害。"
         "DOTA_Tooltip_ability_flamewaker_rune_e_4_property_one"                 "最大移动速度提高"
         "DOTA_Tooltip_ability_flamewaker_rune_e_4_suffix"                       ""
+	"DOTA_Tooltip_ability_flamewaker_rune_e_4_property_two"			"[E2]伤害提高"
+	"DOTA_Tooltip_ability_flamewaker_rune_e_4_suffix_two"			"%"
         
         "DOTA_Tooltip_ability_flamewaker_cataclysm"                                 "大灾变"
         "DOTA_Tooltip_ability_flamewaker_cataclysm_Description"                     "元素: <font color=ELEMENT_FIRE>火</font> / <font color=ELEMENT_EARTH>土</font><br>凝聚火焰之力2秒之后爆炸,造成伤害并眩晕、减速周围所有单位。"
