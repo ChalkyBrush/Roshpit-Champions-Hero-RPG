@@ -95,7 +95,7 @@ function modifier_flamewaker_e_passive:OnIntervalThink()
 		if GameRules:GetGameTime() > ability.e_2_startTime + FLAMEWAKER_E2_DURATION then
 			ability:ClearE2Table()
 		else
-			local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * (FLAMEWAKER_E2_DMG_ATK_PWR/100) * caster:GetRuneValue("e", 2)
+			local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * (FLAMEWAKER_E2_DMG_ATK_PWR/100) * caster:GetRuneValue("e", 2)* (1 + self:GetCaster():GetRuneValue("e", 4) * FLAMEWAKER_E4_FLAME_AMP / 100)
 			for i = 1, #ability.e_2_table, 1 do
 				local position = ability.e_2_table[i].position
 			    local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, FLAMEWAKER_E2_DISTANCE_TO_CREATE_PUDDLE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
