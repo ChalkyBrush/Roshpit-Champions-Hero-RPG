@@ -57,7 +57,7 @@ function modifierClass:OnCreated()
 end
 
 function modifierClass:IsHidden()
-    return false
+    return true
 end
 
 function modifierClass:IsBuff()
