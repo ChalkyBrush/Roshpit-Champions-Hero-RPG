@@ -109,9 +109,11 @@
         "DOTA_Tooltip_ability_flamewaker_rune_e_3_suffix_two"                   " per movespeed above <% FLAMEWAKER_E3_BASE_MS_REQ %>"
 		
 		"DOTA_Tooltip_ability_flamewaker_rune_e_4"								"[E4] Flame Rush"
-    	"DOTA_Tooltip_ability_flamewaker_rune_e_4_Description"					"Heat Wave further increases Movement Speed Cap."
+    	"DOTA_Tooltip_ability_flamewaker_rune_e_4_Description"					"Heat Wave further increases Movement Speed Cap and passively increase the damage of [E2]."
     	"DOTA_Tooltip_ability_flamewaker_rune_e_4_property_one"					"Max Movement Speed"
     	"DOTA_Tooltip_ability_flamewaker_rune_e_4_suffix"						""
+	"DOTA_Tooltip_ability_flamewaker_rune_e_4_property_two"					"[E2] damage amplify
+	"DOTA_Tooltip_ability_flamewaker_rune_e_4_suffix_two"					"%"
 		
 		"DOTA_Tooltip_ability_flamewaker_cataclysm"									"Cataclysm"
 		"DOTA_Tooltip_ability_flamewaker_cataclysm_Description"						"Element: <font color=ELEMENT_FIRE>Fire</font> / <font color=ELEMENT_EARTH>Earth</font><br>Channels an overload of fire for 2 seconds, and then releases a massive explosion dealing damage, stunning, and slowing all targets surrounding the caster."
