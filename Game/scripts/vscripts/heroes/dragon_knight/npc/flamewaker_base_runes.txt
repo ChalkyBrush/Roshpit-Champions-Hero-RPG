@@ -307,6 +307,11 @@
 				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% FLAMEWAKER_E4_MS_CAP %>"
 			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"<% FLAMEWAKER_E4_FLAME_AMP %>"
+			}
 		}
 	}
 
