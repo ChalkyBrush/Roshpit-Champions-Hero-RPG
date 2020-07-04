@@ -38,7 +38,9 @@ function RPCItems:CombineItems(msg)
 		return false
 	end
 	if #vessel.itemTable == 2 then
-		if vessel.itemTable[1]:GetEntityIndex() == vessel.itemTable[2]:GetEntityIndex() then
+		if vessel.itemTable[1]:GetEntityIndex() == vessel.itemTable[2]:GetEntityIndex() or 
+		   vessel.itemTable[1].newItemTable.validator == vessel.itemTable[2].newItemTable.validator or
+		   vessel.itemTable[1]:IsSoulbound() or vessel.itemTable[2]:IsSoulbound() then
 			Notifications:Top(playerID, {text = "Can't do that", duration = 5, style = {color = "#EE2211"}, continue = true})
 			return false
 		end
@@ -400,6 +402,18 @@ function RPCItems:SynthCheckCombination(item1, item2, position)
 				end
 				return newItem
 			end
+		elseif item1:GetAbilityName() == "item_rpc_winterblight_tarot_card" and item2:GetAbilityName() == "item_rpc_winterblight_tarot_card" then
+			local tarot_table = {
+				"fool", "magician", "high_priestess", "empress", "emperor", "hierophant", "lovers", "chariot", "strength", "hermit", "wheel_of_fortune",
+				"justice", "hanged_man", "death", "temperance", "devil", "tower", "star", "moon", "sun", "judgement", "world"
+			}
+			local tarot_name = tarot_table[RandomInt(1, 22)]
+			while "tarot_"..tarot_name == item1.newItemTable.property1name or "tarot_"..tarot_name == item2.newItemTable.property1name do
+				tarot_name = tarot_table[RandomInt(1, 22)]
+			end
+			local newItem = Winterblight:CreateCastleTarotCard(nil, tarot_name)
+			newItem.pickedUp = true
+			return newItem
 		else
 			return false
 		end
