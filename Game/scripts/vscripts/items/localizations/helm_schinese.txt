@@ -561,8 +561,8 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_twisted_purple_mask_of_ahnqhir"					"安赫尔的扭曲紫色面具"	
-		"property_twisted_purple_mask_of_ahnqhir"												"超级施法 A"
-		"item_rpc_twisted_purple_mask_of_ahnqhir_ability_tooltip"					"Castpoint reduced to <% TWISTED_MASK_OF_AHNQHIR_PURPLE_CAST_POINT %>s."
+		"item_property_twisted_purple_mask_of_ahnqhir"												"超级施法 A"
+		"item_rpc_twisted_purple_mask_of_ahnqhir_ability_tooltip"					"施法点降低至 <% TWISTED_MASK_OF_AHNQHIR_PURPLE_CAST_POINT %>秒。"
 		"property_twisted_purple_mask_of_ahnqhir_Description"									"@Ability1 技能抬手强制设定为 0.05 秒（指从玩家发出指令到技能真正释放并进入冷却时间之间的那一段时间变为0.05秒）。减少 @Ability1 冷却时间 <% TWISTED_MASK_OF_AHNQHIR_PURPLE_CD_RED_PCT %>%。"
 		"item_rpc_twisted_purple_mask_of_ahnqhir_ruby1"	"提高 [Q1] 符文 @ruby_property1"
 		"item_rpc_twisted_purple_mask_of_ahnqhir_emerald1"	"提高 [Q3] 符文 @emerald_property1"
@@ -571,8 +571,8 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_twisted_yellow_mask_of_ahnqhir"					"安赫尔的扭曲黄色面具"	
-		"property_twisted_yellow_mask_of_ahnqhir"												"超级施法 B"
-		"item_rpc_twisted_yellow_mask_of_ahnqhir_ability_tooltip"					"Castpoint reduced to <% TWISTED_MASK_OF_AHNQHIR_YELLOW_CAST_POINT %>s."
+		"item_property_twisted_yellow_mask_of_ahnqhir"												"超级施法 B"
+		"item_rpc_twisted_yellow_mask_of_ahnqhir_ability_tooltip"					"施法点降低至 <% TWISTED_MASK_OF_AHNQHIR_YELLOW_CAST_POINT %>秒。"
 		"property_twisted_yellow_mask_of_ahnqhir_Description"									"@Ability2 技能抬手强制设定为 0.05 秒（指从玩家发出指令到技能真正释放并进入冷却时间之间的那一段时间变为0.05秒）。减少 @Ability2 冷却时间 <% TWISTED_MASK_OF_AHNQHIR_YELLOW_CD_RED %> 秒。"
 		"item_rpc_twisted_yellow_mask_of_ahnqhir_ruby1"	"提高 [W1] 符文 @ruby_property1"
 		"item_rpc_twisted_yellow_mask_of_ahnqhir_emerald1"	"提高 [W3] 符文 @emerald_property1"
@@ -581,8 +581,8 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_twisted_blue_mask_of_ahnqhir"					"安赫尔的扭曲蓝色面具"	
-		"property_twisted_blue_mask_of_ahnqhir"												"超级施法 C"
-		"item_rpc_twisted_blue_mask_of_ahnqhir_ability_tooltip"					"Castpoint reduced to <% TWISTED_MASK_OF_AHNQHIR_BLUE_CAST_POINT %>s."
+		"item_property_twisted_blue_mask_of_ahnqhir"												"超级施法 C"
+		"item_rpc_twisted_blue_mask_of_ahnqhir_ability_tooltip"					"施法点降低至 <% TWISTED_MASK_OF_AHNQHIR_BLUE_CAST_POINT %>秒。"
 		"property_twisted_blue_mask_of_ahnqhir_Description"									"@Ability3 技能抬手强制设定为 0.05 秒（指从玩家发出指令到技能真正释放并进入冷却时间之间的那一段时间变为0.05秒）。减少 @Ability3 冷却时间 <% TWISTED_MASK_OF_AHNQHIR_BLUE_CD_RED_PCT %>%。"
 		"item_rpc_twisted_blue_mask_of_ahnqhir_ruby1"	"提高 [E1] 符文 @ruby_property1"
 		"item_rpc_twisted_blue_mask_of_ahnqhir_emerald1"	"提高 [E3] 符文 @emerald_property1"
