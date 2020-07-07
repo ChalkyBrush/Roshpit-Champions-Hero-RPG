@@ -37,7 +37,7 @@ end
 
 function solunia_hypernova:GetCooldownBase(level)
 	local caster = self:GetCaster()
-    return math.max(0, 14 - caster:GetModifierStackCount("modifier_solunia_r_arcana_passive", caster)*SOLUNIA_ARCANA_R4_CD_REDUCE)
+    return math.max(GLOBAL_R_MIN_CD, 14 - caster:GetModifierStackCount("modifier_solunia_r_arcana_passive", caster)*SOLUNIA_ARCANA_R4_CD_REDUCE)
 end
 
 function solunia_hypernova:GetCastRange()

@@ -43,7 +43,7 @@ end
 
 function supernova_base:GetCooldownBase(level)
 	local caster = self:GetCaster()
-    return math.max(0, 14 - caster:GetModifierStackCount("modifier_solunia_r_passive", caster)*SOLUNIA_R4_CD_REDUCE)
+    return math.max(GLOBAL_R_MIN_CD, 14 - caster:GetModifierStackCount("modifier_solunia_r_passive", caster)*SOLUNIA_R4_CD_REDUCE)
 end
 
 function supernova_base:GetCastRange()
