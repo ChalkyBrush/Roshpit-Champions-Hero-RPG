@@ -230,6 +230,7 @@ function modifier_solunia_r_passive:OnCreated()
 		end
 	end
 	self:StartIntervalThink(1)
+	self:OnIntervalThink()
 end
 
 function modifier_solunia_r_passive:GetRoshpitRBaseAbilityDmgBonus()
