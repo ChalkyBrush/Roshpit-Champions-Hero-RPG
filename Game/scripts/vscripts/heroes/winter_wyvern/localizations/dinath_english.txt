@@ -127,7 +127,7 @@
     	"DOTA_Tooltip_ability_dinath_rune_r_3_suffix"							"%"
 
     	"DOTA_Tooltip_ability_dinath_rune_r_4"									"[R4] Blood of Tiamat"
-    	"DOTA_Tooltip_ability_dinath_rune_r_4_Description"				"Dinath's attributes increase the power of all <font color=ELEMENT_DRAGON>Dragon</font> damage."
+    	"DOTA_Tooltip_ability_dinath_rune_r_4_Description"				"Passively increases <font color=ELEMENT_DRAGON>Dragon</font> element damage."
     	"DOTA_Tooltip_ability_dinath_rune_r_4_property_one"				"Damage Bonus"
     	"DOTA_Tooltip_ability_dinath_rune_r_4_suffix"					"%"
 		
