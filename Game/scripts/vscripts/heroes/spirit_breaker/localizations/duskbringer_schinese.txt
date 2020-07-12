@@ -271,7 +271,7 @@
 		"item_rpc_duskbringer_glyph_2_2_description" 				"攻击叠加 <% DUSKBRINGER_GLYPH_2_2_Q1_STACKS %> 层 冥火枷的层数。（原来为 1 层）"
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_3_2"		"[T3-2] 螺旋雕文"
-		"item_rpc_duskbringer_glyph_3_2_description" 				"降低 @Ability1 的伤害间隔 <% DUSKBRINGER_GLYPH_3_2_TICK_TIME_DECR %>，但是其基础技能伤害降低 <% DUSKBRINGER_GLYPH_3_2_DMG_DECR %>%"
+		"item_rpc_duskbringer_glyph_3_2_description" 				"降低 @Ability1 的伤害间隔 <% DUSKBRINGER_GLYPH_3_2_TICK_TIME_DECR %>，但是其基础技能伤害降低 <% DUSKBRINGER_GLYPH_3_2_DMG_DECR * 100 %>%"
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_4_2"		"[T4-2] 畅游雕文"
 		"item_rpc_duskbringer_glyph_4_2_description" 				"移动时，获得一层 buff，每层buff伤害减免 <% DUSKBRINGER_GLYPH_4_2_RES_PER_STACK * 100 %>% ，最高叠加 <% DUSKBRINGER_GLYPH_4_2_MAX_STACKS %> 层。每层buff持续时间与 E1 一样长，但是不移动将一次性丢失全部的 buff 层数。"

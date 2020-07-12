@@ -269,7 +269,7 @@
 		"item_rpc_duskbringer_glyph_2_2_description" 				"При атаке по врагу накладывается <% DUSKBRINGER_GLYPH_2_2_Q1_STACKS %> заряда(ов) [Q1] Duskfire Flail вместо 1."
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_3_2"		"[T3-2] Glyph of Churning"
-		"item_rpc_duskbringer_glyph_3_2_description" 				"Сокращает интервал нанесения урона от умения (Q) @Ability1 на <% DUSKBRINGER_GLYPH_3_2_TICK_TIME_DECR %>, но также сокращает базовый урон умения на <% DUSKBRINGER_GLYPH_3_2_DMG_DECR %>%"
+		"item_rpc_duskbringer_glyph_3_2_description" 				"Сокращает интервал нанесения урона от умения (Q) @Ability1 на <% DUSKBRINGER_GLYPH_3_2_TICK_TIME_DECR %>, но также сокращает базовый урон умения на <% DUSKBRINGER_GLYPH_3_2_DMG_DECR * 100 %>%"
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_4_2"		"[T4-2] Glyph of the Journey"
 		"item_rpc_duskbringer_glyph_4_2_description" 				"При движении герой получает заряды, сокращающие входящий урон на <% DUSKBRINGER_GLYPH_4_2_RES_PER_STACK * 100 %>%. Максимум <% DUSKBRINGER_GLYPH_4_2_MAX_STACKS %> заряда(ов). Длительность действия равна длительности действия зарядов от руны [E1], но за отведенное время теряются все заряды, вместо одного."
