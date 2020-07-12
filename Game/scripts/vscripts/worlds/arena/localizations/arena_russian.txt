@@ -550,7 +550,10 @@
 		"pit_conquest_boss"												"Чёрный маг испытаний"
 
 		"DOTA_Tooltip_ability_conquest_black_mage_luminescence"			"Luminescence"
-		"DOTA_Tooltip_ability_conquest_black_mage_luminescence_Description"	"Черный маг произносит заклинание, накапливающее свою силу, после чего выпускает волну темной магии в сторону цели."	
+		"DOTA_Tooltip_ability_conquest_black_mage_luminescence_Description"	"Черный маг произносит заклинание, накапливающее свою силу, после чего выпускает волну темной магии в сторону цели."
+		"DOTA_Tooltip_ability_conquest_black_mage_luminescence_damage_per_second"		"УРОН ЗА СЕКУНДУ ЗАРЯДА СПОСОБНОСТИ:"
+		"DOTA_Tooltip_ability_conquest_black_mage_luminescence_max_channel_time"		"ДЛИТЕЛЬНОСТЬ ЗАРЯДА, СЕК:"
+		"DOTA_Tooltip_ability_conquest_black_mage_luminescence_range"					"ДАЛЬНОСТЬ:"		
 
 		"DOTA_Tooltip_ability_conquest_boss_ai"							"Shadowcaster"
 		"DOTA_Tooltip_ability_conquest_boss_ai_Description"				"Невосприимчив к любому физическому и магическому урону."
