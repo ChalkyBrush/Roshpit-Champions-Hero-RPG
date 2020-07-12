@@ -176,8 +176,8 @@
 		"DOTA_Tooltip_modifier_forest_ranger_bleed_Description"			"Снижение брони и кровотечение."
 
 		"DOTA_Tooltip_ability_creature_heart_spike"						"Heart Spike"
-		"DOTA_Tooltip_ability_creature_heart_spike_Description"			"Атаки наносят дополнительный ЧИСТЫЙ урон, основанный на максимальном здоровье цели."
-		"DOTA_Tooltip_ability_creature_heart_spike_health_percent"		"ДОП. ЧИСТЫЙ УРОН ОТ МАКС. ЗДОРОВЬЯ ЦЕЛИ, %:"
+		"DOTA_Tooltip_ability_creature_heart_spike_Description"			"Атаки наносят дополнительный чистый урон, зависящий от запаса здоровья цели."
+		"DOTA_Tooltip_ability_creature_heart_spike_health_percent"		"ДОПОЛНИТЕЛЬНЫЙ УРОН, ОТ МАКС. ХП ЦЕЛИ, %:"
 		
 		"DOTA_Tooltip_ability_redfall_ash_snake_ai"						"Autumn Ash"
 		"DOTA_Tooltip_ability_redfall_ash_snake_ai_Description"			"С каждой атакой проклинает цель, снижая её урон и скорость атаки."
