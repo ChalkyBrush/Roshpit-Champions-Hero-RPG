@@ -91,7 +91,7 @@
     	"DOTA_Tooltip_ability_solunia_rune_w_2_suffix"						"% of base boomerang damage"	
 		
 		"DOTA_Tooltip_ability_solunia_rune_w_3"								"[W3] Ricochet"
-    	"DOTA_Tooltip_ability_solunia_rune_w_3_Description"					"Solarang and Lunarangs have reduced cast point and increased cast range."
+    	"DOTA_Tooltip_ability_solunia_rune_w_3_Description"					"Solarangs and Lunarangs have reduced cast point and increased cast range."
     	"DOTA_Tooltip_ability_solunia_rune_w_3_property_one"				"Cast Range Increase"
     	"DOTA_Tooltip_ability_solunia_rune_w_3_suffix"						""
         "DOTA_Tooltip_ability_solunia_rune_w_3_property_two"                "Cast Point Reduction"

@@ -188,8 +188,11 @@ end
 function boomerang_base:Glyph7_2()
 	local total_max_blades = self:GetMaximumConcurrentBoomerangs()
 	local ability = self
-	for i = 1, total_max_blades, 1 do
-		local fv = WallPhysics:rotateVector(self:GetCaster():GetForwardVector(), 2*math.pi*i/total_max_blades)
+	local caster = self:GetCaster()
+	local current_blades = caster:GetModifierStackCount(self:GetCounterModifierName(), caster)
+	new_blades = total_max_blades - current_blades
+	for i = 1, new_blades, 1 do
+		local fv = WallPhysics:rotateVector(self:GetCaster():GetForwardVector(), 2*math.pi*i/new_blades)
 		local position = self:GetCaster():GetAbsOrigin() + fv*self:GetCastRange()
 		print(self:GetCastRange())
 		print(position)
