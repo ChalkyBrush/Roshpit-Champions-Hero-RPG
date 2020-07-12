@@ -192,7 +192,7 @@
     	"property_solunia_arcana1_description"								"Replaces @Ability1 and all of its runes with Solar & Lunar Comet."
 
     	"DOTA_Tooltip_ability_solunia_comet_solar"								"Solar Comet"
-    	"DOTA_Tooltip_ability_solunia_comet_solar_Description"					"Element: <font color=ELEMENT_COSMOS>Cosmic</font> / <font color=ELEMENT_FIRE>Fire</font><br>Drops a fiery comet at the target location that stuns and damages targets in an AOE when it comes into contact with "the ground. Deals additional damage based on Solunia's Agility. Comets have no cooldown but have charges, which can be restored by casting [R]."
+    	"DOTA_Tooltip_ability_solunia_comet_solar_Description"					"Element: <font color=ELEMENT_COSMOS>Cosmic</font> / <font color=ELEMENT_FIRE>Fire</font><br>Drops a fiery comet at the target location that stuns and damages targets in an AOE when it comes into contact with the ground. Deals additional damage based on Solunia's Agility. Comets have no cooldown but have charges, which can be restored by casting [R]."
     	"DOTA_Tooltip_ability_solunia_comet_solar_damage"						"DAMAGE:"
     	"DOTA_Tooltip_ability_solunia_comet_solar_stun_duration"					"STUN DURATION:"
     	"DOTA_Tooltip_ability_solunia_comet_solar_damage_add_agility"      "ADDITIONAL DAMAGE AGILITY MULT:"
@@ -200,7 +200,7 @@
 
 
     	"DOTA_Tooltip_ability_solunia_comet_lunar"								"Lunar Comet"
-    	"DOTA_Tooltip_ability_solunia_comet_lunar_Description"					"Element: <font color=ELEMENT_COSMOS>Cosmic</font> / <font color=ELEMENT_ICE>Ice</font><br>Drops an icy comet at the target location that stuns and damages targets in an AOE when it comes into contact with "the ground. Deals additional damage based on Solunia's Intelligence. Comets have no cooldown but have charges, which can be restored by casting [R]."
+    	"DOTA_Tooltip_ability_solunia_comet_lunar_Description"					"Element: <font color=ELEMENT_COSMOS>Cosmic</font> / <font color=ELEMENT_ICE>Ice</font><br>Drops an icy comet at the target location that stuns and damages targets in an AOE when it comes into contact with the ground. Deals additional damage based on Solunia's Intelligence. Comets have no cooldown but have charges, which can be restored by casting [R]."
     	"DOTA_Tooltip_ability_solunia_comet_lunar_damage"						"DAMAGE:"
     	"DOTA_Tooltip_ability_solunia_comet_lunar_stun_duration"					"STUN DURATION:"
     	"DOTA_Tooltip_ability_solunia_comet_lunar_max_charges"					"CHARGES BEFORE RELOAD:"
@@ -208,7 +208,7 @@
         "DOTA_Tooltip_ability_solunia_comet_lunar_max_charges"              "AVAILABLE CASTS ON RELOAD:"
 
         "DOTA_Tooltip_ability_solunia_comet_galactic"                              "Galactic Comet"
-        "DOTA_Tooltip_ability_solunia_comet_galactic_Description"                  "Element: <font color=ELEMENT_COSMOS>Cosmic</font> / <font color=ELEMENT_ICE>Ice</font><br>Drops a galactic comet at the target location that stuns and damages targets in an AOE when it comes into contact with "the ground. Deals additional damage based on Solunia's Intelligence and Agility. Comets have no cooldown but have charges, which can be restored by casting [R]."
+        "DOTA_Tooltip_ability_solunia_comet_galactic_Description"                  "Element: <font color=ELEMENT_COSMOS>Cosmic</font> / <font color=ELEMENT_ICE>Ice</font><br>Drops a galactic comet at the target location that stuns and damages targets in an AOE when it comes into contact with the ground. Deals additional damage based on Solunia's Intelligence and Agility. Comets have no cooldown but have charges, which can be restored by casting [R]."
         "DOTA_Tooltip_ability_solunia_comet_galactic_damage"                       "DAMAGE:"
         "DOTA_Tooltip_ability_solunia_comet_galactic_stun_duration"                    "STUN DURATION:"
         "DOTA_Tooltip_ability_solunia_comet_galactic_max_charges"                  "CHARGES BEFORE RELOAD:"
