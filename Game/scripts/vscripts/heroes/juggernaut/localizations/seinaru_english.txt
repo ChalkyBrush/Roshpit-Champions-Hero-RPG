@@ -128,7 +128,7 @@
     	"DOTA_Tooltip_modifier_seinaru_gorudo_rune_r_1"				"Armor Piercing"
 
     	"DOTA_Tooltip_ability_seinaru_rune_r_2"						"[R2] Duelist Ring"
-    	"DOTA_Tooltip_ability_seinaru_rune_r_2_Description"			"After casting @Ability4, a ring of light expands from the caster. Seinaru takes 80% reduced damage from enemies who are within the ring."
+    	"DOTA_Tooltip_ability_seinaru_rune_r_2_Description"			"After casting @Ability4, a ring of light expands from the caster. Seinaru takes <% SEINARU_R2_DMG_RED * 100 %>% reduced damage from enemies who are within the ring."
     	"DOTA_Tooltip_ability_seinaru_rune_r_2_property_one"			"Ring Duration"
     	"DOTA_Tooltip_ability_seinaru_rune_r_2_suffix"					" seconds"
     	"DOTA_Tooltip_ability_seinaru_rune_r_2_property_two"			"Radius"
