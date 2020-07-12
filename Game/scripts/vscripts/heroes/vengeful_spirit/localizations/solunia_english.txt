@@ -27,7 +27,7 @@
         "DOTA_Tooltip_ability_solunia_napalm_galactic_damage_add_intelligence"      "ADDITIONAL DAMAGE INTELLIGENCE MULT:"
 		
 		"DOTA_Tooltip_ability_solunia_rune_q_1"								"[Q1] Nitro Boost"
-    	"DOTA_Tooltip_ability_solunia_rune_q_1_Description"					"When a Napalm bomb impacts at least 1 enemy, Solunia gains a stack of Nitro Boost. Each stack lasts <% SOLUNIA_Q1_BUFF_DURATION %> with an independant duration and can gain up to <% SOLUNIA_Q1_MAX_STACKS %> stacks. Solar stacks increase Base Attack Damage and Lunar stacks increase Attack Power %."
+    	"DOTA_Tooltip_ability_solunia_rune_q_1_Description"					"When a Napalm bomb impacts at least 1 enemy, Solunia gains a stack of Nitro Boost. Each stack lasts <% SOLUNIA_Q1_BUFF_DURATION %> seconds with an independent duration and can gain up to <% SOLUNIA_Q1_MAX_STACKS %> stacks. Solar stacks increase Base Attack Damage and Lunar stacks increase Attack Power %."
     	"DOTA_Tooltip_ability_solunia_rune_q_1_property_one"				"Base Attack Damage"
     	"DOTA_Tooltip_ability_solunia_rune_q_1_suffix"						" per Solar Stack"	
     	"DOTA_Tooltip_ability_solunia_rune_q_1_property_two"				"Attack Power Bonus"
@@ -86,7 +86,7 @@
         "DOTA_Tooltip_ability_solunia_rune_w_1_suffix"                      "%"
 		
 		"DOTA_Tooltip_ability_solunia_rune_w_2"								"[W2] Galaxy Nitro"
-    	"DOTA_Tooltip_ability_solunia_rune_w_2_Description"					"Casting @Ability3 creates an explosion around all active boomerangs that deal damage in a <% SOLUNIA_W2_RADIUS %> radius based on the boomerang's damage. The explosions can be critical hits from [W1]."
+    	"DOTA_Tooltip_ability_solunia_rune_w_2_Description"					"Casting @Ability3 creates an explosion around all active boomerangs that deals damage in a <% SOLUNIA_W2_RADIUS %> radius based on the boomerang's damage. The explosions can be critical hits from [W1]."
     	"DOTA_Tooltip_ability_solunia_rune_w_2_property_one"				"Explosion Damage"
     	"DOTA_Tooltip_ability_solunia_rune_w_2_suffix"						"% of base boomerang damage"	
 		
@@ -192,7 +192,7 @@
     	"property_solunia_arcana1_description"								"Replaces @Ability1 and all of its runes with Solar & Lunar Comet."
 
     	"DOTA_Tooltip_ability_solunia_comet_solar"								"Solar Comet"
-    	"DOTA_Tooltip_ability_solunia_comet_solar_Description"					"Element: <font color=ELEMENT_COSMOS>Cosmic</font> / <font color=ELEMENT_FIRE>Fire</font><br>Drops a firey comet at the target location that stuns and damages targets in an AOE when it comes into contact with earth. Deals additional damage based on Solunia's Agility. Comets have no cooldown but have charges, which can be restored by casting [R]."
+    	"DOTA_Tooltip_ability_solunia_comet_solar_Description"					"Element: <font color=ELEMENT_COSMOS>Cosmic</font> / <font color=ELEMENT_FIRE>Fire</font><br>Drops a fiery comet at the target location that stuns and damages targets in an AOE when it comes into contact with "the ground. Deals additional damage based on Solunia's Agility. Comets have no cooldown but have charges, which can be restored by casting [R]."
     	"DOTA_Tooltip_ability_solunia_comet_solar_damage"						"DAMAGE:"
     	"DOTA_Tooltip_ability_solunia_comet_solar_stun_duration"					"STUN DURATION:"
     	"DOTA_Tooltip_ability_solunia_comet_solar_damage_add_agility"      "ADDITIONAL DAMAGE AGILITY MULT:"
@@ -200,7 +200,7 @@
 
 
     	"DOTA_Tooltip_ability_solunia_comet_lunar"								"Lunar Comet"
-    	"DOTA_Tooltip_ability_solunia_comet_lunar_Description"					"Element: <font color=ELEMENT_COSMOS>Cosmic</font> / <font color=ELEMENT_ICE>Ice</font><br>Drops an icy comet at the target location that stuns and damages targets in an AOE when it comes into contact with earth. Deals additional damage based on Solunia's Intelligence. Comets have no cooldown but have charges, which can be restored by casting [R]."
+    	"DOTA_Tooltip_ability_solunia_comet_lunar_Description"					"Element: <font color=ELEMENT_COSMOS>Cosmic</font> / <font color=ELEMENT_ICE>Ice</font><br>Drops an icy comet at the target location that stuns and damages targets in an AOE when it comes into contact with "the ground. Deals additional damage based on Solunia's Intelligence. Comets have no cooldown but have charges, which can be restored by casting [R]."
     	"DOTA_Tooltip_ability_solunia_comet_lunar_damage"						"DAMAGE:"
     	"DOTA_Tooltip_ability_solunia_comet_lunar_stun_duration"					"STUN DURATION:"
     	"DOTA_Tooltip_ability_solunia_comet_lunar_max_charges"					"CHARGES BEFORE RELOAD:"
@@ -208,7 +208,7 @@
         "DOTA_Tooltip_ability_solunia_comet_lunar_max_charges"              "AVAILABLE CASTS ON RELOAD:"
 
         "DOTA_Tooltip_ability_solunia_comet_galactic"                              "Galactic Comet"
-        "DOTA_Tooltip_ability_solunia_comet_galactic_Description"                  "Element: <font color=ELEMENT_COSMOS>Cosmic</font> / <font color=ELEMENT_ICE>Ice</font><br>Drops a galactic comet at the target location that stuns and damages targets in an AOE when it comes into contact with earth. Deals additional damage based on Solunia's Intelligence and Agility. Comets have no cooldown but have charges, which can be restored by casting [R]."
+        "DOTA_Tooltip_ability_solunia_comet_galactic_Description"                  "Element: <font color=ELEMENT_COSMOS>Cosmic</font> / <font color=ELEMENT_ICE>Ice</font><br>Drops a galactic comet at the target location that stuns and damages targets in an AOE when it comes into contact with "the ground. Deals additional damage based on Solunia's Intelligence and Agility. Comets have no cooldown but have charges, which can be restored by casting [R]."
         "DOTA_Tooltip_ability_solunia_comet_galactic_damage"                       "DAMAGE:"
         "DOTA_Tooltip_ability_solunia_comet_galactic_stun_duration"                    "STUN DURATION:"
         "DOTA_Tooltip_ability_solunia_comet_galactic_max_charges"                  "CHARGES BEFORE RELOAD:"
@@ -357,7 +357,7 @@
 		"item_rpc_solunia_glyph_3_1_description" 				"Restore Max Health and Mana on successful cast of @Ability4"
 
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_4_1"		"[T4-1] Glyph of Crescents"
-		"item_rpc_solunia_glyph_4_1_description" 				"Increases the maximum number of conccurrent @Ability2 by <% SOLUNIA_GLYPH_4_1_BOOMERANG_COUNT %>"
+		"item_rpc_solunia_glyph_4_1_description" 				"Increases the maximum number of concurrent @Ability2 by <% SOLUNIA_GLYPH_4_1_BOOMERANG_COUNT %>"
 
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_5_1"		"[T5-1] Glyph of Neutrino"
 		"item_rpc_solunia_glyph_5_1_description" 				"Adds <% SOLUNIA_GLYPH_5_1_ATK_PWR_TO_Q %>% of Attack Power to the base damage of @Ability1."
