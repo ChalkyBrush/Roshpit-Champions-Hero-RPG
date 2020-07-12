@@ -1,3 +1,4 @@
+require('heroes/moon_ranger/astral_ranger_constants')
 shot_of_apollo = class({})
 
 LinkLuaModifier("modifier_apollo_channel", "modifiers/astral/modifier_apollo_channel", LUA_MODIFIER_MOTION_NONE)
@@ -21,6 +22,10 @@ function shot_of_apollo:GetCustomCastErrorTarget(hTarget)
 	end
 
 	return ""
+end
+
+function shot_of_apollo:GetCooldownBase(level)
+    return ASTRAL_RANGER_ARCANA2_W_COOLDOWN
 end
 
 function shot_of_apollo:OnSpellStart()
