@@ -37145,7 +37145,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage_per_second"		"180000"
+				"damage_per_second"		"10000"
 			}
 			"02"
 			{
@@ -61501,7 +61501,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"percent_health_damage"				"4"
+				"percent_health_damage"				"7"
 			}
 		}
 		"Modifiers"
@@ -65913,7 +65913,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_percent"			"4"
+				"damage_percent"			"6"
 			}
 		}
 		"Modifiers"

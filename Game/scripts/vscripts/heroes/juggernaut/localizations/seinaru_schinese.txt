@@ -129,7 +129,7 @@
     	"DOTA_Tooltip_modifier_seinaru_gorudo_rune_r_1"				"穿甲"
 
     	"DOTA_Tooltip_ability_seinaru_rune_r_2"						"[R2] 决斗之环"
-    	"DOTA_Tooltip_ability_seinaru_rune_r_2_Description"			"施放格尔德后，一个光圈延伸，神圣剑客在此圆环内获得80%减伤。"
+    	"DOTA_Tooltip_ability_seinaru_rune_r_2_Description"			"施放格尔德后，一个光圈延伸，神圣剑客在此圆环内获得<% SEINARU_R2_DMG_RED * 100 %>%减伤。"
     	"DOTA_Tooltip_ability_seinaru_rune_r_2_property_one"			"圆环持续时间"
     	"DOTA_Tooltip_ability_seinaru_rune_r_2_suffix"					" 秒"
     	"DOTA_Tooltip_ability_seinaru_rune_r_2_property_two"			"圆环范围"

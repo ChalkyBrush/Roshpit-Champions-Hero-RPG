@@ -2895,7 +2895,7 @@ function GameState:FilterDamage(filterTable)
 				if ability:GetAbilityName() == "sea_fortress_hydrogren_field" then
 					filterTable["damage"] = victim:GetMaxHealth() * 0.07
 				elseif ability:GetAbilityName() == "seafortress_heart_spike" then
-					filterTable["damage"] = victim:GetMaxHealth() * 0.12
+					filterTable["damage"] = victim:GetMaxHealth() * 0.06
 				end
 			end
 		end

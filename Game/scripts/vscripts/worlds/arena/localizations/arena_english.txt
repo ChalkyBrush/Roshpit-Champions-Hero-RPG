@@ -560,7 +560,10 @@
 		"pit_conquest_boss"												"Black Mage of Conquest"
 
 		"DOTA_Tooltip_ability_conquest_black_mage_luminescence"			"Luminescence"
-		"DOTA_Tooltip_ability_conquest_black_mage_luminescence_Description"	"A magic charge from the Mage's staff unleashes a stampede of spirit horses towards the target"	
+		"DOTA_Tooltip_ability_conquest_black_mage_luminescence_Description"	"A magic charge from the Mage's staff unleashes a stampede of spirit horses towards the target"
+		"DOTA_Tooltip_ability_conquest_black_mage_luminescence_damage_per_second"		"DAMAGE PER SECOND OF CHARGE:"
+		"DOTA_Tooltip_ability_conquest_black_mage_luminescence_max_channel_time"		"CHARGING, SECONDS:"
+		"DOTA_Tooltip_ability_conquest_black_mage_luminescence_range"					"RANGE:"
 
 		"DOTA_Tooltip_ability_conquest_boss_ai"							"Shadowcaster"
 		"DOTA_Tooltip_ability_conquest_boss_ai_Description"				"Immune to ALL Physical and Magical damage."

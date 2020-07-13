@@ -145,7 +145,7 @@
 		"DOTA_Tooltip_ability_sea_temple_sea_god_attack_radius"	"РАДИУС:"
 
 		"DOTA_Tooltip_ability_sea_fortress_hydrogren_field"	"Hydrogen Field"
-		"DOTA_Tooltip_ability_sea_fortress_hydrogren_field_Description"	"Создаёт лужу водорода. Враги, наодящиеся в луже лишаются % от максимума здоровья.(Не сработает ни один эффект снижения урона)"
+		"DOTA_Tooltip_ability_sea_fortress_hydrogren_field_Description"	"Создаёт лужу жидкого водорода. Враги, находящиеся в луже, теряют % от максимального здоровья каждый тик.(Потеря здоровья игнорирует сопротивление урону или другие типы защиты)"
 		"DOTA_Tooltip_ability_sea_fortress_hydrogren_field_percent_health_damage"	"УДАЛЕНИЕ ЗДОРОВЬЯ, %:"
 
 		"DOTA_Tooltip_ability_sea_fortress_tree_ability"	"Fungal Overlord"

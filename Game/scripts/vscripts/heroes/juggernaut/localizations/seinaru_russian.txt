@@ -124,7 +124,7 @@
     	"DOTA_Tooltip_modifier_seinaru_gorudo_rune_r_1"				"Armor Piercing"
 
     	"DOTA_Tooltip_ability_seinaru_rune_r_2"						"[R2] Duelist Ring"
-    	"DOTA_Tooltip_ability_seinaru_rune_r_2_Description"			"После прочтения @Ability4, от героя исходит кольцо света, которое постепенно расширяется. Seinaru получает на 80% меньше урона от врагов, находящихся в кольце."
+    	"DOTA_Tooltip_ability_seinaru_rune_r_2_Description"			"После прочтения @Ability4, от героя исходит кольцо света, которое постепенно расширяется. Seinaru получает на <% SEINARU_R2_DMG_RED * 100 %>% меньше урона от врагов, находящихся в кольце."
     	"DOTA_Tooltip_ability_seinaru_rune_r_2_property_one"			"Длительность кольца"
     	"DOTA_Tooltip_ability_seinaru_rune_r_2_suffix"					" сек."
     	"DOTA_Tooltip_ability_seinaru_rune_r_2_property_two"			"Радиус"

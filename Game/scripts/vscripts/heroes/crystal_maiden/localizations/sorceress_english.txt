@@ -236,8 +236,8 @@
 		"item_property_sorceress_arcana2"										"Incineration"
     	"property_sorceress_arcana2_description"								"Replaces @Ability1 and all of its runes with Incineration."
 
-    	"DOTA_Tooltip_ability_sorceress_fire_arcana_q"								"Inceration"
-    	"DOTA_Tooltip_ability_sorceress_fire_arcana_q_Description"					"Element: <font color=ELEMENT_FIRE>Fire</font><br>Conjures a pit of enchanted fire that marks all enemies for incineration. Every 0.2 seconds, enemies has a 17% chance to get scorched and damage itself and nearby enemies. Enemies inside the burn area are damaged every 0.5 seconds."
+    	"DOTA_Tooltip_ability_sorceress_fire_arcana_q"								"Incineration"
+    	"DOTA_Tooltip_ability_sorceress_fire_arcana_q_Description"					"Element: <font color=ELEMENT_FIRE>Fire</font><br>Conjures a pit of enchanted fire that marks all enemies for incineration. Every 0.2 seconds, enemies have a 17% chance to get scorched and damage itself and nearby enemies. Enemies inside the burn area are damaged every 0.5 seconds."
     	"DOTA_Tooltip_ability_sorceress_fire_arcana_q_damage"					"DAMAGE:"
     	"DOTA_Tooltip_ability_sorceress_fire_arcana_q_aoe_radius"				"RADIUS:"
     	"DOTA_Tooltip_ability_sorceress_fire_arcana_q_duration"					"DEBUFF DURATION:"
@@ -256,7 +256,7 @@
 		"DOTA_Tooltip_ability_sorceress_sun_lance_Lore"							""
 
   		"DOTA_Tooltip_ability_sorceress_rune_q_2_arcana2"						"[Q2] Ring of Fire"
-    	"DOTA_Tooltip_ability_sorceress_rune_q_2_arcana2_Description"				"Casting arcane explosion twice in succession releases a a soul-burning Ring of Fire. Enemies affected by ring of fire take damage and have 180 reduced attack speed. <% SORCERESS_ARCANA2_Q2_COOLDOWN %> second cooldown."
+    	"DOTA_Tooltip_ability_sorceress_rune_q_2_arcana2_Description"				"Casting arcane explosion twice in succession releases a soul-burning Ring of Fire. Enemies affected by ring of fire take damage and have 180 reduced attack speed. <% SORCERESS_ARCANA2_Q2_COOLDOWN %> second cooldown."
     	"DOTA_Tooltip_ability_sorceress_rune_q_2_arcana2_property_one"				"Damage"
     	"DOTA_Tooltip_ability_sorceress_rune_q_2_arcana2_suffix"					""
     	"DOTA_Tooltip_ability_sorceress_rune_q_2_arcana2_property_two"				"Burn Duration"
