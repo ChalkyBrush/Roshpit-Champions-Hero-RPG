@@ -5848,7 +5848,7 @@
 		"item_rpc_duskbringer_glyph_2_2_description" 				"攻击叠加 <font color='#ccff66'>3</font> 层 冥火枷的层数。（原来为 1 层）"
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_3_2"		"[T3-2] 螺旋雕文"
-		"item_rpc_duskbringer_glyph_3_2_description" 				"降低 @Ability1 的伤害间隔 <font color='#ccff66'>50</font>，但是其基础技能伤害降低 <font color='#ccff66'>0.4</font>%"
+		"item_rpc_duskbringer_glyph_3_2_description" 				"降低 @Ability1 的伤害间隔 <font color='#ccff66'>50</font>，但是其基础技能伤害降低 <font color='#ccff66'>40</font>%"
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_4_2"		"[T4-2] 畅游雕文"
 		"item_rpc_duskbringer_glyph_4_2_description" 				"移动时，获得一层 buff，每层buff伤害减免 <font color='#ccff66'>3</font>% ，最高叠加 <font color='#ccff66'>25</font> 层。每层buff持续时间与 E1 一样长，但是不移动将一次性丢失全部的 buff 层数。"
@@ -9142,7 +9142,7 @@
     	"DOTA_Tooltip_modifier_seinaru_gorudo_rune_r_1"				"穿甲"
 
     	"DOTA_Tooltip_ability_seinaru_rune_r_2"						"[R2] 决斗之环"
-    	"DOTA_Tooltip_ability_seinaru_rune_r_2_Description"			"施放格尔德后，一个光圈延伸，神圣剑客在此圆环内获得80%减伤。"
+    	"DOTA_Tooltip_ability_seinaru_rune_r_2_Description"			"施放格尔德后，一个光圈延伸，神圣剑客在此圆环内获得<font color='#ccff66'>50</font>%减伤。"
     	"DOTA_Tooltip_ability_seinaru_rune_r_2_property_one"			"圆环持续时间"
     	"DOTA_Tooltip_ability_seinaru_rune_r_2_suffix"					" 秒"
     	"DOTA_Tooltip_ability_seinaru_rune_r_2_property_two"			"圆环范围"

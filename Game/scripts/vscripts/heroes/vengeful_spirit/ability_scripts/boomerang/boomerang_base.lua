@@ -190,7 +190,7 @@ function boomerang_base:Glyph7_2()
 	local ability = self
 	local caster = self:GetCaster()
 	local current_blades = caster:GetModifierStackCount(self:GetCounterModifierName(), caster)
-	new_blades = total_max_blades - current_blades
+	local new_blades = total_max_blades - current_blades
 	for i = 1, new_blades, 1 do
 		local fv = WallPhysics:rotateVector(self:GetCaster():GetForwardVector(), 2*math.pi*i/new_blades)
 		local position = self:GetCaster():GetAbsOrigin() + fv*self:GetCastRange()

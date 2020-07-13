@@ -2273,7 +2273,7 @@
     	"DOTA_Tooltip_modifier_arkimus_arcana_q_3_buff_Description"							"Each stack independently reduces damage taken by <font color='#ccff66'>1</font>%%"	
 
      	"DOTA_Tooltip_ability_arkimus_rune_q_4_arcana1"									"[Q4] Arcane Channel"
-    	"DOTA_Tooltip_ability_arkimus_rune_q_4_arcana1_Description"						"While Magnetic Flux is active, Arkimus gains bonus agility and enhanced <font color='#5CCDF9'>Lightning</font> damage based on Agility."
+    	"DOTA_Tooltip_ability_arkimus_rune_q_4_arcana1_Description"						"While Magnetic Flux is active, Arkimus gains bonus agility and enhanced <font color='#5CCDF9'>Lightning</font> damage."
     	"DOTA_Tooltip_ability_arkimus_rune_q_4_arcana1_property_one"					"Bonus Agility"
     	"DOTA_Tooltip_ability_arkimus_rune_q_4_arcana1_suffix"							""
     	"DOTA_Tooltip_ability_arkimus_rune_q_4_arcana1_property_two"					"Lighting Amp"
@@ -4673,7 +4673,7 @@
     	"DOTA_Tooltip_ability_dinath_rune_r_3_suffix"							"%"
 
     	"DOTA_Tooltip_ability_dinath_rune_r_4"									"[R4] Blood of Tiamat"
-    	"DOTA_Tooltip_ability_dinath_rune_r_4_Description"				"Dinath's attributes increase the power of all <font color='#3289C7'>Dragon</font> damage."
+    	"DOTA_Tooltip_ability_dinath_rune_r_4_Description"				"Passively increases <font color='#3289C7'>Dragon</font> element damage."
     	"DOTA_Tooltip_ability_dinath_rune_r_4_property_one"				"Damage Bonus"
     	"DOTA_Tooltip_ability_dinath_rune_r_4_suffix"					"%"
 		
@@ -5477,7 +5477,7 @@
 		"item_rpc_duskbringer_glyph_2_2_description" 				"Attacking applies <font color='#ccff66'>3</font> stacks of Duskfire to enemies, instead of just 1."
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_3_2"		"[T3-2] Glyph of Churning"
-		"item_rpc_duskbringer_glyph_3_2_description" 				"Decreases the interval between @Ability1 damage instances by <font color='#ccff66'>50</font>%, but also decreases its base damage by <font color='#ccff66'>0.4</font>%"
+		"item_rpc_duskbringer_glyph_3_2_description" 				"Decreases the interval between @Ability1 damage instances by <font color='#ccff66'>50</font>%, but also decreases its base damage by <font color='#ccff66'>40</font>%"
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_4_2"		"[T4-2] Glyph of the Journey"
 		"item_rpc_duskbringer_glyph_4_2_description" 				"While moving, gain stacks of <font color='#ccff66'>3</font>% damage reduction, to a maximum of <font color='#ccff66'>25</font> stacks. These stacks last as long as your Phantom Pace stacks, but all stacks are lost at once instead of one at a time."
@@ -9416,7 +9416,7 @@
     	"DOTA_Tooltip_modifier_seinaru_gorudo_rune_r_1"				"Armor Piercing"
 
     	"DOTA_Tooltip_ability_seinaru_rune_r_2"						"[R2] Duelist Ring"
-    	"DOTA_Tooltip_ability_seinaru_rune_r_2_Description"			"After casting @Ability4, a ring of light expands from the caster. Seinaru takes 80% reduced damage from enemies who are within the ring."
+    	"DOTA_Tooltip_ability_seinaru_rune_r_2_Description"			"After casting @Ability4, a ring of light expands from the caster. Seinaru takes <font color='#ccff66'>50</font>% reduced damage from enemies who are within the ring."
     	"DOTA_Tooltip_ability_seinaru_rune_r_2_property_one"			"Ring Duration"
     	"DOTA_Tooltip_ability_seinaru_rune_r_2_suffix"					" seconds"
     	"DOTA_Tooltip_ability_seinaru_rune_r_2_property_two"			"Radius"
@@ -10138,7 +10138,7 @@
         "DOTA_Tooltip_ability_solunia_napalm_galactic_damage_add_intelligence"      "ADDITIONAL DAMAGE INTELLIGENCE MULT:"
 		
 		"DOTA_Tooltip_ability_solunia_rune_q_1"								"[Q1] Nitro Boost"
-    	"DOTA_Tooltip_ability_solunia_rune_q_1_Description"					"When a Napalm bomb impacts at least 1 enemy, Solunia gains a stack of Nitro Boost. Each stack lasts <font color='#ccff66'>24</font> with an independant duration and can gain up to <font color='#ccff66'>12</font> stacks. Solar stacks increase Base Attack Damage and Lunar stacks increase Attack Power %."
+    	"DOTA_Tooltip_ability_solunia_rune_q_1_Description"					"When a Napalm bomb impacts at least 1 enemy, Solunia gains a stack of Nitro Boost. Each stack lasts <font color='#ccff66'>24</font> seconds with an independent duration and can gain up to <font color='#ccff66'>12</font> stacks. Solar stacks increase Base Attack Damage and Lunar stacks increase Attack Power %."
     	"DOTA_Tooltip_ability_solunia_rune_q_1_property_one"				"Base Attack Damage"
     	"DOTA_Tooltip_ability_solunia_rune_q_1_suffix"						" per Solar Stack"	
     	"DOTA_Tooltip_ability_solunia_rune_q_1_property_two"				"Attack Power Bonus"
@@ -10197,12 +10197,12 @@
         "DOTA_Tooltip_ability_solunia_rune_w_1_suffix"                      "%"
 		
 		"DOTA_Tooltip_ability_solunia_rune_w_2"								"[W2] Galaxy Nitro"
-    	"DOTA_Tooltip_ability_solunia_rune_w_2_Description"					"Casting @Ability3 creates an explosion around all active boomerangs that deal damage in a <font color='#ccff66'>260</font> radius based on the boomerang's damage. The explosions can be critical hits from [W1]."
+    	"DOTA_Tooltip_ability_solunia_rune_w_2_Description"					"Casting @Ability3 creates an explosion around all active boomerangs that deals damage in a <font color='#ccff66'>260</font> radius based on the boomerang's damage. The explosions can be critical hits from [W1]."
     	"DOTA_Tooltip_ability_solunia_rune_w_2_property_one"				"Explosion Damage"
     	"DOTA_Tooltip_ability_solunia_rune_w_2_suffix"						"% of base boomerang damage"	
 		
 		"DOTA_Tooltip_ability_solunia_rune_w_3"								"[W3] Ricochet"
-    	"DOTA_Tooltip_ability_solunia_rune_w_3_Description"					"Solarang and Lunarangs have reduced cast point and increased cast range."
+    	"DOTA_Tooltip_ability_solunia_rune_w_3_Description"					"Solarangs and Lunarangs have reduced cast point and increased cast range."
     	"DOTA_Tooltip_ability_solunia_rune_w_3_property_one"				"Cast Range Increase"
     	"DOTA_Tooltip_ability_solunia_rune_w_3_suffix"						""
         "DOTA_Tooltip_ability_solunia_rune_w_3_property_two"                "Cast Point Reduction"
@@ -10303,7 +10303,7 @@
     	"property_solunia_arcana1_description"								"Replaces @Ability1 and all of its runes with Solar & Lunar Comet."
 
     	"DOTA_Tooltip_ability_solunia_comet_solar"								"Solar Comet"
-    	"DOTA_Tooltip_ability_solunia_comet_solar_Description"					"Element: <font color='#C25DFC'>Cosmic</font> / <font color='#EF4126'>Fire</font><br>Drops a firey comet at the target location that stuns and damages targets in an AOE when it comes into contact with earth. Deals additional damage based on Solunia's Agility. Comets have no cooldown but have charges, which can be restored by casting [R]."
+    	"DOTA_Tooltip_ability_solunia_comet_solar_Description"					"Element: <font color='#C25DFC'>Cosmic</font> / <font color='#EF4126'>Fire</font><br>Drops a fiery comet at the target location that stuns and damages targets in an AOE when it comes into contact with the ground. Deals additional damage based on Solunia's Agility. Comets have no cooldown but have charges, which can be restored by casting [R]."
     	"DOTA_Tooltip_ability_solunia_comet_solar_damage"						"DAMAGE:"
     	"DOTA_Tooltip_ability_solunia_comet_solar_stun_duration"					"STUN DURATION:"
     	"DOTA_Tooltip_ability_solunia_comet_solar_damage_add_agility"      "ADDITIONAL DAMAGE AGILITY MULT:"
@@ -10311,7 +10311,7 @@
 
 
     	"DOTA_Tooltip_ability_solunia_comet_lunar"								"Lunar Comet"
-    	"DOTA_Tooltip_ability_solunia_comet_lunar_Description"					"Element: <font color='#C25DFC'>Cosmic</font> / <font color='#87D9FF'>Ice</font><br>Drops an icy comet at the target location that stuns and damages targets in an AOE when it comes into contact with earth. Deals additional damage based on Solunia's Intelligence. Comets have no cooldown but have charges, which can be restored by casting [R]."
+    	"DOTA_Tooltip_ability_solunia_comet_lunar_Description"					"Element: <font color='#C25DFC'>Cosmic</font> / <font color='#87D9FF'>Ice</font><br>Drops an icy comet at the target location that stuns and damages targets in an AOE when it comes into contact with the ground. Deals additional damage based on Solunia's Intelligence. Comets have no cooldown but have charges, which can be restored by casting [R]."
     	"DOTA_Tooltip_ability_solunia_comet_lunar_damage"						"DAMAGE:"
     	"DOTA_Tooltip_ability_solunia_comet_lunar_stun_duration"					"STUN DURATION:"
     	"DOTA_Tooltip_ability_solunia_comet_lunar_max_charges"					"CHARGES BEFORE RELOAD:"
@@ -10319,7 +10319,7 @@
         "DOTA_Tooltip_ability_solunia_comet_lunar_max_charges"              "AVAILABLE CASTS ON RELOAD:"
 
         "DOTA_Tooltip_ability_solunia_comet_galactic"                              "Galactic Comet"
-        "DOTA_Tooltip_ability_solunia_comet_galactic_Description"                  "Element: <font color='#C25DFC'>Cosmic</font> / <font color='#87D9FF'>Ice</font><br>Drops a galactic comet at the target location that stuns and damages targets in an AOE when it comes into contact with earth. Deals additional damage based on Solunia's Intelligence and Agility. Comets have no cooldown but have charges, which can be restored by casting [R]."
+        "DOTA_Tooltip_ability_solunia_comet_galactic_Description"                  "Element: <font color='#C25DFC'>Cosmic</font> / <font color='#87D9FF'>Ice</font><br>Drops a galactic comet at the target location that stuns and damages targets in an AOE when it comes into contact with the ground. Deals additional damage based on Solunia's Intelligence and Agility. Comets have no cooldown but have charges, which can be restored by casting [R]."
         "DOTA_Tooltip_ability_solunia_comet_galactic_damage"                       "DAMAGE:"
         "DOTA_Tooltip_ability_solunia_comet_galactic_stun_duration"                    "STUN DURATION:"
         "DOTA_Tooltip_ability_solunia_comet_galactic_max_charges"                  "CHARGES BEFORE RELOAD:"
@@ -10468,7 +10468,7 @@
 		"item_rpc_solunia_glyph_3_1_description" 				"Restore Max Health and Mana on successful cast of @Ability4"
 
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_4_1"		"[T4-1] Glyph of Crescents"
-		"item_rpc_solunia_glyph_4_1_description" 				"Increases the maximum number of conccurrent @Ability2 by <font color='#ccff66'>3</font>"
+		"item_rpc_solunia_glyph_4_1_description" 				"Increases the maximum number of concurrent @Ability2 by <font color='#ccff66'>3</font>"
 
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_5_1"		"[T5-1] Glyph of Neutrino"
 		"item_rpc_solunia_glyph_5_1_description" 				"Adds <font color='#ccff66'>25</font>% of Attack Power to the base damage of @Ability1."
@@ -10779,8 +10779,8 @@
 		"item_property_sorceress_arcana2"										"Incineration"
     	"property_sorceress_arcana2_description"								"Replaces @Ability1 and all of its runes with Incineration."
 
-    	"DOTA_Tooltip_ability_sorceress_fire_arcana_q"								"Inceration"
-    	"DOTA_Tooltip_ability_sorceress_fire_arcana_q_Description"					"Element: <font color='#EF4126'>Fire</font><br>Conjures a pit of enchanted fire that marks all enemies for incineration. Every 0.2 seconds, enemies has a 17% chance to get scorched and damage itself and nearby enemies. Enemies inside the burn area are damaged every 0.5 seconds."
+    	"DOTA_Tooltip_ability_sorceress_fire_arcana_q"								"Incineration"
+    	"DOTA_Tooltip_ability_sorceress_fire_arcana_q_Description"					"Element: <font color='#EF4126'>Fire</font><br>Conjures a pit of enchanted fire that marks all enemies for incineration. Every 0.2 seconds, enemies have a 17% chance to get scorched and damage itself and nearby enemies. Enemies inside the burn area are damaged every 0.5 seconds."
     	"DOTA_Tooltip_ability_sorceress_fire_arcana_q_damage"					"DAMAGE:"
     	"DOTA_Tooltip_ability_sorceress_fire_arcana_q_aoe_radius"				"RADIUS:"
     	"DOTA_Tooltip_ability_sorceress_fire_arcana_q_duration"					"DEBUFF DURATION:"
@@ -10799,7 +10799,7 @@
 		"DOTA_Tooltip_ability_sorceress_sun_lance_Lore"							""
 
   		"DOTA_Tooltip_ability_sorceress_rune_q_2_arcana2"						"[Q2] Ring of Fire"
-    	"DOTA_Tooltip_ability_sorceress_rune_q_2_arcana2_Description"				"Casting arcane explosion twice in succession releases a a soul-burning Ring of Fire. Enemies affected by ring of fire take damage and have 180 reduced attack speed. <font color='#ccff66'>8</font> second cooldown."
+    	"DOTA_Tooltip_ability_sorceress_rune_q_2_arcana2_Description"				"Casting arcane explosion twice in succession releases a soul-burning Ring of Fire. Enemies affected by ring of fire take damage and have 180 reduced attack speed. <font color='#ccff66'>8</font> second cooldown."
     	"DOTA_Tooltip_ability_sorceress_rune_q_2_arcana2_property_one"				"Damage"
     	"DOTA_Tooltip_ability_sorceress_rune_q_2_arcana2_suffix"					""
     	"DOTA_Tooltip_ability_sorceress_rune_q_2_arcana2_property_two"				"Burn Duration"
@@ -16778,7 +16778,10 @@
 		"pit_conquest_boss"												"Black Mage of Conquest"
 
 		"DOTA_Tooltip_ability_conquest_black_mage_luminescence"			"Luminescence"
-		"DOTA_Tooltip_ability_conquest_black_mage_luminescence_Description"	"A magic charge from the Mage's staff unleashes a stampede of spirit horses towards the target"	
+		"DOTA_Tooltip_ability_conquest_black_mage_luminescence_Description"	"A magic charge from the Mage's staff unleashes a stampede of spirit horses towards the target"
+		"DOTA_Tooltip_ability_conquest_black_mage_luminescence_damage_per_second"		"DAMAGE PER SECOND OF CHARGE:"
+		"DOTA_Tooltip_ability_conquest_black_mage_luminescence_max_channel_time"		"CHARGING, SECONDS:"
+		"DOTA_Tooltip_ability_conquest_black_mage_luminescence_range"					"RANGE:"
 
 		"DOTA_Tooltip_ability_conquest_boss_ai"							"Shadowcaster"
 		"DOTA_Tooltip_ability_conquest_boss_ai_Description"				"Immune to ALL Physical and Magical damage."
