@@ -725,7 +725,7 @@
 		"item_rpc_wraith_hunters_steel_helm_ruby1"		"Магическая Защита увеличена на @ruby_property1% от показателя Брони."
 		"item_rpc_wraith_hunters_steel_helm_emerald1"	"Каждая единица Ловкости увеличивает Пробитие Магической Защиты на @emerald_property1"
 		"item_rpc_wraith_hunters_steel_helm_sapphire1" 	"Увеличивает Пробитие Брони на @sapphire_property1"
-		"item_rpc_wraith_hunters_steel_helm_amethyst1" 	"Каждая единица Духа увеличивает Пробитие Магической Защиты на @emerald_property1"
+		"item_rpc_wraith_hunters_steel_helm_amethyst1" 	"Каждая единица Духа увеличивает Пробитие Магической Защиты на @amethyst_property1"
 		
 		"DOTA_Tooltip_ability_item_rpc_shadowguard_helm"						"Shadowguard Helm"
 		"item_property_shadowguard_helm"						"Mind Block"
