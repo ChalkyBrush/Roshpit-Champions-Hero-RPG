@@ -1,6 +1,6 @@
 require('/heroes/monkey_king/djanghor_constants')
 require('/heroes/monkey_king/shapeshift')
-LinkLuaModifier("modifier_draghor_feral_sprint", "modifiers/draghor/modifier_draghor_feral_sprint", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_djanghor_feral_sprint", "heroes/monkey_king/ability_scripts/djanghor_feral_sprint.lua", LUA_MODIFIER_MOTION_NONE)
 
 function hawk_screech_pre(event)
 	local caster = event.caster
@@ -386,7 +386,7 @@ function wolf_sprint(event)
 	StartAnimation(caster, {duration = 0.3, activity = ACT_DOTA_CAST_ABILITY_1, rate = 1.5})
 	duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_wolf_sprint", {duration = duration})
-	caster:AddNewModifier(caster, ability, "modifier_draghor_feral_sprint", {duration = duration})
+	caster:AddNewModifier(caster, ability, "modifier_djanghor_feral_sprint", {duration = duration})
 	EmitSoundOn("Draghor.Wolf.FeralHaste", caster)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_wolf_slide_burst", {duration = 1.0})
 	caster:SetModifierStackCount("modifier_wolf_slide_burst", caster, 200)

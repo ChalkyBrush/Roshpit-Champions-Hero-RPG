@@ -3657,7 +3657,7 @@ end
 CustomAttributes.MS_CAP_MODIFIERS = {
 	modifier_axe_immortal_weapon_2_cap = 820,
 	modifier_dinath_passive_ms_cap = "modifier_dinath_passive_ms_cap",
-	modifier_draghor_feral_sprint = "modifier_draghor_feral_sprint",
+	modifier_djanghor_feral_sprint = "modifier_djanghor_feral_sprint",
 	modifier_movespeed_cap = 1400,
 	modifier_movespeed_cap_sonic = 750,
 	modifier_movespeed_cap_super = 5200,
@@ -3710,7 +3710,7 @@ function CustomAttributes:MSCap(unit)
 				local modifier_ability = modifier:GetAbility()
 				if ms_cap_modifier == "modifier_dinath_passive_ms_cap" then
 					local_max_ms = math.max(local_max_ms, modifier_ability.w_3_level * 5 + local_max_ms)
-				elseif ms_cap_modifier == "modifier_draghor_feral_sprint" then
+				elseif ms_cap_modifier == "modifier_djanghor_feral_sprint" then
 					local_max_ms = math.max(local_max_ms, modifier_ability:GetSpecialValueFor("movespeed_cap"))
 				elseif ms_cap_modifier == "modifier_seinaru_glyph_t21_movespeed_cap" then
 					local q2_level = unit:GetRuneValue("q", 2)

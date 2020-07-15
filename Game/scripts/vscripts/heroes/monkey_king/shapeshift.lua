@@ -442,8 +442,8 @@ end
 
 function shapeshifting_think(event)
 	local caster = event.caster
-	if caster:HasModifier("modifier_draghor_feral_sprint") then
-		local modifier = caster:FindModifierByName("modifier_draghor_feral_sprint")
+	if caster:HasModifier("modifier_djanghor_feral_sprint") then
+		local modifier = caster:FindModifierByName("modifier_djanghor_feral_sprint")
 		local modifier2 = caster:FindModifierByName("modifier_wolf_sprint")
 		local time = modifier:GetRemainingTime()
 		--print(time)

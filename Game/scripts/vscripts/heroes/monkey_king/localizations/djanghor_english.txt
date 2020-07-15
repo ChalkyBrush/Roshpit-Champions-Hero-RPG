@@ -71,12 +71,13 @@
 		"DOTA_Tooltip_modifier_wolf_howl_ally_Description"								"Increased attack damage"
 
 		"DOTA_Tooltip_ability_djanghor_feral_sprint"									"Feral Sprint"
-		"DOTA_Tooltip_ability_djanghor_feral_sprint_Description"						"Immediately increases movement speed to the stated value and provides cliff and phase walking. Cannot be slowed during sprint. Buff persists through shapeshifting."
+		"DOTA_Tooltip_ability_djanghor_feral_sprint_Description"						"Immediately increases movement speed and movement speed limit and provides cliff and phase walking. Buff persists through shapeshifting."
 		"DOTA_Tooltip_ability_djanghor_feral_sprint_movespeed_increase"					"MOVESPEED BONUS:"
+		"DOTA_Tooltip_ability_djanghor_feral_sprint_movespeed_cap"						"MOVESPEED LIMIT INCREASE:"
 		"DOTA_Tooltip_ability_djanghor_feral_sprint_duration"							"DURATION:"
 
-		"DOTA_Tooltip_modifier_wolf_sprint"												"Feral Sprint"
-		"DOTA_Tooltip_modifier_wolf_sprint_Description"									"Absolute movement speed increased, cannot be slowed."
+		"DOTA_Tooltip_modifier_djanghor_feral_sprint"												"Feral Sprint"
+		"DOTA_Tooltip_modifier_djanghor_feral_sprint_Description"									"Movement speed and speed limit are increased."
 
 		"DOTA_Tooltip_ability_draghor_wolf_rend"										"Rend"
 		"DOTA_Tooltip_ability_draghor_wolf_rend_Description"							"Element: <font color=ELEMENT_NORMAL>Normal</font><br>Claws at enemies in front of Djanghor, dealing damage based on attack power. Each rend stack decreases enemy Armor. Max 2 stacks. If an enemy is hit by Rend with 2 stacks they begin to bleed, taking bleed damage over time."
