@@ -327,7 +327,7 @@
 
 		"DOTA_Tooltip_ability_item_rpc_legion_vestments"								"Legion Vestments"
 		"item_property_legion_vestments"			"Legion Command"
-		"property_legion_vestments_description"		"Увеличивает все атрибуты героя на <% ITEM_RPC_LEGION_VESTMENTS_ATTRIBUTE_INCREASE * 100 %>%."
+		"property_legion_vestments_description"		"Увеличивает все атрибуты героя на <% ITEM_RPC_LEGION_VESTMENTS_ATTRIBUTE_INCREASE %>%."
 
 		"item_rpc_legion_vestments_ruby1"								"Увеличивает Силу дополнительно на @ruby_property1%"
 		"item_rpc_legion_vestments_emerald1"								"Увеличивает Ловкость дополнительно на @emerald_property1%"
