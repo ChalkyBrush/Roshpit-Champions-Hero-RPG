@@ -103,4 +103,5 @@ function modifier_flamewaker_glyph_5_2_volcano_shield:RoshpitEventFinalTakeDamag
 	local hero = self:GetParent()
 	local attacker = event.attacker
 	CustomAbilities:HitShieldGeneric(hero, attacker, hero, "modifier_flamewaker_glyph_5_2_volcano_shield")
+	return event.damage
 end
