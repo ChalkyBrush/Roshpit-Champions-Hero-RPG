@@ -1088,8 +1088,10 @@ function GameMode:OnPlayerChat(keys)
 			end)
 		end
 
-	elseif check_command("-fog") then
-		mode:SetFogOfWarDisabled(not mode:GetFogOfWarDisabled())
+	elseif check_command("-fogoff") then
+		GameRules:GetGameModeEntity():SetFogOfWarDisabled(true)
+	elseif check_command("-fogon") then
+		GameRules:GetGameModeEntity():SetFogOfWarDisabled(false)
 	end
 	if check_command("-immo") then
 		local name = args[2]
