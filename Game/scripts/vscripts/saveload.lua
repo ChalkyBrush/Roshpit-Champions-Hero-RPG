@@ -562,7 +562,7 @@ function SaveLoad:LoadCharacter(msg)
 		end
 		--print( "Done." )
 		local resultTable = JSON:decode(result.Body)
-		local resultTable = SaveLoad:FixDuplicatedGear(resultTable)
+		resultTable = SaveLoad:FixDuplicatedGear(resultTable)
 		-- DeepPrintTable(resultTable)
 		SaveLoad:ApplyDataToHero(resultTable.character, playerID)
 		for i = 1, 6, 1 do
