@@ -5284,8 +5284,8 @@
 		"DOTA_Tooltip_ability_djanghor_feral_sprint_movespeed_cap"						"移动速度上限提高："
 		"DOTA_Tooltip_ability_djanghor_feral_sprint_duration"							"持续时间："
 
-		"DOTA_Tooltip_modifier_wolf_sprint"												"野兽冲刺"
-		"DOTA_Tooltip_modifier_wolf_sprint_Description"									"提高移动速度和移动速度上限"
+		"DOTA_Tooltip_modifier_djanghor_feral_sprint"												"野兽冲刺"
+		"DOTA_Tooltip_modifier_djanghor_feral_sprint_Description"									"提高移动速度和移动速度上限"
 
 		"DOTA_Tooltip_ability_draghor_wolf_rend"										"撕裂"
 		"DOTA_Tooltip_ability_draghor_wolf_rend_Description"							"元素： <font color='#DDDDDD'>普通</font><br>攻击面前的敌人，根据攻击力造成伤害。每次撕裂减少敌人的护甲值，最多叠加 2 层。如果敌人被撕裂了两次（获得两层撕裂debuff），敌人将会流血，受到持续的流血伤害。"

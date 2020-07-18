@@ -4892,12 +4892,13 @@
 		"DOTA_Tooltip_modifier_wolf_howl_ally_Description"								"Increased attack damage"
 
 		"DOTA_Tooltip_ability_djanghor_feral_sprint"									"Feral Sprint"
-		"DOTA_Tooltip_ability_djanghor_feral_sprint_Description"						"Immediately increases movement speed to the stated value and provides cliff and phase walking. Cannot be slowed during sprint. Buff persists through shapeshifting."
+		"DOTA_Tooltip_ability_djanghor_feral_sprint_Description"						"Immediately increases movement speed and movement speed limit and provides cliff and phase walking. Buff persists through shapeshifting."
 		"DOTA_Tooltip_ability_djanghor_feral_sprint_movespeed_increase"					"MOVESPEED BONUS:"
+		"DOTA_Tooltip_ability_djanghor_feral_sprint_movespeed_cap"						"MOVESPEED LIMIT INCREASE:"
 		"DOTA_Tooltip_ability_djanghor_feral_sprint_duration"							"DURATION:"
 
-		"DOTA_Tooltip_modifier_wolf_sprint"												"Feral Sprint"
-		"DOTA_Tooltip_modifier_wolf_sprint_Description"									"Absolute movement speed increased, cannot be slowed."
+		"DOTA_Tooltip_modifier_djanghor_feral_sprint"												"Feral Sprint"
+		"DOTA_Tooltip_modifier_djanghor_feral_sprint_Description"									"Movement speed and speed limit are increased."
 
 		"DOTA_Tooltip_ability_draghor_wolf_rend"										"Rend"
 		"DOTA_Tooltip_ability_draghor_wolf_rend_Description"							"Element: <font color='#DDDDDD'>Normal</font><br>Claws at enemies in front of Djanghor, dealing damage based on attack power. Each rend stack decreases enemy Armor. Max 2 stacks. If an enemy is hit by Rend with 2 stacks they begin to bleed, taking bleed damage over time."
@@ -20412,7 +20413,7 @@
 
 		"fire_temple_protective_spirit"										"Protective Spirit"
 
-		"DOTA_Tooltip_ability_fire_temple_protector_death_ability"							"Undending Defense"
+		"DOTA_Tooltip_ability_fire_temple_protector_death_ability"							"Unending Defense"
 		"DOTA_Tooltip_ability_fire_temple_protector_death_ability_Description"					"On death, any other nearby Protective Spirits are buffed and healed."
 		"DOTA_Tooltip_ability_fire_temple_protector_death_ability_armor_bonus"					"ARMOR PER STACK:"
 		"DOTA_Tooltip_ability_fire_temple_protector_death_ability_attack_power_bonus_percent"		"ATTACK POWER PER STACK:"
@@ -20420,7 +20421,7 @@
 		"DOTA_Tooltip_ability_fire_temple_protector_death_ability_heal_percent"					"ALLY HEAL %:"
 
 
-		"DOTA_Tooltip_modifier_death_ability_buff"							"Undending Defense"
+		"DOTA_Tooltip_modifier_death_ability_buff"							"Unending Defense"
 		"DOTA_Tooltip_modifier_death_ability_buff_Description"				"Buffed by nearby allies who were slain nearby."
 
 		"DOTA_Tooltip_ability_fire_temple_flame_wraith_ability"				"Feeding Flame"

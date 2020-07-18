@@ -4855,11 +4855,12 @@
 
 		"DOTA_Tooltip_ability_djanghor_feral_sprint"									"Feral Sprint"
 		"DOTA_Tooltip_ability_djanghor_feral_sprint_Description"						"Абсолютная скорость передвижения увеличена. Герой может проходить сквозь препятствия и существ. Эффект продолжит действовать после трансформации."
-		"DOTA_Tooltip_ability_djanghor_feral_sprint_movespeed_increase"					"АБСОЛЮТНАЯ СКОРОСТЬ ПЕРЕДВИЖЕНИЯ:"
+		"DOTA_Tooltip_ability_djanghor_feral_sprint_movespeed_increase"					"БОНУС СКОРОСТИ ПЕРЕДВИЖЕНИЯ:"
+		"DOTA_Tooltip_ability_djanghor_feral_sprint_movespeed_cap"						"УВЕЛИЧЕНИЕ ЛИМИТА СКОРОСТИ:"
 		"DOTA_Tooltip_ability_djanghor_feral_sprint_duration"							"ДЛИТЕЛЬНОСТЬ:"
 
-		"DOTA_Tooltip_modifier_wolf_sprint"												"Feral Sprint"
-		"DOTA_Tooltip_modifier_wolf_sprint_Description"									"Абсолютная скорость передвижения увеличена. Герой может проходить сквозь препятствия и существ."
+		"DOTA_Tooltip_modifier_djanghor_feral_sprint"												"Feral Sprint"
+		"DOTA_Tooltip_modifier_djanghor_feral_sprint_Description"									"Абсолютная скорость передвижения увеличена. Герой может проходить сквозь препятствия и существ."
 
 		"DOTA_Tooltip_ability_draghor_wolf_rend"										"Rend"
 		"DOTA_Tooltip_ability_draghor_wolf_rend_Description"							"Стихия: <font color='#DDDDDD'>Нормальный</font><br>Атакует всех врагов перед собой своими когтями, нанося урон, основанный на общем уроне героя. Когти снижают броню врагов. Эффект складывается до 2 раз. Третий успешный удар оставит на противниках кровоточащие раны."
@@ -13360,7 +13361,7 @@
 
 		"DOTA_Tooltip_ability_item_rpc_legion_vestments"								"Legion Vestments"
 		"item_property_legion_vestments"			"Legion Command"
-		"property_legion_vestments_description"		"Увеличивает все атрибуты героя на <font color='#ccff66'>1500</font>%."
+		"property_legion_vestments_description"		"Увеличивает все атрибуты героя на <font color='#ccff66'>15</font>%."
 
 		"item_rpc_legion_vestments_ruby1"								"Увеличивает Силу дополнительно на @ruby_property1%"
 		"item_rpc_legion_vestments_emerald1"								"Увеличивает Ловкость дополнительно на @emerald_property1%"
@@ -15224,7 +15225,7 @@
 		"item_rpc_wraith_hunters_steel_helm_ruby1"		"Магическая Защита увеличена на @ruby_property1% от показателя Брони."
 		"item_rpc_wraith_hunters_steel_helm_emerald1"	"Каждая единица Ловкости увеличивает Пробитие Магической Защиты на @emerald_property1"
 		"item_rpc_wraith_hunters_steel_helm_sapphire1" 	"Увеличивает Пробитие Брони на @sapphire_property1"
-		"item_rpc_wraith_hunters_steel_helm_amethyst1" 	"Каждая единица Духа увеличивает Пробитие Магической Защиты на @emerald_property1"
+		"item_rpc_wraith_hunters_steel_helm_amethyst1" 	"Каждая единица Духа увеличивает Пробитие Магической Защиты на @amethyst_property1"
 		
 		"DOTA_Tooltip_ability_item_rpc_shadowguard_helm"						"Shadowguard Helm"
 		"item_property_shadowguard_helm"						"Mind Block"
