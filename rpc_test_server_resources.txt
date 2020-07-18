@@ -592,6 +592,8 @@ function ChatDropItems(keys)
 		RPCItems:BasicDropItem(positionVector, item_rpc_armor_of_the_violet_guard:CreateLuaItem(itemlevelDrop))
 		RPCItems:BasicDropItem(positionVector, item_rpc_dark_arts_vestments:CreateLuaItem(itemlevelDrop))
 		RPCItems:BasicDropItem(positionVector, item_rpc_enchanted_solar_cape:CreateLuaItem(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, item_rpc_gold_plate_of_leon:CreateLuaItem(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, item_rpc_legion_vestments:CreateLuaItem(itemlevelDrop))
 		RPCItems:BasicDropItem(positionVector, item_rpc_plate_of_the_watcher:CreateLuaItem(itemlevelDrop))
 		RPCItems:BasicDropItem(positionVector, RPCItems:RollAvalanchePlate(itemlevelDrop))
 		RPCItems:BasicDropItem(positionVector, RPCItems:RollBaronsStormArmor(itemlevelDrop))
@@ -609,7 +611,6 @@ function ChatDropItems(keys)
 		RPCItems:BasicDropItem(positionVector, RPCItems:RollFloodRobe(itemlevelDrop))
 		RPCItems:BasicDropItem(positionVector, RPCItems:RollGildedSoulCage(itemlevelDrop))
 		RPCItems:BasicDropItem(positionVector, RPCItems:RollGoldenWarPlate(itemlevelDrop))
-		RPCItems:BasicDropItem(positionVector, RPCItems:RollGoldPlateOfLeon(itemlevelDrop))
 		RPCItems:BasicDropItem(positionVector, RPCItems:RollGuardOfFeronia(itemlevelDrop))
 		RPCItems:BasicDropItem(positionVector, RPCItems:RollHermitSpikeShell(itemlevelDrop))
 		RPCItems:BasicDropItem(positionVector, RPCItems:RollHeroicConquerorVestments(itemlevelDrop, 7))
@@ -617,7 +618,6 @@ function ChatDropItems(keys)
 		RPCItems:BasicDropItem(positionVector, RPCItems:RollIceQuillCarapace(itemlevelDrop))
 		RPCItems:BasicDropItem(positionVector, RPCItems:RollInfernalPrison(itemlevelDrop))
 		RPCItems:BasicDropItem(positionVector, RPCItems:RollKnightCrusherArmor(itemlevelDrop))
-		RPCItems:BasicDropItem(positionVector, RPCItems:RollLegionVestments(itemlevelDrop))
 		RPCItems:BasicDropItem(positionVector, RPCItems:RollLightSeersRobes(itemlevelDrop))
 		RPCItems:BasicDropItem(positionVector, RPCItems:RollMageplate(itemlevelDrop))
 		RPCItems:BasicDropItem(positionVector, RPCItems:RollMysticManaWall(itemlevelDrop))
@@ -1068,6 +1068,28 @@ function GameMode:OnPlayerChat(keys)
 	end
 	local function check_command(command)
 		return args[1] == command
+	end
+	if check_command("-tarot") then
+		local position = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin()
+		local tarot_name = args[2]
+		Winterblight:CreateCastleTarotCard(position, tarot_name)
+
+	elseif check_command("-goblin") then
+		local position = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin()
+		local saved_chance = nil
+		if args[2] == 'special' then
+			saved_chance = TreasureGoblins.SPECIAL_CHANCE
+			TreasureGoblins.SPECIAL_CHANCE = 100
+		end
+		TreasureGoblins:SpawnTreasureGoblin(position)
+		if saved_chance then
+			Timers:CreateTimer(3, function()
+				TreasureGoblins.SPECIAL_CHANCE = saved_chance
+			end)
+		end
+
+	elseif check_command("-fog") then
+		mode:SetFogOfWarDisabled(not mode:GetFogOfWarDisabled())
 	end
 	if check_command("-immo") then
 		local name = args[2]
