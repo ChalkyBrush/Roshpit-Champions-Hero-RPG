@@ -66,11 +66,12 @@
 
 		"DOTA_Tooltip_ability_djanghor_feral_sprint"									"Feral Sprint"
 		"DOTA_Tooltip_ability_djanghor_feral_sprint_Description"						"Абсолютная скорость передвижения увеличена. Герой может проходить сквозь препятствия и существ. Эффект продолжит действовать после трансформации."
-		"DOTA_Tooltip_ability_djanghor_feral_sprint_movespeed_increase"					"АБСОЛЮТНАЯ СКОРОСТЬ ПЕРЕДВИЖЕНИЯ:"
+		"DOTA_Tooltip_ability_djanghor_feral_sprint_movespeed_increase"					"БОНУС СКОРОСТИ ПЕРЕДВИЖЕНИЯ:"
+		"DOTA_Tooltip_ability_djanghor_feral_sprint_movespeed_cap"						"УВЕЛИЧЕНИЕ ЛИМИТА СКОРОСТИ:"
 		"DOTA_Tooltip_ability_djanghor_feral_sprint_duration"							"ДЛИТЕЛЬНОСТЬ:"
 
-		"DOTA_Tooltip_modifier_wolf_sprint"												"Feral Sprint"
-		"DOTA_Tooltip_modifier_wolf_sprint_Description"									"Абсолютная скорость передвижения увеличена. Герой может проходить сквозь препятствия и существ."
+		"DOTA_Tooltip_modifier_djanghor_feral_sprint"												"Feral Sprint"
+		"DOTA_Tooltip_modifier_djanghor_feral_sprint_Description"									"Абсолютная скорость передвижения увеличена. Герой может проходить сквозь препятствия и существ."
 
 		"DOTA_Tooltip_ability_draghor_wolf_rend"										"Rend"
 		"DOTA_Tooltip_ability_draghor_wolf_rend_Description"							"Стихия: <font color=ELEMENT_NORMAL>Нормальный</font><br>Атакует всех врагов перед собой своими когтями, нанося урон, основанный на общем уроне героя. Когти снижают броню врагов. Эффект складывается до 2 раз. Третий успешный удар оставит на противниках кровоточащие раны."

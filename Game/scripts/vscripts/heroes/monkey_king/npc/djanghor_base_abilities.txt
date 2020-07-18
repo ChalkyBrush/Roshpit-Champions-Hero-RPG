@@ -1411,35 +1411,23 @@
 	{
 		// General
 		//-------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes\monkey_king\ability_scripts\djanghor_feral_sprint.lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"djanghor/feral_sprint"
-		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+		"AbilityTextureName"			"djanghor/feral_sprint"	
 		"LevelsBetweenUpgrades"  "0"
 		"MaxLevel"				 "7"
-		"AOERadius"				 "800"
+		"RequiredLevel"         		"-5"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+		"AbilityManaCost"				"0"
 
 		// Precache
 		//-------------------------------------------------------
 		"precache"
 		{
-
+				"particle"		"particles/econ/events/ti5/teleport_end_dust_ti5.vpcf"
 		}
-
-		// Casting
-		//-------------------------------------------------------
-		"AbilityCastPoint"				"0"
-
-		// Time
-		//-------------------------------------------------------
-		"AbilityCooldown"				"10"
-		// Cost
-		//-------------------------------------------------------
-		"AbilityManaCost"				"0"
-
-		// Special
-		//-------------------------------------------------------
 		"AbilitySpecial"
 		{
 			"01"
@@ -1457,69 +1445,10 @@
 				"var_type"			"FIELD_INTEGER"
 				"duration"			"8"
 			}
-		}
-		"Modifiers"
-		{
-			"modifier_wolf_sprint"
+			"04"
 			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"0"
-
-				"EffectName"		"particles/roshpit/draghor/feral_sprint.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE" "%movespeed_increase"
-				}
-				"States"
-				{
-					"MODIFIER_STATE_NO_UNIT_COLLISION"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-			"modifier_wolf_free_pathing"
-			{
-				"IsHidden"	"1"
-				"States"
-				{
-					"MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
-				"ThinkInterval"  "0.09"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/monkey_king/wolf.lua"
-						"Function"		"wolf_sprint_think"
-						"target"		"TARGET"
-					}
-				}
-			}
-			"modifier_wolf_slide_burst"
-			{
-				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "1"
-				}
-				"ThinkInterval"  "0.03"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/monkey_king/wolf"
-						"Function"		"wolf_slide_think"
-					}
-				}
-			}
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/monkey_king/wolf"
-				"Function"		"wolf_sprint"
-				"duration"		"%duration"
+				"var_type"			"FIELD_FLOAT"
+				"cooldown"			"10.0"
 			}
 		}
 	}

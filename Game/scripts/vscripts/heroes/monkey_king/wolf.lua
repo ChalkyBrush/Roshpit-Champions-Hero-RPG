@@ -1,7 +1,5 @@
 require('/heroes/monkey_king/djanghor_constants')
 
-LinkLuaModifier("modifier_draghor_feral_sprint", "modifiers/draghor/modifier_draghor_feral_sprint", LUA_MODIFIER_MOTION_NONE)
-
 function wolf_howl_pre(event)
 	local caster = event.caster
 	EmitSoundOn("Draghor.WolfHowl", caster)
@@ -42,67 +40,6 @@ function wolf_howl(event)
 	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 end
 
-function wolf_sprint(event)
-	local caster = event.caster
-	local ability = event.ability
-	local duration = event.duration
-	local d_c_level = caster:GetRuneValue("e", 4)
-	if d_c_level > 0 then
-		duration = duration + d_c_level * DJANGHOR_E4_DURATION_INCREASE
-	end
-	StartAnimation(caster, {duration = 0.3, activity = ACT_DOTA_CAST_ABILITY_1, rate = 1.5})
-	duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
-	ability:ApplyDataDrivenModifier(caster, caster, "modifier_wolf_sprint", {duration = duration})
-	caster:AddNewModifier(caster, ability, "modifier_draghor_feral_sprint", {duration = duration})
-	EmitSoundOn("Draghor.Wolf.FeralHaste", caster)
-	ability:ApplyDataDrivenModifier(caster, caster, "modifier_wolf_slide_burst", {duration = 1.0})
-	caster:SetModifierStackCount("modifier_wolf_slide_burst", caster, 200)
-	local pfx = ParticleManager:CreateParticle("particles/econ/events/ti5/teleport_end_dust_ti5.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster)
-	ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin())
-	ParticleManager:SetParticleControl(pfx, 1, Vector(200, 200, 200))
-	Timers:CreateTimer(2, function()
-		ParticleManager:DestroyParticle(pfx, false)
-	end)
-
-	local pfx2 = ParticleManager:CreateParticle("particles/econ/events/ti5/teleport_end_dust_ti5.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster)
-	ParticleManager:SetParticleControl(pfx2, 0, caster:GetAbsOrigin() + caster:GetForwardVector() * 80)
-	ParticleManager:SetParticleControl(pfx2, 1, Vector(200, 200, 200))
-	Timers:CreateTimer(2, function()
-		ParticleManager:DestroyParticle(pfx2, false)
-	end)
-	for i = 1, 5, 1 do
-		Timers:CreateTimer(0.25 * i, function()
-			local pfxExtra = ParticleManager:CreateParticle("particles/econ/events/ti5/teleport_end_dust_ti5.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster)
-			ParticleManager:SetParticleControl(pfxExtra, 0, caster:GetAbsOrigin())
-			ParticleManager:SetParticleControl(pfxExtra, 1, Vector(200, 200, 200))
-			Timers:CreateTimer(2, function()
-				ParticleManager:DestroyParticle(pfxExtra, false)
-			end)
-		end)
-	end
-	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
-end
-
-function wolf_sprint_think(event)
-	local caster = event.caster
-	local speed = 70
-	speed = Filters:GetAdjustedESpeed(caster, speed, false)
-	local newPos = caster:GetAbsOrigin() + caster:GetForwardVector() * speed
-	local obstruction = WallPhysics:FindNearestObstruction(caster:GetAbsOrigin())
-	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, newPos, caster)
-	if blockUnit then
-		caster:SetAbsOrigin(caster:GetAbsOrigin() - caster:GetForwardVector() * 60)
-		WallPhysics:ClearSpaceForUnit(caster, caster:GetAbsOrigin())
-		caster:RemoveModifierByName("modifier_wolf_free_pathing")
-	end
-end
-
-function wolf_slide_think(event)
-	local caster = event.caster
-	local ability = event.ability
-	local currentStacks = caster:GetModifierStackCount("modifier_wolf_slide_burst", caster)
-	caster:SetModifierStackCount("modifier_wolf_slide_burst", caster, currentStacks - 4)
-end
 
 function rend_phase(event)
 	local caster = event.caster
