@@ -1979,6 +1979,13 @@ end
 			item.pickedUp = true
 			RPCItems:ItemUpdateCustomNetTables(item)
 			RPCItems:GiveItemToHeroWithSlotCheck(hero, item)
+		elseif keyIndex == 15 then
+			local item = RPCItems:CreateConsumable("item_reanimation_stone", "mythical", "Reanimation Stone", "consumable", false, "Consumable", "reanimation_stone_desc")
+			item.newItemTable.consumable = true
+			item.newItemTable.stashable = true
+			item.pickedUp = true
+			RPCItems:ItemUpdateCustomNetTables(item)
+			RPCItems:GiveItemToHeroWithSlotCheck(hero, item)
 		end
 	end
 
