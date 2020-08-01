@@ -3,7 +3,8 @@
 	{
 		// General
 		//-------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/nightstalker/ability_scripts/chernobog_charons_claw.lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_OPTIONAL_UNIT_TARGET"
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"chernobog/charons_claw"
@@ -34,7 +35,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"100 260 420 580 740 900 1060"
+				"damage"			"140 280 700 1500 4000 8000 15000"
 			}
 		}
 		// Precache
@@ -57,57 +58,6 @@
 		// Time
 		//-------------------------------------------------------
 		"AbilityCooldown"				"10"
-
-		// Cost
-		//-------------------------------------------------------
-		"AbilityManaCost"				"0"
-
-		// Special
-		//-------------------------------------------------------
-		"OnAbilityPhaseStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/nightstalker/charons_claw.lua"
-				"Function"		"charons_phase_start"
-			}
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/nightstalker/charons_claw.lua"
-				"Function"		"charons_claw_cast"
-				"target"		"POINT"
-				"range"			"%range"
-				"damage"		"%AbilityDamage"
-			}
-
-		}
-		"OnProjectileHitUnit"
-		{
-			"DeleteOnHit"	"0"
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/nightstalker/charons_claw.lua"
-				"Function"		"claw_projectile_hit"
-				"damage"		"%AbilityDamage"
-				"target"		"TARGET"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_charons_claw_c_a"
-			{
-				"IsHidden"	"0"
-				"IsBuff"	"1"
-				"TextureName"	"chernobog/chernobog_rune_q_3"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% CHERNOBOG_Q3_ATT_AMP_PERCENT %>"
-				}
-			}
-		}
 	}
 
 	"chernobog_demon_hunter"
