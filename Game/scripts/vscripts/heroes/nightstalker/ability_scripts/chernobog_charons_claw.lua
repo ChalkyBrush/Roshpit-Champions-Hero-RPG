@@ -3,6 +3,17 @@ require('heroes/base_ability')
 
 chernobog_charons_claw = class(base_ability)
 
+modifier_charons_claw_passive = class(npc_base_modifier, nil, npc_base_modifier)
+LinkLuaModifier("modifier_charons_claw_passive", "heroes/nightstalker/ability_scripts/chernobog_charons_claw.lua", LUA_MODIFIER_MOTION_NONE)
+
+modifier_charons_claw_path_aura_base = class(npc_base_modifier, nil, npc_base_modifier)
+LinkLuaModifier("modifier_charons_claw_path_aura_base", "heroes/nightstalker/ability_scripts/chernobog_charons_claw.lua", LUA_MODIFIER_MOTION_NONE)
+
+modifier_charons_claw_on_path = class(npc_base_modifier, nil, npc_base_modifier)
+LinkLuaModifier("modifier_charons_claw_on_path", "heroes/nightstalker/ability_scripts/chernobog_charons_claw.lua", LUA_MODIFIER_MOTION_NONE)
+
+
+
 function chernobog_charons_claw:GetManaCostBase(level)
     return 0
 end
@@ -35,6 +46,14 @@ function chernobog_charons_claw:GetCooldownBase(level)
     return 10
 end
 
+function chernobog_charons_claw:GetWidth()
+	return 160
+end
+
+function chernobog_charons_claw:GetIntrinsicModifierName()
+	return "modifier_charons_claw_passive"
+end
+
 function chernobog_charons_claw:OnAbilityPhaseStart()
 	local caster = self:GetCaster()
 	EmitSoundOn("Chernobog.CharonsPreCast", caster)
@@ -48,7 +67,7 @@ function chernobog_charons_claw:InitValues()
 	ability.damage = ability:GetSpecialValueFor('damage')
 	ability.damage_and_movespeed_reduction = ability:GetSpecialValueFor('move_and_attack_slow')
 	ability.range = ability:GetSpecialValueFor('range')
-	ability.width = 100
+	ability.width = self:GetWidth()
 	ability.movespeed_amplify = ability:GetSpecialValueFor('move_speed_increase')
 end
 
@@ -78,7 +97,7 @@ function chernobog_charons_claw:OnSpellStart()
 	new_claw.projectile_id = ability.projectile_id
 	new_claw.startPosition = casterOrigin - fv * 80
 	new_claw.targetPosition = new_claw.startPosition + fv*ability.range
-	new_claw.creation_time = GameRules:GetGameTime()
+	new_claw.destroy_time = GameRules:GetGameTime() + self:GetClawPathDuration()
 	new_claw.interval = 0
 	new_claw.thinker_table = {}
 	
@@ -157,11 +176,12 @@ function chernobog_charons_claw:OnProjectileThink_ExtraData(vLoc, extraData)
 end
 
 function chernobog_charons_claw:CreateClawThinker(claw, vLoc)
+	local caster = self:GetCaster()
 	local thinkerPos = vLoc
-	local thinker_object = {}
-	thinker_object.position = thinkerPos
+	local thinker_object = CreateUnitByName("npc_dummy_unit", vLoc, true, caster, caster, caster:GetTeamNumber())
+    thinker_object:FindAbilityByName("dummy_unit"):SetLevel(1)
     thinker_object.particle = ParticleManager:CreateParticle("particles/roshpit/chernobog/charon_ground.vpcf", PATTACH_WORLDORIGIN, nil)
-
+    thinker_object:AddNewModifier(caster, self, "modifier_charons_claw_path_aura_base", {})
     --ParticleManager:SetParticleControlEnt(self.particle, 0, target, PATTACH_POINT, "attach_hitloc", target:GetAbsOrigin(), true)
     ParticleManager:SetParticleControl(thinker_object.particle, 0, vLoc)
     ParticleManager:SetParticleControl(thinker_object.particle, 1, Vector(self.width, 1, 1))
@@ -178,5 +198,98 @@ function chernobog_charons_claw:OnProjectileHit_ExtraData(target, vLocation, ext
 		EmitSoundOn("Chernobog.CharonsClawImpact", target)
 		-- ability:ApplyDataDrivenModifier(caster, target, "modifier_charons_claw_enemy", {duration = 8})
 		Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_DEMON, RPC_ELEMENT_SHADOW)
+	end
+end
+
+function chernobog_charons_claw:ReindexClawTable()
+	local ability = self
+	if ability.claw_table then
+		local new_claw_table = {}
+		for i = 1, #ability.claw_table, 1 do
+			local claw = ability.claw_table[i]
+			if claw.destroy_time <= GameRules:GetGameTime() then
+				self:DestroyClaw(claw)
+				claw = nil
+			else
+				table.insert(new_claw_table, claw)
+			end
+		end
+		ability.claw_table = new_claw_table
+	end
+end
+
+function chernobog_charons_claw:DestroyClaw(claw)
+	for i = 1, #claw.thinker_table, 1 do
+		local sub_claw = claw.thinker_table[i]
+		ParticleManager:DestroyParticle(sub_claw.particle, false)
+		UTIL_Remove(sub_claw)
+	end
+end
+
+-- CHARONS CLAW PASSIVE
+
+function modifier_charons_claw_passive:IsHidden()
+	return true
+end
+
+function modifier_charons_claw_passive:OnCreated()
+	if not IsServer() then
+		return false
+	end
+	self:StartIntervalThink(0.2)
+end
+
+function modifier_charons_claw_passive:OnIntervalThink()
+	if not IsServer() then
+		return false
+	end
+	self:GetAbility():ReindexClawTable()
+end
+
+-- PATH AURA
+
+function modifier_charons_claw_path_aura_base:IsHidden()
+	return true
+end
+
+function modifier_charons_claw_path_aura_base:IsAura()
+    return true
+end
+
+function modifier_charons_claw_path_aura_base:IsAuraActiveOnDeath()
+    return false
+end
+
+function modifier_charons_claw_path_aura_base:GetAuraRadius()
+    return self:GetAbility():GetWidth()
+end
+
+function modifier_charons_claw_path_aura_base:GetAuraSearchTeam()
+    return DOTA_UNIT_TARGET_TEAM_ENEMY + DOTA_UNIT_TARGET_TEAM_FRIENDLY
+end
+
+function modifier_charons_claw_path_aura_base:GetAuraSearchType()
+    return (DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC)
+end
+
+function modifier_charons_claw_path_aura_base:GetAuraSearchFlags()
+    return DOTA_UNIT_TARGET_FLAG_NONE + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
+end
+
+function modifier_charons_claw_path_aura_base:RemoveOnDeath()
+    return false
+end
+
+function modifier_charons_claw_path_aura_base:GetModifierAura()
+    return "modifier_charons_claw_on_path"
+end
+
+-- ON CLAW EFFECT
+
+function modifier_charons_claw_on_path:IsDebuff()
+	if self:GetParent():GetTeamNumber() == self:GetCaster():GetTeamNumber() then
+		return false
+	else
+		return true
 	end
 end
