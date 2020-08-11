@@ -116,25 +116,25 @@ function RPCItems:SynthCheckCombination2(item1, item2, position)
 		end
 		local score1 = 0
 		if suncrystal.newItemTable.property1 and type(suncrystal.newItemTable.property1) == "number" then
-			score1 = RPCItems:GetLogarithmicVarianceValue(suncrystal.newItemTable.property1, 0, 0, 0, 0)
+			score1 = RPCItems:GetLogarithmicVarianceValue(suncrystal.newItemTable.property1, 0, 0, 0, 0) * 20
 		end
 		local score2 = 0
 		if suncrystal.newItemTable.property2 and type(suncrystal.newItemTable.property2) == "number" then
-			score2 = RPCItems:GetLogarithmicVarianceValue(suncrystal.newItemTable.property2, 0, 0, 0, 0)
+			score2 = RPCItems:GetLogarithmicVarianceValue(suncrystal.newItemTable.property2, 0, 0, 0, 0) * 20
 		end
 		local score3 = 0
 		if suncrystal.newItemTable.property3 and type(suncrystal.newItemTable.property3) == "number" then
-			score3 = RPCItems:GetLogarithmicVarianceValue(suncrystal.newItemTable.property3, 0, 0, 0, 0)
+			score3 = RPCItems:GetLogarithmicVarianceValue(suncrystal.newItemTable.property3, 0, 0, 0, 0) * 20
 		end
 		local score4 = 0
 		if suncrystal.newItemTable.property4 and type(suncrystal.newItemTable.property4) == "number" then
-			score4 = RPCItems:GetLogarithmicVarianceValue(suncrystal.newItemTable.property4, 0, 0, 0, 0) * 10
+			score4 = RPCItems:GetLogarithmicVarianceValue(suncrystal.newItemTable.property4, 0, 0, 0, 0) * 20
 		end
-		local score5 = suncrystal.newItemTable.minLevel * 20
+		local score5 = suncrystal.newItemTable.minLevel * 40
 		local total_score = RPCItems:GetLogarithmicVarianceValue(score1 + score2 + score2 + score4 + score5, 0, 0, 0, 0)
 		local divisor = RPCItems:GetLogarithmicVarianceValue(220, 0, 0, 0, 0)
 		local final_score = math.max(total_score / divisor, 30)
-		final_score = math.min(math.ceil(final_score), 150)
+		final_score = math.min(math.ceil(final_score), 170)
 		local hyperstone = RPCItems:RollHyperstone(final_score)
 		return hyperstone
 	else
