@@ -311,7 +311,7 @@ function arrow_explode(caster, ability, position, damage)
 		damage = damage * ASTRAL_RANGER_GLYPH_7_1_R_DAMAGE_MULT
 	end
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_backstab_jumping", {duration = 0.06})
-	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, 550, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, 550, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		local AOEDamage = damage
 		for _, enemy in pairs(enemies) do
