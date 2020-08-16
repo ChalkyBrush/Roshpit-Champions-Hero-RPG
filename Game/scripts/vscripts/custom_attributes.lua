@@ -847,19 +847,6 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 		local modifier = unit:FindModifierByName("modifier_drake_ring_armor_reduction")
 		armor_modify = armor_modify + modifier:GetStackCount() * DINATH_W2_ARMOR_REDUCTION
 	end
-    if unit:HasModifier("modifier_chernobog_1_q_path_enemy_effect_q1") then
-    	local caster = unit:FindModifierByName("modifier_chernobog_1_q_path_enemy_effect_q1"):GetCaster()
-    	local q_1_level = caster:GetRuneValue("q", 1)
-    	armor_modify = armor_modify + q_1_level*CHERNOBOG_Q1_ARMOR_AND_MAGIC_ARMOR_LOSS
-    end
-    if unit:HasModifier("modifier_demon_hunter_w_2_inner_beast_inactive") then
-		local modifier = unit:FindModifierByName("modifier_demon_hunter_w_2_inner_beast_inactive")
-		armor_modify = armor_modify + modifier:GetStackCount() * CHERNOBOG_W2_ARMOR
-    end
-    if unit:HasModifier("modifier_chernobog_rune_w_3_fervor_enemy_invisible") then
-		local modifier = unit:FindModifierByName("modifier_chernobog_rune_w_3_fervor_enemy_invisible")
-		armor_modify = armor_modify + modifier:GetStackCount() * CHERNOBOG_W3_ARMOR_REDUCE
-    end
 	if unit:HasModifier("modifier_hydroxis_b_a_shield_invisible") then
 		local modifier = unit:FindModifierByName("modifier_hydroxis_b_a_shield_invisible")
 		armor_modify = armor_modify + modifier:GetStackCount()*HYDROXIS_Q2_ARMOR_AND_MAGIC_ARMOR
@@ -1488,11 +1475,6 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 		local modifier = unit:FindModifierByName("modifier_hyperbeam_magic_armor_reduction")
 		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*DINATH_R2_MAGIC_ARMOR_REDUCTION
     end
-    if unit:HasModifier("modifier_chernobog_1_q_path_enemy_effect_q1") then
-    	local caster = unit:FindModifierByName("modifier_chernobog_1_q_path_enemy_effect_q1"):GetCaster()
-    	local q_1_level = caster:GetRuneValue("q", 1)
-    	magic_armor_modify = magic_armor_modify + q_1_level*CHERNOBOG_Q1_ARMOR_AND_MAGIC_ARMOR_LOSS
-    end
 	if unit:HasModifier("modifier_hydroxis_b_a_shield_invisible") then
 		local modifier = unit:FindModifierByName("modifier_hydroxis_b_a_shield_invisible")
 		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*HYDROXIS_Q2_ARMOR_AND_MAGIC_ARMOR
@@ -1881,10 +1863,6 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 		local w_2_level = unit:GetRuneValue("w", 2)
 		armor_pierce_modify = armor_pierce_modify + w_2_level*ms*DINATH_ARCANA_W2_SPELL_PIERCE_AND_ARMOR_PIERCE_PER_MS
 	end
-	if unit:HasModifier('modifier_3_e_teleportation_buff') then
-		local e_3_level = unit:GetRuneValue("e", 3)
-		armor_pierce_modify = armor_pierce_modify + e_3_level*CHERNOBOG_E3_ARMOR_PIERCE_AND_SPELL_PIERCE
-	end
 	if unit:HasModifier("modifier_drowning_pool_actual_effect") then
 		local r_4_level = unit:GetRuneValue("r", 4)
 		armor_pierce_modify = armor_pierce_modify + r_4_level*HYDROXIS_R4_ARMOR_PIERCE
@@ -2256,10 +2234,6 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 		local ms = unit:GetActualMovespeed()
 		local w_2_level = unit:GetRuneValue("w", 2)
 		spell_pierce_modify = spell_pierce_modify + w_2_level*ms*DINATH_ARCANA_W2_SPELL_PIERCE_AND_ARMOR_PIERCE_PER_MS
-	end
-	if unit:HasModifier('modifier_3_e_teleportation_buff') then
-		local e_3_level = unit:GetRuneValue("e", 3)
-		spell_pierce_modify = spell_pierce_modify + e_3_level*CHERNOBOG_E3_ARMOR_PIERCE_AND_SPELL_PIERCE
 	end
 	if unit:GetUnitName() == "npc_dota_hero_slardar" then
 		if unit:HasAbility("hydroxis_water_blade") then
@@ -2763,12 +2737,6 @@ function CustomAttributes:SetAttributes(hero)
 	end
 	if hero:HasModifier("modifier_hailstorm_strength") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_hailstorm_strength", CustomAttributes.MOUNTAIN_PROTECTOR_R1_ARCANA1_STRENGTH)
-	end
-	if hero:HasModifier("modifier_chernobog_rune_w_4_inactive") then
-		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_chernobog_rune_w_4_inactive", CHERNOBOG_W4_AGI_AND_STR)
-	end
-	if hero:HasModifier("modifier_chernobog_rune_w_4_active") then
-		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_chernobog_rune_w_4_active", CHERNOBOG_W4_AGI_AND_STR)
 	end
 	if hero:HasModifier("modifier_hydroxis_d_c") then
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_hydroxis_d_c", HYDROXIS_E4_BONUS_AGI_INT)

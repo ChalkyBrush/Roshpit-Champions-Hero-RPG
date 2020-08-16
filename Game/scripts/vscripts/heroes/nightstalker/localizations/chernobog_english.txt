@@ -1,15 +1,13 @@
 		//Abilities
     	"DOTA_Tooltip_ability_chernobog_charons_claw"							"Charon's Claw"
-    	"DOTA_Tooltip_ability_chernobog_charons_claw_Description"				"Element: <font color=ELEMENT_DEMON>Demon</font> / <font color=ELEMENT_SHADOW>Shadow</font><br>Flicks a stream of abyssal ichor along a straight path. Enemies within the darkness have reduced movespeed and attack damage, while Chernobog and other allied units gain increased movespeed and free pathing."
+    	"DOTA_Tooltip_ability_chernobog_charons_claw_Description"				"Element: <font color=ELEMENT_DEMON>Demon</font> / <font color=ELEMENT_SHADOW>Shadow</font><br>Flicks a stream of abyssal ichor along a straight path. Enemies within the darkness have reduced movespeed and attack damage, while Chernobog and other allied units gain increased movespeed. Chernobog has free pathing while moving within the claw's path."
     	"DOTA_Tooltip_ability_chernobog_charons_claw_range"						"PATH LENGTH:"
-    	"DOTA_Tooltip_ability_chernobog_charons_claw_move_and_attack_slow"		"% MOVESPEED AND ATTACK DAMAGE REDUCTION (ENEMY):"
-    	"DOTA_Tooltip_ability_chernobog_charons_claw_move_speed_increase"		"MOVESPEED INCREASE (CASTER AND ALLIES):"
+        "DOTA_Tooltip_ability_chernobog_charons_claw_damage"                    "DAMAGE:" 
+    	"DOTA_Tooltip_ability_chernobog_charons_claw_movespeed_loss"		"% MOVESPEED SLOW (ENEMY):"
+        "DOTA_Tooltip_ability_chernobog_charons_claw_attack_power_loss"        "% ATTACK POWER LOSS (ENEMY):"
+    	"DOTA_Tooltip_ability_chernobog_charons_claw_movespeed_increase"		"MOVESPEED INCREASE (CASTER AND ALLIES):"
 
-    	"DOTA_Tooltip_modifier_chernobog_1_q_path_ally_effect"								"Charon's Claw"
-    	"DOTA_Tooltip_modifier_chernobog_1_q_path_ally_effect_Description"					"Increased movespeed and free pathing."
-
-    	"DOTA_Tooltip_modifier_chernobog_1_q_path_enemy_effect"								"Charon's Claw"
-    	"DOTA_Tooltip_modifier_chernobog_1_q_path_enemy_effect_Description"					"Reduced movespeed and attack damage."
+    	"DOTA_Tooltip_modifier_charons_claw_on_path"                           "Charon's Claw"
 		
 		"DOTA_Tooltip_ability_chernobog_rune_q_1"								"[Q1] At Your Heels"
     	"DOTA_Tooltip_ability_chernobog_rune_q_1_Description"					"Enemies within @Ability1 have reduced Armor and Magic Armor."

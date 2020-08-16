@@ -65,10 +65,8 @@ function chernobog_charons_claw:InitValues()
     local ability = self
 	local caster = self:GetCaster()	
 	ability.damage = ability:GetSpecialValueFor('damage')
-	ability.damage_and_movespeed_reduction = ability:GetSpecialValueFor('move_and_attack_slow')
 	ability.range = ability:GetSpecialValueFor('range')
 	ability.width = self:GetWidth()
-	ability.movespeed_amplify = ability:GetSpecialValueFor('move_speed_increase')
 end
 
 function chernobog_charons_claw:OnSpellStart()
@@ -131,23 +129,6 @@ function chernobog_charons_claw:OnSpellStart()
 	local projectile = Filters:LinearProjectile(info)
 	new_claw.projectile = projectile
 	table.insert(ability.claw_table, new_claw)
-
-	-- local thinkers = math.floor(ability.range / 100) - 2
-	-- local pathDuration = Filters:GetAdjustedBuffDuration(caster, 12, false)
-	-- for i = 1, thinkers, 1 do
-	-- 	Timers:CreateTimer(i * 0.12, function()
-	-- 		local thinkerPos = GetGroundPosition(casterOrigin + fv * 100 * (i - 1) + fv * 80, caster)
-	-- 		local obstruction = WallPhysics:FindNearestObstruction(thinkerPos)
-	-- 		local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, thinkerPos, caster)
-
-	-- 		if not blockUnit then
-	-- 			Util.Ability:MakeThinker(caster, ability, modifiers.path_aura, thinkerPos, pathDuration)
-	-- 		end
-	-- 		if i == (thinkers - 2) then
-	-- 			AddFOWViewer(caster:GetTeamNumber(), thinkerPos + fv * 200, 400, 3, false)
-	-- 		end
-	-- 	end)
-	-- end
 
 	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 end
@@ -291,5 +272,78 @@ function modifier_charons_claw_on_path:IsDebuff()
 		return false
 	else
 		return true
+	end
+end
+
+function modifier_charons_claw_on_path:OnCreated()
+	local ability = self:GetAbility()
+	if not IsServer() then
+		return false
+	end
+	if ability:GetCaster() == self:GetParent() then
+		ability.allow_terrain_traverse = true
+		self:StartIntervalThink(0.03)
+	elseif self:GetParent():GetTeamNumber() ~= ability:GetCaster():GetTeamNumber() then
+		self:StartIntervalThink(0.5)
+	end
+	self:SetSpecialTypes({ 
+        MODIFIER_ROSHPIT_MASTER_GREEN_DMG
+    })
+end
+
+function modifier_charons_claw_on_path:GetRoshpitMasterGreenDMG()
+	if self:IsDebuff() then 
+		return self:GetAbility():GetSpecialValueFor("attack_power_loss")
+	end
+end
+
+function modifier_charons_claw_on_path:CheckState()
+	local ability = self:GetAbility()
+	if not IsServer() then
+		return false
+	end
+	local state = {}
+	if ability:GetCaster() == self:GetParent() then
+		state = {
+			[MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY] = ability.allow_terrain_traverse,
+		}
+	end
+	return state
+end
+
+function modifier_charons_claw_on_path:DeclareFunctions()
+	local funcs = {
+		MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE
+	}
+
+	return funcs
+end
+
+
+function modifier_charons_claw_on_path:GetModifierMoveSpeedBonus_Percentage()
+	if self:IsDebuff() then
+		return self:GetAbility():GetSpecialValueFor("movespeed_loss")
+	else
+		return self:GetAbility():GetSpecialValueFor("movespeed_increase")
+	end
+end
+
+function modifier_charons_claw_on_path:OnIntervalThink()
+	local ability = self:GetAbility()
+	if not IsServer() then
+		return false
+	end
+	if ability:GetCaster() == self:GetParent() then
+	    if ability.allow_terrain_traverse then
+	    	local caster = self:GetParent()
+	        local newPos = caster:GetAbsOrigin() + caster:GetForwardVector() * 62
+	        local obstruction = WallPhysics:FindNearestObstruction(caster:GetAbsOrigin() * Vector(1, 1, 0))
+	        local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, newPos * Vector(1, 1, 0), caster)
+	        if blockUnit then
+	            caster:SetAbsOrigin(caster:GetAbsOrigin() - caster:GetForwardVector() * 60)
+	            WallPhysics:ClearSpaceForUnit(caster, caster:GetAbsOrigin())
+	            ability.allow_terrain_traverse = false
+	        end
+	    end
 	end
 end
