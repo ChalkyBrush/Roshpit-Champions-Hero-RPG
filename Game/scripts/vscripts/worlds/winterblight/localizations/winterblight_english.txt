@@ -1970,7 +1970,7 @@
 		"winterblight_dragon_scale_property"				"Scales"
 
 		"DOTA_Tooltip_ability_item_rpc_winterblight_tarot_card" "Winterblight Tarot Card"
-		"item_rpc_winterblight_tarot_card_desc"				    "Use at the entrace of Winterblight Castle to select this fate."
+		"item_rpc_winterblight_tarot_card_desc"				    "Use at the entrance of Winterblight Castle to select this fate."
 
 		"winterblight_tarot_card_use_fail_1"				"Castle Is Already Open"
 		"winterblight_tarot_card_use_fail_2"				"Diviner is too far away"

@@ -110,11 +110,26 @@ function modifier_mountain_protector_mountain_guardian:OnIntervalThink()
         local caster = self:GetCaster()
         local ability = self:GetAbility()
         local mana_drain = ability:GetManaCost(-1)
+		if not silence_counter then
+			silence_counter = 0
+		end
 
-        if caster:GetMana() < mana_drain or caster:IsSilenced() then
+        if caster:GetMana() < mana_drain then
             ability:ToggleAbility()
             return false
         end
+		if not caster:IsSilenced() then
+			if silence_counter < 5 then 
+				local silence_counter = 0
+			end
+		else
+			silence_counter = silence_counter + 1
+			if silence_counter >= 5 then
+				ability:ToggleAbility()
+				silence_counter = 0
+				return false
+			end
+		end
         ability:PayManaCost()
 
         Filters:CastSkillArguments(BASE_ABILITY_W, caster)

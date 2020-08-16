@@ -2826,6 +2826,15 @@ function GameState:FilterDamage(filterTable)
 			filterTable["damage"] = 0
 		end
 	end
+	if victim:HasModifier("modifier_serengaard_wave_unit") then
+		if GameState:IsSerengaard() then
+			if Serengaard.InfiniteWaveCount then
+				if damagetype == DAMAGE_TYPE_PURE then
+					filterTable["damage"] = filterTable["damage"] * 0.99^(2*Serengaard.InfiniteWaveCount)
+				end			
+			end
+		end
+	end
 	if victim:HasModifier("modifier_winterblight_cavern_unit") then
 		local chamber_level = 1
 		if victim.chamber == 0 then
