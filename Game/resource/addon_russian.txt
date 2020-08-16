@@ -12939,7 +12939,7 @@
 
         "item_rpc_terrasic_lava_boots_ruby1"                                "Увеличивает Урон Предметов и урон <font color='#EF4126'>Огня</font> на @ruby_property1%"
         "item_rpc_terrasic_lava_boots_emerald1"                             "Прочтение [E] вызывает пламя дальностью @emerald_property1 <font color='#ccff66'>600</font> из, так сказать, задней части героя, наносящее @emerald_property2% от Силы Атаки героя"
-        "item_rpc_terrasic_lava_boots_sapphire1"                                "Каждые <font color='#ccff66'>2500</font> пройденной дистанции вызывает огненного демона с активным эффектом Magma Tread. Демон имеет <font color='#ccff66'>600</font> радиус атаки, @sapphire_property1% от Здоровья героя и @sapphire_property2% от Атаки героя. Продолжительность жизни <font color='#ccff66'>10</font> сек."
+        "item_rpc_terrasic_lava_boots_sapphire1"                                "Каждые <font color='#ccff66'>2500</font> пройденной дистанции вызывает огненного демона с активным эффектом Magma Tread. Демон имеет <font color='#ccff66'>600</font> радиус атаки, @sapphire_property1% от Здоровья героя и @sapphire_property2% от Атаки героя. Продолжительность жизни <font color='#ccff66'>12</font> сек."
         "item_rpc_terrasic_lava_boots_amethyst1"                                "Прочтение [E] применяет активный эффект на @amethyst_property1 сек"
 
         "terrasic_lava_boots_fireling"                                      "Fireling"

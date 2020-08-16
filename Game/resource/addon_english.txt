@@ -13071,7 +13071,7 @@
 
         "item_rpc_terrasic_lava_boots_ruby1"                                "Increases Item and <font color='#EF4126'>Fire</font> Elemental damage by @ruby_property1%"
         "item_rpc_terrasic_lava_boots_emerald1"                             "Casting [E] emits @emerald_property1 <font color='#ccff66'>600</font> range flames in a cone from your back, each dealing @emerald_property2% of attack power to impacted enemies"
-        "item_rpc_terrasic_lava_boots_sapphire1"                                "Travelling <font color='#ccff66'>2500</font> distance summons a fireling with Magma Tread active. The fireling has <font color='#ccff66'>600</font> attack range, @sapphire_property1% of your health, and @sapphire_property2% of your attack damage. Lasts <font color='#ccff66'>10</font> seconds."
+        "item_rpc_terrasic_lava_boots_sapphire1"                                "Travelling <font color='#ccff66'>2500</font> distance summons a fireling with Magma Tread active. The fireling has <font color='#ccff66'>600</font> attack range, @sapphire_property1% of your health, and @sapphire_property2% of your attack damage. Lasts <font color='#ccff66'>12</font> seconds."
         "item_rpc_terrasic_lava_boots_amethyst1"                                "Casting [E] applies the Magma Tread buff for @amethyst_property1 seconds"
 
         "terrasic_lava_boots_fireling"                                      "Fireling"
@@ -23286,7 +23286,7 @@
 		"winterblight_dragon_scale_property"				"Scales"
 
 		"DOTA_Tooltip_ability_item_rpc_winterblight_tarot_card" "Winterblight Tarot Card"
-		"item_rpc_winterblight_tarot_card_desc"				    "Use at the entrace of Winterblight Castle to select this fate."
+		"item_rpc_winterblight_tarot_card_desc"				    "Use at the entrance of Winterblight Castle to select this fate."
 
 		"winterblight_tarot_card_use_fail_1"				"Castle Is Already Open"
 		"winterblight_tarot_card_use_fail_2"				"Diviner is too far away"

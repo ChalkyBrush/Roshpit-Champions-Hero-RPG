@@ -12980,7 +12980,7 @@
 
         "item_rpc_terrasic_lava_boots_ruby1"                                "增加物品伤害和 <font color='#EF4126'>火</font> 元素伤害 @ruby_property1%"
         "item_rpc_terrasic_lava_boots_emerald1"                             "释放 [E] 后将会向你身后释放 @emerald_property1道 <font color='#ccff66'>600</font> 距离的火焰，每道火焰对接触到的敌人造成 @emerald_property2% 攻击力的伤害。"
-        "item_rpc_terrasic_lava_boots_sapphire1"                                "移动 <font color='#ccff66'>2500</font> 距离后将会召唤一只熔岩精灵，火焰精灵拥有熔岩践踏技能。这个火焰精灵拥有 <font color='#ccff66'>600</font> 攻击距离，生命值为 @sapphire_property1% 你的生命值, 攻击力为 @sapphire_property2% 你的攻击力。 持续 <font color='#ccff66'>10</font> 秒."
+        "item_rpc_terrasic_lava_boots_sapphire1"                                "移动 <font color='#ccff66'>2500</font> 距离后将会召唤一只熔岩精灵，火焰精灵拥有熔岩践踏技能。这个火焰精灵拥有 <font color='#ccff66'>600</font> 攻击距离，生命值为 @sapphire_property1% 你的生命值, 攻击力为 @sapphire_property2% 你的攻击力。 持续 <font color='#ccff66'>12</font> 秒."
         "item_rpc_terrasic_lava_boots_amethyst1"                                "释放 [E] 后将会获得熔岩践踏效果，持续 @amethyst_property1 秒"
 
         "terrasic_lava_boots_fireling"                                      "熔岩精灵"
