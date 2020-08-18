@@ -745,7 +745,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_cloak_of_the_cimmerian_priesthood"						"Cloak of the Cimmerian Priesthood"
 		"item_property_cloak_of_the_cimmerian_priesthood"						"Shadow Priest"
-		"property_cloak_of_the_cimmerian_priesthood_description"				"Attacks deal an additional instance of Magical <font color=ELEMENT_SHADOW>Shadow</font>/<font color=ELEMENT_HOLY>Holy</font> damage based on <% ITEM_RPC_CLOAK_OF_THE_CIMMERIAN_PRIESTHOOD_DMG_PCT_TGT_CURRENT_HEALTH %>% of target's current health, and heals you for <% ITEM_RPC_CLOAK_OF_THE_CIMMERIAN_PRIESTHOOD_HEAL_PCT %>% of the base damage."
+		"property_cloak_of_the_cimmerian_priesthood_description"				"Attacks deal an additional instance of Magical <font color=ELEMENT_SHADOW>Shadow</font>/<font color=ELEMENT_HOLY>Holy</font> damage based on <% ITEM_RPC_CLOAK_OF_THE_CIMMERIAN_PRIESTHOOD_DMG_MULT_PRIM_ATTRIBUTE %>% of target's current health, and heals you for <% ITEM_RPC_CLOAK_OF_THE_CIMMERIAN_PRIESTHOOD_HEAL_PCT %>% of the base damage."
 
 		"item_rpc_cloak_of_the_cimmerian_priesthood_ruby1"		"Enemies hit by [Q] take <% ITEM_RPC_CLOAK_OF_THE_CIMMERIAN_PRIESTHOOD_RUBY_DAMAGE %>% of the original damage every @ruby_property1 seconds for @ruby_property2 seconds"
 		"item_rpc_cloak_of_the_cimmerian_priesthood_emerald1"	"Enemies hit by [W] heal nearby allies within <% ITEM_RPC_CLOAK_OF_THE_CIMMERIAN_PRIESTHOOD_EMERALD_RANGE %> range for @emerald_property1% of base damage"

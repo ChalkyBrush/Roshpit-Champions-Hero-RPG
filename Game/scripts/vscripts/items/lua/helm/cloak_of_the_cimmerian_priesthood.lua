@@ -114,9 +114,9 @@ function modifierClass:OnAttackLanded(event)
     end
     local target = event.target
     local ability = event.ability
-	local damage = target:GetHealth()*(ITEM_RPC_CLOAK_OF_THE_CIMMERIAN_PRIESTHOOD_DMG_PCT_TGT_CURRENT_HEALTH/100)
-	Filters:ApplyItemDamage(target, attacker, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_SHADOW, RPC_ELEMENT_HOLY)
+	local damage = Filters:GetPrimaryAttributeMultiple(attacker, ITEM_RPC_CLOAK_OF_THE_CIMMERIAN_PRIESTHOOD_DMG_MULT_PRIM_ATTRIBUTE)
 	local healAmount = damage * (ITEM_RPC_CLOAK_OF_THE_CIMMERIAN_PRIESTHOOD_HEAL_PCT/100)
+	Filters:ApplyItemDamage(target, attacker, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_SHADOW, RPC_ELEMENT_HOLY)
 	Filters:ApplyHeal(attacker, attacker, healAmount, true, true, ability)
 end
 
