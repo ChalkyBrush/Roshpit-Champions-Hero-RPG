@@ -1103,6 +1103,9 @@ end
 function Arena:GrandVictorySequence(hero)
 	Arena.ChampionsLeague.state = 17
 	FindClearSpaceForUnit(hero, Vector(-2669, -2581), false)
+	Timers:CreateTimer(2, function()
+		PlayerResource:SetCameraTarget(hero:GetPlayerOwnerID(), hero)
+	end)
 	local gameMasterAbil = Events.GameMaster:FindAbilityByName("npc_abilities")
 	gameMasterAbil:ApplyDataDrivenModifier(Events.GameMaster, hero, "modifier_command_restric_player", {duration = 20})
 	gameMasterAbil:ApplyDataDrivenModifier(Arena.Coach, hero, "modifier_command_restric_player", {duration = 20})
@@ -1112,9 +1115,6 @@ function Arena:GrandVictorySequence(hero)
 	hero:SetForwardVector(Vector(0, -1))
 	Arena.Coach:SetForwardVector(Vector(0, -1))
 	local particleTable = {}
-	Timers:CreateTimer(2, function()
-		PlayerResource:SetCameraTarget(hero:GetPlayerOwnerID(), nil)
-	end)
 	for i = 1, 6, 1 do
 		Timers:CreateTimer(3 * i, function()
 			EmitGlobalSound("Arena.Cheer"..RandomInt(3, 4))
@@ -1160,7 +1160,7 @@ function Arena:GrandVictorySequence(hero)
 			ParticleManager:DestroyParticle(particleTable[i], false)
 		end
 		Timers:CreateTimer(1, function()
-			PlayerResource:SetCameraTarget(hero:GetPlayerOwnerID(), hero)
+			Events:LockCameraWithDuration(hero, 4)
 			UTIL_Remove(crystal)
 		end)
 
