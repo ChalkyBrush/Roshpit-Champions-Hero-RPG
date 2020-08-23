@@ -247,13 +247,18 @@ function CDOTA_BaseNPC_Hero:GetBaseIntellect()
 	modifier = self:FindModifierByName('modifier_blue_divinex_amulet')
 	if modifier and modifier.stat_bonus then
 		intellect = intellect - modifier.stat_bonus
+		modifier2 = self:FindModifierByName("modifier_epoch_q_passive")
+		if modifier2 then
+			if self:GetRuneValue("q", 2) ~=0 then
+				intellect = intellect/(self:GetRuneValue("q", 2)*EPOCH_ARCANA_Q2_STAT_PCT)/100
+			end
+		end
 	end
 
 	modifier = self:FindModifierByName("modifier_w_4_int_increase")
 	if modifier then
 		intellect = intellect - modifier:GetStackCount()
 	end
-
 	return intellect
 end
 
