@@ -249,7 +249,13 @@ function CDOTA_BaseNPC_Hero:GetBaseIntellect()
 		intellect = intellect - modifier.stat_bonus
 		modifier2 = self:FindModifierByName("modifier_epoch_q_passive")
 		if modifier2 then
-			if self:GetRuneValue("q", 2) ~=0 then
+			if self:GetRuneValue("q", 2) ~= 0 then
+				intellect = intellect/(self:GetRuneValue("q", 2)*EPOCH_Q2_INT_PCT)/100
+			end
+		end
+		modifier3 = self:FindModifierByName("modifier_epoch_arcana_q_passive")
+		if modifier3 then
+			if self:GetRuneValue("q", 2) ~= 0 then
 				intellect = intellect/(self:GetRuneValue("q", 2)*EPOCH_ARCANA_Q2_STAT_PCT)/100
 			end
 		end
