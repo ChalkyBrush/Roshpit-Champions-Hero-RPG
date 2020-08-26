@@ -15397,7 +15397,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_cloak_of_the_cimmerian_priesthood"						"安人祭祀头巾"
 		"item_property_cloak_of_the_cimmerian_priesthood"						"暗影祭祀"
-		"property_cloak_of_the_cimmerian_priesthood_description"				"普通攻击额外造成一次魔法 <font color='#7F4F84'>暗</font>/<font color='#F6FFB5'>圣</font> 伤害，数值为目标当前生命值的 <font color='#ccff66'>10</font>%并且使你回复 <font color='#ccff66'>10</font>% 基础伤害的生命值。"
+		"property_cloak_of_the_cimmerian_priesthood_description"				"普通攻击额外造成一次魔法 <font color='#7F4F84'>暗</font>/<font color='#F6FFB5'>圣</font> 伤害，数值为目标当前生命值的 <font color='#ccff66'>6</font><font color='#ccff66'>6</font>x of hero's Primary Attribute value 并且使你回复 <font color='#ccff66'>10</font>% 基础伤害的生命值。"
 
 		"item_rpc_cloak_of_the_cimmerian_priesthood_ruby1"		"被 [Q]击中的敌人每 @ruby_property1秒受到 <font color='#ccff66'>100</font>% 初始伤害，持续 @ruby_property2 秒"
 		"item_rpc_cloak_of_the_cimmerian_priesthood_emerald1"	"被 [W] 击中的敌人将会治疗敌人周围 <font color='#ccff66'>360</font> 范围内的友军，数值为 @emerald_property1% 基础伤害"
