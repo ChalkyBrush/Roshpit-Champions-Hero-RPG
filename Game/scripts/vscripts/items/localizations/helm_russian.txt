@@ -747,7 +747,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_cloak_of_the_cimmerian_priesthood"						"Cloak of the Cimmerian Priesthood"
 		"item_property_cloak_of_the_cimmerian_priesthood"						"Shadow Priest"
-		"property_cloak_of_the_cimmerian_priesthood_description"				"Атаки наносят дополнительный магический урон <font color=ELEMENT_SHADOW>Тени</font>/<font color=ELEMENT_HOLY>Света</font>, основанный на <% ITEM_RPC_CLOAK_OF_THE_CIMMERIAN_PRIESTHOOD_DMG_PCT_TGT_CURRENT_HEALTH %>% от текущего Здоровья цели, а также исцеляют героя в размере <% ITEM_RPC_CLOAK_OF_THE_CIMMERIAN_PRIESTHOOD_HEAL_PCT %>% от базового значения этого урона (без учета мультипликаторов урона Стихий и Предметов)."
+		"property_cloak_of_the_cimmerian_priesthood_description"				"Атаки наносят дополнительный магический урон <font color=ELEMENT_SHADOW>Тени</font>/<font color=ELEMENT_HOLY>Света</font>, основанный на <% ITEM_RPC_CLOAK_OF_THE_CIMMERIAN_PRIESTHOOD_DMG_MULT_PRIM_ATTRIBUTE %>x от Главного Атрибута героя, а также исцеляют героя в размере <% ITEM_RPC_CLOAK_OF_THE_CIMMERIAN_PRIESTHOOD_HEAL_PCT %>% от базового значения этого урона (без учета мультипликаторов урона Стихий и Предметов)."
 
 		"item_rpc_cloak_of_the_cimmerian_priesthood_ruby1"		"Противники, задетые [Q], получают <% ITEM_RPC_CLOAK_OF_THE_CIMMERIAN_PRIESTHOOD_RUBY_DAMAGE %>% от основной порции урона эффекта каждые @ruby_property1 сек в течение @ruby_property2 сек"
 		"item_rpc_cloak_of_the_cimmerian_priesthood_emerald1"	"Противники, задетые [W], исцеляют союзников героя рядом с ними в радиусе <% ITEM_RPC_CLOAK_OF_THE_CIMMERIAN_PRIESTHOOD_EMERALD_RANGE %> в размере @emerald_property1% от базового значения урона"
