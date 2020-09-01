@@ -371,7 +371,7 @@ function keyDropped(draggedItem, keyIndex){
 	var playerID = Game.GetLocalPlayerID();
 	var limit = 5
 	if (Players.HasCustomGameTicketForPlayerID( playerID) ){
-		limit = 20
+		limit = 100
 	}
 	var currentKeys = GetKeyCountByItemName(itemName)
 	if (currentKeys < limit){
