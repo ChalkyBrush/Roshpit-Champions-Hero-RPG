@@ -41,6 +41,15 @@ function sorceress_avatar_think(event)
 		lanceAbility = avatar:FindAbilityByName("sorceress_sun_lance")
 	end
 	local blinkAbility = avatar:FindAbilityByName("sorceress_blink")
+	local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), avatar:GetAbsOrigin())
+	if distance > 500 and distance < 1500 then
+		if not avatar:IsChanneling() then
+			avatar:MoveToPosition(caster:GetAbsOrigin() + RandomVector(240))
+		end
+	elseif distance >= 1500 then
+		CustomAbilities:QuickAttachParticle("particles/econ/items/meepo/meepo_colossal_crystal_chorus/sorceress_blink.vpcf", caster, 3)
+		FindClearSpaceForUnit(avatar, caster:GetAbsOrigin() + RandomVector(240), false)
+	end
 	if avatar:IsChanneling() then
 		return false
 	end
@@ -118,15 +127,6 @@ function sorceress_avatar_think(event)
 			return false
 		end
 	end
-	local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), avatar:GetAbsOrigin())
-	if distance > 500 and distance < 1500 then
-		if not avatar:IsChanneling() then
-			avatar:MoveToPosition(caster:GetAbsOrigin() + RandomVector(240))
-		end
-	elseif distance >= 1500 then
-		CustomAbilities:QuickAttachParticle("particles/econ/items/meepo/meepo_colossal_crystal_chorus/sorceress_blink.vpcf", caster, 3)
-		avatar:SetAbsOrigin(caster:GetAbsOrigin() + RandomVector(240))
-	end
 end
 
 function sorceress_avatar_think_fire(event)
@@ -142,6 +142,15 @@ function sorceress_avatar_think_fire(event)
 		fireballAbility = coreAbility
 	end
 	local blinkAbility = avatar:FindAbilityByName("sorceress_blink")
+	local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), avatar:GetAbsOrigin())
+	if distance > 500 and distance < 1500 then
+		if not avatar:IsChanneling() then
+			avatar:MoveToPosition(caster:GetAbsOrigin() + RandomVector(240))
+		end
+	elseif distance >= 1500 then
+		CustomAbilities:QuickAttachParticle("particles/econ/items/meepo/meepo_colossal_crystal_chorus/sorceress_blink.vpcf", caster, 3)
+		FindClearSpaceForUnit(avatar, caster:GetAbsOrigin() + RandomVector(240), false)
+	end
 	if avatar:IsChanneling() then
 		return false
 	end
@@ -213,15 +222,6 @@ function sorceress_avatar_think_fire(event)
 			ExecuteOrderFromTable(order)
 			return false
 		end
-	end
-	local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), avatar:GetAbsOrigin())
-	if distance > 500 and distance < 1500 then
-		if not avatar:IsChanneling() then
-			avatar:MoveToPosition(caster:GetAbsOrigin() + RandomVector(240))
-		end
-	elseif distance >= 1500 then
-		CustomAbilities:QuickAttachParticle("particles/econ/items/meepo/meepo_colossal_crystal_chorus/sorceress_blink.vpcf", caster, 3)
-		avatar:SetAbsOrigin(caster:GetAbsOrigin() + RandomVector(240))
 	end
 end
 
