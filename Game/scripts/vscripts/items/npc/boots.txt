@@ -5259,6 +5259,29 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby1"				"<% CHAMPIONS_GEAR_RUBY %>"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"emerald1"			"<% CHAMPIONS_GEAR_EMERALD %>"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire1"			"<% CHAMPIONS_GEAR_RUBY_SAPPHIRE %>"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst1"			"<% CHAMPIONS_GEAR_AMETHYST %>"
+			}
+		}
 		"OnSpellStart"
 		{
 			"RunScript"
