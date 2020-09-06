@@ -191,13 +191,13 @@ function getSkillSlot(heroName, slot){
 function getFlamewakerSkill(slot){
     var skillName = "";
 	if (slot === 1){
-        skillName = "DOTA_Tooltip_Ability_seismic_flare";
+        skillName = "DOTA_Tooltip_ability_flamewaker_seismic_flare";
 	}else if(slot === 2){
-        skillName = "DOTA_Tooltip_Ability_second_heartbeat";
+        skillName = "DOTA_Tooltip_Ability_flamewaker_second_heartbeat";
 	}else if(slot === 3){
-        skillName = "DOTA_Tooltip_Ability_heat_wave";
+        skillName = "DOTA_Tooltip_Ability_flamewaker_heat_wave";
 	}else if(slot === 4){
-        skillName = "DOTA_Tooltip_Ability_cataclysm";
+        skillName = "DOTA_Tooltip_Ability_flamewaker_cataclysm";
 	}
 	return skillName
 }
