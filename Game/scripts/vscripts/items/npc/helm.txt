@@ -6720,10 +6720,10 @@
 				"EffectName"	"particles/units/heroes/hero_pudge/pudge_rot.vpcf"
 				"EffectAttachType"	"attach_hitloc"
 				"Aura"          	"modifier_basilisk_plague_helm_effect"
-				"Aura_Radius"   	"260"
+				"Aura_Radius"   	"280"
 				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 				"Aura_ApplyToCaster" "0"
 			}
 			"modifier_basilisk_plague_helm_effect"
@@ -6780,10 +6780,12 @@
 			"modifier_basilisk_plague_sapphire"
 			{
 				"IsHidden"	"0"
+				"TextureName"	"pudge_rot"
 			}
 			"modifier_basilisk_plague_emerald_stacks"
 			{
 				"IsHidden"	"0"
+				"TextureName"	"pudge_rot"
 			}
 			"modifier_basilisk_plague_petrify"
 			{
