@@ -7035,9 +7035,14 @@
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"sapphire1"				"<% ARCANE_CASCADE_SAPPHIRE %>"
+				"emerald2"				"<% ARCANE_CASCADE_EMERALD_MANA_REGEN %>"
 			}
 			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"sapphire1"				"<% ARCANE_CASCADE_SAPPHIRE %>"
+			}
+			"06"
 			{
 				"var_type"			"FIELD_INTEGER"
 				"amethyst1"				"<% ARCANE_CASCADE_AMETHYST %>"

@@ -15,7 +15,7 @@
 		"property_arcane_cascade_hat_description"		"Drains <% ARCANE_CASCADE_MANA_DRAIN * 100 %>% of your max mana every <% ARCANE_CASCADE_TICKRATE %> seconds. All enemies within <% ARCANE_CASCADE_RANGE %> range take up to <% ARCANE_CASCADE_DAMAGE %>x the mana drained as Magic Damage."
 
 		"item_rpc_arcane_cascade_hat_ruby1"	"Increases all Item damage and <font color=ELEMENT_ARCANE>Arcane</font> Elemental damage by @ruby_property1%"
-		"item_rpc_arcane_cascade_hat_emerald1" "Increases Max Mana by @emerald_property1"
+		"item_rpc_arcane_cascade_hat_emerald1" "Increases Max Mana by @emerald_property1 and Mana Regeneration by @emerald_property2"
 		"item_rpc_arcane_cascade_hat_sapphire1"	"Increases the Mana Drain by an additional @sapphire_property1%"
 		"item_rpc_arcane_cascade_hat_amethyst1" "Enemies in the damage AOE have @amethyst_property1 reduced Magic Armor"	
 

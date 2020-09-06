@@ -15,7 +15,7 @@
 		"property_arcane_cascade_hat_description"		"Поглощает <% ARCANE_CASCADE_MANA_DRAIN * 100 %>% от максимальной маны каждые <% ARCANE_CASCADE_TICKRATE %> сек. Все противники в радиусе <% ARCANE_CASCADE_RANGE %> получают <% ARCANE_CASCADE_DAMAGE %>x от поглощенной маны Магическим уроном."
 
 		"item_rpc_arcane_cascade_hat_ruby1"	"Увеличивает урон <font color=ELEMENT_ARCANE>Тайны</font> на @ruby_property1%"
-		"item_rpc_arcane_cascade_hat_emerald1" "Увеличивает максимальный запас Маны на @emerald_property1"
+		"item_rpc_arcane_cascade_hat_emerald1" "Увеличивает максимальный запас Маны на @emerald_property1 и Регенерацию Маны на @emerald_property2"
 		"item_rpc_arcane_cascade_hat_sapphire1"	"Увеличивает поглощение маны дополнительно на @sapphire_property1%"
 		"item_rpc_arcane_cascade_hat_amethyst1" "Магическая защита противников под действием эффекта снижается на @amethyst_property1"
 

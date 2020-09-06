@@ -340,6 +340,7 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 		end
 		if socket_type == "emerald" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ARCANE_CASCADE_EMERALD, hero, "max_mana", RPC_GEAR_SLOT_HEAD)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ARCANE_CASCADE_EMERALD_MANA_REGEN, hero, "mana_regen", RPC_GEAR_SLOT_HEAD)
 		end
 	elseif item:GetAbilityName() == "item_rpc_blackfeather_crown" then
 		if socket_type == "amethyst" then
