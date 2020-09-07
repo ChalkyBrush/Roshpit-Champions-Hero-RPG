@@ -5274,7 +5274,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% CHAMPIONS_GEAR_RUBY_SAPPHIRE %>"
+				"sapphire1"			"<% CHAMPIONS_GEAR_SAPPHIRE %>"
 			}
 			"04"
 			{

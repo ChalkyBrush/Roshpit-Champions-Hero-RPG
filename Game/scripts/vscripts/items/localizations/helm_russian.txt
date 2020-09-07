@@ -109,7 +109,7 @@
 		"item_rpc_cap_of_wild_nature_ruby1"	"Увеличивает урон корней на @ruby_property1%"
 		"item_rpc_cap_of_wild_nature_emerald1" "Увеличивает урон <font color=ELEMENT_NATURE>Природы</font> на @emerald_property1%"
 		"item_rpc_cap_of_wild_nature_sapphire1"	"Противники, задетые [Q], будут с <% CAP_OF_WILD_NATURE_SAPPHIRE_PROC %>% шансом опутаны корнями на  @sapphire_property1 сек"
-		"item_rpc_cap_of_wild_nature_amethyst1" "Увеличивает Регенерацию Здоровья на @amethyst_property1"	
+		"item_rpc_cap_of_wild_nature_amethyst1" "Увеличивает Здоровье на @amethyst_property1, а Регенерацию Здоровья на @amethyst_property2% от запаса здоровья"	
 
     	"DOTA_Tooltip_ability_item_rpc_carbuncles_helm_of_reflection"					"Carbuncle's Helm of Reflection"
 		"item_property_carbuncle"								"Ruby Shell"

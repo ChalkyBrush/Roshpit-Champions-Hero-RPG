@@ -786,7 +786,7 @@
 		"DOTA_Tooltip_modifier_abjudication_base_effect_armor"	"Judgement"
 		"DOTA_Tooltip_modifier_abjudication_base_effect_armor_Description"	"Броня увеличена"
 
-		"item_rpc_breastplate_of_abjudication_ruby1"									"Если атакуемый героем противник имеет больше Брони, чем Пробитие Брони героя, то герой получает Пробитие Брони, равное <% ITEM_RPC_BREASTPLATE_OF_ABJUDICATION_STAT_PCT %>% от разницы между этими двумя показателями на @ruby_property1 сек."
+		"item_rpc_breastplate_of_abjudication_ruby1"									"Если атакуемый героем противник имеет больше Брони, чем Пробитие Брони героя, то герой получает Пробитие Брони, равное @ruby_property1x текущему Пробитию Брони героя на @ruby_property2 сек."
 		"item_rpc_breastplate_of_abjudication_emerald1"									"Увеличивает длительность эффекта на @emerald_property1 сек"
 		"item_rpc_breastplate_of_abjudication_sapphire1"									"Увеличивает Все Атрибуты героя на @sapphire_property1%"
 		"item_rpc_breastplate_of_abjudication_amethyst1"									"После получения Магического или Чистого урона, если атакующий героя юнит имел больше Пробития Магической Защиты, чем Магическая Защита героя, то герой получит Магическую защиту в размере <% ITEM_RPC_BREASTPLATE_OF_ABJUDICATION_STAT_PCT %>% от разницы между этими двумя показателями на @amethyst_property1 сек."

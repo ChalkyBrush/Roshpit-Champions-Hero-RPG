@@ -6090,6 +6090,11 @@
 				"var_type"			"FIELD_FLOAT"
 				"amethyst1"				"<% WILD_NATURE_AMETHYST %>"
 			}
+			"06"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst2"				"<% WILD_NATURE_AMETHYST_HP_REGEN_PCT %>"
+			}
 		}
 		"Modifiers"
 		{
@@ -6107,12 +6112,46 @@
 						"target"		"TARGET"
 					}
 				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"wild_nature_init"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_wild_nature_amethyst_regen"
+						"Target" 		"TARGET"
+					}
+				}
 			}
 			"modifier_cap_of_wild_nature2"
 			{
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"wild_nature_init"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_wild_nature_amethyst_regen"
+						"Target" 		"TARGET"
+					}
+				}
 			}
 			"modifier_wild_nature_entangle_effect"
 			{
@@ -6148,6 +6187,15 @@
 					}
 				}
 			}
+			"modifier_wild_nature_amethyst_regen"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "<% WILD_NATURE_AMETHYST_HP_REGEN_PCT %>"
+				}
+			}
+			
 		}
 	}	
 

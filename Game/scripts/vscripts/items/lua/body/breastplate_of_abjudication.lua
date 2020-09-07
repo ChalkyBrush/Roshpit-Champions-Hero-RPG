@@ -141,10 +141,10 @@ function modifierClass:OnAttackStart(event)
 	    	heroArmorPierce = heroArmorPierce - ability.armor_pierce_bonus
 	    end
 	    if target:GetRoshpitArmor() > heroArmorPierce then
-	    	local armor_pierce_bonus = (target:GetRoshpitArmor() - heroArmorPierce)*(ITEM_RPC_BREASTPLATE_OF_ABJUDICATION_STAT_PCT/100)
+	    	local armor_pierce_bonus = heroArmorPierce*ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_BREASTPLATE_OF_ABJUDICATION_GEM_RUBY_DURATION)
 	    	if armor_pierce_bonus > ability.armor_pierce_bonus then
 	    		ability.armor_pierce_bonus = armor_pierce_bonus
-	    		local duration = ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_BREASTPLATE_OF_ABJUDICATION_GEM_RUBY)
+	    		local duration = ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_BREASTPLATE_OF_ABJUDICATION_GEM_RUBY_DURATION)
 	    		hero:AddNewModifier(hero, ability, "modifier_abjudication_ruby_armor_pierce", {duration = duration})
 	    	end
 	    end
@@ -267,6 +267,10 @@ function modifier_abjudication_ruby_armor_pierce:OnCreated()
 		return false
 	end
     self:SetSpecialTypes({ MODIFIER_ROSHPIT_ARMOR_PIERCE_BONUS })
+end
+
+function modifier_abjudication_ruby_armor_pierce:GetTexture()
+    return "axe_q_4"
 end
 
 function modifier_abjudication_ruby_armor_pierce:OnDestroy()

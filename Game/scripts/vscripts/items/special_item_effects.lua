@@ -7332,6 +7332,17 @@ function white_mage_init(event)
 	end
 end
 
+function wild_nature_init(event)
+	local ability = event.ability
+	local caster = event.caster
+	local target = event.target
+
+	if ability:GetGemValue("amethyst") > 0 then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_wild_nature_amethyst_regen", {})
+		target:SetModifierStackCount("modifier_wild_nature_amethyst_regen", caster, 1)
+	end
+end
+
 function wraith_crown_think(event)
 	local caster = event.caster
 	local ability = event.ability
