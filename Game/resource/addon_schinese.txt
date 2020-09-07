@@ -13701,7 +13701,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_depth_crest_armor"								"绝顶披风"
 		"item_property_depth_crest"						"粉碎"
-		 "property_depth_crest_description"					"被攻击有<font color='#ccff66'>15</font>% 概率附近<font color='#ccff66'>280</font> 范围内的所有敌人<font color='#ccff66'>0.1</font> 秒，并且造成 <font color='#ccff66'>1</font>x 你的护甲值的伤害。"
+		 "property_depth_crest_description"					"被攻击有<font color='#ccff66'>20</font>% 概率附近<font color='#ccff66'>300</font> 范围内的所有敌人<font color='#ccff66'>0.1</font> 秒，并且造成 <font color='#ccff66'>5</font>x 你的护甲值的伤害。"
 
 		 "item_rpc_depth_crest_armor_ruby1"								" @ruby_property1x 力量值加入到粉碎的伤害中并且增加粉碎的范围@ruby_property2"
 		"item_rpc_depth_crest_armor_emerald1"								"增加粉碎的持续时间 @emerald_property1 秒并且增加粉碎的范围 @emerald_property2"
@@ -14502,7 +14502,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_aquasteel_bracers"								"水之钢铁护腕"
 		"item_property_aquasteel"								"水爆"
-		"property_aquasteel_description"						"承受伤害时有<font color='#ccff66'>20</font>% 概率对攻击者喷射一道水柱, 造成基于你攻击力 <font color='#ccff66'>25</font>%的伤害, 并眩晕他们 <font color='#ccff66'>0.5</font> 秒."
+		"property_aquasteel_description"						"承受伤害时有<font color='#ccff66'>20</font>% 概率对攻击者喷射一道水柱, 造成基于你攻击力 <font color='#ccff66'>60</font>%的伤害, 并眩晕他们 <font color='#ccff66'>0.5</font> 秒."
     	"item_rpc_aquasteel_bracers_ruby1"								"提高水柱伤害 @ruby_property1 和眩晕时间 @ruby_property2"
     	"item_rpc_aquasteel_bracers_emerald1"								"每 @emerald_property1 秒对 <font color='#ccff66'>500</font> 范围内的随机单位喷射水柱"
     	"item_rpc_aquasteel_bracers_sapphire1"								"提高护甲值 @sapphire_property1, 并且护甲值的 @sapphire_property2% 加入到水柱的基础伤害中"
@@ -14704,7 +14704,7 @@
         "DOTA_Tooltip_modifier_basilisk_plague_petrify"	"深度腐烂"
 		"DOTA_Tooltip_modifier_basilisk_plague_petrify_Description"	"变成石头并且魔法免疫"
 		"item_rpc_basilisk_plague_helm_ruby1"	"被腐化的敌人攻击速度额外降低 @ruby_property1"
-		"item_rpc_basilisk_plague_helm_emerald1" "附近被腐化的敌人受到每 <font color='#ccff66'>0.5</font> 秒@emerald_property1 的持续伤害。每次造成伤害都将会提高，最多 <font color='#ccff66'>20</font>x 伤害"
+		"item_rpc_basilisk_plague_helm_emerald1" "附近被腐化的敌人受到每 <font color='#ccff66'>0.5</font> 秒@emerald_property1 的持续伤害。每次造成伤害都将会提高，最多 <font color='#ccff66'>10</font>x 伤害"
 		"item_rpc_basilisk_plague_helm_sapphire1"	"提高石化持续时间 @sapphire_property1 秒并且当敌人被石化后，你将会获得 @sapphire_property2 点物理穿透，持续 <font color='#ccff66'>5.5</font> 秒"
 		"item_rpc_basilisk_plague_helm_amethyst1" "被石化的敌人降低@amethyst_property1 护甲值"
 
@@ -14755,7 +14755,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_hyper_visor"									"长沿帽"
 		"item_property_hyper_visor2"				"超级闪电"
-		"property_hyper_visor_description"			"攻击有<font color='#ccff66'>30</font>% 概率触发超级闪电电击目标单位, 在 <font color='#ccff66'>240</font> 范围内造成你攻击力 <font color='#ccff66'>40</font>% 的伤害. 你的基础攻击间隔改变成 <font color='#ccff66'>1.2</font> 秒."
+		"property_hyper_visor_description"			"攻击有<font color='#ccff66'>30</font>% 概率触发超级闪电电击目标单位, 在 <font color='#ccff66'>240</font> 范围内造成你攻击力 <font color='#ccff66'>80</font>% 的伤害. 你的基础攻击间隔改变成 <font color='#ccff66'>1.2</font> 秒."
 
 		"item_rpc_hyper_visor_ruby1"	"提高攻击速度 @ruby_property1"
 		"item_rpc_hyper_visor_emerald1"	"提高超级闪电伤害 @emerald_property1x 敏捷值"
@@ -14942,7 +14942,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_arcane_cascade_hat"								"奥术洪流帽"
 		"item_property_arcane_cascade_hat"				"奥术洪流"
-		"property_arcane_cascade_hat_description"		"每<font color='#ccff66'>1</font>秒汲取 <font color='#ccff66'>2</font>% 最大魔法值并且对所有 <font color='#ccff66'>750</font> 范围内的敌人造成 <font color='#ccff66'>5</font>x 魔法汲取量的魔法伤害。"
+		"property_arcane_cascade_hat_description"		"每<font color='#ccff66'>1</font>秒汲取 <font color='#ccff66'>2</font>% 最大魔法值并且对所有 <font color='#ccff66'>750</font> 范围内的敌人造成 <font color='#ccff66'>12</font>x 魔法汲取量的魔法伤害。"
 		"item_rpc_arcane_cascade_hat_ruby1"	"提高所有 <font color='#E1A2E8'>奥术</font> 元素伤害 @ruby_property1%"
 		"item_rpc_arcane_cascade_hat_emerald1" "提高最大魔法值 @emerald_property1"
 		"item_rpc_arcane_cascade_hat_sapphire1"	"提高奥术洪流效果的魔法损失 @sapphire_property1%"
@@ -15026,7 +15026,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_blackfeather_crown"								"黑羽之冠"
 		"item_property_blackfeather"				"老树昏鸦"	
-		"property_blackfeather_description"			"攻击敌人召唤一只乌鸦，乌鸦攻击为<font color='#ccff66'>0.6</font>x 你的攻击力."
+		"property_blackfeather_description"			"攻击敌人召唤一只乌鸦，乌鸦攻击为<font color='#ccff66'>1</font>x 你的攻击力."
 		"item_rpc_blackfeather_crown_ruby1"	"乌鸦的攻击有 @ruby_property1% 概率连锁攻击至多 @ruby_property2 个附近的敌人"
 		"item_rpc_blackfeather_crown_emerald1" "乌鸦有 @emerald_property1% 概率还击攻击你的敌人"
 		"item_rpc_blackfeather_crown_sapphire1"	"增加物理穿透 @sapphire_property2。乌鸦攻击施加一个 @sapphire_property1 护甲降低的debuff，持续 <font color='#ccff66'>8</font>秒"
@@ -15053,7 +15053,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_demon_mask"										"恶魔面具"
 		"item_property_demon"						"恶魔之泪"
-		"property_demon_description"				"受到 @Ability1 伤害的敌人有 <font color='#ccff66'>15</font>% 几率释放一道火花，对目标<font color='#ccff66'>450</font>范围内的所有单位造成 <font color='#ccff66'>30</font>% 该技能的伤害。每秒最多触发<font color='#ccff66'>4</font>次。"
+		"property_demon_description"				"受到 @Ability1 伤害的敌人有 <font color='#ccff66'>15</font>% 几率释放一道火花，对目标<font color='#ccff66'>450</font>范围内的所有单位造成 <font color='#ccff66'>100</font>% 该技能的伤害。每秒最多触发<font color='#ccff66'>7</font>次。"
 		"item_rpc_demon_mask_ruby1"	"恶魔之泪伤害增加[Q] 技能的@ruby_property1% "
 		"item_rpc_demon_mask_emerald1"	"提高 [Q3] 符文 @emerald_property1"
 		"item_rpc_demon_mask_sapphire1" "提高恶魔之泪的触发概率 @sapphire_property1%"
@@ -15129,7 +15129,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_stormcrack_helm"								"风暴裂痕之头"
 		 "item_property_stormcrack2"						"风暴裂痕"
-		"property_stormcrack_description"					"当你眩晕一个敌人时, 对其造成 <font color='#ccff66'>25</font>% 你的攻击力的魔法伤害. 每秒最多触发 <font color='#ccff66'>6</font> 次."
+		"property_stormcrack_description"					"当你眩晕一个敌人时, 对其造成 <font color='#ccff66'>70</font>% 你的攻击力的魔法伤害. 每秒最多触发 <font color='#ccff66'>12</font> 次."
 
 		"item_rpc_stormcrack_helm_ruby1"	"延长你造成的所有眩晕时间 @ruby_property1%"
 		"item_rpc_stormcrack_helm_emerald1"	"风暴裂痕效果每秒能多触发 @emerald_property1 次"
@@ -15241,7 +15241,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_burning_spirit_helmet"							"炽魂头盔"
 		"item_property_burning_spirit"							"喷火龙"
-		"property_burning_spirit_description"					"当引导 @Ability4 时，向前方发射一连串的火焰，每波火焰对敌人造成 <font color='#ccff66'>10</font>% 攻击力的伤害。"
+		"property_burning_spirit_description"					"当引导 @Ability4 时，向前方发射一连串的火焰，每波火焰对敌人造成 <font color='#ccff66'>80</font>% 攻击力的伤害。"
 		"item_rpc_burning_spirit_helmet_ruby1"	"提高所有 <font color='#EF4126'>火</font> 元素伤害 @ruby_property1%"
 		"item_rpc_burning_spirit_helmet_emerald1" "提高火焰的伤害，数值为 @emerald_property1% 攻击力并且增加全属性 @emerald_property2"
 		"item_rpc_burning_spirit_helmet_sapphire1"	"普通攻击有 @sapphire_property1% 概率向前方释放一道火焰，火焰的射程为100%的穿戴者和目标之间的距离加上 @sapphire_property2 距离"
@@ -15354,7 +15354,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_helm_of_the_knight_hawk"		"苍鹰骑士头盔"
 		"item_property_knight_hawk" 								"极速之刃"
-		"property_knight_hawk_description"						"增加最大移动速度 <font color='#ccff66'>200</font>.。在移动速度高于550时，受到的伤害将会被降低<font color='#ccff66'>30</font>%。如果移动速度低于<font color='#ccff66'>260</font>时，获得 一个增加<font color='#ccff66'>300</font> 移动速度的buff持续 <font color='#ccff66'>10</font> 秒。"
+		"property_knight_hawk_description"						"增加最大移动速度 <font color='#ccff66'>200</font>.。在移动速度高于550时，受到的伤害将会被降低<font color='#ccff66'>45</font>%。如果移动速度低于<font color='#ccff66'>260</font>时，获得 一个增加<font color='#ccff66'>300</font> 移动速度的buff持续 <font color='#ccff66'>10</font> 秒。"
 
 		"DOTA_Tooltip_modifier_knight_hawk_helm_speed"				"极速之刃"
 		"DOTA_Tooltip_modifier_knight_hawk_helm_speed_Description"	"增加移动速度"
@@ -15366,7 +15366,7 @@
 
 		"DOTA_Tooltip_ability_item_rpc_magistrates_hood"		"审判者的兜帽"
 		"item_property_magistrate"											"技能扩散"
-		"property_magistrate_description"								"所有魔法和纯粹伤害将会对<font color='#ccff66'>300</font>范围内的敌人造成 AOE伤害。 AOE 效果拥有 <font color='#ccff66'>7</font> 点充能，每<font color='#ccff66'>1</font> 秒获得一层充能。所有aoe伤害将会增加 <font color='#ccff66'>10</font>%。"
+		"property_magistrate_description"								"所有魔法和纯粹伤害将会对<font color='#ccff66'>300</font>范围内的敌人造成 AOE伤害。 AOE 效果拥有 <font color='#ccff66'>14</font> 点充能，每<font color='#ccff66'>1</font> 秒获得一层充能。所有aoe伤害将会增加 <font color='#ccff66'>15</font>%。"
 		"item_rpc_magistrates_hood_ruby1"	"提高最大充能次数 @ruby_property1"
 		"item_rpc_magistrates_hood_emerald1"	"提高aoe伤害增加效果 @emerald_property1%"
 		"item_rpc_magistrates_hood_sapphire1" "提高魔法穿透 @sapphire_property1以及智力值 sapphire_property2"
@@ -16143,10 +16143,10 @@
 		//Tier 1
 
         "DOTA_Tooltip_ability_item_rpc_neutral_glyph_1_1"	"[T1-1] 护甲雕文"
-		"item_rpc_neutral_glyph_1_1_description" 			"每级英雄等级提高 <font color='#ccff66'>10</font> 护甲值."
+		"item_rpc_neutral_glyph_1_1_description" 			"每级英雄等级提高 <font color='#ccff66'>12</font> 护甲值."
 
 		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_1_2"	"[T1-2] 魔甲雕文"
-		"item_rpc_neutral_glyph_1_2_description" 			"每级英雄等级提高 <font color='#ccff66'>10</font> 魔甲值."
+		"item_rpc_neutral_glyph_1_2_description" 			"每级英雄等级提高 <font color='#ccff66'>12</font> 魔甲值."
 
 		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_1_3"	"[T1-3] 贪吃雕文"
 		"item_rpc_neutral_glyph_1_3_description" 			 "使用药剂时在<font color='#ccff66'>10</font>秒内额外回复 <font color='#ccff66'>100</font>% 药剂提供的生命值和魔法值."
@@ -16154,13 +16154,13 @@
         //Tier 2
 
 		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_2_1"	"[T2-1] 物穿雕文"
-		"item_rpc_neutral_glyph_2_1_description" 			"每级英雄等级提高 <font color='#ccff66'>10</font> 物理穿透."
+		"item_rpc_neutral_glyph_2_1_description" 			"每级英雄等级提高 <font color='#ccff66'>15</font> 物理穿透."
 
 		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_2_2"	"[T2-2] 法穿雕文"
-		"item_rpc_neutral_glyph_2_2_description" 			"每级英雄等级提高<font color='#ccff66'>10</font> 魔法穿透."
+		"item_rpc_neutral_glyph_2_2_description" 			"每级英雄等级提高<font color='#ccff66'>15</font> 魔法穿透."
 
 		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_2_3"	"[T2-3] 狂怒雕文"
-		"item_rpc_neutral_glyph_2_3_description" 			"每级英雄等级提高 <font color='#ccff66'>3</font> 基础攻击力."
+		"item_rpc_neutral_glyph_2_3_description" 			"每级英雄等级提高 <font color='#ccff66'>8</font> 基础攻击力."
 
         //Tier 3
 

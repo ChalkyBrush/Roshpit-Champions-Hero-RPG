@@ -41548,6 +41548,29 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby1"				"6 12 18 24 30"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"emerald1"			"3 6 9 12 15"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire1"			"6 12 18 24 30"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst1"			"1 2 3 5 7"
+			}
+		}
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -42334,7 +42357,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"2 4 6 8 10"
+				"ruby1"				"2 3 4 5 6"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby2"				"2 4 6 8 10"
 			}
 			"04"
 			{
@@ -48464,22 +48492,22 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"4 8 12 16 20"
+				"ruby1"				"6 12 18 24 30"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"2 4 6 8 10"
+				"emerald1"				"3 6 9 12 15"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"4 8 12 16 20"
+				"sapphire1"				"6 12 18 24 30"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"1 2 3 4 5"
+				"amethyst1"				"1 2 3 5 7"
 			}
 		}
 	}
@@ -54320,22 +54348,22 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"4 8 12 16 20"
+				"ruby1"				"6 12 18 24 30"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"2 4 6 8 10"
+				"emerald1"				"3 6 9 12 15"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"4 8 12 16 20"
+				"sapphire1"				"6 12 18 24 30"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"1 2 3 4 5"
+				"amethyst1"				"1 2 3 5 7"
 			}
 		}
 	}
@@ -56580,7 +56608,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"200 400 600 800 1000"
+				"ruby1"				"1600 3200 4800 6400 8000"
 			}
 			"03"
 			{
@@ -56595,12 +56623,12 @@
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"300 600 900 1200 1500"
+				"sapphire1"			"500 1000 1500 2000 2500"
 			}
 			"06"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire2"			"5 10 15 20 25"
+				"sapphire2"			"15 30 45 60 75"
 			}
 			"07"
 			{
@@ -57478,7 +57506,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"					"0.6 1.2 1.8 2.4 3"
+				"ruby1"					"1.4 2.8 4.2 5.6 7"
 			}
 			"02"
 			{
@@ -59784,7 +59812,7 @@
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"24 48 72 96 120"
+				"amethyst1"				"30 60 90 120 150"
 			}
 		}
 	}
@@ -59828,7 +59856,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"30 60 90 120 150"
+				"ruby1"				"80 160 240 320 400"
 			}
 			"03"
 			{
@@ -60043,7 +60071,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"0.5 1 1.5 2 2.5"
+				"emerald1"				"1 2 3 4 5"
 			}
 			"04"
 			{
@@ -60776,7 +60804,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"2 4 6 8 10"
+				"emerald1"				"3 6 9 12 15"
 			}
 			"03"
 			{
@@ -60895,22 +60923,22 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"4 8 12 16 20"
+				"ruby1"				"6 12 18 24 30"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"2 4 6 8 10"
+				"emerald1"				"3 6 9 12 15"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"4 8 12 16 20"
+				"sapphire1"				"6 12 18 24 30"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"1 2 3 4 5"
+				"amethyst1"				"1 2 3 5 7"
 			}
 		}
 	}
@@ -61495,7 +61523,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"100 200 300 400 500"
+				"sapphire1"				"180 360 540 720 900"
 			}
 			"04"
 			{
@@ -61561,7 +61589,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"3 6 9 12 15"
+				"ruby1"				"5 10 15 20 25"
 			}
 			"03"
 			{
@@ -62564,7 +62592,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"2 4 6 8 10"
+				"sapphire1"				"6 12 18 24 30"
 			}
 			"05"
 			{
@@ -62740,7 +62768,12 @@
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"250 500 750 1000 1250"
+				"amethyst1"				"1200 2400 3600 4800 6000"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst2"				"6"
 			}
 		}
 		"Modifiers"
@@ -62759,12 +62792,46 @@
 						"target"		"TARGET"
 					}
 				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"wild_nature_init"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_wild_nature_amethyst_regen"
+						"Target" 		"TARGET"
+					}
+				}
 			}
 			"modifier_cap_of_wild_nature2"
 			{
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"wild_nature_init"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_wild_nature_amethyst_regen"
+						"Target" 		"TARGET"
+					}
+				}
 			}
 			"modifier_wild_nature_entangle_effect"
 			{
@@ -62800,6 +62867,15 @@
 					}
 				}
 			}
+			"modifier_wild_nature_amethyst_regen"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "6"
+				}
+			}
+			
 		}
 	}	
 
@@ -62897,7 +62973,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"emerald1"				"1 2 3 4 5"
+				"emerald1"				"4 8 12 16 20"
 			}
 			"04"
 			{
@@ -63066,7 +63142,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"emerald1"				"25 50 75 100 125"
+				"emerald1"				"48 96 144 192 240"
 			}
 			"03"
 			{
@@ -63344,7 +63420,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"emerald1"				"600 1200 1800 2400 3000"
+				"emerald1"				"2000 4000 6000 8000 10000"
 			}
 			"05"
 			{
@@ -63372,10 +63448,10 @@
 				"EffectName"	"particles/units/heroes/hero_pudge/pudge_rot.vpcf"
 				"EffectAttachType"	"attach_hitloc"
 				"Aura"          	"modifier_basilisk_plague_helm_effect"
-				"Aura_Radius"   	"260"
+				"Aura_Radius"   	"280"
 				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 				"Aura_ApplyToCaster" "0"
 			}
 			"modifier_basilisk_plague_helm_effect"
@@ -63432,10 +63508,12 @@
 			"modifier_basilisk_plague_sapphire"
 			{
 				"IsHidden"	"0"
+				"TextureName"	"pudge_rot"
 			}
 			"modifier_basilisk_plague_emerald_stacks"
 			{
 				"IsHidden"	"0"
+				"TextureName"	"pudge_rot"
 			}
 			"modifier_basilisk_plague_petrify"
 			{
@@ -63682,14 +63760,19 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"emerald1"				"1000 2000 3000 4000 5000"
+				"emerald1"				"2000 4000 6000 8000 10000"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"sapphire1"				"1 2 3 4 5"
+				"emerald2"				"100 200 300 400 500"
 			}
 			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"sapphire1"				"1 2 3 4 5"
+			}
+			"06"
 			{
 				"var_type"			"FIELD_INTEGER"
 				"amethyst1"				"-1000 -2000 -3000 -4000 -5000"
@@ -63748,7 +63831,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"0.01 0.02 0.03 0.04 0.05"
+				"emerald1"				"0.06 0.12 0.18 0.24 0.3"
 			}
 			"05"
 			{
