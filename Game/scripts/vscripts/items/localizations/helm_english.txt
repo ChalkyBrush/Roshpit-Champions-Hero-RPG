@@ -321,7 +321,7 @@
 		"DOTA_Tooltip_modifier_knight_hawk_helm_speed"				"Peregrine Flight"
 		"DOTA_Tooltip_modifier_knight_hawk_helm_speed_Description"	"Increased movespeed"
 
-		"item_rpc_helm_of_the_knight_hawk_ruby1"	"Increases Movespeed Cap by an addition @ruby_property1"
+		"item_rpc_helm_of_the_knight_hawk_ruby1"	"Increases Movespeed Cap by an additional @ruby_property1"
 		"item_rpc_helm_of_the_knight_hawk_emerald1"	"Increases the damage reduction while above 550 movespeed by an additional @emerald_property1%"
 		"item_rpc_helm_of_the_knight_hawk_sapphire1" "Increases the threshold to get a speed burst by @sapphire_property1"
 		"item_rpc_helm_of_the_knight_hawk_amethyst1" "The speed burst when falling below the threshold is increased by @amethyst_property1"
