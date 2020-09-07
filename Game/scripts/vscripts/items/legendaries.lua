@@ -437,7 +437,7 @@ function RPCItems:RollBurningSpiritHelmet(item_level)
     item.newItemTable.property1name = "!immortal!_modifier_burning_spirit_helmet"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_burning_spirit", "#D6B948", 1, "#property_burning_spirit_description")
 
-    local attr_rolls = {"strength", "agility", "intelligence", "spirit"}
+    local attr_rolls = {"strength", "agility", "intelligence", "spirit", "attack_speed"}
     local attr_roll = attr_rolls[RandomInt(1, #attr_rolls)]
     RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, attr_roll, 2)
 

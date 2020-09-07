@@ -29,6 +29,11 @@
 				"var_type"			"FIELD_FLOAT"
 				"ruby1"				"<% ITEM_RPC_BREASTPLATE_OF_ABJUDICATION_GEM_RUBY %>"
 			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby2"				"<% ITEM_RPC_BREASTPLATE_OF_ABJUDICATION_GEM_RUBY_DURATION %>"
+			}
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"

@@ -6090,6 +6090,11 @@
 				"var_type"			"FIELD_FLOAT"
 				"amethyst1"				"<% WILD_NATURE_AMETHYST %>"
 			}
+			"06"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst2"				"<% WILD_NATURE_AMETHYST_HP_REGEN_PCT %>"
+			}
 		}
 		"Modifiers"
 		{
@@ -6107,12 +6112,46 @@
 						"target"		"TARGET"
 					}
 				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"wild_nature_init"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_wild_nature_amethyst_regen"
+						"Target" 		"TARGET"
+					}
+				}
 			}
 			"modifier_cap_of_wild_nature2"
 			{
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"wild_nature_init"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_wild_nature_amethyst_regen"
+						"Target" 		"TARGET"
+					}
+				}
 			}
 			"modifier_wild_nature_entangle_effect"
 			{
@@ -6148,6 +6187,15 @@
 					}
 				}
 			}
+			"modifier_wild_nature_amethyst_regen"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "<% WILD_NATURE_AMETHYST_HP_REGEN_PCT %>"
+				}
+			}
+			
 		}
 	}	
 
@@ -6720,10 +6768,10 @@
 				"EffectName"	"particles/units/heroes/hero_pudge/pudge_rot.vpcf"
 				"EffectAttachType"	"attach_hitloc"
 				"Aura"          	"modifier_basilisk_plague_helm_effect"
-				"Aura_Radius"   	"260"
+				"Aura_Radius"   	"280"
 				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 				"Aura_ApplyToCaster" "0"
 			}
 			"modifier_basilisk_plague_helm_effect"
@@ -6780,10 +6828,12 @@
 			"modifier_basilisk_plague_sapphire"
 			{
 				"IsHidden"	"0"
+				"TextureName"	"pudge_rot"
 			}
 			"modifier_basilisk_plague_emerald_stacks"
 			{
 				"IsHidden"	"0"
+				"TextureName"	"pudge_rot"
 			}
 			"modifier_basilisk_plague_petrify"
 			{
@@ -7035,9 +7085,14 @@
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"sapphire1"				"<% ARCANE_CASCADE_SAPPHIRE %>"
+				"emerald2"				"<% ARCANE_CASCADE_EMERALD_MANA_REGEN %>"
 			}
 			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"sapphire1"				"<% ARCANE_CASCADE_SAPPHIRE %>"
+			}
+			"06"
 			{
 				"var_type"			"FIELD_INTEGER"
 				"amethyst1"				"<% ARCANE_CASCADE_AMETHYST %>"

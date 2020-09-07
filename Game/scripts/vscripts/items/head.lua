@@ -119,8 +119,12 @@ function Head:action(propertyName, propertyValue, hero, inventory_unit, head_abi
 		Head:addBasicModifier(1, hero, inventory_unit, "modifier_death_whisper", head_ability)
 	elseif propertyName == "wild_nature_one" then
 		Head:addBasicModifier(1, hero, inventory_unit, "modifier_wild_nature_one", head_ability)
+		Head:addBasicModifier(0, hero, inventory_unit, "modifier_cap_of_wild_nature", item)
 	elseif propertyName == "wild_nature_two" then
 		Head:addBasicModifier(1, hero, inventory_unit, "modifier_wild_nature_two", head_ability)
+		if not hero:HasModifier("modifier_cap_of_wild_nature") then
+			Head:addBasicModifier(0, hero, inventory_unit, "modifier_cap_of_wild_nature", item)
+		end
 	elseif propertyName == "luma_guard" then
 		Head:addBasicModifier(1, hero, inventory_unit, "modifier_luma_guard", head_ability)
 	elseif propertyName == "odin" then

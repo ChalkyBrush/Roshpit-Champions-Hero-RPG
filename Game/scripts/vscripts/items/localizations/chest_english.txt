@@ -785,7 +785,7 @@
 		"DOTA_Tooltip_modifier_abjudication_base_effect_armor"	"Judgement"
 		"DOTA_Tooltip_modifier_abjudication_base_effect_armor_Description"	"Increased Armor"
 
-		"item_rpc_breastplate_of_abjudication_ruby1"									"When beginning an attack on an enemy, if their armor is higher than your armor pierce, gain Armor Pierce equal to <% ITEM_RPC_BREASTPLATE_OF_ABJUDICATION_STAT_PCT %>% of the difference between your Armor Pierce and their Armor for @ruby_property1 seconds"
+		"item_rpc_breastplate_of_abjudication_ruby1"									"When beginning an attack on an enemy, if their armor is higher than your armor pierce, gain Armor Pierce equal to @ruby_property1x of hero's Armor Pierce value for @ruby_property2 seconds"
 		"item_rpc_breastplate_of_abjudication_emerald1"									"Increases the base effect's duration by @emerald_property1 seconds"
 		"item_rpc_breastplate_of_abjudication_sapphire1"									"Increases all attributes by @sapphire_property1%"
 		"item_rpc_breastplate_of_abjudication_amethyst1"									"After taking an instance of Magic or Pure damage, if the caster's Spell Pierce is higher than your Magic Armor, gain Magic Armor equal to <% ITEM_RPC_BREASTPLATE_OF_ABJUDICATION_STAT_PCT %>% of the difference between your Magic Armor and their Spell Pierce for @amethyst_property1 seconds"

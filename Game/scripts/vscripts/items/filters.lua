@@ -1361,6 +1361,9 @@ function Filters:ApplyEskills(caster)
     if caster:HasModifier("modifier_tranquil_boots") then
         Filters:TranquilBootsECast(caster)
     end
+	if caster:HasModifier("modifier_centaur_horns") then
+        Filters:CentaurHornsSapphireECast(caster)
+    end
     if caster:HasModifier("modifier_mana_striders") then
         if caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetGemValue("sapphire") > 0 then
             CustomAbilities:QuickAttachParticle("particles/items3_fx/mango_active.vpcf", caster, 1)
@@ -6583,6 +6586,12 @@ function Filters:TranquilBootsECast(caster)
             end
         end
     end
+end
+
+function Filters:CentaurHornsSapphireECast(caster)
+	if caster.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetGemValue("sapphire") > 0 then
+		Filters:ApplyStun(caster, 0.1, caster)
+	end
 end
 
 function Filters:GetNumberOfSkillsOnCooldownVoyager(hero)
