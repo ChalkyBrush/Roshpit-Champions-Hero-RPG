@@ -2496,6 +2496,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	if unit:HasModifier("modifier_cobalt_serenity_ring") then
 		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_COBALT_SERENITY_RING_GEM_EMERALD)*unit:GetHealth()
 	end
+	if unit:HasModifier("modifier_emerald_nullification_ring") then
+		spell_pierce_modify = spell_pierce_modify + unit:GetAgility()*ITEM_RPC_EMERALD_NULLIFICATION_RING_AGI_TO_MAGIC_PIERCE
+	end
 	if unit:HasModifier("modifier_kharzun_buff") then
 		spell_pierce_modify = spell_pierce_modify + unit:FindModifierByName("modifier_kharzun_buff"):GetStackCount()*1200
 	end

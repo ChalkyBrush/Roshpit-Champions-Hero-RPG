@@ -199,10 +199,10 @@
         "DOTA_Tooltip_ability_item_rpc_emerald_nullification_ring"                      "Emerald Nullification Ring"
 
         "item_property_emerald_null"                            "Emerald Nullification"
-         "property_emerald_null_description"                    "Ловкость увеличивает Магическую Защиту на <% ITEM_RPC_EMERALD_NULLIFICATION_RING_AGI_TO_MAGIC_ARMOR %>."
+         "property_emerald_null_description"                    "Ловкость увеличивает Магическую Защиту на <% ITEM_RPC_EMERALD_NULLIFICATION_RING_AGI_TO_MAGIC_ARMOR %>, а Пробитие Магической Защиты на <% ITEM_RPC_EMERALD_NULLIFICATION_RING_AGI_TO_MAGIC_PIERCE %>."
 
         "item_rpc_emerald_nullification_ring_ruby1"                     "Доп. Сопротивление Магии увеличено на @ruby_property1%"
-        "item_rpc_emerald_nullification_ring_emerald1"                      "Повышает Ловкость на @emerald_property1"
+        "item_rpc_emerald_nullification_ring_emerald1"                      "Каждое очко Ловкости повышает Базовый Урон Способностей на @emerald_property1%"
         "item_rpc_emerald_nullification_ring_sapphire1"                     "@sapphire_property1% шанс полностью заблокировать Магический или Чистый урон"
         "item_rpc_emerald_nullification_ring_amethyst1"                     "Доп. Сопротивление Чистому урону увеличено на @amethyst_property1%"
 

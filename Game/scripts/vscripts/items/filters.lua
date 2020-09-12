@@ -1724,6 +1724,9 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:HasModifier("modifier_oceanrunner_boots") then
             damageMult = damageMult + ITEM_RPC_OCEANRUNNER_BOOTS_AGI_TO_BAD/100 * (attacker:GetAgility())
         end
+        if attacker:HasModifier("modifier_emerald_nullification_ring") then
+            damageMult = damageMult + attacker.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_EMERALD_NULLIFICATION_RING_GEM_EMERALD)/100 * (attacker:GetAgility())
+        end
         if attacker:HasModifier("modifier_resonant_boots_active") then
             damageMult = damageMult + attacker.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_PATHFINDERS_RESONANT_BOOTS_GEM_SAPPHIRE)/100
         end
