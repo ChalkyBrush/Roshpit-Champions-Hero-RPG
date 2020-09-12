@@ -2397,8 +2397,9 @@ function ruby_attack(event)
 	local target = event.target
 	local ability = event.ability
 	local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker)*ITEM_RPC_OMEGA_RUBY_ATTACK_TO_DMG/100
+	local damage_ruby = 0
 	if ability:GetGemValue("ruby") > 0 then
-		local damage_ruby = OverflowProtectedGetAverageTrueAttackDamage(attacker) * ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_OMEGA_RUBY_GEM_RUBY2)/100
+		damage_ruby = OverflowProtectedGetAverageTrueAttackDamage(attacker) * ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_OMEGA_RUBY_GEM_RUBY2)/100
 	end
 	EmitSoundOn("RPCItems.OmegaRuby.AttackLand", target)
 	local radius = ITEM_RPC_OMEGA_RUBY_AOE_RADIUS + ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_OMEGA_RUBY_GEM_RUBY1)
