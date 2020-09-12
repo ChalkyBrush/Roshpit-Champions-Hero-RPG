@@ -411,7 +411,7 @@
         "item_property_omega_ruby"                  "Omega Flare"
         "property_omega_ruby"                       "Обычные атаки взрываются и наносят урон по области <% ITEM_RPC_OMEGA_RUBY_AOE_RADIUS %> в <% ITEM_RPC_OMEGA_RUBY_ATTACK_TO_DMG %>% от Силы Атаки."
 
-        "item_rpc_omega_ruby_ruby1"                                     "Увеличивает радиус взрыва на @ruby_property1 и урон эффекта на @ruby_property2"
+        "item_rpc_omega_ruby_ruby1"                                     "Увеличивает радиус взрыва на @ruby_property1 и эффект также наносит @ruby_property2% от Силы Атаки Физическим типом урона"
         "item_rpc_omega_ruby_emerald1"                                      "Увеличивает Скорость Атаки на @emerald_property1"
         "item_rpc_omega_ruby_sapphire1"                                     "Увеличивает Силу Атаки на @sapphire_property1%"
         "item_rpc_omega_ruby_amethyst1"                                     "Увеличивает Пробитие Брони и Пробитие Магической Защиты на @amethyst_property1"

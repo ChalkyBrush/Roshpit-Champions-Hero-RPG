@@ -412,7 +412,7 @@
         "item_property_omega_ruby"                  "Omega Flare"
         "property_omega_ruby"                       "Your attacks explode on contact, dealing <% ITEM_RPC_OMEGA_RUBY_ATTACK_TO_DMG %>% of Attack Power as damage to enemies within <% ITEM_RPC_OMEGA_RUBY_AOE_RADIUS %> range."
 
-        "item_rpc_omega_ruby_ruby1"                                     "Increases the explosion radius by @ruby_property1 and Omega Flare's damage by @ruby_property2"
+        "item_rpc_omega_ruby_ruby1"                                     "Increases the explosion radius by @ruby_property1 and Omega Flare's also deals @ruby_property2% of Attack Power as Physical damage"
         "item_rpc_omega_ruby_emerald1"                                      "Increases Attack Speed by @emerald_property1"
         "item_rpc_omega_ruby_sapphire1"                                     "Increases Attack Power by @sapphire_property1%"
         "item_rpc_omega_ruby_amethyst1"                                     "Increases Armor Pierce and Spell Pierce by @amethyst_property1"

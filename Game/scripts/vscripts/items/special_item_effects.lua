@@ -2396,8 +2396,10 @@ function ruby_attack(event)
 	local attacker = event.attacker
 	local target = event.target
 	local ability = event.ability
-	local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker)*ITEM_RPC_OMEGA_RUBY_ATTACK_TO_DMG/100 + ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_OMEGA_RUBY_GEM_RUBY2)
-
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker)*ITEM_RPC_OMEGA_RUBY_ATTACK_TO_DMG/100
+	if ability:GetGemValue("ruby") > 0 then
+		local damage_ruby = OverflowProtectedGetAverageTrueAttackDamage(attacker) * ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_OMEGA_RUBY_GEM_RUBY2)/100
+	end
 	EmitSoundOn("RPCItems.OmegaRuby.AttackLand", target)
 	local radius = ITEM_RPC_OMEGA_RUBY_AOE_RADIUS + ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_OMEGA_RUBY_GEM_RUBY1)
 	local particleName = "particles/econ/items/techies/techies_arcana/techies_suicide_arcana.vpcf"
@@ -2411,6 +2413,9 @@ function ruby_attack(event)
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do
 			Filters:ApplyItemDamage(enemy, attacker, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+			if ability:GetGemValue("ruby") > 0 then
+				Filters:ApplyItemDamage(enemy, attacker, damage_ruby, DAMAGE_TYPE_PHYSICAL, ability, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+			end
 		end
 	end
 
