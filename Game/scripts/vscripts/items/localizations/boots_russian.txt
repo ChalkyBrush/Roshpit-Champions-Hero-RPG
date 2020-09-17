@@ -574,7 +574,7 @@
 		 "DOTA_Tooltip_ability_item_rpc_justice_greaves"                                "Justice Greaves"
 
         "item_property_justice_greaves"                    "Equity"
-        "property_justice_greaves_description"         "Броня, Магическая Защита, Пробитие Брони и Пробитие Магической Защиты увеличены на <% ITEM_RPC_JUSTICE_GREAVES_PCT_STAT %>% от показателей сильнейшего противника в радиусе <% ITEM_RPC_JUSTICE_GREAVES_RANGE %>."
+        "property_justice_greaves_description"         "Броня, Магическая Защита, Пробитие Брони и Пробитие Магической Защиты увеличены на <% ITEM_RPC_JUSTICE_GREAVES_PCT_STAT %>% от показателей сильнейшего противника в радиусе <% ITEM_RPC_JUSTICE_GREAVES_RANGE %>, но бонус не может быть выше, чем <% ITEM_RPC_JUSTICE_GREAVES_CAP %>х от показателей героя."
 
         "item_rpc_justice_greaves_ruby1"                                        "Увеличивает Силу на @ruby_property1 и Запас Здоровья на @ruby_property2"
         "item_rpc_justice_greaves_emerald1"                                     "Урон, получаемый спереди (сектор <% ITEM_RPC_JUSTICE_GREAVES_EMERALD_ANGLE %> градусов) снижается на @emerald_property1%"

@@ -574,7 +574,7 @@
         "DOTA_Tooltip_ability_item_rpc_justice_greaves"                                "Justice Greaves"
 
         "item_property_justice_greaves"                    "Equity"
-        "property_justice_greaves_description"         "Armor, Magic Armor, Armor Pierce and Spell Pierce are increased by <% ITEM_RPC_JUSTICE_GREAVES_PCT_STAT %>% of the highest statted enemy within <% ITEM_RPC_JUSTICE_GREAVES_RANGE %> range"
+        "property_justice_greaves_description"         "Armor, Magic Armor, Armor Pierce and Spell Pierce are increased by <% ITEM_RPC_JUSTICE_GREAVES_PCT_STAT %>% of the highest statted enemy within <% ITEM_RPC_JUSTICE_GREAVES_RANGE %> range, but total bonus can't be higher than <% ITEM_RPC_JUSTICE_GREAVES_CAP %>x of your hero's values."
 
         "item_rpc_justice_greaves_ruby1"                                        "Increases Strength by @ruby_property1 and Max Health by @ruby_property2"
         "item_rpc_justice_greaves_emerald1"                                     "Damage taken from the front (<% ITEM_RPC_JUSTICE_GREAVES_EMERALD_ANGLE %> degree range) is reduced by @emerald_property1%"

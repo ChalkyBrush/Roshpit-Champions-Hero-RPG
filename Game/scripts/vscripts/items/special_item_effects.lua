@@ -10349,6 +10349,11 @@ function justice_greaves_think(event)
 	local highest_armor_pierce = 0
 	local highest_magic_armor = 0
 	local highest_spell_pierce = 0
+	
+	local armor_cap = hero:GetRoshpitArmor()*ITEM_RPC_JUSTICE_GREAVES_CAP
+	local armor_pierce_cap = hero:GetRoshpitArmorPierce()*ITEM_RPC_JUSTICE_GREAVES_CAP
+	local magic_armor_cap = hero:GetRoshpitMagicArmor()*ITEM_RPC_JUSTICE_GREAVES_CAP
+	local spell_pierce_cap = hero:GetRoshpitSpellPierce()*ITEM_RPC_JUSTICE_GREAVES_CAP
 
 	local stat_pct = ITEM_RPC_JUSTICE_GREAVES_PCT_STAT + ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_JUSTICE_GREAVES_GEM_SAPPHIRE)
 	local search_range = ITEM_RPC_JUSTICE_GREAVES_RANGE + ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_JUSTICE_GREAVES_GEM_AMETHYST)
@@ -10359,10 +10364,10 @@ function justice_greaves_think(event)
 	local enemies = FindUnitsInRadius(hero:GetTeamNumber(), hero:GetAbsOrigin(), nil, search_range, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, search_flags, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do
-			highest_armor = math.max(highest_armor, enemy:GetRoshpitArmor())
-			highest_armor_pierce = math.max(highest_armor_pierce, enemy:GetRoshpitArmorPierce())
-			highest_magic_armor = math.max(highest_magic_armor, enemy:GetRoshpitMagicArmor())
-			highest_spell_pierce = math.max(highest_spell_pierce, enemy:GetRoshpitSpellPierce())
+			highest_armor = math.min(math.max(highest_armor, enemy:GetRoshpitArmor()), armor_cap)
+			highest_armor_pierce = math.min(math.max(highest_armor_pierce, enemy:GetRoshpitArmorPierce()), armor_pierce_cap)
+			highest_magic_armor = math.min(math.max(highest_magic_armor, enemy:GetRoshpitMagicArmor()), magic_armor_cap)
+			highest_spell_pierce = math.min(math.max(highest_spell_pierce, enemy:GetRoshpitSpellPierce()), spell_pierce_cap)
 		end
 	end
 	if highest_armor > 0 then
