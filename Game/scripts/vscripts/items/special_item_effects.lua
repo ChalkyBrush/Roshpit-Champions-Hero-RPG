@@ -859,7 +859,7 @@ function falcon_boot_impact(event)
 	if target:HasModifier("modifier_falcon_out") or target:HasModifier("modifier_falcon_lift_immune") then
 		return false
 	end
-	if target.jumpLock or target.pushLock then
+	if target.jumpLock or target.pushLock or target.dummy then
 		Filters:FalconAmethystDamage(event.ability.hero, target)
 		return false
 	end
