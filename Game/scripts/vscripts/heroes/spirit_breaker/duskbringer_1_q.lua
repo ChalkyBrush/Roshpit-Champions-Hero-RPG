@@ -98,8 +98,9 @@ function whirling_flail_think(event)
 			local damageBonusMult = math.max(1 - (distance / (ability.radius)), 0)--for some reason it hist further than it should
 			local distanceDamage = damage * (1 + q_3_level * DUSKBRINGER_Q3_ADD_DMG_PCT_MAX * damageBonusMult)
 			Filters:TakeArgumentsAndApplyDamage(enemy, caster, distanceDamage, DAMAGE_TYPE_PHYSICAL, BASE_ABILITY_Q, RPC_ELEMENT_NORMAL, RPC_ELEMENT_GHOST)
-
-			enemy:AddNewModifier(caster, nil, "modifier_knockback", modifierKnockback)
+			if not enemy.pushLock and not enemy.jumpLock and not enemy.dummy then
+				enemy:AddNewModifier(caster, nil, "modifier_knockback", modifierKnockback)
+			end
 			local particleName = "particles/units/heroes/hero_spirit_breaker/spirit_breaker_greater_bash.vpcf"
 			local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, enemy)
 			ParticleManager:SetParticleControlEnt(pfx, 0, enemy, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", enemy:GetAbsOrigin(), true)
