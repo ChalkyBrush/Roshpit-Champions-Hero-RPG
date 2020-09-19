@@ -9890,7 +9890,7 @@ function galaxy_orb_suction(event)
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do
-			if enemy.jumpLock or enemy.pushlock then
+			if enemy.jumpLock or enemy.pushlock or enemy.dummy then
 			else
 				local enemyPosition = enemy:GetAbsOrigin()
 				local movementVector = (position - enemyPosition):Normalized()
