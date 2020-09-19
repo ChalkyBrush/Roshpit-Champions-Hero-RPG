@@ -313,8 +313,8 @@
 
         "DOTA_Tooltip_modifier_ice_scathe_freecast"                         "Frost Scathe Freecast"
 
-        "DOTA_Tooltip_modifier_modifier_in_ice_scathe_enemy"            "Frost Scathe"
-        "DOTA_Tooltip_modifier_modifier_in_ice_scathe_enemy_Description"    "Slowed"
+        "DOTA_Tooltip_modifier_in_ice_scathe_enemy"            "Frost Scathe"
+        "DOTA_Tooltip_modifier_in_ice_scathe_enemy_Description"    "Slowed"
 
         "DOTA_Tooltip_modifier_ice_scathe_countdown"                    "Frost Scathe Countdown"
         "DOTA_Tooltip_modifier_ice_scathe_countdown_Description"        "Will explode and freeze nearby teammates on expiry"
