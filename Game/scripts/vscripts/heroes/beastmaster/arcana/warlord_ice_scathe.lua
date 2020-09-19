@@ -59,9 +59,11 @@ function walk_into_ice_scathe(event)
 		end
 		-- hero effect
 	else
-		local delay = event.freeze_delay
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_ice_scathe_countdown", {duration = delay})
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_in_ice_scathe_enemy", {})
+		if target:GetTeamNumber() ~= DOTA_TEAM_GOODGUYS then
+			local delay = event.freeze_delay
+			ability:ApplyDataDrivenModifier(caster, target, "modifier_ice_scathe_countdown", {duration = delay})
+			ability:ApplyDataDrivenModifier(caster, target, "modifier_in_ice_scathe_enemy", {})
+		end
 	end
 end
 
