@@ -301,7 +301,7 @@
         "DOTA_Tooltip_ability_warlord_cataclysm_shaker_str_mult"            "BONUS DAMAGE STRENGTH MULTIPLIER:"
 
         "DOTA_Tooltip_ability_warlord_frost_scathe"                         "Frost Scathe"
-        "DOTA_Tooltip_ability_warlord_frost_scathe_Description"             "Element: <font color=ELEMENT_ICE>Ice</font> / <font color=ELEMENT_DRAGON>Dragon</font><br>A draconic chill flash freezes the target area, slowing enemies within. Targets who linger too long will release a frost nova, freezing and damaging enemies around them. Damage is increased by Intelligence.<br>This ability has 2 free casts that recharge every 3 seconds."
+        "DOTA_Tooltip_ability_warlord_frost_scathe_Description"             "Element: <font color=ELEMENT_ICE>Ice</font> / <font color=ELEMENT_DRAGON>Dragon</font><br>A draconic chill flash freezes the target area, slowing enemies within. Targets who linger too long will release a frost nova, freezing and damaging enemies around them. Damage is increased by Intelligence.<br>This ability has <% WARLORD_ARCANA2_Q_ICE_CHARGES %> free casts that recharge every <% WARLORD_ARCANA2_Q_ICE_CHARGES_INTERVAL %> seconds."
         "DOTA_Tooltip_ability_warlord_frost_scathe_radius"                  "FROST RADIUS:"
         "DOTA_Tooltip_ability_warlord_frost_scathe_main_aoe_duration"       "FROST DURATION:"
         "DOTA_Tooltip_ability_warlord_frost_scathe_freeze_delay"            "NOVA DELAY:"

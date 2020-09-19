@@ -299,7 +299,7 @@
         "DOTA_Tooltip_ability_warlord_cataclysm_shaker_str_mult"            "БОНУСНЫЙ УРОН ОТ СИЛЫ:"
 
         "DOTA_Tooltip_ability_warlord_frost_scathe"                         "Frost Scathe"
-        "DOTA_Tooltip_ability_warlord_frost_scathe_Description"             "Элемент: <font color=ELEMENT_ICE>Лёд</font> / <font color=ELEMENT_DRAGON>Дракон</font><br>Ледяное дыхание замораживает выбранную зону. Противники, наступившие в нее, замедлены и прокляты, дополнительно замораживая и нанося урон по юнитам рядом с задержкой. Способность имеет 2 свободных заряда, перезаряжающихся каждые 3 секунды."
+        "DOTA_Tooltip_ability_warlord_frost_scathe_Description"             "Элемент: <font color=ELEMENT_ICE>Лёд</font> / <font color=ELEMENT_DRAGON>Дракон</font><br>Ледяное дыхание замораживает выбранную зону. Противники, наступившие в нее, замедлены и прокляты, дополнительно замораживая и нанося урон по юнитам рядом с задержкой. Способность имеет <% WARLORD_ARCANA2_Q_ICE_CHARGES %> свободных заряда, перезаряжающихся каждые <% WARLORD_ARCANA2_Q_ICE_CHARGES_INTERVAL %> секунды."
         "DOTA_Tooltip_ability_warlord_frost_scathe_radius"                  "РАДИУС:"
         "DOTA_Tooltip_ability_warlord_frost_scathe_main_aoe_duration"       "ДЛИТЕЛЬНОСТЬ:"
         "DOTA_Tooltip_ability_warlord_frost_scathe_freeze_delay"            "ЗАДЕРЖКА ВЗРЫВА ЗАМОРОЗКИ:"
