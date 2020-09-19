@@ -36917,6 +36917,15 @@
 					}
 				}
 			}
+			"modifier_forest_guide_anti_stuck"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
 			"modifier_forest_guide_invincible"
 			{
 				"IsHidden"	"1"
