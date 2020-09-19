@@ -87,7 +87,14 @@ function WallAllyBuff(event)
 				local point = caster:GetAbsOrigin() + explosionForwardDirection * 200
 				local radius = 1100
 				local chargeAbility = caster:FindAbilityByName("charge_of_light")
-				local damage = chargeAbility:GetSpecialValueFor("damage") * (BAHAMUT_R2_BASE_DAMAGE_PCT/100 + b_d_level * BAHAMUT_R2_DAMAGE_PCT/100)
+				local damage = chargeAbility:GetSpecialValueFor("damage")
+				local r_4_level = caster:GetRuneValue("r", 4)if r_4_level > 0 then
+					damage = damage + r_4_level*BAHAMUT_R4_R_BONUS_DAMAGE
+				end
+				if caster:HasModifier("modifier_bahamut_glyph_5_1") then
+					damage =  damage*BAHAMUT_GLYPH_5_1_R4_DAMAGE_MULT
+				end
+				damage = damage * (BAHAMUT_R2_BASE_DAMAGE_PCT/100 + b_d_level * BAHAMUT_R2_DAMAGE_PCT/100)
 				local pierce_duration = Filters:GetAdjustedBuffDuration(caster, BAHAMUT_R2_PIERCE_DURATION, false)
 				chargeAbility:ApplyDataDrivenModifier(caster, caster, "modifier_bahamut_mega_flare_pierce", {duration = pierce_duration})
 				caster:SetModifierStackCount("modifier_bahamut_mega_flare_pierce", caster, b_d_level)
