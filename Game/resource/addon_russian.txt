@@ -3365,9 +3365,9 @@
 		"DOTA_Tooltip_ability_leshrac_wall"								"Wall of Impunity"
     	"DOTA_Tooltip_ability_leshrac_wall_Description"					"Стихия: <font color='#F6FFB5'>Свет</font><br>Bahamut призывает стену, которая разрушает разум врагов, прошедших сквозь нее. Все враги, находящиеся рядом со Стеной будут получать урон, а их урон будет снижен."
     	"DOTA_Tooltip_ability_leshrac_wall_Lore"						"Стена знаний, через которую свободно перемещаются только достойнейшие"
-    	"DOTA_Tooltip_ability_leshrac_wall_damage"						"УРОН/ТИК"
-    	"DOTA_Tooltip_ability_leshrac_wall_wall_length"					"ШИРИНА"
-    	"DOTA_Tooltip_ability_leshrac_wall_attack_loss"					"СНИЖЕНИЕ УРОНА %"
+    	"DOTA_Tooltip_ability_leshrac_wall_damage"						"УРОН/ТИК:"
+    	"DOTA_Tooltip_ability_leshrac_wall_wall_length"					"ШИРИНА:"
+    	"DOTA_Tooltip_ability_leshrac_wall_attack_loss"					"СНИЖЕНИЕ УРОНА %:"
 
     	"DOTA_Tooltip_modifier_leshrac_wall_attack_loss"				"Wall of Impunity"
     	"DOTA_Tooltip_modifier_leshrac_wall_attack_loss_Description"	"Урон снижен"
@@ -3408,8 +3408,8 @@
 		"DOTA_Tooltip_ability_leshrac_nuke"								"Judgement"
     	"DOTA_Tooltip_ability_leshrac_nuke_Description"					"Стихия: <font color='#F6FFB5'>Свет</font><br>Bahamut воздает противникам по заслугам в небольшом радиусе перед собой."
     	"DOTA_Tooltip_ability_leshrac_nuke_Lore"						""
-    	"DOTA_Tooltip_ability_leshrac_nuke_damage"						"УРОН"
-    	"DOTA_Tooltip_ability_leshrac_nuke_radius"						"РАДИУС"
+    	"DOTA_Tooltip_ability_leshrac_nuke_damage"						"УРОН:"
+    	"DOTA_Tooltip_ability_leshrac_nuke_radius"						"РАДИУС:"
 		
 		"DOTA_Tooltip_ability_bahamut_rune_w_1"							"[W1] Greatness"
     	"DOTA_Tooltip_ability_bahamut_rune_w_1_Description"				"Увеличивает базовый урон и урон от способностей."
@@ -3445,7 +3445,7 @@
 		"DOTA_Tooltip_ability_leshrac_blink"							"Ascension"
     	"DOTA_Tooltip_ability_leshrac_blink_Description"				"Bahamut переходит в другое измерение, избегая любого урона, после чего возвращается в этот мир в указанной точке."
     	"DOTA_Tooltip_ability_leshrac_blink_Lore"						""
-    	"DOTA_Tooltip_ability_leshrac_blink_range"						"МАКС.РАССТОЯНИЕ"
+    	"DOTA_Tooltip_ability_leshrac_blink_range"						"МАКС.РАССТОЯНИЕ:"
 		
 		"DOTA_Tooltip_ability_bahamut_rune_e_1"							"[E1] Chronos Mend"
     	"DOTA_Tooltip_ability_bahamut_rune_e_1_Description"				"С 90% шансом при получении урона герой исцелится на % от полученного урона"
@@ -3490,8 +3490,8 @@
 		"DOTA_Tooltip_ability_charge_of_light"							"Megaflare"
     	"DOTA_Tooltip_ability_charge_of_light_Description"				"Стихия: <font color='#F6FFB5'>Свет</font><br>После 2 секундной подготовки Bahamut устремляется вперед, высвобождая взрывную энергию, способную стереть низших существ. Во время разбега, Bahamut неуязвим к физическому и магическому урону. <br><font color='#70EA72'>Если приказать герою через Shift сразу при прочтении поставить стену немного впереди, то он может успеть это сделать, пока бежит.</font>."
     	"DOTA_Tooltip_ability_charge_of_light_Lore"						""
-    	"DOTA_Tooltip_ability_charge_of_light_damage"					"УРОН"	
-    	"DOTA_Tooltip_ability_charge_of_light_range"					"РАДИУС ВЗРЫВА"
+    	"DOTA_Tooltip_ability_charge_of_light_damage"					"УРОН:"	
+    	"DOTA_Tooltip_ability_charge_of_light_range"					"РАДИУС ВЗРЫВА:"
 		
 		"DOTA_Tooltip_ability_bahamut_rune_r_1"							"[R1] Hyper State"
     	"DOTA_Tooltip_ability_bahamut_rune_r_1_Description"				"Пробегая через @Ability1 с помощью умения @Ability4, Bahamut на 12 секунд получает бонус к скорости атаки и скорости передвижения."
@@ -3524,9 +3524,11 @@
     	"DOTA_Tooltip_modifier_bahamut_rune_r_3_effect_Description"		"Замедлен"
 		
 		"DOTA_Tooltip_ability_bahamut_rune_r_4"							"[R4] Solitary Shell"
-    	"DOTA_Tooltip_ability_bahamut_rune_r_4_Description"				"По завершении разгона от умения @Ability4, Bahamut окружается непробиваемым щитом на 3 секунды. Пока щит активен, Bahamut получает бонус к атрибутам, который длится 9 секунд. Время действия всех эффектов продлевается на время работы щита."
+    	"DOTA_Tooltip_ability_bahamut_rune_r_4_Description"				"По завершении разгона от умения @Ability4, Bahamut окружается непробиваемым щитом на <font color='#ccff66'>2</font> секунды. Пока щит активен, Bahamut получает бонус к атрибутам, который длится <font color='#ccff66'>9</font> секунд. Время действия всех эффектов продлевается на время работы щита. Урон Megaflare пассивно увеличивается."
     	"DOTA_Tooltip_ability_bahamut_rune_r_4_property_one"			"Доп. атрибуты"
-    	"DOTA_Tooltip_ability_bahamut_rune_r_4_suffix"					" каждые 0.1 сек."	
+    	"DOTA_Tooltip_ability_bahamut_rune_r_4_suffix"					" каждые 0.1 сек."
+		"DOTA_Tooltip_ability_bahamut_rune_r_4_property_one"			"Бонус урона Megaflare"
+    	"DOTA_Tooltip_ability_bahamut_rune_r_4_suffix"					""		
 
       	"DOTA_Tooltip_modifier_bahamut_rune_r_4_shell"						"Solitary Shell"
     	"DOTA_Tooltip_modifier_bahamut_rune_r_4_shell_Description"			"Заморожен. Иммунитет к любому урону."	  		
@@ -3619,13 +3621,13 @@
 		//New Rune c_d: while channeling megaflare, all nearby enemies have slowed movespeed and attack speed
 
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_3_1"		"[T3-1] Glyph of Separation"
-		"item_rpc_bahamut_glyph_3_1_description" 				"(W) Judgement действует вокруг героя(вместо атаки впереди) на <font color='#ccff66'>30</font>% большем радиусе."
+		"item_rpc_bahamut_glyph_3_1_description" 				"(W) Judgement действует вокруг героя(вместо атаки впереди) на <font color='#ccff66'>70</font>% большем радиусе."
 
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_4_1"		"[T4-1] Glyph of Barriers"
 		"item_rpc_bahamut_glyph_4_1_description" 				"Увеличивает время действия (Q) Wall of Impunity на <font color='#ccff66'>2</font> сек."
 
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_5_1"		"[T5-1] Glyph of Isolation"
-		"item_rpc_bahamut_glyph_5_1_description" 				"Увеличивает продолжительность R4 Solitary Shell на <font color='#ccff66'>3</font> сек."
+		"item_rpc_bahamut_glyph_5_1_description" 				"Увеличивает продолжительность R4 Solitary Shell на <font color='#ccff66'>2</font> сек., а урон Megaflare умножается на <font color='#ccff66'>2</font>."
 
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_6_1"		"[T6-1] Glyph of Pride"
 		"item_rpc_bahamut_glyph_6_1_description" 				"[E3] становится пассивной, и не замедляет. Каждый <font color='#ccff66'>5</font> импульс оглушает цели на <font color='#ccff66'>1.5</font> сек."
@@ -6272,7 +6274,7 @@
         "DOTA_Tooltip_ability_warlord_cataclysm_shaker_str_mult"            "БОНУСНЫЙ УРОН ОТ СИЛЫ:"
 
         "DOTA_Tooltip_ability_warlord_frost_scathe"                         "Frost Scathe"
-        "DOTA_Tooltip_ability_warlord_frost_scathe_Description"             "Элемент: <font color='#87D9FF'>Лёд</font> / <font color='#3289C7'>Дракон</font><br>Ледяное дыхание замораживает выбранную зону. Противники, наступившие в нее, замедлены и прокляты, дополнительно замораживая и нанося урон по юнитам рядом с задержкой. Способность имеет 2 свободных заряда, перезаряжающихся каждые 3 секунды."
+        "DOTA_Tooltip_ability_warlord_frost_scathe_Description"             "Элемент: <font color='#87D9FF'>Лёд</font> / <font color='#3289C7'>Дракон</font><br>Ледяное дыхание замораживает выбранную зону. Противники, наступившие в нее, замедлены и прокляты, дополнительно замораживая и нанося урон по юнитам рядом с задержкой. Способность имеет <font color='#ccff66'>2</font> свободных заряда, перезаряжающихся каждые <font color='#ccff66'>3</font> секунды."
         "DOTA_Tooltip_ability_warlord_frost_scathe_radius"                  "РАДИУС:"
         "DOTA_Tooltip_ability_warlord_frost_scathe_main_aoe_duration"       "ДЛИТЕЛЬНОСТЬ:"
         "DOTA_Tooltip_ability_warlord_frost_scathe_freeze_delay"            "ЗАДЕРЖКА ВЗРЫВА ЗАМОРОЗКИ:"
@@ -6284,8 +6286,8 @@
 
         "DOTA_Tooltip_modifier_ice_scathe_freecast"                         "Свободный каст Frost Scathe"
 
-        "DOTA_Tooltip_modifier_modifier_in_ice_scathe_enemy"            "Frost Scathe"
-        "DOTA_Tooltip_modifier_modifier_in_ice_scathe_enemy_Description"    "Замедлен"
+        "DOTA_Tooltip_modifier_in_ice_scathe_enemy"            "Frost Scathe"
+        "DOTA_Tooltip_modifier_in_ice_scathe_enemy_Description"    "Замедлен"
 
         "DOTA_Tooltip_modifier_ice_scathe_countdown"                    "Frost Scathe Countdown"
         "DOTA_Tooltip_modifier_ice_scathe_countdown_Description"        "Взорвется и заморозит всех вокруг по прошествии времени."
@@ -6934,7 +6936,7 @@
         "item_rpc_flamewaker_glyph_6_1_description"             "[R3] также увеличивает Дух героя."
 
         "DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_7_1"    "[T7-1] Glyph of Flaming Sea"
-        "item_rpc_flamewaker_glyph_7_1_description"             "Пока Heat Wave активна, под всеми противниками в радиусе <font color='#ccff66'>1000</font> от героя появляется подожженная земля от Blazing Trail."
+        "item_rpc_flamewaker_glyph_7_1_description"             "Пока Heat Wave активна, под всеми противниками в радиусе <font color='#ccff66'>800</font> от героя появляется подожженная земля от Blazing Trail."
 
         "DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_5_a"    "[T5-a] Glyph of Dragon Skin"
         "item_rpc_flamewaker_glyph_5_a_description"             "Получаемый урон ограничивается <font color='#ccff66'>30</font>% от запаса здоровья героя. Если здоровье героя ниже <font color='#ccff66'>50</font>%, то урон ограничивается <font color='#ccff66'>15</font>% от запаса здоровья."
@@ -7000,7 +7002,7 @@
         
         "DOTA_Tooltip_ability_item_rpc_flamewaker_immortal_weapon_2"            "Ancient Flamerunner Blade"
         "item_property_flamewaker_immortal_weapon2"                             "Inner Dragon"
-        "property_flamewaker_immortal_weapon2_description"                      "Каждое очко Ловкости увеличивает Базовый Урон Атаки на <font color='#ccff66'>0.5</font>. Пока @Ability3 активна, Ловкость героя повышается на <font color='#ccff66'>1200</font>."
+        "property_flamewaker_immortal_weapon2_description"                      "Каждое очко Ловкости увеличивает Базовый Урон Атаки на <font color='#ccff66'>0.5</font>. Пока @Ability3 активна, Ловкость героя повышается на <font color='#ccff66'>900</font>."
 
         "DOTA_Tooltip_ability_item_rpc_flamewaker_immortal_weapon_3"            "Gladius"
         "item_property_flamewaker_immortal_weapon3"                             "Meteor Break"
@@ -12786,7 +12788,7 @@
         "DOTA_Tooltip_ability_item_rpc_redfall_runners"                                 "Redfall Runners"
 
         "item_property_redfall_runners"                 "Adventurous Miler"
-        "property_redfall_runners_description"              "Ловкость и Дух увеличивают Скорость Передвижения на <font color='#ccff66'>0.15</font> и Лимит Скорости Передвижения на <font color='#ccff66'>0.15</font>."
+        "property_redfall_runners_description"              "Ловкость и Дух увеличивают Скорость Передвижения на <font color='#ccff66'>0.1</font> и Лимит Скорости Передвижения на <font color='#ccff66'>0.1</font>."
         "DOTA_Tooltip_modifier_redfall_runners"      "Adventurous Miler"
          "DOTA_Tooltip_modifier_redfall_runners_Description"    "Скорость Передвижения увеличена Ловкостью и Духом"
 
@@ -12977,10 +12979,10 @@
 		 "DOTA_Tooltip_ability_item_rpc_justice_greaves"                                "Justice Greaves"
 
         "item_property_justice_greaves"                    "Equity"
-        "property_justice_greaves_description"         "Броня, Магическая Защита, Пробитие Брони и Пробитие Магической Защиты увеличены на <font color='#ccff66'>20</font>% от показателей сильнейшего противника в радиусе <font color='#ccff66'>750</font>."
+        "property_justice_greaves_description"         "Броня, Магическая Защита, Пробитие Брони и Пробитие Магической Защиты увеличены на <font color='#ccff66'>20</font>% от показателей сильнейшего противника в радиусе <font color='#ccff66'>750</font>, но бонус не может быть выше, чем <font color='#ccff66'>3</font>х от показателей героя."
 
         "item_rpc_justice_greaves_ruby1"                                        "Увеличивает Силу на @ruby_property1 и Запас Здоровья на @ruby_property2"
-        "item_rpc_justice_greaves_emerald1"                                     "Урон, получаемый спереди (сектор <font color='#ccff66'>90</font> градусов) снижается на @emerald_property1%"
+        "item_rpc_justice_greaves_emerald1"                                     "Урон, получаемый спереди (сектор <font color='#ccff66'>90</font> градусов) снижается на @emerald_property1%, или наполовину от этого значения, если получен сбоку (до 210 градусов)"
         "item_rpc_justice_greaves_sapphire1"                                        "Увеличивает получение Защит/Пробитий от противника на дополнительные @sapphire_property1%"
         "item_rpc_justice_greaves_amethyst1"                                        "Увеличивает радиус поиска противника на @amethyst_property1 и включает в поиск невидимых юнитов"
 
@@ -13180,7 +13182,7 @@
 		"DOTA_Tooltip_ability_item_rpc_depth_crest_armor"								"Depth Crest Armor"
 
 		"item_property_depth_crest"						"Crush"
-		 "property_depth_crest_description"					"Будучи атакованным, герой с шансом <font color='#ccff66'>15</font>% оглушит гидроударом ближайших противников в радиусе <font color='#ccff66'>280</font> на <font color='#ccff66'>0.1</font> сек. и нанесет урон, равный <font color='#ccff66'>1</font>x от показателя Брони героя."
+		 "property_depth_crest_description"					"Будучи атакованным, герой с шансом <font color='#ccff66'>20</font>% оглушит гидроударом ближайших противников в радиусе <font color='#ccff66'>300</font> на <font color='#ccff66'>0.1</font> сек. и нанесет урон, равный <font color='#ccff66'>5</font>x от показателя Брони героя."
 
 		 "item_rpc_depth_crest_armor_ruby1"								"Увеличивает урон от гидроудара на @ruby_property1x Силы и радиус на @ruby_property2"
 		"item_rpc_depth_crest_armor_emerald1"								"Увеличивает длительность оглушения на @emerald_property1 сек. и увеличивает радиус гидроудара на @emerald_property2"
@@ -13820,7 +13822,7 @@
 		"DOTA_Tooltip_modifier_abjudication_base_effect_armor"	"Judgement"
 		"DOTA_Tooltip_modifier_abjudication_base_effect_armor_Description"	"Броня увеличена"
 
-		"item_rpc_breastplate_of_abjudication_ruby1"									"Если атакуемый героем противник имеет больше Брони, чем Пробитие Брони героя, то герой получает Пробитие Брони, равное <font color='#ccff66'>100</font>% от разницы между этими двумя показателями на @ruby_property1 сек."
+		"item_rpc_breastplate_of_abjudication_ruby1"									"Если атакуемый героем противник имеет больше Брони, чем Пробитие Брони героя, то герой получает Пробитие Брони, равное @ruby_property1x текущему Пробитию Брони героя на @ruby_property2 сек."
 		"item_rpc_breastplate_of_abjudication_emerald1"									"Увеличивает длительность эффекта на @emerald_property1 сек"
 		"item_rpc_breastplate_of_abjudication_sapphire1"									"Увеличивает Все Атрибуты героя на @sapphire_property1%"
 		"item_rpc_breastplate_of_abjudication_amethyst1"									"После получения Магического или Чистого урона, если атакующий героя юнит имел больше Пробития Магической Защиты, чем Магическая Защита героя, то герой получит Магическую защиту в размере <font color='#ccff66'>100</font>% от разницы между этими двумя показателями на @amethyst_property1 сек."
@@ -13833,7 +13835,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_aquasteel_bracers"                                "Aquasteel Bracers"
         "item_property_aquasteel"                                "Water Jet"
-        "property_aquasteel_description"                        "<font color='#ccff66'>20</font>% шанс при получении урона выпустить поток воды в сторону источника урона, поток наносит урон <font color='#ccff66'>25</font>% от Силы Атаки, а также оглушает цели на <font color='#ccff66'>0.5</font> сек."
+        "property_aquasteel_description"                        "<font color='#ccff66'>20</font>% шанс при получении урона выпустить поток воды в сторону источника урона, поток наносит урон <font color='#ccff66'>60</font>% от Силы Атаки, а также оглушает цели на <font color='#ccff66'>0.5</font> сек."
         "item_rpc_aquasteel_bracers_ruby1"                                "Увеличивает урон потока на @ruby_property1, а длительность оглушения на @ruby_property2"
         "item_rpc_aquasteel_bracers_emerald1"                                "Выпускает поток воды в случайную цель поблизости в радиусе <font color='#ccff66'>500</font> каждые @emerald_property1 сек"
         "item_rpc_aquasteel_bracers_sapphire1"                                "Увеличивает Броню на @sapphire_property1, а урон потока воды на @sapphire_property2% от показателя Брони"
@@ -13883,7 +13885,7 @@
 		"item_rpc_blue_rain_gauntlet_ruby1"								"Увеличивает Урон Предметов на @ruby_property1% и все Атрибуты на @ruby_property2"
 		"item_rpc_blue_rain_gauntlet_emerald1"								"Увеличивает шанс срабатывания на @emerald_property1% и максимальное количество срабатываний на @emerald_property2"
 		"item_rpc_blue_rain_gauntlet_sapphire1"								"Увеличивает урон водного удара на @sapphire_property1% от Силы Атаки"
-		"item_rpc_blue_rain_gauntlet_amethyst1"								"Прочтение [R] активирует <font color='#ccff66'>9</font> водных ударов во все стороны от героя, наносящие @amethyst_property1 урона"
+		"item_rpc_blue_rain_gauntlet_amethyst1"								"Прочтение [R] активирует <font color='#ccff66'>9</font> водных ударов во все стороны от героя, наносящие @amethyst_property1% урона от Rain Lance"
 
     	"DOTA_Tooltip_ability_item_rpc_boneguard_gauntlets"								"Claw of the Dead"
 
@@ -14512,10 +14514,10 @@
 
     	"DOTA_Tooltip_ability_item_rpc_arcane_cascade_hat"								"Arcane Cascade Hat"
 		"item_property_arcane_cascade_hat"				"Arcane Cascade"
-		"property_arcane_cascade_hat_description"		"Поглощает <font color='#ccff66'>2</font>% от максимальной маны каждые <font color='#ccff66'>1</font> сек. Все противники в радиусе <font color='#ccff66'>750</font> получают <font color='#ccff66'>5</font>x от поглощенной маны Магическим уроном."
+		"property_arcane_cascade_hat_description"		"Поглощает <font color='#ccff66'>2</font>% от максимальной маны каждые <font color='#ccff66'>1</font> сек. Все противники в радиусе <font color='#ccff66'>750</font> получают <font color='#ccff66'>12</font>x от поглощенной маны Магическим уроном."
 
 		"item_rpc_arcane_cascade_hat_ruby1"	"Увеличивает урон <font color='#E1A2E8'>Тайны</font> на @ruby_property1%"
-		"item_rpc_arcane_cascade_hat_emerald1" "Увеличивает максимальный запас Маны на @emerald_property1"
+		"item_rpc_arcane_cascade_hat_emerald1" "Увеличивает максимальный запас Маны на @emerald_property1 и Регенерацию Маны на @emerald_property2"
 		"item_rpc_arcane_cascade_hat_sapphire1"	"Увеличивает поглощение маны дополнительно на @sapphire_property1%"
 		"item_rpc_arcane_cascade_hat_amethyst1" "Магическая защита противников под действием эффекта снижается на @amethyst_property1"
 
@@ -14538,7 +14540,7 @@
 		"property_basilisk_plague_description"				"Облако смрада окружает героя, замедляя передвижение противников в нем на <font color='#ccff66'>65</font>%, а скорость их атаки на <font color='#ccff66'>100</font>. Противники, стоящие в облаке дольше <font color='#ccff66'>2</font> сек. окаменеют на <font color='#ccff66'>2</font> сек (Противники в это состоянии парализованы, но иммунны к заклинаниям."
 		
 		"item_rpc_basilisk_plague_helm_ruby1"	"Скорость атаки противников в облаке дополнительно замедляется на @ruby_property1"
-		"item_rpc_basilisk_plague_helm_emerald1" "Противники получают @emerald_property1 урон каждые <font color='#ccff66'>0.5</font> сек. при нахождении в облаке. Урон увеличивается каждый тик, максимально до <font color='#ccff66'>20</font>x от начального."
+		"item_rpc_basilisk_plague_helm_emerald1" "Противники получают @emerald_property1 урон каждые <font color='#ccff66'>0.5</font> сек. при нахождении в облаке. Урон увеличивается каждый тик, максимально до <font color='#ccff66'>10</font>x от начального."
 		"item_rpc_basilisk_plague_helm_sapphire1"	"Увеличивает длительность окаменения на @sapphire_property1 сек. Любой окаменевший противник увеличивает Пробитие Брони героя на @sapphire_property2 на <font color='#ccff66'>5.5</font> сек"
 		"item_rpc_basilisk_plague_helm_amethyst1" "Окаменевшие противники теряют @amethyst_property1 Брони"
 		
@@ -14556,7 +14558,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_blackfeather_crown"								"Blackfeather Crown"
 		"item_property_blackfeather"				"Spirit of the Stormcrow"	
-		"property_blackfeather_description"			"Успешное нанесение атаки призывает дух Штормового Ворона, атакующего с <font color='#ccff66'>0.6</font>x силой атаки героя."
+		"property_blackfeather_description"			"Успешное нанесение атаки призывает дух Штормового Ворона, атакующего с <font color='#ccff66'>1</font>x силой атаки героя."
 
 		"item_rpc_blackfeather_crown_ruby1"	"Атаки Штормового Ворона имеют @ruby_property1% шанс откочить на @ruby_property2 ближайших противников"
 		"item_rpc_blackfeather_crown_emerald1" "Штормовой Ворон имеет @emerald_property1% шанс атаковать противника, который атакует его героя. Увеличивает Пробитие Брони на @sapphire_property2."
@@ -14592,7 +14594,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_burning_spirit_helmet"							"Burning Spirit Helmet"
 		"item_property_burning_spirit"							"Flamethrower"
-		"property_burning_spirit_description"					"Во время заряда @Ability4 выпускает поток пламени перед героем, который наносит <font color='#ccff66'>10</font>% от урона атаки с высокой частотой."
+		"property_burning_spirit_description"					"Во время заряда @Ability4 выпускает поток пламени перед героем, который наносит <font color='#ccff66'>80</font>% от урона атаки с высокой частотой."
 
 		"item_rpc_burning_spirit_helmet_ruby1"	"Увеличивает Базовый Урон Способностей и урон <font color='#EF4126'>Огня</font> на @ruby_property1%"
 		"item_rpc_burning_spirit_helmet_emerald1" "Урон потока пламени увеличивается на @emerald_property1% от Силы Атаки героя, все Атрибуты героя увеличиваются на @emerald_property2"
@@ -14609,7 +14611,7 @@
 		"item_rpc_cap_of_wild_nature_ruby1"	"Увеличивает урон корней на @ruby_property1%"
 		"item_rpc_cap_of_wild_nature_emerald1" "Увеличивает урон <font color='#69BC71'>Природы</font> на @emerald_property1%"
 		"item_rpc_cap_of_wild_nature_sapphire1"	"Противники, задетые [Q], будут с <font color='#ccff66'>65</font>% шансом опутаны корнями на  @sapphire_property1 сек"
-		"item_rpc_cap_of_wild_nature_amethyst1" "Увеличивает Регенерацию Здоровья на @amethyst_property1"	
+		"item_rpc_cap_of_wild_nature_amethyst1" "Увеличивает Здоровье на @amethyst_property1, а Регенерацию Здоровья на @amethyst_property2% от запаса здоровья"	
 
     	"DOTA_Tooltip_ability_item_rpc_carbuncles_helm_of_reflection"					"Carbuncle's Helm of Reflection"
 		"item_property_carbuncle"								"Ruby Shell"
@@ -14736,7 +14738,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_demon_mask"										"Demon Mask"
 		"item_property_demon"						"Underworld Tear"
-		"property_demon_description"				"Противники, задетые @Ability1 имеют <font color='#ccff66'>15</font>% шанс выпустить демонический взрыв, с уроном в <font color='#ccff66'>30</font>% от урона способности, в <font color='#ccff66'>450</font> радиусе от задетой цели. Максимум <font color='#ccff66'>4</font> срабатываний в секунду."
+		"property_demon_description"				"Противники, задетые @Ability1 имеют <font color='#ccff66'>15</font>% шанс выпустить демонический взрыв, с уроном в <font color='#ccff66'>100</font>% от урона способности, в <font color='#ccff66'>450</font> радиусе от задетой цели. Максимум <font color='#ccff66'>7</font> срабатываний в секунду."
 
 
 		"item_rpc_demon_mask_ruby1"	"Урон взрыва увеличен на дополнительные @ruby_property1% от урона [Q]"
@@ -14755,7 +14757,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_excavators_focus_cap"							"Excavator's Focus Cap"
 		"item_property_excavator"							"Enhance Gear"
-		"property_excavator_description"					"Все показатели роллов на снаряжении увеличены на <font color='#ccff66'>25</font>%. Урон Предметов увеличен на среднее значение усиления Базового Урона всех Способностей."
+		"property_excavator_description"					"Все показатели Рун на снаряжении увеличены на <font color='#ccff66'>25</font>%. Урон Предметов увеличен на среднее значение усиления Базового Урона всех Способностей."
 
 		"item_rpc_excavators_focus_cap_ruby1"	"Показатель [Q3] увеличен на @ruby_property1"
 		"item_rpc_excavators_focus_cap_emerald1"	"Показатель [W3] увеличен на @emerald_property1"
@@ -14817,7 +14819,7 @@
 
 		"DOTA_Tooltip_ability_item_rpc_helm_of_the_knight_hawk"		"Helm of the Knight Hawk"
 		"item_property_knight_hawk" 								"Peregrine Flight"
-		"property_knight_hawk_description"						"Увеличивает лимит скорости перемещения на <font color='#ccff66'>200</font>. При скорости выше 550 получаемый урон будет снижен на <font color='#ccff66'>30</font>%. Если скорость перемещения героя снижается на <font color='#ccff66'>260</font>, он получает временный бафф <font color='#ccff66'>300</font> ускорения на <font color='#ccff66'>10</font> сек."
+		"property_knight_hawk_description"						"Увеличивает лимит скорости перемещения на <font color='#ccff66'>200</font>. При скорости выше 550 получаемый урон будет снижен на <font color='#ccff66'>45</font>%. Если скорость перемещения героя снижается на <font color='#ccff66'>260</font>, он получает временный бафф <font color='#ccff66'>300</font> ускорения на <font color='#ccff66'>10</font> сек."
 
 		"DOTA_Tooltip_modifier_knight_hawk_helm_speed"				"Peregrine Flight"
 		"DOTA_Tooltip_modifier_knight_hawk_helm_speed_Description"	"Скорость перемещения увеличена"
@@ -14900,7 +14902,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_hyper_visor"									"Hyper Visor"
 		"item_property_hyper_visor"				"Hyper Lightning"
-		"property_hyper_visor_description"			"Герой получает <font color='#ccff66'>30</font>% шанс ударить противника разрядом молнии при атаке, которая нанесет урон в небольшой зоне <font color='#ccff66'>240</font> в <font color='#ccff66'>40</font>% от силы атаки героя. Изменяет Базовую Скорость Атаки героя на <font color='#ccff66'>1.2</font> сек."
+		"property_hyper_visor_description"			"Герой получает <font color='#ccff66'>30</font>% шанс ударить противника разрядом молнии при атаке, которая нанесет урон в небольшой зоне <font color='#ccff66'>240</font> в <font color='#ccff66'>80</font>% от силы атаки героя. Изменяет Базовую Скорость Атаки героя на <font color='#ccff66'>1.2</font> сек."
 
 		"item_rpc_hyper_visor_ruby1"	"Increases Attack Speed @ruby_property1"
 		"item_rpc_hyper_visor_emerald1"	"Увеличивает урон разряда молнии дополнительно на @emerald_property1x от Ловкости"
@@ -14929,7 +14931,7 @@
 
 		"DOTA_Tooltip_ability_item_rpc_magistrates_hood"		"Magistrate's Hood"
 		"item_property_magistrate"											"Artillery Magus"
-		"property_magistrate_description"								"Все порции Магического или Чистого урона наносят урон по всем целям в области <font color='#ccff66'>300</font>. Этот эффект работает только при активных зарядах, которые восстанавливаются каждые <font color='#ccff66'>1</font> сек. Максимум зарядов <font color='#ccff66'>7</font>. Весь урон по области увеличивается на <font color='#ccff66'>10</font>% за каждого противника в области поражения."
+		"property_magistrate_description"								"Все порции Магического или Чистого урона наносят урон по всем целям в области <font color='#ccff66'>300</font>. Этот эффект работает только при активных зарядах, которые восстанавливаются каждые <font color='#ccff66'>1</font> сек. Максимум зарядов <font color='#ccff66'>14</font>. Весь урон по области увеличивается на <font color='#ccff66'>15</font>% за каждого противника в области поражения."
 
 		"DOTA_Tooltip_modifier_magistrates_hood_charges"		"Artillery Magus Charges"
 		"DOTA_Tooltip_modifier_magistrates_hood_charges_Description"	"Все порции Магического или Чистого урона наносят урон по всем целям в области <font color='#ccff66'>300</font>, пока хватает активных зарядов."
@@ -15043,7 +15045,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_stormcrack_helm"								"Stormcrack Helm"
 		"item_property_stormcrack"						"Stormcrack"
-		"property_stormcrack_description"					"Оглушение противника нанесет ему дополнительный урон в <font color='#ccff66'>25</font>% от силы Атаки героя Магическим типом урона. Максимум срабатываний в секунду <font color='#ccff66'>6</font>."
+		"property_stormcrack_description"					"Оглушение противника нанесет ему дополнительный урон в <font color='#ccff66'>70</font>% от силы Атаки героя Магическим типом урона. Максимум срабатываний в секунду <font color='#ccff66'>12</font>."
 
 		"item_rpc_stormcrack_helm_ruby1"	"Увеличивает длительность всех эффектов Оглушения от героя на @ruby_property1%"
 		"item_rpc_stormcrack_helm_emerald1"	"Увеличивает число допустимых срабатываний в секунду на @emerald_property1"
@@ -15481,10 +15483,10 @@
         "DOTA_Tooltip_ability_item_rpc_emerald_nullification_ring"                      "Emerald Nullification Ring"
 
         "item_property_emerald_null"                            "Emerald Nullification"
-         "property_emerald_null_description"                    "Ловкость увеличивает Магическую Защиту на <font color='#ccff66'>3</font>."
+         "property_emerald_null_description"                    "Ловкость увеличивает Магическую Защиту на <font color='#ccff66'>4</font>, а Пробитие Магической Защиты на <font color='#ccff66'>2</font>."
 
         "item_rpc_emerald_nullification_ring_ruby1"                     "Доп. Сопротивление Магии увеличено на @ruby_property1%"
-        "item_rpc_emerald_nullification_ring_emerald1"                      "Повышает Ловкость на @emerald_property1"
+        "item_rpc_emerald_nullification_ring_emerald1"                      "Каждое очко Ловкости повышает Базовый Урон Способностей на @emerald_property1%"
         "item_rpc_emerald_nullification_ring_sapphire1"                     "@sapphire_property1% шанс полностью заблокировать Магический или Чистый урон"
         "item_rpc_emerald_nullification_ring_amethyst1"                     "Доп. Сопротивление Чистому урону увеличено на @amethyst_property1%"
 
@@ -15691,9 +15693,9 @@
         "DOTA_Tooltip_ability_item_rpc_omega_ruby"                                      "Omega Ruby"
 
         "item_property_omega_ruby"                  "Omega Flare"
-        "property_omega_ruby"                       "Обычные атаки взрываются и наносят урон по области <font color='#ccff66'>240</font> в <font color='#ccff66'>10</font>% от Силы Атаки."
+        "property_omega_ruby"                       "Обычные атаки взрываются и наносят урон по области <font color='#ccff66'>240</font> в <font color='#ccff66'>70</font>% от Силы Атаки."
 
-        "item_rpc_omega_ruby_ruby1"                                     "Увеличивает радиус взрыва на @ruby_property1 и урон эффекта на @ruby_property2"
+        "item_rpc_omega_ruby_ruby1"                                     "Увеличивает радиус взрыва на @ruby_property1 и эффект также наносит @ruby_property2% от Силы Атаки Физическим типом урона"
         "item_rpc_omega_ruby_emerald1"                                      "Увеличивает Скорость Атаки на @emerald_property1"
         "item_rpc_omega_ruby_sapphire1"                                     "Увеличивает Силу Атаки на @sapphire_property1%"
         "item_rpc_omega_ruby_amethyst1"                                     "Увеличивает Пробитие Брони и Пробитие Магической Защиты на @amethyst_property1"
@@ -15828,7 +15830,7 @@
         "DOTA_Tooltip_ability_item_rpc_tempest_falcon_ring"                             "Tempest Falcon Ring"
 
         "item_property_tempest_falcon"                      "Storm Switch"
-        "property_tempest_falcon_description"               "Нанесение Физического урона увеличивает Пробитие Магической Защиты на <font color='#ccff66'>30</font>x от Уровня героя и убирает эффект Storm Switch, повышающий Пробитие Брони. Нанесение Магического урона увеличивает Пробитие Брони на <font color='#ccff66'>30</font>x от Уровня героя и убирает эффект Storm Switch, повышающий Пробитие Магической Защиты."
+        "property_tempest_falcon_description"               "Нанесение Физического урона увеличивает Пробитие Магической Защиты на <font color='#ccff66'>80</font>x от Уровня героя и убирает эффект Storm Switch, повышающий Пробитие Брони. Нанесение Магического урона увеличивает Пробитие Брони на <font color='#ccff66'>80</font>x от Уровня героя и убирает эффект Storm Switch, повышающий Пробитие Магической Защиты."
 
         "item_rpc_tempest_falcon_ring_ruby1"                                "Увеличивает Скорость Передвижения на @ruby_property1 и Лимит Скорости на @ruby_property2"
         "item_rpc_tempest_falcon_ring_emerald1"                             "Увеличивает Скорость Атаки на @emerald_property1 и Ловкость на @emerald_property2"
@@ -15839,7 +15841,7 @@
         "DOTA_Tooltip_ability_item_rpc_tome_of_chaos"                                   "Tome of Chaos"
 
         "item_property_tome_of_chaos"               "Infernal Reign"
-        "property_tome_of_chaos"                    "Прочтение @Ability2 призывает инфернала перед героем, который при появлении оглушает противников в радиусе <font color='#ccff66'>500</font> на <font color='#ccff66'>3</font> сек. Инфернал имеет <font color='#ccff66'>2</font>x от Здоровья героя и <font color='#ccff66'>4</font>x от Силы Атаки героя. Продолжительность жизни инфернала <font color='#ccff66'>30</font> сек, а перезарядка призыва <font color='#ccff66'>35</font> сек."
+        "property_tome_of_chaos"                    "Прочтение @Ability2 призывает инфернала перед героем, который при появлении оглушает противников в радиусе <font color='#ccff66'>500</font> на <font color='#ccff66'>3</font> сек. Инфернал имеет <font color='#ccff66'>4</font>x от Здоровья героя и <font color='#ccff66'>4</font>x от Силы Атаки героя. Продолжительность жизни инфернала <font color='#ccff66'>30</font> сек, а перезарядка призыва <font color='#ccff66'>35</font> сек."
         "DOTA_Tooltip_modifier_tome_of_chaos_cooldown"  "Infernal Reign Cooldown"
         "DOTA_Tooltip_modifier_tome_of_chaos_cooldown_Description"  "Перезарядка"
 
@@ -16007,10 +16009,10 @@
 		//Tier 1
 
         "DOTA_Tooltip_ability_item_rpc_neutral_glyph_1_1"	"[T1-1] Glyph of Hard Skin"
-		"item_rpc_neutral_glyph_1_1_description" 			"Увеличивает Броню на <font color='#ccff66'>10</font> за Уровень героя."
+		"item_rpc_neutral_glyph_1_1_description" 			"Увеличивает Броню на <font color='#ccff66'>12</font> за Уровень героя."
 
 		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_1_2"	"[T1-2] Glyph of Magic Protection"
-		"item_rpc_neutral_glyph_1_2_description" 			"Увеличивает Магическую Защиту на <font color='#ccff66'>10</font> за Уровень героя."
+		"item_rpc_neutral_glyph_1_2_description" 			"Увеличивает Магическую Защиту на <font color='#ccff66'>12</font> за Уровень героя."
 
 		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_1_3"	"[T1-3] Glyph of the Gourmand"
 		"item_rpc_neutral_glyph_1_3_description" 			 "Зелья дополнительно восстанавливают <font color='#ccff66'>100</font>% от значения Здоровья или Маны в течение <font color='#ccff66'>10</font> сек."
@@ -16018,13 +16020,13 @@
         //Tier 2
 
 		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_2_1"	"[T2-1] Glyph of Armor Pierce"
-		"item_rpc_neutral_glyph_2_1_description" 			"Увеличивает Пробитие Брони на <font color='#ccff66'>10</font> за Уровень героя."
+		"item_rpc_neutral_glyph_2_1_description" 			"Увеличивает Пробитие Брони на <font color='#ccff66'>15</font> за Уровень героя."
 
 		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_2_2"	"[T2-2] Glyph of Spell Pierce"
-		"item_rpc_neutral_glyph_2_2_description" 			"Увеличивает Пробитие Магической Защиты на <font color='#ccff66'>10</font> за Уровень героя."
+		"item_rpc_neutral_glyph_2_2_description" 			"Увеличивает Пробитие Магической Защиты на <font color='#ccff66'>15</font> за Уровень героя."
 
 		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_2_3"	"[T2-3] Glyph of Berserk"
-		"item_rpc_neutral_glyph_2_3_description" 			"Увеличивает Базовый Урон Атаки на <font color='#ccff66'>3</font> за Уровень героя."
+		"item_rpc_neutral_glyph_2_3_description" 			"Увеличивает Базовый Урон Атаки на <font color='#ccff66'>8</font> за Уровень героя."
 
         //Tier 3
 
