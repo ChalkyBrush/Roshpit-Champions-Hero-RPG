@@ -120,7 +120,7 @@ function red_general_ability_base_q_whirlwind_finish(event)
     end
     if #ability.enemies > 0 then
         for _, enemy in pairs(ability.enemies) do
-            if not enemy.pushLock and not enemy.jumpLock then
+            if not enemy.pushLock and not enemy.jumpLock and not enemy.dummy then
                 local enemyPosition = enemy:GetAbsOrigin()
                 local afterWallPosition = WallPhysics:WallSearch(hero:GetAbsOrigin(), enemyPosition, hero)
                 if afterWallPosition ~= enemyPosition then

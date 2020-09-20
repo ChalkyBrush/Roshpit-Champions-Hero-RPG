@@ -125,7 +125,7 @@ function modifier_solunia_glyph_1_1_pull:OnIntervalThink()
 		return false
 	end
 	local target = self:GetParent()
-	if target.pushLock then
+	if target.pushLock or target.jumpLock or target.dummy then
 		return false
 	end
 	local ability = self:GetAbility()

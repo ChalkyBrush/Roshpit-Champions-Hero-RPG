@@ -67,7 +67,9 @@ function hawk_screech_hit(event)
 	target:SetModifierStackCount("modifier_draghor_hawk_screech", caster, ability:GetLevel())
 
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_bear_roar_taunt", {duration = duration})
-	target:MoveToTargetToAttack(caster)
+	if not target.dummy then
+		target:MoveToTargetToAttack(caster)
+	end
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_Q, RPC_ELEMENT_TIME, RPC_ELEMENT_NATURE)
 end
 

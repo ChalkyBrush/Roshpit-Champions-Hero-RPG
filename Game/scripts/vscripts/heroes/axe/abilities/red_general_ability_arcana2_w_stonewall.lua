@@ -91,7 +91,9 @@ function red_general_ability_arcana2_w_stonewall_start(event)
 		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		if #enemies > 0 then
 			for _, enemy in pairs(enemies) do
-				enemy:MoveToTargetToAttack(caster)
+				if not enemy.dummy then
+					enemy:MoveToTargetToAttack(caster)
+				end
 				if caster:HasModifier("modifier_axe_glyph_1_2") then
 					Filters:ApplyStun(caster, RED_GENERAL_GLYPH_1_2_STUN_DURATION * ability:GetLevel(), enemy)
 				end

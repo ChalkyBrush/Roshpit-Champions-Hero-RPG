@@ -114,7 +114,7 @@ function charge_end(event)
 	if orb then
 		orb.lockPoint = false
 	end
-	caster.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "bahamut")
+	caster.e_4_level = caster:GetRuneValue("e", 4)
 	local fv = caster:GetForwardVector()
 
 	caster:RemoveModifierByName("modifier_bahamut_arcana_w4_amp")
@@ -165,8 +165,8 @@ function charge_end(event)
 		eventTable.guarantee = true
 		WallAllyBuff(eventTable)
 	end
-	local d_d_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "bahamut")
-	local shellDuration = 3
+	local d_d_level = caster:GetRuneValue("r", 4)
+	local shellDuration = BAHAMUT_R4_SHIELD_DURATION
 	if caster:HasModifier("modifier_bahamut_glyph_5_1") then
 		shellDuration = shellDuration + BAHAMUT_GLYPH_5_1_R4_DURATION
 	end
@@ -218,7 +218,14 @@ function projectileStrike(event)
 	local target = event.target
 	local damage = event.damage
 	local ability = event.ability
+	local r_4_level = caster:GetRuneValue("r", 4)
 	damage = damage
+	if r_4_level > 0 then
+		damage = damage + r_4_level*BAHAMUT_R4_R_BONUS_DAMAGE
+	end
+	if caster:HasModifier("modifier_bahamut_glyph_5_1") then
+		damage =  damage*BAHAMUT_GLYPH_5_1_R4_DAMAGE_MULT
+	end
 	local ability = event.ability
 	Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, caster, "modifier_backstab_jumping", {duration = 0.2})
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_R, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)

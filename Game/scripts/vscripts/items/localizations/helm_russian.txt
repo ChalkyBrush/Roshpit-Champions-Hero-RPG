@@ -255,7 +255,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_excavators_focus_cap"							"Excavator's Focus Cap"
 		"item_property_excavator"							"Enhance Gear"
-		"property_excavator_description"					"Все показатели роллов на снаряжении увеличены на <% EXCAVATOR_GEAR_AMP %>%. Урон Предметов увеличен на среднее значение усиления Базового Урона всех Способностей."
+		"property_excavator_description"					"Все показатели Рун на снаряжении увеличены на <% EXCAVATOR_GEAR_AMP %>%. Урон Предметов увеличен на среднее значение усиления Базового Урона всех Способностей."
 
 		"item_rpc_excavators_focus_cap_ruby1"	"Показатель [Q3] увеличен на @ruby_property1"
 		"item_rpc_excavators_focus_cap_emerald1"	"Показатель [W3] увеличен на @emerald_property1"

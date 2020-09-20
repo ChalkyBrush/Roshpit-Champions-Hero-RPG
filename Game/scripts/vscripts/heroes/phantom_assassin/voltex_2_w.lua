@@ -67,6 +67,8 @@ function voltex_static_hit(event)
 	local currentStacks = target:GetModifierStackCount("modifier_zapped", caster)
 
 	if currentStacks <= 6 then
+		if target.dummy then
+		else
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_zapped", {duration = 0.4})
 		target:SetModifierStackCount("modifier_zapped", caster, currentStacks + 1)
 		local modifierKnockback =
@@ -81,6 +83,7 @@ function voltex_static_hit(event)
 		}
 
 		target:AddNewModifier(caster, nil, "modifier_knockback", modifierKnockback)
+		end
 	end
 	if caster:HasModifier("modifier_voltex_glyph_7_1") then
 		damage = damage * VOLTEX_GLYPH_7_1_DMG_MULT

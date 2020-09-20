@@ -254,7 +254,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_excavators_focus_cap"							"Excavator's Focus Cap"
 		"item_property_excavator"							"Enhance Gear"
-		"property_excavator_description"					"All stats from gear are increased by <% EXCAVATOR_GEAR_AMP %>% and your Item Damage is increased by the average of your Base Ability Damage amplifications."
+		"property_excavator_description"					"All Rune Bonuses from gear are increased by <% EXCAVATOR_GEAR_AMP %>% and your Item Damage is increased by the average of your Base Ability Damage amplifications."
 
 		"item_rpc_excavators_focus_cap_ruby1"	"Increases Rune [Q3] by @ruby_property1"
 		"item_rpc_excavators_focus_cap_emerald1"	"Increases Rune [W3] by @emerald_property1"

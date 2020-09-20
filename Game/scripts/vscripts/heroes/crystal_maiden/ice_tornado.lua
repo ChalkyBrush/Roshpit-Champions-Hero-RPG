@@ -194,7 +194,7 @@ function tornado_thinker(event)
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), dummy:GetAbsOrigin(), nil, 350, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do
-			if enemy.pushLock or enemy.jumpLock then
+			if enemy.pushLock or enemy.jumpLock or enemy.dummy then
 			else
 				local pullVector = ((dummy:GetAbsOrigin() - enemy:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
 				local distance = WallPhysics:GetDistance2d(dummy:GetAbsOrigin(), enemy:GetAbsOrigin())

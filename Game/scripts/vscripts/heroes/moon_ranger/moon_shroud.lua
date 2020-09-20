@@ -143,7 +143,9 @@ function moon_shroud_debuff_apply(event)
   local moveDirection = ((target:GetAbsOrigin() - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
   if not hero:HasModifier("modifier_astral_glyph_1_2") then
 	  if target:HasGroundMovementCapability() then
-		target:MoveToPosition(target:GetAbsOrigin() + moveDirection * 200)
+		if not target.dummy  then
+			target:MoveToPosition(target:GetAbsOrigin() + moveDirection * 200)
+		end
 	  end
   end
 end
