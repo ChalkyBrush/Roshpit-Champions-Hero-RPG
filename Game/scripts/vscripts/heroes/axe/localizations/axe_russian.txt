@@ -232,7 +232,7 @@
         "item_rpc_axe_glyph_3_1_description"                "Время между тиками от умения (E) @Ability3 снижено на <% RED_GENERAL_GLYPH_3_1_E_INTERVAL_REDUCTION * 100 %>% и составляет 0.09 секунды."
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_4_1"       "[T4-1] Glyph of the Helix"
-        "item_rpc_axe_glyph_4_1_description"                "С каждым прочтением (W) @Ability2, Red General совершает мощную круговую атаку, нанося физический урон в размере <% RED_GENERAL_GLYPH_4_1_DAMAGE_PROCENT %>% от своего общего урона всем врагам поблизости. Урон умножается на уровень прокачки умения (W) @Ability2."
+        "item_rpc_axe_glyph_4_1_description"                "С каждым прочтением (W) @Ability2, Red General совершает мощную круговую атаку, нанося урон в размере <% RED_GENERAL_GLYPH_4_1_DAMAGE_PROCENT %>% от своего общего урона всем врагам поблизости. Урон умножается на уровень прокачки умения (W) @Ability2.<br>Тип Урона: <font color='#8B0000'>Физический</font> <br>Стихия: <font color=ELEMENT_NORMAL>Нормальный</font><br><font color='#F28100'>Урон Предметов</font>"
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_5_1"       "[T5-1] Glyph of Impact"
         "item_rpc_axe_glyph_5_1_description"                "Время оглушения от умения (Q) @Ability1 снижено до <% RED_GENERAL_GLYPH_5_1_Q_STUN %> сек., но урон от этой способности увеличен в <% RED_GENERAL_GLYPH_5_1_Q_DAMAGE_AMP %> раз(а)."

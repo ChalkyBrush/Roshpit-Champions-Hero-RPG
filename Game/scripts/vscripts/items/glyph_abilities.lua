@@ -49,12 +49,13 @@ function voltex_glyph_4_1_trigger(event)
 end
 
 function voltex_glyph_4_1_strike(event)
+	local ability = event.ability
+	local caster = event.caster
 	local target = event.target
-	local caster = event.ability.hero
 	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * VOLTEX_GLYPH_4_1_ATTACK_TO_DMG
 	local sound = "Hero_Zuus.ArcLightning.Target"
 	EmitSoundOn(sound, target)
-	ApplyDamage({victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL})
+	Filters:ApplyItemDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, event.ability, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
 end
 
 function venomort_glyph_5_1_attack(event)

@@ -241,7 +241,7 @@
         "item_rpc_axe_glyph_3_1_description"                "The interval between @Ability3's strikes is reduced by <% RED_GENERAL_GLYPH_3_1_E_INTERVAL_REDUCTION * 100 %>%, occurring every 0.09 seconds."
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_4_1"       "[T4-1] Glyph of the Helix"
-        "item_rpc_axe_glyph_4_1_description"                "The Red General also performs a Helix Attack when casting @Ability2, dealing <% RED_GENERAL_GLYPH_4_1_DAMAGE_PROCENT %>% of his attack damage as Physical to all surrounding enemies. Damage is further multiplied by @Ability2's spell level."
+        "item_rpc_axe_glyph_4_1_description"                "The Red General also performs a Helix Attack when casting @Ability2, dealing <% RED_GENERAL_GLYPH_4_1_DAMAGE_PROCENT %>% of his attack damage to all surrounding enemies. Damage is further multiplied by @Ability2's spell level.<br> Damage Type: <font color='#8B0000'>Physical</font> <br>Element: <font color=ELEMENT_NORMAL>Normal</font><br><font color='#F28100'>Item Damage</font>"
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_5_1"       "[T5-1] Glyph of Impact" // lower pitch base sound high pitch strike sound
         "item_rpc_axe_glyph_5_1_description"                "@Ability1's stun becomes a <% RED_GENERAL_GLYPH_5_1_Q_STUN %> second ministun but gains <% RED_GENERAL_GLYPH_5_1_Q_DAMAGE_AMP %>x increased damage."

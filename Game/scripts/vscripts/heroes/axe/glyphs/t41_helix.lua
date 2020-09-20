@@ -9,7 +9,7 @@ local function cast(caster, ability)
     local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * RED_GENERAL_GLYPH_4_1_DAMAGE_PROCENT / 100 * abilityLevel
     if #enemies > 0 then
         for _, enemy in pairs(enemies) do
-            Filters:ApplyDamageBasic(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL)
+            Filters:ApplyItemDamage(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, ability, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
         end
     end
     EmitSoundOn("RedGeneral.Helix", caster)
