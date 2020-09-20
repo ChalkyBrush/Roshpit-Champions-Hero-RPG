@@ -4026,13 +4026,13 @@
 		//New Rune c_d: while channeling megaflare, all nearby enemies have slowed movespeed and attack speed
 
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_3_1"		"[T3-1] 隔离雕文"
-		"item_rpc_bahamut_glyph_3_1_description" 				"审判将落在巴哈姆特的周围而不是在其前方，同时提高 <font color='#ccff66'>30</font>% 范围。"
+		"item_rpc_bahamut_glyph_3_1_description" 				"审判将落在巴哈姆特的周围而不是在其前方，同时提高 <font color='#ccff66'>70</font>% 范围。"
 
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_4_1"		"[T4-1] 围墙雕文"
 		"item_rpc_bahamut_glyph_4_1_description" 				"提高宽恕之墙的持续时间 <font color='#ccff66'>2</font> 秒。"
 
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_5_1"		"[T5-1] 孤立雕文"
-		"item_rpc_bahamut_glyph_5_1_description" 				"提高孤独之盾的持续时间 <font color='#ccff66'>3</font> 秒。"
+		"item_rpc_bahamut_glyph_5_1_description" 				"提高孤独之盾的持续时间 <font color='#ccff66'>2</font> 秒。"
 
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_6_1"		"[T6-1] 傲慢雕文"
 		"item_rpc_bahamut_glyph_6_1_description" 				"[E3]被动生效且不再降低移动速度。此外巴哈姆特的脉搏每<font color='#ccff66'>5</font>次造成1次 <font color='#ccff66'>1.5</font> 秒眩晕。"
@@ -7333,7 +7333,7 @@
         "item_rpc_flamewaker_glyph_6_1_description"             "[R3] 现在也会提高精神。"
 
         "DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_7_1"    "[T7-1] 火海雕文"
-        "item_rpc_flamewaker_glyph_7_1_description"             "处于炽热冲锋状态下时将会自动在 <font color='#ccff66'>1000</font> 范围内的敌人脚下产生灼热之路的火焰。"
+        "item_rpc_flamewaker_glyph_7_1_description"             "处于炽热冲锋状态下时将会自动在 <font color='#ccff66'>800</font> 范围内的敌人脚下产生灼热之路的火焰。"
 
         "DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_5_a"    "[T5-a] 龙族血统雕文"
         "item_rpc_flamewaker_glyph_5_a_description"             "受到的伤害不能超过 <font color='#ccff66'>30</font>% 最大生命值。如果你的当前生命值低于最大生命值的 <font color='#ccff66'>50</font>% ，伤害拦截阈值为 <font color='#ccff66'>15</font>%。"
@@ -7396,7 +7396,7 @@
         
         "DOTA_Tooltip_ability_item_rpc_flamewaker_immortal_weapon_2"            "上古之刃"
         "item_property_flamewaker_immortal_weapon2"                             "龙魂"
-        "property_flamewaker_immortal_weapon2_description"                      "每点敏捷提高基础攻击力 <font color='#ccff66'>0.5</font>点并且处于 @Ability3 状态下时将会获得 <font color='#ccff66'>1200</font> 点敏捷"
+        "property_flamewaker_immortal_weapon2_description"                      "每点敏捷提高基础攻击力 <font color='#ccff66'>0.5</font>点并且处于 @Ability3 状态下时将会获得 <font color='#ccff66'>900</font> 点敏捷"
 
         "DOTA_Tooltip_ability_item_rpc_flamewaker_immortal_weapon_3"            "角斗士之剑"
         "item_property_flamewaker_immortal_weapon3"                             "陨石爆发"
@@ -13011,7 +13011,7 @@
     	"DOTA_Tooltip_ability_item_rpc_redfall_runners"                                 "落红流火的赛跑者"
 
         "item_property_redfall_runners"                 "冒险者步伐"
-        "property_redfall_runners_description"              "每点敏捷和精神增加移动速度 <font color='#ccff66'>0.15</font> 点以及最大移动速度 <font color='#ccff66'>0.15</font>点"
+        "property_redfall_runners_description"              "每点敏捷和精神增加移动速度 <font color='#ccff66'>0.1</font> 点以及最大移动速度 <font color='#ccff66'>0.1</font>点"
         "DOTA_Tooltip_modifier_redfall_runners"      "冒险者步伐"
          "DOTA_Tooltip_modifier_redfall_runners_Description"    "获得基于敏捷和精神的移动速度加成"
 
@@ -15611,7 +15611,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_tome_of_chaos"									"混乱之书"
 		"item_property_tome_of_chaos"				"地狱火"
-        "property_tome_of_chaos"                    "当你施放 @Ability2, 在你面前召唤一头地狱火, 眩晕 <font color='#ccff66'>500</font> 范围内的敌人 <font color='#ccff66'>3</font> 秒. 地狱火拥有 <font color='#ccff66'>2</font>x 你的生命值和 <font color='#ccff66'>4</font>x 你的攻击力. 持续 <font color='#ccff66'>30</font>秒。 <font color='#ccff66'>35</font> 秒冷却时间."
+        "property_tome_of_chaos"                    "当你施放 @Ability2, 在你面前召唤一头地狱火, 眩晕 <font color='#ccff66'>500</font> 范围内的敌人 <font color='#ccff66'>3</font> 秒. 地狱火拥有 <font color='#ccff66'>4</font>x 你的生命值和 <font color='#ccff66'>4</font>x 你的攻击力. 持续 <font color='#ccff66'>30</font>秒。 <font color='#ccff66'>35</font> 秒冷却时间."
         "DOTA_Tooltip_modifier_tome_of_chaos_cooldown"  "地狱火冷却"
         "DOTA_Tooltip_modifier_tome_of_chaos_cooldown_Description"  "充能中"
 
@@ -15664,7 +15664,7 @@
         "item_rpc_omega_ruby_sapphire1"                                     "提高攻击力 @sapphire_property1%"
         "item_rpc_omega_ruby_amethyst1"                                     "提高物理穿透和魔法穿透 @amethyst_property1"
 		"item_property_omega_ruby"					"欧米伽之火"
-		"property_omega_ruby"						"你的普通攻击附有火焰，造成 <font color='#ccff66'>10</font>% 的AOE魔法伤害。与其他类型的分裂攻击叠加。"
+		"property_omega_ruby"						"你的普通攻击附有火焰，造成 <font color='#ccff66'>70</font>% 的AOE魔法伤害。与其他类型的分裂攻击叠加。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_raven_idol"										"乌鸦玩偶"
@@ -15761,7 +15761,7 @@
 		"DOTA_Tooltip_ability_item_rpc_tempest_falcon_ring"								"风暴猎鹰指环"
 		"item_property_tempest_falcon"						"暴风转换"
 
-        "property_tempest_falcon_description"               "造成一次物理伤害后提高魔法穿透 <font color='#ccff66'>30</font>x 你的英雄等级, 同时移除风暴转换效果提供的额外物理穿透. 造成一次魔法伤害后提高物理穿透 <font color='#ccff66'>30</font>x 你的英雄等级, 同时移除风暴转换效果提供的额外魔法穿透."
+        "property_tempest_falcon_description"               "造成一次物理伤害后提高魔法穿透 <font color='#ccff66'>80</font>x 你的英雄等级, 同时移除风暴转换效果提供的额外物理穿透. 造成一次魔法伤害后提高物理穿透 <font color='#ccff66'>80</font>x 你的英雄等级, 同时移除风暴转换效果提供的额外魔法穿透."
 
         "item_rpc_tempest_falcon_ring_ruby1"                                "提高移动速度 @ruby_property1 和最大移动速度 @ruby_property2"
         "item_rpc_tempest_falcon_ring_emerald1"                             "提高攻击速度 @emerald_property1 和敏捷值 @emerald_property2"
@@ -15845,7 +15845,7 @@
 		 
 		"DOTA_Tooltip_ability_item_rpc_emerald_nullification_ring"						"翡翠净化环"
 		"item_property_emerald_null"							"翡翠淨化"
-         "property_emerald_null_description"                    "每点敏捷提高魔甲 <font color='#ccff66'>3</font>."
+         "property_emerald_null_description"                    "每点敏捷提高魔甲 <font color='#ccff66'>4</font> and Spell Pierce by <font color='#ccff66'>2</font>."
 
         "item_rpc_emerald_nullification_ring_ruby1"                     "减少所有受到的魔法伤害 @ruby_property1%"
         "item_rpc_emerald_nullification_ring_emerald1"                      "提高敏捷值 @emerald_property1"
