@@ -4252,7 +4252,9 @@ function crimson_skull_cap_kill(event)
 	local caster = event.caster.hero
 	local target = event.unit
 	local ability = event.ability
-	local damage = target:GetMaxHealth() * (CRIMSON_SKULL_CAP_HP_PCT_TO_DAMAGE/100 + ability:GetFinalGemPropertyValue("ruby", CRIMSON_SKULL_CAP_RUBY)/100)
+	local damage_min = CRIMSON_SKULL_CAP_DAMAGE_MIN + ability:GetFinalGemPropertyValue("ruby", CRIMSON_SKULL_CAP_RUBY)
+	local damage_max = CRIMSON_SKULL_CAP_DAMAGE_MAX
+	local damage = RandomInt(damage_min, damage_max)
 	local position = GetGroundPosition(target:GetAbsOrigin(), caster)
 	skull_cap_explode(caster, ability, target, position, damage)
 end

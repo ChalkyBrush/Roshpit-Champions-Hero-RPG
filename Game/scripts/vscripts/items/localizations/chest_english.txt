@@ -156,10 +156,10 @@
 		"DOTA_Tooltip_ability_item_rpc_direwolf_bulwark"								"Direwolf Bulwark"
 
 		"item_property_direwolf"						"Crunch"
-		"property_direwolf_description"					"Your basic attacks deal extra damage equal to <% ITEM_RPC_DIREWOLF_BULWARK_ARMOR_TO_DMG %>% of the target's armor."
+		"property_direwolf_description"					"Your basic attacks deal extra damage equal to <% ITEM_RPC_DIREWOLF_BULWARK_ARMOR_TO_DMG %>% of the sum of your hero's total Pierces and Armors."
 
 		"item_rpc_direwolf_bulwark_ruby1"								"Enemy attacks against you have their damage reduced by @ruby_property1% of your Armor Pierce"
-		"item_rpc_direwolf_bulwark_emerald1"								"Increases Crunch's damage by an additional @emerald_property1% of the target's armor"
+		"item_rpc_direwolf_bulwark_emerald1"								"Increases Crunch's damage by an additional @emerald_property1% of the said sum"
 		"item_rpc_direwolf_bulwark_sapphire1"								"Increases Armor Pierce by @sapphire_property1"
 		"item_rpc_direwolf_bulwark_amethyst1"								"Your attacks deal an additional instance of magical damage equal to @amethyst_property1% of the target's Magic Armor"
 
