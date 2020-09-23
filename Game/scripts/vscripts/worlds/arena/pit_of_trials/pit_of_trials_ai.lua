@@ -1071,6 +1071,7 @@ end
 function forest_guide_think(event)
 	local caster = event.caster
 	local aiState = caster.aiState
+	event.ability:ApplyDataDrivenModifier(caster, caster, "modifier_forest_guide_anti_stuck", {})
 	local moveToPosition = Vector(-15168, -1984)
 	if aiState == 1 then
 		moveToPosition = Vector(-14272, -2112)

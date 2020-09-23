@@ -859,7 +859,7 @@ function falcon_boot_impact(event)
 	if target:HasModifier("modifier_falcon_out") or target:HasModifier("modifier_falcon_lift_immune") then
 		return false
 	end
-	if target.jumpLock or target.pushLock then
+	if target.jumpLock or target.pushLock or target.dummy then
 		Filters:FalconAmethystDamage(event.ability.hero, target)
 		return false
 	end
@@ -2396,8 +2396,11 @@ function ruby_attack(event)
 	local attacker = event.attacker
 	local target = event.target
 	local ability = event.ability
-	local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker)*ITEM_RPC_OMEGA_RUBY_ATTACK_TO_DMG/100 + ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_OMEGA_RUBY_GEM_RUBY2)
-
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker)*ITEM_RPC_OMEGA_RUBY_ATTACK_TO_DMG/100
+	local damage_ruby = 0
+	if ability:GetGemValue("ruby") > 0 then
+		damage_ruby = OverflowProtectedGetAverageTrueAttackDamage(attacker) * ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_OMEGA_RUBY_GEM_RUBY2)/100
+	end
 	EmitSoundOn("RPCItems.OmegaRuby.AttackLand", target)
 	local radius = ITEM_RPC_OMEGA_RUBY_AOE_RADIUS + ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_OMEGA_RUBY_GEM_RUBY1)
 	local particleName = "particles/econ/items/techies/techies_arcana/techies_suicide_arcana.vpcf"
@@ -2411,6 +2414,9 @@ function ruby_attack(event)
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do
 			Filters:ApplyItemDamage(enemy, attacker, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+			if ability:GetGemValue("ruby") > 0 then
+				Filters:ApplyItemDamage(enemy, attacker, damage_ruby, DAMAGE_TYPE_PHYSICAL, ability, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+			end
 		end
 	end
 
@@ -9886,7 +9892,7 @@ function galaxy_orb_suction(event)
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do
-			if enemy.jumpLock or enemy.pushlock then
+			if enemy.jumpLock or enemy.pushlock or enemy.dummy then
 			else
 				local enemyPosition = enemy:GetAbsOrigin()
 				local movementVector = (position - enemyPosition):Normalized()
@@ -10345,6 +10351,11 @@ function justice_greaves_think(event)
 	local highest_armor_pierce = 0
 	local highest_magic_armor = 0
 	local highest_spell_pierce = 0
+	
+	local armor_cap = hero:GetRoshpitArmor()*ITEM_RPC_JUSTICE_GREAVES_CAP
+	local armor_pierce_cap = hero:GetRoshpitArmorPierce()*ITEM_RPC_JUSTICE_GREAVES_CAP
+	local magic_armor_cap = hero:GetRoshpitMagicArmor()*ITEM_RPC_JUSTICE_GREAVES_CAP
+	local spell_pierce_cap = hero:GetRoshpitSpellPierce()*ITEM_RPC_JUSTICE_GREAVES_CAP
 
 	local stat_pct = ITEM_RPC_JUSTICE_GREAVES_PCT_STAT + ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_JUSTICE_GREAVES_GEM_SAPPHIRE)
 	local search_range = ITEM_RPC_JUSTICE_GREAVES_RANGE + ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_JUSTICE_GREAVES_GEM_AMETHYST)
@@ -10355,10 +10366,10 @@ function justice_greaves_think(event)
 	local enemies = FindUnitsInRadius(hero:GetTeamNumber(), hero:GetAbsOrigin(), nil, search_range, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, search_flags, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do
-			highest_armor = math.max(highest_armor, enemy:GetRoshpitArmor())
-			highest_armor_pierce = math.max(highest_armor_pierce, enemy:GetRoshpitArmorPierce())
-			highest_magic_armor = math.max(highest_magic_armor, enemy:GetRoshpitMagicArmor())
-			highest_spell_pierce = math.max(highest_spell_pierce, enemy:GetRoshpitSpellPierce())
+			highest_armor = math.min(math.max(highest_armor, enemy:GetRoshpitArmor()), armor_cap)
+			highest_armor_pierce = math.min(math.max(highest_armor_pierce, enemy:GetRoshpitArmorPierce()), armor_pierce_cap)
+			highest_magic_armor = math.min(math.max(highest_magic_armor, enemy:GetRoshpitMagicArmor()), magic_armor_cap)
+			highest_spell_pierce = math.min(math.max(highest_spell_pierce, enemy:GetRoshpitSpellPierce()), spell_pierce_cap)
 		end
 	end
 	if highest_armor > 0 then

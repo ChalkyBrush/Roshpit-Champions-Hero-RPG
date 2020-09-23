@@ -2,9 +2,9 @@
 		"DOTA_Tooltip_ability_leshrac_wall"								"Wall of Impunity"
     	"DOTA_Tooltip_ability_leshrac_wall_Description"					"Стихия: <font color=ELEMENT_HOLY>Свет</font><br>Bahamut призывает стену, которая разрушает разум врагов, прошедших сквозь нее. Все враги, находящиеся рядом со Стеной будут получать урон, а их урон будет снижен."
     	"DOTA_Tooltip_ability_leshrac_wall_Lore"						"Стена знаний, через которую свободно перемещаются только достойнейшие"
-    	"DOTA_Tooltip_ability_leshrac_wall_damage"						"УРОН/ТИК"
-    	"DOTA_Tooltip_ability_leshrac_wall_wall_length"					"ШИРИНА"
-    	"DOTA_Tooltip_ability_leshrac_wall_attack_loss"					"СНИЖЕНИЕ УРОНА %"
+    	"DOTA_Tooltip_ability_leshrac_wall_damage"						"УРОН/ТИК:"
+    	"DOTA_Tooltip_ability_leshrac_wall_wall_length"					"ШИРИНА:"
+    	"DOTA_Tooltip_ability_leshrac_wall_attack_loss"					"СНИЖЕНИЕ УРОНА %:"
 
     	"DOTA_Tooltip_modifier_leshrac_wall_attack_loss"				"Wall of Impunity"
     	"DOTA_Tooltip_modifier_leshrac_wall_attack_loss_Description"	"Урон снижен"
@@ -45,8 +45,8 @@
 		"DOTA_Tooltip_ability_leshrac_nuke"								"Judgement"
     	"DOTA_Tooltip_ability_leshrac_nuke_Description"					"Стихия: <font color=ELEMENT_HOLY>Свет</font><br>Bahamut воздает противникам по заслугам в небольшом радиусе перед собой."
     	"DOTA_Tooltip_ability_leshrac_nuke_Lore"						""
-    	"DOTA_Tooltip_ability_leshrac_nuke_damage"						"УРОН"
-    	"DOTA_Tooltip_ability_leshrac_nuke_radius"						"РАДИУС"
+    	"DOTA_Tooltip_ability_leshrac_nuke_damage"						"УРОН:"
+    	"DOTA_Tooltip_ability_leshrac_nuke_radius"						"РАДИУС:"
 		
 		"DOTA_Tooltip_ability_bahamut_rune_w_1"							"[W1] Greatness"
     	"DOTA_Tooltip_ability_bahamut_rune_w_1_Description"				"Увеличивает базовый урон и урон от способностей."
@@ -82,7 +82,7 @@
 		"DOTA_Tooltip_ability_leshrac_blink"							"Ascension"
     	"DOTA_Tooltip_ability_leshrac_blink_Description"				"Bahamut переходит в другое измерение, избегая любого урона, после чего возвращается в этот мир в указанной точке."
     	"DOTA_Tooltip_ability_leshrac_blink_Lore"						""
-    	"DOTA_Tooltip_ability_leshrac_blink_range"						"МАКС.РАССТОЯНИЕ"
+    	"DOTA_Tooltip_ability_leshrac_blink_range"						"МАКС.РАССТОЯНИЕ:"
 		
 		"DOTA_Tooltip_ability_bahamut_rune_e_1"							"[E1] Chronos Mend"
     	"DOTA_Tooltip_ability_bahamut_rune_e_1_Description"				"С 90% шансом при получении урона герой исцелится на % от полученного урона"
@@ -127,8 +127,8 @@
 		"DOTA_Tooltip_ability_charge_of_light"							"Megaflare"
     	"DOTA_Tooltip_ability_charge_of_light_Description"				"Стихия: <font color=ELEMENT_HOLY>Свет</font><br>После 2 секундной подготовки Bahamut устремляется вперед, высвобождая взрывную энергию, способную стереть низших существ. Во время разбега, Bahamut неуязвим к физическому и магическому урону. <br><font color='#70EA72'>Если приказать герою через Shift сразу при прочтении поставить стену немного впереди, то он может успеть это сделать, пока бежит.</font>."
     	"DOTA_Tooltip_ability_charge_of_light_Lore"						""
-    	"DOTA_Tooltip_ability_charge_of_light_damage"					"УРОН"	
-    	"DOTA_Tooltip_ability_charge_of_light_range"					"РАДИУС ВЗРЫВА"
+    	"DOTA_Tooltip_ability_charge_of_light_damage"					"УРОН:"	
+    	"DOTA_Tooltip_ability_charge_of_light_range"					"РАДИУС ВЗРЫВА:"
 		
 		"DOTA_Tooltip_ability_bahamut_rune_r_1"							"[R1] Hyper State"
     	"DOTA_Tooltip_ability_bahamut_rune_r_1_Description"				"Пробегая через @Ability1 с помощью умения @Ability4, Bahamut на 12 секунд получает бонус к скорости атаки и скорости передвижения."
@@ -161,9 +161,11 @@
     	"DOTA_Tooltip_modifier_bahamut_rune_r_3_effect_Description"		"Замедлен"
 		
 		"DOTA_Tooltip_ability_bahamut_rune_r_4"							"[R4] Solitary Shell"
-    	"DOTA_Tooltip_ability_bahamut_rune_r_4_Description"				"По завершении разгона от умения @Ability4, Bahamut окружается непробиваемым щитом на 3 секунды. Пока щит активен, Bahamut получает бонус к атрибутам, который длится 9 секунд. Время действия всех эффектов продлевается на время работы щита."
+    	"DOTA_Tooltip_ability_bahamut_rune_r_4_Description"				"По завершении разгона от умения @Ability4, Bahamut окружается непробиваемым щитом на <% BAHAMUT_R4_SHIELD_DURATION %> секунды. Пока щит активен, Bahamut получает бонус к атрибутам, который длится <% BAHAMUT_R4_DURATION %> секунд. Время действия всех эффектов продлевается на время работы щита. Урон Megaflare пассивно увеличивается."
     	"DOTA_Tooltip_ability_bahamut_rune_r_4_property_one"			"Доп. атрибуты"
-    	"DOTA_Tooltip_ability_bahamut_rune_r_4_suffix"					" каждые 0.1 сек."	
+    	"DOTA_Tooltip_ability_bahamut_rune_r_4_suffix"					" каждые 0.1 сек."
+		"DOTA_Tooltip_ability_bahamut_rune_r_4_property_one"			"Бонус урона Megaflare"
+    	"DOTA_Tooltip_ability_bahamut_rune_r_4_suffix"					""		
 
       	"DOTA_Tooltip_modifier_bahamut_rune_r_4_shell"						"Solitary Shell"
     	"DOTA_Tooltip_modifier_bahamut_rune_r_4_shell_Description"			"Заморожен. Иммунитет к любому урону."	  		
@@ -262,7 +264,7 @@
 		"item_rpc_bahamut_glyph_4_1_description" 				"Увеличивает время действия (Q) Wall of Impunity на <% BAHAMUT_GLYPH_4_1_Q_DURATION %> сек."
 
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_5_1"		"[T5-1] Glyph of Isolation"
-		"item_rpc_bahamut_glyph_5_1_description" 				"Увеличивает продолжительность R4 Solitary Shell на <% BAHAMUT_GLYPH_5_1_R4_DURATION %> сек."
+		"item_rpc_bahamut_glyph_5_1_description" 				"Увеличивает продолжительность R4 Solitary Shell на <% BAHAMUT_GLYPH_5_1_R4_DURATION %> сек., а урон Megaflare умножается на <% BAHAMUT_GLYPH_5_1_R4_DAMAGE_MULT %>."
 
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_6_1"		"[T6-1] Glyph of Pride"
 		"item_rpc_bahamut_glyph_6_1_description" 				"[E3] становится пассивной, и не замедляет. Каждый <% BAHAMUT_GLYPH_6_1_PULSES %> импульс оглушает цели на <% BAHAMUT_GLYPH_6_1_E3_STUN %> сек."

@@ -2,9 +2,9 @@
 		"DOTA_Tooltip_ability_leshrac_wall"								"Wall of Impunity"
     	"DOTA_Tooltip_ability_leshrac_wall_Description"					"Element: <font color=ELEMENT_HOLY>Holy</font><br>Bahamut conjures a wall that reveals the inadequacy of beings that pass through. Enemies near the wall are judged for being unworthy and take damage."
     	"DOTA_Tooltip_ability_leshrac_wall_Lore"						""
-    	"DOTA_Tooltip_ability_leshrac_wall_damage"						"DAMAGE/TICK"
-    	"DOTA_Tooltip_ability_leshrac_wall_wall_length"					"LENGTH"
-    	"DOTA_Tooltip_ability_leshrac_wall_attack_loss"					"ATTACK DECREASE %"
+    	"DOTA_Tooltip_ability_leshrac_wall_damage"						"DAMAGE/TICK:"
+    	"DOTA_Tooltip_ability_leshrac_wall_wall_length"					"LENGTH:"
+    	"DOTA_Tooltip_ability_leshrac_wall_attack_loss"					"ATTACK DECREASE %:"
 
     	"DOTA_Tooltip_modifier_leshrac_wall_attack_loss"				"Wall of Impunity"
     	"DOTA_Tooltip_modifier_leshrac_wall_attack_loss_Description"	"Losing Attack Damage"
@@ -45,8 +45,8 @@
 		"DOTA_Tooltip_ability_leshrac_nuke"								"Judgement"
     	"DOTA_Tooltip_ability_leshrac_nuke_Description"					"Element: <font color=ELEMENT_HOLY>Holy</font><br>Bahamut measures the worth of enemies in a small radius in front of him."
     	"DOTA_Tooltip_ability_leshrac_nuke_Lore"						""
-    	"DOTA_Tooltip_ability_leshrac_nuke_damage"						"DAMAGE"
-    	"DOTA_Tooltip_ability_leshrac_nuke_radius"						"RADIUS"
+    	"DOTA_Tooltip_ability_leshrac_nuke_damage"						"DAMAGE:"
+    	"DOTA_Tooltip_ability_leshrac_nuke_radius"						"RADIUS:"
 		
 		"DOTA_Tooltip_ability_bahamut_rune_w_1"							"[W1] Greatness"
     	"DOTA_Tooltip_ability_bahamut_rune_w_1_Description"				"Increases Attack Power and Base Ability Damage."
@@ -83,7 +83,7 @@
 		"DOTA_Tooltip_ability_leshrac_blink"							"Ascension"
     	"DOTA_Tooltip_ability_leshrac_blink_Description"				"Bahamut ascends into a state where he can perceive all truths, allowing him to step out of our standard world."
     	"DOTA_Tooltip_ability_leshrac_blink_Lore"						""
-    	"DOTA_Tooltip_ability_leshrac_blink_range"						"DISTANCE"
+    	"DOTA_Tooltip_ability_leshrac_blink_range"						"DISTANCE:"
 		
 		"DOTA_Tooltip_ability_bahamut_rune_e_1"							"[E1] Chronos Mend"
     	"DOTA_Tooltip_ability_bahamut_rune_e_1_Description"				"Gives a 90% on taking damage heal for a portion of the damage."
@@ -110,7 +110,7 @@
     	"DOTA_Tooltip_ability_bahamut_pulse"							"Bahamut Pulse"
     	"DOTA_Tooltip_ability_bahamut_pulse_Description"				"Deals damage to all nearby enemies at the cost of Movespeed. Using Aberrant Ascension will restore your lost movement speed."
     	"DOTA_Tooltip_ability_bahamut_pulse_Lore"						""
-    	"DOTA_Tooltip_ability_bahamut_pulse_movespeed"					"MOVESPEED LOSS PER CAST"
+    	"DOTA_Tooltip_ability_bahamut_pulse_movespeed"					"MOVESPEED LOSS PER CAST:"
 
     	"DOTA_Tooltip_modifier_pulse_slow"								"Overloaded"
     	"DOTA_Tooltip_modifier_pulse_slow_Description"					"Losing movespeed"
@@ -128,8 +128,8 @@
 		"DOTA_Tooltip_ability_charge_of_light"							"Megaflare"
     	"DOTA_Tooltip_ability_charge_of_light_Description"				"Element: <font color=ELEMENT_HOLY>Holy</font><br>Bahamut charges forward and unleashes an explosion of power to cleanse the inferior. While charging Bamamut is immune to physical and magic damage."
     	"DOTA_Tooltip_ability_charge_of_light_Lore"						""
-    	"DOTA_Tooltip_ability_charge_of_light_damage"					"DAMAGE"	
-    	"DOTA_Tooltip_ability_charge_of_light_range"					"EXPLOSION RADIUS"
+    	"DOTA_Tooltip_ability_charge_of_light_damage"					"DAMAGE:"	
+    	"DOTA_Tooltip_ability_charge_of_light_range"					"EXPLOSION RADIUS:"
 		
 		"DOTA_Tooltip_ability_bahamut_rune_r_1"							"[R1] Hyper State"
     	"DOTA_Tooltip_ability_bahamut_rune_r_1_Description"				"Charging through a Wall of Impunity with Megaflare activates Hyper State which increases Bahamut's Attack and Movespeed for 12 seconds."
@@ -162,9 +162,11 @@
     	"DOTA_Tooltip_modifier_bahamut_rune_r_3_effect_Description"		"Slowed"
 		
 		"DOTA_Tooltip_ability_bahamut_rune_r_4"							"[R4] Solitary Shell"
-    	"DOTA_Tooltip_ability_bahamut_rune_r_4_Description"				"Upon completion of Megaflare's charge, Bahamut enters an impenetrable shield for 3 seconds that makes him immune to all damage and preserves buff durations. While in the shell Bahamut gains bonus attributes that last for 9 seconds."
+    	"DOTA_Tooltip_ability_bahamut_rune_r_4_Description"				"Upon completion of Megaflare's charge, Bahamut enters an impenetrable shield for <% BAHAMUT_R4_SHIELD_DURATION %> seconds that makes him immune to all damage and preserves buff durations. While in the shell Bahamut gains bonus attributes that last for <% BAHAMUT_R4_DURATION %> seconds. Megaflare's damage passively increased."
     	"DOTA_Tooltip_ability_bahamut_rune_r_4_property_one"			"Bonus Attributes"
-    	"DOTA_Tooltip_ability_bahamut_rune_r_4_suffix"					" every 0.1 seconds"	
+    	"DOTA_Tooltip_ability_bahamut_rune_r_4_suffix"					" every 0.1 seconds"
+		"DOTA_Tooltip_ability_bahamut_rune_r_4_property_two"			"Bonus Megaflare damage"
+		"DOTA_Tooltip_ability_bahamut_rune_r_4_suffix_two"				""
 
       	"DOTA_Tooltip_modifier_bahamut_rune_r_4_shell"						"Solitary Shell"
     	"DOTA_Tooltip_modifier_bahamut_rune_r_4_shell_Description"			"Frozen and Damage Immune"	  		
@@ -264,7 +266,7 @@
 		"item_rpc_bahamut_glyph_4_1_description" 				"Increases the duration of Wall of Impunity by <% BAHAMUT_GLYPH_4_1_Q_DURATION %> seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_5_1"		"[T5-1] Glyph of Isolation"
-		"item_rpc_bahamut_glyph_5_1_description" 				"Increases the duration of Solitary Shell by <% BAHAMUT_GLYPH_5_1_R4_DURATION %> seconds."
+		"item_rpc_bahamut_glyph_5_1_description" 				"Increases the duration of Solitary Shell by <% BAHAMUT_GLYPH_5_1_R4_DURATION %> seconds and multiplies Megaflare damage by <% BAHAMUT_GLYPH_5_1_R4_DAMAGE_MULT %>."
 
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_6_1"		"[T6-1] Glyph of Pride"
 		"item_rpc_bahamut_glyph_6_1_description" 				"[E3] is passive and no longer slows. Also Bahamut Pulse applies a <% BAHAMUT_GLYPH_6_1_E3_STUN %> second stun every <% BAHAMUT_GLYPH_6_1_PULSES %>th pulse."

@@ -480,6 +480,11 @@
 				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% BAHAMUT_R4_STATS_PER_TICK %>"
 			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"<% BAHAMUT_R4_R_BONUS_DAMAGE %>"
+			}
 		}
 		"Modifiers"
 		{

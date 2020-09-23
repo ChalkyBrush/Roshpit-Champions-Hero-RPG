@@ -1048,6 +1048,7 @@ function Redfall:CreateReaverSwitch()
   shield:SetAngles(0, 270, 0)
   shield.type = "reaver"
   shield.jumpLock = true
+  shield.pushLock = true
   shield.dummy = true
   for i = 1, 130, 1 do
     Timers:CreateTimer(i * 0.03, function()

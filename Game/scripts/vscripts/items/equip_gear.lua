@@ -190,7 +190,7 @@ function RPCItems:RecordGearBonusToHeroBySlot(item, hero, property_name, propert
 		property_bonus_mult = property_bonus_mult + RPCItems:GetMultForDreamRobes(hero, item, property_value, property_name)
 	end
 	if hero:HasModifier("modifier_excavators_focus_cap") or item:GetAbilityName() == "item_rpc_excavators_focus_cap" then
-		property_bonus_mult = property_bonus_mult + EXCAVATOR_GEAR_AMP/100
+		property_bonus_mult = property_bonus_mult + RPCItems:GetMultForExcavatorsFocusCap(hero, item, property_value, property_name)
 	end
 	if hero.equipped_gear and hero.equipped_gear[RPC_GEAR_SLOT_TRINKET] and hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetAbilityName() == "item_rpc_stone_of_gordon" then
 		property_bonus_mult = property_bonus_mult + RPCItems:GetMultStoneOfGordon(hero, item, property_value, property_name)
@@ -1355,11 +1355,7 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_CONQUEST_STONE_FALCON_GEM_SAPPHIRE, hero, "spell_pierce", RPC_GEAR_SLOT_TRINKET)
 		elseif socket_type == "amethyst" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_CONQUEST_STONE_FALCON_GEM_AMETHYST, hero, "magic_armor", RPC_GEAR_SLOT_TRINKET)
-		end	
-	elseif item:GetAbilityName() == "item_rpc_emerald_nullification_ring" then	
-		if socket_type == "emerald" then
-			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_EMERALD_NULLIFICATION_RING_GEM_EMERALD, hero, "agility", RPC_GEAR_SLOT_TRINKET)
-		end		
+		end
 	elseif item:GetAbilityName() == "item_rpc_epsilons_eyeglass" then
 		if socket_type == "amethyst" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_EPSILONS_EYEGLASS_GEM_AMETHYST, hero, "element_cosmic", RPC_GEAR_SLOT_TRINKET)
@@ -1711,6 +1707,22 @@ function RPCItems:GetMultForDreamRobes(hero, item, property_value, property_name
 		mult = hero.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_VERMILLION_DREAM_ROBES_GEM_EMERALD)/100
 	elseif property_name == "all_t1_runes" or property_name == "all_t2_runes" or property_name == "all_t3_runes" or property_name == "all_t4_runes" then
 		mult = hero.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_VERMILLION_DREAM_ROBES_GEM_EMERALD)/100
+	end
+	return mult
+end
+
+function RPCItems:GetMultForExcavatorsFocusCap(hero, item, property_value, property_name)
+	local mult = 0
+	if property_name == "rune_q_1" or property_name == "rune_q_2" or property_name == "rune_q_3" or property_name == "rune_q_4" then
+		mult = EXCAVATOR_GEAR_AMP/100
+	elseif property_name == "rune_w_1" or property_name == "rune_w_2" or property_name == "rune_w_3" or property_name == "rune_w_4" then
+		mult = EXCAVATOR_GEAR_AMP/100
+	elseif property_name == "rune_e_1" or property_name == "rune_e_2" or property_name == "rune_e_3" or property_name == "rune_e_4" then
+		mult = EXCAVATOR_GEAR_AMP/100
+	elseif property_name == "rune_r_1" or property_name == "rune_r_2" or property_name == "rune_r_3" or property_name == "rune_r_4" then
+		mult = EXCAVATOR_GEAR_AMP/100
+	elseif property_name == "all_t1_runes" or property_name == "all_t2_runes" or property_name == "all_t3_runes" or property_name == "all_t4_runes" then
+		mult = EXCAVATOR_GEAR_AMP/100
 	end
 	return mult
 end

@@ -168,5 +168,8 @@ function terrorize_panic_think(event)
 	local ability = event.ability
 	local target = event.target
 	local direction = ((target:GetAbsOrigin() - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
+	if target.dummy then
+		return false
+	end
 	target:MoveToPosition(target:GetAbsOrigin() + direction * 200)
 end

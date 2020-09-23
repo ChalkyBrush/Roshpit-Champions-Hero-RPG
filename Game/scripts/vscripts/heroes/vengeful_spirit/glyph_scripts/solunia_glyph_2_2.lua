@@ -141,7 +141,9 @@ function modifier_solunia_glyph_2_2_pull:OnIntervalThink()
     local speed = distance/35
     local newPos = GetGroundPosition(start_position + direction*speed, target)
     print(newPos)
-    target:SetAbsOrigin(newPos)
+	if not target.dummy then
+		target:SetAbsOrigin(newPos)
+	end
 end
 
 function modifier_solunia_glyph_2_2_pull:OnRemoved()

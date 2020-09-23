@@ -269,6 +269,9 @@ function backstab_channel_succeed(event)
 	local ability = event.ability
 	local target = event.target
 	local damageMult = event.damage_mult
+	if target.dummy then
+		return false
+	end
 	if caster:HasModifier('modifier_trapper_immortal_weapon_3') then
 		Filters:ReduceCooldownGeneric(caster, ability, ability:GetCooldownTimeRemaining() * TRAPPER_IMMORTAL_WEAPON_3_CD_RED)
 	end

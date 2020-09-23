@@ -413,7 +413,7 @@
 
 		// Time
 		//-------------------------------------------------------
-		"AbilityCooldown"				"8.5 8.2 7.9 7.6 7.3 7.0 6.7"
+		"AbilityCooldown"				"<% BAHAMUT_E_COOLDOWN %>"
 
 		// Cost
 		//-------------------------------------------------------
@@ -619,7 +619,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"movespeed"					"-18"
+				"movespeed"					"-<% BAHAMUT_E3_MS_SLOW_PER_TICK %>"
 			}
 		}
 
@@ -650,7 +650,7 @@
 			"modifier_bahamut_pulse_on"
 			{
 				"IsHidden" "1"
-				"ThinkInterval"  "0.25"
+				"ThinkInterval"  "<% BAHAMUT_E_PULSE_THINK_INTERVAL %>"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -967,12 +967,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"160 380 600 820 1040 1260 1480"
+				"damage"				"<% BAHAMUT_R_DAMAGE %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"range"					"750 770 790 810 830 850 870"
+				"range"					"<% BAHAMUT_R_RANGE %>"
 			}
 		}
 	}

@@ -59,9 +59,11 @@ function walk_into_ice_scathe(event)
 		end
 		-- hero effect
 	else
-		local delay = event.freeze_delay
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_ice_scathe_countdown", {duration = delay})
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_in_ice_scathe_enemy", {})
+		if target:GetTeamNumber() ~= DOTA_TEAM_GOODGUYS then
+			local delay = event.freeze_delay
+			ability:ApplyDataDrivenModifier(caster, target, "modifier_ice_scathe_countdown", {duration = delay})
+			ability:ApplyDataDrivenModifier(caster, target, "modifier_in_ice_scathe_enemy", {})
+		end
 	end
 end
 
@@ -114,8 +116,19 @@ function ice_scathe_pop(event)
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do
-			ability:ApplyDataDrivenModifier(caster, enemy, "modifier_ice_scathe_freeze", {duration = freeze_duration})
+			if not enemy:HasModifier("modifier_ice_scathe_freeze_immunity") then
+				ability:ApplyDataDrivenModifier(caster, enemy, "modifier_ice_scathe_freeze", {duration = freeze_duration})
+				ability:ApplyDataDrivenModifier(caster, enemy, "modifier_ice_scathe_freeze_immunity", {duration = freeze_duration+WARLORD_ARCANA2_Q_ICE_FREEZE_IMMUNITY})
+			end
 			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_ICE, RPC_ELEMENT_DRAGON)
+			enemy:RemoveModifierByName("modifier_ice_scathe_countdown")
+			if target:HasModifier("modifier_in_ice_scathe_enemy") then
+				Timers:CreateTimer(freeze_duration, function()
+				if target:HasModifier("modifier_in_ice_scathe_enemy") then
+					ice_scathe_pop(event)
+				end
+				end)
+			end
 		end
 	end
 	EmitSoundOnLocationWithCaster(origin, "Warlord.IceScathe.Pop", caster)
@@ -125,6 +138,6 @@ function ice_scathe_passive_thinker(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
-	caster:ApplyAndIncrementStack(ability, caster, "modifier_ice_scathe_freecast", 1, 2, 0)
+	caster:ApplyAndIncrementStack(ability, caster, "modifier_ice_scathe_freecast", 1, WARLORD_ARCANA2_Q_ICE_CHARGES, 0)
 	
 end
