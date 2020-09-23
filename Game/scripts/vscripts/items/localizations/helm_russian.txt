@@ -163,9 +163,9 @@
 
     	"DOTA_Tooltip_ability_item_rpc_crimson_skull_cap"								"Crimson Skull Cap"
 		"item_property_crimson_skull_cap"						"Corpse Explosion"
-		"property_crimson_skull_cap_description"				"Убитые противники взорвутся и нанесут урон от взрыва Магическим уроном по области в <% CRIMSON_SKULL_CAP_HP_PCT_TO_DAMAGE %>% от их показателя Здоровья."
+		"property_crimson_skull_cap_description"				"Убитые противники взорвутся и нанесут урон от взрыва Магическим уроном по области от <% CRIMSON_SKULL_CAP_DAMAGE_MIN %> to <% CRIMSON_SKULL_CAP_DAMAGE_MAX %>."
 
-		"item_rpc_crimson_skull_cap_ruby1"	"Увеличивает урон от взрыва дополнительно на @ruby_property1% от показателя Здоровья убитого противника"
+		"item_rpc_crimson_skull_cap_ruby1"	"Увеличивает минимальный урон от взрыва дополнительно на @ruby_property1"
 		"item_rpc_crimson_skull_cap_emerald1"	"Увеличивает радиус взрыва на @emerald_property1"
 		"item_rpc_crimson_skull_cap_sapphire1" "При получении урона герой произведет взрыв через <% CRIMSON_SKULL_CAP_SAPPHIRE_COUNTDOWN_TIMER %> сек, нанося урон по обласи @sapphire_property1% от максимального запаса здоровья"
 		"item_rpc_crimson_skull_cap_amethyst1" "Увеличивает урон Предметов и урон <font color=ELEMENT_UNDEAD>Нежити</font> на @amethyst_property1"

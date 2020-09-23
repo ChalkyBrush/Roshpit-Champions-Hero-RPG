@@ -314,7 +314,7 @@
         "item_rpc_paladin_glyph_4_2_description"                "@Ability2 имеет <% PALADIN_GLYPH_4_2_CAST_POINT %> время каста и толкает вперед."
 
         "DOTA_Tooltip_ability_item_rpc_paladin_glyph_5_2"       "[T5-2] Glyph of Penitence"
-        "item_rpc_paladin_glyph_5_2_description"                "@Ability4 могут атаковать, нанося при ударах чистый урон с элементом <font color=ELEMENT_HOLY>Света</font> в размере <% PALADIN_GLYPH_5_2_ATTACK_MULT %>x от атаки Паладина."
+        "item_rpc_paladin_glyph_5_2_description"                "@Ability4 могут атаковать, нанося при ударах дополнительный урон в размере <% PALADIN_GLYPH_5_2_ATTACK_MULT*100 %>% от атаки Паладина.<br> Тип Урона: <font color='#E8B444'>Чистый</font><br>Элемент: <font color=ELEMENT_HOLY>Свет</font> <br> Модификатор атаки, не получает бонусы от урона <font color='#F28100'>Предметов</font> или <font color='#7AB4CC'>Базовых Способностей</font>."
 
         "DOTA_Tooltip_ability_item_rpc_paladin_glyph_6_2"       "[T6-2] Glyph of Magic Protection"
         "item_rpc_paladin_glyph_6_2_description"                "Магическая Защита увеличивается на <% PALADIN_GLYPH_6_2_MAGIC_ARMOR_PCT %>%."

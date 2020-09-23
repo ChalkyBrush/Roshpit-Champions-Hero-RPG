@@ -145,10 +145,11 @@ function modifier_attack_land_basic:OnAttackLanded(event)
 		end
 		if parent:HasModifier("modifier_direwolf_bulwark") then
 			local direwolf = parent:FindModifierByName("modifier_direwolf_bulwark"):GetAbility()
-			local direwolfDamage = event.target:GetRoshpitArmor()*((ITEM_RPC_DIREWOLF_BULWARK_ARMOR_TO_DMG + direwolf:GetFinalGemPropertyValue("emerald", ITEM_RPC_DIREWOLF_BULWARK_GEM_EMERALD))/100)
+			local armors_and_pierces = parent:GetRoshpitArmor()+ parent:GetRoshpitMagicArmor() + parent:GetRoshpitArmorPierce() + parent:GetRoshpitSpellPierce()
+			local direwolfDamage = armors_and_pierces*((ITEM_RPC_DIREWOLF_BULWARK_ARMOR_TO_DMG + direwolf:GetFinalGemPropertyValue("emerald", ITEM_RPC_DIREWOLF_BULWARK_GEM_EMERALD))/100)
 			Filters:ApplyItemDamage(event.target, parent, direwolfDamage, DAMAGE_TYPE_MAGICAL, direwolf, RPC_ELEMENT_SHADOW, RPC_ELEMENT_DEMON)
 			if parent:IsHero() and direwolf:GetGemValue("amethyst") > 0 then
-				local dire_wolf_amethyst_damage = event.target:GetRoshpitMagicArmor()*(direwolf:GetFinalGemPropertyValue("amethyst", ITEM_RPC_DIREWOLF_BULWARK_GEM_AMETHYST)/100)
+				local dire_wolf_amethyst_damage = armors_and_pierces*(direwolf:GetFinalGemPropertyValue("amethyst", ITEM_RPC_DIREWOLF_BULWARK_GEM_AMETHYST)/100)
 				Filters:ApplyItemDamage(event.target, parent, dire_wolf_amethyst_damage, DAMAGE_TYPE_MAGICAL, direwolf, RPC_ELEMENT_SHADOW, RPC_ELEMENT_DEMON)	
 				CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_lycan/lycan_howl_cast_f.vpcf", event.target, 0.3)
 			end

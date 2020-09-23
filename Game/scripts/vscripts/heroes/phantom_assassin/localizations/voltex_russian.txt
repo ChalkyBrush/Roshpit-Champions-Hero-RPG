@@ -258,7 +258,7 @@
 		"item_rpc_voltex_glyph_3_1_description" 				"[E3] Heaven's Charge сбрасывает время перезарядки (Q) Overcharge."
 
 		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_4_1"		"[T4-1] Glyph of Unstable Voltage"
-		"item_rpc_voltex_glyph_4_1_description" 				"Когда Voltex произносит любые умения, кроме (W) Static, она выпускает <% VOLTEX_GLYPH_4_1_NUMBER_OF_BOLTS %> электрических зарядов, наносящих <% VOLTEX_GLYPH_4_1_ATTACK_TO_DMG %>x магического урона от базовой атаки."
+		"item_rpc_voltex_glyph_4_1_description" 				"Когда Voltex произносит любые умения, кроме (W) Static, она выпускает <% VOLTEX_GLYPH_4_1_NUMBER_OF_BOLTS %> электрических зарядов, наносящих <% VOLTEX_GLYPH_4_1_ATTACK_TO_DMG %>x от силы атаки героя.<br> Тип Урона: <font color='#6A8EC9'>Магический</font> <br>Элемент: <font color=ELEMENT_LIGHTNING>Молния</font><br><font color='#F28100'>Урон Предметов</font>"
 
 		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_5_1"		"[T5-1] Glyph of Charged Combat"
 		"item_rpc_voltex_glyph_5_1_description" 				"Увеличивает продолжительность действия руны [R3] на <% VOLTEX_GLYPH_5_1_DURATION_INCREASE %> сек. и увеличивает основной урон во время действия [R3] на <% VOLTEX_GLYPH_5_1_ATT_PCT %>%."

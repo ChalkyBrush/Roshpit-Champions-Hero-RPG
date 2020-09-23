@@ -264,7 +264,7 @@
 		"item_rpc_auriun_glyph_7_1_description" 				"[R1] attacks explode and deal another instance of damage to all enemies in a radius of <% AURIUN_GLYPH_7_1_RADIUS %>"
 
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_5_a"		"[T5-a] Glyph of Shadow Flay"
-		"item_rpc_auriun_glyph_5_a_description" 				"All nearby enemies are grasped by Shadow Flay, dealing <% AURIUN_GLYPH_5_A_AOE_DMG_PER_INT %>x Auriun's intelligence each <% AURIUN_GLYPH_5_A_INTERVAL %> second tick and slowing them by <% AURIUN_GLYPH_5_A_MS_SLOW_PCT %>%. <% AURIUN_GLYPH_5_A_DMG_TO_SELF_HEAL_PCT %>% of damage dealt heals Auriun."
+		"item_rpc_auriun_glyph_5_a_description" 				"All nearby enemies are grasped by Shadow Flay, dealing <% AURIUN_GLYPH_5_A_AOE_DMG_PER_INT %>x Auriun's Intelligence each <% AURIUN_GLYPH_5_A_INTERVAL %> second tick and slowing them by <% AURIUN_GLYPH_5_A_MS_SLOW_PCT %>%. <% AURIUN_GLYPH_5_A_DMG_TO_SELF_HEAL_PCT %>% of damage dealt heals Auriun.<br> Damage Type: <font color='#6A8EC9'>Magical</font> <br>Element: <font color=ELEMENT_SHADOW>Shadow</font><br><font color='#F28100'>Item Damage</font>"
 		
 		//Weapons
 		"DOTA_Tooltip_ability_item_rpc_auriun_weapon_00"   "Tome"

@@ -156,10 +156,10 @@
 		"DOTA_Tooltip_ability_item_rpc_direwolf_bulwark"								"Direwolf Bulwark"
 
 		"item_property_direwolf"						"Crunch"
-		"property_direwolf_description"					"Стандартные атаки наносят дополнительный урон, равный <% ITEM_RPC_DIREWOLF_BULWARK_ARMOR_TO_DMG %>% от показателя Брони цели."
+		"property_direwolf_description"					"Стандартные атаки наносят дополнительный урон, равный <% ITEM_RPC_DIREWOLF_BULWARK_ARMOR_TO_DMG %>% от суммы Брони, Защиты и Пробитий героя."
 
 		"item_rpc_direwolf_bulwark_ruby1"								"Атаки, нанесенные противниками по герою, снизят их урон на @ruby_property1% от Пробития Брони героя"
-		"item_rpc_direwolf_bulwark_emerald1"								"Дополнительный урон при атаках увеличен еще на @emerald_property1% от Брони цели"
+		"item_rpc_direwolf_bulwark_emerald1"								"Дополнительный урон при атаках увеличен еще на @emerald_property1% от суммы слагаемых значений"
 		"item_rpc_direwolf_bulwark_sapphire1"								"Увеличивает Пробитие Брони на @sapphire_property1"
 		"item_rpc_direwolf_bulwark_amethyst1"								"Стандартные атаки наносят дополнительный магический урон, равный @amethyst_property1% от Магической Защиты целей"
 

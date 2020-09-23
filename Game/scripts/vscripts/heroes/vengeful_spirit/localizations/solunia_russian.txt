@@ -308,7 +308,7 @@
         "DOTA_Tooltip_ability_solunia_vorpal_blades_galactic_damage"             "УРОН:"
         "DOTA_Tooltip_ability_solunia_vorpal_blades_galactic_max_blades"           "МАКСИМУМ ЛЕЗВИЙ ОДНОВРЕМЕННО:"
         "DOTA_Tooltip_ability_solunia_vorpal_blades_galactic_base_bounces"         "ОТСКОКИ:"
-        "DOTA_Tooltip_ability_solunia_vorpal_blades_galactic_atk_power_added_to_dmg" "% УРОН АТАКИ К УРОНУ ЛЕЗВИЙ:"
+        "DOTA_Tooltip_ability_solunia_vorpal_blades_galactic_atk_power_added_to_dmg" "% СИЛЫ АТАКИ ДОБАВЛЯЕТСЯ К УРОНУ ЛЕЗВИЙ:"
 
         "DOTA_Tooltip_modifier_vorpal_blades_counter_galactic"                         "Активные Galactic Vorpal Blades"
 

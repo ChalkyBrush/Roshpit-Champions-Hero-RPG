@@ -262,7 +262,7 @@
 		"item_rpc_voltex_glyph_3_1_description" 				"Heaven's Charge refreshes the cooldown of @Ability1."
 
 		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_4_1"		"[T4-1] Glyph of Unstable Voltage"
-		"item_rpc_voltex_glyph_4_1_description" 				"When Voltex casts an ability other than Static, she releases <% VOLTEX_GLYPH_4_1_NUMBER_OF_BOLTS %> electric bolts that deal <% VOLTEX_GLYPH_4_1_ATTACK_TO_DMG %>x her attack damage as magic."
+		"item_rpc_voltex_glyph_4_1_description" 				"When Voltex casts an ability other than Static, she releases <% VOLTEX_GLYPH_4_1_NUMBER_OF_BOLTS %> electric bolts that deal <% VOLTEX_GLYPH_4_1_ATTACK_TO_DMG %>x her attack damage.<br> Damage Type: <font color='#6A8EC9'>Magical</font> <br>Element: <font color=ELEMENT_LIGHTNING>Lightning</font><br><font color='#F28100'>Item Damage</font>"
 
 		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_5_1"		"[T5-1] Glyph of Charged Combat"
 		"item_rpc_voltex_glyph_5_1_description" 				"Increases the duration of Avatar by <% VOLTEX_GLYPH_5_1_DURATION_INCREASE %> seconds and increases attack damage while in Avatar by <% VOLTEX_GLYPH_5_1_ATT_PCT %>%."
