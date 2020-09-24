@@ -3009,7 +3009,7 @@
 		"item_rpc_auriun_glyph_7_1_description" 				"[R1] взрываются и наносят урон в радиусе <font color='#ccff66'>240</font>."
 
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_5_a"		"[T5-a] Glyph of Shadow Flay"
-		"item_rpc_auriun_glyph_5_a_description" 				"Все ближайшие враги оказываются под влиянием Разоряющей Тени, которая наносит им урон каждые <font color='#ccff66'>0.5</font> сек., равный <font color='#ccff66'>1</font>x Интеллекта героя и замедляющей их на <font color='#ccff66'>20</font>%. <font color='#ccff66'>1</font>% от нанесённого урона исцеляет Auriun."
+		"item_rpc_auriun_glyph_5_a_description" 				"Все ближайшие враги оказываются под влиянием Разоряющей Тени, которая наносит им урон каждые <font color='#ccff66'>0.5</font> сек., равный <font color='#ccff66'>1</font>x Интеллекта героя и замедляющей их на <font color='#ccff66'>20</font>%. <font color='#ccff66'>2</font>% от нанесённого урона исцеляет Auriun.<br> Тип Урона: <font color='#6A8EC9'>Магический</font> <br>Элемент: <font color='#7F4F84'>Тень</font><br><font color='#F28100'>Урон Предметов</font>"
 		
 		//Weapons
 		"DOTA_Tooltip_ability_item_rpc_auriun_weapon_00"   "Tome"
@@ -3278,7 +3278,7 @@
         "item_rpc_axe_glyph_3_1_description"                "Время между тиками от умения (E) @Ability3 снижено на <font color='#ccff66'>50</font>% и составляет 0.09 секунды."
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_4_1"       "[T4-1] Glyph of the Helix"
-        "item_rpc_axe_glyph_4_1_description"                "С каждым прочтением (W) @Ability2, Red General совершает мощную круговую атаку, нанося физический урон в размере <font color='#ccff66'>15</font>% от своего общего урона всем врагам поблизости. Урон умножается на уровень прокачки умения (W) @Ability2."
+        "item_rpc_axe_glyph_4_1_description"                "С каждым прочтением (W) @Ability2, Red General совершает мощную круговую атаку, нанося урон в размере <font color='#ccff66'>15</font>% от своего общего урона всем врагам поблизости. Урон умножается на уровень прокачки умения (W) @Ability2.<br>Тип Урона: <font color='#8B0000'>Физический</font> <br>Стихия: <font color='#DDDDDD'>Нормальный</font><br><font color='#F28100'>Урон Предметов</font>"
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_5_1"       "[T5-1] Glyph of Impact"
         "item_rpc_axe_glyph_5_1_description"                "Время оглушения от умения (Q) @Ability1 снижено до <font color='#ccff66'>0.03</font> сек., но урон от этой способности увеличен в <font color='#ccff66'>3</font> раз(а)."
@@ -6363,7 +6363,7 @@
 		"item_rpc_warlord_glyph_6_1_description" 				"Увеличивает максимальное количество зарядов Земли, Льда и Огня на <font color='#ccff66'>5</font>."
 
 		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_7_1"		"[T7-1] Glyph of Warfare"
-		"item_rpc_warlord_glyph_7_1_description" 				"Каждая базовая атака становится взрывом, нанося <font color='#ccff66'>90</font>% от урона героя Магическим <font color='#EF4126'>Огонь</font>/<font color='#87D9FF'>Лёд</font> АОЕ радиусом <font color='#ccff66'>340</font>. Считается Уроном Предметов."
+		"item_rpc_warlord_glyph_7_1_description" 				"Каждая базовая атака становится взрывом, нанося <font color='#ccff66'>90</font>% от урона героя Магическим <font color='#EF4126'>Огонь</font>/<font color='#87D9FF'>Лёд</font> АОЕ радиусом <font color='#ccff66'>340</font>.<br> Тип Урона: <font color='#6A8EC9'>Магический</font> <br>Элемент: <font color='#EF4126'>Огонь</font>/<font color='#87D9FF'>Лёд</font><br><font color='#F28100'>Урон Предметов</font>"
 
 		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_5_a"		"[T5-a] Glyph of Thermogenesis"
 		"item_rpc_warlord_glyph_5_a_description" 				"Получаемый урон конвертируется в <font color='#ccff66'>2</font> Заряд(а) Огня. Каждый Заряд Льда увеличивает Пробитие Магической Брони на <font color='#ccff66'>40</font>."
@@ -8341,7 +8341,7 @@
         "item_rpc_paladin_glyph_4_2_description"                "@Ability2 имеет <font color='#ccff66'>0.05</font> время каста и толкает вперед."
 
         "DOTA_Tooltip_ability_item_rpc_paladin_glyph_5_2"       "[T5-2] Glyph of Penitence"
-        "item_rpc_paladin_glyph_5_2_description"                "@Ability4 могут атаковать, нанося при ударах чистый урон с элементом <font color='#F6FFB5'>Света</font> в размере <font color='#ccff66'>0.5</font>x от атаки Паладина."
+        "item_rpc_paladin_glyph_5_2_description"                "@Ability4 могут атаковать, нанося при ударах дополнительный урон в размере <font color='#ccff66'>50</font>% от атаки Паладина.<br> Тип Урона: <font color='#E8B444'>Чистый</font><br>Элемент: <font color='#F6FFB5'>Свет</font> <br> Модификатор атаки, не получает бонусы от урона <font color='#F28100'>Предметов</font> или <font color='#7AB4CC'>Базовых Способностей</font>."
 
         "DOTA_Tooltip_ability_item_rpc_paladin_glyph_6_2"       "[T6-2] Glyph of Magic Protection"
         "item_rpc_paladin_glyph_6_2_description"                "Магическая Защита увеличивается на <font color='#ccff66'>100</font>%."
@@ -9792,7 +9792,7 @@
         "DOTA_Tooltip_ability_solunia_vorpal_blades_galactic_damage"             "УРОН:"
         "DOTA_Tooltip_ability_solunia_vorpal_blades_galactic_max_blades"           "МАКСИМУМ ЛЕЗВИЙ ОДНОВРЕМЕННО:"
         "DOTA_Tooltip_ability_solunia_vorpal_blades_galactic_base_bounces"         "ОТСКОКИ:"
-        "DOTA_Tooltip_ability_solunia_vorpal_blades_galactic_atk_power_added_to_dmg" "% УРОН АТАКИ К УРОНУ ЛЕЗВИЙ:"
+        "DOTA_Tooltip_ability_solunia_vorpal_blades_galactic_atk_power_added_to_dmg" "% СИЛЫ АТАКИ ДОБАВЛЯЕТСЯ К УРОНУ ЛЕЗВИЙ:"
 
         "DOTA_Tooltip_modifier_vorpal_blades_counter_galactic"                         "Активные Galactic Vorpal Blades"
 
@@ -11504,7 +11504,7 @@
 		"item_rpc_voltex_glyph_3_1_description" 				"[E3] Heaven's Charge сбрасывает время перезарядки (Q) Overcharge."
 
 		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_4_1"		"[T4-1] Glyph of Unstable Voltage"
-		"item_rpc_voltex_glyph_4_1_description" 				"Когда Voltex произносит любые умения, кроме (W) Static, она выпускает <font color='#ccff66'>9</font> электрических зарядов, наносящих <font color='#ccff66'>7</font>x магического урона от базовой атаки."
+		"item_rpc_voltex_glyph_4_1_description" 				"Когда Voltex произносит любые умения, кроме (W) Static, она выпускает <font color='#ccff66'>9</font> электрических зарядов, наносящих <font color='#ccff66'>7</font>x от силы атаки героя.<br> Тип Урона: <font color='#6A8EC9'>Магический</font> <br>Элемент: <font color='#5CCDF9'>Молния</font><br><font color='#F28100'>Урон Предметов</font>"
 
 		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_5_1"		"[T5-1] Glyph of Charged Combat"
 		"item_rpc_voltex_glyph_5_1_description" 				"Увеличивает продолжительность действия руны [R3] на <font color='#ccff66'>12</font> сек. и увеличивает основной урон во время действия [R3] на <font color='#ccff66'>50</font>%."
@@ -12245,7 +12245,7 @@
 	"item_rpc_jex_glyph_6_1_description" 				"Galaxy Laser разрушает неуязвимость к магии, с некоторыми исключениями."
 
 	"DOTA_Tooltip_ability_item_rpc_jex_glyph_7_1"		"[T7-1] Glyph of Entropy"
-	"item_rpc_jex_glyph_7_1_description" 				"Пока работает Cosmic Surge, противникам поблизости в радиусе @glyph_property2 наносится урон в @glyph_property1% от силы атаки чистым типом урона каждые 0.8 секунды. Урон считается уроном спобобности @Ability3, и имеет элементы <font color='#C25DFC'>Космос</font> / <font color='#5CCDF9'>Молния</font>."
+	"item_rpc_jex_glyph_7_1_description" 				"Пока работает Cosmic Surge, противникам поблизости в радиусе @glyph_property2 наносится урон в @glyph_property1% от силы атаки каждые 0.8 секунды..<br> Тип Урона: <font color='#E8B444'>Чистый</font> <br>Элемент: <font color='#C25DFC'>Космос</font>/<font color='#5CCDF9'>Молния</font><br>Способность: @Ability3"
 
 	"DOTA_Tooltip_ability_item_rpc_jex_glyph_5_a"		"[T5-a] Glyph of Techno Supremacy"
 	"item_rpc_jex_glyph_5_a_description" 				"Увеличивает показатель Технологических уровней на всех способностях Jex на @glyph_property1."
@@ -13192,10 +13192,10 @@
 		"DOTA_Tooltip_ability_item_rpc_direwolf_bulwark"								"Direwolf Bulwark"
 
 		"item_property_direwolf"						"Crunch"
-		"property_direwolf_description"					"Стандартные атаки наносят дополнительный урон, равный <font color='#ccff66'>50</font>% от показателя Брони цели."
+		"property_direwolf_description"					"Стандартные атаки наносят дополнительный урон, равный <font color='#ccff66'>50</font>% от суммы Брони, Защиты и Пробитий героя."
 
 		"item_rpc_direwolf_bulwark_ruby1"								"Атаки, нанесенные противниками по герою, снизят их урон на @ruby_property1% от Пробития Брони героя"
-		"item_rpc_direwolf_bulwark_emerald1"								"Дополнительный урон при атаках увеличен еще на @emerald_property1% от Брони цели"
+		"item_rpc_direwolf_bulwark_emerald1"								"Дополнительный урон при атаках увеличен еще на @emerald_property1% от суммы слагаемых значений"
 		"item_rpc_direwolf_bulwark_sapphire1"								"Увеличивает Пробитие Брони на @sapphire_property1"
 		"item_rpc_direwolf_bulwark_amethyst1"								"Стандартные атаки наносят дополнительный магический урон, равный @amethyst_property1% от Магической Защиты целей"
 
@@ -14665,9 +14665,9 @@
 
     	"DOTA_Tooltip_ability_item_rpc_crimson_skull_cap"								"Crimson Skull Cap"
 		"item_property_crimson_skull_cap"						"Corpse Explosion"
-		"property_crimson_skull_cap_description"				"Убитые противники взорвутся и нанесут урон от взрыва Магическим уроном по области в <font color='#ccff66'>20</font>% от их показателя Здоровья."
+		"property_crimson_skull_cap_description"				"Убитые противники взорвутся и нанесут урон от взрыва Магическим уроном по области от <font color='#ccff66'>300</font> to <font color='#ccff66'>30000</font>."
 
-		"item_rpc_crimson_skull_cap_ruby1"	"Увеличивает урон от взрыва дополнительно на @ruby_property1% от показателя Здоровья убитого противника"
+		"item_rpc_crimson_skull_cap_ruby1"	"Увеличивает минимальный урон от взрыва дополнительно на @ruby_property1"
 		"item_rpc_crimson_skull_cap_emerald1"	"Увеличивает радиус взрыва на @emerald_property1"
 		"item_rpc_crimson_skull_cap_sapphire1" "При получении урона герой произведет взрыв через <font color='#ccff66'>2</font> сек, нанося урон по обласи @sapphire_property1% от максимального запаса здоровья"
 		"item_rpc_crimson_skull_cap_amethyst1" "Увеличивает урон Предметов и урон <font color='#5C776E'>Нежити</font> на @amethyst_property1"
