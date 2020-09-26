@@ -5142,7 +5142,7 @@ function sea_oracle_thinker(event)
 			if ability.tideworn_table[i]:GetModifierStackCount("modifier_sea_oracle_stacker", caster) == HOOD_OF_SEA_ORACLE_MAX_STACKS then
 				has_mega_buff = true
 			end
-			largest_stack = math.min(largest_stack, ability.tideworn_table[i]:GetModifierStackCount("modifier_sea_oracle_stacker", caster))
+			largest_stack = math.max(largest_stack, ability.tideworn_table[i]:GetModifierStackCount("modifier_sea_oracle_stacker", caster))
 		end
 	end
 	ability.tideworn_table = new_table
