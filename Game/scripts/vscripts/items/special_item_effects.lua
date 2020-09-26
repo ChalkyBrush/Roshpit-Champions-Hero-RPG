@@ -520,6 +520,8 @@ function ice_quill_think(event)
 		--print("HERE?")
 	end
 	local mana_lost = target.ice_quill_mana_prev - target:GetMana()
+	local newstacks = target:GetModifierStackCount("modifier_ice_quill_carapace_stack", caster)
+	local max_stacks = ITEM_RPC_ICE_QUILL_CARAPACE_MAX_STACKS + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_ICE_QUILL_CARAPACE_GEM_EMERALD1)
 	--print(mana_lost)
 	if mana_lost > 0 then
 		target.ice_quill_mana_loss = target.ice_quill_mana_loss + mana_lost
@@ -528,9 +530,10 @@ function ice_quill_think(event)
 			local addedStacks = math.floor(target.ice_quill_mana_loss / threshold)
 			target.ice_quill_mana_loss = target.ice_quill_mana_loss % threshold
 			ability:ApplyDataDrivenModifier(caster, target, "modifier_ice_quill_carapace_stack", {})
-			local newstacks = target:GetModifierStackCount("modifier_ice_quill_carapace_stack", caster) + addedStacks
-			newStacks = math.min(newstacks, ITEM_RPC_ICE_QUILL_CARAPACE_MAX_STACKS + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_ICE_QUILL_CARAPACE_GEM_EMERALD1))
-			target:SetModifierStackCount("modifier_ice_quill_carapace_stack", caster, newstacks)
+			newstacks = target:GetModifierStackCount("modifier_ice_quill_carapace_stack", caster) + addedStacks
+			if target:GetModifierStackCount("modifier_ice_quill_carapace_stack", caster) <= max_stacks then
+				target:SetModifierStackCount("modifier_ice_quill_carapace_stack", caster, math.min(newstacks, max_stacks))
+			end
 		end
 	end
 
