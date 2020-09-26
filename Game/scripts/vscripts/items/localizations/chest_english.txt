@@ -306,7 +306,7 @@
 		"DOTA_Tooltip_modifier_ice_quill_carapace_stack"	"Ice Quill"
 		"DOTA_Tooltip_modifier_ice_quill_carapace_stack_Description"	"Cast an ability to release."
 
-		"item_rpc_ice_quill_carapace_ruby1"								"Ice Quill will not trigger below @ruby_property1 stacks and Ice Quill Damage is increased by an additional @ruby_property2 flat damage"
+		"item_rpc_ice_quill_carapace_ruby1"								"Ice Quill will not trigger below @ruby_property1 stacks and Ice Quill Damage also deals an additional @ruby_property2 flat Pure damage instance"
 		"item_rpc_ice_quill_carapace_emerald1"								"Increases maximum Ice Quill stacks by @emerald_property1 and Max Mana by @emerald_property2"
 		"item_rpc_ice_quill_carapace_sapphire1"								"Restore @sapphire_property1% of Max Mana with each burst of Ice Quills"
 		"item_rpc_ice_quill_carapace_amethyst1"								"Each stored up Ice Quill stack increases Spell Pierce by @amethyst_property1"

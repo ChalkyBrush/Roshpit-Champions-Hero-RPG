@@ -565,18 +565,23 @@ function ice_quill_unloading_think(event)
 	CustomAbilities:QuickAttachParticle("particles/roshpit/items/ice_quill_explosion.vpcf", hero, 3)
 	EmitSoundOn("RPC.IceQuill", hero)
 	local radius = ITEM_RPC_ICE_QUILL_CARAPACE_RADIUS
-	local damage = OverflowProtectedGetAverageTrueAttackDamage(hero) * ITEM_RPC_ICE_QUILL_CARAPACE_ATTACK_TO_DMG/100 + ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_ICE_QUILL_CARAPACE_GEM_RUBY2)
-	local enemies = FindUnitsInRadius(hero:GetTeamNumber(), hero:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(hero) * ITEM_RPC_ICE_QUILL_CARAPACE_ATTACK_TO_DMG/100 
+	local damage_ruby = ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_ICE_QUILL_CARAPACE_GEM_RUBY2)
+	local enemies = FindUnitsInRadius(hero:GetTeamNumber(), hero:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do
 			Filters:ApplyItemDamage(enemy, hero, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_ICE, RPC_ELEMENT_NORMAL)
+			if ability:GetGemValue("ruby") > 0 then
+				Filters:ApplyItemDamage(enemy, hero, damage_ruby, DAMAGE_TYPE_PURE, ability, RPC_ELEMENT_ICE, RPC_ELEMENT_NORMAL)
+			end
 		end
 	end
+	local manaRestore = ITEM_RPC_ICE_QUILL_CARAPACE_MANA_RESTORE
 	if ability:GetGemValue("sapphire") > 0 then
-		local manaRestore = hero:GetMaxMana() * ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_ICE_QUILL_CARAPACE_GEM_SAPPHIRE)/100
-		hero:GiveMana(manaRestore)
-		PopupMana(hero, manaRestore)
+		manaRestore = manaRestore + hero:GetMaxMana() * ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_ICE_QUILL_CARAPACE_GEM_SAPPHIRE)/100
 	end
+	hero:GiveMana(manaRestore)
+	PopupMana(hero, manaRestore)
 end
 
 function midas_think(event)

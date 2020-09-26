@@ -306,7 +306,7 @@
 		"DOTA_Tooltip_modifier_ice_quill_carapace_stack"	"Ice Quill"
 		"DOTA_Tooltip_modifier_ice_quill_carapace_stack_Description"	"Используйте предмет или способность, чтобы выпустить иглы."
 
-		"item_rpc_ice_quill_carapace_ruby1"								"Иглы не сработают, если количество зарядов Ice Quill ниже @ruby_property1, а урон игл дополнительно увеличен на @ruby_property2"
+		"item_rpc_ice_quill_carapace_ruby1"								"Иглы не сработают, если количество зарядов Ice Quill ниже @ruby_property1, и иглы дополнительно наносят @ruby_property2 Чистого урона"
 		"item_rpc_ice_quill_carapace_emerald1"								"Увеличивает максимум зарядов Ice Quill на @emerald_property1 и Максимум Маны на @emerald_property2"
 		"item_rpc_ice_quill_carapace_sapphire1"								"Восстанавливает @sapphire_property1% от Максимальной Маны каждый выпуск игл"
 		"item_rpc_ice_quill_carapace_amethyst1"								"Каждый заряд Ice Quill увеличивает Пробитие Магической Защиты на @amethyst_property1"
