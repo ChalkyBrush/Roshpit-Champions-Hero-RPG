@@ -577,7 +577,7 @@
 		"item_property_spellslinger_coat"			"Spellslinger"
 		"property_spellslinger_coat_description"	"@Ability2 restores <% ITEM_RPC_SPELLSLINGER_COAT_MANA_RESTORE %>% of its mana cost on use and its Base Ability Damage is increased by <% ITEM_RPC_SPELLSLINGER_COAT_BAD %>%."
 
-		"item_rpc_spellslinger_coat_ruby1"								"Casting [Q] has a @ruby_property1% chance to refresh its cooldown"
+		"item_rpc_spellslinger_coat_ruby1"								"Casting [Q] has a @ruby_property1% chance to refresh its cooldown, can proc once per <% GLOBAL_Q_MIN_CD %> seconds"
 		"item_rpc_spellslinger_coat_emerald1"								"Casting [W] adds @emerald_property1 Spell Pierce for <% ITEM_RPC_SPELLSLINGER_COAT_EMERALD_DURATION %> seconds, stacking up to <% ITEM_RPC_SPELLSLINGER_COAT_EMERALD_MAX_STACKS %> times"
 		"item_rpc_spellslinger_coat_sapphire1"								"Increases Mana Regen by @sapphire_property1"
 		"item_rpc_spellslinger_coat_amethyst1"								"When an enemy damages you, @amethyst_property1% chance to immediately cast [W] with no mana cost, cooldown or cast point. Max <% ITEM_RPC_SPELLSLINGER_COAT_MAX_AMETHYST_PROCS_PER_SECOND %> procs per second."

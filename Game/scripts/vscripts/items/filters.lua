@@ -3064,12 +3064,16 @@ function Filters:SpellslingerCoat(caster)
 end
 
 function Filters:SpellslingerCoatQ(caster)
+	local inventoryUnit = caster.InventoryUnit
     local coat = caster.equipped_gear[RPC_GEAR_SLOT_BODY]
     if coat:GetGemValue("ruby") > 0 then
         local proc = Filters:GetProc(caster, coat:GetFinalGemPropertyValue("ruby", ITEM_RPC_SPELLSLINGER_COAT_GEM_RUBY))
         if proc then
             local q_ability = caster:GetAbilityByIndex(DOTA_Q_SLOT)
-            q_ability:EndCooldown()
+			if not caster:HasModifier("modifier_spellslinger_ruby_cooldown") then
+				q_ability:EndCooldown()
+				coat:ApplyDataDrivenModifier(inventoryUnit, caster, "modifier_spellslinger_ruby_cooldown", {duration = GLOBAL_Q_MIN_CD})
+			end
         end
     end
 end

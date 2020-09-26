@@ -514,7 +514,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_crimson_skull_cap"								"绯红色头骨帽"
 		"item_property_crimson_skull_cap"						"尸爆"
-		 "property_crimson_skull_cap_description"				"杀死敌人造成爆炸，爆炸造成 <% CRIMSON_SKULL_CAP_HP_PCT_TO_DAMAGE %>% 敌人的最大的生命值魔法伤害。"
+		 "property_crimson_skull_cap_description"				"杀死敌人造成爆炸，爆炸造成 敌人的最大的生命值魔法伤害。"
 		 "item_rpc_crimson_skull_cap_ruby1"	"提高尸爆伤害 @ruby_property1% 敌人的最大生命值"
 		"item_rpc_crimson_skull_cap_emerald1"	"提高尸爆范围 @emerald_property1"
 		"item_rpc_crimson_skull_cap_sapphire1" "受到伤害时, 穿戴者在 <% CRIMSON_SKULL_CAP_SAPPHIRE_COUNTDOWN_TIMER %> 秒后爆炸，造成 @sapphire_property1% 最大生命值的伤害"

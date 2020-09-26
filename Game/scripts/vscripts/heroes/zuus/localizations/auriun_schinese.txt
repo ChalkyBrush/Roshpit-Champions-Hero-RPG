@@ -249,10 +249,10 @@
 		"item_rpc_auriun_glyph_5_1_description" 				"天使形态下可以攻击并且获得<% AURIUN_GLYPH_5_1_MAGIC_RESIST %>额外魔甲。但是会移除隐身效果"
 
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_6_1"		"[T6-1] 闪光雕文"
-		"item_rpc_auriun_glyph_6_1_description" 				"获得天堂之盾后的前 <% AURIUN_GLYPH_6_1_INVUL_DURATION %> 秒处于无敌状态。"
+		"item_rpc_auriun_glyph_6_1_description" 				"Adds <% AURIUN_GLYPH_6_1_EVASION_DURATION %> seconds of Spell Immunity and <% AURIUN_GLYPH_6_1_EVASION %>% evasion when @Ability1 is applied."
 
 		"DOTA_Tooltip_modifier_auriun_glyph_6_1_effect"			"闪光"
-		"DOTA_Tooltip_modifier_auriun_glyph_6_1_effect_description"	"魔法和物理免疫"
+		"DOTA_Tooltip_modifier_auriun_glyph_6_1_effect_description"	"Spell immunity and <% AURIUN_GLYPH_6_1_EVASION %>%% Evasion"
 
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_7_1"		"[T7-1] 猛击雕文"
 		"item_rpc_auriun_glyph_7_1_description" 				"普通攻击时 [R1]会产生爆炸，对周围 <% AURIUN_GLYPH_7_1_RADIUS %> 内的敌人造成一次额外伤害。"

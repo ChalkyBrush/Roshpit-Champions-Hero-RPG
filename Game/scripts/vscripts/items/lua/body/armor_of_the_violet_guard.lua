@@ -48,6 +48,11 @@ function modifierClass:DeclareFunctions()
     }
     return funcs
 end
+
+function modifierClass:IsHidden()
+	return true
+end
+
 function modifierClass:OnCreated()
     if not IsServer() then
         return

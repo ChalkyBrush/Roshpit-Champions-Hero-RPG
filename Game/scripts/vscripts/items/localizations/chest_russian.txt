@@ -577,7 +577,7 @@
 		"item_property_spellslinger_coat"			"Spellslinger"
 		"property_spellslinger_coat_description"	"@Ability2 восстанавливает <% ITEM_RPC_SPELLSLINGER_COAT_MANA_RESTORE %>% от стоимости маны при прочтении, а Базовый Урон Способности увеличен на <% ITEM_RPC_SPELLSLINGER_COAT_BAD %>%."
 
-		"item_rpc_spellslinger_coat_ruby1"								"Прочтение [Q] имеет @ruby_property1% шанс сбросить свою перезарядку"
+		"item_rpc_spellslinger_coat_ruby1"								"Прочтение [Q] имеет @ruby_property1% шанс сбросить свою перезарядку, может сработать только раз в <% GLOBAL_Q_MIN_CD %> сек"
 		"item_rpc_spellslinger_coat_emerald1"								"Прочтение [W] добавляет @emerald_property1 Пробития Магической Защиты на <% ITEM_RPC_SPELLSLINGER_COAT_EMERALD_DURATION %> сек, складывается до <% ITEM_RPC_SPELLSLINGER_COAT_EMERALD_MAX_STACKS %> раз"
 		"item_rpc_spellslinger_coat_sapphire1"								"Увеличивает регенерацию Маны на @sapphire_property1"
 		"item_rpc_spellslinger_coat_amethyst1"								"Когда противник наносит урон герою, может сработать @amethyst_property1% шанс мгновенно произнести [W] без затрат маны, перезарядки и точки каста. Максимально <% ITEM_RPC_SPELLSLINGER_COAT_MAX_AMETHYST_PROCS_PER_SECOND %> срабатываний в секунду."
