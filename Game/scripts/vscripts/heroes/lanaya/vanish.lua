@@ -56,7 +56,7 @@ function action_leap_cast(event)
     local ability = event.ability
     local target = event.target_points[1]
     local casterOrigin = caster:GetAbsOrigin()
-    local max_distance = event.max_distance
+    local max_distance = Filters:GetAdjustedRange(caster, ability:GetSpecialValueFor("max_distance"))
     local targetOrigin = target
     local fv = (targetOrigin * Vector(1, 1, 0) - casterOrigin * Vector(1, 1, 0)):Normalized()
     local distance = WallPhysics:GetDistance(casterOrigin * Vector(1, 1, 0), targetOrigin * Vector(1, 1, 0))
@@ -68,7 +68,7 @@ function action_leap_cast(event)
     end
     distance = math.min(distance, max_distance)
     caster:SetForwardVector(fv)
-    local forwardSpeed = 40
+    local forwardSpeed = 55
     forwardSpeed = Filters:GetAdjustedESpeed(caster, forwardSpeed, false)
     action_leap_jump(caster, fv, distance, 35, forwardSpeed, 1, 1)
     local animationTime = math.min(500 / distance, 1)
