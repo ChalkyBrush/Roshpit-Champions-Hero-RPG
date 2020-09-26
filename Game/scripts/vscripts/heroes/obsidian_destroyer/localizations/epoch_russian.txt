@@ -54,7 +54,7 @@
         "DOTA_Tooltip_ability_epoch_rune_w_2_suffix"                    "% от Силы Атаки"
 
         "DOTA_Tooltip_ability_epoch_rune_w_3"                           "[W3] Foresight"
-        "DOTA_Tooltip_ability_epoch_rune_w_3_Description"               "Каждый раз, когда @Ability2 попадает по противнику, герой получает бонусный заряд Интеллекта, максимально <% EPOCH_W3_MAX_STACKS %> зарядов. Атаки поглощают заряды в обмен на восстановление здоровья."
+        "DOTA_Tooltip_ability_epoch_rune_w_3_Description"               "Каждый раз, когда @Ability2 попадает по противнику, герой получает бонусный заряд Интеллекта на <% EPOCH_W3_DURATION %> сек, максимально <% EPOCH_W3_MAX_STACKS %> зарядов. Атаки поглощают заряды в обмен на восстановление здоровья."
         "DOTA_Tooltip_ability_epoch_rune_w_3_property_one"              "Интеллект за заряд"
         "DOTA_Tooltip_ability_epoch_rune_w_3_suffix"                    ""
         "DOTA_Tooltip_ability_epoch_rune_w_3_property_two"              "Восстановление Здоровья за заряд"
