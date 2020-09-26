@@ -1960,6 +1960,12 @@
 				"IsBuff"	"1"
 				"TextureName"	"crystal_maiden_brilliance_aura"
 			}
+			"modifier_spellslinger_ruby_cooldown"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"0"
+				"TextureName"	"rpc/ruby_status_bar"
+			}
 		}
 	}
 
