@@ -61,8 +61,8 @@
 		
 		"item_rpc_avalanche_plate_ruby1"								"At the end of Avalanche's duration, create a large earthquake that deals @ruby_property1x Strength to enemies in a <% ITEM_RPC_AVALANCHE_PLATE_RUBY_EARTHQUAKE_RADIUS_MULT %>x radius that stuns them for @ruby_property2 seconds."
 		"item_rpc_avalanche_plate_emerald1"								"Increases Item Damage and <font color=ELEMENT_EARTH>Earth</font> elemental damage by @emerald_property1%"
-		"item_rpc_avalanche_plate_sapphire1"								"Increases the avalanche's radius by @sapphire_property1 and increases strength by @sapphire_property2"
-		"item_rpc_avalanche_plate_amethyst1"								"Each damage instance of the base avalance is increased by @amethyst_property1"
+		"item_rpc_avalanche_plate_sapphire1"								"Each point of Strength increases Armor and Spell Pierce by @sapphire_property1"
+		"item_rpc_avalanche_plate_amethyst1"								"Each damage instance of the avalance is increased by @amethyst_property1% of hero's Attack Power"
 
 		"DOTA_Tooltip_ability_item_rpc_barons_storm_armor"								"Baron's Storm Armor"
 

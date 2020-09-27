@@ -4449,11 +4449,11 @@ function tiny_avalanche_think(event)
 	local target = event.target
 	local ability = event.ability
 	ParticleManager:SetParticleControl(ability.pfx, 0, target:GetAbsOrigin())
-	local radius = ITEM_RPC_AVALANCHE_PLATE_AVALANCHE_RADIUS + ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_AVALANCHE_PLATE_GEM_SAPPHIRE1)
+	local radius = ITEM_RPC_AVALANCHE_PLATE_AVALANCHE_RADIUS
 	local enemies = FindUnitsInRadius(target:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		local mult = ITEM_RPC_AVALANCHE_PLATE_AVALANCHE_STR_TO_DMG
-		local damage = target:GetStrength() * mult + ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_AVALANCHE_PLATE_GEM_AMETHYST)
+		local damage = target:GetStrength() * mult + OverflowProtectedGetAverageTrueAttackDamage(target)*ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_AVALANCHE_PLATE_GEM_AMETHYST)/100
 		for _, enemy in pairs(enemies) do
 			Filters:ApplyItemDamage(enemy, target, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_EARTH, RPC_ELEMENT_NONE)
 			Filters:ApplyStun(target, ITEM_RPC_AVALANCHE_PLATE_STUN_DUR, enemy)
@@ -4465,7 +4465,7 @@ function avalanche_end(event)
 	local caster = event.caster.hero
 	local ability = event.ability
 	if ability:GetGemValue("ruby") > 0 then
-		local radius = (ITEM_RPC_AVALANCHE_PLATE_AVALANCHE_RADIUS + ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_AVALANCHE_PLATE_GEM_SAPPHIRE1))*ITEM_RPC_AVALANCHE_PLATE_RUBY_EARTHQUAKE_RADIUS_MULT
+		local radius = ITEM_RPC_AVALANCHE_PLATE_AVALANCHE_RADIUS * ITEM_RPC_AVALANCHE_PLATE_RUBY_EARTHQUAKE_RADIUS_MULT
 
 		local splitEarthParticle = "particles/units/heroes/hero_leshrac/leshrac_split_earth.vpcf"
 		local position = caster:GetAbsOrigin()
@@ -4476,9 +4476,9 @@ function avalanche_end(event)
 			ParticleManager:DestroyParticle(pfx, false)
 		end)
 		EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "RPCItem.Avalanche2Quake", caster)
-		local damage = caster:GetStrength() * ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_AVALANCHE_PLATE_GEM_RUBY1)
+		local damage = caster:GetStrength() * ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_AVALANCHE_PLATE_GEM_RUBY1) + OverflowProtectedGetAverageTrueAttackDamage(caster)*ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_AVALANCHE_PLATE_GEM_AMETHYST)/100
 		local stun_duration = ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_AVALANCHE_PLATE_GEM_RUBY2)
-		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 		if #enemies > 0 then
 			for _, enemy in pairs(enemies) do
 				Filters:ApplyItemDamage(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, nil, RPC_ELEMENT_EARTH, RPC_ELEMENT_NONE)

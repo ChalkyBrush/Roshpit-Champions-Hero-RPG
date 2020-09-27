@@ -2967,7 +2967,7 @@ function Filters:AvalanchePlate(caster)
     EmitSoundOnLocationWithCaster(position, "RPCItem.AvalancheStart", caster)
     local avalancheParticle = "particles/units/heroes/hero_tiny/tiny_avalanche.vpcf"
 
-    local radius = ITEM_RPC_AVALANCHE_PLATE_AVALANCHE_RADIUS + avalanche_plate:GetFinalGemPropertyValue("sapphire", ITEM_RPC_AVALANCHE_PLATE_GEM_SAPPHIRE1)
+    local radius = ITEM_RPC_AVALANCHE_PLATE_AVALANCHE_RADIUS
     local pfx = ParticleManager:CreateParticle(avalancheParticle, PATTACH_CUSTOMORIGIN, caster)
     ParticleManager:SetParticleControl(pfx, 0, position)
     ParticleManager:SetParticleControl(pfx, 1, Vector(radius, radius, radius))

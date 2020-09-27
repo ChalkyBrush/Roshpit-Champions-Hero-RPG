@@ -61,8 +61,8 @@
 		
 		"item_rpc_avalanche_plate_ruby1"								"По окончании землетрясения от основного эффекта нанесет дополнительно @ruby_property1x от Силы противникам в <% ITEM_RPC_AVALANCHE_PLATE_RUBY_EARTHQUAKE_RADIUS_MULT %>x от основного радиуса, оглушая их на @ruby_property2 сек."
 		"item_rpc_avalanche_plate_emerald1"								"Увеличивает Урон Предметов и урон <font color=ELEMENT_EARTH>Земли </font> на @emerald_property1%"
-		"item_rpc_avalanche_plate_sapphire1"								"Увеличивает радиус землетрясения на @sapphire_property1 и даёт @sapphire_property2 бонусных очков Силы"
-		"item_rpc_avalanche_plate_amethyst1"								"Каждая порция урона от базового землетрясения увеличивается на @amethyst_property1"
+		"item_rpc_avalanche_plate_sapphire1"								"Каждое очко Силы увеличивает Пробитие Брони и Пробитие Магической защиты героя на @sapphire_property1"
+		"item_rpc_avalanche_plate_amethyst1"								"Каждая порция урона от землетрясения увеличивается на @amethyst_property1% Силы Атаки героя"
 
 		"DOTA_Tooltip_ability_item_rpc_barons_storm_armor"								"Baron's Storm Armor"
 

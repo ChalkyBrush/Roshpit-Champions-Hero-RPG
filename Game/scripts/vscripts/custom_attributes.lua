@@ -1974,6 +1974,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 		local flurry_plate = unit:FindModifierByName("modifier_flurry_aura_debuff"):GetAbility()
 		armor_pierce_modify = armor_pierce_modify + flurry_plate:GetFinalGemPropertyValue("sapphire", ITEM_RPC_SKYFORGE_FLURRY_PLATE_GEM_SAPPHIRE)
 	end
+	if unit:HasModifier("modifier_avalanche_plate") then
+		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_AVALANCHE_PLATE_GEM_SAPPHIRE)*unit:GetStrength()
+	end
 	if unit:HasModifier("modifier_knight_crusher_armor_pierce") then
 		local crusher_armor = unit:FindModifierByName("modifier_knight_crusher_armor_pierce"):GetAbility()
 		armor_pierce_modify = armor_pierce_modify + crusher_armor:GetFinalGemPropertyValue("emerald", ITEM_RPC_STAGGERING_KNIGHT_CRUSHER_ARMOR_GEM_EMERALD)
@@ -2495,6 +2498,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	end
 	if unit:HasModifier("modifier_cobalt_serenity_ring") then
 		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_COBALT_SERENITY_RING_GEM_EMERALD)*unit:GetHealth()
+	end
+	if unit:HasModifier("modifier_avalanche_plate") then
+		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_AVALANCHE_PLATE_GEM_SAPPHIRE)*unit:GetStrength()
 	end
 	if unit:HasModifier("modifier_kharzun_buff") then
 		spell_pierce_modify = spell_pierce_modify + unit:FindModifierByName("modifier_kharzun_buff"):GetStackCount()*1200

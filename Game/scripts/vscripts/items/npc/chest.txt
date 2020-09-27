@@ -6987,14 +6987,9 @@
 			"06"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_AVALANCHE_PLATE_GEM_SAPPHIRE1 %>"
+				"sapphire1"			"<% ITEM_RPC_AVALANCHE_PLATE_GEM_SAPPHIRE %>"
 			}
 			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire2"			"<% ITEM_RPC_AVALANCHE_PLATE_GEM_SAPPHIRE2 %>"
-			}
-			"08"
 			{
 				"var_type"			"FIELD_FLOAT"
 				"amethyst1"			"<% ITEM_RPC_AVALANCHE_PLATE_GEM_AMETHYST %>"
