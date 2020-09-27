@@ -989,6 +989,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	if unit:HasModifier("modifier_infused_mageplate") then
 		armor_modify = armor_modify + ITEM_RPC_INFUSED_MAGEPLATE_ARMOR_PER_INT*unit:GetIntellect()
 	end
+	if unit:HasModifier("modifier_guard_of_feronia_armors") then
+		armor_modify = armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("ruby", ITEM_RPC_GUARD_OF_FERONIA_GEM_RUBY)
+	end
 	if unit:HasModifier("modifier_mystic_mana_wall_armor") then
 		armor_modify = armor_modify + unit:FindModifierByName("modifier_mystic_mana_wall_armor"):GetStackCount()
 	end
@@ -1612,6 +1615,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	if unit:HasModifier("modifier_infused_mageplate") then
 		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("ruby", ITEM_RPC_INFUSED_MAGEPLATE_GEM_RUBY)*unit:GetStrength()
 		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_INFUSED_MAGEPLATE_GEM_SAPPHIRE)*unit:GetIntellect()
+	end
+	if unit:HasModifier("modifier_guard_of_feronia_armors") then
+		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("ruby", ITEM_RPC_GUARD_OF_FERONIA_GEM_RUBY)
 	end
 	if unit:HasModifier("modifier_outland_stone_cuirass_emerald") then
 		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_OUTLAND_STONE_CUIRASS_GEM_EMERALD)

@@ -7755,6 +7755,9 @@ function feronia_shield_expire(event)
 			end
 		end	
 	end
+	if ability:GetGemValue("ruby") > 0 then
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_guard_of_feronia_armors", {duration =  ITEM_RPC_GUARD_OF_FERONIA_GEM_RUBY_DURATION})
+	end
 end
 
 function outland_cuirass_thinker(event)

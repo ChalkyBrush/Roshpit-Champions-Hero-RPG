@@ -1795,7 +1795,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	end
 	if victim:HasModifier("modifier_guard_of_feronia_shield") then
 		local feronia = victim:FindModifierByName("modifier_guard_of_feronia_shield"):GetAbility()
-		local reduction = ITEM_RPC_GUARD_OF_FERONIA_SHIELD_DAMAGE_REDUCTION + feronia:GetFinalGemPropertyValue("ruby", ITEM_RPC_GUARD_OF_FERONIA_GEM_RUBY)
+		local reduction = ITEM_RPC_GUARD_OF_FERONIA_SHIELD_DAMAGE_REDUCTION
 		damage = damage * (100-reduction)/100
 	end
 	if victim:HasModifier("modifier_nethergrasp_palisade") then

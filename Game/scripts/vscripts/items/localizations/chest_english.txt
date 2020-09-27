@@ -259,12 +259,14 @@
 		"item_property_guard_of_feronia"						"Shield of Dawn"
 		"property_guard_of_feronia_description"				"Applies a Shield for <% ITEM_RPC_GUARD_OF_FERONIA_SHIELD_DURATION_E %> seconds when casting @Ability3, or <% ITEM_RPC_GUARD_OF_FERONIA_SHIELD_DURATION_R %> seconds when casting @Ability4, that reduces all damage taken by <% ITEM_RPC_GUARD_OF_FERONIA_SHIELD_DAMAGE_REDUCTION %>%."
 		"DOTA_Tooltip_modifier_guard_of_feronia_shield" "Shield of Dawn"
-		"DOTA_Tooltip_modifier_guard_of_feronia_shield_Description" "Reduces damage taken by <% ITEM_RPC_GUARD_OF_FERONIA_SHIELD_DAMAGE_REDUCTION %>%"
+		"DOTA_Tooltip_modifier_guard_of_feronia_shield_Description" "Reduces damage taken by <% ITEM_RPC_GUARD_OF_FERONIA_SHIELD_DAMAGE_REDUCTION %>%%"
 
-		"item_rpc_guard_of_feronia_ruby1"								"Increases the damage reduction of Shield of Dawn by an additional @ruby_property1%"
+		"item_rpc_guard_of_feronia_ruby1"								"When Shield of Dawn expires, hero gains @ruby_property1 Armor and Magic Armor for <% ITEM_RPC_GUARD_OF_FERONIA_GEM_RUBY_DURATION %> seconds "
 		"item_rpc_guard_of_feronia_emerald1"								"Casting [Q] applies Shield of Dawn for @emerald_property1 seconds"
 		"item_rpc_guard_of_feronia_sapphire1"								"@sapphire_property1% chance on attack to remove Shield of Dawn and then reapply it for the remaining duration plus <% ITEM_RPC_GUARD_OF_FERONIA_SAPPHIRE_DURATION_ADD %> seconds. Max <% ITEM_RPC_GUARD_OF_FERONIA_SAPPHIRE_MAX_PROCS_PER_SECOND %> procs per second"
 		"item_rpc_guard_of_feronia_amethyst1"								"When the Shield of Dawn expires, drop a star on all nearby enemies in a <% ITEM_RPC_GUARD_OF_FERONIA_AMETHYST_RADIUS %> radius that deals @amethyst_property1% of attack power. If only 1 enemy is nearby, drop <% ITEM_RPC_GUARD_OF_FERONIA_SINGLE_TARGET_STARS %> stars on it"
+		"DOTA_Tooltip_modifier_guard_of_feronia_armors"			"Guard of Feronia (Ruby)"
+		"DOTA_Tooltip_modifier_guard_of_feronia_armors_Description"			"Armor and Magical Armor increased."
 
 		"DOTA_Tooltip_ability_item_rpc_hermits_spike_shell"								"Hermit's Spike Shell"
 		"item_property_hermit_spike_shell"			"Quill Spray"

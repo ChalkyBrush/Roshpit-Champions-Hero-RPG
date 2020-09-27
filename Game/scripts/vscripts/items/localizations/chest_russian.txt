@@ -259,9 +259,9 @@
 		"item_property_guard_of_feronia"						"Shield of Dawn"
 		"property_guard_of_feronia_description"				"Даёт защитный барьер на <% ITEM_RPC_GUARD_OF_FERONIA_SHIELD_DURATION_E %> сек при прочтении @Ability3, а при прочтении @Ability4 на <% ITEM_RPC_GUARD_OF_FERONIA_SHIELD_DURATION_R %> сек, который снижает весь входящий урон на <% ITEM_RPC_GUARD_OF_FERONIA_SHIELD_DAMAGE_REDUCTION %>%."
 		"DOTA_Tooltip_modifier_guard_of_feronia_shield" "Shield of Dawn"
-		"DOTA_Tooltip_modifier_guard_of_feronia_shield_Description" "Снижает входящий урон на <% ITEM_RPC_GUARD_OF_FERONIA_SHIELD_DAMAGE_REDUCTION %>%"
+		"DOTA_Tooltip_modifier_guard_of_feronia_shield_Description" "Снижает входящий урон на <% ITEM_RPC_GUARD_OF_FERONIA_SHIELD_DAMAGE_REDUCTION %>%%"
 
-		"item_rpc_guard_of_feronia_ruby1"								"Inreases the damage reduction of Shield of Dawn by an additional @ruby_property1%"
+		"item_rpc_guard_of_feronia_ruby1"								"Когда действие барьера заканичиается, герой получает бонус Брони и Магической Защиты в @ruby_property1 на <% ITEM_RPC_GUARD_OF_FERONIA_GEM_RUBY_DURATION %> сек"
 		"item_rpc_guard_of_feronia_emerald1"								"Прочтение [Q] применяет барьер на @emerald_property1 сек"
 		"item_rpc_guard_of_feronia_sapphire1"								"@sapphire_property1% шанс при атаке обновить текущий барьер и применить его повторно, увеличив длительность на <% ITEM_RPC_GUARD_OF_FERONIA_SAPPHIRE_DURATION_ADD %> сек. Максимум <% ITEM_RPC_GUARD_OF_FERONIA_SAPPHIRE_MAX_PROCS_PER_SECOND %> срабатываний в секунду"
 		"item_rpc_guard_of_feronia_amethyst1"								"Когда действие барьера заканчивается, на всех ближайших противников в радиусе <% ITEM_RPC_GUARD_OF_FERONIA_AMETHYST_RADIUS %> падает звезда, которая наносит @amethyst_property1% от Силы Атаки героя. Если противник всего один, то падает <% ITEM_RPC_GUARD_OF_FERONIA_SINGLE_TARGET_STARS %> звезды."
@@ -269,6 +269,8 @@
 		"DOTA_Tooltip_ability_item_rpc_hermits_spike_shell"								"Hermit's Spike Shell"
 		"item_property_hermit_spike_shell"			"Quill Spray"
 		"property_hermit_spike_shell_description"	"При получении урона, равного <% ITEM_RPC_HERMITS_SPIKE_SHELL_THRESHOLD %>% от максимального запаса ХП героя, выпускает круг из шипов, который наносит урон <% ITEM_RPC_HERMITS_SPIKE_SHELL_DAMAGE_PCT_ATTACK_POWER %>% от Силы Атаки противникам поблизости. Максимум <% ITEM_RPC_HERMITS_SPIKE_SHELL_MAX_TRIGGERS_PER_DMG %> срабатываний за раз."
+		"DOTA_Tooltip_modifier_guard_of_feronia_armors"			"Guard of Feronia (Ruby)"
+		"DOTA_Tooltip_modifier_guard_of_feronia_armors_Description"			"Броня и Магическая Защита увеличены."
 		
 		"DOTA_Tooltip_modifier_hermit_spike_shell_quills"	"Quill Spray"
 		"DOTA_Tooltip_modifier_hermit_spike_shell_quills_Description"	"Броня Снижена"
