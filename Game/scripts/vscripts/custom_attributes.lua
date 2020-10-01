@@ -2414,6 +2414,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 		local stacks = unit:GetModifierStackCount("modifier_arena_crowd_buff", Arena.ArenaMaster)
 		spell_pierce_modify = spell_pierce_modify + stacks*50
 	end
+	if unit:HasModifier("modifier_autumnrock_bracer") then
+		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("emerald", ITEM_RPC_AUTUMNROCK_BRACER_GEM_EMERALD1)
+	end
 	if unit:HasModifier("modifier_grand_arcanist") then
 		spell_pierce_modify = spell_pierce_modify + unit:GetSumOfAllAttributes()*ITEM_RPC_GRAND_ARCANIST_WRAPS_SPELL_PIERCE_PER_ATTR
 	end

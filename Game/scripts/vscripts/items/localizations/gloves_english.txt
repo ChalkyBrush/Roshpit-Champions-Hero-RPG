@@ -12,7 +12,7 @@
 		 "property_autumnrock_bracer_description"				"<% ITEM_RPC_AUTUMNROCK_BRACER_CHANCE %>% chance when taking damage to create an explosive fissure towards the damage source, travelling on a <% ITEM_RPC_AUTUMNROCK_BRACER_TRAVEL_DELAY %> second delay. The fissure stuns for <% ITEM_RPC_AUTUMNROCK_BRACER_STUN_DUR %> seconds and deals <% ITEM_RPC_AUTUMNROCK_BRACER_DMG_PER_STR %>x your Strength as Magical damage. Max <% ITEM_RPC_AUTUMNROCK_BRACER_MAX_PROCS_PER_SEC %> procs per second."
 
     	"item_rpc_autumnrock_bracer_ruby1"								"Increases Strength by @ruby_property1 and Fissure proc chance by @ruby_property2%"
-    	"item_rpc_autumnrock_bracer_emerald1"								"Increases Fissure damage by @emerald_property1 and the stun duration by @emerald_property2"
+    	"item_rpc_autumnrock_bracer_emerald1"								"Increases Spell Pierce by @emerald_property1 and the stun duration by @emerald_property2"
     	"item_rpc_autumnrock_bracer_sapphire1"								"Reduces Fissure travel delay by @sapphire_property1 seconds and increases Item Damage by @sapphire_property2%"
     	"item_rpc_autumnrock_bracer_amethyst1"								"Casting [W] has a @amethyst_property1% chance to create a fissure beneath the nearest enemy within <% ITEM_RPC_AUTUMNROCK_BRACER_AMETHYST_SEARCH_RANGE %> range"
 

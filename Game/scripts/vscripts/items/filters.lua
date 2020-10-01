@@ -5692,7 +5692,7 @@ function Filters:AutumnrockExplosion(caster, ability, position, explosionAOE)
     Timers:CreateTimer(4, function()
         ParticleManager:DestroyParticle(particle1, false)
     end)
-    local damage = caster:GetStrength() * ITEM_RPC_AUTUMNROCK_BRACER_DMG_PER_STR + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_AUTUMNROCK_BRACER_GEM_EMERALD1)
+    local damage = caster:GetStrength() * ITEM_RPC_AUTUMNROCK_BRACER_DMG_PER_STR
     local stun_duration = ITEM_RPC_AUTUMNROCK_BRACER_STUN_DUR + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_AUTUMNROCK_BRACER_GEM_EMERALD2)
     EmitSoundOnLocationWithCaster(position, "Item.AutumnMage.Quake", caster)
     local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, explosionAOE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
