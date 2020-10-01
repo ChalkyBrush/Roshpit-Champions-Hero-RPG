@@ -1419,7 +1419,7 @@ function RPCItems:RollSuperAscendency(item_level)
     local attr_roll = attr_rolls[RandomInt(1, #attr_rolls)]
     RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, attr_roll, 1)
 
-    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "attack_damage", 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "attack_damage", 2)
     RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
 
 
@@ -3129,7 +3129,7 @@ function RPCItems:RollBerserkerGloves(item_level)
     item.newItemTable.property1name = "!immortal!_modifier_berserker_gloves"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_berserker", "#850D0D", 1, "#property_berserker_rage_description")
 
-    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "attack_damage", 1.5)
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "attack_damage", 2.5)
     RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
     RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
 
@@ -3440,14 +3440,14 @@ function RPCItems:RollDiamondClawsOfTiamat(item_level)
     local rarity = RPC_ITEMS_RARITY_IMMORTAL
 
     local item = RPCItems:CreateVariant("item_rpc_diamond_claws_of_tiamat", "immortal", "Diamond Claws of Tiamat", "hands", true, "Slot: Hands")
-    tiamat_roll = RPCItems:RollGearAttributeValue(item_level, nil, nil, 4)
+    tiamat_roll = RPCItems:RollGearAttributeValue(item_level, nil, nil, 8)
     item.newItemTable.property1 = tiamat_roll
     item.newItemTable.property1name = "!immortal!_modifier_diamond_claws_of_tiamat"
     RPCItems:SetPropertyValuesSpecial(item, tiamat_roll, "#item_property_tiamat_claw", "#FAFAFF", 1, "#property_tiamat_claw_description")
 
-    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "attack_damage", 0.75)
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "attack_damage", 4)
 
-    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "base_ability", 0.75)
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "base_ability", 1)
 
     RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, "all_elements", 0.75)
 
@@ -3638,7 +3638,7 @@ function RPCItems:RollGlovesOfSweepingWind(item_level)
     if luck == 1 then
         RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "element_wind", 2.0)
     elseif luck == 2 then
-        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "attack_damage", 1.5)
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "attack_damage", 3)
     else
         RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, nil, 1)
     end
