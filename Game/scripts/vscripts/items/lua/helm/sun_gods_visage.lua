@@ -57,6 +57,10 @@ function modifierClass:RemoveOnDeath()
     return false
 end
 
+function modifierClass:IsHidden()
+	return true
+end
+
 function modifierClass:OnCreated()
 	if not IsServer() then
 		return false
