@@ -1672,7 +1672,6 @@ function GameMode:OnEntityKilled(keys)
 		PVP:PlayerKill(killerEntity, killedUnit)
 	else
 		if killedUnit:GetTeamNumber() == DOTA_TEAM_GOODGUYS and killedUnit:IsHero() and not killedUnit:HasModifier("modifier_paladin_rune_e_1_revivable") and not killedUnit:HasModifier("modifier_phoenix_rebirthing") then
-		if killedUnit:GetTeamNumber() == DOTA_TEAM_GOODGUYS and killedUnit:IsHero() and not killedUnit:HasModifier("modifier_paladin_rune_a_c_revivable") and not killedUnit:HasModifier("modifier_phoenix_rebirthing") then
 			Timers:CreateTimer(0.06, function()
 				Challenges:HeroDied()
 				local respawnTime = 5
