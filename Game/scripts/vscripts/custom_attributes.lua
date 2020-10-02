@@ -2506,7 +2506,7 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 		spell_pierce_modify = spell_pierce_modify + unit:GetModifierStackCount("modifier_azure_empire_visible", unit.InventoryUnit)*unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_AZURE_EMPIRE_GEM_SAPPHIRE)
 	end
 	if unit:HasModifier("modifier_cobalt_serenity_ring") then
-		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_COBALT_SERENITY_RING_GEM_EMERALD)*unit:GetHealth()
+		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_COBALT_SERENITY_RING_GEM_EMERALD) * (unit:GetHealthRegen() + unit:GetBaseManaRegen() + unit:GetBonusManaRegen())
 	end
 	if unit:HasModifier("modifier_avalanche_plate") then
 		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_AVALANCHE_PLATE_GEM_SAPPHIRE)*unit:GetStrength()
