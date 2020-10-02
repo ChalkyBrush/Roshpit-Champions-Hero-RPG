@@ -3652,9 +3652,9 @@ function eyeglass_think(event)
 	if target:GetAttackCapability() == DOTA_UNIT_CAP_RANGED_ATTACK then
 		local attack_range = ITEM_RPC_EPSILONS_EYEGLASS_ATTACK_RANGE + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_EPSILONS_EYEGLASS_GEM_EMERALD)
 		local projectile_speed = ITEM_RPC_EPSILONS_EYEGLASS_PROJECTILE_SPEED + ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_EPSILONS_EYEGLASS_GEM_SAPPHIRE1)
-		-- ability:ApplyDataDrivenModifier(caster, target,"modifier_epsilons_eyeglass_range_effect_attack_range", {})
+		ability:ApplyDataDrivenModifier(caster, target,"modifier_epsilons_eyeglass_range_effect_attack_range", {})
 		ability:ApplyDataDrivenModifier(caster, target,"modifier_epsilons_eyeglass_range_effect_projectile_speed", {})
-		-- target:SetModifierStackCount("modifier_epsilons_eyeglass_range_effect_attack_range", caster, attack_range)
+		target:SetModifierStackCount("modifier_epsilons_eyeglass_range_effect_attack_range", caster, attack_range)
 		target:SetModifierStackCount("modifier_epsilons_eyeglass_range_effect_projectile_speed", caster, projectile_speed)
 		if ability:GetGemValue("sapphire") > 0 then
 			local atk_power_stacks = ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_EPSILONS_EYEGLASS_GEM_SAPPHIRE2)
@@ -3662,7 +3662,7 @@ function eyeglass_think(event)
 			target:SetModifierStackCount("modifier_epsilons_eyeglass_attack_power", caster, atk_power_stacks)
 		end
 	else
-		-- target:RemoveModifierByName("modifier_epsilons_eyeglass_range_effect_attack_range")
+		target:RemoveModifierByName("modifier_epsilons_eyeglass_range_effect_attack_range")
 		target:RemoveModifierByName("modifier_epsilons_eyeglass_range_effect_projectile_speed")
 	end
 end
