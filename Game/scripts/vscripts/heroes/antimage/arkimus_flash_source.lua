@@ -115,7 +115,11 @@ function modifier_arkimus_flash_source:OnAttackLanded(event)
     Filters:CastSkillArguments(BASE_ABILITY_W, attacker)
     EmitSoundOn("Akrimus.StormWeaponImpact", target)
     attacker:RemoveModifierByName("modifier_burnout")
-    local enemies = FindUnitsInRadius(attacker:GetTeamNumber(), target:GetAbsOrigin(), nil, ARKIMUS_W_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+	local spell_pierce_flag = 0
+	if attacker:HasModifier("modifier_arkimus_archon_form") then
+		spell_pierce_flag = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
+	end
+    local enemies = FindUnitsInRadius(attacker:GetTeamNumber(), target:GetAbsOrigin(), nil, ARKIMUS_W_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, spell_pierce_flag, FIND_ANY_ORDER, false)
     if #enemies > 0 then
         for _, enemy in pairs(enemies) do
             Filters:TakeArgumentsAndApplyDamage(enemy, attacker, damage, ARKMIUS_W_DAMAGE_TYPE, BASE_ABILITY_W, RPC_ELEMENT_ARCANE, RPC_ELEMENT_NONE)

@@ -261,13 +261,13 @@ function getAstralSkill(slot){
 function getEpochSkill(slot){
     var skillName = "";
 	if (slot === 1){
-        skillName = "DOTA_Tooltip_Ability_epoch_time_binder";
+        skillName = "DOTA_Tooltip_ability_epoch_time_binder";
 	}else if(slot === 2){
-        skillName = "DOTA_Tooltip_Ability_time_genesis_orb";
+        skillName = "DOTA_Tooltip_ability_epoch_genesis_orb";
 	}else if(slot === 3){
-        skillName = "DOTA_Tooltip_Ability_time_warp";
+        skillName = "DOTA_Tooltip_ability_epoch_distortion_orb";
 	}else if(slot === 4){
-        skillName = "DOTA_Tooltip_Ability_eternity_flood";
+        skillName = "DOTA_Tooltip_ability_epoch_eternity_flood";
 	}
     return skillName;
 }
@@ -433,7 +433,7 @@ function getChernobogSkill(slot){
 	}else if(slot === 2){
         skillName = "DOTA_Tooltip_Ability_chernobog_demon_hunter";
 	}else if(slot === 3){
-        skillName = "DOTA_Tooltip_Ability_chernobog_3_e";
+        skillName = "DOTA_Tooltip_ability_chernobog_shadow_hunt";
 	}else if(slot === 4){
         skillName = "DOTA_Tooltip_Ability_chernobog_nights_procession";
 	}

@@ -12,7 +12,7 @@
 		 "property_autumnrock_bracer_description"				"<% ITEM_RPC_AUTUMNROCK_BRACER_CHANCE %>% шанс при получении урона выпустить земляной разлом в сторону источника урона (с задержкой <% ITEM_RPC_AUTUMNROCK_BRACER_TRAVEL_DELAY %> сек). Разлом оглушает на <% ITEM_RPC_AUTUMNROCK_BRACER_STUN_DUR %> и наносит <% ITEM_RPC_AUTUMNROCK_BRACER_DMG_PER_STR %>x от Силы героя Магическим уроном. Максимум <% ITEM_RPC_AUTUMNROCK_BRACER_MAX_PROCS_PER_SEC %> срабатываний в секунду."
 
     	"item_rpc_autumnrock_bracer_ruby1"								"Увеличивает Силу на @ruby_property1 и шанс срабатывания разлома на @ruby_property2%"
-    	"item_rpc_autumnrock_bracer_emerald1"								"Увеличивает урон разлома на @emerald_property1 и продолжительность оглушения на @emerald_property2"
+    	"item_rpc_autumnrock_bracer_emerald1"								"Увеличивает Пробитие Магической Защиты на @emerald_property1 и продолжительность оглушения на @emerald_property2"
     	"item_rpc_autumnrock_bracer_sapphire1"								"Уменьшает задержку разлома на @sapphire_property1 сек и увеличивает Урон Предметов на@sapphire_property2%"
     	"item_rpc_autumnrock_bracer_amethyst1"								"Прочтение [W] имеет @amethyst_property1% шанс создать разлом под ближайшим противником в радиусе <% ITEM_RPC_AUTUMNROCK_BRACER_AMETHYST_SEARCH_RANGE %>"
 

@@ -37,7 +37,7 @@ end
 function dinath_frost_wyrm:GetCooldownBase(level)
 	local caster = self:GetCaster()
 	if IsServer() then
-    	return math.max(DINATH_ARCANA2_COOLDOWN + caster:GetRuneValue("r", 4)*DINATH_ARCANA2_RUNE_R4_COOLDOWN_REDUCTION, 0)
+    	return math.max(DINATH_ARCANA2_COOLDOWN + caster:GetRuneValue("r", 4)*DINATH_ARCANA2_RUNE_R4_COOLDOWN_REDUCTION, GLOBAL_R_MIN_CD)
     else
     	return DINATH_ARCANA2_COOLDOWN
     end

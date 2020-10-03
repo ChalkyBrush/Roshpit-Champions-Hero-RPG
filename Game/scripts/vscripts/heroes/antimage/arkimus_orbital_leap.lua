@@ -193,8 +193,11 @@ function modifier_arkimus_leaping:OnDestroy()
         if e_1_level > 0 then
             local searchRadius = ARKIMUS_E1_RADIUS_BASE + e_1_level * ARKIMUS_E1_RADIUS
             local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * ARKIMUS_E1_DMG_OF_ATTACK_POWER_PCT/100 * e_1_level
-
-            local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, searchRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+			local spell_pierce_flag = 0
+			if caster:HasModifier("modifier_arkimus_archon_form") then
+				spell_pierce_flag = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
+			end
+            local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, searchRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, spell_pierce_flag, FIND_ANY_ORDER, false)
             if #enemies > 0 then
                 for _, enemy in pairs(enemies) do
                     CreateZonisBeam(caster:GetAbsOrigin(), enemy:GetAbsOrigin() + Vector(0, 0, 50))

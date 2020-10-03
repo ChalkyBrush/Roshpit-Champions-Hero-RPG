@@ -255,10 +255,10 @@
 		"item_rpc_auriun_glyph_5_1_description" 				"You can attack during @Ability3 and gain <% AURIUN_GLYPH_5_1_MAGIC_RESIST %> Magic Armor, but it removes the invisibility."
 
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_6_1"		"[T6-1] Glyph of Luminescence"
-		"item_rpc_auriun_glyph_6_1_description" 				"Adds <% AURIUN_GLYPH_6_1_INVUL_DURATION %> seconds of invulnerability when @Ability1 is applied."
+		"item_rpc_auriun_glyph_6_1_description" 				"Adds <% AURIUN_GLYPH_6_1_EVASION_DURATION %> seconds of Spell Immunity and <% AURIUN_GLYPH_6_1_EVASION %>% evasion when @Ability1 is applied."
 
 		"DOTA_Tooltip_modifier_auriun_glyph_6_1_effect"			"Luminescence"
-		"DOTA_Tooltip_modifier_auriun_glyph_6_1_effect_description"	"Magic and Physical Immunity"
+		"DOTA_Tooltip_modifier_auriun_glyph_6_1_effect_description"	"Spell Immunity and <% AURIUN_GLYPH_6_1_EVASION %>%% Evasion "
 
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_7_1"		"[T7-1] Glyph of Smite"
 		"item_rpc_auriun_glyph_7_1_description" 				"[R1] attacks explode and deal another instance of damage to all enemies in a radius of <% AURIUN_GLYPH_7_1_RADIUS %>"

@@ -54,7 +54,7 @@
         "DOTA_Tooltip_ability_epoch_rune_w_2_suffix"                    "% of Attack Power"
 
         "DOTA_Tooltip_ability_epoch_rune_w_3"                           "[W3] Foresight"
-        "DOTA_Tooltip_ability_epoch_rune_w_3_Description"               "Each time an enemy is hit by @Ability2, gain bonus Intelligence up to a maximum of <% EPOCH_W3_MAX_STACKS %> stacks. Attacking consumes a stack and restores health."
+        "DOTA_Tooltip_ability_epoch_rune_w_3_Description"               "Each time an enemy is hit by @Ability2, gain bonus Intelligence for <% EPOCH_W3_DURATION %> seconds, up to a maximum of <% EPOCH_W3_MAX_STACKS %> stacks. Attacking consumes a stack and restores health."
         "DOTA_Tooltip_ability_epoch_rune_w_3_property_one"              "Intelligence per stack"
         "DOTA_Tooltip_ability_epoch_rune_w_3_suffix"                    ""
         "DOTA_Tooltip_ability_epoch_rune_w_3_property_two"              "Health Restore on Attack"

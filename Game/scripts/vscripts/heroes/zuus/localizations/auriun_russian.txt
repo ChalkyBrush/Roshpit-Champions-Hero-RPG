@@ -254,10 +254,10 @@
 		"item_rpc_auriun_glyph_5_1_description" 				"Герой может атаковать во время (E) @Ability3, но он не сможет уйти в невидимость. На время действия получает <% AURIUN_GLYPH_5_1_MAGIC_RESIST %> Магической Защиты."
 
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_6_1"		"[T6-1] Glyph of Luminescence"
-		"item_rpc_auriun_glyph_6_1_description" 				"Добавляет <% AURIUN_GLYPH_6_1_INVUL_DURATION %> сек. неуязвимости, когда был активирован (Q) @Ability1."
+		"item_rpc_auriun_glyph_6_1_description" 				"При использовании (Q) @Ability1 на цель дает ей <% AURIUN_GLYPH_6_1_EVASION_DURATION %> сек <% AURIUN_GLYPH_6_1_EVASION %> уклонения от автоатак и иммунитет к заклинаниям."
 
 		"DOTA_Tooltip_modifier_auriun_glyph_6_1_effect"			"Luminescence"
-		"DOTA_Tooltip_modifier_auriun_glyph_6_1_effect_description"	"Полный иммунитет к урону"
+		"DOTA_Tooltip_modifier_auriun_glyph_6_1_effect_description"	"<% AURIUN_GLYPH_6_1_EVASION %>%% Уклонение"
 
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_7_1"		"[T7-1] Glyph of Smite"
 		"item_rpc_auriun_glyph_7_1_description" 				"[R1] взрываются и наносят урон в радиусе <% AURIUN_GLYPH_7_1_RADIUS %>."

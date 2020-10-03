@@ -61,8 +61,8 @@
 		
 		"item_rpc_avalanche_plate_ruby1"								"По окончании землетрясения от основного эффекта нанесет дополнительно @ruby_property1x от Силы противникам в <% ITEM_RPC_AVALANCHE_PLATE_RUBY_EARTHQUAKE_RADIUS_MULT %>x от основного радиуса, оглушая их на @ruby_property2 сек."
 		"item_rpc_avalanche_plate_emerald1"								"Увеличивает Урон Предметов и урон <font color=ELEMENT_EARTH>Земли </font> на @emerald_property1%"
-		"item_rpc_avalanche_plate_sapphire1"								"Увеличивает радиус землетрясения на @sapphire_property1 и даёт @sapphire_property2 бонусных очков Силы"
-		"item_rpc_avalanche_plate_amethyst1"								"Каждая порция урона от базового землетрясения увеличивается на @amethyst_property1"
+		"item_rpc_avalanche_plate_sapphire1"								"Каждое очко Силы увеличивает Пробитие Брони и Пробитие Магической защиты героя на @sapphire_property1"
+		"item_rpc_avalanche_plate_amethyst1"								"Каждая порция урона от землетрясения увеличивается на @amethyst_property1% Силы Атаки героя"
 
 		"DOTA_Tooltip_ability_item_rpc_barons_storm_armor"								"Baron's Storm Armor"
 
@@ -161,7 +161,7 @@
 		"item_rpc_direwolf_bulwark_ruby1"								"Атаки, нанесенные противниками по герою, снизят их урон на @ruby_property1% от Пробития Брони героя"
 		"item_rpc_direwolf_bulwark_emerald1"								"Дополнительный урон при атаках увеличен еще на @emerald_property1% от суммы слагаемых значений"
 		"item_rpc_direwolf_bulwark_sapphire1"								"Увеличивает Пробитие Брони на @sapphire_property1"
-		"item_rpc_direwolf_bulwark_amethyst1"								"Стандартные атаки наносят дополнительный магический урон, равный @amethyst_property1% от Магической Защиты целей"
+		"item_rpc_direwolf_bulwark_amethyst1"								"Стандартные атаки наносят дополнительный магический урон, равный @amethyst_property1% от суммы Брони, Защиты и Пробитий героя"
 
 		"DOTA_Tooltip_ability_item_rpc_doomplate"										"Doomplate"
 
@@ -259,9 +259,9 @@
 		"item_property_guard_of_feronia"						"Shield of Dawn"
 		"property_guard_of_feronia_description"				"Даёт защитный барьер на <% ITEM_RPC_GUARD_OF_FERONIA_SHIELD_DURATION_E %> сек при прочтении @Ability3, а при прочтении @Ability4 на <% ITEM_RPC_GUARD_OF_FERONIA_SHIELD_DURATION_R %> сек, который снижает весь входящий урон на <% ITEM_RPC_GUARD_OF_FERONIA_SHIELD_DAMAGE_REDUCTION %>%."
 		"DOTA_Tooltip_modifier_guard_of_feronia_shield" "Shield of Dawn"
-		"DOTA_Tooltip_modifier_guard_of_feronia_shield_Description" "Снижает входящий урон на <% ITEM_RPC_GUARD_OF_FERONIA_SHIELD_DAMAGE_REDUCTION %>%"
+		"DOTA_Tooltip_modifier_guard_of_feronia_shield_Description" "Снижает входящий урон на <% ITEM_RPC_GUARD_OF_FERONIA_SHIELD_DAMAGE_REDUCTION %>%%"
 
-		"item_rpc_guard_of_feronia_ruby1"								"Inreases the damage reduction of Shield of Dawn by an additional @ruby_property1%"
+		"item_rpc_guard_of_feronia_ruby1"								"Когда действие барьера заканичиается, герой получает бонус Брони и Магической Защиты в @ruby_property1 на <% ITEM_RPC_GUARD_OF_FERONIA_GEM_RUBY_DURATION %> сек"
 		"item_rpc_guard_of_feronia_emerald1"								"Прочтение [Q] применяет барьер на @emerald_property1 сек"
 		"item_rpc_guard_of_feronia_sapphire1"								"@sapphire_property1% шанс при атаке обновить текущий барьер и применить его повторно, увеличив длительность на <% ITEM_RPC_GUARD_OF_FERONIA_SAPPHIRE_DURATION_ADD %> сек. Максимум <% ITEM_RPC_GUARD_OF_FERONIA_SAPPHIRE_MAX_PROCS_PER_SECOND %> срабатываний в секунду"
 		"item_rpc_guard_of_feronia_amethyst1"								"Когда действие барьера заканчивается, на всех ближайших противников в радиусе <% ITEM_RPC_GUARD_OF_FERONIA_AMETHYST_RADIUS %> падает звезда, которая наносит @amethyst_property1% от Силы Атаки героя. Если противник всего один, то падает <% ITEM_RPC_GUARD_OF_FERONIA_SINGLE_TARGET_STARS %> звезды."
@@ -269,6 +269,8 @@
 		"DOTA_Tooltip_ability_item_rpc_hermits_spike_shell"								"Hermit's Spike Shell"
 		"item_property_hermit_spike_shell"			"Quill Spray"
 		"property_hermit_spike_shell_description"	"При получении урона, равного <% ITEM_RPC_HERMITS_SPIKE_SHELL_THRESHOLD %>% от максимального запаса ХП героя, выпускает круг из шипов, который наносит урон <% ITEM_RPC_HERMITS_SPIKE_SHELL_DAMAGE_PCT_ATTACK_POWER %>% от Силы Атаки противникам поблизости. Максимум <% ITEM_RPC_HERMITS_SPIKE_SHELL_MAX_TRIGGERS_PER_DMG %> срабатываний за раз."
+		"DOTA_Tooltip_modifier_guard_of_feronia_armors"			"Guard of Feronia (Ruby)"
+		"DOTA_Tooltip_modifier_guard_of_feronia_armors_Description"			"Броня и Магическая Защита увеличены."
 		
 		"DOTA_Tooltip_modifier_hermit_spike_shell_quills"	"Quill Spray"
 		"DOTA_Tooltip_modifier_hermit_spike_shell_quills_Description"	"Броня Снижена"
@@ -306,7 +308,7 @@
 		"DOTA_Tooltip_modifier_ice_quill_carapace_stack"	"Ice Quill"
 		"DOTA_Tooltip_modifier_ice_quill_carapace_stack_Description"	"Используйте предмет или способность, чтобы выпустить иглы."
 
-		"item_rpc_ice_quill_carapace_ruby1"								"Иглы не сработают, если количество зарядов Ice Quill ниже @ruby_property1, а урон игл дополнительно увеличен на @ruby_property2"
+		"item_rpc_ice_quill_carapace_ruby1"								"Иглы не сработают, если количество зарядов Ice Quill ниже @ruby_property1, и иглы дополнительно наносят @ruby_property2 Чистого урона"
 		"item_rpc_ice_quill_carapace_emerald1"								"Увеличивает максимум зарядов Ice Quill на @emerald_property1 и Максимум Маны на @emerald_property2"
 		"item_rpc_ice_quill_carapace_sapphire1"								"Восстанавливает @sapphire_property1% от Максимальной Маны каждый выпуск игл"
 		"item_rpc_ice_quill_carapace_amethyst1"								"Каждый заряд Ice Quill увеличивает Пробитие Магической Защиты на @amethyst_property1"
@@ -577,7 +579,7 @@
 		"item_property_spellslinger_coat"			"Spellslinger"
 		"property_spellslinger_coat_description"	"@Ability2 восстанавливает <% ITEM_RPC_SPELLSLINGER_COAT_MANA_RESTORE %>% от стоимости маны при прочтении, а Базовый Урон Способности увеличен на <% ITEM_RPC_SPELLSLINGER_COAT_BAD %>%."
 
-		"item_rpc_spellslinger_coat_ruby1"								"Прочтение [Q] имеет @ruby_property1% шанс сбросить свою перезарядку"
+		"item_rpc_spellslinger_coat_ruby1"								"Прочтение [Q] имеет @ruby_property1% шанс сбросить свою перезарядку, может сработать только раз в <% GLOBAL_Q_MIN_CD %> сек"
 		"item_rpc_spellslinger_coat_emerald1"								"Прочтение [W] добавляет @emerald_property1 Пробития Магической Защиты на <% ITEM_RPC_SPELLSLINGER_COAT_EMERALD_DURATION %> сек, складывается до <% ITEM_RPC_SPELLSLINGER_COAT_EMERALD_MAX_STACKS %> раз"
 		"item_rpc_spellslinger_coat_sapphire1"								"Увеличивает регенерацию Маны на @sapphire_property1"
 		"item_rpc_spellslinger_coat_amethyst1"								"Когда противник наносит урон герою, может сработать @amethyst_property1% шанс мгновенно произнести [W] без затрат маны, перезарядки и точки каста. Максимально <% ITEM_RPC_SPELLSLINGER_COAT_MAX_AMETHYST_PROCS_PER_SECOND %> срабатываний в секунду."

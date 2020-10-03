@@ -61,8 +61,8 @@
 		
 		"item_rpc_avalanche_plate_ruby1"								"At the end of Avalanche's duration, create a large earthquake that deals @ruby_property1x Strength to enemies in a <% ITEM_RPC_AVALANCHE_PLATE_RUBY_EARTHQUAKE_RADIUS_MULT %>x radius that stuns them for @ruby_property2 seconds."
 		"item_rpc_avalanche_plate_emerald1"								"Increases Item Damage and <font color=ELEMENT_EARTH>Earth</font> elemental damage by @emerald_property1%"
-		"item_rpc_avalanche_plate_sapphire1"								"Increases the avalanche's radius by @sapphire_property1 and increases strength by @sapphire_property2"
-		"item_rpc_avalanche_plate_amethyst1"								"Each damage instance of the base avalance is increased by @amethyst_property1"
+		"item_rpc_avalanche_plate_sapphire1"								"Each point of Strength increases Armor and Spell Pierce by @sapphire_property1"
+		"item_rpc_avalanche_plate_amethyst1"								"Each damage instance of the avalance is increased by @amethyst_property1% of hero's Attack Power"
 
 		"DOTA_Tooltip_ability_item_rpc_barons_storm_armor"								"Baron's Storm Armor"
 
@@ -259,12 +259,14 @@
 		"item_property_guard_of_feronia"						"Shield of Dawn"
 		"property_guard_of_feronia_description"				"Applies a Shield for <% ITEM_RPC_GUARD_OF_FERONIA_SHIELD_DURATION_E %> seconds when casting @Ability3, or <% ITEM_RPC_GUARD_OF_FERONIA_SHIELD_DURATION_R %> seconds when casting @Ability4, that reduces all damage taken by <% ITEM_RPC_GUARD_OF_FERONIA_SHIELD_DAMAGE_REDUCTION %>%."
 		"DOTA_Tooltip_modifier_guard_of_feronia_shield" "Shield of Dawn"
-		"DOTA_Tooltip_modifier_guard_of_feronia_shield_Description" "Reduces damage taken by <% ITEM_RPC_GUARD_OF_FERONIA_SHIELD_DAMAGE_REDUCTION %>%"
+		"DOTA_Tooltip_modifier_guard_of_feronia_shield_Description" "Reduces damage taken by <% ITEM_RPC_GUARD_OF_FERONIA_SHIELD_DAMAGE_REDUCTION %>%%"
 
-		"item_rpc_guard_of_feronia_ruby1"								"Increases the damage reduction of Shield of Dawn by an additional @ruby_property1%"
+		"item_rpc_guard_of_feronia_ruby1"								"When Shield of Dawn expires, hero gains @ruby_property1 Armor and Magic Armor for <% ITEM_RPC_GUARD_OF_FERONIA_GEM_RUBY_DURATION %> seconds "
 		"item_rpc_guard_of_feronia_emerald1"								"Casting [Q] applies Shield of Dawn for @emerald_property1 seconds"
 		"item_rpc_guard_of_feronia_sapphire1"								"@sapphire_property1% chance on attack to remove Shield of Dawn and then reapply it for the remaining duration plus <% ITEM_RPC_GUARD_OF_FERONIA_SAPPHIRE_DURATION_ADD %> seconds. Max <% ITEM_RPC_GUARD_OF_FERONIA_SAPPHIRE_MAX_PROCS_PER_SECOND %> procs per second"
 		"item_rpc_guard_of_feronia_amethyst1"								"When the Shield of Dawn expires, drop a star on all nearby enemies in a <% ITEM_RPC_GUARD_OF_FERONIA_AMETHYST_RADIUS %> radius that deals @amethyst_property1% of attack power. If only 1 enemy is nearby, drop <% ITEM_RPC_GUARD_OF_FERONIA_SINGLE_TARGET_STARS %> stars on it"
+		"DOTA_Tooltip_modifier_guard_of_feronia_armors"			"Guard of Feronia (Ruby)"
+		"DOTA_Tooltip_modifier_guard_of_feronia_armors_Description"			"Armor and Magical Armor increased."
 
 		"DOTA_Tooltip_ability_item_rpc_hermits_spike_shell"								"Hermit's Spike Shell"
 		"item_property_hermit_spike_shell"			"Quill Spray"
@@ -306,7 +308,7 @@
 		"DOTA_Tooltip_modifier_ice_quill_carapace_stack"	"Ice Quill"
 		"DOTA_Tooltip_modifier_ice_quill_carapace_stack_Description"	"Cast an ability to release."
 
-		"item_rpc_ice_quill_carapace_ruby1"								"Ice Quill will not trigger below @ruby_property1 stacks and Ice Quill Damage is increased by an additional @ruby_property2 flat damage"
+		"item_rpc_ice_quill_carapace_ruby1"								"Ice Quill will not trigger below @ruby_property1 stacks and Ice Quill Damage also deals an additional @ruby_property2 flat Pure damage instance"
 		"item_rpc_ice_quill_carapace_emerald1"								"Increases maximum Ice Quill stacks by @emerald_property1 and Max Mana by @emerald_property2"
 		"item_rpc_ice_quill_carapace_sapphire1"								"Restore @sapphire_property1% of Max Mana with each burst of Ice Quills"
 		"item_rpc_ice_quill_carapace_amethyst1"								"Each stored up Ice Quill stack increases Spell Pierce by @amethyst_property1"
@@ -577,7 +579,7 @@
 		"item_property_spellslinger_coat"			"Spellslinger"
 		"property_spellslinger_coat_description"	"@Ability2 restores <% ITEM_RPC_SPELLSLINGER_COAT_MANA_RESTORE %>% of its mana cost on use and its Base Ability Damage is increased by <% ITEM_RPC_SPELLSLINGER_COAT_BAD %>%."
 
-		"item_rpc_spellslinger_coat_ruby1"								"Casting [Q] has a @ruby_property1% chance to refresh its cooldown"
+		"item_rpc_spellslinger_coat_ruby1"								"Casting [Q] has a @ruby_property1% chance to refresh its cooldown, can proc once per <% GLOBAL_Q_MIN_CD %> seconds"
 		"item_rpc_spellslinger_coat_emerald1"								"Casting [W] adds @emerald_property1 Spell Pierce for <% ITEM_RPC_SPELLSLINGER_COAT_EMERALD_DURATION %> seconds, stacking up to <% ITEM_RPC_SPELLSLINGER_COAT_EMERALD_MAX_STACKS %> times"
 		"item_rpc_spellslinger_coat_sapphire1"								"Increases Mana Regen by @sapphire_property1"
 		"item_rpc_spellslinger_coat_amethyst1"								"When an enemy damages you, @amethyst_property1% chance to immediately cast [W] with no mana cost, cooldown or cast point. Max <% ITEM_RPC_SPELLSLINGER_COAT_MAX_AMETHYST_PROCS_PER_SECOND %> procs per second."

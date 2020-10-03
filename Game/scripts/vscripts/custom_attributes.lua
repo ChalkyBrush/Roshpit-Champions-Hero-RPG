@@ -989,6 +989,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	if unit:HasModifier("modifier_infused_mageplate") then
 		armor_modify = armor_modify + ITEM_RPC_INFUSED_MAGEPLATE_ARMOR_PER_INT*unit:GetIntellect()
 	end
+	if unit:HasModifier("modifier_guard_of_feronia_armors") then
+		armor_modify = armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("ruby", ITEM_RPC_GUARD_OF_FERONIA_GEM_RUBY)
+	end
 	if unit:HasModifier("modifier_mystic_mana_wall_armor") then
 		armor_modify = armor_modify + unit:FindModifierByName("modifier_mystic_mana_wall_armor"):GetStackCount()
 	end
@@ -1613,6 +1616,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("ruby", ITEM_RPC_INFUSED_MAGEPLATE_GEM_RUBY)*unit:GetStrength()
 		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_INFUSED_MAGEPLATE_GEM_SAPPHIRE)*unit:GetIntellect()
 	end
+	if unit:HasModifier("modifier_guard_of_feronia_armors") then
+		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("ruby", ITEM_RPC_GUARD_OF_FERONIA_GEM_RUBY)
+	end
 	if unit:HasModifier("modifier_outland_stone_cuirass_emerald") then
 		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_OUTLAND_STONE_CUIRASS_GEM_EMERALD)
 	end
@@ -1973,6 +1979,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 	if unit:HasModifier("modifier_flurry_aura_debuff") then
 		local flurry_plate = unit:FindModifierByName("modifier_flurry_aura_debuff"):GetAbility()
 		armor_pierce_modify = armor_pierce_modify + flurry_plate:GetFinalGemPropertyValue("sapphire", ITEM_RPC_SKYFORGE_FLURRY_PLATE_GEM_SAPPHIRE)
+	end
+	if unit:HasModifier("modifier_avalanche_plate") then
+		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_AVALANCHE_PLATE_GEM_SAPPHIRE)*unit:GetStrength()
 	end
 	if unit:HasModifier("modifier_knight_crusher_armor_pierce") then
 		local crusher_armor = unit:FindModifierByName("modifier_knight_crusher_armor_pierce"):GetAbility()
@@ -2405,6 +2414,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 		local stacks = unit:GetModifierStackCount("modifier_arena_crowd_buff", Arena.ArenaMaster)
 		spell_pierce_modify = spell_pierce_modify + stacks*50
 	end
+	if unit:HasModifier("modifier_autumnrock_bracer") then
+		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("emerald", ITEM_RPC_AUTUMNROCK_BRACER_GEM_EMERALD1)
+	end
 	if unit:HasModifier("modifier_grand_arcanist") then
 		spell_pierce_modify = spell_pierce_modify + unit:GetSumOfAllAttributes()*ITEM_RPC_GRAND_ARCANIST_WRAPS_SPELL_PIERCE_PER_ATTR
 	end
@@ -2494,7 +2506,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 		spell_pierce_modify = spell_pierce_modify + unit:GetModifierStackCount("modifier_azure_empire_visible", unit.InventoryUnit)*unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_AZURE_EMPIRE_GEM_SAPPHIRE)
 	end
 	if unit:HasModifier("modifier_cobalt_serenity_ring") then
-		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_COBALT_SERENITY_RING_GEM_EMERALD)*unit:GetHealth()
+		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_COBALT_SERENITY_RING_GEM_EMERALD) * (unit:GetHealthRegen() + unit:GetBaseManaRegen() + unit:GetBonusManaRegen())
+	end
+	if unit:HasModifier("modifier_avalanche_plate") then
+		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_AVALANCHE_PLATE_GEM_SAPPHIRE)*unit:GetStrength()
 	end
 	if unit:HasModifier("modifier_emerald_nullification_ring") then
 		spell_pierce_modify = spell_pierce_modify + unit:GetAgility()*ITEM_RPC_EMERALD_NULLIFICATION_RING_AGI_TO_MAGIC_PIERCE

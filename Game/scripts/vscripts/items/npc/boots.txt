@@ -5217,6 +5217,7 @@
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
+				"TextureName"	"rpc/sapphire_status_bar"
 			}
 			"modifier_black_King_bar_immunity"
 			{

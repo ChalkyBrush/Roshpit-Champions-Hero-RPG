@@ -596,6 +596,9 @@ function Enemies:GrantHeroAdjustedEXPForLevel(hero, level_of_slain_enemy, baseEX
 	if exp > 0 then
 		if hero:IsAlive() then
 			exp = math.floor(exp)
+			if hero:HasModifier("modifier_preservers_mantra") then
+				exp = math.floor(1.2*exp)
+			end
 			hero:AddExperience(exp, 2, false, true)
 			hero:UpdateWeaponEXP(exp)
 		end

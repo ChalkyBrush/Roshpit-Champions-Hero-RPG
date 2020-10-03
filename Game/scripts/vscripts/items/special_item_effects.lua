@@ -520,6 +520,8 @@ function ice_quill_think(event)
 		--print("HERE?")
 	end
 	local mana_lost = target.ice_quill_mana_prev - target:GetMana()
+	local newstacks = target:GetModifierStackCount("modifier_ice_quill_carapace_stack", caster)
+	local max_stacks = ITEM_RPC_ICE_QUILL_CARAPACE_MAX_STACKS + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_ICE_QUILL_CARAPACE_GEM_EMERALD1)
 	--print(mana_lost)
 	if mana_lost > 0 then
 		target.ice_quill_mana_loss = target.ice_quill_mana_loss + mana_lost
@@ -528,9 +530,10 @@ function ice_quill_think(event)
 			local addedStacks = math.floor(target.ice_quill_mana_loss / threshold)
 			target.ice_quill_mana_loss = target.ice_quill_mana_loss % threshold
 			ability:ApplyDataDrivenModifier(caster, target, "modifier_ice_quill_carapace_stack", {})
-			local newstacks = target:GetModifierStackCount("modifier_ice_quill_carapace_stack", caster) + addedStacks
-			newStacks = math.min(newstacks, ITEM_RPC_ICE_QUILL_CARAPACE_MAX_STACKS + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_ICE_QUILL_CARAPACE_GEM_EMERALD1))
-			target:SetModifierStackCount("modifier_ice_quill_carapace_stack", caster, newstacks)
+			newstacks = target:GetModifierStackCount("modifier_ice_quill_carapace_stack", caster) + addedStacks
+			if target:GetModifierStackCount("modifier_ice_quill_carapace_stack", caster) <= max_stacks then
+				target:SetModifierStackCount("modifier_ice_quill_carapace_stack", caster, math.min(newstacks, max_stacks))
+			end
 		end
 	end
 
@@ -562,18 +565,23 @@ function ice_quill_unloading_think(event)
 	CustomAbilities:QuickAttachParticle("particles/roshpit/items/ice_quill_explosion.vpcf", hero, 3)
 	EmitSoundOn("RPC.IceQuill", hero)
 	local radius = ITEM_RPC_ICE_QUILL_CARAPACE_RADIUS
-	local damage = OverflowProtectedGetAverageTrueAttackDamage(hero) * ITEM_RPC_ICE_QUILL_CARAPACE_ATTACK_TO_DMG/100 + ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_ICE_QUILL_CARAPACE_GEM_RUBY2)
-	local enemies = FindUnitsInRadius(hero:GetTeamNumber(), hero:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(hero) * ITEM_RPC_ICE_QUILL_CARAPACE_ATTACK_TO_DMG/100 
+	local damage_ruby = ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_ICE_QUILL_CARAPACE_GEM_RUBY2)
+	local enemies = FindUnitsInRadius(hero:GetTeamNumber(), hero:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do
 			Filters:ApplyItemDamage(enemy, hero, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_ICE, RPC_ELEMENT_NORMAL)
+			if ability:GetGemValue("ruby") > 0 then
+				Filters:ApplyItemDamage(enemy, hero, damage_ruby, DAMAGE_TYPE_PURE, ability, RPC_ELEMENT_ICE, RPC_ELEMENT_NORMAL)
+			end
 		end
 	end
+	local manaRestore = ITEM_RPC_ICE_QUILL_CARAPACE_MANA_RESTORE
 	if ability:GetGemValue("sapphire") > 0 then
-		local manaRestore = hero:GetMaxMana() * ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_ICE_QUILL_CARAPACE_GEM_SAPPHIRE)/100
-		hero:GiveMana(manaRestore)
-		PopupMana(hero, manaRestore)
+		manaRestore = manaRestore + hero:GetMaxMana() * ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_ICE_QUILL_CARAPACE_GEM_SAPPHIRE)/100
 	end
+	hero:GiveMana(manaRestore)
+	PopupMana(hero, manaRestore)
 end
 
 function midas_think(event)
@@ -3650,9 +3658,9 @@ function eyeglass_think(event)
 	if target:GetAttackCapability() == DOTA_UNIT_CAP_RANGED_ATTACK then
 		local attack_range = ITEM_RPC_EPSILONS_EYEGLASS_ATTACK_RANGE + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_EPSILONS_EYEGLASS_GEM_EMERALD)
 		local projectile_speed = ITEM_RPC_EPSILONS_EYEGLASS_PROJECTILE_SPEED + ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_EPSILONS_EYEGLASS_GEM_SAPPHIRE1)
-		-- ability:ApplyDataDrivenModifier(caster, target,"modifier_epsilons_eyeglass_range_effect_attack_range", {})
+		ability:ApplyDataDrivenModifier(caster, target,"modifier_epsilons_eyeglass_range_effect_attack_range", {})
 		ability:ApplyDataDrivenModifier(caster, target,"modifier_epsilons_eyeglass_range_effect_projectile_speed", {})
-		-- target:SetModifierStackCount("modifier_epsilons_eyeglass_range_effect_attack_range", caster, attack_range)
+		target:SetModifierStackCount("modifier_epsilons_eyeglass_range_effect_attack_range", caster, attack_range)
 		target:SetModifierStackCount("modifier_epsilons_eyeglass_range_effect_projectile_speed", caster, projectile_speed)
 		if ability:GetGemValue("sapphire") > 0 then
 			local atk_power_stacks = ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_EPSILONS_EYEGLASS_GEM_SAPPHIRE2)
@@ -3660,7 +3668,7 @@ function eyeglass_think(event)
 			target:SetModifierStackCount("modifier_epsilons_eyeglass_attack_power", caster, atk_power_stacks)
 		end
 	else
-		-- target:RemoveModifierByName("modifier_epsilons_eyeglass_range_effect_attack_range")
+		target:RemoveModifierByName("modifier_epsilons_eyeglass_range_effect_attack_range")
 		target:RemoveModifierByName("modifier_epsilons_eyeglass_range_effect_projectile_speed")
 	end
 end
@@ -4447,11 +4455,11 @@ function tiny_avalanche_think(event)
 	local target = event.target
 	local ability = event.ability
 	ParticleManager:SetParticleControl(ability.pfx, 0, target:GetAbsOrigin())
-	local radius = ITEM_RPC_AVALANCHE_PLATE_AVALANCHE_RADIUS + ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_AVALANCHE_PLATE_GEM_SAPPHIRE1)
+	local radius = ITEM_RPC_AVALANCHE_PLATE_AVALANCHE_RADIUS
 	local enemies = FindUnitsInRadius(target:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		local mult = ITEM_RPC_AVALANCHE_PLATE_AVALANCHE_STR_TO_DMG
-		local damage = target:GetStrength() * mult + ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_AVALANCHE_PLATE_GEM_AMETHYST)
+		local damage = target:GetStrength() * mult + OverflowProtectedGetAverageTrueAttackDamage(target)*ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_AVALANCHE_PLATE_GEM_AMETHYST)/100
 		for _, enemy in pairs(enemies) do
 			Filters:ApplyItemDamage(enemy, target, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_EARTH, RPC_ELEMENT_NONE)
 			Filters:ApplyStun(target, ITEM_RPC_AVALANCHE_PLATE_STUN_DUR, enemy)
@@ -4463,7 +4471,7 @@ function avalanche_end(event)
 	local caster = event.caster.hero
 	local ability = event.ability
 	if ability:GetGemValue("ruby") > 0 then
-		local radius = (ITEM_RPC_AVALANCHE_PLATE_AVALANCHE_RADIUS + ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_AVALANCHE_PLATE_GEM_SAPPHIRE1))*ITEM_RPC_AVALANCHE_PLATE_RUBY_EARTHQUAKE_RADIUS_MULT
+		local radius = ITEM_RPC_AVALANCHE_PLATE_AVALANCHE_RADIUS * ITEM_RPC_AVALANCHE_PLATE_RUBY_EARTHQUAKE_RADIUS_MULT
 
 		local splitEarthParticle = "particles/units/heroes/hero_leshrac/leshrac_split_earth.vpcf"
 		local position = caster:GetAbsOrigin()
@@ -4474,9 +4482,9 @@ function avalanche_end(event)
 			ParticleManager:DestroyParticle(pfx, false)
 		end)
 		EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "RPCItem.Avalanche2Quake", caster)
-		local damage = caster:GetStrength() * ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_AVALANCHE_PLATE_GEM_RUBY1)
+		local damage = caster:GetStrength() * ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_AVALANCHE_PLATE_GEM_RUBY1) + OverflowProtectedGetAverageTrueAttackDamage(caster)*ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_AVALANCHE_PLATE_GEM_AMETHYST)/100
 		local stun_duration = ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_AVALANCHE_PLATE_GEM_RUBY2)
-		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 		if #enemies > 0 then
 			for _, enemy in pairs(enemies) do
 				Filters:ApplyItemDamage(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, nil, RPC_ELEMENT_EARTH, RPC_ELEMENT_NONE)
@@ -5140,7 +5148,7 @@ function sea_oracle_thinker(event)
 			if ability.tideworn_table[i]:GetModifierStackCount("modifier_sea_oracle_stacker", caster) == HOOD_OF_SEA_ORACLE_MAX_STACKS then
 				has_mega_buff = true
 			end
-			largest_stack = math.min(largest_stack, ability.tideworn_table[i]:GetModifierStackCount("modifier_sea_oracle_stacker", caster))
+			largest_stack = math.max(largest_stack, ability.tideworn_table[i]:GetModifierStackCount("modifier_sea_oracle_stacker", caster))
 		end
 	end
 	ability.tideworn_table = new_table
@@ -7752,6 +7760,9 @@ function feronia_shield_expire(event)
 				end)
 			end
 		end	
+	end
+	if ability:GetGemValue("ruby") > 0 then
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_guard_of_feronia_armors", {duration =  ITEM_RPC_GUARD_OF_FERONIA_GEM_RUBY_DURATION})
 	end
 end
 

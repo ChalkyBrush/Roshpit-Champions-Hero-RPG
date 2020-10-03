@@ -125,7 +125,11 @@ function modifier_arkimus_magnetic_flux_buff:OnIntervalThink()
             ability.interval = 0
             local damage = ability:GetSpecialValueFor("damage") + ability:GetSpecialValueFor("int_damage") * caster:GetIntellect()
             local searchRadius = ARKIMUS_ARCANA1_Q_AOE
-            local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, searchRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+			local spell_pierce_flag = 0
+			if caster:HasModifier("modifier_arkimus_archon_form") then
+				spell_pierce_flag = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
+			end
+            local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, searchRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, spell_pierce_flag, FIND_ANY_ORDER, false)
             if #enemies > 0 then
                 EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Arkimus.ZonisLightning", caster)
                 for _, enemy in pairs(enemies) do

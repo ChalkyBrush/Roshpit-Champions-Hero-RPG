@@ -192,6 +192,9 @@ function RPCItems:RecordGearBonusToHeroBySlot(item, hero, property_name, propert
 	if hero:HasModifier("modifier_excavators_focus_cap") or item:GetAbilityName() == "item_rpc_excavators_focus_cap" then
 		property_bonus_mult = property_bonus_mult + RPCItems:GetMultForExcavatorsFocusCap(hero, item, property_value, property_name)
 	end
+	if hero:HasModifier("modifier_cobalt_serenity_ring") or item:GetAbilityName() == "item_rpc_cobalt_serenity_ring" then
+		property_bonus_mult = property_bonus_mult + RPCItems:GetMultForCobaltSerenityRing(hero, item, property_value, property_name)
+	end
 	if hero.equipped_gear and hero.equipped_gear[RPC_GEAR_SLOT_TRINKET] and hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetAbilityName() == "item_rpc_stone_of_gordon" then
 		property_bonus_mult = property_bonus_mult + RPCItems:GetMultStoneOfGordon(hero, item, property_value, property_name)
 	end
@@ -646,8 +649,6 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 		if socket_type == "emerald" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_AVALANCHE_PLATE_GEM_EMERALD, hero, "item_damage", RPC_GEAR_SLOT_BODY)
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_AVALANCHE_PLATE_GEM_EMERALD, hero, "element_earth", RPC_GEAR_SLOT_BODY)
-		elseif socket_type == "sapphire" then
-			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_AVALANCHE_PLATE_GEM_SAPPHIRE2, hero, "strength", RPC_GEAR_SLOT_BODY)
 		end
 	elseif item:GetAbilityName() == "item_rpc_blazing_fury_armor" then
 		if socket_type == "emerald" then
@@ -1341,10 +1342,9 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_BERYL_RING_OF_INTUITION_GEM_SAPPHIRE, hero, "element_ice", RPC_GEAR_SLOT_TRINKET)
 		end			
 	elseif item:GetAbilityName() == "item_rpc_cobalt_serenity_ring" then
-		if socket_type == "ruby" then
-			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_COBALT_SERENITY_RING_GEM_RUBY, hero, "max_health", RPC_GEAR_SLOT_TRINKET)
-		elseif socket_type == "sapphire" then
-			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_COBALT_SERENITY_RING_GEM_SAPPHIRE, hero, "intelligence", RPC_GEAR_SLOT_TRINKET)
+		if socket_type == "sapphire" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_COBALT_SERENITY_RING_GEM_SAPPHIRE1, hero, "intelligence", RPC_GEAR_SLOT_TRINKET)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_COBALT_SERENITY_RING_GEM_SAPPHIRE2, hero, "max_health", RPC_GEAR_SLOT_TRINKET)
 		end
 	elseif item:GetAbilityName() == "item_rpc_conquest_stone_falcon" then
 		if socket_type == "ruby" then
@@ -1692,6 +1692,14 @@ function RPCItems:AdjustPropertyValueForPaladinGlyph22()
 	-- elseif item.newItemTable.property4 == property_value and item.newItemTable.property4name == property_name then
 	-- 	mult = PALADIN_GLYPH_2_2_WEAPON_BONUS_PCT/100
 	-- end
+	return mult
+end
+
+function RPCItems:GetMultForCobaltSerenityRing(hero, item, property_value, property_name)
+	local mult = 0
+	if property_name == "base_ability" or property_name == "item_damage" or property_name == "mana_regen" or property_name == "health_regen" then
+		mult = hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_COBALT_SERENITY_RING_GEM_RUBY)/100
+	end
 	return mult
 end
 

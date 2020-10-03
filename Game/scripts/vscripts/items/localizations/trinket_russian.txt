@@ -182,8 +182,8 @@
         "item_property_cobalt_serenity"                     "Cobalt Serenity"
          "property_cobalt_serenity_description"                 "Интеллект увеличивает Регенерацию Здоровья на <% ITEM_RPC_COBALT_SERENITY_RING_INT_TO_HP_REGEN %>."
 
-        "item_rpc_cobalt_serenity_ring_ruby1"                           "Увеличивает запас Здоровья на @ruby_property1"
-        "item_rpc_cobalt_serenity_ring_emerald1"                            "Текущее Здоровье увеличивает Пробитие Магической Зашиты на @emerald_property1"
+        "item_rpc_cobalt_serenity_ring_ruby1"                           "Показатели Регерации Здоровья, Регенерации Маны, Базового Урона Способностей и Урона Предметов на снаряжении увеличены на @ruby_property1%"
+        "item_rpc_cobalt_serenity_ring_emerald1"                            "Регенерация Маны и Здоровья увеличивает Пробитие Магической Зашиты на @emerald_property1"
         "item_rpc_cobalt_serenity_ring_sapphire1"                           "Увеличивает Интеллект на @sapphire_property1"
         "item_rpc_cobalt_serenity_ring_amethyst1"                           "Интеллект увеличивает регенерацию Маны на @amethyst_property1"
 

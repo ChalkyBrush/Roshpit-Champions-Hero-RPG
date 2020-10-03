@@ -3987,18 +3987,22 @@
 			"modifier_fortunes_talisman_ruby_buff"
 			{
 				"IsHidden"	"0"
+				"TextureName"	"rpc/ruby_status_bar"
 			}
 			"modifier_fortunes_talisman_emerald_buff"
 			{
 				"IsHidden"	"0"
+				"TextureName"	"rpc/emerald_status_bar"
 			}
 			"modifier_fortunes_talisman_sapphire_buff"
 			{
 				"IsHidden"	"0"
+				"TextureName"	"rpc/sapphire_status_bar"
 			}
 			"modifier_fortunes_talisman_amethyst_buff"
 			{
 				"IsHidden"	"0"
+				"TextureName"	"rpc/amethyst_status_bar"
 			}
 		}
 	}
@@ -4732,9 +4736,14 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_COBALT_SERENITY_RING_GEM_SAPPHIRE %>"
+				"sapphire1"			"<% ITEM_RPC_COBALT_SERENITY_RING_GEM_SAPPHIRE1 %>"
 			}
 			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire1"			"<% ITEM_RPC_COBALT_SERENITY_RING_GEM_SAPPHIRE2 %>"
+			}	
+			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
 				"amethyst1"			"<% ITEM_RPC_COBALT_SERENITY_RING_GEM_AMETHYST %>"

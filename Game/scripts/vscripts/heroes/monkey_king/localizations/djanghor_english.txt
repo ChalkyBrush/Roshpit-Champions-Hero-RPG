@@ -249,7 +249,7 @@
     	"property_djanghor_arcana1_description"									"Replaces @Ability4 and all of its runes with Shapeshift: Year Beast."
 
     	"DOTA_Tooltip_ability_draghor_shapeshift_year_beast"					"Shapeshift: Year Beast"
-    	"DOTA_Tooltip_ability_draghor_shapeshift_year_beast_Description"						"Transform into the Year Beast with its own ability set after 1.75 second channel. The Year Beast's primary attribute is based on which Mark is active. Drains 0.03% of max mana every 0.1 seconds while shapeshifted."
+    	"DOTA_Tooltip_ability_draghor_shapeshift_year_beast_Description"						"Transform into the Year Beast with its own ability set after 1.75 second channel. Drains 0.03% of max mana every 0.1 seconds while shapeshifted."
     	"DOTA_Tooltip_ability_draghor_shapeshift_year_beast_all_attributes_bonus"						"ATTRIBUTE BONUS IN YEAR BEAST FORM:"
 
     	"DOTA_Tooltip_ability_draghor_year_beast_thunderous_roar"									"Thunderous Roar"

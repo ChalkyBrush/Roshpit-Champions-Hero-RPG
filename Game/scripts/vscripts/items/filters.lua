@@ -2970,7 +2970,7 @@ function Filters:AvalanchePlate(caster)
     EmitSoundOnLocationWithCaster(position, "RPCItem.AvalancheStart", caster)
     local avalancheParticle = "particles/units/heroes/hero_tiny/tiny_avalanche.vpcf"
 
-    local radius = ITEM_RPC_AVALANCHE_PLATE_AVALANCHE_RADIUS + avalanche_plate:GetFinalGemPropertyValue("sapphire", ITEM_RPC_AVALANCHE_PLATE_GEM_SAPPHIRE1)
+    local radius = ITEM_RPC_AVALANCHE_PLATE_AVALANCHE_RADIUS
     local pfx = ParticleManager:CreateParticle(avalancheParticle, PATTACH_CUSTOMORIGIN, caster)
     ParticleManager:SetParticleControl(pfx, 0, position)
     ParticleManager:SetParticleControl(pfx, 1, Vector(radius, radius, radius))
@@ -3067,12 +3067,16 @@ function Filters:SpellslingerCoat(caster)
 end
 
 function Filters:SpellslingerCoatQ(caster)
+	local inventoryUnit = caster.InventoryUnit
     local coat = caster.equipped_gear[RPC_GEAR_SLOT_BODY]
     if coat:GetGemValue("ruby") > 0 then
         local proc = Filters:GetProc(caster, coat:GetFinalGemPropertyValue("ruby", ITEM_RPC_SPELLSLINGER_COAT_GEM_RUBY))
         if proc then
             local q_ability = caster:GetAbilityByIndex(DOTA_Q_SLOT)
-            q_ability:EndCooldown()
+			if not caster:HasModifier("modifier_spellslinger_ruby_cooldown") then
+				q_ability:EndCooldown()
+				coat:ApplyDataDrivenModifier(inventoryUnit, caster, "modifier_spellslinger_ruby_cooldown", {duration = GLOBAL_Q_MIN_CD})
+			end
         end
     end
 end
@@ -5691,7 +5695,7 @@ function Filters:AutumnrockExplosion(caster, ability, position, explosionAOE)
     Timers:CreateTimer(4, function()
         ParticleManager:DestroyParticle(particle1, false)
     end)
-    local damage = caster:GetStrength() * ITEM_RPC_AUTUMNROCK_BRACER_DMG_PER_STR + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_AUTUMNROCK_BRACER_GEM_EMERALD1)
+    local damage = caster:GetStrength() * ITEM_RPC_AUTUMNROCK_BRACER_DMG_PER_STR
     local stun_duration = ITEM_RPC_AUTUMNROCK_BRACER_STUN_DUR + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_AUTUMNROCK_BRACER_GEM_EMERALD2)
     EmitSoundOnLocationWithCaster(position, "Item.AutumnMage.Quake", caster)
     local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, explosionAOE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)

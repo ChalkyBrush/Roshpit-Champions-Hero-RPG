@@ -182,9 +182,9 @@
         "item_property_cobalt_serenity"                     "Cobalt Serenity"
          "property_cobalt_serenity_description"                 "Each point of Intelligence increases Health Regen by <% ITEM_RPC_COBALT_SERENITY_RING_INT_TO_HP_REGEN %>."
 
-        "item_rpc_cobalt_serenity_ring_ruby1"                           "Increases Max Health by @ruby_property1"
-        "item_rpc_cobalt_serenity_ring_emerald1"                            "Each point of current health increases Spell Pierce by @emerald_property1"
-        "item_rpc_cobalt_serenity_ring_sapphire1"                           "Increases Intelligence by @sapphire_property1"
+        "item_rpc_cobalt_serenity_ring_ruby1"                           "Base Ability Damage, Item Damage, Health and Mana Regeneration bonuses from gear are increased by @ruby_property1%"
+        "item_rpc_cobalt_serenity_ring_emerald1"                            "Health and Mana Regeneration value increases Spell Pierce by @emerald_property1"
+        "item_rpc_cobalt_serenity_ring_sapphire1"                           "Increases Intelligence by @sapphire_property1 and Max Health by @sapphire_property2"
         "item_rpc_cobalt_serenity_ring_amethyst1"                           "Each point of Intelligence increases Mana Regen by an additional @amethyst_property1"
 
         "DOTA_Tooltip_ability_item_rpc_conquest_stone_falcon"                           "Conquest Stone Falcon"

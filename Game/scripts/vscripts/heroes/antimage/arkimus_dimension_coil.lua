@@ -74,6 +74,10 @@ function arkimus_dimension_coil:OnSpellStart()
         local duration = ARKIMUS_Q_COIL_BASE_DURATION + ARKIMUS_Q_COIL_BASE_DURATION * q_4_level * ARKIMUS_Q4_COIL_ADD_DURATION_PCT
         local zonal_net_duration = 1 + 1 * ARKIMUS_Q4_COIL_ADD_DURATION_PCT * q_4_level
         local loops = math.floor(duration * 10)
+		local spell_pierce_flag = 0
+		if caster:HasModifier("modifier_arkimus_archon_form") then
+			spell_pierce_flag = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
+		end
         Timers:CreateTimer(0.1, function()
             CustomAbilities:QuickAttachParticle("particles/roshpit/arkimus/zonis_end.vpcf", caster, 3)
             if q_2_level > 0 then
@@ -82,7 +86,7 @@ function arkimus_dimension_coil:OnSpellStart()
             for i = 1, loops, 1 do
                 Timers:CreateTimer(i * 0.1, function()
                     CreateZonisBeam(origPosition + Vector(0, 0, 60), target + Vector(0, 0, 60))
-                    local enemies = FindUnitsInLine(caster:GetTeamNumber(), origPosition, target, nil, 80, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0)
+                    local enemies = FindUnitsInLine(caster:GetTeamNumber(), origPosition, target, nil, 80, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, spell_pierce_flag)
                     if #enemies > 0 then
                         local index = 1
                         if i % 2 == 0 then
