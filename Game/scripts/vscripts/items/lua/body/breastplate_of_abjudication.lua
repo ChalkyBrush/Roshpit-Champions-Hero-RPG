@@ -184,7 +184,7 @@ function modifierClass:RoshpitEventFinalTakeDamage(event)
 		    if attacker:GetRoshpitSpellPierce() > heroMagicArmor then
 		    	local magic_armor_bonus = (attacker:GetRoshpitSpellPierce() - heroMagicArmor)*(ITEM_RPC_BREASTPLATE_OF_ABJUDICATION_STAT_PCT/100)
 		    	if magic_armor_bonus > ability.magic_armor_bonus then
-		    		ability.magic_armor_bonus = magic_armor_bonus
+		    		ability.magic_armor_bonus = math.min(magic_armor_bonus, ITEM_RPC_BREASTPLATE_OF_ABJUDICATION_MAX_DIFF * heroMagicArmor)
 		    		local duration = ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_BREASTPLATE_OF_ABJUDICATION_GEM_AMETHYST)
 		    		hero:AddNewModifier(hero, ability, "modifier_abjudication_amethyst_magic_armor", {duration = duration})
 		    	end
@@ -234,7 +234,7 @@ function aura_debuff_class:OnAttackStart(event)
     if attacker:GetRoshpitArmorPierce() > heroArmor then
     	local armor_bonus = (attacker:GetRoshpitArmorPierce() - heroArmor)*(ITEM_RPC_BREASTPLATE_OF_ABJUDICATION_STAT_PCT/100)
     	if armor_bonus > ability.armor_bonus then
-    		ability.armor_bonus = armor_bonus
+    		ability.armor_bonus = math.min(armor_bonus, ITEM_RPC_BREASTPLATE_OF_ABJUDICATION_MAX_DIFF * heroArmor)
     		local duration = ITEM_RPC_BREASTPLATE_OF_ABJUDICATION_DURATION + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_BREASTPLATE_OF_ABJUDICATION_GEM_EMERALD)
     		hero:AddNewModifier(hero, ability, "modifier_abjudication_base_effect_armor", {duration = duration})
     	end

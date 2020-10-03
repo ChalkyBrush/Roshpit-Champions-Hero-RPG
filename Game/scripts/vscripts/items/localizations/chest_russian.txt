@@ -161,7 +161,7 @@
 		"item_rpc_direwolf_bulwark_ruby1"								"Атаки, нанесенные противниками по герою, снизят их урон на @ruby_property1% от Пробития Брони героя"
 		"item_rpc_direwolf_bulwark_emerald1"								"Дополнительный урон при атаках увеличен еще на @emerald_property1% от суммы слагаемых значений"
 		"item_rpc_direwolf_bulwark_sapphire1"								"Увеличивает Пробитие Брони на @sapphire_property1"
-		"item_rpc_direwolf_bulwark_amethyst1"								"Стандартные атаки наносят дополнительный магический урон, равный @amethyst_property1% от Магической Защиты целей"
+		"item_rpc_direwolf_bulwark_amethyst1"								"Стандартные атаки наносят дополнительный магический урон, равный @amethyst_property1% от суммы Брони, Защиты и Пробитий героя"
 
 		"DOTA_Tooltip_ability_item_rpc_doomplate"										"Doomplate"
 
