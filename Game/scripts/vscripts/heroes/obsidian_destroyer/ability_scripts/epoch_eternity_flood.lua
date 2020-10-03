@@ -334,7 +334,7 @@ function modifier_epoch_r_vacuum:OnIntervalThink()
 		return false
 	end
 	local target = self:GetParent()
-	if target.pushLock then
+	if target.pushLock or target.dummy then
 		return false
 	end
 	local caster = self:GetCaster()
@@ -397,7 +397,7 @@ function modifier_epoch_r_freeze:OnIntervalThink()
 			end
 		end
 	end
-	if target.pushLock or target.jumpLock then
+	if target.pushLock or target.jumpLock or target.dummy then
 		return false
 	end
 	if ability.freeze_table[target:GetEntityIndex()].is_frozen then

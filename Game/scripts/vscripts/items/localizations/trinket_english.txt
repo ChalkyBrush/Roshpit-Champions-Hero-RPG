@@ -199,10 +199,10 @@
         "DOTA_Tooltip_ability_item_rpc_emerald_nullification_ring"                      "Emerald Nullification Ring"
 
         "item_property_emerald_null"                            "Emerald Nullification"
-         "property_emerald_null_description"                    "Each point of Agility increases Magic Armor by <% ITEM_RPC_EMERALD_NULLIFICATION_RING_AGI_TO_MAGIC_ARMOR %>."
+         "property_emerald_null_description"                    "Each point of Agility increases Magic Armor by <% ITEM_RPC_EMERALD_NULLIFICATION_RING_AGI_TO_MAGIC_ARMOR %> and Spell Pierce by <% ITEM_RPC_EMERALD_NULLIFICATION_RING_AGI_TO_MAGIC_PIERCE %>."
 
         "item_rpc_emerald_nullification_ring_ruby1"                     "Reduces all Magic Damage taken by @ruby_property1%"
-        "item_rpc_emerald_nullification_ring_emerald1"                      "Increases Agility by @emerald_property1"
+        "item_rpc_emerald_nullification_ring_emerald1"                      "Each point of Agility increases Base Ability Damage by @emerald_property1%"
         "item_rpc_emerald_nullification_ring_sapphire1"                     "@sapphire_property1% chance to completely block an instance of Magic or Pure damage"
         "item_rpc_emerald_nullification_ring_amethyst1"                     "Reduces all Pure damage taken by @amethyst_property1%"
 
@@ -412,7 +412,7 @@
         "item_property_omega_ruby"                  "Omega Flare"
         "property_omega_ruby"                       "Your attacks explode on contact, dealing <% ITEM_RPC_OMEGA_RUBY_ATTACK_TO_DMG %>% of Attack Power as damage to enemies within <% ITEM_RPC_OMEGA_RUBY_AOE_RADIUS %> range."
 
-        "item_rpc_omega_ruby_ruby1"                                     "Increases the explosion radius by @ruby_property1 and Omega Flare's damage by @ruby_property2"
+        "item_rpc_omega_ruby_ruby1"                                     "Increases the explosion radius by @ruby_property1 and Omega Flare's also deals @ruby_property2% of Attack Power as Physical damage"
         "item_rpc_omega_ruby_emerald1"                                      "Increases Attack Speed by @emerald_property1"
         "item_rpc_omega_ruby_sapphire1"                                     "Increases Attack Power by @sapphire_property1%"
         "item_rpc_omega_ruby_amethyst1"                                     "Increases Armor Pierce and Spell Pierce by @amethyst_property1"

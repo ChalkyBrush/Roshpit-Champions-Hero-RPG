@@ -50,7 +50,7 @@
 		"item_rpc_blue_rain_gauntlet_ruby1"								"Увеличивает Урон Предметов на @ruby_property1% и все Атрибуты на @ruby_property2"
 		"item_rpc_blue_rain_gauntlet_emerald1"								"Увеличивает шанс срабатывания на @emerald_property1% и максимальное количество срабатываний на @emerald_property2"
 		"item_rpc_blue_rain_gauntlet_sapphire1"								"Увеличивает урон водного удара на @sapphire_property1% от Силы Атаки"
-		"item_rpc_blue_rain_gauntlet_amethyst1"								"Прочтение [R] активирует <% ITEM_RPC_BLUE_RAIN_GAUNTLET_AMETHYST_COUNT %> водных ударов во все стороны от героя, наносящие @amethyst_property1 урона"
+		"item_rpc_blue_rain_gauntlet_amethyst1"								"Прочтение [R] активирует <% ITEM_RPC_BLUE_RAIN_GAUNTLET_AMETHYST_COUNT %> водных ударов во все стороны от героя, наносящие @amethyst_property1% урона от Rain Lance"
 
     	"DOTA_Tooltip_ability_item_rpc_boneguard_gauntlets"								"Claw of the Dead"
 

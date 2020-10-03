@@ -954,6 +954,9 @@ function Arena:ConquestTemplePart3()
 		shield:RemoveModifierByName("dummy_unit")
 		shield:SetForwardVector(Vector(-1,-1))
 		shield.type = "forest_ward"
+		shield.dummy = true
+		shield.pushLock = true
+		shield.jumpLock = true
 	end)
 end
 
@@ -1210,6 +1213,9 @@ function Arena:SpawnDustDispenser(position, fv)
 	shield:RemoveModifierByName("dummy_unit")
 	shield:SetForwardVector(fv)
 	shield.type = "dust_dispenser"
+	shield.dummy = true
+	shield.pushLock = true
+	shield.jumpLock = true
 	StartAnimation(shield, {duration=99999, activity=ACT_DOTA_IDLE, rate=1.0})
 end
 

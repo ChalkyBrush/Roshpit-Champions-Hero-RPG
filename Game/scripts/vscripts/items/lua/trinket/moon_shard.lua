@@ -96,11 +96,14 @@ function modifierClass:OnIntervalThink()
 		if not ability.sapphire_interval then
 			ability.sapphire_interval = 0
 		end
-		ability.sapphire_interval = ability.sapphire_interval + 1
+		if not hero:HasModifier("modifier_moon_shard_sapphire") then
+			ability.sapphire_interval = ability.sapphire_interval + 1
+		end
 		if ability.sapphire_interval >= ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_MOON_SHARD_GEM_SAPPHIRE)*10 then
 			ability.sapphire_interval = 0
-			hero:AddNewModifier(self:GetCaster(), ability, "modifier_moon_shard_sapphire", {})
+				hero:AddNewModifier(self:GetCaster(), ability, "modifier_moon_shard_sapphire", {})
 		end
+		
 	end
 	if ability:GetGemValue("amethyst") > 0 then
 		if not ability.amethyst_distance then

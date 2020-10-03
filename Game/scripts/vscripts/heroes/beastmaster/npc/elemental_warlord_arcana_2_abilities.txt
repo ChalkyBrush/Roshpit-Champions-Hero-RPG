@@ -179,7 +179,7 @@
 			{
 				"Passive"	"1"
 				"IsHidden"	"1"
-				"ThinkInterval"  "3"
+				"ThinkInterval"  "<% WARLORD_ARCANA2_Q_ICE_CHARGES_INTERVAL %>"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -280,6 +280,11 @@
 					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_FROZEN"			"MODIFIER_STATE_VALUE_ENABLED"
 				}
+			}
+			"modifier_ice_scathe_freeze_immunity"
+			{
+				"IsHidden"	"1"
+				"IsDebuff"	"0"
 			}
 			"modifier_ice_scathe_q2_shield"
 			{

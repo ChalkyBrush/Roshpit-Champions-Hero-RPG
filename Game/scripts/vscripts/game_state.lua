@@ -1968,6 +1968,18 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 				local reduction = victim.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_JUSTICE_GREAVES_GEM_EMERALD)
 				damage = damage * (100-reduction)/100
 			end
+			if (angle_between > (180 - ITEM_RPC_JUSTICE_GREAVES_EMERALD_ANGLE/2 - ITEM_RPC_JUSTICE_GREAVES_EMERALD_ANGLE_SIDES)) and (angle_between < (180 - ITEM_RPC_JUSTICE_GREAVES_EMERALD_ANGLE/2)) then
+				CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_mars/mars_shield_of_mars_small.vpcf", victim, 1)
+				EmitSoundOn("RPCItems.JusticeGreaves.Block", victim)
+				local reduction = victim.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_JUSTICE_GREAVES_GEM_EMERALD)/2
+				damage = damage * (100-reduction)/100
+			end
+			if (angle_between > (180 + ITEM_RPC_JUSTICE_GREAVES_EMERALD_ANGLE/2)) and (angle_between < (180 + ITEM_RPC_JUSTICE_GREAVES_EMERALD_ANGLE/2 + ITEM_RPC_JUSTICE_GREAVES_EMERALD_ANGLE_SIDES)) then
+				CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_mars/mars_shield_of_mars_small.vpcf", victim, 1)
+				EmitSoundOn("RPCItems.JusticeGreaves.Block", victim)
+				local reduction = victim.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_JUSTICE_GREAVES_GEM_EMERALD)/2
+				damage = damage * (100-reduction)/100
+			end
 		end
 	end
 	if victim:HasModifier("modifier_chitinous_skin_stack") then

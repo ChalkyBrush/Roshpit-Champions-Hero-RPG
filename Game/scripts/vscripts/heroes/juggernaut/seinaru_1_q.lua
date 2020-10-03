@@ -120,7 +120,7 @@ end
 
 function kaze_pushback_think(event)
 	local target = event.target
-	if target.jumpLock then
+	if target.jumpLock or target.dummy then
 		return false
 	end
 	local ability = event.ability

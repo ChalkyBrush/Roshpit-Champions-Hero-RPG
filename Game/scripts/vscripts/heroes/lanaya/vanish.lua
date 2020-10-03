@@ -166,7 +166,9 @@ function decoy(caster, casterAbility, runesCount)
     runeAbility:ApplyDataDrivenModifier(caster.runeUnit2, decoy, "modifier_decoy_effect", {duration = TRAPPER_E2_DECOY_DURATION - 0.5})
     local enemies = FindUnitsInRadius(caster:GetTeamNumber(), decoy:GetAbsOrigin(), nil, TRAPPER_E2_EXPLODE_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
     for _,enemy in pairs(enemies) do
-        enemy:MoveToTargetToAttack(decoy)
+		if not enemy.dummy then
+			enemy:MoveToTargetToAttack(decoy)
+		end
     end
 end
 

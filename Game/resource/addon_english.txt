@@ -3006,7 +3006,7 @@
 		"item_rpc_auriun_glyph_7_1_description" 				"[R1] attacks explode and deal another instance of damage to all enemies in a radius of <font color='#ccff66'>240</font>"
 
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_5_a"		"[T5-a] Glyph of Shadow Flay"
-		"item_rpc_auriun_glyph_5_a_description" 				"All nearby enemies are grasped by Shadow Flay, dealing <font color='#ccff66'>1</font>x Auriun's intelligence each <font color='#ccff66'>0.5</font> second tick and slowing them by <font color='#ccff66'>20</font>%. <font color='#ccff66'>1</font>% of damage dealt heals Auriun."
+		"item_rpc_auriun_glyph_5_a_description" 				"All nearby enemies are grasped by Shadow Flay, dealing <font color='#ccff66'>1</font>x Auriun's Intelligence each <font color='#ccff66'>0.5</font> second tick and slowing them by <font color='#ccff66'>20</font>%. <font color='#ccff66'>2</font>% of damage dealt heals Auriun.<br> Damage Type: <font color='#6A8EC9'>Magical</font> <br>Element: <font color='#7F4F84'>Shadow</font><br><font color='#F28100'>Item Damage</font>"
 		
 		//Weapons
 		"DOTA_Tooltip_ability_item_rpc_auriun_weapon_00"   "Tome"
@@ -3284,7 +3284,7 @@
         "item_rpc_axe_glyph_3_1_description"                "The interval between @Ability3's strikes is reduced by <font color='#ccff66'>50</font>%, occurring every 0.09 seconds."
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_4_1"       "[T4-1] Glyph of the Helix"
-        "item_rpc_axe_glyph_4_1_description"                "The Red General also performs a Helix Attack when casting @Ability2, dealing <font color='#ccff66'>15</font>% of his attack damage as Physical to all surrounding enemies. Damage is further multiplied by @Ability2's spell level."
+        "item_rpc_axe_glyph_4_1_description"                "The Red General also performs a Helix Attack when casting @Ability2, dealing <font color='#ccff66'>15</font>% of his attack damage to all surrounding enemies. Damage is further multiplied by @Ability2's spell level.<br> Damage Type: <font color='#8B0000'>Physical</font> <br>Element: <font color='#DDDDDD'>Normal</font><br><font color='#F28100'>Item Damage</font>"
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_5_1"       "[T5-1] Glyph of Impact" // lower pitch base sound high pitch strike sound
         "item_rpc_axe_glyph_5_1_description"                "@Ability1's stun becomes a <font color='#ccff66'>0.03</font> second ministun but gains <font color='#ccff66'>3</font>x increased damage."
@@ -3371,9 +3371,9 @@
 		"DOTA_Tooltip_ability_leshrac_wall"								"Wall of Impunity"
     	"DOTA_Tooltip_ability_leshrac_wall_Description"					"Element: <font color='#F6FFB5'>Holy</font><br>Bahamut conjures a wall that reveals the inadequacy of beings that pass through. Enemies near the wall are judged for being unworthy and take damage."
     	"DOTA_Tooltip_ability_leshrac_wall_Lore"						""
-    	"DOTA_Tooltip_ability_leshrac_wall_damage"						"DAMAGE/TICK"
-    	"DOTA_Tooltip_ability_leshrac_wall_wall_length"					"LENGTH"
-    	"DOTA_Tooltip_ability_leshrac_wall_attack_loss"					"ATTACK DECREASE %"
+    	"DOTA_Tooltip_ability_leshrac_wall_damage"						"DAMAGE/TICK:"
+    	"DOTA_Tooltip_ability_leshrac_wall_wall_length"					"LENGTH:"
+    	"DOTA_Tooltip_ability_leshrac_wall_attack_loss"					"ATTACK DECREASE %:"
 
     	"DOTA_Tooltip_modifier_leshrac_wall_attack_loss"				"Wall of Impunity"
     	"DOTA_Tooltip_modifier_leshrac_wall_attack_loss_Description"	"Losing Attack Damage"
@@ -3414,8 +3414,8 @@
 		"DOTA_Tooltip_ability_leshrac_nuke"								"Judgement"
     	"DOTA_Tooltip_ability_leshrac_nuke_Description"					"Element: <font color='#F6FFB5'>Holy</font><br>Bahamut measures the worth of enemies in a small radius in front of him."
     	"DOTA_Tooltip_ability_leshrac_nuke_Lore"						""
-    	"DOTA_Tooltip_ability_leshrac_nuke_damage"						"DAMAGE"
-    	"DOTA_Tooltip_ability_leshrac_nuke_radius"						"RADIUS"
+    	"DOTA_Tooltip_ability_leshrac_nuke_damage"						"DAMAGE:"
+    	"DOTA_Tooltip_ability_leshrac_nuke_radius"						"RADIUS:"
 		
 		"DOTA_Tooltip_ability_bahamut_rune_w_1"							"[W1] Greatness"
     	"DOTA_Tooltip_ability_bahamut_rune_w_1_Description"				"Increases Attack Power and Base Ability Damage."
@@ -3452,7 +3452,7 @@
 		"DOTA_Tooltip_ability_leshrac_blink"							"Ascension"
     	"DOTA_Tooltip_ability_leshrac_blink_Description"				"Bahamut ascends into a state where he can perceive all truths, allowing him to step out of our standard world."
     	"DOTA_Tooltip_ability_leshrac_blink_Lore"						""
-    	"DOTA_Tooltip_ability_leshrac_blink_range"						"DISTANCE"
+    	"DOTA_Tooltip_ability_leshrac_blink_range"						"DISTANCE:"
 		
 		"DOTA_Tooltip_ability_bahamut_rune_e_1"							"[E1] Chronos Mend"
     	"DOTA_Tooltip_ability_bahamut_rune_e_1_Description"				"Gives a 90% on taking damage heal for a portion of the damage."
@@ -3479,7 +3479,7 @@
     	"DOTA_Tooltip_ability_bahamut_pulse"							"Bahamut Pulse"
     	"DOTA_Tooltip_ability_bahamut_pulse_Description"				"Deals damage to all nearby enemies at the cost of Movespeed. Using Aberrant Ascension will restore your lost movement speed."
     	"DOTA_Tooltip_ability_bahamut_pulse_Lore"						""
-    	"DOTA_Tooltip_ability_bahamut_pulse_movespeed"					"MOVESPEED LOSS PER CAST"
+    	"DOTA_Tooltip_ability_bahamut_pulse_movespeed"					"MOVESPEED LOSS PER CAST:"
 
     	"DOTA_Tooltip_modifier_pulse_slow"								"Overloaded"
     	"DOTA_Tooltip_modifier_pulse_slow_Description"					"Losing movespeed"
@@ -3497,8 +3497,8 @@
 		"DOTA_Tooltip_ability_charge_of_light"							"Megaflare"
     	"DOTA_Tooltip_ability_charge_of_light_Description"				"Element: <font color='#F6FFB5'>Holy</font><br>Bahamut charges forward and unleashes an explosion of power to cleanse the inferior. While charging Bamamut is immune to physical and magic damage."
     	"DOTA_Tooltip_ability_charge_of_light_Lore"						""
-    	"DOTA_Tooltip_ability_charge_of_light_damage"					"DAMAGE"	
-    	"DOTA_Tooltip_ability_charge_of_light_range"					"EXPLOSION RADIUS"
+    	"DOTA_Tooltip_ability_charge_of_light_damage"					"DAMAGE:"	
+    	"DOTA_Tooltip_ability_charge_of_light_range"					"EXPLOSION RADIUS:"
 		
 		"DOTA_Tooltip_ability_bahamut_rune_r_1"							"[R1] Hyper State"
     	"DOTA_Tooltip_ability_bahamut_rune_r_1_Description"				"Charging through a Wall of Impunity with Megaflare activates Hyper State which increases Bahamut's Attack and Movespeed for 12 seconds."
@@ -3531,9 +3531,11 @@
     	"DOTA_Tooltip_modifier_bahamut_rune_r_3_effect_Description"		"Slowed"
 		
 		"DOTA_Tooltip_ability_bahamut_rune_r_4"							"[R4] Solitary Shell"
-    	"DOTA_Tooltip_ability_bahamut_rune_r_4_Description"				"Upon completion of Megaflare's charge, Bahamut enters an impenetrable shield for 3 seconds that makes him immune to all damage and preserves buff durations. While in the shell Bahamut gains bonus attributes that last for 9 seconds."
+    	"DOTA_Tooltip_ability_bahamut_rune_r_4_Description"				"Upon completion of Megaflare's charge, Bahamut enters an impenetrable shield for <font color='#ccff66'>2</font> seconds that makes him immune to all damage and preserves buff durations. While in the shell Bahamut gains bonus attributes that last for <font color='#ccff66'>9</font> seconds. Megaflare's damage passively increased."
     	"DOTA_Tooltip_ability_bahamut_rune_r_4_property_one"			"Bonus Attributes"
-    	"DOTA_Tooltip_ability_bahamut_rune_r_4_suffix"					" every 0.1 seconds"	
+    	"DOTA_Tooltip_ability_bahamut_rune_r_4_suffix"					" every 0.1 seconds"
+		"DOTA_Tooltip_ability_bahamut_rune_r_4_property_two"			"Bonus Megaflare damage"
+		"DOTA_Tooltip_ability_bahamut_rune_r_4_suffix_two"				""
 
       	"DOTA_Tooltip_modifier_bahamut_rune_r_4_shell"						"Solitary Shell"
     	"DOTA_Tooltip_modifier_bahamut_rune_r_4_shell_Description"			"Frozen and Damage Immune"	  		
@@ -3627,13 +3629,13 @@
 		//New Rune c_d: while channeling megaflare, all nearby enemies have slowed movespeed and attack speed
 
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_3_1"		"[T3-1] Glyph of Separation"
-		"item_rpc_bahamut_glyph_3_1_description" 				"Judgement falls around Bahamut instead of in front and has <font color='#ccff66'>30</font>% larger radius."
+		"item_rpc_bahamut_glyph_3_1_description" 				"Judgement falls around Bahamut instead of in front and has <font color='#ccff66'>70</font>% larger radius."
 
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_4_1"		"[T4-1] Glyph of Barriers"
 		"item_rpc_bahamut_glyph_4_1_description" 				"Increases the duration of Wall of Impunity by <font color='#ccff66'>2</font> seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_5_1"		"[T5-1] Glyph of Isolation"
-		"item_rpc_bahamut_glyph_5_1_description" 				"Increases the duration of Solitary Shell by <font color='#ccff66'>3</font> seconds."
+		"item_rpc_bahamut_glyph_5_1_description" 				"Increases the duration of Solitary Shell by <font color='#ccff66'>2</font> seconds and multiplies Megaflare damage by <font color='#ccff66'>2</font>."
 
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_6_1"		"[T6-1] Glyph of Pride"
 		"item_rpc_bahamut_glyph_6_1_description" 				"[E3] is passive and no longer slows. Also Bahamut Pulse applies a <font color='#ccff66'>1.5</font> second stun every <font color='#ccff66'>5</font>th pulse."
@@ -6337,7 +6339,7 @@
         "DOTA_Tooltip_ability_warlord_cataclysm_shaker_str_mult"            "BONUS DAMAGE STRENGTH MULTIPLIER:"
 
         "DOTA_Tooltip_ability_warlord_frost_scathe"                         "Frost Scathe"
-        "DOTA_Tooltip_ability_warlord_frost_scathe_Description"             "Element: <font color='#87D9FF'>Ice</font> / <font color='#3289C7'>Dragon</font><br>A draconic chill flash freezes the target area, slowing enemies within. Targets who linger too long will release a frost nova, freezing and damaging enemies around them. Damage is increased by Intelligence.<br>This ability has 2 free casts that recharge every 3 seconds."
+        "DOTA_Tooltip_ability_warlord_frost_scathe_Description"             "Element: <font color='#87D9FF'>Ice</font> / <font color='#3289C7'>Dragon</font><br>A draconic chill flash freezes the target area, slowing enemies within. Targets who linger too long will release a frost nova, freezing and damaging enemies around them. Damage is increased by Intelligence.<br>This ability has <font color='#ccff66'>2</font> free casts that recharge every <font color='#ccff66'>3</font> seconds."
         "DOTA_Tooltip_ability_warlord_frost_scathe_radius"                  "FROST RADIUS:"
         "DOTA_Tooltip_ability_warlord_frost_scathe_main_aoe_duration"       "FROST DURATION:"
         "DOTA_Tooltip_ability_warlord_frost_scathe_freeze_delay"            "NOVA DELAY:"
@@ -6349,8 +6351,8 @@
 
         "DOTA_Tooltip_modifier_ice_scathe_freecast"                         "Frost Scathe Freecast"
 
-        "DOTA_Tooltip_modifier_modifier_in_ice_scathe_enemy"            "Frost Scathe"
-        "DOTA_Tooltip_modifier_modifier_in_ice_scathe_enemy_Description"    "Slowed"
+        "DOTA_Tooltip_modifier_in_ice_scathe_enemy"            "Frost Scathe"
+        "DOTA_Tooltip_modifier_in_ice_scathe_enemy_Description"    "Slowed"
 
         "DOTA_Tooltip_modifier_ice_scathe_countdown"                    "Frost Scathe Countdown"
         "DOTA_Tooltip_modifier_ice_scathe_countdown_Description"        "Will explode and freeze nearby teammates on expiry"
@@ -6424,7 +6426,7 @@
 		"item_rpc_warlord_glyph_6_1_description" 				"Increases the maximum Fire, Ice, and Earth charges by <font color='#ccff66'>5</font>."
 
 		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_7_1"		"[T7-1] Glyph of Warfare"
-		"item_rpc_warlord_glyph_7_1_description" 				"Basic attacks explode and deal <font color='#ccff66'>90</font>% of your attack damage as magical <font color='#EF4126'>Fire</font>/<font color='#87D9FF'>Ice</font> in <font color='#ccff66'>340</font> AOE around main target. Damage is considered as item damage."
+		"item_rpc_warlord_glyph_7_1_description" 				"Basic attacks explode and deal <font color='#ccff66'>90</font>% of your attack damage a in <font color='#ccff66'>340</font> AOE around main target.<br> Damage Type: <font color='#6A8EC9'>Magical</font> <br>Element: <font color='#EF4126'>Fire</font>/<font color='#87D9FF'>Ice</font><br><font color='#F28100'>Item Damage</font>"
 
 		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_5_a"		"[T5-a] Glyph of Thermogenesis"
 		"item_rpc_warlord_glyph_5_a_description" 				"Taking damage adds <font color='#ccff66'>2</font> Fire Charges. Each active Ice Charge increases Spell Pierce <font color='#ccff66'>40</font>."
@@ -7000,7 +7002,7 @@
 		"item_rpc_flamewaker_glyph_6_1_description" 			"[R3] also increases Spirit."
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_7_1"	"[T7-1] Glyph of Flaming Sea"
-		"item_rpc_flamewaker_glyph_7_1_description" 			"While Heat Wave is active, enemies within <font color='#ccff66'>1000</font> range create Blazing Trail fire puddles beneath their feet."
+		"item_rpc_flamewaker_glyph_7_1_description" 			"While Heat Wave is active, enemies within <font color='#ccff66'>800</font> range create Blazing Trail fire puddles beneath their feet."
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_5_a"	"[T5-a] Glyph of Dragon Skin"
 		"item_rpc_flamewaker_glyph_5_a_description" 			"Damage instances are capped at <font color='#ccff66'>30</font>% of max health. If below <font color='#ccff66'>50</font>% health, instances are capped at <font color='#ccff66'>15</font>%."
@@ -7066,7 +7068,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_immortal_weapon_2"			"Ancient Flamerunner Blade"
     	"item_property_flamewaker_immortal_weapon2"								"Inner Dragon"
-    	"property_flamewaker_immortal_weapon2_description"						"Each point of Agility increases base attack power by <font color='#ccff66'>0.5</font>. While @Ability3 is active, gain <font color='#ccff66'>1200</font> agility."
+    	"property_flamewaker_immortal_weapon2_description"						"Each point of Agility increases base attack power by <font color='#ccff66'>0.5</font>. While @Ability3 is active, gain <font color='#ccff66'>900</font> agility."
 
     	"DOTA_Tooltip_ability_item_rpc_flamewaker_immortal_weapon_3"			"Gladius"
     	"item_property_flamewaker_immortal_weapon3"								"Meteor Break"
@@ -7770,7 +7772,7 @@
 	"item_rpc_jex_glyph_6_1_description" 				"Galaxy Laser breaks magic immunity."
 
 	"DOTA_Tooltip_ability_item_rpc_jex_glyph_7_1"		"[T7-1] Glyph of Entropy"
-	"item_rpc_jex_glyph_7_1_description" 				"While Cosmic Surge is active, deal @glyph_property1% of attack power as pure damage to enemies in @glyph_property2 radius every 0.8 seconds."
+	"item_rpc_jex_glyph_7_1_description" 				"While Cosmic Surge is active, deal @glyph_property1% of attack power to enemies in @glyph_property2 radius every 0.8 seconds.<br> Damage Type: <font color='#E8B444'>Pure</font> <br>Element: <font color='#C25DFC'>Cosmic</font>/<font color='#5CCDF9'>Lightning</font><br>Base Ability: @Ability3"
 
 	"DOTA_Tooltip_ability_item_rpc_jex_glyph_5_a"		"[T5-a] Glyph of Techno Supremacy"
 	"item_rpc_jex_glyph_5_a_description" 				"Increases the tech level of all of Jex's abilities by @glyph_property1."
@@ -8792,7 +8794,7 @@
     	"DOTA_Tooltip_modifier_paladin_d_c_Description"					"Increased Magic Armor"
 
 		"DOTA_Tooltip_ability_knights_disciple"								"Knight's Disciple"
-		"DOTA_Tooltip_ability_knights_disciple_Description"					"Summons a Disciple of Heaven to fight with you. The Disciple has a healing spell that will target the lowest HP nearby ally and heal it for a % of his max life. The healing spell reduces damage taken by <font color='#ccff66'>10</font>%."
+		"DOTA_Tooltip_ability_knights_disciple_Description"					"Summons a Disciple of Heaven to fight with you. The Disciple has a healing spell that will target the lowest HP nearby ally and heal it for a % of his max life (<font color='#ccff66'>4</font> seconds cooldown). The healing spell reduces damage taken by <font color='#ccff66'>10</font>%."
 		"DOTA_Tooltip_ability_knights_disciple_Lore"							""
     	"DOTA_Tooltip_ability_knights_disciple_summon_duration"						"SUMMON DURATION:"
     	"DOTA_Tooltip_ability_knights_disciple_heal_per_tick_percent"					"% MAX LIFE RESTORED EVERY 0.2 SECONDS:"
@@ -8822,12 +8824,12 @@
 		"DDOTA_Tooltip_modifier_paladin_rune_r_2_effect_visible_description" 			"Increased damage and armor."
 
     	"DOTA_Tooltip_ability_paladin_rune_r_3"							"[R3] Holy Bolt"
-    	"DOTA_Tooltip_ability_paladin_rune_r_3_Description"				"Knight's Disciple gains the ability to smite a target dealing pure damage based on Paladin's attack power and applies a 0.1 second stun. 5 second cooldown."
+    	"DOTA_Tooltip_ability_paladin_rune_r_3_Description"				"Knight's Disciple gains the ability to smite a target dealing pure damage based on Paladin's attack power and applies a 0.1 second stun. <font color='#ccff66'>6</font> seconds cooldown."
     	"DOTA_Tooltip_ability_paladin_rune_r_3_property_one"			"Damage"
     	"DOTA_Tooltip_ability_paladin_rune_r_3_suffix"					"% of Paladin Attack Damage"
 
     	"DOTA_Tooltip_ability_paladin_rune_r_4"							"[R4] Purifying Spark"
-    	"DOTA_Tooltip_ability_paladin_rune_r_4_Description"				"Knight's Disciple gains the ability to fire a projectile that freezes the target, and then splits and hits nearby enemies also freezing them."	
+    	"DOTA_Tooltip_ability_paladin_rune_r_4_Description"				"Knight's Disciple gains the ability to fire a projectile that freezes the target, and then splits and hits nearby enemies also freezing them. <font color='#ccff66'>10</font> seconds cooldown."	
     	"DOTA_Tooltip_ability_paladin_rune_r_4_property_one"			"Freeze Duration"
     	"DOTA_Tooltip_ability_paladin_rune_r_4_suffix"					" seconds"
 		
@@ -8968,7 +8970,7 @@
         "item_rpc_paladin_glyph_4_2_description"                "@Ability2 has a <font color='#ccff66'>0.05</font> second cast point, and pushes forward."
 
         "DOTA_Tooltip_ability_item_rpc_paladin_glyph_5_2"       "[T5-2] Glyph of Penitence"
-        "item_rpc_paladin_glyph_5_2_description"                "@Ability4 may now attack, dealing Pure <font color='#F6FFB5'>Holy</font> damage equal to <font color='#ccff66'>0.5</font>x Paladin's attack power."
+        "item_rpc_paladin_glyph_5_2_description"                "@Ability4 may now attack, dealing  damage equal to <font color='#ccff66'>50</font>% Paladin's attack power.<br> Damage Type: <font color='#E8B444'>Pure</font><br>Element: <font color='#F6FFB5'>Holy</font> <br> Attack modifier, doesn't inherit bonuses from <font color='#F28100'>Item</font> or <font color='#7AB4CC'>Base Ability</font> damage."
 
         "DOTA_Tooltip_ability_item_rpc_paladin_glyph_6_2"       "[T6-2] Glyph of Magic Protection"
         "item_rpc_paladin_glyph_6_2_description"                "Magic Armor is increased by <font color='#ccff66'>100</font>%."
@@ -12186,7 +12188,7 @@
 		"item_rpc_voltex_glyph_3_1_description" 				"Heaven's Charge refreshes the cooldown of @Ability1."
 
 		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_4_1"		"[T4-1] Glyph of Unstable Voltage"
-		"item_rpc_voltex_glyph_4_1_description" 				"When Voltex casts an ability other than Static, she releases <font color='#ccff66'>9</font> electric bolts that deal <font color='#ccff66'>7</font>x her attack damage as magic."
+		"item_rpc_voltex_glyph_4_1_description" 				"When Voltex casts an ability other than Static, she releases <font color='#ccff66'>9</font> electric bolts that deal <font color='#ccff66'>7</font>x her attack damage.<br> Damage Type: <font color='#6A8EC9'>Magical</font> <br>Element: <font color='#5CCDF9'>Lightning</font><br><font color='#F28100'>Item Damage</font>"
 
 		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_5_1"		"[T5-1] Glyph of Charged Combat"
 		"item_rpc_voltex_glyph_5_1_description" 				"Increases the duration of Avatar by <font color='#ccff66'>12</font> seconds and increases attack damage while in Avatar by <font color='#ccff66'>50</font>%."
@@ -12906,7 +12908,7 @@
         "DOTA_Tooltip_ability_item_rpc_redfall_runners"                                 "Redfall Runners"
 
         "item_property_redfall_runners"                 "Adventurous Miler"
-        "property_redfall_runners_description"              "Each point of Agility and Spirit increases Movespeed by <font color='#ccff66'>0.15</font> and Max Movespeed by <font color='#ccff66'>0.15</font>."
+        "property_redfall_runners_description"              "Each point of Agility and Spirit increases Movespeed by <font color='#ccff66'>0.1</font> and Max Movespeed by <font color='#ccff66'>0.1</font>."
         "DOTA_Tooltip_modifier_redfall_runners"      "Adventurous Miler"
          "DOTA_Tooltip_modifier_redfall_runners_Description"    "Movespeed increased based Agility and Spirit"
 
@@ -13109,10 +13111,10 @@
         "DOTA_Tooltip_ability_item_rpc_justice_greaves"                                "Justice Greaves"
 
         "item_property_justice_greaves"                    "Equity"
-        "property_justice_greaves_description"         "Armor, Magic Armor, Armor Pierce and Spell Pierce are increased by <font color='#ccff66'>20</font>% of the highest statted enemy within <font color='#ccff66'>750</font> range"
+        "property_justice_greaves_description"         "Armor, Magic Armor, Armor Pierce and Spell Pierce are increased by <font color='#ccff66'>20</font>% of the highest statted enemy within <font color='#ccff66'>750</font> range, but total bonus can't be higher than <font color='#ccff66'>3</font>x of your hero's values."
 
         "item_rpc_justice_greaves_ruby1"                                        "Increases Strength by @ruby_property1 and Max Health by @ruby_property2"
-        "item_rpc_justice_greaves_emerald1"                                     "Damage taken from the front (<font color='#ccff66'>90</font> degree range) is reduced by @emerald_property1%"
+        "item_rpc_justice_greaves_emerald1"                                     "Damage taken from the front (<font color='#ccff66'>90</font> degree range) is reduced by @emerald_property1%, and half of that value if taken from sides (up to 210 degree range)"
         "item_rpc_justice_greaves_sapphire1"                                        "Increases the Stat Gain from highest statted nearby enemy by an additional @sapphire_property1%"
         "item_rpc_justice_greaves_amethyst1"                                        "Increases the enemy search range by @amethyst_property1 and also works from enemies who are not visible"
 
@@ -13322,10 +13324,10 @@
 		"DOTA_Tooltip_ability_item_rpc_direwolf_bulwark"								"Direwolf Bulwark"
 
 		"item_property_direwolf"						"Crunch"
-		"property_direwolf_description"					"Your basic attacks deal extra damage equal to <font color='#ccff66'>50</font>% of the target's armor."
+		"property_direwolf_description"					"Your basic attacks deal extra damage equal to <font color='#ccff66'>50</font>% of the sum of your hero's total Pierces and Armors."
 
 		"item_rpc_direwolf_bulwark_ruby1"								"Enemy attacks against you have their damage reduced by @ruby_property1% of your Armor Pierce"
-		"item_rpc_direwolf_bulwark_emerald1"								"Increases Crunch's damage by an additional @emerald_property1% of the target's armor"
+		"item_rpc_direwolf_bulwark_emerald1"								"Increases Crunch's damage by an additional @emerald_property1% of the said sum"
 		"item_rpc_direwolf_bulwark_sapphire1"								"Increases Armor Pierce by @sapphire_property1"
 		"item_rpc_direwolf_bulwark_amethyst1"								"Your attacks deal an additional instance of magical damage equal to @amethyst_property1% of the target's Magic Armor"
 
@@ -14793,9 +14795,9 @@
 
     	"DOTA_Tooltip_ability_item_rpc_crimson_skull_cap"								"Crimson Skull Cap"
 		"item_property_crimson_skull_cap"						"Corpse Explosion"
-		"property_crimson_skull_cap_description"				"Enemies slain by you will explode and deal <font color='#ccff66'>20</font>% of their max health to surrounding enemies as Magical damage."
+		"property_crimson_skull_cap_description"				"Enemies slain by you will explode and deal random damage value in range from <font color='#ccff66'>300</font> to <font color='#ccff66'>30000</font> to surrounding enemies as Magical damage."
 
-		"item_rpc_crimson_skull_cap_ruby1"	"Increases Corpse Explosion damage by @ruby_property1% of enemy max health"
+		"item_rpc_crimson_skull_cap_ruby1"	"Increases Corpse Explosion minimum damage by @ruby_property1"
 		"item_rpc_crimson_skull_cap_emerald1"	"Increases Corpse Explosion radius by @emerald_property1"
 		"item_rpc_crimson_skull_cap_sapphire1" "After taking damage, the wearer explodes after <font color='#ccff66'>2</font> seconds dealing damage equal to @sapphire_property1% of max health"
 		"item_rpc_crimson_skull_cap_amethyst1" "Increases Item and <font color='#5C776E'>Undead</font> elemental damage by @amethyst_property1"
@@ -14885,7 +14887,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_excavators_focus_cap"							"Excavator's Focus Cap"
 		"item_property_excavator"							"Enhance Gear"
-		"property_excavator_description"					"All stats from gear are increased by <font color='#ccff66'>25</font>% and your Item Damage is increased by the average of your Base Ability Damage amplifications."
+		"property_excavator_description"					"All Rune Bonuses from gear are increased by <font color='#ccff66'>25</font>% and your Item Damage is increased by the average of your Base Ability Damage amplifications."
 
 		"item_rpc_excavators_focus_cap_ruby1"	"Increases Rune [Q3] by @ruby_property1"
 		"item_rpc_excavators_focus_cap_emerald1"	"Increases Rune [W3] by @emerald_property1"
@@ -15610,10 +15612,10 @@
         "DOTA_Tooltip_ability_item_rpc_emerald_nullification_ring"                      "Emerald Nullification Ring"
 
         "item_property_emerald_null"                            "Emerald Nullification"
-         "property_emerald_null_description"                    "Each point of Agility increases Magic Armor by <font color='#ccff66'>3</font>."
+         "property_emerald_null_description"                    "Each point of Agility increases Magic Armor by <font color='#ccff66'>4</font> and Spell Pierce by <font color='#ccff66'>2</font>."
 
         "item_rpc_emerald_nullification_ring_ruby1"                     "Reduces all Magic Damage taken by @ruby_property1%"
-        "item_rpc_emerald_nullification_ring_emerald1"                      "Increases Agility by @emerald_property1"
+        "item_rpc_emerald_nullification_ring_emerald1"                      "Each point of Agility increases Base Ability Damage by @emerald_property1%"
         "item_rpc_emerald_nullification_ring_sapphire1"                     "@sapphire_property1% chance to completely block an instance of Magic or Pure damage"
         "item_rpc_emerald_nullification_ring_amethyst1"                     "Reduces all Pure damage taken by @amethyst_property1%"
 
@@ -15821,9 +15823,9 @@
         "DOTA_Tooltip_ability_item_rpc_omega_ruby"                                      "Omega Ruby"
 
         "item_property_omega_ruby"                  "Omega Flare"
-        "property_omega_ruby"                       "Your attacks explode on contact, dealing <font color='#ccff66'>10</font>% of Attack Power as damage to enemies within <font color='#ccff66'>240</font> range."
+        "property_omega_ruby"                       "Your attacks explode on contact, dealing <font color='#ccff66'>70</font>% of Attack Power as damage to enemies within <font color='#ccff66'>240</font> range."
 
-        "item_rpc_omega_ruby_ruby1"                                     "Increases the explosion radius by @ruby_property1 and Omega Flare's damage by @ruby_property2"
+        "item_rpc_omega_ruby_ruby1"                                     "Increases the explosion radius by @ruby_property1 and Omega Flare's also deals @ruby_property2% of Attack Power as Physical damage"
         "item_rpc_omega_ruby_emerald1"                                      "Increases Attack Speed by @emerald_property1"
         "item_rpc_omega_ruby_sapphire1"                                     "Increases Attack Power by @sapphire_property1%"
         "item_rpc_omega_ruby_amethyst1"                                     "Increases Armor Pierce and Spell Pierce by @amethyst_property1"
@@ -15969,7 +15971,7 @@
         "DOTA_Tooltip_ability_item_rpc_tempest_falcon_ring"                             "Tempest Falcon Ring"
 
         "item_property_tempest_falcon"                      "Storm Switch"
-        "property_tempest_falcon_description"               "Dealing an instance of Physical damage increases Spell Pierce by <font color='#ccff66'>30</font>x your Hero Level, and removes Storm Switch's Armor Pierce bonus. Dealing an instance of Magical damage increases Armor Pierce by <font color='#ccff66'>30</font>x your Hero Level, and removes Storm Switch's Spell Pierce bonus."
+        "property_tempest_falcon_description"               "Dealing an instance of Physical damage increases Spell Pierce by <font color='#ccff66'>80</font>x your Hero Level, and removes Storm Switch's Armor Pierce bonus. Dealing an instance of Magical damage increases Armor Pierce by <font color='#ccff66'>80</font>x your Hero Level, and removes Storm Switch's Spell Pierce bonus."
 
         "item_rpc_tempest_falcon_ring_ruby1"                                "Increases Movement Speed by @ruby_property1 and Max Movement Speed by @ruby_property2"
         "item_rpc_tempest_falcon_ring_emerald1"                             "Increases Attack Speed by @emerald_property1 and Agility by @emerald_property2"
@@ -15980,7 +15982,7 @@
         "DOTA_Tooltip_ability_item_rpc_tome_of_chaos"                                   "Tome of Chaos"
 
         "item_property_tome_of_chaos"               "Infernal Reign"
-        "property_tome_of_chaos"                    "When you cast @Ability2, summon an infernal demon in front of you, which stuns nearby enemies in <font color='#ccff66'>500</font> for <font color='#ccff66'>3</font> seconds upon arrival. The devil has <font color='#ccff66'>2</font>x your health and <font color='#ccff66'>4</font>x your attack damage. Lasts <font color='#ccff66'>30</font> seconds and has a <font color='#ccff66'>35</font> second cooldown."
+        "property_tome_of_chaos"                    "When you cast @Ability2, summon an infernal demon in front of you, which stuns nearby enemies in <font color='#ccff66'>500</font> for <font color='#ccff66'>3</font> seconds upon arrival. The devil has <font color='#ccff66'>4</font>x your health and <font color='#ccff66'>4</font>x your attack damage. Lasts <font color='#ccff66'>30</font> seconds and has a <font color='#ccff66'>35</font> second cooldown."
         "DOTA_Tooltip_modifier_tome_of_chaos_cooldown"  "Infernal Reign Cooldown"
         "DOTA_Tooltip_modifier_tome_of_chaos_cooldown_Description"  "Recharging"
 

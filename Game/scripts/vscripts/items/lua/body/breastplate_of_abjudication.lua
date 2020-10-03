@@ -141,12 +141,10 @@ function modifierClass:OnAttackStart(event)
 	    	heroArmorPierce = heroArmorPierce - ability.armor_pierce_bonus
 	    end
 	    if target:GetRoshpitArmor() > heroArmorPierce then
-	    	local armor_pierce_bonus = heroArmorPierce*ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_BREASTPLATE_OF_ABJUDICATION_GEM_RUBY_DURATION)
-	    	if armor_pierce_bonus > ability.armor_pierce_bonus then
+	    	local armor_pierce_bonus = ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_BREASTPLATE_OF_ABJUDICATION_GEM_RUBY)
 	    		ability.armor_pierce_bonus = armor_pierce_bonus
 	    		local duration = ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_BREASTPLATE_OF_ABJUDICATION_GEM_RUBY_DURATION)
 	    		hero:AddNewModifier(hero, ability, "modifier_abjudication_ruby_armor_pierce", {duration = duration})
-	    	end
 	    end
     end
 end
