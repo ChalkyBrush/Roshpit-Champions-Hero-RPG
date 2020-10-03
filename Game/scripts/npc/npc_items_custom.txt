@@ -41506,6 +41506,7 @@
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
+				"TextureName"	"rpc/sapphire_status_bar"
 			}
 			"modifier_black_King_bar_immunity"
 			{
@@ -44290,6 +44291,12 @@
 				"IsBuff"	"1"
 				"TextureName"	"crystal_maiden_brilliance_aura"
 			}
+			"modifier_spellslinger_ruby_cooldown"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"0"
+				"TextureName"	"rpc/ruby_status_bar"
+			}
 		}
 	}
 
@@ -46901,27 +46908,27 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby2"				"40 80 120 160 200"
+				"ruby2"				"1000 2000 3000 4000 5000"
 			}
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"2 4 6 8 10"
+				"emerald1"			"5 10 15 20 25"
 			}
 			"06"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald2"			"150 300 450 600 750"
+				"emerald2"			"400 800 1200 1600 2000"
 			}
 			"06"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"0.5 1 1.5 2 2.5"
+				"sapphire1"			"0.4 0.8 1.2 1.6 2"
 			}
 			"07"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"2 4 6 8 10"
+				"amethyst1"			"20 40 60 80 100"
 			}
 		}
 		"precache"
@@ -47321,7 +47328,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"3 6 9 12 15"
+				"ruby1"				"600 1200 1800 2400 3000"
 			}
 			"02"
 			{
@@ -47389,6 +47396,12 @@
 						"Function"		"feronia_shield_expire"
 					}
 				}
+			}
+			"modifier_guard_of_feronia_armors"
+			{
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"TextureName"	"itemicons/feronia_guard"
 			}
 		}
 	}
@@ -47865,17 +47878,17 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"0.1 0.2 0.3 0.4 0.5"
+				"emerald1"			"0.25 0.5 0.75 1 1.25"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"0.4 0.8 1.2 1.6 2"
+				"sapphire1"			"1 2 3 4 5"
 			}
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"0.4 0.8 1.2 1.6 2"
+				"amethyst1"			"0.8 1.6 2.4 3.2 4"
 			}
 		}
 		"OnSpellStart"
@@ -49034,17 +49047,17 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"3 6 9 12 15"
+				"emerald1"			"8 16 24 32 40"
 			}
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald2"			"100 200 300 400 500"
+				"emerald2"			"140 280 420 560 700"
 			}
 			"06"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"100 200 300 400 500"
+				"sapphire1"			"140 280 420 560 700"
 			}
 			"07"
 			{
@@ -49311,17 +49324,12 @@
 			"06"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"24 48 72 96 120"
+				"sapphire1"			"0.5 1 1.5 2 2.5"
 			}
 			"07"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire2"			"20 40 60 80 100"
-			}
-			"08"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"60 120 180 240 300"
+				"amethyst1"			"10 20 30 40 50"
 			}
 		}
 		"precache"
@@ -49576,7 +49584,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"0.01 0.02 0.03 0.04 0.05"
+				"sapphire1"			"0.02 0.04 0.06 0.08 0.1"
 			}
 			"04"
 			{
@@ -52233,7 +52241,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"0.01 0.02 0.03 0.04 0.05"
+				"sapphire1"			"0.03 0.06 0.09 0.12 0.15"
 			}
 			"05"
 			{
@@ -52643,7 +52651,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"0.3 0.6 0.9 1.2 1.5"
+				"emerald1"			"0.2 0.4 0.6 0.8 1"
 			}
 			"03"
 			{
@@ -52653,7 +52661,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"0.3 0.6 0.9 1.2 1.5"
+				"amethyst1"			"0.2 0.4 0.6 0.8 1"
 			}
 		}
 		"OnSpellStart"
@@ -54067,12 +54075,12 @@
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"60 120 180 240 300"
+				"amethyst1"			"400 800 1200 1600 2000"
 			}
 			"06"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst2"			"15 30 45 60 75"
+				"amethyst2"			"80 160 240 320 400"
 			}
 		}
 		"OnSpellStart"
@@ -54106,7 +54114,7 @@
 				"TextureName"	"itemicons/gloves_of_sweeping_wind"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "15"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "20"
 				}
 				"ThinkInterval"  "1"
 				"OnIntervalThink"
@@ -55108,7 +55116,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"6 12 18 24 30"
+				"ruby1"				"10 20 30 40 50"
 			}
 			"05"
 			{
@@ -55123,7 +55131,7 @@
 			"07"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald2"			"12 24 36 48 60"
+				"emerald2"			"60 120 180 240 300"
 			}
 			"08"
 			{
@@ -55227,7 +55235,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"300 600 900 1200 1500"
+				"ruby1"				"3000 6000 9000 12000 15000"
 			}
 			"03"
 			{
@@ -56213,12 +56221,12 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald2"			"70 140 210 280 350"
+				"emerald2"			"200 400 600 800 1000"
 			}
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"1 2 3 4 5"
+				"sapphire1"			"2 4 6 8 10"
 			}
 			"06"
 			{
@@ -56305,7 +56313,7 @@
 					"EffectAttachType"  "attach_origin"
 					"Target"            "TARGET"
 				}
-				"ThinkInterval"  "0.5"
+				"ThinkInterval"  "0.25"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -56513,7 +56521,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"25 50 75 100 125"
+				"ruby1"				"50 100 150 200 250"
 			}
 			"03"
 			{
@@ -56523,7 +56531,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"200 400 600 800 1000"
+				"emerald1"			"500 1000 1500 2000 2500"
 			}
 			"05"
 			{
@@ -56538,7 +56546,7 @@
 			"07"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire2"			"15 30 45 60 75"
+				"sapphire2"			"18 36 54 72 90"
 			}
 			"08"
 			{
@@ -67873,18 +67881,22 @@
 			"modifier_fortunes_talisman_ruby_buff"
 			{
 				"IsHidden"	"0"
+				"TextureName"	"rpc/ruby_status_bar"
 			}
 			"modifier_fortunes_talisman_emerald_buff"
 			{
 				"IsHidden"	"0"
+				"TextureName"	"rpc/emerald_status_bar"
 			}
 			"modifier_fortunes_talisman_sapphire_buff"
 			{
 				"IsHidden"	"0"
+				"TextureName"	"rpc/sapphire_status_bar"
 			}
 			"modifier_fortunes_talisman_amethyst_buff"
 			{
 				"IsHidden"	"0"
+				"TextureName"	"rpc/amethyst_status_bar"
 			}
 		}
 	}
@@ -68312,7 +68324,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"0.2 0.4 0.6 0.8 1"
+				"ruby1"				"4 6 8 10 12"
 			}
 			"04"
 			{
@@ -68424,7 +68436,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "160"
-					"MODIFIER_PROPERTY_PROJECTILE_SPEED_BONUS" "600"
+					"MODIFIER_PROPERTY_PROJECTILE_SPEED_BONUS" "1200"
 				}
 			}
 			"modifier_epsilons_eyeglass_range_effect_attack_range"
@@ -68608,12 +68620,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"400 800 1200 1600 2000"
+				"ruby1"				"5 10 15 20 25"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"0.03 0.06 0.09 0.12 0.15"
+				"emerald1"			"0.15 0.3 0.45 0.6 0.75"
 			}
 			"03"
 			{
@@ -68623,7 +68635,12 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"0.1 0.2 0.3 0.4 0.5"
+				"sapphire1"			"800 1600 2400 3200 4000"
+			}	
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst1"			"0.2 0.4 0.6 0.8 1"
 			}
 		}
 		"OnSpellStart"

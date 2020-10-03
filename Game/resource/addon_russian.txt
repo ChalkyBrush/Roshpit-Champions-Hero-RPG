@@ -3000,10 +3000,10 @@
 		"item_rpc_auriun_glyph_5_1_description" 				"Герой может атаковать во время (E) @Ability3, но он не сможет уйти в невидимость. На время действия получает <font color='#ccff66'>500</font> Магической Защиты."
 
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_6_1"		"[T6-1] Glyph of Luminescence"
-		"item_rpc_auriun_glyph_6_1_description" 				"Добавляет <font color='#ccff66'>2</font> сек. неуязвимости, когда был активирован (Q) @Ability1."
+		"item_rpc_auriun_glyph_6_1_description" 				"При использовании (Q) @Ability1 на цель дает ей <font color='#ccff66'>2</font> сек <font color='#ccff66'>95</font> уклонения от автоатак и иммунитет к заклинаниям."
 
 		"DOTA_Tooltip_modifier_auriun_glyph_6_1_effect"			"Luminescence"
-		"DOTA_Tooltip_modifier_auriun_glyph_6_1_effect_description"	"Полный иммунитет к урону"
+		"DOTA_Tooltip_modifier_auriun_glyph_6_1_effect_description"	"<font color='#ccff66'>95</font>%% Уклонение"
 
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_7_1"		"[T7-1] Glyph of Smite"
 		"item_rpc_auriun_glyph_7_1_description" 				"[R1] взрываются и наносят урон в радиусе <font color='#ccff66'>240</font>."
@@ -6462,7 +6462,7 @@
         "DOTA_Tooltip_ability_epoch_rune_w_2_suffix"                    "% от Силы Атаки"
 
         "DOTA_Tooltip_ability_epoch_rune_w_3"                           "[W3] Foresight"
-        "DOTA_Tooltip_ability_epoch_rune_w_3_Description"               "Каждый раз, когда @Ability2 попадает по противнику, герой получает бонусный заряд Интеллекта, максимально <font color='#ccff66'>30</font> зарядов. Атаки поглощают заряды в обмен на восстановление здоровья."
+        "DOTA_Tooltip_ability_epoch_rune_w_3_Description"               "Каждый раз, когда @Ability2 попадает по противнику, герой получает бонусный заряд Интеллекта на <font color='#ccff66'>15</font> сек, максимально <font color='#ccff66'>30</font> зарядов. Атаки поглощают заряды в обмен на восстановление здоровья."
         "DOTA_Tooltip_ability_epoch_rune_w_3_property_one"              "Интеллект за заряд"
         "DOTA_Tooltip_ability_epoch_rune_w_3_suffix"                    ""
         "DOTA_Tooltip_ability_epoch_rune_w_3_property_two"              "Восстановление Здоровья за заряд"
@@ -13093,12 +13093,12 @@
 
 		"DOTA_Tooltip_ability_item_rpc_avalanche_plate"								"Avalanche Plate"
 		"item_property_avalanche"					"Avalanche"
-		"property_avalanche_description"			"По завершении каста @Ability4 выпускает <font color='#ccff66'>320</font>-АОЕ землетрясение, наносящее <font color='#ccff66'>0.2</font>x от Силы героя каждые <font color='#ccff66'>0.2</font> сек. Противники оглушаются на <font color='#ccff66'>0.1</font> сек. Длительность землетрясения <font color='#ccff66'>3.8</font> секунд."
+		"property_avalanche_description"			"По завершении каста @Ability4 выпускает <font color='#ccff66'>380</font>-АОЕ землетрясение, наносящее <font color='#ccff66'>2.4</font>x от Силы героя каждые <font color='#ccff66'>0.2</font> сек. Противники оглушаются на <font color='#ccff66'>0.1</font> сек. Длительность землетрясения <font color='#ccff66'>3.8</font> секунд."
 		
 		"item_rpc_avalanche_plate_ruby1"								"По окончании землетрясения от основного эффекта нанесет дополнительно @ruby_property1x от Силы противникам в <font color='#ccff66'>2</font>x от основного радиуса, оглушая их на @ruby_property2 сек."
 		"item_rpc_avalanche_plate_emerald1"								"Увеличивает Урон Предметов и урон <font color='#AF843D'>Земли </font> на @emerald_property1%"
-		"item_rpc_avalanche_plate_sapphire1"								"Увеличивает радиус землетрясения на @sapphire_property1 и даёт @sapphire_property2 бонусных очков Силы"
-		"item_rpc_avalanche_plate_amethyst1"								"Каждая порция урона от базового землетрясения увеличивается на @amethyst_property1"
+		"item_rpc_avalanche_plate_sapphire1"								"Каждое очко Силы увеличивает Пробитие Брони и Пробитие Магической защиты героя на @sapphire_property1"
+		"item_rpc_avalanche_plate_amethyst1"								"Каждая порция урона от землетрясения увеличивается на @amethyst_property1% Силы Атаки героя"
 
 		"DOTA_Tooltip_ability_item_rpc_barons_storm_armor"								"Baron's Storm Armor"
 
@@ -13197,7 +13197,7 @@
 		"item_rpc_direwolf_bulwark_ruby1"								"Атаки, нанесенные противниками по герою, снизят их урон на @ruby_property1% от Пробития Брони героя"
 		"item_rpc_direwolf_bulwark_emerald1"								"Дополнительный урон при атаках увеличен еще на @emerald_property1% от суммы слагаемых значений"
 		"item_rpc_direwolf_bulwark_sapphire1"								"Увеличивает Пробитие Брони на @sapphire_property1"
-		"item_rpc_direwolf_bulwark_amethyst1"								"Стандартные атаки наносят дополнительный магический урон, равный @amethyst_property1% от Магической Защиты целей"
+		"item_rpc_direwolf_bulwark_amethyst1"								"Стандартные атаки наносят дополнительный магический урон, равный @amethyst_property1% от суммы Брони, Защиты и Пробитий героя"
 
 		"DOTA_Tooltip_ability_item_rpc_doomplate"										"Doomplate"
 
@@ -13293,11 +13293,11 @@
 		"DOTA_Tooltip_ability_item_rpc_guard_of_feronia"								"Guard of Feronia"
 
 		"item_property_guard_of_feronia"						"Shield of Dawn"
-		"property_guard_of_feronia_description"				"Даёт защитный барьер на <font color='#ccff66'>2</font> сек при прочтении @Ability3, а при прочтении @Ability4 на <font color='#ccff66'>4</font> сек, который снижает весь входящий урон на <font color='#ccff66'>40</font>%."
+		"property_guard_of_feronia_description"				"Даёт защитный барьер на <font color='#ccff66'>2</font> сек при прочтении @Ability3, а при прочтении @Ability4 на <font color='#ccff66'>4</font> сек, который снижает весь входящий урон на <font color='#ccff66'>65</font>%."
 		"DOTA_Tooltip_modifier_guard_of_feronia_shield" "Shield of Dawn"
-		"DOTA_Tooltip_modifier_guard_of_feronia_shield_Description" "Снижает входящий урон на <font color='#ccff66'>40</font>%"
+		"DOTA_Tooltip_modifier_guard_of_feronia_shield_Description" "Снижает входящий урон на <font color='#ccff66'>65</font>%%"
 
-		"item_rpc_guard_of_feronia_ruby1"								"Inreases the damage reduction of Shield of Dawn by an additional @ruby_property1%"
+		"item_rpc_guard_of_feronia_ruby1"								"Когда действие барьера заканичиается, герой получает бонус Брони и Магической Защиты в @ruby_property1 на <font color='#ccff66'>4</font> сек"
 		"item_rpc_guard_of_feronia_emerald1"								"Прочтение [Q] применяет барьер на @emerald_property1 сек"
 		"item_rpc_guard_of_feronia_sapphire1"								"@sapphire_property1% шанс при атаке обновить текущий барьер и применить его повторно, увеличив длительность на <font color='#ccff66'>1</font> сек. Максимум <font color='#ccff66'>1</font> срабатываний в секунду"
 		"item_rpc_guard_of_feronia_amethyst1"								"Когда действие барьера заканчивается, на всех ближайших противников в радиусе <font color='#ccff66'>550</font> падает звезда, которая наносит @amethyst_property1% от Силы Атаки героя. Если противник всего один, то падает <font color='#ccff66'>3</font> звезды."
@@ -13305,6 +13305,8 @@
 		"DOTA_Tooltip_ability_item_rpc_hermits_spike_shell"								"Hermit's Spike Shell"
 		"item_property_hermit_spike_shell"			"Quill Spray"
 		"property_hermit_spike_shell_description"	"При получении урона, равного <font color='#ccff66'>15</font>% от максимального запаса ХП героя, выпускает круг из шипов, который наносит урон <font color='#ccff66'>20</font>% от Силы Атаки противникам поблизости. Максимум <font color='#ccff66'>3</font> срабатываний за раз."
+		"DOTA_Tooltip_modifier_guard_of_feronia_armors"			"Guard of Feronia (Ruby)"
+		"DOTA_Tooltip_modifier_guard_of_feronia_armors_Description"			"Броня и Магическая Защита увеличены."
 		
 		"DOTA_Tooltip_modifier_hermit_spike_shell_quills"	"Quill Spray"
 		"DOTA_Tooltip_modifier_hermit_spike_shell_quills_Description"	"Броня Снижена"
@@ -13338,11 +13340,11 @@
 		"DOTA_Tooltip_ability_item_rpc_ice_quill_carapace"								"Ice Quill Carapace"
 
 		"item_property_ice_quill"					"Ice Quills"
-		"property_ice_quill_description"			"Каждые <font color='#ccff66'>100</font> потраченой Маны добавляют заряд предмета Ice Quill. Использование способности или предмета выпустит заряды через <font color='#ccff66'>0.2</font>-секундные интервалы, наносящие <font color='#ccff66'>6</font>% от Силы Атаки героя в радиусе <font color='#ccff66'>460</font>. Максимально <font color='#ccff66'>25</font> зарядов, и они не активируются если иглы уже начали выпускаться."
+		"property_ice_quill_description"			"Каждые <font color='#ccff66'>100</font> потраченой Маны добавляют заряд предмета Ice Quill. Использование способности или предмета выпустит заряды через <font color='#ccff66'>0.2</font>-секундные интервалы, наносящие <font color='#ccff66'>50</font>% от Силы Атаки героя в радиусе <font color='#ccff66'>460</font>. Максимально <font color='#ccff66'>35</font> зарядов, и они не активируются если иглы уже начали выпускаться."
 		"DOTA_Tooltip_modifier_ice_quill_carapace_stack"	"Ice Quill"
 		"DOTA_Tooltip_modifier_ice_quill_carapace_stack_Description"	"Используйте предмет или способность, чтобы выпустить иглы."
 
-		"item_rpc_ice_quill_carapace_ruby1"								"Иглы не сработают, если количество зарядов Ice Quill ниже @ruby_property1, а урон игл дополнительно увеличен на @ruby_property2"
+		"item_rpc_ice_quill_carapace_ruby1"								"Иглы не сработают, если количество зарядов Ice Quill ниже @ruby_property1, и иглы дополнительно наносят @ruby_property2 Чистого урона"
 		"item_rpc_ice_quill_carapace_emerald1"								"Увеличивает максимум зарядов Ice Quill на @emerald_property1 и Максимум Маны на @emerald_property2"
 		"item_rpc_ice_quill_carapace_sapphire1"								"Восстанавливает @sapphire_property1% от Максимальной Маны каждый выпуск игл"
 		"item_rpc_ice_quill_carapace_amethyst1"								"Каждый заряд Ice Quill увеличивает Пробитие Магической Защиты на @amethyst_property1"
@@ -13613,7 +13615,7 @@
 		"item_property_spellslinger_coat"			"Spellslinger"
 		"property_spellslinger_coat_description"	"@Ability2 восстанавливает <font color='#ccff66'>35</font>% от стоимости маны при прочтении, а Базовый Урон Способности увеличен на <font color='#ccff66'>120</font>%."
 
-		"item_rpc_spellslinger_coat_ruby1"								"Прочтение [Q] имеет @ruby_property1% шанс сбросить свою перезарядку"
+		"item_rpc_spellslinger_coat_ruby1"								"Прочтение [Q] имеет @ruby_property1% шанс сбросить свою перезарядку, может сработать только раз в <font color='#ccff66'>0.5</font> сек"
 		"item_rpc_spellslinger_coat_emerald1"								"Прочтение [W] добавляет @emerald_property1 Пробития Магической Защиты на <font color='#ccff66'>5</font> сек, складывается до <font color='#ccff66'>10</font> раз"
 		"item_rpc_spellslinger_coat_sapphire1"								"Увеличивает регенерацию Маны на @sapphire_property1"
 		"item_rpc_spellslinger_coat_amethyst1"								"Когда противник наносит урон герою, может сработать @amethyst_property1% шанс мгновенно произнести [W] без затрат маны, перезарядки и точки каста. Максимально <font color='#ccff66'>5</font> срабатываний в секунду."
@@ -13844,10 +13846,10 @@
     	"DOTA_Tooltip_ability_item_rpc_autumnrock_bracer"								"Autumnrock Bracer"
 
 		"item_property_autumnrock_bracer"						"Fissure"
-		 "property_autumnrock_bracer_description"				"<font color='#ccff66'>10</font>% шанс при получении урона выпустить земляной разлом в сторону источника урона (с задержкой <font color='#ccff66'>0.8</font> сек). Разлом оглушает на <font color='#ccff66'>1</font> и наносит <font color='#ccff66'>3</font>x от Силы героя Магическим уроном. Максимум <font color='#ccff66'>6</font> срабатываний в секунду."
+		 "property_autumnrock_bracer_description"				"<font color='#ccff66'>10</font>% шанс при получении урона выпустить земляной разлом в сторону источника урона (с задержкой <font color='#ccff66'>0.8</font> сек). Разлом оглушает на <font color='#ccff66'>1</font> и наносит <font color='#ccff66'>6</font>x от Силы героя Магическим уроном. Максимум <font color='#ccff66'>6</font> срабатываний в секунду."
 
     	"item_rpc_autumnrock_bracer_ruby1"								"Увеличивает Силу на @ruby_property1 и шанс срабатывания разлома на @ruby_property2%"
-    	"item_rpc_autumnrock_bracer_emerald1"								"Увеличивает урон разлома на @emerald_property1 и продолжительность оглушения на @emerald_property2"
+    	"item_rpc_autumnrock_bracer_emerald1"								"Увеличивает Пробитие Магической Защиты на @emerald_property1 и продолжительность оглушения на @emerald_property2"
     	"item_rpc_autumnrock_bracer_sapphire1"								"Уменьшает задержку разлома на @sapphire_property1 сек и увеличивает Урон Предметов на@sapphire_property2%"
     	"item_rpc_autumnrock_bracer_amethyst1"								"Прочтение [W] имеет @amethyst_property1% шанс создать разлом под ближайшим противником в радиусе <font color='#ccff66'>500</font>"
 
@@ -13866,11 +13868,11 @@
     	"DOTA_Tooltip_ability_item_rpc_bladeforge_gauntlet"								"Bladeforge Gauntlet"
 
 		"item_property_bladeforge"					"Rupture"
-		"property_bladeforge_description"			"При нанесении обычной атаки имеется шанс <font color='#ccff66'>20</font>% наложить кровотечение на противника на <font color='#ccff66'>3</font> сек, наносящее <font color='#ccff66'>50</font>% от Силы Атаки героя каждые <font color='#ccff66'>0.5</font> сек."
+		"property_bladeforge_description"			"При нанесении обычной атаки имеется шанс <font color='#ccff66'>20</font>% наложить кровотечение на противника на <font color='#ccff66'>3</font> сек, наносящее <font color='#ccff66'>150</font>% от Силы Атаки героя каждые <font color='#ccff66'>0.25</font> сек."
 		"DOTA_Tooltip_modifier_bladeforge_armor_debuff"	"Rupture"
 		"DOTA_Tooltip_modifier_bladeforge_armor_debuff_Description"	"Теряет Броню за каждый заряд."
 		"DOTA_Tooltip_modifier_bladeforge_bleed"	"Rupture"
-		"DOTA_Tooltip_modifier_bladeforge_bleed_Description"	"Получает урон от показателя атаки героя каждые <font color='#ccff66'>0.5</font> сек"
+		"DOTA_Tooltip_modifier_bladeforge_bleed_Description"	"Получает урон от показателя атаки героя каждые <font color='#ccff66'>0.25</font> сек"
 
     	"item_rpc_bladeforge_gauntlet_ruby1"								"Атаки оставляют складывающееся понижение Брони на @ruby_property1 продолжительностью <font color='#ccff66'>10</font> сек. Максимум <font color='#ccff66'>20</font> зарядов понижения Брони" 
     	"item_rpc_bladeforge_gauntlet_emerald1"								"Увеличивает Пробитие Брони на @emerald_property1 и Базовый Урон Атаки на @emerald_property2"
@@ -13951,7 +13953,7 @@
     	"DOTA_Tooltip_ability_item_rpc_cytopian_laser_glove"							"Cytopian Laser Glove"
 
 		"item_property_cytopian_laser"				"Cytopian Laser"
-		"property_cytopian_laser_description"		"Прочтение @Ability2 поражает лазером всех врагов поблизости в радиусе <font color='#ccff66'>650</font>, нанося урон <font color='#ccff66'>4</font>% от Силы Атаки героя. Каждый успешный удар лазера увеличивает урон по этому противнику на <font color='#ccff66'>20</font>%, потенциальное усиление длится <font color='#ccff66'>4</font> сек и может складываться до <font color='#ccff66'>10</font> раз."
+		"property_cytopian_laser_description"		"Прочтение @Ability2 поражает лазером всех врагов поблизости в радиусе <font color='#ccff66'>650</font>, нанося урон <font color='#ccff66'>70</font>% от Силы Атаки героя. Каждый успешный удар лазера увеличивает урон по этому противнику на <font color='#ccff66'>20</font>%, потенциальное усиление длится <font color='#ccff66'>4</font> сек и может складываться до <font color='#ccff66'>10</font> раз."
 		"DOTA_Tooltip_modifier_cytopian_stacks"		"Cytopian Laser"
 		"DOTA_Tooltip_modifier_cytopian_stacks_Description"	"Получает увеличивающийся урон от лазеров"
 
@@ -13963,7 +13965,7 @@
 		"DOTA_Tooltip_ability_item_rpc_dark_emissary_glove"						"Dark Emissary Glove"	
 
 		"property_dark_emissary"												"Spectral Mist"
-		"property_dark_emissary_Description"									"Прочтение @Ability1 выпускает паранормальное облако радиусом <font color='#ccff66'>400</font>, наносящее урон в <font color='#ccff66'>25</font>% от Силы Атаки героя всем противникам внутри. Обездвиживает противников на <font color='#ccff66'>5</font> сек."
+		"property_dark_emissary_Description"									"Прочтение @Ability1 выпускает паранормальное облако радиусом <font color='#ccff66'>400</font>, наносящее урон в <font color='#ccff66'>180</font>% от Силы Атаки героя всем противникам внутри. Обездвиживает противников на <font color='#ccff66'>5</font> сек."
 		"DOTA_Tooltip_modifier_dark_emissary_root"								"Spectral Mist"
 		"DOTA_Tooltip_modifier_dark_emissary_root_Description"					"Обездвижен"
 
@@ -14078,7 +14080,7 @@
       	"DOTA_Tooltip_ability_item_rpc_gloves_of_sweeping_wind"							"Gloves of Sweeping Winds"
 
 		"item_property_sweeping_wind"						"Sweeping Winds"
-		"property_sweeping_wind_description"				"Прочтение @Ability3 даёт заряд предмета. Каждый заряд увеличивает Атаку на <font color='#ccff66'>15</font>%. Каждую секунду противники в радиусе <font color='#ccff66'>400</font> получают урон в размере <font color='#ccff66'>15</font>% от Силы Атаки героя. Обычные атаки уменьшают заряды. Максимум <font color='#ccff66'>5</font> активных зарядов. Длительность <font color='#ccff66'>30</font> сек."
+		"property_sweeping_wind_description"				"Прочтение @Ability3 даёт заряд предмета. Каждый заряд увеличивает Атаку на <font color='#ccff66'>20</font>%. Каждую секунду противники в радиусе <font color='#ccff66'>400</font> получают урон в размере <font color='#ccff66'>50</font>% от Силы Атаки героя. Обычные атаки уменьшают заряды. Максимум <font color='#ccff66'>5</font> активных зарядов. Длительность <font color='#ccff66'>30</font> сек."
 		"DOTA_Tooltip_modifier_sweeping_wind_stackable"	"Sweeping Winds"
 		"DOTA_Tooltip_modifier_sweeping_wind_stackable_Description"	"Каждый заряд увеличивает Атаку и наносит урон ближайшим противникам."
 
@@ -14265,7 +14267,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_phoenix_gloves"									"Phoenix Gloves"
 		"item_property_phoenix_gloves"				"Perpetual Rebirth" 
-		"property_phoenix_gloves_description"		"Герой получает <font color='#ccff66'>0.15</font> регенерации Здоровья за каждое отсутствующее очко Здоровья."
+		"property_phoenix_gloves_description"		"Герой получает <font color='#ccff66'>0.25</font> регенерации Здоровья за каждое отсутствующее очко Здоровья."
 
     	"item_rpc_phoenix_gloves_ruby1"									"Увеличивает Скорость Атаки на @ruby_property1 и обычные атаки получают элемент <font color='#EF4126'>Огня</font>"
     	"item_rpc_phoenix_gloves_emerald1"									"Повышает Ловкость на @emerald_property1, а каждое очко Ловкости увеличивает Здоровье на @emerald_property2"
@@ -15464,10 +15466,10 @@
         "DOTA_Tooltip_ability_item_rpc_cobalt_serenity_ring"                            "Cobalt Serenity Ring"
 
         "item_property_cobalt_serenity"                     "Cobalt Serenity"
-         "property_cobalt_serenity_description"                 "Интеллект увеличивает Регенерацию Здоровья на <font color='#ccff66'>1</font>."
+         "property_cobalt_serenity_description"                 "Интеллект увеличивает Регенерацию Здоровья на <font color='#ccff66'>3</font>."
 
-        "item_rpc_cobalt_serenity_ring_ruby1"                           "Увеличивает запас Здоровья на @ruby_property1"
-        "item_rpc_cobalt_serenity_ring_emerald1"                            "Текущее Здоровье увеличивает Пробитие Магической Зашиты на @emerald_property1"
+        "item_rpc_cobalt_serenity_ring_ruby1"                           "Показатели Регерации Здоровья, Регенерации Маны, Базового Урона Способностей и Урона Предметов на снаряжении увеличены на @ruby_property1%"
+        "item_rpc_cobalt_serenity_ring_emerald1"                            "Регенерация Маны и Здоровья увеличивает Пробитие Магической Зашиты на @emerald_property1"
         "item_rpc_cobalt_serenity_ring_sapphire1"                           "Увеличивает Интеллект на @sapphire_property1"
         "item_rpc_cobalt_serenity_ring_amethyst1"                           "Интеллект увеличивает регенерацию Маны на @amethyst_property1"
 
@@ -15493,7 +15495,7 @@
         "DOTA_Tooltip_ability_item_rpc_epsilons_eyeglass"                               "Epsilon's Eyeglass"
 
         "item_property_epsilon_eyeglass"                    "Extended Scope"
-        "property_epsilon_eyeglass_description"         "Увеличивает радиус атаки на <font color='#ccff66'>160</font> (только героям дальнего боя), увеличивает дальность обзора на <font color='#ccff66'>800</font>, добавляет <font color='#ccff66'>600</font> скорости к снаряду атаки."
+        "property_epsilon_eyeglass_description"         "Увеличивает радиус атаки на <font color='#ccff66'>160</font> (только героям дальнего боя), увеличивает дальность обзора на <font color='#ccff66'>800</font>, добавляет <font color='#ccff66'>1200</font> скорости к снаряду атаки."
 
         "item_rpc_epsilons_eyeglass_ruby1"                              "Обычные атаки наносят дополнительную порцию урона, равную @ruby_property1x от расстояния между целью и героем"
         "item_rpc_epsilons_eyeglass_emerald1"                               "Увеличивает радиус атаки на @emerald_property1 (только героям дальнего боя)"

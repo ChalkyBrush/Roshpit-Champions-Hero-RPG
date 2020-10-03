@@ -3408,10 +3408,10 @@
 		"item_rpc_auriun_glyph_5_1_description" 				"天使形态下可以攻击并且获得<font color='#ccff66'>500</font>额外魔甲。但是会移除隐身效果"
 
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_6_1"		"[T6-1] 闪光雕文"
-		"item_rpc_auriun_glyph_6_1_description" 				"获得天堂之盾后的前 <font color='#ccff66'>2</font> 秒处于无敌状态。"
+		"item_rpc_auriun_glyph_6_1_description" 				"Adds <font color='#ccff66'>2</font> seconds of Spell Immunity and <font color='#ccff66'>95</font>% evasion when @Ability1 is applied."
 
 		"DOTA_Tooltip_modifier_auriun_glyph_6_1_effect"			"闪光"
-		"DOTA_Tooltip_modifier_auriun_glyph_6_1_effect_description"	"魔法和物理免疫"
+		"DOTA_Tooltip_modifier_auriun_glyph_6_1_effect_description"	"Spell immunity and <font color='#ccff66'>95</font>%% Evasion"
 
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_7_1"		"[T7-1] 猛击雕文"
 		"item_rpc_auriun_glyph_7_1_description" 				"普通攻击时 [R1]会产生爆炸，对周围 <font color='#ccff66'>240</font> 内的敌人造成一次额外伤害。"
@@ -13348,7 +13348,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_avalanche_plate"								"崩裂板甲"
 		"item_property_avalanche_2"					"山裂"
-		"property_avalanche_description"			"释放@Ability4后，引发一个 <font color='#ccff66'>320</font>范围的山崩，每 <font color='#ccff66'>0.2</font> 秒造成<font color='#ccff66'>0.2</font>x 你的力量值的伤害。被击中的敌人将会被眩晕 <font color='#ccff66'>0.1</font> 秒。山崩持续 <font color='#ccff66'>3.8</font> 秒。"
+		"property_avalanche_description"			"释放@Ability4后，引发一个 <font color='#ccff66'>380</font>范围的山崩，每 <font color='#ccff66'>0.2</font> 秒造成<font color='#ccff66'>2.4</font>x 你的力量值的伤害。被击中的敌人将会被眩晕 <font color='#ccff66'>0.1</font> 秒。山崩持续 <font color='#ccff66'>3.8</font> 秒。"
 		
 		"item_rpc_avalanche_plate_ruby1"								"在山崩结束后引发一次地震，对<font color='#ccff66'>2</font>x山崩范围内的敌人造成 @ruby_property1x 力量值的伤害并且眩晕他们 @ruby_property2 秒。"
 		"item_rpc_avalanche_plate_emerald1"								"增加物品伤害和 <font color='#AF843D'>土</font>元素伤害 @emerald_property1%"
@@ -13431,7 +13431,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_ice_quill_carapace"								"冰刺甲"
 		"item_property_ice_quill"					"冰刺"
-		"property_ice_quill_description"			"当你消耗 <font color='#ccff66'>100</font>点魔法值后，获得一层冰刺充能。 当你释放技能或者使用一件物品时，冰刺充能将会以 <font color='#ccff66'>0.2</font>秒间隔逐层释放(每层独立)，对<font color='#ccff66'>460</font>范围内敌人造成 <font color='#ccff66'>6</font>% 攻击力的伤害。最多触发<font color='#ccff66'>25</font> 层并且在上一次充能释放完毕前不会触发下一次释放。"
+		"property_ice_quill_description"			"当你消耗 <font color='#ccff66'>100</font>点魔法值后，获得一层冰刺充能。 当你释放技能或者使用一件物品时，冰刺充能将会以 <font color='#ccff66'>0.2</font>秒间隔逐层释放(每层独立)，对<font color='#ccff66'>460</font>范围内敌人造成 <font color='#ccff66'>50</font>% 攻击力的伤害。最多触发<font color='#ccff66'>35</font> 层并且在上一次充能释放完毕前不会触发下一次释放。"
 		"DOTA_Tooltip_modifier_ice_quill_carapace_stack"	"冰刺"
 		"DOTA_Tooltip_modifier_ice_quill_carapace_stack_Description"	"释放技能来释放充能"
 
@@ -13813,7 +13813,7 @@
 		"item_rpc_guard_of_feronia_sapphire1"								"普通攻击有@sapphire_property1%移除黎明之盾而后再次获得黎明之盾，再次获得的黎明之盾的持续时间为原本剩下的持续时间加上  <font color='#ccff66'>1</font> 秒。每秒最多触发 <font color='#ccff66'>1</font> 次"
 		"item_rpc_guard_of_feronia_amethyst1"								"当黎明之盾结束时，每一个<font color='#ccff66'>550</font>范围内的敌人都将被流星打击，受到  @amethyst_property1% 攻击力的伤害，如果附近只有一个敌人，那么敌人将会受到 <font color='#ccff66'>3</font>个流星的打击"
 		"item_property_guard_of_feronia"						"黎明之盾"
-		"property_guard_of_feronia_description"				"施放 @Ability3 创造一个持续<font color='#ccff66'>2</font>秒的护盾，施放 @Ability4 创造一个持续<font color='#ccff66'>4</font>秒的护盾，拥有护盾时<font color='#ccff66'>40</font>伤害减免。"
+		"property_guard_of_feronia_description"				"施放 @Ability3 创造一个持续<font color='#ccff66'>2</font>秒的护盾，施放 @Ability4 创造一个持续<font color='#ccff66'>4</font>秒的护盾，拥有护盾时<font color='#ccff66'>65</font>伤害减免。"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_mystic_mana_wall"								"神秘的魔法墙"
@@ -14224,7 +14224,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_phoenix_gloves"									"凤凰手套"
 		"item_property_phoenix_gloves"				"永生" 
-		"property_phoenix_gloves_description"		"每点损失的生命提高生命回复 <font color='#ccff66'>0.15</font> ."
+		"property_phoenix_gloves_description"		"每点损失的生命提高生命回复 <font color='#ccff66'>0.25</font> ."
 
     	"item_rpc_phoenix_gloves_ruby1"									"提高攻击速度 @ruby_property1 并且使你的普通攻击拥有 <font color='#EF4126'>火</font> 元素"
     	"item_rpc_phoenix_gloves_emerald1"									"提高敏捷 @emerald_property1 并且每点敏捷提高最大生命值 @emerald_property2"
@@ -14275,7 +14275,7 @@
     	"item_rpc_cytopian_laser_glove_sapphire1"							"提高激光基础伤害 @sapphire_property1 和魔法回复 @sapphire_property2"
     	"item_rpc_cytopian_laser_glove_amethyst1"							"每层激光buff降低敌人的物理穿透和魔法穿透 @amethyst_property1"
 		"item_property_cytopian_laser"				"激光"
-		"property_cytopian_laser_description"		"施放 @Ability2 的同时向附近的所有敌人发射激光，造成  <font color='#ccff66'>4</font>%攻击力的伤害。激光每次击中敌人，都增加<font color='#ccff66'>20</font>%的伤害，最高叠加 <font color='#ccff66'>10</font> 层。"
+		"property_cytopian_laser_description"		"施放 @Ability2 的同时向附近的所有敌人发射激光，造成  <font color='#ccff66'>70</font>%攻击力的伤害。激光每次击中敌人，都增加<font color='#ccff66'>20</font>%的伤害，最高叠加 <font color='#ccff66'>10</font> 层。"
 		"DOTA_Tooltip_modifier_cytopian_stacks"		"激光"
 		"DOTA_Tooltip_modifier_cytopian_stacks_Description"	"受到激光的伤害增加"
 		
@@ -14312,11 +14312,11 @@
     	"item_rpc_bladeforge_gauntlet_sapphire1"								"提高触发龟裂的概率 @sapphire_property1% 并且提高 @sapphire_property2% 你的攻击力 的流血伤害 "
     	"item_rpc_bladeforge_gauntlet_amethyst1"								"流血的敌人降低 @amethyst_property1 生命回复并且提高流血的持续时间 @amethyst_property2"
 		"item_property_bladeforge"					"龟裂"
-		"property_bladeforge_description"			"攻击有<font color='#ccff66'>20</font>%机率对敌人造成<font color='#ccff66'>3</font>秒的流血效果，每<font color='#ccff66'>0.5</font>秒造成  <font color='#ccff66'>50</font>%  攻击力的物理伤害。"
+		"property_bladeforge_description"			"攻击有<font color='#ccff66'>20</font>%机率对敌人造成<font color='#ccff66'>3</font>秒的流血效果，每<font color='#ccff66'>0.25</font>秒造成  <font color='#ccff66'>150</font>%  攻击力的物理伤害。"
 		"DOTA_Tooltip_modifier_bladeforge_debuff"	"龟裂"
 		"DOTA_Tooltip_modifier_bladeforge_debuff_Description"	"每层降低护甲值"
 		"DOTA_Tooltip_modifier_bladeforge_bleed"	"龟裂"
-		"DOTA_Tooltip_modifier_bladeforge_bleed_Description"	"每<font color='#ccff66'>0.5</font>秒受到一次魔法伤害"
+		"DOTA_Tooltip_modifier_bladeforge_bleed_Description"	"每<font color='#ccff66'>0.25</font>秒受到一次魔法伤害"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_silverspring_gloves"								"银泉手套"
@@ -14380,7 +14380,7 @@
     	"item_rpc_gloves_of_sweeping_wind_sapphire1"							"释放 [W] 有 @sapphire_property1% 概率获得一层狂风buff"
     	"item_rpc_gloves_of_sweeping_wind_amethyst1"							"提高狂风的伤害 @amethyst_property1 并且每层狂风buff提高基础攻击力 @amethyst_property2"
 		"item_property_sweeping_wind"						"狂风"
-		"property_sweeping_wind_description"				"当你施放 @Ability3 时，获得一层buff，最高<font color='#ccff66'>5</font>层。每层buff提高 <font color='#ccff66'>15</font>% 攻击力，且附近所有敌人每秒受到 <font color='#ccff66'>15</font>% 攻击力的魔法伤害。每次攻击消耗一层buff。buff持续时间<font color='#ccff66'>30</font>秒。"
+		"property_sweeping_wind_description"				"当你施放 @Ability3 时，获得一层buff，最高<font color='#ccff66'>5</font>层。每层buff提高 <font color='#ccff66'>20</font>% 攻击力，且附近所有敌人每秒受到 <font color='#ccff66'>50</font>% 攻击力的魔法伤害。每次攻击消耗一层buff。buff持续时间<font color='#ccff66'>30</font>秒。"
 		"DOTA_Tooltip_modifier_sweeping_wind_stackable"	"狂风"
 		"DOTA_Tooltip_modifier_sweeping_wind_stackable_Description"	"每层提高攻击力并对附近敌人造成持续伤害"
 		 
@@ -14439,7 +14439,7 @@
  
     	"DOTA_Tooltip_ability_item_rpc_autumnrock_bracer"								"秋岩护腕"
 		"item_property_autumnrock_bracer"						"沟壑"
-		 "property_autumnrock_bracer_description"				"受到伤害有 <font color='#ccff66'>10</font>% 概率对伤害源方向产生沟壑， 有 <font color='#ccff66'>0.8</font> 秒传播延迟. 沟壑眩晕敌人 <font color='#ccff66'>1</font> 秒并造成 <font color='#ccff66'>3</font>x 你的力量值的魔法伤害。 每秒最多触发 <font color='#ccff66'>6</font>次."
+		 "property_autumnrock_bracer_description"				"受到伤害有 <font color='#ccff66'>10</font>% 概率对伤害源方向产生沟壑， 有 <font color='#ccff66'>0.8</font> 秒传播延迟. 沟壑眩晕敌人 <font color='#ccff66'>1</font> 秒并造成 <font color='#ccff66'>6</font>x 你的力量值的魔法伤害。 每秒最多触发 <font color='#ccff66'>6</font>次."
 
     	"item_rpc_autumnrock_bracer_ruby1"								"提高力量值 @ruby_property1 和沟壑概率 @ruby_property2%"
     	"item_rpc_autumnrock_bracer_emerald1"								"提高沟壑伤害 @emerald_property1 和眩晕时间@emerald_property2"
@@ -14552,7 +14552,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_dark_emissary_glove"						"暗黑使者手套"	
 		"property_dark_emissary"												"彩虹迷雾"
-		"property_dark_emissary_Description"									"施放 @Ability1 创造一团迷雾，对  <font color='#ccff66'>400</font> 范围内的敌人造成<font color='#ccff66'>25</font>% 你的攻击力的伤害, 并缠绕他们 <font color='#ccff66'>5</font> 秒."
+		"property_dark_emissary_Description"									"施放 @Ability1 创造一团迷雾，对  <font color='#ccff66'>400</font> 范围内的敌人造成<font color='#ccff66'>180</font>% 你的攻击力的伤害, 并缠绕他们 <font color='#ccff66'>5</font> 秒."
 		"DOTA_Tooltip_modifier_dark_emissary_root"								"彩虹迷雾"
 		"DOTA_Tooltip_modifier_dark_emissary_root_Description"					"被缠绕"
 
@@ -15213,7 +15213,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_crimson_skull_cap"								"绯红色头骨帽"
 		"item_property_crimson_skull_cap"						"尸爆"
-		 "property_crimson_skull_cap_description"				"杀死敌人造成爆炸，爆炸造成 <font color='#ccff66'>20</font>% 敌人的最大的生命值魔法伤害。"
+		 "property_crimson_skull_cap_description"				"杀死敌人造成爆炸，爆炸造成 敌人的最大的生命值魔法伤害。"
 		 "item_rpc_crimson_skull_cap_ruby1"	"提高尸爆伤害 @ruby_property1% 敌人的最大生命值"
 		"item_rpc_crimson_skull_cap_emerald1"	"提高尸爆范围 @emerald_property1"
 		"item_rpc_crimson_skull_cap_sapphire1" "受到伤害时, 穿戴者在 <font color='#ccff66'>2</font> 秒后爆炸，造成 @sapphire_property1% 最大生命值的伤害"
@@ -15795,7 +15795,7 @@
 		 
 		"DOTA_Tooltip_ability_item_rpc_epsilons_eyeglass"								"伊普西龙的眼镜"
 		"item_property_epsilon_eyeglass"					"扩展范围"
-        "property_epsilon_eyeglass_description"         "提高攻击距离 <font color='#ccff66'>160</font> (仅远程英雄), 提高视野范围<font color='#ccff66'>800</font>, 并且提高 <font color='#ccff66'>600</font> 你的攻击弹道速度"
+        "property_epsilon_eyeglass_description"         "提高攻击距离 <font color='#ccff66'>160</font> (仅远程英雄), 提高视野范围<font color='#ccff66'>800</font>, 并且提高 <font color='#ccff66'>1200</font> 你的攻击弹道速度"
 
         "item_rpc_epsilons_eyeglass_ruby1"                              "@ruby_property1x 你和攻击目标的距离作为额外伤害加入到你的普通攻击伤害中"
         "item_rpc_epsilons_eyeglass_emerald1"                               "提高额外攻击距离 (仅远程英雄) @emerald_property1"
@@ -15840,7 +15840,7 @@
         "item_rpc_cobalt_serenity_ring_sapphire1"                           "提高智力值 @sapphire_property1"
         "item_rpc_cobalt_serenity_ring_amethyst1"                           "每点智力值提高魔法回复 @amethyst_property1"
 		"item_property_cobalt_serenity"						"宁静"
-		 "property_cobalt_serenity_description"					"每点智力值提高生命回复速度<font color='#ccff66'>1</font>"
+		 "property_cobalt_serenity_description"					"每点智力值提高生命回复速度<font color='#ccff66'>3</font>"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_emerald_nullification_ring"						"翡翠净化环"

@@ -2997,10 +2997,10 @@
 		"item_rpc_auriun_glyph_5_1_description" 				"You can attack during @Ability3 and gain <font color='#ccff66'>500</font> Magic Armor, but it removes the invisibility."
 
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_6_1"		"[T6-1] Glyph of Luminescence"
-		"item_rpc_auriun_glyph_6_1_description" 				"Adds <font color='#ccff66'>2</font> seconds of invulnerability when @Ability1 is applied."
+		"item_rpc_auriun_glyph_6_1_description" 				"Adds <font color='#ccff66'>2</font> seconds of Spell Immunity and <font color='#ccff66'>95</font>% evasion when @Ability1 is applied."
 
 		"DOTA_Tooltip_modifier_auriun_glyph_6_1_effect"			"Luminescence"
-		"DOTA_Tooltip_modifier_auriun_glyph_6_1_effect_description"	"Magic and Physical Immunity"
+		"DOTA_Tooltip_modifier_auriun_glyph_6_1_effect_description"	"Spell Immunity and <font color='#ccff66'>95</font>%% Evasion "
 
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_7_1"		"[T7-1] Glyph of Smite"
 		"item_rpc_auriun_glyph_7_1_description" 				"[R1] attacks explode and deal another instance of damage to all enemies in a radius of <font color='#ccff66'>240</font>"
@@ -5072,7 +5072,7 @@
     	"property_djanghor_arcana1_description"									"Replaces @Ability4 and all of its runes with Shapeshift: Year Beast."
 
     	"DOTA_Tooltip_ability_draghor_shapeshift_year_beast"					"Shapeshift: Year Beast"
-    	"DOTA_Tooltip_ability_draghor_shapeshift_year_beast_Description"						"Transform into the Year Beast with its own ability set after 1.75 second channel. The Year Beast's primary attribute is based on which Mark is active. Drains 0.03% of max mana every 0.1 seconds while shapeshifted."
+    	"DOTA_Tooltip_ability_draghor_shapeshift_year_beast_Description"						"Transform into the Year Beast with its own ability set after 1.75 second channel. Drains 0.03% of max mana every 0.1 seconds while shapeshifted."
     	"DOTA_Tooltip_ability_draghor_shapeshift_year_beast_all_attributes_bonus"						"ATTRIBUTE BONUS IN YEAR BEAST FORM:"
 
     	"DOTA_Tooltip_ability_draghor_year_beast_thunderous_roar"									"Thunderous Roar"
@@ -6525,7 +6525,7 @@
         "DOTA_Tooltip_ability_epoch_rune_w_2_suffix"                    "% of Attack Power"
 
         "DOTA_Tooltip_ability_epoch_rune_w_3"                           "[W3] Foresight"
-        "DOTA_Tooltip_ability_epoch_rune_w_3_Description"               "Each time an enemy is hit by @Ability2, gain bonus Intelligence up to a maximum of <font color='#ccff66'>30</font> stacks. Attacking consumes a stack and restores health."
+        "DOTA_Tooltip_ability_epoch_rune_w_3_Description"               "Each time an enemy is hit by @Ability2, gain bonus Intelligence for <font color='#ccff66'>15</font> seconds, up to a maximum of <font color='#ccff66'>30</font> stacks. Attacking consumes a stack and restores health."
         "DOTA_Tooltip_ability_epoch_rune_w_3_property_one"              "Intelligence per stack"
         "DOTA_Tooltip_ability_epoch_rune_w_3_suffix"                    ""
         "DOTA_Tooltip_ability_epoch_rune_w_3_property_two"              "Health Restore on Attack"
@@ -13225,12 +13225,12 @@
 
 		"DOTA_Tooltip_ability_item_rpc_avalanche_plate"								"Avalanche Plate"
 		"item_property_avalanche"					"Avalanche"
-		"property_avalanche_description"			"When you finish casting @Ability4, release a <font color='#ccff66'>320</font>-radius avalanche which deals <font color='#ccff66'>0.2</font>x your Strength every <font color='#ccff66'>0.2</font> seconds. Struck enemies are stunned for <font color='#ccff66'>0.1</font> seconds. Lasts <font color='#ccff66'>3.8</font> seconds."
+		"property_avalanche_description"			"When you finish casting @Ability4, release a <font color='#ccff66'>380</font>-radius avalanche which deals <font color='#ccff66'>2.4</font>x your Strength every <font color='#ccff66'>0.2</font> seconds. Struck enemies are stunned for <font color='#ccff66'>0.1</font> seconds. Lasts <font color='#ccff66'>3.8</font> seconds."
 		
 		"item_rpc_avalanche_plate_ruby1"								"At the end of Avalanche's duration, create a large earthquake that deals @ruby_property1x Strength to enemies in a <font color='#ccff66'>2</font>x radius that stuns them for @ruby_property2 seconds."
 		"item_rpc_avalanche_plate_emerald1"								"Increases Item Damage and <font color='#AF843D'>Earth</font> elemental damage by @emerald_property1%"
-		"item_rpc_avalanche_plate_sapphire1"								"Increases the avalanche's radius by @sapphire_property1 and increases strength by @sapphire_property2"
-		"item_rpc_avalanche_plate_amethyst1"								"Each damage instance of the base avalance is increased by @amethyst_property1"
+		"item_rpc_avalanche_plate_sapphire1"								"Each point of Strength increases Armor and Spell Pierce by @sapphire_property1"
+		"item_rpc_avalanche_plate_amethyst1"								"Each damage instance of the avalance is increased by @amethyst_property1% of hero's Attack Power"
 
 		"DOTA_Tooltip_ability_item_rpc_barons_storm_armor"								"Baron's Storm Armor"
 
@@ -13425,14 +13425,16 @@
 		"DOTA_Tooltip_ability_item_rpc_guard_of_feronia"								"Guard of Feronia"
 
 		"item_property_guard_of_feronia"						"Shield of Dawn"
-		"property_guard_of_feronia_description"				"Applies a Shield for <font color='#ccff66'>2</font> seconds when casting @Ability3, or <font color='#ccff66'>4</font> seconds when casting @Ability4, that reduces all damage taken by <font color='#ccff66'>40</font>%."
+		"property_guard_of_feronia_description"				"Applies a Shield for <font color='#ccff66'>2</font> seconds when casting @Ability3, or <font color='#ccff66'>4</font> seconds when casting @Ability4, that reduces all damage taken by <font color='#ccff66'>65</font>%."
 		"DOTA_Tooltip_modifier_guard_of_feronia_shield" "Shield of Dawn"
-		"DOTA_Tooltip_modifier_guard_of_feronia_shield_Description" "Reduces damage taken by <font color='#ccff66'>40</font>%"
+		"DOTA_Tooltip_modifier_guard_of_feronia_shield_Description" "Reduces damage taken by <font color='#ccff66'>65</font>%%"
 
-		"item_rpc_guard_of_feronia_ruby1"								"Increases the damage reduction of Shield of Dawn by an additional @ruby_property1%"
+		"item_rpc_guard_of_feronia_ruby1"								"When Shield of Dawn expires, hero gains @ruby_property1 Armor and Magic Armor for <font color='#ccff66'>4</font> seconds "
 		"item_rpc_guard_of_feronia_emerald1"								"Casting [Q] applies Shield of Dawn for @emerald_property1 seconds"
 		"item_rpc_guard_of_feronia_sapphire1"								"@sapphire_property1% chance on attack to remove Shield of Dawn and then reapply it for the remaining duration plus <font color='#ccff66'>1</font> seconds. Max <font color='#ccff66'>1</font> procs per second"
 		"item_rpc_guard_of_feronia_amethyst1"								"When the Shield of Dawn expires, drop a star on all nearby enemies in a <font color='#ccff66'>550</font> radius that deals @amethyst_property1% of attack power. If only 1 enemy is nearby, drop <font color='#ccff66'>3</font> stars on it"
+		"DOTA_Tooltip_modifier_guard_of_feronia_armors"			"Guard of Feronia (Ruby)"
+		"DOTA_Tooltip_modifier_guard_of_feronia_armors_Description"			"Armor and Magical Armor increased."
 
 		"DOTA_Tooltip_ability_item_rpc_hermits_spike_shell"								"Hermit's Spike Shell"
 		"item_property_hermit_spike_shell"			"Quill Spray"
@@ -13470,11 +13472,11 @@
 		"DOTA_Tooltip_ability_item_rpc_ice_quill_carapace"								"Ice Quill Carapace"
 
 		"item_property_ice_quill"					"Ice Quills"
-		"property_ice_quill_description"			"When you spend <font color='#ccff66'>100</font> mana, gain an Ice Quill stack. When you cast any ability or use an item, the stacks are released individually on <font color='#ccff66'>0.2</font>-second intervals, dealing <font color='#ccff66'>6</font>% of your attack power in a <font color='#ccff66'>460</font> radius with each burst. Maximum of <font color='#ccff66'>25</font> stacks and they will not trigger if a previous explosion of icicles is still resolving."
+		"property_ice_quill_description"			"When you spend <font color='#ccff66'>100</font> mana, gain an Ice Quill stack. When you cast any ability or use an item, the stacks are released individually on <font color='#ccff66'>0.2</font>-second intervals, dealing <font color='#ccff66'>50</font>% of your attack power in a <font color='#ccff66'>460</font> radius with each burst. Maximum of <font color='#ccff66'>35</font> stacks and they will not trigger if a previous explosion of icicles is still resolving."
 		"DOTA_Tooltip_modifier_ice_quill_carapace_stack"	"Ice Quill"
 		"DOTA_Tooltip_modifier_ice_quill_carapace_stack_Description"	"Cast an ability to release."
 
-		"item_rpc_ice_quill_carapace_ruby1"								"Ice Quill will not trigger below @ruby_property1 stacks and Ice Quill Damage is increased by an additional @ruby_property2 flat damage"
+		"item_rpc_ice_quill_carapace_ruby1"								"Ice Quill will not trigger below @ruby_property1 stacks and Ice Quill Damage also deals an additional @ruby_property2 flat Pure damage instance"
 		"item_rpc_ice_quill_carapace_emerald1"								"Increases maximum Ice Quill stacks by @emerald_property1 and Max Mana by @emerald_property2"
 		"item_rpc_ice_quill_carapace_sapphire1"								"Restore @sapphire_property1% of Max Mana with each burst of Ice Quills"
 		"item_rpc_ice_quill_carapace_amethyst1"								"Each stored up Ice Quill stack increases Spell Pierce by @amethyst_property1"
@@ -13745,7 +13747,7 @@
 		"item_property_spellslinger_coat"			"Spellslinger"
 		"property_spellslinger_coat_description"	"@Ability2 restores <font color='#ccff66'>35</font>% of its mana cost on use and its Base Ability Damage is increased by <font color='#ccff66'>120</font>%."
 
-		"item_rpc_spellslinger_coat_ruby1"								"Casting [Q] has a @ruby_property1% chance to refresh its cooldown"
+		"item_rpc_spellslinger_coat_ruby1"								"Casting [Q] has a @ruby_property1% chance to refresh its cooldown, can proc once per <font color='#ccff66'>0.5</font> seconds"
 		"item_rpc_spellslinger_coat_emerald1"								"Casting [W] adds @emerald_property1 Spell Pierce for <font color='#ccff66'>5</font> seconds, stacking up to <font color='#ccff66'>10</font> times"
 		"item_rpc_spellslinger_coat_sapphire1"								"Increases Mana Regen by @sapphire_property1"
 		"item_rpc_spellslinger_coat_amethyst1"								"When an enemy damages you, @amethyst_property1% chance to immediately cast [W] with no mana cost, cooldown or cast point. Max <font color='#ccff66'>5</font> procs per second."
@@ -13975,10 +13977,10 @@
     	"DOTA_Tooltip_ability_item_rpc_autumnrock_bracer"								"Autumnrock Bracer"
 
 		"item_property_autumnrock_bracer"						"Fissure"
-		 "property_autumnrock_bracer_description"				"<font color='#ccff66'>10</font>% chance when taking damage to create an explosive fissure towards the damage source, travelling on a <font color='#ccff66'>0.8</font> second delay. The fissure stuns for <font color='#ccff66'>1</font> seconds and deals <font color='#ccff66'>3</font>x your Strength as Magical damage. Max <font color='#ccff66'>6</font> procs per second."
+		 "property_autumnrock_bracer_description"				"<font color='#ccff66'>10</font>% chance when taking damage to create an explosive fissure towards the damage source, travelling on a <font color='#ccff66'>0.8</font> second delay. The fissure stuns for <font color='#ccff66'>1</font> seconds and deals <font color='#ccff66'>6</font>x your Strength as Magical damage. Max <font color='#ccff66'>6</font> procs per second."
 
     	"item_rpc_autumnrock_bracer_ruby1"								"Increases Strength by @ruby_property1 and Fissure proc chance by @ruby_property2%"
-    	"item_rpc_autumnrock_bracer_emerald1"								"Increases Fissure damage by @emerald_property1 and the stun duration by @emerald_property2"
+    	"item_rpc_autumnrock_bracer_emerald1"								"Increases Spell Pierce by @emerald_property1 and the stun duration by @emerald_property2"
     	"item_rpc_autumnrock_bracer_sapphire1"								"Reduces Fissure travel delay by @sapphire_property1 seconds and increases Item Damage by @sapphire_property2%"
     	"item_rpc_autumnrock_bracer_amethyst1"								"Casting [W] has a @amethyst_property1% chance to create a fissure beneath the nearest enemy within <font color='#ccff66'>500</font> range"
 
@@ -13997,11 +13999,11 @@
     	"DOTA_Tooltip_ability_item_rpc_bladeforge_gauntlet"								"Bladeforge Gauntlet"
 
 		"item_property_bladeforge"					"Rupture"
-		"property_bladeforge_description"			"Your basic attacks have a <font color='#ccff66'>20</font>% chance to make the enemy bleed for <font color='#ccff66'>3</font> seconds, taking <font color='#ccff66'>50</font>% of your attack power as Physical damage every <font color='#ccff66'>0.5</font> seconds."
+		"property_bladeforge_description"			"Your basic attacks have a <font color='#ccff66'>20</font>% chance to make the enemy bleed for <font color='#ccff66'>3</font> seconds, taking <font color='#ccff66'>150</font>% of your attack power as Physical damage every <font color='#ccff66'>0.25</font> seconds."
 		"DOTA_Tooltip_modifier_bladeforge_armor_debuff"	"Rupture"
 		"DOTA_Tooltip_modifier_bladeforge_armor_debuff_Description"	"Losing Armor per stack."
 		"DOTA_Tooltip_modifier_bladeforge_bleed"	"Rupture"
-		"DOTA_Tooltip_modifier_bladeforge_bleed_Description"	"Taking damage based on Bladeforge wearer's attack damage every <font color='#ccff66'>0.5</font> seconds"
+		"DOTA_Tooltip_modifier_bladeforge_bleed_Description"	"Taking damage based on Bladeforge wearer's attack damage every <font color='#ccff66'>0.25</font> seconds"
 
     	"item_rpc_bladeforge_gauntlet_ruby1"								"Attacks leave a stacking @ruby_property1 Armor loss debuff that lasts for <font color='#ccff66'>10</font> seconds. Max <font color='#ccff66'>20</font> stacks" 
     	"item_rpc_bladeforge_gauntlet_emerald1"								"Increases Armor Pierce by @emerald_property1 and Base Attack Damage by @emerald_property2"
@@ -14082,7 +14084,7 @@
     	"DOTA_Tooltip_ability_item_rpc_cytopian_laser_glove"							"Cytopian Laser Glove"
 
 		"item_property_cytopian_laser"				"Cytopian Laser"
-		"property_cytopian_laser_description"		"Casting @Ability2 fires lasers at all surrounding enemies in <font color='#ccff66'>650</font> range, dealing <font color='#ccff66'>4</font>% of your attack power. Each successive hit deals <font color='#ccff66'>20</font>% increased damage. Stacks last for <font color='#ccff66'>4</font> seconds and can reach a max of <font color='#ccff66'>10</font> stacks."
+		"property_cytopian_laser_description"		"Casting @Ability2 fires lasers at all surrounding enemies in <font color='#ccff66'>650</font> range, dealing <font color='#ccff66'>70</font>% of your attack power. Each successive hit deals <font color='#ccff66'>20</font>% increased damage. Stacks last for <font color='#ccff66'>4</font> seconds and can reach a max of <font color='#ccff66'>10</font> stacks."
 		"DOTA_Tooltip_modifier_cytopian_stacks"		"Cytopian Laser"
 		"DOTA_Tooltip_modifier_cytopian_stacks_Description"	"Taking increased damage from lasers"
 
@@ -14094,7 +14096,7 @@
 		"DOTA_Tooltip_ability_item_rpc_dark_emissary_glove"						"Dark Emissary Glove"	
 
 		"property_dark_emissary"												"Spectral Mist"
-		"property_dark_emissary_Description"									"Casting @Ability1 creates a paranormal fog bank that deals <font color='#ccff66'>25</font>% of your attack power to enemies in a <font color='#ccff66'>400</font> radius, and roots them for <font color='#ccff66'>5</font> seconds."
+		"property_dark_emissary_Description"									"Casting @Ability1 creates a paranormal fog bank that deals <font color='#ccff66'>180</font>% of your attack power to enemies in a <font color='#ccff66'>400</font> radius, and roots them for <font color='#ccff66'>5</font> seconds."
 		"DOTA_Tooltip_modifier_dark_emissary_root"								"Spectral Mist"
 		"DOTA_Tooltip_modifier_dark_emissary_root_Description"					"Rooted"
 
@@ -14209,7 +14211,7 @@
       	"DOTA_Tooltip_ability_item_rpc_gloves_of_sweeping_wind"							"Gloves of Sweeping Winds"
 
 		"item_property_sweeping_wind"						"Sweeping Winds"
-		"property_sweeping_wind_description"				"When you cast @Ability3, gain a stack. Each stack grants <font color='#ccff66'>15</font>% bonus attack damage, and all nearby enemies within <font color='#ccff66'>400</font> radius take <font color='#ccff66'>15</font>% of your attack damage as magic each second. Attacking consumes a stack. Max <font color='#ccff66'>5</font> stacks. Lasts <font color='#ccff66'>30</font> seconds."
+		"property_sweeping_wind_description"				"When you cast @Ability3, gain a stack. Each stack grants <font color='#ccff66'>20</font>% bonus attack damage, and all nearby enemies within <font color='#ccff66'>400</font> radius take <font color='#ccff66'>50</font>% of your attack damage as magic each second. Attacking consumes a stack. Max <font color='#ccff66'>5</font> stacks. Lasts <font color='#ccff66'>30</font> seconds."
 		"DOTA_Tooltip_modifier_sweeping_wind_stackable"	"Sweeping Winds"
 		"DOTA_Tooltip_modifier_sweeping_wind_stackable_Description"	"Each stack provides bonus attack damage and damages nearby enemies."
 
@@ -14396,7 +14398,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_phoenix_gloves"									"Phoenix Gloves"
 		"item_property_phoenix_gloves"				"Perpetual Rebirth" 
-		"property_phoenix_gloves_description"		"Gain <font color='#ccff66'>0.15</font> health regen for each missing point of health."
+		"property_phoenix_gloves_description"		"Gain <font color='#ccff66'>0.25</font> health regen for each missing point of health."
 
     	"item_rpc_phoenix_gloves_ruby1"									"Increases Attack Speed by @ruby_property1 and makes your basic attacks have <font color='#EF4126'>Fire</font> element"
     	"item_rpc_phoenix_gloves_emerald1"									"Increases Agility by @emerald_property1 and each point of Agility increases Max Health by @emerald_property2"
@@ -15593,11 +15595,11 @@
         "DOTA_Tooltip_ability_item_rpc_cobalt_serenity_ring"                            "Cobalt Serenity Ring"
 
         "item_property_cobalt_serenity"                     "Cobalt Serenity"
-         "property_cobalt_serenity_description"                 "Each point of Intelligence increases Health Regen by <font color='#ccff66'>1</font>."
+         "property_cobalt_serenity_description"                 "Each point of Intelligence increases Health Regen by <font color='#ccff66'>3</font>."
 
-        "item_rpc_cobalt_serenity_ring_ruby1"                           "Increases Max Health by @ruby_property1"
-        "item_rpc_cobalt_serenity_ring_emerald1"                            "Each point of current health increases Spell Pierce by @emerald_property1"
-        "item_rpc_cobalt_serenity_ring_sapphire1"                           "Increases Intelligence by @sapphire_property1"
+        "item_rpc_cobalt_serenity_ring_ruby1"                           "Base Ability Damage, Item Damage, Health and Mana Regeneration bonuses from gear are increased by @ruby_property1%"
+        "item_rpc_cobalt_serenity_ring_emerald1"                            "Health and Mana Regeneration value increases Spell Pierce by @emerald_property1"
+        "item_rpc_cobalt_serenity_ring_sapphire1"                           "Increases Intelligence by @sapphire_property1 and Max Health by @sapphire_property2"
         "item_rpc_cobalt_serenity_ring_amethyst1"                           "Each point of Intelligence increases Mana Regen by an additional @amethyst_property1"
 
         "DOTA_Tooltip_ability_item_rpc_conquest_stone_falcon"                           "Conquest Stone Falcon"
@@ -15622,7 +15624,7 @@
         "DOTA_Tooltip_ability_item_rpc_epsilons_eyeglass"                               "Epsilon's Eyeglass"
 
         "item_property_epsilon_eyeglass"                    "Extended Scope"
-        "property_epsilon_eyeglass_description"         "Increases attack range by <font color='#ccff66'>160</font> (RANGED ONLY), increases vision radius by <font color='#ccff66'>800</font>, and adds <font color='#ccff66'>600</font> to your attack projectile's speed."
+        "property_epsilon_eyeglass_description"         "Increases attack range by <font color='#ccff66'>160</font> (RANGED ONLY), increases vision radius by <font color='#ccff66'>800</font>, and adds <font color='#ccff66'>1200</font> to your attack projectile's speed."
 
         "item_rpc_epsilons_eyeglass_ruby1"                              "Your attacks deal an extra instance of damage equal to @ruby_property1x the distance between you and your target"
         "item_rpc_epsilons_eyeglass_emerald1"                               "Increases the Attack Range bonus (for Ranged heroes) by an additional @emerald_property1"

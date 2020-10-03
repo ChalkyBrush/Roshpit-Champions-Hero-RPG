@@ -7091,7 +7091,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.06"
+				"property_one"			"0.1"
 			}
 		}
 	}
@@ -7168,7 +7168,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.06"
+				"property_one"			"0.1"
 			}
 		}
 	}
@@ -7244,7 +7244,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.06"
+				"property_one"			"0.1"
 			}
 		}
 	}
@@ -7375,7 +7375,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"150"
+				"property_one"			"250"
 			}
 		}
 	}
@@ -8885,7 +8885,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.06"
+				"property_one"			"0.1"
 			}
 		}
 	}
@@ -9297,7 +9297,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "0.06"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "0.1"
 				}
 			}
 		}
@@ -13931,7 +13931,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_mult"			"35 40 50 60 70 85 100"
+				"damage_mult"			"35 60 90 120 160 180 220"
 			}
 		}
 	}
@@ -16112,7 +16112,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.4"
+				"property_one"			"0.5"
 			}
 		}
 		"Modifiers"
@@ -31407,7 +31407,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.03"
+				"property_one"			"0.04"
 			}
 			"02"
 			{
@@ -31474,7 +31474,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"2.5"
+				"property_one"			"7.5"
 			}
 		}
 	}
@@ -64620,10 +64620,17 @@
 				"TextureName"	"auriun/glyph_auriun_6_1_modifier"
 				"IsBuff"	"1"
 				"Passive"	"0"
+				"EffectName"			"particles/items_fx/black_king_bar_avatar.vpcf"
+            	"EffectAttachType"		"attach_hitloc"
+            	"StatusEffectName" 		"particles/status_fx/status_effect_mjollnir_shield.vpcf"
+            	"StatusEffectPriority"  "10"
 				"States"
 				{
 					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_EVASION_CONSTANT"		"95"
 				}
 			}
 			"modifier_auriun_rune_q_3_effect"
@@ -64985,10 +64992,18 @@
 				"IsHidden"	"0"
 				"IsBuff"	"1"
 				"Passive"	"0"
+				"EffectName"			"particles/items_fx/black_king_bar_avatar.vpcf"
+            	"EffectAttachType"		"attach_hitloc"
+            	"StatusEffectName" 		"particles/status_fx/status_effect_mjollnir_shield.vpcf"
+            	"StatusEffectPriority"  "10"
 				"States"
 				{
 					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_EVASION_CONSTANT"		"95"
 				}
 			}
 		}
@@ -65220,10 +65235,17 @@
 				"TextureName"	"auriun/glyph_auriun_6_1_modifier"
 				"IsBuff"	"1"
 				"Passive"	"0"
+				"EffectName"			"particles/items_fx/black_king_bar_avatar.vpcf"
+            	"EffectAttachType"		"attach_hitloc"
+            	"StatusEffectName" 		"particles/status_fx/status_effect_mjollnir_shield.vpcf"
+            	"StatusEffectPriority"  "10"
 				"States"
 				{
 					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_EVASION_CONSTANT"		"95"
 				}
 			}
 			"modifier_auriun_rune_q_3_effect"
@@ -65280,7 +65302,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
-				"TextureName"		"rpc/auriun_d_a"
+				"TextureName"		"rpc/auriun_q_4"
 			}
 		}
 	}
