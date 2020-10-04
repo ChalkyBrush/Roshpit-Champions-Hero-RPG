@@ -141,7 +141,7 @@ function distance_test(unitName, queryUnit)
 	{
 		var position1 = Entities.GetAbsOrigin( queryUnit )
 		var position2 = Entities.GetAbsOrigin( heroIndex )
-		if (distance_between_two_vectors(position1, position2) > 700){
+		if (distance_between_two_vectors(position1, position2) > 700 &&  !(unitName == "the_curator")) {
 			mDialogueButton.RemoveClass("dialogue_button")
 			mDialogueButton.AddClass("dialogue_button_grey")			
 		}else{
