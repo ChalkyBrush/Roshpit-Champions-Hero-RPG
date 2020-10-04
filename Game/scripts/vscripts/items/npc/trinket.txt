@@ -4741,7 +4741,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_COBALT_SERENITY_RING_GEM_SAPPHIRE2 %>"
+				"sapphire2"			"<% ITEM_RPC_COBALT_SERENITY_RING_GEM_SAPPHIRE2 %>"
 			}	
 			"05"
 			{
