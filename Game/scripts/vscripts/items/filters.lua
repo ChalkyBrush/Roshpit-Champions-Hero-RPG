@@ -735,7 +735,9 @@ function Filters:ApplyStun(caster, duration, target)
     if caster:HasModifier("modifier_knight_crusher_armor") and duration > 0 then
         local crusher_armor = caster.equipped_gear[RPC_GEAR_SLOT_BODY]
         if crusher_armor:GetGemValue("ruby") > 0 then
-            crusher_armor:ApplyDataDrivenModifier(caster.InventoryUnit, target, "modifier_knight_crusher_armor_loss", {duration = duration})
+			if caster:GetTeamNumber() ~= target:GetTeamNumber() then
+				crusher_armor:ApplyDataDrivenModifier(caster.InventoryUnit, target, "modifier_knight_crusher_armor_loss", {duration = duration})
+			end
         end
         if crusher_armor:GetGemValue("emerald") > 0 then
             crusher_armor:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_knight_crusher_armor_pierce", {duration = duration})
