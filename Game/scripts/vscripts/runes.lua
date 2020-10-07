@@ -1216,7 +1216,7 @@ function Runes:EquipArcana(hero, index)
 					end
 				end
 			end
-			Runes:EasySwapArcanaSkills(hero, 3, "dinath_hyper_beam", "dinath_frost_wyrm", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
+			Runes:EasySwapArcanaSkills(hero, DOTA_R_SLOT, "dinath_hyper_beam", "dinath_frost_wyrm", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_arc_warden" then
 		local element
