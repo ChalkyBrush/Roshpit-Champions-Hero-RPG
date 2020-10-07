@@ -1526,6 +1526,7 @@ function Runes:UnequipArcana(hero, index)
 			newRune:SetAbilityIndex(abilityIndex)
 
 			hero:RemoveModifierByName("modifier_astral_arcana_passive")
+			hero:RemoveModifierByName("modifier_astral_rune_q_4")
 		elseif index == 2 then
 			Runes:EasyRevertArcanaSkills(hero, 1, "split_shot", "shot_of_apollo", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 		elseif index == 3 then
