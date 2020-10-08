@@ -94,7 +94,7 @@
     	"DOTA_Tooltip_ability_epoch_rune_e_2_property_two"				"Скорость"
     	"DOTA_Tooltip_ability_epoch_rune_e_2_suffix_two"				""
 		
-    	"DOTA_Tooltip_ability_epoch_rune_e_3"							"[E3] Lifetream"
+    	"DOTA_Tooltip_ability_epoch_rune_e_3"							"[E3] Lifestream"
     	"DOTA_Tooltip_ability_epoch_rune_e_3_Description"				"Увеличивает Ману и Здоровье."
     	"DOTA_Tooltip_ability_epoch_rune_e_3_property_one"				"Максимальное Здоровье"
     	"DOTA_Tooltip_ability_epoch_rune_e_3_suffix"					""
