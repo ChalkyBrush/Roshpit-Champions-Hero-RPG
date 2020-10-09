@@ -72,7 +72,6 @@
 		"AbilityTextureName"	"rubilash/arcana1/rubilash_rune_e_4_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 
 		"AbilitySpecial"
 		{
