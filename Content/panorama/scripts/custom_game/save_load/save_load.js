@@ -242,6 +242,8 @@ function getKeyData(index, resultTable){
 		array = ["file://{images}/items/currency/socket_cutter.png", "DOTA_Tooltip_ability_item_rpc_socket_cutter", resultTable[1].socket_forger, '#E4AE33']
 	}else if(index == 14){
 		array = ["file://{images}/items/currency/inscription_kit.png", "DOTA_Tooltip_ability_item_rpc_inscription_kit", resultTable[1].inscription_kit, '#8847FF']
+	}else if(index == 15){
+		array = ["file://{images}/items/rpc/reanimation_stone.png", "DOTA_Tooltip_ability_item_reanimation_stone", resultTable[1].reanimation_stone, '#8847FF']
 	}
 	return array
 }
@@ -300,7 +302,10 @@ function IsValidKey(itemName){
 		valid = 13
 	}else if (itemName == "item_rpc_inscription_kit"){
 		valid = 14
+	}else if (itemName == "item_reanimation_stone"){
+		valid = 15
 	}
+	
 	return valid
 }
 
@@ -419,7 +424,10 @@ function GetKeyCountByItemName(itemName){
 		keyCount = resultTable[1].socket_forger
 	}else if(itemName == "item_rpc_inscription_kit"){
 		keyCount = resultTable[1].inscription_kit
+	}else if(itemName == "item_rpc_reanimation_stone"){
+		keyCount = resultTable[1].reanimation_stone
 	}
+	
 	return keyCount
 }
 
