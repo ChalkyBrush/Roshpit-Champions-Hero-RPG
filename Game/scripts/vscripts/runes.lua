@@ -1216,7 +1216,7 @@ function Runes:EquipArcana(hero, index)
 					end
 				end
 			end
-			Runes:EasySwapArcanaSkills(hero, 3, "dinath_hyper_beam", "dinath_frost_wyrm", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
+			Runes:EasySwapArcanaSkills(hero, DOTA_R_SLOT, "dinath_hyper_beam", "dinath_frost_wyrm", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_arc_warden" then
 		local element
@@ -1526,6 +1526,7 @@ function Runes:UnequipArcana(hero, index)
 			newRune:SetAbilityIndex(abilityIndex)
 
 			hero:RemoveModifierByName("modifier_astral_arcana_passive")
+			hero:RemoveModifierByName("modifier_astral_rune_q_4")
 		elseif index == 2 then
 			Runes:EasyRevertArcanaSkills(hero, 1, "split_shot", "shot_of_apollo", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 		elseif index == 3 then

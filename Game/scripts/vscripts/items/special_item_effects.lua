@@ -1104,7 +1104,8 @@ function super_ascension_init(event)
 	local target = event.target
 	local ability = event.ability
 	target:SetAttackCapability(DOTA_UNIT_CAP_RANGED_ATTACK)
-
+	local Acquisition = target:GetAcquisitionRange()
+	target:SetAcquisitionRange(Acquisition+SUPER_ASCENDENCY_ATK_RANGE)
 	local particleName = "particles/units/heroes/hero_sven/sven_spell_gods_strength.vpcf"
 	local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, target)
 	ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
@@ -1122,6 +1123,8 @@ function super_ascension_end(event)
 		--print("SET TO MELEE")
 		target:SetAttackCapability(target.baseAttackCapability)
 	end
+	local Acquisition = target:GetAcquisitionRange()
+	target:SetAcquisitionRange(Acquisition-SUPER_ASCENDENCY_ATK_RANGE)
 	-- target:SetRangedProjectileName(target.originalProjectile)
 end
 

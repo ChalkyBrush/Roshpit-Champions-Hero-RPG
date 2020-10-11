@@ -1831,7 +1831,7 @@ end
 			return false
 		end
 		local keyIndex = msg.keyIndex
-		local limit = 20
+		local limit = 100
 		local url = ROSHPIT_URL.."/champions/updatePlayerKeys?"
 		url = url.."steam_id="..steamID
 		url = url.."&limit="..limit

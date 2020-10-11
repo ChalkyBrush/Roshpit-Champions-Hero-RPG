@@ -1574,6 +1574,7 @@ function RPCItems:GetAvailableArcanaData(hero)
         table.insert(arcanaData, {2, 0})
     elseif unitName == "npc_dota_hero_winter_wyvern" then
         table.insert(arcanaData, {1, 1})
+        table.insert(arcanaData, {2, 3})
     elseif unitName == "npc_dota_hero_arc_warden" then
         table.insert(arcanaData, {1, 1})
     elseif unitName == "npc_dota_hero_grimstroke" then
@@ -1595,9 +1596,7 @@ function RPCItems:GetAllArcanaNames()
         "item_rpc_conjuror_arcana1", "item_rpc_seinaru_arcana1", "item_rpc_seinaru_arcana2", "item_rpc_warlord_arcana1", "item_rpc_bahamut_arcana1", "item_rpc_bahamut_arcana2", "item_rpc_trapper_arcana1",
         "item_rpc_spirit_warrior_arcana1", "item_rpc_spirit_warrior_arcana2", "item_rpc_spirit_warrior_arcana3", "item_rpc_mountain_protector_arcana1", "item_rpc_mountain_protector_arcana2", "item_rpc_mountain_protector_arcana3",
         "item_rpc_chernobog_arcana1", "item_rpc_chernobog_arcana2", "item_rpc_solunia_arcana1", "item_rpc_solunia_arcana2", "item_rpc_hydroxis_arcana1", "item_rpc_ekkan_arcana1", "item_rpc_zonik_arcana1",
-        "item_rpc_zonik_arcana2", "item_rpc_arkimus_arcana1", "item_rpc_arkimus_arcana2", "item_rpc_djanghor_arcana1", "item_rpc_hydroxis_arcana2", "item_rpc_voltex_arcana2", "item_rpc_duskbringer_arcana1", "item_rpc_auriun_arcana1", "item_rpc_auriun_arcana2",
-    "item_rpc_dinath_arcana1", "item_rpc_conjuror_arcana2", "item_rpc_conjuror_arcana3", "item_rpc_conjuror_arcana4", "item_rpc_axe_arcana2", "item_rpc_jex_arcana1", "item_rpc_slipfinn_arcana1", "item_rpc_rubilash_arcana1", 
-    "item_rpc_ekkan_arcana2a", "item_rpc_ekkan_arcana2b", "item_rpc_ekkan_arcana2c", "item_rpc_sephyr_arcana2"}
+        "item_rpc_zonik_arcana2", "item_rpc_arkimus_arcana1", "item_rpc_arkimus_arcana2", "item_rpc_djanghor_arcana1", "item_rpc_hydroxis_arcana2", "item_rpc_voltex_arcana2", "item_rpc_duskbringer_arcana1", "item_rpc_auriun_arcana1", "item_rpc_auriun_arcana2", "item_rpc_dinath_arcana1", "item_rpc_conjuror_arcana2", "item_rpc_conjuror_arcana3", "item_rpc_conjuror_arcana4", "item_rpc_axe_arcana2", "item_rpc_jex_arcana1", "item_rpc_slipfinn_arcana1", "item_rpc_rubilash_arcana1", "item_rpc_ekkan_arcana2a", "item_rpc_ekkan_arcana2b", "item_rpc_ekkan_arcana2c", "item_rpc_sephyr_arcana2", "item_rpc_dinath_arcana2"}
     return arcanaTable
 end
 
@@ -1607,8 +1606,7 @@ function RPCItems:WorldDropArcanas()
         "item_rpc_conjuror_arcana1", "item_rpc_seinaru_arcana1", "item_rpc_seinaru_arcana2", "item_rpc_warlord_arcana1", "item_rpc_bahamut_arcana1", "item_rpc_trapper_arcana1",
         "item_rpc_mountain_protector_arcana1", "item_rpc_mountain_protector_arcana2", "item_rpc_mountain_protector_arcana3",
         "item_rpc_chernobog_arcana2", "item_rpc_solunia_arcana1", "item_rpc_solunia_arcana2", "item_rpc_ekkan_arcana1", "item_rpc_zonik_arcana1",
-        "item_rpc_zonik_arcana2", "item_rpc_arkimus_arcana1", "item_rpc_djanghor_arcana1", "item_rpc_hydroxis_arcana2", "item_rpc_voltex_arcana2", "item_rpc_duskbringer_arcana1", "item_rpc_auriun_arcana1", "item_rpc_auriun_arcana2",
-    "item_rpc_dinath_arcana1", "item_rpc_conjuror_arcana2", "item_rpc_conjuror_arcana3", "item_rpc_conjuror_arcana4", "item_rpc_axe_arcana2", "item_rpc_jex_arcana1", "item_rpc_rubilash_arcana1"}
+        "item_rpc_zonik_arcana2", "item_rpc_arkimus_arcana1", "item_rpc_djanghor_arcana1", "item_rpc_hydroxis_arcana2", "item_rpc_voltex_arcana2", "item_rpc_duskbringer_arcana1", "item_rpc_auriun_arcana1", "item_rpc_auriun_arcana2", "item_rpc_dinath_arcana1", "item_rpc_conjuror_arcana2", "item_rpc_conjuror_arcana3", "item_rpc_conjuror_arcana4", "item_rpc_axe_arcana2", "item_rpc_jex_arcana1", "item_rpc_rubilash_arcana1"}
     return arcanaTable
 end
 

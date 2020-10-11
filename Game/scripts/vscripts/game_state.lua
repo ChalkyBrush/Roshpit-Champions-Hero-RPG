@@ -2842,7 +2842,7 @@ function GameState:FilterDamage(filterTable)
 		if GameState:IsSerengaard() then
 			if Serengaard.InfiniteWaveCount then
 				if damagetype == DAMAGE_TYPE_PURE then
-					filterTable["damage"] = filterTable["damage"] * 0.99^(2*Serengaard.InfiniteWaveCount)
+					filterTable["damage"] = filterTable["damage"] * 0.99^(1.2*Serengaard.InfiniteWaveCount)
 				end			
 			end
 		end

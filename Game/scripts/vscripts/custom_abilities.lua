@@ -832,14 +832,14 @@ function CustomAbilities:ClickOpenDialogue(msg)
 			end
 		end
 	elseif msg.unit_name == "the_curator" then
-		local distance_cap = 700
+		local distance_cap = 0
 		local playerID = msg.PlayerID
 		local player = PlayerResource:GetPlayer(playerID)
 		if player then
 			local hero = GameState:GetHeroByPlayerID(playerID)
 			local queryUnit = EntIndexToHScript(msg.queryUnit)
 			local distance = WallPhysics:GetDistance2d(hero:GetAbsOrigin(), queryUnit:GetAbsOrigin())
-			if distance <= distance_cap then
+			if distance >= distance_cap then
 				CustomGameEventManager:Send_ServerToPlayer(player, "open_curator", {player = playerID})
 				Events:TutorialServerEvent(hero, "6_2", 1)
 				CustomGameEventManager:Send_ServerToPlayer(player, "select_hero", {})

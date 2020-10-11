@@ -2059,7 +2059,7 @@
 	
 		//KEY BANK
 		"keybank_label"										"Key Bank"
-		"keybank_description"								"Click on a key to withdraw it. Drag a key into the slot below to deposit it. You may hold up to 5 keys (or 20 for pass holders) of each type and they are tied to your Steam Account."
+		"keybank_description"								"Click on a key to withdraw it. Drag a key into the slot below to deposit it. You may hold up to 5 keys of each type and they are tied to your Steam Account. Premium Pass increases this cap to 100 for Synthesis Vessels and Glacier Stones, and to 40 for all other keys."
 		"key_hover_tooltip"									"Click to withdraw."
 
 		"key_deposit"										"Deposit Key"
