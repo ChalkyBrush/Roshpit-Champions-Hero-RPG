@@ -2059,7 +2059,7 @@
 	
 		//KEY BANK
 		"keybank_label"										"Key Bank"
-		"keybank_description"								"Click on a key to withdraw it. Drag a key into the slot below to deposit it. You may hold up to 5 keys (or 20 for pass holders) of each type and they are tied to your Steam Account."
+		"keybank_description"								"Click on a key to withdraw it. Drag a key into the slot below to deposit it. You may hold up to 5 keys of each type and they are tied to your Steam Account. Premium Pass increases this cap to 100 for Synthesis Vessels and Glacier Stones, and to 40 for all other keys."
 		"key_hover_tooltip"									"Click to withdraw."
 
 		"key_deposit"										"Deposit Key"
@@ -6565,7 +6565,7 @@
     	"DOTA_Tooltip_ability_epoch_rune_e_2_property_two"				"Additional Speed"
     	"DOTA_Tooltip_ability_epoch_rune_e_2_suffix_two"				""
 		
-    	"DOTA_Tooltip_ability_epoch_rune_e_3"							"[E3] Lifetream"
+    	"DOTA_Tooltip_ability_epoch_rune_e_3"							"[E3] Lifestream"
     	"DOTA_Tooltip_ability_epoch_rune_e_3_Description"				"Increases Max Health and Max Mana."
     	"DOTA_Tooltip_ability_epoch_rune_e_3_property_one"				"Max Health"
     	"DOTA_Tooltip_ability_epoch_rune_e_3_suffix"					""
@@ -12972,7 +12972,7 @@
         "DOTA_Tooltip_ability_item_rpc_sandstream_slippers"                             "Sandstream Slippers"
 
         "item_property_sandstream_slippers"                 "Sandstream"
-         "property_sandstream_slippers_description"             "Casting @Ability3 creates a <font color='#ccff66'>550</font> radius Sandstream that deals <font color='#ccff66'>15</font>% of your attack power as damage to enemies within every <font color='#ccff66'>0.5</font> seconds. Enemies in the Sandstream have a <font color='#ccff66'>30</font> chance to miss with attacks. Lasts <font color='#ccff66'>15</font> seconds."
+         "property_sandstream_slippers_description"             "Casting @Ability3 creates a <font color='#ccff66'>550</font> radius Sandstream that deals <font color='#ccff66'>180</font>% of your attack power as damage to enemies within every <font color='#ccff66'>0.5</font> seconds. Enemies in the Sandstream have a <font color='#ccff66'>30</font> chance to miss with attacks. Lasts <font color='#ccff66'>15</font> seconds."
         
         "DOTA_Tooltip_modifier_sandstream_in_sandstorm"         "Sandstream"
         "DOTA_Tooltip_modifier_sandstream_in_sandstorm_Description" "Buffeted by a Sandstorm"

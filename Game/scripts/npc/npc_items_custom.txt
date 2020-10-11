@@ -36932,7 +36932,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby2"				"0.25 0.5 0.75 1 1.25"
+				"ruby2"				"0.3 0.6 0.9 1.2 1.5"
 			}
 			"03"
 			{
@@ -36947,7 +36947,7 @@
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire2"			"0.25 0.5 0.75 1 1.25"
+				"sapphire2"			"0.3 0.6 0.9 1.2 1.5"
 			}
 			"06"
 			{
@@ -37065,7 +37065,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald2"			"20 25 30 35 40"
+				"emerald2"			"25 50 75 100 125"
 			}
 			"04"
 			{
@@ -47103,6 +47103,7 @@
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 			"modifier_hurricane_vest_slow"
 			{
@@ -48408,6 +48409,7 @@
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 				"OnAttacked"
 				{
 					"RunScript"
@@ -68635,7 +68637,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"800 1600 2400 3200 4000"
+				"sapphire2"			"800 1600 2400 3200 4000"
 			}	
 			"05"
 			{

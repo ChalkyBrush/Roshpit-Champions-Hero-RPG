@@ -2088,10 +2088,10 @@
 	
 		//KEY BANK
 		"keybank_label"										"Хранилище ключей"
-		"keybank_description"								"Нажмите на необходимый ключ, чтобы взять его. Переместите ключ, чтобы сохранить в свободной ячейке. Разрешено сохранять до 5 ключей (20 для владельцев Пропуска) каждого типа. Все ключи привязаны к текущему аккаунту Steam."
+		"keybank_description"								"Переместите ключ в ячейку, чтобы сохранить его. Нажмите на подходящий ключ, чтобы забрать его. В Банк помещается до 5 ключей каждого типа, для владельцев Пропуска - 40 ключей и 100 Synthesis Vessels либо Glacier Stones."
 		"key_hover_tooltip"									"Нажмите, чтобы забрать."
 
-		"key_deposit"										"Сохранить ключ"
+		"key_deposit"										"Ячейка сохранения ключа"
 
 		// SEA FORTRESS
 
@@ -6502,7 +6502,7 @@
     	"DOTA_Tooltip_ability_epoch_rune_e_2_property_two"				"Скорость"
     	"DOTA_Tooltip_ability_epoch_rune_e_2_suffix_two"				""
 		
-    	"DOTA_Tooltip_ability_epoch_rune_e_3"							"[E3] Lifetream"
+    	"DOTA_Tooltip_ability_epoch_rune_e_3"							"[E3] Lifestream"
     	"DOTA_Tooltip_ability_epoch_rune_e_3_Description"				"Увеличивает Ману и Здоровье."
     	"DOTA_Tooltip_ability_epoch_rune_e_3_property_one"				"Максимальное Здоровье"
     	"DOTA_Tooltip_ability_epoch_rune_e_3_suffix"					""
@@ -12852,7 +12852,7 @@
         "DOTA_Tooltip_ability_item_rpc_sandstream_slippers"                             "Sandstream Slippers"
 
         "item_property_sandstream_slippers"                 "Sandstream"
-         "property_sandstream_slippers_description"             "Прочтение @Ability3 создает область песчаной бури радиусом <font color='#ccff66'>550</font>, которая наносит урон в <font color='#ccff66'>15</font>% от Силы Атаки героя каждые <font color='#ccff66'>0.5</font> сек. Противники в песчаной буре имеют шанс <font color='#ccff66'>30</font> промаха при атаке. Длительность <font color='#ccff66'>15</font> сек."
+         "property_sandstream_slippers_description"             "Прочтение @Ability3 создает область песчаной бури радиусом <font color='#ccff66'>550</font>, которая наносит урон в <font color='#ccff66'>180</font>% от Силы Атаки героя каждые <font color='#ccff66'>0.5</font> сек. Противники в песчаной буре имеют шанс <font color='#ccff66'>30</font> промаха при атаке. Длительность <font color='#ccff66'>15</font> сек."
         
         "DOTA_Tooltip_modifier_sandstream_in_sandstorm"         "Sandstream"
         "DOTA_Tooltip_modifier_sandstream_in_sandstorm_Description" "Окружен песчаной бурей"
