@@ -5396,24 +5396,26 @@ end
 
 function Filters:DepthCrestArmor(caster, ability, chance)
     local proc = Filters:GetProc(caster, chance)
-    if proc then
-        StartAnimation(caster, {duration = 0.4, activity = ACT_DOTA_SPAWN, rate = 2.0})
-        local radius = ITEM_RPC_DEPTH_CREST_ARMOR_STUN_RADIUS + ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_DEPTH_CREST_ARMOR_GEM_RUBY2) + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_DEPTH_CREST_ARMOR_GEM_EMERALD2)
-        local stun_duration = ITEM_RPC_DEPTH_CREST_ARMOR_STUN_DURATION + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_DEPTH_CREST_ARMOR_GEM_EMERALD1)
-        EmitSoundOn("Items.DepthCrest", caster)
-        local particleName = "particles/roshpit/items/depth_crest_armor.vpcf"
-        local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
-        ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin() + Vector(0, 0, 20))
-        ParticleManager:SetParticleControl(pfx, 1, Vector(radius, 1, 1))
-        local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
-        if #enemies > 0 then
-            local damage = caster:GetRoshpitArmor() * ITEM_RPC_DEPTH_CREST_ARMOR_ARMOR_TO_DMG + ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_DEPTH_CREST_ARMOR_GEM_RUBY1)*caster:GetStrength()
-            for _, enemy in pairs(enemies) do
-                Filters:ApplyItemDamage(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, ability, RPC_ELEMENT_WATER, RPC_ELEMENT_NORMAL)
-                Filters:ApplyStun(caster, ITEM_RPC_DEPTH_CREST_ARMOR_STUN_DURATION, enemy)
-            end
-        end
-    end
+	if caster:IsAlive() then
+		if proc then
+			StartAnimation(caster, {duration = 0.4, activity = ACT_DOTA_SPAWN, rate = 2.0})
+			local radius = ITEM_RPC_DEPTH_CREST_ARMOR_STUN_RADIUS + ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_DEPTH_CREST_ARMOR_GEM_RUBY2) + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_DEPTH_CREST_ARMOR_GEM_EMERALD2)
+			local stun_duration = ITEM_RPC_DEPTH_CREST_ARMOR_STUN_DURATION + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_DEPTH_CREST_ARMOR_GEM_EMERALD1)
+			EmitSoundOn("Items.DepthCrest", caster)
+			local particleName = "particles/roshpit/items/depth_crest_armor.vpcf"
+			local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
+			ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin() + Vector(0, 0, 20))
+			ParticleManager:SetParticleControl(pfx, 1, Vector(radius, 1, 1))
+			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+			if #enemies > 0 then
+				local damage = caster:GetRoshpitArmor() * ITEM_RPC_DEPTH_CREST_ARMOR_ARMOR_TO_DMG + ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_DEPTH_CREST_ARMOR_GEM_RUBY1)*caster:GetStrength()
+				for _, enemy in pairs(enemies) do
+					Filters:ApplyItemDamage(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, ability, RPC_ELEMENT_WATER, RPC_ELEMENT_NORMAL)
+					Filters:ApplyStun(caster, ITEM_RPC_DEPTH_CREST_ARMOR_STUN_DURATION, enemy)
+				end
+			end
+		end
+	end
 end
 
 function Filters:ApplyFeronia(caster, slot, bReapply)
