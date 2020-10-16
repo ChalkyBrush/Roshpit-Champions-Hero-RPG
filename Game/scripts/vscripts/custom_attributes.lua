@@ -3322,7 +3322,8 @@ function CustomAttributes:ApplyStatBonusesToHero(hero)
 	local agility = hero:GetAgility()
 	local intelligence = hero:GetIntellect()
 	if hero:HasModifier("modifier_frozen_heart") then
-		hero:RemoveModifierByName("modifier_strength_health")	
+		hero:RemoveModifierByName("modifier_strength_health")
+		hero:RemoveModifierByName("modifier_strength_health_regen")
 	else
 		if not hero:HasModifier("modifier_strength_health") then
 			ability:ApplyDataDrivenModifier(caster, hero, "modifier_strength_health", {})
@@ -3341,11 +3342,16 @@ function CustomAttributes:ApplyStatBonusesToHero(hero)
 			end)
 		end
 		hero:SetModifierStackCount("modifier_strength_health", caster, healthStacks)
+		if hero:HasModifier("modifier_musty_crypt_skeleton_transform") then
+			hero:RemoveModifierByName("modifier_strength_health_regen")
+		else
+			if not hero:HasModifier("modifier_strength_health_regen") then
+				ability:ApplyDataDrivenModifier(caster, hero, "modifier_strength_health_regen", {})
+			end
+			hero:SetModifierStackCount("modifier_strength_health_regen", caster, strength * CustomAttributes.HEALTH_REGEN_PER_STR * 10)
+		end
 	end
-	if not hero:HasModifier("modifier_strength_health_regen") then
-		ability:ApplyDataDrivenModifier(caster, hero, "modifier_strength_health_regen", {})
-	end
-	hero:SetModifierStackCount("modifier_strength_health_regen", caster, strength * CustomAttributes.HEALTH_REGEN_PER_STR * 10)
+	
 
 	if not hero:HasModifier("modifier_agility_attackspeed") then
 		ability:ApplyDataDrivenModifier(caster, hero, "modifier_agility_attackspeed", {})
