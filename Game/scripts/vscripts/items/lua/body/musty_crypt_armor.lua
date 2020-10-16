@@ -135,7 +135,9 @@ function crypt_armor_skeleton_modifier:OnCreated()
         MODIFIER_ROSHPIT_MASTER_GREEN_DMG
     })
     if self:GetAbility():GetGemValue("emerald") > 0 then
-    	self:StartIntervalThink(ITEM_RPC_MUSTY_CRYPT_ARMOR_EMERALD_INTERVAL)
+		if not hero:HasModifier("modifier_frozen_heart") then
+			self:StartIntervalThink(ITEM_RPC_MUSTY_CRYPT_ARMOR_EMERALD_INTERVAL)
+		end
     end
 end
 
