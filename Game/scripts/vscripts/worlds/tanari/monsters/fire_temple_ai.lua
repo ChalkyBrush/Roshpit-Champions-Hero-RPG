@@ -733,7 +733,7 @@ function temple_protector_die(event)
 				if not allies[i].modelScale then
 					allies[i].modelScale = allies[i]:GetModelScale()
 				end
-				allies[i]:SetModifierStackCount("modifier_death_ability_buff", allies[i], currentStack + 1)
+				allies[i]:SetModifierStackCount("modifier_death_ability_buff", allies[i], math.min(currentStack + 1, 20)
 				allies[i].modelScale = allies[i].modelScale + 0.07
 				allies[i]:SetModelScale(allies[i].modelScale)
 				allies[i]:Heal(allies[i]:GetMaxHealth() * healPercent, allies[i])
