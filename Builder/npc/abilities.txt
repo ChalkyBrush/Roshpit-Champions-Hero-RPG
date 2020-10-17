@@ -35723,7 +35723,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"magic_resist"			"2000"
+				"magic_resist"			"8000"
 			}
 		}
 		"Modifiers"
