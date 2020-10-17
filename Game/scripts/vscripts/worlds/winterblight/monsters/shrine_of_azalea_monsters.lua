@@ -573,15 +573,17 @@ function ghost_striker_attack_land(event)
 	local ability = event.ability
 	local damage_per_missing_hp = event.damage_per_missing_hp
 	local damage = (target:GetMaxHealth() - target:GetHealth()) * damage_per_missing_hp
-	if damage > 100 then
-		ApplyDamage({victim = target, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability})
-		EmitSoundOn("Winterblight.GhostStriker.Hit", target)
-		if not ability.particleLock then
-			CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_phoenix/phoenix_fire_spirit_burn_spike.vpcf", target, 3)
-			ability.particleLock = true
-			Timers:CreateTimer(0.5, function()
-				ability.particleLock = false
-			end)
+	if target:IsHero() then
+		if damage > 100 then
+			ApplyDamage({victim = target, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability})
+			EmitSoundOn("Winterblight.GhostStriker.Hit", target)
+			if not ability.particleLock then
+				CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_phoenix/phoenix_fire_spirit_burn_spike.vpcf", target, 3)
+				ability.particleLock = true
+				Timers:CreateTimer(0.5, function()
+					ability.particleLock = false
+				end)
+			end
 		end
 	end
 end
