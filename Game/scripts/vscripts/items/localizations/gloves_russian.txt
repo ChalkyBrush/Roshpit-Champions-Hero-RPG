@@ -320,7 +320,7 @@
 		"item_property_hand_of_midas"				"Прикосновение Мидаса"
 		"property_hand_of_midas_description"		"<% ITEM_RPC_HAND_OF_MIDAS_CHANCE %>% шанс при обычных атаках нанести дополнительно <% ITEM_RPC_HAND_OF_MIDAS_ATTACK_DAMAGE_MULT %>% от урона атаки героя в радиусе <% ITEM_RPC_HAND_OF_MIDAS_RADIUS %> вокруг цели и превратить всех противников в золото (обездвиживая их) на <% ITEM_RPC_HAND_OF_MIDAS_FREEZE_DURATION %> сек. Максимум 1 трансмутация каждые <% ITEM_RPC_HAND_OF_MIDAS_FREEZE_CD %> сек."
 
-    	"item_rpc_hand_of_midas_ruby1"									"Увеличивает шанс Прикосновения Мидаса на @ruby_property1%"
+    	"item_rpc_hand_of_midas_ruby1"									"Прикосновения Мидаса с шонсом @ruby_property1% становится Физическим типом урона, также позволяя наносит урон по целям, иммунным к заклинаниям"
     	"item_rpc_hand_of_midas_emerald1"									"Увеличивает длительность трансмутации противников в золото на @emerald_property1 сек"
     	"item_rpc_hand_of_midas_sapphire1"									"Увеличивает радиус Прикосновения Мидаса на @sapphire_property1 и урон эффекта на @sapphire_property2"
     	"item_rpc_hand_of_midas_amethyst1"									"Увеличивает Скорость Атаки на @amethyst_property1 и Базовый Урон Атаки на @amethyst_property2"
