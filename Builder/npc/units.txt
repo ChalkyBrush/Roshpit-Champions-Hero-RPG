@@ -66783,7 +66783,7 @@
             }
 
         }
-        "Ability1"  "redfall_demon_firestorm"
+        "Ability1"  "winterblight_soulfire_storm"
         "Ability2"  "use_ability_1_position_ai"
         "Ability3"  "redfall_crimsyth_demonic_follower_ai"
         "Ability4"  "redfall_demon_follower_finger"

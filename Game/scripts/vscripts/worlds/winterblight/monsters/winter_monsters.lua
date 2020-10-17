@@ -2184,8 +2184,12 @@ function coldseer_wave_start(event)
 	EmitSoundOnLocationWithCaster(target, "Winterblight.ColdSeer.WaveFall", Events.GameMaster)
 	for i = 0, 5, 1 do
 		Timers:CreateTimer(i * 1, function()
+			local particle_name = "particles/units/heroes/heroes_underlord/abyssal_underlord_firestorm_wave.vpcf"
+			if GetMapName() == "rpc_winterblight_mountain" then
+				particle_name = "particles/roshpit/winterblight/cold_seer_icefall.vpcf"
+			end
 			local particlePosition = target + RandomVector(RandomInt(0, 120))
-			local pfx = ParticleManager:CreateParticle("particles/roshpit/winterblight/cold_seer_icefall.vpcf", PATTACH_CUSTOMORIGIN, nil)
+			local pfx = ParticleManager:CreateParticle(particle_name, PATTACH_CUSTOMORIGIN, nil)
 			ParticleManager:SetParticleControl(pfx, 0, particlePosition)
 			ParticleManager:SetParticleControl(pfx, 4, Vector(280, 280, 280))
 			Timers:CreateTimer(3, function()
