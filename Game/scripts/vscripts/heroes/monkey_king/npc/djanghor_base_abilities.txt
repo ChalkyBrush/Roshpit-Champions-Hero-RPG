@@ -757,7 +757,7 @@
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
 				}
 			}
-		}
+		}	
 	}
 
 	"draghor_mark_of_the_fang"
@@ -1145,6 +1145,36 @@
 				"TextureName"	"djanghor/monkey_form"
 				"IsHidden"	"0"
 				"IsBuff"	"1"
+			}
+			"modifier_djanghor_w_2_passive"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Duration"			"99999"
+				"Attributes" 		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnKill"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/monkey_king/jinbo.lua"
+						"Function"		"djanghor_w_2_kill"
+					}
+				}
+			}
+			"modifier_djanghor_w_2_stack"
+			{
+				"TextureName"	"djanghor/djanghor_rune_w_2"
+				"IsHidden"			"0"
+				"IsBuff"			"1"
+			}
+			"modifier_djanghor_w_2_stack_regen"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "1"
+				}
 			}
 		}
 	}
@@ -1579,14 +1609,6 @@
 					}
 				}
 			}
-			"modifier_wolf_rend_health_regen_loss"
-			{
-				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "<% DJANGHOR_W2_HEALTH_REGEN_REDUCTION %>"
-				}
-			}
 		}
 	}
 
@@ -1773,14 +1795,6 @@
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
 				"TextureName"	"djanghor/war_stomp"
-			}
-			"modifier_bear_rend_health_regen_loss"
-			{
-				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "<% DJANGHOR_W2_HEALTH_REGEN_REDUCTION %>"
-				}
 			}
 		}
 		"OnAbilityPhaseStart"

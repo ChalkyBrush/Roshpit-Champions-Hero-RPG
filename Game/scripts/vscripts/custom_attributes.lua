@@ -1914,6 +1914,11 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 		local r_4_level = unit:GetRuneValue("r", 4)
 		armor_pierce_modify = armor_pierce_modify + r_4_level*RED_GENERAL_R4_ARMOR_PIERCE
 	end
+	if unit:HasModifier("modifier_djanghor_w_2_stack") then
+		local w_2_level = unit:GetRuneValue("w", 2)
+		local modifier = unit:FindModifierByName("modifier_djanghor_w_2_stack")
+		armor_pierce_modify = armor_pierce_modify + modifier:GetStackCount()*DJANGHOR_W2_BONUS_ARMOR_PIERCE_PER_STACK*w_2_level
+	end
 	if unit:HasModifier("challen_postmit_buff") then
 		armor_pierce_modify = armor_pierce_modify + 1000
 	end

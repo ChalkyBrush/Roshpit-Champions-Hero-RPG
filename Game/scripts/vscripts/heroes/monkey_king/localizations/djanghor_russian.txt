@@ -170,10 +170,15 @@
     	"DOTA_Tooltip_ability_djanghor_rune_w_1_property_one"						"Урон"
     	"DOTA_Tooltip_ability_djanghor_rune_w_1_suffix"								"% от нанесённого урона"
 
-    	"DOTA_Tooltip_ability_djanghor_rune_w_2"									"[W2] Rupture"
-    	"DOTA_Tooltip_ability_djanghor_rune_w_2_Description"						"Кровоточащие от умения (W) Rend враги теряют Регенерацию Здоровья."
-    	"DOTA_Tooltip_ability_djanghor_rune_w_2_property_one"						"Снижение Регенерации"
+    	"DOTA_Tooltip_ability_djanghor_rune_w_2"									"[W2] Feeding Frenzy"
+    	"DOTA_Tooltip_ability_djanghor_rune_w_2_Description"						"Убийство вражеского юнита увеличивает Пробитие Брони и Регенерацию Здоровья героя, эффект складывается до <% DJANGHOR_W2_MAX_STACKS %> раз, длительность эффекта <% DJANGHOR_W2_DURATION_BASE %> секунд."
+    	"DOTA_Tooltip_ability_djanghor_rune_w_2_property_one"						"Пробитие Брони"
     	"DOTA_Tooltip_ability_djanghor_rune_w_2_suffix"								""
+		"DOTA_Tooltip_ability_djanghor_rune_w_2_property_two"						"Регенерация Здоровья"
+    	"DOTA_Tooltip_ability_djanghor_rune_w_2_suffix_two"							""
+		
+		"DOTA_Tooltip_modifier_djanghor_w_2_stack"									"Charge of [W2] Feeding Frenzy"
+		"DOTA_Tooltip_modifier_djanghor_w_2_stack_Description"						"Each stack grants additional Armor Pierce and Health Regeneration"
 
     	"DOTA_Tooltip_ability_djanghor_rune_w_3"									"[W3] Nature's Wrath"
     	"DOTA_Tooltip_ability_djanghor_rune_w_3_Description"						"Урон героя добавляется к урону от (W) Aerial Tornado в форме ястреба и (W) War Stomp в форме медведя."
@@ -242,6 +247,8 @@
     	"DOTA_Tooltip_ability_draghor_shapeshift_year_beast"					"Превращение: Годень"
     	"DOTA_Tooltip_ability_draghor_shapeshift_year_beast_Description"						"Позволяет герою трансформироваться в Годня со своим набором способностей. Главный атрибут Годня зависит от выбранной Метки(Mark): Волк - Ловкость, Медведь - Сила и Ястреб - Интеллект. Герой ежесекундно теряет 0.03% от макс. маны, пока находится в форме Годня."
     	"DOTA_Tooltip_ability_draghor_shapeshift_year_beast_all_attributes_bonus"						"ДОП. АТРИБУТЫ В ФОРМЕ ГОДНЯ:"
+		
+		"DOTA_Tooltip_modifier_draghor_shapeshift_year_beast_lua"				"Превращение: Годень"
 
     	"DOTA_Tooltip_ability_draghor_year_beast_thunderous_roar"									"Thunderous Roar"
 		"DOTA_Tooltip_ability_draghor_year_beast_thunderous_roar_Description"						"Стихия: <font color=ELEMENT_TIME>Время</font> / <font color=ELEMENT_NATURE>Природа</font><br>Мощным криком, Годень порождает сильную звуковую волну, задевающую врагов в конусе перед собой. Все задетые враги теряют Магическую Защиту. Годень провоцирует всех пораженных звуковой волной врагов атаковать только его. На время провокации получает бонус к броне."
