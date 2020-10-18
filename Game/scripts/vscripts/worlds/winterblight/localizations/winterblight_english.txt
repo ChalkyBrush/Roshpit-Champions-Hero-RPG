@@ -342,7 +342,7 @@
 		"DOTA_Tooltip_ability_winterblight_mind_breaker_damage_max_strikes"		"MAX STRIKES PER ATTACK:"
 
 		"DOTA_Tooltip_ability_winterblight_ghost_striker_passive"	"Life Sap"
-		"DOTA_Tooltip_ability_winterblight_ghost_striker_passive_Description"	"Attacks deal additional pure damage based on the target's missing HP"
+		"DOTA_Tooltip_ability_winterblight_ghost_striker_passive_Description"	"Attacks deal additional pure damage based on the targeted Hero's missing HP"
 		"DOTA_Tooltip_ability_winterblight_ghost_striker_passive_damage_per_missing_hp"	"DAMAGE PER MISSING HP:"
 
 		"DOTA_Tooltip_ability_winterblight_secret_keeper_passive"	"Agility Break"
