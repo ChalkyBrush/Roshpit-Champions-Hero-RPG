@@ -393,7 +393,7 @@ Enemies.SERENGAARD_BUFFS_PER_WAVE["roshpit_magic_armor"] = 0.05
 Enemies.SERENGAARD_BUFFS_PER_WAVE["roshpit_armor_pierce"] = 0.05
 Enemies.SERENGAARD_BUFFS_PER_WAVE["roshpit_spell_pierce"] = 0.05
 Enemies.SERENGAARD_BUFFS_PER_WAVE["health"] = 0.15
-Enemies.SERENGAARD_BUFFS_PER_WAVE["arcane_crystals"] = 0.05
+Enemies.SERENGAARD_BUFFS_PER_WAVE["arcane_crystals"] = 0.02
 
 Enemies.LEVEL_ADJUST_PER_WINTERBLIGHT_STONE = 8
 Enemies.LEVEL_ADJUST_PER_SERENGAARD_INFINITE_WAVE = 0.2
@@ -433,7 +433,7 @@ function Enemies:AdjustAttributeForMapSpecial(enemy, attribute_type, base_attrib
 		adjusted_attribute_value = base_attribute_value * Enemies.GLOBAL_SEA_FORTRESS_MULT[attribute_type]
 	elseif GameState:IsSerengaard() then
 		if Serengaard.InfiniteWaveCount then
-			adjusted_attribute_value = base_attribute_value * (1 + Serengaard.InfiniteWaveCount*Enemies.SERENGAARD_BUFFS_PER_WAVE[attribute_type])
+			adjusted_attribute_value = base_attribute_value * (1 + math.min(Serengaard.InfiniteWaveCount*Enemies.SERENGAARD_BUFFS_PER_WAVE[attribute_type], 4)
 		end
 	elseif GameState:IsTanariJungle() or GameState:IsRedfallRidge() then
 		-- spirit realm already in main chunk
