@@ -433,7 +433,7 @@ function Enemies:AdjustAttributeForMapSpecial(enemy, attribute_type, base_attrib
 		adjusted_attribute_value = base_attribute_value * Enemies.GLOBAL_SEA_FORTRESS_MULT[attribute_type]
 	elseif GameState:IsSerengaard() then
 		if Serengaard.InfiniteWaveCount then
-			adjusted_attribute_value = base_attribute_value * (1 + math.min(Serengaard.InfiniteWaveCount*Enemies.SERENGAARD_BUFFS_PER_WAVE[attribute_type], 4)
+			adjusted_attribute_value = base_attribute_value * (1 + math.min(Serengaard.InfiniteWaveCount*Enemies.SERENGAARD_BUFFS_PER_WAVE[attribute_type], 4))
 		end
 	elseif GameState:IsTanariJungle() or GameState:IsRedfallRidge() then
 		-- spirit realm already in main chunk
