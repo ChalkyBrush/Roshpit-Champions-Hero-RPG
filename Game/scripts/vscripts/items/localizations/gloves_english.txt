@@ -477,7 +477,7 @@
     	"DOTA_Tooltip_ability_item_rpc_shadow_armlet"									"Shadow Armlet"
 
 		"item_property_shadow_armlet"			"Shadow Step"
-		"property_shadow_armlet_description"	"<% ITEM_RPC_SHADOW_ARMLET_INVIS_CHANCE %>% chance on taking damage to go invisible for <% ITEM_RPC_SHADOW_ARMLET_INVIS_DURATION %> seconds. Attacking or casting removes the invisibility."
+		"property_shadow_armlet_description"	"<% ITEM_RPC_SHADOW_ARMLET_INVIS_CHANCE %>% chance on taking damage to go invisible for <% ITEM_RPC_SHADOW_ARMLET_INVIS_DURATION %> seconds, invisibility has <% ITEM_RPC_SHADOW_ARMLET_INVIS_DURATION_CD %> second cooldown. Attacking or casting removes the invisibility."
 
     	"item_rpc_shadow_armlet_ruby1"									"@ruby_property1% chance on taking damage to instantly heal for the amount of the damage instance"
     	"item_rpc_shadow_armlet_emerald1"									"Increases <font color=ELEMENT_SHADOW>Shadow</font> Elemental Damage and Item Damage by @emerald_property1%"
