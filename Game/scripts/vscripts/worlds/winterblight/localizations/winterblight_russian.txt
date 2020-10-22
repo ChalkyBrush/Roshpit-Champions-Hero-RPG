@@ -262,14 +262,14 @@
 		"DOTA_Tooltip_ability_winterblight_zealot_blast_cooldown_added"	"ДОП. ВРЕМЯ ПЕРЕЗАРЯДКИ:"
 		"DOTA_Tooltip_ability_winterblight_zealot_blast_damage"			"УРОН:"
 
-		"DOTA_Tooltip_ability_winterblight_soulfire_storm"			"Soulfrost Storm"
-		"DOTA_Tooltip_ability_winterblight_soulfire_storm_Description"	"Создает в выбранной области волну пробивающего душу льда. Пораженные враги получают периодический урон. Прочтение способности или поражение волной дает дополнительный заряд. Урон умножается на количество зарядов."
+		"DOTA_Tooltip_ability_winterblight_soulfire_storm"			"Cauterizing Storm"
+		"DOTA_Tooltip_ability_winterblight_soulfire_storm_Description"	"В помеченную область падают обжигающие осколки материи. Пораженные враги получают периодический урон. Прочтение способности или поражение волной дает дополнительный заряд. Урон умножается на количество зарядов."
 		"DOTA_Tooltip_ability_winterblight_soulfire_storm_wave_damage"	"МГНОВЕННЫЙ УРОН:"
 		"DOTA_Tooltip_ability_winterblight_soulfire_storm_burn_damage"	"ПЕРИОДИЧЕСКИЙ УРОН:"
 		"DOTA_Tooltip_ability_winterblight_soulfire_storm_max_stacks"	"МАКСИМУМ ЗАРЯДОВ:"
 		"DOTA_Tooltip_ability_winterblight_soulfire_storm_tick_rate"	"ПЕРИОД УРОНА, СЕК:"
 		
-		"DOTA_Tooltip_modifier_cold_seer_wave_burn"				"Soulfrost"
+		"DOTA_Tooltip_modifier_cold_seer_wave_burn"				"Cauterizing Storm"
 		"DOTA_Tooltip_modifier_cold_seer_wave_burn_Description"	"Получает периодический урон. Прочтение способности добавляет заряд."
 
 		"DOTA_Tooltip_ability_winterblight_speed_softening"		"Speed Softening"
@@ -342,7 +342,7 @@
 		"DOTA_Tooltip_ability_winterblight_mind_breaker_damage_max_strikes"		"МАКСИМУМ УДАРОВ ЗА АТАКУ:"
 
 		"DOTA_Tooltip_ability_winterblight_ghost_striker_passive"	"Life Sap"
-		"DOTA_Tooltip_ability_winterblight_ghost_striker_passive_Description"	"Атаки наносят дополнительный чистый урон, основанный на недостающем количестве здоровья жертвы."
+		"DOTA_Tooltip_ability_winterblight_ghost_striker_passive_Description"	"Атаки наносят дополнительный чистый урон, основанный на недостающем количестве здоровья цели-Героя."
 		"DOTA_Tooltip_ability_winterblight_ghost_striker_passive_damage_per_missing_hp"	"УРОН ЗА НЕДОСТАЮЩУЮ ЕД. ЗДОРОВЬЯ ЖЕРТВЫ:"
 
 		"DOTA_Tooltip_ability_winterblight_secret_keeper_passive"	"Agility Break"

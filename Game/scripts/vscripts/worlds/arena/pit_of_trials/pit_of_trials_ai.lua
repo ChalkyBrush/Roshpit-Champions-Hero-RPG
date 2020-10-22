@@ -504,19 +504,20 @@ function karzhun_shield_take_damage(event)
 	local caster = event.caster
 	local ability = event.ability
 	local damagePercent = event.damage_percent
-	if not caster.disableShield then
-		caster.disableShield = true
-		EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Item.Maelstrom.Chain_Lightning", Events.GameMaster)
-		local baseLightningPos = caster:GetAbsOrigin()+RandomVector(170)+Vector(0,0,100)
-		local damage = attacker:GetMaxHealth()*damagePercent/100
-		Events:CreateLightningBeam(baseLightningPos, attacker:GetAbsOrigin()+Vector(0,0,70))
-		ApplyDamage({ victim = attacker, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability })
-		attacker:AddNewModifier(caster, nil, "modifier_stunned", {duration = 0.05})	
-		Timers:CreateTimer(0.1, function()
-			caster.disableShield = false
-		end)	
+	if attacker:IsHero() then
+		if not caster.disableShield then
+			caster.disableShield = true
+			EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Item.Maelstrom.Chain_Lightning", Events.GameMaster)
+			local baseLightningPos = caster:GetAbsOrigin()+RandomVector(170)+Vector(0,0,100)
+			local damage = attacker:GetMaxHealth()*damagePercent/100
+			Events:CreateLightningBeam(baseLightningPos, attacker:GetAbsOrigin()+Vector(0,0,70))
+			ApplyDamage({ victim = attacker, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability })
+			attacker:AddNewModifier(caster, nil, "modifier_stunned", {duration = 0.05})	
+			Timers:CreateTimer(0.1, function()
+				caster.disableShield = false
+			end)	
+		end
 	end
-
 end
 
 function ShrineOfKarzhun(trigger)

@@ -124,3 +124,19 @@ function heavy_boulder_pushback(event)
 	target:SetAbsOrigin(newPos)
 	target.pushVelocity = math.max(target.pushVelocity - 0.6, 0)
 end
+
+function djanghor_w_2_kill(event)
+	local caster = event.caster
+	local target = event.unit
+	local ability = event.ability
+	local w_2_level = caster:GetRuneValue("w", 2)
+	if w_2_level > 0 then
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_djanghor_w_2_stack", {duration = Filters:GetAdjustedBuffDuration(caster, DJANGHOR_W2_DURATION_BASE, false)})
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_djanghor_w_2_stack_regen", {duration = DJANGHOR_W2_DURATION_BASE})
+		local stacks = caster:GetModifierStackCount("modifier_djanghor_w_2_stack", caster)
+		local stacks_regen = stacks*DJANGHOR_W2_BONUS_HP_REGEN_PER_STACK*w_2_level
+		caster:SetModifierStackCount("modifier_djanghor_w_2_stack", caster, math.min(stacks + 1, DJANGHOR_W2_MAX_STACKS))
+		caster:SetModifierStackCount("modifier_djanghor_w_2_stack_regen", caster, math.min(stacks_regen + 1, DJANGHOR_W2_MAX_STACKS*DJANGHOR_W2_BONUS_HP_REGEN_PER_STACK*w_2_level))
+		
+	end
+end

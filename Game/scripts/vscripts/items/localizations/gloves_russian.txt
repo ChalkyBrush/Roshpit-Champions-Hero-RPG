@@ -320,7 +320,7 @@
 		"item_property_hand_of_midas"				"Прикосновение Мидаса"
 		"property_hand_of_midas_description"		"<% ITEM_RPC_HAND_OF_MIDAS_CHANCE %>% шанс при обычных атаках нанести дополнительно <% ITEM_RPC_HAND_OF_MIDAS_ATTACK_DAMAGE_MULT %>% от урона атаки героя в радиусе <% ITEM_RPC_HAND_OF_MIDAS_RADIUS %> вокруг цели и превратить всех противников в золото (обездвиживая их) на <% ITEM_RPC_HAND_OF_MIDAS_FREEZE_DURATION %> сек. Максимум 1 трансмутация каждые <% ITEM_RPC_HAND_OF_MIDAS_FREEZE_CD %> сек."
 
-    	"item_rpc_hand_of_midas_ruby1"									"Увеличивает шанс Прикосновения Мидаса на @ruby_property1%"
+    	"item_rpc_hand_of_midas_ruby1"									"Прикосновения Мидаса с шонсом @ruby_property1% становится Физическим типом урона, также позволяя наносит урон по целям, иммунным к заклинаниям"
     	"item_rpc_hand_of_midas_emerald1"									"Увеличивает длительность трансмутации противников в золото на @emerald_property1 сек"
     	"item_rpc_hand_of_midas_sapphire1"									"Увеличивает радиус Прикосновения Мидаса на @sapphire_property1 и урон эффекта на @sapphire_property2"
     	"item_rpc_hand_of_midas_amethyst1"									"Увеличивает Скорость Атаки на @amethyst_property1 и Базовый Урон Атаки на @amethyst_property2"
@@ -477,7 +477,7 @@
     	"DOTA_Tooltip_ability_item_rpc_shadow_armlet"									"Shadow Armlet"
 
 		"item_property_shadow_armlet"			"Shadow Step"
-		"property_shadow_armlet_description"	"При получении урона с шансом <% ITEM_RPC_SHADOW_ARMLET_INVIS_CHANCE %>% Герой становится невидимым на <% ITEM_RPC_SHADOW_ARMLET_INVIS_DURATION %> сек. Обычная атака или прочтение заклинания прекращают невидимость."
+		"property_shadow_armlet_description"	"При получении урона с шансом <% ITEM_RPC_SHADOW_ARMLET_INVIS_CHANCE %>% Герой становится невидимым на <% ITEM_RPC_SHADOW_ARMLET_INVIS_DURATION %> сек, перезарядка <% ITEM_RPC_SHADOW_ARMLET_INVIS_DURATION_CD %> сек после окончания невидимости. Обычная атака или прочтение заклинания прекращают невидимость."
 
     	"item_rpc_shadow_armlet_ruby1"									"@ruby_property1% при получении урона мгновенно исцелиться на такое же значение"
     	"item_rpc_shadow_armlet_emerald1"									"Увеличивает урон <font color=ELEMENT_SHADOW>Тени</font> и Урон Предметов на @emerald_property1%"

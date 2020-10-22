@@ -176,10 +176,15 @@
     	"DOTA_Tooltip_ability_djanghor_rune_w_1_property_one"						"Damage"
     	"DOTA_Tooltip_ability_djanghor_rune_w_1_suffix"								"% of damage dealt"
 
-    	"DOTA_Tooltip_ability_djanghor_rune_w_2"									"[W2] Rupture"
-    	"DOTA_Tooltip_ability_djanghor_rune_w_2_Description"						"Enemies bleeding from Rend have reduced Health Regen."
-    	"DOTA_Tooltip_ability_djanghor_rune_w_2_property_one"						"Health Regen Reduction"
-    	"DOTA_Tooltip_ability_djanghor_rune_w_2_suffix"								""
+		"DOTA_Tooltip_ability_djanghor_rune_w_2"									"[W2] Feeding Frenzy"
+		"DOTA_Tooltip_ability_djanghor_rune_w_2_Description"						"Killing an enemy unit gives Djanghor a stack of bonus Armor Pierce and Health Regeneration, which have base duration of <% DJANGHOR_W2_DURATION_BASE %> seconds and expire at once. <br>Maximum <% DJANGHOR_W2_MAX_STACKS %> stacks."
+		"DOTA_Tooltip_ability_djanghor_rune_w_2_property_one"						"Armor Pierce"
+		"DOTA_Tooltip_ability_djanghor_rune_w_2_suffix"								""
+		"DOTA_Tooltip_ability_djanghor_rune_w_2_property_two"						"Health Regeneration"
+		"DOTA_Tooltip_ability_djanghor_rune_w_2_suffix_two"							""
+
+		"DOTA_Tooltip_modifier_djanghor_w_2_stack"									"Charge of [W2] Feeding Frenzy"
+		"DOTA_Tooltip_modifier_djanghor_w_2_stack_Description"						"Each stack grants additional Armor Pierce and Health Regeneration"
 
     	"DOTA_Tooltip_ability_djanghor_rune_w_3"									"[W3] Nature's Wrath"
     	"DOTA_Tooltip_ability_djanghor_rune_w_3_Description"						"Djanghor's attack damage is added to Aerial Tornado and War Stomp."
@@ -252,6 +257,8 @@
     	"DOTA_Tooltip_ability_draghor_shapeshift_year_beast_Description"						"Transform into the Year Beast with its own ability set after 1.75 second channel. Drains 0.03% of max mana every 0.1 seconds while shapeshifted."
     	"DOTA_Tooltip_ability_draghor_shapeshift_year_beast_all_attributes_bonus"						"ATTRIBUTE BONUS IN YEAR BEAST FORM:"
 
+		"DOTA_Tooltip_modifier_draghor_shapeshift_year_beast_lua"				"Shapeshift: Year Beast"
+		
     	"DOTA_Tooltip_ability_draghor_year_beast_thunderous_roar"									"Thunderous Roar"
 		"DOTA_Tooltip_ability_draghor_year_beast_thunderous_roar_Description"						"Element: <font color=ELEMENT_TIME>Temporal</font> / <font color=ELEMENT_NATURE>Nature</font><br>A sonic wave damages enemies in a cone, and applies a debuff that makes them lose Magic Armor value. All enemies hit by the wave are taunted and forced to attack Djanghor for a duration. Gain bonus armor for the taunt duration."
 		"DOTA_Tooltip_ability_draghor_year_beast_thunderous_roar_damage"							"DAMAGE:"

@@ -86,17 +86,26 @@ function midas_attack_land(event)
 	local runeUnit = event.caster
 	local target = event.target
 	local ability = event.ability
-	local proc_chance = ITEM_RPC_HAND_OF_MIDAS_CHANCE + ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_HAND_OF_MIDAS_GEM_RUBY)
+	local proc_chance = ITEM_RPC_HAND_OF_MIDAS_CHANCE
 	local proc = Filters:GetProc(caster, proc_chance)
 	if proc then
+		local spell_pierce_flag = 0
+		local damage_flag = DAMAGE_TYPE_MAGICAL
+		if ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_HAND_OF_MIDAS_GEM_RUBY) > 0 then
+			local ruby_proc_chance = Filters:GetProc(caster, ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_HAND_OF_MIDAS_GEM_RUBY))
+			if ruby_proc_chance then
+				spell_pierce_flag = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
+				damage_flag = DAMAGE_TYPE_PHYSICAL
+			end
+		end
 		local position = target:GetAbsOrigin()
 		local freeze_duration = ITEM_RPC_HAND_OF_MIDAS_FREEZE_DURATION + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_HAND_OF_MIDAS_GEM_EMERALD)
 		local radius = ITEM_RPC_HAND_OF_MIDAS_RADIUS + ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_HAND_OF_MIDAS_GEM_SAPPHIRE1)
 		local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * (ITEM_RPC_HAND_OF_MIDAS_ATTACK_DAMAGE_MULT/100) + ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_HAND_OF_MIDAS_GEM_SAPPHIRE2)
-		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, spell_pierce_flag, FIND_ANY_ORDER, false)
 		if #enemies > 0 then
 			for _, enemy in pairs(enemies) do
-				Filters:ApplyItemDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
+				Filters:ApplyItemDamage(enemy, caster, damage, damage_flag, ability, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 				if not enemy:HasModifier("modifier_midas_freeze_immune") then
 					ability:ApplyDataDrivenModifier(runeUnit, enemy, "modifier_midas_freeze", {duration = freeze_duration})
 					ability:ApplyDataDrivenModifier(runeUnit, enemy, "modifier_midas_freeze_immune", {duration = ITEM_RPC_HAND_OF_MIDAS_FREEZE_CD})

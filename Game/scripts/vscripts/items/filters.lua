@@ -5897,11 +5897,14 @@ function Filters:ShadowArmletTakeDamage(hero, damage)
     local proc = Filters:GetProc(hero, ITEM_RPC_SHADOW_ARMLET_INVIS_CHANCE)
     if proc then
         if not hero:HasModifier("modifier_invisibility_datadriven") then
-            local invis_duration = ITEM_RPC_SHADOW_ARMLET_INVIS_DURATION + ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_SHADOW_ARMLET_GEM_SAPPHIRE2)
-            local pfx2 = CustomAbilities:QuickAttachParticle("particles/roshpit/conjuror/shadow_deity_cloak_of_shadows.vpcf", hero, 2)
-            ParticleManager:SetParticleControl(pfx2, 1, Vector(200, 200, 200))
-            ability:ApplyDataDrivenModifier(caster, hero, "modifier_invisibility_datadriven", {duration = invis_duration})
-            hero:AddNewModifier(hero, ability, "modifier_persistent_invisibility", {duration = invis_duration})
+			if not hero:HasModifier("modifier_shadowstep_invis_cooldown") then
+				local invis_duration = ITEM_RPC_SHADOW_ARMLET_INVIS_DURATION + ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_SHADOW_ARMLET_GEM_SAPPHIRE2)
+				local pfx2 = CustomAbilities:QuickAttachParticle("particles/roshpit/conjuror/shadow_deity_cloak_of_shadows.vpcf", hero, 2)
+				ParticleManager:SetParticleControl(pfx2, 1, Vector(200, 200, 200))
+				ability:ApplyDataDrivenModifier(caster, hero, "modifier_invisibility_datadriven", {duration = invis_duration})
+				hero:AddNewModifier(hero, ability, "modifier_persistent_invisibility", {duration = invis_duration})
+				ability:ApplyDataDrivenModifier(caster, hero, "modifier_shadowstep_invis_cooldown", {duration = invis_duration+ITEM_RPC_SHADOW_ARMLET_INVIS_DURATION_CD})
+			end
             if ability:GetGemValue("sapphire") > 0 then
                 ability:ApplyDataDrivenModifier(caster, hero, "modifier_shadow_armlet_sapphire", {duration = invis_duration})
                 local health_regen_stacks = ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_SHADOW_ARMLET_GEM_SAPPHIRE1)/0.1

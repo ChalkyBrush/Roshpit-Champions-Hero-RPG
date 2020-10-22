@@ -123,7 +123,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% DJANGHOR_W2_HEALTH_REGEN_REDUCTION %>"
+				"property_one"			"<% DJANGHOR_W2_BONUS_ARMOR_PIERCE_PER_STACK %>"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"<% DJANGHOR_W2_BONUS_HP_REGEN_PER_STACK %>"
 			}
 		}
 	}

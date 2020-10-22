@@ -1767,6 +1767,10 @@
 			{
 				"IsHidden"	"1"
 			}
+			"modifier_shadowstep_invis_cooldown"
+			{
+				"IsHidden"	"1"
+			}
 		}
 	}
 

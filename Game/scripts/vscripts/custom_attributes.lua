@@ -1914,6 +1914,11 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 		local r_4_level = unit:GetRuneValue("r", 4)
 		armor_pierce_modify = armor_pierce_modify + r_4_level*RED_GENERAL_R4_ARMOR_PIERCE
 	end
+	if unit:HasModifier("modifier_djanghor_w_2_stack") then
+		local w_2_level = unit:GetRuneValue("w", 2)
+		local modifier = unit:FindModifierByName("modifier_djanghor_w_2_stack")
+		armor_pierce_modify = armor_pierce_modify + modifier:GetStackCount()*DJANGHOR_W2_BONUS_ARMOR_PIERCE_PER_STACK*w_2_level
+	end
 	if unit:HasModifier("challen_postmit_buff") then
 		armor_pierce_modify = armor_pierce_modify + 1000
 	end
@@ -3322,7 +3327,8 @@ function CustomAttributes:ApplyStatBonusesToHero(hero)
 	local agility = hero:GetAgility()
 	local intelligence = hero:GetIntellect()
 	if hero:HasModifier("modifier_frozen_heart") then
-		hero:RemoveModifierByName("modifier_strength_health")	
+		hero:RemoveModifierByName("modifier_strength_health")
+		hero:RemoveModifierByName("modifier_strength_health_regen")
 	else
 		if not hero:HasModifier("modifier_strength_health") then
 			ability:ApplyDataDrivenModifier(caster, hero, "modifier_strength_health", {})
@@ -3341,11 +3347,16 @@ function CustomAttributes:ApplyStatBonusesToHero(hero)
 			end)
 		end
 		hero:SetModifierStackCount("modifier_strength_health", caster, healthStacks)
+		if hero:HasModifier("modifier_musty_crypt_skeleton_transform") then
+			hero:RemoveModifierByName("modifier_strength_health_regen")
+		else
+			if not hero:HasModifier("modifier_strength_health_regen") then
+				ability:ApplyDataDrivenModifier(caster, hero, "modifier_strength_health_regen", {})
+			end
+			hero:SetModifierStackCount("modifier_strength_health_regen", caster, strength * CustomAttributes.HEALTH_REGEN_PER_STR * 10)
+		end
 	end
-	if not hero:HasModifier("modifier_strength_health_regen") then
-		ability:ApplyDataDrivenModifier(caster, hero, "modifier_strength_health_regen", {})
-	end
-	hero:SetModifierStackCount("modifier_strength_health_regen", caster, strength * CustomAttributes.HEALTH_REGEN_PER_STR * 10)
+	
 
 	if not hero:HasModifier("modifier_agility_attackspeed") then
 		ability:ApplyDataDrivenModifier(caster, hero, "modifier_agility_attackspeed", {})

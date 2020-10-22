@@ -30373,7 +30373,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"attack_power_bonus_percent"			"20 40 60"
+				"attack_power_bonus_percent"			"10 12 15"
 			}
 			"03"
 			{
@@ -35723,7 +35723,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"magic_resist"			"2000"
+				"magic_resist"			"8000"
 			}
 		}
 		"Modifiers"

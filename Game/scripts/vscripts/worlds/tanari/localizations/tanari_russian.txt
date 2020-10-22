@@ -1241,9 +1241,9 @@
 		"fire_temple_protective_spirit"										"Дух - страж"
 
 		"DOTA_Tooltip_ability_fire_temple_protector_death_ability"							"Бесконечная оборона"
-		"DOTA_Tooltip_ability_fire_temple_protector_death_ability_Description"					"При смерти, исцеляет любого случайного Духа - Стража, дополнительно усиляя урон, броню и скорость передвижения."
+		"DOTA_Tooltip_ability_fire_temple_protector_death_ability_Description"					"При смерти, исцеляет любого случайного Духа - Стража, дополнительно усиляя урон, броню и скорость передвижения. Максимум 20 зарядов усиления."
 		"DOTA_Tooltip_ability_fire_temple_protector_death_ability_armor_bonus"					"ДОП.БРОНЯ ЗА ЗАРЯД:"
-		"DOTA_Tooltip_ability_fire_temple_protector_death_ability_attack_power_bonus_percent"		"УРОН ЗА ЗАРЯД:"
+		"DOTA_Tooltip_ability_fire_temple_protector_death_ability_attack_power_bonus_percent"		"УРОН ЗА ЗАРЯД %:"
 		"DOTA_Tooltip_ability_fire_temple_protector_death_ability_movespeed_bonus"				"ДОП. СКОРОСТЬ ПЕРЕДВИЖЕНИЯ ЗА ЗАРЯД:"
 		"DOTA_Tooltip_ability_fire_temple_protector_death_ability_heal_percent"					"ИСЦЕЛЕНИЕ СОЮЗНИКОВ, %:"
 

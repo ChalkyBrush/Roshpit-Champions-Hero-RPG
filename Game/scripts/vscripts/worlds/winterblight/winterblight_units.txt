@@ -10925,7 +10925,7 @@
         "RoshpitSpellPierce"    "165"
         "RoshpitMagicArmor"     "285"
         "RoshpitLevel"          "25"
-        "RoshpitDominion"       "1"
+        "RoshpitDominion"       "0"
         "EnemyTier"             "<% ENEMY_TYPE_NORMAL_CREEP %>" 
     }
 
@@ -17538,7 +17538,7 @@
         "RoshpitSpellPierce"    "508"
         "RoshpitMagicArmor"     "510"
         "RoshpitLevel"          "35"
-        "RoshpitDominion"       "1"
+        "RoshpitDominion"       "0"
         "RoshpitAggroSound"     "Winterblight.FrozenCageGiga.Aggro"
         "EnemyTier"             "<% ENEMY_TYPE_MINI_BOSS %>"
         "RoshpitColorRenderType"    "<% RPC_COLOR_RENDER_BASE_MODEL %>"
@@ -18853,7 +18853,7 @@
         "RoshpitSpellPierce"    "110"
         "RoshpitMagicArmor"     "160"
         "RoshpitLevel"          "36"
-        "RoshpitDominion"       "1"
+        "RoshpitDominion"       "0"
         "PitCreep"              "0"
         "RoshpitAggroSound"     "Winterblight.Spiderling.Aggro"
         "EnemyTier"             "<% ENEMY_TYPE_NORMAL_CREEP %>"
