@@ -4961,10 +4961,15 @@
     	"DOTA_Tooltip_ability_djanghor_rune_w_1_property_one"						"Урон"
     	"DOTA_Tooltip_ability_djanghor_rune_w_1_suffix"								"% от нанесённого урона"
 
-    	"DOTA_Tooltip_ability_djanghor_rune_w_2"									"[W2] Rupture"
-    	"DOTA_Tooltip_ability_djanghor_rune_w_2_Description"						"Кровоточащие от умения (W) Rend враги теряют Регенерацию Здоровья."
-    	"DOTA_Tooltip_ability_djanghor_rune_w_2_property_one"						"Снижение Регенерации"
+    	"DOTA_Tooltip_ability_djanghor_rune_w_2"									"[W2] Feeding Frenzy"
+    	"DOTA_Tooltip_ability_djanghor_rune_w_2_Description"						"Убийство вражеского юнита увеличивает Пробитие Брони и Регенерацию Здоровья героя, эффект складывается до <font color='#ccff66'>20</font> раз, длительность эффекта <font color='#ccff66'>10</font> секунд."
+    	"DOTA_Tooltip_ability_djanghor_rune_w_2_property_one"						"Пробитие Брони"
     	"DOTA_Tooltip_ability_djanghor_rune_w_2_suffix"								""
+		"DOTA_Tooltip_ability_djanghor_rune_w_2_property_two"						"Регенерация Здоровья"
+    	"DOTA_Tooltip_ability_djanghor_rune_w_2_suffix_two"							""
+		
+		"DOTA_Tooltip_modifier_djanghor_w_2_stack"									"Charge of [W2] Feeding Frenzy"
+		"DOTA_Tooltip_modifier_djanghor_w_2_stack_Description"						"Each stack grants additional Armor Pierce and Health Regeneration"
 
     	"DOTA_Tooltip_ability_djanghor_rune_w_3"									"[W3] Nature's Wrath"
     	"DOTA_Tooltip_ability_djanghor_rune_w_3_Description"						"Урон героя добавляется к урону от (W) Aerial Tornado в форме ястреба и (W) War Stomp в форме медведя."
@@ -5033,6 +5038,8 @@
     	"DOTA_Tooltip_ability_draghor_shapeshift_year_beast"					"Превращение: Годень"
     	"DOTA_Tooltip_ability_draghor_shapeshift_year_beast_Description"						"Позволяет герою трансформироваться в Годня со своим набором способностей. Главный атрибут Годня зависит от выбранной Метки(Mark): Волк - Ловкость, Медведь - Сила и Ястреб - Интеллект. Герой ежесекундно теряет 0.03% от макс. маны, пока находится в форме Годня."
     	"DOTA_Tooltip_ability_draghor_shapeshift_year_beast_all_attributes_bonus"						"ДОП. АТРИБУТЫ В ФОРМЕ ГОДНЯ:"
+		
+		"DOTA_Tooltip_modifier_draghor_shapeshift_year_beast_lua"				"Превращение: Годень"
 
     	"DOTA_Tooltip_ability_draghor_year_beast_thunderous_roar"									"Thunderous Roar"
 		"DOTA_Tooltip_ability_draghor_year_beast_thunderous_roar_Description"						"Стихия: <font color='#B5FFB7'>Время</font> / <font color='#69BC71'>Природа</font><br>Мощным криком, Годень порождает сильную звуковую волну, задевающую врагов в конусе перед собой. Все задетые враги теряют Магическую Защиту. Годень провоцирует всех пораженных звуковой волной врагов атаковать только его. На время провокации получает бонус к броне."
@@ -14155,9 +14162,9 @@
     	"DOTA_Tooltip_ability_item_rpc_hand_of_midas"									"Hand of Midas"
 
 		"item_property_hand_of_midas"				"Прикосновение Мидаса"
-		"property_hand_of_midas_description"		"<font color='#ccff66'>15</font>% шанс при обычных атаках нанести дополнительно <font color='#ccff66'>30</font>% от урона атаки героя в радиусе <font color='#ccff66'>340</font> вокруг цели и превратить всех противников в золото (обездвиживая их) на <font color='#ccff66'>2</font> сек. Максимум 1 трансмутация каждые <font color='#ccff66'>5</font> сек."
+		"property_hand_of_midas_description"		"<font color='#ccff66'>20</font>% шанс при обычных атаках нанести дополнительно <font color='#ccff66'>120</font>% от урона атаки героя в радиусе <font color='#ccff66'>340</font> вокруг цели и превратить всех противников в золото (обездвиживая их) на <font color='#ccff66'>2</font> сек. Максимум 1 трансмутация каждые <font color='#ccff66'>5</font> сек."
 
-    	"item_rpc_hand_of_midas_ruby1"									"Увеличивает шанс Прикосновения Мидаса на @ruby_property1%"
+    	"item_rpc_hand_of_midas_ruby1"									"Прикосновения Мидаса с шонсом @ruby_property1% становится Физическим типом урона, также позволяя наносит урон по целям, иммунным к заклинаниям"
     	"item_rpc_hand_of_midas_emerald1"									"Увеличивает длительность трансмутации противников в золото на @emerald_property1 сек"
     	"item_rpc_hand_of_midas_sapphire1"									"Увеличивает радиус Прикосновения Мидаса на @sapphire_property1 и урон эффекта на @sapphire_property2"
     	"item_rpc_hand_of_midas_amethyst1"									"Увеличивает Скорость Атаки на @amethyst_property1 и Базовый Урон Атаки на @amethyst_property2"
@@ -14314,7 +14321,7 @@
     	"DOTA_Tooltip_ability_item_rpc_shadow_armlet"									"Shadow Armlet"
 
 		"item_property_shadow_armlet"			"Shadow Step"
-		"property_shadow_armlet_description"	"При получении урона с шансом <font color='#ccff66'>15</font>% Герой становится невидимым на <font color='#ccff66'>5</font> сек. Обычная атака или прочтение заклинания прекращают невидимость."
+		"property_shadow_armlet_description"	"При получении урона с шансом <font color='#ccff66'>15</font>% Герой становится невидимым на <font color='#ccff66'>5</font> сек, перезарядка <font color='#ccff66'>1</font> сек после окончания невидимости. Обычная атака или прочтение заклинания прекращают невидимость."
 
     	"item_rpc_shadow_armlet_ruby1"									"@ruby_property1% при получении урона мгновенно исцелиться на такое же значение"
     	"item_rpc_shadow_armlet_emerald1"									"Увеличивает урон <font color='#7F4F84'>Тени</font> и Урон Предметов на @emerald_property1%"
@@ -20193,9 +20200,9 @@
 		"fire_temple_protective_spirit"										"Дух - страж"
 
 		"DOTA_Tooltip_ability_fire_temple_protector_death_ability"							"Бесконечная оборона"
-		"DOTA_Tooltip_ability_fire_temple_protector_death_ability_Description"					"При смерти, исцеляет любого случайного Духа - Стража, дополнительно усиляя урон, броню и скорость передвижения."
+		"DOTA_Tooltip_ability_fire_temple_protector_death_ability_Description"					"При смерти, исцеляет любого случайного Духа - Стража, дополнительно усиляя урон, броню и скорость передвижения. Максимум 20 зарядов усиления."
 		"DOTA_Tooltip_ability_fire_temple_protector_death_ability_armor_bonus"					"ДОП.БРОНЯ ЗА ЗАРЯД:"
-		"DOTA_Tooltip_ability_fire_temple_protector_death_ability_attack_power_bonus_percent"		"УРОН ЗА ЗАРЯД:"
+		"DOTA_Tooltip_ability_fire_temple_protector_death_ability_attack_power_bonus_percent"		"УРОН ЗА ЗАРЯД %:"
 		"DOTA_Tooltip_ability_fire_temple_protector_death_ability_movespeed_bonus"				"ДОП. СКОРОСТЬ ПЕРЕДВИЖЕНИЯ ЗА ЗАРЯД:"
 		"DOTA_Tooltip_ability_fire_temple_protector_death_ability_heal_percent"					"ИСЦЕЛЕНИЕ СОЮЗНИКОВ, %:"
 
@@ -21352,14 +21359,14 @@
 		"DOTA_Tooltip_ability_winterblight_zealot_blast_cooldown_added"	"ДОП. ВРЕМЯ ПЕРЕЗАРЯДКИ:"
 		"DOTA_Tooltip_ability_winterblight_zealot_blast_damage"			"УРОН:"
 
-		"DOTA_Tooltip_ability_winterblight_soulfire_storm"			"Soulfrost Storm"
-		"DOTA_Tooltip_ability_winterblight_soulfire_storm_Description"	"Создает в выбранной области волну пробивающего душу льда. Пораженные враги получают периодический урон. Прочтение способности или поражение волной дает дополнительный заряд. Урон умножается на количество зарядов."
+		"DOTA_Tooltip_ability_winterblight_soulfire_storm"			"Cauterizing Storm"
+		"DOTA_Tooltip_ability_winterblight_soulfire_storm_Description"	"В помеченную область падают обжигающие осколки материи. Пораженные враги получают периодический урон. Прочтение способности или поражение волной дает дополнительный заряд. Урон умножается на количество зарядов."
 		"DOTA_Tooltip_ability_winterblight_soulfire_storm_wave_damage"	"МГНОВЕННЫЙ УРОН:"
 		"DOTA_Tooltip_ability_winterblight_soulfire_storm_burn_damage"	"ПЕРИОДИЧЕСКИЙ УРОН:"
 		"DOTA_Tooltip_ability_winterblight_soulfire_storm_max_stacks"	"МАКСИМУМ ЗАРЯДОВ:"
 		"DOTA_Tooltip_ability_winterblight_soulfire_storm_tick_rate"	"ПЕРИОД УРОНА, СЕК:"
 		
-		"DOTA_Tooltip_modifier_cold_seer_wave_burn"				"Soulfrost"
+		"DOTA_Tooltip_modifier_cold_seer_wave_burn"				"Cauterizing Storm"
 		"DOTA_Tooltip_modifier_cold_seer_wave_burn_Description"	"Получает периодический урон. Прочтение способности добавляет заряд."
 
 		"DOTA_Tooltip_ability_winterblight_speed_softening"		"Speed Softening"
@@ -21432,7 +21439,7 @@
 		"DOTA_Tooltip_ability_winterblight_mind_breaker_damage_max_strikes"		"МАКСИМУМ УДАРОВ ЗА АТАКУ:"
 
 		"DOTA_Tooltip_ability_winterblight_ghost_striker_passive"	"Life Sap"
-		"DOTA_Tooltip_ability_winterblight_ghost_striker_passive_Description"	"Атаки наносят дополнительный чистый урон, основанный на недостающем количестве здоровья жертвы."
+		"DOTA_Tooltip_ability_winterblight_ghost_striker_passive_Description"	"Атаки наносят дополнительный чистый урон, основанный на недостающем количестве здоровья цели-Героя."
 		"DOTA_Tooltip_ability_winterblight_ghost_striker_passive_damage_per_missing_hp"	"УРОН ЗА НЕДОСТАЮЩУЮ ЕД. ЗДОРОВЬЯ ЖЕРТВЫ:"
 
 		"DOTA_Tooltip_ability_winterblight_secret_keeper_passive"	"Agility Break"

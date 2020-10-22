@@ -14190,7 +14190,7 @@
     	"item_rpc_hand_of_midas_sapphire1"									"提高贪婪之触的范围 @sapphire_property1 和伤害 @sapphire_property2"
     	"item_rpc_hand_of_midas_amethyst1"									"提高攻击速度 @amethyst_property1 和基础攻击力 @amethyst_property2"
 		"item_property_hand_of_midas"				"贪婪之触"
-		"property_hand_of_midas_description"		"攻击时有<font color='#ccff66'>15</font>% 几率对目标周围所有单位造成 <font color='#ccff66'>30</font>% 总攻击力的纯粹伤害并将敌人变成黄金————定身<font color='#ccff66'>2</font>秒。每<font color='#ccff66'>5</font>秒最多被定身1次。"
+		"property_hand_of_midas_description"		"攻击时有<font color='#ccff66'>20</font>% 几率对目标周围所有单位造成 <font color='#ccff66'>120</font>% 总攻击力的纯粹伤害并将敌人变成黄金————定身<font color='#ccff66'>2</font>秒。每<font color='#ccff66'>5</font>秒最多被定身1次。"
 		
 
     	"DOTA_Tooltip_ability_item_rpc_scarecrow_gloves"								"稻草人手套"

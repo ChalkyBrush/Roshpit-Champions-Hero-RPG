@@ -4999,10 +4999,15 @@
     	"DOTA_Tooltip_ability_djanghor_rune_w_1_property_one"						"Damage"
     	"DOTA_Tooltip_ability_djanghor_rune_w_1_suffix"								"% of damage dealt"
 
-    	"DOTA_Tooltip_ability_djanghor_rune_w_2"									"[W2] Rupture"
-    	"DOTA_Tooltip_ability_djanghor_rune_w_2_Description"						"Enemies bleeding from Rend have reduced Health Regen."
-    	"DOTA_Tooltip_ability_djanghor_rune_w_2_property_one"						"Health Regen Reduction"
-    	"DOTA_Tooltip_ability_djanghor_rune_w_2_suffix"								""
+		"DOTA_Tooltip_ability_djanghor_rune_w_2"									"[W2] Feeding Frenzy"
+		"DOTA_Tooltip_ability_djanghor_rune_w_2_Description"						"Killing an enemy unit gives Djanghor a stack of bonus Armor Pierce and Health Regeneration, which have base duration of <font color='#ccff66'>10</font> seconds and expire at once. <br>Maximum <font color='#ccff66'>20</font> stacks."
+		"DOTA_Tooltip_ability_djanghor_rune_w_2_property_one"						"Armor Pierce"
+		"DOTA_Tooltip_ability_djanghor_rune_w_2_suffix"								""
+		"DOTA_Tooltip_ability_djanghor_rune_w_2_property_two"						"Health Regeneration"
+		"DOTA_Tooltip_ability_djanghor_rune_w_2_suffix_two"							""
+
+		"DOTA_Tooltip_modifier_djanghor_w_2_stack"									"Charge of [W2] Feeding Frenzy"
+		"DOTA_Tooltip_modifier_djanghor_w_2_stack_Description"						"Each stack grants additional Armor Pierce and Health Regeneration"
 
     	"DOTA_Tooltip_ability_djanghor_rune_w_3"									"[W3] Nature's Wrath"
     	"DOTA_Tooltip_ability_djanghor_rune_w_3_Description"						"Djanghor's attack damage is added to Aerial Tornado and War Stomp."
@@ -5075,6 +5080,8 @@
     	"DOTA_Tooltip_ability_draghor_shapeshift_year_beast_Description"						"Transform into the Year Beast with its own ability set after 1.75 second channel. Drains 0.03% of max mana every 0.1 seconds while shapeshifted."
     	"DOTA_Tooltip_ability_draghor_shapeshift_year_beast_all_attributes_bonus"						"ATTRIBUTE BONUS IN YEAR BEAST FORM:"
 
+		"DOTA_Tooltip_modifier_draghor_shapeshift_year_beast_lua"				"Shapeshift: Year Beast"
+		
     	"DOTA_Tooltip_ability_draghor_year_beast_thunderous_roar"									"Thunderous Roar"
 		"DOTA_Tooltip_ability_draghor_year_beast_thunderous_roar_Description"						"Element: <font color='#B5FFB7'>Temporal</font> / <font color='#69BC71'>Nature</font><br>A sonic wave damages enemies in a cone, and applies a debuff that makes them lose Magic Armor value. All enemies hit by the wave are taunted and forced to attack Djanghor for a duration. Gain bonus armor for the taunt duration."
 		"DOTA_Tooltip_ability_draghor_year_beast_thunderous_roar_damage"							"DAMAGE:"
@@ -14286,9 +14293,9 @@
     	"DOTA_Tooltip_ability_item_rpc_hand_of_midas"									"Hand of Midas"
 
 		"item_property_hand_of_midas"				"Midas Touch"
-		"property_hand_of_midas_description"		"<font color='#ccff66'>15</font>% chance on attack to deal <font color='#ccff66'>30</font>% of your attack damage in a <font color='#ccff66'>340</font> radius area around the target and turn them all to solid gold, freezing for <font color='#ccff66'>2</font> seconds. Max 1 freeze every <font color='#ccff66'>5</font> seconds."
+		"property_hand_of_midas_description"		"<font color='#ccff66'>20</font>% chance on attack to deal <font color='#ccff66'>120</font>% of your attack damage in a <font color='#ccff66'>340</font> radius area around the target and turn them all to solid gold, freezing for <font color='#ccff66'>2</font> seconds. Max 1 freeze every <font color='#ccff66'>5</font> seconds."
 
-    	"item_rpc_hand_of_midas_ruby1"									"Increases Midas Touch proc chance by @ruby_property1%"
+    	"item_rpc_hand_of_midas_ruby1"									"Midas Touch becomes Physical type with a @ruby_property1% chance, spell immune pierce included"
     	"item_rpc_hand_of_midas_emerald1"									"Increases the Transmutation freeze duration by @emerald_property1 seconds"
     	"item_rpc_hand_of_midas_sapphire1"									"Increases Midas Touch radius by @sapphire_property1 and damage by @sapphire_property2"
     	"item_rpc_hand_of_midas_amethyst1"									"Increases Attack Speed by @amethyst_property1 and Base Attack Damage by @amethyst_property2"
@@ -14445,7 +14452,7 @@
     	"DOTA_Tooltip_ability_item_rpc_shadow_armlet"									"Shadow Armlet"
 
 		"item_property_shadow_armlet"			"Shadow Step"
-		"property_shadow_armlet_description"	"<font color='#ccff66'>15</font>% chance on taking damage to go invisible for <font color='#ccff66'>5</font> seconds. Attacking or casting removes the invisibility."
+		"property_shadow_armlet_description"	"<font color='#ccff66'>15</font>% chance on taking damage to go invisible for <font color='#ccff66'>5</font> seconds, invisibility has <font color='#ccff66'>1</font> second cooldown. Attacking or casting removes the invisibility."
 
     	"item_rpc_shadow_armlet_ruby1"									"@ruby_property1% chance on taking damage to instantly heal for the amount of the damage instance"
     	"item_rpc_shadow_armlet_emerald1"									"Increases <font color='#7F4F84'>Shadow</font> Elemental Damage and Item Damage by @emerald_property1%"
@@ -20418,9 +20425,9 @@
 		"fire_temple_protective_spirit"										"Protective Spirit"
 
 		"DOTA_Tooltip_ability_fire_temple_protector_death_ability"							"Unending Defense"
-		"DOTA_Tooltip_ability_fire_temple_protector_death_ability_Description"					"On death, any other nearby Protective Spirits are buffed and healed."
+		"DOTA_Tooltip_ability_fire_temple_protector_death_ability_Description"					"On death, any other nearby Protective Spirits are buffed and healed. Max 20 stacks."
 		"DOTA_Tooltip_ability_fire_temple_protector_death_ability_armor_bonus"					"ARMOR PER STACK:"
-		"DOTA_Tooltip_ability_fire_temple_protector_death_ability_attack_power_bonus_percent"		"ATTACK POWER PER STACK:"
+		"DOTA_Tooltip_ability_fire_temple_protector_death_ability_attack_power_bonus_percent"		"ATTACK POWER PER STACK %:"
 		"DOTA_Tooltip_ability_fire_temple_protector_death_ability_movespeed_bonus"				"MOVESPEED PER STACK:"
 		"DOTA_Tooltip_ability_fire_temple_protector_death_ability_heal_percent"					"ALLY HEAL %:"
 
@@ -21582,14 +21589,14 @@
 		"DOTA_Tooltip_ability_winterblight_zealot_blast_cooldown_added"	"COOLDOWN ADDED TO SKILLS:"
 		"DOTA_Tooltip_ability_winterblight_zealot_blast_damage"			"DAMAGE:"
 
-		"DOTA_Tooltip_ability_winterblight_soulfire_storm"			"Soulfrost Storm"
-		"DOTA_Tooltip_ability_winterblight_soulfire_storm_Description"	"Creates waves of soul piercing ice at the target location. Enemies who are affected take damage over time. Casting an ability or being hit by a wave adds an additional stack. Damage is multiplied by the stack count."
+		"DOTA_Tooltip_ability_winterblight_soulfire_storm"			"Cauterizing Storm"
+		"DOTA_Tooltip_ability_winterblight_soulfire_storm_Description"	"Creates waves of soul piercing shards at the target location. Enemies who are affected take damage over time. Casting an ability or being hit by a wave adds an additional stack. Damage is multiplied by the stack count. Max 30 stacks."
 		"DOTA_Tooltip_ability_winterblight_soulfire_storm_wave_damage"	"IMPACT DAMAGE:"
 		"DOTA_Tooltip_ability_winterblight_soulfire_storm_burn_damage"	"DOT DAMAGE:"
 		"DOTA_Tooltip_ability_winterblight_soulfire_storm_max_stacks"	"MAX STACKS:"
 		"DOTA_Tooltip_ability_winterblight_soulfire_storm_tick_rate"	"TICK RATE, SECONDS:"
 		
-		"DOTA_Tooltip_modifier_cold_seer_wave_burn"				"Soulfrost"
+		"DOTA_Tooltip_modifier_cold_seer_wave_burn"				"Cauterizing Storm"
 		"DOTA_Tooltip_modifier_cold_seer_wave_burn_Description"	"Taking damage over time. Casting an ability increases the stack count."
 
 		"DOTA_Tooltip_ability_winterblight_speed_softening"		"Speed Softening"
@@ -21662,7 +21669,7 @@
 		"DOTA_Tooltip_ability_winterblight_mind_breaker_damage_max_strikes"		"MAX STRIKES PER ATTACK:"
 
 		"DOTA_Tooltip_ability_winterblight_ghost_striker_passive"	"Life Sap"
-		"DOTA_Tooltip_ability_winterblight_ghost_striker_passive_Description"	"Attacks deal additional pure damage based on the target's missing HP"
+		"DOTA_Tooltip_ability_winterblight_ghost_striker_passive_Description"	"Attacks deal additional pure damage based on the targeted Hero's missing HP"
 		"DOTA_Tooltip_ability_winterblight_ghost_striker_passive_damage_per_missing_hp"	"DAMAGE PER MISSING HP:"
 
 		"DOTA_Tooltip_ability_winterblight_secret_keeper_passive"	"Agility Break"

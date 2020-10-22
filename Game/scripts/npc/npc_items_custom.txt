@@ -51764,6 +51764,10 @@
 			{
 				"IsHidden"	"1"
 			}
+			"modifier_shadowstep_invis_cooldown"
+			{
+				"IsHidden"	"1"
+			}
 		}
 	}
 
@@ -53333,7 +53337,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"1 2 3 4 5"
+				"ruby1"				"20 40 60 80 100"
 			}
 			"03"
 			{
@@ -53348,7 +53352,7 @@
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire2"			"200 400 600 800 1000"
+				"sapphire2"			"2800 5600 8400 11200 14000"
 			}
 			"06"
 			{
@@ -53358,7 +53362,7 @@
 			"07"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst2"			"70 140 210 280 350"
+				"amethyst2"			"240 480 720 960 1200"
 			}
 		}
 		"OnSpellStart"

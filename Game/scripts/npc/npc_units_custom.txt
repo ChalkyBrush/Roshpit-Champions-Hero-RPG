@@ -69423,7 +69423,7 @@
             }
 
         }
-        "Ability1"  "redfall_demon_firestorm"
+        "Ability1"  "winterblight_soulfire_storm"
         "Ability2"  "use_ability_1_position_ai"
         "Ability3"  "redfall_crimsyth_demonic_follower_ai"
         "Ability4"  "redfall_demon_follower_finger"
@@ -99955,7 +99955,7 @@
         "RoshpitSpellPierce"    "165"
         "RoshpitMagicArmor"     "285"
         "RoshpitLevel"          "25"
-        "RoshpitDominion"       "1"
+        "RoshpitDominion"       "0"
         "EnemyTier"             "1" 
     }
 
@@ -106568,7 +106568,7 @@
         "RoshpitSpellPierce"    "508"
         "RoshpitMagicArmor"     "510"
         "RoshpitLevel"          "35"
-        "RoshpitDominion"       "1"
+        "RoshpitDominion"       "0"
         "RoshpitAggroSound"     "Winterblight.FrozenCageGiga.Aggro"
         "EnemyTier"             "3"
         "RoshpitColorRenderType"    "1"
@@ -107883,7 +107883,7 @@
         "RoshpitSpellPierce"    "110"
         "RoshpitMagicArmor"     "160"
         "RoshpitLevel"          "36"
-        "RoshpitDominion"       "1"
+        "RoshpitDominion"       "0"
         "PitCreep"              "0"
         "RoshpitAggroSound"     "Winterblight.Spiderling.Aggro"
         "EnemyTier"             "1"
