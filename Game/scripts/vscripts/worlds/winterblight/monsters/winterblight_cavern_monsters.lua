@@ -2243,18 +2243,20 @@ function galaxy_knight_dot(event)
 	local target = event.target
 	local ability = event.ability
 	local hp_loss_percent = event.hp_loss_percent
-	EmitSoundOn("Winterblight.GalaxyKnight.Freeze", target)
-	Damage:Apply({
-		victim = target,
-		attacker = caster,
-		source = ability,
-		sourceType = BASE_NONE,
-		damage = target:GetMaxHealth()/100 * hp_loss_percent,
-		damageType = DAMAGE_TYPE_PURE,
-		postmitigationDamage = target:GetMaxHealth()/100 * hp_loss_percent,
-		ignoreExtraPostmitigation = true,
-		isDot = true
-	})
+	if target:IsHero() then
+		EmitSoundOn("Winterblight.GalaxyKnight.Freeze", target)
+		Damage:Apply({
+			victim = target,
+			attacker = caster,
+			source = ability,
+			sourceType = BASE_NONE,
+			damage = target:GetMaxHealth()/100 * hp_loss_percent,
+			damageType = DAMAGE_TYPE_PURE,
+			postmitigationDamage = target:GetMaxHealth()/100 * hp_loss_percent,
+			ignoreExtraPostmitigation = true,
+			isDot = true
+		})
+	end
 end
 
 function ellipsis_wave_cast(event)
