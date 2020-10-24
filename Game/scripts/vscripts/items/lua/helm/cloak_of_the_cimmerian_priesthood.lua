@@ -161,24 +161,26 @@ end
 function modifierClass:OnCastRAbility()
 	local hero = self:GetParent()
 	local ability = self:GetAbility()
-	CustomAbilities:QuickParticleAtPoint("particles/roshpit/items/cloak_of_cimmerian_priesthood/fear_ring.vpcf", hero:GetAbsOrigin(), 2)
 	local radius = ITEM_RPC_CLOAK_OF_THE_CIMMERIAN_PRIESTHOOD_AMETHYST_RADIUS
 	local duration = ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_CLOAK_OF_THE_CIMMERIAN_PRIESTHOOD_AMETHYST)
 	local enemies = FindUnitsInRadius(hero:GetTeamNumber(), hero:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
-	if #enemies > 0 then
-		for _, enemy in pairs(enemies) do
-			if enemy.pushLock or enemy.dummy then
-			else
-				local direction = ((enemy:GetAbsOrigin() - hero:GetAbsOrigin())*Vector(1,1,0)):Normalized()
-				local targetPosition = enemy:GetAbsOrigin() + direction * 200 * duration
-				enemy:MoveToPosition(targetPosition)
-				enemy:AddNewModifier(hero, ability, "modifier_fear", {duration = duration})
-				enemy:MoveToPosition(targetPosition)
-				CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_dark_willow/dark_willow_wisp_spell_fear_debuff.vpcf", enemy, duration)
+	if ability:GetGemValue("amethyst") > 0 then
+		if #enemies > 0 then
+			for _, enemy in pairs(enemies) do
+				if enemy.pushLock or enemy.dummy then
+				else
+					local direction = ((enemy:GetAbsOrigin() - hero:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+					local targetPosition = enemy:GetAbsOrigin() + direction * 200 * duration
+					enemy:MoveToPosition(targetPosition)
+					enemy:AddNewModifier(hero, ability, "modifier_fear", {duration = duration})
+					enemy:MoveToPosition(targetPosition)
+					CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_dark_willow/dark_willow_wisp_spell_fear_debuff.vpcf", enemy, duration)
+				end
 			end
-		end
-	end	
-	EmitSoundOn("RPCItems.Cimmerian.Fear", hero)
+		end	
+		EmitSoundOn("RPCItems.Cimmerian.Fear", hero)
+		CustomAbilities:QuickParticleAtPoint("particles/roshpit/items/cloak_of_cimmerian_priesthood/fear_ring.vpcf", hero:GetAbsOrigin(), 2)
+	end
 end
 
 -- RUBY Q DOT
