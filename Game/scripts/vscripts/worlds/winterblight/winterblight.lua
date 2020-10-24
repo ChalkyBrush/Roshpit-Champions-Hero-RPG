@@ -938,11 +938,11 @@ function Winterblight:MithrilReward(position, code)
             end
           end)
           reward = reward*WINTERBLIGHT_MITHRIL_MULT_TIAMAT
-          local bonus_mult = Winterblight.TiamatBossLevel*WINTERBLIGHT_MITHRIL_MULT_TIAMAT_PER_LVL
+          local bonus_mult = math.min(Winterblight.TiamatBossLevel, 100)*WINTERBLIGHT_MITHRIL_MULT_TIAMAT_PER_LVL
           reward = reward + reward*bonus_mult
         elseif code == "realm_breaker" then
           reward = reward*WINTERBLIGHT_MITHRIL_MULT_REALM_BR
-          local bonus_mult = Winterblight.RealmBreakerLevel*WINTERBLIGHT_MITHRIL_MULT_REALM_BR_PER_LVL
+          local bonus_mult = math.min(Winterblight.RealmBreakerLevel, 100)*WINTERBLIGHT_MITHRIL_MULT_REALM_BR_PER_LVL
           reward = reward + reward*bonus_mult  
         elseif code == "cruxys" then
           Timers:CreateTimer(4, function()
