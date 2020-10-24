@@ -2222,10 +2222,11 @@ function astral_weapon_hit(event)
 	local caster = event.caster
 	local target = event.target
 	local ability = event.ability
-
 	local damage = target:GetMaxHealth()*(event.damage_pct_target_max_health/100)
-	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability })
-	EmitSoundOn("Winterblight.StarEater.OrbHit", target)
+	if target:IsHero() then
+		ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability })
+		EmitSoundOn("Winterblight.StarEater.OrbHit", target)
+	end
 end
 
 function galaxy_knight_take_damage(event)
