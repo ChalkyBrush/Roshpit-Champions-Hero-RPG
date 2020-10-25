@@ -107,7 +107,7 @@ function ghost_warp_take_damage(event)
 		return
 	end
 	if has_weapon3 then
-		e2_damage = e2_damage + (VENOMORT_IMMORTAL_WEAPON_3_E2_DAMAGE_PER_RUNE_FROM_HP_PERCENT / 100) * caster:GetHealth()
+		e2_damage = e2_damage + (VENOMORT_IMMORTAL_WEAPON_3_E2_DAMAGE_PER_RUNE_FROM_HP_PERCENT / 100) * caster:GetMaxHealth()* e2_level
 		local pfx = CustomAbilities:QuickParticleAtPoint("particles/roshpit/venomort/viper_channel_flare.vpcf", attacker:GetAbsOrigin() + Vector(0, 0, attacker:GetBoundingMaxs().z), 1)
 		ParticleManager:SetParticleControl(pfx, 1, Vector(40, 40, 40))
 		ParticleManager:SetParticleControl(pfx, 2, Vector(18, 18, 18))
@@ -117,7 +117,7 @@ function ghost_warp_take_damage(event)
 		if ability.previous_health then
 			local currentHealth = caster:GetHealth()
 			if math.floor(ability.previous_health * VENOMORT_GLYPH_3_2_HEALTH_THRESHOLD_PERCENT / caster:GetMaxHealth()) - math.floor(currentHealth * VENOMORT_GLYPH_3_2_HEALTH_THRESHOLD_PERCENT / caster:GetMaxHealth()) > 0 then
-				e2_damage = e2_damage * VENOMORT_GLYPH_3_2_AMPLIFY
+			apply_e2(caster, ability, attacker, VENOMORT_GLYPH_3_2_DURATION, glyph_3_2)
 				--print('E2 amplify apply')
 			end
 		end
@@ -132,16 +132,20 @@ function ghost_warp_take_damage(event)
 		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), attacker:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false)
 		if #enemies > 0 then
 			for _, enemy in pairs(enemies) do
-				apply_e2(caster, ability, enemy, duration)
+				apply_e2(caster, ability, enemy, duration, 0)
 			end
 		end
 	else
-		apply_e2(caster, ability, attacker, duration)
+		apply_e2(caster, ability, attacker, duration, 0)
 	end
 end
 
-function apply_e2(caster, ability, target, duration)
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_ghost_warp_return", {duration = duration})
+function apply_e2(caster, ability, target, duration, tag)
+	if tag == glyph_3_2 then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_ghost_warp_return_3_2", {duration = duration})
+	else
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_ghost_warp_return", {duration = duration})
+	end
 end
 
 function e2_think(event)
@@ -154,6 +158,21 @@ function e2_think(event)
 		source = ability,
 		sourceType = BASE_ABILITY_E,
 		damage = ability.e2_damage,
+		damageType = DAMAGE_TYPE_MAGICAL,
+		elements = { RPC_ELEMENT_POISON },
+		isDot = true
+	})
+end
+function e2_think_3_2(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	Damage:Apply({
+		attacker = caster,
+		victim = target,
+		source = ability,
+		sourceType = BASE_ABILITY_E,
+		damage = ability.e2_damage*VENOMORT_GLYPH_3_2_AMPLIFY,
 		damageType = DAMAGE_TYPE_MAGICAL,
 		elements = { RPC_ELEMENT_POISON },
 		isDot = true

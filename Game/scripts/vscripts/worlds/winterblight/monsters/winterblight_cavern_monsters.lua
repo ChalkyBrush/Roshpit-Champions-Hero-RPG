@@ -1800,9 +1800,10 @@ function three_perceptions_start(event)
 	local attacks = event.attack_count
 	local caster = event.caster
 	local damage = event.damage
-
-	ability:ApplyDataDrivenModifier(caster, caster, "modifier_three_perceptions_striking", {duration = (attacks - 1) * 0.5})
-	three_perceptions_strike(caster, caster:GetAbsOrigin(), damage, ability)
+	Timers:CreateTimer(0.5, function()
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_three_perceptions_striking", {duration = (attacks - 1) * 0.5})
+		three_perceptions_strike(caster, caster:GetAbsOrigin(), damage, ability)
+	end)
 end
 
 function three_perceptions_think(event)
@@ -2056,22 +2057,23 @@ function aurora_boss_think(event)
 					UnitIndex = caster:entindex(),
 					OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
 					AbilityIndex = cast_ability:entindex(),
-					Queue = true
 				}
-				caster:Stop()
-				ExecuteOrderFromTable(order)
 				local delay = cast_ability:GetCastPoint() + 1
 				if cast_ability:GetAbilityName() == "winterblight_spirit_ring" then
 					delay = 1.0
+					caster:Stop()
 				end
 				if cast_ability:GetAbilityName() == "winterblight_ice_vortex_aoe" then
 					delay = 0.7
+					caster:Stop()
 				end
 				if cast_ability:GetAbilityName() =="three_perceptions" then
-					StartAnimation(caster, {duration=1, activity=ACT_DOTA_CAST_ABILITY_2, rate=1})
+					--StartAnimation(caster, {duration=1, activity=ACT_DOTA_CAST_ABILITY_2, rate=1})
 					delay = 1.5
+					caster:Stop()
 				end
 				caster.castLock = true
+				ExecuteOrderFromTable(order)
 				Timers:CreateTimer(delay, function()
 					caster.castLock = false
 				end)
@@ -2220,10 +2222,11 @@ function astral_weapon_hit(event)
 	local caster = event.caster
 	local target = event.target
 	local ability = event.ability
-
 	local damage = target:GetMaxHealth()*(event.damage_pct_target_max_health/100)
-	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability })
-	EmitSoundOn("Winterblight.StarEater.OrbHit", target)
+	if target:IsHero() then
+		ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability })
+		EmitSoundOn("Winterblight.StarEater.OrbHit", target)
+	end
 end
 
 function galaxy_knight_take_damage(event)
@@ -2240,18 +2243,20 @@ function galaxy_knight_dot(event)
 	local target = event.target
 	local ability = event.ability
 	local hp_loss_percent = event.hp_loss_percent
-	EmitSoundOn("Winterblight.GalaxyKnight.Freeze", target)
-	Damage:Apply({
-		victim = target,
-		attacker = caster,
-		source = ability,
-		sourceType = BASE_NONE,
-		damage = target:GetMaxHealth()/100 * hp_loss_percent,
-		damageType = DAMAGE_TYPE_PURE,
-		postmitigationDamage = target:GetMaxHealth()/100 * hp_loss_percent,
-		ignoreExtraPostmitigation = true,
-		isDot = true
-	})
+	if target:IsHero() then
+		EmitSoundOn("Winterblight.GalaxyKnight.Freeze", target)
+		Damage:Apply({
+			victim = target,
+			attacker = caster,
+			source = ability,
+			sourceType = BASE_NONE,
+			damage = target:GetMaxHealth()/100 * hp_loss_percent,
+			damageType = DAMAGE_TYPE_PURE,
+			postmitigationDamage = target:GetMaxHealth()/100 * hp_loss_percent,
+			ignoreExtraPostmitigation = true,
+			isDot = true
+		})
+	end
 end
 
 function ellipsis_wave_cast(event)

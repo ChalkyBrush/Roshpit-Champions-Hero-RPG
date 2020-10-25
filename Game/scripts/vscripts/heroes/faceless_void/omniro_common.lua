@@ -525,12 +525,15 @@ function OmniroOmniOrbChargeProceed(caster, ability, target, basic_damage)
 				enemy:CalculateAndSaveRoshpitAttributes()
 				for i = 1, pulses, 1 do
 					Timers:CreateTimer((i - 1) * 0.5, function()
-						if enemy and IsValidEntity(enemy) then
-							local pfx = CustomAbilities:QuickAttachParticle("particles/roshpit/omniro/omni_mace.vpcf", enemy, 0.4)
-							ParticleManager:SetParticleControl(pfx, 1, mace_hit_data["color"])
-							Filters:TakeArgumentsAndApplyDamage(enemy, caster, basic_damage, mace_hit_data["damage_type"], BASE_ABILITY_W, RPC_ELEMENT_ARCANE, RPC_ELEMENT_NONE)
-							EmitSoundOn("Omniro.Orb.Arcane.Sub", enemy)
-						end
+						local key = 'omniro_arcane_orb_pulses_pfx'
+						Util.Common:LimitPerTimeAndPlace(10, 0.4, caster:GetAbsOrigin(), 1400, key, function()
+							if enemy and IsValidEntity(enemy) and enemy:IsAlive() then
+								local pfx = CustomAbilities:QuickAttachParticle("particles/roshpit/omniro/omni_mace.vpcf", enemy, 0.4)
+								ParticleManager:SetParticleControl(pfx, 1, mace_hit_data["color"])
+								Filters:TakeArgumentsAndApplyDamage(enemy, caster, basic_damage, mace_hit_data["damage_type"], BASE_ABILITY_W, RPC_ELEMENT_ARCANE, RPC_ELEMENT_NONE)
+								EmitSoundOn("Omniro.Orb.Arcane.Sub", enemy)
+							end
+						end)
 					end)
 				end
 

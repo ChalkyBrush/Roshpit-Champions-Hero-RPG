@@ -263,7 +263,7 @@
 		"item_rpc_venomort_glyph_2_2_description" 				"[E2] дополнительно поразит цели в радиусе @glyph_property1 от основной цели."
 
 		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_3_2"		"[T3-2] Glyph of Corrosive Blood"
-		"item_rpc_venomort_glyph_3_2_description" 				"Каждый раз когда здоровье Venomort снижается на любой @glyph_property1% порог от его максимального здоровья, следующий урон от [E2] нанесет @glyph_property2x урон."
+		"item_rpc_venomort_glyph_3_2_description" 				"Если здоровье Venomort снижается на @glyph_property1% между применениями [E2], то она наложит дополнительный яд с @glyph_property2x уроном на <% VENOMORT_GLYPH_3_2_DURATION %> секунду."
 
 		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_4_2"		"[T4-2] Glyph of Malingering"
 		"item_rpc_venomort_glyph_4_2_description" 				"Увеличивает длительность зарядов [E4] с <% VENOMORT_E4_DURATION %> секунд до @glyph_property1 секунд."

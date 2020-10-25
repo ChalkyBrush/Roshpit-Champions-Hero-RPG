@@ -129,6 +129,9 @@ end
 function magnet_thinker(event)
 	local caster = event.caster
 	local ability = event.ability
+	if not caster:HasModifier("modifier_magnet_travelling") then
+		ability.target_table = false
+	end
 	if ability.target_table then
 		if not caster:IsAlive() then
 			ability.target_table = {}
@@ -136,6 +139,24 @@ function magnet_thinker(event)
 		if #ability.target_table > 0 then
 			local target = ability.target_table[1]
 			table.remove(ability.target_table, 1)
+			while(not IsValidEntity(target) or not target:IsAlive())
+			do
+				if #ability.target_table <= 0 then
+					break
+				else 
+					table.remove(ability.target_table, 1)
+					target = ability.target_table[1]
+				end
+			end
+			while(not IsValidEntity(target) or not target:IsAlive())
+			do
+				if #ability.target_table <= 0 then
+					break
+				else 
+					table.remove(ability.target_table, 1)
+					target = ability.target_table[1]
+				end
+			end
 			if IsValidEntity(target) and target:IsAlive() then
 
 				Filters:CleanseStuns(caster)
@@ -151,16 +172,15 @@ function magnet_thinker(event)
 				EmitSoundOn("Voltex.MagnetTeleport", caster)
 				Events:CreateLightningBeam(ogPosition + Vector(0, 0, 50), caster:GetAbsOrigin() + Vector(0, 0, 50))
 				Timers:CreateTimer(0.05, function()
-					StartAnimation(caster, {duration = 0.1, activity = ACT_DOTA_ATTACK, rate = 2.1})
+					local localKey = 'thermion_magnet_animation'
+							Util.Common:LimitPerTimeAndPlace(5, 1, caster:GetAbsOrigin(), 700, localKey, function()
+						StartAnimation(caster, {duration = 0.1, activity = ACT_DOTA_ATTACK, rate = 2.1})
+					end)
 					Filters:PerformAttackSpecial(caster, target, true, true, true, false, true, false, false)
 					if not caster:HasModifier("modifier_voltex_rune_r_3_avatar") then
 						EmitSoundOn("Voltex.MagnetAttack", target)
 					end
 				end)
-			end
-		else
-			if not caster:HasModifier("modifier_magnet_travelling") then
-				ability.target_table = false
 			end
 		end
 	else

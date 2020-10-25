@@ -492,6 +492,21 @@
 					}
 				}
 			}
+			"modifier_ghost_warp_return_3_2"
+			{
+			    "IsHidden"  "1"
+			    "EffectName"	"particles/units/heroes/hero_venomancer/venomancer_poison_debuff_nova.vpcf"
+			    "EffectAttachType"	"attach_origin"
+				"ThinkInterval"  "<% VENOMORT_E2_TICK_RATE %>"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_necrolyte/ghost_warp.lua"
+						"Function"		"e2_think_3_2"
+					}
+				}
+			}
 
             "modifier_venomort_bonus_attack_damage_ally"
             {

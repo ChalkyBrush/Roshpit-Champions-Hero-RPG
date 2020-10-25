@@ -12443,7 +12443,7 @@
 		"AbilityTextureName"	"winterblight/p2/three_perceptions"
 
 		"AbilityCastRange"	"700"
-		"AbilityCastPoint"	"0.85"
+		"AbilityCastPoint"	"0"
 		"AbilityCooldown"	"7.0"
 		"AbilityChannelTime"	"0.5"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
