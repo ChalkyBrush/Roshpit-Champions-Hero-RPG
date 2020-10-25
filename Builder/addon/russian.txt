@@ -1254,6 +1254,9 @@
 
 		"gem_forger_fluff"											"Я являюсь в сиянии самоцветов!"
 		"gem_forger_reward_available"								"Забрать награду"
+		"gem_forger_go_home"										"В Город"
+		"gem_forger_salvage"										"Переработка"
+		"gem_forger_salvage_fail"									"Самоцветы не могут быть извлечены"
 		"tooltip_prismatic_gemstones"								"Самоцветы-Призмы"
 		"ui_click_to_collect"										"Забрать"
 		"gem_forger_start"											"Инкрустация"
