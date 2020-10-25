@@ -11870,7 +11870,7 @@
 		"item_rpc_venomort_glyph_2_2_description" 				"When activated, [E2] will soak additional enemy units within @glyph_property1 range of the primary target."
 
 		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_3_2"		"[T3-2] Glyph of Corrosive Blood"
-		"item_rpc_venomort_glyph_3_2_description" 				"Each time Venomort's current health dips below another @glyph_property1% threshold of his maximum, his next application of [E2] will deal @glyph_property2x damage."
+		"item_rpc_venomort_glyph_3_2_description" 				"Each time Venomort's current health dips below another @glyph_property1% threshold of his maximum, his next application of [E2] will apply additional poison with @glyph_property2x damage for <font color='#ccff66'>1</font> second."
 
 		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_4_2"		"[T4-2] Glyph of Malingering"
 		"item_rpc_venomort_glyph_4_2_description" 				"Increases the duration of [E4] stacks from <font color='#ccff66'>3</font> seconds to @glyph_property1 seconds."

@@ -26704,6 +26704,21 @@
 					}
 				}
 			}
+			"modifier_ghost_warp_return_3_2"
+			{
+			    "IsHidden"  "1"
+			    "EffectName"	"particles/units/heroes/hero_venomancer/venomancer_poison_debuff_nova.vpcf"
+			    "EffectAttachType"	"attach_origin"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_necrolyte/ghost_warp.lua"
+						"Function"		"e2_think_3_2"
+					}
+				}
+			}
 
             "modifier_venomort_bonus_attack_damage_ally"
             {
@@ -81584,7 +81599,7 @@
 		"AbilityTextureName"	"winterblight/p2/three_perceptions"
 
 		"AbilityCastRange"	"700"
-		"AbilityCastPoint"	"0.85"
+		"AbilityCastPoint"	"0"
 		"AbilityCooldown"	"7.0"
 		"AbilityChannelTime"	"0.5"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
@@ -145408,7 +145423,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"1500 5000 20000"
+		"AbilityDamage"					"1500 3000 6000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------

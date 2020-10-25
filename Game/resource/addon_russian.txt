@@ -1254,6 +1254,9 @@
 
 		"gem_forger_fluff"											"Я являюсь в сиянии самоцветов!"
 		"gem_forger_reward_available"								"Забрать награду"
+		"gem_forger_go_home"										"В Город"
+		"gem_forger_salvage"										"Переработка"
+		"gem_forger_salvage_fail"									"Самоцветы не могут быть извлечены"
 		"tooltip_prismatic_gemstones"								"Самоцветы-Призмы"
 		"ui_click_to_collect"										"Забрать"
 		"gem_forger_start"											"Инкрустация"
@@ -11191,7 +11194,7 @@
 		"item_rpc_venomort_glyph_2_2_description" 				"[E2] дополнительно поразит цели в радиусе @glyph_property1 от основной цели."
 
 		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_3_2"		"[T3-2] Glyph of Corrosive Blood"
-		"item_rpc_venomort_glyph_3_2_description" 				"Каждый раз когда здоровье Venomort снижается на любой @glyph_property1% порог от его максимального здоровья, следующий урон от [E2] нанесет @glyph_property2x урон."
+		"item_rpc_venomort_glyph_3_2_description" 				"Если здоровье Venomort снижается на @glyph_property1% между применениями [E2], то она наложит дополнительный яд с @glyph_property2x уроном на <font color='#ccff66'>1</font> секунду."
 
 		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_4_2"		"[T4-2] Glyph of Malingering"
 		"item_rpc_venomort_glyph_4_2_description" 				"Увеличивает длительность зарядов [E4] с <font color='#ccff66'>3</font> секунд до @glyph_property1 секунд."

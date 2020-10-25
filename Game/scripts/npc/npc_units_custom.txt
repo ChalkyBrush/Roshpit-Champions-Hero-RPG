@@ -64410,7 +64410,7 @@
         "RoshpitSpellPierce"    "520"
         "RoshpitMagicArmor"     "460"
         "RoshpitLevel"          "45"
-        "RoshpitDominion"       "1"
+        "RoshpitDominion"       "0"
         "EnemyTier"             "4"
     }
 
@@ -65782,7 +65782,7 @@
         "RoshpitSpellPierce"    "285"
         "RoshpitMagicArmor"     "415"
         "RoshpitLevel"          "35"
-        "RoshpitDominion"       "1"
+        "RoshpitDominion"       "0"
         "EnemyTier"             "2"
     }
 
