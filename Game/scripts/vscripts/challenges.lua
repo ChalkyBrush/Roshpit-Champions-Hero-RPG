@@ -84,6 +84,9 @@ function Challenges:ChiselItem(msg)
 			end
 			--print( "Done." )
 			if result.StatusCode == 200 then
+				if hero.save_counter then
+					hero.save_counter = hero.save_counter + 1
+				end
 				local resultTable = JSON:decode(result.Body)
 				local shards = resultTable.mithril_shards
 				CustomNetTables:SetTableValue("player_stats", tostring(playerID) .. "-mithril", {mithril = shards})
