@@ -66,6 +66,9 @@ function Challenges:ChiselItem(msg)
 		hero:UnequipItem(item)
 		CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "update_inventory", {})
 	else
+		if hero.save_counter then
+			hero.save_counter = hero.save_counter + 1
+		end
 		local url = ROSHPIT_URL.."/champions/chiselItem?"
 		url = url.."steam_id="..steamID
 		url = url.."&hero_slot="..saveSlot
