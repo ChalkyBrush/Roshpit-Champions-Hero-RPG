@@ -57,7 +57,7 @@ function Challenges:ChiselItem(msg)
 	end
 	local steamId = PlayerResource:GetSteamAccountID(hero:GetPlayerOwnerID())
 	if not GameMode.EquipTimeouts[steamId] then
-		GameMode.EquipTimeouts[steamId] = Time() + 10
+		GameMode.EquipTimeouts[steamId] = Time() + 10 -- 10 sec after save chisel would be unavailable
 	end
 	local canChiselItem = Time() > GameMode.EquipTimeouts[steamId]
 	if not canChiselItem then
