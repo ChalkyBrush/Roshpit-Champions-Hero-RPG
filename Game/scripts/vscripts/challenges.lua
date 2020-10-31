@@ -57,8 +57,17 @@ function Challenges:ChiselItem(msg)
 	end
 	local steamId = PlayerResource:GetSteamAccountID(hero:GetPlayerOwnerID())
 	if not GameMode.EquipTimeouts[steamId] then
-		GameMode.EquipTimeouts[steamId] = Time()
+		GameMode.EquipTimeouts[steamId] = Time() + 10
 	end
+	local canChiselItem = Time() > GameMode.EquipTimeouts[steamId]
+	if not canChiselItem then
+		Notifications:Top(playerID, {text = "Can't chisel, try again in 10 sec.", duration = 5.0})
+		CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith", {})
+		return false
+	end
+	-- print("Can chisel bool "..tostring(canChiselItem))
+	-- print("Can chisel? locked till "..tostring(GameMode.EquipTimeouts[steamId]))
+	-- print("Can chisel? current time "..tostring(Time()))
 
 	-- if itemSlot == 1 then
 	-- CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "reopen_blacksmith", {})
