@@ -120,6 +120,8 @@ function GameMode:OnGameRulesStateChange(keys)
 	GameMode.VoteSystem.crystal_loot_disabled = false
 	GameMode.VoteSystem.serengaard_forfeit = false
 
+	GameMode.EquipTimeouts = {}	
+
 	if not GameMode.GlobalThinkers then
 		GameMode.GlobalThinkers = {}
 	end
@@ -454,6 +456,11 @@ local function SearchItemName(name)
 end
 
 function GameMode:OnPlayerChat(keys)
+	local playerHeroa = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
+	local playerIDa = playerHeroa:GetPlayerOwnerID()
+	local steamID = PlayerResource:GetSteamAccountID(playerIDa)
+	print("ServerTime "..tostring(Time()))
+	print("PlayerSteam "..tostring(steamID))
 	-- ignore non-command messages
 	if keys.text:sub(1, 1) ~= "-" then return end
 

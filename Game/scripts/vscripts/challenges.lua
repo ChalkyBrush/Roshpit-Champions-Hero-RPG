@@ -51,6 +51,15 @@ function Challenges:ChiselItem(msg)
 		return false
 	end
 
+	-- fix for autosave
+	if not GameMode.EquipTimeouts then
+		GameMode.EquipTimeouts = {}
+	end
+	local steamId = PlayerResource:GetSteamAccountID(hero:GetPlayerOwnerID())
+	if not GameMode.EquipTimeouts[steamId] then
+		GameMode.EquipTimeouts[steamId] = Time()
+	end
+
 	-- if itemSlot == 1 then
 	-- CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "reopen_blacksmith", {})
 	-- return false
@@ -66,9 +75,6 @@ function Challenges:ChiselItem(msg)
 		hero:UnequipItem(item)
 		CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "update_inventory", {})
 	else
-		if hero.save_counter then
-			hero.save_counter = hero.save_counter + 1
-		end
 		local url = ROSHPIT_URL.."/champions/chiselItem?"
 		url = url.."steam_id="..steamID
 		url = url.."&hero_slot="..saveSlot
@@ -84,9 +90,6 @@ function Challenges:ChiselItem(msg)
 			end
 			--print( "Done." )
 			if result.StatusCode == 200 then
-				if hero.save_counter then
-					hero.save_counter = hero.save_counter + 1
-				end
 				local resultTable = JSON:decode(result.Body)
 				local shards = resultTable.mithril_shards
 				CustomNetTables:SetTableValue("player_stats", tostring(playerID) .. "-mithril", {mithril = shards})

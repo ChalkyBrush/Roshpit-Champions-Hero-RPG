@@ -2041,6 +2041,7 @@ end
 	end
 
 	function SaveLoad:SaveCharacterGeneric(hero)
+		print("[SaveLoad:SaveCharacterGeneric]  AAAAAAAAAAAA ")
 		if SaveLoad:GetAllowSaving() then
 			if not hero.save_counter then
 				hero.save_counter = 0
