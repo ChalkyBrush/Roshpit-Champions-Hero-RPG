@@ -259,7 +259,7 @@
     	"DOTA_Tooltip_modifier_crystal_arrow_b_d_Description"					"Урон героя увеличен"	
 
     	"DOTA_Tooltip_ability_astral_rune_r_3_arcana3"							"[R3] Blessed Quiver"
-    	"DOTA_Tooltip_ability_astral_rune_r_3_arcana3_Description"				"Герой получает заряд этой руны каждые 0.5 секунды. Потратив 10 таких зарядов, герой может использовать умение @Ability4 без перезарядки. Каждые 60 очков руны увеличат пассивное получение зарядов на 1."
+    	"DOTA_Tooltip_ability_astral_rune_r_3_arcana3_Description"				"Герой получает заряд этой руны каждые <% ASTRAL_RANGER_ARCANA3_R3_INTERVAL %> секунды. Потратив <% ASTRAL_RANGER_ARCANA3_R3_FREECAST_STACKS %> таких зарядов, герой может использовать умение @Ability4 без перезарядки. Каждые <% ASTRAL_RANGER_ARCANA3_R3_RUNE_THRESHOLD %> очков руны увеличат пассивное получение зарядов на 1."
     	"DOTA_Tooltip_ability_astral_rune_r_3_arcana3_property_one"				"Макс. зарядов"
     	"DOTA_Tooltip_ability_astral_rune_r_3_arcana3_suffix"					""
 
