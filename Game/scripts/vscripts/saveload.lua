@@ -1,4 +1,5 @@
 require('libraries/json')
+require("request_helper")
 
 if SaveLoad == nil then
 	SaveLoad = class({})
@@ -156,6 +157,7 @@ function SaveLoad:GetAllowSaving()
 end
 
 function SaveLoad:SaveCharacter(msg)
+	print("[SaveLoad:SaveCharacter] AAAAAAAAAAAAA Start!")
 	local playerID = msg.playerID
 	local slot = msg.slot
 	local hero = EntIndexToHScript(msg.heroIndex)
@@ -170,6 +172,13 @@ function SaveLoad:SaveCharacter(msg)
 	local runeUnit2 = hero.runeUnit2
 	local runeUnit3 = hero.runeUnit3
 	local runeUnit4 = hero.runeUnit4
+
+	-- fix for autosave
+	if not GameMode.EquipTimeouts then
+		GameMode.EquipTimeouts = {}
+	end
+	local steamId = PlayerResource:GetSteamAccountID(hero:GetPlayerOwnerID())
+
 	hero.loadEnabled = 0
 	Weapons:ValidateGear(hero)
 	--SaveLoad:NewKey()
@@ -208,15 +217,20 @@ function SaveLoad:SaveCharacter(msg)
 			url = SaveLoad:AttachItemToURL(url, hero, 0, 0, playerID, i, hero.equipped_gear[i])
 		end
 		if msg.ignore_callback then
-			CreateHTTPRequestScriptVM("POST", url):Send(function(result)
+			RequestHelper:RequestAndTwoPcallOnResponse("POST", url, nil, function(result, statusCode, body)
 				for k, v in pairs(result) do
 
 				end
 				local resultTable = JSON:decode(result.Body)
 				SaveLoad:HeroSaveParticle(hero)
+			end, function()
+				print("")
+				print("secondCallBack")
+				-- UnlockChiselHere
+				GameMode.EquipTimeouts[steamId] = 0
 			end)
 		else
-			CreateHTTPRequestScriptVM("POST", url):Send(function(result)
+			RequestHelper:RequestAndTwoPcallOnResponse("POST", url, nil, function(result, statusCode, body)
 				--print( "POST response:\n" )
 				for k, v in pairs(result) do
 					--print( string.format( "%s : %s\n", k, v ) )
@@ -239,6 +253,11 @@ function SaveLoad:SaveCharacter(msg)
 					SaveLoad:SaveJex(hero)
 				end
 				SaveLoad:HeroSaveParticle(hero)
+			end, function()
+				print("")
+				print("secondCallBack")
+				-- UnlockChiselHere
+				GameMode.EquipTimeouts[steamId] = 0
 			end)
 		end
 	end
@@ -2047,7 +2066,7 @@ end
 			GameMode.EquipTimeouts = {}
 		end
 		local steamId = PlayerResource:GetSteamAccountID(hero:GetPlayerOwnerID())
-		local nextEquipAvailableTime = GameRules:GetGameTime() + 5 -- 5 sec after save chisel would be unavailable
+		local nextEquipAvailableTime = GameRules:GetGameTime() + 600 -- 600 sec after save chisel would be unavailable or after save request
 		GameMode.EquipTimeouts[steamId] = nextEquipAvailableTime
 
 		if SaveLoad:GetAllowSaving() then
