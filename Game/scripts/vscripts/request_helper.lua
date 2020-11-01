@@ -53,6 +53,22 @@ function RequestHelper:SendJsonHTTPRequest(requestMethod, requestUrl, tableData,
 	end)
 end
 
+
+-- example
+-- local url = "https://roshpit.herokuapp.com/champions/loadCharacter?steam_id=157571937&slot=5"
+-- RequestHelper:RequestAndTwoPcallOnResponse("GET", url, nil, function(response, statusCode, body)
+-- 	print("3  "..tostring(response))
+-- 	print("1  "..tostring(statusCode))
+-- 	print("2  "..tostring(body))
+-- 	print("")
+-- 	print("firstCallBack")
+-- 	-- firstCallBack()
+-- end, function()
+-- 	print("")
+-- 	print("secondCallBack")
+-- 	-- secondCallBack()
+-- end)	
+
 function RequestHelper:RequestAndTwoPcallOnResponse(requestMethod, requestUrl, requestTimeout, callbackFunction1, callbackFunction2)
 	if not requestTimeout then requestTimeout = DEFAULT_REQUEST_TIME_OUT end
 	local request = CreateHTTPRequestScriptVM(requestMethod, requestUrl)
