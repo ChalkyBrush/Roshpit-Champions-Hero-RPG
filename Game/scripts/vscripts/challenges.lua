@@ -57,11 +57,11 @@ function Challenges:ChiselItem(msg)
 	end
 	local steamId = PlayerResource:GetSteamAccountID(hero:GetPlayerOwnerID())
 	if not GameMode.EquipTimeouts[steamId] then
-		GameMode.EquipTimeouts[steamId] = Time() + 10 -- 10 sec after save chisel would be unavailable
+		GameMode.EquipTimeouts[steamId] = Time() -- first chisel have no CD
 	end
-	local canChiselItem = Time() > GameMode.EquipTimeouts[steamId]
+	local canChiselItem = Time() >= GameMode.EquipTimeouts[steamId]
 	if not canChiselItem then
-		Notifications:Top(playerID, {text = "Can't chisel, try again in 10 sec.", duration = 5.0})
+		Notifications:Top(playerID, {text = "Can't chisel, try again in 5 sec.", duration = 5.0})
 		CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith", {})
 		return false
 	end
