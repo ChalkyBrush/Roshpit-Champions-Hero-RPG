@@ -75,17 +75,15 @@ function RequestHelper:RequestAndTwoPcallOnResponse(requestMethod, requestUrl, r
 	request:SetHTTPRequestAbsoluteTimeoutMS(requestTimeout * 1000)
 
 	request:Send(function(response)
-		if response and response.StatusCode and response.Body then
-			local pcallResult1, err1 = pcall(function ()
-				callbackFunction1(response, response.StatusCode, response.Body)
-			end)
-			-- print("Callback1 result: "..tostring(pcallResult1).." exception?: "..tostring(err1))
+		local pcallResult1, err1 = pcall(function ()
+			callbackFunction1(response, response.StatusCode, response.Body)
+		end)
+		-- print("Callback1 result: "..tostring(pcallResult1).." exception?: "..tostring(err1))
 
-			local pcallResult2, err2 = pcall(function ()
-				callbackFunction2()
-			end)
-			-- print("Callback2 result: "..tostring(pcallResult2).." exception?: "..tostring(err2))
-		end
+		local pcallResult2, err2 = pcall(function ()
+			callbackFunction2()
+		end)
+		-- print("Callback2 result: "..tostring(pcallResult2).." exception?: "..tostring(err2))
 	end)
 end
 
