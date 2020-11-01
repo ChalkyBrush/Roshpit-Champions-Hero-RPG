@@ -2041,6 +2041,15 @@ end
 	end
 
 	function SaveLoad:SaveCharacterGeneric(hero)
+
+		-- fix for autosave
+		if not GameMode.EquipTimeouts then
+			GameMode.EquipTimeouts = {}
+		end
+		local steamId = PlayerResource:GetSteamAccountID(hero:GetPlayerOwnerID())
+		local nextEquipAvailableTime = Time() + 5 -- 5 sec after save chisel would be unavailable
+		GameMode.EquipTimeouts[steamId] = nextEquipAvailableTime
+
 		if SaveLoad:GetAllowSaving() then
 			if not hero.save_counter then
 				hero.save_counter = 0

@@ -120,6 +120,8 @@ function GameMode:OnGameRulesStateChange(keys)
 	GameMode.VoteSystem.crystal_loot_disabled = false
 	GameMode.VoteSystem.serengaard_forfeit = false
 
+	GameMode.EquipTimeouts = {}	
+
 	if not GameMode.GlobalThinkers then
 		GameMode.GlobalThinkers = {}
 	end
