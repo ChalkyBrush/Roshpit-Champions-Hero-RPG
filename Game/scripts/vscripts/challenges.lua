@@ -61,6 +61,7 @@ function Challenges:ChiselItem(msg)
 	end
 	local canChiselItem = Time() >= GameMode.EquipTimeouts[steamId]
 	if not canChiselItem then
+		GameMode.EquipTimeouts[steamId] = GameRules:GetGameTime() + 5 -- reset timer if player tried to chisel too early
 		Notifications:Top(playerID, {text = "Can't chisel, try again in 5 sec.", duration = 5.0})
 		CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith", {})
 		return false
