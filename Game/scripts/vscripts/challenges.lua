@@ -57,7 +57,7 @@ function Challenges:ChiselItem(msg)
 	end
 	local steamId = PlayerResource:GetSteamAccountID(hero:GetPlayerOwnerID())
 	if not GameMode.EquipTimeouts[steamId] then
-		GameMode.EquipTimeouts[steamId] = Time() -- first chisel have no CD
+		GameMode.EquipTimeouts[steamId] = GameRules:GetGameTime() -- first chisel have no CD
 	end
 	local canChiselItem = Time() >= GameMode.EquipTimeouts[steamId]
 	if not canChiselItem then
