@@ -163,7 +163,7 @@ function enemy_in_field_think(event)
 	local target = event.target
 	if ability.e_1_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_dummy_aura_effect_enemy_a_c_visible", {})
-		local newStacks = math.min(target:GetModifierStackCount("modifier_dummy_aura_effect_enemy_a_c_visible", caster) + 1, 20)
+		local newStacks = math.min(target:GetModifierStackCount("modifier_dummy_aura_effect_enemy_a_c_visible", caster) + 1, ZHONIK_E1_ARCANA_STACKS)
 		target:SetModifierStackCount("modifier_dummy_aura_effect_enemy_a_c_visible", caster, newStacks)
 
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_dummy_aura_effect_enemy_a_c_invisible", {})

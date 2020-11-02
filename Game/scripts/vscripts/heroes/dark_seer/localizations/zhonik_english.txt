@@ -161,8 +161,8 @@
     	"DOTA_Tooltip_modifier_dummy_aura_effect_enemy_Description"		"Reduced movespeed"		
 
   		"DOTA_Tooltip_ability_zonik_rune_e_1_arcana1"						"[E1] Shattered Time"
-    	"DOTA_Tooltip_ability_zonik_rune_e_1_arcana1_Description"			"Every second that an enemy is within the warp field, they gain a stack of shattered time. Enemies with the Shattered Time debuff lose Magic Armor with each stack. Max 20 stacks."
-    	"DOTA_Tooltip_ability_zonik_rune_e_1_arcana1_property_one"			"Magic Armor Loss"
+    	"DOTA_Tooltip_ability_zonik_rune_e_1_arcana1_Description"			"Every second that an enemy is within the warp field, they gain a stack of shattered time. Enemies with the Shattered Time debuff lose Armor and Magic Armor with each stack. Max <% ZHONIK_E1_ARCANA_STACKS %> stacks."
+    	"DOTA_Tooltip_ability_zonik_rune_e_1_arcana1_property_one"			"Armor and Magic Armor Loss"
     	"DOTA_Tooltip_ability_zonik_rune_e_1_arcana1_suffix"				" per stack"
 
     	"DOTA_Tooltip_modifier_dummy_aura_effect_enemy_a_c_visible"			"Shattered Time"

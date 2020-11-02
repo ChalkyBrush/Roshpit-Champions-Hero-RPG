@@ -159,8 +159,8 @@
     	"DOTA_Tooltip_modifier_dummy_aura_effect_enemy_Description"		"Скорость передвижения снижена"		
 
   		"DOTA_Tooltip_ability_zonik_rune_e_1_arcana1"						"[E1] Shattered Time"
-    	"DOTA_Tooltip_ability_zonik_rune_e_1_arcana1_Description"			"Каждую секунду, пока враг находится в пределах поля, он получает заряды этой руны, которые снижают его Магическую Броню. Максимум 20 зарядов."
-    	"DOTA_Tooltip_ability_zonik_rune_e_1_arcana1_property_one"			"Снижение Магической Брони"
+    	"DOTA_Tooltip_ability_zonik_rune_e_1_arcana1_Description"			"Каждую секунду, пока враг находится в пределах поля, он получает заряды этой руны, которые снижают его Броню и Магическую защиту. Максимум <% ZHONIK_E1_ARCANA_STACKS %> зарядов."
+    	"DOTA_Tooltip_ability_zonik_rune_e_1_arcana1_property_one"			"Снижение Брони и Маг. Защиты"
     	"DOTA_Tooltip_ability_zonik_rune_e_1_arcana1_suffix"				" за заряд"
 
     	"DOTA_Tooltip_modifier_dummy_aura_effect_enemy_a_c_visible"			"Shattered Time"
