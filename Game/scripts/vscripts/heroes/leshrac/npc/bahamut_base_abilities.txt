@@ -196,7 +196,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"30 80 130 180 230 280 330"
+				"damage"				"30 80 130 220 400 600 850"
 			}
 			"02"
 			{
@@ -207,6 +207,16 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"attack_loss"			"-25 -30 -35 -40 -45 -50 -55"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"slow"					"30 60 90 120 150 180 210"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"duration"				"12"
 			}
 		}
 		"OnAbilityPhaseStart"
@@ -250,7 +260,7 @@
 				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
 				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-				"Duration"				"8"
+				"Duration"				"<% BAHAMUT_Q_BASE_DURATION %>"
 			}
 			"modifier_leshrac_self_finder"
 			{
@@ -320,10 +330,10 @@
 				"IsDebuff"		"1"
 				"IsStunDebuff"		"1"
 				"IsPurgable"	"0"
-				"Duration"		"0.3"
+				"Duration"		"3"
 				"Properties"
 				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-<% BAHAMUT_Q3_MS_SLOW %>"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%slow"
 				}
 			}
 			"modifier_charge_of_light_hyper_state"

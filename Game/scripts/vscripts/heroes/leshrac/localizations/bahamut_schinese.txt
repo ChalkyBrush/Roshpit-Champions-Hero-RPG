@@ -304,4 +304,4 @@
 
         "DOTA_Tooltip_ability_item_rpc_bahamut_immortal_weapon_3"            "原子符文"
         "item_property_bahamut_immortal_weapon3"                             "终极壁垒"
-        "property_bahamut_immortal_weapon3_description"                      "提高 @Ability1 的长度 <% BAHAMUT_IMMORTAL_WEAPON_3_Q_LENGHT_INCREASE_PCT %>% 并且伤害提高 <% BAHAMUT_IMMORTAL_WEAPON_3_Q_DAMAGE_INCREASE_PCT %>%"
+        "property_bahamut_immortal_weapon3_description"                      "提高 @Ability1 的长度 <% BAHAMUT_IMMORTAL_WEAPON_3_Q_LENGHT_INCREASE_PCT %>% 并且伤害提高 <% BAHAMUT_IMMORTAL_WEAPON_3_Q_DAMAGE_ATTRIBUTES_MULT %>x all attributes"
