@@ -871,6 +871,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 		local modifier = unit:FindModifierByName("modifier_chernobog_rune_w_3_fervor_enemy_invisible")
 		armor_modify = armor_modify + modifier:GetStackCount() * CHERNOBOG_W3_ARMOR_REDUCE
     end
+	if unit:HasModifier("modifier_dummy_aura_effect_enemy_a_c_invisible") then
+		local modifier = unit:FindModifierByName("modifier_dummy_aura_effect_enemy_a_c_invisible")
+		armor_modify = armor_modify + modifier:GetStackCount()*ZHONIK_E1_ARCANA_ARMOR_LOSS
+	end
 	if unit:HasModifier("modifier_hydroxis_b_a_shield_invisible") then
 		local modifier = unit:FindModifierByName("modifier_hydroxis_b_a_shield_invisible")
 		armor_modify = armor_modify + modifier:GetStackCount()*HYDROXIS_Q2_ARMOR_AND_MAGIC_ARMOR
