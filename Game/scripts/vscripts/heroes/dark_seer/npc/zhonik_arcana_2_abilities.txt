@@ -218,6 +218,11 @@
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
 				}
 			}
+			"modifier_arcana_missles_selection_delay"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+			}
 		}
 
 		"AbilitySpecial"
