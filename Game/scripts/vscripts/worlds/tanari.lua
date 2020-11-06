@@ -690,6 +690,9 @@ function Tanari:InitCamp()
     Dungeons.itemLevel = 1
     Tanari.BossesSlainNormal = 0
     Tanari.BossesSlainSpirit = 0
+	Tanari.WaterSpiritSpawn = false
+	Tanari.WindSpiritSpawn = false
+	Tanari.FireSpiritSpawn = false
     Timers:CreateTimer(3, function()
         local blacksmith = Events:SpawnTownNPC(Vector(-5443, 2606), "red_fox", Vector(0.2, -1), "models/props_gameplay/shopkeeper_fountain/shopkeeper_fountain.vmdl", nil, nil, 1.1, false, "blacksmith")
         StartAnimation(blacksmith, {duration = 99999, activity = ACT_DOTA_IDLE, rate = 1.0})

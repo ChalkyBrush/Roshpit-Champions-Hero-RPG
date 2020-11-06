@@ -1729,6 +1729,7 @@ function Tanari:SpawnWaterSpirit(position, fv)
 	mage.itemLevel = 100
 	Events:AdjustBossPower(mage, 10, 10, false)
 	Tanari.TanariMasterAbility:ApplyDataDrivenModifier(Tanari.TanariMaster, mage, "tanari_mountain_specter_ai", {})
+	Tanari.WaterSpiritSpawn = true
 	return mage
 end
 

@@ -767,17 +767,17 @@ function use_spirit_stones(event)
 				CustomGameEventManager:Send_ServerToAllClients("update_spirit_zone_display", {tooltip = '#tanari_spirit_realm'})
 			end)
 			if Tanari.WindTemple then
-				if Tanari.WindTemple.BossBattleEnd then
+				if not Tanari.WindSpiritSpawn then
 					Tanari:SpawnWindSpirit(Vector(9727, 14272), Vector(-1, 0))
 				end
 			end
-			if Tanari.WaterTemple then
-				if Tanari.WaterTemple.BossBattleEnd then
+			if Tanari.WaterTemple.jellyfishSlain then
+				if not Tanari.WaterSpiritSpawn then
 					Tanari:SpawnWaterSpirit(Vector(-9901, 16128), Vector(0, -1))
 				end
 			end
 			if Tanari.FireTemple then
-				if Tanari.FireTemple.KolthunBattleEnd then
+				if not Tanari.FireSpiritSpawn then
 					Tanari:SpawnFireSpirit(Vector(9664, -15104), Vector(-1, 0))
 				end
 			end
