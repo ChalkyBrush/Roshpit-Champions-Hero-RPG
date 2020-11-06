@@ -320,7 +320,7 @@
 		"item_property_hand_of_midas"				"Midas Touch"
 		"property_hand_of_midas_description"		"<% ITEM_RPC_HAND_OF_MIDAS_CHANCE %>% chance on attack to deal <% ITEM_RPC_HAND_OF_MIDAS_ATTACK_DAMAGE_MULT %>% of your attack damage in a <% ITEM_RPC_HAND_OF_MIDAS_RADIUS %> radius area around the target and turn them all to solid gold, freezing for <% ITEM_RPC_HAND_OF_MIDAS_FREEZE_DURATION %> seconds. Max 1 freeze every <% ITEM_RPC_HAND_OF_MIDAS_FREEZE_CD %> seconds."
 
-    	"item_rpc_hand_of_midas_ruby1"									"Midas Touch becomes Physical type with a @ruby_property1% chance, spell immune pierce included"
+    	"item_rpc_hand_of_midas_ruby1"									"When Midas Touch effect triggers, it has a @ruby_property1% chance to pierce Spell Immunity and deal Physical damage instead of Magical"
     	"item_rpc_hand_of_midas_emerald1"									"Increases the Transmutation freeze duration by @emerald_property1 seconds"
     	"item_rpc_hand_of_midas_sapphire1"									"Increases Midas Touch radius by @sapphire_property1 and damage by @sapphire_property2"
     	"item_rpc_hand_of_midas_amethyst1"									"Increases Attack Speed by @amethyst_property1 and Base Attack Damage by @amethyst_property2"
