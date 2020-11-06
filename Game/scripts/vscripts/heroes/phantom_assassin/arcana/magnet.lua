@@ -148,15 +148,6 @@ function magnet_thinker(event)
 					target = ability.target_table[1]
 				end
 			end
-			while(not IsValidEntity(target) or not target:IsAlive())
-			do
-				if #ability.target_table <= 0 then
-					break
-				else 
-					table.remove(ability.target_table, 1)
-					target = ability.target_table[1]
-				end
-			end
 			if IsValidEntity(target) and target:IsAlive() then
 
 				Filters:CleanseStuns(caster)
