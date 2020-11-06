@@ -1576,7 +1576,7 @@ function mountain_vambrace_take_damage(event)
 		if ability:GetGemValue("sapphire") > 0 then
 			if not attacker:HasModifier("modifier_mountain_vambrace_immunity") then
 				Filters:MountainVambrace(hero, attacker, ability)
-				ability:ApplyDataDrivenModifier(caster, attacker, "modifier_mountain_vambrace_immunity", {duration = ability:GetGemValue("sapphire", ITEM_RPC_MORDIGGUS_GAUNTLET_GEM_SAPPHIRE)})
+				ability:ApplyDataDrivenModifier(caster, attacker, "modifier_mountain_vambrace_immunity", {duration = ability:GetGemValue("sapphire", ITEM_RPC_MOUNTAIN_VAMBRACES_GEM_SAPPHIRE)})
 			end
 		end
 	end
