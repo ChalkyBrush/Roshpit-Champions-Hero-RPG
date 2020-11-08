@@ -452,7 +452,7 @@ function Winterblight:SpawnNextOceanOnslaughtUnit(spawnphase)
 	Vector(-14859, 7257), Vector(-14464, 7257), Vector(-13952, 7424), Vector(-13440, 7168), Vector(-12928, 7168), Vector(-15222, 7680), Vector(-14464, 7808), Vector(-13952, 8192), Vector(-13952, 7808), Vector(-13440, 7728)}
 	local position = positionTable[RandomInt(1, #positionTable)]
 	local seafort_spawn_index = RandomInt(1, 42)
-	if Winterblight:ShouldSpawnCaveUnit(3, spawnphase) and Winterblight.OnslaughtUnitsSpawned < 240 then
+	if Winterblight:ShouldSpawnCaveUnit(3, spawnphase) and Winterblight.OnslaughtUnitsSpawned < 200 then
 		local unit = nil
 		if seafort_spawn_index == 1 then
 			unit = Winterblight:SpawnSeaQueen(position, RandomVector(1))
