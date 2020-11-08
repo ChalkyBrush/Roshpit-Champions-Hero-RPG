@@ -114,6 +114,7 @@
     	"DOTA_Tooltip_ability_sorceress_rune_e_2_suffix_two"				""
 
 		"sorc_water_elemental"												"Элементаль Воды"
+		"DOTA_Tooltip_modifier_elemental_slow"								"Замедлен"
 		
 		"DOTA_Tooltip_ability_sorc_elemental_ability"						"Холодные атаки"
     	"DOTA_Tooltip_ability_sorc_elemental_ability_Description"			"Атаки взрываются при попадании, замедляя все задетые цели и нанося им урон. Тип наносимого урона по области - магический."

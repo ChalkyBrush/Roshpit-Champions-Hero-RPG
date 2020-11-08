@@ -117,6 +117,7 @@
     	"DOTA_Tooltip_ability_sorceress_rune_e_2_suffix_two"				""
 
 		"sorc_water_elemental"												"Water Elemental"
+		"DOTA_Tooltip_modifier_elemental_slow"								"Slowed"
 		
 		"DOTA_Tooltip_ability_sorc_elemental_ability"						"Cold Attacks"
     	"DOTA_Tooltip_ability_sorc_elemental_ability_Description"			"Attacks explode in an AOE around their target and slow all who are affected. AOE damage is magical."
