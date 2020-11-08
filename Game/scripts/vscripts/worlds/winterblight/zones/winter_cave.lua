@@ -536,11 +536,12 @@ function Winterblight:SpawnWinterRunner(position, fv)
 	-- stone.cantAggro = true
 	stone.autoAbilityCD = 1
 	stone.targetRadius = 400
-	Timers:CreateTimer(0.8, function()
-		if IsValidEntity(stone) then
-			Dungeons:DeaggroUnit(stone)
-		end
-	end)
+	--Timers:CreateTimer(0.8, function()
+	--	if IsValidEntity(stone) then
+	--		Dungeons:DeaggroUnit(stone)
+	--	end
+	--end)
+	--redledcat: commented because they non-aggroed in dimensional portals rooms but I don't know why this function includes deaggro
 	return stone
 end
 
