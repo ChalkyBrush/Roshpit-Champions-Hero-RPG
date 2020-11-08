@@ -22578,6 +22578,11 @@
                 "var_type"                "FIELD_INTEGER"
                 "element_one"             "9"
             }
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"3"
+			}
 		}
 	}
 
@@ -22998,7 +23003,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"-3"
+				"property_one"			"-6"
 			}
 		}
 	}
@@ -23017,7 +23022,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.5"
+				"property_one"			"5"
 			}
 			"02"
 			{
@@ -23083,8 +23088,8 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"zonik/timewarp_missles"
 		"AbilityCastPoint"	"0.0"
-		"AbilityCooldown"	"21"
-		"AbilityChannelTime"	"4.0"
+		"AbilityCooldown"	"18"
+		"AbilityChannelTime"	"4"
 
 		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_3"
 		"AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
@@ -23295,6 +23300,11 @@
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
 				}
 			}
+			"modifier_arcana_missles_selection_delay"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+			}
 		}
 
 		"AbilitySpecial"
@@ -23363,7 +23373,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"1.2"
+				"property_one"			"2"
 			}
 			"02"
 			{
@@ -23904,7 +23914,7 @@
 
 		// Time
 		//-------------------------------------------------------
-		"AbilityCooldown"				"<% ZHONIK_E_COOLDOWN >%"
+		"AbilityCooldown"				"12"
 		// Cost
 		//-------------------------------------------------------
 		"AbilityManaCost"				"0"
@@ -24471,7 +24481,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"4"
+				"property_one"			"3"
 			}
 			"02"
 			{
@@ -36234,7 +36244,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.2"
+				"property_one"			"0.4"
 			}
 			"02"
 			{
@@ -41558,7 +41568,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"30 80 130 180 230 280 330"
+				"damage"				"30 80 130 220 400 600 850"
 			}
 			"02"
 			{
@@ -41569,6 +41579,16 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"attack_loss"			"-25 -30 -35 -40 -45 -50 -55"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"slow"					"30 60 90 120 150 180 210"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"duration"				"12"
 			}
 		}
 		"OnAbilityPhaseStart"
@@ -41612,7 +41632,7 @@
 				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
 				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-				"Duration"				"8"
+				"Duration"				"12"
 			}
 			"modifier_leshrac_self_finder"
 			{
@@ -41628,7 +41648,7 @@
 				"IsStunDebuff"		"1"
 				"IsPurgable"	"0"
 				"IsHidden"		"1"
-				"ThinkInterval"	"0.05"
+				"ThinkInterval"	"0.1"
 				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"OnIntervalThink"
 				{
@@ -41682,10 +41702,10 @@
 				"IsDebuff"		"1"
 				"IsStunDebuff"		"1"
 				"IsPurgable"	"0"
-				"Duration"		"0.3"
+				"Duration"		"3"
 				"Properties"
 				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-12"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%slow"
 				}
 			}
 			"modifier_charge_of_light_hyper_state"
@@ -42358,7 +42378,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
+				"property_one"			"2"
 			}
 			"02"
 			{
@@ -42419,7 +42439,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"12"
+				"property_one"			"1"
 			}
 		}
 	}
@@ -46943,9 +46963,9 @@
         "BaseClass" "ability_datadriven"
         "AOERadius" "550"
         "AbilityTextureName"    "astral_ranger/crystal_arrow"
-        "AbilityCastRange"  "1800"
+        "AbilityCastRange"  "2000"
         "AbilityCastPoint"  "0.0"
-        "AbilityCooldown"   "10.0"
+        "AbilityCooldown"   "10"
         "AbilityChannelTime"    "1.5"
         "AbilityUnitDamageType" "DAMAGE_TYPE_PURE"
         "AbilityCastAnimation"  "ACT_DOTA_TAUNT"
@@ -47298,7 +47318,6 @@
 		"AbilityTextureName"	"astral_ranger/astral_rune_r_3_arcana3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilitySpecial"
 		{
 			"01"
@@ -50725,6 +50744,11 @@
 				"var_type"				"FIELD_INTEGER"
 				"element_one"			"15"
 			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"4"
+			}
 		}
 	}
 
@@ -53409,7 +53433,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"4"
+				"property_two"			"2"
 			}
 		}
 	}

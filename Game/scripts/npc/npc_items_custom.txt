@@ -10368,7 +10368,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"10"
+				"property_two"			"1"
 			}
 		}
 	}
@@ -11041,8 +11041,8 @@
 		{
 			"01"
 			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"		"1"
+				"var_type"			"FIELD_FLOAT"
+				"property_one"		"0.4"
 			}
 		}
 	}
@@ -57598,6 +57598,7 @@
 			}
 			"modifier_wind_deity_cannot_miss"
 			{
+				"IsBuff"	"1"
 				"IsHidden"	"1"
 				"States"
 				{
@@ -57606,6 +57607,7 @@
 			}
 			"modifier_wind_deity_damage_buff"
 			{
+				"IsBuff"	"1"
 				"IsHidden"	"0"
 				"TextureName"	"tanari/ancient_hero_wind_god"
 				"OnDestroy"
@@ -57619,6 +57621,7 @@
 			}
 			"modifier_wind_deity_damage_buff_effect"
 			{
+				"IsBuff"	"1"
 				"IsHidden"	"1"
 				"Properties"
 				{
