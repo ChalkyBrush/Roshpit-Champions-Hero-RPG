@@ -229,16 +229,16 @@ end
 
 function Glyphs:GetWebStatus(premiumTime, actualTime)
 	local premium = false
-	if actualTime.year < premiumTime.year then
-		premium = true
-	else
+	if actualTime.year = premiumTime.year then
 		if actualTime.month < premiumTime.month then
 			premium = true
-		else
+		elseif actualTime.month = premiumTime.month then
 			if actualTime.day <= premiumTime.day then
 				premium = true
 			end
 		end
+	elseif actualTime.year < premiumTime.year then
+		premium = true
 	end
 	return premium
 end
