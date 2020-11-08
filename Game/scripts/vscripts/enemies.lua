@@ -352,11 +352,11 @@ end
 
 Enemies.WINTERBLIGHT_STONES_BUFFS = {}
 Enemies.WINTERBLIGHT_STONES_BUFFS["attack_damage"] = 0.35
-Enemies.WINTERBLIGHT_STONES_BUFFS["roshpit_armor"] = 0.75
-Enemies.WINTERBLIGHT_STONES_BUFFS["roshpit_magic_armor"] = 0.75
+Enemies.WINTERBLIGHT_STONES_BUFFS["roshpit_armor"] = 0.9
+Enemies.WINTERBLIGHT_STONES_BUFFS["roshpit_magic_armor"] = 0.9
 Enemies.WINTERBLIGHT_STONES_BUFFS["roshpit_armor_pierce"] = 0.75
 Enemies.WINTERBLIGHT_STONES_BUFFS["roshpit_spell_pierce"] = 0.75
-Enemies.WINTERBLIGHT_STONES_BUFFS["health"] = 0.5
+Enemies.WINTERBLIGHT_STONES_BUFFS["health"] = 0.7
 Enemies.WINTERBLIGHT_STONES_BUFFS["arcane_crystals"] = 0.5
 
 Enemies.WINTERBLIGHT_CAVERN_BUFFS_PER_CHAMBER_LEVEL = {}
