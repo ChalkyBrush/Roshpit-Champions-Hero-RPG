@@ -117,7 +117,7 @@ function ConjureImage(caster, player, ability)
 		end
 		ability.illusions_table = new_table
 	end
-	if #ability.illusions_table >= 6 then
+	if #ability.illusions_table >= VOLTEX_E1_UNITS then
 		ability.illusions_table[1]:SetHealth(10)
 		ability.illusions_table[1]:ForceKill(true)
 	end
@@ -224,6 +224,7 @@ function voltex_rune_e_3_heavens_charge_onspellstart(event)
 	local maxDistance = e_3_level * VOLTEX_E3_RANGE + VOLTEX_E3_BASE_RANGE
 	local startPosition = caster:GetAbsOrigin()
 	local castedDistance = WallPhysics:GetDistance(startPosition, position)
+	voltex_rune_e_1(caster, ability)
 	if castedDistance > maxDistance then
 		local displacementVector = (position - startPosition):Normalized()
 		position = startPosition + displacementVector * maxDistance
@@ -251,6 +252,7 @@ function voltex_rune_e_3_heavens_charge_onspellstart(event)
 	Timers:CreateTimer(2, function()
 		ParticleManager:DestroyParticle(particle1, false)
 	end)
+	voltex_rune_e_1(caster, ability)
 	if caster:HasModifier("modifier_voltex_glyph_3_1") then
 		local overcharge = caster:GetAbilityByIndex(DOTA_Q_SLOT)
 		overcharge:EndCooldown()

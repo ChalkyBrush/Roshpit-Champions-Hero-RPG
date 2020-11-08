@@ -4064,7 +4064,7 @@ function Winterblight:TriBossPhaser(index)
 		summon.summonPFX = pfx
 		CustomAbilities:QuickParticleAtPoint("particles/act_2/siltbreaker_beam_channel.vpcf", Vector(-219, -14701, 150 + Winterblight.ZFLOAT), 3)
 	end
-	Timers:CreateTimer(5, function()
+	Timers:CreateTimer(2, function()
 		StartAnimation(Winterblight.TriBossTable.Azertia, {duration = 2.5, activity = ACT_DOTA_CAST_ABILITY_1, rate = 0.9})
 		local dialogueEnemies = FindUnitsInRadius(Winterblight.TriBossTable.Azertia:GetTeamNumber(), Vector(-7296, -13056), nil, 3500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 		Quests:ShowDialogueTextAzalea(dialogueEnemies, Winterblight.TriBossTable.Azertia, "DOTA_Tooltip_Ability_"..selectedAbility, 4, false)
@@ -4086,8 +4086,8 @@ function Winterblight:TriBossPhaser(index)
 		end
 	end)
 
-	Timers:CreateTimer(10, function()
-		local delay = 10
+	Timers:CreateTimer(5, function()
+		local delay = 4
 		local dialogueEnemies = FindUnitsInRadius(Winterblight.TriBossTable.Buzuki:GetTeamNumber(), Vector(-7296, -13056), nil, 3500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 		if selectedBuzuki == "multiplier" then
 			StartAnimation(Winterblight.TriBossTable.Buzuki, {duration = 2.5, activity = ACT_DOTA_CAST_ABILITY_1, rate = 1})
@@ -4115,17 +4115,17 @@ function Winterblight:TriBossPhaser(index)
 				end
 			end
 		elseif selectedBuzuki == "powerup" then
-			delay = 8
+			delay = 3
 			EmitSoundOn("Winterblight.TriBoss.Buzuki.Powerup.Start", Winterblight.TriBossTable.Buzuki)
 			StartSoundEvent("Winterblight.TriBoss.Buzuki.Powerup.LP", Winterblight.TriBossTable.Buzuki)
 			Quests:ShowDialogueTextAzalea(dialogueEnemies, Winterblight.TriBossTable.Buzuki, "buzuki_powerup", 4, false)
-			StartAnimation(Winterblight.TriBossTable.Buzuki, {duration = 5, activity = ACT_DOTA_VICTORY, rate = 1})
+			StartAnimation(Winterblight.TriBossTable.Buzuki, {duration = 2, activity = ACT_DOTA_VICTORY, rate = 1})
 			Timers:CreateTimer(0.8, function()
 				EmitSoundOn("Winterblight.TriBoss.Buzuki.Powerup.Laugh", Winterblight.TriBossTable.Buzuki)
 			end)
 			for i = 1, #spawnTable, 1 do
 				local ability = Winterblight.TriBossTable.Buzuki:FindAbilityByName("winterblight_azalea_triple_boss_ability")
-				ability:ApplyDataDrivenModifier(Winterblight.TriBossTable.Buzuki, spawnTable[i], "modifier_triboss_powering_up", {duration = 5})
+				ability:ApplyDataDrivenModifier(Winterblight.TriBossTable.Buzuki, spawnTable[i], "modifier_triboss_powering_up", {duration = 2})
 				ability:ApplyDataDrivenModifier(Winterblight.TriBossTable.Buzuki, spawnTable[i], "modifier_triboss_powered_up_multiple", {})
 				ability:ApplyDataDrivenModifier(Winterblight.TriBossTable.Buzuki, spawnTable[i], "modifier_triboss_powered_up_single", {})
 				if GameState:GetDifficultyFactor() == 3 and spawnTable[i]:GetBaseAttackTime() < 1.8 then
@@ -4134,7 +4134,7 @@ function Winterblight:TriBossPhaser(index)
 				spawnTable[i].minDungeonDrops = 5
 				spawnTable[i].maxDungeonDrops = 7
 			end
-			Timers:CreateTimer(5, function()
+			Timers:CreateTimer(2, function()
 				StopSoundEvent("Winterblight.TriBoss.Buzuki.Powerup.LP", Winterblight.TriBossTable.Buzuki)
 			end)
 		end

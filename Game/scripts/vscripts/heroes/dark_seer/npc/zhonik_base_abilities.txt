@@ -481,7 +481,7 @@
 
 		// Time
 		//-------------------------------------------------------
-		"AbilityCooldown"				"<% ZHONIK_E_COOLDOWN >%"
+		"AbilityCooldown"				"<% ZHONIK_E_COOLDOWN %>"
 		// Cost
 		//-------------------------------------------------------
 		"AbilityManaCost"				"0"

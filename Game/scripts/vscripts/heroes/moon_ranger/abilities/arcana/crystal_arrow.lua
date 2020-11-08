@@ -22,10 +22,10 @@ function crystal_arrow_channel_start(event)
 	end
 	if caster:HasModifier("modifier_crystal_arrow_freecast") then
 		local stackCount = caster:GetModifierStackCount("modifier_crystal_arrow_freecast", caster)
-		if stackCount >= ASTRAL_RANGER_R3_ARCANA3_FREECAST_STACKS then
+		if stackCount >= ASTRAL_RANGER_ARCANA3_R3_FREECAST_STACKS then
 			ability:EndCooldown()
 			if not event.dont_consume_stacks_again then
-				newStacks = stackCount - ASTRAL_RANGER_R3_ARCANA3_FREECAST_STACKS
+				newStacks = stackCount - ASTRAL_RANGER_ARCANA3_R3_FREECAST_STACKS
 				if newStacks > 0 then
 					caster:SetModifierStackCount("modifier_crystal_arrow_freecast", caster, newStacks)
 				else
@@ -87,7 +87,7 @@ function crystal_arrow_slow_end(event)
 		if r_4_level > 0 then
 			local modifier = target:FindModifierByName("modifier_crystal_arrow_chilled")
 			if modifier then
-				modifier:SetDuration(r_4_level * ASTRAL_RANGER_ARCANA2_R4_SLOW, true)
+				modifier:SetDuration(r_4_level * ASTRAL_RANGER_ARCANA3_R4_SLOW_DURATION, true)
 			end
 		else
 			target:RemoveModifierByName("modifier_crystal_arrow_chilled")
@@ -306,7 +306,7 @@ function arrow_explode(caster, ability, position, damage)
 	Timers:CreateTimer(3.5, function()
 		ParticleManager:DestroyParticle(pfx2, false)
 	end)
-	damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster) * (ASTRAL_RANGER_ARCANA3_Q2_ATK_DAMAGE_ADDED_TO_ARROW/100) * ability.r_2_level
+	damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster) * (ASTRAL_RANGER_ARCANA3_R2_ATK_DAMAGE_ADDED_TO_ARROW/100) * ability.r_2_level
 	if caster:HasModifier("modifier_astral_glyph_7_1") then
 		damage = damage * ASTRAL_RANGER_GLYPH_7_1_R_DAMAGE_MULT
 	end
@@ -323,11 +323,11 @@ end
 function crystal_arrow_passive_think(event)
 	local caster = event.caster
 	local ability = event.ability
-	local c_d_level = caster:GetRuneValue("r", 3)
-	if c_d_level > 0 then
-		local mult = 1 + math.floor(c_d_level / 60)
+	local r_3_level = caster:GetRuneValue("r", 3)
+	if r_3_level > 0 then
+		local mult = 1 + math.floor(r_3_level / ASTRAL_RANGER_ARCANA3_R3_RUNE_THRESHOLD)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_crystal_arrow_freecast", {})
-		local newStacks = math.min(caster:GetModifierStackCount("modifier_crystal_arrow_freecast", caster) + mult, c_d_level)
+		local newStacks = math.min(caster:GetModifierStackCount("modifier_crystal_arrow_freecast", caster) + mult, r_3_level)
 		caster:SetModifierStackCount("modifier_crystal_arrow_freecast", caster, newStacks)
 	else
 		caster:RemoveModifierByName("modifier_crystal_arrow_freecast")

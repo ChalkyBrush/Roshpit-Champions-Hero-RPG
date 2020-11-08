@@ -594,6 +594,7 @@ function Tanari:SpawnWindSpirit(position, fv)
 	mage.itemLevel = 70
 	Events:AdjustBossPower(mage, 6, 6, false)
 	Tanari.TanariMasterAbility:ApplyDataDrivenModifier(Tanari.TanariMaster, mage, "tanari_mountain_specter_ai", {})
+	Tanari.WindSpiritSpawn = true
 	return mage
 end
 

@@ -27,7 +27,7 @@ function start_channel(event)
 		ParticleManager:DestroyParticle(particle2, false)
 	end)
 	if caster:HasModifier("modifier_iron_treads_of_destruction") then
-		for i = 1, 10, 1 do
+		for i = 1, ZHONIK_R_ARCANA_MISSILES_IRON_TREADS_OF_DESTRUCTION, 1 do
 			create_zonik_arcana_missle(caster, ability, 300)
 		end
 	end
@@ -40,7 +40,11 @@ function arcana_missles_channel_think(event)
 	ability.interval = ability.interval + 1
 	local creationInterval = 13 - ability:GetLevel()
 	if ability.interval % creationInterval == 0 and ability.interval > 12 then
-		create_zonik_arcana_missle(caster, ability, 0)
+		for i = 1, ZHONIK_R_ARCANA_MISSILES_PER_INTERVAL, 1 do
+			Timers:CreateTimer(0.03, function()
+				create_zonik_arcana_missle(caster, ability, 0)
+			end)
+		end
 	end
 	if ability.interval == 66 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_immunity_shield", {duration = 4.2})
@@ -64,22 +68,56 @@ function create_zonik_arcana_missle(caster, ability, zOff)
 	ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin() + Vector(0, 0, 80 + zOff))
 	ParticleManager:SetParticleControl(pfx, 1, caster:GetAbsOrigin() + projectileFV * 1300)
 	ParticleManager:SetParticleControl(pfx, 2, Vector(missle.velocity, missle.velocity, missle.velocity))
-
 	missle.pfx = pfx
+	local launch_delay = 2.5
+	local launch_delay_2 = 1
+	if caster:HasModifier("modifier_iron_treads_of_destruction") then
+		launch_delay = 0.2
+		launch_delay_2 = 0.2
+	end 
+	local removal_delay = ZHONIK_R_ARCANA_REMOVAL_DELAY
 	table.insert(ability.missleTable, missle)
-	Timers:CreateTimer(3.5, function()
+	Timers:CreateTimer(2.5, function()
 		missle.locked = true
-		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, ZHONIK_R_ARCANA_SEARCH_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 		if #enemies > 0 then
-			local lockEnemy = enemies[RandomInt(1, #enemies)]
-			missle.lockEnemy = lockEnemy
-			AddFOWViewer(caster:GetTeamNumber(), lockEnemy:GetAbsOrigin(), 300, 5, false)
-			ParticleManager:SetParticleControl(pfx, 1, lockEnemy:GetAbsOrigin() + Vector(0, 0, 50))
-			ParticleManager:SetParticleControl(pfx, 2, Vector(1400, 1400, 1400))
-			EmitSoundOnLocationWithCaster(missle.position, "Zonik.ArcanaMissles.Launch", caster)
+			Timers:CreateTimer(launch_delay_2, function()
+				local lockEnemy = enemies[RandomInt(1, #enemies)]
+				missle.lockEnemy = lockEnemy
+				ability:ApplyDataDrivenModifier(caster, caster, "modifier_arcana_missles_selection_delay", {duration = 0.25})
+				AddFOWViewer(caster:GetTeamNumber(), lockEnemy:GetAbsOrigin(), 300, 5, false)
+				ParticleManager:SetParticleControl(pfx, 1, lockEnemy:GetAbsOrigin() + Vector(0, 0, 50))
+				ParticleManager:SetParticleControl(pfx, 2, Vector(1400, 1400, 1400))
+				EmitSoundOnLocationWithCaster(missle.position, "Zonik.ArcanaMissles.Launch", caster)
+			end)
 		else
-			EmitSoundOnLocationWithCaster(missle.position, "Zonik.ArcanaMissles.Fizzle", caster)
-			ParticleManager:DestroyParticle(missle.pfx, false)
+			for i = 1, removal_delay, 1 do
+				Timers:CreateTimer(i, function()
+					enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, ZHONIK_R_ARCANA_SEARCH_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+					if #enemies > 0 then			
+						local lockEnemy = enemies[RandomInt(1, #enemies)]
+						if not caster:HasModifier("modifier_arcana_missles_selection_delay") then
+							missle.lockEnemy = lockEnemy
+							ability:ApplyDataDrivenModifier(caster, caster, "modifier_arcana_missles_selection_delay", {duration = 0.15})
+							AddFOWViewer(caster:GetTeamNumber(), lockEnemy:GetAbsOrigin(), 300, 5, false)
+							ParticleManager:SetParticleControl(pfx, 1, lockEnemy:GetAbsOrigin() + Vector(0, 0, 50))
+							ParticleManager:SetParticleControl(pfx, 2, Vector(1400, 1400, 1400))
+							EmitSoundOnLocationWithCaster(missle.position, "Zonik.ArcanaMissles.Launch", caster)
+						end
+					end
+				end)
+				if #enemies > 0 then
+					break
+				end
+				if i == removal_delay and not missle.lockEnemy then
+					Timers:CreateTimer(i, function()
+						EmitSoundOnLocationWithCaster(missle.position, "Zonik.ArcanaMissles.Fizzle", caster)
+						ParticleManager:DestroyParticle(missle.pfx, false)
+						missle.lockEnemy = false
+						missle.exploded = true
+					end)
+				end
+			end
 		end
 	end)
 end
@@ -135,7 +173,21 @@ function passive_think(event)
 						local fv = (missle.lockEnemy:GetAbsOrigin() + Vector(0, 0, 50) - missle.position):Normalized()
 						missle.position = missle.position + fv * 1400 * 0.03
 						local distance = WallPhysics:GetDistance(missle.position, missle.lockEnemy:GetAbsOrigin() + Vector(0, 0, 50))
+						if not (missle.lockEnemy:IsAlive() or IsValidEntity(missle.lockEnemy)) then
+							missle.locked = true
+							missle.lockEnemy = false
+							enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, ZHONIK_R_ARCANA_SEARCH_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+							missle.lockEnemy = enemies[RandomInt(1, #enemies)]
+							passive_think(event)
+						end
 						if distance < 40 then
+							if not (missle.lockEnemy:IsAlive() or IsValidEntity(missle.lockEnemy)) then
+								missle.locked = true
+								missle.lockEnemy = false
+								enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, ZHONIK_R_ARCANA_SEARCH_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+								missle.lockEnemy = enemies[RandomInt(1, #enemies)]
+								passive_think(event)
+							end
 							EmitSoundOnLocationWithCaster(missle.position, "Zonik.ArcanaMissles.Impact", caster)
 							missle.exploded = true
 							ParticleManager:DestroyParticle(missle.pfx, false)

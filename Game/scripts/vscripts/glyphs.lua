@@ -228,19 +228,20 @@ function Glyphs:GetPlayerResources(playerID)
 end
 
 function Glyphs:GetWebStatus(premiumTime, actualTime)
-	local premium = false
-	if actualTime.year < premiumTime.year then
-		premium = true
-	else
-		if actualTime.month < premiumTime.month then
-			premium = true
-		else
-			if actualTime.day <= premiumTime.day then
-				premium = true
-			end
-		end
-	end
-	return premium
+    local premium = false
+
+    if actualTime.year < premiumTime.year then
+        return true
+    elseif actualTime.year == premiumTime.year then
+        if actualTime.month < premiumTime.month then
+            return true
+        elseif actualTime.month == premiumTime.month then
+            if actualTime.day <= premiumTime.day then
+                return true
+            end
+        end
+    end
+    return false
 end
 
 function Glyphs:CreateGlyphItem(variantName, rarityName, itemNameText, slotText, useDescription, deathLocation, requiredHero, minLevel, property1, dropIndex)

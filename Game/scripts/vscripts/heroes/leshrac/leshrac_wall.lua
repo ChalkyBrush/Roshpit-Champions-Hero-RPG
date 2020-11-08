@@ -119,10 +119,15 @@ function WallDamageThink(event)
 	local caster = event.caster
 	local ability = event.ability
 	local damage = event.damage
+	local q_3_level = caster:GetRuneValue("q", 3)
 	if caster:HasModifier("modifier_bahamut_immortal_weapon_3") then
-		damage = damage * (100+BAHAMUT_IMMORTAL_WEAPON_3_Q_DAMAGE_INCREASE_PCT)/100
+		damage = damage + BAHAMUT_IMMORTAL_WEAPON_3_Q_DAMAGE_ATTRIBUTES_MULT*(caster:GetStrength()+caster:GetAgility()+caster:GetIntellect()+caster:GetSpirit())
 	end
-	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
+	if q_3_level > 0 then
+		damage = damage + q_3_level*caster:GetMana()*BAHAMUT_Q3_MANA_TO_Q_DAMAGE_PCT/100
+	end
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_leshrac_wall_slow", {})
+	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, BAHAMUT_Q_DAMAGE_TYPE, BASE_ABILITY_Q, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 	EmitSoundOn("Hero_DeathProphet.Exorcism.Damage", target)
 	local particleName = "particles/econ/items/antimage/antimage_weapon_basher_ti5/leshrac_wall_burn.vpcf"
 	local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, target)
@@ -130,8 +135,4 @@ function WallDamageThink(event)
 	Timers:CreateTimer(0.5, function()
 		ParticleManager:DestroyParticle(pfx, false)
 	end)
-	if ability.q_3_level > 0 then
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_leshrac_wall_slow", {})
-		target:SetModifierStackCount("modifier_leshrac_wall_slow", ability, ability.q_3_level)
-	end
 end

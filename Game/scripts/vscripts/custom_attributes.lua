@@ -734,7 +734,7 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 		local modifier = unit:FindModifierByName("crystal_arrow_ad_aura")
 		local caster = modifier:GetCaster()
 		local r_1_value = caster:GetRuneValue("r", 1)
-		armor_modify = armor_modify + modifier:GetStackCount()*ASTRAL_RANGER_ARCANA3_ARMOR_AND_SPELL_PIERCE_REDUCE
+		armor_modify = armor_modify + modifier:GetStackCount()*ASTRAL_RANGER_ARCANA3_R1_ARMOR_AND_SPELL_PIERCE_REDUCE
 	end
 	if unit:HasModifier("modifier_paladin_r_1_aura_armor_stacks") then
 		local modifier = unit:FindModifierByName("modifier_paladin_r_1_aura_armor_stacks")
@@ -871,6 +871,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 		local modifier = unit:FindModifierByName("modifier_chernobog_rune_w_3_fervor_enemy_invisible")
 		armor_modify = armor_modify + modifier:GetStackCount() * CHERNOBOG_W3_ARMOR_REDUCE
     end
+	if unit:HasModifier("modifier_dummy_aura_effect_enemy_a_c_invisible") then
+		local modifier = unit:FindModifierByName("modifier_dummy_aura_effect_enemy_a_c_invisible")
+		armor_modify = armor_modify + modifier:GetStackCount()*ZHONIK_E1_ARCANA_ARMOR_LOSS
+	end
 	if unit:HasModifier("modifier_hydroxis_b_a_shield_invisible") then
 		local modifier = unit:FindModifierByName("modifier_hydroxis_b_a_shield_invisible")
 		armor_modify = armor_modify + modifier:GetStackCount()*HYDROXIS_Q2_ARMOR_AND_MAGIC_ARMOR
@@ -1380,7 +1384,7 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 		local modifier = unit:FindModifierByName("crystal_arrow_ad_aura")
 		local caster = modifier:GetCaster()
 		local r_1_value = caster:GetRuneValue("r", 1)
-		magic_armor_modify = magic_armor_modify + r_1_value*ASTRAL_RANGER_ARCANA3_ARMOR_AND_SPELL_PIERCE_REDUCE
+		magic_armor_modify = magic_armor_modify + r_1_value*ASTRAL_RANGER_ARCANA3_R1_ARMOR_AND_SPELL_PIERCE_REDUCE
 	end
 	if unit:HasModifier("modifier_paladin_d_c") then
 		local modifier = unit:FindModifierByName("modifier_paladin_d_c")

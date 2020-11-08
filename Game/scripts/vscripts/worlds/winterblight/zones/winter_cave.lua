@@ -536,11 +536,12 @@ function Winterblight:SpawnWinterRunner(position, fv)
 	-- stone.cantAggro = true
 	stone.autoAbilityCD = 1
 	stone.targetRadius = 400
-	Timers:CreateTimer(0.8, function()
-		if IsValidEntity(stone) then
-			Dungeons:DeaggroUnit(stone)
-		end
-	end)
+	--Timers:CreateTimer(0.8, function()
+	--	if IsValidEntity(stone) then
+	--		Dungeons:DeaggroUnit(stone)
+	--	end
+	--end)
+	--redledcat: commented because they non-aggroed in dimensional portals rooms but I don't know why this function includes deaggro
 	return stone
 end
 
@@ -2507,7 +2508,7 @@ end
 
 function Winterblight:Crystarium4(msg)
 	local spawnphase = Winterblight.CavernData.Chambers[msg.chamber]["spawnphase"]
-	Winterblight.CavernData.Chambers[msg.chamber]["goal"] = 240
+	Winterblight.CavernData.Chambers[msg.chamber]["goal"] = 200
 	Winterblight.CavernData.Chambers[msg.chamber]["progress"] = 0
 	local chamber_id = msg.chamber
 	if not Winterblight.SeaFortressPrecache then
@@ -2517,7 +2518,7 @@ function Winterblight:Crystarium4(msg)
 	end
 	Winterblight:OceanOnslaughtWaterProp(false)
 	Winterblight.OnslaughtUnitsSpawned = 0
-	for i = 1, 30, 1 do
+	for i = 1, 10, 1 do
 		Timers:CreateTimer(i*0.2, function()
 			Winterblight:SpawnNextOceanOnslaughtUnit(spawnphase)
 		end)

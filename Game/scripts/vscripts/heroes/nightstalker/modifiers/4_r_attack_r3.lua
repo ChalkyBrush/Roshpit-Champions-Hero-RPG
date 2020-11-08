@@ -37,7 +37,7 @@ function class:OnAttackLanded(params)
         Damage:Apply({
             victim = enemy,
             attacker = caster,
-            sourceType = BASE_NONE,
+            sourceType = BASE_ABILITY_R,
             source = self:GetAbility(),
             damage = damage,
             damageType = DAMAGE_TYPE_PHYSICAL,

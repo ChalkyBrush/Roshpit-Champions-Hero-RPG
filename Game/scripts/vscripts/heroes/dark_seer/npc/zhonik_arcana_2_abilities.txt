@@ -6,8 +6,8 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"zonik/timewarp_missles"
 		"AbilityCastPoint"	"0.0"
-		"AbilityCooldown"	"21"
-		"AbilityChannelTime"	"4.0"
+		"AbilityCooldown"	"<% ZHONIK_R_ARCANA_COOLDOWN %>"
+		"AbilityChannelTime"	"<% ZHONIK_R_ARCANA_CHANNEL_TIME %>"
 
 		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_3"
 		"AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
@@ -217,6 +217,11 @@
 				{
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
 				}
+			}
+			"modifier_arcana_missles_selection_delay"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
 			}
 		}
 

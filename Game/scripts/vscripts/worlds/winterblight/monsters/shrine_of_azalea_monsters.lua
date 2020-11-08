@@ -2025,7 +2025,7 @@ end
 function torphet_powering_up_think(event)
 	local target = event.target
 	local caster = event.caster
-	target:SetModelScale(target:GetModelScale() + 0.01)
+	target:SetModelScale(target:GetModelScale() + 0.02)
 	local newStacks = target:GetModifierStackCount("modifier_triboss_powered_up_multiple", caster) + 1
 	target:SetModifierStackCount("modifier_triboss_powered_up_multiple", casters, newStacks)
 	target:CalculateAndSaveRoshpitAttributes()

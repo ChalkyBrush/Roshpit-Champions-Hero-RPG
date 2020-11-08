@@ -5,9 +5,9 @@
         "BaseClass" "ability_datadriven"
         "AOERadius" "550"
         "AbilityTextureName"    "astral_ranger/crystal_arrow"
-        "AbilityCastRange"  "1800"
+        "AbilityCastRange"  "<% ASTRAL_RANGER_ARCANA3_CAST_RANGE %>"
         "AbilityCastPoint"  "0.0"
-        "AbilityCooldown"   "10.0"
+        "AbilityCooldown"   "<% ASTRAL_RANGER_ARCANA3_COOLDOWN %>"
         "AbilityChannelTime"    "1.5"
         "AbilityUnitDamageType" "DAMAGE_TYPE_PURE"
         "AbilityCastAnimation"  "ACT_DOTA_TAUNT"
@@ -100,7 +100,7 @@
             {
                 "IsHidden"  "1"
                 "Passive"   "1"
-                "ThinkInterval"  "0.5"
+                "ThinkInterval"  "<% ASTRAL_RANGER_ARCANA3_R3_INTERVAL %>"
                 "OnIntervalThink"
                 {
                     "RunScript"
@@ -270,7 +270,7 @@
                 "EffectAttachType" "follow_origin"
                 "Properties"
                 {
-                    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"   "<% ASTRAL_RANGER_ARCANA3_Q2_ATK_POWER_PCT %>"
+                    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"   "<% ASTRAL_RANGER_ARCANA3_R2_ATK_POWER_PCT %>"
                 }
             }
             "modifier_crystal_arrow_chilled"

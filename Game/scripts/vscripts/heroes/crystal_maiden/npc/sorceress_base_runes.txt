@@ -437,6 +437,11 @@
                 "var_type"                "FIELD_INTEGER"
                 "element_one"             "9"
             }
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"3"
+			}
 		}
 	}
 
