@@ -2631,7 +2631,7 @@
     	"DOTA_Tooltip_modifier_crystal_arrow_b_d_Description"					"Increased attack damage"	
 
     	"DOTA_Tooltip_ability_astral_rune_r_3_arcana3"							"[R3] Blessed Quiver"
-    	"DOTA_Tooltip_ability_astral_rune_r_3_arcana3_Description"				"Every 0.5 seconds gain a crystal arrow stack. If you have <font color='#ccff66'>5</font> stacks or more, Crystal Arrow can be cast with no cooldown, and <font color='#ccff66'>5</font> stacks are consumed. Amount of stacks gained per interval increases by 1 for every 60 levels this rune has."
+    	"DOTA_Tooltip_ability_astral_rune_r_3_arcana3_Description"				"Every <font color='#ccff66'>0.5</font> seconds gain a crystal arrow stack. If you have <font color='#ccff66'>5</font> stacks or more, Crystal Arrow can be cast with no cooldown, and <font color='#ccff66'>5</font> stacks are consumed. Amount of stacks gained per interval increases by 1 for every <font color='#ccff66'>20</font> levels this rune has."
     	"DOTA_Tooltip_ability_astral_rune_r_3_arcana3_property_one"				"Max Stacks"
     	"DOTA_Tooltip_ability_astral_rune_r_3_arcana3_suffix"					""
 
@@ -3372,8 +3372,10 @@
     	"DOTA_Tooltip_ability_leshrac_wall_Description"					"Element: <font color='#F6FFB5'>Holy</font><br>Bahamut conjures a wall that reveals the inadequacy of beings that pass through. Enemies near the wall are judged for being unworthy and take damage."
     	"DOTA_Tooltip_ability_leshrac_wall_Lore"						""
     	"DOTA_Tooltip_ability_leshrac_wall_damage"						"DAMAGE/TICK:"
-    	"DOTA_Tooltip_ability_leshrac_wall_wall_length"					"LENGTH:"
+    	"DOTA_Tooltip_ability_leshrac_wall_length"						"LENGTH:"
+		"DOTA_Tooltip_ability_leshrac_wall_slow"						"MOVESPEED SLOW:"
     	"DOTA_Tooltip_ability_leshrac_wall_attack_loss"					"ATTACK DECREASE %:"
+		"DOTA_Tooltip_ability_leshrac_wall_duration"					"WALL DURATION, SECONDS:"
 
     	"DOTA_Tooltip_modifier_leshrac_wall_attack_loss"				"Wall of Impunity"
     	"DOTA_Tooltip_modifier_leshrac_wall_attack_loss_Description"	"Losing Attack Damage"
@@ -3398,9 +3400,9 @@
     	"DOTA_Tooltip_modifier_bahamut_b_a_buff_Description"			"Increased attack range."
 		
 		"DOTA_Tooltip_ability_bahamut_rune_q_3"							"[Q3] Bane of the Unworthy"
-    	"DOTA_Tooltip_ability_bahamut_rune_q_3_Description"				"Enemies who stand close to a summoned wall have reduced movement speed."
-    	"DOTA_Tooltip_ability_bahamut_rune_q_3_property_one"			"Slow"
-    	"DOTA_Tooltip_ability_bahamut_rune_q_3_suffix"					""
+    	"DOTA_Tooltip_ability_bahamut_rune_q_3_Description"				"@Ability1 damage is increased by certain value, depending on hero's current Mana."
+    	"DOTA_Tooltip_ability_bahamut_rune_q_3_property_one"			"Mana to Wall damage"
+    	"DOTA_Tooltip_ability_bahamut_rune_q_3_suffix"					"%"
 		
 		"DOTA_Tooltip_ability_bahamut_rune_q_4"							"[Q4] Superior Mind"
     	"DOTA_Tooltip_ability_bahamut_rune_q_4_Description"				"Bahamut gains a passive Intelligence bonus."
@@ -3632,7 +3634,7 @@
 		"item_rpc_bahamut_glyph_3_1_description" 				"Judgement falls around Bahamut instead of in front and has <font color='#ccff66'>70</font>% larger radius."
 
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_4_1"		"[T4-1] Glyph of Barriers"
-		"item_rpc_bahamut_glyph_4_1_description" 				"Increases the duration of Wall of Impunity by <font color='#ccff66'>2</font> seconds."
+		"item_rpc_bahamut_glyph_4_1_description" 				"Increases the duration of Wall of Impunity by <font color='#ccff66'>4</font> seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_5_1"		"[T5-1] Glyph of Isolation"
 		"item_rpc_bahamut_glyph_5_1_description" 				"Increases the duration of Solitary Shell by <font color='#ccff66'>2</font> seconds and multiplies Megaflare damage by <font color='#ccff66'>2</font>."
@@ -3687,7 +3689,7 @@
 
         "DOTA_Tooltip_ability_item_rpc_bahamut_immortal_weapon_3"            "Origin Rune"
         "item_property_bahamut_immortal_weapon3"                             "Omega Waller"
-        "property_bahamut_immortal_weapon3_description"                      "Increases the length of @Ability1 by <font color='#ccff66'>100</font>% and its damage by <font color='#ccff66'>100</font>%"
+        "property_bahamut_immortal_weapon3_description"                      "Increases the length of @Ability1 by <font color='#ccff66'>100</font>% and its damage by <font color='#ccff66'>3</font>x of Hero's all attributes."
 
 
 		//Abilities
@@ -10663,13 +10665,14 @@
     	"DOTA_Tooltip_modifier_flicker_charges_Description"					"If you have 10 or more charges, blink's cooldown will not activate"	
 		
 		"DOTA_Tooltip_ability_sorceress_rune_e_2"							"[E2] Summon Water Elemental"
-    	"DOTA_Tooltip_ability_sorceress_rune_e_2_Description"				"When you cast blink - summon a Water Elemental if you don't already have one. The Water Elemental has the <font color='#ccff66'>2</font>x armor and <font color='#ccff66'>2</font>x health of Sorceress."
+    	"DOTA_Tooltip_ability_sorceress_rune_e_2_Description"				"When you cast blink - summon a Water Elemental if you don't already have one. The Water Elemental has the <font color='#ccff66'>4</font>x armor and <font color='#ccff66'>3</font>x health of Sorceress."
     	"DOTA_Tooltip_ability_sorceress_rune_e_2_property_one"				"Attack Damage"
     	"DOTA_Tooltip_ability_sorceress_rune_e_2_suffix"					""
     	"DOTA_Tooltip_ability_sorceress_rune_e_2_property_two"				"Mana cost on summon"
     	"DOTA_Tooltip_ability_sorceress_rune_e_2_suffix_two"				""
 
 		"sorc_water_elemental"												"Water Elemental"
+		"DOTA_Tooltip_modifier_elemental_slow"								"Slowed"
 		
 		"DOTA_Tooltip_ability_sorc_elemental_ability"						"Cold Attacks"
     	"DOTA_Tooltip_ability_sorc_elemental_ability_Description"			"Attacks explode in an AOE around their target and slow all who are affected. AOE damage is magical."
@@ -12415,8 +12418,8 @@
     	"DOTA_Tooltip_modifier_dummy_aura_effect_enemy_Description"		"Reduced movespeed"		
 
   		"DOTA_Tooltip_ability_zonik_rune_e_1_arcana1"						"[E1] Shattered Time"
-    	"DOTA_Tooltip_ability_zonik_rune_e_1_arcana1_Description"			"Every second that an enemy is within the warp field, they gain a stack of shattered time. Enemies with the Shattered Time debuff lose Magic Armor with each stack. Max 20 stacks."
-    	"DOTA_Tooltip_ability_zonik_rune_e_1_arcana1_property_one"			"Magic Armor Loss"
+    	"DOTA_Tooltip_ability_zonik_rune_e_1_arcana1_Description"			"Every second that an enemy is within the warp field, they gain a stack of shattered time. Enemies with the Shattered Time debuff lose Armor and Magic Armor with each stack. Max <font color='#ccff66'>10</font> stacks."
+    	"DOTA_Tooltip_ability_zonik_rune_e_1_arcana1_property_one"			"Armor and Magic Armor Loss"
     	"DOTA_Tooltip_ability_zonik_rune_e_1_arcana1_suffix"				" per stack"
 
     	"DOTA_Tooltip_modifier_dummy_aura_effect_enemy_a_c_visible"			"Shattered Time"
@@ -12465,7 +12468,7 @@
     	"DOTA_Tooltip_ability_zonik_rune_r_2_arcana2_suffix"				"%"
 
   		"DOTA_Tooltip_ability_zonik_rune_r_3_arcana2"						"[R3] Tempo Flux"
-    	"DOTA_Tooltip_ability_zonik_rune_r_3_arcana2_Description"  		"Each time a target is hit by a Timewarp Missile, they gain a stack of Tempo Flux, reducing their Magic Armor. Max <font color='#ccff66'>10</font> stacks."
+    	"DOTA_Tooltip_ability_zonik_rune_r_3_arcana2_Description"  		"Each time a target is hit by a Timewarp Missile, they gain a stack of Tempo Flux, reducing their Magic Armor. Max <font color='#ccff66'>15</font> stacks."
     	"DOTA_Tooltip_ability_zonik_rune_r_3_arcana2_property_one"			"Magic Armor Loss"	
     	"DOTA_Tooltip_ability_zonik_rune_r_3_arcana2_suffix"				""
 
@@ -14295,7 +14298,7 @@
 		"item_property_hand_of_midas"				"Midas Touch"
 		"property_hand_of_midas_description"		"<font color='#ccff66'>20</font>% chance on attack to deal <font color='#ccff66'>120</font>% of your attack damage in a <font color='#ccff66'>340</font> radius area around the target and turn them all to solid gold, freezing for <font color='#ccff66'>2</font> seconds. Max 1 freeze every <font color='#ccff66'>5</font> seconds."
 
-    	"item_rpc_hand_of_midas_ruby1"									"Midas Touch becomes Physical type with a @ruby_property1% chance, spell immune pierce included"
+    	"item_rpc_hand_of_midas_ruby1"									"When Midas Touch effect triggers, it has a @ruby_property1% chance to pierce Spell Immunity and deal Physical damage instead of Magical"
     	"item_rpc_hand_of_midas_emerald1"									"Increases the Transmutation freeze duration by @emerald_property1 seconds"
     	"item_rpc_hand_of_midas_sapphire1"									"Increases Midas Touch radius by @sapphire_property1 and damage by @sapphire_property2"
     	"item_rpc_hand_of_midas_amethyst1"									"Increases Attack Speed by @amethyst_property1 and Base Attack Damage by @amethyst_property2"
@@ -21333,9 +21336,9 @@
 		"item_rpc_winterblight_glacier_stone_desc"						"Place at the Altar of Ice in Winterblight Mountain to increase monster power."
 
 		"altar_of_ice"												"Altar of Ice"
-		"altar_of_ice_help1"										"A chilling voice appears in your head, 'Unleash the cold of the Glacier Stones, and feel the Mountain tremble.'<br><br><font color='FFFFFF'>1 Stone: Enemies have 35% increased attack damage, 75% increased Armors and Pierces, 50% increased health.</font>"
-		"altar_of_ice_help2"										"A chilling voice appears in your head, 'Unleash the cold of the Glacier Stones, and feel the Mountain tremble.'<br><br><font color='FFFFFF'>2 Stones: Enemies have 70% increased attack damage, 150% increased Armors and Pierces, 100% increased health.</font>"
-		"altar_of_ice_help3"										"A chilling voice appears in your head, 'Unleash the cold of the Glacier Stones, and feel the Mountain tremble.'<br><br><font color='FFFFFF'>3 Stones: Enemies have 105% increased attack damage, 225% increased Armors and Pierces, 150% increased health.</font>"
+		"altar_of_ice_help1"										"A chilling voice appears in your head, 'Unleash the cold of the Glacier Stones, and feel the Mountain tremble.'<br><br><font color='FFFFFF'>1 Stone: Enemies have 35% increased attack damage, 90% increased Armors and Pierces, 70% increased health.</font>"
+		"altar_of_ice_help2"										"A chilling voice appears in your head, 'Unleash the cold of the Glacier Stones, and feel the Mountain tremble.'<br><br><font color='FFFFFF'>2 Stones: Enemies have 70% increased attack damage, 180% increased Armors and Pierces, 140% increased health.</font>"
+		"altar_of_ice_help3"										"A chilling voice appears in your head, 'Unleash the cold of the Glacier Stones, and feel the Mountain tremble.'<br><br><font color='FFFFFF'>3 Stones: Enemies have 105% increased attack damage, 270% increased Armors and Pierces, 210% increased health.</font>"
 
 		"buzuki_powerup"											"Power Up!"
 

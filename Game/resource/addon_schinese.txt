@@ -4029,7 +4029,7 @@
 		"item_rpc_bahamut_glyph_3_1_description" 				"审判将落在巴哈姆特的周围而不是在其前方，同时提高 <font color='#ccff66'>70</font>% 范围。"
 
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_4_1"		"[T4-1] 围墙雕文"
-		"item_rpc_bahamut_glyph_4_1_description" 				"提高宽恕之墙的持续时间 <font color='#ccff66'>2</font> 秒。"
+		"item_rpc_bahamut_glyph_4_1_description" 				"提高宽恕之墙的持续时间 <font color='#ccff66'>4</font> 秒。"
 
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_5_1"		"[T5-1] 孤立雕文"
 		"item_rpc_bahamut_glyph_5_1_description" 				"提高孤独之盾的持续时间 <font color='#ccff66'>2</font> 秒。"
@@ -4071,7 +4071,7 @@
 
         "DOTA_Tooltip_ability_item_rpc_bahamut_immortal_weapon_3"            "原子符文"
         "item_property_bahamut_immortal_weapon3"                             "终极壁垒"
-        "property_bahamut_immortal_weapon3_description"                      "提高 @Ability1 的长度 <font color='#ccff66'>100</font>% 并且伤害提高 <font color='#ccff66'>100</font>%"
+        "property_bahamut_immortal_weapon3_description"                      "提高 @Ability1 的长度 <font color='#ccff66'>100</font>% 并且伤害提高 <font color='#ccff66'>3</font>x all attributes"
 
 
         //Abilities
@@ -20835,9 +20835,9 @@
 		"item_rpc_winterblight_glacier_stone_desc"						"放置在凛冬霜枯山脉的冰雪祭坛之上，就可以增强怪物的力量。"
 
 		"altar_of_ice"												"冰雪祭坛"
-		"altar_of_ice_help1"										"一阵寒意的声音出现在你的头上，”释放冰川宝石的寒冷，感受凛冬霜枯山脉的震颤吧！“<br><br><font color='FFFFFF'>一枚宝石: 敌人拥有 99% 的伤害减免，造成的伤害提高 100% 。</font>"
-		"altar_of_ice_help2"										"一阵寒意的声音出现在你的头上，”释放冰川宝石的寒冷，感受凛冬霜枯山脉的震颤吧！“<br><br><font color='FFFFFF'>两枚宝石: 敌人拥有 99.9% 的伤害减免，造成的伤害提高 200% 。</font>"
-		"altar_of_ice_help3"										"一阵寒意的声音出现在你的头上，”释放冰川宝石的寒冷，感受凛冬霜枯山脉的震颤吧！“<br><br><font color='FFFFFF'>三枚宝石: 敌人拥有 99.999% 的伤害减免，造成的伤害提高 300% 。</font>"
+		"altar_of_ice_help1"										"A chilling voice appears in your head, 'Unleash the cold of the Glacier Stones, and feel the Mountain tremble.'<br><br><font color='FFFFFF'>1 Stone: Enemies have 35% increased attack damage, 90% increased Armors and Pierces, 70% increased health.</font>"
+		"altar_of_ice_help2"										"A chilling voice appears in your head, 'Unleash the cold of the Glacier Stones, and feel the Mountain tremble.'<br><br><font color='FFFFFF'>2 Stones: Enemies have 70% increased attack damage, 180% increased Armors and Pierces, 140% increased health.</font>"
+		"altar_of_ice_help3"										"A chilling voice appears in your head, 'Unleash the cold of the Glacier Stones, and feel the Mountain tremble.'<br><br><font color='FFFFFF'>3 Stones: Enemies have 105% increased attack damage, 270% increased Armors and Pierces, 210% increased health.</font>"
 
 		"buzuki_powerup"											"为所欲为!"
 
