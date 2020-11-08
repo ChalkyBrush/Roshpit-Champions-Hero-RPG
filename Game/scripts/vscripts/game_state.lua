@@ -2847,6 +2847,9 @@ function GameState:FilterDamage(filterTable)
 			end
 		end
 	end
+	if victim:HasModifier("modifier_triboss_powered_up_multiple") then
+		filterTable["damage"] =	filterTable["damage"]*0.1
+	end
 	if victim:HasModifier("modifier_winterblight_cavern_unit") then
 		local chamber_level = 1
 		if victim.chamber == 0 then
