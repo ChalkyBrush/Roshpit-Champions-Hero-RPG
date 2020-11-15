@@ -32,6 +32,10 @@ function modifierClass:OnCreated()
     })
 end
 
+function modifierClass:IsPassive()
+    return true
+end
+
 function modifierClass:IsHidden()
     return true
 end

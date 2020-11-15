@@ -3390,13 +3390,14 @@ function GameState:FilterDamage(filterTable)
 				end
 			end
 		end
-		if victim:HasModifier("modifier_solunia_glyph_5_a") and not death_prevented then
-			if not victim:HasModifier("modifier_solunia_glyph_5_a_cooldown") then
-				filterTable["damage"] = victim:GetHealth() - 2
-				CustomAbilities:Protostar(victim)
-				death_prevented = true
-			end
-		end
+		--legacy glyph code?
+		--if victim:HasModifier("modifier_solunia_glyph_5_a") and not death_prevented then
+			--if not victim:HasModifier("modifier_solunia_glyph_5_a_cooldown") then
+				--filterTable["damage"] = victim:GetHealth() - 2
+				--CustomAbilities:Protostar(victim)
+				--death_prevented = true
+			--end
+		--end
 		if victim:HasModifier("modifier_paladin_arcana2_passive") and not death_prevented then
 			local e_1_level = victim:GetRuneValue("e", 1)
 			if e_1_level > 0 then
