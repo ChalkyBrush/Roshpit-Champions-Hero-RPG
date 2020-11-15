@@ -15844,7 +15844,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"life_drain"			"200 800 2400"
+				"life_drain"			"200 800 1200"
 			}
 			"02"
 			{
