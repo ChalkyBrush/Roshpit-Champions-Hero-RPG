@@ -111,7 +111,7 @@ function torturok_take_damage(event)
 		caster.projectiles = 0
 	end
 	local key = caster:GetEntityIndex() .. '_torturok_projectiles'
-	Util.Common:LimitPerTime(1, 0.25, key, function()
+	Util.Common:LimitPerTime(1, 0.2, key, function()
 		local info =
 		{
 			Target = attacker,
