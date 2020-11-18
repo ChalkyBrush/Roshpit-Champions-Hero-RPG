@@ -245,7 +245,7 @@ function modifier_solunia_w_passive:OnCastEAbility()
 	local ability = self:GetAbility()
 	local caster = self:GetCaster()
 	local w_2_level = caster:GetRuneValue("w", 2)
-	if w_2_level > 0 then
+	if w_2_level > 0  and ability.boomerangTable then
 		for i = 1, #ability.boomerangTable, 1 do
 			local boomerang = ability.boomerangTable[i]
 			CustomAbilities:QuickParticleAtPoint(ability:GetW2ParticleName(), boomerang:GetAbsOrigin(), 3)

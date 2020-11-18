@@ -110,7 +110,8 @@ function torturok_take_damage(event)
 	if not caster.projectiles then
 		caster.projectiles = 0
 	end
-	if caster.projectiles < 25 then
+	local key = caster:GetEntityIndex() .. '_torturok_projectiles'
+	Util.Common:LimitPerTime(1, 0.2, key, function()
 		local info =
 		{
 			Target = attacker,
@@ -128,8 +129,9 @@ function torturok_take_damage(event)
 			iVisionRadius = 0,
 			iMoveSpeed = 600,
 		iVisionTeamNumber = caster:GetTeamNumber()}
+		
 		local projectile = ProjectileManager:CreateTrackingProjectile(info)
-	end
+	end)
 end
 
 function torturok_projectile_hit(event)
