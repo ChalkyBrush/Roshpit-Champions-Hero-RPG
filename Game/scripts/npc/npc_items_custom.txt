@@ -57809,12 +57809,12 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"18 36 54 72 90"
+				"amethyst1"				"24 48 72 96 120"
 			}
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst2"				"30 60 90 120 150"
+				"amethyst2"				"20 40 60 80 100"
 			}
 		}
 	}

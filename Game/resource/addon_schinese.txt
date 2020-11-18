@@ -14910,7 +14910,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_veil_of_the_cerulean_high_guard"					"蓝天守卫面纱"
 		"item_property_veil_of_the_cerulean_high_guard"			"浓缩魔力"
-		"property_veil_of_the_cerulean_high_guard_description"	"@Ability2 耗蓝增加 <font color='#ccff66'>240</font>%，其基础技能伤害提高 <font color='#ccff66'>180</font>%。"
+		"property_veil_of_the_cerulean_high_guard_description"	"@Ability2 耗蓝增加 <font color='#ccff66'>150</font>%，其基础技能伤害提高 <font color='#ccff66'>180</font>%。"
 		"item_rpc_veil_of_the_cerulean_high_guard_ruby1"	"提高最大魔法值 @ruby_property1"
 		"item_rpc_veil_of_the_cerulean_high_guard_emerald1"	"提高魔法穿透 @emerald_property1"
 		"item_rpc_veil_of_the_cerulean_high_guard_sapphire1" "提高魔法回复 @sapphire_property1"

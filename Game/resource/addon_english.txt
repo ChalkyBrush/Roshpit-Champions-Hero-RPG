@@ -15289,7 +15289,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_veil_of_the_cerulean_high_guard"					"Veil of the Cerulean Highguard"
 		"item_property_veil_of_the_cerulean_high_guard"			"Concentrated Mana"
-		"property_veil_of_the_cerulean_high_guard_description"	"@Ability2 costs <font color='#ccff66'>240</font>% more mana and deals <font color='#ccff66'>180</font>% increased damage."
+		"property_veil_of_the_cerulean_high_guard_description"	"@Ability2 costs <font color='#ccff66'>150</font>% more mana and deals <font color='#ccff66'>180</font>% increased damage."
 
 		"item_rpc_veil_of_the_cerulean_high_guard_ruby1"	"Increases Max Mana by @ruby_property1"
 		"item_rpc_veil_of_the_cerulean_high_guard_emerald1"	"Increases Spell Pierce by @emerald_property1"

@@ -70119,7 +70119,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"100 200 400"
+				"damage"			"100 400 900"
 			}
 			"02"
 			{
@@ -70331,7 +70331,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_per_distance"		"2 20 40"
+				"damage_per_distance"		"1 2 10"
 			}
 		}
 		"Modifiers"
@@ -85024,7 +85024,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"life_drain"			"200 800 2400"
+				"life_drain"			"200 800 1200"
 			}
 			"02"
 			{

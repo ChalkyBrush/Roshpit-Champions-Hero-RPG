@@ -15163,7 +15163,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_veil_of_the_cerulean_high_guard"					"Veil of the Cerulean Highguard"
 		"item_property_veil_of_the_cerulean_high_guard"			"Concentrated Mana"
-		"property_veil_of_the_cerulean_high_guard_description"	"@Ability2 стоит <font color='#ccff66'>240</font>% больше Маны и получает <font color='#ccff66'>180</font>% усиленный Урон Способности."
+		"property_veil_of_the_cerulean_high_guard_description"	"@Ability2 стоит <font color='#ccff66'>150</font>% больше Маны и получает <font color='#ccff66'>180</font>% усиленный Урон Способности."
 
 		"item_rpc_veil_of_the_cerulean_high_guard_ruby1"	"Увеличивает Максимальную Ману на @ruby_property1"
 		"item_rpc_veil_of_the_cerulean_high_guard_emerald1"	"Увеличивает Пробитие Магической Защиты на @emerald_property1"
