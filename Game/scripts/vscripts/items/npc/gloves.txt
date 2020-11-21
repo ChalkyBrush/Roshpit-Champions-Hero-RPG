@@ -3865,17 +3865,17 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_GRAND_ARCANIST_WRAPS_GEM_EMERALD * 100 %>"
+				"emerald1"			"<% ITEM_RPC_GRAND_ARCANIST_WRAPS_GEM_EMERALD %>"
 			}
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_GRAND_ARCANIST_WRAPS_GEM_SAPPHIRE * 100 %>"
+				"sapphire1"			"<% ITEM_RPC_GRAND_ARCANIST_WRAPS_GEM_SAPPHIRE %>"
 			}
 			"06"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_GRAND_ARCANIST_WRAPS_GEM_AMETHYST * 100 %>"
+				"amethyst1"			"<% ITEM_RPC_GRAND_ARCANIST_WRAPS_GEM_AMETHYST %>"
 			}
 		}
 		"OnSpellStart"
