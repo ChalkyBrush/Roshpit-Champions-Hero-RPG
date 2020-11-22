@@ -41583,7 +41583,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"slow"					"30 60 90 120 150 180 210"
+				"slow"					"-30 -50 -70 -90 -110 -130 -150"
 			}
 			"05"
 			{
@@ -41702,7 +41702,7 @@
 				"IsDebuff"		"1"
 				"IsStunDebuff"		"1"
 				"IsPurgable"	"0"
-				"Duration"		"3"
+				"Duration"		"2"
 				"Properties"
 				{
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%slow"
@@ -46311,7 +46311,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2"
+				"property_two"			"2"
 			}
 		}
 	}

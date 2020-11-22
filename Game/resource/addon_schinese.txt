@@ -11734,7 +11734,7 @@
     	"DOTA_Tooltip_modifier_voltex_rune_r_3_avatar_Description"			"提高攻击速度、攻击距离、伤害和魔甲"
 		
 		"DOTA_Tooltip_ability_voltex_rune_r_4"								"[R4] 飞舞闪电"
-    	"DOTA_Tooltip_ability_voltex_rune_r_4_Description"					"每有一个单位被 @Ability4 或[R1]击中，提高电光使者的攻击力<font color='#ccff66'>6</font> 秒。"
+    	"DOTA_Tooltip_ability_voltex_rune_r_4_Description"					"每有一个单位被 @Ability4 或[R1]击中，提高电光使者的攻击力<font color='#ccff66'>10</font> 秒。"
     	"DOTA_Tooltip_ability_voltex_rune_r_4_property_one"					"每个击中单位提高攻击力"
     	"DOTA_Tooltip_ability_voltex_rune_r_4_suffix"						"%"
 
@@ -12964,7 +12964,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_boots_of_pure_waters"							"纯净水之靴"
 		"item_property_pure_waters"							"纯净水"
-        "property_pure_waters_description"                  "释放 @Ability3 后，释放出一道激流，对路径上的敌人造成 <font color='#ccff66'>1</font>x 你的智力值的纯粹伤害。被纯净水击中的敌人的将会被减速 <font color='#ccff66'>30</font>% ，持续 <font color='#ccff66'>4</font> 秒.<br>每 <font color='#ccff66'>1</font> 秒只能触发一次"
+        "property_pure_waters_description"                  "释放 @Ability3 后，释放出一道激流，对路径上的敌人造成 <font color='#ccff66'>7</font>x 你的智力值的纯粹伤害。被纯净水击中的敌人的将会被减速 <font color='#ccff66'>30</font>% ，持续 <font color='#ccff66'>4</font> 秒.<br>每 <font color='#ccff66'>0.1</font> 秒只能触发一次"
 
         "item_rpc_boots_of_pure_waters_ruby1"                           " @ruby_property1% 攻击力加入到激流的伤害中，并且普通攻击有 @ruby_property2% 概率触发一次纯净水，该次触发不会进入冷却。"
         "item_rpc_boots_of_pure_waters_emerald1"                            "增加纯净水的穿行速度 @emerald_property1 以及他的伤害 @emerald_property2"
@@ -13195,8 +13195,8 @@
 		"DOTA_Tooltip_ability_item_rpc_storm_pacer_sabatons"        "风暴漫步者之靴"
 
         	"item_property_storm_pacer_sabatons"                        "风暴漫步者"
-        "property_storm_pacer_sabatons_description"                 "释放 @Ability3后，你将会释放一个范围为 <font color='#ccff66'>700</font>的静电之环，对敌人造成2次伤害，一次在扩散时，一次在收缩时。伤害为<font color='#ccff66'>70</font>% 的攻击力，元素为你最后一次造成的伤害的元素。内置冷却时间 <font color='#ccff66'>4</font> 秒。"
-        "item_rpc_storm_pacer_sabatons_ability_tooltip"		"Can create a static ring on cast once every <font color='#ccff66'>4</font>s."
+        "property_storm_pacer_sabatons_description"                 "释放 @Ability3后，你将会释放一个范围为 <font color='#ccff66'>800</font>的静电之环，对敌人造成2次伤害，一次在扩散时，一次在收缩时。伤害为<font color='#ccff66'>500</font>% 的攻击力，元素为你最后一次造成的伤害的元素。内置冷却时间 <font color='#ccff66'>2</font> 秒。"
+        "item_rpc_storm_pacer_sabatons_ability_tooltip"		"Can create a static ring on cast once every <font color='#ccff66'>2</font>s."
 
         "item_rpc_storm_pacer_sabatons_ruby1"        "增加静电之环的范围 @ruby_property1 以及他的伤害 @ruby_property2"
         "item_rpc_storm_pacer_sabatons_emerald1"        "静电之环对边缘的敌人造成的伤害将会提高 @emerald_property1x ，这个伤害加成与敌人与静电之环的中心的距离有关，随着距离的减少而递减。"
@@ -14249,7 +14249,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_frostburn_gauntlets"								"霜灼护手"
 		"item_property_frostburn_gauntlets"			"霜灼"
-		"property_frostburn_gauntlets_description"	" @Ability2 有 <font color='#ccff66'>15</font>% 的概率对击中的敌人施加冰爆，在<font color='#ccff66'>240</font> 范围内造成 <font color='#ccff66'>15</font>% 基础伤害的伤害 . 被冰爆击中的敌人移动速度和攻击速度降低 <font color='#ccff66'>100</font> 持续 <font color='#ccff66'>4</font> 秒. 每秒最多触发 <font color='#ccff66'>3</font> 次."
+		"property_frostburn_gauntlets_description"	" @Ability2 有 <font color='#ccff66'>15</font>% 的概率对击中的敌人施加冰爆，在<font color='#ccff66'>240</font> 范围内造成 <font color='#ccff66'>150</font>% 基础伤害的伤害 . 被冰爆击中的敌人移动速度和攻击速度降低 <font color='#ccff66'>100</font> 持续 <font color='#ccff66'>4</font> 秒. 每秒最多触发 <font color='#ccff66'>5</font> 次."
 		"DOTA_Tooltip_modifier_frostburn_gauntlets_slow"	"霜灼"
 		"DOTA_Tooltip_modifier_frostburn_gauntlets_slow_Description"	"被减速"
 
@@ -15053,7 +15053,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_demon_mask"										"恶魔面具"
 		"item_property_demon"						"恶魔之泪"
-		"property_demon_description"				"受到 @Ability1 伤害的敌人有 <font color='#ccff66'>15</font>% 几率释放一道火花，对目标<font color='#ccff66'>450</font>范围内的所有单位造成 <font color='#ccff66'>100</font>% 该技能的伤害。每秒最多触发<font color='#ccff66'>7</font>次。"
+		"property_demon_description"				"受到 @Ability1 伤害的敌人有 <font color='#ccff66'>15</font>% 几率释放一道火花，对目标<font color='#ccff66'>450</font>范围内的所有单位造成 <font color='#ccff66'>240</font>% 该技能的伤害。每秒最多触发<font color='#ccff66'>7</font>次。"
 		"item_rpc_demon_mask_ruby1"	"恶魔之泪伤害增加[Q] 技能的@ruby_property1% "
 		"item_rpc_demon_mask_emerald1"	"提高 [Q3] 符文 @emerald_property1"
 		"item_rpc_demon_mask_sapphire1" "提高恶魔之泪的触发概率 @sapphire_property1%"
@@ -15129,7 +15129,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_stormcrack_helm"								"风暴裂痕之头"
 		 "item_property_stormcrack2"						"风暴裂痕"
-		"property_stormcrack_description"					"当你眩晕一个敌人时, 对其造成 <font color='#ccff66'>70</font>% 你的攻击力的魔法伤害. 每秒最多触发 <font color='#ccff66'>12</font> 次."
+		"property_stormcrack_description"					"当你眩晕一个敌人时, 对其造成 <font color='#ccff66'>90</font>% 你的攻击力的魔法伤害. 每秒最多触发 <font color='#ccff66'>15</font> 次."
 
 		"item_rpc_stormcrack_helm_ruby1"	"延长你造成的所有眩晕时间 @ruby_property1%"
 		"item_rpc_stormcrack_helm_emerald1"	"风暴裂痕效果每秒能多触发 @emerald_property1 次"
@@ -15192,7 +15192,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_water_deity_crown"								"水神的王冠"
 		 "item_property_water_deity"							"水神谴"
-		"property_water_deity_description"						"@Ability4 造成额外 <font color='#ccff66'>35</font>% <font color='#3894FF'>水</font> 元素伤害并降低敌人的移动速度 <font color='#ccff66'>60</font>% 持续 <font color='#ccff66'>6</font> 秒. 每秒最多触发 <font color='#ccff66'>7</font> 次."
+		"property_water_deity_description"						"@Ability4 造成额外 <font color='#ccff66'>70</font>% <font color='#3894FF'>水</font> 元素伤害并降低敌人的移动速度 <font color='#ccff66'>60</font>% 持续 <font color='#ccff66'>6</font> 秒. 每秒最多触发 <font color='#ccff66'>10</font> 次."
 		"DOTA_Tooltip_modifier_water_deity_crown_slow"					"水神谴"
 		"DOTA_Tooltip_modifier_water_deity_crown_slow_Description"		"移速降低"
 
@@ -15577,7 +15577,7 @@
 		"item_property_azure_empire"				"天空法官"
 		"property_azure_empire_description"			"<font color='#ccff66'>3</font>只雄鹰跟随你，每只吸收一次纯碎伤害或魔法伤害。雄鹰在受到伤害 <font color='#ccff66'>3</font> 秒后重生"
 		"item_property_azure_empire_silver"				"银色天空"
-		"property_azure_empire_silver_description"	"每只存在的雄鹰提高玩家的基础技能伤害 <font color='#ccff66'>20</font>% 。"
+		"property_azure_empire_silver_description"	"每只存在的雄鹰提高玩家的基础技能伤害 <font color='#ccff66'>40</font>% 。"
 		"item_property_azure_empire_green"				"玉色天空"
 		"property_azure_empire_green_description"	"每只存在的雄鹰提高玩家的敏捷值 <font color='#ccff66'>1</font>x 当前英雄等级。"
 		"item_property_azure_empire_red"				"绯红天空"
@@ -15692,7 +15692,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_volcano_orb"										"火山石"
 		"item_property_volcano_orb"					"火热之心"
-        "property_volcano_orb_description"          "全属性提高魔法穿透 <font color='#ccff66'>1</font>."
+        "property_volcano_orb_description"          "全属性提高魔法穿透 <font color='#ccff66'>4</font>."
 
 		"item_rpc_volcano_orb_ruby1"										"提高力量值 @ruby_property1"
 		"item_rpc_volcano_orb_emerald1"										"提高敏捷值 @emerald_property1"
@@ -16100,7 +16100,7 @@
        "DOTA_Tooltip_ability_item_rpc_mortuary_charm"                              "尸鬼挂件"
 
         "item_property_mortuary_charm"                  "灵气"
-        "property_mortuary_charm_description"           "<font color='#ccff66'>3</font> 个鬼魂将会跟随你，攻击你周围 <font color='#ccff66'>650</font> 范围内的敌人。当敌人被攻击时，敌人将会受到 <font color='#ccff66'>30</font>% 召唤者的攻击力的伤害并且被麻痹 <font color='#ccff66'>0.2</font> 秒"
+        "property_mortuary_charm_description"           "<font color='#ccff66'>3</font> 个鬼魂将会跟随你，攻击你周围 <font color='#ccff66'>650</font> 范围内的敌人。当敌人被攻击时，敌人将会受到 <font color='#ccff66'>100</font>% 召唤者的攻击力的伤害并且被麻痹 <font color='#ccff66'>0.2</font> 秒"
 
        "DOTA_Tooltip_modifier_mortuary_paralyze"        "灵气"
        "DOTA_Tooltip_modifier_mortuary_paralyze_Description"    "被麻痹"

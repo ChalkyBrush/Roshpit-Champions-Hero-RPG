@@ -3379,6 +3379,8 @@
 
     	"DOTA_Tooltip_modifier_leshrac_wall_attack_loss"				"Wall of Impunity"
     	"DOTA_Tooltip_modifier_leshrac_wall_attack_loss_Description"	"Losing Attack Damage"
+		"DOTA_Tooltip_modifier_leshrac_wall_slow"						"Wall of Impunity"
+		"DOTA_Tooltip_modifier_leshrac_wall_slow_Description"			"Slowed"
 		
 		"DOTA_Tooltip_ability_bahamut_rune_q_1"							"[Q1] Remnants of Honor"
     	"DOTA_Tooltip_ability_bahamut_rune_q_1_Description"				"Standing near a summoned wall restores mana to Bahamut, and increases max mana by the same amount. Max <font color='#ccff66'>500</font> stacks."
@@ -5002,7 +5004,7 @@
     	"DOTA_Tooltip_ability_djanghor_rune_w_1_suffix"								"% of damage dealt"
 
 		"DOTA_Tooltip_ability_djanghor_rune_w_2"									"[W2] Feeding Frenzy"
-		"DOTA_Tooltip_ability_djanghor_rune_w_2_Description"						"Killing an enemy unit gives Djanghor a stack of bonus Armor Pierce and Health Regeneration, which have base duration of <font color='#ccff66'>10</font> seconds and expire at once. <br>Maximum <font color='#ccff66'>20</font> stacks."
+		"DOTA_Tooltip_ability_djanghor_rune_w_2_Description"						"Killing an enemy unit gives Djanghor a stack of bonus Armor Pierce and Health Regeneration, which have a base duration of <font color='#ccff66'>10</font> seconds and expire all at once. <br>Maximum <font color='#ccff66'>20</font> stacks."
 		"DOTA_Tooltip_ability_djanghor_rune_w_2_property_one"						"Armor Pierce"
 		"DOTA_Tooltip_ability_djanghor_rune_w_2_suffix"								""
 		"DOTA_Tooltip_ability_djanghor_rune_w_2_property_two"						"Health Regeneration"
@@ -5113,6 +5115,8 @@
 		"DOTA_Tooltip_ability_djanghor_year_beast_charge_movespeed_increase"				"SPRINT MOVESPEED INCREASE:"
 		"DOTA_Tooltip_ability_djanghor_year_beast_charge_movespeed_cap"						"SPRINT MOVESPEED CAP INCREASE:"
 		"DOTA_Tooltip_ability_djanghor_year_beast_charge_duration"							"SPRINT DURATION:"
+		
+		"DOTA_Tooltip_modifier_wolf_sprint"												"Beast Sprint"
 
 		"DOTA_Tooltip_ability_draghor_year_beast_leap"									"Majestic Leap"
 		"DOTA_Tooltip_ability_draghor_year_beast_leap_Description"						"Element: <font color='#69BC71'>Nature</font> / <font color='#AF843D'>Earth</font><br>Jumps toward the target location and creates a quake that stuns and damages enemies around the landing point. Applies [E1] Marshlands after landing."
@@ -12101,7 +12105,7 @@
     	"DOTA_Tooltip_modifier_voltex_rune_r_3_avatar_Description"			"Increased attack speed, range, damage, and Magic Armor."
 		
 		"DOTA_Tooltip_ability_voltex_rune_r_4"								"[R4] Thundershock"
-    	"DOTA_Tooltip_ability_voltex_rune_r_4_Description"					"Each hit with @Ability4 or [R1] increases Voltex's attack damage for <font color='#ccff66'>6</font> seconds."
+    	"DOTA_Tooltip_ability_voltex_rune_r_4_Description"					"Each hit with @Ability4 or [R1] increases Voltex's attack damage for <font color='#ccff66'>10</font> seconds. <font color='#ccff66'>100</font> stacks limit."
 		"DOTA_Tooltip_ability_voltex_rune_r_4_property_one"					"Bonus Attack Damage"
     	"DOTA_Tooltip_ability_voltex_rune_r_4_suffix"					     "% per strike"
 
@@ -12659,7 +12663,7 @@
     	"DOTA_Tooltip_ability_item_rpc_boots_of_pure_waters"							"Boots of Pure Waters"
 
 		"item_property_pure_waters"							"Clear Waves"
-		"property_pure_waters_description"					"When you cast @Ability3, launch a trail of water that deals <font color='#ccff66'>1</font>x your Intelligence as Pure damage to enemies in its patch. Enemies hit by Clear Waves are slowed by <font color='#ccff66'>30</font>% for <font color='#ccff66'>4</font> seconds.<br>Can only trigger once every <font color='#ccff66'>1</font> second."
+		"property_pure_waters_description"					"When you cast @Ability3, launch a trail of water that deals <font color='#ccff66'>7</font>x your Intelligence as Pure damage to enemies in its patch. Enemies hit by Clear Waves are slowed by <font color='#ccff66'>30</font>% for <font color='#ccff66'>4</font> seconds.<br>Can only trigger once every <font color='#ccff66'>0.1</font> second."
 
     	"item_rpc_boots_of_pure_waters_ruby1"							"Increases the Wave's Damage by @ruby_property1% of Attack Power, and attacks have a @ruby_property2% chance to trigger a Clear Wave with no cooldown"
     	"item_rpc_boots_of_pure_waters_emerald1"							"Increases Wave travel speed by @emerald_property1 and its damage by @emerald_property2"
@@ -13042,8 +13046,8 @@
         "DOTA_Tooltip_ability_item_rpc_storm_pacer_sabatons"        "Storm Pacer Sabatons"
 
         "item_property_storm_pacer_sabatons"                        "Static Corona"
-        "property_storm_pacer_sabatons_description"                 "When you cast @Ability3, a <font color='#ccff66'>700</font>-radius static ring expands outward from you, damaging enemies once while expanding and again while contracting back toward you. Damage is based on <font color='#ccff66'>70</font>% of attack power and has the same element as the last elemental damage you dealt. Ring emission has a <font color='#ccff66'>4</font> second cooldown."
-        "item_rpc_storm_pacer_sabatons_ability_tooltip"		"Can create a static ring on cast once every <font color='#ccff66'>4</font>s."
+        "property_storm_pacer_sabatons_description"                 "When you cast @Ability3, a <font color='#ccff66'>800</font>-radius static ring expands outward from you, damaging enemies once while expanding and again while contracting back toward you. Damage is based on <font color='#ccff66'>500</font>% of attack power and has the same element as the last elemental damage you dealt. Ring emission has a <font color='#ccff66'>2</font> second cooldown."
+        "item_rpc_storm_pacer_sabatons_ability_tooltip"		"Can create a static ring on cast once every <font color='#ccff66'>2</font>s."
 
         "item_rpc_storm_pacer_sabatons_ruby1"        "Increases the corona radius by @ruby_property1 and its damage by @ruby_property2"
         "item_rpc_storm_pacer_sabatons_emerald1"        "Static Corona can deal up to @emerald_property1x increased damage at the edge of the ring, decreasing linearly toward the center"
@@ -14186,7 +14190,7 @@
     	"DOTA_Tooltip_ability_item_rpc_frostburn_gauntlets"								"Frostburn Gauntlets"
 
 		"item_property_frostburn_gauntlets"			"Frostburn"
-		"property_frostburn_gauntlets_description"	"Enemies hit by @Ability2 have a <font color='#ccff66'>15</font>% chance to trigger a frost nova that deals <font color='#ccff66'>15</font>% of the original damage in a <font color='#ccff66'>240</font> radius. Enemies hit by the nova have their movement speed slowed by <font color='#ccff66'>100</font> for <font color='#ccff66'>4</font> seconds. Max <font color='#ccff66'>3</font> procs per second."
+		"property_frostburn_gauntlets_description"	"Enemies hit by @Ability2 have a <font color='#ccff66'>15</font>% chance to trigger a frost nova that deals <font color='#ccff66'>150</font>% of the original damage in a <font color='#ccff66'>240</font> radius. Enemies hit by the nova have their movement speed slowed by <font color='#ccff66'>100</font> for <font color='#ccff66'>4</font> seconds. Max <font color='#ccff66'>5</font> procs per second."
 		"DOTA_Tooltip_modifier_frostburn_gauntlets_slow"	"Frostburn"
 		"DOTA_Tooltip_modifier_frostburn_gauntlets_slow_Description"	"Slowed"
 
@@ -14880,7 +14884,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_demon_mask"										"Demon Mask"
 		"item_property_demon"						"Underworld Tear"
-		"property_demon_description"				"Enemies damaged by @Ability1 have a <font color='#ccff66'>15</font>% chance to trigger an infernal spark, dealing <font color='#ccff66'>100</font>% of the ability's damage in a <font color='#ccff66'>450</font> area around the target. Maximum <font color='#ccff66'>7</font> procs per second."
+		"property_demon_description"				"Enemies damaged by @Ability1 have a <font color='#ccff66'>15</font>% chance to trigger an infernal spark, dealing <font color='#ccff66'>240</font>% of the ability's damage in a <font color='#ccff66'>450</font> area around the target. Maximum <font color='#ccff66'>7</font> procs per second."
 
 
 		"item_rpc_demon_mask_ruby1"	"Underworld Tear damage increased by an additional @ruby_property1% of [Q] damage"
@@ -15186,7 +15190,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_stormcrack_helm"								"Stormcrack Helm"
 		"item_property_stormcrack"						"Stormcrack"
-		"property_stormcrack_description"					"When you stun an enemy, deal <font color='#ccff66'>70</font>% of your attack power as Magical damage. Max <font color='#ccff66'>12</font> triggers per second."
+		"property_stormcrack_description"					"When you stun an enemy, deal <font color='#ccff66'>90</font>% of your attack power as Magical damage. Max <font color='#ccff66'>15</font> triggers per second."
 
 		"item_rpc_stormcrack_helm_ruby1"	"Increases the duration of all your stuns by @ruby_property1%"
 		"item_rpc_stormcrack_helm_emerald1"	"Increases Stormcrack's limit per second by @emerald_property1 triggers"
@@ -15299,7 +15303,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_water_deity_crown"								"Water Deity Crown"
 		"item_property_water_deity"							"Wrath of Water"
-		"property_water_deity_description"						"@Ability4 deals additional <font color='#ccff66'>35</font>% <font color='#3894FF'>Water</font> damage and slows the enemy's movement speed by <font color='#ccff66'>60</font>% for <font color='#ccff66'>6</font> seconds. Maximum of <font color='#ccff66'>7</font> triggers per second."
+		"property_water_deity_description"						"@Ability4 deals additional <font color='#ccff66'>70</font>% <font color='#3894FF'>Water</font> damage and slows the enemy's movement speed by <font color='#ccff66'>60</font>% for <font color='#ccff66'>6</font> seconds. Maximum of <font color='#ccff66'>10</font> triggers per second."
 		"DOTA_Tooltip_modifier_water_deity_crown_slow"					"Wrath of Water"
 		"DOTA_Tooltip_modifier_water_deity_crown_slow_Description"		"Movement slowed"
 
@@ -15529,7 +15533,7 @@
         "item_property_azure_empire"                "Sky Magistrate"
         "property_azure_empire_description"         "<font color='#ccff66'>3</font> azure hawks accompany you, absorbing <font color='#ccff66'>1</font> instance of Magical or Pure damage each. Hawks regenerate <font color='#ccff66'>3</font> seconds after absorbing a hit."
         "item_property_azure_empire_silver"             "Silver Skies"
-        "property_azure_empire_silver_description"  "Each active hawk increases Base Ability Damage by <font color='#ccff66'>20</font>%"
+        "property_azure_empire_silver_description"  "Each active hawk increases Base Ability Damage by <font color='#ccff66'>40</font>%"
         "item_property_azure_empire_green"              "Jade Skies"
         "property_azure_empire_green_description"   "Each active hawk increases Agility by <font color='#ccff66'>1</font>x your hero's level."
         "item_property_azure_empire_red"                "Crimson Skies"
@@ -16042,7 +16046,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_volcano_orb"										"Volcano Orb"
         "item_property_volcano_orb"                 "Fiery Core"
-        "property_volcano_orb_description"          "All attributes increase Spell Pierce by <font color='#ccff66'>1</font>."
+        "property_volcano_orb_description"          "All attributes increase Spell Pierce by <font color='#ccff66'>4</font>."
 
 		"item_rpc_volcano_orb_ruby1"										"Increases Strength by @ruby_property1"
 		"item_rpc_volcano_orb_emerald1"										"Increases Agility by @emerald_property1"
@@ -16122,7 +16126,7 @@
        "DOTA_Tooltip_ability_item_rpc_mortuary_charm"                              "Mortuary Charm"
 
         "item_property_mortuary_charm"                  "Exsufflation"
-        "property_mortuary_charm_description"           "<font color='#ccff66'>3</font> ghosts follow you and attack enemies within <font color='#ccff66'>650</font> range. When attacked, enemies take <font color='#ccff66'>30</font>% of the owner's Attack Power as damage and are paralyzed for <font color='#ccff66'>0.2</font> seconds."
+        "property_mortuary_charm_description"           "<font color='#ccff66'>3</font> ghosts follow you and attack enemies within <font color='#ccff66'>650</font> range. When attacked, enemies take <font color='#ccff66'>100</font>% of the owner's Attack Power as damage and are paralyzed for <font color='#ccff66'>0.2</font> seconds."
 
        "DOTA_Tooltip_modifier_mortuary_paralyze"        "Exsufflation"
        "DOTA_Tooltip_modifier_mortuary_paralyze_Description"    "Paralyzed"
