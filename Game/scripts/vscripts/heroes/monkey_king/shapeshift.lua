@@ -273,51 +273,69 @@ function monkey_form(event)
 		if caster:HasModifier("modifier_djanghor_arcana1") then
 			bearShiftAbility = caster:FindAbilityByName("draghor_shapeshift_year_beast")
 		end
-		bearShiftAbility:ApplyDataDrivenModifier(caster, caster, "modifier_bear_b_d", {duration = DJANGHOR_R2_LINGER})
+		if bearShiftAbility then
+			bearShiftAbility:ApplyDataDrivenModifier(caster, caster, "modifier_bear_b_d", {duration = DJANGHOR_R2_LINGER})
+		end
 	end
 	if caster:HasModifier("modifier_hawk_c_d") then
 		local hawkShiftAbility = caster:FindAbilityByName("draghor_shapeshift_crow")
 		if caster:HasModifier("modifier_djanghor_arcana1") then
 			hawkShiftAbility = caster:FindAbilityByName("draghor_shapeshift_year_beast")
 		end
-		hawkShiftAbility:ApplyDataDrivenModifier(caster, caster, "modifier_hawk_c_d", {duration = DJANGHOR_R3_LINGER})
+		if hawkShiftAbility then
+			hawkShiftAbility:ApplyDataDrivenModifier(caster, caster, "modifier_hawk_c_d", {duration = DJANGHOR_R3_LINGER})
+		end
 	end
 	if caster:HasModifier("modifier_bear_c_d") then
 		local hawkShiftAbility = caster:FindAbilityByName("draghor_shapeshift_bear")
-		hawkShiftAbility:ApplyDataDrivenModifier(caster, caster, "modifier_bear_c_d", {duration = DJANGHOR_R3_LINGER})
+		if hawkShiftAbility then
+			hawkShiftAbility:ApplyDataDrivenModifier(caster, caster, "modifier_bear_c_d", {duration = DJANGHOR_R3_LINGER})
+		end
 	end
 	if caster:HasModifier("modifier_glyph_2_critical") then
 		local wolfShiftAbility = caster:FindAbilityByName("draghor_shapeshift_cat")
 		if caster:HasModifier("modifier_djanghor_arcana1") then
 			wolfShiftAbility = caster:FindAbilityByName("draghor_shapeshift_year_beast")
 		end
-		wolfShiftAbility:ApplyDataDrivenModifier(caster, caster, "modifier_glyph_2_critical", {duration = DJANGHOR_GLYPH_2_1_EFFECT_LINGERING})
+		if wolfShiftAbility then
+			wolfShiftAbility:ApplyDataDrivenModifier(caster, caster, "modifier_glyph_2_critical", {duration = DJANGHOR_GLYPH_2_1_EFFECT_LINGERING})
+		end
 	end
 	if caster:HasModifier("modifier_djanghor_glyph_3_1") then
 		local wolfShiftAbility = caster:FindAbilityByName("draghor_shapeshift_cat")
 		if caster:HasModifier("modifier_djanghor_arcana1") then
 			wolfShiftAbility = caster:FindAbilityByName("draghor_shapeshift_year_beast")
 		end
-		wolfShiftAbility:ApplyDataDrivenModifier(caster, caster, "modifier_glyph_3_evasion_monkey", {})
+		if wolfShiftAbility then
+			wolfShiftAbility:ApplyDataDrivenModifier(caster, caster, "modifier_glyph_3_evasion_monkey", {})
+		end
 	end
 	if caster:HasModifier("modifier_glyph_7_bash") then
 		local bearShiftAbility = caster:FindAbilityByName("draghor_shapeshift_bear")
 		if caster:HasModifier("modifier_djanghor_arcana1") then
 			bearShiftAbility = caster:FindAbilityByName("draghor_shapeshift_year_beast")
 		end
-		bearShiftAbility:ApplyDataDrivenModifier(caster, caster, "modifier_glyph_7_bash", {duration = DJANGHOR_GLYPH_7_1_EFFECT_LINGER})
+		if bearShiftAbility then
+			bearShiftAbility:ApplyDataDrivenModifier(caster, caster, "modifier_glyph_7_bash", {duration = DJANGHOR_GLYPH_7_1_EFFECT_LINGER})
+		end
 	end
 	if caster:HasModifier("modifier_shapeshift_cat_d_d") then
 		local wolfShiftAbility = caster:FindAbilityByName("draghor_shapeshift_cat")
-		wolfShiftAbility:ApplyDataDrivenModifier(caster, caster, "modifier_shapeshift_cat_d_d", {duration = DJANGHOR_R4_LINGER})
+		if wolfShiftAbility then
+			wolfShiftAbility:ApplyDataDrivenModifier(caster, caster, "modifier_shapeshift_cat_d_d", {duration = DJANGHOR_R4_LINGER})
+		end
 	end
 	if caster:HasModifier("modifier_shapeshift_bear_d_d") then
 		local bearShiftAbility = caster:FindAbilityByName("draghor_shapeshift_bear")
-		bearShiftAbility:ApplyDataDrivenModifier(caster, caster, "modifier_shapeshift_bear_d_d", {duration = DJANGHOR_R4_LINGER})
+		if bearShiftAbility then
+			bearShiftAbility:ApplyDataDrivenModifier(caster, caster, "modifier_shapeshift_bear_d_d", {duration = DJANGHOR_R4_LINGER})
+		end
 	end
 	if caster:HasModifier("modifier_shapeshift_crow_d_d") then
 		local hawkShiftAbility = caster:FindAbilityByName("draghor_shapeshift_crow")
-		hawkShiftAbility:ApplyDataDrivenModifier(caster, caster, "modifier_shapeshift_crow_d_d", {duration = DJANGHOR_R4_LINGER})
+		if hawkShiftAbility then
+			hawkShiftAbility:ApplyDataDrivenModifier(caster, caster, "modifier_shapeshift_crow_d_d", {duration = DJANGHOR_R4_LINGER})
+		end
 	end
 	if caster:HasModifier("modifier_year_beast_b_d_health") then
 		local ybShiftAbility = caster:FindAbilityByName("draghor_shapeshift_year_beast")
@@ -325,7 +343,9 @@ function monkey_form(event)
 	end
 	if caster:HasModifier("modifier_shapeshift_yearbeast_d_d") then
 		local ybShiftAbility = caster:FindAbilityByName("draghor_shapeshift_year_beast")
-		ybShiftAbility:ApplyDataDrivenModifier(caster, caster, "modifier_shapeshift_yearbeast_d_d", {duration = DJANGHOR_ARCANA_R_R4_LINGER})
+		if ybShiftAbility then
+			ybShiftAbility:ApplyDataDrivenModifier(caster, caster, "modifier_shapeshift_yearbeast_d_d", {duration = DJANGHOR_ARCANA_R_R4_LINGER})
+		end
 	end
 	local colorVector = Vector(0.45, 0.8, 0.6)
 	local springParticle = "particles/econ/items/monkey_king/arcana/death/monkey_king_spring_death_base.vpcf"
