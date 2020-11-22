@@ -228,7 +228,7 @@ function voltex_rune_r_4_increment(caster, ability)
 		local r_4_duration = Filters:GetAdjustedBuffDuration(caster, VOLTEX_R4_BASE_DUR, false)
 		local d_d_ability = caster.runeUnit4:FindAbilityByName("voltex_rune_r_4")
 		d_d_ability:ApplyDataDrivenModifier(caster.runeUnit4, caster, "modifier_voltex_rune_r_4_visible", {duration = r_4_duration})
-		local newStacks = caster:GetModifierStackCount("modifier_voltex_rune_r_4_visible", d_d_ability) + 1
+		local newStacks = math.min(caster:GetModifierStackCount("modifier_voltex_rune_r_4_visible", d_d_ability) + 1, VOLTEX_R4_STACK_LIMIT)
 		caster:SetModifierStackCount("modifier_voltex_rune_r_4_visible", d_d_ability, newStacks)
 		d_d_ability:ApplyDataDrivenModifier(caster.runeUnit4, caster, "modifier_voltex_rune_r_4_invisible", {duration = r_4_duration})
 		caster:SetModifierStackCount("modifier_voltex_rune_r_4_invisible", d_d_ability, newStacks * r_4_level)

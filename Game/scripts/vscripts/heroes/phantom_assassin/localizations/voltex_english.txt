@@ -165,7 +165,7 @@
     	"DOTA_Tooltip_modifier_voltex_rune_r_3_avatar_Description"			"Increased attack speed, range, damage, and Magic Armor."
 		
 		"DOTA_Tooltip_ability_voltex_rune_r_4"								"[R4] Thundershock"
-    	"DOTA_Tooltip_ability_voltex_rune_r_4_Description"					"Each hit with @Ability4 or [R1] increases Voltex's attack damage for <% VOLTEX_R4_BASE_DUR %> seconds."
+    	"DOTA_Tooltip_ability_voltex_rune_r_4_Description"					"Each hit with @Ability4 or [R1] increases Voltex's attack damage for <% VOLTEX_R4_BASE_DUR %> seconds. <% VOLTEX_R4_STACK_LIMIT %> stacks limit."
 		"DOTA_Tooltip_ability_voltex_rune_r_4_property_one"					"Bonus Attack Damage"
     	"DOTA_Tooltip_ability_voltex_rune_r_4_suffix"					     "% per strike"
 
