@@ -196,27 +196,27 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"30 80 130 220 400 600 850"
+				"damage"				"<% BAHAMUT_Q_DAMAGE %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"wall_length"			"500 550 600 650 700 750 800"
+				"wall_length"			"<% BAHAMUT_Q_WALL_LENGTH %>"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"attack_loss"			"-25 -30 -35 -40 -45 -50 -55"
+				"attack_loss"			"<% BAHAMUT_Q_ATTACK_LOSS_PCT %>"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"slow"					"30 60 90 120 150 180 210"
+				"slow"					"<% BAHAMUT_Q_MOVEMENT_SLOW %>"
 			}
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"duration"				"12"
+				"duration"				"<% BAHAMUT_Q_BASE_DURATION %>"
 			}
 		}
 		"OnAbilityPhaseStart"
@@ -308,7 +308,7 @@
 					{
 						"ModifierName"	"modifier_leshrac_wall_attack_loss"
 						"Target" 		"TARGET"
-						"Duration"		"5"
+						"Duration"		"<% BAHAMUT_Q_ATTACK_LOSS_DURATION %>"
 					}
 				}
 			}
@@ -330,7 +330,7 @@
 				"IsDebuff"		"1"
 				"IsStunDebuff"		"1"
 				"IsPurgable"	"0"
-				"Duration"		"3"
+				"Duration"		"<% BAHAMUT_Q_MOVEMENT_SLOW_DURATION %>"
 				"Properties"
 				{
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%slow"
