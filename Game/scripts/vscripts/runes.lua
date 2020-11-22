@@ -1364,6 +1364,9 @@ end
 function Runes:EasyRevertArcanaSkills(hero, abilityIndex, origAbility, arcanaAbility, internalName, rune_suffix)
 	local existingAbility = hero:FindAbilityByName(arcanaAbility)
 	local abilityLevel = existingAbility:GetLevel()
+	if not existingAbility then
+		return
+	end
 	local abilitySlot = abilityIndex
 	if abilitySlot == DOTA_R_SLOT then
 		abilitySlot = 3

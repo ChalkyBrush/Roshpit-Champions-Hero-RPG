@@ -771,7 +771,7 @@ function use_spirit_stones(event)
 					Tanari:SpawnWindSpirit(Vector(9727, 14272), Vector(-1, 0))
 				end
 			end
-			if Tanari.WaterTemple.jellyfishSlain then
+			if Tanari.WaterTemple and Tanari.WaterTemple.jellyfishSlain then
 				if not Tanari.WaterSpiritSpawn then
 					Tanari:SpawnWaterSpirit(Vector(-9901, 16128), Vector(0, -1))
 				end

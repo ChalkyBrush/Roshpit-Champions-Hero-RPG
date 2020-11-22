@@ -429,7 +429,7 @@
 
         "DOTA_Tooltip_ability_item_rpc_puzzlers_locket"             "Puzzler's Locket"
         "item_property_puzzler"                                     "Anagram"
-        "property_puzzler_description"                              "Снаряжение, имеющее бонус рун Т2 (второго ряда) применяет его к рунам Т3 (третьего ряда), и наоборот, бонус рун Т2 применяется к рунам Т3."
+        "property_puzzler_description"                              "Показатели рун Т2 (второго ряда) на снаряжении повышают соответствующие руны Т3 (третьего ряда) вместо собственно рун Т2 и наоборот. Руны Т2 при переводе в руны Т3 уменьшаются в два раза, а руны Т3 при переводе в руны Т2 увеличиваются в два раза."
 
         "item_rpc_puzzlers_locket_ruby1"                "Увеличивает [Q2] на @ruby_property1"
         "item_rpc_puzzlers_locket_emerald1"             "Увеличивает [E2] на @emerald_property1"

@@ -161,7 +161,7 @@
     	"DOTA_Tooltip_modifier_voltex_rune_r_3_avatar_Description"			"Увеличены урон, скорость атаки, дальность атаки и магическое сопротивление."
 		
 		"DOTA_Tooltip_ability_voltex_rune_r_4"								"[R4] Thundershock"
-    	"DOTA_Tooltip_ability_voltex_rune_r_4_Description"					"Voltex получает процентный бонус к атаке за каждого юнита, задетого уроном от @Ability4 или [R1]."
+    	"DOTA_Tooltip_ability_voltex_rune_r_4_Description"					"Voltex получает процентный бонус к атаке за каждого юнита, задетого уроном от @Ability4 или [R1]. Максимум <% VOLTEX_R4_STACK_LIMIT %> зарядов."
     	"DOTA_Tooltip_ability_voltex_rune_r_4_property_one"					"Бонусный урон атаки"
     	"DOTA_Tooltip_ability_voltex_rune_r_4_suffix"						"% за юнита"
 

@@ -437,8 +437,12 @@ function jump_pre_start(event)
 	if not ability.boostLock then
 		ability.boostLock = true
 		local sprintModifier = caster:FindModifierByName("modifier_wolf_sprint")
+		local sprintModifier2 = caster:FindModifierByName("modifier_djanghor_feral_sprint")
 		if sprintModifier then
 			sprintModifier:SetDuration(sprintModifier:GetRemainingTime() + 0.65, true)
+		end
+		if sprintModifier2 then
+			sprintModifier2:SetDuration(sprintModifier2:GetRemainingTime() + 0.65, true)
 		end
 		Timers:CreateTimer(1, function()
 			ability.boostLock = false
@@ -464,8 +468,12 @@ function yb_jump_start(event)
 
 	ability.interval = 0
 	local sprintModifier = caster:FindModifierByName("modifier_wolf_sprint")
+	local sprintModifier2 = caster:FindModifierByName("modifier_djanghor_feral_sprint")
 	if sprintModifier then
 		sprintModifier:SetDuration(sprintModifier:GetRemainingTime() + 1, true)
+	end
+	if sprintModifier2 then
+		sprintModifier2:SetDuration(sprintModifier2:GetRemainingTime() + 1, true)
 	end
 	-- StartAnimation(caster, {duration=1, activity=ACT_DOTA_LEAP_STUN, rate=2.0})
 	-- StartAnimation(caster, {duration=2.0, ACT_DOTA_MK_SPRING_SOAR, rate=1.0})
