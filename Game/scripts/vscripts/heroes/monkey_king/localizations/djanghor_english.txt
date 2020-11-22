@@ -177,7 +177,7 @@
     	"DOTA_Tooltip_ability_djanghor_rune_w_1_suffix"								"% of damage dealt"
 
 		"DOTA_Tooltip_ability_djanghor_rune_w_2"									"[W2] Feeding Frenzy"
-		"DOTA_Tooltip_ability_djanghor_rune_w_2_Description"						"Killing an enemy unit gives Djanghor a stack of bonus Armor Pierce and Health Regeneration, which have base duration of <% DJANGHOR_W2_DURATION_BASE %> seconds and expire at once. <br>Maximum <% DJANGHOR_W2_MAX_STACKS %> stacks."
+		"DOTA_Tooltip_ability_djanghor_rune_w_2_Description"						"Killing an enemy unit gives Djanghor a stack of bonus Armor Pierce and Health Regeneration, which have a base duration of <% DJANGHOR_W2_DURATION_BASE %> seconds and expire all at once. <br>Maximum <% DJANGHOR_W2_MAX_STACKS %> stacks."
 		"DOTA_Tooltip_ability_djanghor_rune_w_2_property_one"						"Armor Pierce"
 		"DOTA_Tooltip_ability_djanghor_rune_w_2_suffix"								""
 		"DOTA_Tooltip_ability_djanghor_rune_w_2_property_two"						"Health Regeneration"
@@ -288,6 +288,8 @@
 		"DOTA_Tooltip_ability_djanghor_year_beast_charge_movespeed_increase"				"SPRINT MOVESPEED INCREASE:"
 		"DOTA_Tooltip_ability_djanghor_year_beast_charge_movespeed_cap"						"SPRINT MOVESPEED CAP INCREASE:"
 		"DOTA_Tooltip_ability_djanghor_year_beast_charge_duration"							"SPRINT DURATION:"
+		
+		"DOTA_Tooltip_modifier_wolf_sprint"												"Beast Sprint"
 
 		"DOTA_Tooltip_ability_draghor_year_beast_leap"									"Majestic Leap"
 		"DOTA_Tooltip_ability_draghor_year_beast_leap_Description"						"Element: <font color=ELEMENT_NATURE>Nature</font> / <font color=ELEMENT_EARTH>Earth</font><br>Jumps toward the target location and creates a quake that stuns and damages enemies around the landing point. Applies [E1] Marshlands after landing."

@@ -128,7 +128,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% DJANGHOR_W2_BONUS_HP_REGEN_PER_STACK %>"
+				"property_two"			"<% DJANGHOR_W2_BONUS_HP_REGEN_PER_STACK %>"
 			}
 		}
 	}
