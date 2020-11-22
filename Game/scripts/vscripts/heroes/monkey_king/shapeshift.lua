@@ -120,6 +120,9 @@ function shapeshift_start_cat(event)
 		caster:FindModifierByName("modifier_shapeshift_cat_d_d"):SetDuration(-1, true)
 	end
 	caster:RemoveModifierByName("modifier_shapeshift_monkey_r1_thinker")
+	if not caster:HasModifier("modifier_djanghor_feral_sprint") then
+		caster:RemoveModifierByName("modifier_djanghor_feral_sprint")
+	end
 	caster:SetRoshpitPrimaryAttribute(ROSHPIT_ATTRIBUTE_AGILITY)
 	all_shift_after(caster)
 end
