@@ -249,7 +249,7 @@
 		"item_rpc_auriun_glyph_5_1_description" 				"天使形态下可以攻击并且获得<% AURIUN_GLYPH_5_1_MAGIC_RESIST %>额外魔甲。但是会移除隐身效果"
 
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_6_1"		"[T6-1] 闪光雕文"
-		"item_rpc_auriun_glyph_6_1_description" 				"Adds <% AURIUN_GLYPH_6_1_EVASION_DURATION %> seconds of Spell Immunity and <% AURIUN_GLYPH_6_1_EVASION %>% evasion when @Ability1 is applied."
+		"item_rpc_auriun_glyph_6_1_description" 				"施加 @Ability1后将会获得 <% AURIUN_GLYPH_6_1_EVASION_DURATION %> 秒技能免疫以及 <% AURIUN_GLYPH_6_1_EVASION %>% 秒闪避。"
 
 		"DOTA_Tooltip_modifier_auriun_glyph_6_1_effect"			"闪光"
 		"DOTA_Tooltip_modifier_auriun_glyph_6_1_effect_description"	"Spell immunity and <% AURIUN_GLYPH_6_1_EVASION %>%% Evasion"
