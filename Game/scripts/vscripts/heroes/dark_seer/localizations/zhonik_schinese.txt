@@ -157,7 +157,7 @@
     	"DOTA_Tooltip_modifier_dummy_aura_effect_enemy_Description"		"移动速度减缓"		
 
   		"DOTA_Tooltip_ability_zonik_rune_e_1_arcana1"						"[E1] 时间破碎"
-    	"DOTA_Tooltip_ability_zonik_rune_e_1_arcana1_Description"			"敌人每秒在次元护盾中，都将会获得一层时间破碎debuff。每层时间破碎debuff都将降低敌人的魔甲。最大层数 20层。"
+    	"DOTA_Tooltip_ability_zonik_rune_e_1_arcana1_Description"			"敌人每秒在次元护盾中，都将会获得一层时间破碎debuff。每层时间破碎debuff都将降低敌人的双甲。最大层数 20层。"
     	"DOTA_Tooltip_ability_zonik_rune_e_1_arcana1_property_one"			"魔甲降低"
     	"DOTA_Tooltip_ability_zonik_rune_e_1_arcana1_suffix"				"每层"
 
