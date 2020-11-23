@@ -172,7 +172,7 @@
     	"DOTA_Tooltip_ability_djanghor_rune_w_1_suffix"								"% 所造成的伤害"
 
     	"DOTA_Tooltip_ability_djanghor_rune_w_2"									"[W2] 碎裂"
-    	"DOTA_Tooltip_ability_djanghor_rune_w_2_Description"						"受到撕裂流血debuff的敌人生命恢复降低"
+    	"DOTA_Tooltip_ability_djanghor_rune_w_2_Description"						"击杀一个敌方单位将会获得一层buff， buff将会提高物理穿透以及生命回复，基础持续时间 <% DJANGHOR_W2_DURATION_BASE %> 秒并且持续时间结束后将会一起消失。 <br>最高 <% DJANGHOR_W2_MAX_STACKS %> 层"
     	"DOTA_Tooltip_ability_djanghor_rune_w_2_property_one"						"生命恢复降低："
     	"DOTA_Tooltip_ability_djanghor_rune_w_2_suffix"								""
 
