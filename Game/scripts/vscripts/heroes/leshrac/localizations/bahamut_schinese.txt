@@ -1,13 +1,15 @@
 		//Abilities
 		"DOTA_Tooltip_ability_leshrac_wall"								"宽恕之墙"
-    	"DOTA_Tooltip_ability_leshrac_wall_Description"					"元素： <font color=ELEMENT_HOLY>圣</font><br>巴哈姆特在前方召唤一面宽恕之墙，揭露穿过之人的不足。<br>宽恕之墙附近的敌人将被判定罪行并受到惩罚。敌人靠近墙受到持续伤害并且降低攻击力。"
-    	"DOTA_Tooltip_ability_leshrac_wall_Lore"						""
-    	"DOTA_Tooltip_ability_leshrac_wall_damage"						"每次伤害"
+    	"DOTA_Tooltip_ability_leshrac_wall_Description"					"元素： <font color=ELEMENT_HOLY>圣</font><br>巴哈姆特在前方召唤一面宽恕之墙，揭露穿过之人的不足。<br>宽恕之墙附近的敌人将被定罪并受到惩罚。敌人靠近墙将会被减速，受到持续伤害并且攻击力将会降低。"
+    	"DOTA_Tooltip_ability_leshrac_wall_Lore"					""
+    	"DOTA_Tooltip_ability_leshrac_wall_damage"					"每次伤害"
     	"DOTA_Tooltip_ability_leshrac_wall_wall_length"					"长度"
     	"DOTA_Tooltip_ability_leshrac_wall_attack_loss"					"攻击力降低 %"
-
+	"DOTA_Tooltip_ability_leshrac_wall_slow"					"移动速度:"
     	"DOTA_Tooltip_modifier_leshrac_wall_attack_loss"				"宽恕之墙"
-    	"DOTA_Tooltip_modifier_leshrac_wall_attack_loss_Description"	"攻击力降低"
+    	"DOTA_Tooltip_modifier_leshrac_wall_attack_loss_Description"			"攻击力降低"
+	"DOTA_Tooltip_modifier_leshrac_wall_slow"					"宽恕之墙"
+	"DOTA_Tooltip_modifier_leshrac_wall_slow_Description"				"被减速"
 		
 		"DOTA_Tooltip_ability_bahamut_rune_q_1"							"[Q1] 荣耀的证明"
     	"DOTA_Tooltip_ability_bahamut_rune_q_1_Description"				"站在宽恕之墙附近可以回复魔法值并且以相同的速度提高魔法值上限。"
@@ -28,10 +30,10 @@
     	"DOTA_Tooltip_modifier_bahamut_b_a_buff"						"回避"
     	"DOTA_Tooltip_modifier_bahamut_b_a_buff_Description"			"攻击距离增加"
 		
-		"DOTA_Tooltip_ability_bahamut_rune_q_3"							"[Q3] 卑劣之祸"
-    	"DOTA_Tooltip_ability_bahamut_rune_q_3_Description"				"宽恕之墙附近的敌人将被减速。"
-    	"DOTA_Tooltip_ability_bahamut_rune_q_3_property_one"			"移动速度降低"
-    	"DOTA_Tooltip_ability_bahamut_rune_q_3_suffix"					""
+		"DOTA_Tooltip_ability_bahamut_rune_q_3"				"[Q3] 卑劣之祸"
+    	"DOTA_Tooltip_ability_bahamut_rune_q_3_Description"			"@Ability1 的伤害将会被提高，数值为你的当前魔法值， 该符文为加算。"
+    	"DOTA_Tooltip_ability_bahamut_rune_q_3_property_one"			"每点当前魔法值提高墙的伤害："
+    	"DOTA_Tooltip_ability_bahamut_rune_q_3_suffix"					"%"
 		
 		"DOTA_Tooltip_ability_bahamut_rune_q_4"							"[Q4] 仁慈"
     	"DOTA_Tooltip_ability_bahamut_rune_q_4_Description"				"巴哈姆特的智力值提高。"
@@ -304,4 +306,4 @@
 
         "DOTA_Tooltip_ability_item_rpc_bahamut_immortal_weapon_3"            "原子符文"
         "item_property_bahamut_immortal_weapon3"                             "终极壁垒"
-        "property_bahamut_immortal_weapon3_description"                      "提高 @Ability1 的长度 <% BAHAMUT_IMMORTAL_WEAPON_3_Q_LENGHT_INCREASE_PCT %>% 并且伤害提高 <% BAHAMUT_IMMORTAL_WEAPON_3_Q_DAMAGE_ATTRIBUTES_MULT %>x all attributes"
+        "property_bahamut_immortal_weapon3_description"                      "提高 @Ability1 的长度 <% BAHAMUT_IMMORTAL_WEAPON_3_Q_LENGHT_INCREASE_PCT %>% 并且你的全属性总和的 <% BAHAMUT_IMMORTAL_WEAPON_3_Q_DAMAGE_ATTRIBUTES_MULT %>x加入到墙的基础伤害中"
