@@ -1,16 +1,16 @@
 		"DOTA_Tooltip_ability_draghor_shapeshift_cat"									"七十二变：狼"
-    	"DOTA_Tooltip_ability_draghor_shapeshift_cat_Description"						"变身成为狼，狼形态拥有独立一套技能。1.75秒变身时间。"
+    	"DOTA_Tooltip_ability_draghor_shapeshift_cat_Description"						"变身成为狼，狼形态拥有独立一套技能并且获得额外的魔法和纯粹抗性，同时你的每次普通攻击都会回复 0.5% 总攻击力的生命值。1.75秒变身时间。变身为该形态将会获得额外的魔法和纯粹抗性并且每次普通攻击都会回复 0.5% 总攻击力的生命值。"
     	"DOTA_Tooltip_ability_draghor_shapeshift_cat_agility_bonus"						"狼形态敏捷加成："
 	"DOTA_Tooltip_ability_draghor_shapeshift_cat_resist"							 "魔法和纯粹抗性："
 
     	"DOTA_Tooltip_ability_draghor_shapeshift_bear"									"七十二变：熊"
-    	"DOTA_Tooltip_ability_draghor_shapeshift_bear_Description"						"变身成为熊，熊形态拥有独立一套技能。1.75秒变身时间。"
+    	"DOTA_Tooltip_ability_draghor_shapeshift_bear_Description"						"变身成为熊，熊形态拥有独立一套技能并且获得额外物理和纯粹抗性。1.75秒变身时间。"
     	"DOTA_Tooltip_ability_draghor_shapeshift_bear_strength_bonus"					"熊形态力量加成："
-	"DOTA_Tooltip_ability_draghor_shapeshift_bear_resist"						"物理和纯粹减伤："
+	"DOTA_Tooltip_ability_draghor_shapeshift_bear_resist"						"物理和纯粹抗性："
 
 
     	"DOTA_Tooltip_ability_draghor_shapeshift_crow"									"七十二变：鹰"
-    	"DOTA_Tooltip_ability_draghor_shapeshift_crow_Description"						"变身成为鹰，鹰形态拥有独立一套技能。1.75秒变身时间。鹰形态下无法攻击，拥有飞行能力，并且每 0.03秒汲取 0.04% 的魔法值，如果魔法值用完或飞行中遇到障碍物，将立刻切换回本体。"
+    	"DOTA_Tooltip_ability_draghor_shapeshift_crow_Description"						"变身成为鹰，鹰形态拥有独立一套技能， 获得 5X 智力的物理和魔法伤害格挡（这个格挡计算在物抗和魔抗后，在所有减伤效果前）但是你无法进行普通攻击，拥有飞行能力，并且每 0.03秒汲取 0.01% 的魔法值，如果魔法值用完或飞行中遇到障碍物，将立刻切换回本体。1.75秒变身时间。"
     	"DOTA_Tooltip_ability_draghor_shapeshift_crow_int_bonus"						"鹰形态智力加成："
 	"DOTA_Tooltip_ability_draghor_shapeshift_crow_block" 							"每点智力抵挡的物理和魔法伤害："
 
@@ -157,7 +157,7 @@
     	"DOTA_Tooltip_ability_djanghor_rune_q_2_suffix"								""
 
     	"DOTA_Tooltip_ability_djanghor_rune_q_3"									"[Q3] 震荡"
-    	"DOTA_Tooltip_ability_djanghor_rune_q_3_Description"						"释放超声波将提高齐天大圣身上所有存在的buff的持续时间和齐天大圣装备效果的持续时间。（来自于齐天大圣自己的）Buff的持续时间只能被增加3次。 "
+    	"DOTA_Tooltip_ability_djanghor_rune_q_3_Description"						"提高所有施加于齐天大圣的技能，物品，符文的buff的持续时间。 "
     	"DOTA_Tooltip_ability_djanghor_rune_q_3_property_one"						"持续时间延长"
     	"DOTA_Tooltip_ability_djanghor_rune_q_3_suffix"								" 秒"
 
@@ -173,8 +173,10 @@
 
     	"DOTA_Tooltip_ability_djanghor_rune_w_2"									"[W2] 碎裂"
     	"DOTA_Tooltip_ability_djanghor_rune_w_2_Description"						"击杀一个敌方单位将会获得一层buff， buff将会提高物理穿透以及生命回复，基础持续时间 <% DJANGHOR_W2_DURATION_BASE %> 秒并且持续时间结束后将会一起消失。 <br>最高 <% DJANGHOR_W2_MAX_STACKS %> 层"
-    	"DOTA_Tooltip_ability_djanghor_rune_w_2_property_one"						"生命恢复降低："
-    	"DOTA_Tooltip_ability_djanghor_rune_w_2_suffix"								""
+    	"DOTA_Tooltip_ability_djanghor_rune_w_2_property_one"						"物理穿透"
+	"DOTA_Tooltip_ability_djanghor_rune_w_2_suffix"							""
+	"DOTA_Tooltip_ability_djanghor_rune_w_2_property_two"						"生命回复"
+	"DOTA_Tooltip_ability_djanghor_rune_w_2_suffix_two"						""
 
     	"DOTA_Tooltip_ability_djanghor_rune_w_3"									"[W3] 自然之怒"
     	"DOTA_Tooltip_ability_djanghor_rune_w_3_Description"						"齐天大圣的攻击力将加入到 苍穹龙卷和战争践踏 的伤害中。"
