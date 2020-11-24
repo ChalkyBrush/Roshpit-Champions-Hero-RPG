@@ -242,7 +242,7 @@
         "item_rpc_axe_glyph_3_1_description"                " @Ability3 拖拽敌人的间隔降低 <% RED_GENERAL_GLYPH_3_1_E_INTERVAL_REDUCTION * 100 %>%，每 0.09秒拖拽并伤害敌人一次。"
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_4_1"       "[T4-1] 螺旋雕文"
-        "item_rpc_axe_glyph_4_1_description"                "施放冲击波时对周围敌人造成 <% RED_GENERAL_GLYPH_4_1_DAMAGE_PROCENT %>% 总攻击力的物理伤害。该伤害还将乘以冲击波技能的等级数。"
+        "item_rpc_axe_glyph_4_1_description"                "赤色上将在释放 @Ability2 时也会释放一次回旋攻击, 对周围的敌人造成 <% RED_GENERAL_GLYPH_4_1_DAMAGE_PROCENT %>% 攻击力伤害。 @Ability2 的等级将会进一步提高该伤害。<br> 伤害类型: <font color='#8B0000'>物理</font> <br>元素: <font color=ELEMENT_NORMAL>普通</font><br><font color='#F28100'>物品伤害</font>。"
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_5_1"       "[T5-1] 撞击雕文" // lower pitch base sound high pitch strike sound
         "item_rpc_axe_glyph_5_1_description"                "骷髅锤的眩晕时间变为<% RED_GENERAL_GLYPH_5_1_Q_STUN %>秒，伤害提高 <% RED_GENERAL_GLYPH_5_1_Q_DAMAGE_AMP %>x"
