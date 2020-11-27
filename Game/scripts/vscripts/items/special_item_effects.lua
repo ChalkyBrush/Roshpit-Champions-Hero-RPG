@@ -478,7 +478,7 @@ function witch_hat_strike(event)
 		target:CalculateAndSaveRoshpitAttributes()
 	end
 	if ability:GetGemValue("sapphire") > 0 then
-		local mana_restore = ability:GetFinalGemPropertyValue("sapphire", SWAMP_WITCH_SAPPHIRE)
+		local mana_restore = ability:GetFinalGemPropertyValue("sapphire", SWAMP_WITCH_SAPPHIRE1)
 		caster:GiveMana(mana_restore)
 		PopupMana(caster, mana_restore)
 		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_nyx_assassin/nyx_assassin_mana_burn_impact_b.vpcf", caster, 1)
