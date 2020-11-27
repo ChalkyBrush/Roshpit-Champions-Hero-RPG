@@ -1588,9 +1588,6 @@ function GameState:IncomingDamageDecreaseWithType(victim, attacker, shouldConsum
 				damage = damage * (1 - result)
 			end
 		)
-		if victim:HasModifier("modifier_starseeker_passive") then
-			damage = 0
-		end
 		if victim:HasModifier("modifier_resplendent_rubber_boots") then
 			damage = damage * (100-ITEM_RPC_RESPLENDENT_RUBBER_BOOTS_DMG_REDUCTION)/100
 		end
@@ -2781,9 +2778,12 @@ function GameState:FilterDamage(filterTable)
 	end
 	if victim:HasModifier("modifier_starseeker_passive") then
 		if damagetype == DAMAGE_TYPE_MAGICAL then
-			victim:Heal(filterTable["damage"], victim)
-			PopupHealing(victim, filterTable["damage"])
-			filterTable["damage"] = 0
+			local chance_of_heal = RandomInt(1, 4)
+			if chance_of_heal < 2 then
+				victim:Heal(filterTable["damage"], victim)
+				PopupHealing(victim, filterTable["damage"])
+				filterTable["damage"] = 0
+			end
 		end
 	end
 	if damagetype == DAMAGE_TYPE_MAGICAL then
