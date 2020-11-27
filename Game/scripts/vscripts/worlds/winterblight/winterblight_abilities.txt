@@ -13050,7 +13050,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_bonus_per_stack"			"200"
+				"damage_bonus_per_stack"			"40"
 			}
 			"02"
 			{
@@ -13060,7 +13060,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_bonus_full_shark"			"20000"
+				"damage_bonus_full_shark"			"400"
 			}
 		}
 		"Modifiers"
