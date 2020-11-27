@@ -1,10 +1,10 @@
 		"DOTA_Tooltip_ability_item_rpc_alien_armor"		"Alien Armor"
 		"property_alien_armor"							"Simulation"
-		"property_alien_armor_description"				"Прочтение @Ability4 создает иллюзию героя, её урон считается уроном героя и усиливается Уроном Предметов. Иллюзия имеет <% ITEM_RPC_ALIEN_ARMOR_OUTGOING_DAMAGE_MULT%>x силы атаки героя, получает на <% ITEM_RPC_ALIEN_ARMOR_INCOMING_DAMAGE_REDUCTION %>% меньше урона, продолжительность жизни иллюзии <% ITEM_RPC_ALIEN_ARMOR_ILLUSION_DURATION %> сек. Если носитель умирает во время действия иллюзии, он возродится на месте одной из иллюзий через <% ITEM_RPC_ALIEN_ARMOR_RESPAWN_DELAY %> секундную задержку. Максимум активных иллюзий - <% ITEM_RPC_ALIEN_ARMOR_MAX_ILLUSIONS %>."
+		"property_alien_armor_description"				"Прочтение @Ability4 создает иллюзию героя, её урон считается уроном героя и усиливается Уроном Предметов. Иллюзия имеет <% ITEM_RPC_ALIEN_ARMOR_OUTGOING_DAMAGE_MULT%>x Базовой атаки героя, получает на <% ITEM_RPC_ALIEN_ARMOR_INCOMING_DAMAGE_REDUCTION %>% меньше урона, продолжительность жизни иллюзии <% ITEM_RPC_ALIEN_ARMOR_ILLUSION_DURATION %> сек. Если носитель умирает во время действия иллюзии, он возродится на месте одной из иллюзий через <% ITEM_RPC_ALIEN_ARMOR_RESPAWN_DELAY %> секундную задержку. Максимум активных иллюзий - <% ITEM_RPC_ALIEN_ARMOR_MAX_ILLUSIONS %>."
 		
 		"item_rpc_alien_armor_ruby1"		"Увеличивает максимум иллюзий на @ruby_property1"
 		"item_rpc_alien_armor_emerald1"		"Увеличивает скорость атаки иллюзий на @emerald_property1"
-		"item_rpc_alien_armor_sapphire1"		"Урон иллюзий дополнительно увеличивается на @sapphire_property1% от силы атаки героя"
+		"item_rpc_alien_armor_sapphire1"		"Урон иллюзий дополнительно увеличивается на @sapphire_property1% от Базовой атаки героя"
 		"item_rpc_alien_armor_amethyst1"		"Увеличивает длительность иллюзий на @amethyst_property1 сек"
 
 		"DOTA_Tooltip_ability_item_rpc_ancient_tanari_wind_armor"						"Ancient Tanari Wind Armor"
@@ -424,7 +424,7 @@
 		"DOTA_Tooltip_ability_item_rpc_robe_of_flooding"								"Robe of Flooding"
 
 		"item_property_flooding"					"Water Elemental"
-		"property_flooding_description"			"По окончании прочтения @Ability4 вызывает компаньона - водного элементаля, имеющего показатели <% ITEM_RPC_ROBE_OF_FLOODING_HEALTH_MULT %>x здоровья призывателя и <% ITEM_RPC_ROBE_OF_FLOODING_ATTACK_MULT %>x атаки призывателя (рассчитывается в момент вызова). Только один элементаль может существовать одновременно, весь исходящий урон от него учитывается как урон Предметов героя-призывателя."
+		"property_flooding_description"			"По окончании прочтения @Ability4 вызывает компаньона - водного элементаля, имеющего показатели <% ITEM_RPC_ROBE_OF_FLOODING_HEALTH_MULT %>x здоровья призывателя и <% ITEM_RPC_ROBE_OF_FLOODING_ATTACK_MULT %>x Базовой атаки призывателя (рассчитывается в момент вызова). Только один элементаль может существовать одновременно, весь исходящий урон от него учитывается как урон Предметов героя-призывателя."
 		"water_elemental_flood_3"				"Water Elemental"
 
 		"DOTA_Tooltip_ability_flood_water_elemental_ai"		"Water Elemental AI"
@@ -441,7 +441,7 @@
 		"DOTA_Tooltip_ability_item_rpc_robe_of_the_erudite_teacher"		"Robe of the Erudite Teacher"
 
 		"item_property_robe_of_the_erudite_teacher"						"Rubick Apprentice"
-		"property_robe_of_the_erudite_teacher_description"				"Вызывает подмастерье Рубика, который может заимствовать до 3 заклинаний у вражеских существ. Он призывается с показателями <% ITEM_RPC_ROBE_OF_THE_ERUDITE_TEACHER_HEALTH_MULT %>x здоровья призывателя, <% ITEM_RPC_ROBE_OF_THE_ERUDITE_TEACHER_ATTACK_MULT %>x атаки призывателя и 2000 маны. Если он умирает, новый подмастерье появляется через 10 секунд, сохраняя заимствованные заклинания. Весь исходящий урон от него учитывается как урон Предметов героя-призывателя."
+		"property_robe_of_the_erudite_teacher_description"				"Вызывает подмастерье Рубика, который может заимствовать до 3 заклинаний у вражеских существ. Он призывается с показателями <% ITEM_RPC_ROBE_OF_THE_ERUDITE_TEACHER_HEALTH_MULT %>x здоровья призывателя, <% ITEM_RPC_ROBE_OF_THE_ERUDITE_TEACHER_ATTACK_MULT %>x Базовой атаки призывателя и 2000 маны. Если он умирает, новый подмастерье появляется через 10 секунд, сохраняя заимствованные заклинания. Весь исходящий урон от него учитывается как урон Предметов героя-призывателя."
 
 		"item_rpc_robe_of_the_erudite_teacher_ruby1"		"Увеличивает запас здоровья подмастерья на @ruby_property1"
 		"item_rpc_robe_of_the_erudite_teacher_emerald1"		"Уменьшает время возрождения подмастерья на @emerald_property1 сек"

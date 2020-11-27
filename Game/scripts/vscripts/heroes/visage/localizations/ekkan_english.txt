@@ -143,7 +143,7 @@
     	"DOTA_Tooltip_ability_ekkan_rune_e_2"								"[E2] Summon Familiars"
     	"DOTA_Tooltip_ability_ekkan_rune_e_2_Description"					"A familiar is raised from the Acheron's Portal that has magic immunity. Has <% EKKAN_E2_HP_MULT * 100 %>% of the max HP of Ekkan. Max 2 familiars."
     	"DOTA_Tooltip_ability_ekkan_rune_e_2_property_one"					"Attack Damage"
-    	"DOTA_Tooltip_ability_ekkan_rune_e_2_suffix"						"% of Ekkan's Attack Damage"
+    	"DOTA_Tooltip_ability_ekkan_rune_e_2_suffix"						"% of Ekkan's Base Attack Damage"
     	"DOTA_Tooltip_ability_ekkan_rune_e_2_property_two"					"Armors and Pierces"
     	"DOTA_Tooltip_ability_ekkan_rune_e_2_suffix_two"					"% of Ekkan's Armor and Pierces"
 

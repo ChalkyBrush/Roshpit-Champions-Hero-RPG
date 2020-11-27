@@ -140,7 +140,7 @@
     	"DOTA_Tooltip_ability_ekkan_rune_e_2"								"[E2] Summon Familiars"
     	"DOTA_Tooltip_ability_ekkan_rune_e_2_Description"					"С каждым прочтением @Ability3 появляется гаргулья, которая имеет иммунитет к магии. Запас здоровья гаргульи равен <% EKKAN_E2_HP_MULT * 100 %>% от макс. здоровья героя. Максимум может существовать 2 гаргульи."
     	"DOTA_Tooltip_ability_ekkan_rune_e_2_property_one"					"Урон"
-    	"DOTA_Tooltip_ability_ekkan_rune_e_2_suffix"						"% от общего урона героя"
+    	"DOTA_Tooltip_ability_ekkan_rune_e_2_suffix"						"% от базового урона героя"
     	"DOTA_Tooltip_ability_ekkan_rune_e_2_property_two"					"Броня"
     	"DOTA_Tooltip_ability_ekkan_rune_e_2_suffix_two"					"% от брони и магической защиты героя"
 

@@ -557,7 +557,7 @@
         "DOTA_Tooltip_ability_item_rpc_tome_of_chaos"                                   "Tome of Chaos"
 
         "item_property_tome_of_chaos"               "Infernal Reign"
-        "property_tome_of_chaos"                    "Прочтение @Ability2 призывает инфернала перед героем, который при появлении оглушает противников в радиусе <% ITEM_RPC_TOME_OF_CHAOS_STUN_RADIUS %> на <% ITEM_RPC_TOME_OF_CHAOS_STUN %> сек. Инфернал имеет <% ITEM_RPC_TOME_OF_CHAOS_HP_MULT %>x от Здоровья героя и <% ITEM_RPC_TOME_OF_CHAOS_ATTACK_DAMAGE_MULT%>x от Силы Атаки героя. Продолжительность жизни инфернала <% ITEM_RPC_TOME_OF_CHAOS_DURATION %> сек, а перезарядка призыва <% ITEM_RPC_TOME_OF_CHAOS_CD %> сек."
+        "property_tome_of_chaos"                    "Прочтение @Ability2 призывает инфернала перед героем, который при появлении оглушает противников в радиусе <% ITEM_RPC_TOME_OF_CHAOS_STUN_RADIUS %> на <% ITEM_RPC_TOME_OF_CHAOS_STUN %> сек. Инфернал имеет <% ITEM_RPC_TOME_OF_CHAOS_HP_MULT %>x от Здоровья героя и <% ITEM_RPC_TOME_OF_CHAOS_ATTACK_DAMAGE_MULT%>x от Базовой Атаки героя. Продолжительность жизни инфернала <% ITEM_RPC_TOME_OF_CHAOS_DURATION %> сек, а перезарядка призыва <% ITEM_RPC_TOME_OF_CHAOS_CD %> сек."
         "DOTA_Tooltip_modifier_tome_of_chaos_cooldown"  "Infernal Reign Cooldown"
         "DOTA_Tooltip_modifier_tome_of_chaos_cooldown_Description"  "Перезарядка"
 

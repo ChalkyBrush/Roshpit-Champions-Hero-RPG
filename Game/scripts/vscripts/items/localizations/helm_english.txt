@@ -450,7 +450,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_mask_of_the_desert_necromancer"					"Mask of the Desert Necromancer"
 		"item_property_desert_necromancer"			"Reanimate Thorok"
-		"property_desert_necromancer_description"	"When you cast @Ability4, summon the abomination Thorok for <% DESERT_NECROMANCER_LIFE_DURATION %> seconds. He has <% THOROK_CASTER_ATTACK_DMG%>x your attack damage, <% THOROK_CASTER_HP %>x your health and <% THOROK_CASTER_ARMORS_AND_PIERCES%>x your Armor and Pierces at the time of summoning. If you summon him while below <% THOROK_RAGE_CASTER_HP_THRESHOLD %>% health, he will be enraged, gaining <% THOROK_RAGE_AS %> attack speed and <% THOROK_RAGE_MS %> movement speed. Summoning Thorok while he's already alive will kill the original one. All damage dealt by Thorok is attributed to his master."
+		"property_desert_necromancer_description"	"When you cast @Ability4, summon the abomination Thorok for <% DESERT_NECROMANCER_LIFE_DURATION %> seconds. He has <% THOROK_CASTER_ATTACK_DMG%>x your Base attack damage, <% THOROK_CASTER_HP %>x your health and <% THOROK_CASTER_ARMORS_AND_PIERCES%>x your Armor and Pierces at the time of summoning. If you summon him while below <% THOROK_RAGE_CASTER_HP_THRESHOLD %>% health, he will be enraged, gaining <% THOROK_RAGE_AS %> attack speed and <% THOROK_RAGE_MS %> movement speed. Summoning Thorok while he's already alive will kill the original one. All damage dealt by Thorok is attributed to his master."
 
 		"item_rpc_mask_of_the_desert_necromancer_ruby1"	"Increases Thorok's health multiple by @ruby_property1x his master's, and increases his life duration by @ruby_property2 seconds"
 		"item_rpc_mask_of_the_desert_necromancer_emerald1"	"Thorok has @emerald_property1% lifesteal that also heals his master"
@@ -508,7 +508,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_scourge_knights_helm"							"Scourge Knight's Helm"
 		"item_property_scourge_knight"				"Undead Command"
-		"property_scourge_knight_description"		"After casting @Ability4, summon 5 immobile skeleton archers who have <% SCOURGE_KNIGHT_ATTACK_MULT %>x your attack damage. Archers last <% SCOURGE_KNIGHT_ARCHER_DURATION %> seconds or die after taking damage <% SCOURGE_KNIGHT_HITS_TO_KILL %> times."
+		"property_scourge_knight_description"		"After casting @Ability4, summon 5 immobile skeleton archers who have <% SCOURGE_KNIGHT_ATTACK_MULT %>x your Base Attack damage. Archers last <% SCOURGE_KNIGHT_ARCHER_DURATION %> seconds or die after taking damage <% SCOURGE_KNIGHT_HITS_TO_KILL %> times."
 
 		"item_rpc_scourge_knights_helm_ruby1"	"Archers have a 50% chance to spawn with Fire Arrows, which deal their damage in @ruby_property1 AOE"
 		"item_rpc_scourge_knights_helm_emerald1"	"Archers have a 50% chance to spawn with Poison Arrows, which deal @emerald_property1% of the archer owner's attack damage per second for <% SCOURGE_KNIGHT_EMERALD_DURATION %> seconds"
@@ -688,7 +688,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_wolfir_druids_spirit_helm"						"Wolfir Druid's Spirit Helm"
 		"item_property_druids_spirt"				"Feral Spirits"
-		"property_druids_spirit_description"		"While channeling @Ability4, summon a Feral Spirit Wolf every 0.5 seconds which has <% WOLFIR_DRUID_ATTACK_POWER_MULT %>x your attack power, and <% WOLFIR_DRUID_HEALTH_PCT %>% of your max health. Feral Spirits last <% WOLFIR_DRUID_WOLF_LIFE_DURATION %> seconds and only <% WOLFIR_DRUID_MAX_WOLVES %> can be active at a time."
+		"property_druids_spirit_description"		"While channeling @Ability4, summon a Feral Spirit Wolf every 0.5 seconds which has <% WOLFIR_DRUID_ATTACK_POWER_MULT %>x your Base Attack Damage, and <% WOLFIR_DRUID_HEALTH_PCT %>% of your max health. Feral Spirits last <% WOLFIR_DRUID_WOLF_LIFE_DURATION %> seconds and only <% WOLFIR_DRUID_MAX_WOLVES %> can be active at a time."
 		"DOTA_Tooltip_modifier_wolfir_druid_aura_effect"	"Feral Spirit"
 		"DOTA_Tooltip_modifier_wolfir_druid_aura_effect_Description"	"Increased attack damage from Spirit Wolves"
 

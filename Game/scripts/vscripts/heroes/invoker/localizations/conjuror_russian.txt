@@ -221,8 +221,8 @@
 		
 		//Arcanas
 		"DOTA_Tooltip_ability_conjuror_elemental_deity" 					"Elemental Deity"
-    	"DOTA_Tooltip_ability_conjuror_elemental_deity_Description"			"Conjuror познаёт великие тайны элементалей, что позволяет ему призвать Бога Элементалей. Божество обладает повышенной стойкостью к урону, а его здоровье, броня и урон наследуются от одноимённых значений героя."
-    	"DOTA_Tooltip_ability_conjuror_elemental_deity_attack_damage_mult"	"УРОН, Х:"
+    	"DOTA_Tooltip_ability_conjuror_elemental_deity_Description"			"Conjuror познаёт великие тайны элементалей, что позволяет ему призвать Бога Элементалей. Божество обладает повышенной стойкостью к урону, а его здоровье, броня и Базовый Урон Атаки наследуются от одноимённых значений героя."
+    	"DOTA_Tooltip_ability_conjuror_elemental_deity_attack_damage_mult"	"БАЗОВЫЙ УРОН АТАКИ, Х:"
     	"DOTA_Tooltip_ability_conjuror_elemental_deity_armor_mult"			"БРОНЯ, Х:"
     	"DOTA_Tooltip_ability_conjuror_elemental_deity_health_mult"			"МАКС. ЗДОРОВЬЕ, Х:"
 
