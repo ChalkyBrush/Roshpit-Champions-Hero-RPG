@@ -47,7 +47,7 @@ require("/worlds/tanari/constants/mithril")
 require("/worlds/arena/constants/mithril")
 require("/worlds/tutorial/constants/mithril")
 require("/worlds/sea_fortress/constants/mithril")
-require("/worlds/serengaard/constants/mithril")
+require("/worlds/serengaard/constants/serengaard_constants")
 
 
 require('/items/constants/boots')
@@ -63,7 +63,7 @@ require('/worlds/tanari/constants/mithril')
 require('/worlds/arena/constants/mithril')
 require('/worlds/tutorial/constants/mithril')
 require('/worlds/sea_fortress/constants/mithril')
-require('/worlds/serengaard/constants/mithril')
+require('/worlds/serengaard/constants/serengaard_constants')
 
 local heroes = {	
 	venomort = require('/heroes/hero_necrolyte/scales')}	
@@ -2842,7 +2842,7 @@ function GameState:FilterDamage(filterTable)
 		if GameState:IsSerengaard() then
 			if Serengaard.InfiniteWaveCount then
 				if damagetype == DAMAGE_TYPE_PURE then
-					filterTable["damage"] = filterTable["damage"] * 0.99^(1.2*Serengaard.InfiniteWaveCount)
+					filterTable["damage"] = filterTable["damage"] * 0.99^(SERENGAARD_PURE_RESISTANCE_GROWTH_PER_WAVE*Serengaard.InfiniteWaveCount)
 				end			
 			end
 		end

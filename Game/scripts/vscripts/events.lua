@@ -566,6 +566,38 @@ function GameMode:OnPlayerChat(keys)
 			local name = args[2]
 			local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
 			Glyphs:DebugRollHeroGlyphs(name, hero:GetAbsOrigin())
+			
+		elseif check_command("-serengaard") then
+			local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
+			local InfiniteWave = args[2]
+			if GameState:GetDifficultyFactor() < 3 then
+				EmitSoundOnClient("General.Cancel", hero:GetPlayerOwner())
+				return
+			end
+			if Serengaard.wave == 0 then
+				CustomGameEventManager:Send_ServerToAllClients("BGMend", {})
+				CustomGameEventManager:Send_ServerToAllClients("BGMstart", {songName = "Serengaard.UseStone"})
+
+				Serengaard.timerBlock = true
+				CustomGameEventManager:Send_ServerToAllClients("sunstone_activate", {})
+
+				Serengaard.InfiniteWaveCount = InfiniteWave
+
+				Timers:CreateTimer(3, function()
+					Serengaard.timerBlock = false
+					Serengaard:LinewarIncomeFunction(90)
+				end)
+				Timers:CreateTimer(7, function()
+					Serengaard.wave = 31
+					for i = 1, 20, 1 do
+						Timers:CreateTimer(i, function()
+							Serengaard:UpdateTowers()
+						end)
+					end
+				end)
+			else
+				EmitSoundOnClient("General.Cancel", hero:GetPlayerOwner())
+			end
 
 		elseif check_command("-gly") then
 			local name = args[2]

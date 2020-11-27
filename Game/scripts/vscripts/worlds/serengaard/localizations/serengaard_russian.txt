@@ -1,15 +1,15 @@
 		"serengaard_vote_skip_wave"										"Пропустить ожидание"
 		
-		"serengaard_leaderboard_title"									"Лидеры выживания в битве за Серенгард"
+		"serengaard_leaderboard_title"									"Лидеры выживания в битве за Серенгаард"
 
 		"serengaard_leaderboard_7days"									"7 дней"
 		"serengaard_leaderboard_month"									"Месяц"
 		"serengaard_leaderboard_all_time"								"Всё время"			
 
-		"DOTA_Tooltip_ability_item_serengaard_sunstone"					"Солнечный Камень Серенгарда"
-		"item_serengaard_sunstone_desc"									"Использование: Активируйте этот камень перед самой первой волной в Битве за Серенгард, чтобы пропустить волны до бесконечной стадии на сложности Legend."
+		"DOTA_Tooltip_ability_item_serengaard_sunstone"					"Солнечный Камень Серенгаарда"
+		"item_serengaard_sunstone_desc"									"Использование: Активируйте этот камень перед самой первой волной в Битве за Серенгаард, чтобы пропустить волны до бесконечной стадии на сложности Legend."
 
-		"battle_of_serengaard"											"Битва за Серенгард"
+		"battle_of_serengaard"											"Битва за Серенгаард"
 		"wave_starting_timer"											"Начало"
 		"wave_name"														"Волна"
 		"enemies_slain"													"Врагов убито"
@@ -27,21 +27,22 @@
 		"DOTA_Tooltip_ability_serengaard_ranger_ability"				"Sun Ranger"
 		"DOTA_Tooltip_ability_serengaard_ranger_ability_Description"				"Девы Щита отвлекают противников бросками лезвий."
 
-		"rpc_serengaard_teleporter"										"Телепорт Серенгарда"
+		"rpc_serengaard_teleporter"										"Телепорт Серенгаарда"
 
-		"serengaard_knight"												"Рыцарь Серенгарда"
+		"serengaard_knight"												"Рыцарь Серенгаарда"
 
-		"rpc_serengaard_ancient"										"Крепость Серенгарда"
+		"rpc_serengaard_ancient"										"Крепость Серенгаарда"
+		"DOTA_Tooltip_ability_serengaard_ancient_ability_Description"				"Это сооружение контролирует поле битвы за Серенгаард, вызывая все более сильные волны противников. <br> Когда монумент будет разрушен, битва завершится. Крепость может быть разрушена Физическим или Чистым типом урона, и не может быть восстановлена от полученного урона. <br> Крепость имеет <font color='#ccff66'><% SERENGAARD_ANCIENT_HP %></font> Здоровья, а каждая полученная атака отнимает 1 единицу Здоровья."
 
 		"DOTA_Tooltip_ability_serengaard_sun_guardian_ability"			"Солнечный Страж"
 		"DOTA_Tooltip_ability_serengaard_sun_guardian_ability_Description"		"Пассивно восстанавливает здоровье."
 		"DOTA_Tooltip_ability_serengaard_sun_guardian_ability_health_regen_pct"	"ДОП. РЕГЕН. ЗДОРОВЬЯ, %:"
 
 		"DOTA_Tooltip_modifier_teleporter_aura"							"Телепорт"
-		"DOTA_Tooltip_modifier_teleporter_aura_Description"				"Приказ герою двигаться на расстояние больше, чем 800 юнитов, но в пределах крепости Серенгарда позволит телепортироваться с задержкой в 0.5 секунды."
+		"DOTA_Tooltip_modifier_teleporter_aura_Description"				"Приказ герою двигаться на расстояние больше, чем 800 юнитов, но в пределах крепости Серенгаарда позволит телепортироваться с задержкой в 0.5 секунды."
 	
 		"DOTA_Tooltip_ability_serengaard_teleporter_ability"			"Телепорт"
-		"DOTA_Tooltip_ability_serengaard_teleporter_ability_Description"	"Пока герой стоит рядом с телепортом, любой приказ двигаться на расстояние большее, чем 800 юнитов, но в пределах Крепости Серенгарда, позволит телепортироваться с задержкой в 0.5 секунды."
+		"DOTA_Tooltip_ability_serengaard_teleporter_ability_Description"	"Пока герой стоит рядом с телепортом, любой приказ двигаться на расстояние большее, чем 800 юнитов, но в пределах Крепости Серенгаарда, позволит телепортироваться с задержкой в 0.5 секунды."
 	
 		"dark_fighter_serengaard"										"Тёмный Боец"
 		"DOTA_Tooltip_ability_ursa_overpower_no_head_attachment"		"Overpower"
@@ -202,7 +203,7 @@
 		"DOTA_Tooltip_ability_creep_jump"		"Jump"
 		"DOTA_Tooltip_ability_creep_jump_Description"	"Прыгает вперед."
 		"DOTA_Tooltip_ability_item_serengaard_hyperstone"					"Serengaard Hyperstone"
-		"item_serengaard_hyperstone_desc"									"Использование: Активируйте этот камень перед самой первой волной в Битве за Серенгард, чтобы пропустить волны до бесконечной стадии на сложности Legend и перейти на указанную волну. Чем лучше использованный для создания кристалл, тем выше указанная волна."
+		"item_serengaard_hyperstone_desc"									"Использование: Активируйте этот камень перед самой первой волной в Битве за Серенгаард, чтобы пропустить волны до бесконечной стадии на сложности Legend и перейти на указанную волну. Чем лучше использованный для создания кристалл, тем выше указанная волна."
 		"serengaard_hyperstone_property"									"Волна в бесконечном режиме"
 		
         "serengaard_nightmare_raider" 		   "Nightmare Raider"
