@@ -61,6 +61,10 @@ function modifier_omniro_omni_mace:OnCreated()
     })
 end
 
+function modifier_omniro_omni_mace:IsHidden()
+    return true
+end
+
 function modifier_omniro_omni_mace:OnIntervalThink()
 	local caster = self:GetParent()
 	local ability = self:GetAbility()
