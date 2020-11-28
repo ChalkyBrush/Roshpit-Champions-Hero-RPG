@@ -48307,7 +48307,7 @@
         }
         "Ability1"  "golden_skullbone_ai"
         "Ability2"  "dungeon_creep"
-        "RoshpitArmor"          "520"
+        "RoshpitArmor"          "720"
         "RoshpitArmorPierce"    "240"
         "RoshpitSpellPierce"    "380"
         "RoshpitMagicArmor"     "400"
