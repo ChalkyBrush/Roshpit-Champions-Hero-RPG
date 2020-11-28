@@ -17,7 +17,7 @@
 		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
-		"Model" 		"models/gameplay/attrib_tome_int.vmdl"
+		"Model" 		"models/gameplay/attrib_tome_str.vmdl"
 		"OnSpellStart"
 		{
 			"RunScript"
