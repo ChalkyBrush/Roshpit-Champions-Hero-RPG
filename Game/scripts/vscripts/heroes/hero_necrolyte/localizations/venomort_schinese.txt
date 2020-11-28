@@ -246,7 +246,7 @@
 		"item_rpc_venomort_glyph_2_2_description" 				"[E2] 将在主目标为中心的 @glyph_property1 码范围内造成伤害。"
 
 		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_3_2"		"[T3-2] 腐坏之血雕文"
-		"item_rpc_venomort_glyph_3_2_description" 				"每当剧毒巫师的当前生命值降低到越过了 @glyph_property1% 最大生命值的血线, 那么他的下一次 [E2] 就会造成 @glyph_property2 x 的伤害。"
+		"item_rpc_venomort_glyph_3_2_description" 				"每当剧毒巫师的当前生命值降低到越过了 @glyph_property1% 最大生命值的血线, 那么他的下一次 [E2] 就会额外施加一层毒液，毒液造成原伤害 @glyph_property2x 倍的伤害，持续 <% VENOMORT_GLYPH_3_2_DURATION %> 秒。"
 
 		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_4_2"		"[T4-2] 无病呻吟雕文"
 		"item_rpc_venomort_glyph_4_2_description" 				"[E4] 效果的持续时间从1.5秒提高至@glyph_property1秒。"

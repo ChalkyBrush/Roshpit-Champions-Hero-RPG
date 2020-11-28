@@ -267,10 +267,10 @@
         
         //Glyphs
         "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_1_1"     "[T1-1] 梦魇雕文"
-		"item_rpc_chernobog_glyph_1_1_description" 				"Killing an enemy restores <% CHERNOBOG_GLYPH_1_1_MAX_MANA_RESTORE_ON_KILL * 100 %>% of your max mana."
+		"item_rpc_chernobog_glyph_1_1_description" 				"击杀一个敌人将会回复 <% CHERNOBOG_GLYPH_1_1_MAX_MANA_RESTORE_ON_KILL * 100 %>% 最大魔法值。"
 
         "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_2_1"     "[T2-1] 午夜雕文"
-        "item_rpc_chernobog_glyph_2_1_description"              "所有与暗影有关的产生的区域或者光环的效果范围增加 <% CHERNOBOG_T21_RADIUS_AMP %>，该效果也会影响 [R2]。"
+        "item_rpc_chernobog_glyph_2_1_description"              "所有与暗影有关的产生的区域或者光环的效果范围增加 <% CHERNOBOG_T21_RADIUS_AMP %>倍，该效果也会影响 [R2]。"
 
         "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_3_1"     "[T3-1] 噩梦雕文"
         "item_rpc_chernobog_glyph_3_1_description"              "被卡戎之爪击中的敌人能使暗夜游行的冷却时间减少 @glyph_property1 秒。此外在结束@Ability4的持续施法后自动释放一次@Ability1。"
@@ -279,13 +279,13 @@
         "item_rpc_chernobog_glyph_4_1_description"              "[Q2] 对所有被影响的敌人周围 <% CHERNOBOG_T41_RADIUS %> 范围内的敌人造成伤害。"
 
         "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_5_1"     "[T5-1] 夜行者雕文"
-        "item_rpc_chernobog_glyph_5_1_description"              "生命值低于<% CHERNOBOG_T51_DRAIN_HP_CAP_PCT * 100 %>% 时，暗影追捕不再扣除生命值，魔法值低于<% CHERNOBOG_T51_DRAIN_HP_CAP_PCT * 100 %>% 时暗影追捕不再扣除魔法值."
+        "item_rpc_chernobog_glyph_5_1_description"              "生命值低于<% CHERNOBOG_T51_DRAIN_HP_CAP_PCT * 100 %>% 时，暗影追捕不再扣除生命值，魔法值低于<% CHERNOBOG_T51_DRAIN_HP_CAP_PCT * 100 %>% 时暗影追捕不再扣除魔法值。"
 
         "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_6_1"     "[T6-1] 黑色裂痕雕文"
         "item_rpc_chernobog_glyph_6_1_description"              "[E3] 持续时间提高 <% CHERNOBOG_GLYPH_6_1_DURATION_INCREASE %>"
 
         "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_7_1"     "[T7-1] 不屈不挠雕文"
-        "item_rpc_chernobog_glyph_7_1_description"              "每<% CHERNOBOG_T71_CD_CLEANSE %>秒清除一次眩晕效果"
+        "item_rpc_chernobog_glyph_7_1_description"              "每<% CHERNOBOG_T71_CD_CLEANSE %>秒清除一次眩晕效果。"
 
         "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_5_a"     "[T5-a] 暗夜猎手雕文"
         "item_rpc_chernobog_glyph_5_a_description"              "暗夜魔王享受 @Ability2 的所有符文的所有加成效果无论 W 技能开启或是关闭。但是 @Ability2 开启时，仍然禁止治疗。"

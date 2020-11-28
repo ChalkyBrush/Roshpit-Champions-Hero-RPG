@@ -211,7 +211,8 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_omega_ruby"										"欧米伽宝石"
-        "item_rpc_omega_ruby_ruby1"                                     "提高欧米伽之火AOE范围 @ruby_property1 和伤害@ruby_property2"
+		"你的普通攻击将会造成爆炸，对 <% ITEM_RPC_OMEGA_RUBY_AOE_RADIUS %> 范围内敌人造成 <% ITEM_RPC_OMEGA_RUBY_ATTACK_TO_DMG %>% 攻击力的伤害。"
+        "item_rpc_omega_ruby_ruby1"                                     "提高欧米伽之火AOE范围 @ruby_property1 并且欧米伽之火也会造成 @ruby_property2% 攻击力的物理伤害。"
         "item_rpc_omega_ruby_emerald1"                                      "提高攻击速度 @emerald_property1"
         "item_rpc_omega_ruby_sapphire1"                                     "提高攻击力 @sapphire_property1%"
         "item_rpc_omega_ruby_amethyst1"                                     "提高物理穿透和魔法穿透 @amethyst_property1"
@@ -387,9 +388,9 @@
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_cobalt_serenity_ring"							"宁静之戒"
-        "item_rpc_cobalt_serenity_ring_ruby1"                           "提高最大生命值 @ruby_property1"
-        "item_rpc_cobalt_serenity_ring_emerald1"                            "每点现有生命值提高魔法穿透 @emerald_property1"
-        "item_rpc_cobalt_serenity_ring_sapphire1"                           "提高智力值 @sapphire_property1"
+        "item_rpc_cobalt_serenity_ring_ruby1"                           "来自装备属性的基础技能伤害，物品伤害，生命值，魔法回复将会被提高 @ruby_property1%。"
+        "item_rpc_cobalt_serenity_ring_emerald1"                            "生命和魔法回复将会提高魔法穿透 @emerald_property1"
+        "item_rpc_cobalt_serenity_ring_sapphire1"                           "提高智力值 @sapphire_property1以及最大生命值 @sapphire_property2"
         "item_rpc_cobalt_serenity_ring_amethyst1"                           "每点智力值提高魔法回复 @amethyst_property1"
 		"item_property_cobalt_serenity"						"宁静"
 		 "property_cobalt_serenity_description"					"每点智力值提高生命回复速度<% ITEM_RPC_COBALT_SERENITY_RING_INT_TO_HP_REGEN %>"
@@ -397,10 +398,10 @@
 		 
 		"DOTA_Tooltip_ability_item_rpc_emerald_nullification_ring"						"翡翠净化环"
 		"item_property_emerald_null"							"翡翠淨化"
-         "property_emerald_null_description"                    "每点敏捷提高魔甲 <% ITEM_RPC_EMERALD_NULLIFICATION_RING_AGI_TO_MAGIC_ARMOR %> and Spell Pierce by <% ITEM_RPC_EMERALD_NULLIFICATION_RING_AGI_TO_MAGIC_PIERCE %>."
+         "property_emerald_null_description"                    "每点敏捷提高魔甲 <% ITEM_RPC_EMERALD_NULLIFICATION_RING_AGI_TO_MAGIC_ARMOR %> 和魔法穿透 <% ITEM_RPC_EMERALD_NULLIFICATION_RING_AGI_TO_MAGIC_PIERCE %>。"
 
         "item_rpc_emerald_nullification_ring_ruby1"                     "减少所有受到的魔法伤害 @ruby_property1%"
-        "item_rpc_emerald_nullification_ring_emerald1"                      "提高敏捷值 @emerald_property1"
+        "item_rpc_emerald_nullification_ring_emerald1"                      "每点敏捷提高基础技能伤害 @emerald_property1%。"
         "item_rpc_emerald_nullification_ring_sapphire1"                     "@sapphire_property1% 概率完全格挡一次魔法或纯粹伤害"
         "item_rpc_emerald_nullification_ring_amethyst1"                     "减少所有受到的纯粹伤害 @amethyst_property1%"
 		 

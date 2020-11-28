@@ -167,7 +167,7 @@
     	"DOTA_Tooltip_modifier_voltex_rune_r_3_avatar_Description"			"提高攻击速度、攻击距离、伤害和魔甲"
 		
 		"DOTA_Tooltip_ability_voltex_rune_r_4"								"[R4] 飞舞闪电"
-    	"DOTA_Tooltip_ability_voltex_rune_r_4_Description"					"每有一个单位被 @Ability4 或[R1]击中，提高电光使者的攻击力<% VOLTEX_R4_BASE_DUR %> 秒。"
+    	"DOTA_Tooltip_ability_voltex_rune_r_4_Description"					"每有一个单位被 @Ability4 或[R1]击中，提高电光使者的攻击力<% VOLTEX_R4_BASE_DUR %> 秒， 最高<% VOLTEX_R4_STACK_LIMIT %> 层。"
     	"DOTA_Tooltip_ability_voltex_rune_r_4_property_one"					"每个击中单位提高攻击力"
     	"DOTA_Tooltip_ability_voltex_rune_r_4_suffix"						"%"
 

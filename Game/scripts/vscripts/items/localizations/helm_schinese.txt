@@ -561,7 +561,7 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_twisted_purple_mask_of_ahnqhir"					"安赫尔的扭曲紫色面具"	
-		"property_twisted_purple_mask_of_ahnqhir"												"超级施法 A"
+		"item_property_twisted_purple_mask_of_ahnqhir"												"超级施法 A"
 		"item_rpc_twisted_purple_mask_of_ahnqhir_ability_tooltip"					"Castpoint reduced to <% TWISTED_MASK_OF_AHNQHIR_PURPLE_CAST_POINT %>s."
 		"property_twisted_purple_mask_of_ahnqhir_Description"									"@Ability1 技能抬手强制设定为 0.05 秒（指从玩家发出指令到技能真正释放并进入冷却时间之间的那一段时间变为0.05秒）。减少 @Ability1 冷却时间 <% TWISTED_MASK_OF_AHNQHIR_PURPLE_CD_RED_PCT %>%。"
 		"item_rpc_twisted_purple_mask_of_ahnqhir_ruby1"	"提高 [Q1] 符文 @ruby_property1"
@@ -571,7 +571,7 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_twisted_yellow_mask_of_ahnqhir"					"安赫尔的扭曲黄色面具"	
-		"property_twisted_yellow_mask_of_ahnqhir"												"超级施法 B"
+		"item_property_twisted_yellow_mask_of_ahnqhir"												"超级施法 B"
 		"item_rpc_twisted_yellow_mask_of_ahnqhir_ability_tooltip"					"Castpoint reduced to <% TWISTED_MASK_OF_AHNQHIR_YELLOW_CAST_POINT %>s."
 		"property_twisted_yellow_mask_of_ahnqhir_Description"									"@Ability2 技能抬手强制设定为 0.05 秒（指从玩家发出指令到技能真正释放并进入冷却时间之间的那一段时间变为0.05秒）。减少 @Ability2 冷却时间 <% TWISTED_MASK_OF_AHNQHIR_YELLOW_CD_RED %> 秒。"
 		"item_rpc_twisted_yellow_mask_of_ahnqhir_ruby1"	"提高 [W1] 符文 @ruby_property1"
@@ -581,7 +581,7 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_twisted_blue_mask_of_ahnqhir"					"安赫尔的扭曲蓝色面具"	
-		"property_twisted_blue_mask_of_ahnqhir"												"超级施法 C"
+		"item_property_twisted_blue_mask_of_ahnqhir"												"超级施法 C"
 		"item_rpc_twisted_blue_mask_of_ahnqhir_ability_tooltip"					"Castpoint reduced to <% TWISTED_MASK_OF_AHNQHIR_BLUE_CAST_POINT %>s."
 		"property_twisted_blue_mask_of_ahnqhir_Description"									"@Ability3 技能抬手强制设定为 0.05 秒（指从玩家发出指令到技能真正释放并进入冷却时间之间的那一段时间变为0.05秒）。减少 @Ability3 冷却时间 <% TWISTED_MASK_OF_AHNQHIR_BLUE_CD_RED_PCT %>%。"
 		"item_rpc_twisted_blue_mask_of_ahnqhir_ruby1"	"提高 [E1] 符文 @ruby_property1"
@@ -698,7 +698,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_cloak_of_the_cimmerian_priesthood"						"安人祭祀头巾"
 		"item_property_cloak_of_the_cimmerian_priesthood"						"暗影祭祀"
-		"property_cloak_of_the_cimmerian_priesthood_description"				"普通攻击额外造成一次魔法 <font color=ELEMENT_SHADOW>暗</font>/<font color=ELEMENT_HOLY>圣</font> 伤害，数值为目标当前生命值的 <% ITEM_RPC_CLOAK_OF_THE_CIMMERIAN_PRIESTHOOD_DMG_MULT_PRIM_ATTRIBUTE %><% ITEM_RPC_CLOAK_OF_THE_CIMMERIAN_PRIESTHOOD_DMG_MULT_PRIM_ATTRIBUTE %>x of hero's Primary Attribute value 并且使你回复 <% ITEM_RPC_CLOAK_OF_THE_CIMMERIAN_PRIESTHOOD_HEAL_PCT %>% 基础伤害的生命值。"
+		"property_cloak_of_the_cimmerian_priesthood_description"				"普通攻击额外造成一次魔法 <font color=ELEMENT_SHADOW>暗</font>/<font color=ELEMENT_HOLY>圣</font> 伤害，数值为<% ITEM_RPC_CLOAK_OF_THE_CIMMERIAN_PRIESTHOOD_DMG_MULT_PRIM_ATTRIBUTE %>x 英雄主属性并且使你回复 <% ITEM_RPC_CLOAK_OF_THE_CIMMERIAN_PRIESTHOOD_HEAL_PCT %>% 基础伤害的生命值。"
 
 		"item_rpc_cloak_of_the_cimmerian_priesthood_ruby1"		"被 [Q]击中的敌人每 @ruby_property1秒受到 <% ITEM_RPC_CLOAK_OF_THE_CIMMERIAN_PRIESTHOOD_RUBY_DAMAGE %>% 初始伤害，持续 @ruby_property2 秒"
 		"item_rpc_cloak_of_the_cimmerian_priesthood_emerald1"	"被 [W] 击中的敌人将会治疗敌人周围 <% ITEM_RPC_CLOAK_OF_THE_CIMMERIAN_PRIESTHOOD_EMERALD_RANGE %> 范围内的友军，数值为 @emerald_property1% 基础伤害"
