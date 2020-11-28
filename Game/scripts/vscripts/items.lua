@@ -520,7 +520,7 @@ function RPCItems:ClearItems()
 	for k, item in pairs(GLOBAL_ITEM_TABLE) do
 		if item and not item:IsNull() then
 			if item.expiryTime then
-				if Time() > item.expiryTime then
+				if GameRules:GetGameTime() > item.expiryTime then
 					local container = item:GetContainer()
 					if container then
 						UTIL_Remove(container)
