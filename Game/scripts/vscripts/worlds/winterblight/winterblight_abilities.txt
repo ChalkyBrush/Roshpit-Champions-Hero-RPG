@@ -9635,7 +9635,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"10000"
+				"damage"			"300 1200 10000"
 			}
 		}
 		"OnOwnerDied"
