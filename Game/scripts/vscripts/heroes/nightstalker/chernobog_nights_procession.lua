@@ -70,6 +70,9 @@ function chernobog_nights_procession:OnChannelSucceeded()
     self.lifting_up_per_tick = 0
     self.lifting_down_per_tick = 0
     self.radius = CHERNOBOG_R_RADIUS + CHERNOBOG_R4_RADIUS * self:GetCaster().r4_level
+	if self:GetCaster():HasModifier('modifier_chernobog_glyph_2_1') then
+		self.radius = self.radius * CHERNOBOG_T21_RADIUS_AMP
+    end
     self.startPoint = self:GetCaster():GetAbsOrigin()
     self.endPoint = self:GetCursorPosition()
 

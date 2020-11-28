@@ -268,7 +268,7 @@
 		"item_rpc_chernobog_glyph_1_1_description" 				"Убийство противника восстанавливает <% CHERNOBOG_GLYPH_1_1_MAX_MANA_RESTORE_ON_KILL * 100 %>% от максимальной маны героя."
 
         "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_2_1"     "[T2-1] Glyph of Midnight"
-        "item_rpc_chernobog_glyph_2_1_description"              "У всех эффектов, создающих зоны или ауры, атакующие противников, базовый радиус умножается на <% CHERNOBOG_T21_RADIUS_AMP %>. Также работает и на [R2]."
+        "item_rpc_chernobog_glyph_2_1_description"              "У всех эффектов, создающих зоны или ауры, атакующие противников, базовый радиус умножается на <% CHERNOBOG_T21_RADIUS_AMP %>."
 
         "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_3_1"     "[T3-1] Glyph of Nightmare's Grasp"
         "item_rpc_chernobog_glyph_3_1_description"              "Каждый противник, задетый @Ability1 снижает перезарядку @Ability4 на <% CHERNOBOG_T31_CD_DEC %> сек. Дополнительно, @Ability1 самостоятельно создается после каста @Ability4."
