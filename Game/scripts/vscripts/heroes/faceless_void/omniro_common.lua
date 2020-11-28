@@ -598,16 +598,19 @@ function OmniroOmniOrbChargeProceed(caster, ability, target, basic_damage)
 		local radius = OMNIRO_GHOST_ORB_AOE
 		local duration = OMNIRO_GHOST_ORB_BASE_DURATION + OMNIRO_ORB_GHOST_ADD_DURATION * caster.omniro_data[RPC_ELEMENT_GHOST]["level"]
 		local location = target:GetAbsOrigin()
-		local dummy = CreateUnitByName("npc_dummy_unit", location, false, nil, nil, caster:GetTeamNumber())
-		dummy:SetAbsOrigin(location)
-		dummy:FindAbilityByName("dummy_unit"):SetLevel(1)
-		dummy.hero = caster
-		--dummy:AddNewModifier(dummy, orb_ability, "modifier_ghost_orb_aura", {duration = duration})
-		orb_ability:ApplyDataDrivenModifier(dummy, dummy, "modifier_ghost_orb_aura", {duration = duration})
-		dummy.pfx = ParticleManager:CreateParticle("particles/roshpit/omniro/ghost_orb_cloud.vpcf", PATTACH_CUSTOMORIGIN, nil)
-		ParticleManager:SetParticleControl(dummy.pfx, 0, location + Vector(0, 0, 80))
-		ParticleManager:SetParticleControl(dummy.pfx, 1, Vector(radius, radius, 200))
-		EmitSoundOn("Omniro.Orb.Ghost", target)
+		local localKey = 'ghost_orb_dummy'
+			Util.Common:LimitPerTimeAndPlace(10, duration, caster:GetAbsOrigin(), 1200, localKey, function()
+			local dummy = CreateUnitByName("npc_dummy_unit", location, false, nil, nil, caster:GetTeamNumber())
+			dummy:SetAbsOrigin(location)
+			dummy:FindAbilityByName("dummy_unit"):SetLevel(1)
+			dummy.hero = caster
+			--dummy:AddNewModifier(dummy, orb_ability, "modifier_ghost_orb_aura", {duration = duration})
+			orb_ability:ApplyDataDrivenModifier(dummy, dummy, "modifier_ghost_orb_aura", {duration = duration})
+			dummy.pfx = ParticleManager:CreateParticle("particles/roshpit/omniro/ghost_orb_cloud.vpcf", PATTACH_CUSTOMORIGIN, nil)
+			ParticleManager:SetParticleControl(dummy.pfx, 0, location + Vector(0, 0, 80))
+			ParticleManager:SetParticleControl(dummy.pfx, 1, Vector(radius, radius, 200))
+			EmitSoundOn("Omniro.Orb.Ghost", target)
+		end)
 	elseif caster.active_element == RPC_ELEMENT_WATER then
 		local damage = OMNIRO_ORB_WATER_ATTACK_POWER_MULT_PCT[orb_ability:GetLevel()] * OverflowProtectedGetAverageTrueAttackDamage(caster) * caster.omniro_data[RPC_ELEMENT_WATER]["level"]
 		local hydroPosition = target:GetAbsOrigin()

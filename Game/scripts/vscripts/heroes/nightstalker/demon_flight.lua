@@ -259,9 +259,13 @@ function passive_thinker(event)
 	caster.e4_level = caster:GetRuneValue("e", 4)
 	if ability.e4_level ~= caster.e4_level then
 		if caster.e4_level > 0 then
+		local radius = CHERNOBOG_ARCANA2_E4_RADIUS
+		if caster:HasModifier('modifier_chernobog_glyph_2_1') then
+			radius = radius * CHERNOBOG_T21_RADIUS_AMP
+		end
 			init_shadows_values_for_ability({
 				ability = ability,
-				radius = CHERNOBOG_ARCANA2_E4_RADIUS,
+				radius = radius,
 				damagePercent = caster.e4_level * CHERNOBOG_ARCANA2_E4_DMG_PCT,
 				thinkInterval = CHERNOBOG_ARCANA2_E4_INTERVAL,
 			})

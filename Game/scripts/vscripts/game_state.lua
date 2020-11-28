@@ -47,7 +47,7 @@ require("/worlds/tanari/constants/mithril")
 require("/worlds/arena/constants/mithril")
 require("/worlds/tutorial/constants/mithril")
 require("/worlds/sea_fortress/constants/mithril")
-require("/worlds/serengaard/constants/mithril")
+require("/worlds/serengaard/constants/serengaard_constants")
 
 
 require('/items/constants/boots')
@@ -63,7 +63,7 @@ require('/worlds/tanari/constants/mithril')
 require('/worlds/arena/constants/mithril')
 require('/worlds/tutorial/constants/mithril')
 require('/worlds/sea_fortress/constants/mithril')
-require('/worlds/serengaard/constants/mithril')
+require('/worlds/serengaard/constants/serengaard_constants')
 
 local heroes = {	
 	venomort = require('/heroes/hero_necrolyte/scales')}	
@@ -1588,9 +1588,6 @@ function GameState:IncomingDamageDecreaseWithType(victim, attacker, shouldConsum
 				damage = damage * (1 - result)
 			end
 		)
-		if victim:HasModifier("modifier_starseeker_passive") then
-			damage = 0
-		end
 		if victim:HasModifier("modifier_resplendent_rubber_boots") then
 			damage = damage * (100-ITEM_RPC_RESPLENDENT_RUBBER_BOOTS_DMG_REDUCTION)/100
 		end
@@ -2781,9 +2778,12 @@ function GameState:FilterDamage(filterTable)
 	end
 	if victim:HasModifier("modifier_starseeker_passive") then
 		if damagetype == DAMAGE_TYPE_MAGICAL then
-			victim:Heal(filterTable["damage"], victim)
-			PopupHealing(victim, filterTable["damage"])
-			filterTable["damage"] = 0
+			local chance_of_heal = RandomInt(1, 4)
+			if chance_of_heal < 2 then
+				victim:Heal(filterTable["damage"], victim)
+				PopupHealing(victim, filterTable["damage"])
+				filterTable["damage"] = 0
+			end
 		end
 	end
 	if damagetype == DAMAGE_TYPE_MAGICAL then
@@ -2842,7 +2842,7 @@ function GameState:FilterDamage(filterTable)
 		if GameState:IsSerengaard() then
 			if Serengaard.InfiniteWaveCount then
 				if damagetype == DAMAGE_TYPE_PURE then
-					filterTable["damage"] = filterTable["damage"] * 0.99^(1.2*Serengaard.InfiniteWaveCount)
+					filterTable["damage"] = filterTable["damage"] * 0.99^(SERENGAARD_PURE_RESISTANCE_GROWTH_PER_WAVE*Serengaard.InfiniteWaveCount)
 				end			
 			end
 		end

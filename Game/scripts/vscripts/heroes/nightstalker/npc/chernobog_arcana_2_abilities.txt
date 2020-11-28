@@ -186,7 +186,7 @@
 			}
 			"modifier_chernobog_night_vision"
 			{
-				"IsHidden"	"0"
+				"IsHidden"	"1"
 				"Aura"          	"modifier_chernobog_night_vision_enemy"
 				"Aura_Radius"   	"1800"
 				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -294,7 +294,7 @@
 			}
 			"modifier_chernobog_night_vision"
 			{
-				"IsHidden"	"0"
+				"IsHidden"	"1"
 				"Aura"          	"modifier_chernobog_night_vision_enemy"
 				"Aura_Radius"   	"1800"
 				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"

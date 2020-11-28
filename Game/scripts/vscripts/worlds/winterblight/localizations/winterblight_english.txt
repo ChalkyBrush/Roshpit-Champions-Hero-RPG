@@ -528,7 +528,7 @@
 		"DOTA_Tooltip_modifier_reality_rift_datadriven_Description"	"Increased attack damage."	
 
 		"DOTA_Tooltip_ability_winterblight_starseeker_passive"	"Coat of Astra"
-		"DOTA_Tooltip_ability_winterblight_starseeker_passive_Description"	"Magic damage heals instead of dealing damage."
+		"DOTA_Tooltip_ability_winterblight_starseeker_passive_Description"	"Magic damage heals instead of dealing damage with a 25% chance."
 
 		"DOTA_Tooltip_ability_winterblight_star_prophecy"		"Star Prophecy"
 		"DOTA_Tooltip_ability_winterblight_star_prophecy_Description"	"Applies a debuff to the target unit. When that unit attacks or casts a spell, they gain additional stacks and the duration is extended. When the debuff timer runs out, stars hit the target based on how many stacks they accumulated."

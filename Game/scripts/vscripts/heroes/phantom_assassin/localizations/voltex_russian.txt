@@ -97,7 +97,7 @@
     	"DOTA_Tooltip_ability_voltex_rune_e_1_property_one"					"Длительность иллюзий"
     	"DOTA_Tooltip_ability_voltex_rune_e_1_suffix"						""
     	"DOTA_Tooltip_ability_voltex_rune_e_1_property_two"					"Урон"
-    	"DOTA_Tooltip_ability_voltex_rune_e_1_suffix_two"					"% от урона героя"
+    	"DOTA_Tooltip_ability_voltex_rune_e_1_suffix_two"					"% от Базового Урона Атаки героя"
 
     	"voltex_rune_e_1_illusion"												"Lightning Remnant"
 		

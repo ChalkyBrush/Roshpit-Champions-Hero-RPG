@@ -451,7 +451,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_mask_of_the_desert_necromancer"					"Mask of the Desert Necromancer"
 		"item_property_desert_necromancer"			"Reanimate Thorok"
-		"property_desert_necromancer_description"	"Прочтение @Ability4 оживляет омерзительного Thorok'a на <% DESERT_NECROMANCER_LIFE_DURATION %> секунд. Он имеет <% THOROK_CASTER_ATTACK_DMG%>x силы атаки призывателя, <% THOROK_CASTER_HP %>x Здоровья призывателя, <% THOROK_CASTER_ARMORS_AND_PIERCES%>x Брони, Маг. Защиты и Пробитий призывателя на момент оживления. Оживление Thorok'a в момент, когда у героя меньше <% THOROK_RAGE_CASTER_HP_THRESHOLD %>% ХП, приведет его в ярость, усиливая его скорость атаки на <% THOROK_RAGE_AS %> и скорость перемещения на <% THOROK_RAGE_MS %>. Может существовать только один Thorok. Весь урон, наносимый миньоном засчитывает героя как источник."
+		"property_desert_necromancer_description"	"Прочтение @Ability4 оживляет омерзительного Thorok'a на <% DESERT_NECROMANCER_LIFE_DURATION %> секунд. Он имеет <% THOROK_CASTER_ATTACK_DMG%>x Базовой атаки призывателя, <% THOROK_CASTER_HP %>x Здоровья призывателя, <% THOROK_CASTER_ARMORS_AND_PIERCES%>x Брони, Маг. Защиты и Пробитий призывателя на момент оживления. Оживление Thorok'a в момент, когда у героя меньше <% THOROK_RAGE_CASTER_HP_THRESHOLD %>% ХП, приведет его в ярость, усиливая его скорость атаки на <% THOROK_RAGE_AS %> и скорость перемещения на <% THOROK_RAGE_MS %>. Может существовать только один Thorok. Весь урон, наносимый миньоном засчитывает героя как источник."
 
 		"item_rpc_mask_of_the_desert_necromancer_ruby1"	"Увеличивает Здоровье Thorok'a на @ruby_property1x от Здоровья призывателя, а продолжительность жизни на @ruby_property2 сек."
 		"item_rpc_mask_of_the_desert_necromancer_emerald1"	"Thorok имеет @emerald_property1% вампиризм, который также лечит и его призывателя"
@@ -510,7 +510,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_scourge_knights_helm"							"Scourge Knight's Helm"
 		"item_property_scourge_knight"				"Undead Command"
-		"property_scourge_knight_description"		"Прочтение @Ability4 призывает 5 неподвижных скелетов-лучников, которые имеют <% SCOURGE_KNIGHT_ATTACK_MULT %>x от силы Атаки героя. Скелеты имеют длительность жизни <% SCOURGE_KNIGHT_ARCHER_DURATION %> секунд, либо умирают после получения <% SCOURGE_KNIGHT_HITS_TO_KILL %> ударов."
+		"property_scourge_knight_description"		"Прочтение @Ability4 призывает 5 неподвижных скелетов-лучников, которые имеют <% SCOURGE_KNIGHT_ATTACK_MULT %>x от Базовой Атаки героя. Скелеты имеют длительность жизни <% SCOURGE_KNIGHT_ARCHER_DURATION %> секунд, либо умирают после получения <% SCOURGE_KNIGHT_HITS_TO_KILL %> ударов."
 
 		"item_rpc_scourge_knights_helm_ruby1"	"Скелеты-лучники получают 50% шанс появиться c Огненными стрелами, нанося урон от стрел по области @ruby_property1"
 		"item_rpc_scourge_knights_helm_emerald1"	"Скелеты-лучники получают 50% шанс появиться с Ядовитыми стрелами, нанося @emerald_property1% от силы Атаки героя-призывателя в течение <% SCOURGE_KNIGHT_EMERALD_DURATION %> сек"
@@ -690,7 +690,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_wolfir_druids_spirit_helm"						"Wolfir Druid's Spirit Helm"
 		"item_property_druids_spirt"				"Feral Spirits"
-		"property_druids_spirit_description"		"Во время прочтения @Ability4 призывает диких волков каждые 0.5 секунды, которые имеют <% WOLFIR_DRUID_ATTACK_POWER_MULT %>x от силы Атаки героя и <% WOLFIR_DRUID_HEALTH_PCT %>% от Запаса Здоровья героя. Дикие волки живут <% WOLFIR_DRUID_WOLF_LIFE_DURATION %> секунд и только <% WOLFIR_DRUID_MAX_WOLVES %> могут быть активны одновременно."
+		"property_druids_spirit_description"		"Во время прочтения @Ability4 призывает диких волков каждые 0.5 секунды, которые имеют <% WOLFIR_DRUID_ATTACK_POWER_MULT %>x от Базовой Атаки героя и <% WOLFIR_DRUID_HEALTH_PCT %>% от Запаса Здоровья героя. Дикие волки живут <% WOLFIR_DRUID_WOLF_LIFE_DURATION %> секунд и только <% WOLFIR_DRUID_MAX_WOLVES %> могут быть активны одновременно."
 		"DOTA_Tooltip_modifier_wolfir_druid_aura_effect"	"Feral Spirit"
 		"DOTA_Tooltip_modifier_wolfir_druid_aura_effect_Description"	"Бонусный Урон Атаки от стаи увеличен"
 

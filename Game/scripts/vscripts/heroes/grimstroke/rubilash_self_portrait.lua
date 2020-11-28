@@ -18,7 +18,6 @@ end
 function rubilash_dark_portrait_channel_think(event)
 	local caster = event.caster
 	local ability = event.ability
-
 end
 
 function rubilash_dark_portrait_channel_end(event)
@@ -45,6 +44,9 @@ function rubilash_self_portrait_fail(event)
 	else
 		EndAnimation(ability.illusion)
 		StartAnimation(caster, {duration = 0.5, activity = ACT_DOTA_CAST_ABILITY_3, rate = 4})
+		Timers:CreateTimer(2, function()
+			rubilash_self_portrait_success(event)
+		end)
 	end
 end
 
@@ -119,58 +121,64 @@ function rubilash_self_portrait_success(event)
 	-- 	local duration = ability:GetSpecialValueFor("duration")
 	-- 	ability.illusion = rubilash_illusion(caster, ability, duration)
 	-- end
-	if ability.illusion and IsValidEntity(ability.illusion) then
-		ability.illusion:RemoveModifierByName("modifier_rubilash_illusion_spawning")
-		ability.illusion:SetRenderColor(255, 255, 255)
-		for k, v in pairs(ability.illusion:GetChildren()) do
-			if v:GetClassname() == "dota_item_wearable" then
-				if not string.match(v:GetModelName(), "weapon") then
-					v:RemoveEffects(EF_NODRAW)
+	local delay = 0.03
+	if caster:HasModifier("modifier_iron_treads_of_destruction") then 
+		local delay = 2
+	end
+	Timers:CreateTimer(delay, function()
+		if ability.illusion and IsValidEntity(ability.illusion) then
+			ability.illusion:RemoveModifierByName("modifier_rubilash_illusion_spawning")
+			ability.illusion:SetRenderColor(255, 255, 255)
+			for k, v in pairs(ability.illusion:GetChildren()) do
+				if v:GetClassname() == "dota_item_wearable" then
+					if not string.match(v:GetModelName(), "weapon") then
+						v:RemoveEffects(EF_NODRAW)
+					end
 				end
 			end
+			
+			ability.illusion.color = caster.color
+			--print(caster.color)
+			Events:ColorWearablesAndBase(ability.illusion, RUBILASH_COLORS_DATA[caster.color])
+			set_rubilash_color_visual(ability.illusion)
+			ability.illusion.effectPFX = CustomAbilities:QuickAttachParticle("particles/roshpit/rubilash/self_portrait_buff_"..ability.illusion.color..".vpcf", ability.illusion, event.duration)
+			StartSoundEvent("Rubilash.SelfPortrait.Summoned", ability.illusion)
+			local illusion = ability.illusion
+			Timers:CreateTimer(8, function()
+				if illusion and IsValidEntity(illusion) then
+					StopSoundEvent("Rubilash.SelfPortrait.Summoned", illusion)
+				end
+			end)	
+				if ability.illusion.r_3_level > 0 then
+					ability:ApplyDataDrivenModifier(caster, ability.illusion, "modifier_rubilash_r_3_thinker", {})
+				end
 		end
-		
-		ability.illusion.color = caster.color
-		--print(caster.color)
-		Events:ColorWearablesAndBase(ability.illusion, RUBILASH_COLORS_DATA[caster.color])
-		set_rubilash_color_visual(ability.illusion)
-		ability.illusion.effectPFX = CustomAbilities:QuickAttachParticle("particles/roshpit/rubilash/self_portrait_buff_"..ability.illusion.color..".vpcf", ability.illusion, event.duration)
-		StartSoundEvent("Rubilash.SelfPortrait.Summoned", ability.illusion)
-		local illusion = ability.illusion
-		Timers:CreateTimer(8, function()
-			if illusion and IsValidEntity(illusion) then
-				StopSoundEvent("Rubilash.SelfPortrait.Summoned", illusion)
-			end
-		end)
-		if ability.illusion.r_3_level > 0 then
-			ability:ApplyDataDrivenModifier(caster, ability.illusion, "modifier_rubilash_r_3_thinker", {})
+		local r_2_level = caster:GetRuneValue("r", 2)
+		if r_2_level > 0 then
+			local r_2_duration = RUBILASH_RUNE_R2_INVIS_DURATION_BASE + RUBILASH_RUNE_R2_INVIS_DURATION_SCALE*r_2_level
+			local invis_duration = Filters:GetAdjustedBuffDuration(caster, r_2_duration, false)
+
+			local pfx2 = CustomAbilities:QuickAttachParticle("particles/roshpit/conjuror/shadow_deity_cloak_of_shadows.vpcf", caster, 2)
+			ParticleManager:SetParticleControl(pfx2, 1, Vector(200, 200, 200))
+			ability:ApplyDataDrivenModifier(caster, caster, "modifier_invisibility_datadriven", {duration = invis_duration})
+			caster:AddNewModifier(caster, ability, "modifier_persistent_invisibility", {duration = invis_duration})
+			Timers:CreateTimer(2, function()
+				ParticleManager:DestroyParticle(pfx2, false)
+			end)
+
+			-- local pfx3 = CustomAbilities:QuickAttachParticle("particles/roshpit/conjuror/shadow_deity_cloak_of_shadows.vpcf", ability.illusion, 2)
+			-- ParticleManager:SetParticleControl(pfx3, 1, Vector(200, 200, 200))
+			-- ability:ApplyDataDrivenModifier(caster, ability.illusion, "modifier_invisibility_datadriven", {duration = invis_duration})
+			-- ability.illusion:AddNewModifier(ability.illusion, ability, "modifier_persistent_invisibility", {duration = invis_duration})
+			-- Timers:CreateTimer(2, function()
+			-- 	ParticleManager:DestroyParticle(pfx3, false)
+			-- end)
 		end
-	end
-	local r_2_level = caster:GetRuneValue("r", 2)
-	if r_2_level > 0 then
-        local r_2_duration = RUBILASH_RUNE_R2_INVIS_DURATION_BASE + RUBILASH_RUNE_R2_INVIS_DURATION_SCALE*r_2_level
-        local invis_duration = Filters:GetAdjustedBuffDuration(caster, r_2_duration, false)
-
-        local pfx2 = CustomAbilities:QuickAttachParticle("particles/roshpit/conjuror/shadow_deity_cloak_of_shadows.vpcf", caster, 2)
-        ParticleManager:SetParticleControl(pfx2, 1, Vector(200, 200, 200))
-        ability:ApplyDataDrivenModifier(caster, caster, "modifier_invisibility_datadriven", {duration = invis_duration})
-        caster:AddNewModifier(caster, ability, "modifier_persistent_invisibility", {duration = invis_duration})
-        Timers:CreateTimer(2, function()
-        	ParticleManager:DestroyParticle(pfx2, false)
-        end)
-
-        -- local pfx3 = CustomAbilities:QuickAttachParticle("particles/roshpit/conjuror/shadow_deity_cloak_of_shadows.vpcf", ability.illusion, 2)
-        -- ParticleManager:SetParticleControl(pfx3, 1, Vector(200, 200, 200))
-        -- ability:ApplyDataDrivenModifier(caster, ability.illusion, "modifier_invisibility_datadriven", {duration = invis_duration})
-        -- ability.illusion:AddNewModifier(ability.illusion, ability, "modifier_persistent_invisibility", {duration = invis_duration})
-        -- Timers:CreateTimer(2, function()
-        -- 	ParticleManager:DestroyParticle(pfx3, false)
-        -- end)
-	end
-	if caster:HasModifier("modifier_rubilash_glyph_3_1") then
-		ability:ApplyDataDrivenModifier(caster, ability.illusion, "modifier_rubilash_self_portrait_glyph_3_1", {})
-	end
-	Filters:CastSkillArguments(BASE_ABILITY_R, caster)
+		if caster:HasModifier("modifier_rubilash_glyph_3_1") then
+			ability:ApplyDataDrivenModifier(caster, ability.illusion, "modifier_rubilash_self_portrait_glyph_3_1", {})
+		end
+		Filters:CastSkillArguments(BASE_ABILITY_R, caster)
+	end)
 end
 
 function self_portrait_die(event)

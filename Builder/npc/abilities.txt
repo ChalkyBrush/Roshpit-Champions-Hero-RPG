@@ -54292,6 +54292,11 @@
 					}
 				}
 			}
+			"modifier_take_1_damage_only"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+			}
 		}
 		"OnOwnerDied"
 		{

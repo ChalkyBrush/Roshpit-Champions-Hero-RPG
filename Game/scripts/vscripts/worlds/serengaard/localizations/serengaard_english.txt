@@ -35,7 +35,7 @@
 
 		"rpc_serengaard_ancient"										"Serengaard Ancient"
 		"DOTA_Tooltip_ability_serengaard_ancient_ability"				"Serengaard Ancient"
-		"DOTA_Tooltip_ability_serengaard_ancient_ability_Description"				"This monument controls the Battle of Serengaard combat test, summoning waves of ever more powerful monsters. When it falls, the test is concluded. The Serengaard Ancient takes only Physical and Pure damage and cannot be healed."
+		"DOTA_Tooltip_ability_serengaard_ancient_ability_Description"				"This monument controls the Battle of Serengaard combat test, summoning waves of ever more powerful monsters. <br> When it falls, the test is concluded. The Serengaard Ancient takes only Physical and Pure damage and cannot be healed. <br> Ancient has <font color='#ccff66'><% SERENGAARD_ANCIENT_HP %></font> Health Points and each enemy's attack deals 1 damage."
 
 		"DOTA_Tooltip_ability_serengaard_sun_guardian_ability"			"Sun Guardian"
 		"DOTA_Tooltip_ability_serengaard_sun_guardian_ability_Description"		"Provides passive health regen."

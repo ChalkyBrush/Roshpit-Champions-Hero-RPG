@@ -70,6 +70,9 @@ function chernobog_nights_procession:OnChannelSucceeded()
     self.lifting_up_per_tick = 0
     self.lifting_down_per_tick = 0
     self.radius = CHERNOBOG_R_RADIUS + CHERNOBOG_R4_RADIUS * self:GetCaster().r4_level
+	if self:GetCaster():HasModifier('modifier_chernobog_glyph_2_1') then
+		self.radius = self.radius * CHERNOBOG_T21_RADIUS_AMP
+    end
     self.startPoint = self:GetCaster():GetAbsOrigin()
     self.endPoint = self:GetCursorPosition()
 
@@ -149,7 +152,7 @@ function chernobog_nights_procession:DoMainThings()
     local r_2_level = hero:GetRuneValue("r", 2)
     local r_3_level = hero:GetRuneValue("r", 3)
     if r_2_level > 0 then
-        if hero:HasAbility('chernobog_3_e_arcana2') or hero:HasAbility('chernobog_3_e_arcana2_swapped') then
+         if hero:HasAbility('chernobog_demon_flight') or hero:HasAbility('chernobog_demon_warp') then
             local e_4_level = hero:GetRuneValue("e", 4)
             duration = Filters:GetAdjustedBuffDuration(hero, CHERNOBOG_R_DURATION + CHERNOBOG_ARCANA2_E4_BONUS_TIME * e_4_level)
         else
@@ -257,7 +260,7 @@ function modifier_chernobog_r_2:OnCreated()
         local hero = self:GetCaster()
         local e_2_level = hero:GetRuneValue("e", 2)
         local e_4_level = hero:GetRuneValue("e", 4)
-        if hero:HasAbility('chernobog_3_e_arcana2') or hero:HasAbility('chernobog_3_e_arcana2_swapped') then
+         if hero:HasAbility('chernobog_demon_flight') or hero:HasAbility('chernobog_demon_warp') then
             if e_4_level > 0 then
                 self:StartIntervalThink(CHERNOBOG_ARCANA2_E4_INTERVAL)
             end

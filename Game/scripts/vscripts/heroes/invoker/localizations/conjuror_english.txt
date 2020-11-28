@@ -226,8 +226,8 @@
 		
 		//Arcanas
 		"DOTA_Tooltip_ability_conjuror_elemental_deity" 					"Elemental Deity"
-    	"DOTA_Tooltip_ability_conjuror_elemental_deity_Description"			"Conjuror reaches into the depths of elemental knowledge, summoning the grand Elemental Deity. The Deity has Steadfast and inherits health, armor and physical damage from Conjuror."
-    	"DOTA_Tooltip_ability_conjuror_elemental_deity_attack_damage_mult"	"ATTACK DAMAGE X:"
+    	"DOTA_Tooltip_ability_conjuror_elemental_deity_Description"			"Conjuror reaches into the depths of elemental knowledge, summoning the grand Elemental Deity. The Deity has Steadfast and inherits health, armor and Base Attack Damage from Conjuror."
+    	"DOTA_Tooltip_ability_conjuror_elemental_deity_attack_damage_mult"	"BASE ATTACK DAMAGE X:"
     	"DOTA_Tooltip_ability_conjuror_elemental_deity_armor_mult"			"ARMOR X:"
     	"DOTA_Tooltip_ability_conjuror_elemental_deity_health_mult"			"MAX HEALTH X:"
 

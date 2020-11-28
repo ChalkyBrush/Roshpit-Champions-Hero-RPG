@@ -98,7 +98,7 @@
     	"DOTA_Tooltip_ability_voltex_rune_e_1_property_one"					"Illusion Duration"
     	"DOTA_Tooltip_ability_voltex_rune_e_1_suffix"						""
     	"DOTA_Tooltip_ability_voltex_rune_e_1_property_two"					"Illusion Attack Power"
-    	"DOTA_Tooltip_ability_voltex_rune_e_1_suffix_two"					"% of Voltex total attack power"
+    	"DOTA_Tooltip_ability_voltex_rune_e_1_suffix_two"					"% of Voltex Base Attack Damage"
 
     	"voltex_rune_e_1_illusion"												"Lightning Remnant"
 		

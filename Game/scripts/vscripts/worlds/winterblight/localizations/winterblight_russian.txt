@@ -524,7 +524,7 @@
 		"DOTA_Tooltip_modifier_reality_rift_datadriven_Description"	"Урон увеличен."	
 
 		"DOTA_Tooltip_ability_winterblight_starseeker_passive"	"Coat of Astra"
-		"DOTA_Tooltip_ability_winterblight_starseeker_passive_Description"	"Магический урон исцеляет владельца способности, вместо нанесения урона."
+		"DOTA_Tooltip_ability_winterblight_starseeker_passive_Description"	"Магический урон исцеляет владельца способности, вместо нанесения урона, с шансом 25%."
 
 		"DOTA_Tooltip_ability_winterblight_star_prophecy"		"Star Prophecy"
 		"DOTA_Tooltip_ability_winterblight_star_prophecy_Description"	"Проклинает выбранного юнита. Когда юнит атакует или использует заклинание, он получает дополнительные заряды и продлевает время их действия. Когда время действия эффекта истекает, на врага обрушивается звезда и наносит урон, зависящий от количества накопленных зарядов."
