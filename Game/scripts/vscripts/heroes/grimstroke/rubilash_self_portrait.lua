@@ -18,7 +18,6 @@ end
 function rubilash_dark_portrait_channel_think(event)
 	local caster = event.caster
 	local ability = event.ability
-
 end
 
 function rubilash_dark_portrait_channel_end(event)
@@ -45,6 +44,9 @@ function rubilash_self_portrait_fail(event)
 	else
 		EndAnimation(ability.illusion)
 		StartAnimation(caster, {duration = 0.5, activity = ACT_DOTA_CAST_ABILITY_3, rate = 4})
+		Timers:CreateTimer(2, function()
+			rubilash_self_portrait_success(event)
+		end)
 	end
 end
 
@@ -142,9 +144,11 @@ function rubilash_self_portrait_success(event)
 				StopSoundEvent("Rubilash.SelfPortrait.Summoned", illusion)
 			end
 		end)
-		if ability.illusion.r_3_level > 0 then
-			ability:ApplyDataDrivenModifier(caster, ability.illusion, "modifier_rubilash_r_3_thinker", {})
-		end
+		Timers:CreateTimer(2, function()
+			if ability.illusion.r_3_level > 0 then
+				ability:ApplyDataDrivenModifier(caster, ability.illusion, "modifier_rubilash_r_3_thinker", {})
+			end
+		end)
 	end
 	local r_2_level = caster:GetRuneValue("r", 2)
 	if r_2_level > 0 then
