@@ -769,8 +769,9 @@ function Serengaard:NextWave()
 		end
 	elseif Serengaard.wave > 30 then
 		if Serengaard.InfiniteWaveCount then
+			local income_timer = 60
 			if Serengaard.InfiniteWaveCount % 5 == 0 then
-				Serengaard:LinewarIncomeFunction(60)
+				income_timer = 60
 				if Serengaard.InfiniteWaveCount % 10 == 0 then
 					Serengaard:KillAllNeutrals()
 					local mithril = SERENGAARD_MITHRIL_INF_BASE + math.min(Serengaard.InfiniteWaveCount * SERENGAARD_MITHRIL_INF_PER_WAVE, SERENGAARD_MITHRIL_INF_PER_WAVE_MAX)
@@ -780,12 +781,14 @@ function Serengaard:NextWave()
 					end
 				end
 				if Serengaard.InfiniteWaveCount % 30 == 0 then
+					income_timer =  500
 					Timers:CreateTimer(2, function()
 						for i = 1, #MAIN_HERO_TABLE, 1 do
 							Serengaard:GiveSunstone(MAIN_HERO_TABLE[i], Serengaard.mainAncient:GetAbsOrigin())
 						end
 					end)
 				end
+				Serengaard:LinewarIncomeFunction(income_timer)
 			else
 				Serengaard:InfiniteWave()
 			end
