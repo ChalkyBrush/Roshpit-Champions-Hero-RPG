@@ -211,7 +211,8 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_omega_ruby"										"欧米伽宝石"
-		"你的普通攻击将会造成爆炸，对 <% ITEM_RPC_OMEGA_RUBY_AOE_RADIUS %> 范围内敌人造成 <% ITEM_RPC_OMEGA_RUBY_ATTACK_TO_DMG %>% 攻击力的伤害。"
+        "property_omega_ruby"                       "你的普通攻击将会造成爆炸，对 <% ITEM_RPC_OMEGA_RUBY_AOE_RADIUS %> 范围内敌人造成 <% ITEM_RPC_OMEGA_RUBY_ATTACK_TO_DMG %>% 攻击力的伤害。"
+		
         "item_rpc_omega_ruby_ruby1"                                     "提高欧米伽之火AOE范围 @ruby_property1 并且欧米伽之火也会造成 @ruby_property2% 攻击力的物理伤害。"
         "item_rpc_omega_ruby_emerald1"                                      "提高攻击速度 @emerald_property1"
         "item_rpc_omega_ruby_sapphire1"                                     "提高攻击力 @sapphire_property1%"

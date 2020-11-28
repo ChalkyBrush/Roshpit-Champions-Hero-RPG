@@ -86,7 +86,7 @@
 		"npc_dota_hero_winter_wyvern_lore" "Bitter cold and searing heat are just two of the weapons in ancient Dinath's arsenal."
 		"npc_dota_hero_arc_warden_lore" "The scientist Jex harvests and adapts natural elements to customize his own unique battery of spells."
 		"npc_dota_hero_faceless_void_lore" "Omniro has just one weapon, but a hundred ways to use it."
-		"npc_dota_hero_grimstroke_lore"		""
+		"npc_dota_hero_grimstroke_lore"		"All the world is a canvas for Rubilash, and his signature is violence."
 		//--------------------
 		//Units
 		//--------------------
@@ -3963,7 +3963,7 @@
     	"DOTA_Tooltip_ability_chernobog_rune_e_3_arcana2_suffix"				" per 1% Demon damage bonus"
 
   		"DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2"						"[E4] Shadow Master"
-    	"DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2_Description"			"The shadows around Chernobog are permanently animated, and rip into all enemies within <font color='#ccff66'>350</font> range every <font color='#ccff66'>0.3</font> seconds. Chernobog leaves behind invisible zones of animated shadows as he moves, which will continue attacking enemies for a brief moment even after he has left the area."
+    	"DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2_Description"			"The shadows around Chernobog are permanently animated, and rip into all enemies within <font color='#ccff66'>400</font> range every <font color='#ccff66'>0.3</font> seconds. Chernobog leaves behind invisible zones of animated shadows as he moves, which will continue attacking enemies for a brief moment even after he has left the area."
     	"DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2_property_one"			"Shadow Damage"
     	"DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2_suffix"				"% of Chernobog's attack power"
     	"DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2_property_two"			"Zone Duration"
@@ -3974,7 +3974,7 @@
 		"item_rpc_chernobog_glyph_1_1_description" 				"Killing an enemy restores <font color='#ccff66'>10</font>% of your max mana."
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_2_1"		"[T2-1] Glyph of Midnight"
-		"item_rpc_chernobog_glyph_2_1_description" 				"All effects that create zones or auras wherein enemies are attacked by Chernobog's shadows have their radius multiplied by <font color='#ccff66'>2</font>. This also applies to the radius of [R2]."
+		"item_rpc_chernobog_glyph_2_1_description" 				"All effects that create zones or auras wherein enemies are attacked by Chernobog's shadows have their radius multiplied by <font color='#ccff66'>1.2</font>."
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_3_1"		"[T3-1] Glyph of Nightmare's Grasp"
 		"item_rpc_chernobog_glyph_3_1_description" 				"Each enemy hit by @Ability1 reduces the cooldown of @Ability4 by <font color='#ccff66'>0.5</font> seconds. Additionally, @Ability1 is cast for free after channeling @Ability4."
@@ -4251,8 +4251,8 @@
 		
 		//Arcanas
 		"DOTA_Tooltip_ability_conjuror_elemental_deity" 					"Elemental Deity"
-    	"DOTA_Tooltip_ability_conjuror_elemental_deity_Description"			"Conjuror reaches into the depths of elemental knowledge, summoning the grand Elemental Deity. The Deity has Steadfast and inherits health, armor and physical damage from Conjuror."
-    	"DOTA_Tooltip_ability_conjuror_elemental_deity_attack_damage_mult"	"ATTACK DAMAGE X:"
+    	"DOTA_Tooltip_ability_conjuror_elemental_deity_Description"			"Conjuror reaches into the depths of elemental knowledge, summoning the grand Elemental Deity. The Deity has Steadfast and inherits health, armor and Base Attack Damage from Conjuror."
+    	"DOTA_Tooltip_ability_conjuror_elemental_deity_attack_damage_mult"	"BASE ATTACK DAMAGE X:"
     	"DOTA_Tooltip_ability_conjuror_elemental_deity_armor_mult"			"ARMOR X:"
     	"DOTA_Tooltip_ability_conjuror_elemental_deity_health_mult"			"MAX HEALTH X:"
 
@@ -5695,7 +5695,7 @@
     	"DOTA_Tooltip_ability_ekkan_rune_e_2"								"[E2] Summon Familiars"
     	"DOTA_Tooltip_ability_ekkan_rune_e_2_Description"					"A familiar is raised from the Acheron's Portal that has magic immunity. Has <font color='#ccff66'>50</font>% of the max HP of Ekkan. Max 2 familiars."
     	"DOTA_Tooltip_ability_ekkan_rune_e_2_property_one"					"Attack Damage"
-    	"DOTA_Tooltip_ability_ekkan_rune_e_2_suffix"						"% of Ekkan's Attack Damage"
+    	"DOTA_Tooltip_ability_ekkan_rune_e_2_suffix"						"% of Ekkan's Base Attack Damage"
     	"DOTA_Tooltip_ability_ekkan_rune_e_2_property_two"					"Armors and Pierces"
     	"DOTA_Tooltip_ability_ekkan_rune_e_2_suffix_two"					"% of Ekkan's Armor and Pierces"
 
@@ -7492,7 +7492,7 @@
 	"DOTA_Tooltip_ability_jex_lightning_nature_q_Description"	"Element: <font color='#5CCDF9'>Lightning</font> / <font color='#69BC71'>Nature</font><br>An electrified sproutling warrior is summoned to fight for Jex. The minion inherits armor, magic armor, pierces and attack damage from their summoner, and their attacks have a 30% chance to trigger a chain lightning effect that deals magic damage based on attack power."
 	"DOTA_Tooltip_ability_jex_lightning_nature_q_chain_lightning_max_targets_per_tech"	"<font color=\"#f4b942\">SPROUTLING CHAIN LIGHTNING MAX TARGETS PER TECH</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_q_roshpit_attr_per_tech"		"<font color=\"#f4b942\">SPROUTLING ARMOR/PIERCES AS A MULTIPLE OF JEX'S PER TECH</font>:"
-	"DOTA_Tooltip_ability_jex_lightning_nature_q_attack_mult_per_tech"		"<font color=\"#f4b942\">SPROUTLING ATTACK DAMAGE AS A MULTIPLE OF JEX'S PER TECH</font>:"
+	"DOTA_Tooltip_ability_jex_lightning_nature_q_attack_mult_per_tech"		"<font color=\"#f4b942\">SPROUTLING BASE ATTACK DAMAGE AS A MULTIPLE OF JEX'S PER TECH</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_q_health_mult"				"SPROUTLING HEALTH AS A MULTIPLE OF JEX'S:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_q_duration"					"SPROUTLING DURATION"
 	"DOTA_Tooltip_ability_jex_lightning_nature_q_chain_lightning_damage_pct_attack_power" "% CHAIN LIGHTNING DAMAGE % OF ATTACK POWER:"
@@ -7597,7 +7597,7 @@
 	"DOTA_Tooltip_ability_jex_lightning_nature_e_Description"	"Element: <font color='#5CCDF9'>Lightning</font> / <font color='#69BC71'>Nature</font><br>Summons an immobile Thunder Blossom at the target location. Blossoms can attack enemies and their attacks have a 30% chance to strike the enemy with a lightning bolt. Jex can be ordered to attack a ThunderBlossom to teleport to it on a 0.3 second delay."
 	"DOTA_Tooltip_ability_jex_lightning_nature_e_duration_per_tech"	"<font color=\"#f4b942\">LIFE DURATION PER TECH</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_e_roshpit_attr_per_tech"	"<font color=\"#f4b942\">ARMORS/PIERCES AS MULTIPLE OF JEX'S PER TECH</font>:"
-	"DOTA_Tooltip_ability_jex_lightning_nature_e_attack_mult_per_tech"	"<font color=\"#f4b942\">ATTACK DAMAGE AS MULTIPLE OF JEX'S PER TECH</font>:"
+	"DOTA_Tooltip_ability_jex_lightning_nature_e_attack_mult_per_tech"	"<font color=\"#f4b942\"> BASE ATTACK DAMAGE AS MULTIPLE OF JEX'S PER TECH</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_e_attack_range_per_tech"	"<font color=\"#f4b942\">ATTACK RANGE PER TECH</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_e_max_concurrent_per_tech"	"<font color=\"#f4b942\">MAX SUMMONS PER TECH</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_e_health_mult"			"MAX HEALTH AS A MULTIPLE OF JEX'S:"
@@ -12038,7 +12038,7 @@
     	"DOTA_Tooltip_ability_voltex_rune_e_1_property_one"					"Illusion Duration"
     	"DOTA_Tooltip_ability_voltex_rune_e_1_suffix"						""
     	"DOTA_Tooltip_ability_voltex_rune_e_1_property_two"					"Illusion Attack Power"
-    	"DOTA_Tooltip_ability_voltex_rune_e_1_suffix_two"					"% of Voltex total attack power"
+    	"DOTA_Tooltip_ability_voltex_rune_e_1_suffix_two"					"% of Voltex Base Attack Damage"
 
     	"voltex_rune_e_1_illusion"												"Lightning Remnant"
 		
@@ -13087,7 +13087,7 @@
 
         "item_rpc_terrasic_lava_boots_ruby1"                                "Increases Item and <font color='#EF4126'>Fire</font> Elemental damage by @ruby_property1%"
         "item_rpc_terrasic_lava_boots_emerald1"                             "Casting [E] emits @emerald_property1 <font color='#ccff66'>600</font> range flames in a cone from your back, each dealing @emerald_property2% of attack power to impacted enemies"
-        "item_rpc_terrasic_lava_boots_sapphire1"                                "Travelling <font color='#ccff66'>2500</font> distance summons a fireling with Magma Tread active. The fireling has <font color='#ccff66'>600</font> attack range, @sapphire_property1% of your health, and @sapphire_property2% of your attack damage. Lasts <font color='#ccff66'>12</font> seconds."
+        "item_rpc_terrasic_lava_boots_sapphire1"                                "Travelling <font color='#ccff66'>2500</font> distance summons a fireling with Magma Tread active. The fireling has <font color='#ccff66'>600</font> attack range, @sapphire_property1% of your health, and @sapphire_property2% of your Base attack damage. Lasts <font color='#ccff66'>12</font> seconds."
         "item_rpc_terrasic_lava_boots_amethyst1"                                "Casting [E] applies the Magma Tread buff for @amethyst_property1 seconds"
 
         "terrasic_lava_boots_fireling"                                      "Fireling"
@@ -13182,7 +13182,7 @@
 
 		"DOTA_Tooltip_ability_item_rpc_alien_armor"		"Alien Armor"
 		"property_alien_armor"							"Simulation"
-		"property_alien_armor_description"				"Casting @Ability4 creates an illusion of you whose damage is attributed to the caster and considered item damage. The illusion has <font color='#ccff66'>2</font>x the caster's attack power, takes <font color='#ccff66'>50</font>% reduced damage, and lasts <font color='#ccff66'>10</font> seconds. If the wearer dies while an illusion is active, they respawn in the place of a random illusion after a <font color='#ccff66'>3</font> second delay as long as the chosen illusion is still alive at that time. Max <font color='#ccff66'>1</font> active illusion."
+		"property_alien_armor_description"				"Casting @Ability4 creates an illusion of you whose damage is attributed to the caster and considered item damage. The illusion has <font color='#ccff66'>2</font>x the caster's Base attack damage, takes <font color='#ccff66'>50</font>% reduced damage, and lasts <font color='#ccff66'>10</font> seconds. If the wearer dies while an illusion is active, they respawn in the place of a random illusion after a <font color='#ccff66'>3</font> second delay as long as the chosen illusion is still alive at that time. Max <font color='#ccff66'>1</font> active illusion."
 		
 		"item_rpc_alien_armor_ruby1"		"Increases max number of active illusions by @ruby_property1"
 		"item_rpc_alien_armor_emerald1"		"Increases illusions' attack speed by @emerald_property1"
@@ -13606,7 +13606,7 @@
 		"DOTA_Tooltip_ability_item_rpc_robe_of_flooding"								"Robe of Flooding"
 
 		"item_property_flooding"					"Water Elemental"
-		"property_flooding_description"			"When you finish casting @Ability4, summon a Water Elemental companion with <font color='#ccff66'>2</font>x its master's health and <font color='#ccff66'>2</font>x its master's attack damage at the time of summoning. Only 1 elemental can be active at a time and all of its damage is attributed to its master."
+		"property_flooding_description"			"When you finish casting @Ability4, summon a Water Elemental companion with <font color='#ccff66'>2</font>x its master's health and <font color='#ccff66'>2</font>x its master's Base attack damage at the time of summoning. Only 1 elemental can be active at a time and all of its damage is attributed to its master."
 		"water_elemental_flood_3"				"Water Elemental"
 
 		"DOTA_Tooltip_ability_flood_water_elemental_ai"		"Water Elemental AI"
@@ -13623,7 +13623,7 @@
 		"DOTA_Tooltip_ability_item_rpc_robe_of_the_erudite_teacher"		"Robe of the Erudite Teacher"
 
 		"item_property_robe_of_the_erudite_teacher"						"Rubick Apprentice"
-		"property_robe_of_the_erudite_teacher_description"				"When equipped, a curious Rubick Apprentice adventures with you. The Apprentice can copy up to 3 spells from enemy creatures. It spawns with <font color='#ccff66'>1</font>x the wearer's maximum health and <font color='#ccff66'>1</font>x the wearer's total attack power, and 2000 mana. If the Apprentice dies, it respawns after 10 seconds, keeping all the same abilities it had before death. All damage dealt by the Apprentice is considered item damage from your hero."
+		"property_robe_of_the_erudite_teacher_description"				"When equipped, a curious Rubick Apprentice adventures with you. The Apprentice can copy up to 3 spells from enemy creatures. It spawns with <font color='#ccff66'>1</font>x the wearer's maximum health and <font color='#ccff66'>1</font>x the wearer's Base Attack Damage, and 2000 mana. If the Apprentice dies, it respawns after 10 seconds, keeping all the same abilities it had before death. All damage dealt by the Apprentice is considered item damage from your hero."
 
 		"item_rpc_robe_of_the_erudite_teacher_ruby1"		"Increases the Apprentice's Max Health by an additional @ruby_property1"
 		"item_rpc_robe_of_the_erudite_teacher_emerald1"		"Reduces the apprentice's respawn time by @emerald_property1 seconds"
@@ -14037,7 +14037,7 @@
     	"DOTA_Tooltip_ability_item_rpc_boneguard_gauntlets"								"Claw of the Dead"
 
 		"item_property_boneguard"				"Raise Dead"
-		"property_boneguard_description"		"<font color='#ccff66'>15</font>% chance on attack to summon a skeleton warrior to fight by your side for <font color='#ccff66'>20</font> seconds. Skeletons have <font color='#ccff66'>0.25</font>x their master's max health and <font color='#ccff66'>0.3</font>x of their master's attack power. Max <font color='#ccff66'>5</font> skeletons."
+		"property_boneguard_description"		"<font color='#ccff66'>15</font>% chance on attack to summon a skeleton warrior to fight by your side for <font color='#ccff66'>20</font> seconds. Skeletons have <font color='#ccff66'>0.25</font>x their master's max health and <font color='#ccff66'>0.3</font>x of their master's Base attack damage. Max <font color='#ccff66'>5</font> skeletons."
 
 		"DOTA_Tooltip_ability_bone_claw_skeleton_toggle_ai"				"Claw of the Dead AI"
 		"DOTA_Tooltip_ability_bone_claw_skeleton_toggle_ai_Description"	"Toggle to activate default behavior"
@@ -14601,7 +14601,7 @@
 		"DOTA_Tooltip_ability_item_rpc_zombiegrip_gauntlet"			"Zombiegrip Gauntlet"
 
 		"item_property_zombiegrip_gauntlet"							"Zombie Wall"
-		"property_zombiegrip_gauntlet_description"					"Casting @Ability1 summons an impassible wall made up of <font color='#ccff66'>5</font> zombies perpendicular to the caster. Enemies standing within <font color='#ccff66'>260</font> range near the wall are attacked by the zombies. Zombies have Attack Power based on <font color='#ccff66'>100</font>% of the caster's Attack Power. Zombies die after <font color='#ccff66'>6</font> attacks or <font color='#ccff66'>12</font> seconds. Zombie Wall has a <font color='#ccff66'>3</font> second cooldown, and creating a wall while another wall exists kills all other zombies."
+		"property_zombiegrip_gauntlet_description"					"Casting @Ability1 summons an impassible wall made up of <font color='#ccff66'>5</font> zombies perpendicular to the caster. Enemies standing within <font color='#ccff66'>260</font> range near the wall are attacked by the zombies. Zombies have Base Attack Damage based on <font color='#ccff66'>100</font>% of the caster's Base Attack Damage. Zombies die after <font color='#ccff66'>6</font> attacks or <font color='#ccff66'>12</font> seconds. Zombie Wall has a <font color='#ccff66'>3</font> second cooldown, and creating a wall while another wall exists kills all other zombies."
 
 		"item_rpc_zombiegrip_gauntlet_ruby1"			"Increases Undead Elemental damage by @ruby_property1%, zombies have @ruby_property2 increased Attack Speed and @ruby_property3% additional attack damage."
 		"item_rpc_zombiegrip_gauntlet_emerald1"			"When a Zombie dies it explodes and deals @emerald_property1% of Attack Power in a <font color='#ccff66'>300</font> radius. The explosion leaves a puddle of acid that deals @emerald_property2% of attack power every 0.5 seconds and lowers armor by @emerald_property3. The puddle lasts for <font color='#ccff66'>7</font> seconds"
@@ -15099,7 +15099,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_mask_of_the_desert_necromancer"					"Mask of the Desert Necromancer"
 		"item_property_desert_necromancer"			"Reanimate Thorok"
-		"property_desert_necromancer_description"	"When you cast @Ability4, summon the abomination Thorok for <font color='#ccff66'>30</font> seconds. He has <font color='#ccff66'>10</font>x your attack damage, <font color='#ccff66'>3</font>x your health and <font color='#ccff66'>3</font>x your Armor and Pierces at the time of summoning. If you summon him while below <font color='#ccff66'>40</font>% health, he will be enraged, gaining <font color='#ccff66'>160</font> attack speed and <font color='#ccff66'>120</font> movement speed. Summoning Thorok while he's already alive will kill the original one. All damage dealt by Thorok is attributed to his master."
+		"property_desert_necromancer_description"	"When you cast @Ability4, summon the abomination Thorok for <font color='#ccff66'>30</font> seconds. He has <font color='#ccff66'>10</font>x your Base attack damage, <font color='#ccff66'>3</font>x your health and <font color='#ccff66'>3</font>x your Armor and Pierces at the time of summoning. If you summon him while below <font color='#ccff66'>40</font>% health, he will be enraged, gaining <font color='#ccff66'>160</font> attack speed and <font color='#ccff66'>120</font> movement speed. Summoning Thorok while he's already alive will kill the original one. All damage dealt by Thorok is attributed to his master."
 
 		"item_rpc_mask_of_the_desert_necromancer_ruby1"	"Increases Thorok's health multiple by @ruby_property1x his master's, and increases his life duration by @ruby_property2 seconds"
 		"item_rpc_mask_of_the_desert_necromancer_emerald1"	"Thorok has @emerald_property1% lifesteal that also heals his master"
@@ -15157,7 +15157,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_scourge_knights_helm"							"Scourge Knight's Helm"
 		"item_property_scourge_knight"				"Undead Command"
-		"property_scourge_knight_description"		"After casting @Ability4, summon 5 immobile skeleton archers who have <font color='#ccff66'>10</font>x your attack damage. Archers last <font color='#ccff66'>15</font> seconds or die after taking damage <font color='#ccff66'>5</font> times."
+		"property_scourge_knight_description"		"After casting @Ability4, summon 5 immobile skeleton archers who have <font color='#ccff66'>10</font>x your Base Attack damage. Archers last <font color='#ccff66'>15</font> seconds or die after taking damage <font color='#ccff66'>5</font> times."
 
 		"item_rpc_scourge_knights_helm_ruby1"	"Archers have a 50% chance to spawn with Fire Arrows, which deal their damage in @ruby_property1 AOE"
 		"item_rpc_scourge_knights_helm_emerald1"	"Archers have a 50% chance to spawn with Poison Arrows, which deal @emerald_property1% of the archer owner's attack damage per second for <font color='#ccff66'>3</font> seconds"
@@ -15337,7 +15337,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_wolfir_druids_spirit_helm"						"Wolfir Druid's Spirit Helm"
 		"item_property_druids_spirt"				"Feral Spirits"
-		"property_druids_spirit_description"		"While channeling @Ability4, summon a Feral Spirit Wolf every 0.5 seconds which has <font color='#ccff66'>15</font>x your attack power, and <font color='#ccff66'>30</font>% of your max health. Feral Spirits last <font color='#ccff66'>16</font> seconds and only <font color='#ccff66'>3</font> can be active at a time."
+		"property_druids_spirit_description"		"While channeling @Ability4, summon a Feral Spirit Wolf every 0.5 seconds which has <font color='#ccff66'>15</font>x your Base Attack Damage, and <font color='#ccff66'>30</font>% of your max health. Feral Spirits last <font color='#ccff66'>16</font> seconds and only <font color='#ccff66'>3</font> can be active at a time."
 		"DOTA_Tooltip_modifier_wolfir_druid_aura_effect"	"Feral Spirit"
 		"DOTA_Tooltip_modifier_wolfir_druid_aura_effect_Description"	"Increased attack damage from Spirit Wolves"
 
@@ -15998,7 +15998,7 @@
         "DOTA_Tooltip_ability_item_rpc_tome_of_chaos"                                   "Tome of Chaos"
 
         "item_property_tome_of_chaos"               "Infernal Reign"
-        "property_tome_of_chaos"                    "When you cast @Ability2, summon an infernal demon in front of you, which stuns nearby enemies in <font color='#ccff66'>500</font> for <font color='#ccff66'>3</font> seconds upon arrival. The devil has <font color='#ccff66'>4</font>x your health and <font color='#ccff66'>4</font>x your attack damage. Lasts <font color='#ccff66'>30</font> seconds and has a <font color='#ccff66'>35</font> second cooldown."
+        "property_tome_of_chaos"                    "When you cast @Ability2, summon an infernal demon in front of you, which stuns nearby enemies in <font color='#ccff66'>500</font> for <font color='#ccff66'>3</font> seconds upon arrival. The devil has <font color='#ccff66'>4</font>x your health and <font color='#ccff66'>4</font>x your Base Attack damage. Lasts <font color='#ccff66'>30</font> seconds and has a <font color='#ccff66'>35</font> second cooldown."
         "DOTA_Tooltip_modifier_tome_of_chaos_cooldown"  "Infernal Reign Cooldown"
         "DOTA_Tooltip_modifier_tome_of_chaos_cooldown_Description"  "Recharging"
 
@@ -18993,7 +18993,7 @@
 
 		"rpc_serengaard_ancient"										"Serengaard Ancient"
 		"DOTA_Tooltip_ability_serengaard_ancient_ability"				"Serengaard Ancient"
-		"DOTA_Tooltip_ability_serengaard_ancient_ability_Description"				"This monument controls the Battle of Serengaard combat test, summoning waves of ever more powerful monsters. When it falls, the test is concluded. The Serengaard Ancient takes only Physical and Pure damage and cannot be healed."
+		"DOTA_Tooltip_ability_serengaard_ancient_ability_Description"				"This monument controls the Battle of Serengaard combat test, summoning waves of ever more powerful monsters. <br> When it falls, the test is concluded. The Serengaard Ancient takes only Physical and Pure damage and cannot be healed. <br> Ancient has <font color='#ccff66'><font color='#ccff66'>1000</font></font> Health Points and each enemy's attack deals 1 damage."
 
 		"DOTA_Tooltip_ability_serengaard_sun_guardian_ability"			"Sun Guardian"
 		"DOTA_Tooltip_ability_serengaard_sun_guardian_ability_Description"		"Provides passive health regen."
@@ -21862,7 +21862,7 @@
 		"DOTA_Tooltip_modifier_reality_rift_datadriven_Description"	"Increased attack damage."	
 
 		"DOTA_Tooltip_ability_winterblight_starseeker_passive"	"Coat of Astra"
-		"DOTA_Tooltip_ability_winterblight_starseeker_passive_Description"	"Magic damage heals instead of dealing damage."
+		"DOTA_Tooltip_ability_winterblight_starseeker_passive_Description"	"Magic damage heals instead of dealing damage with a 25% chance."
 
 		"DOTA_Tooltip_ability_winterblight_star_prophecy"		"Star Prophecy"
 		"DOTA_Tooltip_ability_winterblight_star_prophecy_Description"	"Applies a debuff to the target unit. When that unit attacks or casts a spell, they gain additional stacks and the duration is extended. When the debuff timer runs out, stars hit the target based on how many stacks they accumulated."

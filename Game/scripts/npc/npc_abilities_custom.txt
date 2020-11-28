@@ -46853,7 +46853,7 @@
 
 		// Cost
 		//-------------------------------------------------------
-		"AbilityManaCost"				"100 140 200 280 380 500 640"
+		"AbilityManaCost"				"10 14 20 28 38 50 64"
 
 		// Special
 		//-------------------------------------------------------
@@ -46885,7 +46885,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.07"
+				"property_one"			"0.1"
 			}
 		}
 	}
@@ -49627,7 +49627,7 @@
 			}
 			"modifier_chernobog_night_vision"
 			{
-				"IsHidden"	"0"
+				"IsHidden"	"1"
 				"Aura"          	"modifier_chernobog_night_vision_enemy"
 				"Aura_Radius"   	"1800"
 				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -49735,7 +49735,7 @@
 			}
 			"modifier_chernobog_night_vision"
 			{
-				"IsHidden"	"0"
+				"IsHidden"	"1"
 				"Aura"          	"modifier_chernobog_night_vision_enemy"
 				"Aura_Radius"   	"1800"
 				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -50632,7 +50632,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"350"
+				"property_one_base"		"400"
 			}
 			"03"
 			{
@@ -78815,7 +78815,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"10000"
+				"damage"			"300 1200 10000"
 			}
 		}
 		"OnOwnerDied"
@@ -82230,7 +82230,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_bonus_per_stack"			"200"
+				"damage_bonus_per_stack"			"40"
 			}
 			"02"
 			{
@@ -82240,7 +82240,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_bonus_full_shark"			"20000"
+				"damage_bonus_full_shark"			"400"
 			}
 		}
 		"Modifiers"
@@ -147508,6 +147508,11 @@
 						"target"		"TARGET"
 					}
 				}
+			}
+			"modifier_take_1_damage_only"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
 			}
 		}
 		"OnOwnerDied"

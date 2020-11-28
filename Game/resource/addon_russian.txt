@@ -76,6 +76,7 @@
 		"npc_dota_hero_winter_wyvern_lore" "Голубое пламя дракона сжигает и замораживает, не оставляя противнику и шанса."
 		"npc_dota_hero_arc_warden_lore" "Сила науки и гербологии позволяет подчинить себе куда больше возможностей природы, чем она сама предоставляет.          Примечание! Для назначения новых способностей используйте юнита-курьера."
 		"npc_dota_hero_faceless_void_lore" "Всего одно оружие, но тысяча способов его применить."	
+		"npc_dota_hero_grimstroke_lore"		"Вселенная - холст для Рубилаша, а жестокость - его подпись."
 		//--------------------
 		//Units
 		//--------------------
@@ -3945,7 +3946,7 @@
         "DOTA_Tooltip_ability_chernobog_rune_e_3_arcana2_suffix"                " за каждый 1% усиления стихии Демона"
 
         "DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2"                       "[E4] Hunter in the Night"
-        "DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2_Description"           "Противники в радиусе <font color='#ccff66'>350</font> от героя получают урон от Теней каждые <font color='#ccff66'>0.3</font> сек. Чернобог оставляет за собой невидимые зоны оживленных Теней, которые будут атаковать противников еще некоторое время."
+        "DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2_Description"           "Противники в радиусе <font color='#ccff66'>400</font> от героя получают урон от Теней каждые <font color='#ccff66'>0.3</font> сек. Чернобог оставляет за собой невидимые зоны оживленных Теней, которые будут атаковать противников еще некоторое время."
         "DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2_property_one"          "Урон Теней"
         "DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2_suffix"                "% от урона атаки героя"
         "DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2_property_two"          "Длительность зон"
@@ -3956,7 +3957,7 @@
 		"item_rpc_chernobog_glyph_1_1_description" 				"Убийство противника восстанавливает <font color='#ccff66'>10</font>% от максимальной маны героя."
 
         "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_2_1"     "[T2-1] Glyph of Midnight"
-        "item_rpc_chernobog_glyph_2_1_description"              "У всех эффектов, создающих зоны или ауры, атакующие противников, базовый радиус умножается на <font color='#ccff66'>2</font>. Также работает и на [R2]."
+        "item_rpc_chernobog_glyph_2_1_description"              "У всех эффектов, создающих зоны или ауры, атакующие противников, базовый радиус умножается на <font color='#ccff66'>1.2</font>."
 
         "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_3_1"     "[T3-1] Glyph of Nightmare's Grasp"
         "item_rpc_chernobog_glyph_3_1_description"              "Каждый противник, задетый @Ability1 снижает перезарядку @Ability4 на <font color='#ccff66'>0.5</font> сек. Дополнительно, @Ability1 самостоятельно создается после каста @Ability4."
@@ -4226,8 +4227,8 @@
 		
 		//Arcanas
 		"DOTA_Tooltip_ability_conjuror_elemental_deity" 					"Elemental Deity"
-    	"DOTA_Tooltip_ability_conjuror_elemental_deity_Description"			"Conjuror познаёт великие тайны элементалей, что позволяет ему призвать Бога Элементалей. Божество обладает повышенной стойкостью к урону, а его здоровье, броня и урон наследуются от одноимённых значений героя."
-    	"DOTA_Tooltip_ability_conjuror_elemental_deity_attack_damage_mult"	"УРОН, Х:"
+    	"DOTA_Tooltip_ability_conjuror_elemental_deity_Description"			"Conjuror познаёт великие тайны элементалей, что позволяет ему призвать Бога Элементалей. Божество обладает повышенной стойкостью к урону, а его здоровье, броня и Базовый Урон Атаки наследуются от одноимённых значений героя."
+    	"DOTA_Tooltip_ability_conjuror_elemental_deity_attack_damage_mult"	"БАЗОВЫЙ УРОН АТАКИ, Х:"
     	"DOTA_Tooltip_ability_conjuror_elemental_deity_armor_mult"			"БРОНЯ, Х:"
     	"DOTA_Tooltip_ability_conjuror_elemental_deity_health_mult"			"МАКС. ЗДОРОВЬЕ, Х:"
 
@@ -5632,7 +5633,7 @@
     	"DOTA_Tooltip_ability_ekkan_rune_e_2"								"[E2] Summon Familiars"
     	"DOTA_Tooltip_ability_ekkan_rune_e_2_Description"					"С каждым прочтением @Ability3 появляется гаргулья, которая имеет иммунитет к магии. Запас здоровья гаргульи равен <font color='#ccff66'>50</font>% от макс. здоровья героя. Максимум может существовать 2 гаргульи."
     	"DOTA_Tooltip_ability_ekkan_rune_e_2_property_one"					"Урон"
-    	"DOTA_Tooltip_ability_ekkan_rune_e_2_suffix"						"% от общего урона героя"
+    	"DOTA_Tooltip_ability_ekkan_rune_e_2_suffix"						"% от базового урона героя"
     	"DOTA_Tooltip_ability_ekkan_rune_e_2_property_two"					"Броня"
     	"DOTA_Tooltip_ability_ekkan_rune_e_2_suffix_two"					"% от брони и магической защиты героя"
 
@@ -11356,7 +11357,7 @@
     	"DOTA_Tooltip_ability_voltex_rune_e_1_property_one"					"Длительность иллюзий"
     	"DOTA_Tooltip_ability_voltex_rune_e_1_suffix"						""
     	"DOTA_Tooltip_ability_voltex_rune_e_1_property_two"					"Урон"
-    	"DOTA_Tooltip_ability_voltex_rune_e_1_suffix_two"					"% от урона героя"
+    	"DOTA_Tooltip_ability_voltex_rune_e_1_suffix_two"					"% от Базового Урона Атаки героя"
 
     	"voltex_rune_e_1_illusion"												"Lightning Remnant"
 		
@@ -11966,7 +11967,7 @@
 	"DOTA_Tooltip_ability_jex_lightning_nature_q_Description"	"Элемент: <font color='#5CCDF9'>Молния</font> / <font color='#69BC71'>Природа</font><br>Наэлектризованный воин из живого дерева вызывается на помощь Jex. Воин наследует броню, магическую броню, пробития и силу атаки призывателя, а его атаки с 30% шансом запустят магическую цепную молнию."
 	"DOTA_Tooltip_ability_jex_lightning_nature_q_chain_lightning_max_targets_per_tech"	"<font color=\"#f4b942\">ЦЕЛИ ЦЕПНОЙ МОЛНИИ, ЗА ТЕХ. УРОВЕНЬ</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_q_roshpit_attr_per_tech"		"<font color=\"#f4b942\">БРОНЯ ВОИНА, МНОЖИТЕЛЬ ОТ ПРИЗЫВАТЕЛЯ, ЗА ТЕХ. УРОВЕНЬ</font>:"
-	"DOTA_Tooltip_ability_jex_lightning_nature_q_attack_mult_per_tech"		"<font color=\"#f4b942\">АТАКА ВОИНА, МНОЖИТЕЛЬ ОТ ПРИЗЫВАТЕЛЯ, ЗА ТЕХ. УРОВЕНЬ</font>:"
+	"DOTA_Tooltip_ability_jex_lightning_nature_q_attack_mult_per_tech"		"<font color=\"#f4b942\">БАЗОВАЯ АТАКА ВОИНА, МНОЖИТЕЛЬ ОТ ПРИЗЫВАТЕЛЯ, ЗА ТЕХ. УРОВЕНЬ</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_q_health_mult"				"ЗДОРОВЬЕ ВОИНА, МНОЖИТЕЛЬ ОТ ЗДОРОВЬЯ ПРИЗЫВАТЕЛЯ:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_q_duration"					"ДЛИТЕЛЬНОСТЬ:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_q_chain_lightning_damage_pct_attack_power" "УРОН МОЛНИИ В % ОТ СИЛЫ АТАКИ:"
@@ -12071,7 +12072,7 @@
 	"DOTA_Tooltip_ability_jex_lightning_nature_e_Description"	"Элемент: <font color='#5CCDF9'>Молния</font> / <font color='#69BC71'>Природа</font><br>Призывает неподвижное громовое растение. Может атаковать врагов, с 30% шансом вызовет удар молнии по ним. Jex может при помощи приказа перемещения телепортироваться к этим цветкам, либо использовать способность растения."
 	"DOTA_Tooltip_ability_jex_lightning_nature_e_duration_per_tech"	"<font color=\"#f4b942\">ДЛИТЕЛЬНОСТЬ ЖИЗНИ ЗА ТЕХ. УРОВЕНЬ</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_e_roshpit_attr_per_tech"	"<font color=\"#f4b942\">БРОНЯ ОТ ПОКАЗАТЕЛЯ JEX ЗА ТЕХ. УРОВЕНЬ</font>:"
-	"DOTA_Tooltip_ability_jex_lightning_nature_e_attack_mult_per_tech"	"<font color=\"#f4b942\">АТАКА ОТ ПОКАЗАТЕЛЯ JEX ЗА ТЕХ. УРОВЕНЬ</font>:"
+	"DOTA_Tooltip_ability_jex_lightning_nature_e_attack_mult_per_tech"	"<font color=\"#f4b942\">БАЗОВАЯ АТАКА ОТ ПОКАЗАТЕЛЯ JEX ЗА ТЕХ. УРОВЕНЬ</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_e_attack_range_per_tech"	"<font color=\"#f4b942\">ДАЛЬНОСТЬ АТАКИ ЗА ТЕХ. УРОВЕНЬ</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_e_health_mult"			"ЗДОРОВЬЕ ОТ ПОКАЗАТЕЛЯ JEX:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_e_damage_pct_atk_power"	"УРОН УДАРА МОЛНИИ ОТ УРОНА РАСТЕНИЯ:"
@@ -12954,7 +12955,7 @@
 
         "item_rpc_terrasic_lava_boots_ruby1"                                "Увеличивает Урон Предметов и урон <font color='#EF4126'>Огня</font> на @ruby_property1%"
         "item_rpc_terrasic_lava_boots_emerald1"                             "Прочтение [E] вызывает пламя дальностью @emerald_property1 <font color='#ccff66'>600</font> из, так сказать, задней части героя, наносящее @emerald_property2% от Силы Атаки героя"
-        "item_rpc_terrasic_lava_boots_sapphire1"                                "Каждые <font color='#ccff66'>2500</font> пройденной дистанции вызывает огненного демона с активным эффектом Magma Tread. Демон имеет <font color='#ccff66'>600</font> радиус атаки, @sapphire_property1% от Здоровья героя и @sapphire_property2% от Атаки героя. Продолжительность жизни <font color='#ccff66'>12</font> сек."
+        "item_rpc_terrasic_lava_boots_sapphire1"                                "Каждые <font color='#ccff66'>2500</font> пройденной дистанции вызывает огненного демона с активным эффектом Magma Tread. Демон имеет <font color='#ccff66'>600</font> радиус атаки, @sapphire_property1% от Здоровья героя и @sapphire_property2% от Базовой Атаки героя. Продолжительность жизни <font color='#ccff66'>12</font> сек."
         "item_rpc_terrasic_lava_boots_amethyst1"                                "Прочтение [E] применяет активный эффект на @amethyst_property1 сек"
 
         "terrasic_lava_boots_fireling"                                      "Fireling"
@@ -13049,11 +13050,11 @@
 
 		"DOTA_Tooltip_ability_item_rpc_alien_armor"		"Alien Armor"
 		"property_alien_armor"							"Simulation"
-		"property_alien_armor_description"				"Прочтение @Ability4 создает иллюзию героя, её урон считается уроном героя и усиливается Уроном Предметов. Иллюзия имеет <font color='#ccff66'>2</font>x силы атаки героя, получает на <font color='#ccff66'>50</font>% меньше урона, продолжительность жизни иллюзии <font color='#ccff66'>10</font> сек. Если носитель умирает во время действия иллюзии, он возродится на месте одной из иллюзий через <font color='#ccff66'>3</font> секундную задержку. Максимум активных иллюзий - <font color='#ccff66'>1</font>."
+		"property_alien_armor_description"				"Прочтение @Ability4 создает иллюзию героя, её урон считается уроном героя и усиливается Уроном Предметов. Иллюзия имеет <font color='#ccff66'>2</font>x Базовой атаки героя, получает на <font color='#ccff66'>50</font>% меньше урона, продолжительность жизни иллюзии <font color='#ccff66'>10</font> сек. Если носитель умирает во время действия иллюзии, он возродится на месте одной из иллюзий через <font color='#ccff66'>3</font> секундную задержку. Максимум активных иллюзий - <font color='#ccff66'>1</font>."
 		
 		"item_rpc_alien_armor_ruby1"		"Увеличивает максимум иллюзий на @ruby_property1"
 		"item_rpc_alien_armor_emerald1"		"Увеличивает скорость атаки иллюзий на @emerald_property1"
-		"item_rpc_alien_armor_sapphire1"		"Урон иллюзий дополнительно увеличивается на @sapphire_property1% от силы атаки героя"
+		"item_rpc_alien_armor_sapphire1"		"Урон иллюзий дополнительно увеличивается на @sapphire_property1% от Базовой атаки героя"
 		"item_rpc_alien_armor_amethyst1"		"Увеличивает длительность иллюзий на @amethyst_property1 сек"
 
 		"DOTA_Tooltip_ability_item_rpc_ancient_tanari_wind_armor"						"Ancient Tanari Wind Armor"
@@ -13473,7 +13474,7 @@
 		"DOTA_Tooltip_ability_item_rpc_robe_of_flooding"								"Robe of Flooding"
 
 		"item_property_flooding"					"Water Elemental"
-		"property_flooding_description"			"По окончании прочтения @Ability4 вызывает компаньона - водного элементаля, имеющего показатели <font color='#ccff66'>2</font>x здоровья призывателя и <font color='#ccff66'>2</font>x атаки призывателя (рассчитывается в момент вызова). Только один элементаль может существовать одновременно, весь исходящий урон от него учитывается как урон Предметов героя-призывателя."
+		"property_flooding_description"			"По окончании прочтения @Ability4 вызывает компаньона - водного элементаля, имеющего показатели <font color='#ccff66'>2</font>x здоровья призывателя и <font color='#ccff66'>2</font>x Базовой атаки призывателя (рассчитывается в момент вызова). Только один элементаль может существовать одновременно, весь исходящий урон от него учитывается как урон Предметов героя-призывателя."
 		"water_elemental_flood_3"				"Water Elemental"
 
 		"DOTA_Tooltip_ability_flood_water_elemental_ai"		"Water Elemental AI"
@@ -13490,7 +13491,7 @@
 		"DOTA_Tooltip_ability_item_rpc_robe_of_the_erudite_teacher"		"Robe of the Erudite Teacher"
 
 		"item_property_robe_of_the_erudite_teacher"						"Rubick Apprentice"
-		"property_robe_of_the_erudite_teacher_description"				"Вызывает подмастерье Рубика, который может заимствовать до 3 заклинаний у вражеских существ. Он призывается с показателями <font color='#ccff66'>1</font>x здоровья призывателя, <font color='#ccff66'>1</font>x атаки призывателя и 2000 маны. Если он умирает, новый подмастерье появляется через 10 секунд, сохраняя заимствованные заклинания. Весь исходящий урон от него учитывается как урон Предметов героя-призывателя."
+		"property_robe_of_the_erudite_teacher_description"				"Вызывает подмастерье Рубика, который может заимствовать до 3 заклинаний у вражеских существ. Он призывается с показателями <font color='#ccff66'>1</font>x здоровья призывателя, <font color='#ccff66'>1</font>x Базовой атаки призывателя и 2000 маны. Если он умирает, новый подмастерье появляется через 10 секунд, сохраняя заимствованные заклинания. Весь исходящий урон от него учитывается как урон Предметов героя-призывателя."
 
 		"item_rpc_robe_of_the_erudite_teacher_ruby1"		"Увеличивает запас здоровья подмастерья на @ruby_property1"
 		"item_rpc_robe_of_the_erudite_teacher_emerald1"		"Уменьшает время возрождения подмастерья на @emerald_property1 сек"
@@ -13905,7 +13906,7 @@
     	"DOTA_Tooltip_ability_item_rpc_boneguard_gauntlets"								"Claw of the Dead"
 
 		"item_property_boneguard"				"Raise Dead"
-		"property_boneguard_description"		"<font color='#ccff66'>15</font>% шанс при атаке призвать скелета-воина, сражающегося на стороне героя <font color='#ccff66'>20</font> сек. Скелеты имеют <font color='#ccff66'>0.25</font>x здоровья и <font color='#ccff66'>0.3</font>x силы атаки от показателей героя-призывателя. Максимум <font color='#ccff66'>5</font> скелетов."
+		"property_boneguard_description"		"<font color='#ccff66'>15</font>% шанс при атаке призвать скелета-воина, сражающегося на стороне героя <font color='#ccff66'>20</font> сек. Скелеты имеют <font color='#ccff66'>0.25</font>x здоровья и <font color='#ccff66'>0.3</font>x Базовой Атаки от показателей героя-призывателя. Максимум <font color='#ccff66'>5</font> скелетов."
 
 		"DOTA_Tooltip_ability_bone_claw_skeleton_toggle_ai"				"Claw of the Dead AI"
 		"DOTA_Tooltip_ability_bone_claw_skeleton_toggle_ai_Description"	"Включите для стандартной схемы поведения"
@@ -14469,7 +14470,7 @@
 		"DOTA_Tooltip_ability_item_rpc_zombiegrip_gauntlet"			"Zombiegrip Gauntlet"
 
 		"item_property_zombiegrip_gauntlet"							"Zombie Wall"
-		"property_zombiegrip_gauntlet_description"					"Прочтение @Ability1 призывает непроходимую стену из <font color='#ccff66'>5</font> зомби перпендикулярно к заклинателю. Эти зомби имеют Базовый Урон Атаки, равный <font color='#ccff66'>100</font>% от Силы Атаки заклинателя, и будут атаковать противников в пределах <font color='#ccff66'>260</font> радиуса. Зомби умирают после получения <font color='#ccff66'>6</font> атак, или через <font color='#ccff66'>12</font> сек. Создание стены из зомби имеет перезарядку <font color='#ccff66'>3</font> сек, а также создание новой стены уничтожает предыдущую. "
+		"property_zombiegrip_gauntlet_description"					"Прочтение @Ability1 призывает непроходимую стену из <font color='#ccff66'>5</font> зомби перпендикулярно к заклинателю. Эти зомби имеют Базовый Урон Атаки, равный <font color='#ccff66'>100</font>% от Базовой Атаки заклинателя, и будут атаковать противников в пределах <font color='#ccff66'>260</font> радиуса. Зомби умирают после получения <font color='#ccff66'>6</font> атак, или через <font color='#ccff66'>12</font> сек. Создание стены из зомби имеет перезарядку <font color='#ccff66'>3</font> сек, а также создание новой стены уничтожает предыдущую. "
 
 		"item_rpc_zombiegrip_gauntlet_ruby1"			"Увеличивает урон Нежити на @ruby_property1%. Зомби имеют повышенную на @ruby_property2 скорость атаки и  @ruby_property3% бонус к урону атаки."
 		"item_rpc_zombiegrip_gauntlet_emerald1"			"Зомби взрываются при убийстве, нанося @emerald_property1% от Силы Атаки в радиусе <font color='#ccff66'>300</font>. Взрыв оставляет кислотную лужу, наносящую @emerald_property2% от Силы Атаки каждые 0.5 сек и понижает Броню противников на @emerald_property3. Лужа исчезает через <font color='#ccff66'>7</font> сек."
@@ -14968,7 +14969,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_mask_of_the_desert_necromancer"					"Mask of the Desert Necromancer"
 		"item_property_desert_necromancer"			"Reanimate Thorok"
-		"property_desert_necromancer_description"	"Прочтение @Ability4 оживляет омерзительного Thorok'a на <font color='#ccff66'>30</font> секунд. Он имеет <font color='#ccff66'>10</font>x силы атаки призывателя, <font color='#ccff66'>3</font>x Здоровья призывателя, <font color='#ccff66'>3</font>x Брони, Маг. Защиты и Пробитий призывателя на момент оживления. Оживление Thorok'a в момент, когда у героя меньше <font color='#ccff66'>40</font>% ХП, приведет его в ярость, усиливая его скорость атаки на <font color='#ccff66'>160</font> и скорость перемещения на <font color='#ccff66'>120</font>. Может существовать только один Thorok. Весь урон, наносимый миньоном засчитывает героя как источник."
+		"property_desert_necromancer_description"	"Прочтение @Ability4 оживляет омерзительного Thorok'a на <font color='#ccff66'>30</font> секунд. Он имеет <font color='#ccff66'>10</font>x Базовой атаки призывателя, <font color='#ccff66'>3</font>x Здоровья призывателя, <font color='#ccff66'>3</font>x Брони, Маг. Защиты и Пробитий призывателя на момент оживления. Оживление Thorok'a в момент, когда у героя меньше <font color='#ccff66'>40</font>% ХП, приведет его в ярость, усиливая его скорость атаки на <font color='#ccff66'>160</font> и скорость перемещения на <font color='#ccff66'>120</font>. Может существовать только один Thorok. Весь урон, наносимый миньоном засчитывает героя как источник."
 
 		"item_rpc_mask_of_the_desert_necromancer_ruby1"	"Увеличивает Здоровье Thorok'a на @ruby_property1x от Здоровья призывателя, а продолжительность жизни на @ruby_property2 сек."
 		"item_rpc_mask_of_the_desert_necromancer_emerald1"	"Thorok имеет @emerald_property1% вампиризм, который также лечит и его призывателя"
@@ -15027,7 +15028,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_scourge_knights_helm"							"Scourge Knight's Helm"
 		"item_property_scourge_knight"				"Undead Command"
-		"property_scourge_knight_description"		"Прочтение @Ability4 призывает 5 неподвижных скелетов-лучников, которые имеют <font color='#ccff66'>10</font>x от силы Атаки героя. Скелеты имеют длительность жизни <font color='#ccff66'>15</font> секунд, либо умирают после получения <font color='#ccff66'>5</font> ударов."
+		"property_scourge_knight_description"		"Прочтение @Ability4 призывает 5 неподвижных скелетов-лучников, которые имеют <font color='#ccff66'>10</font>x от Базовой Атаки героя. Скелеты имеют длительность жизни <font color='#ccff66'>15</font> секунд, либо умирают после получения <font color='#ccff66'>5</font> ударов."
 
 		"item_rpc_scourge_knights_helm_ruby1"	"Скелеты-лучники получают 50% шанс появиться c Огненными стрелами, нанося урон от стрел по области @ruby_property1"
 		"item_rpc_scourge_knights_helm_emerald1"	"Скелеты-лучники получают 50% шанс появиться с Ядовитыми стрелами, нанося @emerald_property1% от силы Атаки героя-призывателя в течение <font color='#ccff66'>3</font> сек"
@@ -15207,7 +15208,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_wolfir_druids_spirit_helm"						"Wolfir Druid's Spirit Helm"
 		"item_property_druids_spirt"				"Feral Spirits"
-		"property_druids_spirit_description"		"Во время прочтения @Ability4 призывает диких волков каждые 0.5 секунды, которые имеют <font color='#ccff66'>15</font>x от силы Атаки героя и <font color='#ccff66'>30</font>% от Запаса Здоровья героя. Дикие волки живут <font color='#ccff66'>16</font> секунд и только <font color='#ccff66'>3</font> могут быть активны одновременно."
+		"property_druids_spirit_description"		"Во время прочтения @Ability4 призывает диких волков каждые 0.5 секунды, которые имеют <font color='#ccff66'>15</font>x от Базовой Атаки героя и <font color='#ccff66'>30</font>% от Запаса Здоровья героя. Дикие волки живут <font color='#ccff66'>16</font> секунд и только <font color='#ccff66'>3</font> могут быть активны одновременно."
 		"DOTA_Tooltip_modifier_wolfir_druid_aura_effect"	"Feral Spirit"
 		"DOTA_Tooltip_modifier_wolfir_druid_aura_effect_Description"	"Бонусный Урон Атаки от стаи увеличен"
 
@@ -15856,7 +15857,7 @@
         "DOTA_Tooltip_ability_item_rpc_tome_of_chaos"                                   "Tome of Chaos"
 
         "item_property_tome_of_chaos"               "Infernal Reign"
-        "property_tome_of_chaos"                    "Прочтение @Ability2 призывает инфернала перед героем, который при появлении оглушает противников в радиусе <font color='#ccff66'>500</font> на <font color='#ccff66'>3</font> сек. Инфернал имеет <font color='#ccff66'>4</font>x от Здоровья героя и <font color='#ccff66'>4</font>x от Силы Атаки героя. Продолжительность жизни инфернала <font color='#ccff66'>30</font> сек, а перезарядка призыва <font color='#ccff66'>35</font> сек."
+        "property_tome_of_chaos"                    "Прочтение @Ability2 призывает инфернала перед героем, который при появлении оглушает противников в радиусе <font color='#ccff66'>500</font> на <font color='#ccff66'>3</font> сек. Инфернал имеет <font color='#ccff66'>4</font>x от Здоровья героя и <font color='#ccff66'>4</font>x от Базовой Атаки героя. Продолжительность жизни инфернала <font color='#ccff66'>30</font> сек, а перезарядка призыва <font color='#ccff66'>35</font> сек."
         "DOTA_Tooltip_modifier_tome_of_chaos_cooldown"  "Infernal Reign Cooldown"
         "DOTA_Tooltip_modifier_tome_of_chaos_cooldown_Description"  "Перезарядка"
 
@@ -18754,16 +18755,16 @@
 
 		"serengaard_vote_skip_wave"										"Пропустить ожидание"
 		
-		"serengaard_leaderboard_title"									"Лидеры выживания в битве за Серенгард"
+		"serengaard_leaderboard_title"									"Лидеры выживания в битве за Серенгаард"
 
 		"serengaard_leaderboard_7days"									"7 дней"
 		"serengaard_leaderboard_month"									"Месяц"
 		"serengaard_leaderboard_all_time"								"Всё время"			
 
-		"DOTA_Tooltip_ability_item_serengaard_sunstone"					"Солнечный Камень Серенгарда"
-		"item_serengaard_sunstone_desc"									"Использование: Активируйте этот камень перед самой первой волной в Битве за Серенгард, чтобы пропустить волны до бесконечной стадии на сложности Legend."
+		"DOTA_Tooltip_ability_item_serengaard_sunstone"					"Солнечный Камень Серенгаарда"
+		"item_serengaard_sunstone_desc"									"Использование: Активируйте этот камень перед самой первой волной в Битве за Серенгаард, чтобы пропустить волны до бесконечной стадии на сложности Legend."
 
-		"battle_of_serengaard"											"Битва за Серенгард"
+		"battle_of_serengaard"											"Битва за Серенгаард"
 		"wave_starting_timer"											"Начало"
 		"wave_name"														"Волна"
 		"enemies_slain"													"Врагов убито"
@@ -18781,21 +18782,22 @@
 		"DOTA_Tooltip_ability_serengaard_ranger_ability"				"Sun Ranger"
 		"DOTA_Tooltip_ability_serengaard_ranger_ability_Description"				"Девы Щита отвлекают противников бросками лезвий."
 
-		"rpc_serengaard_teleporter"										"Телепорт Серенгарда"
+		"rpc_serengaard_teleporter"										"Телепорт Серенгаарда"
 
-		"serengaard_knight"												"Рыцарь Серенгарда"
+		"serengaard_knight"												"Рыцарь Серенгаарда"
 
-		"rpc_serengaard_ancient"										"Крепость Серенгарда"
+		"rpc_serengaard_ancient"										"Крепость Серенгаарда"
+		"DOTA_Tooltip_ability_serengaard_ancient_ability_Description"				"Это сооружение контролирует поле битвы за Серенгаард, вызывая все более сильные волны противников. <br> Когда монумент будет разрушен, битва завершится. Крепость может быть разрушена Физическим или Чистым типом урона, и не может быть восстановлена от полученного урона. <br> Крепость имеет <font color='#ccff66'><font color='#ccff66'>1000</font></font> Здоровья, а каждая полученная атака отнимает 1 единицу Здоровья."
 
 		"DOTA_Tooltip_ability_serengaard_sun_guardian_ability"			"Солнечный Страж"
 		"DOTA_Tooltip_ability_serengaard_sun_guardian_ability_Description"		"Пассивно восстанавливает здоровье."
 		"DOTA_Tooltip_ability_serengaard_sun_guardian_ability_health_regen_pct"	"ДОП. РЕГЕН. ЗДОРОВЬЯ, %:"
 
 		"DOTA_Tooltip_modifier_teleporter_aura"							"Телепорт"
-		"DOTA_Tooltip_modifier_teleporter_aura_Description"				"Приказ герою двигаться на расстояние больше, чем 800 юнитов, но в пределах крепости Серенгарда позволит телепортироваться с задержкой в 0.5 секунды."
+		"DOTA_Tooltip_modifier_teleporter_aura_Description"				"Приказ герою двигаться на расстояние больше, чем 800 юнитов, но в пределах крепости Серенгаарда позволит телепортироваться с задержкой в 0.5 секунды."
 	
 		"DOTA_Tooltip_ability_serengaard_teleporter_ability"			"Телепорт"
-		"DOTA_Tooltip_ability_serengaard_teleporter_ability_Description"	"Пока герой стоит рядом с телепортом, любой приказ двигаться на расстояние большее, чем 800 юнитов, но в пределах Крепости Серенгарда, позволит телепортироваться с задержкой в 0.5 секунды."
+		"DOTA_Tooltip_ability_serengaard_teleporter_ability_Description"	"Пока герой стоит рядом с телепортом, любой приказ двигаться на расстояние большее, чем 800 юнитов, но в пределах Крепости Серенгаарда, позволит телепортироваться с задержкой в 0.5 секунды."
 	
 		"dark_fighter_serengaard"										"Тёмный Боец"
 		"DOTA_Tooltip_ability_ursa_overpower_no_head_attachment"		"Overpower"
@@ -18956,7 +18958,7 @@
 		"DOTA_Tooltip_ability_creep_jump"		"Jump"
 		"DOTA_Tooltip_ability_creep_jump_Description"	"Прыгает вперед."
 		"DOTA_Tooltip_ability_item_serengaard_hyperstone"					"Serengaard Hyperstone"
-		"item_serengaard_hyperstone_desc"									"Использование: Активируйте этот камень перед самой первой волной в Битве за Серенгард, чтобы пропустить волны до бесконечной стадии на сложности Legend и перейти на указанную волну. Чем лучше использованный для создания кристалл, тем выше указанная волна."
+		"item_serengaard_hyperstone_desc"									"Использование: Активируйте этот камень перед самой первой волной в Битве за Серенгаард, чтобы пропустить волны до бесконечной стадии на сложности Legend и перейти на указанную волну. Чем лучше использованный для создания кристалл, тем выше указанная волна."
 		"serengaard_hyperstone_property"									"Волна в бесконечном режиме"
 		
         "serengaard_nightmare_raider" 		   "Nightmare Raider"
@@ -21627,7 +21629,7 @@
 		"DOTA_Tooltip_modifier_reality_rift_datadriven_Description"	"Урон увеличен."	
 
 		"DOTA_Tooltip_ability_winterblight_starseeker_passive"	"Coat of Astra"
-		"DOTA_Tooltip_ability_winterblight_starseeker_passive_Description"	"Магический урон исцеляет владельца способности, вместо нанесения урона."
+		"DOTA_Tooltip_ability_winterblight_starseeker_passive_Description"	"Магический урон исцеляет владельца способности, вместо нанесения урона, с шансом 25%."
 
 		"DOTA_Tooltip_ability_winterblight_star_prophecy"		"Star Prophecy"
 		"DOTA_Tooltip_ability_winterblight_star_prophecy_Description"	"Проклинает выбранного юнита. Когда юнит атакует или использует заклинание, он получает дополнительные заряды и продлевает время их действия. Когда время действия эффекта истекает, на врага обрушивается звезда и наносит урон, зависящий от количества накопленных зарядов."

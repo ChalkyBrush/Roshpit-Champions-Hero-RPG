@@ -3408,7 +3408,7 @@
 		"item_rpc_auriun_glyph_5_1_description" 				"天使形态下可以攻击并且获得<font color='#ccff66'>500</font>额外魔甲。但是会移除隐身效果"
 
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_6_1"		"[T6-1] 闪光雕文"
-		"item_rpc_auriun_glyph_6_1_description" 				"Adds <font color='#ccff66'>2</font> seconds of Spell Immunity and <font color='#ccff66'>95</font>% evasion when @Ability1 is applied."
+		"item_rpc_auriun_glyph_6_1_description" 				"施加 @Ability1后将会获得 <font color='#ccff66'>2</font> 秒技能免疫以及 <font color='#ccff66'>95</font>% 秒闪避。"
 
 		"DOTA_Tooltip_modifier_auriun_glyph_6_1_effect"			"闪光"
 		"DOTA_Tooltip_modifier_auriun_glyph_6_1_effect_description"	"Spell immunity and <font color='#ccff66'>95</font>%% Evasion"
@@ -3697,7 +3697,7 @@
         "item_rpc_axe_glyph_3_1_description"                " @Ability3 拖拽敌人的间隔降低 <font color='#ccff66'>50</font>%，每 0.09秒拖拽并伤害敌人一次。"
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_4_1"       "[T4-1] 螺旋雕文"
-        "item_rpc_axe_glyph_4_1_description"                "施放冲击波时对周围敌人造成 <font color='#ccff66'>15</font>% 总攻击力的物理伤害。该伤害还将乘以冲击波技能的等级数。"
+        "item_rpc_axe_glyph_4_1_description"                "赤色上将在释放 @Ability2 时也会释放一次回旋攻击, 对周围的敌人造成 <font color='#ccff66'>15</font>% 攻击力伤害。 @Ability2 的等级将会进一步提高该伤害。<br> 伤害类型: <font color='#8B0000'>物理</font> <br>元素: <font color='#DDDDDD'>普通</font><br><font color='#F28100'>物品伤害</font>。"
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_5_1"       "[T5-1] 撞击雕文" // lower pitch base sound high pitch strike sound
         "item_rpc_axe_glyph_5_1_description"                "骷髅锤的眩晕时间变为<font color='#ccff66'>0.03</font>秒，伤害提高 <font color='#ccff66'>3</font>x"
@@ -3767,14 +3767,16 @@
 
 		//Abilities
 		"DOTA_Tooltip_ability_leshrac_wall"								"宽恕之墙"
-    	"DOTA_Tooltip_ability_leshrac_wall_Description"					"元素： <font color='#F6FFB5'>圣</font><br>巴哈姆特在前方召唤一面宽恕之墙，揭露穿过之人的不足。<br>宽恕之墙附近的敌人将被判定罪行并受到惩罚。敌人靠近墙受到持续伤害并且降低攻击力。"
-    	"DOTA_Tooltip_ability_leshrac_wall_Lore"						""
-    	"DOTA_Tooltip_ability_leshrac_wall_damage"						"每次伤害"
+    	"DOTA_Tooltip_ability_leshrac_wall_Description"					"元素： <font color='#F6FFB5'>圣</font><br>巴哈姆特在前方召唤一面宽恕之墙，揭露穿过之人的不足。<br>宽恕之墙附近的敌人将被定罪并受到惩罚。敌人靠近墙将会被减速，受到持续伤害并且攻击力将会降低。"
+    	"DOTA_Tooltip_ability_leshrac_wall_Lore"					""
+    	"DOTA_Tooltip_ability_leshrac_wall_damage"					"每次伤害"
     	"DOTA_Tooltip_ability_leshrac_wall_wall_length"					"长度"
     	"DOTA_Tooltip_ability_leshrac_wall_attack_loss"					"攻击力降低 %"
-
+	"DOTA_Tooltip_ability_leshrac_wall_slow"					"移动速度:"
     	"DOTA_Tooltip_modifier_leshrac_wall_attack_loss"				"宽恕之墙"
-    	"DOTA_Tooltip_modifier_leshrac_wall_attack_loss_Description"	"攻击力降低"
+    	"DOTA_Tooltip_modifier_leshrac_wall_attack_loss_Description"			"攻击力降低"
+	"DOTA_Tooltip_modifier_leshrac_wall_slow"					"宽恕之墙"
+	"DOTA_Tooltip_modifier_leshrac_wall_slow_Description"				"被减速"
 		
 		"DOTA_Tooltip_ability_bahamut_rune_q_1"							"[Q1] 荣耀的证明"
     	"DOTA_Tooltip_ability_bahamut_rune_q_1_Description"				"站在宽恕之墙附近可以回复魔法值并且以相同的速度提高魔法值上限。"
@@ -3795,10 +3797,10 @@
     	"DOTA_Tooltip_modifier_bahamut_b_a_buff"						"回避"
     	"DOTA_Tooltip_modifier_bahamut_b_a_buff_Description"			"攻击距离增加"
 		
-		"DOTA_Tooltip_ability_bahamut_rune_q_3"							"[Q3] 卑劣之祸"
-    	"DOTA_Tooltip_ability_bahamut_rune_q_3_Description"				"宽恕之墙附近的敌人将被减速。"
-    	"DOTA_Tooltip_ability_bahamut_rune_q_3_property_one"			"移动速度降低"
-    	"DOTA_Tooltip_ability_bahamut_rune_q_3_suffix"					""
+		"DOTA_Tooltip_ability_bahamut_rune_q_3"				"[Q3] 卑劣之祸"
+    	"DOTA_Tooltip_ability_bahamut_rune_q_3_Description"			"@Ability1 的伤害将会被提高，数值为你的当前魔法值， 该符文为加算。"
+    	"DOTA_Tooltip_ability_bahamut_rune_q_3_property_one"			"每点当前魔法值提高墙的伤害："
+    	"DOTA_Tooltip_ability_bahamut_rune_q_3_suffix"					"%"
 		
 		"DOTA_Tooltip_ability_bahamut_rune_q_4"							"[Q4] 仁慈"
     	"DOTA_Tooltip_ability_bahamut_rune_q_4_Description"				"巴哈姆特的智力值提高。"
@@ -4071,7 +4073,7 @@
 
         "DOTA_Tooltip_ability_item_rpc_bahamut_immortal_weapon_3"            "原子符文"
         "item_property_bahamut_immortal_weapon3"                             "终极壁垒"
-        "property_bahamut_immortal_weapon3_description"                      "提高 @Ability1 的长度 <font color='#ccff66'>100</font>% 并且伤害提高 <font color='#ccff66'>3</font>x all attributes"
+        "property_bahamut_immortal_weapon3_description"                      "提高 @Ability1 的长度 <font color='#ccff66'>100</font>% 并且你的全属性总和的 <font color='#ccff66'>3</font>x加入到墙的基础伤害中"
 
 
         //Abilities
@@ -4335,7 +4337,7 @@
         "DOTA_Tooltip_ability_chernobog_rune_e_3_arcana2_suffix"                " 每 1% 恶魔元素伤害提高"
 
         "DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2"                       "[E4] 哈迪斯·恶魔狩猎"
-        "DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2_Description"           "暗夜魔王周围的暗影将会撕裂周围<font color='#ccff66'>350</font>范围内的敌人，每 <font color='#ccff66'>0.3</font> 秒攻击一次。暗夜魔王在离开后将会留下隐形空间，在这个空间中的敌人也会受到暗影的攻击。"
+        "DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2_Description"           "暗夜魔王周围的暗影将会撕裂周围<font color='#ccff66'>400</font>范围内的敌人，每 <font color='#ccff66'>0.3</font> 秒攻击一次。暗夜魔王在离开后将会留下隐形空间，在这个空间中的敌人也会受到暗影的攻击。"
         "DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2_property_one"          "暗影的伤害"
         "DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2_suffix"                "% 暗夜魔王的总攻击力"
         "DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2_property_two"          "空间持续时间"
@@ -4343,10 +4345,10 @@
         
         //Glyphs
         "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_1_1"     "[T1-1] 梦魇雕文"
-		"item_rpc_chernobog_glyph_1_1_description" 				"Killing an enemy restores <font color='#ccff66'>10</font>% of your max mana."
+		"item_rpc_chernobog_glyph_1_1_description" 				"击杀一个敌人将会回复 <font color='#ccff66'>10</font>% 最大魔法值。"
 
         "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_2_1"     "[T2-1] 午夜雕文"
-        "item_rpc_chernobog_glyph_2_1_description"              "所有与暗影有关的产生的区域或者光环的效果范围增加 <font color='#ccff66'>2</font>，该效果也会影响 [R2]。"
+        "item_rpc_chernobog_glyph_2_1_description"              "所有与暗影有关的产生的区域或者光环的效果范围增加 <font color='#ccff66'>1.2</font>倍，该效果也会影响 [R2]。"
 
         "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_3_1"     "[T3-1] 噩梦雕文"
         "item_rpc_chernobog_glyph_3_1_description"              "被卡戎之爪击中的敌人能使暗夜游行的冷却时间减少 @glyph_property1 秒。此外在结束@Ability4的持续施法后自动释放一次@Ability1。"
@@ -4355,13 +4357,13 @@
         "item_rpc_chernobog_glyph_4_1_description"              "[Q2] 对所有被影响的敌人周围 <font color='#ccff66'>250</font> 范围内的敌人造成伤害。"
 
         "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_5_1"     "[T5-1] 夜行者雕文"
-        "item_rpc_chernobog_glyph_5_1_description"              "生命值低于<font color='#ccff66'>50</font>% 时，暗影追捕不再扣除生命值，魔法值低于<font color='#ccff66'>50</font>% 时暗影追捕不再扣除魔法值."
+        "item_rpc_chernobog_glyph_5_1_description"              "生命值低于<font color='#ccff66'>50</font>% 时，暗影追捕不再扣除生命值，魔法值低于<font color='#ccff66'>50</font>% 时暗影追捕不再扣除魔法值。"
 
         "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_6_1"     "[T6-1] 黑色裂痕雕文"
         "item_rpc_chernobog_glyph_6_1_description"              "[E3] 持续时间提高 <font color='#ccff66'>2</font>"
 
         "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_7_1"     "[T7-1] 不屈不挠雕文"
-        "item_rpc_chernobog_glyph_7_1_description"              "每<font color='#ccff66'>0.2</font>秒清除一次眩晕效果"
+        "item_rpc_chernobog_glyph_7_1_description"              "每<font color='#ccff66'>0.2</font>秒清除一次眩晕效果。"
 
         "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_5_a"     "[T5-a] 暗夜猎手雕文"
         "item_rpc_chernobog_glyph_5_a_description"              "暗夜魔王享受 @Ability2 的所有符文的所有加成效果无论 W 技能开启或是关闭。但是 @Ability2 开启时，仍然禁止治疗。"
@@ -5211,18 +5213,18 @@
 
 
 		"DOTA_Tooltip_ability_draghor_shapeshift_cat"									"七十二变：狼"
-    	"DOTA_Tooltip_ability_draghor_shapeshift_cat_Description"						"变身成为狼，狼形态拥有独立一套技能。1.75秒变身时间。"
+    	"DOTA_Tooltip_ability_draghor_shapeshift_cat_Description"						"变身成为狼，狼形态拥有独立一套技能并且获得额外的魔法和纯粹抗性，同时你的每次普通攻击都会回复 0.5% 总攻击力的生命值。1.75秒变身时间。变身为该形态将会获得额外的魔法和纯粹抗性并且每次普通攻击都会回复 0.5% 总攻击力的生命值。"
     	"DOTA_Tooltip_ability_draghor_shapeshift_cat_agility_bonus"						"狼形态敏捷加成："
 	"DOTA_Tooltip_ability_draghor_shapeshift_cat_resist"							 "魔法和纯粹抗性："
 
     	"DOTA_Tooltip_ability_draghor_shapeshift_bear"									"七十二变：熊"
-    	"DOTA_Tooltip_ability_draghor_shapeshift_bear_Description"						"变身成为熊，熊形态拥有独立一套技能。1.75秒变身时间。"
+    	"DOTA_Tooltip_ability_draghor_shapeshift_bear_Description"						"变身成为熊，熊形态拥有独立一套技能并且获得额外物理和纯粹抗性。1.75秒变身时间。"
     	"DOTA_Tooltip_ability_draghor_shapeshift_bear_strength_bonus"					"熊形态力量加成："
-	"DOTA_Tooltip_ability_draghor_shapeshift_bear_resist"						"物理和纯粹减伤："
+	"DOTA_Tooltip_ability_draghor_shapeshift_bear_resist"						"物理和纯粹抗性："
 
 
     	"DOTA_Tooltip_ability_draghor_shapeshift_crow"									"七十二变：鹰"
-    	"DOTA_Tooltip_ability_draghor_shapeshift_crow_Description"						"变身成为鹰，鹰形态拥有独立一套技能。1.75秒变身时间。鹰形态下无法攻击，拥有飞行能力，并且每 0.03秒汲取 0.04% 的魔法值，如果魔法值用完或飞行中遇到障碍物，将立刻切换回本体。"
+    	"DOTA_Tooltip_ability_draghor_shapeshift_crow_Description"						"变身成为鹰，鹰形态拥有独立一套技能， 获得 5X 智力的物理和魔法伤害格挡（这个格挡计算在物抗和魔抗后，在所有减伤效果前）但是你无法进行普通攻击，拥有飞行能力，并且每 0.03秒汲取 0.01% 的魔法值，如果魔法值用完或飞行中遇到障碍物，将立刻切换回本体。1.75秒变身时间。"
     	"DOTA_Tooltip_ability_draghor_shapeshift_crow_int_bonus"						"鹰形态智力加成："
 	"DOTA_Tooltip_ability_draghor_shapeshift_crow_block" 							"每点智力抵挡的物理和魔法伤害："
 
@@ -5369,7 +5371,7 @@
     	"DOTA_Tooltip_ability_djanghor_rune_q_2_suffix"								""
 
     	"DOTA_Tooltip_ability_djanghor_rune_q_3"									"[Q3] 震荡"
-    	"DOTA_Tooltip_ability_djanghor_rune_q_3_Description"						"释放超声波将提高齐天大圣身上所有存在的buff的持续时间和齐天大圣装备效果的持续时间。（来自于齐天大圣自己的）Buff的持续时间只能被增加3次。 "
+    	"DOTA_Tooltip_ability_djanghor_rune_q_3_Description"						"提高所有施加于齐天大圣的技能，物品，符文的buff的持续时间。 "
     	"DOTA_Tooltip_ability_djanghor_rune_q_3_property_one"						"持续时间延长"
     	"DOTA_Tooltip_ability_djanghor_rune_q_3_suffix"								" 秒"
 
@@ -5384,9 +5386,11 @@
     	"DOTA_Tooltip_ability_djanghor_rune_w_1_suffix"								"% 所造成的伤害"
 
     	"DOTA_Tooltip_ability_djanghor_rune_w_2"									"[W2] 碎裂"
-    	"DOTA_Tooltip_ability_djanghor_rune_w_2_Description"						"受到撕裂流血debuff的敌人生命恢复降低"
-    	"DOTA_Tooltip_ability_djanghor_rune_w_2_property_one"						"生命恢复降低："
-    	"DOTA_Tooltip_ability_djanghor_rune_w_2_suffix"								""
+    	"DOTA_Tooltip_ability_djanghor_rune_w_2_Description"						"击杀一个敌方单位将会获得一层buff， buff将会提高物理穿透以及生命回复，基础持续时间 <font color='#ccff66'>10</font> 秒并且持续时间结束后将会一起消失。 <br>最高 <font color='#ccff66'>20</font> 层"
+    	"DOTA_Tooltip_ability_djanghor_rune_w_2_property_one"						"物理穿透"
+	"DOTA_Tooltip_ability_djanghor_rune_w_2_suffix"							""
+	"DOTA_Tooltip_ability_djanghor_rune_w_2_property_two"						"生命回复"
+	"DOTA_Tooltip_ability_djanghor_rune_w_2_suffix_two"						""
 
     	"DOTA_Tooltip_ability_djanghor_rune_w_3"									"[W3] 自然之怒"
     	"DOTA_Tooltip_ability_djanghor_rune_w_3_Description"						"齐天大圣的攻击力将加入到 苍穹龙卷和战争践踏 的伤害中。"
@@ -5464,16 +5468,16 @@
 		"DOTA_Tooltip_ability_draghor_year_beast_thunderous_roar_duration"							"嘲讽持续时间："
 		"DOTA_Tooltip_ability_draghor_year_beast_thunderous_roar_armor_bonus"						"护甲值提高："
 
-		"DOTA_Tooltip_ability_draghor_year_beast_rending_gale"										"飓风"
-		"DOTA_Tooltip_ability_draghor_year_beast_rending_gale_Description"							"元素： <font color='#DDDDDD'>普通</font><br><font color='#7AE2A7'>风</font> / <font color='#69BC71'>自然</font><br>用利爪攻击前方，强有力的一击卷起旋风，伤害基于总攻击力。敌人每次被利爪将减少护甲值，叠加 2 次。如果敌人两次或以上被利爪或旋风击中，将会流血，受到持续伤害，同时被减速。"
-		"DOTA_Tooltip_ability_draghor_year_beast_rending_gale_damage_mult"							"利爪伤害为 % 攻击力："
+		"DOTA_Tooltip_ability_draghor_year_beast_rending_gale"										"撕裂飓风"
+		"DOTA_Tooltip_ability_draghor_year_beast_rending_gale_Description"							"元素： <font color='#DDDDDD'>普通</font><br><font color='#7AE2A7'>风</font> / <font color='#69BC71'>自然</font><br>用利爪撕裂前方敌人， 造成攻击力倍数的伤害并释放出一道飓风。被撕裂击中的敌人的护甲将会被降低。如果一个敌人被施加2层撕裂， 那么他们将会流血， 每秒受到流血伤害的折磨。被飓风击中的敌人也会流血并被减速。"
+		"DOTA_Tooltip_ability_draghor_year_beast_rending_gale_damage_mult"							"撕裂伤害为 % 攻击力："
 		"DOTA_Tooltip_ability_draghor_year_beast_rending_gale_bleed_damage"							"流血伤害为 % 攻击力："	
-		"DOTA_Tooltip_ability_draghor_year_beast_rending_gale_bleed_duration"						"流血持续时间："
-		"DOTA_Tooltip_ability_draghor_year_beast_rending_gale_bonus_movement_speed"					"旋风造成移动速度减少："
+		"DOTA_Tooltip_ability_draghor_year_beast_rending_gale_bleed_duration"							"流血持续时间："
+		"DOTA_Tooltip_ability_draghor_year_beast_rending_gale_bonus_movement_speed"						"旋风造成移动速度减少："
 		"DOTA_Tooltip_ability_draghor_year_beast_rending_gale_attack_speed"							"旋风造成攻击速度减少："
 		"DOTA_Tooltip_ability_draghor_year_beast_rending_gale_damage"								"旋风基础伤害："
 		"DOTA_Tooltip_ability_draghor_year_beast_rending_gale_int_mult"								"旋风额外伤害为智力值的倍数："
-			"DOTA_Tooltip_ability_draghor_year_beast_rending_rend_armor_reduction"						"护甲降低:"
+		"DOTA_Tooltip_ability_draghor_year_beast_rending_rend_armor_reduction"							"护甲降低:"
 
 		"DOTA_Tooltip_ability_djanghor_year_beast_charge"									"神龙摆尾"
 		"DOTA_Tooltip_ability_djanghor_year_beast_charge_Description"						"向目标点冲刺，撞晕冲刺路径上的敌人。冲刺结束后，获得额外的 移动速度和移动速度上限。"
@@ -11510,7 +11514,7 @@
 		"item_rpc_venomort_glyph_2_2_description" 				"[E2] 将在主目标为中心的 @glyph_property1 码范围内造成伤害。"
 
 		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_3_2"		"[T3-2] 腐坏之血雕文"
-		"item_rpc_venomort_glyph_3_2_description" 				"每当剧毒巫师的当前生命值降低到越过了 @glyph_property1% 最大生命值的血线, 那么他的下一次 [E2] 就会造成 @glyph_property2 x 的伤害。"
+		"item_rpc_venomort_glyph_3_2_description" 				"每当剧毒巫师的当前生命值降低到越过了 @glyph_property1% 最大生命值的血线, 那么他的下一次 [E2] 就会额外施加一层毒液，毒液造成原伤害 @glyph_property2x 倍的伤害，持续 <font color='#ccff66'>1</font> 秒。"
 
 		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_4_2"		"[T4-2] 无病呻吟雕文"
 		"item_rpc_venomort_glyph_4_2_description" 				"[E4] 效果的持续时间从1.5秒提高至@glyph_property1秒。"
@@ -11734,7 +11738,7 @@
     	"DOTA_Tooltip_modifier_voltex_rune_r_3_avatar_Description"			"提高攻击速度、攻击距离、伤害和魔甲"
 		
 		"DOTA_Tooltip_ability_voltex_rune_r_4"								"[R4] 飞舞闪电"
-    	"DOTA_Tooltip_ability_voltex_rune_r_4_Description"					"每有一个单位被 @Ability4 或[R1]击中，提高电光使者的攻击力<font color='#ccff66'>10</font> 秒。"
+    	"DOTA_Tooltip_ability_voltex_rune_r_4_Description"					"每有一个单位被 @Ability4 或[R1]击中，提高电光使者的攻击力<font color='#ccff66'>10</font> 秒， 最高<font color='#ccff66'>100</font> 层。"
     	"DOTA_Tooltip_ability_voltex_rune_r_4_property_one"					"每个击中单位提高攻击力"
     	"DOTA_Tooltip_ability_voltex_rune_r_4_suffix"						"%"
 
@@ -12035,7 +12039,7 @@
     	"DOTA_Tooltip_modifier_dummy_aura_effect_enemy_Description"		"移动速度减缓"		
 
   		"DOTA_Tooltip_ability_zonik_rune_e_1_arcana1"						"[E1] 时间破碎"
-    	"DOTA_Tooltip_ability_zonik_rune_e_1_arcana1_Description"			"敌人每秒在次元护盾中，都将会获得一层时间破碎debuff。每层时间破碎debuff都将降低敌人的魔甲。最大层数 20层。"
+    	"DOTA_Tooltip_ability_zonik_rune_e_1_arcana1_Description"			"敌人每秒在次元护盾中，都将会获得一层时间破碎debuff。每层时间破碎debuff都将降低敌人的双甲。最大层数 20层。"
     	"DOTA_Tooltip_ability_zonik_rune_e_1_arcana1_property_one"			"魔甲降低"
     	"DOTA_Tooltip_ability_zonik_rune_e_1_arcana1_suffix"				"每层"
 
@@ -13238,7 +13242,7 @@
         "DOTA_Tooltip_ability_item_rpc_justice_greaves"                                "正义胫甲"
 
         "item_property_justice_greaves"                    "公正"
-        "property_justice_greaves_description"         "增加护甲，魔甲，物理穿透和魔法穿透， 数值为<font color='#ccff66'>20</font>%范围内的敌人的属性最大值的<font color='#ccff66'>750</font>"
+        "property_justice_greaves_description"         "增加护甲，魔甲，物理穿透和魔法穿透， 数值为<font color='#ccff66'>750</font>范围内的属性最高的敌人的最大值的<font color='#ccff66'>20</font>%， 但是这个效果不能超过 <font color='#ccff66'>3</font>x 你的英雄的数值。"
 
         "item_rpc_justice_greaves_ruby1"                                        "增加 @ruby_property1点力量和 @ruby_property2最大生命值"
         "item_rpc_justice_greaves_emerald1"                                     "降低来自正面的伤害 (<font color='#ccff66'>90</font> °以内) @emerald_property1"
@@ -15260,7 +15264,7 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_twisted_purple_mask_of_ahnqhir"					"安赫尔的扭曲紫色面具"	
-		"property_twisted_purple_mask_of_ahnqhir"												"超级施法 A"
+		"item_property_twisted_purple_mask_of_ahnqhir"												"超级施法 A"
 		"item_rpc_twisted_purple_mask_of_ahnqhir_ability_tooltip"					"Castpoint reduced to <font color='#ccff66'>0.05</font>s."
 		"property_twisted_purple_mask_of_ahnqhir_Description"									"@Ability1 技能抬手强制设定为 0.05 秒（指从玩家发出指令到技能真正释放并进入冷却时间之间的那一段时间变为0.05秒）。减少 @Ability1 冷却时间 <font color='#ccff66'>40</font>%。"
 		"item_rpc_twisted_purple_mask_of_ahnqhir_ruby1"	"提高 [Q1] 符文 @ruby_property1"
@@ -15270,7 +15274,7 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_twisted_yellow_mask_of_ahnqhir"					"安赫尔的扭曲黄色面具"	
-		"property_twisted_yellow_mask_of_ahnqhir"												"超级施法 B"
+		"item_property_twisted_yellow_mask_of_ahnqhir"												"超级施法 B"
 		"item_rpc_twisted_yellow_mask_of_ahnqhir_ability_tooltip"					"Castpoint reduced to <font color='#ccff66'>0.05</font>s."
 		"property_twisted_yellow_mask_of_ahnqhir_Description"									"@Ability2 技能抬手强制设定为 0.05 秒（指从玩家发出指令到技能真正释放并进入冷却时间之间的那一段时间变为0.05秒）。减少 @Ability2 冷却时间 <font color='#ccff66'>1</font> 秒。"
 		"item_rpc_twisted_yellow_mask_of_ahnqhir_ruby1"	"提高 [W1] 符文 @ruby_property1"
@@ -15280,7 +15284,7 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_twisted_blue_mask_of_ahnqhir"					"安赫尔的扭曲蓝色面具"	
-		"property_twisted_blue_mask_of_ahnqhir"												"超级施法 C"
+		"item_property_twisted_blue_mask_of_ahnqhir"												"超级施法 C"
 		"item_rpc_twisted_blue_mask_of_ahnqhir_ability_tooltip"					"Castpoint reduced to <font color='#ccff66'>0.05</font>s."
 		"property_twisted_blue_mask_of_ahnqhir_Description"									"@Ability3 技能抬手强制设定为 0.05 秒（指从玩家发出指令到技能真正释放并进入冷却时间之间的那一段时间变为0.05秒）。减少 @Ability3 冷却时间 <font color='#ccff66'>40</font>%。"
 		"item_rpc_twisted_blue_mask_of_ahnqhir_ruby1"	"提高 [E1] 符文 @ruby_property1"
@@ -15397,7 +15401,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_cloak_of_the_cimmerian_priesthood"						"安人祭祀头巾"
 		"item_property_cloak_of_the_cimmerian_priesthood"						"暗影祭祀"
-		"property_cloak_of_the_cimmerian_priesthood_description"				"普通攻击额外造成一次魔法 <font color='#7F4F84'>暗</font>/<font color='#F6FFB5'>圣</font> 伤害，数值为目标当前生命值的 <font color='#ccff66'>6</font><font color='#ccff66'>6</font>x of hero's Primary Attribute value 并且使你回复 <font color='#ccff66'>10</font>% 基础伤害的生命值。"
+		"property_cloak_of_the_cimmerian_priesthood_description"				"普通攻击额外造成一次魔法 <font color='#7F4F84'>暗</font>/<font color='#F6FFB5'>圣</font> 伤害，数值为<font color='#ccff66'>6</font>x 英雄主属性并且使你回复 <font color='#ccff66'>10</font>% 基础伤害的生命值。"
 
 		"item_rpc_cloak_of_the_cimmerian_priesthood_ruby1"		"被 [Q]击中的敌人每 @ruby_property1秒受到 <font color='#ccff66'>100</font>% 初始伤害，持续 @ruby_property2 秒"
 		"item_rpc_cloak_of_the_cimmerian_priesthood_emerald1"	"被 [W] 击中的敌人将会治疗敌人周围 <font color='#ccff66'>360</font> 范围内的友军，数值为 @emerald_property1% 基础伤害"
@@ -15659,7 +15663,9 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_omega_ruby"										"欧米伽宝石"
-        "item_rpc_omega_ruby_ruby1"                                     "提高欧米伽之火AOE范围 @ruby_property1 和伤害@ruby_property2"
+        "property_omega_ruby"                       "你的普通攻击将会造成爆炸，对 <font color='#ccff66'>240</font> 范围内敌人造成 <font color='#ccff66'>70</font>% 攻击力的伤害。"
+		
+        "item_rpc_omega_ruby_ruby1"                                     "提高欧米伽之火AOE范围 @ruby_property1 并且欧米伽之火也会造成 @ruby_property2% 攻击力的物理伤害。"
         "item_rpc_omega_ruby_emerald1"                                      "提高攻击速度 @emerald_property1"
         "item_rpc_omega_ruby_sapphire1"                                     "提高攻击力 @sapphire_property1%"
         "item_rpc_omega_ruby_amethyst1"                                     "提高物理穿透和魔法穿透 @amethyst_property1"
@@ -15835,9 +15841,9 @@
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_cobalt_serenity_ring"							"宁静之戒"
-        "item_rpc_cobalt_serenity_ring_ruby1"                           "提高最大生命值 @ruby_property1"
-        "item_rpc_cobalt_serenity_ring_emerald1"                            "每点现有生命值提高魔法穿透 @emerald_property1"
-        "item_rpc_cobalt_serenity_ring_sapphire1"                           "提高智力值 @sapphire_property1"
+        "item_rpc_cobalt_serenity_ring_ruby1"                           "来自装备属性的基础技能伤害，物品伤害，生命值，魔法回复将会被提高 @ruby_property1%。"
+        "item_rpc_cobalt_serenity_ring_emerald1"                            "生命和魔法回复将会提高魔法穿透 @emerald_property1"
+        "item_rpc_cobalt_serenity_ring_sapphire1"                           "提高智力值 @sapphire_property1以及最大生命值 @sapphire_property2"
         "item_rpc_cobalt_serenity_ring_amethyst1"                           "每点智力值提高魔法回复 @amethyst_property1"
 		"item_property_cobalt_serenity"						"宁静"
 		 "property_cobalt_serenity_description"					"每点智力值提高生命回复速度<font color='#ccff66'>3</font>"
@@ -15845,10 +15851,10 @@
 		 
 		"DOTA_Tooltip_ability_item_rpc_emerald_nullification_ring"						"翡翠净化环"
 		"item_property_emerald_null"							"翡翠淨化"
-         "property_emerald_null_description"                    "每点敏捷提高魔甲 <font color='#ccff66'>4</font> and Spell Pierce by <font color='#ccff66'>2</font>."
+         "property_emerald_null_description"                    "每点敏捷提高魔甲 <font color='#ccff66'>4</font> 和魔法穿透 <font color='#ccff66'>2</font>。"
 
         "item_rpc_emerald_nullification_ring_ruby1"                     "减少所有受到的魔法伤害 @ruby_property1%"
-        "item_rpc_emerald_nullification_ring_emerald1"                      "提高敏捷值 @emerald_property1"
+        "item_rpc_emerald_nullification_ring_emerald1"                      "每点敏捷提高基础技能伤害 @emerald_property1%。"
         "item_rpc_emerald_nullification_ring_sapphire1"                     "@sapphire_property1% 概率完全格挡一次魔法或纯粹伤害"
         "item_rpc_emerald_nullification_ring_amethyst1"                     "减少所有受到的纯粹伤害 @amethyst_property1%"
 		 
