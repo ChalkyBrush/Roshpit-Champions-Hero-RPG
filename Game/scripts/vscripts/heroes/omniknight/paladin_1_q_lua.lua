@@ -42,7 +42,7 @@ end
 
 function class:OnSpellStart()
 	local ability = self
-	if bit.band(ability:GetBehavior(), DOTA_ABILITY_BEHAVIOR_TOGGLE) == DOTA_ABILITY_BEHAVIOR_TOGGLE then return end
+	if ability:GetBehavior() == DOTA_ABILITY_BEHAVIOR_TOGGLE then return end
 	local caster = self:GetCaster()
 	--print("HAS?",caster:HasModifier("modifier_paladin_q_passive"))
 	EmitSoundOn("Paladin.HeroicFuryActivate", caster)
