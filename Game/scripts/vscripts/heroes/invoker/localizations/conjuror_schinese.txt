@@ -416,7 +416,7 @@
     	"DOTA_Tooltip_ability_conjuror_rune_q_2_arcana3_suffix_two"			"%"
 
 		"DOTA_Tooltip_ability_conjuror_rune_q_3_arcana3"							"[Q3] 大地脉冲"
-    	"DOTA_Tooltip_ability_conjuror_rune_q_3_arcana3_Description"				"最大生命值增加 <font color=ELEMENT_EARTH>土</font> 元素伤害。 并且攻击力的一定百分比加入到大地震颤的基础伤害之中。"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_3_arcana3_Description"				"攻击力的一定百分比加入到大地震颤的基础伤害之中。"
     	"DOTA_Tooltip_ability_conjuror_rune_q_3_arcana3_property_one"				"土元素伤害增加"
     	"DOTA_Tooltip_ability_conjuror_rune_q_3_arcana3_suffix"						"%每100点最大生命值增加 "
     	"DOTA_Tooltip_ability_conjuror_rune_q_3_arcana3_property_two"				"%攻击力加入到大地震颤伤害"
