@@ -39,10 +39,6 @@ function djanghor_feral_sprint:OnSpellStart()
 	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 end
 
-function djanghor_feral_sprint:GetIntrinsicModifierName()
-	return "modifier_djanghor_feral_sprint"
-end
-
 function modifier_djanghor_feral_sprint:IsHidden()
 	return false
 end
