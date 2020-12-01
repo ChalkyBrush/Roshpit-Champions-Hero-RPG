@@ -4352,7 +4352,7 @@ function hurricane_vest_hit(event)
 
 	local atk_damage_mult = ITEM_RPC_HURRICANE_VEST_DAMAGE_ATTACK_PWR_PCT / 100 
 	if ability:GetGemValue("ruby") > 0 then
-		atk_damage_mult = atk_damage_multi + ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_HURRICANE_VEST_GEM_RUBY2)) / 100
+		atk_damage_mult = atk_damage_mult + ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_HURRICANE_VEST_GEM_RUBY2) / 100
 	end
 	local damage = atk_damage_mult * OverflowProtectedGetAverageTrueAttackDamage(hero) 
 	if ability:GetGemValue("emerald") > 0 then
