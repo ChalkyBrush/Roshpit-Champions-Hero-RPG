@@ -120,7 +120,7 @@ function rune_r_3(caster, mainAbility)
   local runeUnit = caster.runeUnit3
   local ability = runeUnit:FindAbilityByName("astral_rune_r_3")
   if ability.phoenix then
-    return false
+    UTIL_Remove(ability.phoenix)
   end
   local totalLevel = caster:GetRuneValue("r", 3)
   ability.astral = caster
