@@ -236,7 +236,7 @@
 			}
 			"modifier_year_beast_b_d_health"
 			{
-				"IsHidden"	"0"
+				"IsHidden"	"1"
 				"TextureName"	"djanghor/year_beast/djanghor_rune_r_2_arcana1"
 				"Properties"
 				{

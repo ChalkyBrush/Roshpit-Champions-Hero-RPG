@@ -4350,16 +4350,20 @@ function hurricane_vest_hit(event)
 	local hero = ability.caster
 	local caster = hero.InventoryUnit
 
-	local atk_damage_mult = (ITEM_RPC_HURRICANE_VEST_DAMAGE_ATTACK_PWR_PCT + ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_HURRICANE_VEST_RUBY2))/100
-	local damage = atk_damage_mult*OverflowProtectedGetAverageTrueAttackDamage(hero) + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_HURRICANE_VEST_GEM_EMERALD1)*hero:GetAgility() + ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_HURRICANE_VEST_GEM_SAPPHIRE2)
-	Filters:ApplyItemDamage(target, hero, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_WIND, RPC_ELEMENT_NONE)
-
+	local atk_damage_mult = ITEM_RPC_HURRICANE_VEST_DAMAGE_ATTACK_PWR_PCT / 100 
+	if ability:GetGemValue("ruby") > 0 then
+		atk_damage_mult = atk_damage_mult + ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_HURRICANE_VEST_GEM_RUBY2) / 100
+	end
+	local damage = atk_damage_mult * OverflowProtectedGetAverageTrueAttackDamage(hero) 
+	if ability:GetGemValue("emerald") > 0 then
+		damage = damage + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_HURRICANE_VEST_GEM_EMERALD1) * hero:GetAgility()
+	end
 	if ability:GetGemValue("sapphire") > 0 then
+		damage = damage + ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_HURRICANE_VEST_GEM_SAPPHIRE2)
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_hurricane_vest_slow", {duration = ITEM_RPC_HURRICANE_VEST_SAPPHIRE_SLOW_DURATION})
 		target:SetModifierStackCount("modifier_hurricane_vest_slow", caster, ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_HURRICANE_VEST_GEM_SAPPHIRE1))
 	end
-
-
+	Filters:ApplyItemDamage(target, hero, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_WIND, RPC_ELEMENT_NONE)
 end
 
 function new_ruby_dragon_think(event)
