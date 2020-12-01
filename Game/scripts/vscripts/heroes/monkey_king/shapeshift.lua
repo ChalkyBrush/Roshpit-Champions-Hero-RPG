@@ -479,36 +479,51 @@ function general_shapeshift_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	local a_d_level = caster:GetRuneValue("r", 1)
-	if a_d_level > 0 then
-		if not caster:HasModifier("modifier_shapeshift_attack_power_a_d") then
-			ability:ApplyDataDrivenModifier(caster, caster, "modifier_shapeshift_attack_power_a_d", {})
+	local b_d_level = caster:GetRuneValue("r", 2)
+	local attackBonus = 0
+	local healthBonus = 0
+	local attackScale = 0
+	local healthScale = 0
+	local attribute = 0
+	if event.index == 1 then
+		attribute = caster:GetAgility()
+	elseif event.index == 2 then
+		attribute = caster:GetStrength()
+	elseif event.index == 3 then
+		attribute = caster:GetIntellect()
+	elseif event.index == 4 then
+		attribute = math.ceil((caster:GetIntellect() + caster:GetAgility() + caster:GetStrength() + caster:GetSpirit()))
+	elseif event.index == 5 then
+		attribute = caster:GetSpirit()
+	end
+	if caster:HasModifier("modifier_djanghor_immortal_weapon_1") then
+		if event.index == 1 or event.index == 4 then
+			attackBonus = attackBonus + caster:GetAgility() * DJANGHOR_IMMORTAL_WEAPON_1_BASE_DMG_PER_AGI
 		end
-		local attribute = 0
-		if event.index == 1 then
-			attribute = caster:GetAgility()
-		elseif event.index == 2 then
-			attribute = caster:GetStrength()
-		elseif event.index == 3 then
-			attribute = caster:GetIntellect()
-		elseif event.index == 4 then
-			attribute = math.ceil((caster:GetIntellect() + caster:GetAgility() + caster:GetStrength() + caster:GetSpirit()))
-		elseif event.index == 5 then
-			attribute = caster:GetSpirit()
-		end
-		local attackBonus = attribute * a_d_level * DJANGHOR_R1_ATTACK_POWER_PER_STAT
-		if caster:HasModifier("modifier_shapeshift_year_beast") then
-			local b_d_level = caster:GetRuneValue("r", 2)
-			attackBonus = attribute * a_d_level * DJANGHOR_ARCANA_R_R1_ATTACK_POWER
-			local healthBonus = attribute * DJANGHOR_ARCANA_R_R2_HEALTH_PER_ATTRIBUTE * b_d_level
-			ability:ApplyDataDrivenModifier(caster, caster, "modifier_year_beast_b_d_health", {})
-			caster:SetModifierStackCount("modifier_year_beast_b_d_health", caster, healthBonus)
-		end
-		if caster:HasModifier("modifier_djanghor_immortal_weapon_1") then
-			attackBonus = attackBonus + attribute * DJANGHOR_IMMORTAL_WEAPON_1_BASE_DMG_PER_AGI
-		end
+	end
+	if caster:HasModifier("modifier_shapeshift_year_beast") then
+		attackScale = attackScale + DJANGHOR_ARCANA_R_R1_ATTACK_POWER
+		healthScale = healthScale + DJANGHOR_ARCANA_R_R2_HEALTH_PER_ATTRIBUTE
+	else
+		attackScale = attackScale + DJANGHOR_R1_ATTACK_POWER_PER_STAT
+	end
+	if a_d_level > 0 and attackScale > 0 then
+		attackBonus = attackBonus + attribute * attackScale * a_d_level
+	end
+	if b_d_level > 0 and healthScale > 0 then
+		healthBonus = healthBonus + attribute * healthScale * b_d_level
+	end
+	if not caster:HasModifier("modifier_shapeshift_attack_power_a_d") then
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_shapeshift_attack_power_a_d", {})
 		caster:SetModifierStackCount("modifier_shapeshift_attack_power_a_d", caster, attackBonus)
 	else
-		caster:RemoveModifierByName("modifier_shapeshift_attack_power_a_d")
+		caster:SetModifierStackCount("modifier_shapeshift_attack_power_a_d", caster, attackBonus)
+	end
+	if not caster:HasModifier("modifier_year_beast_b_d_health") then
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_year_beast_b_d_health", {})
+		caster:SetModifierStackCount("modifier_year_beast_b_d_health", caster, healthBonus)
+	else
+		caster:SetModifierStackCount("modifier_year_beast_b_d_health", caster, healthBonus)
 	end
 end
 
