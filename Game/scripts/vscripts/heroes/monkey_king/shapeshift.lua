@@ -470,8 +470,12 @@ function shapeshifting_think(event)
 		local modifier2 = caster:FindModifierByName("modifier_wolf_sprint")
 		local time = modifier:GetRemainingTime()
 		--print(time)
-		modifier:SetDuration(time + 0.1, true)
-		modifier2:SetDuration(time + 0.1, true)
+		if modifier then
+			modifier:SetDuration(time + 0.1, true)
+		end
+		if modifier2 then
+			modifier2:SetDuration(time + 0.1, true)
+		end
 	end
 end
 
