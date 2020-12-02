@@ -163,6 +163,7 @@ function leshrac_attack_start(event)
 	local target = event.target
 	local caster = event.attacker
 	local ability = event.ability
+	local speed = caster:GetProjectileSpeed()
 	local radius = BAHAMUT_W2_RADIUS
 	if ability.w_2_level and not target:IsNull() then
 		if ability.w_2_level > 0 and target:HasModifier("modifier_leshrac_nuke_judged") then
@@ -187,7 +188,7 @@ function leshrac_attack_start(event)
 								flExpireTime = GameRules:GetGameTime() + 5,
 								bProvidesVision = false,
 								iVisionRadius = 0,
-								iMoveSpeed = 600,
+								iMoveSpeed = speed,
 							}
 							projectile = ProjectileManager:CreateTrackingProjectile(info)
 						end
@@ -203,20 +204,8 @@ function leshrac_attack_land(event)
 	local ability = event.ability
 	local caster = event.caster
 	local damage = ability.w_2_level * OverflowProtectedGetAverageTrueAttackDamage(caster) * BAHAMUT_W2_DAMAGE_PCT/100
-	if caster:HasModifier("modifier_bahamut_immortal_weapon_1") then
-		local luck = RandomInt(1, 100/BAHAMUT_IMMORTAL_WEAPON_1_CHANCE)
-		if luck == 1 then
-			local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_invoker/invoker_death_end.vpcf", PATTACH_CUSTOMORIGIN, target)
-			ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
-			ParticleManager:SetParticleControl(pfx, 1, Vector(255, 255, 255))
-			Timers:CreateTimer(2.5, function()
-				ParticleManager:DestroyParticle(pfx, false)
-			end)
-			Filters:TakeArgumentsAndApplyDamage(target, caster, damage * BAHAMUT_IMMORTAL_WEAPON_1_DAMAGE_AMP, DAMAGE_TYPE_PURE, BASE_ITEM, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
-		end
-	end
-
-	Filters:ApplyDamageBasic(target, caster, damage, DAMAGE_TYPE_PHYSICAL)
+	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PHYSICAL, BASE_ABILITY_W, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
+	--Filters:ApplyDamageBasic(target, caster, damage, DAMAGE_TYPE_PHYSICAL)
 	-- ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL })
 end
 
