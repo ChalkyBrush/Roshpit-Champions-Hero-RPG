@@ -149,8 +149,8 @@
     	"DOTA_Tooltip_ability_bahamut_rune_r_2_property_two"			"魔法穿透提高"
     	"DOTA_Tooltip_ability_bahamut_rune_r_2_suffix_two"				""	
 	
-    	"DOTA_Tooltip_modifier_bahamut_charge_of_light_postmitigation"	"破碎之愿"
-    	"DOTA_Tooltip_modifier_bahamut_charge_of_light_postmitigation_Description"	"大幅提高魔法穿透"
+    	"DOTA_Tooltip_modifier_bahamut_mega_flare_pierce"	"破碎之愿"
+    	"DOTA_Tooltip_modifier_bahamut_mega_flare_pierce_Description"	"大幅提高魔法穿透"
 		
 		"DOTA_Tooltip_ability_bahamut_rune_r_3"							"[R3] 亥伯龙"
     	"DOTA_Tooltip_ability_bahamut_rune_r_3_Description"				"引导神圣之耀时，降低周围敌人的攻击速度和移动速度。"
