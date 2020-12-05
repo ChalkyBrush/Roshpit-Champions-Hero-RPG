@@ -77,7 +77,7 @@
     	"DOTA_Tooltip_ability_bahamut_rune_w_3_property_one"			"Damage"
     	"DOTA_Tooltip_ability_bahamut_rune_w_3_suffix"					""
         "DOTA_Tooltip_ability_bahamut_rune_w_3_property_two"            "Judgement and Orb Base Damage Increase"
-        "DOTA_Tooltip_ability_bahamut_rune_w_3_suffix_two"              "% of target's attack power"
+        "DOTA_Tooltip_ability_bahamut_rune_w_3_suffix_two"              "% of attack power"
 		
 		
 		"DOTA_Tooltip_ability_bahamut_rune_w_4"							"[W4] Potency"
