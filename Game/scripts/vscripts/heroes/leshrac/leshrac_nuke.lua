@@ -22,6 +22,9 @@ function begin_judgement(event)
 		radius = radius * (100+BAHAMUT_GLYPH_3_1_W_RADIUS_INCREASE_PCT)/100
 		targetPoint = GetGroundPosition(casterOrigin, caster)
 	end
+	if caster:HasAbility("bahamut_arcana_orb") then
+		targetPoint = GetGroundPosition(casterOrigin, caster)
+	end
 	blast(caster, targetPoint, radius, damage, ability)
 	Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 	local animationTable = {ACT_DOTA_ATTACK, ACT_DOTA_ATTACK2}
