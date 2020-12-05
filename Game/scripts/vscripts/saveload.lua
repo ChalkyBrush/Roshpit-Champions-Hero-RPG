@@ -157,7 +157,7 @@ function SaveLoad:GetAllowSaving()
 end
 
 function SaveLoad:SaveCharacter(msg)
-	print("[SaveLoad:SaveCharacter] AAAAAAAAAAAAA Start!")
+	print("[SaveLoad:SaveCharacter] Start!")
 	local playerID = msg.playerID
 	local slot = msg.slot
 	local hero = EntIndexToHScript(msg.heroIndex)
@@ -173,11 +173,18 @@ function SaveLoad:SaveCharacter(msg)
 	local runeUnit3 = hero.runeUnit3
 	local runeUnit4 = hero.runeUnit4
 
+
+
 	-- fix for autosave
 	if not GameMode.EquipTimeouts then
 		GameMode.EquipTimeouts = {}
 	end
 	local steamId = PlayerResource:GetSteamAccountID(hero:GetPlayerOwnerID())
+	-- 300 sec after save chisel would be unavailable or after save request
+	local nextEquipAvailableTime = GameRules:GetGameTime() + 300
+	GameMode.EquipTimeouts[steamId] = nextEquipAvailableTime
+
+
 
 	hero.loadEnabled = 0
 	Weapons:ValidateGear(hero)
@@ -227,7 +234,7 @@ function SaveLoad:SaveCharacter(msg)
 				print("")
 				print("secondCallBack")
 				-- UnlockChiselHere
-				GameMode.EquipTimeouts[steamId] = 0
+				GameMode.EquipTimeouts[steamId] = GameRules:GetGameTime() + 5
 			end)
 		else
 			RequestHelper:RequestAndTwoPcallOnResponse("POST", url, nil, function(result, statusCode, body)
@@ -257,7 +264,7 @@ function SaveLoad:SaveCharacter(msg)
 				print("")
 				print("secondCallBack")
 				-- UnlockChiselHere
-				GameMode.EquipTimeouts[steamId] = 0
+				GameMode.EquipTimeouts[steamId] = GameRules:GetGameTime() + 5
 			end)
 		end
 	end
@@ -2060,15 +2067,6 @@ end
 	end
 
 	function SaveLoad:SaveCharacterGeneric(hero)
-
-		-- fix for autosave
-		if not GameMode.EquipTimeouts then
-			GameMode.EquipTimeouts = {}
-		end
-		local steamId = PlayerResource:GetSteamAccountID(hero:GetPlayerOwnerID())
-		local nextEquipAvailableTime = GameRules:GetGameTime() + 600 -- 600 sec after save chisel would be unavailable or after save request
-		GameMode.EquipTimeouts[steamId] = nextEquipAvailableTime
-
 		if SaveLoad:GetAllowSaving() then
 			if not hero.save_counter then
 				hero.save_counter = 0
