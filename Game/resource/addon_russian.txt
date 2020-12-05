@@ -3516,8 +3516,8 @@
     	"DOTA_Tooltip_ability_bahamut_rune_r_2_property_two"			"Пробитие Магической Защиты"
     	"DOTA_Tooltip_ability_bahamut_rune_r_2_suffix_two"				""	
 
-    	"DOTA_Tooltip_modifier_bahamut_charge_of_light_postmitigation"	"Crushing Will"
-    	"DOTA_Tooltip_modifier_bahamut_charge_of_light_postmitigation_Description"	"Значительный бонус к Пробитию Магической Защиты"
+    	"DOTA_Tooltip_modifier_bahamut_mega_flare_pierce"	"Crushing Will"
+    	"DOTA_Tooltip_modifier_bahamut_mega_flare_pierce_Description"	"Значительный бонус к Пробитию Магической Защиты"
 		
 		"DOTA_Tooltip_ability_bahamut_rune_r_3"							"[R3] Hyperion"
     	"DOTA_Tooltip_ability_bahamut_rune_r_3_Description"				"В то время, пока Bahamut произносит @Ability4, все ближайшие враги теряют скорость передвижения и атаки."
@@ -3686,6 +3686,7 @@
         "DOTA_Tooltip_ability_item_rpc_bahamut_immortal_weapon_3"            "Origin Rune"
         "item_property_bahamut_immortal_weapon3"                             "Omega Waller"
         "property_bahamut_immortal_weapon3_description"                      "Увеличивает размер действия (Q) @Ability1 на <font color='#ccff66'>100</font>% и его урон на <font color='#ccff66'>3</font>x от суммы Атрибутов героя."
+
 
         //Abilities
         "DOTA_Tooltip_ability_chernobog_charons_claw"                           "Charon's Claw"

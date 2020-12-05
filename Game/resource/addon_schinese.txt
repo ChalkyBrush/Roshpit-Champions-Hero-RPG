@@ -3916,8 +3916,8 @@
     	"DOTA_Tooltip_ability_bahamut_rune_r_2_property_two"			"魔法穿透提高"
     	"DOTA_Tooltip_ability_bahamut_rune_r_2_suffix_two"				""	
 	
-    	"DOTA_Tooltip_modifier_bahamut_charge_of_light_postmitigation"	"破碎之愿"
-    	"DOTA_Tooltip_modifier_bahamut_charge_of_light_postmitigation_Description"	"大幅提高魔法穿透"
+    	"DOTA_Tooltip_modifier_bahamut_mega_flare_pierce"	"破碎之愿"
+    	"DOTA_Tooltip_modifier_bahamut_mega_flare_pierce_Description"	"大幅提高魔法穿透"
 		
 		"DOTA_Tooltip_ability_bahamut_rune_r_3"							"[R3] 亥伯龙"
     	"DOTA_Tooltip_ability_bahamut_rune_r_3_Description"				"引导神圣之耀时，降低周围敌人的攻击速度和移动速度。"
@@ -4814,7 +4814,7 @@
     	"DOTA_Tooltip_ability_conjuror_rune_q_2_arcana3_suffix_two"			"%"
 
 		"DOTA_Tooltip_ability_conjuror_rune_q_3_arcana3"							"[Q3] 大地脉冲"
-    	"DOTA_Tooltip_ability_conjuror_rune_q_3_arcana3_Description"				"最大生命值增加 <font color='#AF843D'>土</font> 元素伤害。 并且攻击力的一定百分比加入到大地震颤的基础伤害之中。"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_3_arcana3_Description"				"攻击力的一定百分比加入到大地震颤的基础伤害之中。"
     	"DOTA_Tooltip_ability_conjuror_rune_q_3_arcana3_property_one"				"土元素伤害增加"
     	"DOTA_Tooltip_ability_conjuror_rune_q_3_arcana3_suffix"						"%每100点最大生命值增加 "
     	"DOTA_Tooltip_ability_conjuror_rune_q_3_arcana3_property_two"				"%攻击力加入到大地震颤伤害"

@@ -41532,7 +41532,7 @@
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 
 		"precache"
 		{
@@ -43143,7 +43143,7 @@
 			}
 			"modifier_year_beast_b_d_health"
 			{
-				"IsHidden"	"0"
+				"IsHidden"	"1"
 				"TextureName"	"djanghor/year_beast/djanghor_rune_r_2_arcana1"
 				"Properties"
 				{
