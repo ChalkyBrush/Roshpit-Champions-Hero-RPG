@@ -152,8 +152,8 @@
     	"DOTA_Tooltip_ability_bahamut_rune_r_2_property_two"			"Spell Pierce"
     	"DOTA_Tooltip_ability_bahamut_rune_r_2_suffix_two"				""	
 
-    	"DOTA_Tooltip_modifier_bahamut_charge_of_light_postmitigation"	"Crushing Will"
-    	"DOTA_Tooltip_modifier_bahamut_charge_of_light_postmitigation_Description"	"Spell Pierce greatly increased"
+    	"DOTA_Tooltip_modifier_bahamut_mega_flare_pierce"	"Crushing Will"
+    	"DOTA_Tooltip_modifier_bahamut_mega_flare_pierce_Description"	"Spell Pierce greatly increased"
 		
 		"DOTA_Tooltip_ability_bahamut_rune_r_3"							"[R3] Hyperion"
     	"DOTA_Tooltip_ability_bahamut_rune_r_3_Description"				"Bahamut slows the attack and movespeed of all nearby enemies while channeling Megaflare."

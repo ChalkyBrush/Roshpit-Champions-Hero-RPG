@@ -4,14 +4,6 @@ local function hitUnitsAndApplyMidifier(caster, ability, target)
     if runesCount == nil or runesCount <= 0 then
         return
     end
-
-    local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target, nil, ASTRAL_RANGER_E2_FIND_RADUIS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
-    if #enemies > 0 then
-        for _, enemy in pairs(enemies) do
-            CustomAbilities:QuickAttachParticle(ASTRAL_RANGER_E2_PARTICLE, enemy, 1)
-            caster:PerformAttack(enemy, true, true, true, false, true, false, false)
-        end
-    end
     local duration = ASTRAL_RANGER_E2_DURATION
     if caster:HasModifier("modifier_astral_glyph_4_1") then
         duration = duration * (1 - ASTRAL_RANGER_GLYPH_4_1_DURATION_REDUCTION_PCT / 100)
