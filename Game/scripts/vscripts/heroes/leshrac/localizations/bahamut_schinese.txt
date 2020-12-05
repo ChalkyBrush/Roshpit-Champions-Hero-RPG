@@ -60,21 +60,20 @@
 		
 		
 		"DOTA_Tooltip_ability_bahamut_rune_w_2"							"[W2] 多重审判"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_2_Description"				"被审判击中的敌人将带上审判之印，当巴哈姆特攻击一个拥有审判之印的敌人时，其他所有拥有审判之印的敌人也将受到攻击（受到 a % 攻击力伤害）。 被动提高@Ability2的基础伤害。"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_2_Description"				"被审判击中的敌人将带上审判之印，当巴哈姆特攻击一个拥有审判之印的敌人时，其他所有拥有审判之印的敌人也将受到攻击（受到 a % 攻击力伤害）。"
     	"DOTA_Tooltip_ability_bahamut_rune_w_2_property_one"			"其他单位伤害"
     	"DOTA_Tooltip_ability_bahamut_rune_w_2_suffix"					"% 攻击力"	
-	"DOTA_Tooltip_ability_bahamut_rune_w_2_property_one"			"审判伤害提高"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_2_suffix_two"			""
+
     	"DOTA_Tooltip_modifier_leshrac_nuke_judged"						"被审判"
     	"DOTA_Tooltip_modifier_leshrac_nuke_judged_Description"			"面对巴哈姆特特审判"
 		
 		
 		"DOTA_Tooltip_ability_bahamut_rune_w_3"							"[W3] 审判之球"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_3_Description"				"施放审判时将同时向前方发射一个审判之球。普通攻击时也将向目标发射一个审判之球。被审判之球击中的敌人也将带上审判之印。审判和审判之球对目标造成额外伤害，额外伤害基于你的总攻击力。"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_3_Description"				"施放审判时将同时向前方发射一个审判之球。普通攻击时也将向目标发射一个审判之球。被审判之球击中的敌人也将带上审判之印。审判和审判之球对目标造成额外伤害，额外伤害基于目标的总攻击力。"
     	"DOTA_Tooltip_ability_bahamut_rune_w_3_property_one"			"审判之球伤害"
     	"DOTA_Tooltip_ability_bahamut_rune_w_3_suffix"					""
 	"DOTA_Tooltip_ability_bahamut_rune_w_3_property_two"            "审判和审判之球的基础伤害增加"
-        "DOTA_Tooltip_ability_bahamut_rune_w_3_suffix_two"              "% 自身攻击力"
+        "DOTA_Tooltip_ability_bahamut_rune_w_3_suffix_two"              "% 目标攻击力"
 		
 		
 		"DOTA_Tooltip_ability_bahamut_rune_w_4"							"[W4] 潜能"
@@ -234,23 +233,21 @@
     	"DOTA_Tooltip_modifier_bahamut_arcana_post_mit_Description"			"提高魔法穿透"
 
   		"DOTA_Tooltip_ability_bahamut_rune_w_3_arcana2"						"[W3] 赦免"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_3_arcana2_Description"			"被光球击中的敌人将被冻结一段时间。此外，每当光球接触到一个敌人，你将会释放一次断罪，造成全属性系数的伤害。"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_3_arcana2_Description"			"被光球击中的敌人将被冻结一段时间。"
     	"DOTA_Tooltip_ability_bahamut_rune_w_3_arcana2_property_one"		"冻结持续时间"
     	"DOTA_Tooltip_ability_bahamut_rune_w_3_arcana2_suffix"				" 秒"
-	"DOTA_Tooltip_ability_bahamut_rune_w_3_arcana2_property_two"		"伤害"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_3_arcana2_suffix_two"				" % 全属性"
-	
+
     	"DOTA_Tooltip_modifier_arcana2_purity_freeze"						"赦免"
     	"DOTA_Tooltip_modifier_arcana2_purity_freeze_Description"			"被冻结"
 
   		"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2"						"[W4] 逆效力"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_Description"				"巴哈姆特根据当前魔法值百分比获得属性"
-	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_property_one"			"属性提高"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_suffix"					" 每10% 当前魔法值比例"	
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_Description"				"巴哈姆特根据损失的魔法值获得额外攻击力"
+	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_property_one"			"攻击力提高"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_suffix"					" 每损失1点魔法值"	
 	
        
         "DOTA_Tooltip_modifier_bahamut_arcana_w4_amp"                             "逆效力"
-		"DOTA_Tooltip_modifier_bahamut_arcana_w4_amp_Description"                 "基于当前魔法值百分比增加额外属性"
+		"DOTA_Tooltip_modifier_bahamut_arcana_w4_amp_Description"                 "基于损失的魔法值增加额外攻击力"
 		
 		"DOTA_Tooltip_modifier_bahamut_arcana_w4_amp_linger"                      "逆效力"
 				

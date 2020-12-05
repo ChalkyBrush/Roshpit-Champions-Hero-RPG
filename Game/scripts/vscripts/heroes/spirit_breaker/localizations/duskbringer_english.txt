@@ -10,7 +10,7 @@
 		"DOTA_Tooltip_modifier_whirling_flail_Description"  			"Swinging Rapidly"
 		
 		"DOTA_Tooltip_ability_duskbringer_rune_q_1"						"[Q1] Duskfire Flail"
-		"DOTA_Tooltip_ability_duskbringer_rune_q_1_Description"			"Duskbringer's weapon has an additional energy that explodes on enemies and leaves a burning DPS debuff that lasts <% DUSKBRINGER_Q1_DURATION %> seconds. The burn effect stacks, but each stack got independent duration."
+		"DOTA_Tooltip_ability_duskbringer_rune_q_1_Description"			"Duskbringer's weapon has an additional energy that explodes on enemies and leaves a burning DPS debuff that lasts <% DUSKBRINGER_Q1_DURATION %> seconds. The burn effect stacks up to <% DUSKBRINGER_Q1_MAX_STACKS%> times."
 		"DOTA_Tooltip_ability_duskbringer_rune_q_1_property_one"		"DPS"
 		"DOTA_Tooltip_ability_duskbringer_rune_q_1_suffix"				""
 		
@@ -220,7 +220,7 @@
 
 
 		"DOTA_Tooltip_ability_duskbringer_rune_q_1_arcana2"						"[Q1] Duskfire II"
-		"DOTA_Tooltip_ability_duskbringer_rune_q_1_arcana2_Description"			"Duskbringer's weapon has an additional energy that explodes on enemies and leaves a burning DPS debuff. The burn effect stacks, but each stack got independent duration. Duration 3 seconds. Enemies hit by Phantom Plasma have a stack of Duskfire added."
+		"DOTA_Tooltip_ability_duskbringer_rune_q_1_arcana2_Description"			"Duskbringer's weapon has an additional energy that explodes on enemies and leaves a burning DPS debuff. The burn effect stacks up to <% DUSKBRINGER_Q1_MAX_STACKS %> times. Duration 5 seconds. Enemies hit by Phantom Plasma have a stack of Duskfire added."
 		"DOTA_Tooltip_ability_duskbringer_rune_q_1_arcana2_property_one"		"DPS"
 		"DOTA_Tooltip_ability_duskbringer_rune_q_1_arcana2_suffix"				""		
 		

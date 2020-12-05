@@ -10,16 +10,7 @@ function increment_duskfire_stacks(caster, enemy, amount)
 		if caster:HasModifier("modifier_duskbringer_immortal_weapon_1") then
 			amount = amount * DUSKBRINGER_IMMORTAL_WEAPON_1_DUSKFIRE_STACK_MULT
 		end
-		local modifier = enemy:FindModifierByName("modifier_duskbringer_rune_q_1")
-		for i = 1, amount, 1 do
-			modifier:IncrementStackCount()
-		end
-		Timers:CreateTimer(DUSKBRINGER_Q1_DURATION, function()
-			if modifier then
-				for i = 1, amount, 1 do
-					modifier:DecrementStackCount()
-				end
-			end
-		end)
+		local newStacks = math.min(stacks + amount, DUSKBRINGER_Q1_MAX_STACKS)
+		enemy:SetModifierStackCount("modifier_duskbringer_rune_q_1", caster, newStacks)
 	end
 end
