@@ -5,7 +5,12 @@ function begin_judgement(event)
 	local ability = event.ability
 	local radius = event.radius
 	local damage = event.damage
-
+	local w_2_level = caster:GetRuneValue("w", 2)
+	if w_2_level > 0 then
+		if event.ability:GetAbilityName() ~= "bahamut_arcana_orb" then
+			damage = w_2_level * BAHAMUT_W2_JUDGEMENT_BASE_DMG + damage
+		end
+	end
 	ability.damageAmp = 1
 	caster.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "bahamut")
 	local casterOrigin = caster:GetAbsOrigin()
@@ -17,12 +22,17 @@ function begin_judgement(event)
 		radius = radius * (100+BAHAMUT_GLYPH_3_1_W_RADIUS_INCREASE_PCT)/100
 		targetPoint = GetGroundPosition(casterOrigin, caster)
 	end
+	if caster:HasAbility("bahamut_arcana_orb") then
+		targetPoint = GetGroundPosition(casterOrigin, caster)
+	end
 	blast(caster, targetPoint, radius, damage, ability)
 	Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 	local animationTable = {ACT_DOTA_ATTACK, ACT_DOTA_ATTACK2}
 	StartAnimation(caster, {duration = 0.25, activity = animationTable[RandomInt(1, #animationTable)], rate = 2.5})
 	ability.w_2_level = Runes:GetTotalRuneLevel(caster, 2, "w_2", "bahamut")
-	rune_w_3(caster, ability, caster:GetForwardVector())
+	if not caster:HasAbility("bahamut_arcana_orb") then
+		rune_w_3(caster, ability, caster:GetForwardVector())
+	end
 end
 
 function blast(caster, point, radius, damage, ability)
@@ -45,8 +55,8 @@ function blast(caster, point, radius, damage, ability)
 	if #enemies > 0 then
 		Timers:CreateTimer(0.1, function()
 			for _, enemy in pairs(enemies) do
-				local damage_with_w_3 = damage + OverflowProtectedGetAverageTrueAttackDamage(enemy) * BAHAMUT_W3_ATTACK_TO_DMG_PCT/100 * w_3_level
-				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage_with_w_3, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
+				--local damage_with_w_3 = damage + OverflowProtectedGetAverageTrueAttackDamage(enemy) * BAHAMUT_W3_ATTACK_TO_DMG_PCT/100 * w_3_level
+				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 
 				ability:ApplyDataDrivenModifier(caster, enemy, "modifier_leshrac_nuke_judged", {duration = 5})
 
@@ -124,7 +134,7 @@ function c_b_strike(event)
 	local damage = BAHAMUT_W3_BASE_DMG + ability.totalLevel * BAHAMUT_W3_DMG
 
 	local w_3_level = caster:GetRuneValue("w", 3)
-	damage = damage + OverflowProtectedGetAverageTrueAttackDamage(target) * BAHAMUT_W3_ATTACK_TO_DMG_PCT/100 * w_3_level
+	damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster) * BAHAMUT_W3_ATTACK_TO_DMG_PCT/100 * w_3_level
 	damage = damage * ability.damageAmp
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 

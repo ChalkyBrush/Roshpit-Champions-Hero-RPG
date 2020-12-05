@@ -181,6 +181,21 @@
 				"var_type"				"FIELD_INTEGER"
 				"property_one"			"<% BAHAMUT_W2_DAMAGE_PCT %>"
 			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"3"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"7"
+			}
+			"04"
+			{
+				"var_type"			"FITELD_INTEGER"
+				"property_two"			"<% BAHAMUT_W2_JUDGEMENT_BASE_DMG %>"
+			}
 		}
 	}
 

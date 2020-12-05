@@ -62,20 +62,22 @@
 		
 		
 		"DOTA_Tooltip_ability_bahamut_rune_w_2"							"[W2] Manifold Judgement"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_2_Description"				"Enemies struck by Judgement are affected by Judged. When a Judged unit is attacked by Bahamut - his attacks multiply and also strike all other Judged enemies for a % of his attack damage."
+    	"DOTA_Tooltip_ability_bahamut_rune_w_2_Description"				"Enemies struck by Judgement are affected by Judged. When a Judged unit is attacked by Bahamut - his attacks multiply and also strike all other Judged enemies for a % of his attack damage.Passively increase the base damage of @Ability2"
     	"DOTA_Tooltip_ability_bahamut_rune_w_2_property_one"			"Damage"
     	"DOTA_Tooltip_ability_bahamut_rune_w_2_suffix"					"% of Attack Damage"	
+	"DOTA_Tooltip_ability_bahamut_rune_w_2_property_two"			"Judgement Damage Increase"
+	"DOTA_Tooltip_ability_bahamut_rune_w_2_suffix_two"				""
 
     	"DOTA_Tooltip_modifier_leshrac_nuke_judged"						"Judged"
     	"DOTA_Tooltip_modifier_leshrac_nuke_judged_Description"			"Facing the Judgement of Bahamut"
 		
 		
 		"DOTA_Tooltip_ability_bahamut_rune_w_3"							"[W3] Orb of Judgement"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_3_Description"				"Judgement throws an orb in front of Bahamut. Hitting an enemy with a basic attack also throws an orb towards the enemy. Enemies struck by the Orb receive the Judged debuff. Judgement and its orb do additional damage based on target's attack power"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_3_Description"				"Judgement throws an orb in front of Bahamut. Hitting an enemy with a basic attack also throws an orb towards the enemy. Enemies struck by the Orb receive the Judged debuff. Judgement and its orb do additional damage based on your attack power"
     	"DOTA_Tooltip_ability_bahamut_rune_w_3_property_one"			"Damage"
     	"DOTA_Tooltip_ability_bahamut_rune_w_3_suffix"					""
         "DOTA_Tooltip_ability_bahamut_rune_w_3_property_two"            "Judgement and Orb Base Damage Increase"
-        "DOTA_Tooltip_ability_bahamut_rune_w_3_suffix_two"              "% of target's attack power"
+        "DOTA_Tooltip_ability_bahamut_rune_w_3_suffix_two"              "% of attack power"
 		
 		
 		"DOTA_Tooltip_ability_bahamut_rune_w_4"							"[W4] Potency"
@@ -237,17 +239,19 @@
     	"DOTA_Tooltip_modifier_bahamut_arcana_post_mit_Description"			"Increased Spell Pierce."
 
   		"DOTA_Tooltip_ability_bahamut_rune_w_3_arcana2"						"[W3] Absolution"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_3_arcana2_Description"			"A brief moment of purity freezes enemies in place when touched by Sphere of Divinity."
+    	"DOTA_Tooltip_ability_bahamut_rune_w_3_arcana2_Description"			"A brief moment of purity freezes enemies in place when touched by Sphere of Divinity. In addition, when @Ability2 contact with an enemy, you will judge him, dealing damage based on your total attribute"
     	"DOTA_Tooltip_ability_bahamut_rune_w_3_arcana2_property_one"		"Freeze Duration"
     	"DOTA_Tooltip_ability_bahamut_rune_w_3_arcana2_suffix"				" seconds"
-
+	"DOTA_Tooltip_ability_bahamut_rune_w_3_arcana2_property_two"		"Damage"
+	"DOTA_Tooltip_ability_bahamut_rune_w_3_arcana2_suffix_two"				" % of total attribute"
+	
     	"DOTA_Tooltip_modifier_arcana2_purity_freeze"						"Absolution"
     	"DOTA_Tooltip_modifier_arcana2_purity_freeze_Description"			"Frozen"
 
   		"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2"						"[W4] Potency Inverse"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_Description"				"Bahamut gains attack damage based on missing mana."
-    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_property_one"			"Attack Damage Bonus"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_suffix"					" each missing mana"	
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_Description"				"Bahamut gains attribute bonus based on current mana perc."
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_property_one"				"Attribute Bonus"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_suffix"					" each 10% current mana perc"	
 
     	"DOTA_Tooltip_modifier_bahamut_arcana_w4_amp"						"Ether Breach"
     	"DOTA_Tooltip_modifier_bahamut_arcana_w4_amp_Description"			"Increased damage based on Sphere of Divinity's Speed"
