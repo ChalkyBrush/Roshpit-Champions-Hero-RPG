@@ -1,6 +1,5 @@
 require('heroes/leshrac/bahamut_arcana_ult')
 require("heroes/leshrac/bahamut_constants")
-require('heroes/leshrac/leshrac_nuke')
 
 function begin_lightning_dash(event)
 	local caster = event.caster
@@ -114,12 +113,14 @@ function dash_think(event)
 			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 200, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, 0, FIND_ANY_ORDER, false)
 			if #enemies > 0 then
 				for _, enemy in pairs(enemies) do
-					local attributes = caster:GetStrength() + caster:GetAgility() + caster:GetIntellect() + caster:GetSpirit()
-					local damage = ability.w_3_level * BAHAMUT_ARCANA_W_W3_ATTRI_TO_DMG * attributes / 100
-					begin_judgement({caster = caster, radius = 300, damage = damage, ability = ability})
 					if not enemy:HasModifier("modifier_arcana2_purity_freeze") then
 						local freezeDuration = ability.w_3_level * BAHAMUT_ARCANA_W_W3_PARALYSIS
 						ability:ApplyDataDrivenModifier(caster, enemy, "modifier_arcana2_purity_freeze", {duration = freezeDuration})
+						if bUltNuke then
+							local arcanaAbility = caster:FindAbilityByName("bahamut_arcana_ulti")
+							local arcanaDamage = arcanaAbility:GetSpecialValueFor("damage")
+							leshrac_ult_go(arcanaAbility, caster, arcanaDamage, true, enemy)
+						end
 					end
 				end
 			end
@@ -186,14 +187,10 @@ function orb_warp_passive_thinker(event)
 	local ability = event.ability
 	local w_4_level = caster:GetRuneValue("w", 4)
 	if w_4_level > 0 then
-		--local attack_bonus = (caster:GetMaxMana() - caster:GetMana())*BAHAMUT_ARCANA_W_W4_ATK_DMG_PER_MISSING_MANA
-		local manaPerc = math.floor(caster:GetMana() / caster:GetMaxMana() * 10)
-		local attribute_bonus = manaPerc * BAHAMUT_ARCANA_W_W4_ATTRI_PER_PERCENT_MANA * w_4_level
-		
-		
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_bahamut_arcana_w4_attribute", {})
-		caster:SetModifierStackCount("modifier_bahamut_arcana_w4_attribute", caster, attribute_bonus)
+		local attack_bonus = (caster:GetMaxMana() - caster:GetMana())*BAHAMUT_ARCANA_W_W4_ATK_DMG_PER_MISSING_MANA
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_bahamut_w4_attack_damage", {})
+		caster:SetModifierStackCount("modifier_bahamut_w4_attack_damage", caster, attack_bonus)
 	else
-		caster:RemoveModifierByName("modifier_bahamut_arcana_w4_attribute")
+		caster:RemoveModifierByName("modifier_bahamut_w4_attack_damage")
 	end
 end

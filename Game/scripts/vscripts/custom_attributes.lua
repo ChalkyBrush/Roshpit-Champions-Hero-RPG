@@ -2891,14 +2891,6 @@ function CustomAttributes:SetAttributes(hero)
 		int_bonus = int_bonus + stacks * ASTRAL_RANGER_E4_ALL_ATTRIBUTES
 		spr_bonus = spr_bonus + stacks * ASTRAL_RANGER_E4_ALL_ATTRIBUTES
 	end
-	if hero:HasModifier("modifier_bahamut_arcana_w4_attribute") then
-		local stacks = CustomAttributes:GetStackWithNoCaster(hero, "modifier_bahamut_arcana_w4_attribute")
-		str_bonus = str_bonus + stacks
-		agi_bonus = agi_bonus + stacks
-		int_bonus = int_bonus + stacks
-		spr_bonus = spr_bonus + stacks
-	end
-
 
 	if heroName == "npc_dota_hero_beastmaster" then
 		if hero:HasModifier("modifier_warlord_rune_q_4_strength") then
