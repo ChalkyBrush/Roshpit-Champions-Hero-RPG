@@ -478,13 +478,13 @@
 
 #cavern_summary_header{
 	height:30px;
-	width:400px;
+	width:430px;
 	background-color: gradient( linear, 0px 0%, 400px 0%, from( #11294f ), to( #021738) );
 	border-top-right-radius:8px;
 }
 
 .cavern_summary_root{
-	margin-top:160px;
+	margin-top:144px;
 	flow-children:down;
 }
 
