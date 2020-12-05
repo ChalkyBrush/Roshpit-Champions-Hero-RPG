@@ -51,24 +51,27 @@ function Challenges:ChiselItem(msg)
 		return false
 	end
 
+
 	-- fix for autosave
 	if not GameMode.EquipTimeouts then
 		GameMode.EquipTimeouts = {}
 	end
 	local steamId = PlayerResource:GetSteamAccountID(hero:GetPlayerOwnerID())
+	local currentGameTime = GameRules:GetGameTime()
 	if not GameMode.EquipTimeouts[steamId] then
-		GameMode.EquipTimeouts[steamId] = GameRules:GetGameTime() -- first chisel have no CD
+		-- first chisel have no CD
+		GameMode.EquipTimeouts[steamId] = currentGameTime
 	end
-	local canChiselItem = Time() >= GameMode.EquipTimeouts[steamId]
-	if not canChiselItem then
-		GameMode.EquipTimeouts[steamId] = GameRules:GetGameTime() + 600
-		-- Notifications:Top(playerID, {text = "Can't chisel, try again in 5 sec.", duration = 5.0})
+	local actionAllowed = currentGameTime >= GameMode.EquipTimeouts[steamId]
+	if not actionAllowed then
+		print("[GameMode.EquipTimeouts] currentGameTime >= GameMode.EquipTimeouts[steamId")
+		GameMode.EquipTimeouts[steamId] = currentGameTime + 300
+		-- Notifications:Top(playerID, {text = "Can't chisel, try again in 5 min.", duration = 5.0})
 		CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith", {})
 		return false
 	end
-	-- print("Can chisel bool "..tostring(canChiselItem))
-	-- print("Can chisel? locked till "..tostring(GameMode.EquipTimeouts[steamId]))
-	-- print("Can chisel? current time "..tostring(Time()))
+
+
 
 	-- if itemSlot == 1 then
 	-- CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "reopen_blacksmith", {})

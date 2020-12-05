@@ -472,10 +472,35 @@ end
 Gems.SALVAGE_TAX = 0.08
 
 function Gems:SalvageGemsFromitem(msg)
+	print("[Gems:SalvageGemsFromitem] START!")
 	local playerID = msg.PlayerID
 	local player = PlayerResource:GetPlayer(playerID)
 	local item = player.salvaging_item
 	local hero = GameState:GetHeroByPlayerID(playerID)
+
+
+
+	-- fix for autosave
+	if not GameMode.EquipTimeouts then
+		GameMode.EquipTimeouts = {}
+	end
+	local steamId = PlayerResource:GetSteamAccountID(hero:GetPlayerOwnerID())
+	local currentGameTime = GameRules:GetGameTime()
+	if not GameMode.EquipTimeouts[steamId] then
+		-- first chisel have no CD
+		GameMode.EquipTimeouts[steamId] = currentGameTime
+	end
+	local actionAllowed = currentGameTime >= GameMode.EquipTimeouts[steamId]
+	if not actionAllowed then
+		print("[GameMode.EquipTimeouts] currentGameTime >= GameMode.EquipTimeouts[steamId")
+		GameMode.EquipTimeouts[steamId] = currentGameTime + 300
+		-- Notifications:Top(playerID, {text = "Can't chisel, try again in 5 min.", duration = 5.0})
+		-- CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith", {})
+		return
+	end
+
+
+
 	if item and IsValidEntity(item) and Gems:CanItemBeSalvaged(item, hero) then
 		local refund = 0
 		local base_gem_values = Gems:GetTotalItemGemCost(item)
