@@ -492,6 +492,7 @@ function Gems:SalvageGemsFromitem(msg)
 	end
 	local actionAllowed = currentGameTime >= GameMode.EquipTimeouts[steamId]
 	if not actionAllowed then
+		print("[GameMode.EquipTimeouts] currentGameTime >= GameMode.EquipTimeouts[steamId")
 		GameMode.EquipTimeouts[steamId] = currentGameTime + 300
 		-- Notifications:Top(playerID, {text = "Can't chisel, try again in 5 min.", duration = 5.0})
 		-- CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith", {})
