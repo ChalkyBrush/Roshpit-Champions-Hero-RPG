@@ -35,7 +35,7 @@ function sephyr_hurricane:GetCastRange()
 end
 
 function sephyr_hurricane:GetCooldownBase(level)
-    return self:GetSpecialValueFor("cooldown_base") - self:GetCaster():GetRuneValue("q", 2)*SEPHYR_ARCANA2_Q2_CD_REDUCTION
+    return math.max(GLOBAL_Q_MIN_CD, self:GetSpecialValueFor("cooldown_base") - self:GetCaster():GetRuneValue("q", 2)*SEPHYR_ARCANA2_Q2_CD_REDUCTION)
 end
 
 function sephyr_hurricane:OnSpellStart()
