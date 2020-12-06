@@ -59,17 +59,22 @@ function Challenges:ChiselItem(msg)
 	local steamId = PlayerResource:GetSteamAccountID(hero:GetPlayerOwnerID())
 	local currentGameTime = GameRules:GetGameTime()
 	if not GameMode.EquipTimeouts[steamId] then
+		-- print("[Challenges:ChiselItem] not GameMode.EquipTimeouts[steamId]")
 		-- first chisel have no CD
 		GameMode.EquipTimeouts[steamId] = currentGameTime
 	end
 	local actionAllowed = currentGameTime >= GameMode.EquipTimeouts[steamId]
+	-- print("[Challenges:ChiselItem] steamId:"..tostring(steamId))
+	-- print("[Challenges:ChiselItem] actionAllowed:"..tostring(actionAllowed))
+	-- print("[Challenges:ChiselItem] current time:"..tostring(currentGameTime))
+	-- print("[Challenges:ChiselItem] timout time1:"..tostring(GameMode.EquipTimeouts[steamId]))
+	GameMode.EquipTimeouts[steamId] = currentGameTime + 60
+	-- print("[Challenges:ChiselItem] timout time2:"..tostring(GameMode.EquipTimeouts[steamId]))
 	if not actionAllowed then
-		print("[GameMode.EquipTimeouts] currentGameTime >= GameMode.EquipTimeouts[steamId")
-		GameMode.EquipTimeouts[steamId] = currentGameTime + 300
-		-- Notifications:Top(playerID, {text = "Can't chisel, try again in 5 min.", duration = 5.0})
 		CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith", {})
+		-- print("[Challenges:ChiselItem] RETURN!")
 		return false
-	end
+	end	
 
 
 

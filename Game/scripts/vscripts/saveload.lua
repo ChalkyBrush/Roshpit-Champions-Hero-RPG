@@ -180,8 +180,7 @@ function SaveLoad:SaveCharacter(msg)
 		GameMode.EquipTimeouts = {}
 	end
 	local steamId = PlayerResource:GetSteamAccountID(hero:GetPlayerOwnerID())
-	-- 300 sec after save chisel would be unavailable or after save request
-	local nextEquipAvailableTime = GameRules:GetGameTime() + 300
+	local nextEquipAvailableTime = GameRules:GetGameTime() + 60
 	GameMode.EquipTimeouts[steamId] = nextEquipAvailableTime
 
 
@@ -2067,6 +2066,17 @@ end
 	end
 
 	function SaveLoad:SaveCharacterGeneric(hero)
+
+
+		-- fix for autosave
+		if not GameMode.EquipTimeouts then
+			GameMode.EquipTimeouts = {}
+		end
+		local steamId = PlayerResource:GetSteamAccountID(hero:GetPlayerOwnerID())
+		local nextEquipAvailableTime = GameRules:GetGameTime() + 60
+		GameMode.EquipTimeouts[steamId] = nextEquipAvailableTime
+		
+
 		if SaveLoad:GetAllowSaving() then
 			if not hero.save_counter then
 				hero.save_counter = 0
