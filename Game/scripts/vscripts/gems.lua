@@ -487,17 +487,21 @@ function Gems:SalvageGemsFromitem(msg)
 	local steamId = PlayerResource:GetSteamAccountID(hero:GetPlayerOwnerID())
 	local currentGameTime = GameRules:GetGameTime()
 	if not GameMode.EquipTimeouts[steamId] then
+		-- print("[Gems:SalvageGemsFromitem] not GameMode.EquipTimeouts[steamId]")
 		-- first chisel have no CD
 		GameMode.EquipTimeouts[steamId] = currentGameTime
 	end
 	local actionAllowed = currentGameTime >= GameMode.EquipTimeouts[steamId]
+	-- print("[Gems:SalvageGemsFromitem] steamId:"..tostring(steamId))
+	-- print("[Gems:SalvageGemsFromitem] actionAllowed:"..tostring(actionAllowed))
+	-- print("[Gems:SalvageGemsFromitem] current time:"..tostring(currentGameTime))
+	-- print("[Gems:SalvageGemsFromitem] timout time1:"..tostring(GameMode.EquipTimeouts[steamId]))
+	GameMode.EquipTimeouts[steamId] = currentGameTime + 60
+	-- print("[Gems:SalvageGemsFromitem] timout time2:"..tostring(GameMode.EquipTimeouts[steamId]))
 	if not actionAllowed then
-		print("[GameMode.EquipTimeouts] currentGameTime >= GameMode.EquipTimeouts[steamId")
-		GameMode.EquipTimeouts[steamId] = currentGameTime + 300
-		-- Notifications:Top(playerID, {text = "Can't chisel, try again in 5 min.", duration = 5.0})
-		-- CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith", {})
+		-- print("[Gems:SalvageGemsFromitem] RETURN!")
 		return
-	end
+	end	
 
 
 
