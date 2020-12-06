@@ -115,8 +115,10 @@ function damage(event)
 		if target:HasModifier("modifier_fire_temple_boss_dying") or target:HasModifier("modifier_fire_temple_boss_dying_final")	then
 			return
 		end
-		CustomAbilities:QuickAttachParticle(ASTRAL_RANGER_E2_PARTICLE, target, 1)
-		caster:PerformAttack(target, true, true, true, false, true, false, false)
+		if caster:IsAlive() then
+			CustomAbilities:QuickAttachParticle(ASTRAL_RANGER_E2_PARTICLE, target, 1)
+			caster:PerformAttack(target, true, true, true, false, true, false, false)
+		end
 	end
     end
 end
