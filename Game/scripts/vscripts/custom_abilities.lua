@@ -1096,13 +1096,17 @@ function CDOTABaseAbility:GetCastTarget()
 end
 
 function CDOTA_BaseNPC_Hero:ReduceAllCurrentCooldowns(time)
-	local ability_slots = {DOTA_Q_SLOT, DOTA_W_SLOT, DOTA_E_SLOT, DOTA_R_SLOT}
+	local ability_slots = {{DOTA_Q_SLOT, GLOBAL_Q_MIN_CD}, 
+			       {DOTA_W_SLOT, GLOBAL_W_MIN_CD}, 
+			       {DOTA_E_SLOT, GLOBAL_E_MIN_CD}, 
+			       {DOTA_R_SLOT, GLOBAL_R_MIN_CD}}
 	for i = 1, #ability_slots, 1 do
-		local ability = self:GetAbilityByIndex(ability_slots[i])
+		local ability = self:GetAbilityByIndex(ability_slots[i][1])
+		
 		if ability then
 			local remainingCD = ability:GetCooldownTimeRemaining()
 			if remainingCD > 0 then
-				local newCD = remainingCD - time
+				local newCD = math.max(ability_slots[i][2], remainingCD - time)
 				if newCD > 0 then
 					ability:EndCooldown()
 					ability:StartCooldown(newCD)
