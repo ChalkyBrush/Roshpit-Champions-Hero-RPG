@@ -225,6 +225,14 @@ function Filters:AdjustItemDamage(caster, damage, victim)
             mult = mult - caster.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("emerald", HOOD_OF_BLACK_MAGE_EMERALD)/100
         end
     end
+    if caster:HasModifier("modifier_fractional_enhancement_geode") then
+	local scale = caster.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_GEM_RUBY)
+	if scale > 0 then
+		if mult > 0 and (mult + scale) < (ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_ITEM_DMG_THRESHOLD + scale) then
+			mult = mult + scale
+		end
+	end
+    end
     damage = damage * mult
     return damage
 end
@@ -1933,6 +1941,14 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             local current_stack = attacker:GetModifierStackCount("modifier_royal_wristguards_stack_effect", attacker.InventoryUnit)
             damageMult = damageMult + (ITEM_RPC_ROYAL_WRISTGUARDS_Q_BAD/100) * current_stack
         end
+	if attacker:HasModifier("modifier_fractional_enhancement_geode") then
+		local scale = attacker.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_GEM_SAPPHIRE)
+		if scale > 0 then
+			if damageMult > 0 and (damageMult + scale) < (ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_BAD_THRESHOLD + scale) then
+				damageMult = damageMult + scale
+			end
+		end
+	end
         Util.Modifier:SimpleEvent(attacker, 'GetRoshpitQBADMaxOverride', { MODIFIER_ROSHPIT_Q_BASE_ABILITY_MAX_OVERRIDE }, { }, 
             function(result, data)
                 damageMult = math.min(damageMult, result/100)
@@ -2021,6 +2037,14 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
                 damageMult = damageMult + TRAPPER_W4_AMPLIFY_PERCENT*attacker:GetRuneValue("w", 4)
             end
         end
+	if attacker:HasModifier("modifier_fractional_enhancement_geode") then
+		local scale = attacker.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_GEM_SAPPHIRE)
+		if scale > 0 then
+			if damageMult > 0 and (damageMult + scale) < (ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_BAD_THRESHOLD + scale) then
+				damageMult = damageMult + scale
+			end
+		end
+	end
         Util.Modifier:SimpleEvent(attacker, 'GetRoshpitWBADMaxOverride', { MODIFIER_ROSHPIT_W_BASE_ABILITY_MAX_OVERRIDE }, { }, 
             function(result, data)
                 damageMult = math.min(damageMult, result/100)
@@ -2077,6 +2101,14 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
                 damageMult = damageMult + CONJUROR_IMMORTAL_WEAPON_2_BAD_PER_ATTRIBUTES_PCT/100 * (attacker:GetAgility())
             end
         end
+	if attacker:HasModifier("modifier_fractional_enhancement_geode") then
+		local scale = attacker.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_GEM_SAPPHIRE)
+		if scale > 0 then
+			if damageMult > 0 and (damageMult + scale) < (ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_BAD_THRESHOLD + scale) then
+				damageMult = damageMult + scale
+			end
+		end
+	end
         Util.Modifier:SimpleEvent(attacker, 'GetRoshpitEBADMaxOverride', { MODIFIER_ROSHPIT_E_BASE_ABILITY_MAX_OVERRIDE }, { }, 
             function(result, data)
                 damageMult = math.min(damageMult, result/100)
@@ -2114,6 +2146,14 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:HasModifier("modifier_brazen_kabuto") then
             damageMult = damageMult + attacker.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("emerald", KABUTO_EMERALD)/100
         end
+	if attacker:HasModifier("modifier_fractional_enhancement_geode") then
+		local scale = attacker.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_GEM_SAPPHIRE)
+		if scale > 0 then
+			if damageMult > 0 and (damageMult + scale) < (ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_BAD_THRESHOLD + scale) then
+				damageMult = damageMult + scale
+			end
+		end
+	end
         Util.Modifier:SimpleEvent(attacker, 'GetRoshpitRBADMaxOverride', { MODIFIER_ROSHPIT_R_BASE_ABILITY_MAX_OVERRIDE }, { }, 
             function(result, data)
                 damageMult = math.min(damageMult, result/100)
@@ -2510,7 +2550,14 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             end
         end
         fireMult = fireMult + (CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_head_element_fire", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_weapon_element_fire", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_hands_element_fire", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_feet_element_fire", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_body_element_fire", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_amulet_element_fire", 1))/100
-
+	if attacker:HasModifier("modifier_fractional_enhancement_geode") then
+		local scale = attacker.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_GEM_RUBY)
+		if scale > 0 then
+			if mult > 0 and (mult + scale) < (ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_ELEMENT_THRESHOLD + scale) then
+				mult = mult + scale
+			end
+		end
+	end
         mult = mult + fireMult
     end
     if element1 == RPC_ELEMENT_EARTH or element2 == RPC_ELEMENT_EARTH then
@@ -2538,6 +2585,14 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             end
         end
         mult = mult + (CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_head_element_earth", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_weapon_element_earth", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_hands_element_earth", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_feet_element_earth", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_body_element_earth", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_amulet_element_earth", 1))/100
+    	if attacker:HasModifier("modifier_fractional_enhancement_geode") then
+		local scale = attacker.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_GEM_RUBY)
+		if scale > 0 then
+			if mult > 0 and (mult + scale) < (ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_ELEMENT_THRESHOLD + scale) then
+				mult = mult + scale
+			end
+		end
+	end
     end
     if element1 == RPC_ELEMENT_LIGHTNING or element2 == RPC_ELEMENT_LIGHTNING then
         if attacker:HasModifier("modifier_dinath_glyph_6_1") then
@@ -2564,6 +2619,14 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             end
         end
         mult = mult + (CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_head_element_lightning", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_weapon_element_lightning", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_hands_element_lightning", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_feet_element_lightning", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_body_element_lightning", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_amulet_element_lightning", 1))/100
+    	if attacker:HasModifier("modifier_fractional_enhancement_geode") then
+		local scale = attacker.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_GEM_RUBY)
+		if scale > 0 then
+			if mult > 0 and (mult + scale) < (ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_ELEMENT_THRESHOLD + scale) then
+				mult = mult + scale
+			end
+		end
+	end
     end
     if element1 == RPC_ELEMENT_POISON or element2 == RPC_ELEMENT_POISON then
         if unitName == "npc_dota_hero_templar_assassin" then
@@ -2594,6 +2657,14 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             end
         end
         mult = mult + (CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_head_element_time", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_weapon_element_time", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_hands_element_time", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_feet_element_time", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_body_element_time", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_amulet_element_time", 1))/100
+   	if attacker:HasModifier("modifier_fractional_enhancement_geode") then
+		local scale = attacker.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_GEM_RUBY)
+		if scale > 0 then
+			if mult > 0 and (mult + scale) < (ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_ELEMENT_THRESHOLD + scale) then
+				mult = mult + scale
+			end
+		end
+	end
     end
     if element1 == RPC_ELEMENT_HOLY or element2 == RPC_ELEMENT_HOLY then
         if unitName == "npc_dota_hero_omniknight" then
@@ -2643,6 +2714,14 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             mult = mult + stacks * ITEM_RPC_GILDED_SOUL_CAGE_ELEMENT_HOLY_AMP/100
         end
         mult = mult + (CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_head_element_holy", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_weapon_element_holy", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_hands_element_holy", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_feet_element_holy", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_body_element_holy", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_amulet_element_holy", 1))/100
+    	if attacker:HasModifier("modifier_fractional_enhancement_geode") then
+		local scale = attacker.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_GEM_RUBY)
+		if scale > 0 then
+			if mult > 0 and (mult + scale) < (ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_ELEMENT_THRESHOLD + scale) then
+				mult = mult + scale
+			end
+		end
+	end
     end
     if element1 == RPC_ELEMENT_COSMOS or element2 == RPC_ELEMENT_COSMOS then
         local cosmosMult = 0
@@ -2672,6 +2751,14 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         cosmosMult = cosmosMult + (CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_head_element_cosmic", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_weapon_element_cosmic", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_hands_element_cosmic", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_feet_element_cosmic", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_body_element_cosmic", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_amulet_element_cosmic", 1))/100
 
         mult = mult + cosmosMult
+    	if attacker:HasModifier("modifier_fractional_enhancement_geode") then
+		local scale = attacker.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_GEM_RUBY)
+		if scale > 0 then
+			if mult > 0 and (mult + scale) < (ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_ELEMENT_THRESHOLD + scale) then
+				mult = mult + scale
+			end
+		end
+	end
     end
     if element1 == RPC_ELEMENT_ICE or element2 == RPC_ELEMENT_ICE then
         if attacker:HasModifier("modifier_dinath_glyph_6_1") then
@@ -2720,6 +2807,14 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             mult = mult + stacks * SORCERESS_ARCANA1_R3_ICE_RESIST_LOSS
         end
         mult = mult + (CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_head_element_ice", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_weapon_element_ice", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_hands_element_ice", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_feet_element_ice", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_body_element_ice", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_amulet_element_ice", 1))/100
+    	if attacker:HasModifier("modifier_fractional_enhancement_geode") then
+		local scale = attacker.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_GEM_RUBY)
+		if scale > 0 then
+			if mult > 0 and (mult + scale) < (ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_ELEMENT_THRESHOLD + scale) then
+				mult = mult + scale
+			end
+		end
+	end
     end
     if element1 == RPC_ELEMENT_ARCANE or element2 == RPC_ELEMENT_ARCANE then
 
@@ -2749,6 +2844,14 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             end
         end
         mult = mult + (CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_head_element_arcane", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_weapon_element_arcane", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_hands_element_arcane", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_feet_element_arcane", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_body_element_arcane", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_amulet_element_arcane", 1))/100
+	if attacker:HasModifier("modifier_fractional_enhancement_geode") then
+		local scale = attacker.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_GEM_RUBY)
+		if scale > 0 then
+			if mult > 0 and (mult + scale) < (ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_ELEMENT_THRESHOLD + scale) then
+				mult = mult + scale
+			end
+		end
+	end
     end
     if element1 == RPC_ELEMENT_SHADOW or element2 == RPC_ELEMENT_SHADOW then
         if unitName == "npc_dota_hero_zuus" then
@@ -2780,6 +2883,14 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             mult = mult + (stacks * attacker.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_NIGHTMARE_RIDER_MANTLE_GEM_AMETHYST1)) / 100
         end
         mult = mult + (CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_head_element_shadow", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_weapon_element_shadow", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_hands_element_shadow", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_feet_element_shadow", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_body_element_shadow", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_amulet_element_shadow", 1))/100
+	if attacker:HasModifier("modifier_fractional_enhancement_geode") then
+		local scale = attacker.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_GEM_RUBY)
+		if scale > 0 then
+			if mult > 0 and (mult + scale) < (ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_ELEMENT_THRESHOLD + scale) then
+				mult = mult + scale
+			end
+		end
+	end
     end
     if element1 == RPC_ELEMENT_WIND or element2 == RPC_ELEMENT_WIND then
         if unitName == "npc_dota_hero_huskar" then
@@ -2812,6 +2923,14 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             mult = mult + (attacker.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("emerald", ITEM_RPC_GLOVES_OF_SWEEPING_WIND_GEM_EMERALD)/100)*attacker:GetModifierStackCount("modifier_sweeping_wind_stackable", attacker.InventoryUnit)
         end
         mult = mult + (CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_head_element_wind", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_weapon_element_wind", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_hands_element_wind", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_feet_element_wind", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_body_element_wind", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_amulet_element_wind", 1))/100
+    	if attacker:HasModifier("modifier_fractional_enhancement_geode") then
+		local scale = attacker.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_GEM_RUBY)
+		if scale > 0 then
+			if mult > 0 and (mult + scale) < (ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_ELEMENT_THRESHOLD + scale) then
+				mult = mult + scale
+			end
+		end
+	end
     end
     if element1 == RPC_ELEMENT_GHOST or element2 == RPC_ELEMENT_GHOST then
         if attacker:GetUnitName() == "npc_dota_hero_spirit_breaker" then
@@ -2829,6 +2948,14 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             mult = mult + stacks / 100
         end
         mult = mult + (CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_head_element_ghost", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_weapon_element_ghost", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_hands_element_ghost", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_feet_element_ghost", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_body_element_ghost", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_amulet_element_ghost", 1))/100
+   	if attacker:HasModifier("modifier_fractional_enhancement_geode") then
+		local scale = attacker.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_GEM_RUBY)
+		if scale > 0 then
+			if mult > 0 and (mult + scale) < (ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_ELEMENT_THRESHOLD + scale) then
+				mult = mult + scale
+			end
+		end
+	end
     end
     if element1 == RPC_ELEMENT_WATER or element2 == RPC_ELEMENT_WATER then
         local waterMult = 0
@@ -2877,6 +3004,14 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         waterMult = waterMult + (CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_head_element_water", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_weapon_element_water", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_hands_element_water", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_feet_element_water", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_body_element_water", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_amulet_element_water", 1))/100
 
         mult = mult + waterMult
+    	if attacker:HasModifier("modifier_fractional_enhancement_geode") then
+		local scale = attacker.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_GEM_RUBY)
+		if scale > 0 then
+			if mult > 0 and (mult + scale) < (ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_ELEMENT_THRESHOLD + scale) then
+				mult = mult + scale
+			end
+		end
+	end
     end
     if element1 == RPC_ELEMENT_DEMON or element2 == RPC_ELEMENT_DEMON then
         if unitName == "npc_dota_hero_night_stalker" then
@@ -2899,6 +3034,14 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             end
         end
         mult = mult + (CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_head_element_nature", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_weapon_element_nature", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_hands_element_nature", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_feet_element_nature", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_body_element_nature", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_amulet_element_nature", 1))/100
+    	if attacker:HasModifier("modifier_fractional_enhancement_geode") then
+		local scale = attacker.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_GEM_RUBY)
+		if scale > 0 then
+			if mult > 0 and (mult + scale) < (ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_ELEMENT_THRESHOLD + scale) then
+				mult = mult + scale
+			end
+		end
+	end
     end
     if element1 == RPC_ELEMENT_UNDEAD or element2 == RPC_ELEMENT_UNDEAD then
         if attacker:GetUnitName() == "npc_dota_hero_visage" then
@@ -2914,6 +3057,14 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             end
         end
         mult = mult + (CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_head_element_undead", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_weapon_element_undead", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_hands_element_undead", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_feet_element_undead", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_body_element_undead", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_amulet_element_undead", 1))/100
+    	if attacker:HasModifier("modifier_fractional_enhancement_geode") then
+		local scale = attacker.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_GEM_RUBY)
+		if scale > 0 then
+			if mult > 0 and (mult + scale) < (ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_ELEMENT_THRESHOLD + scale) then
+				mult = mult + scale
+			end
+		end
+	end
     end
     if element1 == RPC_ELEMENT_DRAGON or element2 == RPC_ELEMENT_DRAGON then
         if unitName == "npc_dota_hero_winter_wyvern" then
@@ -2929,6 +3080,14 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             mult = mult + WARLORD_ARCANA2_Q4_DRAGON_AMP * q_4_level        
         end
         mult = mult + (CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_head_element_dragon", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_weapon_element_dragon", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_hands_element_dragon", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_feet_element_dragon", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_body_element_dragon", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_amulet_element_dragon", 1))/100
+    	if attacker:HasModifier("modifier_fractional_enhancement_geode") then
+		local scale = attacker.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_GEM_RUBY)
+		if scale > 0 then
+			if mult > 0 and (mult + scale) < (ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_ELEMENT_THRESHOLD + scale) then
+				mult = mult + scale
+			end
+		end
+	end
     end
     -- if bIsRealDamage and not damageData.ignoreMultipliers and not damageData.ignoreElements then
     --     Filters:PostElementalDamage(victim, attacker, damage * mult, damage_type, slot, element1, element2, bIsRealDamage)
@@ -4045,7 +4204,7 @@ function Filters:GrithaultDamage(victim, damage)
 end
 
 
-function Filters:GeodeDealDamage(victim, damage, attacker)
+--[[function Filters:GeodeDealDamage(victim, damage, attacker)
     if victim:GetEntityIndex() == attacker:GetEntityIndex() then
         return damage
     end
@@ -4061,7 +4220,7 @@ function Filters:GeodeDealDamage(victim, damage, attacker)
     else
         return damage
     end
-end
+end]]
 
 function Filters:TwigTakeDamage(damage, victim)
     if victim.manaShellAbsorb >= damage then
