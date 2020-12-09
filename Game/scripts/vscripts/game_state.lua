@@ -3066,9 +3066,9 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_lava_bully_ai") then
 		filterTable["damage"] = 0
 	end
-	if attacker:HasModifier("modifier_fractional_enhancement_geode") then
+	--[[if attacker:HasModifier("modifier_fractional_enhancement_geode") then
 		filterTable["damage"] = Filters:GeodeDealDamage(victim, filterTable["damage"], attacker)
-	end
+	end]]
 	if victim:HasModifier("modifier_shipyard_boss_unit") then
 		if not Redfall.Shipyard.BossBattleEnd then
 			if not attacker:HasModifier("modifier_shipyard_boss_aura_effect") then
