@@ -2165,7 +2165,13 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 		local aura_holder = unit:FindModifierByName("modifier_umbral_sentinel_aura_effect"):GetCaster().hero
 		armor_pierce_modify = armor_pierce_modify + (armor_pierce + armor_pierce_modify)*(aura_holder.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("ruby", UMBRAL_SENTINEL_RUBY)/100)
 	end
-
+	if unit:HasModifier("modifier_fractional_enhancement_geode") then
+		local sum_pierce = armor_pierce + armor_pierce_modify
+		if  (sum_pierce + ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_PIERCE_BONUS) < (ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_PIERCE_THRESHOLD +ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_PIERCE_BONUS) then
+			armor_pierce_modify = armor_pierce_modify + ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_PIERCE_BONUS
+		end
+	end
+	
 	if armor_pierce_modify > 0 then
 		unit:RemoveModifierByName("modifier_negative_roshpit_armor_pierce")
 		Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_positive_roshpit_armor_pierce", {})
@@ -2601,8 +2607,12 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 		local spell_pierce_pct_bonus = HOOD_OF_BLACK_MAGE_SPELL_PIERCE_PCT_INCREASE + unit.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("amethyst", HOOD_OF_BLACK_MAGE_AMETHYST)
 		spell_pierce_modify = spell_pierce_modify + (spell_pierce + spell_pierce_modify)*(spell_pierce_pct_bonus/100)
 	end
-
-
+	if unit:HasModifier("modifier_fractional_enhancement_geode") then
+		local sum_pierce = spell_pierce + spell_pierce_modify
+		if  (sum_pierce + ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_PIERCE_BONUS) < (ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_PIERCE_THRESHOLD +ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_PIERCE_BONUS) then
+			spell_pierce_modify = spell_pierce_modify + ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_PIERCE_BONUS
+		end
+	end
 
 	if spell_pierce_modify > 0 then
 		unit:RemoveModifierByName("modifier_negative_roshpit_spell_pierce")
@@ -3203,6 +3213,15 @@ function CustomAttributes:SetAttributes(hero)
 	if hero:HasModifier("modifier_ring_of_mysteries") then
 		if hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetGemValue("amethyst") > 0 then
 			spr_bonus = spr_bonus + hero.equipped_gear[RPC_GEAR_SLOT_TRINKET].total_rune_levels*hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_RING_OF_MYSTERIES_GEM_AMETHYST)
+		end
+	end
+	if hero:HasModifier("modifier_fractional_enhancement_geode") then
+		local geode_attr = hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_GEM_AMETHYST)
+		if geode_attr > 0 then
+			str_bonus = str_bonus + geode_attr
+			agi_bonus = agi_bonus + geode_attr
+			int_bonus = int_bonus + geode_attr
+			spr_bonus = spr_bonus + geode_attr
 		end
 	end
 	if hero:HasModifier("modifier_red_divinex_amulet") then
