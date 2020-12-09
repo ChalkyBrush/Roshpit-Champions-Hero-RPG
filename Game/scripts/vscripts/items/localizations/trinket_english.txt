@@ -283,11 +283,11 @@
         "DOTA_Tooltip_ability_item_rpc_fractional_enhancement_geode"                    "Fractional Enhancement Geode"
 
         "item_property_geode"                               "Logarithmic Amplification"
-        "property_geode_description"                        "Whenever you deal an instance of damage which ends up being less than <% ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_INSTANCE_THRESHOLD %>% of the target's max health, multiply that damage instance by <% ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_DAMAGE_MULT %>."
-        "item_rpc_fractional_enhancement_geode_ruby1"                   "Increases the threshold to trigger Logarithmic Amplification by an additionial @ruby_property1% of the enemy's max health"
-        "item_rpc_fractional_enhancement_geode_emerald1"                    "Increases the Amplification value by an additional @emerald_property1x"
-        "item_rpc_fractional_enhancement_geode_sapphire1"                   "Increases All Elemental Damage by @sapphire_property1%"
-        "item_rpc_fractional_enhancement_geode_amethyst1"                   "Increases Item Damage by @amethyst_property1%"
+        "property_geode_description"                        "If your armor pierce or spell pierce is less than <font color='#ccff66'>4000</font>, you will gain <font color='#ccff66'>2000</font> bonus armor pierce or spell pierce."
+        "item_rpc_fractional_enhancement_geode_ruby1"                   "If your elemental damage bonus is less than <font color='#ccff66'>100%</font> , you will gain  @ruby_property1% bonus to that element type."
+        "item_rpc_fractional_enhancement_geode_emerald1"                    "If your item damage is less than <font color='#ccff66'>150%</font> you will gain  @emerald_property1% bonus item damage."
+        "item_rpc_fractional_enhancement_geode_sapphire1"                   "If your base ability damage is less than <font color='#ccff66'>150%</font>, you will gain @sapphire_property1% bonus base ability damage"
+        "item_rpc_fractional_enhancement_geode_amethyst1"                   "Increase all attribute by @amethyst_property1"
 
         "DOTA_Tooltip_ability_item_rpc_frozen_heart"                "Frozen Heart of Az'heran"
 
