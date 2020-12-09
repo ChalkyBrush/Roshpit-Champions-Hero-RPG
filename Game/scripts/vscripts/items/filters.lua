@@ -226,7 +226,7 @@ function Filters:AdjustItemDamage(caster, damage, victim)
         end
     end
     if caster:HasModifier("modifier_fractional_enhancement_geode") then
-	local scale = caster.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_GEM_RUBY)
+	local scale = caster.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_GEM_EMERALD)
 	if scale > 0 then
 		if mult > 0 and (mult + scale) < (ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_ITEM_DMG_THRESHOLD + scale) then
 			mult = mult + scale
