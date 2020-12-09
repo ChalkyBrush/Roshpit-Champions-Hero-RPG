@@ -265,12 +265,12 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_fractional_enhancement_geode"					"放大水晶"
-        "item_rpc_fractional_enhancement_geode_ruby1"                   "提高对数放大的触发阈值 @ruby_property1% 敌人的最大生命值"
-        "item_rpc_fractional_enhancement_geode_emerald1"                    "提高放大伤害 @emerald_property1x"
-        "item_rpc_fractional_enhancement_geode_sapphire1"                   "提高所有元素伤害@sapphire_property1%"
-        "item_rpc_fractional_enhancement_geode_amethyst1"                   "提高物品伤害 @amethyst_property1%"
+        "item_rpc_fractional_enhancement_geode_ruby1"                   "如果你的某种元素伤害低于 <font color='#ccff66'>100%</font> , 那么你将会获得 @ruby_property1% 该元素伤害加成。"
+        "item_rpc_fractional_enhancement_geode_emerald1"                    "如果你的物品伤害低于 <font color='#ccff66'>150%</font>， 那么你将会获得 @emerald_property1% 额外伤害。"
+        "item_rpc_fractional_enhancement_geode_sapphire1"                   "如果你的基础技能伤害低于 <font color='#ccff66'>150%</font>, 那么你将会获得 @sapphire_property1% 额外基础技能伤害。"
+        "item_rpc_fractional_enhancement_geode_amethyst1"                   "增加全属性 @amethyst_property1。"
 		"item_property_geode"								"对数放大"
-		"property_geode_description"						"如果你造成的单次伤害值低于目标最大生命值的<% ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_INSTANCE_THRESHOLD %>%，该伤害值变为<% ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_DAMAGE_MULT %>倍。"
+		"property_geode_description"						"如果你的物理穿透或者魔法穿透低于 <font color='#ccff66'>4000</font>, 那么你将会获得 <font color='#ccff66'>2000</font> 点物理穿透或者魔法穿透。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_ring_of_nobility"								"崇高戒指"
