@@ -2647,32 +2647,32 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"movespeed_min_per_tech"				"25"
+				"movespeed_min_per_tech"				"<% JEX_LIGHTNING_COSMIC_E_MIN_MS_PER_TECH %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"duration_per_tech"				"2"
+				"duration_per_tech"				"<% JEX_LIGHTNING_COSMIC_E_DURATION_PER_TECH %>"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"movespeed_min_base"				"550"
+				"movespeed_min_base"				"<% JEX_LIGHTNING_COSMIC_E_BASE_MIN_MS %>"
 			}			
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"duration_base"				"15"
+				"duration_base"				"<% JEX_LIGHTNING_COSMIC_E_DURATION_BASE %>"
 			}	
 			"05"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"w_4_cooldown_reduce"				"0.1"
+				"w_4_cooldown_reduce"				"<% JEX_LIGHTNING_COSMIC_E_CD_REDUCTION_PER_W4 %>"
 			}	
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"e_4_cosmic_damage_increase"				"<% JEX_COSMIC_SURGE_E4_COSMIC_AMP * 100 %>"
+				"e_4_cosmic_damage_increase"				"<% JEX_LIGHTNING_COSMIC_E_COSMIC_AMP_PER_E4 * 100 %>"
 			}
 		}
 		"OnSpellStart"

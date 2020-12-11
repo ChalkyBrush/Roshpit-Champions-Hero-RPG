@@ -15,9 +15,9 @@ end
 function modifier_jex_cosmic_surge_lua:GetModifierMoveSpeed_AbsoluteMin(params)
     local ability = self:GetAbility()
     if ability.tech_level then
-        return ability.tech_level * 25 + 400
+        return ability.tech_level * JEX_LIGHTNING_COSMIC_E_MIN_MS_PER_TECH + JEX_LIGHTNING_COSMIC_E_BASE_MIN_MS
     else
-        return 400
+        return JEX_LIGHTNING_COSMIC_E_BASE_MIN_MS
     end
 end
 
