@@ -147,7 +147,11 @@ function ConjureImage(caster, player, ability)
 	overCharge:ApplyDataDrivenModifier(illusion, illusion, "modifier_gods_strength_datadriven", {duration = duration})
 
 	local attack_damage_inherit = VOLTEX_E1_ATTACK_POWER/100 * e_1_level
-	illusion:AdjustSummon(caster, true, VOLTEX_E1_INHERITED_HEALTH, attack_damage_inherit, VOLTEX_E1_INHERITED_ARMOR, VOLTEX_E1_INHERITED_ARMOR, VOLTEX_E1_INHERITED_ARMOR, VOLTEX_E1_INHERITED_ARMOR)
+	local illusion_health = VOLTEX_E1_INHERITED_HEALTH
+	if caster:HasModifier("modifier_voltex_glyph_1_2") then
+		illusion_health = illusion_health * VOLTEX_GLYPH_1_2_ILLUSION_HP_MULT
+	end
+	illusion:AdjustSummon(caster, true, illusion_health, attack_damage_inherit, VOLTEX_E1_INHERITED_ARMOR, VOLTEX_E1_INHERITED_ARMOR, VOLTEX_E1_INHERITED_ARMOR, VOLTEX_E1_INHERITED_ARMOR)
 
 	if caster:HasModifier("modifier_voltex_rune_r_3_avatar") then
 		local runeAbility = caster.runeUnit3:FindAbilityByName("voltex_rune_r_3")
@@ -184,7 +188,11 @@ function voltex_rune_e_2_think(event)
 	if not ability.particles then
 		ability.particles = 0
 	end
-	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 220, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+	local radius = VOLTEX_E2_RADIUS
+	if caster:HasModifier("modifier_voltex_glyph_2_2") then
+		radius = radius + VOLTEX_GLYPH_3_2_E2_RADIUS_BONUS
+	end
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do
 			ability.particles = ability.particles + 1

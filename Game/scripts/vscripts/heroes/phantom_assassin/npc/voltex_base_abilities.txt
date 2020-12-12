@@ -881,7 +881,7 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage"	"30 60 90 120 150 180 210"
+				"damage"	"<% VOLTEX_R_DAMAGE %>"
 			}
 			"02"
 			{

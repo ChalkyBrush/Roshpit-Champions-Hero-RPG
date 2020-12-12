@@ -26,6 +26,9 @@ function voltex_static_onspellstart(event)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_voltex_rune_w_2_self", {})
 		caster:SetModifierStackCount("modifier_voltex_rune_w_2_self", ability, w_2_level)
 		local radius = event.radius
+		if caster:HasModifier("modifier_voltex_glyph_2_2") then
+			radius = radius + (radius * VOLTEX_GLYPH_3_2_E2_RADIUS_BONUS_PCT / 100)
+		end
 		local allies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		if #allies > 0 then
 			for _, ally in pairs(allies) do
@@ -53,6 +56,9 @@ function voltex_static_onspellstart(event)
 			magnetAbility:ApplyDataDrivenModifier(caster, caster, "modifier_arcana2_dash", {duration = 1})
 			magnetAbility.pushSpeed = 25
 		end
+	end
+	if caster:HasModifier("modifier_voltex_glyph_5_2") then
+		Filters:ApplyHeal(caster, caster, VOLTEX_GLYPH_5_2_HEAL, true)
 	end
 end
 
