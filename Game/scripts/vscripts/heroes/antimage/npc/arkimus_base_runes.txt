@@ -36,24 +36,19 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% ARKIMUS_Q2_RADIUS %>"
+				"property_two"			"<% ARKIMUS_Q2_DAMAGE_BASE %>"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two_base"		"<% ARKIMUS_Q2_RADIUS_BASE %>"
+				"base_ability"			"1"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"1"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"element_one"			"10"
 			}
-			"06"
+			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"element_two"			"4"
@@ -74,7 +69,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ARKIMUS_Q3_MAGIC_ARMOR_REDUCTION %>"
+				"property_one"			"<% ARKIMUS_Q3_INTERVAL_REDUC_PCT %>"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"<% ARKIMUS_Q3_RADIUS_AND_CAST_RANGE_BONUS %>"
 			}
 		}
 	}
@@ -92,7 +92,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ARKIMUS_Q4_ADD_DMG_PCT * 100 %>"
+				"property_one"			"<% ARKIMUS_Q4_ADD_DMG_PCT %>"
 			}
 			"02"
 			{
