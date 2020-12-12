@@ -25,7 +25,7 @@ require('/heroes/vengeful_spirit/solunia_constants')
 require("/heroes/visage/ekkan_constants")
 require("/heroes/winter_wyvern/dinath_constants")
 require("/heroes/axe/red_general_constants")
-
+require("/heroes/invoker/conjuror_constants")
 require('/items/constants/boots')
 require('/items/constants/chest')
 require('/items/constants/gloves')
