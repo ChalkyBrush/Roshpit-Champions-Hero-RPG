@@ -524,7 +524,7 @@
 		"item_property_mystic_mana_wall"						"魔法防御"
 		"property_mystic_mana_wall_description"				"降低受到的魔法和纯粹伤害 <% ITEM_RPC_MYSTIC_MANA_WALL_MAGIC_PURE_REDUCTION %>% 并且伤害将会扣除魔法值而不是生命值。每点当前魔法值增加 <% ITEM_RPC_MYSTIC_MANA_WALL_ARMOR_PER_MANA %> 护甲"
 
-		"item_rpc_mystic_mana_wall_ruby1"								"每点智力增加最大魔法值@ruby_property1"
+		"item_rpc_mystic_mana_wall_ruby1"								"每点力量增加最大魔法值@ruby_property1"
 		"item_rpc_mystic_mana_wall_emerald1"								"每点敏捷增加最大魔法值 @emerald_property1"
 		"item_rpc_mystic_mana_wall_sapphire1"								"降低魔法和纯粹伤害@sapphire_property1%"
 		"item_rpc_mystic_mana_wall_amethyst1"								"每点精神增加最大魔法值 @amethyst_property1点"
