@@ -1142,10 +1142,6 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 			armor_modify = armor_modify + unit:GetHealth()*unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("emerald", ITEM_RPC_ANGELIC_GLOVES_OF_THE_JUDICIARY_GEM_EMERALD)
 		end
 	end
-	if unit:HasModifier("modifier_arkimus_q_1_armor_loss") then
-		local q_1_master = unit:FindModifierByName("modifier_arkimus_q_1_armor_loss"):GetCaster()
-		magic_armor_modify = magic_armor_modify + (q_1_master:GetRuneValue("q", 1) * ARKIMUS_Q1_MAGIC_ARMOR_REDUCTION)
-	end
 	-- FINAL STEP: DEFILER | HOOD OF BLACK MAGE | NIGHTMARE RIDER
 
 	if unit:HasModifier("modifier_hood_of_defiler_effect_visible") then
@@ -1761,7 +1757,12 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 			magic_armor_modify = magic_armor_modify + unit:GetHealth()*unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("emerald", ITEM_RPC_ANGELIC_GLOVES_OF_THE_JUDICIARY_GEM_EMERALD)
 		end
 	end
-
+	
+	if unit:HasModifier("modifier_arkimus_q_1_armor_loss") then
+		local q_1_master = unit:FindModifierByName("modifier_arkimus_q_1_armor_loss"):GetCaster()
+		magic_armor_modify = magic_armor_modify + (q_1_master:GetRuneValue("q", 1) * ARKIMUS_Q1_MAGIC_ARMOR_REDUCTION)
+	end
+	
 	-- FINAL STEP DEFILER | NIGHTMARE RIDER MANTLE | ROOTED FEET
 
 	if unit:HasModifier("modifier_hood_of_defiler_effect_visible") then
