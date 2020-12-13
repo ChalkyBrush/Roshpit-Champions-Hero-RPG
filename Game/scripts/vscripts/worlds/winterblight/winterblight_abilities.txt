@@ -12246,6 +12246,7 @@
 				"Function"		"icicle_barrage_impact"
 				"target"		"TARGET"
 				"damage"		"%damage"
+				"max_stacks"							"%max_stacks"
 			}
 		}
 		"Modifiers"
