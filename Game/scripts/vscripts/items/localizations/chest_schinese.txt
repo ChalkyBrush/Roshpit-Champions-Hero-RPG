@@ -468,7 +468,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_sapphire_dragon_scale_armor"						"蓝宝石龙鳞铠甲"
 		"item_rpc_sapphire_dragon_scale_armor_ruby1"						"每点智力增加护甲@ruby_property1点"
-		"item_rpc_sapphire_dragon_scale_armor_emerald1"						"每点智力增加物理穿透 @ruby_property1点"
+		"item_rpc_sapphire_dragon_scale_armor_emerald1"						"每点智力增加物理穿透 @emerald_property1点"
 		"item_rpc_sapphire_dragon_scale_armor_sapphire1"						"每点智力增加基础攻击力 @sapphire_property1点"
 		"item_rpc_sapphire_dragon_scale_armor_amethyst1"						"每点智力增加魔甲@amethyst_property1点"
 		"item_property_sapphire_dragon"					"蓝龙"
