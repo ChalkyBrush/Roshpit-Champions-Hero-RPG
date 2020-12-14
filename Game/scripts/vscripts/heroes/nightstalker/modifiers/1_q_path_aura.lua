@@ -52,3 +52,7 @@ end
 function class:IsHidden()
     return true
 end
+
+function class:CheckState()
+	return {[MODIFIER_STATE_NO_UNIT_COLLISION] = true}
+end
