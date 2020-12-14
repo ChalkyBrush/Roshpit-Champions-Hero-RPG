@@ -71,7 +71,3 @@ function class:OnDestroy()
     target:RemoveModifierByName('modifier_charons_claw_c_a')
 end
 
-function class:CheckState()
-	return {[MODIFIER_STATE_NO_UNIT_COLLISION] = true}
-end
-
