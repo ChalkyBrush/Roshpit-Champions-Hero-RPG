@@ -74,7 +74,7 @@ function charons_claw_cast(event)
 			local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, thinkerPos, caster)
 
 			if not blockUnit then
-				Util.Ability:MakeThinker(caster, ability, modifiers.path_aura, thinkerPos, pathDuration)
+				CreateModifierThinker( caster, ability, modifiers.path_aura, {duration = pathDuration}, thinkerPos, caster:GetTeamNumber(), false)
 			end
 			if i == (thinkers - 2) then
 				AddFOWViewer(caster:GetTeamNumber(), thinkerPos + fv * 200, 400, 3, false)
