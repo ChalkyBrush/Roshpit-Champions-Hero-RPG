@@ -480,7 +480,7 @@
 				{
 					"RemoveModifier"
 					{
-						"ModifierName"	"modifier_demon_gloves_of_the_judiciary_attack"
+						"ModifierName"	"modifier_demonic_gloves_of_the_judiciary_attack"
 						"Target" 		"TARGET"
 					}
 				}
