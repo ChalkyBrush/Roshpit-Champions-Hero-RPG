@@ -286,25 +286,25 @@
 		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_book" 		"Voltex Glyph Book"
 
         "DOTA_Tooltip_ability_item_rpc_voltex_glyph_1_2"       "[T1-2] Glyph of Focused Remnants"
-        "item_rpc_voltex_glyph_1_2_description"                "Lightning Remnants' HP value multiplies by <% VOLTEX_GLYPH_1_2_ILLUSION_HP_MULT %>."
+        "item_rpc_voltex_glyph_1_2_description"                "Lightning Remnant illusion health is multiplied by <% VOLTEX_GLYPH_1_2_ILLUSION_HP_MULT %>."
 
         "DOTA_Tooltip_ability_item_rpc_voltex_glyph_2_2"       "[T2-2] Glyph of Potential"
-        "item_rpc_voltex_glyph_2_2_description"                "Radius of ally search for [W2] increased by <% VOLTEX_GLYPH_2_2_W2_RADIUS_BONUS %>."
+        "item_rpc_voltex_glyph_2_2_description"                "The range at which [W2] can apply its buff to allied units is increased by <% VOLTEX_GLYPH_2_2_W2_RADIUS_BONUS %>."
 
         "DOTA_Tooltip_ability_item_rpc_voltex_glyph_3_2"       "[T3-2] Glyph of Step Voltage"
         "item_rpc_voltex_glyph_3_2_description"                "[E2] radius increased by <% VOLTEX_GLYPH_3_2_E2_RADIUS_BONUS_PCT %>%."
 
         "DOTA_Tooltip_ability_item_rpc_voltex_glyph_4_2"       "[T4-2] Glyph of Perfection"
-        "item_rpc_voltex_glyph_4_2_description"                "Voltex's attacks always have True Strike."
+        "item_rpc_voltex_glyph_4_2_description"                "Voltex's attacks always have True Strike, ignoring enemy Evasion."
 
         "DOTA_Tooltip_ability_item_rpc_voltex_glyph_5_2"       "[T5-2] Glyph of Electrophoresis"
-        "item_rpc_voltex_glyph_5_2_description"                "Every cast of @Ability2 heals Voltex by <% VOLTEX_GLYPH_5_2_HEAL %>."
+        "item_rpc_voltex_glyph_5_2_description"                "Voltex heals for <% VOLTEX_GLYPH_5_2_HEAL %> with each cast of @Ability2."
 
         "DOTA_Tooltip_ability_item_rpc_voltex_glyph_6_2"       "[T6-2] Glyph of Ionization"
-        "item_rpc_voltex_glyph_6_2_description"                "@Ability4 damage per spark value increased by <% VOLTEX_GLYPH_6_2_R_DAMAGE_BONUS %>. Sparks have decreased speed but greatly increased lifetime."
+        "item_rpc_voltex_glyph_6_2_description"                "@Ability4 spark damage increased by <% VOLTEX_GLYPH_6_2_R_DAMAGE_BONUS %>. Sparks have decreased speed but greatly increased lifetime."
 
         "DOTA_Tooltip_ability_item_rpc_voltex_glyph_7_2"       "[T7-2] Glyph of Blasting Thunder"
-        "item_rpc_voltex_glyph_7_2_description"                "[R2] deals damage and applies its debuff to all enemies in <% VOLTEX_GLYPH_7_2_R2_AOE %> area around the main target."
+        "item_rpc_voltex_glyph_7_2_description"                "[R2] deals damage and applies its debuff to all enemies in a <% VOLTEX_GLYPH_7_2_R2_AOE %> radius around the primary target."
 		
 		//Weapons
 		"voltex_weapon_01"			"Brutal Blade"
