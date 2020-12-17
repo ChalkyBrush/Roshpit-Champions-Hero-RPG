@@ -275,7 +275,7 @@
 		"DOTA_Tooltip_modifier_tachyon_shell_5_2_agility_Description"		"While Tachyon Shell is active, Agility is increased by <% ZHONIK_GLYPH_5_2_AGILITY %>"
 
         "DOTA_Tooltip_ability_item_rpc_zonik_glyph_6_2"       "[T6-2] Glyph of Chaos"
-        "item_rpc_zonik_glyph_6_2_description"                "[W4]'s delay before dealing damage is decreased by <% ZHONIK_GLYPH_6_2_W4_DELAY_REDUCTION %> second. Every time you damage an enemy that currently has [W4] active, there is a <% ZHONIK_GLYPH_6_2_W4_ZERO_DELAY_CHANCE %>% chance to deal its accumulated damage immediately without terminating the buff; doing so will reset the accumulated damage counter, but will not refresh [W4]'s duration on the target. Echo damage also becomes unstable, varying between 50% and 150% of its expected value."
+        "item_rpc_zonik_glyph_6_2_description"                "[W4]'s delay before dealing damage is decreased by <% ZHONIK_GLYPH_6_2_W4_DELAY_REDUCTION %> second. Every time you damage an enemy that currently has [W4] active, there is a <% ZHONIK_GLYPH_6_2_W4_ZERO_DELAY_CHANCE %>% chance to not refresh [W4]'s duration on the target, or apply [W4] damage immediately if an enemy had no [W4] debuff. Echo damage also becomes unstable, varying between 50% and 150% of its expected value."
 
         "DOTA_Tooltip_ability_item_rpc_zonik_glyph_7_2"       "[T7-2] Glyph of Racing"
         "item_rpc_zonik_glyph_7_2_description"                "If your movespeed ever falls below <% ZHONIK_GLYPH_7_2_MS_THRESHOLD %>, gain a <% ZHONIK_GLYPH_7_2_MS_BURST_PCT %>% movement speed acceleration buff for <% ZHONIK_GLYPH_7_2_BURST_DURATION %> seconds."
