@@ -257,29 +257,29 @@
 		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_book" 		"Zhonik Glyph Book"
 
         "DOTA_Tooltip_ability_item_rpc_zonik_glyph_1_2"       "[T1-2] Glyph of Whiplash"
-        "item_rpc_zonik_glyph_1_2_description"                "[W3] calculates any stun or root as it was <% ZHONIK_GLYPH_1_2_W3_MIN_THRESHOLD_SEC %> duration. Additionally increases [W3] AOE by <% ZHONIK_GLYPH_1_2_W3_AOE_INCREASE %>."
+        "item_rpc_zonik_glyph_1_2_description"                "[W3] calculates any stun or root as if it was at least <% ZHONIK_GLYPH_1_2_W3_MIN_THRESHOLD_SEC %> seconds in duration. Additionally increases [W3] area of effect by <% ZHONIK_GLYPH_1_2_W3_AOE_INCREASE %>."
 
-        "DOTA_Tooltip_ability_item_rpc_zonik_glyph_2_2"       "[T2-2] Glyph of "
-        "item_rpc_zonik_glyph_2_2_description"                "Zhonik performs little dash forward when (E) Lightspeed being cast."
+        "DOTA_Tooltip_ability_item_rpc_zonik_glyph_2_2"       "[T2-2] Glyph of Rush"
+        "item_rpc_zonik_glyph_2_2_description"                "Zhonik performs a short dash forward when Lightspeed is cast."
 
-        "DOTA_Tooltip_ability_item_rpc_zonik_glyph_3_2"       "[T3-2] Glyph of "
+        "DOTA_Tooltip_ability_item_rpc_zonik_glyph_3_2"       "[T3-2] Glyph of Juice"
         "item_rpc_zonik_glyph_3_2_description"                "Each point of [E3] passively increases Magic Armor by <% ZHONIK_GLYPH_3_2_E3_MAGIC_ARMOR %> and @Ability3 Base Ability Damage by <% ZHONIK_GLYPH_3_2_E3_BAD_PCT %>%."
 
-        "DOTA_Tooltip_ability_item_rpc_zonik_glyph_4_2"       "[T4-2] Glyph of"
-        "item_rpc_zonik_glyph_4_2_description"                "[E2] damage increased by x<% ZHONIK_GLYPH_4_2_MANA_TO_E2_DMG_MULT %> current Mana value."
+        "DOTA_Tooltip_ability_item_rpc_zonik_glyph_4_2"       "[T4-2] Glyph of Mania"
+        "item_rpc_zonik_glyph_4_2_description"                "[E2] base damage increased by x<% ZHONIK_GLYPH_4_2_MANA_TO_E2_DMG_MULT %> of current Mana value."
 
-        "DOTA_Tooltip_ability_item_rpc_zonik_glyph_5_2"       "[T5-2] Glyph of "
-        "item_rpc_zonik_glyph_5_2_description"                "Allies affected by @Ability1 have their Agility increased by <% ZHONIK_GLYPH_5_2_AGILITY %>"
+        "DOTA_Tooltip_ability_item_rpc_zonik_glyph_5_2"       "[T5-2] Glyph of Ionic Wind"
+        "item_rpc_zonik_glyph_5_2_description"                "Allies affected by @Ability1 have their Agility increased by <% ZHONIK_GLYPH_5_2_AGILITY %>."
 		
-		"DOTA_Tooltip_modifier_tachyon_shell_5_2_agility"		""
-		"DOTA_Tooltip_modifier_tachyon_shell_5_2_agility_Description"		"While Tachion Shell in on, Agility is increased by <% ZHONIK_GLYPH_5_2_AGILITY %>"
+		"DOTA_Tooltip_modifier_tachyon_shell_5_2_agility"		"Ionic Wind"
+		"DOTA_Tooltip_modifier_tachyon_shell_5_2_agility_Description"		"While Tachyon Shell is active, Agility is increased by <% ZHONIK_GLYPH_5_2_AGILITY %>"
 
-        "DOTA_Tooltip_ability_item_rpc_zonik_glyph_6_2"       "[T6-2] Glyph of Unstable Echo"
-        "item_rpc_zonik_glyph_6_2_description"                "[W4] delay is decreased by <% ZHONIK_GLYPH_6_2_W4_DELAY_REDUCTION %> second, but with <% ZHONIK_GLYPH_6_2_W4_ZERO_DELAY_CHANCE %>% chance [W4] either applies imediately or at least doesn't refresh remaining delay. Echo damage is imprecise."
+        "DOTA_Tooltip_ability_item_rpc_zonik_glyph_6_2"       "[T6-2] Glyph of Chaos"
+        "item_rpc_zonik_glyph_6_2_description"                "[W4]'s delay before dealing damage is decreased by <% ZHONIK_GLYPH_6_2_W4_DELAY_REDUCTION %> second. Every time you damage an enemy that currently has [W4] active, there is a <% ZHONIK_GLYPH_6_2_W4_ZERO_DELAY_CHANCE %>% chance to deal its accumulated damage immediately without terminating the buff; doing so will reset the accumulated damage counter, but will not refresh [W4]'s duration on the target. Echo damage also becomes unstable, varying between 50% and 150% of its expected value."
 
-        "DOTA_Tooltip_ability_item_rpc_zonik_glyph_7_2"       "[T7-2] Glyph of"
+        "DOTA_Tooltip_ability_item_rpc_zonik_glyph_7_2"       "[T7-2] Glyph of Racing"
         "item_rpc_zonik_glyph_7_2_description"                "If your movespeed ever falls below <% ZHONIK_GLYPH_7_2_MS_THRESHOLD %>, gain a <% ZHONIK_GLYPH_7_2_MS_BURST_PCT %>% movement speed acceleration buff for <% ZHONIK_GLYPH_7_2_BURST_DURATION %> seconds."
-		"DOTA_Tooltip_modifier_zonik_glyph_7_2_movespeed"		""
+		"DOTA_Tooltip_modifier_zonik_glyph_7_2_movespeed"		"[T7-2] Glyph of Racing"
 		"DOTA_Tooltip_modifier_zonik_glyph_7_2_movespeed_Description"		"Movement Speed increased by <% ZHONIK_GLYPH_7_2_MS_BURST_PCT %>% for <% ZHONIK_GLYPH_7_2_BURST_DURATION %> seconds."
 		
 		//Weapons
