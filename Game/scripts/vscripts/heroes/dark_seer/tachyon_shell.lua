@@ -11,6 +11,10 @@ function tachyon_shield_cast(event)
 
 	local modifierDuration = Filters:GetAdjustedBuffDuration(caster, event.duration, false)
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_tachyon_shell", {duration = modifierDuration})
+	if caster:HasModifier("modifier_zonik_glyph_5_2") then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_tachyon_shell_5_2_agility", {duration = modifierDuration})
+	end
+		
 	if not ability.bNoCast then
 		Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 	end

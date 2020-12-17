@@ -156,6 +156,12 @@
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%move_slow"
 				}
 			}
+			"modifier_tachyon_shell_5_2_agility"
+			{
+				"TextureName"		"zonik/tachyon_shell"
+				"IsHidden"	"0"
+				"IsDebuff"	"0"
+			}
 		}
 	}
 
@@ -251,7 +257,7 @@
 				"IsHidden"	"1"
 				"Passive"	"1"
 				"IsBuff"	"1"
-				"ThinkInterval"  "0.1"
+				"ThinkInterval"  "<% ZHONIK_W_THINK_INTERVAL %>"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -402,7 +408,7 @@
 				"IsHidden"	"1"
 				"Passive"	"1"
 				"IsBuff"	"1"
-				"ThinkInterval"  "0.1"
+				"ThinkInterval"  "<% ZHONIK_W_THINK_INTERVAL %>"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -609,6 +615,40 @@
 						"EffectAttachType"		"follow_overhead"
 					}
 				}
+			}
+			"modifier_lightspeed_2_2_dash"
+			{
+				"Duration"		"0.3"
+				"IsHidden"	"1"
+				"IsBuff"	"1"
+				"OverrideAnimation"	"ACT_DOTA_IDLE"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/dark_seer/lightspeed.lua"
+						"Function"		"lightspeed_glyph_2_2_think"
+					}
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE"	"-100"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-100"
+				}
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/dark_seer/lightspeed.lua"
+						"Function"		"lightspeed_glyph_2_2_end"
+					}
+				}
+
 			}
 		}
 	}

@@ -23,6 +23,11 @@ function lightspeed_cast(event)
 
 	ability.e_3_level = caster:GetRuneValue("e", 3)
 	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
+	if caster:HasModifier("modifier_zonik_glyph_2_2") then
+		StartAnimation(caster, {duration = 0.3, activity = ACT_DOTA_RUN, rate = 5.0})
+		caster:RemoveModifierByName("modifier_lightspeed_2_2_dash")
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_lightspeed_2_2_dash", {duration = dash_duration})
+	end
 end
 
 function lightspeed_start(event)
@@ -139,6 +144,9 @@ function remnant_explode(event)
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), remnant:GetAbsOrigin(), nil, 320, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	local e_2_level = caster:GetRuneValue("e", 2)
 	local damage = caster:GetMana() * e_2_level * ZHONIK_E2_DMG_PER_MANA
+	if caster:HasModifier("modifier_zonik_glyph_4_2") then
+		damage = damage + caster:GetMana() * ZHONIK_GLYPH_4_2_MANA_TO_E2_DMG_MULT
+	end
 	if caster:HasModifier("modifier_zonik_glyph_6_1") and caster:HasModifier("modifier_zonik_speedball") then
 		damage = damage + damage * ZHONIK_GLYPH_6_1_MULTI / 100
 	end
@@ -151,4 +159,25 @@ function remnant_explode(event)
 	ParticleManager:DestroyParticle(event.caster.pfx, false)
 	ParticleManager:ReleaseParticleIndex(event.caster.pfx)
 	UTIL_Remove(event.caster)
+end
+
+function lightspeed_glyph_2_2_think(event)
+	local ability = event.ability
+	local caster = event.caster
+	local position = caster:GetAbsOrigin()
+	local obstruction = WallPhysics:FindNearestObstruction(position)
+	local pushSpeed = 70
+	pushSpeed = Filters:GetAdjustedESpeed(caster, pushSpeed, false)
+	local newPosition = position + caster:GetForwardVector() * pushSpeed
+	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, (position + caster:GetForwardVector() * 72), caster)
+	if not blockUnit then
+		caster:SetOrigin(newPosition)
+	end
+
+end
+
+function lightspeed_glyph_2_2_end(event)
+	local caster = event.caster
+	local ability = event.ability
+	WallPhysics:ClearSpaceForUnit(caster, caster:GetAbsOrigin())
 end

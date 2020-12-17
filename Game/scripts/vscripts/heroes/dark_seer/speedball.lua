@@ -94,7 +94,7 @@ function speedball_thinking(event)
 			ability:StartCooldown(cd - ZHONIK_R_CD_RED_ON_TRAVEL)
 			caster:MoveToPosition(ability.speedTarget:GetAbsOrigin() + caster:GetForwardVector() * 80)
 			local distance = WallPhysics:GetDistance(caster:GetAbsOrigin(), ability.speedTarget:GetAbsOrigin())
-			if distance < 150 then
+			if distance < 160 then
 				speedball_explode(caster, ability, damage, stun_duration)
 			end
 
@@ -129,6 +129,7 @@ function speedball_thinking(event)
 			caster:RemoveModifierByName("modifier_zonik_speedball")
 			caster:RemoveModifierByName("modifier_zhonik_speedball_invisible")
 			-- caster:RemoveNoDraw()
+				speedball_explode(caster, ability, damage, stun_duration)
 		end
 	else
 		caster:RemoveModifierByName("modifier_zonik_speedball")

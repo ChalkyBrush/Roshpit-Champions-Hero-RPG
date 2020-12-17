@@ -42,7 +42,7 @@
     	"DOTA_Tooltip_ability_zonik_rune_w_1_suffix"						"% от (W) Mach Punch"
 
     	"DOTA_Tooltip_ability_zonik_rune_w_2"								"[W2] Temporal Discharge"
-    	"DOTA_Tooltip_ability_zonik_rune_w_2_Description"					"Каждый раз, преодолевая расстояние в 240 юнитов, герой получает заряд [W2]. Прочтение @Ability2 тратит все заряды, от чего увеличивается урон удара. Максимум <% ZHONIK_W2_MAX_STACKS %> зарядов."
+    	"DOTA_Tooltip_ability_zonik_rune_w_2_Description"					"Каждый раз, преодолевая расстояние в <% ZHONIK_W2_DISTANCE_THRESHOLD %> юнитов, герой получает заряд [W2]. Прочтение @Ability2 тратит все заряды, от чего увеличивается урон удара. Максимум <% ZHONIK_W2_MAX_STACKS %> зарядов."
     	"DOTA_Tooltip_ability_zonik_rune_w_2_property_one"					"Усиление урона (W) Mach Punch за заряд"
     	"DOTA_Tooltip_ability_zonik_rune_w_2_suffix"						"%"
 

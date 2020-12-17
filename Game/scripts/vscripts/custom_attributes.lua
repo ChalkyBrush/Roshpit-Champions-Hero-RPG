@@ -1531,6 +1531,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 		local e_3_level = unit:GetRuneValue("e", 3)
 		magic_armor_modify = magic_armor_modify + ZHONIK_E3_MAGIC_ARMOR*e_3_level
 	end
+	if unit:HasModifier("modifier_zonik_glyph_3_2") then
+		local e_3_level = unit:GetRuneValue("e", 3)
+		magic_armor_modify = magic_armor_modify + ZHONIK_GLYPH_3_2_E3_MAGIC_ARMOR*e_3_level
+	end
 	if unit:HasModifier("modifier_dummy_aura_effect_enemy_a_c_invisible") then
 		local modifier = unit:FindModifierByName("modifier_dummy_aura_effect_enemy_a_c_invisible")
 		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*ZHONIK_E1_ARCANA_MAGIC_ARMOR_LOSS
@@ -2820,6 +2824,9 @@ function CustomAttributes:SetAttributes(hero)
 	end
 	if hero:HasModifier("modifier_arcana_missles_d_d_agility") then
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_arcana_missles_d_d_agility", CustomAttributes.ZHONIK_ARCANA_R4_AGI)
+	end
+	if hero:HasModifier("modifier_tachyon_shell_5_2_agility") then
+		agi_bonus = agi_bonus + ZHONIK_GLYPH_5_2_AGILITY
 	end
 	if hero:HasModifier("modifier_gorudo_r_4_strength") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_gorudo_r_4_strength", SEINARU_R4_STRENGTH)

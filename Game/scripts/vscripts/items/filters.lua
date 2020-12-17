@@ -2044,6 +2044,10 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
 			local multIncrease = stacks * ZHONIK_E3_ARCANA_E_BAD_PCT / 100
 			damageMult = damageMult + multIncrease
 		end
+		if attacker:HasModifier("modifier_zonik_glyph_3_2") then
+		local e_3_level = attacker:GetRuneValue("e", 3)
+			damageMult = damageMult + ZHONIK_GLYPH_3_2_E3_BAD_PCT*e_3_level/100
+		end
 
         if attacker:HasModifier("modifier_wind_deity_crown") then
             if not ignore_effects then
@@ -2131,10 +2135,20 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         or slot == BASE_AUTO_ATTACK then
             if attacker:HasModifier("modifier_mach_punch_passive") then
                 local w_4_level = attacker:GetRuneValue("w", 4)
+				local w_4_delay = ZHONIK_W4_DELAY
+				if attacker:HasModifier("modifier_zonik_glyph_6_2") then
+					local delay_reduction = ZHONIK_GLYPH_6_2_W4_DELAY_REDUCTION
+					local luck = RandomInt(1, 100)
+					if luck <= ZHONIK_GLYPH_6_2_W4_ZERO_DELAY_CHANCE then
+						delay_reduction = 4
+					end
+					w_4_delay = w_4_delay - delay_reduction
+					damage = RPCItems:GetLogarithmicVarianceValue(damage, 0, 0, 0, 0)
+				end
                 if w_4_level > 0 then
                     if not victim.dummy then
                         local ability = attacker:FindAbilityByName("zonik_mach_punch")
-                        ability:ApplyDataDrivenModifier(attacker, victim, "modifier_zonik_echo", {duration = 4})
+                        ability:ApplyDataDrivenModifier(attacker, victim, "modifier_zonik_echo", {duration = w_4_delay})
                         if not victim.zonikEcho then
                             victim.zonikEcho = 0
                         end

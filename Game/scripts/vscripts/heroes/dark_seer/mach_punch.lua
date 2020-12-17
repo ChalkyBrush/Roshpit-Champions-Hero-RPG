@@ -149,23 +149,31 @@ function mach_punch_think(event)
 		if caster:HasModifier("modifier_mach_punch_whiplash") then
 			local w_3_level = caster:GetRuneValue("w", 3)
 
-			local pfx = ParticleManager:CreateParticle("particles/roshpit/zonik/whiplash_choslam_start.vpcf", PATTACH_CUSTOMORIGIN, caster)
-			ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin())
-			ParticleManager:SetParticleControl(pfx, 1, Vector(550, 2, 550))
-			Timers:CreateTimer(2.5, function()
-				ParticleManager:DestroyParticle(pfx, false)
-				ParticleManager:ReleaseParticleIndex(pfx)
-			end)
-			local c_b_damage = caster:GetModifierStackCount("modifier_mach_punch_whiplash", caster) * w_3_level * ZHONIK_W3_DMG_PER_WHIPLASH
-			local stun_duration = 0.01 * w_3_level * caster:GetModifierStackCount("modifier_mach_punch_whiplash", caster)
+			local w_3_radius = ZHONIK_W3_AOE_BASE
+			local stack_count = caster:GetModifierStackCount("modifier_mach_punch_whiplash", caster)
+			if caster:HasModifier("modifier_zonik_glyph_1_2") then
+				if caster:GetModifierStackCount("modifier_mach_punch_whiplash", caster) < ZHONIK_GLYPH_1_2_W3_MIN_THRESHOLD_SEC/ZHONIK_W_THINK_INTERVAL then
+					stack_count = ZHONIK_GLYPH_1_2_W3_MIN_THRESHOLD_SEC/ZHONIK_W_THINK_INTERVAL
+				end
+				w_3_radius = w_3_radius + ZHONIK_GLYPH_1_2_W3_AOE_INCREASE
+			end
+			local c_b_damage = stack_count * w_3_level * ZHONIK_W3_DMG_PER_WHIPLASH
+			local stun_duration = 0.01 * w_3_level * stack_count
 			caster:RemoveModifierByName("modifier_mach_punch_whiplash")
-			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 550, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, w_3_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 			if #enemies > 0 then
 				for _, enemy in pairs(enemies) do
 					Filters:TakeArgumentsAndApplyDamage(enemy, caster, c_b_damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
 					Filters:ApplyStun(caster, stun_duration, enemy)
 				end
 			end
+			local pfx = ParticleManager:CreateParticle("particles/roshpit/zonik/whiplash_choslam_start.vpcf", PATTACH_CUSTOMORIGIN, caster)
+			ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin())
+			ParticleManager:SetParticleControl(pfx, 1, Vector(w_3_radius, 2, w_3_radius))
+			Timers:CreateTimer(2.5, function()
+				ParticleManager:DestroyParticle(pfx, false)
+				ParticleManager:ReleaseParticleIndex(pfx)
+			end)
 			EmitSoundOn("Zonik.Whiplash", caster)
 		end
 	end
@@ -178,9 +186,19 @@ function mach_punch_attack_land(event)
 	local ability = event.ability
 	local attack_damage = event.attack_damage
 	local w_4_level = caster:GetRuneValue("w", 4)
+	local w_4_delay = ZHONIK_W4_DELAY
+	if caster:HasModifier("modifier_zonik_glyph_6_2") then
+		local delay_reduction = ZHONIK_GLYPH_6_2_W4_DELAY_REDUCTION
+		local luck = RandomInt(1, 100)
+		if luck <= ZHONIK_GLYPH_6_2_W4_ZERO_DELAY_CHANCE then
+			delay_reduction = 4
+		end
+		w_4_delay = w_4_delay - delay_reduction
+		attack_damage = RPCItems:GetLogarithmicVarianceValue(attack_damage, 0, 0, 0, 0)
+	end
 	if w_4_level > 0 then
 		if not target.dummy then
-			ability:ApplyDataDrivenModifier(attacker, target, "modifier_zonik_echo", {duration = 4})
+			ability:ApplyDataDrivenModifier(attacker, target, "modifier_zonik_echo", {duration = w_4_delay})
 			if not target.zonikEcho then
 				target.zonikEcho = 0
 			end
