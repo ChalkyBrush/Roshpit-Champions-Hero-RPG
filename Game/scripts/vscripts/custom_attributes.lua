@@ -3403,7 +3403,7 @@ function CustomAttributes:ApplyStatBonusesToHero(hero)
 		ability:ApplyDataDrivenModifier(caster, hero, "modifier_primary_attribute_damage", {})
 	end
 	hero:SetModifierStackCount("modifier_primary_attribute_damage", caster, damage_from_primary)
-	hero:CalculateStatBonus()
+	hero:CalculateStatBonus(true)
 	hero:CalculateAndSaveRoshpitAttributes()
 end
 

@@ -9,7 +9,7 @@ function Seafortress:Debug()
     MAIN_HERO_TABLE[1]:SetBaseIntellect(25000)
     MAIN_HERO_TABLE[1]:SetBaseDamageMax(500000)
     MAIN_HERO_TABLE[1]:SetBaseDamageMin(500000)
-    MAIN_HERO_TABLE[1]:CalculateStatBonus()
+    MAIN_HERO_TABLE[1]:CalculateStatBonus(true)
   end
 
   local item = RPCItems:CreateItem("item_debug_blink", nil, nil)

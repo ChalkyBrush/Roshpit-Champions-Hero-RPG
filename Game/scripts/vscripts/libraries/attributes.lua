@@ -127,7 +127,7 @@ function Attributes:ModifyBonuses(hero)
         hero.agility = agility
         hero.intellect = intellect
 
-        hero:CalculateStatBonus()
+        hero:CalculateStatBonus(true)
         if hero:GetMaxMana() < intellect * 5 then
             --print("REMOVE MANA MOD")
             hero:RemoveModifierByName("modifier_mana_bonus")

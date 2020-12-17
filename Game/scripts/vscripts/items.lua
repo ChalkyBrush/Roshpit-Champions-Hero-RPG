@@ -1309,7 +1309,7 @@ function RPCItems:RecalculateStatsBasic(hero)
 		end)
 	end
 	Timers:CreateTimer(3.0, function()
-		hero:CalculateStatBonus()
+		hero:CalculateStatBonus(true)
 	end)
 end
 
@@ -1330,7 +1330,7 @@ function RPCItems:RecalculateStats(keys)
 		end)
 	end
 	Timers:CreateTimer(5.0, function()
-		hero:CalculateStatBonus()
+		hero:CalculateStatBonus(true)
 	end)
 end
 
