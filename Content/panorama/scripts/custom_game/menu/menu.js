@@ -161,6 +161,8 @@ function CorrectDotaUI(){
 	// $.Msg(parent.FindChildTraverse("AbilitiesAndStatBranch").FindChildTraverse("StatBranch"))
 	// parent.FindChildTraverse("AbilitiesAndStatBranch").FindChildTraverse("StatBranch").AddClass("GGStats")
 	parent.FindChildTraverse("AbilitiesAndStatBranch").FindChildTraverse("StatBranch").style.visibility = 'collapse';
+	//REMOVE AGH AND SHARD UI
+	parent.FindChildTraverse("AbilitiesAndStatBranch").FindChildTraverse("AghsStatusContainer").style.visibility = 'collapse';
 	// $.Msg(StatBranch)
 	// parent.FindChildTraverse("StatBranch").style.width = '0px';
 	// parent.FindChildTraverse("StatBranch").visible = false;
