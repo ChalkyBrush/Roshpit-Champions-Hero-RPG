@@ -361,7 +361,7 @@ function ozubu_think(event)
 		return false
 	end
 	if caster.aggro then
-		caster.maxSummons = (1 - (caster:GetHealth() / caster:GetMaxHealth())) * 23 + 2
+		caster.maxSummons = math.ceil((1 - (caster:GetHealth() / caster:GetMaxHealth())) * 10 + 2)
 		if not caster.interval then
 			caster.interval = 0
 		end
@@ -512,12 +512,12 @@ function winterblight_summon_ability(event)
 				if GameState:GetDifficultyFactor() == 3 then
 					spider.reduc = 0.1
 				end
+				spider.origCaster = caster
+				spider.boss_level = caster.boss_level
+				caster.summonCount = caster.summonCount + 1
 				Winterblight:SetCavernUnit(spider, spider:GetAbsOrigin(), false, false, 0)
 			end
 			Events:CreateLightningBeamWithParticle(caster:GetAbsOrigin() + Vector(0, 0, 80), spider:GetAbsOrigin(), "particles/units/heroes/hero_wisp/tether_green.vpcf", 0.9)
-			spider.origCaster = caster
-			spider.boss_level = caster.boss_level
-			caster.summonCount = caster.summonCount + 1
 			spider:AddAbility("seafortress_enemy_summon"):SetLevel(1)
 			StartAnimation(spider, {duration = 0.5, activity = ACT_DOTA_DISABLED, rate = 1.1})
 		end

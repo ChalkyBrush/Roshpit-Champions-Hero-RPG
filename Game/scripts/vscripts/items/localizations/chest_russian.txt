@@ -488,7 +488,7 @@
 		"property_sapphire_dragon_description"				"Основным атрибутом героя назначается Интеллект. Каждое очко Интеллекта увеличивает урон Атаки на  <% ITEM_RPC_SAPPHIRE_DRAGON_SCALE_ARMOR_ATTACK_PER_INT %>, Броню/Магическую Защиту/их Пробития на <% ITEM_RPC_SAPPHIRE_DRAGON_SCALE_ROSHPIT_ATTRS_PER_INT %>."
 
 		"item_rpc_sapphire_dragon_scale_armor_ruby1"						"Интеллект увеличивает Броню на @ruby_property1"
-		"item_rpc_sapphire_dragon_scale_armor_emerald1"						"Интеллекть увеличивает Пробитие Брони на  @ruby_property1"
+		"item_rpc_sapphire_dragon_scale_armor_emerald1"						"Интеллект увеличивает Пробитие Брони на  @emerald_property1"
 		"item_rpc_sapphire_dragon_scale_armor_sapphire1"						"Интеллект увеличивает Базовый Урон Атаки на @sapphire_property1"
 		"item_rpc_sapphire_dragon_scale_armor_amethyst1"						"Интеллект увеличивает Магическую Защиту на @amethyst_property1"
 

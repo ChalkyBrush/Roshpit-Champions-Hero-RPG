@@ -1580,7 +1580,7 @@ function icicle_barrage_impact(event)
 	local caster = event.caster
 	local target = event.target
 	local ability = event.ability
-	target:ApplyAndIncrementStack(ability, caster, "modifier_icicle_barrage_stacks", 1, 0, 5)	
+	target:ApplyAndIncrementStack(ability, caster, "modifier_icicle_barrage_stacks", 1, event.max_stacks, 5)	
 	local damage = event.damage
 	local icePoint = target:GetAbsOrigin()
 	local radius = 240

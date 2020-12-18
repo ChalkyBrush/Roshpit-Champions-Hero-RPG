@@ -48,6 +48,10 @@ function voltex_static_field_create_spark(fv, event)
 	local end_radius = 140
 	local range = 1200
 	local speed = 400 + RandomInt(0, 250)
+	if caster:HasModifier("modifier_voltex_glyph_6_2") then
+		speed = speed + VOLTEX_GLYPH_6_2_R_PROJECTILE_SPEED
+		range = range + VOLTEX_GLYPH_6_2_R_PROJECTILE_RANGE
+	end
 	local info =
 	{
 		Ability = ability,
@@ -80,6 +84,9 @@ function voltex_static_field_spark_hit(event)
 	-- 	damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster) * 0.1 * ability.r_4_level
 	-- end
 	voltex_rune_r_4_increment(caster, ability)
+	if caster:HasModifier("modifier_voltex_glyph_6_2") then
+		damage = damage + VOLTEX_GLYPH_6_2_R_DAMAGE_BONUS
+	end
 	if caster:HasModifier("modifier_voltex_glyph_6_1") then
 		damage = damage * VOLTEX_GLYPH_6_1_R_DAMAGE_AMP
 	end
@@ -153,7 +160,19 @@ function voltex_rune_r_2_onattacklanded(event)
 	if r_2_level > 0 and luck <= VOLTEX_R2_CHANCE then
 		local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker) * ((VOLTEX_R2_DMG_PER_ATT/100) * r_2_level)
 		Filters:ApplyStun(attacker, 0.2, target)
-		Filters:TakeArgumentsAndApplyDamage(target, attacker, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_R, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
+		if attacker:HasModifier("modifier_voltex_glyph_7_2") then
+			CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_stormspirit/stormspirit_static_remnant.vpcf", target:GetAbsOrigin(), 0.03)
+			local enemies = FindUnitsInRadius(attacker:GetTeamNumber(), target:GetAbsOrigin(), nil, VOLTEX_GLYPH_7_2_R2_AOE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+			if #enemies > 0 then
+				for _, enemy in pairs(enemies) do
+					Filters:TakeArgumentsAndApplyDamage(enemy, attacker, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_R, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
+					ability:ApplyDataDrivenModifier(attacker.runeUnit2, enemy, "modifier_voltex_rune_r_2_armor_loss", {duration = VOLTEX_R2_ARMOR_LOSS_DUR})
+					enemy:SetModifierStackCount("modifier_voltex_rune_r_2_armor_loss", ability, r_2_level)
+				end
+			end
+		else
+			Filters:TakeArgumentsAndApplyDamage(target, attacker, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_R, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
+		end
 		-- Renders the particle on the target
 		local particle = ParticleManager:CreateParticle("particles/roshpit/voltex/voltex_bolt_lightning_bolt.vpcf", PATTACH_WORLDORIGIN, target)
 		-- Raise 1000 value if you increase the camera height above 1000

@@ -121,14 +121,18 @@ function dash_end(event)
 	ability.pfx = false
 	local b_c_level = caster:GetRuneValue("e", 2)
 	if b_c_level > 0 then
+		local radius = 300
+		if caster:HasModifier("modifier_voltex_glyph_3_2") then
+			radius = radius + (radius * VOLTEX_GLYPH_3_2_E2_RADIUS_BONUS_PCT / 100)
+		end
 		local particleName = "particles/roshpit/voltex/lightning_dash_end.vpcf"
 		local pfxB = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, nil)
 		ParticleManager:SetParticleControl(pfxB, 0, caster:GetAbsOrigin())
-		ParticleManager:SetParticleControl(pfxB, 1, Vector(200, 2, 200))
+		ParticleManager:SetParticleControl(pfxB, 1, Vector(radius*0.6, 2, radius*0.6))
 		Timers:CreateTimer(0.8, function()
 			ParticleManager:DestroyParticle(pfxB, false)
 		end)
-		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 300, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * VOLTEX_ARCANA1_E2_DMG_PER_ATT * b_c_level
 		local stun_duration = b_c_level * 0.01
 		if #enemies > 0 then

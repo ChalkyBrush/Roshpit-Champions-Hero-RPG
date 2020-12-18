@@ -274,6 +274,30 @@
 
 		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_5_a"	"[T5-a] Glyph of Conductivity"
 		"item_rpc_voltex_glyph_5_a_description" 			"Увеличивает длительность эффекта от (Q) @Ability1 на <% VOLTEX_GLYPH_5_A_DURATION_INCREASE_PCT %>%."
+		
+		//Column2Glyphs
+		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_book" 		"Voltex Glyph Book"
+
+        "DOTA_Tooltip_ability_item_rpc_voltex_glyph_1_2"       "[T1-2] Glyph of Focused Remnants"
+        "item_rpc_voltex_glyph_1_2_description"                "Здоровье Lightning Remnants умножается на <% VOLTEX_GLYPH_1_2_ILLUSION_HP_MULT %>."
+
+        "DOTA_Tooltip_ability_item_rpc_voltex_glyph_2_2"       "[T2-2] Glyph of Potential"
+        "item_rpc_voltex_glyph_2_2_description"                "Радиус поиска союзника для [W2] увеличен на <% VOLTEX_GLYPH_2_2_W2_RADIUS_BONUS %>."
+
+        "DOTA_Tooltip_ability_item_rpc_voltex_glyph_3_2"       "[T3-2] Glyph of Step Voltage"
+        "item_rpc_voltex_glyph_3_2_description"                "Радиус [E2] увеличивается на <% VOLTEX_GLYPH_3_2_E2_RADIUS_BONUS_PCT %>%."
+
+        "DOTA_Tooltip_ability_item_rpc_voltex_glyph_4_2"       "[T4-2] Glyph of Perfection"
+        "item_rpc_voltex_glyph_4_2_description"                "Герой никогда не промахивается стандартными атаками."
+
+        "DOTA_Tooltip_ability_item_rpc_voltex_glyph_5_2"       "[T5-2] Glyph of Electrophoresis"
+        "item_rpc_voltex_glyph_5_2_description"                "Прочтение @Ability2 исцеляет Voltex на <% VOLTEX_GLYPH_5_2_HEAL %>."
+
+        "DOTA_Tooltip_ability_item_rpc_voltex_glyph_6_2"       "[T6-2] Glyph of Ionization"
+        "item_rpc_voltex_glyph_6_2_description"                "Урон заряженных сфер @Ability4 увеличен  на <% VOLTEX_GLYPH_6_2_R_DAMAGE_BONUS %>. Сферы летят медленнее, но дальше."
+
+        "DOTA_Tooltip_ability_item_rpc_voltex_glyph_7_2"       "[T7-2] Glyph of Blasting Thunder"
+        "item_rpc_voltex_glyph_7_2_description"                "[R2] наносит урон и повреждает Броню на всех противниках в радиусе <% VOLTEX_GLYPH_7_2_R2_AOE %> от основной цели."
 
 		"DOTA_Tooltip_modifier_voltex_rune_e_2_slow_glyphed"	"Electron Effect"
 		"DOTA_Tooltip_modifier_voltex_rune_e_2_slow_glyphed_Description"	"Замедлен"

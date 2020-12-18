@@ -523,6 +523,10 @@ function Winterblight:SetCavernUnit(unit, original_position, bDeaggro, bParticle
 		end
 		table.insert(Winterblight.CavernUnits[chamber_index], unit)
 	end
+	if unit:GetUnitName() == "ozubu_spiderling" then
+		unit.minDungeonDrops = 0
+		unit.maxDungeonDrops = 0
+	end
 	Enemies:AdjustUnitForCavern(unit)
 	unit:CalculateAndSaveRoshpitAttributes()
 end

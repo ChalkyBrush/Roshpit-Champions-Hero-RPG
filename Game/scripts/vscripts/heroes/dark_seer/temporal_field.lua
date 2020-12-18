@@ -172,6 +172,9 @@ function enemy_in_field_think(event)
 	end
 	if ability.e_2_level > 0 then
 		local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * ability.e_2_level * ZHONIK_E2_ARCANA_DMG_PCT / 100
+		if caster:HasModifier("modifier_zonik_glyph_4_2") then
+			damage = damage + caster:GetMana() * ZHONIK_GLYPH_4_2_MANA_TO_E2_DMG_MULT
+		end
 		CustomAbilities:QuickParticleAtPoint("particles/econ/items/dazzle/dazzle_darkclaw/dazzle_darkclaw_poison_touch_launch_flash.vpcf", target:GetAbsOrigin() + Vector(0, 0, 80), 1)
 		Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_E, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
 	end

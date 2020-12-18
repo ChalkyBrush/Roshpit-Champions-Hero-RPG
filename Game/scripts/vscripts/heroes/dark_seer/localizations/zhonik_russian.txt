@@ -42,7 +42,7 @@
     	"DOTA_Tooltip_ability_zonik_rune_w_1_suffix"						"% от (W) Mach Punch"
 
     	"DOTA_Tooltip_ability_zonik_rune_w_2"								"[W2] Temporal Discharge"
-    	"DOTA_Tooltip_ability_zonik_rune_w_2_Description"					"Каждый раз, преодолевая расстояние в 240 юнитов, герой получает заряд [W2]. Прочтение @Ability2 тратит все заряды, от чего увеличивается урон удара. Максимум <% ZHONIK_W2_MAX_STACKS %> зарядов."
+    	"DOTA_Tooltip_ability_zonik_rune_w_2_Description"					"Каждый раз, преодолевая расстояние в <% ZHONIK_W2_DISTANCE_THRESHOLD %> юнитов, герой получает заряд [W2]. Прочтение @Ability2 тратит все заряды, от чего увеличивается урон удара. Максимум <% ZHONIK_W2_MAX_STACKS %> зарядов."
     	"DOTA_Tooltip_ability_zonik_rune_w_2_property_one"					"Усиление урона (W) Mach Punch за заряд"
     	"DOTA_Tooltip_ability_zonik_rune_w_2_suffix"						"%"
 
@@ -248,6 +248,34 @@
 
 		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_5_a"		"[T5-a] Glyph of Flurry Punches"
 		"item_rpc_zonik_glyph_5_a_description" 				"Автоматически применяет @Ability2 на случайного противника поблизости каждые <% ZHONIK_GLYPH_5_A_INTERVAL %> секунды."
+		
+		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_book" 		"Zhonik Glyph Book"
+
+        "DOTA_Tooltip_ability_item_rpc_zonik_glyph_1_2"       "[T1-2] Glyph of Whiplash"
+        "item_rpc_zonik_glyph_1_2_description"                "[W3] рассчитывает короткие оглушения или обездвиживания по крайней мере как длительностью в <% ZHONIK_GLYPH_1_2_W3_MIN_THRESHOLD_SEC %> секунду. Дополнительно радиус [W3] увеличен на <% ZHONIK_GLYPH_1_2_W3_AOE_INCREASE %>."
+
+        "DOTA_Tooltip_ability_item_rpc_zonik_glyph_2_2"       "[T2-2] Glyph of Rush"
+        "item_rpc_zonik_glyph_2_2_description"                "Zhonik совершает короткий рывок вперед, когда (Е) Lightspeed активируется."
+
+        "DOTA_Tooltip_ability_item_rpc_zonik_glyph_3_2"       "[T3-2] Glyph of Juice"
+        "item_rpc_zonik_glyph_3_2_description"                "Каждое очко [E3] пассивно увеличивает Магическую Защиту на <% ZHONIK_GLYPH_3_2_E3_MAGIC_ARMOR %> и Урон Способности @Ability3 на <% ZHONIK_GLYPH_3_2_E3_BAD_PCT %>%."
+
+        "DOTA_Tooltip_ability_item_rpc_zonik_glyph_4_2"       "[T4-2] Glyph of Mania"
+        "item_rpc_zonik_glyph_4_2_description"                "Урон [E2] повышается на x<% ZHONIK_GLYPH_4_2_MANA_TO_E2_DMG_MULT %> от текущего показателя Маны героя."
+
+        "DOTA_Tooltip_ability_item_rpc_zonik_glyph_5_2"       "[T5-2] Glyph of Ionic Wind"
+        "item_rpc_zonik_glyph_5_2_description"                "Союзники под эффектом @Ability1 получают прибавку в <% ZHONIK_GLYPH_5_2_AGILITY %> к Ловкости."
+		
+		"DOTA_Tooltip_modifier_tachyon_shell_5_2_agility"		"Ionic Wind"
+		"DOTA_Tooltip_modifier_tachyon_shell_5_2_agility_Description"		"Когда активна Tachyon Shell, Ловкость увеличивается на <% ZHONIK_GLYPH_5_2_AGILITY %>"
+
+        "DOTA_Tooltip_ability_item_rpc_zonik_glyph_6_2"       "[T6-2] Glyph of Chaos"
+        "item_rpc_zonik_glyph_6_2_description"                "Задержка [W4] уменьшается на <% ZHONIK_GLYPH_6_2_W4_DELAY_REDUCTION %> секунду. С шансом в <% ZHONIK_GLYPH_6_2_W4_ZERO_DELAY_CHANCE %>% [W4] не увеличит текущую задержку накопленного дебаффа на противнике, либо сразу же нанесет урон, если противник не имел дебаффа. Урон Эхо становится нестабильным, варьируясь в пределах от 50% до 150% от предполагаемого значения."
+
+        "DOTA_Tooltip_ability_item_rpc_zonik_glyph_7_2"       "[T7-2] Glyph of Racing"
+        "item_rpc_zonik_glyph_7_2_description"                "Если скорость перемещения героя падает ниже <% ZHONIK_GLYPH_7_2_MS_THRESHOLD %>, он получает бафф в <% ZHONIK_GLYPH_7_2_MS_BURST_PCT %>% ускорения передвижения на <% ZHONIK_GLYPH_7_2_BURST_DURATION %> сек."
+		"DOTA_Tooltip_modifier_zonik_glyph_7_2_movespeed"		"[T7-2] Glyph of Racing"
+		"DOTA_Tooltip_modifier_zonik_glyph_7_2_movespeed_Description"		"Скорость перемещения увеличена на <% ZHONIK_GLYPH_7_2_MS_BURST_PCT %>% в течение <% ZHONIK_GLYPH_7_2_BURST_DURATION %> сек."
 		
 		//Weapons
 		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_00"		"Punch Glove"

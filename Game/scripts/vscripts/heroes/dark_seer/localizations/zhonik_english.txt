@@ -42,7 +42,7 @@
     	"DOTA_Tooltip_ability_zonik_rune_w_1_suffix"						"% of Mach Punch"
 
     	"DOTA_Tooltip_ability_zonik_rune_w_2"								"[W2] Temporal Discharge"
-    	"DOTA_Tooltip_ability_zonik_rune_w_2_Description"					"Moving 240 units of distance adds a Temporal Charge stack. All stacks are consumed upon casting Mach Punch, and the punch's damage is amplified. Max <% ZHONIK_W2_MAX_STACKS %> stacks."
+    	"DOTA_Tooltip_ability_zonik_rune_w_2_Description"					"Moving <% ZHONIK_W2_DISTANCE_THRESHOLD %> units of distance adds a Temporal Charge stack. All stacks are consumed upon casting Mach Punch, and the punch's damage is amplified. Max <% ZHONIK_W2_MAX_STACKS %> stacks."
     	"DOTA_Tooltip_ability_zonik_rune_w_2_property_one"					"Mach Punch Amp per Stack"
     	"DOTA_Tooltip_ability_zonik_rune_w_2_suffix"						"%"
 
@@ -50,7 +50,7 @@
     	"DOTA_Tooltip_modifier_temporal_discharge_Description"				"Each stack amplifies your next Mach Punch."
 
     	"DOTA_Tooltip_ability_zonik_rune_w_3"								"[W3] Whiplash"
-    	"DOTA_Tooltip_ability_zonik_rune_w_3_Description"					"While Zhonik is stunned, rooted or being knocked back, he gains a stack of Whiplash every 0.1 seconds. Once Zhonik is no longer disabled, the energy is released in 600 radius AOE. Whiplash stuns based on Mach Punch's stun duration."
+    	"DOTA_Tooltip_ability_zonik_rune_w_3_Description"					"While Zhonik is stunned, rooted or being knocked back, he gains a stack of Whiplash every <% ZHONIK_W_THINK_INTERVAL %> seconds. Once Zhonik is no longer disabled, the energy is released in <% ZHONIK_W3_AOE_BASE %> radius AOE. Whiplash stuns based on Mach Punch's stun duration."
     	"DOTA_Tooltip_ability_zonik_rune_w_3_property_one"					"Damage Per Whiplash Stack"
     	"DOTA_Tooltip_ability_zonik_rune_w_3_suffix"						""
     	"DOTA_Tooltip_ability_zonik_rune_w_3_property_two"					"Stun Duration"
@@ -60,7 +60,7 @@
     	"DOTA_Tooltip_modifier_mach_punch_whiplash_Description"				"Once clear of roots and stuns, explode and deal damage and stun."
 
     	"DOTA_Tooltip_ability_zonik_rune_w_4"								"[W4] Echo"
-    	"DOTA_Tooltip_ability_zonik_rune_w_4_Description"					"Base Abilities and Regular Attacks build up echo stacks on the target. After 4 seconds of not building any new stacks, a temporal aftershock damages the enemy. The damage is based on a build up of the damage instances that created the echo stacks."
+    	"DOTA_Tooltip_ability_zonik_rune_w_4_Description"					"Base Abilities and Regular Attacks build up echo stacks on the target. After <% ZHONIK_W4_DELAY %> seconds of not building any new stacks, a temporal aftershock damages the enemy. The damage is based on a build up of the damage instances that created the echo stacks."
     	"DOTA_Tooltip_ability_zonik_rune_w_4_property_one"					"Echo Damage"
     	"DOTA_Tooltip_ability_zonik_rune_w_4_suffix"						"% of the Sum of all Damage taken"
 		
@@ -228,10 +228,10 @@
 		//Glyphs
 		
 		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_1_1"		"[T1-1] Glyph of Albedo"
-		"item_rpc_zonik_glyph_1_1_description" 				"Tachyon Shell when carried by Zonik has its radius increased by @glyph_property1%."
+		"item_rpc_zonik_glyph_1_1_description" 				"Tachyon Shell when carried by Zhonik has its radius increased by @glyph_property1%."
 
 		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_2_1"		"[T2-1] Glyph of the Transistor"
-		"item_rpc_zonik_glyph_2_1_description" 				"Enemies who carry Tachyon Shell also take the damage at an enhanced rate of @glyph_property1%."
+		"item_rpc_zonik_glyph_2_1_description" 				"Enemies who carry @Ability1 also take the damage at an enhanced rate of @glyph_property1%."
 
 		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_3_1"		"[T3-1] Glyph of the North Star"
 		"item_rpc_zonik_glyph_3_1_description" 				"@glyph_property1% chance to punch twice when casting Mach Punch."
@@ -252,6 +252,35 @@
 		"item_rpc_zonik_glyph_5_a_description" 				"Immediately cast @Ability2 on a random nearby enemy every <% ZHONIK_GLYPH_5_A_INTERVAL %> seconds."
 
 		"DOTA_Tooltip_modifier_sages_eyes"					"Sage's Eyes"
+		
+		//Column2Glyphs
+		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_book" 		"Zhonik Glyph Book"
+
+        "DOTA_Tooltip_ability_item_rpc_zonik_glyph_1_2"       "[T1-2] Glyph of Whiplash"
+        "item_rpc_zonik_glyph_1_2_description"                "[W3] calculates any stun or root as if it was at least <% ZHONIK_GLYPH_1_2_W3_MIN_THRESHOLD_SEC %> seconds in duration. Additionally increases [W3] area of effect by <% ZHONIK_GLYPH_1_2_W3_AOE_INCREASE %>."
+
+        "DOTA_Tooltip_ability_item_rpc_zonik_glyph_2_2"       "[T2-2] Glyph of Rush"
+        "item_rpc_zonik_glyph_2_2_description"                "Zhonik performs a short dash forward when Lightspeed is cast."
+
+        "DOTA_Tooltip_ability_item_rpc_zonik_glyph_3_2"       "[T3-2] Glyph of Juice"
+        "item_rpc_zonik_glyph_3_2_description"                "Each point of [E3] passively increases Magic Armor by <% ZHONIK_GLYPH_3_2_E3_MAGIC_ARMOR %> and @Ability3 Base Ability Damage by <% ZHONIK_GLYPH_3_2_E3_BAD_PCT %>%."
+
+        "DOTA_Tooltip_ability_item_rpc_zonik_glyph_4_2"       "[T4-2] Glyph of Mania"
+        "item_rpc_zonik_glyph_4_2_description"                "[E2] base damage increased by x<% ZHONIK_GLYPH_4_2_MANA_TO_E2_DMG_MULT %> of current Mana value."
+
+        "DOTA_Tooltip_ability_item_rpc_zonik_glyph_5_2"       "[T5-2] Glyph of Ionic Wind"
+        "item_rpc_zonik_glyph_5_2_description"                "Allies affected by @Ability1 have their Agility increased by <% ZHONIK_GLYPH_5_2_AGILITY %>."
+		
+		"DOTA_Tooltip_modifier_tachyon_shell_5_2_agility"		"Ionic Wind"
+		"DOTA_Tooltip_modifier_tachyon_shell_5_2_agility_Description"		"While Tachyon Shell is active, Agility is increased by <% ZHONIK_GLYPH_5_2_AGILITY %>"
+
+        "DOTA_Tooltip_ability_item_rpc_zonik_glyph_6_2"       "[T6-2] Glyph of Chaos"
+        "item_rpc_zonik_glyph_6_2_description"                "[W4]'s delay before dealing damage is decreased by <% ZHONIK_GLYPH_6_2_W4_DELAY_REDUCTION %> second. Every time you damage an enemy that currently has [W4] active, there is a <% ZHONIK_GLYPH_6_2_W4_ZERO_DELAY_CHANCE %>% chance to not refresh [W4]'s duration on the target, or apply [W4] damage immediately if an enemy had no [W4] debuff. Echo damage also becomes unstable, varying between 50% and 150% of its expected value."
+
+        "DOTA_Tooltip_ability_item_rpc_zonik_glyph_7_2"       "[T7-2] Glyph of Racing"
+        "item_rpc_zonik_glyph_7_2_description"                "If your movespeed ever falls below <% ZHONIK_GLYPH_7_2_MS_THRESHOLD %>, gain a <% ZHONIK_GLYPH_7_2_MS_BURST_PCT %>% movement speed acceleration buff for <% ZHONIK_GLYPH_7_2_BURST_DURATION %> seconds."
+		"DOTA_Tooltip_modifier_zonik_glyph_7_2_movespeed"		"[T7-2] Glyph of Racing"
+		"DOTA_Tooltip_modifier_zonik_glyph_7_2_movespeed_Description"		"Movement Speed increased by <% ZHONIK_GLYPH_7_2_MS_BURST_PCT %>% for <% ZHONIK_GLYPH_7_2_BURST_DURATION %> seconds."
 		
 		//Weapons
 		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_00"		"Punch Glove"
