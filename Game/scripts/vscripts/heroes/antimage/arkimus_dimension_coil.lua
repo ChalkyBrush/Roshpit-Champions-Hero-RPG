@@ -8,7 +8,8 @@ function arkimus_dimension_coil:GetManaCostBase(level)
 end
 
 function arkimus_dimension_coil:GetCastRange()
-    return ARKIMUS_Q_CAST_RANGE[self:GetLevel()]
+    local range = ARKIMUS_Q_CAST_RANGE[self:GetLevel()] + self:GetCaster():GetModifierStackCount("modifier_arkimus_dimension_coil", self:GetCaster()) * ARKIMUS_Q3_RADIUS_AND_CAST_RANGE_BONUS
+    return range
 end
 
 function arkimus_dimension_coil:GetAbilitySlot()
@@ -70,10 +71,12 @@ function arkimus_dimension_coil:OnSpellStart()
 
         local damage = ARKIMUS_Q_DAMAGE[self:GetLevel()]
         local q_2_level = caster:GetRuneValue("q", 2)
+	local q_3_level = caster:GetRuneValue("q", 3)
         local q_4_level = caster:GetRuneValue("q", 4)
         local duration = ARKIMUS_Q_COIL_BASE_DURATION + ARKIMUS_Q_COIL_BASE_DURATION * q_4_level * ARKIMUS_Q4_COIL_ADD_DURATION_PCT
         local zonal_net_duration = 1 + 1 * ARKIMUS_Q4_COIL_ADD_DURATION_PCT * q_4_level
-        local loops = math.floor(duration * 10)
+	local interval = 0.5 / (1 + q_3_level * ARKIMUS_Q3_INTERVAL_REDUC_PCT / 100)
+        local loops = math.floor(duration / interval)
 		local spell_pierce_flag = 0
 		if caster:HasModifier("modifier_arkimus_archon_form") then
 			spell_pierce_flag = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
@@ -83,8 +86,13 @@ function arkimus_dimension_coil:OnSpellStart()
             if q_2_level > 0 then
                 caster:AddNewModifier(caster, ability, "modifier_arkimus_q_2_buff", {duration = zonal_net_duration})
             end
+	    if q_4_level > 0 then
+		local armor = (caster:GetRoshpitArmor() + caster:GetRoshpitMagicArmor()) / 100
+		local bonus = 1 + armor * ARKIMUS_Q4_ADD_DMG_PCT / 100 * q_4_level
+		damage = damage * bonus
+	    end		
             for i = 1, loops, 1 do
-                Timers:CreateTimer(i * 0.1, function()
+                Timers:CreateTimer(i * interval, function()
                     CreateZonisBeam(origPosition + Vector(0, 0, 60), target + Vector(0, 0, 60))
                     local enemies = FindUnitsInLine(caster:GetTeamNumber(), origPosition, target, nil, 80, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, spell_pierce_flag)
                     if #enemies > 0 then
@@ -131,11 +139,11 @@ function zonis_damage(enemy, caster, damage, ability)
 			enemy:SetModifierStackCount("modifier_arkimus_q_1_armor_loss", caster, q_1_level)
 		end
 	end
-    local q_3_level = caster:GetRuneValue("q", 3)
+   --[[ local q_3_level = caster:GetRuneValue("q", 3)
 	if q_3_level > 0 then
         enemy:AddNewModifier(caster, ability, "modifier_arkimus_q_3_magic_armor_loss", {duration = ARKIMUS_Q3_DURATION})
         enemy:SetModifierStackCount("modifier_arkimus_q_3_magic_armor_loss", caster, q_3_level)
-	end
+	end]]
 end
 
 -------------
@@ -150,8 +158,24 @@ function modifier_arkimus_dimension_coil:OnCreated()
         local ability = self:GetAbility()
         hero:AddNewModifier(hero, ability, "modifier_arkimus_q_free_cast_thinker", {})
         hero:AddNewModifier(hero, ability, "modifier_arkimus_q_4_buff", {})
+	self:StartIntervalThink(0.1)
     end
 end
+
+function modifier_arkimus_dimension_coil:OnIntervalThink()
+	if not IsServer() then
+		return
+	end
+	local hero = self:GetParent()
+	local q_3_level = hero:GetRuneValue("q", 3)
+	if q_3_level > 0 then
+		self:SetStackCount(q_3_level)
+	else
+		self:SetStackCount(0)
+	end
+	--print(self:GetStackCount())
+end
+
 function modifier_arkimus_dimension_coil:IsHidden()
     return true
 end
@@ -215,9 +239,9 @@ end
 modifier_arkimus_q_1_armor_loss = class(npc_base_modifier, nil, npc_base_modifier)
 LinkLuaModifier("modifier_arkimus_q_1_armor_loss", "heroes/antimage/arkimus_dimension_coil", LUA_MODIFIER_MOTION_NONE)
 
-function modifier_arkimus_q_1_armor_loss:GetRoshpitArmorBonus()
+--[[function modifier_arkimus_q_1_armor_loss:GetRoshpitArmorBonus()
     return self:GetStackCount() * ARKIMUS_Q1_ARMOR_REDUCTION
-end
+end]] 
 function modifier_arkimus_q_1_armor_loss:IsHidden()
     return false
 end
@@ -277,9 +301,16 @@ function modifier_arkimus_q_2_buff:IsHidden()
 end
 
 function modifier_arkimus_q_2_buff:OnCreated()
-    if IsServer() then
-        self:StartIntervalThink(ARKIMUS_Q2_THINK_INTERVAL)
+    if not IsServer() then
+        return
     end
+    local interval = ARKIMUS_Q2_THINK_INTERVAL
+    local caster = self:GetCaster()
+    local q_3_level = caster:GetRuneValue("q", 3)
+    if q_3_level > 0 then
+	interval = interval / (1 + q_3_level * ARKIMUS_Q3_INTERVAL_REDUC_PCT / 100)
+    end
+    self:StartIntervalThink(interval)
 end
 
 function modifier_arkimus_q_2_buff:OnIntervalThink()
@@ -287,9 +318,16 @@ function modifier_arkimus_q_2_buff:OnIntervalThink()
         local caster = self:GetCaster()
         local ability = self:GetAbility()
         local q_2_level = caster:GetRuneValue("q", 2)
-        local radius = ARKIMUS_Q2_RADIUS_BASE + q_2_level * ARKIMUS_Q2_RADIUS
+	local q_3_level = caster:GetRuneValue("q", 3)
+	local q_4_level = caster:GetRuneValue("q", 4)
+        local radius = ARKIMUS_Q2_RADIUS_BASE + q_3_level * ARKIMUS_Q3_RADIUS_AND_CAST_RANGE_BONUS
         local damage = q_2_level * ARKIMUS_Q2_DAMAGE
-        local edges = 2 + math.ceil((q_2_level + 1) * 0.05)
+	if q_4_level > 0 then
+		local armor = (caster:GetRoshpitArmor() + caster:GetRoshpitMagicArmor()) / 100
+		local bonus = 1 + armor * ARKIMUS_Q4_ADD_DMG_PCT / 100 * q_4_level
+		damage = damage * bonus
+	end	
+        local edges = 2 + math.max(math.ceil((q_3_level) * 0.1), 1)
         casterOrigin = caster:GetAbsOrigin()
         local endPointTable = {}
         local midPointTable = {}
@@ -384,5 +422,5 @@ function modifier_arkimus_q_4_buff:OnCreated()
 end
 function modifier_arkimus_q_4_buff:GetRoshpitQBaseAbilityDmgBonus()
     local hero = self:GetParent()
-    return hero:GetRuneValue("q", 4) * ARKIMUS_Q4_ADD_DMG_PCT
+    return 0--hero:GetRuneValue("q", 4) * ARKIMUS_Q4_ADD_DMG_PCT
 end

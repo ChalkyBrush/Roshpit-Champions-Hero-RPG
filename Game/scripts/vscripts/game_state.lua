@@ -2351,11 +2351,11 @@ function GameState:FilterDamage(filterTable)
 			filterTable["damage"] = filterTable["damage"] * (100-ARKIMUS_IMMORTAL_WEAPON_3_W3_DAMAGE_REDUCTION)/100
 		end
 	end
-	if attacker:HasModifier("modifier_earthshock_damage_reduce") then
+	--[[if attacker:HasModifier("modifier_earthshock_damage_reduce") then
 		local modifierCaster = attacker:FindModifierByName("modifier_earthshock_damage_reduce"):GetCaster()
 		local stacks = attacker:GetModifierStackCount("modifier_earthshock_damage_reduce", modifierCaster)
 		filterTable["damage"] = filterTable["damage"] - (filterTable["damage"] * math.min((CONJUROR_ARCANA_Q4_DAMAGE_REDUCE_PCT / 100) * stacks, 0.9))
-	end
+	end]]
 	if victim:HasModifier("modifier_reaper_slice_amp_debuff") then
 		modifier = victim:FindModifierByName("modifier_reaper_slice_amp_debuff")
 		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then

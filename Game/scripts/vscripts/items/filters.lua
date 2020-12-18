@@ -25,7 +25,7 @@ require('/heroes/vengeful_spirit/solunia_constants')
 require("/heroes/visage/ekkan_constants")
 require("/heroes/winter_wyvern/dinath_constants")
 require("/heroes/axe/red_general_constants")
-
+require("/heroes/invoker/conjuror_constants")
 require('/items/constants/boots')
 require('/items/constants/chest')
 require('/items/constants/gloves')
@@ -2540,6 +2540,9 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             if attacker.q_4_level and attacker:HasAbility("summon_earth_aspect") then
                 mult = mult + CONJUROR_Q4_EARTH_AND_FIRE_AMP * attacker.q_4_level
             end
+	    if attacker.q_4_level and attacker:HasAbility("summon_earth_deity") then
+		mult = mult + CONJUROR_ARCANA_Q4_EARTH_AMP * attacker.q_4_level / 100
+	    end
         elseif unitName == "npc_dota_hero_legion_commander" then
             if attacker:HasAbility("mountain_protector_aeon_fracture") then
                 if attacker.r_4_level then
