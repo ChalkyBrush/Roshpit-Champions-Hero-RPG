@@ -118,6 +118,7 @@ function Challenges:ChiselItem(msg)
 				Statistics.dispatch('items:chisel')
 				Events:TutorialServerEvent(hero, "3_2", 0)
 				CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "update_inventory", {})
+				GameMode.EquipTimeouts[steamId] = currentGameTime + 5
 			end
 		end)
 	end
