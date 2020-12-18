@@ -17,6 +17,8 @@ function class:OnCreated()
     })
     if IsServer() then
         self:GetParent():CalculateAndSaveRoshpitAttributes()
+        local level = self:GetAbility():GetLevel()
+	    self:SetStackCount(level)
     end
 end
 
@@ -30,13 +32,13 @@ function class:IsDebuff()
     return true
 end
 function class:GetModifierMoveSpeedBonus_Percentage()
-    return self:GetAbility().damage_and_movespeed_reduction
+    return CHERNOBOG_Q_MOVESPD_AND_ATK_DMG_REDUC[self:GetStackCount()]
 end
 function class:GetPremitigationReduce()
     return 0
 end
 function class:GetModifierBaseDamageOutgoing_Percentage()
-    return self:GetAbility().damage_and_movespeed_reduction
+    return CHERNOBOG_Q_MOVESPD_AND_ATK_DMG_REDUC[self:GetStackCount()]
 end
 
 function class:GetTexture()
