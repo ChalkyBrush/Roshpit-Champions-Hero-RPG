@@ -13891,7 +13891,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"cast_range"		"1200 1250 1300 1350 1400 1450 1500"
+				"cast_range"		"1000 1050 1100 1150 1200 1250 1300"
 			}
 		}
 	}
@@ -14022,7 +14022,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"-15"
+				"property_one"			"0"
 			}
 		}
 	}
@@ -14041,29 +14041,24 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5"
+				"property_one"			"100"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"5"
+				"property_two"			"40"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two_base"		"600"
+				"base_ability"			"1"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"1"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"element_one"			"10"
 			}
-			"06"
+			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"element_two"			"4"
@@ -14084,7 +14079,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"-25"
+				"property_one"			"5"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"8"
 			}
 		}
 	}
@@ -14102,7 +14102,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"0.02"
 			}
 			"02"
 			{
@@ -23589,6 +23589,12 @@
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%move_slow"
 				}
 			}
+			"modifier_tachyon_shell_5_2_agility"
+			{
+				"TextureName"		"zonik/tachyon_shell"
+				"IsHidden"	"0"
+				"IsDebuff"	"0"
+			}
 		}
 	}
 
@@ -24042,6 +24048,40 @@
 						"EffectAttachType"		"follow_overhead"
 					}
 				}
+			}
+			"modifier_lightspeed_2_2_dash"
+			{
+				"Duration"		"0.3"
+				"IsHidden"	"1"
+				"IsBuff"	"1"
+				"OverrideAnimation"	"ACT_DOTA_IDLE"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/dark_seer/lightspeed.lua"
+						"Function"		"lightspeed_glyph_2_2_think"
+					}
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE"	"-100"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-100"
+				}
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/dark_seer/lightspeed.lua"
+						"Function"		"lightspeed_glyph_2_2_end"
+					}
+				}
+
 			}
 		}
 	}
@@ -31519,7 +31559,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"1.2"
+				"property_one"			"12"
 			}
 			"02"
 			{
@@ -41021,7 +41061,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"8"
+				"property_one"			"5"
 			}
 		}
 	}
@@ -41061,7 +41101,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.02"
+				"property_one"			"0.03"
 			}
 		}
 	}
@@ -41343,7 +41383,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.02"
+				"property_one"			"0.01"
 			}
 		}
 	}
@@ -41364,7 +41404,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.04"
+				"property_one"			"0"
 			}
 		}
 	}
@@ -42574,7 +42614,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.5"
+				"property_two"			"4"
 			}
 			"04"
 			{
@@ -53158,7 +53198,7 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage"	"30 60 90 120 150 180 210"
+				"damage"	"30 60 120 400 900 1600 2800"
 			}
 			"02"
 			{
@@ -81426,6 +81466,7 @@
 				"Function"		"icicle_barrage_impact"
 				"target"		"TARGET"
 				"damage"		"%damage"
+				"max_stacks"							"%max_stacks"
 			}
 		}
 		"Modifiers"

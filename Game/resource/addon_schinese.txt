@@ -2558,30 +2558,30 @@
     	"DOTA_Tooltip_modifier_arkimus_q_free_cast_Description"						"你的下一次维度扭曲将不会激活冷却时间"
 
     	"DOTA_Tooltip_ability_arkimus_rune_q_1"									"[Q1] 攻壳震荡"
-    	"DOTA_Tooltip_ability_arkimus_rune_q_1_Description"						"接触到维度扭曲的敌人将丢失护甲，持续8秒。"
-    	"DOTA_Tooltip_ability_arkimus_rune_q_1_property_one"					"护甲值减少"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_1_Description"						"接触到维度扭曲的敌人将丢失魔甲，持续8秒。"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_1_property_one"						"魔甲值减少"
     	"DOTA_Tooltip_ability_arkimus_rune_q_1_suffix"							""
 
-    	"DOTA_Tooltip_ability_arkimus_rune_q_2"									"[Q2] 带状网"
-    	"DOTA_Tooltip_ability_arkimus_rune_q_2_Description"						"施放维度扭曲之后，制造一片奥术电磁网，每0.2秒伤害并短暂眩晕敌人。"
-    	"DOTA_Tooltip_ability_arkimus_rune_q_2_property_one"					"伤害"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_2"								"[Q2] 带状网"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_2_Description"						"施放维度扭曲之后，制造一片奥术电磁网，每 <font color='#ccff66'>0.4</font>秒伤害并短暂眩晕敌人， 持续 <font color='#ccff66'>1</font> 秒。被动提高@Ability1的基础伤害。"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_2_property_one"						"伤害"
     	"DOTA_Tooltip_ability_arkimus_rune_q_2_suffix"							""
-    	"DOTA_Tooltip_ability_arkimus_rune_q_2_property_two"					"范围"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_2_property_two"						"[Q]的基础伤害提高"
     	"DOTA_Tooltip_ability_arkimus_rune_q_2_suffix_two"						""
 
-    	"DOTA_Tooltip_ability_arkimus_rune_q_3"									"[Q3] 可塑性结构"
-    	"DOTA_Tooltip_ability_arkimus_rune_q_3_Description"						"接触到维度扭曲的敌人将降低魔甲，持续8秒。"
-    	"DOTA_Tooltip_ability_arkimus_rune_q_3_property_one"					"魔甲降低"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_3"								"[Q3] 可塑性结构"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_3_Description"						"提高@Ability1 和 [Q2]的伤害频率，提高@Ability1的施法距离和 [Q2]的作用范围。"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_3_property_one"						"魔甲降低"
     	"DOTA_Tooltip_ability_arkimus_rune_q_3_suffix"							""
 
-    	"DOTA_Tooltip_modifier_arkimus_q_3_magic_armor_loss"							"可塑性结构"
+    	"DOTA_Tooltip_modifier_arkimus_q_3_magic_armor_loss"						"可塑性结构"
     	"DOTA_Tooltip_modifier_arkimus_q_3_magic_armor_loss_Description"				"魔甲降低"
 
-    	"DOTA_Tooltip_ability_arkimus_rune_q_4"									"[Q4] 奥术扭曲"
-    	"DOTA_Tooltip_ability_arkimus_rune_q_4_Description"						"提高维度扭曲和带状网的伤害，并且提高奥术闪电的持续时间。"
-    	"DOTA_Tooltip_ability_arkimus_rune_q_4_property_one"					"伤害提高"
-    	"DOTA_Tooltip_ability_arkimus_rune_q_4_suffix"							"%"
-    	"DOTA_Tooltip_ability_arkimus_rune_q_4_property_two"					"奥术闪电持续时间延长"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_4"								"[Q4] 奥术扭曲"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_4_Description"						"每100点护甲和魔甲提高维度扭曲和带状网的伤害 %，并且提高@Ability1和[Q2]的持续时间。"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_4_property_one"						"伤害提高"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_4_suffix"							"% 每100 护甲和魔甲"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_4_property_two"						"奥术闪电持续时间延长"
     	"DOTA_Tooltip_ability_arkimus_rune_q_4_suffix_two"						" 秒"
 
     	"DOTA_Tooltip_ability_arkimus_flash_source"								"闪光源"
@@ -4821,8 +4821,8 @@
     	"DOTA_Tooltip_ability_conjuror_rune_q_3_arcana3_suffix_two"					"%"
 
   		"DOTA_Tooltip_ability_conjuror_rune_q_4_arcana3"						"[Q4] 泥泞鞭挞 "
-    	"DOTA_Tooltip_ability_conjuror_rune_q_4_arcana3_Description"			"敌人在受到大地震颤的攻击力降低debuff时造成的所有类型伤害将会降低。"
-    	"DOTA_Tooltip_ability_conjuror_rune_q_4_arcana3_property_one"		"敌人伤害降低"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_4_arcana3_Description"			"提高所有<font color='#AF843D'>土</font> 伤害。"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_4_arcana3_property_one"			"<font color='#AF843D'>土</font> 伤害提高"
     	"DOTA_Tooltip_ability_conjuror_rune_q_4_arcana3_suffix"				"%"
 "shadow_deity" "幽冥尊者"
 
@@ -11851,6 +11851,29 @@
 
 		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_5_a"	"[T5-a] 离子雕文"
 		"item_rpc_voltex_glyph_5_a_description" 			"延长 @Ability1 的持续时间  <font color='#ccff66'>100</font>%。"
+		//Column2Glyphs
+		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_book" 		"Voltex Glyph Book"
+
+        "DOTA_Tooltip_ability_item_rpc_voltex_glyph_1_2"       "[T1-2] Glyph of Focused Remnants"
+        "item_rpc_voltex_glyph_1_2_description"                "Lightning Remnants' HP value multiplies by <font color='#ccff66'>1.5</font>."
+
+        "DOTA_Tooltip_ability_item_rpc_voltex_glyph_2_2"       "[T2-2] Glyph of Potential"
+        "item_rpc_voltex_glyph_2_2_description"                "Radius of ally search for [W2] increased by <font color='#ccff66'>180</font>."
+
+        "DOTA_Tooltip_ability_item_rpc_voltex_glyph_3_2"       "[T3-2] Glyph of Step Voltage"
+        "item_rpc_voltex_glyph_3_2_description"                "[E2] radius increased by <font color='#ccff66'>50</font>%."
+
+        "DOTA_Tooltip_ability_item_rpc_voltex_glyph_4_2"       "[T4-2] Glyph of Perfection"
+        "item_rpc_voltex_glyph_4_2_description"                "Voltex's attacks always have True Strike."
+
+        "DOTA_Tooltip_ability_item_rpc_voltex_glyph_5_2"       "[T5-2] Glyph of Electrophoresis"
+        "item_rpc_voltex_glyph_5_2_description"                "Every cast of @Ability2 heals Voltex by <font color='#ccff66'>700</font>."
+
+        "DOTA_Tooltip_ability_item_rpc_voltex_glyph_6_2"       "[T6-2] Glyph of Ionization"
+        "item_rpc_voltex_glyph_6_2_description"                "@Ability4 damage per spark value increased by <font color='#ccff66'>5000</font>. Sparks have decreased speed but greatly increased lifetime."
+
+        "DOTA_Tooltip_ability_item_rpc_voltex_glyph_7_2"       "[T7-2] Glyph of Blasting Thunder"
+        "item_rpc_voltex_glyph_7_2_description"                "[R2] deals damage and applies its debuff to all enemies in <font color='#ccff66'>270</font> area around the main target."
 
 		"DOTA_Tooltip_modifier_voltex_rune_e_2_slow_glyphed"	"电子效应"
 		"DOTA_Tooltip_modifier_voltex_rune_e_2_slow_glyphed_Description"	"减速"
@@ -13500,7 +13523,7 @@
 		"item_rpc_legion_vestments_sapphire1"								"额外增加智力值 @sapphire_property1%"
 		"item_rpc_legion_vestments_amethyst1"								"额外增加精神值 @amethyst_property1%"
 		"item_property_legion_vestments"			"军团命令"
-		"property_legion_vestments_description"		"提高你的力量、敏捷和智力值<font color='#ccff66'>1500</font>%。"
+		"property_legion_vestments_description"		"提高你的力量、敏捷和智力值<font color='#ccff66'>15</font>%。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_nightmare_rider_mantle"							"梦魇骑士护肩"
@@ -13768,7 +13791,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_sapphire_dragon_scale_armor"						"蓝宝石龙鳞铠甲"
 		"item_rpc_sapphire_dragon_scale_armor_ruby1"						"每点智力增加护甲@ruby_property1点"
-		"item_rpc_sapphire_dragon_scale_armor_emerald1"						"每点智力增加物理穿透 @ruby_property1点"
+		"item_rpc_sapphire_dragon_scale_armor_emerald1"						"每点智力增加物理穿透 @emerald_property1点"
 		"item_rpc_sapphire_dragon_scale_armor_sapphire1"						"每点智力增加基础攻击力 @sapphire_property1点"
 		"item_rpc_sapphire_dragon_scale_armor_amethyst1"						"每点智力增加魔甲@amethyst_property1点"
 		"item_property_sapphire_dragon"					"蓝龙"
@@ -13824,7 +13847,7 @@
 		"item_property_mystic_mana_wall"						"魔法防御"
 		"property_mystic_mana_wall_description"				"降低受到的魔法和纯粹伤害 <font color='#ccff66'>35</font>% 并且伤害将会扣除魔法值而不是生命值。每点当前魔法值增加 <font color='#ccff66'>1</font> 护甲"
 
-		"item_rpc_mystic_mana_wall_ruby1"								"每点智力增加最大魔法值@ruby_property1"
+		"item_rpc_mystic_mana_wall_ruby1"								"每点力量增加最大魔法值@ruby_property1"
 		"item_rpc_mystic_mana_wall_emerald1"								"每点敏捷增加最大魔法值 @emerald_property1"
 		"item_rpc_mystic_mana_wall_sapphire1"								"降低魔法和纯粹伤害@sapphire_property1%"
 		"item_rpc_mystic_mana_wall_amethyst1"								"每点精神增加最大魔法值 @amethyst_property1点"
@@ -13868,7 +13891,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_direwolf_bulwark"								"刻尔伯罗斯的垒甲"
 		"item_property_direwolf"						"地狱撕咬"
-		"property_direwolf_description"					"普通攻击将会造成数值为<font color='#ccff66'>50</font>% 目标护甲值的额外伤害。"
+		"property_direwolf_description"					"普通攻击将会造成数值为<font color='#ccff66'>50</font>% 你的护甲值和物理穿透值总和的额外伤害。"
 
 		"item_rpc_direwolf_bulwark_ruby1"								"降低被攻击的敌人的攻击力，数值为@ruby_property1%你的物理穿透数值。 "
 		"item_rpc_direwolf_bulwark_emerald1"								"增加地狱撕咬系数 @emerald_property1% "
@@ -13928,12 +13951,12 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_captains_vest"		"船长背心"
-		"item_rpc_captains_vest_ruby1"		"增加坚定的决心提供的力量 @ruby_property1%"
+		"item_rpc_captains_vest_ruby1"			"增加坚定的决心提供的力量 @ruby_property1%"
 		"item_rpc_captains_vest_emerald1"		"增加坚定的决心提供的敏捷 @emerald_property1%"
 		"item_rpc_captains_vest_sapphire1"		"增加坚定的决心提供的智力@sapphire_property1%"
 		"item_rpc_captains_vest_amethyst1"		"增加坚定的决心提供的精神 @amethyst_property1%"
 		"item_property_captains_vest"						"坚定的决心"
-		"property_captains_vest_description"				"Q1/2/3/4符文提高力量<font color='#ccff66'>2</font>/<font color='#ccff66'>2</font>/<font color='#ccff66'>4</font>/<font color='#ccff66'>8</font>。 W1/2/3/4符文提高智力<font color='#ccff66'>2</font>/<font color='#ccff66'>2</font>/<font color='#ccff66'>4</font>/<font color='#ccff66'>8</font>。 E1/2/3/4符文提高敏捷<font color='#ccff66'>2</font>/<font color='#ccff66'>2</font>/<font color='#ccff66'>4</font>/<font color='#ccff66'>8</font>。 R1/2/3/4符文提高全属性<font color='#ccff66'>2</font>/<font color='#ccff66'>2</font>/<font color='#ccff66'>4</font>/<font color='#ccff66'>8</font>。"
+		"property_captains_vest_description"				"Q1/2/3/4符文提高力量<font color='#ccff66'>2</font>/<font color='#ccff66'>2</font>/<font color='#ccff66'>4</font>/<font color='#ccff66'>8</font>。 W1/2/3/4符文提高智力<font color='#ccff66'>2</font>/<font color='#ccff66'>2</font>/<font color='#ccff66'>4</font>/<font color='#ccff66'>8</font>。 E1/2/3/4符文提高敏捷<font color='#ccff66'>2</font>/<font color='#ccff66'>2</font>/<font color='#ccff66'>4</font>/<font color='#ccff66'>8</font>。 R1/2/3/4符文提高精神<font color='#ccff66'>2</font>/<font color='#ccff66'>2</font>/<font color='#ccff66'>4</font>/<font color='#ccff66'>8</font>。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_tattered_novice_armor"		"残破学徒装甲"

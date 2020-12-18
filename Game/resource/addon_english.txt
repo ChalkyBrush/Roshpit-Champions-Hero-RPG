@@ -2094,41 +2094,43 @@
     	"DOTA_Tooltip_ability_arkimus_dimension_coil_damage"						"DAMAGE:"
     	"DOTA_Tooltip_ability_arkimus_dimension_coil_cast_range"					"CAST RANGE:"
 
-    	"DOTA_Tooltip_modifier_arkimus_stun"										"Shock"
-		"DOTA_Tooltip_modifier_arkimus_stun_Description"							"Shocked by Arkimus"
+    	"DOTA_Tooltip_modifier_arkimus_stun"							"Shock"
+	"DOTA_Tooltip_modifier_arkimus_stun_Description"					"Shocked by Arkimus"
 
-    	"DOTA_Tooltip_modifier_arkimus_q_free_cast"									"Dimension Coil Free Cast"
-    	"DOTA_Tooltip_modifier_arkimus_q_free_cast_Description"						"Your next cast of Dimension Coil will not activate its cooldown."
+    	"DOTA_Tooltip_modifier_arkimus_q_free_cast"						"Dimension Coil Free Cast"
+    	"DOTA_Tooltip_modifier_arkimus_q_free_cast_Description"					"Your next cast of Dimension Coil will not activate its cooldown."
 
-    	"DOTA_Tooltip_ability_arkimus_rune_q_1"									"[Q1] Shell Shock"
-    	"DOTA_Tooltip_ability_arkimus_rune_q_1_Description"						"Enemies who touch a Dimension Coil have their armor reduced for 8 seconds."
-    	"DOTA_Tooltip_ability_arkimus_rune_q_1_property_one"					"Armor Reduction"
-    	"DOTA_Tooltip_ability_arkimus_rune_q_1_suffix"							""
+    	"DOTA_Tooltip_ability_arkimus_rune_q_1"							"[Q1] Shell Shock"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_1_Description"					"Enemies who touch a Dimension Coil have their magic armor reduced for 8 seconds."
+    	"DOTA_Tooltip_ability_arkimus_rune_q_1_property_one"					"Magic Armor Reduction"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_1_suffix"						""
 
-    	"DOTA_Tooltip_modifier_arkimus_q_1_armor_loss"							"Shell Shock"
-    	"DOTA_Tooltip_modifier_arkimus_q_1_armor_loss_Description"				"Reduced Armor"
+    	"DOTA_Tooltip_modifier_arkimus_q_1_armor_loss"						"Shell Shock"
+    	"DOTA_Tooltip_modifier_arkimus_q_1_armor_loss_Description"				"Reduced Magic Armor"
 
-    	"DOTA_Tooltip_ability_arkimus_rune_q_2"									"[Q2] Zonal Net"
-    	"DOTA_Tooltip_ability_arkimus_rune_q_2_Description"						"After casting Dimension Coil, an electronic net of arcane energy damages and briefly stuns enemies every <font color='#ccff66'>0.2</font> seconds in an area around Arkimus. Lasts <font color='#ccff66'>1</font> second."
+    	"DOTA_Tooltip_ability_arkimus_rune_q_2"							"[Q2] Zonal Net"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_2_Description"					"After casting Dimension Coil, an electronic net of arcane energy damages and briefly stuns enemies every <font color='#ccff66'>0.4</font> seconds in an area around Arkimus. Lasts <font color='#ccff66'>1</font> second. Passively increase the damage of @Ability1."
     	"DOTA_Tooltip_ability_arkimus_rune_q_2_property_one"					"Damage"
-    	"DOTA_Tooltip_ability_arkimus_rune_q_2_suffix"							""
-    	"DOTA_Tooltip_ability_arkimus_rune_q_2_property_two"					"Radius"
-    	"DOTA_Tooltip_ability_arkimus_rune_q_2_suffix_two"						""
+    	"DOTA_Tooltip_ability_arkimus_rune_q_2_suffix"						""
+    	"DOTA_Tooltip_ability_arkimus_rune_q_2_property_two"					"[Q] flat damage bonus"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_2_suffix_two"					""
 
-    	"DOTA_Tooltip_ability_arkimus_rune_q_3"									"[Q3] Malleable Fabric"
-    	"DOTA_Tooltip_ability_arkimus_rune_q_3_Description"						"Enemies who touch a Dimension Coil have their magic armor reduced for 8 seconds."
-    	"DOTA_Tooltip_ability_arkimus_rune_q_3_property_one"					"Magic Armor Reduction"
-    	"DOTA_Tooltip_ability_arkimus_rune_q_3_suffix"							""
+    	"DOTA_Tooltip_ability_arkimus_rune_q_3"							"[Q3] Malleable Fabric"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_3_Description"					"Increase the damage rate of @Ability1 and [Q2], cast range of @Ability1 and radius of [Q2] ."
+    	"DOTA_Tooltip_ability_arkimus_rune_q_3_property_one"					"Damage Rate Reduc"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_3_suffix"						"%"
+	"DOTA_Tooltip_ability_arkimus_rune_q_3_property_two"					"Radius and Cast Range Bonus"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_3_suffix_two"					""
 
-    	"DOTA_Tooltip_modifier_arkimus_q_3_magic_armor_loss"							"Malleable Fabric"
-    	"DOTA_Tooltip_modifier_arkimus_q_3_magic_armor_loss_Description"				"Reduced magic armor"
+    	"DOTA_Tooltip_modifier_arkimus_q_3_magic_armor_loss"					"Malleable Fabric"
+    	"DOTA_Tooltip_modifier_arkimus_q_3_magic_armor_loss_Description"			"Reduced magic armor"
 
-    	"DOTA_Tooltip_ability_arkimus_rune_q_4"									"[Q4] Arcane Coil"
-    	"DOTA_Tooltip_ability_arkimus_rune_q_4_Description"						"Increases the damage of Dimension Coil and Zonal Net (Base Ability Q), and increases the duration of the lightning beams."
+    	"DOTA_Tooltip_ability_arkimus_rune_q_4"							"[Q4] Arcane Coil"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_4_Description"					"Every 100 Armor and Magic Armor increase the damage of @Ability1 and [Q2] by %, increases the duration of the @Ability1 and [Q2]."
     	"DOTA_Tooltip_ability_arkimus_rune_q_4_property_one"					"Damage Increase"
-    	"DOTA_Tooltip_ability_arkimus_rune_q_4_suffix"							"%"
-    	"DOTA_Tooltip_ability_arkimus_rune_q_4_property_two"					"Coil Duration Increase"
-    	"DOTA_Tooltip_ability_arkimus_rune_q_4_suffix_two"						"%"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_4_suffix"						"% every 100 armor and magic armor"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_4_property_two"					"Duration Increase"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_4_suffix_two"					"%"
 
     	"DOTA_Tooltip_ability_arkimus_flash_source"								"Flash Source"
     	"DOTA_Tooltip_ability_arkimus_flash_source_Description"					"Element: <font color='#E1A2E8'>Arcane</font><br>Toggle on for a flood of arcane energy to enchant Arkimus' weapons, causing his attacks to deal extra arcane damage in an area around the target. Each attack drains mana. Ability is toggled off when mana is too low."
@@ -2369,6 +2371,7 @@
         "DOTA_Tooltip_ability_item_rpc_arkimus_immortal_weapon_3"            "Arcane Circuitry Shiv"
         "item_property_arkimus_immortal_weapon3"                             "Photon Shell"
         "property_arkimus_immortal_weapon3_description"                      "Damage taken during Photon Sprint is reduced by <font color='#ccff66'>90</font>%."
+
 
 		//Abilities
 		"DOTA_Tooltip_ability_moon_shroud"								"Moon Shroud"
@@ -4415,8 +4418,8 @@
     	"DOTA_Tooltip_ability_conjuror_rune_q_3_arcana3_suffix"						"%"
 
   		"DOTA_Tooltip_ability_conjuror_rune_q_4_arcana3"						"[Q4] Mud Slash"
-    	"DOTA_Tooltip_ability_conjuror_rune_q_4_arcana3_Description"			"Enemies effected by Earth Shock's attack damage reduction debuff deal reduced damage of all types."
-    	"DOTA_Tooltip_ability_conjuror_rune_q_4_arcana3_property_one"		"Enemy Damage Reduction"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_4_arcana3_Description"			"Increase all <font color='#AF843D'>Earth</font> damage."
+    	"DOTA_Tooltip_ability_conjuror_rune_q_4_arcana3_property_one"			"<font color='#AF843D'>Earth</font> damage amp"
     	"DOTA_Tooltip_ability_conjuror_rune_q_4_arcana3_suffix"				"%"
 
     	"shadow_deity"														"Shadow Deity"
@@ -4549,6 +4552,7 @@
         "DOTA_Tooltip_ability_item_rpc_conjuror_immortal_weapon_3"            "Sphere of Avennia"
         "item_property_conjuror_immortal_weapon3"                             "Elemental Core"
         "property_conjuror_immortal_weapon3_description"                      "Summoned aspects have Steadfast, a passive ability to decrease incoming damage by 20/35/50% depending on game difficulty."
+
 
 		//Abilities
 		"DOTA_Tooltip_ability_dinath_arctic_burn"								"Wyvern Fire"
@@ -12222,6 +12226,30 @@
 		"DOTA_Tooltip_modifier_voltex_rune_e_2_slow_glyphed"	"Electron Effect"
 		"DOTA_Tooltip_modifier_voltex_rune_e_2_slow_glyphed_Description"	"Slowed"
 		
+		//Column2Glyphs
+		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_book" 		"Voltex Glyph Book"
+
+        "DOTA_Tooltip_ability_item_rpc_voltex_glyph_1_2"       "[T1-2] Glyph of Focused Remnants"
+        "item_rpc_voltex_glyph_1_2_description"                "Lightning Remnant illusion health is multiplied by <font color='#ccff66'>1.5</font>."
+
+        "DOTA_Tooltip_ability_item_rpc_voltex_glyph_2_2"       "[T2-2] Glyph of Potential"
+        "item_rpc_voltex_glyph_2_2_description"                "The range at which [W2] can apply its buff to allied units is increased by <font color='#ccff66'>180</font>."
+
+        "DOTA_Tooltip_ability_item_rpc_voltex_glyph_3_2"       "[T3-2] Glyph of Step Voltage"
+        "item_rpc_voltex_glyph_3_2_description"                "[E2] radius increased by <font color='#ccff66'>50</font>%."
+
+        "DOTA_Tooltip_ability_item_rpc_voltex_glyph_4_2"       "[T4-2] Glyph of Perfection"
+        "item_rpc_voltex_glyph_4_2_description"                "Voltex's attacks always have True Strike, ignoring enemy Evasion."
+
+        "DOTA_Tooltip_ability_item_rpc_voltex_glyph_5_2"       "[T5-2] Glyph of Electrophoresis"
+        "item_rpc_voltex_glyph_5_2_description"                "Voltex heals for <font color='#ccff66'>700</font> with each cast of @Ability2."
+
+        "DOTA_Tooltip_ability_item_rpc_voltex_glyph_6_2"       "[T6-2] Glyph of Ionization"
+        "item_rpc_voltex_glyph_6_2_description"                "@Ability4 spark damage increased by <font color='#ccff66'>5000</font>. Sparks have decreased speed but greatly increased lifetime."
+
+        "DOTA_Tooltip_ability_item_rpc_voltex_glyph_7_2"       "[T7-2] Glyph of Blasting Thunder"
+        "item_rpc_voltex_glyph_7_2_description"                "[R2] deals damage and applies its debuff to all enemies in a <font color='#ccff66'>270</font> radius around the primary target."
+		
 		//Weapons
 		"voltex_weapon_01"			"Brutal Blade"
 		"voltex_weapon_02"			"War Slicer"
@@ -12303,7 +12331,7 @@
     	"DOTA_Tooltip_ability_zonik_rune_w_1_suffix"						"% of Mach Punch"
 
     	"DOTA_Tooltip_ability_zonik_rune_w_2"								"[W2] Temporal Discharge"
-    	"DOTA_Tooltip_ability_zonik_rune_w_2_Description"					"Moving 240 units of distance adds a Temporal Charge stack. All stacks are consumed upon casting Mach Punch, and the punch's damage is amplified. Max <font color='#ccff66'>20</font> stacks."
+    	"DOTA_Tooltip_ability_zonik_rune_w_2_Description"					"Moving <font color='#ccff66'>240</font> units of distance adds a Temporal Charge stack. All stacks are consumed upon casting Mach Punch, and the punch's damage is amplified. Max <font color='#ccff66'>20</font> stacks."
     	"DOTA_Tooltip_ability_zonik_rune_w_2_property_one"					"Mach Punch Amp per Stack"
     	"DOTA_Tooltip_ability_zonik_rune_w_2_suffix"						"%"
 
@@ -12311,7 +12339,7 @@
     	"DOTA_Tooltip_modifier_temporal_discharge_Description"				"Each stack amplifies your next Mach Punch."
 
     	"DOTA_Tooltip_ability_zonik_rune_w_3"								"[W3] Whiplash"
-    	"DOTA_Tooltip_ability_zonik_rune_w_3_Description"					"While Zhonik is stunned, rooted or being knocked back, he gains a stack of Whiplash every 0.1 seconds. Once Zhonik is no longer disabled, the energy is released in 600 radius AOE. Whiplash stuns based on Mach Punch's stun duration."
+    	"DOTA_Tooltip_ability_zonik_rune_w_3_Description"					"While Zhonik is stunned, rooted or being knocked back, he gains a stack of Whiplash every <font color='#ccff66'>0.1</font> seconds. Once Zhonik is no longer disabled, the energy is released in <font color='#ccff66'>600</font> radius AOE. Whiplash stuns based on Mach Punch's stun duration."
     	"DOTA_Tooltip_ability_zonik_rune_w_3_property_one"					"Damage Per Whiplash Stack"
     	"DOTA_Tooltip_ability_zonik_rune_w_3_suffix"						""
     	"DOTA_Tooltip_ability_zonik_rune_w_3_property_two"					"Stun Duration"
@@ -12321,7 +12349,7 @@
     	"DOTA_Tooltip_modifier_mach_punch_whiplash_Description"				"Once clear of roots and stuns, explode and deal damage and stun."
 
     	"DOTA_Tooltip_ability_zonik_rune_w_4"								"[W4] Echo"
-    	"DOTA_Tooltip_ability_zonik_rune_w_4_Description"					"Base Abilities and Regular Attacks build up echo stacks on the target. After 4 seconds of not building any new stacks, a temporal aftershock damages the enemy. The damage is based on a build up of the damage instances that created the echo stacks."
+    	"DOTA_Tooltip_ability_zonik_rune_w_4_Description"					"Base Abilities and Regular Attacks build up echo stacks on the target. After <font color='#ccff66'>4</font> seconds of not building any new stacks, a temporal aftershock damages the enemy. The damage is based on a build up of the damage instances that created the echo stacks."
     	"DOTA_Tooltip_ability_zonik_rune_w_4_property_one"					"Echo Damage"
     	"DOTA_Tooltip_ability_zonik_rune_w_4_suffix"						"% of the Sum of all Damage taken"
 		
@@ -12489,10 +12517,10 @@
 		//Glyphs
 		
 		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_1_1"		"[T1-1] Glyph of Albedo"
-		"item_rpc_zonik_glyph_1_1_description" 				"Tachyon Shell when carried by Zonik has its radius increased by @glyph_property1%."
+		"item_rpc_zonik_glyph_1_1_description" 				"Tachyon Shell when carried by Zhonik has its radius increased by @glyph_property1%."
 
 		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_2_1"		"[T2-1] Glyph of the Transistor"
-		"item_rpc_zonik_glyph_2_1_description" 				"Enemies who carry Tachyon Shell also take the damage at an enhanced rate of @glyph_property1%."
+		"item_rpc_zonik_glyph_2_1_description" 				"Enemies who carry @Ability1 also take the damage at an enhanced rate of @glyph_property1%."
 
 		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_3_1"		"[T3-1] Glyph of the North Star"
 		"item_rpc_zonik_glyph_3_1_description" 				"@glyph_property1% chance to punch twice when casting Mach Punch."
@@ -12513,6 +12541,35 @@
 		"item_rpc_zonik_glyph_5_a_description" 				"Immediately cast @Ability2 on a random nearby enemy every <font color='#ccff66'>1.5</font> seconds."
 
 		"DOTA_Tooltip_modifier_sages_eyes"					"Sage's Eyes"
+		
+		//Column2Glyphs
+		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_book" 		"Zhonik Glyph Book"
+
+        "DOTA_Tooltip_ability_item_rpc_zonik_glyph_1_2"       "[T1-2] Glyph of Whiplash"
+        "item_rpc_zonik_glyph_1_2_description"                "[W3] calculates any stun or root as if it was at least <font color='#ccff66'>1</font> seconds in duration. Additionally increases [W3] area of effect by <font color='#ccff66'>150</font>."
+
+        "DOTA_Tooltip_ability_item_rpc_zonik_glyph_2_2"       "[T2-2] Glyph of Rush"
+        "item_rpc_zonik_glyph_2_2_description"                "Zhonik performs a short dash forward when Lightspeed is cast."
+
+        "DOTA_Tooltip_ability_item_rpc_zonik_glyph_3_2"       "[T3-2] Glyph of Juice"
+        "item_rpc_zonik_glyph_3_2_description"                "Each point of [E3] passively increases Magic Armor by <font color='#ccff66'>100</font> and @Ability3 Base Ability Damage by <font color='#ccff66'>2</font>%."
+
+        "DOTA_Tooltip_ability_item_rpc_zonik_glyph_4_2"       "[T4-2] Glyph of Mania"
+        "item_rpc_zonik_glyph_4_2_description"                "[E2] base damage increased by x<font color='#ccff66'>5</font> of current Mana value."
+
+        "DOTA_Tooltip_ability_item_rpc_zonik_glyph_5_2"       "[T5-2] Glyph of Ionic Wind"
+        "item_rpc_zonik_glyph_5_2_description"                "Allies affected by @Ability1 have their Agility increased by <font color='#ccff66'>270</font>."
+		
+		"DOTA_Tooltip_modifier_tachyon_shell_5_2_agility"		"Ionic Wind"
+		"DOTA_Tooltip_modifier_tachyon_shell_5_2_agility_Description"		"While Tachyon Shell is active, Agility is increased by <font color='#ccff66'>270</font>"
+
+        "DOTA_Tooltip_ability_item_rpc_zonik_glyph_6_2"       "[T6-2] Glyph of Chaos"
+        "item_rpc_zonik_glyph_6_2_description"                "[W4]'s delay before dealing damage is decreased by <font color='#ccff66'>1</font> second. Every time you damage an enemy that currently has [W4] active, there is a <font color='#ccff66'>4</font>% chance to not refresh [W4]'s duration on the target, or apply [W4] damage immediately if an enemy had no [W4] debuff. Echo damage also becomes unstable, varying between 50% and 150% of its expected value."
+
+        "DOTA_Tooltip_ability_item_rpc_zonik_glyph_7_2"       "[T7-2] Glyph of Racing"
+        "item_rpc_zonik_glyph_7_2_description"                "If your movespeed ever falls below <font color='#ccff66'>300</font>, gain a <font color='#ccff66'>180</font>% movement speed acceleration buff for <font color='#ccff66'>10</font> seconds."
+		"DOTA_Tooltip_modifier_zonik_glyph_7_2_movespeed"		"[T7-2] Glyph of Racing"
+		"DOTA_Tooltip_modifier_zonik_glyph_7_2_movespeed_Description"		"Movement Speed increased by <font color='#ccff66'>180</font>% for <font color='#ccff66'>10</font> seconds."
 		
 		//Weapons
 		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_00"		"Punch Glove"
@@ -13670,7 +13727,7 @@
 		"property_sapphire_dragon_description"				"Primary attribute is always Intelligence. Each point of Intelligence increases attack damage by an additional <font color='#ccff66'>0.25</font> and Armor/Magic Armor/Armor Pierce/Spell Pierce by <font color='#ccff66'>0.3</font>."
 
 		"item_rpc_sapphire_dragon_scale_armor_ruby1"						"Each point of Intelligence increases Armor by @ruby_property1"
-		"item_rpc_sapphire_dragon_scale_armor_emerald1"						"Each point of Intelligence increases Armor Pierce by @ruby_property1"
+		"item_rpc_sapphire_dragon_scale_armor_emerald1"						"Each point of Intelligence increases Armor Pierce by @emerald_property1"
 		"item_rpc_sapphire_dragon_scale_armor_sapphire1"						"Each point of Intelligence increases Base Attack Damage by @sapphire_property1"
 		"item_rpc_sapphire_dragon_scale_armor_amethyst1"						"Each point of Intelligence increases Magic Armor by @amethyst_property1"
 
