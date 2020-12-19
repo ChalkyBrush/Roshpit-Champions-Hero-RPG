@@ -5966,7 +5966,7 @@
         // General
         //
         "BaseClass"                 "npc_dota_creep"    // Class of entity of link to.
-        "Model"                     "models/creeps/item_creeps/i_creep_necro_archer/necro_archer.mdl"
+        "Model"                     "models/creeps/item_creeps/i_creep_necro_archer/necro_archer.vmdl"
         "SoundSet"                  "Creep_Good_Range"                  // Name of sound set.
         "ModelScale"                "0.6"
         "IsSummoned"                "1"
@@ -15414,7 +15414,7 @@
         // General
         //
         "BaseClass"                 "npc_dota_creep"    
-        "Model"                     "models/creeps/item_creeps/i_creep_necro_archer/necro_archer.mdl"
+        "Model"                     "models/creeps/item_creeps/i_creep_necro_archer/necro_archer.vmdl"
         "SoundSet"                  "Creep_Good_Range"            
         "Level"                     "1"
         "ModelScale"                "0.7"
@@ -68585,7 +68585,7 @@
         // General
 
         "BaseClass"                 "npc_dota_creature"    // Class of entity of link to.
-        "Model"                     "models/creeps/item_creeps/i_creep_necro_archer/necro_archer.mdl"
+        "Model"                     "models/creeps/item_creeps/i_creep_necro_archer/necro_archer.vmdl"
         "SoundSet"                  "Creep_Good_Range"                  // Name of sound set.
         "Level"                     "1"
         "ModelScale"                "0.6"
