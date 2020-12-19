@@ -12,7 +12,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ARKIMUS_Q1_ARMOR_REDUCTION %>"
+				"property_one"			"<% ARKIMUS_Q1_MAGIC_ARMOR_REDUCTION %>"
 			}
 		}
 	}
