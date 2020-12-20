@@ -1922,6 +1922,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 		local modifier = unit:FindModifierByName("modifier_slipfinn_e_4_assassin")
 		armor_pierce_modify = armor_pierce_modify + modifier:GetStackCount()*SLIPFINN_E4_ARMOR_AND_SPELL_PIERCE_AFTER_KILL
 	end
+	if unit:HasModifier("modifier_flamewaker_immortal_weapon_4") then
+		armor_pierce_modify = armor_pierce_modify + FLAMEWAKER_IMMORTAL_WEAPON_4_ARMOR_PIERCE_PER_INT * unit:GetIntellect()
+	end
 	if unit:GetUnitName() == "npc_dota_hero_axe" and unit:HasAbility("red_general_ability_base_r_sunder") then
 		local r_4_level = unit:GetRuneValue("r", 4)
 		armor_pierce_modify = armor_pierce_modify + r_4_level*RED_GENERAL_R4_ARMOR_PIERCE
