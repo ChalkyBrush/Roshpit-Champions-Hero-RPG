@@ -2707,8 +2707,9 @@ function GameState:FilterDamage(filterTable)
 		filterTable["damage"] = 0
 		Tanari:FireTempleFireShieldHit(victim)
 	end
-
-
+	if attacker:HasModifier("modifier_paladin_immortal_weapon_4_root") then
+		filterTable["damage"] = filterTable["damage"]*PALADIN_IMMORTAL_WEAPON_4_DMG_REDUCTION_PCT/100
+	end
 	if victim:HasModifier("modifier_arena_drill_spike") then
 		if attacker:GetEntityIndex() == Arena.ArenaMaster:GetEntityIndex() then
 		else
