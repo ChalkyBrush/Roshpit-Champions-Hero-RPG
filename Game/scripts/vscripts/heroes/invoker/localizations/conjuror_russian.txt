@@ -384,8 +384,8 @@
     	"DOTA_Tooltip_ability_conjuror_rune_q_3_arcana3_suffix"						"%"
 
   		"DOTA_Tooltip_ability_conjuror_rune_q_4_arcana3"						"[Q4] Mud Slash"
-    	"DOTA_Tooltip_ability_conjuror_rune_q_4_arcana3_Description"			"Противники, поврежденные Earth Shock, наносят сниженный урон."
-    	"DOTA_Tooltip_ability_conjuror_rune_q_4_arcana3_property_one"		"Урон противника снижен"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_4_arcana3_Description"			"Пассивно увеличивает урон <font color='#AF843D'>Земли</font>."
+    	"DOTA_Tooltip_ability_conjuror_rune_q_4_arcana3_property_one"		"Урон <font color='#AF843D'>Земли</font>"
     	"DOTA_Tooltip_ability_conjuror_rune_q_4_arcana3_suffix"				"%"
 		
 		"shadow_deity"														"Shadow Deity"

@@ -7353,8 +7353,6 @@ function RPCItems:RollImmortalByName(itemName, item_level)
         newItem = RPCItems:RollWaterDeityCrown(item_level)
     elseif itemName == "item_rpc_fire_deity_crown" then
         newItem = RPCItems:RollFireDeityCrown(item_level)
-    elseif itemName == "item_rpc_skulldigger_gauntlet_lv1" then
-        newItem = RPCItems:RollSkulldiggerGlovesLV1(item_level)
     elseif itemName == "item_rpc_shipyard_veil_lv1" then
         newItem = RPCItems:RollShipyardVeil(item_level)
     elseif itemName == "item_rpc_crimsyth_elite_greaves_lv1" then
@@ -7748,7 +7746,7 @@ function RPCItems:GetSoulBankableItemsList()
         "item_rpc_sacred_trials_armor", "item_rpc_gravekeepers_gauntlet", "item_rpc_conquest_stone_falcon", "item_rpc_epsilons_eyeglass", "item_rpc_heroic_conqueror_vestments",
         "item_rpc_autumn_sleeper_mask", "item_rpc_eye_of_seasons", "item_rpc_fenrirs_fang", "item_rpc_boots_of_ashara", "item_rpc_autumnrock_bracer",
         "item_rpc_guard_of_feronia", "item_rpc_fuchsia_ring", "item_rpc_helm_of_the_silent_templar", "item_rpc_mystic_mana_wall", "item_rpc_sandstream_slippers", "item_rpc_malachite_shade_bracer",
-        "item_rpc_wind_deity_crown", "item_rpc_water_deity_crown", "item_rpc_fire_deity_crown", "item_rpc_skulldigger_gauntlet_lv1", "item_rpc_shipyard_veil_lv1", "item_rpc_crimsyth_elite_greaves_lv1",
+        "item_rpc_wind_deity_crown", "item_rpc_water_deity_crown", "item_rpc_fire_deity_crown", "item_rpc_shipyard_veil_lv1", "item_rpc_crimsyth_elite_greaves_lv1",
         "item_rpc_harvester_boots", "item_rpc_fortunes_talisman_of_truth", "item_rpc_vermillion_dream_robes", "item_rpc_boots_of_great_fortune", "item_rpc_cobalt_serenity_ring",
         "item_rpc_emerald_nullification_ring", "item_rpc_garnet_warfare_ring", "item_rpc_claws_of_the_ethereal_revenant", "item_rpc_crimson_skull_cap", "item_rpc_hood_of_lords",
         "item_rpc_spellfire_gloves", "item_rpc_bloodstone_boots", "item_rpc_igneous_canine_helm", "item_rpc_barons_storm_armor", "item_rpc_serengaard_sun_crystal",

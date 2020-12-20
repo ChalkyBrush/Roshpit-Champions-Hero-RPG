@@ -31774,7 +31774,7 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "3"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "0.5"
 				    "MODIFIER_PROPERTY_MIN_HEALTH" "1"
 				}
 			}
@@ -31791,6 +31791,10 @@
 						"Function"		"show_fighter_think"
 						"target"		"TARGET"
 					}
+				}
+				"States"
+				{
+				"MODIFIER_STATE_ATTACK_ALLIES"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
 			"modifier_arena_enemy"
