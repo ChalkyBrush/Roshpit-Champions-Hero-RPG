@@ -249,6 +249,36 @@
 
 		"DOTA_Tooltip_modifier_sages_eyes"					"圣人之瞳"
 		
+		//Column2Glyphs
+		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_book" 		"钟尼克雕文书"
+
+        "DOTA_Tooltip_ability_item_rpc_zonik_glyph_1_2"       "[T1-2] 鞭挞雕文"
+        "item_rpc_zonik_glyph_1_2_description"                "[W3] 计算所有眩晕或者缠绕效果为 <% ZHONIK_GLYPH_1_2_W3_MIN_THRESHOLD_SEC %> 秒（受到一次该类debuff即获得10层效果）。额外增加 [W3] 的作用范围 <% ZHONIK_GLYPH_1_2_W3_AOE_INCREASE %>。"
+
+        "DOTA_Tooltip_ability_item_rpc_zonik_glyph_2_2"       "[T2-2] 冲刺雕文"
+        "item_rpc_zonik_glyph_2_2_description"                "钟尼克释放[E]时将会向前冲刺一小段距离。"
+
+        "DOTA_Tooltip_ability_item_rpc_zonik_glyph_3_2"       "[T3-2] 果汁雕文"
+        "item_rpc_zonik_glyph_3_2_description"                "每点 [E3] 被动提供魔甲 <% ZHONIK_GLYPH_3_2_E3_MAGIC_ARMOR %> 和 @Ability3 的基础技能伤害 <% ZHONIK_GLYPH_3_2_E3_BAD_PCT %>%。"
+
+        "DOTA_Tooltip_ability_item_rpc_zonik_glyph_4_2"       "[T4-2] 狂热雕文"
+        "item_rpc_zonik_glyph_4_2_description"                "[E2] 的基础伤害将会被提高，数值为 x<% ZHONIK_GLYPH_4_2_MANA_TO_E2_DMG_MULT %> 当前魔法值。"
+
+        "DOTA_Tooltip_ability_item_rpc_zonik_glyph_5_2"       "[T5-2] 离子之风雕文"
+        "item_rpc_zonik_glyph_5_2_description"                "受 @Ability1 影响的友军将会获得 <% ZHONIK_GLYPH_5_2_AGILITY %>点敏捷。"
+		
+		"DOTA_Tooltip_modifier_tachyon_shell_5_2_agility"		"离子之风"
+		"DOTA_Tooltip_modifier_tachyon_shell_5_2_agility_Description"		"受超光速粒子盾影响，敏捷值提高 <% ZHONIK_GLYPH_5_2_AGILITY %>"
+
+        "DOTA_Tooltip_ability_item_rpc_zonik_glyph_6_2"       "[T6-2] 混沌雕文"
+        "item_rpc_zonik_glyph_6_2_description"                "降低 [W4] 的结算延迟  <% ZHONIK_GLYPH_6_2_W4_DELAY_REDUCTION %> 秒。每次你对受[W4] 影响的敌人造成伤害时有 <% ZHONIK_GLYPH_6_2_W4_ZERO_DELAY_CHANCE %>% 概率不会刷新 [W4] 的持续时间, 如果目标不受 [W4] 影响，那么将会对其施加一层 [W4] 。回音的伤害将会变得不稳定，在 50% 之间浮动 150% 。"
+
+        "DOTA_Tooltip_ability_item_rpc_zonik_glyph_7_2"       "[T7-2] 赛跑雕文"
+        "item_rpc_zonik_glyph_7_2_description"                "如果你的移动速度低于 <% ZHONIK_GLYPH_7_2_MS_THRESHOLD %> 那么你将会获得 <% ZHONIK_GLYPH_7_2_MS_BURST_PCT %>% 移动速度提升，持续 <% ZHONIK_GLYPH_7_2_BURST_DURATION %> 秒。"
+		"DOTA_Tooltip_modifier_zonik_glyph_7_2_movespeed"		"[T7-2] 赛跑雕文"
+		"DOTA_Tooltip_modifier_zonik_glyph_7_2_movespeed_Description"		"移动速度提升 <% ZHONIK_GLYPH_7_2_MS_BURST_PCT %>% ，持续 <% ZHONIK_GLYPH_7_2_BURST_DURATION %> 秒。"
+		
+		
 		//Weapons
 		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_00"		"拳击手套"
 		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_01"		"野蛮手套"

@@ -33,7 +33,7 @@
     	"DOTA_Tooltip_ability_arkimus_rune_q_4_property_one"						"伤害提高"
     	"DOTA_Tooltip_ability_arkimus_rune_q_4_suffix"							"% 每100 护甲和魔甲"
     	"DOTA_Tooltip_ability_arkimus_rune_q_4_property_two"						"奥术闪电持续时间延长"
-    	"DOTA_Tooltip_ability_arkimus_rune_q_4_suffix_two"						" 秒"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_4_suffix_two"						" %"
 
     	"DOTA_Tooltip_ability_arkimus_flash_source"								"闪光源"
     	"DOTA_Tooltip_ability_arkimus_flash_source_Description"					"元素： <font color=ELEMENT_ARCANE>奥术</font><br>开启后一股奥术能量充盈阿基莫斯的武器，他的攻击将在目标周围的范围内造成额外的奥术伤害，每次攻击消耗一定的魔法值，当魔法值不足时将自动关闭。"
