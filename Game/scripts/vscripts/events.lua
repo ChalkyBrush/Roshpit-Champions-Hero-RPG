@@ -528,7 +528,12 @@ function GameMode:OnPlayerChat(keys)
 			print(random_gear_slot)
 			local item = RPCItems:RollRandomItemBySlot(4, level, random_gear_slot)
 			RPCItems:BasicDropItem(PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin(), item)
-
+		elseif check_command("-weapon_lvl") then
+			for i = 1, 10 do
+				Timers:CreateTimer(i / 5, function()
+					PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():UpdateWeaponEXP(2000000000)
+				end)
+			end
 		elseif check_command("-immo") then
 			local name = args[2]
 			local level = tonumber(args[3], 10) or 1
