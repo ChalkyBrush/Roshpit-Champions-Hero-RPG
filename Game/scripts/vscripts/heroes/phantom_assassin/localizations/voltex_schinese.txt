@@ -289,7 +289,7 @@
         "DOTA_Tooltip_ability_item_rpc_voltex_glyph_2_2"       "[T2-2] 潜能雕文"
         "item_rpc_voltex_glyph_2_2_description"                "增加 [W2] 的Buff效果作用范围 <% VOLTEX_GLYPH_2_2_W2_RADIUS_BONUS %>。"
 
-        "DOTA_Tooltip_ability_item_rpc_voltex_glyph_3_2"       "[T3-2] 伏特雕文
+        "DOTA_Tooltip_ability_item_rpc_voltex_glyph_3_2"       "[T3-2] 伏特雕文"
         "item_rpc_voltex_glyph_3_2_description"                "增加 [E2] 的范围 <% VOLTEX_GLYPH_3_2_E2_RADIUS_BONUS_PCT %>%。"
 
         "DOTA_Tooltip_ability_item_rpc_voltex_glyph_4_2"       "[T4-2] 完美雕文"

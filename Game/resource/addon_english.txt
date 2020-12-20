@@ -203,40 +203,6 @@
 		"tooltip_damage_type"			"DAMAGE TYPE"
 		"tooltip_rune_base_ability"		"BASE ABILITY"
 		
-		//--------------------
-		//Abilities
-		//--------------------
-
-    	//--------------------
-    	
-    	//--------------------
-    	//-
-    	//-----------------------MOUNTAIN PROTECTOR
-
-    	//CHERNOBOG
-
-	
-
-    	//d_d: Radius				
-
-    	//SOLUNIA
-
-    	//HYDROXIS
-
-    	//----EKKAN
-
-    	//ZONIK 
- 
-    	//ARKIMUS
-		//SLIPFINN
-
-    	
-    	//SEPHYR
-
-    	
-    	//DINATH
-
-    	
 
 		//------------------------
 		// Items
@@ -501,6 +467,7 @@
 		"DOTA_Tooltip_modifier_vitality_potion_2_Description"				"Health Regen increased by 0.5%%"
 		"DOTA_Tooltip_modifier_vitality_potion_3"				"Greater Vitality Potion"
 		"DOTA_Tooltip_modifier_vitality_potion_3_Description"				"Health Regen increased by 0.75%%"
+		"DOTA_Tooltip_Ability_item_stat_modifier"		"Stat Modifier"
     	//------------------------
 		// UI
 		//------------------------
@@ -744,21 +711,6 @@
 		"item_all_t3_runes"											"All T3 Runes"
 		"item_all_t4_runes"											"All T4 Runes"
 
-		//Seafortress Items:
-		//NOTE: From now on, item name will appear directly above its special property, as seen below:
-	
-		//0.02%
-
-		
-
-		//1 -> 1000
-
-
-		
-		//1: 80%
-
-		
-		//96
 		
 		//------------------------
 		//WEAPONS
@@ -802,6 +754,7 @@
 
 
 		"DOTA_Tooltip_ability_item_reanimation_stone"	"Reanimation Stone"
+		"DOTA_Tooltip_Ability_item_reanimation_stone_stackable"	"Reanimation Stone"
 		"reanimation_stone_desc"	"Resets all of your Runes and Abilities and refunds all points."
 
 		"DOTA_Tooltip_ability_item_rpc_synthesis_vessel"	"Synthesis Vessel"
@@ -932,85 +885,6 @@
 
 		"dialogue_glyph_shop_one"	"I can turn your Arcane Crystals into material enhancements."
 
-
-
-		//FLAMEWAKER
-
-		
-		//VOLTEX
-
-		
-		//VENOMORT
-
-		
-		//RED General
-
-     	
-		//Astral Ranger
-
-		
-
-		//Sorceress
-
-		
-		//Conjuror
-
-		
-
-		//Elemental Warlord
-
-		
-		//Bahamut
-
-
-		//Duskbringer
-
-		
-		//Auriun
-
-
-		//Trapper
-
-
-		//Spirit Warrior
-
-		
-		//Mountain Protector
-
-		
-		//Chernobog
-
-		
-
-		//Solunia
-
-		
-
-		//Hydroxis
-
-		
-
-		//Ekkan
-
-		
-
-		//Zonik
-
-
-		//Arkimus
-
-
-		//Djanghor
-		
-
-		//Slipfinn
-		
-
-		//Sephyr
-		
-
-		//Dinath
-		
 
 	    //------------------------
 		// Special Mobs
@@ -1712,91 +1586,6 @@
 		"DOTA_Tooltip_modifier_april_fools_pride_effect"	"Feeling GREAT!"
 
 
-		//IMMORTAL WEAPONS
-
-
-    	//IMMORTAL WEAPONS 2 + 3
-
-    	
-    	//VOLTEX
-    	
-    	// VENOMORT
-    	
-
-    	//RED GENERAL
-
-
-    	//ASTRAL RANGER
-    	
-
-    	//EPOCH
-    	
-
-
-    	//PALADIN
-    	
-
-
-        //SORCERESS
-
-
-        //Conjuror
-       
-
-        //Seinaru
-        
-
-        //WARLORD
-
-        
-        //BAHAMUT
-        
-
-        //DUSKBRINGER
-        
-
-        //Auriun
-       
-
-        //Trapper
-       
-
-        //Spirit Warrior
-        
-        //Mountain Protector
-
-        //Chernobog
-        
-        //Solunia
-        
-
-        //Hydroxis
-        
-
-        //Ekkan
-        
-
-        //ZHONIK
-
-        
-        //ARKIMUS
-        
-
-        //DJANGHOR
-
-
-        //SLIPFINN
-       
-
-        //SEPHYR
-        
-
-        //DINATH
-        
-
-		//REDFALL
-
-
 		//PVP Menu
 
 		"rpc_tooltip_pvp_menu"											"PVP Vote Menu"
@@ -2063,23 +1852,6 @@
 		"key_hover_tooltip"									"Click to withdraw."
 
 		"key_deposit"										"Deposit Key"
-
-		// SEA FORTRESS
-
-
-
-		//EVENT
-
-
-		//WINTERBLIGHT
-
-
-
-		//Winterblight ITEMS
-		
-
-
-		//WINTERBLIGHT ABILITIES AND BUFFS
 
 		//TREASURE GOBLINS
 		"treasure_goblin_rpc_redfall_ridge"					"Treasure Goblin"
@@ -6461,6 +6233,7 @@
 		"warlord_weapon_23"			"Thorium Forged Slicer"
 		"warlord_weapon_24"			"Nimble Silveraxes"
 		"warlord_weapon_25"			"Razorbounce Axes"
+		"DOTA_Tooltip_ability_item_rpc_warlord_weapon_00"   "Blunt Axe"
 		"DOTA_Tooltip_ability_item_rpc_warlord_weapon_01"   "Mighty Axes"
 		"DOTA_Tooltip_ability_item_rpc_warlord_weapon_02"   "Carved Slicer"
 		"DOTA_Tooltip_ability_item_rpc_warlord_weapon_03"   "Mystic Axe"

@@ -14022,7 +14022,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"0"
+				"property_one"			"-60"
 			}
 		}
 	}
@@ -14101,7 +14101,7 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_one"			"0.02"
 			}
 			"02"
@@ -41404,7 +41404,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0"
+				"property_one"			"0.04"
 			}
 		}
 	}
@@ -125032,7 +125032,7 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "3"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "0.5"
 				    "MODIFIER_PROPERTY_MIN_HEALTH" "1"
 				}
 			}
@@ -125049,6 +125049,10 @@
 						"Function"		"show_fighter_think"
 						"target"		"TARGET"
 					}
+				}
+				"States"
+				{
+				"MODIFIER_STATE_ATTACK_ALLIES"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
 			"modifier_arena_enemy"

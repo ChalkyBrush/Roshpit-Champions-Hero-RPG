@@ -5065,7 +5065,7 @@
         // General
         //
         "BaseClass"                 "npc_dota_broodmother_spiderling"   // Class of entity of link to.
-        "Model"                     "models/heroes/broodmother/spiderling.mdl"  // Model.
+        "Model"                     "models/heroes/broodmother/spiderling.vmdl"  // Model.
         "SoundSet"                  "0"                 // Name of sound set.
         "ModelScale"                ".4"                                // old 1.0
         "IsSummoned"                "1"
@@ -8606,7 +8606,7 @@
         // General
         //
         "BaseClass"                 "npc_dota_creep"    // Class of entity of link to.
-        "Model"                     "models/creeps/item_creeps/i_creep_necro_archer/necro_archer.mdl"
+        "Model"                     "models/creeps/item_creeps/i_creep_necro_archer/necro_archer.vmdl"
         "SoundSet"                  "Creep_Good_Range"                  // Name of sound set.
         "ModelScale"                "0.6"
         "IsSummoned"                "1"
@@ -10466,14 +10466,14 @@
             "particle"  "particles/units/heroes/hero_tinker/tinker_base_attack.vpcf"
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_tinker.vsndevts"
             "particle"  "particles/econ/items/storm_spirit/storm_spirit_orchid_hat/stormspirit_orchid_ball_end.vpcf"
-            "model"     "models/heroes/tinker/tinker_right_arm.mdl"
-            "model"     "models/heroes/tinker/tinker_left_arm.mdl"
+            "model"     "models/heroes/tinker/tinker_right_arm.vmdl"
+            "model"     "models/heroes/tinker/tinker_left_arm.vmdl"
             "particle_folder" "particles/units/heroes/hero_rattletrap"
             "particle"      "particles/econ/items/tinker/tinker_motm_rollermaw/tinker_rollermaw_motm.vpcf"
             "model"     "models/heroes/tinker/tinker_shoulders.vmdl"
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_rattletrap.vsndevts"
             "particle"  "particles/units/heroes/hero_rattletrap/rattletrap_rocket_flare.vpcf"
-            "model"     "models/heroes/tinker/tinker_cape.mdl"
+            "model"     "models/heroes/tinker/tinker_cape.vmdl"
             "particle"  "particles/units/heroes/hero_tinker/tinker_missile.vpcf"
             "model"     "models/items/tinker/roller_mawster/roller_mawster.vmdl"
             "particle"  "particles/status_fx/status_effect_gods_strength.vpcf"
@@ -18054,7 +18054,7 @@
         // General
         //
         "BaseClass"                 "npc_dota_creep"    
-        "Model"                     "models/creeps/item_creeps/i_creep_necro_archer/necro_archer.mdl"
+        "Model"                     "models/creeps/item_creeps/i_creep_necro_archer/necro_archer.vmdl"
         "SoundSet"                  "Creep_Good_Range"            
         "Level"                     "1"
         "ModelScale"                "0.7"
@@ -20305,7 +20305,7 @@
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_pugna.vsndevts"
             "particle"  "particles/units/heroes/hero_pugna/pugna_ward_attack.vpcf"
             "particle"  "particles/econ/items/pugna/pugna_ward_ti5/pugna_ward_lightning.vpcf"
-            "particle"  "particles/units/heroes/hero_alchemist/epoch_rune_r_1_concoction_projectile.vpcf"
+            "particle"  "particles/units/heroes/hero_alchemist/epoch_rune_a_d_concoction_projectile.vpcf"
             "particle"   "particles/units/heroes/hero_pugna/pugna_netherblast.vpcf"
             "particle"  "particles/units/heroes/hero_undying/undying_loadout.vpcf"
             "particle"  "particles/items3_fx/courtyard_summoner_shield.vpcf"
@@ -42974,8 +42974,8 @@
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "10000"
-        "AttackDamageMax"   "30000"
+        "AttackDamageMin"   "100"
+        "AttackDamageMax"   "300"
         "AttackRate"    "1.2"
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "1500"
@@ -42994,7 +42994,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "330"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "1040000"
+        "StatusHealth"  "7000"
         "StatusHealthRegen" "10"
         "StatusMana"    "2000"
         "StatusManaRegen"   "20"
@@ -43042,7 +43042,7 @@
         "RoshpitArmorPierce"    "540"
         "RoshpitSpellPierce"    "240"
         "RoshpitMagicArmor"     "440"
-        "RoshpitLevel"          "40"
+        "RoshpitLevel"          "1"
         "RoshpitDominion"       "0"
         "EnemyTier"             "2"
     }
@@ -43067,8 +43067,8 @@
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "30000"
-        "AttackDamageMax"   "40000"
+        "AttackDamageMin"   "50"
+        "AttackDamageMax"   "60"
         "AttackRate"    "1.2"
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "1500"
@@ -43087,8 +43087,8 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "330"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "1340000"
-        "StatusHealthRegen" "10"
+        "StatusHealth"  "1"
+        "StatusHealthRegen" "0"
         "StatusMana"    "2000"
         "StatusManaRegen"   "20"
         "VisionDaytimeRange"    "0"
@@ -43139,7 +43139,7 @@
         "RoshpitArmorPierce"    "540"
         "RoshpitSpellPierce"    "240"
         "RoshpitMagicArmor"     "440"
-        "RoshpitLevel"          "40"
+        "RoshpitLevel"          "1"
         "RoshpitDominion"       "0"
         "EnemyTier"             "2"
     }
@@ -45257,7 +45257,7 @@
             "soundfile"      "soundevents/game_sounds_heroes/game_sounds_spectre.vsndevts"
             "particle"  "particles/units/heroes/hero_pugna/pugna_ward_attack.vpcf"
             "particle"  "particles/econ/items/pugna/pugna_ward_ti5/pugna_ward_lightning.vpcf"
-            "particle"  "particles/units/heroes/hero_alchemist/epoch_rune_r_1_concoction_projectile.vpcf"
+            "particle"  "particles/units/heroes/hero_alchemist/epoch_rune_a_d_concoction_projectile.vpcf"
             "particle"   "particles/units/heroes/hero_pugna/pugna_netherblast.vpcf"
         }
         "ArmorPhysical" "0"
@@ -71225,7 +71225,7 @@
         // General
 
         "BaseClass"                 "npc_dota_creature"    // Class of entity of link to.
-        "Model"                     "models/creeps/item_creeps/i_creep_necro_archer/necro_archer.mdl"
+        "Model"                     "models/creeps/item_creeps/i_creep_necro_archer/necro_archer.vmdl"
         "SoundSet"                  "Creep_Good_Range"                  // Name of sound set.
         "Level"                     "1"
         "ModelScale"                "0.6"

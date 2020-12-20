@@ -2582,7 +2582,7 @@
     	"DOTA_Tooltip_ability_arkimus_rune_q_4_property_one"						"伤害提高"
     	"DOTA_Tooltip_ability_arkimus_rune_q_4_suffix"							"% 每100 护甲和魔甲"
     	"DOTA_Tooltip_ability_arkimus_rune_q_4_property_two"						"奥术闪电持续时间延长"
-    	"DOTA_Tooltip_ability_arkimus_rune_q_4_suffix_two"						" 秒"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_4_suffix_two"						" %"
 
     	"DOTA_Tooltip_ability_arkimus_flash_source"								"闪光源"
     	"DOTA_Tooltip_ability_arkimus_flash_source_Description"					"元素： <font color='#E1A2E8'>奥术</font><br>开启后一股奥术能量充盈阿基莫斯的武器，他的攻击将在目标周围的范围内造成额外的奥术伤害，每次攻击消耗一定的魔法值，当魔法值不足时将自动关闭。"
@@ -11852,28 +11852,28 @@
 		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_5_a"	"[T5-a] 离子雕文"
 		"item_rpc_voltex_glyph_5_a_description" 			"延长 @Ability1 的持续时间  <font color='#ccff66'>100</font>%。"
 		//Column2Glyphs
-		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_book" 		"Voltex Glyph Book"
+		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_book" 		"电光使者雕文书"
 
-        "DOTA_Tooltip_ability_item_rpc_voltex_glyph_1_2"       "[T1-2] Glyph of Focused Remnants"
-        "item_rpc_voltex_glyph_1_2_description"                "Lightning Remnants' HP value multiplies by <font color='#ccff66'>1.5</font>."
+        "DOTA_Tooltip_ability_item_rpc_voltex_glyph_1_2"       "[T1-2] 残像雕文"
+        "item_rpc_voltex_glyph_1_2_description"                "增加[E1]的残像的生命值 <font color='#ccff66'>1.5</font>倍。"
 
-        "DOTA_Tooltip_ability_item_rpc_voltex_glyph_2_2"       "[T2-2] Glyph of Potential"
-        "item_rpc_voltex_glyph_2_2_description"                "Radius of ally search for [W2] increased by <font color='#ccff66'>180</font>."
+        "DOTA_Tooltip_ability_item_rpc_voltex_glyph_2_2"       "[T2-2] 潜能雕文"
+        "item_rpc_voltex_glyph_2_2_description"                "增加 [W2] 的Buff效果作用范围 <font color='#ccff66'>180</font>。"
 
-        "DOTA_Tooltip_ability_item_rpc_voltex_glyph_3_2"       "[T3-2] Glyph of Step Voltage"
-        "item_rpc_voltex_glyph_3_2_description"                "[E2] radius increased by <font color='#ccff66'>50</font>%."
+        "DOTA_Tooltip_ability_item_rpc_voltex_glyph_3_2"       "[T3-2] 伏特雕文"
+        "item_rpc_voltex_glyph_3_2_description"                "增加 [E2] 的范围 <font color='#ccff66'>50</font>%。"
 
-        "DOTA_Tooltip_ability_item_rpc_voltex_glyph_4_2"       "[T4-2] Glyph of Perfection"
-        "item_rpc_voltex_glyph_4_2_description"                "Voltex's attacks always have True Strike."
+        "DOTA_Tooltip_ability_item_rpc_voltex_glyph_4_2"       "[T4-2] 完美雕文"
+        "item_rpc_voltex_glyph_4_2_description"                "电光使者的普通攻击拥有克敌机先效果。"
 
-        "DOTA_Tooltip_ability_item_rpc_voltex_glyph_5_2"       "[T5-2] Glyph of Electrophoresis"
-        "item_rpc_voltex_glyph_5_2_description"                "Every cast of @Ability2 heals Voltex by <font color='#ccff66'>700</font>."
+        "DOTA_Tooltip_ability_item_rpc_voltex_glyph_5_2"       "[T5-2] 电泳雕文"
+        "item_rpc_voltex_glyph_5_2_description"                "每次释放 @Ability2 都会回复电光使者 <font color='#ccff66'>700</font> 生命值。"
 
-        "DOTA_Tooltip_ability_item_rpc_voltex_glyph_6_2"       "[T6-2] Glyph of Ionization"
-        "item_rpc_voltex_glyph_6_2_description"                "@Ability4 damage per spark value increased by <font color='#ccff66'>5000</font>. Sparks have decreased speed but greatly increased lifetime."
+        "DOTA_Tooltip_ability_item_rpc_voltex_glyph_6_2"       "[T6-2] 电离雕文"
+        "item_rpc_voltex_glyph_6_2_description"                "提高每一个 @Ability4 的闪电球的伤害 <font color='#ccff66'>5000</font>。闪电球将会存在更久,但是飞行速度将会降低。"
 
-        "DOTA_Tooltip_ability_item_rpc_voltex_glyph_7_2"       "[T7-2] Glyph of Blasting Thunder"
-        "item_rpc_voltex_glyph_7_2_description"                "[R2] deals damage and applies its debuff to all enemies in <font color='#ccff66'>270</font> area around the main target."
+        "DOTA_Tooltip_ability_item_rpc_voltex_glyph_7_2"       "[T7-2] 雷暴雕文"
+        "item_rpc_voltex_glyph_7_2_description"                "[R2] 将会对主目标周围 <font color='#ccff66'>270</font> 范围内的敌人造成伤害并且施加减甲。"
 
 		"DOTA_Tooltip_modifier_voltex_rune_e_2_slow_glyphed"	"电子效应"
 		"DOTA_Tooltip_modifier_voltex_rune_e_2_slow_glyphed_Description"	"减速"
@@ -12153,6 +12153,36 @@
 		"item_rpc_zonik_glyph_5_a_description" 				"每<font color='#ccff66'>1.5</font>秒向周围随机一个敌人释放一次 @Ability2 。"
 
 		"DOTA_Tooltip_modifier_sages_eyes"					"圣人之瞳"
+		
+		//Column2Glyphs
+		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_book" 		"钟尼克雕文书"
+
+        "DOTA_Tooltip_ability_item_rpc_zonik_glyph_1_2"       "[T1-2] 鞭挞雕文"
+        "item_rpc_zonik_glyph_1_2_description"                "[W3] 计算所有眩晕或者缠绕效果为 <font color='#ccff66'>1</font> 秒（受到一次该类debuff即获得10层效果）。额外增加 [W3] 的作用范围 <font color='#ccff66'>150</font>。"
+
+        "DOTA_Tooltip_ability_item_rpc_zonik_glyph_2_2"       "[T2-2] 冲刺雕文"
+        "item_rpc_zonik_glyph_2_2_description"                "钟尼克释放[E]时将会向前冲刺一小段距离。"
+
+        "DOTA_Tooltip_ability_item_rpc_zonik_glyph_3_2"       "[T3-2] 果汁雕文"
+        "item_rpc_zonik_glyph_3_2_description"                "每点 [E3] 被动提供魔甲 <font color='#ccff66'>100</font> 和 @Ability3 的基础技能伤害 <font color='#ccff66'>2</font>%。"
+
+        "DOTA_Tooltip_ability_item_rpc_zonik_glyph_4_2"       "[T4-2] 狂热雕文"
+        "item_rpc_zonik_glyph_4_2_description"                "[E2] 的基础伤害将会被提高，数值为 x<font color='#ccff66'>5</font> 当前魔法值。"
+
+        "DOTA_Tooltip_ability_item_rpc_zonik_glyph_5_2"       "[T5-2] 离子之风雕文"
+        "item_rpc_zonik_glyph_5_2_description"                "受 @Ability1 影响的友军将会获得 <font color='#ccff66'>270</font>点敏捷。"
+		
+		"DOTA_Tooltip_modifier_tachyon_shell_5_2_agility"		"离子之风"
+		"DOTA_Tooltip_modifier_tachyon_shell_5_2_agility_Description"		"受超光速粒子盾影响，敏捷值提高 <font color='#ccff66'>270</font>"
+
+        "DOTA_Tooltip_ability_item_rpc_zonik_glyph_6_2"       "[T6-2] 混沌雕文"
+        "item_rpc_zonik_glyph_6_2_description"                "降低 [W4] 的结算延迟  <font color='#ccff66'>1</font> 秒。每次你对受[W4] 影响的敌人造成伤害时有 <font color='#ccff66'>4</font>% 概率不会刷新 [W4] 的持续时间, 如果目标不受 [W4] 影响，那么将会对其施加一层 [W4] 。回音的伤害将会变得不稳定，在 50% 之间浮动 150% 。"
+
+        "DOTA_Tooltip_ability_item_rpc_zonik_glyph_7_2"       "[T7-2] 赛跑雕文"
+        "item_rpc_zonik_glyph_7_2_description"                "如果你的移动速度低于 <font color='#ccff66'>300</font> 那么你将会获得 <font color='#ccff66'>180</font>% 移动速度提升，持续 <font color='#ccff66'>10</font> 秒。"
+		"DOTA_Tooltip_modifier_zonik_glyph_7_2_movespeed"		"[T7-2] 赛跑雕文"
+		"DOTA_Tooltip_modifier_zonik_glyph_7_2_movespeed_Description"		"移动速度提升 <font color='#ccff66'>180</font>% ，持续 <font color='#ccff66'>10</font> 秒。"
+		
 		
 		//Weapons
 		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_00"		"拳击手套"
