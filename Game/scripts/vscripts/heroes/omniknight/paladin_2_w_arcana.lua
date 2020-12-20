@@ -208,7 +208,12 @@ function penance_impact(event)
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do
 			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_HOLY, RPC_ELEMENT_GHOST)
-			ability:ApplyDataDrivenModifier(caster, enemy, "modifier_paladin_glyph_1_2_effect", {duration = 8})
+			if caster:HasModifier("modifier_paladin_glyph_1_2") then
+				ability:ApplyDataDrivenModifier(caster, enemy, "modifier_paladin_glyph_1_2_effect", {duration = PALADIN_GLYPH_1_2_AS_SLOW_DURATION)
+			end
+			if caster:HasModifier("modifier_paladin_immortal_weapon_4") then
+				ability:ApplyDataDrivenModifier(caster, target, "modifier_paladin_immortal_weapon_4_root", {duration = PALADIN_IMMORTAL_WEAPON_4_ROOT_DURATION})			
+			end
 		end
 	end
 	if ability.w_2_level > 0 then

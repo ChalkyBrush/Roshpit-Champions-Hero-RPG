@@ -121,9 +121,14 @@ function cone_impact(event)
 			Filters:ApplyHeal(caster, target, amount, false)
 		end
 	else
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_paladin_glyph_1_2_effect", {duration = 8})
+		if caster:HasModifier("modifier_paladin_glyph_1_2") then
+			ability:ApplyDataDrivenModifier(caster, enemy, "modifier_paladin_glyph_1_2_effect", {duration = PALADIN_GLYPH_1_2_AS_SLOW_DURATION})
+		end
 		Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 		paladin_w_1_apply(caster, target, ability)
+		if caster:HasModifier("modifier_paladin_immortal_weapon_4") then
+			ability:ApplyDataDrivenModifier(caster, target, "modifier_paladin_immortal_weapon_4_root", {duration = PALADIN_IMMORTAL_WEAPON_4_ROOT_DURATION})			
+		end
 	end
 end
 

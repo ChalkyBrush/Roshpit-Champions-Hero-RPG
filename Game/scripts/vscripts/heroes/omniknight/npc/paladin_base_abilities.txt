@@ -244,6 +244,25 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-160"
 				}
 			}
+			"modifier_paladin_immortal_weapon_4_root"
+			{
+				"TextureName"	"rpc/paladin_justice_overwhelming"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"			"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"        "particles/units/heroes/hero_chen/chen_penitence_c.vpcf"
+						"EffectAttachType"  "follow_origin"
+						"Target"            "TARGET"
+					}
+				}
+			}
 		}
 	}
 
