@@ -164,7 +164,7 @@ function voltex_rune_r_2_onattacklanded(event)
 			Filters:MagicImmuneBreak(attacker, target)
 		end
 		if attacker:HasModifier("modifier_voltex_glyph_7_2") then
-			CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_stormspirit/stormspirit_static_remnant.vpcf", target:GetAbsOrigin(), 0.03)
+			CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_stormspirit/stormspirit_static_remnant_points.vpcf", target:GetAbsOrigin(), 0.03)
 			local enemies = FindUnitsInRadius(attacker:GetTeamNumber(), target:GetAbsOrigin(), nil, VOLTEX_GLYPH_7_2_R2_AOE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 			if #enemies > 0 then
 				for _, enemy in pairs(enemies) do

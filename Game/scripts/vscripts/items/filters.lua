@@ -233,6 +233,9 @@ function Filters:GetAdjustedRange(caster, baseRange)
     if caster:HasModifier("modifier_vermillion_dream_lua") then
         baseRange = baseRange + ITEM_RPC_VERMILLION_DREAM_ROBES_CAST_RANGE_INCREASE
     end
+	if caster:HasModifier("modifier_epoch_immortal_weapon_4") then
+        baseRange = baseRange - EPOCH_IMMORTAL_WEAPON_4_RANGE_REDUCTION
+    end
     return baseRange
 end
 
@@ -6849,6 +6852,9 @@ function Filters:CalculateTotalCastRangeBonus(hero)
     end
     if hero:GetUnitName() == "npc_dota_hero_grimstroke" then
         range_bonus = range_bonus + hero:GetRuneValue("q", 1)*RUBILASH_RUNE_Q1_CAST_RANGE
+    end
+	if caster:HasModifier("modifier_epoch_immortal_weapon_4") then
+        range_bonus = range_bonus - EPOCH_IMMORTAL_WEAPON_4_RANGE_REDUCTION
     end
     return range_bonus
 end
