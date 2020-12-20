@@ -6,6 +6,8 @@
 	"DOTA_Tooltip_ability_red_general_ability_base_q_skull_basher_buff_duration"		"BUFF DURATION:"
 	"DOTA_Tooltip_ability_red_general_ability_base_q_skull_basher_duration"				"STUN DURATION:"
 	"DOTA_Tooltip_ability_red_general_ability_base_q_skull_basher_bolt_aoe"				"SPLASH BASE RADIUS:"
+	"DOTA_Tooltip_modifier_stun_attack"									"Skull Basher"
+	"DOTA_Tooltip_modifier_stun_attack_Description"						"Attacks have splash damage and stun all afffected targets."
 		
 	"DOTA_Tooltip_ability_axe_rune_q_1"                             "[Q1] Massive Impact"
         "DOTA_Tooltip_ability_axe_rune_q_1_Description"                 "Increases the base damage of Skull Basher by a % of attack damage."
@@ -321,5 +323,9 @@
 
         "DOTA_Tooltip_ability_item_rpc_axe_immortal_weapon_3"            "Ragnar's Thunderax"
         "item_property_axe_immortal_weapon3"                            "Overpower"
-        "property_axe_immortal_weapon3_description"                        "Increase Cyclone Shield stacks by <% RED_GENERAL_IMMORTAL_WEAPON_3_BONUS_SHIELDS_PERCENT %>% when beginning the channel of @Ability4" 	
+        "property_axe_immortal_weapon3_description"                        "Increase Cyclone Shield stacks by <% RED_GENERAL_IMMORTAL_WEAPON_3_BONUS_SHIELDS_PERCENT %>% when beginning the channel of @Ability4" 
+
+		"DOTA_Tooltip_ability_item_rpc_axe_immortal_weapon_4"            "Macuahuitl"
+        "item_property_axe_immortal_weapon4"                            "Double-Edge"
+        "property_axe_immortal_weapon4_description"                        "The duration of @Ability1 is refreshed when landing an attack on an enemy. The Red General loses <% RED_GENERAL_IMMORTAL_WEAPON_4_HP_PCT_LOSS_PER_ATTACK %>% of his current health each time he attacks an enemy during @Ability1."		
  
