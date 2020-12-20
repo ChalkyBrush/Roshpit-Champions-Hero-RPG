@@ -2348,6 +2348,18 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             end
         end
     end
+	if unitName == "npc_dota_hero_phantom_assassin" then
+		if attacker:HasModifier("modifier_voltex_immortal_weapon_4") then
+			if bIsRealDamage then
+				if element1 == RPC_ELEMENT_LIGHTNING then
+					element2 = RPC_ELEMENT_ICE
+				end
+				if element2 == RPC_ELEMENT_LIGHTNING and element1 ~= RPC_ELEMENT_LIGHTNING then
+					element1 = RPC_ELEMENT_ICE
+				end
+			end
+		end
+	end
     if element1 > 1 or element2 > 1 then
         if attacker:HasModifier("modifier_demonfire_stack") then
             local stacks = attacker:GetModifierStackCount("modifier_demonfire_stack", attacker.InventoryUnit)
