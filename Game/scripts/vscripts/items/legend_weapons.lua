@@ -536,3 +536,130 @@ function Weapons:RollJexLegendWeapon2a(location, disableDrop)
 	end
 	return weapon
 end
+
+function Weapons:RollLegendWeapon4(location, class, strictMaxItemLevel, disableDrop)
+	local rarity = RPC_ITEMS_RARITY_IMMORTAL
+	local itemName = ""
+	local item_level = math.max(RPCItems:RollItemLevelFromUnit(100), 100)
+	local mainAttrRoll = RandomInt(1, 3)
+	local internalName = class
+	local whichHero = HerosCustom:ConvertRPCNameToStringHeroNameSeinaru(class)
+	local maxLevel = 10
+	local item_slot = RPC_GEAR_SLOT_WEAPON
+	local weaponName = "item_rpc_"..internalName.."_immortal_weapon_4"
+
+	local weapon = Weapons:CreateWeaponVariant(weaponName, rarity, "Legend Weapon4", "weapon", true, "Slot: Weapon", whichHero, maxLevel, item_level)
+	weapon.newItemTable.minLevel = item_level
+
+	if internalName == "voltex"	then
+		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_4", "#88ECF7", nil, 4)
+		Weapons:SetLegendWeaponProperty2(weapon, "element_ice", 2)
+	elseif internalName == "venomort" then	
+		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_4", "#82C46D", nil, 4)
+		Weapons:SetLegendWeaponProperty2(weapon, "element_undead", 2)
+	elseif internalName == "axe" then
+		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_4", "#EDDFDC", nil, 4)
+		Weapons:SetLegendWeaponProperty2(weapon, "max_health", 2.5)
+	elseif internalName == "astral" then	
+		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_4", "#BC96F2", nil, 4)
+		Weapons:SetLegendWeaponProperty2(weapon, "base_ability", 2)
+	elseif internalName == "paladin" then	
+		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_4", "#82C46D", nil, 4)
+		Weapons:SetLegendWeaponProperty2(weapon, "base_ability", 2)
+	elseif internalName == "sorceress" then
+		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_4", "#E88640", nil, 4)
+		Weapons:SetLegendWeaponProperty2(weapon, "spirit", 2)
+	elseif internalName == "conjuror" then
+		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_4", "#C4FFE6", nil, 4)
+		Weapons:SetLegendWeaponProperty2(weapon, "attack_damage", 2)
+	elseif internalName == "seinaru" then
+		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_4", "#ABDD71", nil, 4)
+		Weapons:SetLegendWeaponProperty2(weapon, "intelligence", 2)
+	elseif internalName == "warlord" then
+		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_4", "#F4A86E", nil, 4)
+		Weapons:SetLegendWeaponProperty2(weapon, "movespeed", 2)
+	elseif internalName == "bahamut" then
+		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_4", "#ADCCFF", nil, 4)
+		Weapons:SetLegendWeaponProperty2(weapon, "all_attributes", 2.5)
+	elseif internalName == "auriun" then
+		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_4", "#9B53C1", nil, 4)
+		Weapons:SetLegendWeaponProperty2(weapon, "spirit", 2.5)
+	elseif internalName == "duskbringer" then
+		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_4", "#9EE2D3", nil, 4)
+		Weapons:SetLegendWeaponProperty2(weapon, "magic_armor", 4)
+	elseif internalName == "trapper" then
+		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_4", "#BBEAC0", nil, 4)
+		Weapons:SetLegendWeaponProperty2(weapon, "element_normal", 1)
+	elseif internalName == "spirit_warrior" then
+		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_4", "#A1C6A5", nil, 4)
+		Weapons:SetLegendWeaponProperty2(weapon, "spirit", 3)
+	elseif internalName == "mountain_protector" then
+		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_4", "#C6C63F", nil, 4)
+		Weapons:SetLegendWeaponProperty2(weapon, "element_fire", 2)
+	elseif internalName == "chernobog" then
+		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_4", "#796DC6", nil, 4)
+		Weapons:SetLegendWeaponProperty2(weapon, "element_demon", 1.5)
+	elseif internalName == "hydroxis" then
+		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_4", "#5FB6F4", nil, 4)
+		Weapons:SetLegendWeaponProperty2(weapon, "element_water", 3)
+	elseif internalName == "ekkan" then
+		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_4", "#959BB2", nil, 4)
+		Weapons:SetLegendWeaponProperty2(weapon, "element_undead", 2)
+	elseif internalName == "zonik" then
+		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_4", "#63FFAC", nil, 4)
+		Weapons:SetLegendWeaponProperty2(weapon, "max_mana", 4)
+	elseif internalName == "arkimus" then
+		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_4", "#A6A9FC", nil, 4)
+		Weapons:SetLegendWeaponProperty2(weapon, "element_lightning", 2)
+	elseif internalName == "djanghor" then
+		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_4", "#4D7EC6", nil, 4)
+		Weapons:SetLegendWeaponProperty2(weapon, "spirit", 2)
+	elseif internalName == "slipfinn" then
+		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_4", "#4843BA", nil, 4)
+		Weapons:SetLegendWeaponProperty2(weapon, "element_water", 2)
+	elseif internalName == "sephyr" then
+		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_4", "#5AEDA1", nil, 4)
+		Weapons:SetLegendWeaponProperty2(weapon, "element_holy", 3)
+	elseif internalName == "dinath" then
+		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_4", "#643EBC", nil, 4)
+		Weapons:SetLegendWeaponProperty2(weapon, "element_fire", 2)
+	elseif internalName == "jex" then
+		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_4", "#C25DFC", nil, 4)
+		Weapons:SetLegendWeaponProperty2(weapon, "attack_speed", 2)
+	elseif internalName == "omniro" then
+		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_4", "#3289C7", nil, 4)
+		Weapons:SetLegendWeaponProperty2(weapon, "element_normal", 1)
+	elseif internalName == "rubilash" then
+		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_4", "#9cf0b1", nil, 4)
+		Weapons:SetLegendWeaponProperty2(weapon, "base_ability", 2)
+	end
+
+
+	local property = RPCItems.REGULAR_PROPERTIES[RPC_GEAR_SLOT_WEAPON][RandomInt(1, #RPCItems.REGULAR_PROPERTIES[RPC_GEAR_SLOT_WEAPON])]
+	if property == "t1_rune" or property == "t2_rune" or property == "t3_rune" or property == "t4_rune" then
+		weapon.newItemTable.property3 = RPCItems:RollGearAttributeValue(item_level, nil, nil, Weapons.AttributeBaseRolls[property])
+		weapon.newItemTable.property3name = RPCItems:TranslateRuneRoll(property)
+		RPCItems:SetPropertyValues(weapon, weapon.newItemTable.property3, "rune", "#7DFF12", 3)
+	else
+		weapon.newItemTable.property3 = RPCItems:RollGearAttributeValue(item_level, nil, nil, Weapons.AttributeBaseRolls[property])
+		weapon.newItemTable.property3name = property
+		RPCItems:SetPropertyValues(weapon, weapon.newItemTable.property3, "item_"..property, RPCItems.PROPERTY_COLORS[property], 3)
+	end
+
+	local property = RPCItems.REGULAR_PROPERTIES[RPC_GEAR_SLOT_WEAPON][RandomInt(1, #RPCItems.REGULAR_PROPERTIES[RPC_GEAR_SLOT_WEAPON])]
+	if property == "t1_rune" or property == "t2_rune" or property == "t3_rune" or property == "t4_rune" then
+		weapon.newItemTable.property4 = RPCItems:RollGearAttributeValue(item_level, nil, nil, Weapons.AttributeBaseRolls[property])
+		weapon.newItemTable.property4name = RPCItems:TranslateRuneRoll(property)
+		RPCItems:SetPropertyValues(weapon, weapon.newItemTable.property4, "rune", "#7DFF12", 4)
+	else
+		weapon.newItemTable.property4 = RPCItems:RollGearAttributeValue(item_level, nil, nil, Weapons.AttributeBaseRolls[property])
+		weapon.newItemTable.property4name = property
+		RPCItems:SetPropertyValues(weapon, weapon.newItemTable.property4, "item_"..property, RPCItems.PROPERTY_COLORS[property], 4)
+	end
+
+	RPCItems:SetBaseItemValues(weapon, item_variant, false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, RPC_GEAR_SLOT_WEAPON)
+	if not disableDrop then
+		RPCItems:BasicDropItem(location, weapon)
+	end
+	return weapon
+end
