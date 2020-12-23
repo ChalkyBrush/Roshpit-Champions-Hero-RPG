@@ -30,7 +30,7 @@ end
 function itemClass:RollProperty1(item_level)
 	self.newItemTable.property1 = 1
 	self.newItemTable.property1name = "immortal_weapon_4"
-	RPCItems:SetPropertyValuesSpecial(self, "★", "#item_property_"..self:RequiredHero().."_immortal_weapon4", "#D64FD3", 1, "#property_"..self:RequiredHero().."_immortal_weapon3_description")
+	RPCItems:SetPropertyValuesSpecial(self, "★", "#item_property_"..self:RequiredHero().."_immortal_weapon4", "#D64FD3", 1, "#property_"..self:RequiredHero().."_immortal_weapon4_description")
 end
 
 function itemClass:RollProperty2(item_level)
@@ -53,6 +53,10 @@ end
 
 function modifierClass:IsHidden()
     return true
+end
+
+function modifierClass:GetEffectName()
+	return "particles/solunia/solunia_weapon_4_loop.vpcf"
 end
 
 function modifierClass:IsBuff()
