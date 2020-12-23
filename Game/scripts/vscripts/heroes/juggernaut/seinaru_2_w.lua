@@ -105,7 +105,9 @@ function smoke_hit(event)
 	local target = event.target
 	if not target.seinaru_w_cast_number or ability.cast_number ~= target.seinaru_w_cast_number then
 		local damage = SEINARU_W1_DAMAGE*ability.w_1_level
-		--print("DAMAGE: "..damage)
+		if caster:HasModifier("modifier_seinaru_immortal_weapon_4") then
+			damage = damage + caster:GetMaxMana()*SEINARU_WEAPON_4_DAMAGE_BONUS_OF_CURRENT_MANA/100
+		end
 		Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_WIND, RPC_ELEMENT_NONE)
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_hikari_slow", {duration = 1.5})
 		target.seinaru_w_cast_number = ability.cast_number

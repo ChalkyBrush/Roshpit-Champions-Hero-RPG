@@ -628,6 +628,10 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "<% SEINARU_WEAPON_4_ATTACK_RANGE %>"
+				}
 			}
 		}
 	}
