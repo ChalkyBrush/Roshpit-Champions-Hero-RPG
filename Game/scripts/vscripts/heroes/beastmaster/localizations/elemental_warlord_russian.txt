@@ -429,4 +429,8 @@
 
         "DOTA_Tooltip_ability_item_rpc_warlord_immortal_weapon_3"            "Qio'jin's Ruby Relic Axe"
         "item_property_warlord_immortal_weapon3"                             "Primordial Insurgence"
-        "property_warlord_immortal_weapon3_description"                      "Каждые <% WARLORD_IMMORTAL_WEAPON_3_INTERVAL %> сек. герой получает по <% WARLORD_IMMORTAL_WEAPON_3_CHARGES_PER_TICK %> заряду земли, огня и льда."   
+        "property_warlord_immortal_weapon3_description"                      "Каждые <% WARLORD_IMMORTAL_WEAPON_3_INTERVAL %> сек. герой получает по <% WARLORD_IMMORTAL_WEAPON_3_CHARGES_PER_TICK %> заряду земли, огня и льда." 
+
+		"DOTA_Tooltip_ability_item_rpc_warlord_immortal_weapon_4"            "Blink Axe"
+        "item_property_warlord_immortal_weapon4"                             "Natural Reflexes"
+        "property_warlord_immortal_weapon4_description"                      "Скорость поворота Elemental Warlord сильно увеличена. @Ability3 действуют на <% WARLORD_IMMORTAL_WEAPON_4_E_SPEED_PCT %>% быстрее и их перезарядка снижена на <% WARLORD_IMMORTAL_WEAPON_4_E_CD_REDUCTION %> сек."
