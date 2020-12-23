@@ -2514,6 +2514,10 @@
     	"DOTA_Tooltip_ability_item_rpc_astral_immortal_weapon_3"			"Darnassus Bow"
     	"item_property_astral_immortal_weapon3"								"Lunar Visions"
     	"property_astral_immortal_weapon3_description"						"<font color='#ccff66'>1000</font> flying vision and <font color='#ccff66'>400</font> extra attack and vision range at all times."
+		
+		"DOTA_Tooltip_ability_item_rpc_astral_immortal_weapon_4"			"Blackmist Ballista"
+    	"item_property_astral_immortal_weapon4"								"Ill Wind"
+    	"property_astral_immortal_weapon4_description"						"Enemies standing in Moon Shroud of effect are silenced and deal <font color='#ccff66'>40</font>% reduced damage to Astral Ranger."
 
 		//Abilities
 		"DOTA_Tooltip_ability_heavens_shield"							"Heaven's Shield"
@@ -2815,6 +2819,10 @@
 
         "DOTA_Tooltip_modifier_auriun_immortal_weapon_3_effect"				"Artifice"
         "DOTA_Tooltip_modifier_auriun_immortal_weapon_3_effect_Description"	"Magic Immunity and reduced health regen."
+		
+		"DOTA_Tooltip_ability_item_rpc_auriun_immortal_weapon_4"            "Tome of Horrors"
+        "item_property_auriun_immortal_weapon4"                             "Judgment Day"
+        "property_auriun_immortal_weapon4_description"                      "@Ability4 no longer resurrects allies or provides health regen when cast. Instead, <font color='#ccff66'>12</font> [W1] flares, plus 1 additional flare per [R4] rune point, will be distributed in <font color='#ccff66'>0.15</font>-second intervals to a random enemy unit in @Ability4 radius. Targets with Spell Immunity will be excluded."
 
 	"DOTA_Tooltip_ability_red_general_ability_base_q_skull_basher"							"Skull Basher"
 	"DOTA_Tooltip_ability_red_general_ability_base_q_skull_basher_Description"			"Element: <font color='#DDDDDD'>Normal</font><br>Leap to the targeted point, and gain a buff offering massive stunning blows and increased attack speed for the duration. Skull Basher and Berserker Rage durations are refreshed and paused while leaping."
@@ -2824,6 +2832,8 @@
 	"DOTA_Tooltip_ability_red_general_ability_base_q_skull_basher_buff_duration"		"BUFF DURATION:"
 	"DOTA_Tooltip_ability_red_general_ability_base_q_skull_basher_duration"				"STUN DURATION:"
 	"DOTA_Tooltip_ability_red_general_ability_base_q_skull_basher_bolt_aoe"				"SPLASH BASE RADIUS:"
+	"DOTA_Tooltip_modifier_stun_attack"									"Skull Basher"
+	"DOTA_Tooltip_modifier_stun_attack_Description"						"Attacks have splash damage and stun all afffected targets."
 		
 	"DOTA_Tooltip_ability_axe_rune_q_1"                             "[Q1] Massive Impact"
         "DOTA_Tooltip_ability_axe_rune_q_1_Description"                 "Increases the base damage of Skull Basher by a % of attack damage."
@@ -3097,49 +3107,53 @@
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_5_a"       "[T5-a] Glyph of the Marshall"
         "item_rpc_axe_glyph_5_a_description"                "Increases all damage dealt by @Ability4, and all of its runes, by <font color='#ccff66'>50</font>%."
 
-	"DOTA_Tooltip_ability_item_rpc_axe_glyph_book"		"Red General Glyph Book"
+		"DOTA_Tooltip_ability_item_rpc_axe_glyph_book"		"Red General Glyph Book"
 
-	//Weapons
-	"axe_weapon_00"			"Basic Axe"
-	"axe_weapon_01"			"Mighty Cleaver"
-	"axe_weapon_02"			"Silver Axe"
-	"axe_weapon_03"			"Earthforge Axe"
-	"axe_weapon_11"			"Thorium Edge"
-	"axe_weapon_12"			"Axe of Desolation"
-	"axe_weapon_13"			"Heavy Skullsplitter"
-	"axe_weapon_14"			"Shockwave Sunderer"
-	"axe_weapon_21"			"Battlerage Axe"
-	"axe_weapon_22"			"Crimson Skullsplitter"
-	"axe_weapon_23"			"Mithril Forged Swiftaxe"
-	"axe_weapon_24"			"Hook of the Defiler"
-	"axe_weapon_25"			"Master Deathforge Axe"
-	
-	"DOTA_Tooltip_ability_item_rpc_basic_axe"   "Axe"
-	"DOTA_Tooltip_ability_item_rpc_axe_weapon_00"   "Axe"
-	"DOTA_Tooltip_ability_item_rpc_axe_weapon_01"   "Mighty Cleaver"
-	"DOTA_Tooltip_ability_item_rpc_axe_weapon_02"   "Silver Axe"
-	"DOTA_Tooltip_ability_item_rpc_axe_weapon_03"   "Earthforge Axe"
-	"DOTA_Tooltip_ability_item_rpc_axe_weapon_11"   "Thorium Edge"
-	"DOTA_Tooltip_ability_item_rpc_axe_weapon_12"   "Axe of Desolation"
-	"DOTA_Tooltip_ability_item_rpc_axe_weapon_13"   "Heavy Skullsplitter"
-	"DOTA_Tooltip_ability_item_rpc_axe_weapon_14"   "Shockwave Sunderer"
-	"DOTA_Tooltip_ability_item_rpc_axe_weapon_21"   "Red Battlefury"
-	"DOTA_Tooltip_ability_item_rpc_axe_weapon_22"   "Crimson Skullsplitter"
-	"DOTA_Tooltip_ability_item_rpc_axe_weapon_23"   "Mithril Forged Swiftaxe"
-	"DOTA_Tooltip_ability_item_rpc_axe_weapon_24"   "Hook of the Defiler"
-	"DOTA_Tooltip_ability_item_rpc_axe_weapon_25"   "Master Deathforge Axe"
-	
-	"DOTA_Tooltip_ability_item_rpc_axe_immortal_weapon_1"		"Rakash, Grandfather Axe"
-	"item_property_axe_immortal_weapon"								"Combat Veteran"
-	"property_axe_immortal_weapon_description"						"Reduces all damage taken by <font color='#ccff66'>25</font>%"
+		//Weapons
+		"axe_weapon_00"			"Basic Axe"
+		"axe_weapon_01"			"Mighty Cleaver"
+		"axe_weapon_02"			"Silver Axe"
+		"axe_weapon_03"			"Earthforge Axe"
+		"axe_weapon_11"			"Thorium Edge"
+		"axe_weapon_12"			"Axe of Desolation"
+		"axe_weapon_13"			"Heavy Skullsplitter"
+		"axe_weapon_14"			"Shockwave Sunderer"
+		"axe_weapon_21"			"Battlerage Axe"
+		"axe_weapon_22"			"Crimson Skullsplitter"
+		"axe_weapon_23"			"Mithril Forged Swiftaxe"
+		"axe_weapon_24"			"Hook of the Defiler"
+		"axe_weapon_25"			"Master Deathforge Axe"
+		
+		"DOTA_Tooltip_ability_item_rpc_basic_axe"   "Axe"
+		"DOTA_Tooltip_ability_item_rpc_axe_weapon_00"   "Axe"
+		"DOTA_Tooltip_ability_item_rpc_axe_weapon_01"   "Mighty Cleaver"
+		"DOTA_Tooltip_ability_item_rpc_axe_weapon_02"   "Silver Axe"
+		"DOTA_Tooltip_ability_item_rpc_axe_weapon_03"   "Earthforge Axe"
+		"DOTA_Tooltip_ability_item_rpc_axe_weapon_11"   "Thorium Edge"
+		"DOTA_Tooltip_ability_item_rpc_axe_weapon_12"   "Axe of Desolation"
+		"DOTA_Tooltip_ability_item_rpc_axe_weapon_13"   "Heavy Skullsplitter"
+		"DOTA_Tooltip_ability_item_rpc_axe_weapon_14"   "Shockwave Sunderer"
+		"DOTA_Tooltip_ability_item_rpc_axe_weapon_21"   "Red Battlefury"
+		"DOTA_Tooltip_ability_item_rpc_axe_weapon_22"   "Crimson Skullsplitter"
+		"DOTA_Tooltip_ability_item_rpc_axe_weapon_23"   "Mithril Forged Swiftaxe"
+		"DOTA_Tooltip_ability_item_rpc_axe_weapon_24"   "Hook of the Defiler"
+		"DOTA_Tooltip_ability_item_rpc_axe_weapon_25"   "Master Deathforge Axe"
+		
+		"DOTA_Tooltip_ability_item_rpc_axe_immortal_weapon_1"		"Rakash, Grandfather Axe"
+		"item_property_axe_immortal_weapon"								"Combat Veteran"
+		"property_axe_immortal_weapon_description"						"Reduces all damage taken by <font color='#ccff66'>25</font>%"
 
-	"DOTA_Tooltip_ability_item_rpc_axe_immortal_weapon_2"            "Red Battlefury"
-        "item_property_axe_immortal_weapon2"                            "Frenzied Berserker"
-        "property_axe_immortal_weapon2_description"                        "While @Ability3 is active, The Red General's movespeed and movespeed cap are both increased by <font color='#ccff66'>200</font>. Additionally increases the damage of Whirlwind against Paragons and bosses by <font color='#ccff66'>200</font>%."
+		"DOTA_Tooltip_ability_item_rpc_axe_immortal_weapon_2"            "Red Battlefury"
+		"item_property_axe_immortal_weapon2"                            "Frenzied Berserker"
+		"property_axe_immortal_weapon2_description"                        "While @Ability3 is active, The Red General's movespeed and movespeed cap are both increased by <font color='#ccff66'>200</font>. Additionally increases the damage of Whirlwind against Paragons and bosses by <font color='#ccff66'>200</font>%."
 
-        "DOTA_Tooltip_ability_item_rpc_axe_immortal_weapon_3"            "Ragnar's Thunderax"
-        "item_property_axe_immortal_weapon3"                            "Overpower"
-        "property_axe_immortal_weapon3_description"                        "Increase Cyclone Shield stacks by <font color='#ccff66'>100</font>% when beginning the channel of @Ability4" 	
+		"DOTA_Tooltip_ability_item_rpc_axe_immortal_weapon_3"            "Ragnar's Thunderax"
+		"item_property_axe_immortal_weapon3"                            "Overpower"
+		"property_axe_immortal_weapon3_description"                        "Increase Cyclone Shield stacks by <font color='#ccff66'>100</font>% when beginning the channel of @Ability4" 
+
+		"DOTA_Tooltip_ability_item_rpc_axe_immortal_weapon_4"            "Macuahuitl"
+		"item_property_axe_immortal_weapon4"                            "Double-Edge"
+		"property_axe_immortal_weapon4_description"                        "The duration of @Ability1 is refreshed when landing an attack on an enemy. The Red General loses <font color='#ccff66'>4</font>% of his current health each time he attacks an enemy during @Ability1."		
  
 
 		//Abilities
@@ -3467,6 +3481,12 @@
         "DOTA_Tooltip_ability_item_rpc_bahamut_immortal_weapon_3"            "Origin Rune"
         "item_property_bahamut_immortal_weapon3"                             "Omega Waller"
         "property_bahamut_immortal_weapon3_description"                      "Increases the length of @Ability1 by <font color='#ccff66'>100</font>% and its damage by <font color='#ccff66'>3</font>x of Hero's all attributes."
+		
+		"DOTA_Tooltip_ability_item_rpc_bahamut_immortal_weapon_4"            "Sundered Rune"
+        "item_property_bahamut_immortal_weapon4"                             "Nascent Power"
+        "property_bahamut_immortal_weapon4_description"                      "Each empty equipment slot grants +<font color='#ccff66'>220</font> to all attributes."
+		"DOTA_Tooltip_modifier_bahamut_immortal_weapon_4_nascent_power_stack"	"Nascent Power"
+		"DOTA_Tooltip_modifier_bahamut_immortal_weapon_4_nascent_power_stack_description"	"Each empty equipment slot grants +<font color='#ccff66'>220</font> to all attributes."
 
 
 		//Abilities
@@ -5324,6 +5344,10 @@
         "DOTA_Tooltip_ability_item_rpc_duskbringer_immortal_weapon_3"            "Cranium Basher"
         "item_property_duskbringer_immortal_weapon3"                             "Skull Bash"
         "property_duskbringer_immortal_weapon3_description"                      "Basic attacks have a <font color='#ccff66'>25</font>% chance to stun the enemy for <font color='#ccff66'>2</font> seconds and apply a <font color='#ccff66'>5</font> charge ghost armor."
+		
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_immortal_weapon_4"            "Fiend Femur"
+        "item_property_duskbringer_immortal_weapon4"                             "Demonic Resilience"
+        "property_duskbringer_immortal_weapon4_description"                      "<font color='#ccff66'>40</font>% Status Resistance. Doubles the effectiveness of [W3]."
 
 
 		//Abilities
@@ -6257,7 +6281,11 @@
 
         "DOTA_Tooltip_ability_item_rpc_warlord_immortal_weapon_3"            "Qio'jin's Ruby Relic Axe"
         "item_property_warlord_immortal_weapon3"                             "Primordial Insurgence"
-        "property_warlord_immortal_weapon3_description"                      "Every <font color='#ccff66'>1</font> seconds gain <font color='#ccff66'>1</font> earth, fire, and ice charge."   
+        "property_warlord_immortal_weapon3_description"                      "Every <font color='#ccff66'>1</font> seconds gain <font color='#ccff66'>1</font> earth, fire, and ice charge." 
+		
+		"DOTA_Tooltip_ability_item_rpc_warlord_immortal_weapon_4"            "Blink Axe"
+        "item_property_warlord_immortal_weapon4"                             "Natural Reflexes"
+        "property_warlord_immortal_weapon4_description"                      "Elemental Warlord now has an instant turn rate. @Ability3 spells all travel <font color='#ccff66'>100</font>% faster and have their cooldown reduced by <font color='#ccff66'>1</font> second."	
 
 		"DOTA_Tooltip_ability_epoch_time_binder"								"Time Binder"
 		"DOTA_Tooltip_ability_epoch_time_binder_Description"					"Element: <font color=\"#B5FFB7\">Temporal</font><br>Fires a Time Binder in the target direction.  Upon contact with an enemy or reaching its max range, the projectile deals AOE damage in a small radius.<br>When the projectile hits a non-bound enemy, it links the impacted target with its nearby allies. Bound targets take damage each second based on the impact damage and have their movespeed slowed. The DOT damage and movespeed slow increases with the number of enemies that are linked. If a linked enemy dies, the links are reconfigured to the remaining surviving linked units."
@@ -6532,6 +6560,10 @@
     	"DOTA_Tooltip_ability_item_rpc_epoch_immortal_weapon_3"				"Aion Eternus"
     	"item_property_epoch_immortal_weapon3"								"Spatial Distortion"
     	"property_epoch_immortal_weapon3_description"						"If a @Ability3 expires without Epoch Guardian having teleported to it, the spell will not go on cooldown."
+		
+		"DOTA_Tooltip_ability_item_rpc_epoch_immortal_weapon_4"				"Worldstone Shard"
+    	"item_property_epoch_immortal_weapon4"								"Havoc Hammer"
+    	"property_epoch_immortal_weapon4_description"						"Attack range and cast range are both reduced by <font color='#ccff66'>200</font>. [Q1] deals its damage to all enemy units in a <font color='#ccff66'>250</font> radius around the primary target."
 
 		//Abilities
 		"DOTA_Tooltip_ability_flamewaker_seismic_flare"										"Seismic Flare"
@@ -6863,6 +6895,10 @@
     	"DOTA_Tooltip_ability_item_rpc_flamewaker_immortal_weapon_3"			"Gladius"
     	"item_property_flamewaker_immortal_weapon3"								"Meteor Break"
     	"property_flamewaker_immortal_weapon3_description"						"[R] becomes point target with <font color='#ccff66'>1000</font> cast range and has <font color='#ccff66'>40</font>% reduced cooldown."
+		
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_immortal_weapon_4"			"Kaya"
+    	"item_property_flamewaker_immortal_weapon4"								"Spellblade"
+    	"property_flamewaker_immortal_weapon4_description"						"Each point of Intelligence increases Armor Pierce by <font color='#ccff66'>3</font>. [R3] also increases Intelligence by the same amount."
 
 
 		//Abilities
@@ -7161,6 +7197,10 @@
         "DOTA_Tooltip_ability_item_rpc_hydroxis_immortal_weapon_3"            "Siltbreaker's Golden Trident"
         "item_property_hydroxis_immortal_weapon3"                             "Tidecaller"
         "property_hydroxis_immortal_weapon3_description"                      "Hydro Pumps travel outward with <font color='#ccff66'>50</font>% reduced delay."
+		
+		 "DOTA_Tooltip_ability_item_rpc_hydroxis_immortal_weapon_4"            "Oar of Lethe"
+        "item_property_hydroxis_immortal_weapon4"                             "Splash Booster"
+        "property_hydroxis_immortal_weapon4_description"                      "Increases the radius of @Ability by <font color='#ccff66'>45</font>%."
 
 	"upgrade_cost"		"Upgrade:"
 	"tech_points"	"Tech Points"
@@ -7538,6 +7578,10 @@
 	"DOTA_Tooltip_ability_item_rpc_jex_immortal_weapon_3"            "Exodius Plasma Cannon"
 	"item_property_jex_immortal_weapon3"                             "Cosmic Enhancement"
 	"property_jex_immortal_weapon3_description"                      "All tech abilities with <font color='#C25DFC'>Cosmic</font> element receive @special_property1 Tech Level. Double <font color='#C25DFC'>Cosmic</font> abilities gain @special_property2 bonus Tech Levels."
+	
+	"DOTA_Tooltip_ability_item_rpc_jex_immortal_weapon_4"            "Boush Buster"
+	"item_property_jex_immortal_weapon4"                             "Enhanced Munitions"
+	"property_jex_immortal_weapon4_description"                      "All Base Cannon spells have their base damage increased by <font color='#ccff66'>1.5</font>x total attack power. Increases cast rate by <font color='#ccff66'>35</font>% for all spells."
 
 
 	"DOTA_Tooltip_ability_item_rpc_jex_glyph_1_1"		"[T1-1] Glyph of Biosynthesis"
@@ -8066,6 +8110,13 @@
         "DOTA_Tooltip_ability_item_rpc_mountain_protector_immortal_weapon_3"            "Inscribed Sierra Blade"
         "item_property_mountain_protector_immortal_weapon3"                             "Mountain Pitch"
         "property_mountain_protector_immortal_weapon3_description"                      "@Ability3 is thrown overhand making it land faster, and has <font color='#ccff66'>65</font>% reduced cooldown."
+		
+		"DOTA_Tooltip_ability_item_rpc_mountain_protector_immortal_weapon_4"            "Mountainhall Warbanner"
+        "item_property_mountain_protector_immortal_weapon4"                             "Color Guard"
+        "property_mountain_protector_immortal_weapon4_description"                      "Allied units within <font color='#ccff66'>1200</font> range of Mountain Protector's respawn flag take <font color='#ccff66'>30</font>% reduced damage. This bonus is doubled for non-hero units."
+		
+		"DOTA_Tooltip_modifier_mountain_protector_immortal_weapon_4_resistance" 	"Color Guard"
+		"DOTA_Tooltip_modifier_mountain_protector_immortal_weapon_4_resistance_description" 	"Allied units within <font color='#ccff66'>1200</font> range of Mountain Protector's respawn flag take <font color='#ccff66'>30</font>% reduced damage. This bonus is doubled for non-hero units."
 
 		//Abilities
 
@@ -8422,6 +8473,10 @@
 		"item_property_omniro_immortal_weapon3"                             "Dragon Element"
 		"property_omniro_immortal_weapon3_description"                      "Activates Omniro's <font color='#3289C7'>Dragon</font> element. Dragon basic mace effect applies a buff that increases elemental damage. The orb effect refreshes the charges on all other elements."
 
+		"DOTA_Tooltip_ability_item_rpc_omniro_immortal_weapon_4"            "Granite Gavel"
+		"item_property_omniro_immortal_weapon4"                             "Shades of Gray"
+		"property_omniro_immortal_weapon4_description"                      "All of Omniro's damage instances from attacks and abilities (but not items) gain <font color='#DDDDDD'>Normal</font> as a secondary element."
+		
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_1_1"		"[T1-1] Glyph of Consistency"
 		"item_rpc_omniro_glyph_1_1_description" 				"Standard element rotation will skip elements that don't have Orb Charges (unless all elements have no charges)."
@@ -8811,6 +8866,12 @@
     	"DOTA_Tooltip_ability_item_rpc_paladin_immortal_weapon_3"			"Hammer of Auriel"
     	"item_property_paladin_immortal_weapon3"								"Might of Auriel"
     	"property_paladin_immortal_weapon3_description"						"Each point of strength additionally increases Max Health by <font color='#ccff66'>12</font>."
+		
+		"DOTA_Tooltip_ability_item_rpc_paladin_immortal_weapon_4"			"Gleipnir"
+    	"item_property_paladin_immortal_weapon4"								"Storm Hammer"
+    	"property_paladin_immortal_weapon4_description"						"Enemies damaged by @Ability2 are rooted for <font color='#ccff66'>1</font> second, and deal <font color='#ccff66'>45</font>% reduced damage during this effect."
+		"DOTA_Tooltip_modifier_paladin_immortal_weapon_4_root"				"Gleipnir's Chain"
+		"DOTA_Tooltip_modifier_paladin_immortal_weapon_4_root_Description"	"Rooted and deals less damage."
 
 "DOTA_Tooltip_modifier_rubilash_painted_red"			"<font color='#FF0000'>Red</font> Paint"
 "DOTA_Tooltip_modifier_rubilash_painted_red_Description"	"Soaked in Rubilash's Paint"
@@ -9381,6 +9442,10 @@
         "DOTA_Tooltip_ability_item_rpc_seinaru_immortal_weapon_3"            "Heavy Sangeblade"
         "item_property_seinaru_immortal_weapon3"                             "Adamantaimai"
         "property_seinaru_immortal_weapon3_description"                      "Each point of current movement speed increases Strength by <font color='#ccff66'>1</font>. Reduces base movement speed by @special_property2."
+		
+		"DOTA_Tooltip_ability_item_rpc_seinaru_immortal_weapon_4"            "Monohoshizao"
+        "item_property_seinaru_immortal_weapon4"                             "Tsubamegaeshi"
+        "property_seinaru_immortal_weapon4_description"                      "Increases attack range by <font color='#ccff66'>150</font>. Base damage of [W1] is increased by <font color='#ccff66'>25</font>% of maximum mana."
 
 		//Abilities
 		"DOTA_Tooltip_ability_sephyr_lightbomb"										"Lightbomb"
@@ -9628,7 +9693,7 @@
 		"item_rpc_sephyr_glyph_7_1_description" 				"Magic immune while @glyph_property1 distance or more from the ground."
 
 		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_5_a"		"[T5-a] Glyph of the Divine Winds"
-		"item_rpc_sephyr_glyph_5_a_description" 				"Damage reduction within @Ability4 is increased to @glyph_property1%."
+		"item_rpc_sephyr_glyph_5_a_description" 				"Damage reduction within @Ability4 is increased to @glyph_property1%. @Ability4 additionally heals Sephyr for [R1] value during channeling."
 		
 		//Weapons
 		"DOTA_Tooltip_ability_item_rpc_sephyr_weapon_00"		"Staff"
@@ -10333,6 +10398,10 @@
         "DOTA_Tooltip_ability_item_rpc_solunia_immortal_weapon_3"            "Galactic Blades of Orbit"
         "item_property_solunia_immortal_weapon3"                             "Alpha Spark"
         "property_solunia_immortal_weapon3_description"                      "@Ability4 has no channel time and teleports you to the target cast position with <font color='#ccff66'>600</font> range."
+		
+		"DOTA_Tooltip_ability_item_rpc_solunia_immortal_weapon_4"            "Magnetron Loop"
+        "item_property_solunia_immortal_weapon4"                             "Aurora Veil"
+        "property_solunia_immortal_weapon4_description"                      "Increases Armor and Magic Armor by <font color='#ccff66'>40</font>%."
 
 		//Abilities
 		
@@ -11052,6 +11121,10 @@
 		
 		"spirit_warrior_spirit"								"Ancient Spirit"
 		"spirit_warrior_spirit_elite"						"Elite Ancient Spirit"
+		
+		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_immortal_weapon_4"            "Heavenbound Shakujo"
+        "item_property_spirit_warrior_immortal_weapon4"                             "Path of Harmony"
+        "property_spirit_warrior_immortal_weapon4_description"                      "Spirit Warrior is disarmed while this weapon is equipped. Each point of Spirit adds <font color='#ccff66'>1.5</font> Base Attack Damage and <font color='#ccff66'>3</font> each to Armor Pierce and Spell Pierce."
 
 
 		"tooltip_trapper_q"											"Fulminating Trap, Net Trap, Poison Trap & Torrent Trap"
@@ -11348,6 +11421,10 @@
         "DOTA_Tooltip_ability_item_rpc_trapper_immortal_weapon_3"            "Prismatic Shard"
         "item_property_trapper_immortal_weapon3"                             "Assassin's Reach"
         "property_trapper_immortal_weapon3_description"                      "Increases cast range of all abilities by <font color='#ccff66'>600</font>. Cooldowns for @Ability1 and @Ability4 are decreased by <font color='#ccff66'>65</font>%."
+		
+		"DOTA_Tooltip_ability_item_rpc_trapper_immortal_weapon_4"            "Manifold Bloom"
+        "item_property_trapper_immortal_weapon4"                             "Deja Vu"
+        "property_trapper_immortal_weapon4_description"                      "[W3] secondary detonation chance also applies to [E2] illusions, allowing them to survive fatal damage and detonate again."
 
 		//Abilities
 		"DOTA_Tooltip_ability_gale_nova"										"Plague Spreader"
@@ -12059,6 +12136,10 @@
     	"DOTA_Tooltip_ability_item_rpc_voltex_immortal_weapon_3"			"Immortal Zetsabre"
     	"item_property_voltex_immortal_weapon3"								"Paralyzing Static"
     	"property_voltex_immortal_weapon3_description"						"Enemies hit by sparks of @Ability4 are paralyzed for <font color='#ccff66'>4.5</font> seconds."
+		
+		"DOTA_Tooltip_ability_item_rpc_voltex_immortal_weapon_4"			"Splinterblight"
+		"item_property_voltex_immortal_weapon4"								"Cold Fusion"
+		"property_voltex_immortal_weapon4_description"						"All <font color='#5CCDF9'>Lightning</font> damage dealt gains <font color='#87D9FF'>Ice</font> as its secondary element. [R2] breaks Spell Immunity on targets when triggered."
 
 		//Abilities
 		"DOTA_Tooltip_ability_tachyon_shell"								"Tachyon Shell"

@@ -38454,6 +38454,21 @@
 				"Function"		"decoy_die"
 			}
 		}
+		"Modifiers"
+		{
+			"modifier_trapper_immortal_weapon_4"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+			"modifier_trapper_immortal_weapon_4_stack"
+			{
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+			}
+		}
 	}
 
 
@@ -47659,6 +47674,15 @@
                     }
                 }
             }
+			"modifier_astral_immortal_weapon_4_silence"
+			{
+				"IsHidden"			"1"
+				"IsDebuff"			"1"
+				"States"
+				{
+					"MODIFIER_STATE_SILENCED"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
 
         }
     }
@@ -65620,7 +65644,7 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"rpc/aurian_ult"
 
-		"AbilityCastRange"	"700"
+		"AbilityCastRange"	"2000 2200 2400 2600 2800 3000 3200"
 		"AbilityCastPoint"	"0.0"
 		"AbilityCooldown"	"60 58 56 54 52 50 48"
 		"AbilityChannelTime"	"2.5"
@@ -66760,6 +66784,25 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-160"
+				}
+			}
+			"modifier_paladin_immortal_weapon_4_root"
+			{
+				"TextureName"	"rpc/paladin_justice_overwhelming"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"			"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"        "particles/units/heroes/hero_chen/chen_penitence_c.vpcf"
+						"EffectAttachType"  "follow_origin"
+						"Target"            "TARGET"
+					}
 				}
 			}
 		}
@@ -68746,6 +68789,25 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-160"
+				}
+			}
+			"modifier_paladin_immortal_weapon_4_root"
+			{
+				"TextureName"	"paladin/paladin_penance"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"			"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"        "particles/units/heroes/hero_chen/chen_penitence_c.vpcf"
+						"EffectAttachType"  "follow_origin"
+						"Target"            "TARGET"
+					}
 				}
 			}
 		}
@@ -93528,6 +93590,45 @@
 					"MODIFIER_PROPERTY_MIN_HEALTH" "1"
 				}
 
+			}
+
+		}
+
+	}
+	
+	"respawn_flag_abilities"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"rubick_empty1"
+		"MaxLevel"	"1"
+		"Modifiers"
+		{
+			"modifier_flag_thinker"
+			{
+				"IsDebuff"	"0"
+				"IsHidden"	"0"
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/tanari/tanari_trigger_areas.lua"
+						"Function"		"respawn_flag_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_mountain_protector_immortal_weapon_4"
+			{
+				"IsDebuff"	"0"
+				"IsHidden"	"0"
+			}
+			"modifier_mountain_protector_immortal_weapon_4_resistance"
+			{
+				"IsDebuff"	"0"
+				"IsHidden"	"0"
+				"TextureName"			"rpc/respawn_flag"
 			}
 
 		}

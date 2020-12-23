@@ -2749,6 +2749,10 @@
     	"DOTA_Tooltip_ability_item_rpc_astral_immortal_weapon_3"			"Darnassus Bow"
     	"item_property_astral_immortal_weapon3"								"Lunar Visions"
     	"property_astral_immortal_weapon3_description"						"Постоянный бонус в <font color='#ccff66'>1000</font> к радиусу беспрепятственного обзора и <font color='#ccff66'>400</font> к дальности атаки."
+		
+		"DOTA_Tooltip_ability_item_rpc_astral_immortal_weapon_4"			"Blackmist Ballista"
+    	"item_property_astral_immortal_weapon4"								"Ill Wind"
+    	"property_astral_immortal_weapon4_description"						"Противники в облаке Moon Shroud обезмолвлены и наносят на <font color='#ccff66'>40</font>% по Astral Ranger."
 
 		//Abilities
 		"DOTA_Tooltip_ability_heavens_shield"							"Heaven's Shield"
@@ -3049,6 +3053,10 @@
 
         "DOTA_Tooltip_modifier_auriun_immortal_weapon_3_effect"				"Artifice"
         "DOTA_Tooltip_modifier_auriun_immortal_weapon_3_effect_Description"	"Иммунитет к магии, пониженная регенерация здоровья."
+		
+		"DOTA_Tooltip_ability_item_rpc_auriun_immortal_weapon_4"            "Tome of Horrors"
+        "item_property_auriun_immortal_weapon4"                             "Judgment Day"
+        "property_auriun_immortal_weapon4_description"                      "@Ability4 больше не возрождает союзников и не исцеляет. Вместо этого,  <font color='#ccff66'>12</font> вспышек [W1], плюс 1 дополнительная вспышка за каждую руну [R4], будут созданы на случайных противниках в зоне действия способности с интервалами в <font color='#ccff66'>0.15</font> сек. Вспышки не создаются на целях с иммунитетом к заклинаниям."
 
 		"DOTA_Tooltip_ability_red_general_ability_base_q_skull_basher"							"Skull Basher"
 		"DOTA_Tooltip_ability_red_general_ability_base_q_skull_basher_Description"			"Стихия: <font color='#DDDDDD'>Нормальный</font><br>Герой прыгает в указанную точку. С каждой атакой Red General оглушает врагов мощным ударом по области. Также на время действия повышается скорость атаки. Во время прыжка время действия [Q2] Berserker Rage приостанавливается."
@@ -3364,7 +3372,11 @@
 
         "DOTA_Tooltip_ability_item_rpc_axe_immortal_weapon_3"            "Ragnar's Thunderax"
         "item_property_axe_immortal_weapon3"                            "Overpower"
-        "property_axe_immortal_weapon3_description"                        "При прочтении способности (R) @Ability4, количество имеющихся зарядов [E4] увеличивается на <font color='#ccff66'>100</font>%" 	
+        "property_axe_immortal_weapon3_description"                        "При прочтении способности (R) @Ability4, количество имеющихся зарядов [E4] увеличивается на <font color='#ccff66'>100</font>%" 
+
+		"DOTA_Tooltip_ability_item_rpc_axe_immortal_weapon_4"            "Macuahuitl"
+		"item_property_axe_immortal_weapon4"                            "Double-Edge"
+		"property_axe_immortal_weapon4_description"                        "Длительность @Ability1 обновляется при нанесении атаки по противнику. Герой теряет <font color='#ccff66'>4</font>% от текущего показателя Здоровья за каждый удар под дествиемf @Ability1."				
  
 
 		//Abilities
@@ -3688,6 +3700,12 @@
         "DOTA_Tooltip_ability_item_rpc_bahamut_immortal_weapon_3"            "Origin Rune"
         "item_property_bahamut_immortal_weapon3"                             "Omega Waller"
         "property_bahamut_immortal_weapon3_description"                      "Увеличивает размер действия (Q) @Ability1 на <font color='#ccff66'>100</font>% и его урон на <font color='#ccff66'>3</font>x от суммы Атрибутов героя."
+		
+		"DOTA_Tooltip_ability_item_rpc_bahamut_immortal_weapon_4"            "Sundered Rune"
+        "item_property_bahamut_immortal_weapon4"                             "Nascent Power"
+        "property_bahamut_immortal_weapon4_description"                      "Каждый пустой слот снаряжения добавляет <font color='#ccff66'>220</font> ко всем Атрибутам."
+		"DOTA_Tooltip_modifier_bahamut_immortal_weapon_4_nascent_power_stack"	"Nascent Power"
+		"DOTA_Tooltip_modifier_bahamut_immortal_weapon_4_nascent_power_stack_description"	"Каждый пустой слот снаряжения добавляет <font color='#ccff66'>220</font> ко всем Атрибутам."
 
 
         //Abilities
@@ -5170,7 +5188,7 @@
         "property_djanghor_immortal_weapon3_description"                      "Полёт в форме сокола не тратит ману. Замедляющий эффект от смерча удвоен."
 
 
-"tooltip_duskbringer_Q"											"Whirling Flail и Duskfire"
+		"tooltip_duskbringer_Q"											"Whirling Flail и Duskfire"
 
 		"DOTA_Tooltip_ability_whirling_flail"							"Whirling Flail"
 		"DOTA_Tooltip_ability_whirling_flail_Description"				"Стихия: <font color='#DDDDDD'>Нормальный</font><br>Duskbringer быстро размахивает своим цепом, отталкивая всех ближайших противников. Может быть сразу использовано при Specter Rush для атаки во время движения. Базовый радиус <font color='#ccff66'>280</font>."
@@ -5493,6 +5511,10 @@
         "DOTA_Tooltip_ability_item_rpc_duskbringer_immortal_weapon_3"            "Cranium Basher"
         "item_property_duskbringer_immortal_weapon3"                             "Skull Bash"
         "property_duskbringer_immortal_weapon3_description"                      "С <font color='#ccff66'>25</font>% шансом при обычной атаке герой оглушит врага на <font color='#ccff66'>2</font> сек. и получит <font color='#ccff66'>5</font> зарядов [E2] Ghost armor."
+		
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_immortal_weapon_4"            "Fiend Femur"
+        "item_property_duskbringer_immortal_weapon4"                             "Demonic Resilience"
+        "property_duskbringer_immortal_weapon4_description"                      "<font color='#ccff66'>40</font>% Сопротивления Эффектам. Увеличивает эффективность [W3] в два раза."
 
 		//Abilities
 		"ekkan_corpse"														"Труп"
@@ -6420,7 +6442,11 @@
 
         "DOTA_Tooltip_ability_item_rpc_warlord_immortal_weapon_3"            "Qio'jin's Ruby Relic Axe"
         "item_property_warlord_immortal_weapon3"                             "Primordial Insurgence"
-        "property_warlord_immortal_weapon3_description"                      "Каждые <font color='#ccff66'>1</font> сек. герой получает по <font color='#ccff66'>1</font> заряду земли, огня и льда."   
+        "property_warlord_immortal_weapon3_description"                      "Каждые <font color='#ccff66'>1</font> сек. герой получает по <font color='#ccff66'>1</font> заряду земли, огня и льда." 
+
+		"DOTA_Tooltip_ability_item_rpc_warlord_immortal_weapon_4"            "Blink Axe"
+        "item_property_warlord_immortal_weapon4"                             "Natural Reflexes"
+        "property_warlord_immortal_weapon4_description"                      "Скорость поворота Elemental Warlord сильно увеличена. @Ability3 действуют на <font color='#ccff66'>100</font>% быстрее и их перезарядка снижена на <font color='#ccff66'>1</font> сек."
 
 		"DOTA_Tooltip_ability_epoch_time_binder"								"Time Binder"
 		"DOTA_Tooltip_ability_epoch_time_binder_Description"					"Элемент: <font color=\"#B5FFB7\">Время</font><br>Запускает снаряд в указанную сторону. При попадании или по достижении максимального расстояния снаряд взорвется, нанося АОЕ урон в небольшом радиусе.<br> Если снаряд попадает по противнику, он связывает его и его союзников поблизости, но связь не образуется, если противники уже связаны. Цели в одной связке получают урон ежесекундно, в зависимости от урона снаряда, при этом Скорость Перемещения их замедляется. Урон и мощность замедления увеличиваются тем сильнее, чем больше целей связано. Если одна из целей умирает, связи перераспределяются между оставшимися юнитами в связке."
@@ -6695,6 +6721,10 @@
     	"DOTA_Tooltip_ability_item_rpc_epoch_immortal_weapon_3"				"Aion Eternus"
     	"item_property_epoch_immortal_weapon3"								"Spatial Distortion"
     	"property_epoch_immortal_weapon3_description"						"Если @Ability3 исчезает перед тем, как герой телепортируется к ней, то заклинание не уйдет на перезарядку."
+		
+		"DOTA_Tooltip_ability_item_rpc_epoch_immortal_weapon_4"				"Worldstone Shard"
+    	"item_property_epoch_immortal_weapon4"								"Havoc Hammer"
+    	"property_epoch_immortal_weapon4_description"						"Дальность атаки и дальность заклинаний уменьшены на <font color='#ccff66'>200</font>. [Q1] наносит урон по области в <font color='#ccff66'>250</font> вокруг основной цели атаки."
 
         //Abilities
         "DOTA_Tooltip_ability_flamewaker_seismic_flare"                                     "Seismic Flare"
@@ -7023,6 +7053,10 @@
         "DOTA_Tooltip_ability_item_rpc_flamewaker_immortal_weapon_3"            "Gladius"
         "item_property_flamewaker_immortal_weapon3"                             "Meteor Break"
         "property_flamewaker_immortal_weapon3_description"                      "[R] можно применять на точку, радиус применения <font color='#ccff66'>1000</font>, а способность имеет <font color='#ccff66'>40</font>% снижение перезарядки."
+		
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_immortal_weapon_4"			"Kaya"
+    	"item_property_flamewaker_immortal_weapon4"								"Spellblade"
+    	"property_flamewaker_immortal_weapon4_description"						"Каждое очко Интеллекта увеличивает Пробитие Брони на <font color='#ccff66'>3</font>. [R3] также увеличивает и Интеллект."
 
 
 		//Abilities
@@ -7321,6 +7355,10 @@
         "DOTA_Tooltip_ability_item_rpc_hydroxis_immortal_weapon_3"            "Siltbreaker's Golden Trident"
         "item_property_hydroxis_immortal_weapon3"                             "Tidecaller"
         "property_hydroxis_immortal_weapon3_description"                      "Потоки воды от (Q) Hydro Pump расходятся на <font color='#ccff66'>50</font>% чаще."
+		
+		 "DOTA_Tooltip_ability_item_rpc_hydroxis_immortal_weapon_4"            "Oar of Lethe"
+        "item_property_hydroxis_immortal_weapon4"                             "Splash Booster"
+        "property_hydroxis_immortal_weapon4_description"                      "Увеличивает радиус @Ability на <font color='#ccff66'>45</font>%."
 
 		"DOTA_Tooltip_ability_mountain_protector_shockwave"			"Shockwave"
     	"DOTA_Tooltip_ability_mountain_protector_shockwave_Description"	"Стихия: <font color='#DDDDDD'>Нормальный</font> / <font color='#AF843D'>Земля</font><br>Mountain Protector совершает сильный взмах своим оружием, высвобождая каскадный поток силы, двигающийся вперёд большой волной. Кратковременно оглушает и наносит урон всем задетым целям."
@@ -7660,6 +7698,13 @@
         "DOTA_Tooltip_ability_item_rpc_mountain_protector_immortal_weapon_3"            "Inscribed Sierra Blade"
         "item_property_mountain_protector_immortal_weapon3"                             "Mountain Pitch"
         "property_mountain_protector_immortal_weapon3_description"                      "Камень от (E) @Ability3 падает сверху в указанную точку. Время перезарядки способности сокращено на <font color='#ccff66'>65</font>%."
+		
+		"DOTA_Tooltip_ability_item_rpc_mountain_protector_immortal_weapon_4"            "Mountainhall Warbanner"
+        "item_property_mountain_protector_immortal_weapon4"                             "Color Guard"
+        "property_mountain_protector_immortal_weapon4_description"                      "Союзные юниты в радиусе <font color='#ccff66'>1200</font> от Флага Возрождения Mountain Protector получают на <font color='#ccff66'>30</font>% меньше урона. Эффект удваивается для существ не-героев."
+		
+		"DOTA_Tooltip_modifier_mountain_protector_immortal_weapon_4_resistance" 	"Color Guard"
+		"DOTA_Tooltip_modifier_mountain_protector_immortal_weapon_4_resistance_description" 	 "Союзные юниты в радиусе <font color='#ccff66'>1200</font> от Флага Возрождения Mountain Protector получают на <font color='#ccff66'>30</font>% меньше урона. Эффект удваивается для существ не-героев."
 
 //Abilities
 
@@ -8015,6 +8060,10 @@
 		"DOTA_Tooltip_ability_item_rpc_omniro_immortal_weapon_3"            "Mace of the Drakken"
 		"item_property_omniro_immortal_weapon3"                             "Dragon Element"
 		"property_omniro_immortal_weapon3_description"                      "Активирует элемент <font color='#3289C7'>Dragon</font>. Эффект Omni Mace применяет бафф, увеличивающий урон всех элементов. Орб-эффект обновляет заряды на других элементах."
+		
+		"DOTA_Tooltip_ability_item_rpc_omniro_immortal_weapon_4"            "Granite Gavel"
+		"item_property_omniro_immortal_weapon4"                             "Shades of Gray"
+		"property_omniro_immortal_weapon4_description"                      "Все порции урона героя, кроме урона от предметов получают элемент <font color='#DDDDDD'>Нормальный</font> в качестве дополнительного элемента."
 
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_1_1"		"[T1-1] Glyph of Consistency"
@@ -8405,6 +8454,12 @@
     	"DOTA_Tooltip_ability_item_rpc_paladin_immortal_weapon_3"			"Hammer of Auriel"
     	"item_property_paladin_immortal_weapon3"								"Might of Auriel"
     	"property_paladin_immortal_weapon3_description"						"Каждое очко Силы дополнительно увеличивает максимальное здоровье на <font color='#ccff66'>12</font>."
+		
+		"DOTA_Tooltip_ability_item_rpc_paladin_immortal_weapon_4"			"Gleipnir"
+    	"item_property_paladin_immortal_weapon4"								"Storm Hammer"
+    	"property_paladin_immortal_weapon4_description"						"Противники, задетые @Ability2, обездвижены на <font color='#ccff66'>1</font> сек, и наносят на <font color='#ccff66'>45</font>% меньше урона под действием этого эффекта."
+		"DOTA_Tooltip_modifier_paladin_immortal_weapon_4_root"				"Gleipnir's Chain"
+		"DOTA_Tooltip_modifier_paladin_immortal_weapon_4_root_Description"	"Обездвижен и наносит меньше урона."
 
 
 	"DOTA_Tooltip_modifier_rubilash_painted_red"			"<font color='#FF0000'>Красная</font> Краска"
@@ -8979,6 +9034,10 @@
         "DOTA_Tooltip_ability_item_rpc_seinaru_immortal_weapon_3"            "Heavy Sangeblade"
         "item_property_seinaru_immortal_weapon3"                             "Adamantia"
         "property_seinaru_immortal_weapon3_description"                      "Каждое очко скорости передвижения увеличивает Силу на @special_property1. Снижает базовую скорость передвижения на @special_property2"
+		
+		"DOTA_Tooltip_ability_item_rpc_seinaru_immortal_weapon_4"            "Monohoshizao"
+        "item_property_seinaru_immortal_weapon4"                             "Tsubamegaeshi"
+        "property_seinaru_immortal_weapon4_description"                      "Увеличивает дальность атаки на <font color='#ccff66'>150</font>. Урон [W1] увеличен на <font color='#ccff66'>25</font>% от максимального запаса Маны."
 
 		//Abilities
 		"DOTA_Tooltip_ability_sephyr_lightbomb"										"Lightbomb"
@@ -9927,6 +9986,10 @@
         "DOTA_Tooltip_ability_item_rpc_solunia_immortal_weapon_3"            "Galactic Blades of Orbit"
         "item_property_solunia_immortal_weapon3"                             "Alpha Spark"
         "property_solunia_immortal_weapon3_description"                      "@Ability4 произносится мгновенно и телепортирует в выбранную точку, максимальная дальность <font color='#ccff66'>600</font>."
+		
+		"DOTA_Tooltip_ability_item_rpc_solunia_immortal_weapon_4"            "Magnetron Loop"
+        "item_property_solunia_immortal_weapon4"                             "Aurora Veil"
+        "property_solunia_immortal_weapon4_description"                      "Увеличивает Броню и Магическую Защиту на <font color='#ccff66'>40</font>%."
 
 		//Abilities
 		
@@ -10644,6 +10707,10 @@
 				
 		"spirit_warrior_spirit"								"Ancient Spirit"
 		"spirit_warrior_spirit_elite"						"Elite Ancient Spirit"
+		
+		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_immortal_weapon_4"            "Heavenbound Shakujo"
+        "item_property_spirit_warrior_immortal_weapon4"                             "Path of Harmony"
+        "property_spirit_warrior_immortal_weapon4_description"                      "Обезоруживает героя. Каждое очко Духа добавляет <font color='#ccff66'>1.5</font> Базового Урона Атаки и <font color='#ccff66'>3</font> к Пробитиям Брони и Магической Защиты."
 
 
 		"tooltip_trapper_q"											"Fulminating Trap и Net Trap, Poison Trap и Torrent Trap"
@@ -10935,6 +11002,10 @@
         "DOTA_Tooltip_ability_item_rpc_trapper_immortal_weapon_3"            "Prismatic Shard"
         "item_property_trapper_immortal_weapon3"                             "Assassin's Reach"
         "property_trapper_immortal_weapon3_description"                      "Дальность применения всех способностей увеличена на <font color='#ccff66'>600</font>, перезарядка @Ability1 и @Ability4 снижена на <font color='#ccff66'>65</font>%."
+		
+		"DOTA_Tooltip_ability_item_rpc_trapper_immortal_weapon_4"            "Manifold Bloom"
+        "item_property_trapper_immortal_weapon4"                             "Deja Vu"
+        "property_trapper_immortal_weapon4_description"                      "Шанс на дополнительную детонацию [W3] распространяется на [E2], позволяя им пережить летальный урон и взорваться несколько раз."
 
 		//Abilities
 		"DOTA_Tooltip_ability_gale_nova"										"Plague Spreader"
@@ -11601,6 +11672,10 @@
     	"DOTA_Tooltip_ability_item_rpc_voltex_immortal_weapon_3"			"Immortal Zetsabre"
     	"item_property_voltex_immortal_weapon3"								"Paralyzing Static"
     	"property_voltex_immortal_weapon3_description"						"Враги, задетые искрами от умения (R) @Ability4 парализуются на <font color='#ccff66'>4.5</font> сек."
+		
+		"DOTA_Tooltip_ability_item_rpc_voltex_immortal_weapon_4"			"Splinterblight"
+		"item_property_voltex_immortal_weapon4"								"Cold Fusion"
+		"property_voltex_immortal_weapon4_description"						"Весь урон <font color='#5CCDF9'>Молнии</font> дополнительно получает элемент <font color='#87D9FF'>Льда</font>. [R2] разрушает Иммунитет к Заклинаниям при срабатывании."
 
 		//Abilities
 		"DOTA_Tooltip_ability_tachyon_shell"								"Tachyon Shell"
@@ -12290,6 +12365,10 @@
 	"DOTA_Tooltip_ability_item_rpc_jex_immortal_weapon_3"            "Exodius Plasma Cannon"
 	"item_property_jex_immortal_weapon3"                             "Cosmic Enhancement"
 	"property_jex_immortal_weapon3_description"                      "Все способности с элементом <font color='#C25DFC'>Космос</font> получают @special_property1 дополнительный Технологический уровень. Способности с двойным элементом <font color='#C25DFC'>Космос</font> получают @special_property2 дополнительных Технологических уровня."
+	
+	"DOTA_Tooltip_ability_item_rpc_jex_immortal_weapon_4"            "Boush Buster"
+	"item_property_jex_immortal_weapon4"                             "Enhanced Munitions"
+	"property_jex_immortal_weapon4_description"                      "Всё Базовое Оружие повышает урон на <font color='#ccff66'>1.5</font>x от Силы Атаки героя. Скорость каста заклинаний увеличивается на <font color='#ccff66'>35</font>% для всех заклинаний."
 
 
 	"DOTA_Tooltip_ability_item_rpc_jex_glyph_1_1"		"[T1-1] Glyph of Biosynthesis"
