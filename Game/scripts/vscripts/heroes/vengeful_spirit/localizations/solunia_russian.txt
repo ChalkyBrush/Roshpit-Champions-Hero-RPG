@@ -427,3 +427,7 @@
         "DOTA_Tooltip_ability_item_rpc_solunia_immortal_weapon_3"            "Galactic Blades of Orbit"
         "item_property_solunia_immortal_weapon3"                             "Alpha Spark"
         "property_solunia_immortal_weapon3_description"                      "@Ability4 произносится мгновенно и телепортирует в выбранную точку, максимальная дальность <% SOLUNIA_IMMORTAL_WEAPON_3_CAST_RANGE %>."
+		
+		"DOTA_Tooltip_ability_item_rpc_solunia_immortal_weapon_4"            "Magnetron Loop"
+        "item_property_solunia_immortal_weapon4"                             "Aurora Veil"
+        "property_solunia_immortal_weapon4_description"                      "Увеличивает Броню и Магическую Защиту на <% SOLUNIA_IMMORTAL_WEAPON_4_ARMORS_AMP_PCT %>%."
