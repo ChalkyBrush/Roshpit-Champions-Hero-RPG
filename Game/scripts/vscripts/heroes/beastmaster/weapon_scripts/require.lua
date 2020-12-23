@@ -1,0 +1,1 @@
+require('heroes/beastmaster/weapon_scripts/warlord_immortal_weapon_4')
