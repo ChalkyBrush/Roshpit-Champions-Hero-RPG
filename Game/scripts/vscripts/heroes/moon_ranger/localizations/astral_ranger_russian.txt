@@ -368,3 +368,7 @@
     	"DOTA_Tooltip_ability_item_rpc_astral_immortal_weapon_3"			"Darnassus Bow"
     	"item_property_astral_immortal_weapon3"								"Lunar Visions"
     	"property_astral_immortal_weapon3_description"						"Постоянный бонус в <% ASTRAL_RANGER_IMMORTAL_WEAPON_3_VISION %> к радиусу беспрепятственного обзора и <% ASTRAL_RANGER_IMMORTAL_WEAPON_3_ATTACK_RANGE %> к дальности атаки."
+		
+		"DOTA_Tooltip_ability_item_rpc_astral_immortal_weapon_4"			"Blackmist Ballista"
+    	"item_property_astral_immortal_weapon4"								"Ill Wind"
+    	"property_astral_immortal_weapon4_description"						"Противники в облаке Moon Shroud обезмолвлены и наносят на <% ASTRAL_RANGER_IMMORTAL_WEAPON_4_DAMAGE_REDUCTION_PCT %>% по Astral Ranger."
