@@ -345,4 +345,4 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_voltex_immortal_weapon_4"			"Splinterblight"
 		"item_property_voltex_immortal_weapon4"								"Cold Fusion"
-		"property_voltex_immortal_weapon4_description"						"All Lightning damage dealt gains <font color=ELEMENT_ICE>Ice</font> as its secondary element. [R2] breaks Spell Immunity on targets when triggered."
+		"property_voltex_immortal_weapon4_description"						"All <font color=ELEMENT_LIGHTNING>Lightning</font> damage dealt gains <font color=ELEMENT_ICE>Ice</font> as its secondary element. [R2] breaks Spell Immunity on targets when triggered."
