@@ -4,16 +4,16 @@ require('heroes/base_ability')
 chernobog_charons_claw = class(base_ability)
 
 local modifiers = {
-	"modifier_charons_claw_passive",
-	"modifier_charons_claw_path_aura_base1",
-	"modifier_charons_claw_on_path",
-	"modifier_chernobog_q1_debuff",
-	"modifier_chernobog_q3_effect"
+	modifier_charons_claw_passive,
+	modifier_charons_claw_path_aura_base,
+	modifier_charons_claw_on_path,
+	modifier_chernobog_q1_debuff,
+	modifier_chernobog_q3_effect
 }
 
 for i = 1, #modifiers, 1 do
 	modifiers[i] = class(npc_base_modifier, nil, npc_base_modifier)
-	LinkLuaModifier(modifiers[i], "heroes/nightstalker/ability_scripts/chernobog_charons_claw.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier("modifiers[i]", "heroes/nightstalker/ability_scripts/chernobog_charons_claw.lua", LUA_MODIFIER_MOTION_NONE)
 end
 ----------------
 --ABILITY BASE--
