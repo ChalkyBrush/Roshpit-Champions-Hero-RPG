@@ -515,7 +515,8 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	"item_lua"
+        "ScriptFile" "heroes/beastmaster/weapon_scripts/warlord_immortal_weapon_4.lua"
 		"AbilityTextureName"	"weapons/legends/warlord_immortal_weapon_4"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -529,23 +530,5 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/red_box.vmdl"
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/equipment.lua"
-				"Function"		"equip_item"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_warlord_immortal_weapon_4"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}
-		}
 	}
 

@@ -575,9 +575,6 @@ function Weapons:RollLegendWeapon4(location, class, strictMaxItemLevel, disableD
 	elseif internalName == "seinaru" then
 		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_4", "#ABDD71", nil, 4)
 		Weapons:SetLegendWeaponProperty2(weapon, "intelligence", 2)
-	elseif internalName == "warlord" then
-		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_4", "#F4A86E", nil, 4)
-		Weapons:SetLegendWeaponProperty2(weapon, "movespeed", 2)
 	elseif internalName == "bahamut" then
 		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_4", "#ADCCFF", nil, 4)
 		Weapons:SetLegendWeaponProperty2(weapon, "all_attributes", 2.5)

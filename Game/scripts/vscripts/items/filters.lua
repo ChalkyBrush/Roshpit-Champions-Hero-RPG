@@ -36,6 +36,7 @@ LinkLuaModifier("modifier_buzuki_finger_lua", "modifiers/modifier_buzuki_finger_
 LinkLuaModifier("modifier_pivotal_swift", "modifiers/modifier_pivotal_swift", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_sonic_boot_base", "modifiers/modifier_sonic_boot_base", LUA_MODIFIER_MOTION_NONE)
 
+
 function Filters:ApplyItemDamage(victim, attacker, damage, damage_type, item, element1, element2)
     local damageData = attacker._damage_data or {}
 
@@ -334,6 +335,9 @@ function Filters:GetAdjustedESpeed(caster, speed, bDelay)
     end
     if caster:HasModifier("modifier_swamp_waders") then
         speed = speed * (1 - ITEM_RPC_SWAMP_WADERS_E_TRAVEL_SPEED_LOSS/100)
+    end
+	if caster:HasModifier("modifier_warlord_immortal_weapon_4") then
+        speed = speed *(1 + WARLORD_IMMORTAL_WEAPON_4_E_SPEED_PCT/100)
     end
     return speed
 end
