@@ -325,3 +325,7 @@
         "DOTA_Tooltip_ability_item_rpc_flamewaker_immortal_weapon_3"            "Gladius"
         "item_property_flamewaker_immortal_weapon3"                             "Meteor Break"
         "property_flamewaker_immortal_weapon3_description"                      "[R] можно применять на точку, радиус применения <% FLAMEWAKER_IMMORTAL_WEAPON_3_R_CAST_RANGE %>, а способность имеет <% FLAMEWAKER_IMMORTAL_WEAPON_3_R_CD_REDUCTION %>% снижение перезарядки."
+		
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_immortal_weapon_4"			"Kaya"
+    	"item_property_flamewaker_immortal_weapon4"								"Spellblade"
+    	"property_flamewaker_immortal_weapon4_description"						"Каждое очко Интеллекта увеличивает Пробитие Брони на <% FLAMEWAKER_IMMORTAL_WEAPON_4_ARMOR_PIERCE_PER_INT %>. [R3] также увеличивает и Интеллект."
