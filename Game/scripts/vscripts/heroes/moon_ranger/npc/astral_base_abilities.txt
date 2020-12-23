@@ -264,6 +264,15 @@
                     }
                 }
             }
+			"modifier_astral_immortal_weapon_4_silence"
+			{
+				"IsHidden"			"1"
+				"IsDebuff"			"1"
+				"States"
+				{
+					"MODIFIER_STATE_SILENCED"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
 
         }
     }

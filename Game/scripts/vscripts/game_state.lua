@@ -2817,7 +2817,9 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_demon_hunter") then
 		filterTable["damage"] = CustomAbilities:ChernobogDemonHunter(victim, filterTable["damage"])
 	end
-
+	if attacker:HasModifier("modifier_moon_shroud") and victim:HasModifier("modifier_astral_immortal_weapon_4") then
+		filterTable["damage"] = filterTable["damage"] * ASTRAL_RANGER_IMMORTAL_WEAPON_4_DAMAGE_REDUCTION_PCT/100
+	end
 	if attacker:HasModifier("modifier_boss_illusion_ability_effect") then
 		filterTable["damage"] = filterTable["damage"] * 0.1
 	end
