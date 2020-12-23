@@ -598,7 +598,7 @@ end
 
 function Curator:CurateAllGlyphsForHero(heroName)
 	local maxTiers = 1
-	if heroName == "trapper" or heroName == "sorceress" or heroName == "axe" or heroName == "duskbringer" or heroName == "paladin" or heroName == "astral" then
+	if heroName == "sorceress" or heroName == "axe" or heroName == "trapper" or heroName == "duskbringer" or heroName == "venomort" or heroName == "paladin" or heroName == "astral" or heroName == "flamewaker" or heroName == "epoch" or heroName == "solunia" or heroName == "zonik" or heroName == "voltex" then
 		maxTiers = 2
 	end
 	if heroName == "neutral" then
@@ -619,6 +619,18 @@ function Curator:CurateAllGlyphsForHero(heroName)
 			local variantName = "item_rpc_"..heroName.."_glyph_5_a"
 			local glyph = Glyphs:RollGlyphAll(variantName, Vector(0, 0), 0)
 			Curator:CurateGlyph(glyph, heroName)
+		end)
+	end
+end
+
+function Curator:CurateAllT5aGlyphs()
+	local heroTable = HerosCustom:GetHeroNameTable()
+	for i = 1, #heroTable, 1 do
+		Timers:CreateTimer(i * 5, function()
+			local variantName = "item_rpc_"..heroTable[i].."_glyph_5_a"
+			local glyph = Glyphs:RollGlyphAll(variantName, Vector(0, 0), 0)
+			Curator:CurateGlyph(glyph, heroTable[i])
+			print(heroTable[i])
 		end)
 	end
 end
