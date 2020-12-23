@@ -338,3 +338,7 @@
     	"DOTA_Tooltip_ability_item_rpc_voltex_immortal_weapon_3"			"Immortal Zetsabre"
     	"item_property_voltex_immortal_weapon3"								"Paralyzing Static"
     	"property_voltex_immortal_weapon3_description"						"Враги, задетые искрами от умения (R) @Ability4 парализуются на <% VOLTEX_IMMORTAL_WEAPON_3_PARALYSIS_DURATION %> сек."
+		
+		"DOTA_Tooltip_ability_item_rpc_voltex_immortal_weapon_4"			"Splinterblight"
+		"item_property_voltex_immortal_weapon4"								"Cold Fusion"
+		"property_voltex_immortal_weapon4_description"						"Весь урон <font color=ELEMENT_LIGHTNING>Молнии</font> дополнительно получает элемент <font color=ELEMENT_ICE>Льда</font>. [R2] разрушает Иммунитет к Заклинаниям при срабатывании."

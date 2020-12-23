@@ -367,3 +367,7 @@
     	"DOTA_Tooltip_ability_item_rpc_astral_immortal_weapon_3"			"Darnassus Bow"
     	"item_property_astral_immortal_weapon3"								"Lunar Visions"
     	"property_astral_immortal_weapon3_description"						"<% ASTRAL_RANGER_IMMORTAL_WEAPON_3_VISION %> flying vision and <% ASTRAL_RANGER_IMMORTAL_WEAPON_3_ATTACK_RANGE %> extra attack and vision range at all times."
+		
+		"DOTA_Tooltip_ability_item_rpc_astral_immortal_weapon_4"			"Blackmist Ballista"
+    	"item_property_astral_immortal_weapon4"								"Ill Wind"
+    	"property_astral_immortal_weapon4_description"						"Enemies standing in Moon Shroud of effect are silenced and deal <% ASTRAL_RANGER_IMMORTAL_WEAPON_4_DAMAGE_REDUCTION_PCT %>% reduced damage to Astral Ranger."

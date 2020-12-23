@@ -292,3 +292,7 @@
         "DOTA_Tooltip_ability_item_rpc_trapper_immortal_weapon_3"            "Prismatic Shard"
         "item_property_trapper_immortal_weapon3"                             "Assassin's Reach"
         "property_trapper_immortal_weapon3_description"                      "Increases cast range of all abilities by <% TRAPPER_IMMORTAL_WEAPON_3_RANGE %>. Cooldowns for @Ability1 and @Ability4 are decreased by <% TRAPPER_IMMORTAL_WEAPON_3_CD_RED * 100%>%."
+		
+		"DOTA_Tooltip_ability_item_rpc_trapper_immortal_weapon_4"            "Manifold Bloom"
+        "item_property_trapper_immortal_weapon4"                             "Deja Vu"
+        "property_trapper_immortal_weapon4_description"                      "[W3] secondary detonation chance also applies to [E2] illusions, allowing them to survive fatal damage and detonate again."

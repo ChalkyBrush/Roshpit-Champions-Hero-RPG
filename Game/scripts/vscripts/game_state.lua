@@ -644,9 +644,14 @@ function GameState:ModifierGainedFilter(modifierGainedTable)
 				duration_modifier = duration_modifier + ITEM_RPC_SEA_GIANTS_PLATE_STATUS_RESIST
 			end
 		end
-		if target:HasModifier("modifier_rooted_feet_immobile_active") then
+		if target:HasModifier("modifier_sea_giants_plate") then
 			if target:GetTeamNumber() ~= caster:GetTeamNumber() and modifierGainedTable["duration"] > 0 then
-				duration_modifier = duration_modifier + target.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_ROOTED_FEET_GEM_AMETHYST)
+				duration_modifier = duration_modifier + ITEM_RPC_SEA_GIANTS_PLATE_STATUS_RESIST
+			end
+		end
+		if target:HasModifier("modifier_duskbringer_immortal_weapon_4") then
+			if target:GetTeamNumber() ~= caster:GetTeamNumber() and modifierGainedTable["duration"] > 0 then
+				duration_modifier = duration_modifier + DUSKBRINGER_IMMORTAL_WEAPON_4_STATUS_RESISTANCE
 			end
 		end
 		if target:GetTeamNumber() ~= caster:GetTeamNumber() and modifierGainedTable["duration"] > 0 then
@@ -2014,7 +2019,13 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 			damage = damage * (1 - reduction)
 		end
 	end
-
+	if victim:HasModifier("modifier_mountain_protector_immortal_weapon_4_resistance") then
+		local reduction = MOUNTAIN_PROTECTOR_IMMORTAL_WEAPON_4_RESIST/100
+		if not victim:IsHero() then 
+			reduction = reduction*2
+		end
+		damage = damage *(1-reduction)
+	end
 	if victim:HasModifier("modifier_shapeshift_year_beast_r_3") then
 		local modifier = victim:FindModifierByName("modifier_shapeshift_year_beast_r_3")
 		local reduction = modifier:GetAbility().r_3_level * DJANGHOR_ARCANA_R_R3_RESIST_PCT
@@ -2707,8 +2718,9 @@ function GameState:FilterDamage(filterTable)
 		filterTable["damage"] = 0
 		Tanari:FireTempleFireShieldHit(victim)
 	end
-
-
+	if attacker:HasModifier("modifier_paladin_immortal_weapon_4_root") then
+		filterTable["damage"] = filterTable["damage"]*PALADIN_IMMORTAL_WEAPON_4_DMG_REDUCTION_PCT/100
+	end
 	if victim:HasModifier("modifier_arena_drill_spike") then
 		if attacker:GetEntityIndex() == Arena.ArenaMaster:GetEntityIndex() then
 		else
@@ -2805,7 +2817,9 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_demon_hunter") then
 		filterTable["damage"] = CustomAbilities:ChernobogDemonHunter(victim, filterTable["damage"])
 	end
-
+	if attacker:HasModifier("modifier_moon_shroud") and victim:HasModifier("modifier_astral_immortal_weapon_4") then
+		filterTable["damage"] = filterTable["damage"] * ASTRAL_RANGER_IMMORTAL_WEAPON_4_DAMAGE_REDUCTION_PCT/100
+	end
 	if attacker:HasModifier("modifier_boss_illusion_ability_effect") then
 		filterTable["damage"] = filterTable["damage"] * 0.1
 	end
@@ -3253,12 +3267,48 @@ function GameState:FilterDamage(filterTable)
 		filterTable["damage"] = 0
 	end
 	--TRAPPER DECOY
-
+	
 	if victim:HasModifier("modifier_decoy_effect") then
 		if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
 			filterTable["damage"] = 0
 		else
 			filterTable["damage"] = 1
+		end
+	end	
+	if victim:HasModifier("modifier_trapper_immortal_weapon_4_stack") then
+		local charges = victim:FindModifierByName("modifier_trapper_immortal_weapon_4_stack"):GetStackCount()	
+		local new_charges = charges - 1
+		local damage = victim.dieDamage
+		local position = victim:GetAbsOrigin()
+		local enemies = FindUnitsInRadius(victim:GetTeamNumber(), position, nil, TRAPPER_E2_EXPLODE_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+		local particleName = "particles/econ/items/techies/techies_arcana/techies_suicide_arcana.vpcf"
+		local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, decoy)
+		if victim:GetHealth() == 1 then
+			filterTable["damage"] = 0
+			if #enemies > 0 then
+				for _, enemy in pairs(enemies) do
+					Damage:Apply({
+						attacker = victim.summoner,
+						victim = enemy,
+						damage = damage,
+						damageType = DAMAGE_TYPE_PURE,
+						source = attacker:FindAbilityByName("trapper_action_leap"),
+						sourceType = BASE_ABILITY_E,
+						elements = {
+							RPC_ELEMENT_NORMAL
+						},
+					})
+				end
+			end
+			ParticleManager:SetParticleControl(particle1, 0, position)
+			Timers:CreateTimer(0.5, function()
+				ParticleManager:DestroyParticle(particle1, false)
+			end)
+			if new_charges > 0 then
+				victim:SetModifierStackCount("modifier_trapper_immortal_weapon_4_stack", victim, new_charges)
+			else
+				victim:RemoveModifierByName("modifier_trapper_immortal_weapon_4_stack")
+			end
 		end
 	end
 	if victim:HasModifier("modifier_musty_crypt_skeleton_transform") and filterTable["damage"] > 0 then

@@ -298,3 +298,7 @@
 
         "DOTA_Tooltip_modifier_auriun_immortal_weapon_3_effect"				"Artifice"
         "DOTA_Tooltip_modifier_auriun_immortal_weapon_3_effect_Description"	"Magic Immunity and reduced health regen."
+		
+		"DOTA_Tooltip_ability_item_rpc_auriun_immortal_weapon_4"            "Tome of Horrors"
+        "item_property_auriun_immortal_weapon4"                             "Judgment Day"
+        "property_auriun_immortal_weapon4_description"                      "@Ability4 no longer resurrects allies or provides health regen when cast. Instead, <% AURIUN_IMMO_WEAPON_4_BASE_FLARES %> [W1] flares, plus 1 additional flare per [R4] rune point, will be distributed in <% AURIUN_IMMO_WEAPON_4_INTERVAL %>-second intervals to a random enemy unit in @Ability4 radius. Targets with Spell Immunity will be excluded."

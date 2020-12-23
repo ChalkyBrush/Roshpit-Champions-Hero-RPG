@@ -287,3 +287,7 @@
         "DOTA_Tooltip_ability_item_rpc_trapper_immortal_weapon_3"            "Prismatic Shard"
         "item_property_trapper_immortal_weapon3"                             "Assassin's Reach"
         "property_trapper_immortal_weapon3_description"                      "Дальность применения всех способностей увеличена на <% TRAPPER_IMMORTAL_WEAPON_3_RANGE %>, перезарядка @Ability1 и @Ability4 снижена на <% TRAPPER_IMMORTAL_WEAPON_3_CD_RED * 100%>%."
+		
+		"DOTA_Tooltip_ability_item_rpc_trapper_immortal_weapon_4"            "Manifold Bloom"
+        "item_property_trapper_immortal_weapon4"                             "Deja Vu"
+        "property_trapper_immortal_weapon4_description"                      "Шанс на дополнительную детонацию [W3] распространяется на [E2], позволяя им пережить летальный урон и взорваться несколько раз."

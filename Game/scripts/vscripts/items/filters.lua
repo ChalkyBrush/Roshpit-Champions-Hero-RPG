@@ -36,6 +36,7 @@ LinkLuaModifier("modifier_buzuki_finger_lua", "modifiers/modifier_buzuki_finger_
 LinkLuaModifier("modifier_pivotal_swift", "modifiers/modifier_pivotal_swift", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_sonic_boot_base", "modifiers/modifier_sonic_boot_base", LUA_MODIFIER_MOTION_NONE)
 
+
 function Filters:ApplyItemDamage(victim, attacker, damage, damage_type, item, element1, element2)
     local damageData = attacker._damage_data or {}
 
@@ -233,6 +234,9 @@ function Filters:GetAdjustedRange(caster, baseRange)
     if caster:HasModifier("modifier_vermillion_dream_lua") then
         baseRange = baseRange + ITEM_RPC_VERMILLION_DREAM_ROBES_CAST_RANGE_INCREASE
     end
+	if caster:HasModifier("modifier_epoch_immortal_weapon_4") then
+        baseRange = baseRange - EPOCH_IMMORTAL_WEAPON_4_RANGE_REDUCTION
+    end
     return baseRange
 end
 
@@ -331,6 +335,9 @@ function Filters:GetAdjustedESpeed(caster, speed, bDelay)
     end
     if caster:HasModifier("modifier_swamp_waders") then
         speed = speed * (1 - ITEM_RPC_SWAMP_WADERS_E_TRAVEL_SPEED_LOSS/100)
+    end
+	if caster:HasModifier("modifier_warlord_immortal_weapon_4") then
+        speed = speed *(1 + WARLORD_IMMORTAL_WEAPON_4_E_SPEED_PCT/100)
     end
     return speed
 end
@@ -2348,6 +2355,25 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             end
         end
     end
+	if unitName == "npc_dota_hero_phantom_assassin" then
+		if attacker:HasModifier("modifier_voltex_immortal_weapon_4") then
+			if bIsRealDamage then
+				if element1 == RPC_ELEMENT_LIGHTNING then
+					element2 = RPC_ELEMENT_ICE
+				end
+				if element2 == RPC_ELEMENT_LIGHTNING and element1 ~= RPC_ELEMENT_LIGHTNING then
+					element1 = RPC_ELEMENT_ICE
+				end
+			end
+		end
+	end
+	if unitName == "npc_dota_hero_faceless_void" then
+		if attacker:HasModifier("modifier_omniro_immortal_weapon_4") then
+			if bIsRealDamage and slot ~= 0 then
+				 element2 = RPC_ELEMENT_NORMAL
+			end
+		end
+	end
     if element1 > 1 or element2 > 1 then
         if attacker:HasModifier("modifier_demonfire_stack") then
             local stacks = attacker:GetModifierStackCount("modifier_demonfire_stack", attacker.InventoryUnit)
@@ -6841,6 +6867,9 @@ function Filters:CalculateTotalCastRangeBonus(hero)
     if hero:GetUnitName() == "npc_dota_hero_grimstroke" then
         range_bonus = range_bonus + hero:GetRuneValue("q", 1)*RUBILASH_RUNE_Q1_CAST_RANGE
     end
+	if caster:HasModifier("modifier_epoch_immortal_weapon_4") then
+        range_bonus = range_bonus - EPOCH_IMMORTAL_WEAPON_4_RANGE_REDUCTION
+    end
     return range_bonus
 end
 
@@ -6970,7 +6999,7 @@ function Filters:GloveOfTheHierophant(caster, target, healAmount)
         local radius = ITEM_RPC_GLOVE_OF_THE_HIEROPHANT_DMG_RADIUS + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_GLOVE_OF_THE_HIEROPHANT_GEM_EMERALD)
 
         local pfx = CustomAbilities:QuickParticleAtPoint("particles/roshpit/items/glove_of_hierophant_aoe.vpcf", target:GetAbsOrigin(), 1)
-        ParticleManager:SetParticleControl(pfx, 1, Vector(radius, 2, radius/2))
+        ParticleManager:SetParticleControl(pfx, 1, Vector(radius, 2, radius/1.5))
 
         local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
         if #enemies > 0 then

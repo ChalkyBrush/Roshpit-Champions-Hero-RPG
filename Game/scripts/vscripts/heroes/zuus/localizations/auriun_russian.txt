@@ -297,3 +297,7 @@
 
         "DOTA_Tooltip_modifier_auriun_immortal_weapon_3_effect"				"Artifice"
         "DOTA_Tooltip_modifier_auriun_immortal_weapon_3_effect_Description"	"Иммунитет к магии, пониженная регенерация здоровья."
+		
+		"DOTA_Tooltip_ability_item_rpc_auriun_immortal_weapon_4"            "Tome of Horrors"
+        "item_property_auriun_immortal_weapon4"                             "Judgment Day"
+        "property_auriun_immortal_weapon4_description"                      "@Ability4 больше не возрождает союзников и не исцеляет. Вместо этого,  <% AURIUN_IMMO_WEAPON_4_BASE_FLARES %> вспышек [W1], плюс 1 дополнительная вспышка за каждую руну [R4], будут созданы на случайных противниках в зоне действия способности с интервалами в <% AURIUN_IMMO_WEAPON_4_INTERVAL %> сек. Вспышки не создаются на целях с иммунитетом к заклинаниям."

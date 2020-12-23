@@ -319,7 +319,21 @@ function modifier_epoch_q_passive:BasicAttackOverride(event)
 			end
 			attack_data.hit = true
 			override = 1
-			Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
+			if caster:HasModifier("modifier_epoch_immortal_weapon_4") then
+				print("modifier is here")
+				CustomAbilities:QuickParticleAtPoint(EPOCH_IMMORTAL_WEAPON_4_Q1_SPLASH_PARTICLE, target:GetAbsOrigin(), 0.03)
+				local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, EPOCH_IMMORTAL_WEAPON_4_Q1_SPLASH, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+				if #enemies > 0 then
+					for _, enemy in pairs(enemies) do
+						if not enemy.dummy then
+							Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
+						end
+					end
+				end
+			else
+				print("modifier is not here")
+				Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
+			end
     	end
     	local new_attack_data_table = {}
     	if ability.q_1_attacks[target:GetEntityIndex()] then

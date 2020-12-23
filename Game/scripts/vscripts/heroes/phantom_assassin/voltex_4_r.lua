@@ -160,8 +160,11 @@ function voltex_rune_r_2_onattacklanded(event)
 	if r_2_level > 0 and luck <= VOLTEX_R2_CHANCE then
 		local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker) * ((VOLTEX_R2_DMG_PER_ATT/100) * r_2_level)
 		Filters:ApplyStun(attacker, 0.2, target)
+		if attacker:HasModifier("modifier_voltex_immortal_weapon_4") then
+			Filters:MagicImmuneBreak(attacker, target)
+		end
 		if attacker:HasModifier("modifier_voltex_glyph_7_2") then
-			CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_stormspirit/stormspirit_static_remnant.vpcf", target:GetAbsOrigin(), 0.03)
+			CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_stormspirit/stormspirit_static_remnant_points.vpcf", target:GetAbsOrigin(), 0.03)
 			local enemies = FindUnitsInRadius(attacker:GetTeamNumber(), target:GetAbsOrigin(), nil, VOLTEX_GLYPH_7_2_R2_AOE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 			if #enemies > 0 then
 				for _, enemy in pairs(enemies) do

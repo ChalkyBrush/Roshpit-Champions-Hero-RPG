@@ -300,3 +300,7 @@
         "DOTA_Tooltip_ability_item_rpc_seinaru_immortal_weapon_3"            "Heavy Sangeblade"
         "item_property_seinaru_immortal_weapon3"                             "Adamantaimai"
         "property_seinaru_immortal_weapon3_description"                      "Each point of current movement speed increases Strength by <% SEINARU_WEAP_3_STR_PER_MS %>. Reduces base movement speed by @special_property2."
+		
+		"DOTA_Tooltip_ability_item_rpc_seinaru_immortal_weapon_4"            "Monohoshizao"
+        "item_property_seinaru_immortal_weapon4"                             "Tsubamegaeshi"
+        "property_seinaru_immortal_weapon4_description"                      "Increases attack range by <% SEINARU_WEAPON_4_ATTACK_RANGE %>. Base damage of [W1] is increased by <% SEINARU_WEAPON_4_DAMAGE_BONUS_OF_CURRENT_MANA %>% of maximum mana."

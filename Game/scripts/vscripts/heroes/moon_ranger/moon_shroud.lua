@@ -88,6 +88,9 @@ function moon_shroud_damage(event)
   local caster = event.caster.hero
   local damage = event.damage
   Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
+  if caster:HasModifier("modifier_astral_immortal_weapon_4") then
+		event.ability:ApplyDataDrivenModifier(caster, target, "modifier_astral_immortal_weapon_4_silence", {duration = 0.6})
+end
 end
 
 function moon_shroud_end(event)
@@ -135,19 +138,19 @@ function c_a_projectile_remove(event)
 end
 
 function moon_shroud_debuff_apply(event)
-  local target = event.target
-  target.origAcquisition = target:GetAcquisitionRange()
-  target:SetAcquisitionRange(100)
-  local caster = event.caster
-  local hero = event.caster.hero
-  local moveDirection = ((target:GetAbsOrigin() - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
-  if not hero:HasModifier("modifier_astral_glyph_1_2") then
+	local target = event.target
+	target.origAcquisition = target:GetAcquisitionRange()
+	target:SetAcquisitionRange(100)
+	local caster = event.caster
+	local hero = event.caster.hero
+	local moveDirection = ((target:GetAbsOrigin() - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
+	if not hero:HasModifier("modifier_astral_glyph_1_2") then
 	  if target:HasGroundMovementCapability() then
 		if not target.dummy  then
 			target:MoveToPosition(target:GetAbsOrigin() + moveDirection * 200)
 		end
 	  end
-  end
+	end
 end
 
 function moon_shroud_debuff_end(event)

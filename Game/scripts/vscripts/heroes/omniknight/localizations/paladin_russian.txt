@@ -362,3 +362,9 @@
     	"DOTA_Tooltip_ability_item_rpc_paladin_immortal_weapon_3"			"Hammer of Auriel"
     	"item_property_paladin_immortal_weapon3"								"Might of Auriel"
     	"property_paladin_immortal_weapon3_description"						"Каждое очко Силы дополнительно увеличивает максимальное здоровье на <% PALADIN_IMMORTAL_WEAPON_3_HP_PER_STR %>."
+		
+		"DOTA_Tooltip_ability_item_rpc_paladin_immortal_weapon_4"			"Gleipnir"
+    	"item_property_paladin_immortal_weapon4"								"Storm Hammer"
+    	"property_paladin_immortal_weapon4_description"						"Противники, задетые @Ability2, обездвижены на <% PALADIN_IMMORTAL_WEAPON_4_ROOT_DURATION %> сек, и наносят на <% PALADIN_IMMORTAL_WEAPON_4_DMG_REDUCTION_PCT %>% меньше урона под действием этого эффекта."
+		"DOTA_Tooltip_modifier_paladin_immortal_weapon_4_root"				"Gleipnir's Chain"
+		"DOTA_Tooltip_modifier_paladin_immortal_weapon_4_root_Description"	"Обездвижен и наносит меньше урона."

@@ -198,7 +198,7 @@ Weapons.STAT_ADD_PER_LEVEL_TABLE["intelligence"] = 15
 Weapons.STAT_ADD_PER_LEVEL_TABLE["spirit"] = 15
 Weapons.STAT_ADD_PER_LEVEL_TABLE["all_attributes"] = 4
 
-Weapons.STAT_ADD_PER_LEVEL_TABLE["attack_damage"] = 40
+Weapons.STAT_ADD_PER_LEVEL_TABLE["attack_damage"] = 80
 Weapons.STAT_ADD_PER_LEVEL_TABLE["rune_q_1"] = 2
 Weapons.STAT_ADD_PER_LEVEL_TABLE["rune_w_1"] = 2
 Weapons.STAT_ADD_PER_LEVEL_TABLE["rune_e_1"] = 2
@@ -217,6 +217,13 @@ Weapons.STAT_ADD_PER_LEVEL_TABLE["item_damage"] = 6
 Weapons.STAT_ADD_PER_LEVEL_TABLE["armor_pierce"] = 120
 Weapons.STAT_ADD_PER_LEVEL_TABLE["spell_pierce"] = 120
 Weapons.STAT_ADD_PER_LEVEL_TABLE["movespeed"] = 6
+Weapons.STAT_ADD_PER_LEVEL_TABLE["max_health"] = 250
+Weapons.STAT_ADD_PER_LEVEL_TABLE["max_mana"] = 150
+Weapons.STAT_ADD_PER_LEVEL_TABLE["armor"] = 35
+Weapons.STAT_ADD_PER_LEVEL_TABLE["magic_armor"] = 35
+Weapons.STAT_ADD_PER_LEVEL_TABLE["health_regen"] = 150
+Weapons.STAT_ADD_PER_LEVEL_TABLE["mana_regen"] = 40
+Weapons.STAT_ADD_PER_LEVEL_TABLE["attack_speed"] = 14
 
 Weapons.STAT_ADD_PER_LEVEL_TABLE["element_normal"] = 8
 Weapons.STAT_ADD_PER_LEVEL_TABLE["element_fire"] = 8
@@ -293,6 +300,16 @@ Weapons.AttributeBaseRolls["t3_rune"] = 0.08
 Weapons.AttributeBaseRolls["armor_pierce"] = 4
 Weapons.AttributeBaseRolls["spell_pierce"] = 4
 Weapons.AttributeBaseRolls["movespeed"] = CustomAttributes.MOVESPEED_PER_AGI * Weapons.AttributeBaseRolls["agility"] * 10
+Weapons.AttributeBaseRolls["max_health"] = CustomAttributes.HEALTH_PER_STR * Weapons.AttributeBaseRolls["strength"] * 3.5
+Weapons.AttributeBaseRolls["max_mana"] = CustomAttributes.MANA_PER_INT * Weapons.AttributeBaseRolls["intelligence"] * 3.5
+Weapons.AttributeBaseRolls["armor"] = CustomAttributes.ARMOR_PER_STR * Weapons.AttributeBaseRolls["strength"] * 5
+Weapons.AttributeBaseRolls["magic_armor"] = CustomAttributes.MAGIC_ARMOR_PER_SPIRIT * Weapons.AttributeBaseRolls["spirit"] * 5
+Weapons.AttributeBaseRolls["health_regen"] = CustomAttributes.HEALTH_REGEN_PER_STR * Weapons.AttributeBaseRolls["strength"] * 3.5
+Weapons.AttributeBaseRolls["mana_regen"] = CustomAttributes.MANA_REGEN_PER_INT * Weapons.AttributeBaseRolls["intelligence"] * 3.5
+Weapons.AttributeBaseRolls["attack_speed"] = CustomAttributes.ATTACKSPEED_PER_AGI * Weapons.AttributeBaseRolls["agility"] * 3.5
+
+
+
 
 Weapons.AttributeBaseRolls["element_normal"] = 0.3
 Weapons.AttributeBaseRolls["element_fire"] = 0.3

@@ -271,3 +271,7 @@
     	"DOTA_Tooltip_ability_item_rpc_epoch_immortal_weapon_3"				"Aion Eternus"
     	"item_property_epoch_immortal_weapon3"								"Spatial Distortion"
     	"property_epoch_immortal_weapon3_description"						"If a @Ability3 expires without Epoch Guardian having teleported to it, the spell will not go on cooldown."
+		
+		"DOTA_Tooltip_ability_item_rpc_epoch_immortal_weapon_4"				"Worldstone Shard"
+    	"item_property_epoch_immortal_weapon4"								"Havoc Hammer"
+    	"property_epoch_immortal_weapon4_description"						"Attack range and cast range are both reduced by <% EPOCH_IMMORTAL_WEAPON_4_RANGE_REDUCTION %>. [Q1] deals its damage to all enemy units in a <% EPOCH_IMMORTAL_WEAPON_4_Q1_SPLASH %> radius around the primary target."

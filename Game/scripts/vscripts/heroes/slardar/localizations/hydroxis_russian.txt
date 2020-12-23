@@ -294,3 +294,7 @@
         "DOTA_Tooltip_ability_item_rpc_hydroxis_immortal_weapon_3"            "Siltbreaker's Golden Trident"
         "item_property_hydroxis_immortal_weapon3"                             "Tidecaller"
         "property_hydroxis_immortal_weapon3_description"                      "Потоки воды от (Q) Hydro Pump расходятся на <% HYDROXIS_IMMORTAL_WEAPON_3_Q_DELAY_REDUCTION_PCT %>% чаще."
+		
+		 "DOTA_Tooltip_ability_item_rpc_hydroxis_immortal_weapon_4"            "Oar of Lethe"
+        "item_property_hydroxis_immortal_weapon4"                             "Splash Booster"
+        "property_hydroxis_immortal_weapon4_description"                      "Увеличивает радиус @Ability на <% HYDROXIS_IMMORTAL_WEAPON_4_RADIUS_INCREASE_PCT %>%."

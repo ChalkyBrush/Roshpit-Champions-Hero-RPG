@@ -301,6 +301,7 @@ function modifier_flamewaker_r_3_strength:OnCreated()
 	end
     self:SetSpecialTypes({ 
         MODIFIER_ROSHPIT_STRENGTH_BONUS,
+		MODIFIER_ROSHPIT_INTELLIGENCE_BONUS,
         MODIFIER_ROSHPIT_SPIRIT_BONUS
     })
 end
@@ -311,6 +312,14 @@ end
 
 function modifier_flamewaker_r_3_strength:GetRoshpitSpiritBonus()
 	if self:GetCaster():HasModifier("modifier_flamewaker_glyph_6_1") then
+		return self:GetRoshpitStrengthBonus()
+	else
+		return 0
+	end
+end
+
+function modifier_flamewaker_r_3_strength:GetRoshpitIntelligenceBonus()
+	if self:GetCaster():HasModifier("modifier_flamewaker_immortal_weapon_4") then
 		return self:GetRoshpitStrengthBonus()
 	else
 		return 0

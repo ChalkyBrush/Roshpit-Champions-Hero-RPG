@@ -106,6 +106,15 @@ function red_general_ability_base_q_attackLand(event, q2_think)
 	if not q2_think and caster:HasModifier("modifier_stun_attack") then
 		red_general_rune_base_q_1_attackLand(event)
 	end
+	
+	if caster:HasModifier("modifier_stun_attack") and caster:HasModifier("modifier_axe_immortal_weapon_4") then
+		event.ability:ApplyDataDrivenModifier(caster, caster, "modifier_stun_attack", {duration = skullBasherDuration})
+		local current_hp = caster:GetHealth()
+		local drain = current_hp*RED_GENERAL_IMMORTAL_WEAPON_4_HP_PCT_LOSS_PER_ATTACK/100
+		local new_health = math.max(current_hp - drain, 1)
+		caster:SetHealth(new_health)
+		CustomAbilities:QuickAttachParticle("particles/econ/items/bloodseeker/bloodseeker_eztzhok_weapon/bloodseeker_bloodbath_eztzhok_ember.vpcf", caster, 0.7)
+	end
 
 	local ability = event.ability
 	local target = event.target

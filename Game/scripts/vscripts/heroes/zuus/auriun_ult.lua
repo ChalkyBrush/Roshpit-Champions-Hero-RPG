@@ -1,3 +1,5 @@
+require('heroes/zuus/auriun_constants')
+
 function channel_succeed(event)
 	local caster = event.caster
 	local ability = event.ability
@@ -5,40 +7,43 @@ function channel_succeed(event)
 	local allAllies = CustomAbilities:GetAllAlliedHeroes(caster)
 	local allies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, event.radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
 	local r_4_level = caster:GetRuneValue("r", 4)
-
 	local ultEffectDuration = Filters:GetAdjustedBuffDuration(caster, 3.1, false)
-	for i = 1, #allAllies, 1 do
-		if not allAllies[i]:IsAlive() then
-			allAllies[i].revive = true
-			local rezPosition = allAllies[i]:GetAbsOrigin()
-			allAllies[i]:RespawnHero(false, false)
-			allAllies[i]:SetAbsOrigin(rezPosition)
+	if not caster:HasModifier("modifier_auriun_immortal_weapon_4") then
+		for i = 1, #allAllies, 1 do
+			if not allAllies[i]:IsAlive() then
+				allAllies[i].revive = true
+				local rezPosition = allAllies[i]:GetAbsOrigin()
+				allAllies[i]:RespawnHero(false, false)
+				allAllies[i]:SetAbsOrigin(rezPosition)
 
-			allAllies[i]:SetHealth(allAllies[i]:GetMaxHealth() * 0.4)
-			ability:ApplyDataDrivenModifier(caster, allAllies[i], "modifier_auriun_ult_effect", {duration = ultEffectDuration})
-			if r_4_level > 0 then
-				local shieldStacks = Runes:Procs(r_4_level, AURIUN_R4_SHIELD_CHANCE, 1)
-				if shieldStacks > 0 then
-					local shieldAbility = nil
-					if caster:HasAbility("heavens_shield") then
-						shieldAbility = caster:FindAbilityByName("heavens_shield")
-					elseif caster:HasAbility("auriun_shadow_trap") then
-						shieldAbility = caster:FindAbilityByName("auriun_shadow_trap")
-					elseif caster:HasAbility("auriun_aoe_shield") then
-						shieldAbility = caster:FindAbilityByName("auriun_aoe_shield")
+				allAllies[i]:SetHealth(allAllies[i]:GetMaxHealth() * 0.4)
+				ability:ApplyDataDrivenModifier(caster, allAllies[i], "modifier_auriun_ult_effect", {duration = ultEffectDuration})
+				if r_4_level > 0 then
+					local shieldStacks = Runes:Procs(r_4_level, AURIUN_R4_SHIELD_CHANCE, 1)
+					if shieldStacks > 0 then
+						local shieldAbility = nil
+						if caster:HasAbility("heavens_shield") then
+							shieldAbility = caster:FindAbilityByName("heavens_shield")
+						elseif caster:HasAbility("auriun_shadow_trap") then
+							shieldAbility = caster:FindAbilityByName("auriun_shadow_trap")
+						elseif caster:HasAbility("auriun_aoe_shield") then
+							shieldAbility = caster:FindAbilityByName("auriun_aoe_shield")
+						end
+						Auriun_R4_Apply_Shield(caster, shieldAbility, allAllies[i], shieldStacks)
 					end
-					Auriun_R4_Apply_Shield(caster, shieldAbility, allAllies[i], shieldStacks)
 				end
-			end
-			if caster:HasModifier("modifier_auriun_glyph_1_1") then
-				local glyph_duration = Filters:GetAdjustedBuffDuration(caster, AURIUN_GLYPH_1_1_DURATION, false)
-				ability:ApplyDataDrivenModifier(caster, allAllies[i], "modifier_auriun_glyph_1_1_effect", {duration = glyph_duration})
+				if caster:HasModifier("modifier_auriun_glyph_1_1") then
+					local glyph_duration = Filters:GetAdjustedBuffDuration(caster, AURIUN_GLYPH_1_1_DURATION, false)
+					ability:ApplyDataDrivenModifier(caster, allAllies[i], "modifier_auriun_glyph_1_1_effect", {duration = glyph_duration})
+				end
 			end
 		end
 	end
 	if #allies > 0 then
 		for _, ally in pairs(allies) do
-			ability:ApplyDataDrivenModifier(caster, ally, "modifier_auriun_ult_effect", {duration = ultEffectDuration})
+			if not caster:HasModifier("modifier_auriun_immortal_weapon_4") then
+				ability:ApplyDataDrivenModifier(caster, ally, "modifier_auriun_ult_effect", {duration = ultEffectDuration})
+			end
 			if r_4_level > 0 then
 				local shieldStacks = Runes:Procs(r_4_level, AURIUN_R4_SHIELD_CHANCE, 1)
 				if shieldStacks > 0 then
@@ -60,6 +65,16 @@ function channel_succeed(event)
 		end
 	end
 	Filters:CastSkillArguments(BASE_ABILITY_R, caster)
+	if caster:HasModifier("modifier_auriun_immortal_weapon_4") then
+		local r_4_level = caster:GetRuneValue("r", 4)
+		for i = 1, AURIUN_IMMO_WEAPON_4_BASE_FLARES+r_4_level, 1 do
+			Timers:CreateTimer(i*AURIUN_IMMO_WEAPON_4_INTERVAL, function()
+			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, event.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+			local position = enemies[1]:GetAbsOrigin()
+			weapon_4_flash_heal(caster, ability, position)
+			end)
+		end
+	end
 end
 
 function channel_initialize(event)
@@ -139,4 +154,37 @@ function auriun_ult_attack_land(event)
 			end
 		end
 	end
+end
+
+function weapon_4_flash_heal(caster, ability, position)
+	local w_ability = caster:FindAbilityByName("flash_heal")
+	local w_1_level = caster:GetRuneValue("w", 1)
+	local w_4_level = caster:GetRuneValue("w", 4)
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, 240, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+	local damage = w_1_level * (AURIUN_W1_DMG + AURIUN_W1_DMG_PER_INT * caster:GetIntellect()) + AURIUN_W1_DMG_BASE
+	local particleName = "particles/units/heroes/hero_nevermore/shadow_flare.vpcf"
+	local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, caster)
+	for _, enemy in pairs(enemies) do
+		Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_SHADOW, RPC_ELEMENT_NONE)
+		d_b_apply(caster, enemy, w_4_level, caster.runeUnit4:FindAbilityByName("auriun_rune_w_4"))
+		ParticleManager:SetParticleControl(particle1, 0, position)
+		Timers:CreateTimer(2, function()
+			ParticleManager:DestroyParticle(particle1, false)
+			ParticleManager:ReleaseParticleIndex(particle1)
+		end)
+		EmitSoundOnLocationWithCaster(position, "Auriun.ShadowFlare", caster)
+	end
+end
+
+function d_b_apply(caster, enemy, w_4_level, d_b_ability)
+	if w_4_level > 0 then
+		d_b_ability:ApplyDataDrivenModifier(caster.runeUnit4, enemy, "modifier_auriun_rune_w_4_effect_visible", {duration = AURIUN_W4_DURATION})
+		local current_stacks = enemy:GetModifierStackCount("modifier_auriun_rune_w_4_effect_visible", d_b_ability)
+		local new_stacks = math.min(current_stacks + 1, AURIUN_W4_STACKS)
+		enemy:SetModifierStackCount("modifier_auriun_rune_w_4_effect_visible", d_b_ability, new_stacks)
+
+		d_b_ability:ApplyDataDrivenModifier(caster.runeUnit4, enemy, "modifier_auriun_rune_w_4_effect_invisible", {duration = AURIUN_W4_DURATION})
+		enemy:SetModifierStackCount("modifier_auriun_rune_w_4_effect_invisible", d_b_ability, new_stacks * w_4_level)
+	end
+	--"modifier_auriun_rune_w_4_effect_visible"
 end

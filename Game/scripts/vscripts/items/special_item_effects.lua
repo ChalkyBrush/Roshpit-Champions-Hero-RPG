@@ -10514,3 +10514,13 @@ function demonic_judiciary_attack_land(event)
 		
 	end
 end
+
+function modifier_spirit_warrior_immortal_weapon_4_think (event)
+	local target = event.target
+	local ability = event.ability
+	local attack_damage = target:GetSpirit()*SPIRIT_WARRIOR_IMMORTAL_WEAPON_4_SPIRIT_TO_DAMAGE
+	local caster = event.caster
+	local modifier_name = "modifier_spirit_warrior_immortal_weapon_4_damage"
+	ability:ApplyDataDrivenModifier(caster, target, modifier_name, {})
+	target:SetModifierStackCount(modifier_name, caster, attack_damage)
+end

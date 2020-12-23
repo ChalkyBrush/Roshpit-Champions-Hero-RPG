@@ -374,6 +374,10 @@
 	"DOTA_Tooltip_ability_item_rpc_jex_immortal_weapon_3"            "Exodius Plasma Cannon"
 	"item_property_jex_immortal_weapon3"                             "Cosmic Enhancement"
 	"property_jex_immortal_weapon3_description"                      "All tech abilities with <font color=ELEMENT_COSMOS>Cosmic</font> element receive @special_property1 Tech Level. Double <font color=ELEMENT_COSMOS>Cosmic</font> abilities gain @special_property2 bonus Tech Levels."
+	
+	"DOTA_Tooltip_ability_item_rpc_jex_immortal_weapon_4"            "Boush Buster"
+	"item_property_jex_immortal_weapon4"                             "Enhanced Munitions"
+	"property_jex_immortal_weapon4_description"                      "All Base Cannon spells have their base damage increased by <% JEX_IMMORTAL_WEAPON_4_ATTACK_TO_DMG %>x total attack power. Increases cast rate by <% JEX_IMMORTAL_WEAPON_4_CAST_RATE %>% for all spells."
 
 
 	"DOTA_Tooltip_ability_item_rpc_jex_glyph_1_1"		"[T1-1] Glyph of Biosynthesis"

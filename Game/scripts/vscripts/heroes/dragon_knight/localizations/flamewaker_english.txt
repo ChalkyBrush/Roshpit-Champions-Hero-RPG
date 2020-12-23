@@ -328,3 +328,7 @@
     	"DOTA_Tooltip_ability_item_rpc_flamewaker_immortal_weapon_3"			"Gladius"
     	"item_property_flamewaker_immortal_weapon3"								"Meteor Break"
     	"property_flamewaker_immortal_weapon3_description"						"[R] becomes point target with <% FLAMEWAKER_IMMORTAL_WEAPON_3_R_CAST_RANGE %> cast range and has <% FLAMEWAKER_IMMORTAL_WEAPON_3_R_CD_REDUCTION %>% reduced cooldown."
+		
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_immortal_weapon_4"			"Kaya"
+    	"item_property_flamewaker_immortal_weapon4"								"Spellblade"
+    	"property_flamewaker_immortal_weapon4_description"						"Each point of Intelligence increases Armor Pierce by <% FLAMEWAKER_IMMORTAL_WEAPON_4_ARMOR_PIERCE_PER_INT %>. [R3] also increases Intelligence by the same amount."

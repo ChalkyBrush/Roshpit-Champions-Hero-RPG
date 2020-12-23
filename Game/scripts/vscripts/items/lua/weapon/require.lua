@@ -1,3 +1,4 @@
 require('heroes/dragon_knight/weapon_scripts/require')
 require('heroes/obsidian_destroyer/weapon_scripts/require')
 require('heroes/vengeful_spirit/weapon_scripts/require')
+require('heroes/beastmaster/weapon_scripts/require')

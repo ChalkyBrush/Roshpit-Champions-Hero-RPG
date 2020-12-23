@@ -319,3 +319,9 @@
         "DOTA_Tooltip_ability_item_rpc_bahamut_immortal_weapon_3"            "Origin Rune"
         "item_property_bahamut_immortal_weapon3"                             "Omega Waller"
         "property_bahamut_immortal_weapon3_description"                      "Увеличивает размер действия (Q) @Ability1 на <% BAHAMUT_IMMORTAL_WEAPON_3_Q_LENGHT_INCREASE_PCT %>% и его урон на <% BAHAMUT_IMMORTAL_WEAPON_3_Q_DAMAGE_ATTRIBUTES_MULT %>x от суммы Атрибутов героя."
+		
+		"DOTA_Tooltip_ability_item_rpc_bahamut_immortal_weapon_4"            "Sundered Rune"
+        "item_property_bahamut_immortal_weapon4"                             "Nascent Power"
+        "property_bahamut_immortal_weapon4_description"                      "Каждый пустой слот снаряжения добавляет <% BAHAMUT_IMMORTAL_WEAPON_4_ATTRIBUTE_BONUS %> ко всем Атрибутам."
+		"DOTA_Tooltip_modifier_bahamut_immortal_weapon_4_nascent_power_stack"	"Nascent Power"
+		"DOTA_Tooltip_modifier_bahamut_immortal_weapon_4_nascent_power_stack_description"	"Каждый пустой слот снаряжения добавляет <% BAHAMUT_IMMORTAL_WEAPON_4_ATTRIBUTE_BONUS %> ко всем Атрибутам."

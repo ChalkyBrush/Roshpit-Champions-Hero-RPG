@@ -430,4 +430,8 @@
 
         "DOTA_Tooltip_ability_item_rpc_warlord_immortal_weapon_3"            "Qio'jin's Ruby Relic Axe"
         "item_property_warlord_immortal_weapon3"                             "Primordial Insurgence"
-        "property_warlord_immortal_weapon3_description"                      "Every <% WARLORD_IMMORTAL_WEAPON_3_INTERVAL %> seconds gain <% WARLORD_IMMORTAL_WEAPON_3_CHARGES_PER_TICK %> earth, fire, and ice charge."   
+        "property_warlord_immortal_weapon3_description"                      "Every <% WARLORD_IMMORTAL_WEAPON_3_INTERVAL %> seconds gain <% WARLORD_IMMORTAL_WEAPON_3_CHARGES_PER_TICK %> earth, fire, and ice charge." 
+		
+		"DOTA_Tooltip_ability_item_rpc_warlord_immortal_weapon_4"            "Blink Axe"
+        "item_property_warlord_immortal_weapon4"                             "Natural Reflexes"
+        "property_warlord_immortal_weapon4_description"                      "Elemental Warlord now has an instant turn rate. @Ability3 spells all travel <% WARLORD_IMMORTAL_WEAPON_4_E_SPEED_PCT %>% faster and have their cooldown reduced by <% WARLORD_IMMORTAL_WEAPON_4_E_CD_REDUCTION %> second."	
