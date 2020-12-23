@@ -556,8 +556,31 @@
 			{
 				"Passive"			"0"
 				"IsHidden"			"1"
-				"IsDebuff"			"0"
+				"IsDebuff"			"0"	
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/leshrac/leshrac_immortal_weapon_4.lua"
+						"Function"		"modifier_bahamut_immortal_weapon_4_think"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/leshrac/leshrac_immortal_weapon_4.lua"
+						"Function"		"modifier_bahamut_immortal_weapon_4_remove_stacks"
+					}
+				}
+			}
+			"modifier_bahamut_immortal_weapon_4_nascent_power_stack"
+			{
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"TextureName"	"bahamut/bahamut_immortal_weapon_4_modifier"
 			}
 		}
 	}

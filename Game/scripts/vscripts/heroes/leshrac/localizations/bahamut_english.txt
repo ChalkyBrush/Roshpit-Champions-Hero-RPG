@@ -323,3 +323,9 @@
         "DOTA_Tooltip_ability_item_rpc_bahamut_immortal_weapon_3"            "Origin Rune"
         "item_property_bahamut_immortal_weapon3"                             "Omega Waller"
         "property_bahamut_immortal_weapon3_description"                      "Increases the length of @Ability1 by <% BAHAMUT_IMMORTAL_WEAPON_3_Q_LENGHT_INCREASE_PCT %>% and its damage by <% BAHAMUT_IMMORTAL_WEAPON_3_Q_DAMAGE_ATTRIBUTES_MULT %>x of Hero's all attributes."
+		
+		"DOTA_Tooltip_ability_item_rpc_bahamut_immortal_weapon_4"            "Sundered Rune"
+        "item_property_bahamut_immortal_weapon4"                             "Nascent Power"
+        "property_bahamut_immortal_weapon4_description"                      "Each empty equipment slot grants +120 to all attributes, +4 to all T1 and T2 runes, +2 to all T3 runes, and +1 to all T4 runes."
+		"DOTA_Tooltip_modifier_bahamut_immortal_weapon_4_nascent_power_stack"	"Nascent Power"
+		"DOTA_Tooltip_modifier_bahamut_immortal_weapon_4_nascent_power_stack_description"	"Each empty equipment slot grants +120 to all attributes, +4 to all T1 and T2 runes, +2 to all T3 runes, and +1 to all T4 runes."
