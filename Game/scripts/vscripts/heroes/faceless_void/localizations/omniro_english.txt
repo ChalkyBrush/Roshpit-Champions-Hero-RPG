@@ -353,6 +353,10 @@
 		"item_property_omniro_immortal_weapon3"                             "Dragon Element"
 		"property_omniro_immortal_weapon3_description"                      "Activates Omniro's <font color=ELEMENT_DRAGON>Dragon</font> element. Dragon basic mace effect applies a buff that increases elemental damage. The orb effect refreshes the charges on all other elements."
 
+		"DOTA_Tooltip_ability_item_rpc_omniro_immortal_weapon_4"            "Granite Gavel"
+		"item_property_omniro_immortal_weapon4"                             "Shades of Gray"
+		"property_omniro_immortal_weapon4_description"                      "All of Omniro's damage instances from attacks and abilities (but not items) gain <font color=ELEMENT_NORMAL>Normal</font> as a secondary element."
+		
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_1_1"		"[T1-1] Glyph of Consistency"
 		"item_rpc_omniro_glyph_1_1_description" 				"Standard element rotation will skip elements that don't have Orb Charges (unless all elements have no charges)."
