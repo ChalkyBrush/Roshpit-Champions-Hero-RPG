@@ -85,6 +85,9 @@ function base_cannon_impact(event)
 		ability_letter = BASE_ABILITY_W
 	end
 	local damage = event.damage
+	if caster:HasModifier("modifier_jex_immortal_weapon_4") then
+		damage = damage + JEX_IMMORTAL_WEAPON_4_ATTACK_TO_DMG * OverflowProtectedGetAverageTrueAttackDamage(caster)
+	end
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, ability_letter, damage_element, RPC_ELEMENT_NONE)
 	local key = 'jex_base_cannon_sound'
 	Util.Common:LimitPerTimeAndPlace(2, 2, target:GetAbsOrigin(), 400, key, function()

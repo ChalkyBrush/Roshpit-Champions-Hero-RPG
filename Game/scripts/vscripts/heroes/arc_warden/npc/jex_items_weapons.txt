@@ -691,6 +691,10 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_CASTTIME_PERCENTAGE"	"<% JEX_IMMORTAL_WEAPON_4_CAST_RATE %>"
+				}
 				"OnCreated"
 				{
 					"RunScript"

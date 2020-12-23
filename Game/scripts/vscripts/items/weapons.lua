@@ -198,7 +198,7 @@ Weapons.STAT_ADD_PER_LEVEL_TABLE["intelligence"] = 15
 Weapons.STAT_ADD_PER_LEVEL_TABLE["spirit"] = 15
 Weapons.STAT_ADD_PER_LEVEL_TABLE["all_attributes"] = 4
 
-Weapons.STAT_ADD_PER_LEVEL_TABLE["attack_damage"] = 40
+Weapons.STAT_ADD_PER_LEVEL_TABLE["attack_damage"] = 80
 Weapons.STAT_ADD_PER_LEVEL_TABLE["rune_q_1"] = 2
 Weapons.STAT_ADD_PER_LEVEL_TABLE["rune_w_1"] = 2
 Weapons.STAT_ADD_PER_LEVEL_TABLE["rune_e_1"] = 2
