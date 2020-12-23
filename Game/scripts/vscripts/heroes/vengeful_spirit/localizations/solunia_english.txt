@@ -432,4 +432,4 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_solunia_immortal_weapon_4"            "Magnetron Loop"
         "item_property_solunia_immortal_weapon4"                             "Aurora Veil"
-        "property_solunia_immortal_weapon4_description"                      "Increases Armor and Magic Armor by 40%."
+        "property_solunia_immortal_weapon4_description"                      "Increases Armor and Magic Armor by <% SOLUNIA_IMMORTAL_WEAPON_4_ARMORS_AMP_PCT %>%."

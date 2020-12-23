@@ -56,7 +56,7 @@ function modifierClass:IsHidden()
 end
 
 function modifierClass:GetEffectName()
-	return "particles/solunia/solunia_weapon_4_loop.vpcf"
+	return "particles/roshpit/solunia/solunia_weapon_4_loop.vpcf"
 end
 
 function modifierClass:IsBuff()
