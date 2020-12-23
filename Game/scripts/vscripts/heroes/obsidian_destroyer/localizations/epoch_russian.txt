@@ -271,3 +271,7 @@
     	"DOTA_Tooltip_ability_item_rpc_epoch_immortal_weapon_3"				"Aion Eternus"
     	"item_property_epoch_immortal_weapon3"								"Spatial Distortion"
     	"property_epoch_immortal_weapon3_description"						"Если @Ability3 исчезает перед тем, как герой телепортируется к ней, то заклинание не уйдет на перезарядку."
+		
+		"DOTA_Tooltip_ability_item_rpc_epoch_immortal_weapon_4"				"Worldstone Shard"
+    	"item_property_epoch_immortal_weapon4"								"Havoc Hammer"
+    	"property_epoch_immortal_weapon4_description"						"Дальность атаки и дальность заклинаний уменьшены на <% EPOCH_IMMORTAL_WEAPON_4_RANGE_REDUCTION %>. [Q1] наносит урон по области в <% EPOCH_IMMORTAL_WEAPON_4_Q1_SPLASH %> вокруг основной цели атаки."
