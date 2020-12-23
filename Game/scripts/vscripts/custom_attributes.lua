@@ -1142,7 +1142,7 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 			armor_modify = armor_modify + unit:GetHealth()*unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("emerald", ITEM_RPC_ANGELIC_GLOVES_OF_THE_JUDICIARY_GEM_EMERALD)
 		end
 	end
-	-- FINAL STEP: DEFILER | HOOD OF BLACK MAGE | NIGHTMARE RIDER
+	-- FINAL STEP: DEFILER | HOOD OF BLACK MAGE | NIGHTMARE RIDER | |SOLUNIA WEAPON 4 | ROOTED FEET | UMBRAL
 
 	if unit:HasModifier("modifier_hood_of_defiler_effect_visible") then
 		local modifier = unit:FindModifierByName("modifier_hood_of_defiler_effect_visible")
@@ -1165,6 +1165,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	end
 	if unit:HasModifier("modifier_rooted_feet_immobile_active") then
 		armor_modify = armor_modify + (armor + armor_modify)*(ITEM_RPC_ROOTED_FEET_ARMOR_AMP-1)
+	end
+	if unit:HasModifier("modifier_solunia_immortal_weapon_4") then
+		armor_modify = armor_modify + (armor + armor_modify)*(SOLUNIA_IMMORTAL_WEAPON_4_ARMORS_AMP_PCT/100)
 	end
 
 
@@ -1767,7 +1770,7 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 		magic_armor_modify = magic_armor_modify + (q_1_master:GetRuneValue("q", 1) * ARKIMUS_Q1_MAGIC_ARMOR_REDUCTION)
 	end
 	
-	-- FINAL STEP DEFILER | NIGHTMARE RIDER MANTLE | ROOTED FEET
+	-- FINAL STEP DEFILER | NIGHTMARE RIDER MANTLE | ROOTED FEET |SOLUNIA WEAPON 4
 
 	if unit:HasModifier("modifier_hood_of_defiler_effect_visible") then
 		local modifier = unit:FindModifierByName("modifier_hood_of_defiler_effect_visible")
@@ -1783,6 +1786,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	end
 	if unit:HasModifier("modifier_rooted_feet_immobile_active") then
 		magic_armor_modify = magic_armor_modify + (magic_armor + magic_armor_modify)*(ITEM_RPC_ROOTED_FEET_ARMOR_AMP-1)
+	end
+	if unit:HasModifier("modifier_solunia_immortal_weapon_4") then
+		magic_armor_modify = magic_armor_modify + (magic_armor + magic_armor_modify)*(SOLUNIA_IMMORTAL_WEAPON_4_ARMORS_AMP_PCT/100)
 	end
 
 

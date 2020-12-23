@@ -429,3 +429,7 @@
         "DOTA_Tooltip_ability_item_rpc_solunia_immortal_weapon_3"            "Galactic Blades of Orbit"
         "item_property_solunia_immortal_weapon3"                             "Alpha Spark"
         "property_solunia_immortal_weapon3_description"                      "@Ability4 has no channel time and teleports you to the target cast position with <% SOLUNIA_IMMORTAL_WEAPON_3_CAST_RANGE %> range."
+		
+		"DOTA_Tooltip_ability_item_rpc_solunia_immortal_weapon_4"            "Magnetron Loop"
+        "item_property_solunia_immortal_weapon4"                             "Aurora Veil"
+        "property_solunia_immortal_weapon4_description"                      "Increases Armor and Magic Armor by 40%."
