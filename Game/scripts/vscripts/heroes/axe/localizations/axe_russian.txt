@@ -312,5 +312,9 @@
 
         "DOTA_Tooltip_ability_item_rpc_axe_immortal_weapon_3"            "Ragnar's Thunderax"
         "item_property_axe_immortal_weapon3"                            "Overpower"
-        "property_axe_immortal_weapon3_description"                        "При прочтении способности (R) @Ability4, количество имеющихся зарядов [E4] увеличивается на <% RED_GENERAL_IMMORTAL_WEAPON_3_BONUS_SHIELDS_PERCENT %>%" 	
+        "property_axe_immortal_weapon3_description"                        "При прочтении способности (R) @Ability4, количество имеющихся зарядов [E4] увеличивается на <% RED_GENERAL_IMMORTAL_WEAPON_3_BONUS_SHIELDS_PERCENT %>%" 
+
+		"DOTA_Tooltip_ability_item_rpc_axe_immortal_weapon_4"            "Macuahuitl"
+		"item_property_axe_immortal_weapon4"                            "Double-Edge"
+		"property_axe_immortal_weapon4_description"                        "Длительность @Ability1 обновляется при нанесении атаки по противнику. Герой теряет <% RED_GENERAL_IMMORTAL_WEAPON_4_HP_PCT_LOSS_PER_ATTACK %>% от текущего показателя Здоровья за каждый удар под дествиемf @Ability1."				
  
