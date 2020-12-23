@@ -244,7 +244,7 @@
 		"item_rpc_sephyr_glyph_7_1_description" 				"Magic immune while @glyph_property1 distance or more from the ground."
 
 		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_5_a"		"[T5-a] Glyph of the Divine Winds"
-		"item_rpc_sephyr_glyph_5_a_description" 				"Damage reduction within @Ability4 is increased to @glyph_property1%."
+		"item_rpc_sephyr_glyph_5_a_description" 				"Damage reduction within @Ability4 is increased to @glyph_property1%. @Ability4 additionally heals Sephyr for [R1] value during channeling."
 		
 		//Weapons
 		"DOTA_Tooltip_ability_item_rpc_sephyr_weapon_00"		"Staff"

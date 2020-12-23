@@ -70,6 +70,13 @@ function channel_end(event)
 end
 
 function channeling_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	local a_d_level = caster:GetRuneValue("r", 1)
+	if caster:HasModifier("modifier_sephyr_glyph_5_a") and a_d_level > 0 then
+		Filters:ApplyHeal(caster, caster, a_d_level*SEPHYR_R1_HP_REGEN, true)
+	end
 end
 
 function nefali_aura_start_ally(event)
