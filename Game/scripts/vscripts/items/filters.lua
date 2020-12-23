@@ -6992,7 +6992,7 @@ function Filters:GloveOfTheHierophant(caster, target, healAmount)
         local radius = ITEM_RPC_GLOVE_OF_THE_HIEROPHANT_DMG_RADIUS + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_GLOVE_OF_THE_HIEROPHANT_GEM_EMERALD)
 
         local pfx = CustomAbilities:QuickParticleAtPoint("particles/roshpit/items/glove_of_hierophant_aoe.vpcf", target:GetAbsOrigin(), 1)
-        ParticleManager:SetParticleControl(pfx, 1, Vector(radius, 2, radius/2))
+        ParticleManager:SetParticleControl(pfx, 1, Vector(radius, 2, radius/1.5))
 
         local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
         if #enemies > 0 then
