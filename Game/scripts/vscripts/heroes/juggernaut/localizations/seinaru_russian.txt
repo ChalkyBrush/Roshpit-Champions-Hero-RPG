@@ -303,3 +303,7 @@
         "DOTA_Tooltip_ability_item_rpc_seinaru_immortal_weapon_3"            "Heavy Sangeblade"
         "item_property_seinaru_immortal_weapon3"                             "Adamantia"
         "property_seinaru_immortal_weapon3_description"                      "Каждое очко скорости передвижения увеличивает Силу на @special_property1. Снижает базовую скорость передвижения на @special_property2"
+		
+		"DOTA_Tooltip_ability_item_rpc_seinaru_immortal_weapon_4"            "Monohoshizao"
+        "item_property_seinaru_immortal_weapon4"                             "Tsubamegaeshi"
+        "property_seinaru_immortal_weapon4_description"                      "Увеличивает дальность атаки на <% SEINARU_WEAPON_4_ATTACK_RANGE %>. Урон [W1] увеличен на <% SEINARU_WEAPON_4_DAMAGE_BONUS_OF_CURRENT_MANA %>% от максимального запаса Маны."
