@@ -42,6 +42,7 @@ function Redfall:Debug()
   local position = Vector(-15168, -14976)
   Redfall:DropEnchantedLeaf(position)
   RPCItems:DropItem(item, Vector(-15168, -14976))
+  Weapons:RollLegendWeapon4(position, HerosCustom:GetInternalHeroName(MAIN_HERO_TABLE[1]:GetUnitName()))
   -- Dungeons.itemLevel = 300
   -- RPCItems:RollWorldTreesFlowerCache(Vector(-15168, -14976))
   -- RPCItems:RollRedOctoberBoots(Vector(-15168, -14976), true)
