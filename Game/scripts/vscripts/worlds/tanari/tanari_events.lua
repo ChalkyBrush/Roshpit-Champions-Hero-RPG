@@ -351,20 +351,24 @@ function ancient_boss_die_begin(event)
 	end
 	Timers:CreateTimer(1.5, function()
 		Events:MainBossSlain(caster:GetUnitName())
-		local bSpirit = false
-		local paragonBonus = 0
-		if Tanari.BossesSlainSpirit == 3 then
-			bSpirit = true
-		end
-		if caster.paragon then
-			paragonBonus = 4
-		end
+		local weapons_4 = 1	
 		if caster.element == 1 then
 			RPCItems:RollAndDropUniqueItem(caster, "item_rpc_wind_deity_crown")
 		elseif caster.element == 2 then
 			RPCItems:RollAndDropUniqueItem(caster, "item_rpc_water_deity_crown")
 		elseif caster.element == 3 then
 			RPCItems:RollAndDropUniqueItem(caster, "item_rpc_fire_deity_crown")
+		end
+		if Tanari.BossesSlainSpirit == 3 then
+			weapons_4 = weapons_4 + 1
+		end
+		if caster.paragon then
+			weapons_4 = weapons_4 + 4
+		end
+		for i = 1, weapons_4, 1 do
+			Timers:CreateTimer(0.5, function()
+				Weapons:RollRandomLegendWeapon4(casterOrigin)
+			end)
 		end
 	end)
 	local itemDropCount = 12

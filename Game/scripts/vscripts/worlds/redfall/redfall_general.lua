@@ -430,6 +430,7 @@ function ancient_tree_main_think(event)
 				else
 					RPCItems:RollAndDropUniqueItem(caster, "item_rpc_red_october_boots")
 				end
+				Weapons:RollRandomLegendWeapon4(caster:GetAbsOrigin())
 			end)
 			caster:BossDrops(14)
 			-- ability:ApplyDataDrivenModifier(caster, caster, "modifier_water_temple_boss_dying_effect", {})
