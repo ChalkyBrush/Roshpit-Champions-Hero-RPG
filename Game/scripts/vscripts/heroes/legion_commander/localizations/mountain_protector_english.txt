@@ -344,3 +344,10 @@
         "DOTA_Tooltip_ability_item_rpc_mountain_protector_immortal_weapon_3"            "Inscribed Sierra Blade"
         "item_property_mountain_protector_immortal_weapon3"                             "Mountain Pitch"
         "property_mountain_protector_immortal_weapon3_description"                      "@Ability3 is thrown overhand making it land faster, and has <% MOUNTAIN_PROTECTOR_IMMORTAL_WEAPON_3_E_CD_REDUCTION_PCT %>% reduced cooldown."
+		
+		"DOTA_Tooltip_ability_item_rpc_mountain_protector_immortal_weapon_4"            "Mountainhall Warbanner"
+        "item_property_mountain_protector_immortal_weapon4"                             "Color Guard"
+        "property_mountain_protector_immortal_weapon4_description"                      "Allied units within <% MOUNTAIN_PROTECTOR_IMMORTAL_WEAPON_4_RADIUS %> range of Mountain Protector's respawn flag take <% MOUNTAIN_PROTECTOR_IMMORTAL_WEAPON_4_RESIST %>% reduced damage. This bonus is doubled for non-hero units."
+		
+		"DOTA_Tooltip_modifier_mountain_protector_immortal_weapon_4_resistance" 	"Color Guard"
+		"DOTA_Tooltip_modifier_mountain_protector_immortal_weapon_4_resistance_description" 	"Allied units within <% MOUNTAIN_PROTECTOR_IMMORTAL_WEAPON_4_RADIUS %> range of Mountain Protector's respawn flag take <% MOUNTAIN_PROTECTOR_IMMORTAL_WEAPON_4_RESIST %>% reduced damage. This bonus is doubled for non-hero units."

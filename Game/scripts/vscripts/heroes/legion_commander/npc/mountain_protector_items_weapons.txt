@@ -564,7 +564,7 @@
 		{
 			"modifier_mountain_protector_immortal_weapon_4"
 			{
-				"Passive"			"0"
+				"Passive"			"1"
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"

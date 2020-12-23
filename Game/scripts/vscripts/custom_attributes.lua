@@ -1905,6 +1905,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 			armor_pierce_modify = armor_pierce_modify + SPIRIT_WARRIOR_ARCANA_R3_ARMOR_PIERCE * waterheart.r_3_level
 		end
 	end
+	if unit:HasModifier("modifier_spirit_warrior_immortal_weapon_4") then
+		armor_pierce_modify = armor_pierce_modify + unit:GetSpirit()*SPIRIT_WARRIOR_IMMORTAL_WEAPON_4_SPIRIT_TO_PIERCE
+	end
 	if unit:HasModifier("modifier_dinath_arcana1") then
 		local ms = unit:GetActualMovespeed()
 		local w_2_level = unit:GetRuneValue("w", 2)
@@ -2254,6 +2257,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 			local iceCharges = unit:GetModifierStackCount("modifier_warlord_ice_charge", unit)
 			spell_pierce_modify = spell_pierce_modify + WARLORD_GLYPH_5_A_SPELL_PIERCE_PER_ICE_CHARGE * iceCharges
 		end
+	end
+	if unit:HasModifier("modifier_spirit_warrior_immortal_weapon_4") then
+		spell_pierce_modify = spell_pierce_modify + unit:GetSpirit()*SPIRIT_WARRIOR_IMMORTAL_WEAPON_4_SPIRIT_TO_PIERCE
 	end
 	if unit:HasModifier("modifier_bahamut_mega_flare_pierce") then
 		local modifier = unit:FindModifierByName("modifier_bahamut_mega_flare_pierce")
@@ -2761,6 +2767,14 @@ function CustomAttributes:SetAttributes(hero)
 		int_bonus = int_bonus + e_4_level * RUBILASH_ARCANA1_RUNE_E4_ALL_ATTRIBUTES
 		spr_bonus = spr_bonus + e_4_level * RUBILASH_ARCANA1_RUNE_E4_ALL_ATTRIBUTES
 		
+	end
+	if hero:HasModifier("modifier_bahamut_immortal_weapon_4_nascent_power_stack") then
+		local stacks = hero:GetModifierStackCount("modifier_bahamut_immortal_weapon_4_nascent_power_stack", hero)
+		str_bonus = str_bonus + stacks * BAHAMUT_IMMORTAL_WEAPON_4_ATTRIBUTE_BONUS
+		agi_bonus = agi_bonus + stacks * BAHAMUT_IMMORTAL_WEAPON_4_ATTRIBUTE_BONUS
+		int_bonus = int_bonus + stacks * BAHAMUT_IMMORTAL_WEAPON_4_ATTRIBUTE_BONUS
+		spr_bonus = spr_bonus + stacks * BAHAMUT_IMMORTAL_WEAPON_4_ATTRIBUTE_BONUS
+	
 	end
 	if hero:GetUnitName() == "npc_dota_hero_juggernaut" then
 		if hero:HasAbility("seinaru_hands_of_hikari") and hero.w_4_level then

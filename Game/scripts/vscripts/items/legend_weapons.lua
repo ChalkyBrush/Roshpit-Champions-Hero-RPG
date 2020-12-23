@@ -613,7 +613,7 @@ function Weapons:RollLegendWeapon4(location, class, strictMaxItemLevel, disableD
 		Weapons:SetLegendWeaponProperty2(weapon, "element_lightning", 2)
 	elseif internalName == "djanghor" then
 		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_4", "#4D7EC6", nil, 4)
-		Weapons:SetLegendWeaponProperty2(weapon, "spirit", 2)
+		Weapons:SetLegendWeaponProperty2(weapon, "spirit", 3)
 	elseif internalName == "slipfinn" then
 		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_4", "#4843BA", nil, 4)
 		Weapons:SetLegendWeaponProperty2(weapon, "element_water", 2)
@@ -628,7 +628,7 @@ function Weapons:RollLegendWeapon4(location, class, strictMaxItemLevel, disableD
 		Weapons:SetLegendWeaponProperty2(weapon, "attack_speed", 2)
 	elseif internalName == "omniro" then
 		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_4", "#3289C7", nil, 4)
-		Weapons:SetLegendWeaponProperty2(weapon, "element_normal", 1)
+		Weapons:SetLegendWeaponProperty2(weapon, "element_normal", 0.5)
 	elseif internalName == "rubilash" then
 		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_4", "#9cf0b1", nil, 4)
 		Weapons:SetLegendWeaponProperty2(weapon, "base_ability", 2)

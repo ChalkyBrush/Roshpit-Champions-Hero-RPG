@@ -953,16 +953,38 @@ function respawn_flag_succeed(event)
 		flag:SetRenderColor(255, 255, 130)
 	end
 	flag:FindAbilityByName("dummy_unit"):SetLevel(1)
+	flag:AddAbility("respawn_flag_abilities"):SetLevel(1)
 	caster.respawnFlag = flag
 	CustomAbilities:QuickAttachParticle("particles/econ/items/meepo/meepo_colossal_crystal_chorus/meepo_divining_rod_poof_end.vpcf", flag, 3)
 	CustomAbilities:QuickAttachParticle("particles/econ/items/monkey_king/arcana/water/mk_spring_arcana_water_channel_powertrails.vpcf", flag, 4)
 	Events:TutorialServerEvent(caster, "1_2", 0)
-
+	local respawn_flag_abilities = flag:FindAbilityByName("respawn_flag_abilities")
+	respawn_flag_abilities:ApplyDataDrivenModifier(caster, flag, "modifier_flag_thinker", {})
+	respawn_flag_abilities.hero = caster
 	if caster:HasModifier("modifier_temporal_warp_boots") then
 		if caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetGemValue("amethyst") > 0 then
 			local radius = caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_TEMPORAL_WARP_BOOTS_GEM_AMETHYST1)
 			local duration = caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_TEMPORAL_WARP_BOOTS_GEM_AMETHYST2)*60
 			AddFOWViewer(caster:GetTeamNumber(), caster:GetAbsOrigin(), radius, duration, false)
+		end
+	end
+	if caster:HasModifier("modifier_mountain_protector_immortal_weapon_4") then
+		respawn_flag_abilities:ApplyDataDrivenModifier(caster, flag, "modifier_mountain_protector_immortal_weapon_4", {})
+	end
+end
+
+function respawn_flag_thinker(event)
+	local caster = event.caster
+	local ability = event.ability
+	local position =  caster.respawnFlag:GetAbsOrigin()
+	local hero = ability.hero
+	if hero:HasModifier("modifier_mountain_protector_immortal_weapon_4") then
+		local radius = MOUNTAIN_PROTECTOR_IMMORTAL_WEAPON_4_RADIUS
+		local allies = FindUnitsInRadius(hero:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+		if #allies > 0 then
+			for _, ally in pairs(allies) do
+			ability:ApplyDataDrivenModifier(caster, ally, "modifier_mountain_protector_immortal_weapon_4_resistance", {duration = 1})
+			end
 		end
 	end
 end

@@ -2014,7 +2014,13 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 			damage = damage * (1 - reduction)
 		end
 	end
-
+	if victim:HasModifier("modifier_mountain_protector_immortal_weapon_4_resistance") then
+		local reduction = MOUNTAIN_PROTECTOR_IMMORTAL_WEAPON_4_RESIST/100
+		if not victim:IsHero() then 
+			reduction = reduction*2
+		end
+		damage = damage *(1-reduction)
+	end
 	if victim:HasModifier("modifier_shapeshift_year_beast_r_3") then
 		local modifier = victim:FindModifierByName("modifier_shapeshift_year_beast_r_3")
 		local reduction = modifier:GetAbility().r_3_level * DJANGHOR_ARCANA_R_R3_RESIST_PCT

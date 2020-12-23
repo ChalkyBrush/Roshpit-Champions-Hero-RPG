@@ -275,6 +275,45 @@
 		}
 
 	}
+	
+	"respawn_flag_abilities"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"rubick_empty1"
+		"MaxLevel"	"1"
+		"Modifiers"
+		{
+			"modifier_flag_thinker"
+			{
+				"IsDebuff"	"0"
+				"IsHidden"	"0"
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/tanari/tanari_trigger_areas.lua"
+						"Function"		"respawn_flag_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_mountain_protector_immortal_weapon_4"
+			{
+				"IsDebuff"	"0"
+				"IsHidden"	"0"
+			}
+			"modifier_mountain_protector_immortal_weapon_4_resistance"
+			{
+				"IsDebuff"	"0"
+				"IsHidden"	"0"
+				"TextureName"			"rpc/respawn_flag"
+			}
+
+		}
+
+	}
 
 	"dummy_unit_with_collision"
 	{
