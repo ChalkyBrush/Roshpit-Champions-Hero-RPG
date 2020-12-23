@@ -3265,12 +3265,48 @@ function GameState:FilterDamage(filterTable)
 		filterTable["damage"] = 0
 	end
 	--TRAPPER DECOY
-
+	
 	if victim:HasModifier("modifier_decoy_effect") then
 		if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
 			filterTable["damage"] = 0
 		else
 			filterTable["damage"] = 1
+		end
+	end	
+	if victim:HasModifier("modifier_trapper_immortal_weapon_4_stack") then
+		local charges = victim:FindModifierByName("modifier_trapper_immortal_weapon_4_stack"):GetStackCount()	
+		local new_charges = charges - 1
+		local damage = victim.dieDamage
+		local position = victim:GetAbsOrigin()
+		local enemies = FindUnitsInRadius(victim:GetTeamNumber(), position, nil, TRAPPER_E2_EXPLODE_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+		local particleName = "particles/econ/items/techies/techies_arcana/techies_suicide_arcana.vpcf"
+		local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, decoy)
+		if victim:GetHealth() == 1 then
+			filterTable["damage"] = 0
+			if #enemies > 0 then
+				for _, enemy in pairs(enemies) do
+					Damage:Apply({
+						attacker = victim.summoner,
+						victim = enemy,
+						damage = damage,
+						damageType = DAMAGE_TYPE_PURE,
+						source = attacker:FindAbilityByName("trapper_action_leap"),
+						sourceType = BASE_ABILITY_E,
+						elements = {
+							RPC_ELEMENT_NORMAL
+						},
+					})
+				end
+			end
+			ParticleManager:SetParticleControl(particle1, 0, position)
+			Timers:CreateTimer(0.5, function()
+				ParticleManager:DestroyParticle(particle1, false)
+			end)
+			if new_charges > 0 then
+				victim:SetModifierStackCount("modifier_trapper_immortal_weapon_4_stack", victim, new_charges)
+			else
+				victim:RemoveModifierByName("modifier_trapper_immortal_weapon_4_stack")
+			end
 		end
 	end
 	if victim:HasModifier("modifier_musty_crypt_skeleton_transform") and filterTable["damage"] > 0 then

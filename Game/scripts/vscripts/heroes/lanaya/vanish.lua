@@ -136,6 +136,12 @@ function decoy(caster, casterAbility, runesCount)
     local decoy = CreateUnitByName("lanaya_decoy", decoyPosition, true, nil, nil, caster:GetTeamNumber())
 
     local ability = decoy:FindAbilityByName("lanaya_decoy_passive")
+	if caster:HasModifier("modifier_trapper_immortal_weapon_4") then
+		local w_3_level = caster:GetRuneValue("w", 3)
+		local proc_chance = w_3_level*TRAPPER_W3_PROC_CHANCE/100
+		ability:ApplyDataDrivenModifier(decoy, decoy, "modifier_trapper_immortal_weapon_4_stack", {})
+		decoy:SetModifierStackCount("modifier_trapper_immortal_weapon_4_stack", ability, math.floor(proc_chance))
+	end
     ability:SetLevel(1)
     decoy.owner = caster:GetPlayerOwnerID()
     decoy.summoner = caster
