@@ -7,7 +7,6 @@ end
 function water_bomb_start(event)
 	local caster = event.caster
 	local ability = event.ability
-
 	local pfx = ParticleManager:CreateParticle("particles/roshpit/hydroxis/water_orb_throw.vpcf", PATTACH_POINT_FOLLOW, caster)
 	Timers:CreateTimer(0.06, function()
 		ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetAbsOrigin(), true)
@@ -23,6 +22,10 @@ function water_bomb_start(event)
 end
 
 function water_bomb_throw(caster, ability, target, damage, damageAmp)
+	radius = 260
+	if caster:HasModifier("modifier_hydroxis_immortal_weapon_4") then
+		radius = radius + radius*HYDROXIS_IMMORTAL_WEAPON_4_RADIUS_INCREASE_PCT/100
+	end
 	local w_3_level = Runes:GetTotalRuneLevel(caster, 3, "w_3", "hydroxis")
 	if w_3_level > 0 then
 		damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster) * HYDROXIS_W3_ATTACK_TO_DMG_PCT/100 * w_3_level
@@ -37,27 +40,31 @@ function water_bomb_throw(caster, ability, target, damage, damageAmp)
 	local randomOffset = 0
 	-- local flareAngle = WallPhysics:rotateVector(baseFV, math.pi*randomOffset/160)
 	local flare = CreateUnitByName("selethas_boomerang", startPosition, false, caster, nil, caster:GetTeamNumber())
+
 	flare:SetOriginalModel("models/hydroxis/water_bomb.vmdl")
 	flare:SetModel("models/hydroxis/water_bomb.vmdl")
 	flare:SetRenderColor(20, 110, 240)
 	flare:SetModelScale(0.05)
+
 	flare.fv = baseFV
 	flare.slow_duration = 5
+
 	flare.liftVelocity = 40 + zDifferential / 25
 	flare.forwardVelocity = forwardVelocity
 	flare.interval = 0
 	flare.damage = damage * damageAmp * manaAmp
 	flare.origCaster = caster
 	flare.origAbility = ability
-	flare.w_2_level = Runes:GetTotalRuneLevel(caster, 2, "w_2", "hydroxis")
+	flare.w_2_level = caster:GetRuneValue("w", 2)
 	flare:AddAbility("hydroxis_water_bomb_ability"):SetLevel(1)
 	local flareSubAbility = flare:FindAbilityByName("hydroxis_water_bomb_ability")
 	flareSubAbility:ApplyDataDrivenModifier(flare, flare, "modifier_water_bomb_motion", {})
 	EmitSoundOn("Hydroxis.WaterBomb.Start", flare)
+	flareSubAbility.radius = radius
 
 	local pfx2 = ParticleManager:CreateParticle("particles/roshpit/hydroxis/water_orb_throw.vpcf", PATTACH_POINT_FOLLOW, caster)
 	Timers:CreateTimer(0.15, function()
-		ParticleManager:SetParticleControlEnt(pfx2, 0, flare, PATTACH_POINT_FOLLOW, "attach_origin", flare:GetAbsOrigin(), true)
+		ParticleManager:SetParticleControlEnt(pfx2, 0, flare, PATTACH_POINT_FOLLOW, nil, flare:GetAbsOrigin(), true)
 	end)
 	Timers:CreateTimer(1.5, function()
 		ParticleManager:DestroyParticle(pfx2, false)
@@ -80,10 +87,10 @@ function bombadier_bomb_thinking(event)
 	caster.interval = caster.interval + 1
 	local groundHeight = GetGroundHeight(caster:GetAbsOrigin(), caster)
 	if caster:GetAbsOrigin().z - groundHeight < 10 then
-		flareParticle(caster:GetAbsOrigin(), caster)
+		flareParticle(caster:GetAbsOrigin(), ability.radius, caster)
 		EmitSoundOn("Hydroxis.WaterBomb.Explode", caster)
 		caster:RemoveModifierByName("modifier_water_bomb_motion")
-		bombImpact(caster, ability)
+		bombImpact(caster, ability, ability.radius)
 		caster:SetAbsOrigin(caster:GetAbsOrigin() - Vector(0, 0, 1000))
 		Timers:CreateTimer(0.1, function()
 			caster:SetModelScale(0.01)
@@ -94,11 +101,12 @@ function bombadier_bomb_thinking(event)
 	end
 end
 
-function flareParticle(position)
+function flareParticle(position, radius)
+
 	local particleNameS = "particles/roshpit/hydroxis/water_bomb_explode.vpcf"
 	local particle2 = ParticleManager:CreateParticle(particleNameS, PATTACH_WORLDORIGIN, caster)
 	ParticleManager:SetParticleControl(particle2, 0, position)
-	ParticleManager:SetParticleControl(particle2, 1, Vector(260, 260, 260))
+	ParticleManager:SetParticleControl(particle2, 1, Vector(radius, radius, radius))
 	ParticleManager:SetParticleControl(particle2, 2, Vector(3.0, 3.0, 1))
 	ParticleManager:SetParticleControl(particle2, 4, Vector(60, 70, 215))
 	Timers:CreateTimer(1.5, function()
@@ -119,8 +127,8 @@ function flareParticle(position)
 	end)
 end
 
-function bombImpact(caster, ability)
-	local enemies = FindUnitsInRadius(caster.origCaster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 260, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+function bombImpact(caster, ability, radius)
+	local enemies = FindUnitsInRadius(caster.origCaster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	local damage = caster.damage
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do
