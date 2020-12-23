@@ -352,6 +352,10 @@
 		"DOTA_Tooltip_ability_item_rpc_omniro_immortal_weapon_3"            "Mace of the Drakken"
 		"item_property_omniro_immortal_weapon3"                             "Dragon Element"
 		"property_omniro_immortal_weapon3_description"                      "Активирует элемент <font color=ELEMENT_DRAGON>Dragon</font>. Эффект Omni Mace применяет бафф, увеличивающий урон всех элементов. Орб-эффект обновляет заряды на других элементах."
+		
+		"DOTA_Tooltip_ability_item_rpc_omniro_immortal_weapon_4"            "Granite Gavel"
+		"item_property_omniro_immortal_weapon4"                             "Shades of Gray"
+		"property_omniro_immortal_weapon4_description"                      "Все порции урона героя, кроме урона от предметов получают элемент <font color=ELEMENT_NORMAL>Нормальный</font> в качестве дополнительного элемента."
 
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_1_1"		"[T1-1] Glyph of Consistency"
