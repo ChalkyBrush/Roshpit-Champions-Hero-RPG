@@ -644,9 +644,14 @@ function GameState:ModifierGainedFilter(modifierGainedTable)
 				duration_modifier = duration_modifier + ITEM_RPC_SEA_GIANTS_PLATE_STATUS_RESIST
 			end
 		end
-		if target:HasModifier("modifier_rooted_feet_immobile_active") then
+		if target:HasModifier("modifier_sea_giants_plate") then
 			if target:GetTeamNumber() ~= caster:GetTeamNumber() and modifierGainedTable["duration"] > 0 then
-				duration_modifier = duration_modifier + target.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_ROOTED_FEET_GEM_AMETHYST)
+				duration_modifier = duration_modifier + ITEM_RPC_SEA_GIANTS_PLATE_STATUS_RESIST
+			end
+		end
+		if target:HasModifier("modifier_duskbringer_immortal_weapon_4") then
+			if target:GetTeamNumber() ~= caster:GetTeamNumber() and modifierGainedTable["duration"] > 0 then
+				duration_modifier = duration_modifier + DUSKBRINGER_IMMORTAL_WEAPON_4_STATUS_RESISTANCE
 			end
 		end
 		if target:GetTeamNumber() ~= caster:GetTeamNumber() and modifierGainedTable["duration"] > 0 then

@@ -107,6 +107,9 @@ function duskbringer_rune_w_3_take_damage(event)
 			if target:IsAlive() then
 				CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_oracle/duskbringer_c_a_heal_heal_core.vpcf", target, 1)
 				local healAmount = w_3_level * DUSKBRINGER_W3_HEAL
+				if target:HasModifier("modifier_duskbringer_immortal_weapon_4") then
+					healAmount = healAmount*2
+				end
 				Filters:ApplyHeal(target, target, healAmount, true)
 			end
 		end)

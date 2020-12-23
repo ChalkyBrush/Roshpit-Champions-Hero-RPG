@@ -73,6 +73,9 @@ function shadow_slam_end(event)
 			Filters:TakeArgumentsAndApplyDamage(enemies[i], caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_GHOST, RPC_ELEMENT_SHADOW)
 			Filters:ApplyStun(caster, stunDuration, enemies[i])
 			if w_3_level > 0 then
+				if target:HasModifier("modifier_duskbringer_immortal_weapon_4") then
+					stacksCount = stacksCount*2
+				end
 				increment_duskfire_stacks(caster, enemies[i], stacksCount)
 			end
 		end
