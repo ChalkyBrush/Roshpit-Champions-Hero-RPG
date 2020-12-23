@@ -62,4 +62,4 @@ EPOCH_IMMORTAL_WEAPON_2_CD = 16
 EPOCH_IMMORTAL_WEAPON_4_RANGE_REDUCTION = 200
 EPOCH_IMMORTAL_WEAPON_4_Q1_SPLASH = 250
 
-EPOCH_IMMORTAL_WEAPON_4_Q1_SPLASH_PARTICLE = "particles/epoch/epoch_immortal_weapon_4_splash.vpcf"
+EPOCH_IMMORTAL_WEAPON_4_Q1_SPLASH_PARTICLE = "particles/roshpit/epoch/epoch_immortal_weapon_4_splash.vpcf"
