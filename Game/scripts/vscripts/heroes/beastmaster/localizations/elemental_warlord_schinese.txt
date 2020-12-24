@@ -417,4 +417,8 @@
 
         "DOTA_Tooltip_ability_item_rpc_warlord_immortal_weapon_3"            "红宝石遗物"
         "item_property_warlord_immortal_weapon3"                             "原始起义"
-        "property_warlord_immortal_weapon3_description"                      "每 <% WARLORD_IMMORTAL_WEAPON_3_INTERVAL %> 秒获得一层 大地、火焰、寒冰充能。"   
+        "property_warlord_immortal_weapon3_description"                      "每 <% WARLORD_IMMORTAL_WEAPON_3_INTERVAL %> 秒获得一层 大地、火焰、寒冰充能。" 
+	
+	"DOTA_Tooltip_ability_item_rpc_warlord_immortal_weapon_4"            "闪烁巨斧"
+        "item_property_warlord_immortal_weapon4"                             "野性反射"
+        "property_warlord_immortal_weapon4_description"                      "元素督军现在可以即时转身。@Ability3 的飞行速度提高 <% WARLORD_IMMORTAL_WEAPON_4_E_SPEED_PCT %>% 并且降低其冷却时间 <% WARLORD_IMMORTAL_WEAPON_4_E_CD_REDUCTION %> 秒。"
