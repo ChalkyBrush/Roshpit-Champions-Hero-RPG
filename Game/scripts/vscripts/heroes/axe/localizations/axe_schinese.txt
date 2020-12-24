@@ -308,3 +308,6 @@
         "item_property_axe_immortal_weapon3"                            "无限力量"
         "property_axe_immortal_weapon3_description"                        "当开始吟唱大招时，身上所存在的旋风守护护盾数 +<% RED_GENERAL_IMMORTAL_WEAPON_3_BONUS_SHIELDS_PERCENT %>%。" 	
  
+ 	"DOTA_Tooltip_ability_item_rpc_axe_immortal_weapon_4"            "双刃剑"
+	"item_property_axe_immortal_weapon4"                            "双刃剑"
+	"property_axe_immortal_weapon4_description"                        "处于 @Ability1 状态下时普攻敌人将会刷新@Ability1的持续时间，但是赤色上将处于@Ability1状态下时的每一次普通攻击都将消耗 <% RED_GENERAL_IMMORTAL_WEAPON_4_HP_PCT_LOSS_PER_ATTACK %>% 当前生命值。"	
