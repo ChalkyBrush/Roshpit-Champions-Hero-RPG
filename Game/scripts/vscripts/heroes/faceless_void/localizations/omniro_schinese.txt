@@ -356,7 +356,12 @@
 		"DOTA_Tooltip_ability_item_rpc_omniro_immortal_weapon_3"            "德雷克的权杖"
 		"item_property_omniro_immortal_weapon3"                             "龙之元素"
 		"property_omniro_immortal_weapon3_description"                      "激活奥尼洛的 <font color=ELEMENT_DRAGON>龙</font> 元素。龙的全能权杖特效为施加一个增加元素伤害的buff。全能之球的特效为刷新所有其他元素的充能。"
-
+		
+		"DOTA_Tooltip_ability_item_rpc_omniro_immortal_weapon_4"            "花岗岩之槌"
+		"item_property_omniro_immortal_weapon4"                             "灰色光影"
+		"property_omniro_immortal_weapon4_description"                      "所有奥尼洛普攻或者技能造成的伤害（除了物品）将会拥有 <font color=ELEMENT_NORMAL>Normal</font> 作为第二元素。"
+		
+		
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_1_1"		"[T1-1] 连贯性雕文"
 		"item_rpc_omniro_glyph_1_1_description" 				"攻击时自动跳过没有充能的元素。 (除非所有元素都没有充能)。"
