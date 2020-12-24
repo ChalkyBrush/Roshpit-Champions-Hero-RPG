@@ -16,6 +16,10 @@ function Weapons:RollLegendWeaponVariantWithAbilityName(abilityName, position)
 			class = string.gsub(abilityName, "_immortal_weapon_3", "")
 			class = HerosCustom:ConvertRPCNameToStringHeroName(class)
 			return Weapons:RollLegendWeapon3WithDotaName(class, position)
+		elseif string.match(abilityName, "_immortal_weapon_4") then
+			class = string.gsub(abilityName, "_immortal_weapon_4", "")
+			class = HerosCustom:ConvertRPCNameToStringHeroName(class)
+			return Weapons:RollLegendWeapon4WithDotaName(class, position)
 		end
 	end
 end
