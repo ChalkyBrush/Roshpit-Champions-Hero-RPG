@@ -952,6 +952,10 @@ function ChatDropWep(str, vector, text)
 				for i = 1, numberOfWepsToDrop do
 					Weapons:RollLegendWeapon3(vector, str, 50)
 				end
+			elseif class == 4 then
+				for i = 1, numberOfWepsToDrop do
+					Weapons:RollLegendWeapon4(vector, str, 50)
+				end
 			end
 		end
 	else
