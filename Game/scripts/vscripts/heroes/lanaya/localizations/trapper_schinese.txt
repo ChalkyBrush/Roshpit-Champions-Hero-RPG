@@ -288,4 +288,8 @@
 
         "DOTA_Tooltip_ability_item_rpc_trapper_immortal_weapon_3"            "七彩碎片"
         "item_property_trapper_immortal_weapon3"                             "暗杀距离"
-        "property_trapper_immortal_weapon3_description"                      "提高所有技能的施法距离 <% TRAPPER_IMMORTAL_WEAPON_3_RANGE %>. @Ability1 和 @Ability4 的冷却时间减少 <% TRAPPER_IMMORTAL_WEAPON_3_CD_RED * 100%>%."
+        "property_trapper_immortal_weapon3_description"                      "提高所有技能的施法距离 <% TRAPPER_IMMORTAL_WEAPON_3_RANGE %>. @Ability1 和 @Ability4 的冷却时间减少 <% TRAPPER_IMMORTAL_WEAPON_3_CD_RED * 100%>%。"
+	
+	"DOTA_Tooltip_ability_item_rpc_trapper_immortal_weapon_4"            "多重花蕾"
+        "item_property_trapper_immortal_weapon4"                             "既视感"
+        "property_trapper_immortal_weapon4_description"                      " [E2] 的幻象现在也会有概率触发 [W3] 的次级爆炸， 使得她们能够承受致命伤害并且能够再次引爆。"
