@@ -343,3 +343,7 @@
     	"DOTA_Tooltip_ability_item_rpc_astral_immortal_weapon_3"			"达纳苏斯月神弓"
     	"item_property_astral_immortal_weapon3"								"月之庇护"
     	"property_astral_immortal_weapon3_description"						"获得 <% ASTRAL_RANGER_IMMORTAL_WEAPON_3_VISION %> 高空视野和 <% ASTRAL_RANGER_IMMORTAL_WEAPON_3_ATTACK_RANGE %> 的额外攻击、视野距离。"
+	
+	"DOTA_Tooltip_ability_item_rpc_astral_immortal_weapon_4"			"黑色迷雾之弩"
+    	"item_property_astral_immortal_weapon4"								"不洁之风"
+    	"property_astral_immortal_weapon4_description"						"处于@Ability1作用下的敌人将会被沉默并且对你造成的伤害降低 <% ASTRAL_RANGER_IMMORTAL_WEAPON_4_DAMAGE_REDUCTION_PCT %>% 。"
