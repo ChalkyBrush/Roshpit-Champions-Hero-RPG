@@ -281,3 +281,7 @@
         "DOTA_Tooltip_ability_item_rpc_hydroxis_immortal_weapon_3"            "破泞之主的三叉戟"
         "item_property_hydroxis_immortal_weapon3"                             "潮汐使者"
         "property_hydroxis_immortal_weapon3_description"                      "洪流向外扩散的延迟减少 <% HYDROXIS_IMMORTAL_WEAPON_3_Q_DELAY_REDUCTION_PCT %>% "
+	
+	"DOTA_Tooltip_ability_item_rpc_hydroxis_immortal_weapon_4"            "遗忘之桨"
+        "item_property_hydroxis_immortal_weapon4"                             "溅射爆发"
+        "property_hydroxis_immortal_weapon4_description"                      "增加 @Ability2 的范围 <% HYDROXIS_IMMORTAL_WEAPON_4_RADIUS_INCREASE_PCT %>%。"
