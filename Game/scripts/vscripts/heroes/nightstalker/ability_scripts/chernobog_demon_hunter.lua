@@ -330,6 +330,9 @@ function chernobog_demon_hunter:ProcW3(caster, rune, runeTier, target)
 		w3Active = "modifier_chernobog_w3_active",
 		w3Inactive = "modifier_chernobog_w3_inactive"
 	}
+	if target:GetEntityIndex() ~= caster:GetAggroTarget():GetEntityIndex() then
+		return
+	end
 	if self.fevorTarget then
 		if not IsValidEntity(self.fevorTarget) then
 			return false
