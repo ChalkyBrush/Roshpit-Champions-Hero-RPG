@@ -330,3 +330,7 @@
     	"DOTA_Tooltip_ability_item_rpc_voltex_immortal_weapon_3"			"不朽之神"
     	"item_property_voltex_immortal_weapon3"								"静电麻痹"
     	"property_voltex_immortal_weapon3_description"						"被 @Ability4 击中的敌人将被麻痹，持续 <% VOLTEX_IMMORTAL_WEAPON_3_PARALYSIS_DURATION %> 秒。"
+	
+	"DOTA_Tooltip_ability_item_rpc_voltex_immortal_weapon_4"			"分裂侵蚀"
+		"item_property_voltex_immortal_weapon4"								"极寒聚变"
+		"property_voltex_immortal_weapon4_description"						"所有 <font color=ELEMENT_LIGHTNING>电</font> 伤害将会获得 <font color=ELEMENT_ICE>冰</font> 元素作为第二元素。 [R2] 在触发时将会打破敌人的技能免疫状态。"
