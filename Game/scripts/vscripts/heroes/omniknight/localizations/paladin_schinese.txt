@@ -326,3 +326,9 @@
     	"DOTA_Tooltip_ability_item_rpc_paladin_immortal_weapon_3"			"圣锤"
     	"item_property_paladin_immortal_weapon3"								"神圣之力"
     	"property_paladin_immortal_weapon3_description"						"每点力量值额外提高最大生命值 <% PALADIN_IMMORTAL_WEAPON_3_HP_PER_STR %>。"
+	
+	"DOTA_Tooltip_ability_item_rpc_paladin_immortal_weapon_4"			"格莱普尼尔"
+    	"item_property_paladin_immortal_weapon4"								"风暴之锤"
+    	"property_paladin_immortal_weapon4_description"						"被 @Ability2 伤害的敌人将会被缠绕 <% PALADIN_IMMORTAL_WEAPON_4_ROOT_DURATION %> 秒，并且在这个效果下时造成的伤害将会降低 <% PALADIN_IMMORTAL_WEAPON_4_DMG_REDUCTION_PCT %>% 。"
+		"DOTA_Tooltip_modifier_paladin_immortal_weapon_4_root"				"缚狼锁"
+		"DOTA_Tooltip_modifier_paladin_immortal_weapon_4_root_Description"	"被缠绕并且造成的伤害降低。"
