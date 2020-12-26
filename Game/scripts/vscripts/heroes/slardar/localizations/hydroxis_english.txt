@@ -297,4 +297,4 @@
 		
 		 "DOTA_Tooltip_ability_item_rpc_hydroxis_immortal_weapon_4"            "Oar of Lethe"
         "item_property_hydroxis_immortal_weapon4"                             "Splash Booster"
-        "property_hydroxis_immortal_weapon4_description"                      "Increases the radius of @Ability by <% HYDROXIS_IMMORTAL_WEAPON_4_RADIUS_INCREASE_PCT %>%."
+        "property_hydroxis_immortal_weapon4_description"                      "Increases the radius of @Ability2 by <% HYDROXIS_IMMORTAL_WEAPON_4_RADIUS_INCREASE_PCT %>%."
