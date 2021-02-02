@@ -6867,7 +6867,7 @@ function Filters:CalculateTotalCastRangeBonus(hero)
     if hero:GetUnitName() == "npc_dota_hero_grimstroke" then
         range_bonus = range_bonus + hero:GetRuneValue("q", 1)*RUBILASH_RUNE_Q1_CAST_RANGE
     end
-	if caster:HasModifier("modifier_epoch_immortal_weapon_4") then
+	if hero:HasModifier("modifier_epoch_immortal_weapon_4") then
         range_bonus = range_bonus - EPOCH_IMMORTAL_WEAPON_4_RANGE_REDUCTION
     end
     return range_bonus
