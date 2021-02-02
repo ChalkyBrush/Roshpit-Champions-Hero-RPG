@@ -58,7 +58,7 @@ function modifierClass:RemoveOnDeath()
 end
 
 function modifier_chernobog_immortal_weapon_2_phys_buff:IsHidden()
-	return false
+	return true
 end
 
 function modifier_chernobog_immortal_weapon_2_phys_buff:IsDebuff()
@@ -72,7 +72,7 @@ function modifier_chernobog_immortal_weapon_2_phys_buff:OnCreated()
 end
 
 function modifier_chernobog_immortal_weapon_2_magic_buff:IsHidden()
-	return false
+	return true
 end
 
 function modifier_chernobog_immortal_weapon_2_magic_buff:IsDebuff()
