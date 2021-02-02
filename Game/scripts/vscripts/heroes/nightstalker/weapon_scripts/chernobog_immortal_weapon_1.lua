@@ -33,12 +33,7 @@ function itemClass:RollProperty1(item_level)
 end
 
 function itemClass:RollProperty2(item_level)
-	local luck = RandomInt(1, 2)
-	if luck == 1 then
-		Weapons:SetLegendWeaponProperty2(self, "attack_damage", 2)
-	else
-		Weapons:SetLegendWeaponProperty2(self, "base_ability", 3)
-	end
+	Weapons:SetLegendWeaponProperty2(self, "base_ability", 3)
 end
 
 -- WEAPON MODIFIER
