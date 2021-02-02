@@ -188,10 +188,6 @@ function Filters:AdjustItemDamage(caster, damage, victim)
         local current_stack = caster:GetModifierStackCount("modifier_spiritual_empowerment_stack", caster.InventoryUnit)
         mult = mult + current_stack * caster.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("ruby", ITEM_RPC_SPIRITUAL_EMPOWERMENT_GLOVE_GEM_RUBY1)/100
     end
-    if caster:HasModifier("modifier_chernobog_immortal_weapon_2") then
-		local missingHealthPercent = math.floor((1 - (caster:GetHealth() / caster:GetMaxHealth())) * 100)
-		mult = mult + missingHealthPercent * CHERNOBOG_IMMORTAL_WEP2_BAD_AND_ITEM_PCT_PER_MISSING_HP_PCT / 100
-	end
 
     if caster:IsHero() then
         mult = mult + 0.01 * (CustomAttributes:AddStatsBonusFromStacks(caster, nil, "modifier_head_item_damage", 1) + CustomAttributes:AddStatsBonusFromStacks(caster, nil, "modifier_weapon_item_damage", 1) + CustomAttributes:AddStatsBonusFromStacks(caster, nil, "modifier_hands_item_damage", 1) + CustomAttributes:AddStatsBonusFromStacks(caster, nil, "modifier_feet_item_damage", 1) + CustomAttributes:AddStatsBonusFromStacks(caster, nil, "modifier_body_item_damage", 1) + CustomAttributes:AddStatsBonusFromStacks(caster, nil, "modifier_amulet_item_damage", 1))
@@ -1765,10 +1761,6 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             local current_stack = attacker:GetModifierStackCount("modifier_flood_basin_a_d", attacker)
             damageMult = damageMult + HYDROXIS_ARCANA_R1_BAD_PCT/100 * current_stack
         end
-        if attacker:HasModifier("modifier_chernobog_immortal_weapon_2") then
-            local missingHealthPercent = math.floor((1 - (attacker:GetHealth() / attacker:GetMaxHealth())) * 100)
-            damageMult = damageMult + missingHealthPercent * CHERNOBOG_IMMORTAL_WEP2_BAD_AND_ITEM_PCT_PER_MISSING_HP_PCT / 100
-        end
         if attacker:HasModifier("modifier_bahamut_a_b_buff") then
             local current_stack = attacker:GetModifierStackCount("modifier_bahamut_a_b_buff", attacker.runeUnit:FindAbilityByName("bahamut_rune_w_1"))
             damageMult = damageMult + BAHAMUT_W1_BONUS_DMG_AND_BAD_PCT/100 * current_stack
@@ -2925,11 +2917,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         mult = mult + waterMult
     end
     if element1 == RPC_ELEMENT_DEMON or element2 == RPC_ELEMENT_DEMON then
-        if unitName == "npc_dota_hero_night_stalker" then
-            if attacker:HasModifier("modifier_chernobog_arcana1") then
-                mult = mult + attacker:GetRuneValue("r", 4)*CHERNOBOG_ARCANA1_R4_DEMON_AMP
-            end
-        elseif unitName == "npc_dota_hero_grimstroke" then
+        if unitName == "npc_dota_hero_grimstroke" then
             mult = mult + attacker:GetRuneValue("q", 4)*RUBILASH_RUNE_Q4_DEMON_AND_GHOST_AMP/100
         end
         mult = mult + (CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_head_element_demon", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_weapon_element_demon", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_hands_element_demon", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_feet_element_demon", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_body_element_demon", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_amulet_element_demon", 1))/100
