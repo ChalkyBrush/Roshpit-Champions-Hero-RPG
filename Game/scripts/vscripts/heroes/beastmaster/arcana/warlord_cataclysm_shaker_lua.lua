@@ -1,4 +1,33 @@
-warlord_cataclysm_shaker = class({})
+require('heroes/base_ability')
+warlord_cataclysm_shaker = class(base_ability)
+
+function warlord_cataclysm_shaker:GetManaCostBase(level)
+    return 0
+end
+
+function warlord_cataclysm_shaker:GetBehaviorBase()
+    return DOTA_ABILITY_BEHAVIOR_POINT + DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL + DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING
+end
+
+function warlord_cataclysm_shaker:GetCastAnimation()
+	return ACT_DOTA_CAST_ABILITY_1
+end
+
+function warlord_cataclysm_shaker:GetAbilitySlot()
+    return DOTA_Q_SLOT
+end
+
+function warlord_cataclysm_shaker:GetCastPoint()
+    return 0.2
+end
+
+function warlord_cataclysm_shaker:GetCastRange()
+    return 1400
+end
+
+function warlord_cataclysm_shaker:GetCooldownBase(level)
+    return 5
+end
 
 function warlord_cataclysm_shaker:OnSpellStart()
     local caster = self:GetCaster()

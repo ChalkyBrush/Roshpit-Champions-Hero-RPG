@@ -1,5 +1,32 @@
-jex_fire_fire_e = class({})
 require('heroes/arc_warden/abilities/onibi')
+
+require('heroes/base_ability')
+
+jex_fire_fire_e = class(base_ability)
+
+function jex_fire_fire_e:GetBehaviorBase()
+    return DOTA_ABILITY_BEHAVIOR_POINT + DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL + DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING
+end
+
+function jex_fire_fire_e:GetCastAnimation()
+	return ACT_DOTA_CAST_ABILITY_1
+end
+
+function jex_fire_fire_e:GetAbilitySlot()
+    return DOTA_E_SLOT
+end
+
+function jex_fire_fire_e:GetCastPoint()
+    return 0.1
+end
+
+function jex_fire_fire_e:GetCooldownBase(level)
+    return 1
+end
+
+function jex_fire_fire_e:GetManaCostBase(level)
+    return 0
+end
 
 function jex_fire_fire_e:OnSpellStart()
     local caster = self:GetCaster()
