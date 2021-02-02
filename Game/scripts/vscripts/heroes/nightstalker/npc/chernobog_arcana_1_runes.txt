@@ -1,0 +1,98 @@
+  "chernobog_rune_r_1_arcana1"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"chernobog/chernobog_rune_r_1_arcana1"
+		"MaxLevel"				"20"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"<% CHERNOBOG_ARCANA1_R1_DMG_ATK_PCT %>"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"4"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"15"
+			}
+		}
+	}
+
+	"chernobog_rune_r_2_arcana1"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"chernobog/chernobog_rune_r_2_arcana1"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"<% CHERNOBOG_ARCANA_R2_CHANCE_INC %>"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one_base"		"<% CHERNOBOG_ARCANA_R2_CHANCE_BASE %>"
+			}
+		}
+	}
+
+	"chernobog_rune_r_3_arcana1"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"chernobog/chernobog_rune_r_3_arcana1"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"<% CHERNOBOG_ARCANA1_R3_SPLIT_CHANCE %>"
+			}
+		}
+	}
+
+	"chernobog_rune_r_4_arcana1"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"chernobog/chernobog_rune_r_4_arcana1"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"<% CHERNOBOG_ARCANA1_R4_R_CD_FLAT_REDUC %>"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"<% CHERNOBOG_ARCANA1_R4_CHANNEL_TIME_REDUC %>"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_three"			"<% CHERNOBOG_ARCANA1_R4_DEMON_AMP_PER_STR_AND_AGI * 10 %>"
+			}
+			
+		}
+	}
