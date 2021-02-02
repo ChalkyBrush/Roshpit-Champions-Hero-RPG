@@ -311,3 +311,7 @@
         "DOTA_Tooltip_ability_item_rpc_seinaru_immortal_weapon_3"            "重剑"
         "item_property_seinaru_immortal_weapon3"                             "坚定不移"
         "property_seinaru_immortal_weapon3_description"                      "每点移动速度提高力量值 <% SEINARU_WEAP_3_STR_PER_MS %>。基础移动速度减少 @special_property2"
+	
+	"DOTA_Tooltip_ability_item_rpc_seinaru_immortal_weapon_4"            "物干焯"
+        "item_property_seinaru_immortal_weapon4"                             "燕回闪"
+        "property_seinaru_immortal_weapon4_description"                      "增加攻击距离 <% SEINARU_WEAPON_4_ATTACK_RANGE %>。 <% SEINARU_WEAPON_4_DAMAGE_BONUS_OF_CURRENT_MANA %>% 最大魔法值加入[W1]的基础伤害中。"

@@ -366,6 +366,10 @@
 	"DOTA_Tooltip_ability_item_rpc_jex_immortal_weapon_3"            "等离子爆裂加农炮"
 	"item_property_jex_immortal_weapon3"                             "宇宙强化"
 	"property_jex_immortal_weapon3_description"                      "所有<font color=ELEMENT_COSMOS>宇宙</font>元素的科技技能获得 @special_property1 科技等级. 双 <font color=ELEMENT_COSMOS>宇宙</font> 技能获得 @special_property2 级额外科技等级."
+	
+	"DOTA_Tooltip_ability_item_rpc_jex_immortal_weapon_4"            "修补匠镭射枪"
+	"item_property_jex_immortal_weapon4"                             "军备强化"
+	"property_jex_immortal_weapon4_description"                      "提高所有基础加农的基础伤害， 数值为 <% JEX_IMMORTAL_WEAPON_4_ATTACK_TO_DMG %>x 攻击力。提高所有技能的施法速率 <% JEX_IMMORTAL_WEAPON_4_CAST_RATE %>% 。"
 
 
 	"DOTA_Tooltip_ability_item_rpc_jex_glyph_1_1"		"[T1-1] 生命合成雕文"

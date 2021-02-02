@@ -321,3 +321,7 @@
         "DOTA_Tooltip_ability_item_rpc_duskbringer_immortal_weapon_3"            "碎颅锤"
         "item_property_duskbringer_immortal_weapon3"                             "骷髅锤"
         "property_duskbringer_immortal_weapon3_description"                      "攻击有 <% DUSKBRINGER_IMMORTAL_WEAPON_3_BASH_CHANCE %>% 的概率眩晕敌人 <% DUSKBRINGER_IMMORTAL_WEAPON_3_BASH_DURATION %> 秒，并且获得 <% DUSKBRINGER_IMMORTAL_WEAPON_3_E2_SHIELD_STACKS_PER_BASH %> 层鬼灵护甲。"
+
+	"DOTA_Tooltip_ability_item_rpc_duskbringer_immortal_weapon_4"            "深渊股骨"
+        "item_property_duskbringer_immortal_weapon4"                             "恶魔遗物"
+        "property_duskbringer_immortal_weapon4_description"                      "获得<% DUSKBRINGER_IMMORTAL_WEAPON_4_STATUS_RESISTANCE %>% 状态抗性。提高 [W3]的效果2倍。"

@@ -292,3 +292,7 @@
 
         "DOTA_Tooltip_modifier_auriun_immortal_weapon_3_effect"				"诡诈"
         "DOTA_Tooltip_modifier_auriun_immortal_weapon_3_effect_Description"	"魔法免疫并降低生命回复速度"
+	
+	"DOTA_Tooltip_ability_item_rpc_auriun_immortal_weapon_4"            "恐惧之书"
+        "item_property_auriun_immortal_weapon4"                             "审判日"
+        "property_auriun_immortal_weapon4_description"                      "@Ability4 不再复活友军或者回复友军生命值，但是会释放<% AURIUN_IMMO_WEAPON_4_BASE_FLARES %> 道 [W1] 火焰，并且每级 [R4] 符文数将会额外释放一道火焰， 这些火焰将会以 <% AURIUN_IMMO_WEAPON_4_INTERVAL %>-秒的的间隔对 @Ability4 范围内的随机敌人释放。 该效果不会在技能免疫单位下产生。"

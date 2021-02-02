@@ -418,3 +418,7 @@
        	"DOTA_Tooltip_ability_item_rpc_solunia_immortal_weapon_3"            		"银河轨道之刃"
        	"item_property_solunia_immortal_weapon3"                             		"阿尔法星火"
        	"property_solunia_immortal_weapon3_description"                      		"@Ability4 可以立即释放而不用引导并且将你传送至目标地点，施法距离为 <% SOLUNIA_IMMORTAL_WEAPON_3_CAST_RANGE %> 。"
+	
+	"DOTA_Tooltip_ability_item_rpc_solunia_immortal_weapon_4"            "磁电之环"
+        "item_property_solunia_immortal_weapon4"                             "极光面纱"
+        "property_solunia_immortal_weapon4_description"                      "增加护甲和魔甲 <% SOLUNIA_IMMORTAL_WEAPON_4_ARMORS_AMP_PCT %>%。"

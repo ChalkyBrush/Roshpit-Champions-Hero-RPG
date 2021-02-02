@@ -258,3 +258,7 @@
         "DOTA_Tooltip_ability_item_rpc_epoch_immortal_weapon_3"             "永恒之塔"
         "item_property_epoch_immortal_weapon3"                              "空间扭曲"
         "property_epoch_immortal_weapon3_description"                       "如果你没有使用 @Ability3的传送，你将不会触发该技能的冷却时间。"
+	
+	"DOTA_Tooltip_ability_item_rpc_epoch_immortal_weapon_4"				"世界之石的碎片"
+    	"item_property_epoch_immortal_weapon4"								"浩劫巨锤"
+    	"property_epoch_immortal_weapon4_description"						"降低攻击距离和施法距离 <% EPOCH_IMMORTAL_WEAPON_4_RANGE_REDUCTION %>。 [Q1] 对主目标周围 <% EPOCH_IMMORTAL_WEAPON_4_Q1_SPLASH %> 范围内敌人造成伤害。"

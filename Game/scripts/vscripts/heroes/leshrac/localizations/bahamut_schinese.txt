@@ -307,3 +307,9 @@
         "DOTA_Tooltip_ability_item_rpc_bahamut_immortal_weapon_3"            "原子符文"
         "item_property_bahamut_immortal_weapon3"                             "终极壁垒"
         "property_bahamut_immortal_weapon3_description"                      "提高 @Ability1 的长度 <% BAHAMUT_IMMORTAL_WEAPON_3_Q_LENGHT_INCREASE_PCT %>% 并且你的全属性总和的 <% BAHAMUT_IMMORTAL_WEAPON_3_Q_DAMAGE_ATTRIBUTES_MULT %>x加入到墙的基础伤害中"
+	
+	"DOTA_Tooltip_ability_item_rpc_bahamut_immortal_weapon_4"            "破碎符文"
+        "item_property_bahamut_immortal_weapon4"                             "新生之力"
+        "property_bahamut_immortal_weapon4_description"                      "每一个空的装备槽位提供 +<% BAHAMUT_IMMORTAL_WEAPON_4_ATTRIBUTE_BONUS %> 全属性。"
+		"DOTA_Tooltip_modifier_bahamut_immortal_weapon_4_nascent_power_stack"	"新生之力"
+		"DOTA_Tooltip_modifier_bahamut_immortal_weapon_4_nascent_power_stack_description"	"每一个空的装备槽位提供 +<% BAHAMUT_IMMORTAL_WEAPON_4_ATTRIBUTE_BONUS %> 全属性。"

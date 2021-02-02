@@ -325,3 +325,7 @@
         "DOTA_Tooltip_ability_item_rpc_flamewaker_immortal_weapon_3"            "角斗士之剑"
         "item_property_flamewaker_immortal_weapon3"                             "陨石爆发"
         "property_flamewaker_immortal_weapon3_description"                      "[R] 变成点目标释放，施法距离为<% FLAMEWAKER_IMMORTAL_WEAPON_3_R_CAST_RANGE %> 并且降低他的冷却时间 <% FLAMEWAKER_IMMORTAL_WEAPON_3_R_CD_REDUCTION %>% 。"
+	
+	"DOTA_Tooltip_ability_item_rpc_flamewaker_immortal_weapon_4"			"慧光"
+    	"item_property_flamewaker_immortal_weapon4"								"法术之刃"
+    	"property_flamewaker_immortal_weapon4_description"						"每点智力提高物理穿透 <% FLAMEWAKER_IMMORTAL_WEAPON_4_ARMOR_PIERCE_PER_INT %>。 [R3] 现在也会提供等量的智力。"
