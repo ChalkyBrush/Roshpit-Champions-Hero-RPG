@@ -1,0 +1,74 @@
+
+	"item_rpc_chernobog_arcana1"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"arcana/chernobog_arcana1"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"ItemKillable" "0"
+		"precache"
+		{
+			"model"		"models/heroes/terrorblade/demon.vmdl"
+			"particle"	"particles/units/heroes/hero_terrorblade/terrorblade_metamorphosis.vpcf"
+			"particle"	"particles/roshpit/chernobog/demonform_start_start_ti7_lvl2.vpcf"
+			"particle"	"particles/units/heroes/hero_shadow_demon/shadow_demon_disruption.vpcf"
+			"particle"	"particles/roshpit/chernobog/demon_form_transition.vpcf"
+			"particle"	"particles/roshpit/chernobog/demon_form_attack.vpcf"
+			"particle"	"particles/units/heroes/hero_nevermore/nevermore_base_attack.vpcf"
+			"particle"	"particles/roshpit/chernobog/demon_form_splash.vpcf"
+			"particle"	"particles/roshpit/chernobog/demon_form_splash_red.vpcf"
+			"particle"	"particles/roshpit/chernobog/glyphed_demon_form_slow_aura_spell_bloodbath_bubbles_.vpcf"
+			"particle"	"particles/roshpit/chernobog/demon_form_slow_aura_spell_bloodbath_bubbles_.vpcf"
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_chernobog_arcana1"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/equipment.lua"
+						"Function"		"equip_arcana"
+						"target"		"TARGET"
+						"index"			"1"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/equipment.lua"
+						"Function"		"unequip_arcana"
+						"target"		"TARGET"
+						"index"			"1"
+					}
+				}
+			}
+		}
+	}
+
