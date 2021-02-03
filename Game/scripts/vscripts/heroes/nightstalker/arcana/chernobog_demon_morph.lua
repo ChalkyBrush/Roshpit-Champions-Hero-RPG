@@ -207,7 +207,7 @@ function modifier_chernobog_demon_form:ProcR1(caster, target)
 	local splash_radius = CalculateFinalRadius(caster, CHERNOBOG_ARCANA1_R1_RADIUS, DOTA_R_SLOT)
 	local atk_damage = OverflowProtectedGetAverageTrueAttackDamage(caster)
 	local damage = atk_damage * r_1_level * CHERNOBOG_ARCANA1_R1_DMG_ATK_PCT / 100
-	local enemies = SearchEnemies(caster, target, splash_radius)
+	local enemies = SearchEnemies(caster, target, splash_radius, true)
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do
 			ChernobogDealDamage(caster, enemy, damage, DAMAGE_TYPE_PHYSICAL, BASE_ABILITY_R, RPC_ELEMENT_DEMON, RPC_ELEMENT_NONE, false, true)
@@ -301,7 +301,7 @@ function modifier_chernobog_demon_form:OnAttackStart(event)
 		if not self.cd then
 			local splitCount = 0
 			if procs > 0 then
-				local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, search_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+				local enemies = searchenemies(caster, target, search_radius, true)
 				if #enemies > 0 then
 					for _, enemy in pairs(enemies) do
 						if enemy:GetEntityIndex() == target:GetEntityIndex() then
