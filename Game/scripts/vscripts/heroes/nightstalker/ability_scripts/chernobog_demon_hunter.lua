@@ -46,7 +46,7 @@ function chernobog_demon_hunter:GetCastPoint()
 end
 
 function chernobog_demon_hunter:GetCooldownBase()
-    return 1
+    return 0.1
 end
 
 function chernobog_demon_hunter:GetAbilityTextureName()
@@ -272,9 +272,7 @@ function modifier_chernobog_w_passive:OnAttackLanded(event)
 		CustomAbilities:QuickAttachParticle("particles/chernobog/chernobog_a_b_timedialate.vpcf", caster, 2)
 		Filters:ApplyHeal(caster, caster, healamount, true, false)
 	end
-	if (aggroTarget) and (target:GetEntityIndex() == aggroTarget:GetEntityIndex()) then
-		ability:ProcW3(caster, target)
-	end
+	ability:ProcW3(caster, target)
 end
 
 function chernobog_demon_hunter:ProcW3(caster, target)
