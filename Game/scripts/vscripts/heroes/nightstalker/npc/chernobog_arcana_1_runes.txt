@@ -1,12 +1,11 @@
-
-	"chernobog_rune_r_1_arcana1"
+  "chernobog_rune_r_1_arcana1"
 	{
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityTextureName"	"chernobog/chernobog_rune_r_1_arcana1"
 		"MaxLevel"				"20"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
 		{
@@ -40,13 +39,13 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% CHERNOBOG_ARCANA1_R2_ATT_SLOW %>"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"<% CHERNOBOG_ARCANA_R2_CHANCE_INC %>"
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% CHERNOBOG_ARCANA1_R2_MS_SLOW %>"
+				"var_type"				"FIELD_FLOAT"
+				"property_one_base"		"<% CHERNOBOG_ARCANA_R2_CHANCE_BASE %>"
 			}
 		}
 	}
@@ -82,13 +81,18 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% CHERNOBOG_ARCANA1_R4_BONUS_DUR %>"
+				"property_one"			"<% CHERNOBOG_ARCANA1_R4_R_CD_FLAT_REDUC %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% CHERNOBOG_ARCANA1_R4_DEMON_AMP * 100 %>"
+				"property_two"			"<% CHERNOBOG_ARCANA1_R4_CHANNEL_TIME_REDUC %>"
 			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_three"			"<% CHERNOBOG_ARCANA1_R4_DEMON_AMP_PER_STR_AND_AGI * 10 %>"
+			}
+			
 		}
 	}
-
