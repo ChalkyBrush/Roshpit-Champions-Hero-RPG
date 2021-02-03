@@ -10,6 +10,9 @@ local modifierClass = modifier_chernobog_immortal_weapon_4
 local modifierName = 'modifier_chernobog_immortal_weapon_4'
 LinkLuaModifier(modifierName, "heroes/nightstalker/weapon_scripts/chernobog_immortal_weapon_4", LUA_MODIFIER_MOTION_NONE)
 
+modifier_chernobog_immortal_weapon_4_conditional_silence = class(npc_base_modifier, nil, npc_base_modifier)
+LinkLuaModifier("modifier_chernobog_immortal_weapon_4_conditional_silence", "heroes/nightstalker/weapon_scripts/chernobog_immortal_weapon_4", LUA_MODIFIER_MOTION_NONE)
+
 function itemClass:RequiredHero()
 	return "chernobog"
 end
@@ -53,4 +56,25 @@ end
 
 function modifierClass:RemoveOnDeath()
     return false
+end
+
+---------------------
+--- WEAPON EFFECT ---
+---------------------
+function modifier_chernobog_immortal_weapon_4_conditional_silence:IsDebuff()
+	return true
+end
+
+function modifier_chernobog_immortal_weapon_4_conditional_silence:IsHidden()
+	return false
+end
+
+function modifier_chernobog_immortal_weapon_4_conditional_silence:OnCreated()
+	if not IsServer() then
+		return
+	end
+end
+
+function modifier_chernobog_immortal_weapon_4_conditional_silence:CheckState()
+	return {[MODIFIER_STATE_SILENCED] = true}
 end
