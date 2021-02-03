@@ -120,7 +120,7 @@ function modifier_shadow_hunt:OnIntervalThink()
     end
 	if caster:HasModifier("modifier_chernobog_glyph_1_1") then
 		local search_radius = CHERNOBOG_E3_RANGE_BASE + CHERNOBOG_E3_RANGE * caster:GetRuneValue("e", 3) + 500
-		local enemies = SearchEnemies(caster, caster, search_radius)
+		local enemies = SearchEnemies(caster, caster, search_radius, true)
 		if #enemies > 0 then
 			for _, enemy in pairs(enemies) do
 				AddFOWViewer(caster:GetTeamNumber(), enemy:GetAbsOrigin(), 600, 2.4, false)
@@ -447,7 +447,7 @@ function modifier_chernobog_e3_thinker:DoTeleport(caster, target, ability, end_p
 				local search_radius = CalculateFinalRadius(caster, CHERNOBOG_GLYPH_5_1_RADIUS, DOTA_E_SLOT)
 				for i = 1, CHERNOBOG_GLYPH_5_1_HIT_COUNT, 1 do
 					Timers:CreateTimer(0.03, function()
-						local enemies = SearchEnemies(caster, target, search_radius)
+						local enemies = SearchEnemies(caster, target, search_radius, true)
 						for _, enemy in pairs(enemies) do
 							Filters:PerformAttackSpecial(caster, enemy, true, true, true, true, false, false, false)				
 						end
