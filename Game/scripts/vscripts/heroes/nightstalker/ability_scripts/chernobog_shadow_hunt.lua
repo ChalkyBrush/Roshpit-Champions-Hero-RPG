@@ -100,17 +100,26 @@ function modifier_shadow_hunt:OnIntervalThink()
     local currentMana = caster:GetMana()
     local minHealth = 1
     local minMana = 0
-	local hp_drain = CHERNOBOG_E_HP_DRAIN[self:GetAbility():GetLevel()]
-	local mp_drain = CHERNOBOG_E_MP_DRAIN[self:GetAbility():GetLevel()]
-
-	if currentHealth > minHealth then
+    local hp_drain = ability:GetSpecialValueFor("hp_drain_per_second")
+    local mp_drain = ability:GetSpecialValueFor("mp_drain_per_second")
+    local allmodifier = caster:FindAllModifiers()
+    if #allmodifier > 0 then
+	for i = 1, #allmodifier, 1 do
+		if allmodifier[i].GetDisableHealing and (allmodifier[i]:GetDisableHealing() == 1) then
+			hp_drain = hp_drain * ( 100 - CHERNOBOG_E_DRAIN_REDUC_WHEN_HEALING_DISABLED) / 100
+			mp_drain = mp_drain * ( 100 - CHERNOBOG_E_DRAIN_REDUC_WHEN_HEALING_DISABLED) / 100
+			break
+		end
+	end
+    end
+    if currentHealth > minHealth then
        caster:SetHealth(math.max(currentHealth - currentHealth * CHERNOBOG_E_DRAIN_INTERVAL * hp_drain / 100, minHealth))
     end
     if currentMana > minMana then
        caster:ReduceMana(math.min(currentMana * CHERNOBOG_E_DRAIN_INTERVAL * mp_drain / 100, currentMana - minMana))
     end
 	if caster:HasModifier("modifier_chernobog_glyph_1_1") then
-		local search_radius = CHERNOBOG_E3_RANGE_BASE + CHERNOBOG_E3_RANGE * rune_level + 500
+		local search_radius = CHERNOBOG_E3_RANGE_BASE + CHERNOBOG_E3_RANGE * caster:GetRuneValue("e", 3) + 500
 		local enemies = SearchEnemies(caster, caster, search_radius)
 		if #enemies > 0 then
 			for _, enemy in pairs(enemies) do
@@ -129,7 +138,7 @@ function modifier_shadow_hunt:OnRemoved()
     local e_4_level = caster:GetRuneValue("e", 4)
 	local duration = CHERNOBOG_E4_BASE_DUR + CHERNOBOG_E4_DUR * e_4_level
     if e_4_level > 0 then
-		ApplyModifier(caster, caster, ability, "modifier_chernobog_e4_buff", duration, e_4_level)
+	ApplyModifier(caster, caster, ability, "modifier_chernobog_e4_buff", duration, e_4_level)
     end
 end
 
@@ -255,6 +264,10 @@ end
 
 function modifier_chernobog_e2_thinker:RemoveOnDeath()
 	return true
+end
+
+function modifier_chernobog_e2_thinker:GetEffectName()
+    return 'particles/roshpit/chernobog/demon_form_slow_aura_spell_bloodbath_bubbles_.vpcf'
 end
 
 function modifier_chernobog_e2_thinker:GetAuraSearchTeam()
