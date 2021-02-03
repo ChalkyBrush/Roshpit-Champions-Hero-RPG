@@ -68,7 +68,7 @@
     	"DOTA_Tooltip_modifier_chernobog_w2_effect_Description"					"Gain attack damage while demon hunter is active and armor while inactive."
 		
 		"DOTA_Tooltip_ability_chernobog_rune_w_3"								"[W3] Fervor"
-    	"DOTA_Tooltip_ability_chernobog_rune_w_3_Description"					"While @Ability2 is inactive, Chernobog's attacks lower the target's armor and magic armor, up to <% CHERNOBOG_W3_MAX_STACKS %> stacks. While active, each attack adds 1 stack of base attack damage. Changing targets removes <% CHERNOBOG_W3_STACK_LOSE_PCT %>% of these stacks.<br>Only works on your primary target."						
+    	"DOTA_Tooltip_ability_chernobog_rune_w_3_Description"					"While @Ability2 is inactive, Chernobog's attacks lower the target's armor and magic armor, up to <% CHERNOBOG_W3_MAX_STACKS %> stacks. While active, each attack adds 1 stack of base attack damage. Changing targets removes <% CHERNOBOG_W3_STACK_LOSE_PCT %>% of these stacks."						
     	"DOTA_Tooltip_ability_chernobog_rune_w_3_property_one"					"Armor and Magic Armor Reduction"
     	"DOTA_Tooltip_ability_chernobog_rune_w_3_suffix"						" per stack"
     	"DOTA_Tooltip_ability_chernobog_rune_w_3_property_two"					"Increased Attack Damage"
@@ -86,7 +86,7 @@
     	"DOTA_Tooltip_ability_chernobog_rune_w_4_suffix_two"					""
 		
 		"DOTA_Tooltip_ability_chernobog_shadow_hunt"							"Shadow Hunt"
-    	"DOTA_Tooltip_ability_chernobog_shadow_hunt_Description"				"Chernobog starts hunting his enemies. While hunting he has increased movespeed and movespeed cap but loses a % of his current health and mana each second."
+    	"DOTA_Tooltip_ability_chernobog_shadow_hunt_Description"				"Chernobog starts hunting his enemies. While hunting he has increased movespeed and movespeed cap but loses a % of his current health and mana each second, if your healing is disabled, the drain amount is reduced by <% CHERNOBOG_E_DRAIN_REDUC_WHEN_HEALING_DISABLED %>."
     	"DOTA_Tooltip_ability_chernobog_shadow_hunt_movespeed_cap"				"MS-CAP BONUS:"
     	"DOTA_Tooltip_ability_chernobog_shadow_hunt_movespeed_bonus"			"MS BONUS:"
     	"DOTA_Tooltip_ability_chernobog_shadow_hunt_hp_drain_per_second"		"% CURRENT HP DRAINED:"
@@ -337,7 +337,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_chernobog_immortal_weapon_2"            "Mandible of Charybdis"
         "item_property_chernobog_immortal_weapon2"                             "Vortex of Charybdis"
-        "property_chernobog_immortal_weapon2_description"                      "After dealing physical damage, your next magic damage is increased by <% CHERNOBOG_IMMORTAL_WEAPON_2_MAGIC_BONUS %>%, after dealing magic damage, your next physical damage is increased by <% CHERNOBOG_IMMORTAL_WEAPON_2_PHYS_BONUS %>%."
+        "property_chernobog_immortal_weapon2_description"                      "After dealing physical damage, your next magic damage is increased by <% CHERNOBOG_IMMORTAL_WEAPON_2_MAGIC_BONUS %>% and restore <% CHERNOBOG_IMMORTAL_WEAPON_2_MANA_RESTORE_WHEN_AMP %>% max mana, after dealing magic damage, your next physical damage is increased by <% CHERNOBOG_IMMORTAL_WEAPON_2_PHYS_BONUS %>% and restore <% CHERNOBOG_IMMORTAL_WEAPON_2_HEALTH_RESTORE_WHEN_AMP %>% max health. The heal amount ignores healing disable effects but cannot be modified."
 
         "DOTA_Tooltip_ability_item_rpc_chernobog_immortal_weapon_3"            "Unholy Claw of Osyluth"
         "item_property_chernobog_immortal_weapon3"                             "Unholy Onslaught"
@@ -345,5 +345,5 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_chernobog_immortal_weapon_4"            "Reaper of Thanatos"
         "item_property_chernobog_immortal_weapon4"                             "Death Reaper"
-        "property_chernobog_immortal_weapon4_description"                      "Increase armor reduction effect from abilities and runes by <% CHERNOBOG_IMMORTAL_WEAPON_4_ARMOR_REDUC_MULT %>%."
+        "property_chernobog_immortal_weapon4_description"                      "Increase armor reduction effect from abilities and runes by <% CHERNOBOG_IMMORTAL_WEAPON_4_ARMOR_REDUC_MULT %>% and you deal <%  %>% increased damage to enemy who affected by armor / magic armor reduction debuffs. If target's armor or magic armor fall to <font color='#ccff66'>0</font>, he will be silenced for <font color='#ccff66'>2</font> seconds."
 
