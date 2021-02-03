@@ -169,7 +169,7 @@ function modifier_chernobog_demon_flight:OnIntervalThink()
 			return false
 		end
 		if not caster.flight_target:IsAlive() then
-			local enemies = SearchEnemies(caster, caster, 550)
+			local enemies = SearchEnemies(caster, caster, 550, true)
 			local count = 0
 			if #enemies > 0 then
 				caster.flight_target = enemies[1]
@@ -182,7 +182,7 @@ function modifier_chernobog_demon_flight:OnIntervalThink()
 			return false
 		end
 		if caster:HasModifier("modifier_super_ascendency_trigger") then
-			local enemies = SearchEnemies(caster, caster, 550)
+			local enemies = SearchEnemies(caster, caster, 550, true)
 			local count = 0
 			if #enemies > 0 then
 				for _, enemy in pairs(enemies) do
@@ -344,7 +344,7 @@ function modifier_chernobog_arcana_e_passive:ProcE4(radius, interval)
 	local R_ability = caster:GetAbilityByIndex(DOTA_R_SLOT)
 	local e_4_level = caster:GetRuneValue("e", 4)
 	local damage = e_4_level * CHERNOBOG_ARCANA2_E4_DMG_PCT * OverflowProtectedGetAverageTrueAttackDamage(caster) / 100
-	local enemies = SearchEnemies(caster, caster, radius)
+	local enemies = SearchEnemies(caster, caster, radius, false)
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do
 			if IsValidEntity(enemy) then
