@@ -352,7 +352,7 @@ function modifier_chernobog_r1_effect:OnAttackLanded(event)
     Timers:CreateTimer(1.5, function()
         ParticleManager:DestroyParticle(particle2, false)
     end)
-    local enemies = SearchEnemies(caster, target, radius)
+    local enemies = SearchEnemies(caster, target, radius, true)
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do
 			if enemy:HasModifier("modifier_chernobog_r_effect") then
