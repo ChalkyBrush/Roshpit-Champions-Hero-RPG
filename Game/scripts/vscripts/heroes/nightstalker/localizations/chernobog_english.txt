@@ -312,7 +312,7 @@
 		"item_rpc_chernobog_glyph_6_2_description" 				"@Ability2 does not drain health when below <% CHERNOBOG_GLYPH_6_2_THRESHOLD %> of max health but damage from your abilities or runes is reduced by <% CHERNOBOG_GLYPH_6_2_DMG_DEC %>."
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_7_2"		"[T7-2] Glyph of Indomitability"
-		"item_rpc_chernobog_glyph_7_2_description" 				"While @Ability2 is active, dispell all purgable debuffs every <% CHERNOBOG_GLYPH_7_2_THINK_INTERVAL %> seconds."
+		"item_rpc_chernobog_glyph_7_2_description" 				"While @Ability3 is active, dispell all purgable debuffs every <% CHERNOBOG_GLYPH_7_2_THINK_INTERVAL %> seconds."
 		
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_book"    "Chernobog Glyph Book"
 		
@@ -345,5 +345,6 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_chernobog_immortal_weapon_4"            "Reaper of Thanatos"
         "item_property_chernobog_immortal_weapon4"                             "Death Reaper"
-        "property_chernobog_immortal_weapon4_description"                      "Increase armor reduction effect from abilities and runes by <% CHERNOBOG_IMMORTAL_WEAPON_4_ARMOR_REDUC_MULT %>% and you deal <%  %>% increased damage to enemy who affected by armor / magic armor reduction debuffs. If target's armor or magic armor fall to <font color='#ccff66'>0</font>, he will be silenced for <font color='#ccff66'>2</font> seconds."
+        "property_chernobog_immortal_weapon4_description"                      "Increase armor reduction effect from abilities and runes by <% CHERNOBOG_IMMORTAL_WEAPON_4_ARMOR_REDUC_MULT %>% and you deal <% CHERNOBOG_IMMORTAL_WEAPON_4_AMP_ON_DEBUFFED_ENEMY %>% increased damage to enemy who affected by armor / magic armor reduction debuffs. If target's armor or magic armor fall to <font color='#ccff66'>0</font>, he will be silenced for <font color='#ccff66'>2</font> seconds."
 
+	"DOTA_Tooltip_modifier_chernobog_immortal_weapon_4_conditional_silence"										"Silence"
