@@ -160,7 +160,7 @@ function modifier_demon_hunter:OnAttackLanded(event)
 		caster:SetHealth(newHealth)
 	end
 	caster:ReduceMana(w_mp_drain)
-	local enemies = SearchEnemies(caster, target, radius)
+	local enemies = SearchEnemies(caster, target, radius, false)
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do 
 			ChernobogDealDamage(caster, enemy, w_damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_DEMON, RPC_ELEMENT_NONE, false, true)
