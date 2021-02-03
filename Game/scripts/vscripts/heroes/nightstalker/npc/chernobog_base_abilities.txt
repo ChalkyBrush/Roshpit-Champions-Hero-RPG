@@ -170,7 +170,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"mp_drain_per_second"	"20 20 20 20 20 20 20"
+				"mp_drain_per_second"	"15 15 15 15 15 15 15"
 			}
 		}	
 	}
