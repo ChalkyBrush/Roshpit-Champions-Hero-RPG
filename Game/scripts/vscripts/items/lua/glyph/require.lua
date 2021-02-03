@@ -27,8 +27,6 @@ require(prefix..'neutral_glyph_7_1')
 require(prefix..'neutral_glyph_7_2')
 require(prefix..'neutral_glyph_7_3')
 
-local chernobogPrefix = 'heroes/nightstalker/glyphs/'
-require(chernobogPrefix..'chernobog_glyph_1_1')
 
 -- HEROES
 require('heroes/dragon_knight/glyph_scripts/require')
