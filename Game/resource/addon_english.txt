@@ -3773,7 +3773,7 @@
 		"item_rpc_chernobog_glyph_4_1_description" 				"Increase the effectiveness of [R2] by <font color='#ccff66'>50</font>%."
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_5_1"		"[T5-1] Glyph of the Death Hunter"
-		"item_rpc_chernobog_glyph_5_1_description" 				"Perform 0 radius around the end point of [E3]."
+		"item_rpc_chernobog_glyph_5_1_description" 				"Perform <font color='#ccff66'>3</font> attacks and to all enemies in <font color='#ccff66'>300</font> radius around the end point of [E3]."
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_6_1"		"[T6-1] Glyph of Fevor"
 		"item_rpc_chernobog_glyph_6_1_description" 				"Increase max stack of [W3] by <font color='#ccff66'>20</font> and attack will apply addition <font color='#ccff66'>1</font> stack of [W3]."

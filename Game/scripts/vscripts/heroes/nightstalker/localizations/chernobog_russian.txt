@@ -282,7 +282,7 @@
 		"item_rpc_chernobog_glyph_4_1_description" 				"Increase the effectiveness of [R2] by <% CHERNOBOG_GLYPH_4_1_R2_AMP %>%."
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_5_1"		"[T5-1] Glyph of the Death Hunter"
-		"item_rpc_chernobog_glyph_5_1_description" 				"Perform <% CHERNOBOG_GLYPH_5_1_HIT_COUNT %t> attacks and to all enemies in <% CHERNOBOG_GLYPH_5_1_RADIUS %> radius around the end point of [E3]."
+		"item_rpc_chernobog_glyph_5_1_description" 				"Perform <% CHERNOBOG_GLYPH_5_1_HIT_COUNT %> attacks and to all enemies in <% CHERNOBOG_GLYPH_5_1_RADIUS %> radius around the end point of [E3]."
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_6_1"		"[T6-1] Glyph of Fevor"
 		"item_rpc_chernobog_glyph_6_1_description" 				"Increase max stack of [W3] by <% CHERNOBOG_GLYPH_6_1_W3_MAX_STACK_BONUS %> and attack will apply addition <% CHERNOBOG_GLYPH_6_1_ADDITION_STACK %> stack of [W3]."
