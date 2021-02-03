@@ -46,7 +46,7 @@ function modifierClass:OnIntervalThink()
 	end
 	local caster = self:GetParent()
 	local modifierTable = caster:FindAllModifiers()
-	if not caster:HasModifier("modifier_demon_hunter") then
+	if not caster:HasModifier("modifier_shadow_hunt") then
 		return
 	end
 	for i = 1, #modifierTable, 1 do
