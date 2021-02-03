@@ -3559,7 +3559,7 @@
     	"DOTA_Tooltip_modifier_chernobog_w2_effect_Description"					"Gain attack damage while demon hunter is active and armor while inactive."
 		
 		"DOTA_Tooltip_ability_chernobog_rune_w_3"								"[W3] Fervor"
-    	"DOTA_Tooltip_ability_chernobog_rune_w_3_Description"					"While @Ability2 is inactive, Chernobog's attacks lower the target's armor and magic armor, up to <font color='#ccff66'>30</font> stacks. While active, each attack adds 1 stack of base attack damage. Changing targets removes <font color='#ccff66'>50</font>% of these stacks.<br>Only works on your primary target."						
+    	"DOTA_Tooltip_ability_chernobog_rune_w_3_Description"					"While @Ability2 is inactive, Chernobog's attacks lower the target's armor and magic armor, up to <font color='#ccff66'>30</font> stacks. While active, each attack adds 1 stack of base attack damage. Changing targets removes <font color='#ccff66'>50</font>% of these stacks."						
     	"DOTA_Tooltip_ability_chernobog_rune_w_3_property_one"					"Armor and Magic Armor Reduction"
     	"DOTA_Tooltip_ability_chernobog_rune_w_3_suffix"						" per stack"
     	"DOTA_Tooltip_ability_chernobog_rune_w_3_property_two"					"Increased Attack Damage"
@@ -3577,7 +3577,7 @@
     	"DOTA_Tooltip_ability_chernobog_rune_w_4_suffix_two"					""
 		
 		"DOTA_Tooltip_ability_chernobog_shadow_hunt"							"Shadow Hunt"
-    	"DOTA_Tooltip_ability_chernobog_shadow_hunt_Description"				"Chernobog starts hunting his enemies. While hunting he has increased movespeed and movespeed cap but loses a % of his current health and mana each second."
+    	"DOTA_Tooltip_ability_chernobog_shadow_hunt_Description"				"Chernobog starts hunting his enemies. While hunting he has increased movespeed and movespeed cap but loses a % of his current health and mana each second, if your healing is disabled, the drain amount is reduced by <font color='#ccff66'>66</font>."
     	"DOTA_Tooltip_ability_chernobog_shadow_hunt_movespeed_cap"				"MS-CAP BONUS:"
     	"DOTA_Tooltip_ability_chernobog_shadow_hunt_movespeed_bonus"			"MS BONUS:"
     	"DOTA_Tooltip_ability_chernobog_shadow_hunt_hp_drain_per_second"		"% CURRENT HP DRAINED:"
@@ -3803,7 +3803,7 @@
 		"item_rpc_chernobog_glyph_6_2_description" 				"@Ability2 does not drain health when below <font color='#ccff66'>30</font> of max health but damage from your abilities or runes is reduced by <font color='#ccff66'>40</font>."
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_7_2"		"[T7-2] Glyph of Indomitability"
-		"item_rpc_chernobog_glyph_7_2_description" 				"While @Ability2 is active, dispell all purgable debuffs every <font color='#ccff66'>1</font> seconds."
+		"item_rpc_chernobog_glyph_7_2_description" 				"While @Ability3 is active, dispell all purgable debuffs every <font color='#ccff66'>1</font> seconds."
 		
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_book"    "Chernobog Glyph Book"
 		
@@ -3828,7 +3828,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_chernobog_immortal_weapon_2"            "Mandible of Charybdis"
         "item_property_chernobog_immortal_weapon2"                             "Vortex of Charybdis"
-        "property_chernobog_immortal_weapon2_description"                      "After dealing physical damage, your next magic damage is increased by <font color='#ccff66'>35</font>%, after dealing magic damage, your next physical damage is increased by <font color='#ccff66'>35</font>%."
+        "property_chernobog_immortal_weapon2_description"                      "After dealing physical damage, your next magic damage is increased by <font color='#ccff66'>35</font>% and restore <font color='#ccff66'>1</font>% max mana, after dealing magic damage, your next physical damage is increased by <font color='#ccff66'>35</font>% and restore <font color='#ccff66'>0.5</font>% max health. The heal amount ignores healing disable effects but cannot be modified."
 
         "DOTA_Tooltip_ability_item_rpc_chernobog_immortal_weapon_3"            "Unholy Claw of Osyluth"
         "item_property_chernobog_immortal_weapon3"                             "Unholy Onslaught"
@@ -3836,8 +3836,9 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_chernobog_immortal_weapon_4"            "Reaper of Thanatos"
         "item_property_chernobog_immortal_weapon4"                             "Death Reaper"
-        "property_chernobog_immortal_weapon4_description"                      "Increase armor reduction effect from abilities and runes by <font color='#ccff66'>100</font>%."
+        "property_chernobog_immortal_weapon4_description"                      "Increase armor reduction effect from abilities and runes by <font color='#ccff66'>100</font>% and you deal <font color='#ccff66'>20</font>% increased damage to enemy who affected by armor / magic armor reduction debuffs. If target's armor or magic armor fall to <font color='#ccff66'>0</font>, he will be silenced for <font color='#ccff66'>2</font> seconds."
 
+	"DOTA_Tooltip_modifier_chernobog_immortal_weapon_4_conditional_silence"										"Silence"
 
 
 		//Abilities
