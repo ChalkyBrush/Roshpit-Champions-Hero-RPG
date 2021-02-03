@@ -272,7 +272,9 @@ function modifier_chernobog_w_passive:OnAttackLanded(event)
 		CustomAbilities:QuickAttachParticle("particles/chernobog/chernobog_a_b_timedialate.vpcf", caster, 2)
 		Filters:ApplyHeal(caster, caster, healamount, true, false)
 	end
-	if (aggroTarget) and (target:GetEntityIndex() == aggroTarget:GetEntityIndex()) then
+	if caster:HasModifier("modifier_chernobog_demon_flight") then
+		ability:ProcW3(caster, target)
+	elseif (aggroTarget) and (target:GetEntityIndex() == aggroTarget:GetEntityIndex()) then
 		ability:ProcW3(caster, target)
 	end
 end
