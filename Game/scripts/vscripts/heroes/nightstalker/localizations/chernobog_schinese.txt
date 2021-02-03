@@ -69,7 +69,7 @@
     	"DOTA_Tooltip_modifier_chernobog_w2_effect_Description"					"恶魔猎手关闭时获得额外护甲，开启时获得额外基础攻击力"
 		
 		"DOTA_Tooltip_ability_chernobog_rune_w_3"								"[W3] 狂热"
-    	"DOTA_Tooltip_ability_chernobog_rune_w_3_Description"					"@Ability2 关闭时，暗夜魔王的普通攻击将会降低目标的护甲和魔甲， 关闭时，暗夜魔王的普通攻击将会获得额外基础攻击力。至多叠加 <% CHERNOBOG_W3_MAX_STACKS %> 层，改变目标将会丢失 <% CHERNOBOG_W3_STACK_LOSE_PCT %>% 层数。<br>仅对正在攻击的主目标生效。"						
+    	"DOTA_Tooltip_ability_chernobog_rune_w_3_Description"					"@Ability2 关闭时，暗夜魔王的普通攻击将会降低目标的护甲和魔甲， 关闭时，暗夜魔王的普通攻击将会获得额外基础攻击力。至多叠加 <% CHERNOBOG_W3_MAX_STACKS %> 层，改变目标将会丢失 <% CHERNOBOG_W3_STACK_LOSE_PCT %>% 层数。"						
     	"DOTA_Tooltip_ability_chernobog_rune_w_3_property_one"					"护甲和魔甲降低"
     	"DOTA_Tooltip_ability_chernobog_rune_w_3_suffix"						" 每层"
     	"DOTA_Tooltip_ability_chernobog_rune_w_3_property_two"					"额外基础攻击力"
