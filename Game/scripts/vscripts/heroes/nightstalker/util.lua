@@ -25,6 +25,8 @@ function ChernobogDealDamage(caster, target, damage, damageType, ability, elemen
 			if caster:HasModifier("modifier_chernobog_immortal_weapon_2_phys_buff") then
 				damage = damage * (1 + CHERNOBOG_IMMORTAL_WEAPON_2_PHYS_BONUS / 100)
 				caster:RemoveModifierByName("modifier_chernobog_immortal_weapon_2_phys_buff")
+				local hp_restored = caster:GetMaxHealth() * CHERNOBOG_IMMORTAL_WEAPON_2_HEALTH_RESTORE_WHEN_AMP / 100
+				caster:SetHealth(caster:GetHealth() + hp_restored)
 			end
 			ApplyModifier(caster, caster, nil, "modifier_chernobog_immortal_weapon_2_magic_buff", -1, nil)
 		end
@@ -32,8 +34,23 @@ function ChernobogDealDamage(caster, target, damage, damageType, ability, elemen
 			if caster:HasModifier("modifier_chernobog_immortal_weapon_2_magic_buff") then
 				damage = damage * (1 + CHERNOBOG_IMMORTAL_WEAPON_2_MAGIC_BONUS / 100)
 				caster:RemoveModifierByName("modifier_chernobog_immortal_weapon_2_magic_buff")
+				local mana_restored = caster:GetMaxMana() * CHERNOBOG_IMMORTAL_WEAPON_2_MANA_RESTORE_WHEN_AMP / 100
+				caster:GiveMana(mana_restored)
 			end
 			ApplyModifier(caster, caster, nil, "modifier_chernobog_immortal_weapon_2_phys_buff", -1, nil)
+		end
+	end
+	if caster:HasModifier("modifier_chernobog_immortal_weapon_4") then
+		local modifiers = target:FindAllModifiers()
+		if #modifiers > 0 then
+			for i = 1, #modifiers, 1 do
+				if (modifiers[i].GetRoshpitArmorBonus and modifiers[i]:GetRoshpitArmorBonus() < 0) or (modifiers[i].GetRoshpitMagicArmorBonus and modifiers[i]:GetRoshpitMagicArmorBonus() < 0) then
+					damage = damage * (1 + CHERNOBOG_IMMORTAL_WEAPON_4_AMP_ON_DEBUFFED_ENEMY / 100)
+					if (target:GetRoshpitArmor() == 0) or (target:GetRoshpitMagicArmor() == 0 ) then
+						ApplyModifier(caster, target, nil, "modifier_chernobog_immortal_weapon_4_conditional_silence", 2, nil)
+					end
+				end
+			end
 		end
 	end
 	if (ability == BASE_ABILITY_Q) then
@@ -239,6 +256,10 @@ end
 ----------------------
 --- SEARCH ENEMIES ---
 ----------------------
-function SearchEnemies(caster, target, radius)
-	return FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+function SearchEnemies(caster, target, radius, findSpellImmune)
+	local flag = DOTA_UNIT_TARGET_FLAG_NONE
+	if findSpellImmune == true then
+		flag = flag + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
+	end
+	return FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL,  flag, FIND_ANY_ORDER, false)
 end
