@@ -438,7 +438,7 @@ function modifier_charons_claw_debuff:OnIntervalThink()
 	local interval = CalculateFinalRate(caster, CHERNOBOG_Q_TICK_INTERVAL, DOTA_Q_SLOT)
 	local radius = CalculateFinalRadius(caster, CHERNOBOG_GLYPH_2_2_Q_RADIUS, DOTA_Q_SLOT)
 	if caster:HasModifier("modifier_chernobog_glyph_2_2") then
-		local enemies = SearchEnemies(caster, parent, radius)			
+		local enemies = SearchEnemies(caster, parent, radius, false)			
 		if #enemies > 0 then
 			for _, enemy in pairs(enemies) do
 				ability:DealDamage(enemy, false)
