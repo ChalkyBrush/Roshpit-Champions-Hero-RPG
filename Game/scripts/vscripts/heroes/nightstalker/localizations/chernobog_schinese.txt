@@ -87,7 +87,7 @@
     	"DOTA_Tooltip_ability_chernobog_rune_w_4_suffix_two"					""
 		
 		"DOTA_Tooltip_ability_chernobog_shadow_hunt"							"暗影追猎"
-    	"DOTA_Tooltip_ability_chernobog_shadow_hunt_Description"				"暗夜魔王开始狩猎他的敌人。 处于这个状态下时，他将会获得额外移动速度和移动速度上限， 但是每秒丢失一定 %的当前生命值和魔法值。"
+    	"DOTA_Tooltip_ability_chernobog_shadow_hunt_Description"				"暗夜魔王开始狩猎他的敌人。 处于这个状态下时，他将会获得额外移动速度和移动速度上限， 但是每秒丢失一定 %的当前生命值和魔法值, 如果你受到禁疗的影响，那么汲取量将会降低<% CHERNOBOG_E_DRAIN_REDUC_WHEN_HEALING_DISABLED %>。"
     	"DOTA_Tooltip_ability_chernobog_shadow_hunt_movespeed_cap"				"移动速度上限提高:"
     	"DOTA_Tooltip_ability_chernobog_shadow_hunt_movespeed_bonus"			"移动速度提高:"
     	"DOTA_Tooltip_ability_chernobog_shadow_hunt_hp_drain_per_second"		"% 当前生命值汲取量:"
@@ -313,7 +313,7 @@
 		"item_rpc_chernobog_glyph_6_2_description" 				"在你当前生命值低于 <% CHERNOBOG_GLYPH_6_2_THRESHOLD %> 最大生命值时开启 @Ability2 不会汲取生命值，但是所有技能和符文造成的伤害将会降低 <% CHERNOBOG_GLYPH_6_2_DMG_DEC %>。"
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_7_2"		"[T7-2] 坚韧雕文"
-		"item_rpc_chernobog_glyph_7_2_description" 				"@Ability2 开启时，每 <% CHERNOBOG_GLYPH_7_2_THINK_INTERVAL %> 秒驱散一次所有敌方的Debuff。"
+		"item_rpc_chernobog_glyph_7_2_description" 				"@Ability3 开启时，每 <% CHERNOBOG_GLYPH_7_2_THINK_INTERVAL %> 秒驱散一次所有敌方的Debuff。"
 		
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_book"    "暗夜魔王雕文书"
 		
@@ -338,7 +338,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_chernobog_immortal_weapon_2"            	"卡律布迪斯的下颚"
         "item_property_chernobog_immortal_weapon2"                             	"卡律布狄斯的漩涡"
-        "property_chernobog_immortal_weapon2_description"                      	"造成物理伤害后，你的下一次魔法伤害将会提高 <% CHERNOBOG_IMMORTAL_WEAPON_2_MAGIC_BONUS %>%，造成魔法伤害后，你的下一次物理伤害将会提高 <% CHERNOBOG_IMMORTAL_WEAPON_2_PHYS_BONUS %>%。"
+        "property_chernobog_immortal_weapon2_description"                      	"造成物理伤害后，你的下一次魔法伤害将会提高 <% CHERNOBOG_IMMORTAL_WEAPON_2_MAGIC_BONUS %>% 并且回复 <% CHERNOBOG_IMMORTAL_WEAPON_2_MANA_RESTORE_WHEN_AMP %>%最大魔法值，造成魔法伤害后，你的下一次物理伤害将会提高 <% CHERNOBOG_IMMORTAL_WEAPON_2_PHYS_BONUS %>%并且回复 <% CHERNOBOG_IMMORTAL_WEAPON_2_HEALTH_RESTORE_WHEN_AMP %>%最大生命值，这个资料无视禁疗但是不能被提高或降低。"
 
         "DOTA_Tooltip_ability_item_rpc_chernobog_immortal_weapon_3"            	"恶魔的不洁之爪"
         "item_property_chernobog_immortal_weapon3"                             	"不洁侵袭"
@@ -346,5 +346,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_chernobog_immortal_weapon_4"            	"塔纳托斯的收割"
         "item_property_chernobog_immortal_weapon4"                             	"死亡收割"
-        "property_chernobog_immortal_weapon4_description"                      	"增加所有技能和符文的减甲效果 <% CHERNOBOG_IMMORTAL_WEAPON_4_ARMOR_REDUC_MULT %>%。"
+        "property_chernobog_immortal_weapon4_description"                      	"增加所有技能和符文的减甲效果 <% CHERNOBOG_IMMORTAL_WEAPON_4_ARMOR_REDUC_MULT %>%并且对受减甲效果影响的敌人造成的伤害提高 <% CHERNOBOG_IMMORTAL_WEAPON_4_AMP_ON_DEBUFFED_ENEMY %>% 。如果目标的护甲/魔甲降低至 <font color='#ccff66'>0</font>, 那么他会被沉默 <font color='#ccff66'>2</font> 秒。"
+	
+"DOTA_Tooltip_modifier_chernobog_immortal_weapon_4_conditional_silence"										"沉默"
 
