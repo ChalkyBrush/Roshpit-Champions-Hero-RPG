@@ -21189,15 +21189,45 @@
 	}
 
 
-
-
+	
+	"item_rpc_chernobog_glyph_book"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"glyphs/book/glyph_book_flamewaker"
+		"AbilityCastRange"	"900"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"10"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/gameplay/attrib_tome_int.vmdl"
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/glyph_abilities.lua"
+				"Function"		"use_glyph_book"
+				"hero"          "epoch"
+			}
+		}
+	}
+	
 	"item_rpc_chernobog_glyph_1_1"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
 		"BaseClass"	            "item_lua"
-        "ScriptFile"            "heroes/nightstalker/glyphs/chernobog_glyph_1_1.lua"
+        "ScriptFile"            "heroes/nightstalker/glyph_scripts/chernobog_glyph_1_1.lua"
 		"AbilityTextureName"	"glyphs/glyph_chernobog_1_1"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -21211,24 +21241,6 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
-		"Modifiers"
-		{
-			"modifier_chernobog_glyph_1_1"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}
-		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
-			}
-		}
 	}
 
 	"item_rpc_chernobog_glyph_2_1"
@@ -21236,7 +21248,8 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	            "item_lua"
+        "ScriptFile"            "heroes/nightstalker/glyph_scripts/chernobog_glyph_2_1.lua"
 		"AbilityTextureName"	"glyphs/glyph_chernobog_2_1"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -21250,24 +21263,6 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
-		"Modifiers"
-		{
-			"modifier_chernobog_glyph_2_1"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}
-		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1800"
-			}
-		}
 	}
 
 	"item_rpc_chernobog_glyph_3_1"
@@ -21275,7 +21270,8 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	            "item_lua"
+        "ScriptFile"            "heroes/nightstalker/glyph_scripts/chernobog_glyph_3_1.lua"
 		"AbilityTextureName"	"glyphs/glyph_chernobog_3_1"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -21289,24 +21285,6 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
-		"Modifiers"
-		{
-			"modifier_chernobog_glyph_3_1"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}
-		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.5"
-			}
-		}
 	}
 
 	"item_rpc_chernobog_glyph_4_1"
@@ -21314,7 +21292,8 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	            "item_lua"
+        "ScriptFile"            "heroes/nightstalker/glyph_scripts/chernobog_glyph_4_1.lua"
 		"AbilityTextureName"	"glyphs/glyph_chernobog_4_1"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -21328,24 +21307,6 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
-		"Modifiers"
-		{
-			"modifier_chernobog_glyph_4_1"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}
-		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"40"
-			}
-		}
 	}
 
 	"item_rpc_chernobog_glyph_5_1"
@@ -21353,7 +21314,8 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	            "item_lua"
+        "ScriptFile"            "heroes/nightstalker/glyph_scripts/chernobog_glyph_5_1.lua"
 		"AbilityTextureName"	"glyphs/glyph_chernobog_5_1"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -21367,24 +21329,6 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
-		"Modifiers"
-		{
-			"modifier_chernobog_glyph_5_1"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}
-		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2"
-			}
-		}
 	}
 
 	"item_rpc_chernobog_glyph_6_1"
@@ -21392,7 +21336,8 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	            "item_lua"
+        "ScriptFile"            "heroes/nightstalker/glyph_scripts/chernobog_glyph_6_1.lua"
 		"AbilityTextureName"	"glyphs/glyph_chernobog_6_1"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -21406,24 +21351,6 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
-		"Modifiers"
-		{
-			"modifier_chernobog_glyph_6_1"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}
-		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"8"
-			}
-		}
 	}
 
 	"item_rpc_chernobog_glyph_7_1"
@@ -21431,7 +21358,8 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	            "item_lua"
+        "ScriptFile"            "heroes/nightstalker/glyph_scripts/chernobog_glyph_7_1.lua"
 		"AbilityTextureName"	"glyphs/glyph_chernobog_7_1"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -21445,44 +21373,6 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
-		"Modifiers"
-		{
-			"modifier_chernobog_glyph_7_1"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "0.2"
-
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/nightstalker/glyphs.lua"
-						"Function"		"glyph71Add"
-						"target"		"TARGET"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/nightstalker/glyphs.lua"
-						"Function"		"glyph71Remove"
-						"target"		"TARGET"
-					}
-				}
-			}
-		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"30"
-			}
-		}
 	}
 
 	"item_rpc_chernobog_glyph_5_a"
@@ -21504,26 +21394,161 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
-		"Modifiers"
-		{
-			"modifier_chernobog_glyph_5_a"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}
-		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"3"
-			}
-		}
+	}
+	
+	"item_rpc_chernobog_glyph_1_2"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	            "item_lua"
+        "ScriptFile"            "heroes/nightstalker/glyph_scripts/chernobog_glyph_1_2.lua"
+		"AbilityTextureName"	"glyphs/glyph_chernobog_1_1"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
 	}
 
+	"item_rpc_chernobog_glyph_2_2"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	            "item_lua"
+        "ScriptFile"            "heroes/nightstalker/glyph_scripts/chernobog_glyph_2_2.lua"
+		"AbilityTextureName"	"glyphs/glyph_chernobog_2_1"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
+	}
+	
+	"item_rpc_chernobog_glyph_3_2"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	            "item_lua"
+        "ScriptFile"            "heroes/nightstalker/glyph_scripts/chernobog_glyph_3_2.lua"
+		"AbilityTextureName"	"glyphs/glyph_chernobog_3_1"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
+	}
+	
+	"item_rpc_chernobog_glyph_4_2"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	            "item_lua"
+        "ScriptFile"            "heroes/nightstalker/glyph_scripts/chernobog_glyph_4_2.lua"
+		"AbilityTextureName"	"glyphs/glyph_chernobog_4_1"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
+	}
+	
+	"item_rpc_chernobog_glyph_5_2"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	            "item_lua"
+        "ScriptFile"            "heroes/nightstalker/glyph_scripts/chernobog_glyph_5_2.lua"
+		"AbilityTextureName"	"glyphs/glyph_chernobog_5_1"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
+	}
+	
+	"item_rpc_chernobog_glyph_6_2"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	            "item_lua"
+        "ScriptFile"            "heroes/nightstalker/glyph_scripts/chernobog_glyph_6_2.lua"
+		"AbilityTextureName"	"glyphs/glyph_chernobog_6_1"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
+	}
+	
+	"item_rpc_chernobog_glyph_7_2"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	            "item_lua"
+        "ScriptFile"            "heroes/nightstalker/glyph_scripts/chernobog_glyph_7_2.lua"
+		"AbilityTextureName"	"glyphs/glyph_chernobog_7_1"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
+	}
 
 
 
@@ -21909,7 +21934,8 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"		"item_lua"
+		"ScriptFile"	"heroes/nightstalker/weapon_scripts/chernobog_immortal_weapon_1.lua"
 		"AbilityTextureName"	"weapons/legends/chernobog_immortal_weapon_1"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -21931,16 +21957,6 @@
 				"Function"		"equip_item"
 			}
 		}
-		"Modifiers"
-		{
-			"modifier_chernobog_immortal_weapon_1"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}
-		}
 	}
 
 	"item_rpc_chernobog_immortal_weapon_2"
@@ -21948,7 +21964,8 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"		"item_lua"
+		"ScriptFile"	"heroes/nightstalker/weapon_scripts/chernobog_immortal_weapon_2.lua"
 		"AbilityTextureName"	"weapons/legends/chernobog_immortal_weapon_2"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -21970,16 +21987,6 @@
 				"Function"		"equip_item"
 			}
 		}
-		"Modifiers"
-		{
-			"modifier_chernobog_immortal_weapon_2"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}
-		}
 		"AbilitySpecial"
 		{
 			"01"
@@ -21995,7 +22002,8 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"		"item_lua"
+		"ScriptFile"	"heroes/nightstalker/weapon_scripts/chernobog_immortal_weapon_3.lua"
 		"AbilityTextureName"	"weapons/legends/chernobog_immortal_weapon_3"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -22021,33 +22029,6 @@
 				"Function"		"equip_item"
 			}
 		}
-		"Modifiers"
-		{
-			"modifier_chernobog_immortal_weapon_3"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"OnAttackLanded"
-				// "%attack_damage" is set to the damage value before mitigation
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/weapon_effects"
-						"Function"		"cherno_immo3_attack_land"
-					}
-				}
-			}
-		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"property_one"			"0.65"
-			}
-		}
 	}
 	
 	"item_rpc_chernobog_immortal_weapon_4"
@@ -22055,7 +22036,8 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	"item_lua"
+		"ScriptFile"	"heroes/nightstalker/weapon_scripts/chernobog_immortal_weapon_4.lua"
 		"AbilityTextureName"	"weapons/legends/chernobog_immortal_weapon_4"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -22077,19 +22059,7 @@
 				"Function"		"equip_item"
 			}
 		}
-		"Modifiers"
-		{
-			"modifier_chernobog_immortal_weapon_4"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}
-		}
-
 	}
-
 
 
 
