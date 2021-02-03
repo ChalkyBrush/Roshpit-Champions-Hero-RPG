@@ -110,7 +110,7 @@ function modifier_shadow_hunt:OnIntervalThink()
        caster:ReduceMana(math.min(currentMana * CHERNOBOG_E_DRAIN_INTERVAL * mp_drain / 100, currentMana - minMana))
     end
 	if caster:HasModifier("modifier_chernobog_glyph_1_1") then
-		local search_radius = CHERNOBOG_E3_RANGE_BASE + CHERNOBOG_E3_RANGE * rune_level + 500
+		local search_radius = CHERNOBOG_E3_RANGE_BASE + CHERNOBOG_E3_RANGE * caster:GetRuneValue("e", 3) + 500
 		local enemies = SearchEnemies(caster, caster, search_radius)
 		if #enemies > 0 then
 			for _, enemy in pairs(enemies) do
