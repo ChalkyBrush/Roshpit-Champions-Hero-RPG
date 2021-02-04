@@ -41,16 +41,21 @@ function ChernobogDealDamage(caster, target, damage, damageType, ability, elemen
 		end
 	end
 	if caster:HasModifier("modifier_chernobog_immortal_weapon_4") then
+		local weapon_4 = caster:FindModifierByName("modifier_chernobog_immortal_weapon_4")
 		local modifiers = target:FindAllModifiers()
 		if #modifiers > 0 then
 			for i = 1, #modifiers, 1 do
 				if (modifiers[i].GetRoshpitArmorBonus and modifiers[i]:GetRoshpitArmorBonus() < 0) or (modifiers[i].GetRoshpitMagicArmorBonus and modifiers[i]:GetRoshpitMagicArmorBonus() < 0) then
-					damage = damage * (1 + CHERNOBOG_IMMORTAL_WEAPON_4_AMP_ON_DEBUFFED_ENEMY / 100)
-					if (target:GetRoshpitArmor() == 0) or (target:GetRoshpitMagicArmor() == 0 ) then
-						ApplyModifier(caster, target, nil, "modifier_chernobog_immortal_weapon_4_conditional_silence", 2, nil)
-					end
+					weapon_4.amp = true
+					break
 				end
 			end
+		end
+		if weapon_4.amp == true then
+			damage = damage * (1 + CHERNOBOG_IMMORTAL_WEAPON_4_AMP_ON_DEBUFFED_ENEMY / 100)
+		end
+		if (target:GetRoshpitArmor() == 0) or (target:GetRoshpitMagicArmor() == 0 ) then
+			ApplyModifier(caster, target, nil, "modifier_chernobog_immortal_weapon_4_conditional_silence", 2, nil)
 		end
 	end
 	if (ability == BASE_ABILITY_Q) then
