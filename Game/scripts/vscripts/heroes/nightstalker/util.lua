@@ -141,19 +141,15 @@ end
 function ApplyModifier(caster, target, ability, modifier_name, duration, stacks)
 	local finalDuration = duration
 	if finalDuration ~= -1 then
-		finalDuration = Filters:GetAdjustedBuffDuration(caster, duration, false)
-	end
-	if not (target and IsValidEntity(target)) then
-		return
-	end
-	local modifier = target:FindModifierByName(modifier_name)
-	if not modifier then
-		modifier = target:AddNewModifier(caster, ability, modifier_name, {duration = finalDuration})
+		finalDuration = Filters:GetAdjustedBuffDuration(caster, finalDuration, false)
+	end	
+	if not target:HasModifier(modifier_name) then
+		target:AddNewModifier(caster, ability, modifier_name, {duration = finalDuration})
 	end
 	if stacks then
-		modifier:SetStackCount(stacks)
+		target:FindModifierByName(modifier_name):SetStackCount(stacks)
 	end
-	modifier:SetDuration(finalDuration, true)
+	target:FindModifierByName(modifier_name):SetDuration(finalDuration, true)
 end
 
 --------------------------------------------
