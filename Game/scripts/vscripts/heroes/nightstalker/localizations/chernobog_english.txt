@@ -1,5 +1,5 @@
 		"DOTA_Tooltip_ability_chernobog_charons_claw"							"Charon's Claw"
-    	"DOTA_Tooltip_ability_chernobog_charons_claw_Description"				"Element: <font color='#5B648C'>Demon</font> / <font color='#7F4F84'>Shadow</font><br>Flicks a stream of abyssal ichor along a straight path. Enemies within the darkness have reduced movespeed and attack damage and take damage based on <% CHERNOBOG_Q_DOT_PERC %>% of initial damage every <% CHERNOBOG_Q_TICK_INTERVAL %> seconds, while Chernobog and other allied units gain increased movespeed and free pathing."
+    	"DOTA_Tooltip_ability_chernobog_charons_claw_Description"				"Element: <font color='#5B648C'>Demon</font> / <font color='#7F4F84'>Shadow</font><br>Flicks a stream of abyssal ichor along a straight path. Enemies within the darkness have reduced movespeed and attack damage and take damage based on <% CHERNOBOG_Q_DOT_PERC %>% of initial damage every <% CHERNOBOG_Q_TICK_INTERVAL %> seconds, while Chernobog and other allied units gain increased movespeed, Chernobog will gain free pathing for some duration."
     	"DOTA_Tooltip_ability_chernobog_charons_claw_range"						"PATH LENGTH:"
     	"DOTA_Tooltip_ability_chernobog_charons_claw_move_and_attack_slow"		"% MOVESPEED AND ATTACK DAMAGE REDUCTION (ENEMY):"
     	"DOTA_Tooltip_ability_chernobog_charons_claw_move_speed_increase"		"MOVESPEED INCREASE (CASTER AND ALLIES):"
