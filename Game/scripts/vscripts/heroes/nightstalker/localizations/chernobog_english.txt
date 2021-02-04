@@ -346,5 +346,5 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_chernobog_immortal_weapon_4"            "Saibot's Boon"
         "item_property_chernobog_immortal_weapon4"                             "Sinister Silhouette"
-        "property_chernobog_immortal_weapon4_description"                      "Increase the value of all Armor-reducing effects from Chernobog's runes and abilities by <% CHERNOBOG_IMMORTAL_WEAPON_4_ARMOR_REDUC_MULT %>%."
+        "property_chernobog_immortal_weapon4_description"                      "Increase the value of all Armor-reducing effects from Chernobog's runes and abilities by <% CHERNOBOG_IMMORTAL_WEAPON_4_ARMOR_REDUC_MULT %>%. You deal <% CHERNOBOG_IMMORTAL_WEAPON_4_AMP_ON_DEBUFFED_ENEMY %> more damage to enemies affected by Armor-reducing effects, if enemy's armor or magic armor dropped to 0, he will be silenced for 2 seconds. "
 
