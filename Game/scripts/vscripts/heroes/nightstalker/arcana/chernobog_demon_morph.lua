@@ -301,7 +301,7 @@ function modifier_chernobog_demon_form:OnAttackStart(event)
 		if not self.cd then
 			local splitCount = 0
 			if procs > 0 then
-				local enemies = searchenemies(caster, target, search_radius, true)
+				local enemies = SearchEnemies(caster, target, search_radius, true)
 				if #enemies > 0 then
 					for _, enemy in pairs(enemies) do
 						if enemy:GetEntityIndex() == target:GetEntityIndex() then
