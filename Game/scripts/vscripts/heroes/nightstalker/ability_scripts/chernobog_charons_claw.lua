@@ -376,7 +376,7 @@ function modifier_charons_claw_on_path:OnIntervalThink()
 	local parent = self:GetParent()
 	local ability = self:GetAbility()
 	if caster:GetTeamNumber() == parent:GetTeamNumber() then
-	    if ability.allow_terrain_traverse then
+	    if (ability.allow_terrain_traverse) and (caster == parent) then
 	        local newPos = caster:GetAbsOrigin() + caster:GetForwardVector() * 62
 	        local obstruction = WallPhysics:FindNearestObstruction(caster:GetAbsOrigin() * Vector(1, 1, 0))
 	        local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, newPos * Vector(1, 1, 0), caster)
