@@ -280,52 +280,28 @@ function chernobog_demon_hunter:ProcW3(caster, target)
 	if not (w_3_level > 0) then
 		return false
 	end
-	local base_w_3_duration = CHERNOBOG_W3_DURATION
-	local w_3_duration = Filters:GetAdjustedBuffDuration(caster, base_w_3_duration, false)
+	local w_3_duration = CHERNOBOG_W3_DURATION
 	local maxstacks = CHERNOBOG_W3_MAX_STACKS
-	local glyphed = caster:HasModifier("modifier_chernobog_glyph_5_a")
-	local modifiers = {
-		w3Active = "modifier_chernobog_w3_active",
-		w3Inactive = "modifier_chernobog_w3_inactive"
-	}
+	local w3Active = "modifier_chernobog_w3_active"
+	local w3Inactive = "modifier_chernobog_w3_inactive"
 	if self.fevorTarget == nil then
 		self.fevorTarget = target
 	end
 	if self.fevorTarget then
-		if not IsValidEntity(self.fevorTarget) then
-			return false
-		end
-		if target:GetEntityIndex() == self.fevorTarget:GetEntityIndex() then
-			if self:GetToggleState() == true then
-				self:ModifyStacks(caster, caster, modifiers.w3Active, 1, w_3_duration, maxstacks, false)
-				if glyphed then
-					self:ModifyStacks(caster, target, modifiers.w3Inactive, 1, w_3_duration, maxstacks, false)
-				end
-			else
-				self:ModifyStacks(caster, target, modifiers.w3Inactive, 1, w_3_duration, maxstacks, false)
-				if glyphed then
-					self:ModifyStacks(caster, caster, modifiers.w3Active, 1, w_3_duration, maxstacks, false)
-				end
-			end
+		if target == self.fevorTarget then
+			self:ModifyStacks(caster, caster, w3Active, 1, w_3_duration, maxstacks, false, true)
+			self:ModifyStacks(caster, target, w3Inactive, 1, w_3_duration, maxstacks, false, false)
 		else
 			self.fevorTarget = target
-			if self:GetToggleState() == true then
-				self:ModifyStacks(caster, caster, modifiers.w3Active, 1, w_3_duration, maxstacks, true)
-				if glyphed then
-					self:ModifyStacks(caster, target, modifiers.w3Inactive, 1, w_3_duration, maxstacks, false)
-				end
-			else
-				self:ModifyStacks(caster, target, modifiers.w3Inactive, 1, w_3_duration, maxstacks, false)
-				if glyphed then
-					self:ModifyStacks(caster, caster, modifiers.w3Active, 1, w_3_duration, maxstacks, true)
-				end
-			end
+			self:ModifyStacks(caster, caster, w3Active, 1, w_3_duration, maxstacks, true, true)
+			self:ModifyStacks(caster, target, w3Inactive, 1, w_3_duration, maxstacks, false, false)
 		end
 	end
 end
 
-function chernobog_demon_hunter:ModifyStacks(caster, target, modifier_name, stacks, duration, maxStacks, changeTarget)
-	if not IsValidEntity(target) then
+function chernobog_demon_hunter:ModifyStacks(caster, target, modifier_name, stacks, duration, maxStacks, changeTarget, requireToggle)
+	local glyphed = caster:FindModifierByName("modifier_chernobog_glyph_5_a")
+	if target ~= caster and requireToggle ~= self:GetToggleState() and not glyphed then
 		return
 	end
 	local stackCount = target:GetModifierStackCount(modifier_name, caster)
@@ -338,7 +314,7 @@ function chernobog_demon_hunter:ModifyStacks(caster, target, modifier_name, stac
 	else
 		stackCount = math.min(stackCount + stacks, maxStacks)
 	end
-	ApplyModifier(caster, target, ability, modifier_name, duration, stackCount)
+	ApplyModifier(caster, target, self, modifier_name, duration, stackCount)
 end
 
 ----------
