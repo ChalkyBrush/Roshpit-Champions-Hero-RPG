@@ -22,7 +22,7 @@ function chernobog_charons_claw:GetManaCostBase(level)
 end
 
 function chernobog_charons_claw:GetClawPathDuration()
-	return 3
+	return 10
 end
 
 function chernobog_charons_claw:GetBehaviorBase()
@@ -125,7 +125,7 @@ function chernobog_charons_claw:OnSpellStart()
 		iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
 		iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
 		iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-		fExpireTime = GameRules:GetGameTime() + 3.0,
+		fExpireTime = GameRules:GetGameTime() + 10.0,
 		bDeleteOnHit = false,
 		vVelocity = fv * speed,
 		bProvidesVision = true,
