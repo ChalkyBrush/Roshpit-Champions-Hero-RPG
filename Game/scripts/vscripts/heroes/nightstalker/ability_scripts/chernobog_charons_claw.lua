@@ -22,7 +22,7 @@ function chernobog_charons_claw:GetManaCostBase(level)
 end
 
 function chernobog_charons_claw:GetClawPathDuration()
-	return 10
+	return 3
 end
 
 function chernobog_charons_claw:GetBehaviorBase()
@@ -125,7 +125,7 @@ function chernobog_charons_claw:OnSpellStart()
 		iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
 		iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
 		iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-		fExpireTime = GameRules:GetGameTime() + 10.0,
+		fExpireTime = GameRules:GetGameTime() + self:GetClawPathDuration(),
 		bDeleteOnHit = false,
 		vVelocity = fv * speed,
 		bProvidesVision = true,
@@ -239,7 +239,7 @@ end
 function chernobog_charons_claw:DestroyClaw(claw)
 	for i = 1, #claw.thinker_table, 1 do
 		local sub_claw = claw.thinker_table[i]
-		ParticleManager:DestroyParticle(sub_claw.particle, false)
+		ParticleManager:DestroyParticle(sub_claw.particle, true)
 		UTIL_Remove(sub_claw)
 	end
 end
