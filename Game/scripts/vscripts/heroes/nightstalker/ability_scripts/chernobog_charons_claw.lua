@@ -325,7 +325,7 @@ function modifier_charons_claw_on_path:OnCreated()
 	if not IsServer() then
 		return false
 	end
-	if ability:GetCaster() == self:GetParent() then
+	if self:GetParent():GetTeamNumber() == self:GetCaster():GetTeamNumber() then
 		ability.allow_terrain_traverse = true
 		self:StartIntervalThink(0.03)
 	elseif self:GetParent():GetTeamNumber() ~= ability:GetCaster():GetTeamNumber() then
@@ -339,7 +339,7 @@ function modifier_charons_claw_on_path:CheckState()
 		return false
 	end
 	local state = {}
-	if ability:GetCaster() == self:GetParent() then
+	if self:GetParent():GetTeamNumber() == self:GetCaster():GetTeamNumber() then
 		state = {
 			[MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY] = ability.allow_terrain_traverse,
 		}
