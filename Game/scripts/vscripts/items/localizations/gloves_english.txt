@@ -658,7 +658,7 @@
 		"DOTA_Tooltip_ability_item_rpc_world_commander_gloves"			"World Commander Gloves"
 
 		"item_property_world_commander_gloves"							"Universal Might"
-		"property_world_commander_gloves_description"					"Each point of Armor Pierce and Spell Pierce increase Attack Power by <% ITEM_RPC_WORLD_COMMANDER_GLOVES_DMG_PCT %>%, <% capped at ITEM_RPC_WORLD_COMMANDER_GLOVES_CAP %>%."
+		"property_world_commander_gloves_description"					"Each point of Armor Pierce and Spell Pierce increase Attack Power by <% ITEM_RPC_WORLD_COMMANDER_GLOVES_DMG_PCT %>%, capped at <% ITEM_RPC_WORLD_COMMANDER_GLOVES_CAP %>%."
 
 		"item_rpc_world_commander_gloves_ruby1"				"Increases [Q4] Rune by @ruby_property1"
 		"item_rpc_world_commander_gloves_emerald1"			"Increases [E4] Rune by @emerald_property1"
