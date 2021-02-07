@@ -160,9 +160,6 @@ function Weapons:RollLegendWeapon1(location, class, strictMaxItemLevel, disableD
 	elseif internalName == "mountain_protector" then
 		Weapons:SetLegendWeaponProperty1(weapon, internalName, "immortal_weapon_1", "#C96E34", nil)
 		Weapons:SetLegendWeaponProperty2(weapon, "base_ability", 2)
-	elseif internalName == "chernobog" then
-		Weapons:SetLegendWeaponProperty1(weapon, internalName, "immortal_weapon_1", "#457CF5", nil)
-		Weapons:SetLegendWeaponProperty2(weapon, "attack_damage", 2)
 	elseif internalName == "hydroxis" then
 		Weapons:SetLegendWeaponProperty1(weapon, internalName, "immortal_weapon_1", "#4286F4", nil)
 		Weapons:SetLegendWeaponProperty2(weapon, "strength", 2)
@@ -302,9 +299,6 @@ function Weapons:RollLegendWeapon2(location, class, strictMaxItemLevel, disableD
 	elseif internalName == "mountain_protector" then
 		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_2", "#AF2B2B", nil, 2)
 		Weapons:SetLegendWeaponProperty2(weapon, "attack_damage", 2)
-	elseif internalName == "chernobog" then
-		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_2", "#817BAD", nil, 2)
-		Weapons:SetLegendWeaponProperty2(weapon, "element_demon", 2)
 	elseif internalName == "hydroxis" then
 		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_2", "#6D78BA", nil, 2)
 		Weapons:SetLegendWeaponProperty2(weapon, "attack_damage", 4)
@@ -429,9 +423,6 @@ function Weapons:RollLegendWeapon3(location, class, strictMaxItemLevel, disableD
 	elseif internalName == "mountain_protector" then
 		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_3", "#C6C63F", nil, 3)
 		Weapons:SetLegendWeaponProperty2(weapon, "element_earth", 2)
-	elseif internalName == "chernobog" then
-		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_3", "#796DC6", nil, 3)
-		Weapons:SetLegendWeaponProperty2(weapon, "agility", 2)
 	elseif internalName == "hydroxis" then
 		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_3", "#5FB6F4", nil, 3)
 		Weapons:SetLegendWeaponProperty2(weapon, "strength", 3)
@@ -609,9 +600,6 @@ function Weapons:RollLegendWeapon4(location, class, strictMaxItemLevel, disableD
 	elseif internalName == "mountain_protector" then
 		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_4", "#C6C63F", nil, 4)
 		Weapons:SetLegendWeaponProperty2(weapon, "element_fire", 2)
-	elseif internalName == "chernobog" then
-		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_4", "#796DC6", nil, 4)
-		Weapons:SetLegendWeaponProperty2(weapon, "element_demon", 1.5)
 	elseif internalName == "hydroxis" then
 		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_4", "#5FB6F4", nil, 4)
 		Weapons:SetLegendWeaponProperty2(weapon, "element_water", 3)
