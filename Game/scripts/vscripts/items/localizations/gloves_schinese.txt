@@ -621,7 +621,7 @@
 		"DOTA_Tooltip_ability_item_rpc_world_commander_gloves"			"世界指挥官手套"
 
 		"item_property_world_commander_gloves"							"世界之力"
-		"property_world_commander_gloves_description"					"每点物理穿透和魔法穿透增加攻击力 <% ITEM_RPC_WORLD_COMMANDER_GLOVES_DMG_PCT %>%, 上限 <% ITEM_RPC_WORLD_COMMANDER_GLOVES_CAP %>%。"
+		"property_world_commander_gloves_description"					"每点物理穿透和魔法穿透增加攻击力 <% ITEM_RPC_WORLD_COMMANDER_GLOVES_DMG_PCT %>%, 但是你的来自所有来源攻击力%提升总和不能超过 <% ITEM_RPC_WORLD_COMMANDER_GLOVES_CAP %>%。"
 
 		"item_rpc_world_commander_gloves_ruby1"				"增加 [Q4] 符文 @ruby_property1"
 		"item_rpc_world_commander_gloves_emerald1"			"增加 [E4] 符文 @emerald_property1"
