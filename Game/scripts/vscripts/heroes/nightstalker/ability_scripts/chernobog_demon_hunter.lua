@@ -340,13 +340,13 @@ end
 
 function modifier_chernobog_w1_effect:GetRoshpitSpellPierceBonus()
 	if (self:GetAbility():GetToggleState() == true) or self:GetCaster():HasModifier("modifier_chernobog_glyph_5_a") then
-		return self:GetStackCount() * self:GetCaster():GetAgility() * CHERNOBOG_W1_PIERCE_SACLE
+		return self:GetStackCount() * CHERNOBOG_W1_PIERCE_SACLE
 	end
 end
 
 function modifier_chernobog_w1_effect:GetRoshpitArmorPierceBonus()
 	if (self:GetAbility():GetToggleState() == false) or self:GetCaster():HasModifier("modifier_chernobog_glyph_5_a") then
-		return self:GetStackCount() * self:GetCaster():GetStrength() * CHERNOBOG_W1_PIERCE_SACLE
+		return self:GetStackCount() * CHERNOBOG_W1_PIERCE_SACLE
 	end
 end
 
