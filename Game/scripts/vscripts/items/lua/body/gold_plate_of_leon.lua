@@ -54,6 +54,7 @@ function modifierClass:OnCreated()
         MODIFIER_ROSHPIT_SPIRIT_PCT_BONUS,
         MODIFIER_ROSHPIT_MASTER_BASE_ATTACK_DMG
     })
+    self:StartIntervalThink(0.5)
 end
 
 function modifierClass:IsHidden()
@@ -114,4 +115,18 @@ function modifierClass:GetRoshpitMasterBaseDMG()
 	else
 		return 0
 	end
+end
+
+function modifierClass:OnIntervalThink()
+	if not IsServer() then
+		return false
+	end
+	self:GetParent():SetStatsForLevel()
+end
+
+function modifierClass:OnRemoved()
+	if not IsServer() then
+		return false
+	end
+	self:GetParent():SetStatsForLevel()
 end

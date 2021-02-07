@@ -109,7 +109,7 @@ function chernobog_charons_claw:OnSpellStart()
 
 	EmitSoundOn("Chernobog.CharonsClaw", caster)
 
-	local projectileParticle = "particles/roshpit/chernobog/charons_clawpectral_dagger.vpcf"
+	local projectileParticle = ""--"particles/roshpit/chernobog/charons_clawpectral_dagger.vpcf"
 	local info =
 	{
 		Ability = ability,
@@ -157,7 +157,7 @@ function chernobog_charons_claw:OnProjectileThink_ExtraData(vLoc, extraData)
 	local ability = self
 	local claw = self:GetClawObjectFromProjectileID(extraData.projectileID)
 	claw.interval = claw.interval + 1
-	if claw.interval%4 == 0 then
+	if claw.interval%0.5 == 0 then
 		self:CreateClawThinker(claw, vLoc)
 		AddFOWViewer(caster:GetTeamNumber(), vLoc, 400, 3, false)
 	end
@@ -238,9 +238,12 @@ end
 
 function chernobog_charons_claw:DestroyClaw(claw)
 	for i = 1, #claw.thinker_table, 1 do
-		local sub_claw = claw.thinker_table[i]
-		ParticleManager:DestroyParticle(sub_claw.particle, false)
-		UTIL_Remove(sub_claw)
+	    local interval = 0.2 + i / 6
+	    Timers:CreateTimer( interval, function()
+		    local sub_claw = claw.thinker_table[i]
+		    ParticleManager:DestroyParticle(sub_claw.particle, true)
+		    UTIL_Remove(sub_claw)
+		end)
 	end
 end
 
@@ -325,7 +328,7 @@ function modifier_charons_claw_on_path:OnCreated()
 	if not IsServer() then
 		return false
 	end
-	if ability:GetCaster() == self:GetParent() then
+	if ability:GetCaster():GetTeamNumber() == self:GetParent():GetTeamNumber() then
 		ability.allow_terrain_traverse = true
 		self:StartIntervalThink(0.03)
 	elseif self:GetParent():GetTeamNumber() ~= ability:GetCaster():GetTeamNumber() then
@@ -339,7 +342,7 @@ function modifier_charons_claw_on_path:CheckState()
 		return false
 	end
 	local state = {}
-	if ability:GetCaster() == self:GetParent() then
+	if ability:GetCaster():GetTeamNumber() == self:GetParent():GetTeamNumber() then
 		state = {
 			[MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY] = ability.allow_terrain_traverse,
 		}

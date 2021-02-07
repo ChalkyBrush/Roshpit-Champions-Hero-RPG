@@ -233,13 +233,13 @@ function modifier_chernobog_demon_form:ProcR2(caster, target)
 	local chance = chance_base + chance_inc
 	if RandomInt(1, 100) < chance then
 		if self.cd == false then
-			if target == caster:GetAggroTarget() then
+			 --if target == caster:GetAggroTarget() then
 				Filters:PerformAttackSpecial(caster, target, true, true, true, false, true, false, false)
 				self.cd = true
 				Timers:CreateTimer(0.09, function()
 					self.cd = false
 				end)
-			end
+			--end
 		end
 	end
 end

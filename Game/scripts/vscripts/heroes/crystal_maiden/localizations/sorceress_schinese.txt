@@ -371,5 +371,5 @@
 
         "DOTA_Tooltip_ability_item_rpc_sorceress_immortal_weapon_3"            "火焰女王法杖"
         "item_property_sorceress_immortal_weapon3"                             "炎魔"
-        "property_sorceress_immortal_weapon3_description"                      "施放 @Ability1 将制造一个幻象，幻象拥有技能 @Ability4 和 @Ability3。制造幻象消耗一半的最大魔法值。"
+        "property_sorceress_immortal_weapon3_description"                      "施放 @Ability4 将制造一个幻象，幻象拥有技能 @Ability4 和 @Ability3。制造幻象消耗一半的最大魔法值。"
 		
