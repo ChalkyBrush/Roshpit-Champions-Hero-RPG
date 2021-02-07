@@ -3899,9 +3899,6 @@ function CDOTA_BaseNPC:CalculateAndSaveMasterGreenDamageBuff()
 			atk_power_buff = atk_power_buff + result
 		end
 	)
-	if self:HasModifier("modifier_world_commander_gloves") then
-		atk_power_buff = math.min(atk_power_buff, ITEM_RPC_WORLD_COMMANDER_GLOVES_CAP)
-	end
 	if atk_power_buff > 0 then
 		Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_master_green_damage_buff", {})
 		self:SetModifierStackCount("modifier_master_green_damage_buff", self, atk_power_buff)
