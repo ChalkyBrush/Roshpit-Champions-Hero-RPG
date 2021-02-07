@@ -160,7 +160,7 @@
     	"DOTA_Tooltip_modifier_nights_procession_a_d_rune_Description"			"Taking increased damage from Chernobog"	
 
     	"DOTA_Tooltip_ability_chernobog_rune_r_2"								"[R2] 暗夜行者"
-    	"DOTA_Tooltip_ability_chernobog_rune_r_2_Description"					"所有技能和符文对处于 @Ability4 造成伤害时，暗夜魔王的暗影将会再次对这些敌人造成相同的伤害，并且将会增幅该伤害。"
+    	"DOTA_Tooltip_ability_chernobog_rune_r_2_Description"					"所有技能和符文对处于 @Ability4 造成伤害时，暗夜魔王的暗影将会再次对这些敌人造成相同来源的伤害。"
     	"DOTA_Tooltip_ability_chernobog_rune_r_2_property_one"					"技能伤害增强"
     	"DOTA_Tooltip_ability_chernobog_rune_r_2_suffix"						"%"
 
