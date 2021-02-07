@@ -938,10 +938,10 @@ function RPCItems:RollChampionsGearHelm(item_level)
     local rarity = RPC_ITEMS_RARITY_IMMORTAL
 
     local item = RPCItems:CreateVariant("item_rpc_helm_of_champions", "immortal", "champions_gear", "head", true, "Slot: Head")
-    RPCItems:RollBasicItemProperty(item, item_slot, 1, item_level, "rune_q_4", 1.5)
-    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, nil, 1)
-    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
-    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 1, item_level, "rune_q_4", 2)
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, nil, 1.5)
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1.5)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1.5)
 
     RPCItems:GrantItemBaseArmor(item, item_level, 2)
     RPCItems:GrantItemBaseMagicArmor(item, item_level, 1)
@@ -1930,10 +1930,10 @@ function RPCItems:RollChampionsGearMail(item_level)
 
     local item = RPCItems:CreateVariant("item_rpc_champions_mail", "immortal", "champions_gear", "body", true, "Slot: Body")
 
-    RPCItems:RollBasicItemProperty(item, item_slot, 1, item_level, "rune_r_4", 1.5)
-    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, nil, 1)
-    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
-    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 1, item_level, "rune_r_4", 2)
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, nil, 1.5)
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1.5)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1.5)
 
     RPCItems:GrantItemBaseArmor(item, item_level, 2)
     RPCItems:GrantItemBaseMagicArmor(item, item_level, 1)
@@ -3440,16 +3440,21 @@ function RPCItems:RollDiamondClawsOfTiamat(item_level)
     local rarity = RPC_ITEMS_RARITY_IMMORTAL
 
     local item = RPCItems:CreateVariant("item_rpc_diamond_claws_of_tiamat", "immortal", "Diamond Claws of Tiamat", "hands", true, "Slot: Hands")
-    tiamat_roll = RPCItems:RollGearAttributeValue(item_level, nil, nil, 8)
+    tiamat_roll = RPCItems:RollGearAttributeValue(item_level, nil, nil, 10)
     item.newItemTable.property1 = tiamat_roll
     item.newItemTable.property1name = "!immortal!_modifier_diamond_claws_of_tiamat"
     RPCItems:SetPropertyValuesSpecial(item, tiamat_roll, "#item_property_tiamat_claw", "#FAFAFF", 1, "#property_tiamat_claw_description")
 
     RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "attack_damage", 4)
+	
+    local luck = RandomInt(1, 2)
+    if luck == 1 then
+	RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "base_ability", 2)
+    else
+	RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "item_damage", 2)
+    end
 
-    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "base_ability", 1)
-
-    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, "all_elements", 0.75)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, "all_elements", 2)
 
     RPCItems:GrantItemBaseArmor(item, item_level, 1.75)
     RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.75)
@@ -3774,10 +3779,10 @@ function RPCItems:RollChampionsGearGauntlet(item_level)
     local rarity = RPC_ITEMS_RARITY_IMMORTAL
 
     local item = RPCItems:CreateVariant("item_rpc_gauntlet_of_champions", "immortal", "champions_gear", "hands", true, "Slot: Hands")
-    RPCItems:RollBasicItemProperty(item, item_slot, 1, item_level, "rune_w_4", 1.5)
-    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, nil, 1)
-    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
-    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 1, item_level, "rune_w_4", 2)
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, nil, 1.5)
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1.5)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1.5)
 
     RPCItems:GrantItemBaseArmor(item, item_level, 2)
     RPCItems:GrantItemBaseMagicArmor(item, item_level, 1)
@@ -4683,10 +4688,10 @@ function RPCItems:RollChampionsGearBoots(item_level)
     local rarity = RPC_ITEMS_RARITY_IMMORTAL
 
     local item = RPCItems:CreateVariant("item_rpc_boots_of_champions", "immortal", "champions_gear", "feet", true, "Slot: Boots")
-    RPCItems:RollBasicItemProperty(item, item_slot, 1, item_level, "rune_e_4", 1.5)
-    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, nil, 1)
-    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
-    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 1, item_level, "rune_e_4", 2)
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, nil, 1.5)
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1.5)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1.5)
 
     RPCItems:GrantItemBaseArmor(item, item_level, 2)
     RPCItems:GrantItemBaseMagicArmor(item, item_level, 1)
@@ -6697,9 +6702,9 @@ function RPCItems:RollTokenOfOceanis(item_level)
     item.newItemTable.property1 = 1
     RPCItems:SetPropertyValuesSpecial(item, "★", "#property_sparkling_token", "#FFE884", 1, "#property_sparkling_token_Description")
 
-    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "all_elements", 1.5)
-    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
-    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "all_elements", 2)
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1.5)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1.5)
 
     RPCItems:GrantItemBaseArmor(item, item_level, 0.5)
     RPCItems:GrantItemBaseMagicArmor(item, item_level, 2.5)
