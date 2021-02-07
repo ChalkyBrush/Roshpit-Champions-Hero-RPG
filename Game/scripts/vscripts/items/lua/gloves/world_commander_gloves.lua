@@ -78,6 +78,6 @@ end
 function modifierClass:GetRoshpitMasterGreenDMG()
 	local hero = self:GetParent()
 	local pierce = hero:GetRoshpitArmorPierce() + hero:GetRoshpitSpellPierce()
-	local bonus = pierce * ITEM_RPC_WORLD_COMMANDER_GLOVES_DMG_PCT --math.min(ITEM_RPC_WORLD_COMMANDER_GLOVES_DMG_PCT * pierce, ITEM_RPC_WORLD_COMMANDER_GLOVES_CAP)
+	local bonus = pierce * ITEM_RPC_WORLD_COMMANDER_GLOVES_DMG_PCT
 	return bonus
 end
