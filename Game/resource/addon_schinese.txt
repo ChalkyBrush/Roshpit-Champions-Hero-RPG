@@ -4255,7 +4255,7 @@
     	"DOTA_Tooltip_modifier_nights_procession_a_d_rune_Description"			"Taking increased damage from Chernobog"	
 
     	"DOTA_Tooltip_ability_chernobog_rune_r_2"								"[R2] 暗夜行者"
-    	"DOTA_Tooltip_ability_chernobog_rune_r_2_Description"					"所有技能和符文对处于 @Ability4 造成伤害时，暗夜魔王的暗影将会再次对这些敌人造成相同的伤害，并且将会增幅该伤害。"
+    	"DOTA_Tooltip_ability_chernobog_rune_r_2_Description"					"所有技能和符文对处于 @Ability4 造成伤害时，暗夜魔王的暗影将会再次对这些敌人造成相同来源的伤害。"
     	"DOTA_Tooltip_ability_chernobog_rune_r_2_property_one"					"技能伤害增强"
     	"DOTA_Tooltip_ability_chernobog_rune_r_2_suffix"						"%"
 
@@ -4437,7 +4437,7 @@
 
         "DOTA_Tooltip_ability_item_rpc_chernobog_immortal_weapon_3"            	"恶魔的不洁之爪"
         "item_property_chernobog_immortal_weapon3"                             	"不洁侵袭"
-        "property_chernobog_immortal_weapon3_description"                      	"增加所有技能和符文的伤害频率 <font color='#ccff66'>50</font>% 以及作用（搜索）范围 <font color='#ccff66'>50</font>%。"
+        "property_chernobog_immortal_weapon3_description"                      	"增加所有技能和符文的伤害频率 <font color='#ccff66'>25</font>% 以及作用（搜索）范围 <font color='#ccff66'>50</font>%。"
 		
 		"DOTA_Tooltip_ability_item_rpc_chernobog_immortal_weapon_4"            	"塔纳托斯的收割"
         "item_property_chernobog_immortal_weapon4"                             	"死亡收割"
@@ -10731,7 +10731,7 @@
 
         "DOTA_Tooltip_ability_item_rpc_sorceress_immortal_weapon_3"            "火焰女王法杖"
         "item_property_sorceress_immortal_weapon3"                             "炎魔"
-        "property_sorceress_immortal_weapon3_description"                      "施放 @Ability1 将制造一个幻象，幻象拥有技能 @Ability4 和 @Ability3。制造幻象消耗一半的最大魔法值。"
+        "property_sorceress_immortal_weapon3_description"                      "施放 @Ability4 将制造一个幻象，幻象拥有技能 @Ability4 和 @Ability3。制造幻象消耗一半的最大魔法值。"
 		
 
 
@@ -14848,7 +14848,7 @@
 		"DOTA_Tooltip_ability_item_rpc_world_commander_gloves"			"世界指挥官手套"
 
 		"item_property_world_commander_gloves"							"世界之力"
-		"property_world_commander_gloves_description"					"每点物理穿透和魔法穿透增加攻击力 <font color='#ccff66'>0.01</font>%"
+		"property_world_commander_gloves_description"					"每点物理穿透和魔法穿透增加攻击力 <font color='#ccff66'>0.01</font>%。"
 
 		"item_rpc_world_commander_gloves_ruby1"				"增加 [Q4] 符文 @ruby_property1"
 		"item_rpc_world_commander_gloves_emerald1"			"增加 [E4] 符文 @emerald_property1"

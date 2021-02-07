@@ -55921,22 +55921,22 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"1 2 3 4 5"
+				"ruby1"				"2 3 4 5 6"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"1 2 3 4 5"
+				"emerald1"			"2 3 4 5 6"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"1 2 3 4 5"
+				"sapphire1"			"2 3 4 5 6"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"1 2 3 4 5"
+				"amethyst1"			"2 3 4 5 6"
 			}
 		}
 		"OnSpellStart"
