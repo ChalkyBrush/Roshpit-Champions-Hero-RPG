@@ -487,6 +487,11 @@
 				"var_type"				"FIELD_INTEGER"
 				"property_one"			"<% PALADIN_E4_MAGIC_ARMOR %>"
 			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"<% PALADIN_E4_ARMOR_PIERCE %>"
+			}
 		}
 	}
 
