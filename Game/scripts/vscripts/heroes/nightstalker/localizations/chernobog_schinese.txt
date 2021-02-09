@@ -270,22 +270,22 @@
     	"DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2_suffix_two"			""
 		
 		//Glyphs
-		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_1_1"		"[T1-1] 猎手雕文"
+		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_1_1"		"[T1-1] 夜视雕文"
 		"item_rpc_chernobog_glyph_1_1_description" 				"处于暗影追猎下时获得周围敌人的视野 <font color='#ccff66'>2.4</font> 秒，搜索范围取决于 [E3] 的传送距离。"
 
-		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_2_1"		"[T2-1] 幽暗雕文"
+		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_2_1"		"[T2-1] 撕裂之爪雕文"
 		"item_rpc_chernobog_glyph_2_1_description" 				"提高@Ability2 伤害 <% CHERNOBOG_GLYPH_2_1_W_DMG_AMP %>% 。"
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_3_1"		"[T3-1] 噩梦雕文"
 		"item_rpc_chernobog_glyph_3_1_description" 				"@Ability1 击中敌人时将会降低 @Ability4 的冷却时间 <% CHERNOBOG_GLYPH_3_1_CD_DEC %> 秒。此外释放@Ability4 时将会释放一次 @Ability1。"
 
-		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_4_1"		"[T4-1] 影袭雕文"
+		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_4_1"		"[T4-1] 残影雕文"
 		"item_rpc_chernobog_glyph_4_1_description" 				"提高[R2]的效果 <% CHERNOBOG_GLYPH_4_1_R2_AMP %>%。"
 
-		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_5_1"		"[T5-1] 死亡猎手雕文"
+		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_5_1"		"[T5-1] 狂怒恶魔雕文"
 		"item_rpc_chernobog_glyph_5_1_description" 				"对 [E3] 的目标周围 <% CHERNOBOG_GLYPH_5_1_RADIUS %> 范围内的所有敌人普通攻击 <% CHERNOBOG_GLYPH_5_1_HIT_COUNT %t> 次。"
 
-		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_6_1"		"[T6-1] 狂热雕文"
+		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_6_1"		"[T6-1] 怒意狂击雕文"
 		"item_rpc_chernobog_glyph_6_1_description" 				"增加 [W3] 的最大层数 <% CHERNOBOG_GLYPH_6_1_W3_MAX_STACK_BONUS %> 并且普通攻击额外施加 <% CHERNOBOG_GLYPH_6_1_ADDITION_STACK %> 层 [W3]。"
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_7_1"		"[T7-1] 恶魔之魂雕文"
@@ -294,22 +294,22 @@
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_5_a"		"[T5-a] 顶级猎手雕文"
 		"item_rpc_chernobog_glyph_5_a_description" 				"所有 @Ability2 的符文将会同时生效，无论 @Ability2 是否开启。"
 		
-		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_1_2"		"[T1-2] 恶魔之识雕文"
+		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_1_2"		"[T1-2] 恶魔师雕文"
 		"item_rpc_chernobog_glyph_1_2_description" 				"每点 T4 符文提高智力 <% CHERNOBOG_GLYPH_1_2_INT %>点。"
 
-		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_2_2"		"[T2-2] 黑暗冲击雕文"
+		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_2_2"		"[T2-2] 彼世之泪雕文"
 		"item_rpc_chernobog_glyph_2_2_description" 				"@Ability1 的持续伤害将会对目标周围 <% CHERNOBOG_GLYPH_2_2_Q_RADIUS %> 范围内的所有敌人造成伤害。"
 
-		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_3_2"		"[T3-2] 暗影闪烁雕文"
+		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_3_2"		"[T3-2] 凶恶之闪雕文"
 		"item_rpc_chernobog_glyph_3_2_description" 				"开启暗影追猎时发出移动指令将会触发 [E3], 将你传送至目标地点，但是不会获得增益效果。这个传送的冷却时间为 <% CHERNOBOG_GLYPH_3_2_MOVE_CD %> 秒并且传送距离为攻击时触发的 <% CHERNOBOG_GLYPH_3_2_TELE_DISTANCE_LOSS %>%，处于冷却时无法触发 [E3]。"
 
-		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_4_2"		"[T4-2] 致命之爪雕文"
+		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_4_2"		"[T4-2] 黑暗之巷雕文"
 		"item_rpc_chernobog_glyph_4_2_description" 				"[Q3] 提高 @Ability1 的伤害<% CHERNOBOG_GLYPH_4_2_Q_DMG_AMP %>% 并且Debuff也会施加减速和攻击力降低，数值和@Ability1技能一致。"
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_5_2"		"[T5-2] 虚无之愿雕文"
 		"item_rpc_chernobog_glyph_5_2_description" 				"[R1] 变为被动并且对处于@Ability4 影响下的敌人造成的伤害提高 <% CHERNOBOG_GLYPH_5_2_R1_AMP_IN_R %>% 。"
 
-		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_6_2"		"[T6-2] 生存意志雕文"
+		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_6_2"		"[T6-2] 耐久雕文"
 		"item_rpc_chernobog_glyph_6_2_description" 				"在你当前生命值低于 <% CHERNOBOG_GLYPH_6_2_THRESHOLD %>% 最大生命值时开启 @Ability2 不会汲取生命值，但是所有技能和符文造成的伤害将会降低 <% CHERNOBOG_GLYPH_6_2_DMG_DEC %>%。"
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_7_2"		"[T7-2] 坚韧雕文"
@@ -344,8 +344,8 @@
         "item_property_chernobog_immortal_weapon3"                             	"不洁侵袭"
         "property_chernobog_immortal_weapon3_description"                      	"增加所有技能和符文的伤害频率 <% CHERNOBOG_IMMORTAL_WEAPON_3_ALL_RATE_BONUS %>% 以及作用（搜索）范围 <% CHERNOBOG_IMMORTAL_WEAPON_3_ALL_RADIUS_BONUS %>%。"
 		
-		"DOTA_Tooltip_ability_item_rpc_chernobog_immortal_weapon_4"            	"塔纳托斯的收割"
-        "item_property_chernobog_immortal_weapon4"                             	"死亡收割"
+		"DOTA_Tooltip_ability_item_rpc_chernobog_immortal_weapon_4"            	"赛博坦的祝福"
+        "item_property_chernobog_immortal_weapon4"                             	"不详之形"
         "property_chernobog_immortal_weapon4_description"                      	"增加所有技能和符文的减甲效果 <% CHERNOBOG_IMMORTAL_WEAPON_4_ARMOR_REDUC_MULT %>%并且对受减甲效果影响的敌人造成的伤害提高 <% CHERNOBOG_IMMORTAL_WEAPON_4_AMP_ON_DEBUFFED_ENEMY %>% 。如果目标的护甲/魔甲降低至 <font color='#ccff66'>0</font>, 那么他会被沉默 <font color='#ccff66'>2</font> 秒。"
 	
 "DOTA_Tooltip_modifier_chernobog_immortal_weapon_4_conditional_silence"										"沉默"
