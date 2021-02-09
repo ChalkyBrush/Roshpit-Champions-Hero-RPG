@@ -1388,9 +1388,8 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 		local r_1_value = caster:GetRuneValue("r", 1)
 		magic_armor_modify = magic_armor_modify + r_1_value*ASTRAL_RANGER_ARCANA3_R1_ARMOR_AND_SPELL_PIERCE_REDUCE
 	end
-	if unit:HasModifier("modifier_paladin_d_c") then
-		local modifier = unit:FindModifierByName("modifier_paladin_d_c")
-		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*PALADIN_E4_MAGIC_ARMOR
+	if unit:HasAbility("crusader_dash") then
+		magic_armor_modify = magic_armor_modify + unit:GetRuneValue("e", 4)*PALADIN_E4_MAGIC_ARMOR
 	end
 	if unit:HasModifier("modifier_sorceress_rune_w_2_invisible") then
 		local modifier = unit:FindModifierByName("modifier_sorceress_rune_w_2_invisible")
@@ -2163,6 +2162,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 		if unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetGemValue("emerald") > 0 then
 			armor_pierce_modify = armor_pierce_modify + unit:GetMana()*unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("emerald", ITEM_RPC_DEMONIC_GLOVES_OF_THE_JUDICIARY_GEM_EMERALD)
 		end
+	end
+	if unit:HasAbility("crusader_dash") then
+	    armor_pierce_modify = armor_pierce_modify + unit:GetRuneValue("e", 4) * PALADIN_E4_ARMOR_PIERCE
 	end
 
 
