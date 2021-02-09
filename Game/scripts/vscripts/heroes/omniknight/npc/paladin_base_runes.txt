@@ -490,7 +490,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% PALADIN_E4_ARMOR_PIERCE %>"
+				"property_two"			"<% PALADIN_E4_ARMOR_PIERCE %>"
 			}
 		}
 	}
