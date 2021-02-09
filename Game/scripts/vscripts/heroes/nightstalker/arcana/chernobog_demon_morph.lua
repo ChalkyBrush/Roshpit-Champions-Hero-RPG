@@ -173,6 +173,10 @@ function modifier_chernobog_demon_form:IsDebuff()
 	return false
 end
 
+function modifier_chernobog_demon_form:RemoveOnDeath()
+	return true
+end
+
 function modifier_chernobog_demon_form:OnCreated()
 	if not IsServer() then
 		return
