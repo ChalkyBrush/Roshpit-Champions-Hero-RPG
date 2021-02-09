@@ -40,7 +40,7 @@ function paladin_e_dash_start(event)
 		projectile = ProjectileManager:CreateLinearProjectile(info)
 
 	end
-	paladin_rune_e_4(caster, ability)
+	--paladin_rune_e_4(caster, ability)
 end
 
 function paladin_e_dash_think(event)
