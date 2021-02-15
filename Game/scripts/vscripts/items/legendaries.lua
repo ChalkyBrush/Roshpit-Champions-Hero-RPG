@@ -6740,10 +6740,10 @@ function RPCItems:RollStoneOfGordon(item_level)
     local item = RPCItems:CreateVariant("item_rpc_stone_of_gordon", "immortal", "Stone of Gordon", "amulet", true, "Slot: Trinket")
 
 
-    RPCItems:RollBasicItemProperty(item, item_slot, 1, item_level, "all_t1_runes", 1.5)
-    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "all_t2_runes", 1.5)
-    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "all_t3_runes", 1.5)
-    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, "all_t4_runes", 1.5)
+    RPCItems:RollBasicItemProperty(item, item_slot, 1, item_level, "all_t1_runes", 2)
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "all_t2_runes", 2)
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "all_t3_runes", 2)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, "all_t4_runes", 2)
 
     RPCItems:GrantItemBaseArmor(item, item_level, 0)
     RPCItems:GrantItemBaseMagicArmor(item, item_level, 2)
