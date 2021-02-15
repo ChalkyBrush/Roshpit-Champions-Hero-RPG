@@ -438,10 +438,12 @@
     	"item_rpc_phoenix_gloves_amethyst1"									"Increases Spirit by @amethyst_property1, and each point of Spirit increases Max Health by @amethyst_property2"
 
     	"DOTA_Tooltip_ability_item_rpc_power_ranger_gloves"								"Power Source Gauntlet"
-    	"item_rpc_power_ranger_gloves_ruby1"								"Increases Armor by @ruby_property1"
-    	"item_rpc_power_ranger_gloves_emerald1"								"Increases Armor Pierce by @emerald_property1"
-    	"item_rpc_power_ranger_gloves_sapphire1"								"Increases Spell Pierce @sapphire_property1"
-    	"item_rpc_power_ranger_gloves_amethyst1"								"Increases Magic Armor @amethyst_property1"
+	"item_property_power_ranger_gloves"                                             "Power Source"
+	"property_power_ranger_gloves_description"                                 "Gain <% ITEM_RPC_POWER_RANGER_DMG_PCT %> base attack damage for each spell pierce and armor pierce you have. Capped at <% ITEM_RPC_POWER_RANGER_DMG_CAP %>."
+    	"item_rpc_power_ranger_gloves_ruby1"								"Increases base attack damage per spell pierce and armor pierce by additional @ruby_property1"
+    	"item_rpc_power_ranger_gloves_emerald1"								"Increases base attack damage cap by additional @emerald_property1"
+    	"item_rpc_power_ranger_gloves_sapphire1"								"Increases all attribute by @sapphire_property1"
+    	"item_rpc_power_ranger_gloves_amethyst1"								"Increases base ability damage by @amethyst_property1%"
 
     	"DOTA_Tooltip_ability_item_rpc_royal_wristguards"								"Royal Wristguards"		
 		"item_property_royal_wrist"								"Commanding Steel"
@@ -658,7 +660,7 @@
 		"DOTA_Tooltip_ability_item_rpc_world_commander_gloves"			"World Commander Gloves"
 
 		"item_property_world_commander_gloves"							"Universal Might"
-		"property_world_commander_gloves_description"					"Each point of Armor Pierce and Spell Pierce increase Attack Power by <% ITEM_RPC_WORLD_COMMANDER_GLOVES_DMG_PCT %>%."
+		"property_world_commander_gloves_description"					"Each point of Armor Pierce and Spell Pierce increase Attack Power by <% ITEM_RPC_WORLD_COMMANDER_GLOVES_DMG_PCT %>%, capped at <% ITEM_RPC_WORLD_COMMANDER_GLOVES_CAP %>%."
 
 		"item_rpc_world_commander_gloves_ruby1"				"Increases [Q4] Rune by @ruby_property1"
 		"item_rpc_world_commander_gloves_emerald1"			"Increases [E4] Rune by @emerald_property1"
