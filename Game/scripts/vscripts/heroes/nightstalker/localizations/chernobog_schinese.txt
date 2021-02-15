@@ -313,7 +313,7 @@
 		"item_rpc_chernobog_glyph_6_2_description" 				"在你当前生命值低于 <% CHERNOBOG_GLYPH_6_2_THRESHOLD %>% 最大生命值时开启 @Ability2 不会汲取生命值，但是所有技能和符文造成的伤害将会降低 <% CHERNOBOG_GLYPH_6_2_DMG_DEC %>%。"
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_7_2"		"[T7-2] 坚韧雕文"
-		"item_rpc_chernobog_glyph_7_2_description" 				"@Ability3 开启时，每 <% CHERNOBOG_GLYPH_7_2_THINK_INTERVAL %> 秒驱散一次所有敌方的Debuff。"
+		"item_rpc_chernobog_glyph_7_2_description" 				"暗影追猎开启时，每 <% CHERNOBOG_GLYPH_7_2_THINK_INTERVAL %> 秒驱散一次所有敌方的Debuff。"
 		
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_book"    "暗夜魔王雕文书"
 		
