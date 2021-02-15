@@ -313,7 +313,7 @@
 		"item_rpc_chernobog_glyph_6_2_description" 				"Attacking while @Ability2 is toggled on does not drain health while below <% CHERNOBOG_GLYPH_6_2_THRESHOLD %> of max health, but all damage from abilities or runes is reduced by <% CHERNOBOG_GLYPH_6_2_DMG_DEC %>."
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_7_2"		"[T7-2] Glyph of Indomitability"
-		"item_rpc_chernobog_glyph_7_2_description" 				"While @Ability2 is active, Chernobog is purged of debuffs applied by enemies every <% CHERNOBOG_GLYPH_7_2_THINK_INTERVAL %> seconds."
+		"item_rpc_chernobog_glyph_7_2_description" 				"While shadow hunt is active, Chernobog is purged of debuffs applied by enemies every <% CHERNOBOG_GLYPH_7_2_THINK_INTERVAL %> seconds."
 		
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_book"    "Chernobog Glyph Book"
 		
