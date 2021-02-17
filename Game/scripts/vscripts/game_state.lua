@@ -415,6 +415,9 @@ function GameState:SetDifficultyFactor()
 	-- return difficulty
 end
 
+function GameState:GetDifficultyFactor()
+    return Events.DifficultyFactor
+end
 
 function GameState:GetDifficultyName()
 	if GameState:GetDifficultyFactor() == DIFFICULTY_NORMAL then
@@ -3656,9 +3659,4 @@ function GameState:FilterDamage(filterTable)
 
 	return true
 
-end
-
-
-function GameState:GetDifficultyFactor()
-	return 3
 end
