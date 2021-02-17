@@ -3804,7 +3804,7 @@
 		"item_rpc_chernobog_glyph_6_2_description" 				"Attacking while @Ability2 is toggled on does not drain health while below <font color='#ccff66'>30</font> of max health, but all damage from abilities or runes is reduced by <font color='#ccff66'>40</font>."
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_7_2"		"[T7-2] Glyph of Indomitability"
-		"item_rpc_chernobog_glyph_7_2_description" 				"While @Ability2 is active, Chernobog is purged of debuffs applied by enemies every <font color='#ccff66'>1</font> seconds."
+		"item_rpc_chernobog_glyph_7_2_description" 				"While shadow hunt is active, Chernobog is purged of debuffs applied by enemies every <font color='#ccff66'>1</font> seconds."
 		
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_book"    "Chernobog Glyph Book"
 		
@@ -8655,9 +8655,11 @@
     	"DOTA_Tooltip_ability_paladin_rune_e_3_suffix"					"% of attack damage"
 		
 		"DOTA_Tooltip_ability_paladin_rune_e_4"							"[E4] Flutter"
-    	"DOTA_Tooltip_ability_paladin_rune_e_4_Description"				"Gain Magic Armor for <font color='#ccff66'>6</font> seconds after casting @Ability3."
+    	"DOTA_Tooltip_ability_paladin_rune_e_4_Description"				"Passively gain Armor Pierce and Magic Armor."
     	"DOTA_Tooltip_ability_paladin_rune_e_4_property_one"			"Magic Armor"
     	"DOTA_Tooltip_ability_paladin_rune_e_4_suffix"					""
+	"DOTA_Tooltip_ability_paladin_rune_e_4_property_two"			"Armor Pierce"
+    	"DOTA_Tooltip_ability_paladin_rune_e_4_suffix_two"					""
 
     	"DOTA_Tooltip_modifier_paladin_d_c"								"Flutter"
     	"DOTA_Tooltip_modifier_paladin_d_c_Description"					"Increased Magic Armor"
@@ -8896,6 +8898,7 @@
     	"property_paladin_immortal_weapon4_description"						"Enemies damaged by @Ability2 are rooted for <font color='#ccff66'>1</font> second, and deal <font color='#ccff66'>45</font>% reduced damage during this effect."
 		"DOTA_Tooltip_modifier_paladin_immortal_weapon_4_root"				"Gleipnir's Chain"
 		"DOTA_Tooltip_modifier_paladin_immortal_weapon_4_root_Description"	"Rooted and deals less damage."
+
 
 "DOTA_Tooltip_modifier_rubilash_painted_red"			"<font color='#FF0000'>Red</font> Paint"
 "DOTA_Tooltip_modifier_rubilash_painted_red_Description"	"Soaked in Rubilash's Paint"
@@ -13696,7 +13699,7 @@
 		"item_property_spellslinger_coat"			"Spellslinger"
 		"property_spellslinger_coat_description"	"@Ability2 restores <font color='#ccff66'>35</font>% of its mana cost on use and its Base Ability Damage is increased by <font color='#ccff66'>120</font>%."
 
-		"item_rpc_spellslinger_coat_ruby1"								"Casting [Q] has a @ruby_property1% chance to refresh its cooldown, can proc once per <font color='#ccff66'>0.5</font> seconds"
+		"item_rpc_spellslinger_coat_ruby1"								"Casting [Q] has a @ruby_property1% chance to refresh its cooldown, can proc once per <font color='#ccff66'>0.25</font> seconds"
 		"item_rpc_spellslinger_coat_emerald1"								"Casting [W] adds @emerald_property1 Spell Pierce for <font color='#ccff66'>5</font> seconds, stacking up to <font color='#ccff66'>10</font> times"
 		"item_rpc_spellslinger_coat_sapphire1"								"Increases Mana Regen by @sapphire_property1"
 		"item_rpc_spellslinger_coat_amethyst1"								"When an enemy damages you, @amethyst_property1% chance to immediately cast [W] with no mana cost, cooldown or cast point. Max <font color='#ccff66'>5</font> procs per second."
@@ -14355,10 +14358,12 @@
     	"item_rpc_phoenix_gloves_amethyst1"									"Increases Spirit by @amethyst_property1, and each point of Spirit increases Max Health by @amethyst_property2"
 
     	"DOTA_Tooltip_ability_item_rpc_power_ranger_gloves"								"Power Source Gauntlet"
-    	"item_rpc_power_ranger_gloves_ruby1"								"Increases Armor by @ruby_property1"
-    	"item_rpc_power_ranger_gloves_emerald1"								"Increases Armor Pierce by @emerald_property1"
-    	"item_rpc_power_ranger_gloves_sapphire1"								"Increases Spell Pierce @sapphire_property1"
-    	"item_rpc_power_ranger_gloves_amethyst1"								"Increases Magic Armor @amethyst_property1"
+	"item_property_power_ranger_gloves"                                             "Power Source"
+	"property_power_ranger_gloves_description"                                 "Gain <font color='#ccff66'>0.1</font> base attack damage for each spell pierce and armor pierce you have. Capped at <font color='#ccff66'>4000</font>."
+    	"item_rpc_power_ranger_gloves_ruby1"								"Increases base attack damage per spell pierce and armor pierce by additional @ruby_property1"
+    	"item_rpc_power_ranger_gloves_emerald1"								"Increases base attack damage cap by additional @emerald_property1"
+    	"item_rpc_power_ranger_gloves_sapphire1"								"Increases all attribute by @sapphire_property1"
+    	"item_rpc_power_ranger_gloves_amethyst1"								"Increases base ability damage by @amethyst_property1%"
 
     	"DOTA_Tooltip_ability_item_rpc_royal_wristguards"								"Royal Wristguards"		
 		"item_property_royal_wrist"								"Commanding Steel"
@@ -14575,7 +14580,7 @@
 		"DOTA_Tooltip_ability_item_rpc_world_commander_gloves"			"World Commander Gloves"
 
 		"item_property_world_commander_gloves"							"Universal Might"
-		"property_world_commander_gloves_description"					"Each point of Armor Pierce and Spell Pierce increase Attack Power by <font color='#ccff66'>0.01</font>%."
+		"property_world_commander_gloves_description"					"Each point of Armor Pierce and Spell Pierce increase Attack Power by <font color='#ccff66'>0.01</font>%, capped at <font color='#ccff66'>300</font>%."
 
 		"item_rpc_world_commander_gloves_ruby1"				"Increases [Q4] Rune by @ruby_property1"
 		"item_rpc_world_commander_gloves_emerald1"			"Increases [E4] Rune by @emerald_property1"
@@ -15434,12 +15439,14 @@
 		"DOTA_Tooltip_ability_item_rpc_arbor_dragonfly"									"Arbor Dragonfly"
 
 		"item_property_arbor_dragonfly"				"Misty Wood's Blessing"
-		"property_arbor_dragonfly_description"		"Increases the duration of all friendly buffs that you apply from abilities, runes and glyphs by <font color='#ccff66'>35</font>%."
+		"property_arbor_dragonfly_description"		"For each visible buff (which does not have infinite duration) you have, increase your base ability damage and item damage by <font color='#ccff66'>60</font>%, capped at <font color='#ccff66'>300</font>%."
+		"DOTA_Tooltip_modifier_arbor_dragonfly"                             "Misty Wood's Blessing"
+		"DOTA_Tooltip_modifier_arbor_dragonfly_Description"                 "For each buff you have, increase your base ability damage."
 
         "item_rpc_arbor_dragonfly_ruby1"                                    "Increases all Tier 1 runes by @ruby_property1"
-        "item_rpc_arbor_dragonfly_emerald1"                                 "Increases Base Ability and Item Damage by @emerald_property1"
+        "item_rpc_arbor_dragonfly_emerald1"                                 "Increases all buff duration by @emerald_property1%"
         "item_rpc_arbor_dragonfly_sapphire1"                                    "Increases all Tier 2 runes by @sapphire_property1"
-        "item_rpc_arbor_dragonfly_amethyst1"                                    "Increases All Attributes by @amethyst_property1"
+        "item_rpc_arbor_dragonfly_amethyst1"                                    "For each visible buff (which does not have infinite duration), increase your armor pierce and spell pierce by @amethyst_property1"
 
 		"DOTA_Tooltip_ability_item_rpc_arcane_charm"									"Arcane Charm"
 
@@ -15553,13 +15560,14 @@
         "item_rpc_cobalt_serenity_ring_amethyst1"                           "Each point of Intelligence increases Mana Regen by an additional @amethyst_property1"
 
         "DOTA_Tooltip_ability_item_rpc_conquest_stone_falcon"                           "Conquest Stone Falcon"
-        "item_property_stone_falcon"                        "Gift of the Reliquary"
-        "property_stone_falcon_description"             "Instances of Magic or Pure damage taken can not exceed <font color='#ccff66'>35</font>% of max health."
-        "item_rpc_conquest_stone_falcon_ruby1"                          "Increases Armor by @ruby_property1"
-        "item_rpc_conquest_stone_falcon_emerald1"                           "Increases Armor Pierce by @emerald_property1"
-        "item_rpc_conquest_stone_falcon_sapphire1"                          "Increases Spell Pierce by @sapphire_property1"
-        "item_rpc_conquest_stone_falcon_amethyst1"                          "Increases Magic Armor by @amethyst_property1"
-
+        "item_property_conquest_stone_falcon"                        "Gift of the Reliquary"
+        "property_conquest_stone_falcon_description"             "Instances of Magic or Pure damage taken can not exceed <font color='#ccff66'>35</font>% of max health."
+        "item_rpc_conquest_stone_falcon_ruby1"                          "Reduce the threshold by @ruby_property1%"
+        "item_rpc_conquest_stone_falcon_emerald1"                           "Every <font color='#ccff66'>3</font> seconds, gain a stack of shield, each stack will absorb one instance physical damage, max @emerald_property1 stacks."
+        "item_rpc_conquest_stone_falcon_sapphire1"                          "Increases Armor Pierce and Spell Pierce by @sapphire_property1"
+        "item_rpc_conquest_stone_falcon_amethyst1"                          "Lethal physical damage will be convert to pure damage, with inner cooldown of @amethyst_property1 seconds."
+		"DOTA_Tooltip_modifier_conquest_stone_falcon"                             "Conquest Stone Falcon - Emerald"
+        "DOTA_Tooltip_modifier_conquest_stone_falcon_amethyst_cd"                             "Conquest Stone Falcon - Amethyst CD"
 
         "DOTA_Tooltip_ability_item_rpc_emerald_nullification_ring"                      "Emerald Nullification Ring"
 
@@ -15612,15 +15620,15 @@
         "item_rpc_fire_blossom_emerald1"                                    "Each point in Rune [W2] increases Strength by @emerald_property1"
         "item_rpc_fire_blossom_sapphire1"                                   "Each point in Rune [W1] increases Strength by @sapphire_property1"
         "item_rpc_fire_blossom_amethyst1"                                    "Each point in Rune [W3] increases Strength by @amethyst_property1"
-
-        "DOTA_Tooltip_ability_item_rpc_firelock_pendant"                                "Firelock Pendant"
-        "item_property_firelock"                            "Piercing Heat"      
-        "property_firelock_description"                 "Each point of Strength increases Armor Pierce by <font color='#ccff66'>3</font>."
         
-        "item_rpc_firelock_pendant_ruby1"                               "Increases Strength and Agility by @ruby_property1"
-        "item_rpc_firelock_pendant_emerald1"                                 "Increases Item and <font color='#EF4126'>Fire</font> Elemental damage by @emerald_property1%"
-        "item_rpc_firelock_pendant_sapphire1"                               "Each point of Agility and Strength increase Attack Speed by @sapphire_property1"
-        "item_rpc_firelock_pendant_amethyst1"                               "Each point of Spirit increases Base Attack Damage by @amethyst_property1"
+       "DOTA_Tooltip_ability_item_rpc_firelock_pendant"                                "Firelock Pendant"
+        "item_property_firelock_pendant"                            "Piercing Heat"      
+        "property_firelock_pendant_description"                 "Each point of Strength increases Armor Pierce by <font color='#ccff66'>3</font>."
+        
+        "item_rpc_firelock_pendant_ruby1"                               "Each point of agility increases Armor Pierce by @ruby_property1"
+        "item_rpc_firelock_pendant_emerald1"                                 "Increases <font color='#EF4126'>Fire</font> Elemental damage by @emerald_property1%"
+        "item_rpc_firelock_pendant_sapphire1"                               "Increase Attack Speed by @sapphire_property1 and your attack speed cannot fall below <font color='#ccff66'>300</font>"
+        "item_rpc_firelock_pendant_amethyst1"                               "Increase Strength and Agility by @amethyst_property1"
 
         "DOTA_Tooltip_ability_item_rpc_fortunes_talisman_of_truth"                      "Fortune's Talisman of Truth"
 
@@ -15705,7 +15713,7 @@
         "property_garnet_warfare_description"                    "Each point of Strength increases Base Ability Damage by <font color='#ccff66'>0.12</font>%."
 
         "item_rpc_garnet_warfare_ring_ruby1"                                "Increases Strength by @ruby_property1"
-        "item_rpc_garnet_warfare_ring_emerald1"                             "Increases Armor and Armor Pierce by @emerald_property1"
+        "item_rpc_garnet_warfare_ring_emerald1"                             "Increases Armor Pierce and Spell Pierce by @emerald_property1"
         "item_rpc_garnet_warfare_ring_sapphire1"                                "Increases Attack Power by @sapphire_property1%"
         "item_rpc_garnet_warfare_ring_amethyst1"                                "Each point of Strength and Spirit increases Base Attack Damage by @amethyst_property1"
 
@@ -15749,7 +15757,7 @@
 
         "item_rpc_lifesource_vessel_ruby1"                              "Restore @ruby_property1% of Max Health every <font color='#ccff66'>5</font> seconds"
         "item_rpc_lifesource_vessel_emerald1"                               "All Attributes increase Health Regen by @emerald_property1"
-        "item_rpc_lifesource_vessel_sapphire1"                              "Increases Max Health by @sapphire_property1%"   
+        "item_rpc_lifesource_vessel_sapphire1"                              "For every <font color='#ccff66'>5</font>% current health percentage, increase your attack power by @sapphire_property1%"   
         "item_rpc_lifesource_vessel_amethyst1"                              "Increases All Attributes by @amethyst_property1"
 
         "DOTA_Tooltip_ability_item_rpc_monkey_paw"                                      "Monkey Paw"
@@ -15805,7 +15813,7 @@
         "DOTA_Tooltip_ability_item_rpc_raven_idol"                                      "Raven Idol"
 
         "item_property_raven_idol"                 "Black Soul"        
-        "property_raven_idol_description"          "Reduce damage taken from all sources by <font color='#ccff66'>35</font>%. Your health can not go above <font color='#ccff66'>65</font>% of your max."
+        "property_raven_idol_description"          "Reduce damage taken from all sources by <font color='#ccff66'>45</font>%. Your health can not go above <font color='#ccff66'>65</font>% of your max."
         
         "item_rpc_raven_idol_ruby1"                                     "Reduces your health limit by an additional @ruby_property1% of Max Health, and increases Black Soul's damage reduction by an additional @ruby_property2%"
         "item_rpc_raven_idol_emerald1"                                      "Healing effects that are applied to you are @emerald_property1% less effective. Increase Base Ability Damage by @emerald_property2% and Attack Power by @emerald_property3"
@@ -15894,11 +15902,11 @@
         "DOTA_Tooltip_ability_item_rpc_sparkling_token_of_oceanis"                  "Sparkling Token of Oceanis"    
 
         "property_sparkling_token"                                              "Tropical Mend"
-        "property_sparkling_token_Description"                                  "Restore <font color='#ccff66'>1.5</font>% of Max Health every <font color='#ccff66'>0.2</font> seconds."
+        "property_sparkling_token_Description"                                  "Restore <font color='#ccff66'>2</font>% of Max Health and <font color='#ccff66'>1</font> of max mana every <font color='#ccff66'>0.2</font> seconds."
         "item_rpc_sparkling_token_of_oceanis_ruby1"                 "Increases Max Health by @ruby_property1 and Max Mana by @ruby_property2"
-        "item_rpc_sparkling_token_of_oceanis_emerald1"                  "Reduce Pure Damage taken by @emerald_property1%"
-        "item_rpc_sparkling_token_of_oceanis_sapphire1"                 "Restore @sapphire_property1% of Max Mana every <font color='#ccff66'>0.2</font> seconds"
-        "item_rpc_sparkling_token_of_oceanis_amethyst1"                 "Reduce Magic Damage taken by @amethyst_property1%"  
+        "item_rpc_sparkling_token_of_oceanis_emerald1"                  "Reduce Physical Damage taken by @emerald_property1%"
+        "item_rpc_sparkling_token_of_oceanis_sapphire1"                 "Increase Armor Pierce and Spell Pierce by @sapphire_property1"
+        "item_rpc_sparkling_token_of_oceanis_amethyst1"                 "Reduce Magic Damage taken by @amethyst_property1%" 
 
         "DOTA_Tooltip_ability_item_rpc_stargazers_sphere"            "Stargazer's Sphere"
 
@@ -15982,12 +15990,12 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_volcano_orb"										"Volcano Orb"
         "item_property_volcano_orb"                 "Fiery Core"
-        "property_volcano_orb_description"          "All attributes increase Spell Pierce by <font color='#ccff66'>4</font>."
+        "property_volcano_orb_description"          "All attributes increase Spell Pierce by <font color='#ccff66'>2</font>."
 
-		"item_rpc_volcano_orb_ruby1"										"Increases Strength by @ruby_property1"
-		"item_rpc_volcano_orb_emerald1"										"Increases Agility by @emerald_property1"
-		"item_rpc_volcano_orb_sapphire1"										"Increases Intelligence by @sapphire_property1"
-		"item_rpc_volcano_orb_amethyst1"										"Increases Spirit by @amethyst_property1"
+		"item_rpc_volcano_orb_ruby1"										"Increases Spell Pierce per attribute by additional @ruby_property1"
+		"item_rpc_volcano_orb_emerald1"										"Increases all attribute by @emerald_property1"
+		"item_rpc_volcano_orb_sapphire1"										"Increases base ability damage by @sapphire_property1%"
+		"item_rpc_volcano_orb_amethyst1"										"Increases <font color='#EF4126'>Fire</font> and item damage by @amethyst_property1%"
 
 		
        "DOTA_Tooltip_ability_item_rpc_wind_orchid"                                     "Wind Orchid"
@@ -16092,6 +16100,7 @@
         "item_rpc_monarch_ring_emerald1"                              "Increases Agility bonus from runes by @emerald_property1%"
         "item_rpc_monarch_ring_sapphire1"                             "Increases Intelligence bonus from runes by @sapphire_property1%"
         "item_rpc_monarch_ring_amethyst1"                             "Increases Spirit bonus from runes by @amethyst_property1%"
+
 
 		//Tier 1
 

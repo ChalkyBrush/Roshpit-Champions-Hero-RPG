@@ -13798,7 +13798,7 @@
 		"item_property_spellslinger_coat"			"Spellslinger"
 		"property_spellslinger_coat_description"	"@Ability2 восстанавливает <font color='#ccff66'>35</font>% от стоимости маны при прочтении, а Базовый Урон Способности увеличен на <font color='#ccff66'>120</font>%."
 
-		"item_rpc_spellslinger_coat_ruby1"								"Прочтение [Q] имеет @ruby_property1% шанс сбросить свою перезарядку, может сработать только раз в <font color='#ccff66'>0.5</font> сек"
+		"item_rpc_spellslinger_coat_ruby1"								"Прочтение [Q] имеет @ruby_property1% шанс сбросить свою перезарядку, может сработать только раз в <font color='#ccff66'>0.25</font> сек"
 		"item_rpc_spellslinger_coat_emerald1"								"Прочтение [W] добавляет @emerald_property1 Пробития Магической Защиты на <font color='#ccff66'>5</font> сек, складывается до <font color='#ccff66'>10</font> раз"
 		"item_rpc_spellslinger_coat_sapphire1"								"Увеличивает регенерацию Маны на @sapphire_property1"
 		"item_rpc_spellslinger_coat_amethyst1"								"Когда противник наносит урон герою, может сработать @amethyst_property1% шанс мгновенно произнести [W] без затрат маны, перезарядки и точки каста. Максимально <font color='#ccff66'>5</font> срабатываний в секунду."
@@ -15908,7 +15908,7 @@
         "DOTA_Tooltip_ability_item_rpc_raven_idol"                                      "Raven Idol"
 
         "item_property_raven_idol"                 "Black Soul"        
-        "property_raven_idol_description"          "Уменьшает весь входящий урон на <font color='#ccff66'>35</font>%. Показатель Здоровья героя не поднимается выше <font color='#ccff66'>65</font>%."
+        "property_raven_idol_description"          "Уменьшает весь входящий урон на <font color='#ccff66'>45</font>%. Показатель Здоровья героя не поднимается выше <font color='#ccff66'>65</font>%."
         
         "item_rpc_raven_idol_ruby1"                                     "Снижает ограничитель Здоровья еще на @ruby_property1% от запаса Здоровья, но увеличивает сопротивление урону еще на @ruby_property2%"
         "item_rpc_raven_idol_emerald1"                                      "Исцеляющие эффекты действуют на героя на @emerald_property1% слабее. Увеличивает Базовый Урон Способностей на @emerald_property2% и Силу Атаки на @emerald_property3"
@@ -15986,7 +15986,7 @@
         "DOTA_Tooltip_ability_item_rpc_sparkling_token_of_oceanis"                  "Sparkling Token of Oceanis"    
 
         "property_sparkling_token"                                              "Tropical Mend"
-        "property_sparkling_token_Description"                                  "Восстанавливает <font color='#ccff66'>1.5</font>% от максимального запаса Здоровья каждые <font color='#ccff66'>0.2</font> сек."
+        "property_sparkling_token_Description"                                  "Восстанавливает <font color='#ccff66'>2</font>% от максимального запаса Здоровья каждые <font color='#ccff66'>0.2</font> сек."
         "item_rpc_sparkling_token_of_oceanis_ruby1"                 "Увеличивает запас Здоровья на @ruby_property1, а Маны на @ruby_property2"
         "item_rpc_sparkling_token_of_oceanis_emerald1"                  "Увеличивает сопротивление Чистому урону на @emerald_property1%"
         "item_rpc_sparkling_token_of_oceanis_sapphire1"                 "Восстанавливает @sapphire_property1% от запаса Маны каждые <font color='#ccff66'>0.2</font> сек"
@@ -16074,7 +16074,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_volcano_orb"										"Volcano Orb"
         "item_property_volcano_orb"                 "Fiery Core"
-        "property_volcano_orb_description"          "Любой Атрибут увеличивает Пробитие Магической Защиты на <font color='#ccff66'>4</font>."
+        "property_volcano_orb_description"          "Любой Атрибут увеличивает Пробитие Магической Защиты на <font color='#ccff66'>2</font>."
 
 		"item_rpc_volcano_orb_ruby1"										"Увеличивает Силу на @ruby_property1"
 		"item_rpc_volcano_orb_emerald1"										"Увеличивает Ловкость на @emerald_property1"
