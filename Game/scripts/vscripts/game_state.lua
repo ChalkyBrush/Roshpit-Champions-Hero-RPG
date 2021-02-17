@@ -415,6 +415,9 @@ function GameState:SetDifficultyFactor()
 	-- return difficulty
 end
 
+function GameState:GetDifficultyFactor()
+    return Events.DifficultyFactor
+end
 
 function GameState:GetDifficultyName()
 	if GameState:GetDifficultyFactor() == DIFFICULTY_NORMAL then
@@ -2344,14 +2347,13 @@ function GameState:FilterDamage(filterTable)
 				end
 			end
 		end
-		if attacker:HasModifier("modifier_bahamut_arcana_passive") then
+		if attacker:HasModifier("modifier_bahamut_arcana_w_passive") then
 			local w_1_level = attacker:GetRuneValue("w", 1)
 			if w_1_level > 0 then
 				local healAmount = math.ceil(filterTable["damage"] * BAHAMUT_ARCANA_W_W1_LIFESTEAL_PCT/100 / BAHAMUT_ARCANA_W_W1_DMG_DIVISOR * w_1_level)
 				if healAmount > attacker:GetMaxHealth() - attacker:GetHealth() then
 					local allyHealAmount = healAmount - (attacker:GetMaxHealth() - attacker:GetHealth())
 					local arcanaAbility = attacker:FindAbilityByName("bahamut_arcana_orb")
-					arcanaAbility:ApplyDataDrivenModifier(attacker, attacker, "modifier_spellvamp_healing", {duration = 0.3})
 					local allies = FindUnitsInRadius(attacker:GetTeamNumber(), attacker:GetAbsOrigin(), nil, BAHAMUT_ARCANA_W_W1_OVERHEAL_RADIUS, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
 					if #allies > 0 then
 						for _, ally in pairs(allies) do
@@ -3656,9 +3658,4 @@ function GameState:FilterDamage(filterTable)
 
 	return true
 
-end
-
-
-function GameState:GetDifficultyFactor()
-	return 3
 end
