@@ -2347,7 +2347,7 @@ function GameState:FilterDamage(filterTable)
 				end
 			end
 		end
-		if attacker:HasModifier("modifier_bahamut_arcana_w_passive") then
+		if attacker:HasModifier("modifier_bahamut_arcana_passive") then
 			local w_1_level = attacker:GetRuneValue("w", 1)
 			if w_1_level > 0 then
 				local healAmount = math.ceil(filterTable["damage"] * BAHAMUT_ARCANA_W_W1_LIFESTEAL_PCT/100 / BAHAMUT_ARCANA_W_W1_DMG_DIVISOR * w_1_level)
