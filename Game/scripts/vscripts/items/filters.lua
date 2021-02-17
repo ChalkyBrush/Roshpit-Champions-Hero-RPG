@@ -26,6 +26,7 @@ require("/heroes/visage/ekkan_constants")
 require("/heroes/winter_wyvern/dinath_constants")
 require("/heroes/axe/red_general_constants")
 require("/heroes/invoker/conjuror_constants")
+require("/heroes/nightstalker/chernobog_constants")
 require('/items/constants/boots')
 require('/items/constants/chest')
 require('/items/constants/gloves')
@@ -242,7 +243,8 @@ function Filters:GetAdjustedBuffDuration(caster, baseDuration, bItem)
         baseDuration = baseDuration + r_3_level * AURIUN_R3_BUFF_DUR_INCREASE
     end
     if caster:HasModifier("modifier_arbor_dragonfly") then
-        baseDuration = baseDuration * (100+ITEM_RPC_ARBOR_DRAGONFLY_BUFF_INCREASE_PCT)/100
+	    local bonus = caster.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_ARBOR_DRAGONFLY_GEM_EMERALD)
+        baseDuration = baseDuration * (100+ bonus)/100
     end
     return baseDuration
 end
@@ -1691,7 +1693,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
     attacker.element2 = element2
     local damageMult = 0
     --print("Damage: "..damage)
-    --print("Element1: "..element1)
+	--print("Element1: "..element1)
     --print("Element2: "..element2)
     if attacker:HasModifier("modifier_sorceress_immortal_fire_avatar") or attacker:HasModifier("modifier_sorceress_immortal_ice_avatar") then
         attacker = attacker.origCaster
@@ -2403,7 +2405,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             end
         end
     end
-
+	
     local elements = {}
     if element1 ~= RPC_ELEMENT_NONE then
         table.insert(elements, element1)
@@ -2416,7 +2418,6 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             mult = mult + result
         end
     )
-
     local newDamageCalculatorData = {
         victim = victim,
         attacker = attacker,
@@ -2444,8 +2445,6 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
     mult = mult + localMult - 1
 
     mult = mult + heroes.venomort.getElementBonus(victim, attacker, damage, damage_type, slot, element1, element2, bIsRealDamage)
-
-
 
     if element1 == RPC_ELEMENT_NORMAL or element2 == RPC_ELEMENT_NORMAL then
         local normalMult = 0
@@ -2817,6 +2816,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             local stacks = attacker:GetModifierStackCount("modifier_nightmare_rider_stacks", attacker.InventoryUnit)
             mult = mult + (stacks * attacker.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_NIGHTMARE_RIDER_MANTLE_GEM_AMETHYST1)) / 100
         end
+
         mult = mult + (CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_head_element_shadow", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_weapon_element_shadow", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_hands_element_shadow", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_feet_element_shadow", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_body_element_shadow", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_amulet_element_shadow", 1))/100
     end
     if element1 == RPC_ELEMENT_WIND or element2 == RPC_ELEMENT_WIND then
@@ -2920,6 +2920,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         if unitName == "npc_dota_hero_grimstroke" then
             mult = mult + attacker:GetRuneValue("q", 4)*RUBILASH_RUNE_Q4_DEMON_AND_GHOST_AMP/100
         end
+
         mult = mult + (CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_head_element_demon", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_weapon_element_demon", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_hands_element_demon", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_feet_element_demon", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_body_element_demon", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_amulet_element_demon", 1))/100
     end
     if element1 == RPC_ELEMENT_NATURE or element2 == RPC_ELEMENT_NATURE then

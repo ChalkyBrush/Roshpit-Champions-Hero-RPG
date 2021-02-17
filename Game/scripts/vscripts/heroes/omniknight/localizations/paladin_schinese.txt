@@ -118,9 +118,11 @@
     	"DOTA_Tooltip_ability_paladin_rune_e_3_suffix"					"% 攻击力"
 		
 		"DOTA_Tooltip_ability_paladin_rune_e_4"							"[E4] 鼓翼"
-    	"DOTA_Tooltip_ability_paladin_rune_e_4_Description"				"释放 @Ability3后获得额外魔甲 <% PALADIN_E4_DURATION %> 秒."
+    	"DOTA_Tooltip_ability_paladin_rune_e_4_Description"				"被动获得物理穿透和魔甲"
     	"DOTA_Tooltip_ability_paladin_rune_e_4_property_one"			"魔甲提高"
     	"DOTA_Tooltip_ability_paladin_rune_e_4_suffix"					""
+	"DOTA_Tooltip_ability_paladin_rune_e_4_property_two"			"物理穿透提高"
+    	"DOTA_Tooltip_ability_paladin_rune_e_4_suffix_two"					""
 
     	"DOTA_Tooltip_modifier_paladin_d_c"								"鼓翼"
     	"DOTA_Tooltip_modifier_paladin_d_c_Description"					"提高魔甲"

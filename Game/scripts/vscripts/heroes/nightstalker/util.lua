@@ -71,13 +71,13 @@ function ChernobogDealDamage(caster, target, damage, damageType, ability, elemen
 	end
 	if isDot == true then
 		Filters:ApplyDotDamage(caster, ability, target, damage, damageType, ability, element1, element2)
-		if R_ability and (R_ability:GetAbilityName() == "chernobog_nights_procession") and target:HasModifier("modifier_chernobog_r_effect") and (r_2_bonus > 1) then
+		if R_ability and (R_ability:GetAbilityName() == "chernobog_nights_procession") and target:HasModifier("modifier_chernobog_r_effect") and (r_2_bonus > 0 ) then
 			damage = damage * r_2_bonus
 			Filters:ApplyDotDamage(caster, ability, target, damage, damageType, ability, element1, element2)
 		end
 	else
 		Filters:TakeArgumentsAndApplyDamage(target, caster, damage, damageType, ability, element1, element2)
-		if R_ability and (R_ability:GetAbilityName() == "chernobog_nights_procession") and target:HasModifier("modifier_chernobog_r_effect") and (r_2_bonus > 1) then
+		if R_ability and (R_ability:GetAbilityName() == "chernobog_nights_procession") and target:HasModifier("modifier_chernobog_r_effect") and (r_2_bonus > 0 ) then
 			damage = damage * r_2_bonus
 			Filters:TakeArgumentsAndApplyDamage(target, caster, damage, damageType, ability, element1, element2)
 		end

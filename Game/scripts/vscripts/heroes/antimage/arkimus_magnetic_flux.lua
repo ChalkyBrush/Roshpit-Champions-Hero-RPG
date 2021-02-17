@@ -123,7 +123,7 @@ function modifier_arkimus_magnetic_flux_buff:OnIntervalThink()
         ability.interval = ability.interval + 1
         if ability.interval == 6 then
             ability.interval = 0
-            local damage = ability:GetSpecialValueFor("damage") + ability:GetSpecialValueFor("int_damage") * caster:GetIntellect()
+            local damage = ability:GetSpecialValueFor("damage") + ARKIMUS_ARCANA1_Q_DAMAGE_INT_MULT[ability:GetLevel()] * caster:GetIntellect()
             local searchRadius = ARKIMUS_ARCANA1_Q_AOE
 			local spell_pierce_flag = 0
 			if caster:HasModifier("modifier_arkimus_archon_form") then

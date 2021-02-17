@@ -127,9 +127,11 @@
     	"DOTA_Tooltip_ability_paladin_rune_e_3_suffix"					"% of attack damage"
 		
 		"DOTA_Tooltip_ability_paladin_rune_e_4"							"[E4] Flutter"
-    	"DOTA_Tooltip_ability_paladin_rune_e_4_Description"				"Gain Magic Armor for <% PALADIN_E4_DURATION %> seconds after casting @Ability3."
+    	"DOTA_Tooltip_ability_paladin_rune_e_4_Description"				"Passively gain Armor Pierce and Magic Armor."
     	"DOTA_Tooltip_ability_paladin_rune_e_4_property_one"			"Magic Armor"
     	"DOTA_Tooltip_ability_paladin_rune_e_4_suffix"					""
+	"DOTA_Tooltip_ability_paladin_rune_e_4_property_two"			"Armor Pierce"
+    	"DOTA_Tooltip_ability_paladin_rune_e_4_suffix_two"					""
 
     	"DOTA_Tooltip_modifier_paladin_d_c"								"Flutter"
     	"DOTA_Tooltip_modifier_paladin_d_c_Description"					"Increased Magic Armor"

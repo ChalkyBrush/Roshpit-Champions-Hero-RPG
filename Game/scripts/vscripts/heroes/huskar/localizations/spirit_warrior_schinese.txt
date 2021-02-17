@@ -324,3 +324,7 @@
         "DOTA_Tooltip_ability_item_rpc_spirit_warrior_immortal_weapon_3"            "艾瑞斯之矛"
         "item_property_spirit_warrior_immortal_weapon3"                             "九头矛"
         "property_spirit_warrior_immortal_weapon3_description"                      "普通攻击将额外攻击两个敌人。继承全部攻击特效。"
+	
+	"DOTA_Tooltip_ability_item_rpc_spirit_warrior_immortal_weapon_4"            "天堂之杖"
+        "item_property_spirit_warrior_immortal_weapon4"                             "和谐之路"
+        "property_spirit_warrior_immortal_weapon4_description"                      "灵魂守卫装备此武器时将会进入缴械状态. 每点精神提高 <% SPIRIT_WARRIOR_IMMORTAL_WEAPON_4_SPIRIT_TO_DAMAGE %> 点基础攻击力以及 <% SPIRIT_WARRIOR_IMMORTAL_WEAPON_4_SPIRIT_TO_PIERCE %> 点物理穿透和魔法穿透."

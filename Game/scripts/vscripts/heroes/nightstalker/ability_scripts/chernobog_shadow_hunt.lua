@@ -412,10 +412,13 @@ function modifier_chernobog_e3_thinker:OnOrderFilter(data)
 	elseif (data.order_type == DOTA_UNIT_ORDER_MOVE_TO_POSITION) then
 		local end_point = GetGroundPosition(Vector(data.position_x, data.position_y, 0), caster)
 		local distance = WallPhysics:GetDistance2d( end_point, caster:GetAbsOrigin())
-		if (distance <= (CHERNOBOG_E3_RANGE_BASE + CHERNOBOG_E3_RANGE * e_3_level * CHERNOBOG_GLYPH_3_2_TELE_DISTANCE_LOSS / 100)) then
-			caster:AddNewModifier(caster, ability, "modifier_chernobog_e3_cd", {duration = CHERNOBOG_GLYPH_3_2_MOVE_CD})
-			self:DoTeleport(caster, nil, ability, end_point)
-		end
+		local direction = ((end_point - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
+	    local maxDistance = CHERNOBOG_E3_RANGE_BASE + CHERNOBOG_E3_RANGE * e_3_level * CHERNOBOG_GLYPH_3_2_TELE_DISTANCE_LOSS / 100
+	    if distance > maxDistance then
+		    end_point = WallPhysics:WallSearch(caster:GetAbsOrigin(), caster:GetAbsOrigin() + direction * maxDistance, caster)
+	    end
+		caster:AddNewModifier(caster, ability, "modifier_chernobog_e3_cd", {duration = CHERNOBOG_GLYPH_3_2_MOVE_CD})
+		self:DoTeleport(caster, nil, ability, end_point)
     end
 end
 

@@ -1170,7 +1170,6 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 		armor_modify = armor_modify + (armor + armor_modify)*(SOLUNIA_IMMORTAL_WEAPON_4_ARMORS_AMP_PCT/100)
 	end
 
-
 	if armor_modify > 0 then
 		unit:RemoveModifierByName("modifier_negative_roshpit_armor")
 		Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_positive_roshpit_armor", {})
@@ -1388,9 +1387,8 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 		local r_1_value = caster:GetRuneValue("r", 1)
 		magic_armor_modify = magic_armor_modify + r_1_value*ASTRAL_RANGER_ARCANA3_R1_ARMOR_AND_SPELL_PIERCE_REDUCE
 	end
-	if unit:HasModifier("modifier_paladin_d_c") then
-		local modifier = unit:FindModifierByName("modifier_paladin_d_c")
-		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*PALADIN_E4_MAGIC_ARMOR
+	if unit:HasAbility("crusader_dash") then
+		magic_armor_modify = magic_armor_modify + unit:GetRuneValue("e", 4)*PALADIN_E4_MAGIC_ARMOR
 	end
 	if unit:HasModifier("modifier_sorceress_rune_w_2_invisible") then
 		local modifier = unit:FindModifierByName("modifier_sorceress_rune_w_2_invisible")
@@ -2116,9 +2114,6 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 		local fang_hero = fang_caster.hero
 		armor_pierce_modify = armor_pierce_modify + fang_hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_FENRIRS_FANG_GEM_EMERALD)
 	end
-	if unit:HasModifier("modifier_firelock_pendant") then
-		armor_pierce_modify = armor_pierce_modify + unit:GetStrength()*ITEM_RPC_FIRELOCK_PENDANT_STR_TO_ARMOR_PIERCE
-	end
 	if unit:HasModifier("modifier_fortunes_talisman_emerald_buff") then
 		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_FORTUNES_TALISMAN_OF_TRUTH_GEM_EMERALD2)
 	end
@@ -2163,6 +2158,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 		if unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetGemValue("emerald") > 0 then
 			armor_pierce_modify = armor_pierce_modify + unit:GetMana()*unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("emerald", ITEM_RPC_DEMONIC_GLOVES_OF_THE_JUDICIARY_GEM_EMERALD)
 		end
+	end
+	
+	if unit:HasAbility("crusader_dash") then
+	    armor_pierce_modify = armor_pierce_modify + unit:GetRuneValue("e", 4) * PALADIN_E4_ARMOR_PIERCE
 	end
 
 
@@ -2577,9 +2576,6 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 		if unit.equipped_gear[RPC_GEAR_SLOT_TRINKET].damage_type == DAMAGE_TYPE_PHYSICAL then
 			spell_pierce_modify = spell_pierce_modify + unit:GetLevel()*ITEM_RPC_TEMPEST_FALCON_RING_PIERCE_PER_LEVEL
 		end
-	end
-	if unit:HasModifier("modifier_volcano_orb") then
-		spell_pierce_modify = spell_pierce_modify + unit:GetSumOfAllAttributes()*ITEM_RPC_VOLCANO_ORB_SPELL_PIERCE_PER_ATTR
 	end
 	if unit:HasModifier("modifier_world_tree_effect") then
 		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_WORLD_TREES_FLOWER_CACHE_GEM_RUBY)
@@ -3516,9 +3512,6 @@ function CustomAttributes:GetBaseHealth(hero, excludedModifier)
 	if excludedModifier ~= "modifier_grasp_of_elder" and hero:HasModifier("modifier_grasp_of_elder") then
 		flatHealthBonus = flatHealthBonus + hero.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("ruby", ITEM_RPC_GRASP_OF_ELDER_GEM_RUBY)*hero:GetSpirit()
 	end
-	if excludedModifier ~= "modifier_lifesource_vessel" and hero:HasModifier("modifier_lifesource_vessel") then
-		flatHealthBonus = flatHealthBonus + hero:GetSumOfAllAttributes()*ITEM_RPC_LIFESOURCE_VESSEL_MAX_HEALTH_PER_ATTRIBUTE
-	end
 	if excludedModifier ~= "modifier_ruptholds_helm_of_gluttony" and hero:HasModifier("modifier_ruptholds_helm_of_gluttony") then
 		flatHealthBonus = flatHealthBonus + hero:GetSumOfAllAttributes()*(ITEM_RPC_RUPTHOLDS_HELM_OF_GLUTTONY_MAX_HEALTH_PER_ATTR + hero.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("ruby", ITEM_RPC_RUPTHOLDS_HELM_OF_GLUTTONY_RUBY))
 	end
@@ -3550,9 +3543,6 @@ function CustomAttributes:GetPercentHealthMutliplier(hero, excludedModifier)
 	end
 	if excludedModifier ~= "modifier_rpc_sange_boots" and hero:HasModifier("modifier_rpc_sange_boots") then
 		percentHealthMultiplier = percentHealthMultiplier + hero.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_SANGE_BOOTS_GEM_SAPPHIRE)/100
-	end
-	if excludedModifier ~= "modifier_lifesource_vessel" and hero:HasModifier("modifier_lifesource_vessel") then
-		percentHealthMultiplier = percentHealthMultiplier + hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_LIFESOURCE_VESSEL_GEM_SAPPHIRE)/100
 	end
 	if excludedModifier ~= "modifier_rubilash_immortal_weapon_2" and hero:HasModifier("modifier_rubilash_immortal_weapon_2") then
 		percentHealthMultiplier = percentHealthMultiplier + RUBILASH_IMMORTAL_WEAPON_2_MAX_HEALTH_INCREASE/100

@@ -42,6 +42,11 @@
 				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% CHERNOBOG_ARCANA2_E2_ATT_PCT %>"
 			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"<% CHERNOBOG_ARCANA2_E2_MS_AND_CAP_BONUS %>"
+			}
 		}
 	}
 

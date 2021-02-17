@@ -415,9 +415,6 @@ function GameState:SetDifficultyFactor()
 	-- return difficulty
 end
 
-function GameState:GetDifficultyFactor()
-	return Events.DifficultyFactor
-end
 
 function GameState:GetDifficultyName()
 	if GameState:GetDifficultyFactor() == DIFFICULTY_NORMAL then
@@ -1599,9 +1596,6 @@ function GameState:IncomingDamageDecreaseWithType(victim, attacker, shouldConsum
 		if victim:HasModifier("modifier_emerald_nullification_ring") then
 			damage = damage * (100-victim.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_EMERALD_NULLIFICATION_RING_GEM_RUBY))/100
 		end
-		if victim:HasModifier("modifier_sparkling_token_of_oceanis") then
-			damage = damage * (100 - victim.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SPARKLING_TOKEN_OF_OCEANIS_GEM_AMETHYST))/100
-		end
 	elseif damagetype == DAMAGE_TYPE_PURE then
 		Util.Modifier:SimpleEvent(victim, 'GetPureDamageReduction', { MODIFIER_ROSHPIT_PURE_DMG_REDUCTION }, { }, 
 			function(result, data)
@@ -1622,9 +1616,6 @@ function GameState:IncomingDamageDecreaseWithType(victim, attacker, shouldConsum
 	    end
 		if victim:HasModifier("modifier_guardian_stone") then
 			damage = damage * (100-victim.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_GUARDIAN_STONE_GEM_EMERALD))/100
-		end
-		if victim:HasModifier("modifier_sparkling_token_of_oceanis") then
-			damage = damage * (100 - victim.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_SPARKLING_TOKEN_OF_OCEANIS_GEM_EMERALD))/100
 		end
 		if victim:HasModifier("modifier_sunstrider_lightsworn") then
 			damage = damage * (1 - SEINARU_ARCANA_E2_PURE_DMG_REDUCE)
@@ -2221,6 +2212,28 @@ function GameState:FilterDamage(filterTable)
 	end
 	if attacker:HasModifier("modifier_paladin_glyph_7_2") then
 		filterTable["damage"] = filterTable["damage"] * (100-PALADIN_GLYPH_7_2_DAMAGE_DEALT_REDUCTION)/100
+	end
+	if victim:HasModifier("modifier_conquest_stone_falcon") then
+	    if not filterTable["damagetype_const"] == DAMAGE_TYPE_PHYSICAL then
+		    return
+		end
+	    local health = victim:GetHealth()
+		local falcon_ability = victim:FindModifierByName("modifier_conquest_stone_falcon"):GetAbility()
+	    if (falcon_ability:GetGemValue("emerald") > 0) then
+		    if victim:HasModifier("modifier_conquest_stone_falcon_shield") then
+		        filterTable["damage"] = 0
+			    victim:FindModifierByName("modifier_conquest_stone_falcon_shield"):DecrementStackCount()
+			end
+		end	
+	    if (falcon_ability:GetGemValue("amethyst") > 0) then
+		   if not victim:HasModifier("modifier_conquest_stone_falcon_amethyst_cd") then
+		        local duration = victim.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_CONQUEST_STONE_FALCON_GEM_AMETHYST)
+		        if filterTable["damage"] > health then
+		            filterTable["damagetype_const"] = DAMAGE_TYPE_PURE
+			        victim:AddNewModifier(victim, falcon_ability, "modifier_conquest_stone_falcon_amethyst_cd", {duration = duration})
+		        end
+	       end
+	    end
 	end
 
 	local damagetype = filterTable["damagetype_const"]
@@ -3053,10 +3066,11 @@ function GameState:FilterDamage(filterTable)
 	end
 	if victim:HasModifier("modifier_conquest_stone_falcon") then
 		if filterTable["damagetype_const"] == DAMAGE_TYPE_MAGICAL or filterTable["damagetype_const"] == DAMAGE_TYPE_PURE then
-			if filterTable["damage"] > victim:GetMaxHealth() * ITEM_RPC_CONQUEST_STONE_FALCON_HP_THRESHOLD/100 then
+		    local threshold = ITEM_RPC_CONQUEST_STONE_FALCON_HP_THRESHOLD - victim.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_CONQUEST_STONE_FALCON_GEM_RUBY)
+			if filterTable["damage"] > victim:GetMaxHealth() * threshold /100 then
 				CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_elder_titan/elder_titan_ancestral_spirit_ambient_end.vpcf", victim, 1.5)
 			end
-			filterTable["damage"] = math.min(filterTable["damage"], victim:GetMaxHealth() * ITEM_RPC_CONQUEST_STONE_FALCON_HP_THRESHOLD/100)
+			filterTable["damage"] = math.min(filterTable["damage"], victim:GetMaxHealth() * threshold/100)
 		end
 	end
 	if attacker:HasModifier("modifier_water_temple_bubble_effect") then
@@ -3642,4 +3656,9 @@ function GameState:FilterDamage(filterTable)
 
 	return true
 
+end
+
+
+function GameState:GetDifficultyFactor()
+	return 3
 end
