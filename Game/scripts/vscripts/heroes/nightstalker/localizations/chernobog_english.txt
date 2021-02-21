@@ -285,7 +285,7 @@
 		"item_rpc_chernobog_glyph_5_1_description" 				"Upon arrival from a Sudden Strike teleport, Chernobog performs <% CHERNOBOG_GLYPH_5_1_HIT_COUNT %> instant attacks against all enemies within <% CHERNOBOG_GLYPH_5_1_RADIUS %> range."
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_6_1"		"[T6-1] Glyph of Fury Swipes"
-		"item_rpc_chernobog_glyph_6_1_description" 				"Increase max stacks of [W3] by <% CHERNOBOG_GLYPH_6_1_W3_MAX_STACK_BONUS %>, and each attack will apply <% CHERNOBOG_GLYPH_6_1_ADDITION_STACK %> additional stack of both effects."
+		"item_rpc_chernobog_glyph_6_1_description" 				"Increase max stacks of [W3] by <% CHERNOBOG_GLYPH_6_1_W3_MAX_STACK_BONUS %>, and each attack will apply <% CHERNOBOG_GLYPH_6_1_ADDITION_STACK %> additional stack of both effects, in addition, you will always have <font color='#ccff66'>20</font> stacks of [W3]."
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_7_1"		"[T7-1] Glyph of Dreadfast"
 		"item_rpc_chernobog_glyph_7_1_description" 				"Reduce @Ability2 damage truncation threshold by <% CHERNOBOG_GLYPH_7_1_W_THRESHOLD_REDUC %>% of Chernobog's maximum health."
