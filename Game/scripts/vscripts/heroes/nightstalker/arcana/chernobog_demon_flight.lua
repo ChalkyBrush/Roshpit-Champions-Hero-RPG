@@ -429,34 +429,34 @@ function modifier_chernobog_arcana_e2_effect:OnIntervalThink()
 		for _, enemy in pairs(enemies) do
 			if IsValidEntity(enemy) then
 				if enemy.mainBoss or enemy.isBossFFS then
-					bonus_stacks = bonus_stacks + 10
+					bonus_stacks = bonus_stacks + 6
 				elseif enemy.paragon then
-					bonus_stacks = bonus_stacks + 5
+					bonus_stacks = bonus_stacks + 3
 				else	
 					bonus_stacks = bonus_stacks + 1
 				end
 			end
 		end
 	end
-	self:SetStackCount(math.min(bonus_stacks, 20))
+	self:SetStackCount(math.min(bonus_stacks, 10))
 end
 	
 function modifier_chernobog_arcana_e2_effect:GetRoshpitMasterGreenDMG()
 	local caster = self:GetCaster()
 	local e_2_level = caster:GetModifierStackCount("modifier_chernobog_arcana_e2_count", caster)
-	return e_2_level * CHERNOBOG_ARCANA2_E2_ATT_PCT *( self:GetStackCount() * 0.05 + 1)
+	return e_2_level * CHERNOBOG_ARCANA2_E2_ATT_PCT *( self:GetStackCount() * 0.1 + 1)
 end
 
 function modifier_chernobog_arcana_e2_effect:GetModifierMoveSpeedBonus_Constant()
 	local caster = self:GetCaster()
 	local e_2_level = caster:GetModifierStackCount("modifier_chernobog_arcana_e2_count", caster)
-	return e_2_level * CHERNOBOG_ARCANA2_E2_MS_AND_CAP_BONUS *( self:GetStackCount() * 0.05 + 1)
+	return e_2_level * CHERNOBOG_ARCANA2_E2_MS_AND_CAP_BONUS *( self:GetStackCount() * 0.1 + 1)
 end
 
 function modifier_chernobog_arcana_e2_effect:GetModifierMoveSpeed_Max_Increase()
 	local caster = self:GetCaster()
 	local e_2_level = caster:GetModifierStackCount("modifier_chernobog_arcana_e2_count", caster)
-	return e_2_level * CHERNOBOG_ARCANA2_E2_MS_AND_CAP_BONUS *( self:GetStackCount() * 0.05 + 1)
+	return e_2_level * CHERNOBOG_ARCANA2_E2_MS_AND_CAP_BONUS *( self:GetStackCount() * 0.1 + 1)
 end
 
 ----------DEMON FLIGHT BASE END------------
