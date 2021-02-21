@@ -325,11 +325,14 @@ function chernobog_demon_hunter:ModifyStacks(caster, target, modifier_name, stac
 		minStacks = 20
 	end
 	if changeTarget then
-		stackCount = math.max(minStacks, stackCount * CHERNOBOG_W3_STACK_LOSE_PCT / 100 + stacks)
+	    if (stackCount * CHERNOBOG_W3_STACK_LOSE_PCT / 100) > minStacks then
+		    stackCount = math.min(maxStacks, stackCount * CHERNOBOG_W3_STACK_LOSE_PCT / 100 + stacks)
+		else
+		    stackCount = minStacks + stacks
+		end
 	else
-		stackCount = stackCount + stacks
+		stackCount = math.min(stackCount + stacks, maxStacks)
 	end
-	stackCount = math.min(stackCount, maxStacks)
 	ApplyModifier(caster, target, self, modifier_name, duration, stackCount)
 end
 
