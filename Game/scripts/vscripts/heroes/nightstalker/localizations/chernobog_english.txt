@@ -246,7 +246,7 @@
     	"DOTA_Tooltip_ability_chernobog_rune_e_1_arcana2_suffix_two"				"%"
 
   		"DOTA_Tooltip_ability_chernobog_rune_e_2_arcana2"						"[E2] Overwhelming Odds"
-    	"DOTA_Tooltip_ability_chernobog_rune_e_2_arcana2_Description"			"Passively increase Chernobog's attack damage, movespeed and movespeed cap, and each enemy unit within <font color='#ccff66'>600</font> range will further increase the bonus by <font color='#ccff66'>5</font>%. Bosses count as <font color='#ccff66'>10</font> enemies, while Paragon units count as <font color='#ccff66'>5</font> enemies. These bonuses are capped at <font color='#ccff66'>20</font> enemies, no matter how many more are within range."
+    	"DOTA_Tooltip_ability_chernobog_rune_e_2_arcana2_Description"			"Passively increase Chernobog's attack damage, movespeed and movespeed cap, and each enemy unit within <font color='#ccff66'>600</font> range will further increase the bonus by <font color='#ccff66'>10</font>%. Bosses count as <font color='#ccff66'>6</font> enemies, while Paragon units count as <font color='#ccff66'>3</font> enemies. These bonuses are capped at <font color='#ccff66'>10</font> enemies, no matter how many more are within range."
     	"DOTA_Tooltip_ability_chernobog_rune_e_2_arcana2_property_one"			"Attack Damage"
     	"DOTA_Tooltip_ability_chernobog_rune_e_2_arcana2_suffix"				"%"
 		"DOTA_Tooltip_ability_chernobog_rune_e_2_arcana2_property_two"			"Movespeed and Movespeed Cap"
@@ -279,7 +279,7 @@
 		"item_rpc_chernobog_glyph_3_1_description" 				"Each enemy hit by @Ability1 reduces the cooldown of @Ability4 by <% CHERNOBOG_GLYPH_3_1_CD_DEC %> seconds. Additionally, @Ability1 is cast for free after channeling @Ability4."
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_4_1"		"[T4-1] Glyph of Penumbra"
-		"item_rpc_chernobog_glyph_4_1_description" 				"Increase the effectiveness of [R2] by <% CHERNOBOG_GLYPH_4_1_R2_AMP %>%."
+		"item_rpc_chernobog_glyph_4_1_description" 				"Each point of movespeed that over <font color='#ccff66'>500</font> increase base ability damage by <% CHERNOBOG_GLYPH_4_1_BAD_OVER_THRES %>%."
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_5_1"		"[T5-1] Glyph of the Raging Demon"
 		"item_rpc_chernobog_glyph_5_1_description" 				"Upon arrival from a Sudden Strike teleport, Chernobog performs <% CHERNOBOG_GLYPH_5_1_HIT_COUNT %> instant attacks against all enemies within <% CHERNOBOG_GLYPH_5_1_RADIUS %> range."
