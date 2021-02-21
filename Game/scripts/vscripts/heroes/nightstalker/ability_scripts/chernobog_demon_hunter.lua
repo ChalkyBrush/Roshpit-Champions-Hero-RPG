@@ -253,7 +253,20 @@ function modifier_chernobog_w_passive:OnIntervalThink()
 	if not IsServer() then
 		return
 	end
-	ModifierThink(self:GetCaster(), self:GetAbility(), DOTA_W_SLOT, "w", nil, false)
+	local caster = self:GetCaster()
+	local ability = self:GetAbility()
+	local w_3_level = caster:GetRuneValue("w", 3)
+	ModifierThink(caster, ability, DOTA_W_SLOT, "w", nil, false)
+	if w_3_level > 0 and caster:HasModifier("modifier_chernobog_glyph_6_1") then
+	    if not caster:HasModifier("modifier_chernobog_w3_active") then
+		    ApplyModifier(caster, caster, ability, "modifier_chernobog_w3_active", CHERNOBOG_W3_DURATION, 20)
+		else
+		    local stacks = caster:GetModifierStackCount("modifier_chernobog_w3_active", caster)
+			if not (stacks > 20) then
+			    ApplyModifier(caster, caster, ability, "modifier_chernobog_w3_active", CHERNOBOG_W3_DURATION, 20)
+			end
+	    end
+	end
 end
 
 function modifier_chernobog_w_passive:OnAttackLanded(event)
@@ -305,15 +318,18 @@ function chernobog_demon_hunter:ModifyStacks(caster, target, modifier_name, stac
 		return
 	end
 	local stackCount = target:GetModifierStackCount(modifier_name, caster)
+	local minStacks = 0
 	if caster:HasModifier("modifier_chernobog_glyph_6_1") then
 		stacks = stacks + CHERNOBOG_GLYPH_6_1_ADDITION_STACK
 		maxStacks = maxStacks + CHERNOBOG_GLYPH_6_1_W3_MAX_STACK_BONUS
+		minStacks = 20
 	end
 	if changeTarget then
-		stackCount = math.min(stackCount * CHERNOBOG_W3_STACK_LOSE_PCT / 100 + stacks, maxStacks)
+		stackCount = math.max(minStacks, stackCount * CHERNOBOG_W3_STACK_LOSE_PCT / 100 + stacks)
 	else
-		stackCount = math.min(stackCount + stacks, maxStacks)
+		stackCount = stackCount + stacks
 	end
+	stackCount = math.min(stackCount, maxStacks)
 	ApplyModifier(caster, target, self, modifier_name, duration, stackCount)
 end
 
