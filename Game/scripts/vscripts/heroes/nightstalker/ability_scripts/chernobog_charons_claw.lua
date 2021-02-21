@@ -5,9 +5,6 @@ chernobog_charons_claw = class(base_ability)
 modifier_charons_claw_passive = class(npc_base_modifier, nil, npc_base_modifier)
 LinkLuaModifier("modifier_charons_claw_passive", "heroes/nightstalker/ability_scripts/chernobog_charons_claw.lua", LUA_MODIFIER_MOTION_NONE)
 
-modifier_charons_claw_path_aura_base = class(npc_base_modifier, nil, npc_base_modifier)
-LinkLuaModifier("modifier_charons_claw_path_aura_base", "heroes/nightstalker/ability_scripts/chernobog_charons_claw.lua", LUA_MODIFIER_MOTION_NONE)
-
 modifier_charons_claw_on_path = class(npc_base_modifier, nil, npc_base_modifier)
 LinkLuaModifier("modifier_charons_claw_on_path", "heroes/nightstalker/ability_scripts/chernobog_charons_claw.lua", LUA_MODIFIER_MOTION_NONE)
 
@@ -38,7 +35,7 @@ function chernobog_charons_claw:GetAbilitySlot()
 end
 
 function chernobog_charons_claw:GetCastPoint()
-    return 0.35
+    return 0.25
 end
 
 function chernobog_charons_claw:GetCastRange()
@@ -50,8 +47,11 @@ function chernobog_charons_claw:GetCooldownBase(level)
 end
 
 function chernobog_charons_claw:GetWidth()
-	local width = CalculateFinalRadius(self:GetCaster(), 160, DOTA_Q_SLOT)
-	return width
+	return CalculateFinalRadius(self:GetCaster(), 160, DOTA_Q_SLOT)
+end
+
+function chernobog_charons_claw:GetLength()
+	return self:GetSpecialValueFor('range') + self:GetCaster():GetRuneValue("q", 4) * CHERNOBOG_Q4_RANGE
 end
 
 function chernobog_charons_claw:GetIntrinsicModifierName()
@@ -69,52 +69,25 @@ function chernobog_charons_claw:InitValues()
     local ability = self
 	local caster = self:GetCaster()	
 	ability.damage = ability:GetSpecialValueFor('damage')
-	ability.range = ability:GetSpecialValueFor('range')
-	if caster:GetRuneValue("q", 4) > 0 then
-		ability.range = ability.range + caster:GetRuneValue("q", 4) * CHERNOBOG_Q4_RANGE
-	end
+	ability.range = ability:GetLength()
 	ability.width = self:GetWidth()
 end
 
 function chernobog_charons_claw:OnSpellStart()
+	self:InitValues()
+	local target = self:GetCastPosition()
     local ability = self
 	local caster = self:GetCaster()
-    local target = self:GetCastPosition()
-	self:InitValues()
-
-	if not ability.claw_table then
-		ability.claw_table = {}
-	end
-	if not ability.projectile_id then
-		ability.projectile_id = 0
-	else
-		if ability.projectile_id > 1000 then
-			ability.projectile_id = 0
-		end
-		ability.projectile_id = ability.projectile_id + 1
-	end
-
-	local speed = 800
+	local speed = ability.range * 1.5
 	local fv = ((target - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
-
-	local new_claw = {}
-	local casterOrigin = caster:GetAbsOrigin()
-	new_claw.projectile_id = ability.projectile_id
-	new_claw.startPosition = casterOrigin - fv * 80
-	new_claw.targetPosition = new_claw.startPosition + fv*ability.range
-	new_claw.destroy_time = GameRules:GetGameTime() + self:GetClawPathDuration()
-	new_claw.interval = 0
-	new_claw.thinker_table = {}
-	
-
+	local startPosition = caster:GetAbsOrigin() - fv * 80
 	EmitSoundOn("Chernobog.CharonsClaw", caster)
-
 	local projectileParticle = ""--"particles/roshpit/chernobog/charons_clawpectral_dagger.vpcf"
 	local info =
 	{
 		Ability = ability,
 		EffectName = projectileParticle,
-		vSpawnOrigin = new_claw.startPosition,
+		vSpawnOrigin = startPosition,
 		fDistance = ability.range,
 		fStartRadius = ability.width,
 		fEndRadius = ability.width,
@@ -125,77 +98,68 @@ function chernobog_charons_claw:OnSpellStart()
 		iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
 		iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
 		iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-		fExpireTime = GameRules:GetGameTime() + 3.0,
-		bDeleteOnHit = false,
+		fExpireTime = GameRules:GetGameTime() + ability:GetClawPathDuration(),
+		bDeleteOnHit = true,
 		vVelocity = fv * speed,
 		bProvidesVision = true,
 		iVisionRadius = 500,
 		iVisionTeamNumber = caster:GetTeamNumber(),
-		ExtraData = {projectileID = new_claw.projectile_id}
+		ExtraData = {}
 	}
 	local projectile = Filters:LinearProjectile(info)
-	new_claw.projectile = projectile
-	table.insert(ability.claw_table, new_claw)
-
+	local thinkers = math.floor(ability.range / 100) - 2
+	local end_time = ability.range / speed
+	local thinker_create_interval = end_time / thinkers
+	for i = 1, thinkers, 1 do
+		Timers:CreateTimer(i * thinker_create_interval, function()
+			local thinkerPos = GetGroundPosition(caster:GetAbsOrigin() + fv * 100 * (i - 1) + fv * 80, caster)
+			ability:CreateThinkerParticle(thinkerPos, i * thinker_create_interval)
+			if i == (thinkers - 2) then
+				AddFOWViewer(caster:GetTeamNumber(), thinkerPos + fv * 200, 400, 3, false)
+			end
+		end)
+	end
+	ability:StartClawThink(caster, startPosition, target, ability.width)
 	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 end
 
-function chernobog_charons_claw:GetClawObjectFromProjectileID(projectile_id)
-	local ability = self
-	local projectile = nil
-	for key, claw in pairs(ability.claw_table) do
-		if claw.projectile_id == projectile_id then
-			projectile = claw
-			break
-		end
-	end
-	return projectile
+function chernobog_charons_claw:StartClawThink(caster, start_point, end_point, width)
+    local ability = self
+	local duration = ability:GetClawPathDuration()
+	local interval = 0.2
+	local loops = math.floor(duration / interval)
+	for i = 1, loops, 1 do
+	    Timers:CreateTimer( i * interval, function()
+		    local units = FindUnitsInLine(caster:GetTeamNumber(), start_point, end_point, caster, width, DOTA_UNIT_TARGET_TEAM_BOTH,  DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES)
+		    if #units > 0 then
+			    for _, unit in pairs(units) do
+			        unit:AddNewModifier(caster, ability, "modifier_charons_claw_on_path", {duration = 3})
+			    end
+		    end
+	    end)
+    end
 end
 
-function chernobog_charons_claw:OnProjectileThink_ExtraData(vLoc, extraData)
+function chernobog_charons_claw:CreateThinkerParticle(vLoc, destroy_interval)
 	local caster = self:GetCaster()
-	local ability = self
-	local claw = self:GetClawObjectFromProjectileID(extraData.projectileID)
-	claw.interval = claw.interval + 1
-	if claw.interval%0.5 == 0 then
-		self:CreateClawThinker(claw, vLoc)
-		AddFOWViewer(caster:GetTeamNumber(), vLoc, 400, 3, false)
-	end
-end
-
-function chernobog_charons_claw:CreateClawThinker(claw, vLoc)
-	local caster = self:GetCaster()
-	local thinkerPos = vLoc
-	local thinker_object = CreateUnitByName("npc_dummy_unit", vLoc, true, caster, caster, caster:GetTeamNumber())
-    thinker_object:FindAbilityByName("dummy_unit"):SetLevel(1)
-    thinker_object.particle = ParticleManager:CreateParticle("particles/roshpit/chernobog/charon_ground.vpcf", PATTACH_WORLDORIGIN, nil)
-    thinker_object:AddNewModifier(caster, self, "modifier_charons_claw_path_aura_base", {})
-    --ParticleManager:SetParticleControlEnt(self.particle, 0, target, PATTACH_POINT, "attach_hitloc", target:GetAbsOrigin(), true)
-    ParticleManager:SetParticleControl(thinker_object.particle, 0, vLoc)
-    ParticleManager:SetParticleControl(thinker_object.particle, 1, Vector(self.width, 1, 1))
-    ParticleManager:SetParticleControl(thinker_object.particle, 15, Vector(255, 255, 255))
-    ParticleManager:SetParticleControl(thinker_object.particle, 16, Vector(1, 0, 0))
-	table.insert(claw.thinker_table, thinker_object)
+	local width = self.width
+	local pfx = ParticleManager:CreateParticle("particles/roshpit/chernobog/charon_ground.vpcf", PATTACH_WORLDORIGIN, caster)
+    ParticleManager:SetParticleControl(pfx, 0, vLoc)
+    ParticleManager:SetParticleControl(pfx, 1, Vector(width, 1, 1))
+    ParticleManager:SetParticleControl(pfx, 15, Vector(255, 255, 255))
+    ParticleManager:SetParticleControl(pfx, 16, Vector(1, 0, 0))
+    Timers:CreateTimer(self:GetClawPathDuration() + destroy_interval * 2, function()
+        ParticleManager:DestroyParticle(pfx, true)
+	end)
 end
 
 function chernobog_charons_claw:OnProjectileHit_ExtraData(target, vLocation, extraData)
 	local caster = self:GetCaster()
 	local ability = self
-	local R_ability = caster:GetAbilityByIndex(DOTA_R_SLOT)	
 	if target then
 		EmitSoundOn("Chernobog.CharonsClawImpact", target)
 		self:DealDamage(target, true)
-		target:AddNewModifier(caster, self, "modifier_charons_claw_debuff", {})
-		if R_ability then
-			if caster:HasModifier("modifier_chernobog_glyph_3_1") then
-				local cdRemaining = R_ability:GetCooldownTimeRemaining()
-				if cdRemaining > 0 then
-				local newCD = math.max(0, cdRemaining - CHERNOBOG_GLYPH_3_1_CD_DEC)
-				R_ability:EndCooldown()
-				R_ability:StartCooldown(newCD)
-				end
-			end
-		end
+		target:AddNewModifier(caster, self, "modifier_charons_claw_debuff", {duration = 6})
 	end
 end
 
@@ -219,36 +183,7 @@ function chernobog_charons_claw:DealDamage(hTarget, bInitHit)
 	end
 end
 
-function chernobog_charons_claw:ReindexClawTable()
-	local ability = self
-	if ability.claw_table then
-		local new_claw_table = {}
-		for i = 1, #ability.claw_table, 1 do
-			local claw = ability.claw_table[i]
-			if claw.destroy_time <= GameRules:GetGameTime() then
-				self:DestroyClaw(claw)
-				claw = nil
-			else
-				table.insert(new_claw_table, claw)
-			end
-		end
-		ability.claw_table = new_claw_table
-	end
-end
-
-function chernobog_charons_claw:DestroyClaw(claw)
-	for i = 1, #claw.thinker_table, 1 do
-	    local interval = 0.2 + i / 6
-	    Timers:CreateTimer( interval, function()
-		    local sub_claw = claw.thinker_table[i]
-		    ParticleManager:DestroyParticle(sub_claw.particle, true)
-		    UTIL_Remove(sub_claw)
-		end)
-	end
-end
-
 -- CHARONS CLAW PASSIVE
-
 function modifier_charons_claw_passive:IsHidden()
 	return true
 end
@@ -269,48 +204,10 @@ function modifier_charons_claw_passive:OnIntervalThink()
 	if not IsServer() then
 		return false
 	end
-	self:GetAbility():ReindexClawTable()
 end
 
 function modifier_charons_claw_passive:GetRoshpitQFlatCdModifier()
-	return -math.min(self:GetCaster():GetRuneValue("q", 4) * CHERNOBOG_Q4_Q_CD_REDUC, CHERNOBOG_Q_CD - 0.5)
-end
--- PATH AURA
-
-function modifier_charons_claw_path_aura_base:IsHidden()
-	return true
-end
-
-function modifier_charons_claw_path_aura_base:IsAura()
-    return true
-end
-
-function modifier_charons_claw_path_aura_base:IsAuraActiveOnDeath()
-    return false
-end
-
-function modifier_charons_claw_path_aura_base:GetAuraRadius()
-    return self:GetAbility():GetWidth()
-end
-
-function modifier_charons_claw_path_aura_base:GetAuraSearchTeam()
-    return DOTA_UNIT_TARGET_TEAM_ENEMY + DOTA_UNIT_TARGET_TEAM_FRIENDLY
-end
-
-function modifier_charons_claw_path_aura_base:GetAuraSearchType()
-    return (DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC)
-end
-
-function modifier_charons_claw_path_aura_base:GetAuraSearchFlags()
-    return DOTA_UNIT_TARGET_FLAG_NONE + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
-end
-
-function modifier_charons_claw_path_aura_base:RemoveOnDeath()
-    return false
-end
-
-function modifier_charons_claw_path_aura_base:GetModifierAura()
-    return "modifier_charons_claw_on_path"
+	return -1 * self:GetCaster():GetRuneValue("q", 4) * CHERNOBOG_Q4_Q_CD_REDUC
 end
 
 -- ON CLAW EFFECT
@@ -328,10 +225,10 @@ function modifier_charons_claw_on_path:OnCreated()
 	if not IsServer() then
 		return false
 	end
-	if ability:GetCaster():GetTeamNumber() == self:GetParent():GetTeamNumber() then
+	if not (self:IsDebuff() == true) then
 		ability.allow_terrain_traverse = true
 		self:StartIntervalThink(0.03)
-	elseif self:GetParent():GetTeamNumber() ~= ability:GetCaster():GetTeamNumber() then
+	else
 		self:StartIntervalThink(0.5)
 	end
 end
@@ -342,7 +239,7 @@ function modifier_charons_claw_on_path:CheckState()
 		return false
 	end
 	local state = {}
-	if ability:GetCaster():GetTeamNumber() == self:GetParent():GetTeamNumber() then
+	if not (self:IsDebuff() == true) then
 		state = {
 			[MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY] = ability.allow_terrain_traverse,
 		}
@@ -378,7 +275,7 @@ function modifier_charons_claw_on_path:OnIntervalThink()
 	local caster = self:GetCaster()
 	local parent = self:GetParent()
 	local ability = self:GetAbility()
-	if caster:GetTeamNumber() == parent:GetTeamNumber() then
+	if not (self:IsDebuff() == true) then
 	    if ability.allow_terrain_traverse then
 	        local newPos = caster:GetAbsOrigin() + caster:GetForwardVector() * 62
 	        local obstruction = WallPhysics:FindNearestObstruction(caster:GetAbsOrigin() * Vector(1, 1, 0))
@@ -391,7 +288,7 @@ function modifier_charons_claw_on_path:OnIntervalThink()
 	    end
 	else
 		if not parent:HasModifier("modifier_charons_claw_debuff") then
-			parent:AddNewModifier(caster, ability,"modifier_charons_claw_debuff", {})
+			parent:AddNewModifier(caster, ability,"modifier_charons_claw_debuff", {duration = 6})
 		end
 	end
 end
@@ -402,10 +299,12 @@ function modifier_charons_claw_on_path:OnDestroy()
 	end
 	local caster = self:GetCaster()
 	local parent = self:GetParent()
-	local q_buff_duration = Filters:GetAdjustedBuffDuration(caster, CHERNOBOG_Q_LINGER_DURATION, false)
-	if (caster:GetTeamNumber() ~= parent:GetTeamNumber()) then
+	local q_buff_duration = 6
+	if self:IsDebuff() == true then
 		if parent:HasModifier("modifier_charons_claw_debuff") then
 			parent:FindModifierByName("modifier_charons_claw_debuff"):SetDuration(q_buff_duration, true)
+		else
+		    parent:AddNewModifier(caster, ability,"modifier_charons_claw_debuff", {duration = q_buff_duration})
 		end
 	end
 end
@@ -444,13 +343,17 @@ function modifier_charons_claw_debuff:OnIntervalThink()
 		local enemies = SearchEnemies(caster, parent, radius, false)			
 		if #enemies > 0 then
 			for _, enemy in pairs(enemies) do
-				ability:DealDamage(enemy, false)
-				CustomAbilities:QuickAttachParticle("particles/econ/items/nightstalker/nightstalker_black_nihility/nightstalker_black_nihility_void_hit_body_flash.vpcf", enemy, 0.5)
+			    if enemy:IsAlive() then
+				   ability:DealDamage(enemy, false)
+				   CustomAbilities:QuickAttachParticle("particles/econ/items/nightstalker/nightstalker_black_nihility/nightstalker_black_nihility_void_hit_body_flash.vpcf", enemy, 0.5)
+				end
 			end
 		end
 	else
-		ability:DealDamage(parent, false)
-		CustomAbilities:QuickAttachParticle("particles/econ/items/nightstalker/nightstalker_black_nihility/nightstalker_black_nihility_void_hit_body_flash.vpcf", parent, 0.5)
+	    if parent:IsAlive() then
+		    ability:DealDamage(parent, false)
+		    CustomAbilities:QuickAttachParticle("particles/econ/items/nightstalker/nightstalker_black_nihility/nightstalker_black_nihility_void_hit_body_flash.vpcf", parent, 0.5)
+		end
 	end
 	self:StartIntervalThink(interval)	
 end
