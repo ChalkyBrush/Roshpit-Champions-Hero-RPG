@@ -101,7 +101,7 @@ function arkimus_dimension_coil:OnSpellStart()
                             EmitSoundOnLocationWithCaster(enemies[1]:GetAbsOrigin(), "Arkimus.ZonisLightning", caster)
                         end
                         for _, enemy in pairs(enemies) do
-                            zonis_damage(enemy, caster, damage, ability)
+                            zonis_damage(enemy, caster, damage, ability, true)
                         end
                     end
                 end)
@@ -127,9 +127,11 @@ function arkimus_dimension_coil:OnSpellStart()
     end
 end
 
-function zonis_damage(enemy, caster, damage, ability)
-    enemy:AddNewModifier(caster, ability, "modifier_arkimus_stun", {duration = 0.2})
-    Filters:ApplyStun(caster, ARKIMUS_Q_STUN, enemy)
+function zonis_damage(enemy, caster, damage, ability, bStun)
+    if bStun == true then
+        enemy:AddNewModifier(caster, ability, "modifier_arkimus_stun", {duration = 0.2})
+        Filters:ApplyStun(caster, ARKIMUS_Q_STUN, enemy)
+	end
     Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, ARKIMUS_Q_DAMAGE_TYPE, BASE_ABILITY_Q, ARKIMUS_Q_ELEMENT1, ARKIMUS_Q_ELEMENT2)
     local q_1_level = caster:GetRuneValue("q", 1)
 	if q_1_level > 0 then
@@ -355,7 +357,11 @@ function modifier_arkimus_q_2_buff:OnIntervalThink()
         local enemies = FindUnitsInRadius(caster:GetTeamNumber(), casterOrigin, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
         if #enemies > 0 then
             for _, enemy in pairs(enemies) do
-                zonis_damage(enemy, caster, damage, ability)
+			    local stun = false
+			    if (self.count % self.procs_per_particle_duration == 0) or (self.count == 0) then
+				    stun = true
+				end
+                zonis_damage(enemy, caster, damage, ability, stun)
             end
         end
 		self.count = self.count + 1
