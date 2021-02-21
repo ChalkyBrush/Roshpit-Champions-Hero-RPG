@@ -310,6 +310,8 @@ function modifier_arkimus_q_2_buff:OnCreated()
     if q_3_level > 0 then
 	interval = interval / (1 + q_3_level * ARKIMUS_Q3_INTERVAL_REDUC_PCT / 100)
     end
+	self.count = 0
+	self.procs_per_particle_duration = math.floor(0.4 / interval)
     self:StartIntervalThink(interval)
 end
 
@@ -318,42 +320,45 @@ function modifier_arkimus_q_2_buff:OnIntervalThink()
         local caster = self:GetCaster()
         local ability = self:GetAbility()
         local q_2_level = caster:GetRuneValue("q", 2)
-	local q_3_level = caster:GetRuneValue("q", 3)
-	local q_4_level = caster:GetRuneValue("q", 4)
+	    local q_3_level = caster:GetRuneValue("q", 3)
+	    local q_4_level = caster:GetRuneValue("q", 4)
         local radius = ARKIMUS_Q2_RADIUS_BASE + q_3_level * ARKIMUS_Q3_RADIUS_AND_CAST_RANGE_BONUS
         local damage = q_2_level * ARKIMUS_Q2_DAMAGE
-	if q_4_level > 0 then
-		local armor = (caster:GetRoshpitArmor() + caster:GetRoshpitMagicArmor()) / 100
-		local bonus = 1 + armor * ARKIMUS_Q4_ADD_DMG_PCT / 100 * q_4_level
-		damage = damage * bonus
-	end	
-        local edges = 2 + math.max(math.ceil((q_3_level) * 0.1), 1)
-        casterOrigin = caster:GetAbsOrigin()
-        local endPointTable = {}
-        local midPointTable = {}
-        local baseFV = caster:GetForwardVector()
-        for i = 1, edges, 1 do
-            local rotatedVector = WallPhysics:rotateVector(baseFV, 2 * math.pi * i / edges)
-            local endPoint = casterOrigin + rotatedVector * radius + Vector(0, 0, 60)
-            CreateZonisBeam(casterOrigin + Vector(0, 0, 60), endPoint)
-            table.insert(endPointTable, endPoint)
-            table.insert(midPointTable, casterOrigin + rotatedVector * (radius / 2) + Vector(0, 0, 60))
-        end
-        for j = 1, #endPointTable, 1 do
-            if j < #endPointTable then
-                CreateZonisBeam(endPointTable[j], endPointTable[j + 1])
-                CreateZonisBeam(midPointTable[j], midPointTable[j + 1])
-            else
-                CreateZonisBeam(endPointTable[j], endPointTable[1])
-                CreateZonisBeam(midPointTable[j], midPointTable[1])
+	    if q_4_level > 0 then
+		    local armor = (caster:GetRoshpitArmor() + caster:GetRoshpitMagicArmor()) / 100
+		    local bonus = 1 + armor * ARKIMUS_Q4_ADD_DMG_PCT / 100 * q_4_level
+		    damage = damage * bonus
+	    end	
+	    if (self.count % self.procs_per_particle_duration == 0) or (self.count == 0) then
+            local edges = 2 + math.max(math.ceil((q_3_level) * 0.1), 1)
+            casterOrigin = caster:GetAbsOrigin()
+            local endPointTable = {}
+            local midPointTable = {}
+            local baseFV = caster:GetForwardVector()
+            for i = 1, edges, 1 do
+                local rotatedVector = WallPhysics:rotateVector(baseFV, 2 * math.pi * i / edges)
+                local endPoint = casterOrigin + rotatedVector * radius + Vector(0, 0, 60)
+                CreateZonisBeam(casterOrigin + Vector(0, 0, 60), endPoint)
+                table.insert(endPointTable, endPoint)
+                table.insert(midPointTable, casterOrigin + rotatedVector * (radius / 2) + Vector(0, 0, 60))
             end
-        end
+            for j = 1, #endPointTable, 1 do
+                if j < #endPointTable then
+                    CreateZonisBeam(endPointTable[j], endPointTable[j + 1])
+                    CreateZonisBeam(midPointTable[j], midPointTable[j + 1])
+                else
+                    CreateZonisBeam(endPointTable[j], endPointTable[1])
+                    CreateZonisBeam(midPointTable[j], midPointTable[1])
+                end
+            end
+		end
         local enemies = FindUnitsInRadius(caster:GetTeamNumber(), casterOrigin, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
         if #enemies > 0 then
             for _, enemy in pairs(enemies) do
                 zonis_damage(enemy, caster, damage, ability)
             end
         end
+		self.count = self.count + 1
         EmitSoundOnLocationWithCaster(casterOrigin, "Arkimus.ZonisLightning", caster)
     end
 end
