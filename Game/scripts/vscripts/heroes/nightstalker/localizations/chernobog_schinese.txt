@@ -247,7 +247,7 @@
     	"DOTA_Tooltip_ability_chernobog_rune_e_1_arcana2_suffix_two"			"%"
 
   		"DOTA_Tooltip_ability_chernobog_rune_e_2_arcana2"						"[E2] 异态碾压"
-    	"DOTA_Tooltip_ability_chernobog_rune_e_2_arcana2_Description"			"被动提高暗夜魔王的基础攻击力，移动速度和移动速度上限。每当周围<font color='#ccff66'>600</font>范围内有一个敌人存在时，这个效果将会被提高 <font color='#ccff66'>5</font>%, boss 视为 <font color='#ccff66'>10</font> 个单位，精英视为 <font color='#ccff66'>5</font> 个单位, 计数上限为 <font color='#ccff66'>20</font> 个单位。"
+    	"DOTA_Tooltip_ability_chernobog_rune_e_2_arcana2_Description"			"被动提高暗夜魔王的基础攻击力，移动速度和移动速度上限。每当周围<font color='#ccff66'>600</font>范围内有一个敌人存在时，这个效果将会被提高 <font color='#ccff66'>10</font>%, boss 视为 <font color='#ccff66'>6</font> 个单位，精英视为 <font color='#ccff66'>3</font> 个单位, 计数上限为 <font color='#ccff66'>10</font> 个单位。"
     	"DOTA_Tooltip_ability_chernobog_rune_e_2_arcana2_property_one"			"额外攻击力"
     	"DOTA_Tooltip_ability_chernobog_rune_e_2_arcana2_suffix"				"%"
 		"DOTA_Tooltip_ability_chernobog_rune_e_2_arcana2_property_two"			"额外移动速度和移动速度上限"
@@ -280,13 +280,13 @@
 		"item_rpc_chernobog_glyph_3_1_description" 				"@Ability1 击中敌人时将会降低 @Ability4 的冷却时间 <% CHERNOBOG_GLYPH_3_1_CD_DEC %> 秒。此外释放@Ability4 时将会释放一次 @Ability1。"
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_4_1"		"[T4-1] 残影雕文"
-		"item_rpc_chernobog_glyph_4_1_description" 				"提高[R2]的效果 <% CHERNOBOG_GLYPH_4_1_R2_AMP %>%。"
+		"item_rpc_chernobog_glyph_4_1_description" 				"每点高于<font color='#ccff66'>500</font>的移动速度提高基础技能伤害 <% CHERNOBOG_GLYPH_4_1_BAD_OVER_THRES %>%。"
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_5_1"		"[T5-1] 狂怒恶魔雕文"
 		"item_rpc_chernobog_glyph_5_1_description" 				"对 [E3] 的目标周围 <% CHERNOBOG_GLYPH_5_1_RADIUS %> 范围内的所有敌人普通攻击 <% CHERNOBOG_GLYPH_5_1_HIT_COUNT %t> 次。"
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_6_1"		"[T6-1] 怒意狂击雕文"
-		"item_rpc_chernobog_glyph_6_1_description" 				"增加 [W3] 的最大层数 <% CHERNOBOG_GLYPH_6_1_W3_MAX_STACK_BONUS %> 并且普通攻击额外施加 <% CHERNOBOG_GLYPH_6_1_ADDITION_STACK %> 层 [W3]。"
+		"item_rpc_chernobog_glyph_6_1_description" 				"增加 [W3] 的最大层数 <% CHERNOBOG_GLYPH_6_1_W3_MAX_STACK_BONUS %> 并且普通攻击额外施加 <% CHERNOBOG_GLYPH_6_1_ADDITION_STACK %> 层 [W3]，此外，你将会永久获得<font color='#ccff66'>20</font>层 [W3]。"
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_7_1"		"[T7-1] 恶魔之魂雕文"
 		"item_rpc_chernobog_glyph_7_1_description" 				"降低 @Ability2 的承伤阈值 <% CHERNOBOG_GLYPH_7_1_W_THRESHOLD_REDUC %>%。"
@@ -338,7 +338,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_chernobog_immortal_weapon_2"            	"卡律布迪斯的下颚"
         "item_property_chernobog_immortal_weapon2"                             	"卡律布狄斯的漩涡"
-        "property_chernobog_immortal_weapon2_description"                      	"造成物理伤害后，你的下一次魔法伤害将会提高 <% CHERNOBOG_IMMORTAL_WEAPON_2_MAGIC_BONUS %>% 并且回复 <% CHERNOBOG_IMMORTAL_WEAPON_2_MANA_RESTORE_WHEN_AMP %>%最大魔法值，造成魔法伤害后，你的下一次物理伤害将会提高 <% CHERNOBOG_IMMORTAL_WEAPON_2_PHYS_BONUS %>%并且回复 <% CHERNOBOG_IMMORTAL_WEAPON_2_HEALTH_RESTORE_WHEN_AMP %>%最大生命值，这个资料无视禁疗但是不能被提高或降低。"
+        "property_chernobog_immortal_weapon2_description"                      	"造成物理伤害后，你的下一次魔法伤害将会提高 <% CHERNOBOG_IMMORTAL_WEAPON_2_MAGIC_BONUS %>% 并且回复 <% CHERNOBOG_IMMORTAL_WEAPON_2_MANA_RESTORE_WHEN_AMP %>%最大魔法值，造成魔法伤害后，你的下一次物理伤害将会提高 <% CHERNOBOG_IMMORTAL_WEAPON_2_PHYS_BONUS %>%并且回复 <% CHERNOBOG_IMMORTAL_WEAPON_2_HEALTH_RESTORE_WHEN_AMP %>%最大生命值，这个治疗无视禁疗但是不能被提高或降低。"
 
         "DOTA_Tooltip_ability_item_rpc_chernobog_immortal_weapon_3"            	"恶魔的不洁之爪"
         "item_property_chernobog_immortal_weapon3"                             	"不洁侵袭"
