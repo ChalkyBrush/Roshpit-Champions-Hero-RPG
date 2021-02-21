@@ -213,10 +213,12 @@
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_power_ranger_gloves"								"金刚护手"
-    	"item_rpc_power_ranger_gloves_ruby1"								"提高护甲 @ruby_property1"
-    	"item_rpc_power_ranger_gloves_emerald1"								"提高物理穿透 @emerald_property1"
-    	"item_rpc_power_ranger_gloves_sapphire1"								"提高魔法穿透 @sapphire_property1"
-    	"item_rpc_power_ranger_gloves_amethyst1"								"提高魔甲 @amethyst_property1"
+    	"item_property_power_ranger_gloves"                                             "金刚之力"
+	"property_power_ranger_gloves_description"                                 "每点物理穿透和魔法穿透提高基础攻击力 <% ITEM_RPC_POWER_RANGER_DMG_PCT %> 。上限为 <% ITEM_RPC_POWER_RANGER_DMG_CAP %>。"
+    	"item_rpc_power_ranger_gloves_ruby1"								"提高该效果的基础攻击力上限 @ruby_property1。"
+    	"item_rpc_power_ranger_gloves_emerald1"								"每点物理穿透和魔法穿透额外提高基础攻击力 @emerald_property1"
+    	"item_rpc_power_ranger_gloves_sapphire1"								"提高全属性 @sapphire_property1"
+    	"item_rpc_power_ranger_gloves_amethyst1"								"提高基础技能伤害 @amethyst_property1%"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_grand_arcanist_wraps"							"奥术师包裹"
@@ -621,7 +623,7 @@
 		"DOTA_Tooltip_ability_item_rpc_world_commander_gloves"			"世界指挥官手套"
 
 		"item_property_world_commander_gloves"							"世界之力"
-		"property_world_commander_gloves_description"					"每点物理穿透和魔法穿透增加攻击力 <% ITEM_RPC_WORLD_COMMANDER_GLOVES_DMG_PCT %>%。"
+		"property_world_commander_gloves_description"					"每点物理穿透和魔法穿透增加攻击力 <% ITEM_RPC_WORLD_COMMANDER_GLOVES_DMG_PCT %>%。上限为<% ITEM_RPC_WORLD_COMMANDER_GLOVES_CAP %>。"
 
 		"item_rpc_world_commander_gloves_ruby1"				"增加 [Q4] 符文 @ruby_property1"
 		"item_rpc_world_commander_gloves_emerald1"			"增加 [E4] 符文 @emerald_property1"
