@@ -10,9 +10,6 @@ function ChernobogDealDamage(caster, target, damage, damageType, ability, elemen
 	local luck = RandomInt(1, 100)
 	local q_1_bonus = caster:GetRuneValue("q", 1) * CHERNOBOG_Q1_PROC_AMP / 100 + 1
 	local r_2_scale = CHERNOBOG_R2_BASE_ABILITY_AMP * caster:GetRuneValue("r", 2) / 100
-	if caster:HasModifier("modifier_chernobog_glyph_4_1") then
-		r_2_scale = r_2_scale * (1 + CHERNOBOG_GLYPH_4_1_R2_AMP / 100)
-	end
 	local r_2_bonus = r_2_scale
 	if caster:HasModifier("modifier_chernobog_glyph_6_2") and (caster:GetHealthPercent() < CHERNOBOG_GLYPH_6_2_THRESHOLD) then
 		damage = damage * (1 - CHERNOBOG_GLYPH_6_2_DMG_DEC / 100)
