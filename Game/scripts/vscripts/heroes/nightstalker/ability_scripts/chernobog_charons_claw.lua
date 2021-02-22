@@ -76,27 +76,44 @@ end
 function chernobog_charons_claw:OnSpellStart()
 	self:InitValues()
 	local target = self:GetCastPosition()
-        local ability = self
+    local ability = self
 	local caster = self:GetCaster()
 	local speed = ability.range * 1.5
 	local fv = ((target - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
 	local startPosition = caster:GetAbsOrigin() - fv * 80
 	EmitSoundOn("Chernobog.CharonsClaw", caster)
-	local end_time = ability.range / speed
+	local projectileParticle = ""--"particles/roshpit/chernobog/charons_clawpectral_dagger.vpcf"
+	local info =
+	{
+		Ability = ability,
+		EffectName = projectileParticle,
+		vSpawnOrigin = startPosition,
+		fDistance = ability.range,
+		fStartRadius = ability.width,
+		fEndRadius = ability.width,
+		Source = caster,
+		StartPosition = "attach_origin",
+		bHasFrontalCone = false,
+		bReplaceExisting = false,
+		iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+		iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+		iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+		fExpireTime = GameRules:GetGameTime() + ability:GetClawPathDuration(),
+		bDeleteOnHit = true,
+		vVelocity = fv * speed,
+		bProvidesVision = true,
+		iVisionRadius = 500,
+		iVisionTeamNumber = caster:GetTeamNumber(),
+		ExtraData = {}
+	}
+	local projectile = Filters:LinearProjectile(info)
 	local thinkers = math.floor(ability.range / 100) - 2
+	local end_time = ability.range / speed
 	local thinker_create_interval = end_time / thinkers
 	for i = 1, thinkers, 1 do
 		Timers:CreateTimer(i * thinker_create_interval, function()
 			local thinkerPos = GetGroundPosition(caster:GetAbsOrigin() + fv * 100 * (i - 1) + fv * 80, caster)
 			ability:CreateThinkerParticle(thinkerPos, i * thinker_create_interval)
-			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), thinkerPos, nil, ability:GetWidth(), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL,  DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-			if #enemies > 0 then
-			    for _, enemy in pairs(enemies) do
-				    EmitSoundOn("Chernobog.CharonsClawImpact", enemy)
-				    ability:DealDamage(enemy, true)
-				    ApplyModifier(caster, enemy, ability, "modifier_charons_claw_debuff", 6, nil) 
-				end
-			end
 			if i == (thinkers - 2) then
 				AddFOWViewer(caster:GetTeamNumber(), thinkerPos + fv * 200, 400, 3, false)
 			end
@@ -107,7 +124,7 @@ function chernobog_charons_claw:OnSpellStart()
 end
 
 function chernobog_charons_claw:StartClawThink(caster, start_point, end_point, width)
-        local ability = self
+    local ability = self
 	local duration = ability:GetClawPathDuration()
 	local interval = 0.2
 	local loops = math.floor(duration / interval)
@@ -127,13 +144,23 @@ function chernobog_charons_claw:CreateThinkerParticle(vLoc, destroy_interval)
 	local caster = self:GetCaster()
 	local width = self.width
 	local pfx = ParticleManager:CreateParticle("particles/roshpit/chernobog/charon_ground.vpcf", PATTACH_WORLDORIGIN, caster)
-        ParticleManager:SetParticleControl(pfx, 0, vLoc)
-        ParticleManager:SetParticleControl(pfx, 1, Vector(width, 1, 1))
-        ParticleManager:SetParticleControl(pfx, 15, Vector(255, 255, 255))
-        ParticleManager:SetParticleControl(pfx, 16, Vector(1, 0, 0))
-        Timers:CreateTimer(self:GetClawPathDuration() + destroy_interval * 2, function()
-            ParticleManager:DestroyParticle(pfx, true)
+    ParticleManager:SetParticleControl(pfx, 0, vLoc)
+    ParticleManager:SetParticleControl(pfx, 1, Vector(width, 1, 1))
+    ParticleManager:SetParticleControl(pfx, 15, Vector(255, 255, 255))
+    ParticleManager:SetParticleControl(pfx, 16, Vector(1, 0, 0))
+    Timers:CreateTimer(self:GetClawPathDuration() + destroy_interval * 2, function()
+        ParticleManager:DestroyParticle(pfx, true)
 	end)
+end
+
+function chernobog_charons_claw:OnProjectileHit_ExtraData(target, vLocation, extraData)
+	local caster = self:GetCaster()
+	local ability = self
+	if target then
+		EmitSoundOn("Chernobog.CharonsClawImpact", target)
+		self:DealDamage(target, true)
+		target:AddNewModifier(caster, self, "modifier_charons_claw_debuff", {duration = 6})
+	end
 end
 
 function chernobog_charons_claw:DealDamage(hTarget, bInitHit)
