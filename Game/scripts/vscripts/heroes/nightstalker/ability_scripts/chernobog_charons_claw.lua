@@ -76,7 +76,7 @@ end
 function chernobog_charons_claw:OnSpellStart()
 	self:InitValues()
 	local target = self:GetCastPosition()
-    local ability = self
+        local ability = self
 	local caster = self:GetCaster()
 	local speed = ability.range * 1.5
 	local fv = ((target - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
@@ -107,7 +107,7 @@ function chernobog_charons_claw:OnSpellStart()
 end
 
 function chernobog_charons_claw:StartClawThink(caster, start_point, end_point, width)
-    local ability = self
+        local ability = self
 	local duration = ability:GetClawPathDuration()
 	local interval = 0.2
 	local loops = math.floor(duration / interval)
@@ -127,12 +127,12 @@ function chernobog_charons_claw:CreateThinkerParticle(vLoc, destroy_interval)
 	local caster = self:GetCaster()
 	local width = self.width
 	local pfx = ParticleManager:CreateParticle("particles/roshpit/chernobog/charon_ground.vpcf", PATTACH_WORLDORIGIN, caster)
-    ParticleManager:SetParticleControl(pfx, 0, vLoc)
-    ParticleManager:SetParticleControl(pfx, 1, Vector(width, 1, 1))
-    ParticleManager:SetParticleControl(pfx, 15, Vector(255, 255, 255))
-    ParticleManager:SetParticleControl(pfx, 16, Vector(1, 0, 0))
-    Timers:CreateTimer(self:GetClawPathDuration() + destroy_interval * 2, function()
-        ParticleManager:DestroyParticle(pfx, true)
+        ParticleManager:SetParticleControl(pfx, 0, vLoc)
+        ParticleManager:SetParticleControl(pfx, 1, Vector(width, 1, 1))
+        ParticleManager:SetParticleControl(pfx, 15, Vector(255, 255, 255))
+        ParticleManager:SetParticleControl(pfx, 16, Vector(1, 0, 0))
+        Timers:CreateTimer(self:GetClawPathDuration() + destroy_interval * 2, function()
+            ParticleManager:DestroyParticle(pfx, true)
 	end)
 end
 
