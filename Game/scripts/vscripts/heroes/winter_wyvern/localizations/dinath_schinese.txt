@@ -147,9 +147,9 @@
     	"DOTA_Tooltip_ability_dinath_rune_w_1_arcana1_suffix"				"%"
 
     	"DOTA_Tooltip_ability_dinath_rune_w_2_arcana1"							"[W2] 冰霜震颤"
-    	"DOTA_Tooltip_ability_dinath_rune_w_2_arcana1_Description"				"<font color=ELEMENT_ICE>冰</font> 元素伤害受移速加成."
-    	"DOTA_Tooltip_ability_dinath_rune_w_2_arcana1_property_one"				"冰元素伤害提高"
-    	"DOTA_Tooltip_ability_dinath_rune_w_2_arcana1_suffix"					"% 移动速度"
+    	"DOTA_Tooltip_ability_dinath_rune_w_2_arcana1_Description"				"移动速度提高物理穿透和魔法穿透"
+    	"DOTA_Tooltip_ability_dinath_rune_w_2_arcana1_property_one"				"物理穿透和魔法穿透"
+    	"DOTA_Tooltip_ability_dinath_rune_w_2_arcana1_suffix"					"每点移动速度"
 
     	"DOTA_Tooltip_ability_dinath_rune_w_3_arcana1"							"[W3] 风洞"
     	"DOTA_Tooltip_ability_dinath_rune_w_3_arcana1_Description"				"被动提高移速和移动速度上限。开启或者关闭螺旋吐息的时候都会提高移速，但会随着时间衰减。"
