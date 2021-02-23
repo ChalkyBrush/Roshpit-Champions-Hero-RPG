@@ -76,7 +76,7 @@
     	"DOTA_Tooltip_ability_slipfinn_shadow_warp_cast_range"						"施法范围："
 		
 		"DOTA_Tooltip_ability_slipfinn_rune_e_1"									"[E1] 暗影刀"
-    	"DOTA_Tooltip_ability_slipfinn_rune_e_1_Description"						"攻击将额外造成一次 <font color=ELEMENT_SHADOW>暗</font> 元素伤害。伤害类型为纯粹。"
+    	"DOTA_Tooltip_ability_slipfinn_rune_e_1_Description"						"攻击将额外造成一次 <font color=ELEMENT_SHADOW>暗</font> 元素伤害。"
     	"DOTA_Tooltip_ability_slipfinn_rune_e_1_property_one"						"伤害"
     	"DOTA_Tooltip_ability_slipfinn_rune_e_1_suffix"								"% 攻击所造成的伤害"
 
