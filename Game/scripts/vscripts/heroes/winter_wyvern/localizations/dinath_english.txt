@@ -149,8 +149,8 @@
     	"DOTA_Tooltip_ability_dinath_rune_w_1_arcana1_suffix"				"%"
 
     	"DOTA_Tooltip_ability_dinath_rune_w_2_arcana1"							"[W2] Frost Flutter"
-    	"DOTA_Tooltip_ability_dinath_rune_w_2_arcana1_Description"				"Spell Pierce is enhanced by Movespeed."
-    	"DOTA_Tooltip_ability_dinath_rune_w_2_arcana1_property_one"				"Spell Pierce"
+    	"DOTA_Tooltip_ability_dinath_rune_w_2_arcana1_Description"				"Armor Pierce and Spell Pierce is enhanced by Movespeed."
+    	"DOTA_Tooltip_ability_dinath_rune_w_2_arcana1_property_one"				"Armor Pierce & Spell Pierce"
     	"DOTA_Tooltip_ability_dinath_rune_w_2_arcana1_suffix"					" per movespeed"
 
     	"DOTA_Tooltip_ability_dinath_rune_w_3_arcana1"							"[W3] Wind Tunnel"
