@@ -372,8 +372,10 @@
 		"arena_pit_conquest_shrine_of_karzhun"							"Kar'zhun的牧师"
 		"arena_pit_conquest_shrine_of_karzhun_Description"				"收到来自Kar'zhun的遗品"
 
-		"arena_pit_shrine_of_karzhun_option_1"							"给予所有金钱"
+		"arena_pit_shrine_of_karzhun_option_1"							"给予秘银水晶"
 		"arena_pit_shrine_of_karzhun_option_2"							"返回"	
+		"arena_karzhun_offering_tip"								"献祭至多 100,000 秘银水晶"
+
 
 		"DOTA_Tooltip_modifier_kharzun_buff"							"Kar'zhun的力量"
 
