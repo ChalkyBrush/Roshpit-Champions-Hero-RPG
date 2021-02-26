@@ -156,10 +156,21 @@ end
 function chernobog_charons_claw:OnProjectileHit_ExtraData(target, vLocation, extraData)
 	local caster = self:GetCaster()
 	local ability = self
+	local R_ability = caster:GetAbilityByIndex(DOTA_R_SLOT)	
 	if target then
 		EmitSoundOn("Chernobog.CharonsClawImpact", target)
 		self:DealDamage(target, true)
 		target:AddNewModifier(caster, self, "modifier_charons_claw_debuff", {duration = 6})
+		if R_ability then	
+			if caster:HasModifier("modifier_chernobog_glyph_3_1") then	
+				local cdRemaining = R_ability:GetCooldownTimeRemaining()	
+				if cdRemaining > 0 then	
+				    local newCD = math.max(0, cdRemaining - CHERNOBOG_GLYPH_3_1_CD_DEC)	
+				    R_ability:EndCooldown()	
+				    R_ability:StartCooldown(newCD)	
+				end	
+			end	
+		end
 	end
 end
 
