@@ -2556,12 +2556,11 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 mult = mult + WARLORD_E4_ICE_EARTH_FIRE_BONUS * attacker.e_4_level
             end
         elseif unitName == "npc_dota_hero_invoker" then
+            local q_4_level = attacker:GetRuneValue("q", 4) 
             if attacker:HasAbility("summon_earth_aspect") then
-		local q_4_level = attacker:GetRuneValue("q", 4) 
-		mult = mult + CONJUROR_Q4_EARTH_AND_FIRE_AMP * q_4_level
-	    elseif attacker:HasAbility("summon_earth_deity") then
-		local q_4_level = attacker:GetRuneValue("q", 4)
-		mult = mult + CONJUROR_ARCANA_Q4_EARTH_AMP * attacker.q_4_level / 100
+		 mult = mult + CONJUROR_Q4_EARTH_AND_FIRE_AMP * q_4_level
+	    else
+		 mult = mult + CONJUROR_ARCANA_Q4_EARTH_AMP * q_4_level / 100
 	    end
         elseif unitName == "npc_dota_hero_legion_commander" then
             if attacker:HasAbility("mountain_protector_aeon_fracture") then
