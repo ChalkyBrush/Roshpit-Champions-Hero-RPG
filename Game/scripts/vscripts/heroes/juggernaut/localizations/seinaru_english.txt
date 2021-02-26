@@ -217,7 +217,7 @@
 		"DOTA_Tooltip_ability_seinaru_rune_e_2_arcana2_property_two"			"Additional Targets"
     	"DOTA_Tooltip_ability_seinaru_rune_e_2_arcana2_suffix_two"				""
 
-    	"DOTA_Tooltip_modifier_seinaru_arcana_e2_effect"						"Lightsworn"
+    	"DOTA_Tooltip_modifier_seinaru_arcana_e2_effect"						"Gleaming"
     	"DOTA_Tooltip_modifier_seinaru_arcana_e2_effect_Description"			"<font color='#ccff66'>75</font>%% additional Physical resist"
 
 		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2"						"[E3] Sunwarrior's Vengeance"
