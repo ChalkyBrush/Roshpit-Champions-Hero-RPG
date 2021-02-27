@@ -458,8 +458,8 @@
 		"DOTA_Tooltip_modifier_stun_regen_applied_Description"		"大量生命回复."
 
 		"DOTA_Tooltip_ability_seafortress_heart_spike"					"咸鱼突刺"
-		"DOTA_Tooltip_ability_seafortress_heart_spike_Description"		"无视坚定对敌方造成最大生命百分比的伤害"
-		"DOTA_Tooltip_ability_seafortress_heart_spike_damage_percent"	"破坚定伤害 % 最大生命值:"
+		"DOTA_Tooltip_ability_seafortress_heart_spike_Description"		"对敌方造成最大生命百分比的伤害"
+		"DOTA_Tooltip_ability_seafortress_heart_spike_damage_percent"	" % 最大生命值伤害:"
 
 		"DOTA_Tooltip_ability_seafortress_illusory_orb"					"幻象法球"
 		"DOTA_Tooltip_ability_seafortress_illusory_orb_Description"		"释放法球伤害经过路径上的敌人. 仙女龙可以传送到法球所在位置."
