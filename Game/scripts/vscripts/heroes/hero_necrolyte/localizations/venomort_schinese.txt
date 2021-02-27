@@ -258,7 +258,7 @@
 		"item_rpc_venomort_glyph_6_2_description" 				"剧毒巫师的召唤物将拥有坚定，不包括装备的。"
 
 		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_7_2"		"[T7-2] 猝死雕文"
-		"item_rpc_venomort_glyph_7_2_description" 				"剧毒巫师对超过 @glyph_property1% 生命值的敌人拥有 @glyph_property2% 的税后增伤。"
+		"item_rpc_venomort_glyph_7_2_description" 				"剧毒巫师对超过 @glyph_property1% 生命值的敌人造成的伤害将会提高 @glyph_property2% 。"
 		
 		//Weapons
 		"venomort_weapon_01"			"符文镰刀"
