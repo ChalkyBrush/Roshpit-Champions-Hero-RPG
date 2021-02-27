@@ -86,7 +86,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one_base"			"20"
+				"property_one_base"			"0"
 			}
 			"03"
 			{
