@@ -343,7 +343,7 @@ function modifier_chernobog_arcana_e_passive:ProcE4(radius, interval)
 	local caster = self:GetCaster()
 	local R_ability = caster:GetAbilityByIndex(DOTA_R_SLOT)
 	local e_4_level = caster:GetRuneValue("e", 4)
-	local damage = e_4_level * CHERNOBOG_ARCANA2_E4_DMG_PCT * OverflowProtectedGetAverageTrueAttackDamage(caster) / 100
+	local damage = (e_4_level * CHERNOBOG_ARCANA2_E4_DMG_PCT + 20) * OverflowProtectedGetAverageTrueAttackDamage(caster) / 100
 	local enemies = SearchEnemies(caster, caster, radius, false)
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do
