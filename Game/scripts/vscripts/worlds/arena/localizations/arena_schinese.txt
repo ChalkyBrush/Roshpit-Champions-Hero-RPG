@@ -581,7 +581,7 @@
 		"arena_descent_boss"													"深渊憎恨者"
 
 		"DOTA_Tooltip_modifier_steadfast"													"坚定"
-		"DOTA_Tooltip_modifier_steadfast_Description"										"受到的伤害不会超过 %% 最大生命值"
+		"DOTA_Tooltip_modifier_steadfast_Description"										"大量减少受到的伤害"
 
 		"DOTA_Tooltip_ability_descent_boss_ai"								"厌恶"
 		"DOTA_Tooltip_ability_descent_boss_ai_Description"					"深渊被遗忘的怪物"
