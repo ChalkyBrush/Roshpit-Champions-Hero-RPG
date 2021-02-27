@@ -1118,8 +1118,8 @@
 		"DOTA_Tooltip_ability_fire_temple_shadow_strike_damage"				"魔法伤害附加:"
 
 		"DOTA_Tooltip_ability_normal_steadfast"							"坚定"
-		"DOTA_Tooltip_ability_normal_steadfast_Description"				"受到的单次攻击不会超过最大生命值的某个百分比."
-		"DOTA_Tooltip_ability_normal_steadfast_max_damage"				"最大生命值百分比:"
+		"DOTA_Tooltip_ability_normal_steadfast_Description"				"降低受到伤害。"
+		"DOTA_Tooltip_ability_normal_steadfast_max_damage"				"%减伤:"
 
 		"DOTA_Tooltip_ability_fire_temple_frenzy"								"狂热"
 		"DOTA_Tooltip_ability_fire_temple_frenzy_Description"					"每一次成功的攻击都会增加攻击移动速度."	
@@ -1362,8 +1362,8 @@
 		"DOTA_Tooltip_ability_tanari_ancient_hero_wind_god_evasion"                         "闪避:"
 		
 		"DOTA_Tooltip_ability_ancient_god_steadfast"                                        "远古坚定"
-		"DOTA_Tooltip_ability_ancient_god_steadfast_Description"                            "每次伤害不能超过最大生命值的一定百分比"
-		"DOTA_Tooltip_ability_ancient_god_steadfast_max_damage"                             "最大生命值%:"
+		"DOTA_Tooltip_ability_ancient_god_steadfast_Description"                            "降低受到伤害。"
+		"DOTA_Tooltip_ability_ancient_god_steadfast_max_damage"                             "%伤害降低:"
 		
 		"DOTA_Tooltip_ability_ancient_god_dragon_slave"                                     "火焰浪潮"
 		"DOTA_Tooltip_ability_ancient_god_dragon_slave_Description"                         "向前方释放出一条燃烧的火龙，对一直线上的敌人造成伤害。"
