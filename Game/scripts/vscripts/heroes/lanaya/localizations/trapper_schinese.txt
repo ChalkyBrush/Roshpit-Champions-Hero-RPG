@@ -147,7 +147,7 @@
     	"DOTA_Tooltip_ability_trapper_backstab_damage_mult"			"伤害倍数："
 		
 		"DOTA_Tooltip_ability_trapper_rune_r_1"						"[R1] 致命刀锋"
-    	"DOTA_Tooltip_ability_trapper_rune_r_1_Description"			"背刺时猎人的刀光分裂 - 对附近敌人造成部分伤害，这个伤害基于背刺的伤害，并且和背刺一样无视坚定。"
+    	"DOTA_Tooltip_ability_trapper_rune_r_1_Description"			"背刺时猎人的刀光分裂 - 对附近敌人造成部分伤害，这个伤害基于背刺的伤害。"
     	"DOTA_Tooltip_ability_trapper_rune_r_1_property_one"		"分裂伤害"
     	"DOTA_Tooltip_ability_trapper_rune_r_1_suffix"				"%"	
 		
