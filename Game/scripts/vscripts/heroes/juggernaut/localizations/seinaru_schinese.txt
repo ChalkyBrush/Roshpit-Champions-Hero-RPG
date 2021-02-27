@@ -31,9 +31,9 @@
     	"DOTA_Tooltip_modifier_seinaru_rune_q_2_slow_Description"		"移动速度减少"
 		
     	"DOTA_Tooltip_ability_seinaru_rune_q_3"							"[Q3] 强风"
-    	"DOTA_Tooltip_ability_seinaru_rune_q_3_Description"				"被 @Ability1 击中的敌人，剑圣将根据移速差获得税后伤害加成"
-	"DOTA_Tooltip_ability_seinaru_rune_q_3_property_one"			"税后增伤"
-    	"DOTA_Tooltip_ability_seinaru_rune_q_3_suffix"					"% 每一点移速差"
+    	"DOTA_Tooltip_ability_seinaru_rune_q_3_Description"				"释放 @Ability1 将会获得基于神圣剑客移动速度的物理穿透和魔法穿透"
+	"DOTA_Tooltip_ability_seinaru_rune_q_3_property_one"			"物理穿透和魔法穿透"
+    	"DOTA_Tooltip_ability_seinaru_rune_q_3_suffix"					"每点移速"
 		
     	"DOTA_Tooltip_ability_seinaru_rune_q_4"							"[Q4] 微风细雨"
     	"DOTA_Tooltip_ability_seinaru_rune_q_4_Description"				"神圣剑客攻击力的一部分会附加到微风伤害中"
