@@ -446,7 +446,6 @@
 	"quest_4_challenge_5_sub_1_summary"									"在伤害面板上增加几条伤害记录"
 	"quest_4_challenge_5_sub_2_summary"									"改变假人的护甲"
 	"quest_4_challenge_5_sub_3_summary"									"赋予假人魔法免疫"
-	"quest_4_challenge_5_sub_4_summary"									"赋予假人坚定"
 
 	"tutorial_master_dialogue_4_5a"										"训练假人是衡量英雄战斗力的有用工具."
 	"tutorial_master_dialogue_4_5b"										"到训练假人那里通过攻击它打开面板!"
