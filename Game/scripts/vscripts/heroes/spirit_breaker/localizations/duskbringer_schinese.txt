@@ -122,8 +122,8 @@
 		"DOTA_Tooltip_ability_seven_visions_stun_duration"				"眩晕持续时间"
 		
 		"DOTA_Tooltip_ability_duskbringer_rune_r_1"						"[R1] 深度打击"
-		"DOTA_Tooltip_ability_duskbringer_rune_r_1_Description"			"@Ability4中的每次攻击将造成一次 700 范围的AOE魔法伤害。伤害基于 七重梦境 伤害加深前的伤害。"
-		"DOTA_Tooltip_ability_duskbringer_rune_r_1_property_one"		"伤害为 七重梦境 伤害的"
+		"DOTA_Tooltip_ability_duskbringer_rune_r_1_Description"			"@Ability4中的每次攻击将造成一次 700 范围的AOE魔法伤害。伤害基于 @Ability4。"
+		"DOTA_Tooltip_ability_duskbringer_rune_r_1_property_one"		"伤害为@Ability4 伤害的"
 		"DOTA_Tooltip_ability_duskbringer_rune_r_1_suffix"				"%"
 		
 		"DOTA_Tooltip_ability_duskbringer_rune_r_2"						"[R2] 末日"
