@@ -104,9 +104,9 @@
 		"DOTA_Tooltip_modifier_omniro_omni_mace_nature"						"全能权杖: 自然"
 		"DOTA_Tooltip_modifier_omniro_omni_mace_nature_Description"			"被缠绕并且每秒受到一次伤害"		
 
-		"omniro_undead_special_description"									"施加一个禁止治疗的debuff。施加一个buff来增加税后伤害，持续<% OMNIRO_UNDEAD_SPECIAL_DURATION %> 秒"
+		"omniro_undead_special_description"									"施加一个禁止治疗的debuff。施加一个buff来增加物理穿透，持续<% OMNIRO_UNDEAD_SPECIAL_DURATION %> 秒"
 		"omniro_undead_special_a_pretext"									"禁止治疗debuff持续时间："		
-		"omniro_undead_special_b_pretext"									"税后伤害增加 %："	
+		"omniro_undead_special_b_pretext"									"物理穿透提高："	
 
 		"omniro_dragon_special_description"									"施加一个 <% OMNIRO_DRAGON_SPECIAL_DURATION %> 秒的buff，增加物理穿透。"
 		"omniro_dragon_special_a_pretext"									"元素伤害增加："		
