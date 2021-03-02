@@ -6,11 +6,10 @@ require("heroes/util/channeling")
 --- SPECIAL FOR DEALING DAMAGE ---
 ----------------------------------
 function ChernobogDealDamage(caster, target, damage, damageType, ability, element1, element2, isDot, powerScale)
-	local R_ability = caster:GetAbilityByIndex(DOTA_R_SLOT)
 	local luck = RandomInt(1, 100)
 	local q_1_bonus = caster:GetRuneValue("q", 1) * CHERNOBOG_Q1_PROC_AMP / 100 + 1
-	local r_2_scale = CHERNOBOG_R2_BASE_ABILITY_AMP * caster:GetRuneValue("r", 2) / 100
-	local r_2_bonus = r_2_scale
+	local r_2_proc = CalculateR2Proc(caster, target)
+	
 	if caster:HasModifier("modifier_chernobog_glyph_6_2") and (caster:GetHealthPercent() < CHERNOBOG_GLYPH_6_2_THRESHOLD) then
 		damage = damage * (1 - CHERNOBOG_GLYPH_6_2_DMG_DEC / 100)
 	end
@@ -68,18 +67,39 @@ function ChernobogDealDamage(caster, target, damage, damageType, ability, elemen
 	end
 	if isDot == true then
 		Filters:ApplyDotDamage(caster, ability, target, damage, damageType, ability, element1, element2)
-		if R_ability and (R_ability:GetAbilityName() == "chernobog_nights_procession") and target:HasModifier("modifier_chernobog_r_effect") and (r_2_bonus > 0 ) then
-			damage = damage * r_2_bonus
-			Filters:ApplyDotDamage(caster, ability, target, damage, damageType, ability, element1, element2)
+		if r_2_proc > 0 then
+		    for i = 1, r_2_proc, 1 do
+		        Filters:ApplyDotDamage(caster, ability, target, damage, damageType, ability, element1, element2)
+			end
 		end
 	else
 		Filters:TakeArgumentsAndApplyDamage(target, caster, damage, damageType, ability, element1, element2)
-		if R_ability and (R_ability:GetAbilityName() == "chernobog_nights_procession") and target:HasModifier("modifier_chernobog_r_effect") and (r_2_bonus > 0 ) then
-			damage = damage * r_2_bonus
-			Filters:TakeArgumentsAndApplyDamage(target, caster, damage, damageType, ability, element1, element2)
+		if r_2_proc > 0 then
+		    for i = 1, r_2_proc, 1 do
+		        Filters:TakeArgumentsAndApplyDamage(target, caster, damage, damageType, ability, element1, element2)
+			end
 		end
 	end
 end
+
+function CalculateR2Proc(caster, target)
+    local R_ability = caster:GetAbilityByIndex(DOTA_R_SLOT)
+	local r_2_level = caster:GetRuneValue("r", 2)
+    local r_2_chance = CHERNOBOG_R2_CHANCE * r_2_level
+	if not ( R_ability and R_ability:GetAbilityName() == "chernobog_nights_procession") then
+	    return 
+	end
+    if target:HasModifier("modifier_chernobog_r_effect") then
+	    r_2_chance = r_2_chance * 3
+	end
+	local procs = ((r_2_chance) - ((r_2_chance) % 100)) / 100
+	if RandomInt(0, 100) < (r_2_chance) % 100 then
+		procs = procs + 1
+	end
+	print(procs)
+	return procs
+end
+
 
 --------------------
 --- RADIUS CALCU ---
