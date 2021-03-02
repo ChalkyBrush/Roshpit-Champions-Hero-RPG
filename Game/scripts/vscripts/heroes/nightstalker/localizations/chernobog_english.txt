@@ -159,9 +159,9 @@
     	"DOTA_Tooltip_modifier_nights_procession_a_d_rune_Description"			"Taking increased damage from Chernobog"	
 
     	"DOTA_Tooltip_ability_chernobog_rune_r_2"								"[R2] Night Stalker"
-    	"DOTA_Tooltip_ability_chernobog_rune_r_2_Description"					"Enemies trapped by @Ability4 are surrounded by Chernobog's shadows, which will duplicate any Ability damage that Chernobog deals to them. A duplicated damage instance is more powerful than the strike which caused it."
-    	"DOTA_Tooltip_ability_chernobog_rune_r_2_property_one"					"Duplicated Damage Bonus"
-    	"DOTA_Tooltip_ability_chernobog_rune_r_2_suffix"						"%"
+    	"DOTA_Tooltip_ability_chernobog_rune_r_2_Description"					"Grants a chance that cause Chernobog's shadows to duplicate any Ability damage that Chernobog deals to them, a chance greater than 100% means it can proc multiple times. In addition, the chance is trippled when Chernobog dealing damage to enemies trapped by @Ability4."
+    	"DOTA_Tooltip_ability_chernobog_rune_r_2_property_one"					"Proc Chance"
+    	"DOTA_Tooltip_ability_chernobog_rune_r_2_suffix"					"%"
 
     	"DOTA_Tooltip_ability_chernobog_rune_r_3"								"[R3] Black Cauldron"
     	"DOTA_Tooltip_ability_chernobog_rune_r_3_Description"					"Reduce the cooldown and channel time of @Ability4, while also increasing its radius."
