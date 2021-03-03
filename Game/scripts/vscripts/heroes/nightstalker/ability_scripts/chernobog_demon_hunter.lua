@@ -109,7 +109,6 @@ function modifier_demon_hunter:OnCreated()
 	self:SetSpecialTypes({
 		MODIFIER_ROSHPIT_MASTER_AS,
 		MODIFIER_ROSHPIT_EVENT_ATTACK_LAND,
-		MODIFIER_ROSHPIT_EVENT_FINAL_TAKE_DAMAGE
 	})
 	self.disableHealing = 0
 	self:StartIntervalThink(0.1)
