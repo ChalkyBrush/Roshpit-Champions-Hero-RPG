@@ -74,7 +74,7 @@
     	"DOTA_Tooltip_ability_chernobog_rune_w_3_property_two"					"Increased Attack Damage"
     	"DOTA_Tooltip_ability_chernobog_rune_w_3_suffix_two"					" per stack"
 	"DOTA_Tooltip_modifier_chernobog_w3_effect"							"Fervor"
-    	"DOTA_Tooltip_modifier_chernobog_w3_effect_Description"				"Each stack increases attacker's attack damage or reducing target's armor"
+    	"DOTA_Tooltip_modifier_chernobog_w3_effect_Description"				"Each stack increases attacker's attack damage or reducing target's armor and magic armor."
 
     	"DOTA_Tooltip_ability_chernobog_rune_w_4"								"[W4] Hunter's Marrow"
     	"DOTA_Tooltip_ability_chernobog_rune_w_4_Description"					"While @Ability2 is toggled off, gain bonus Strength. While toggled on, gain bonus Agility."
