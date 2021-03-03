@@ -74,10 +74,9 @@
     	"DOTA_Tooltip_ability_chernobog_rune_w_3_suffix"						" 每层"
     	"DOTA_Tooltip_ability_chernobog_rune_w_3_property_two"					"额外基础攻击力"
     	"DOTA_Tooltip_ability_chernobog_rune_w_3_suffix_two"					" 每层"
-		"DOTA_Tooltip_modifier_chernobog_w3_inactive"							"狂热 (敌方)"
-    	"DOTA_Tooltip_modifier_chernobog_w3_inactive_Description"				"魔甲和护甲降低。"	
-    	"DOTA_Tooltip_modifier_chernobog_w3_active"								"狂热 (自身)"
-    	"DOTA_Tooltip_modifier_chernobog_w3_active_Description"					"提高基础攻击力。"
+	"DOTA_Tooltip_modifier_chernobog_w3_effect"							"狂热"
+    	"DOTA_Tooltip_modifier_chernobog_w3_effect_Description"				"增加自身攻击力或者降低敌人的双甲。"	
+
 
     	"DOTA_Tooltip_ability_chernobog_rune_w_4"								"[W4] 猎人精髓"
     	"DOTA_Tooltip_ability_chernobog_rune_w_4_Description"					"@Ability2 关闭时获得额外力量，开启时获得额外敏捷。"
