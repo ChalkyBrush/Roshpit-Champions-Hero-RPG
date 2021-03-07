@@ -2413,11 +2413,13 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
     if element2 ~= RPC_ELEMENT_NONE then
         table.insert(elements, element2)
     end
-    Util.Modifier:SimpleEvent(attacker, 'GetRoshpitElementalDmgBonus', elements, { }, 
-        function(result, data)
-            mult = mult + result
-        end
-    )
+    for i = 1, #elements, 1 do
+        Util.Modifier:SimpleEvent(attacker, 'GetRoshpitElementalDmgBonus', {elements[i]}, { }, 
+            function(result, data)
+                mult = mult + result
+            end
+        )
+    end
     local newDamageCalculatorData = {
         victim = victim,
         attacker = attacker,
