@@ -39,17 +39,13 @@ function chernobog_demon_flight:GetCooldownBase(level)
 	return 7.5
 end
 
-function chernobog_demon_flight:GetDuration()
-	return self:GetSpecialValueFor("duration")
-end
-
 function chernobog_demon_flight:GetIntrinsicModifierName()
 	return "modifier_chernobog_arcana_e_passive"
 end
 
 function chernobog_demon_flight:OnSpellStart()
 	local caster = self:GetCaster()
-	local duration = Filters:GetAdjustedBuffDuration(caster, self:GetDuration(), false)
+	local duration = Filters:GetAdjustedBuffDuration(caster, self:GetSpecialValueFor("duration"), false)
 	caster:AddNewModifier(caster, self, "modifier_chernobog_demon_flight", {duration = duration})
 	caster:AddNewModifier(caster, self, "modifier_chernobog_demon_flight_flying_thinker", {duration = duration})
 	EmitSoundOn("Chernobog.DemonFlight.Start", caster)
@@ -69,6 +65,17 @@ function swap_to_demon_warp(caster, ability, base_name, duration)
 			caster:AddNewModifier(caster, warp_ability, "modifier_chernobog_arcana_e1_freecast", {duration = duration}):SetStackCount(procs)
 		end
 	end
+end
+
+function SwapAbility(caster)
+	if caster:GetAbilityByIndex(DOTA_E_SLOT):GetAbilityName() == "chernobog_demon_warp" then
+        if caster:HasModifier("modifier_chernobog_demon_form")then
+            CustomAbilities:AddAndOrSwapSkill(caster, "chernobog_demon_warp", "chernobog_demon_walk", 2)
+		else
+            CustomAbilities:AddAndOrSwapSkill(caster, "chernobog_demon_warp", "chernobog_demon_flight", 2)
+		end
+    end
+	caster:RemoveModifierByName("modifier_chernobog_arcana_e1_freecast")
 end
 
 --modifiers
@@ -187,14 +194,7 @@ function modifier_chernobog_demon_flight:OnDestroy()
 		    StartAnimation(caster, {duration = 1.3, activity = ACT_DOTA_TELEPORT, rate = 1})
 		end
 	end)
-	if caster:GetAbilityByIndex(DOTA_E_SLOT):GetAbilityName() == "chernobog_demon_warp" then
-		if caster:GetAbilityByIndex(DOTA_R_SLOT):GetAbilityName() == "chernobog_demon_morph" then
-			CustomAbilities:AddAndOrSwapSkill(caster, "chernobog_demon_warp", "chernobog_demon_walk", 2)
-		else
-			CustomAbilities:AddAndOrSwapSkill(caster, "chernobog_demon_warp", "chernobog_demon_flight", 2)
-		end
-	end
-	caster:RemoveModifierByName("modifier_chernobog_arcana_e1_freecast")
+	SwapAbility(caster)
 end
 
 function modifier_chernobog_demon_flight:GetModifierMoveSpeed_Max_Increase()
@@ -308,6 +308,13 @@ function modifier_chernobog_arcana_e_passive:OnCreated()
 	    MODIFIER_ROSHPIT_MASTER_GREEN_DMG,
 		MODIFIER_ROSHPIT_MASTER_BASE_ATTACK_DMG,
 	})
+	Timers:CreateTimer(function()
+	    if not self:IsNull() then
+	        self:ProcE2(self:GetCaster())
+	        return 0.05
+		end
+		return
+	end)
 	self:OnIntervalThink()
 end
 	
@@ -316,10 +323,9 @@ function modifier_chernobog_arcana_e_passive:OnIntervalThink()
 		return
 	end
 	local caster = self:GetCaster()
-	local interval = CalculateFinalRate(caster, CHERNOBOG_ARCANA2_E4_INTERVAL, DOTA_E_SLOT)
-	self:ProcE2(caster)
-	self:ProcE4(caster, interval)
-	self:StartIntervalThink(interval)
+	local rate = CalculateFinalRate(caster, CHERNOBOG_ARCANA2_E4_INTERVAL, DOTA_E_SLOT)
+	self:ProcE4(caster, rate)
+	self:StartIntervalThink(rate)
 end
 
 function modifier_chernobog_arcana_e_passive:ProcE2(caster)
@@ -332,7 +338,7 @@ function modifier_chernobog_arcana_e_passive:ProcE2(caster)
 	local bonus_stacks = 0
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do
-			if IsValidEntity(enemy) then
+			if enemy:IsAlive() then
 				if enemy.mainBoss or enemy.isBossFFS then
 					bonus_stacks = bonus_stacks + 6
 				elseif enemy.paragon then
@@ -452,13 +458,7 @@ function chernobog_demon_warp:OnSpellStart()
 			caster:RemoveModifierByName("modifier_chernobog_arcana_e1_freecast")
 		end
 	else
-	    if caster:HasModifier("modifier_chernobog_arcana_e_passive") then
-		    if caster:HasModifier("modifier_chernobog_demon_form") then
-			    CustomAbilities:AddAndOrSwapSkill(caster, "chernobog_demon_warp", "chernobog_demon_walk", 2)
-		    else
-			    CustomAbilities:AddAndOrSwapSkill(caster, "chernobog_demon_warp", "chernobog_demon_flight", 2)
-		    end
-		end
+		SwapAbility(caster)
 	end
 end
 
@@ -501,14 +501,10 @@ function chernobog_demon_walk:GetIntrinsicModifierName()
 	return "modifier_chernobog_arcana_e_passive"
 end
 
-function chernobog_demon_walk:GetDuration()
-	return self:GetSpecialValueFor("duration")
-end
-
 function chernobog_demon_walk:OnSpellStart()
 	local caster = self:GetCaster()
 	local ability = self
-	local duration = Filters:GetAdjustedBuffDuration(caster, self:GetDuration(), false)
+	local duration = Filters:GetAdjustedBuffDuration(caster, self:GetSpecialValueFor("duration"), false)
 	caster:AddNewModifier(caster, self, "modifier_chernobog_demon_walk", {duration = duration})
 	caster:AddNewModifier(caster, nil, "modifier_persistent_invisibility", {duration = duration})
 	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
@@ -546,29 +542,16 @@ function modifier_chernobog_demon_walk:OnAttackStart(event)
 	if not IsServer() then
 		return
 	end
-	if event.attacker ~= self:GetParent() or event.unit == self:GetParent() then
-		return
+	if event.attacker == self:GetParent() then
+        CustomAbilities:QuickAttachParticle("particles/econ/items/spectre/spectre_transversant_soul/spectre_transversant_spectral_dagger_path_owner_impact.vpcf", self:GetCaster(), 0.4)
 	end
-	local caster = self:GetCaster()
-	CustomAbilities:QuickAttachParticle("particles/econ/items/spectre/spectre_transversant_soul/spectre_transversant_spectral_dagger_path_owner_impact.vpcf", caster, 0.4)
 end	
 	
 function modifier_chernobog_demon_walk:OnDestroy()
 	if not IsServer() then
 		return
 	end
-	local caster = self:GetCaster()
-	local ability = self:GetAbility()
-	if caster:HasModifier("modifier_chernobog_arcana_e_passive") then
-		if caster:GetAbilityByIndex(DOTA_E_SLOT):GetAbilityName() == "chernobog_demon_warp" then
-			if caster:HasModifier("modifier_chernobog_demon_form") then
-				CustomAbilities:AddAndOrSwapSkill(caster, "chernobog_demon_warp", "chernobog_demon_walk", 2)
-			else
-				CustomAbilities:AddAndOrSwapSkill(caster, "chernobog_demon_warp", "chernobog_demon_flight", 2)
-			end
-		end
-	end
-	caster:RemoveModifierByName("modifier_chernobog_arcana_e1_freecast")
+	SwapAbility(self:GetCaster())
 end
 
 function modifier_chernobog_demon_walk:GetModifierMoveSpeed_Max_Increase()
