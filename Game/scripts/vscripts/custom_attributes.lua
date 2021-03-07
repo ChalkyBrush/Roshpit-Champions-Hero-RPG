@@ -2829,12 +2829,6 @@ function CustomAttributes:SetAttributes(hero)
 	if hero:HasModifier("modifier_hailstorm_strength") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_hailstorm_strength", CustomAttributes.MOUNTAIN_PROTECTOR_R1_ARCANA1_STRENGTH)
 	end
-	if hero:HasModifier("modifier_chernobog_rune_w_4_inactive") then
-		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_chernobog_rune_w_4_inactive", CHERNOBOG_W4_AGI_AND_STR)
-	end
-	if hero:HasModifier("modifier_chernobog_rune_w_4_active") then
-		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_chernobog_rune_w_4_active", CHERNOBOG_W4_AGI_AND_STR)
-	end
 	if hero:HasModifier("modifier_hydroxis_d_c") then
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_hydroxis_d_c", HYDROXIS_E4_BONUS_AGI_INT)
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_hydroxis_d_c", HYDROXIS_E4_BONUS_AGI_INT)
@@ -3232,7 +3226,15 @@ function CustomAttributes:SetAttributes(hero)
 	end
 	if hero:HasModifier("modifier_ring_of_mysteries") then
 		if hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetGemValue("amethyst") > 0 then
-			spr_bonus = spr_bonus + hero.equipped_gear[RPC_GEAR_SLOT_TRINKET].total_rune_levels*hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_RING_OF_MYSTERIES_GEM_AMETHYST)
+			--[[spr_bonus = spr_bonus + hero.equipped_gear[RPC_GEAR_SLOT_TRINKET].total_rune_levels*hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_RING_OF_MYSTERIES_GEM_AMETHYST)--]]
+			local ability_table = {"q", "w", "e", "r"}
+			local rune_level = 0
+			for i = 1, 4, 1 do
+			    for j = 1, 4, 1 do
+			        rune_level = rune_level + hero:GetRuneValue(ability_table[i], j)
+				end
+			end
+			spr_bonus = spr_bonus + rune_level * hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_RING_OF_MYSTERIES_GEM_AMETHYST)
 		end
 	end
 	if hero:HasModifier("modifier_red_divinex_amulet") then

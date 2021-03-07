@@ -5,26 +5,11 @@ chernobog_demon_hunter = class(base_ability)
 modifier_demon_hunter = class(npc_base_modifier, nil, npc_base_modifier)
 LinkLuaModifier("modifier_demon_hunter", "heroes/nightstalker/ability_scripts/chernobog_demon_hunter.lua", LUA_MODIFIER_MOTION_NONE)
 
-modifier_demon_hunter_healing_disable = class(npc_base_modifier, nil, npc_base_modifier)
-LinkLuaModifier("modifier_demon_hunter_healing_disable", "heroes/nightstalker/ability_scripts/chernobog_demon_hunter.lua", LUA_MODIFIER_MOTION_NONE)
-
 modifier_chernobog_w_passive = class(npc_base_modifier, nil, npc_base_modifier)
 LinkLuaModifier("modifier_chernobog_w_passive", "heroes/nightstalker/ability_scripts/chernobog_demon_hunter.lua", LUA_MODIFIER_MOTION_NONE)
 
-modifier_chernobog_w1_effect = class(npc_base_modifier, nil, npc_base_modifier)
-LinkLuaModifier("modifier_chernobog_w1_effect", "heroes/nightstalker/ability_scripts/chernobog_demon_hunter.lua", LUA_MODIFIER_MOTION_NONE)
-
-modifier_chernobog_w2_effect = class(npc_base_modifier, nil, npc_base_modifier)
-LinkLuaModifier("modifier_chernobog_w2_effect", "heroes/nightstalker/ability_scripts/chernobog_demon_hunter.lua", LUA_MODIFIER_MOTION_NONE)
-
-modifier_chernobog_w3_active = class(npc_base_modifier, nil, npc_base_modifier)
-LinkLuaModifier("modifier_chernobog_w3_active", "heroes/nightstalker/ability_scripts/chernobog_demon_hunter.lua", LUA_MODIFIER_MOTION_NONE)
-
-modifier_chernobog_w3_inactive = class(npc_base_modifier, nil, npc_base_modifier)
-LinkLuaModifier("modifier_chernobog_w3_inactive", "heroes/nightstalker/ability_scripts/chernobog_demon_hunter.lua", LUA_MODIFIER_MOTION_NONE)
-
-modifier_chernobog_w4_effect = class(npc_base_modifier, nil, npc_base_modifier)
-LinkLuaModifier("modifier_chernobog_w4_effect", "heroes/nightstalker/ability_scripts/chernobog_demon_hunter.lua", LUA_MODIFIER_MOTION_NONE)
+modifier_chernobog_w3_effect = class(npc_base_modifier, nil, npc_base_modifier)
+LinkLuaModifier("modifier_chernobog_w3_effect", "heroes/nightstalker/ability_scripts/chernobog_demon_hunter.lua", LUA_MODIFIER_MOTION_NONE)
 
 function chernobog_demon_hunter:GetManaCostBase(level)
 	if level == -1 then
@@ -62,39 +47,34 @@ function chernobog_demon_hunter:OnToggle()
 	local caster = self:GetCaster()
 	local healthPercent = caster:GetHealth() / caster:GetMaxHealth()
 	if self:GetToggleState() == true then
-		ApplyModifier(caster, caster, ability, "modifier_demon_hunter", -1, 0)
-		caster:FindModifierByName("modifier_chernobog_w_passive"):OnIntervalThink()
+		caster:AddNewModifier(caster, ability, "modifier_demon_hunter", {})
 		caster:SetRangedProjectileName("particles/units/heroes/hero_nevermore/nevermore_base_attack.vpcf")
 		EmitSoundOn("Chernobog.DemonHunterStart", caster)
-		CustomAbilities:QuickAttachParticle("particles/roshpit/chernobog/demon_hunter.vpcf", caster, 4)
 		if not caster:HasModifier("modifier_chernobog_demon_form") then
 			StartAnimation(caster, {duration = 0.9, activity = ACT_DOTA_NIGHTSTALKER_TRANSITION, rate = 1})
 		else
 			StartAnimation(caster, {duration = 0.9, activity = ACT_DOTA_CAST_ABILITY_2, rate = 1})
 		end
-		Timers:CreateTimer(0.03, function()
-			caster:SetHealth(math.max(caster:GetMaxHealth() * healthPercent, 1))
-		end)
 	else
 		caster:RemoveModifierByName("modifier_demon_hunter")
-		caster:FindModifierByName("modifier_chernobog_w_passive"):OnIntervalThink()
+		caster:SetRangedProjectileName("particles/roshpit/chernobog/demon_form_attack.vpcf")
+		EmitSoundOn("Chernobog.Untoggle", caster)
 		if not caster:HasModifier("modifier_chernobog_demon_form") then
 			StartAnimation(caster, {duration = 0.3, activity = ACT_DOTA_SPAWN, rate = 1.5})
 		else
 			StartAnimation(caster, {duration = 0.3, activity = ACT_DOTA_ATTACK, rate = 1.5})
 		end
-		caster:SetRangedProjectileName("particles/roshpit/chernobog/demon_form_attack.vpcf")
-		EmitSoundOn("Chernobog.Untoggle", caster)
-		CustomAbilities:QuickAttachParticle("particles/roshpit/chernobog/demon_hunter.vpcf", caster, 4)
-		Timers:CreateTimer(0.03, function()
-			caster:SetHealth(math.max(caster:GetMaxHealth() * healthPercent, 1))
-		end)
 	end
+	Timers:CreateTimer(0.03, function()
+		caster:SetHealth(math.max(caster:GetMaxHealth() * healthPercent, 1))
+	end)
+	CustomAbilities:QuickAttachParticle("particles/roshpit/chernobog/demon_hunter.vpcf", caster, 4)	
 	Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 end
 
---modifiers
---demon hunter effect
+---------------------------
+--- DEMON HUNTER EFFECT ---
+---------------------------
 function modifier_demon_hunter:IsHidden()
 	return false
 end
@@ -116,8 +96,10 @@ function modifier_demon_hunter:StatusEffectPriority()
 end
 
 function modifier_demon_hunter:DeclareFunctions()
-	return {MODIFIER_EVENT_ON_ATTACK_LANDED,
-			MODIFIER_EVENT_ON_TAKEDAMAGE}
+	return {
+	    MODIFIER_PROPERTY_DISABLE_HEALING,
+		MODIFIER_EVENT_ON_TAKEDAMAGE
+	}
 end
 
 function modifier_demon_hunter:OnCreated()
@@ -125,8 +107,10 @@ function modifier_demon_hunter:OnCreated()
 		return
 	end
 	self:SetSpecialTypes({
-		MODIFIER_ROSHPIT_MASTER_AS
+		MODIFIER_ROSHPIT_MASTER_AS,
+		MODIFIER_ROSHPIT_EVENT_ATTACK_LAND,
 	})
+	self.disableHealing = 0
 	self:StartIntervalThink(0.1)
 end
 
@@ -134,90 +118,51 @@ function modifier_demon_hunter:OnIntervalThink()
 	if not IsServer() then
 		return
 	end
-	local level = self:GetAbility():GetLevel()
-	if (self:GetCaster():GetMana()) < 1 then	
-		self:GetAbility():ToggleAbility()
+	if (self.disableHealing == 1) and (GameRules:GetGameTime() >= self.enableHealingTimer) then
+		self.disableHealing = 0
 	end
 end
 
-function modifier_demon_hunter:OnAttackLanded(event)
-	if not IsServer() then
-		return
-	end
-	if event.attacker ~= self:GetCaster() or self:GetCaster() == event.target then
-		return
-	end
-	local caster = self:GetCaster()
-	local target = event.target
+function modifier_demon_hunter:RoshpitAttackLand(event)
+	local target = event.victim
 	local ability = self:GetAbility()
+	local caster = ability:GetCaster()
 	local radius = CalculateFinalRadius(caster, CHERNOBOG_W_RADIUS, DOTA_W_SLOT)
-	local w_damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * ability:GetSpecialValueFor("magic_damage_bonus") / 100
-	local w_mp_drain = ability:GetSpecialValueFor("mana_drain_per_attack")
-	local w_hp_cost = ability:GetSpecialValueFor("health_cost_percent") / 100 * caster:GetHealth()
-	local newHealth = math.max(caster:GetHealth() - w_hp_cost, 1)
-	local R_ability = caster:GetAbilityByIndex(DOTA_R_SLOT)
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * ability:GetSpecialValueFor("magic_damage_bonus") / 100
+	local mp_drain = ability:GetSpecialValueFor("mana_drain_per_attack")
+	local hp_cost = ability:GetSpecialValueFor("health_cost_percent") / 100 * caster:GetHealth()
+	local newHealth = math.max(caster:GetHealth() - hp_cost, 1)
 	if not (caster:HasModifier("modifier_chernobog_glyph_6_2") and (caster:GetHealthPercent() < CHERNOBOG_GLYPH_6_2_THRESHOLD)) then
 		caster:SetHealth(newHealth)
 	end
-	caster:ReduceMana(w_mp_drain)
+	caster:ReduceMana(mp_drain)
 	local enemies = SearchEnemies(caster, target, radius, false)
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do 
-			ChernobogDealDamage(caster, enemy, w_damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_DEMON, RPC_ELEMENT_NONE, false, true)
+			ChernobogDealDamage(caster, enemy, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_DEMON, RPC_ELEMENT_NONE, false, true)
 		end
 	end
 end
 
 function modifier_demon_hunter:OnTakeDamage(event)
-	if not IsServer() then
-		return
+    if not IsServer() then
+	    return
 	end
-	local caster = self:GetCaster()
-	local ability = self:GetAbility()
-	local modifier_name = "modifier_demon_hunter_healing_disable"
-	local disable_duration = CHERNOBOG_DEMON_HUNTER_HEALING_DISABLE_DURATION
-	if not caster:HasModifier(modifier_name) then
-		caster:AddNewModifier(caster, ability, modifier_name, {duration = disable_duration})
-	else
-		caster:FindModifierByName(modifier_name):SetDuration(disable_duration, true)
-	end
-end
-
-function modifier_demon_hunter:OnDestroy()
-	if not IsServer() then
-		return
-	end
-	if self:GetCaster():HasModifier("modifier_demon_hunter_healing_disable") then
-		self:GetCaster():RemoveModifierByName("modifier_demon_hunter_healing_disable")
-	end
+	self.disableHealing = 1
+	self.enableHealingTimer = GameRules:GetGameTime() + 3
 end
 
 function modifier_demon_hunter:GetRoshpitMasterAS()
 	return self:GetAbility():GetSpecialValueFor("attack_speed")
 end
 
---HEALING DISABLE MODIFIER--
-function modifier_demon_hunter_healing_disable:IsHidden()
-	return true
+function modifier_demon_hunter:GetDisableHealing()
+	return self.disableHealing
 end
 
-function modifier_demon_hunter_healing_disable:IsDebuff()
-	return false
-end
-
-function modifier_demon_hunter_healing_disable:IsPurgable()
-	return false
-end
-
-function modifier_demon_hunter_healing_disable:DeclareFunctions()
-	return {MODIFIER_PROPERTY_DISABLE_HEALING}
-end
-
-function modifier_demon_hunter_healing_disable:GetDisableHealing()
-	return 1
-end
-
---W passive thinker, to make it realtime update
+---------------------------
+--- W PASSIVE AND RUNES ---
+---------------------------
 function modifier_chernobog_w_passive:IsHidden()
 	return true
 end
@@ -230,22 +175,23 @@ function modifier_chernobog_w_passive:IsPurgable()
 	return false
 end
 
-function modifier_chernobog_w_passive:IsPermanent()
-	return true
-end
-
 function modifier_chernobog_w_passive:RemoveOnDeath()
 	return false
-end
-
-function modifier_chernobog_w_passive:DeclareFunctions()
-	return {MODIFIER_EVENT_ON_ATTACK_LANDED}
 end
 
 function modifier_chernobog_w_passive:OnCreated()
 	if not IsServer() then
 		return
 	end
+	self:SetSpecialTypes({
+	    MODIFIER_ROSHPIT_SPELL_PIERCE_BONUS,
+	    MODIFIER_ROSHPIT_ARMOR_PIERCE_BONUS,
+	    MODIFIER_ROSHPIT_MASTER_BASE_ATTACK_DMG,
+	    MODIFIER_ROSHPIT_ARMOR_BONUS,
+		MODIFIER_ROSHPIT_EVENT_ATTACK_LAND,
+	    MODIFIER_ROSHPIT_AGILITY_BONUS,
+	    MODIFIER_ROSHPIT_STRENGTH_BONUS
+	})
 	self:StartIntervalThink(0.5)
 end
 
@@ -253,202 +199,155 @@ function modifier_chernobog_w_passive:OnIntervalThink()
 	if not IsServer() then
 		return
 	end
-	ModifierThink(self:GetCaster(), self:GetAbility(), DOTA_W_SLOT, "w", nil, false)
-end
-
-function modifier_chernobog_w_passive:OnAttackLanded(event)
-	if not IsServer() then
-		return
-	end
-	if event.attacker ~= self:GetParent() or event.target == self:GetParent() then
-		return
-	end
-	local caster = self:GetCaster()
-	local target = event.target
-	local ability = self:GetAbility()
-	local aggroTarget = caster:GetAggroTarget()
-	local healamount = ability:GetSpecialValueFor("heal_amount")
-	if ability:GetToggleState() == false then
-		CustomAbilities:QuickAttachParticle("particles/chernobog/chernobog_a_b_timedialate.vpcf", caster, 2)
-		Filters:ApplyHeal(caster, caster, healamount, true, false)
-	end
-	ability:ProcW3(caster, target)
-end
-
-function chernobog_demon_hunter:ProcW3(caster, target)
-	local w_3_level = caster:GetRuneValue("w", 3)
-	if not (w_3_level > 0) then
-		return false
-	end
-	local w_3_duration = CHERNOBOG_W3_DURATION
-	local maxstacks = CHERNOBOG_W3_MAX_STACKS
-	local w3Active = "modifier_chernobog_w3_active"
-	local w3Inactive = "modifier_chernobog_w3_inactive"
-	if self.fevorTarget == nil then
-		self.fevorTarget = target
-	end
-	if self.fevorTarget then
-		if target == self.fevorTarget then
-			self:ModifyStacks(caster, caster, w3Active, 1, w_3_duration, maxstacks, false, true)
-			self:ModifyStacks(caster, target, w3Inactive, 1, w_3_duration, maxstacks, false, false)
-		else
-			self.fevorTarget = target
-			self:ModifyStacks(caster, caster, w3Active, 1, w_3_duration, maxstacks, true, true)
-			self:ModifyStacks(caster, target, w3Inactive, 1, w_3_duration, maxstacks, false, false)
-		end
+	if self:GetCaster():HasModifier("modifier_chernobog_glyph_6_1") then
+	    self:ModifyStacks(self:GetCaster(), self:GetCaster(), "modifier_chernobog_w3_effect", 0, CHERNOBOG_W3_DURATION, CHERNOBOG_W3_MAX_STACKS, 0, false, true)
 	end
 end
 
-function chernobog_demon_hunter:ModifyStacks(caster, target, modifier_name, stacks, duration, maxStacks, changeTarget, requireToggle)
-	local glyphed = caster:FindModifierByName("modifier_chernobog_glyph_5_a")
-	if target ~= caster and requireToggle ~= self:GetToggleState() and not glyphed then
-		return
-	end
-	local stackCount = target:GetModifierStackCount(modifier_name, caster)
-	if caster:HasModifier("modifier_chernobog_glyph_6_1") then
-		stacks = stacks + CHERNOBOG_GLYPH_6_1_ADDITION_STACK
-		maxStacks = maxStacks + CHERNOBOG_GLYPH_6_1_W3_MAX_STACK_BONUS
-	end
-	if changeTarget then
-		stackCount = math.min(stackCount * CHERNOBOG_W3_STACK_LOSE_PCT / 100 + stacks, maxStacks)
-	else
-		stackCount = math.min(stackCount + stacks, maxStacks)
-	end
-	ApplyModifier(caster, target, self, modifier_name, duration, stackCount)
-end
-
-----------
---- W1 ---
-----------
-function modifier_chernobog_w1_effect:IsHidden()
-	return true
-end
-
-function modifier_chernobog_w1_effect:IsDebuff()
-	return false
-end
-
-function modifier_chernobog_w1_effect:OnCreated()
-	if not IsServer() then
-		return
-	end
-	self:SetSpecialTypes({
-		MODIFIER_ROSHPIT_SPELL_PIERCE_BONUS,
-		MODIFIER_ROSHPIT_ARMOR_PIERCE_BONUS
-	})
-end
-
-function modifier_chernobog_w1_effect:GetRoshpitSpellPierceBonus()
+function modifier_chernobog_w_passive:GetRoshpitSpellPierceBonus()
 	if (self:GetAbility():GetToggleState() == true) or self:GetCaster():HasModifier("modifier_chernobog_glyph_5_a") then
-		return self:GetStackCount() * CHERNOBOG_W1_PIERCE_SACLE
+		return self:GetCaster():GetRuneValue("w", 1) * CHERNOBOG_W1_PIERCE_SACLE
 	end
 end
 
-function modifier_chernobog_w1_effect:GetRoshpitArmorPierceBonus()
+function modifier_chernobog_w_passive:GetRoshpitArmorPierceBonus()
 	if (self:GetAbility():GetToggleState() == false) or self:GetCaster():HasModifier("modifier_chernobog_glyph_5_a") then
-		return self:GetStackCount() * CHERNOBOG_W1_PIERCE_SACLE
+		return self:GetCaster():GetRuneValue("w", 1) * CHERNOBOG_W1_PIERCE_SACLE
 	end
 end
 
-----------
---- W2 ---
-----------
-function modifier_chernobog_w2_effect:IsHidden()
-	return false
-end
-
-function modifier_chernobog_w2_effect:IsDebuff()
-	return false
-end
-
-function modifier_chernobog_w2_effect:GetTexture()
-	return "chernobog/chernobog_rune_w_2"
-end
-
-function modifier_chernobog_w2_effect:OnCreated()
-	if not IsServer() then
-		return
-	end
-	self:SetSpecialTypes({
-		MODIFIER_ROSHPIT_MASTER_BASE_ATTACK_DMG,
-		MODIFIER_ROSHPIT_ARMOR_BONUS
-	})
-	self:GetParent():CalculateAndSaveRoshpitAttributes()
-end
-
-function modifier_chernobog_w2_effect:GetRoshpitMasterBaseDMG()
+function modifier_chernobog_w_passive:GetRoshpitMasterBaseDMG()
 	if (self:GetAbility():GetToggleState() == true) or self:GetCaster():HasModifier("modifier_chernobog_glyph_5_a") then
-		return self:GetStackCount() * CHERNOBOG_W2_ATT
+		return self:GetCaster():GetRuneValue("w", 2) * CHERNOBOG_W2_ATT
 	end
 end
 
-function modifier_chernobog_w2_effect:GetRoshpitArmorBonus()
+function modifier_chernobog_w_passive:GetRoshpitArmorBonus()
 	if (self:GetAbility():GetToggleState() == false) or self:GetCaster():HasModifier("modifier_chernobog_glyph_5_a") then
-		return self:GetStackCount() * CHERNOBOG_W2_ARMOR
+		return self:GetCaster():GetRuneValue("w", 2) * CHERNOBOG_W2_ARMOR
+	end
+end
+
+function modifier_chernobog_w_passive:GetRoshpitAgilityBonus()
+	if (self:GetAbility():GetToggleState() == true) or self:GetCaster():HasModifier("modifier_chernobog_glyph_5_a") then
+		return self:GetCaster():GetRuneValue("w", 4) * CHERNOBOG_W4_AGI_AND_STR
+	end
+end
+
+function modifier_chernobog_w_passive:GetRoshpitStrengthBonus()
+	if (self:GetAbility():GetToggleState() == false) or self:GetCaster():HasModifier("modifier_chernobog_glyph_5_a") then
+		return self:GetCaster():GetRuneValue("w", 4) * CHERNOBOG_W4_AGI_AND_STR
 	end
 end
 
 ----------
 --- W3 ---
 ----------
-function modifier_chernobog_w3_active:IsHidden() 
+function modifier_chernobog_w_passive:RoshpitAttackLand(event)
+	local target = event.victim
+	local ability = self:GetAbility()
+	local caster = ability:GetCaster()
+	local healamount = ability:GetSpecialValueFor("heal_amount")
+	if ability:GetToggleState() == false then
+		CustomAbilities:QuickAttachParticle("particles/chernobog/chernobog_a_b_timedialate.vpcf", caster, 2)
+		Filters:ApplyHeal(caster, caster, healamount, true, false)
+	end
+	self:ProcW3(caster, target)
+end
+
+function modifier_chernobog_w_passive:ProcW3(caster, target)
+	local modifier = "modifier_chernobog_w3_effect"
+	if self.fevorTarget == nil then
+		self.fevorTarget = target
+	end
+	if self.fevorTarget then
+		if target == self.fevorTarget then
+			self:ModifyStacks(caster, caster, modifier, 1, CHERNOBOG_W3_DURATION, CHERNOBOG_W3_MAX_STACKS, 0, false, true)
+			self:ModifyStacks(caster, target, modifier, 1, CHERNOBOG_W3_DURATION, CHERNOBOG_W3_MAX_STACKS, 0, false, false)
+		else
+			self.fevorTarget = target
+			self:ModifyStacks(caster, caster, modifier, 1, CHERNOBOG_W3_DURATION, CHERNOBOG_W3_MAX_STACKS, 0, true, true)
+			self:ModifyStacks(caster, target, modifier, 1, CHERNOBOG_W3_DURATION, CHERNOBOG_W3_MAX_STACKS, 0, false, false)
+		end
+	end
+end
+
+function modifier_chernobog_w_passive:ModifyStacks(caster, target, modifier_name, stacks, duration, maxStacks, minStacks, changeTarget, requireToggle)
+	local w_3_level = caster:GetRuneValue("w", 3)
+	if not (w_3_level > 0) then
+		return
+	end
+	if target ~= caster and requireToggle ~= self:GetAbility():GetToggleState() and not caster:FindModifierByName("modifier_chernobog_glyph_5_a") then
+		return
+	end
+	if caster:HasModifier("modifier_chernobog_glyph_6_1") then
+		maxStacks = maxStacks + CHERNOBOG_GLYPH_6_1_W3_MAX_STACK_BONUS
+		minStacks = 20
+		if stacks > 0 then
+			stacks = stacks + CHERNOBOG_GLYPH_6_1_ADDITION_STACK
+		end
+	end
+	local currentStacks = target:GetModifierStackCount(modifier_name, caster)
+	local newStacks = 0
+	local finalStacks = 0
+	if changeTarget then
+		newStacks = math.floor(currentStacks * CHERNOBOG_W3_STACK_LOSE_PCT / 100) + stacks
+	else
+		newStacks = currentStacks + stacks
+	end
+	if newStacks > minStacks then
+		finalStacks = math.min(maxStacks, newStacks)
+	else
+		finalStacks = minStacks + stacks
+	end
+	if stacks > 0 then
+	    if not target:HasModifier(modifier_name) then
+	        target:AddNewModifier(caster, self:GetAbility(), modifier_name, {duration = duration}):SetStackCount(finalStacks)
+		else
+		    target:SetModifierStackCount(modifier_name, caster, finalStacks)
+			target:FindModifierByName(modifier_name):SetDuration(duration, true)
+		end
+	else
+	    if not (currentStacks > minStacks) then
+		    if not target:HasModifier(modifier_name) then
+		        target:AddNewModifier(caster, self:GetAbility(), modifier_name, {duration = duration}):SetStackCount(minStacks)
+			else
+			    target:SetModifierStackCount(modifier_name, target, minStacks)
+				target:FindModifierByName(modifier_name):SetDuration(duration, true)
+			end
+		end
+	end
+end
+
+function modifier_chernobog_w3_effect:IsHidden() 
 	return false
 end
 
-function modifier_chernobog_w3_active:IsDebuff()
+function modifier_chernobog_w3_effect:IsDebuff()
+	if self:GetParent() ~= self:GetCaster() then
+		return true
+	end
 	return false
 end
 
-function modifier_chernobog_w3_active:GetTexture()
+function modifier_chernobog_w3_effect:GetTexture()
 	return "chernobog/chernobog_rune_w_3"
 end
 
-function modifier_chernobog_w3_active:GetEffectName()
+function modifier_chernobog_w3_effect:GetEffectName()
 	return "particles/roshpit/chernobog/fervor.vpcf"
 end
 
-function modifier_chernobog_w3_active:GetEffectAttachType()
+function modifier_chernobog_w3_effect:GetEffectAttachType()
 	return PATTACH_OVERHEAD_FOLLOW
 end
 
-function modifier_chernobog_w3_active:OnCreated()
+function modifier_chernobog_w3_effect:OnCreated()
 	if not IsServer() then
 		return
 	end
 	self:SetSpecialTypes({
-		MODIFIER_ROSHPIT_MASTER_BASE_ATTACK_DMG
-	})
-end
-
-function modifier_chernobog_w3_active:GetRoshpitMasterBaseDMG()
-	return self:GetStackCount() * self:GetCaster():GetRuneValue("w", 3) * CHERNOBOG_W3_ATT
-end
-
-function modifier_chernobog_w3_inactive:IsHidden()
-	return false
-end
-
-function modifier_chernobog_w3_inactive:IsDebuff()
-	return true
-end
-
-function modifier_chernobog_w3_inactive:GetEffectName()
-	return "particles/roshpit/chernobog/fervor.vpcf"
-end
-
-function modifier_chernobog_w3_inactive:GetEffectAttachType()
-	return PATTACH_OVERHEAD_FOLLOW
-end
-
-function modifier_chernobog_w3_inactive:GetTexture()
-	return "chernobog/chernobog_rune_w_3"
-end
-
-function modifier_chernobog_w3_inactive:OnCreated()
-	if not IsServer() then
-		return
-	end
-	self:SetSpecialTypes({
+		MODIFIER_ROSHPIT_MASTER_BASE_ATTACK_DMG,
 		MODIFIER_ROSHPIT_ARMOR_BONUS,
 		MODIFIER_ROSHPIT_MAGIC_ARMOR_BONUS
 	})
@@ -456,61 +355,39 @@ function modifier_chernobog_w3_inactive:OnCreated()
 	self:StartIntervalThink(0.1)
 end
 
-function modifier_chernobog_w3_inactive:OnIntervalThink()
+function modifier_chernobog_w3_effect:OnIntervalThink()
+	if not IsServer() then
+		return
+	end
+	self:GetParent():CalculateAndSaveRoshpitAttributes()
+	if not (self:GetCaster():GetRuneValue("w", 3) > 0) then
+	    self:Destroy()
+	end
+end
+
+function modifier_chernobog_w3_effect:OnDestroy()
 	if not IsServer() then
 		return
 	end
 	self:GetParent():CalculateAndSaveRoshpitAttributes()
 end
 
-function modifier_chernobog_w3_inactive:OnDestroy()
-	if not IsServer() then
-		return
-	end
-	self:GetParent():CalculateAndSaveRoshpitAttributes()
-end
-
-function modifier_chernobog_w3_inactive:GetRoshpitArmorBonus()
-	local base = self:GetStackCount() * self:GetCaster():GetRuneValue("w", 3) * CHERNOBOG_W3_ARMOR_REDUCE
-	local reduc = CalculateFinalArmorReduction(self:GetCaster(), base)
-	return reduc
-end
-
-function modifier_chernobog_w3_inactive:GetRoshpitMagicArmorBonus()
-	local base = self:GetStackCount() * self:GetCaster():GetRuneValue("w", 3) * CHERNOBOG_W3_ARMOR_REDUCE
-	local reduc = CalculateFinalArmorReduction(self:GetCaster(), base)
-	return reduc
-end
-
-----------
---- W4 ---
-----------
-function modifier_chernobog_w4_effect:IsHidden()
-	return true
-end
-
-function modifier_chernobog_w4_effect:IsDebuff()
-	return false
-end
-
-function modifier_chernobog_w4_effect:OnCreated()
-	if not IsServer() then
-		return
-	end
-	self:SetSpecialTypes({
-		MODIFIER_ROSHPIT_AGILITY_BONUS,
-		MODIFIER_ROSHPIT_STRENGTH_BONUS
-	})
-end
-
-function modifier_chernobog_w4_effect:GetRoshpitAgilityBonus()
-	if (self:GetAbility():GetToggleState() == true) or self:GetCaster():HasModifier("modifier_chernobog_glyph_5_a") then
-		return self:GetStackCount() * CHERNOBOG_W4_AGI_AND_STR
+function modifier_chernobog_w3_effect:GetRoshpitMasterBaseDMG()
+	if not self:IsDebuff() then
+		return self:GetStackCount() * self:GetCaster():GetRuneValue("w", 3) * CHERNOBOG_W3_ATT
 	end
 end
 
-function modifier_chernobog_w4_effect:GetRoshpitStrengthBonus()
-	if (self:GetAbility():GetToggleState() == false) or self:GetCaster():HasModifier("modifier_chernobog_glyph_5_a") then
-		return self:GetStackCount() * CHERNOBOG_W4_AGI_AND_STR
+function modifier_chernobog_w3_effect:GetRoshpitArmorBonus()
+	if self:IsDebuff() then
+		local base = self:GetStackCount() * self:GetCaster():GetRuneValue("w", 3) * CHERNOBOG_W3_ARMOR_REDUCE
+		return CalculateFinalArmorReduction(self:GetCaster(), base)
+	end
+end
+
+function modifier_chernobog_w3_effect:GetRoshpitMagicArmorBonus()
+	if self:IsDebuff() then
+		local base = self:GetStackCount() * self:GetCaster():GetRuneValue("w", 3) * CHERNOBOG_W3_ARMOR_REDUCE
+		return CalculateFinalArmorReduction(self:GetCaster(), base)
 	end
 end

@@ -39,3 +39,38 @@ function modifierClass:RemoveOnDeath()
     return false
 end
 
+function modifierClass:OnCreated()
+    if not IsServer() then
+	    return 
+	end
+	self:SetSpecialTypes({
+	    MODIFIER_ROSHPIT_Q_BASE_ABILITY_DMG_BONUS,
+		MODIFIER_ROSHPIT_W_BASE_ABILITY_DMG_BONUS,
+	    MODIFIER_ROSHPIT_E_BASE_ABILITY_DMG_BONUS,
+		MODIFIER_ROSHPIT_R_BASE_ABILITY_DMG_BONUS
+	})
+end
+
+function modifierClass:GetRoshpitQBaseAbilityDmgBonus()
+    local ms = self:GetCaster():GetActualMovespeed()
+	local ms_over_threshold = math.max(0, ms - 500)
+    return ms_over_threshold * CHERNOBOG_GLYPH_4_1_BAD_OVER_THRES / 100
+end
+
+function modifierClass:GetRoshpitWBaseAbilityDmgBonus()
+    local ms = self:GetCaster():GetActualMovespeed()
+	local ms_over_threshold = math.max(0, ms - 500)
+    return ms_over_threshold * CHERNOBOG_GLYPH_4_1_BAD_OVER_THRES / 100
+end
+
+function modifierClass:GetRoshpitEBaseAbilityDmgBonus()
+    local ms = self:GetCaster():GetActualMovespeed()
+	local ms_over_threshold = math.max(0, ms - 500)
+    return ms_over_threshold * CHERNOBOG_GLYPH_4_1_BAD_OVER_THRES / 100
+end
+
+function modifierClass:GetRoshpitRBaseAbilityDmgBonus()
+    local ms = self:GetCaster():GetActualMovespeed()
+	local ms_over_threshold = math.max(0, ms - 500)
+    return ms_over_threshold * CHERNOBOG_GLYPH_4_1_BAD_OVER_THRES / 100
+end

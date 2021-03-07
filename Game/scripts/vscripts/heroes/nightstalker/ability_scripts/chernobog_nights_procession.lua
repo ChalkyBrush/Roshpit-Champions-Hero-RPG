@@ -14,15 +14,6 @@ LinkLuaModifier("modifier_chernobog_nights_procession", "heroes/nightstalker/abi
 modifier_chernobog_r_effect = class(npc_base_modifier, nil, npc_base_modifier)
 LinkLuaModifier("modifier_chernobog_r_effect", "heroes/nightstalker/ability_scripts/chernobog_nights_procession.lua", LUA_MODIFIER_MOTION_NONE)
 
-modifier_chernobog_r1_effect = class(npc_base_modifier, nil, npc_base_modifier)
-LinkLuaModifier("modifier_chernobog_r1_effect", "heroes/nightstalker/ability_scripts/chernobog_nights_procession.lua", LUA_MODIFIER_MOTION_NONE)
-
-modifier_chernobog_r4_demon_amp = class(npc_base_modifier, nil, npc_base_modifier)
-LinkLuaModifier("modifier_chernobog_r4_demon_amp", "heroes/nightstalker/ability_scripts/chernobog_nights_procession.lua", LUA_MODIFIER_MOTION_NONE)
-
-modifier_chernobog_r4_shadow_amp = class(npc_base_modifier, nil, npc_base_modifier)
-LinkLuaModifier("modifier_chernobog_r4_shadow_amp", "heroes/nightstalker/ability_scripts/chernobog_nights_procession.lua", LUA_MODIFIER_MOTION_NONE)
-
 function chernobog_nights_procession:GetBehaviorBase()
     return DOTA_ABILITY_BEHAVIOR_POINT + DOTA_ABILITY_BEHAVIOR_CHANNELLED + DOTA_ABILITY_BEHAVIOR_AOE
 end
@@ -51,65 +42,49 @@ function chernobog_nights_procession:GetCooldownBase(level)
 end
 
 function chernobog_nights_procession:OnSpellStartBase()
+    if not IsServer() then
+	    return
+	end
     local caster = self:GetCaster()
-    beginChannel{ caster = caster }
-    local casterOrigin = caster:GetAbsOrigin()
-    if IsServer() then
-        if caster:HasModifier("modifier_chernobog_glyph_3_1") then
-			local ability = caster:GetAbilityByIndex(DOTA_Q_SLOT)
-			ability:OnSpellStart()
-		end
-        StartSoundEvent("Chernobog.NightsProcessionChannelStart", caster)
-        StartSoundEvent('Chernobog.NightsProcessionChannelling', caster)
-        StartAnimation(caster, {duration = 3, activity = ACT_DOTA_TELEPORT, rate = 0.8})
-    end
+    if caster:HasModifier("modifier_chernobog_glyph_3_1") then
+		caster:GetAbilityByIndex(DOTA_Q_SLOT):OnSpellStart()
+	end
+    StartSoundEvent("Chernobog.NightsProcessionChannelStart", caster)
+    StartSoundEvent('Chernobog.NightsProcessionChannelling', caster)
+    StartAnimation(caster, {duration = 3, activity = ACT_DOTA_TELEPORT, rate = 0.8})
 end
 
 function chernobog_nights_procession:OnChannelFinish(interrupted)
-    endChannel{ caster = self:GetCaster() }
-    if IsServer() then
-        if interrupted then
-            self:OnChannelInterrupted()
-        else
-            self:OnChannelSucceeded()
-        end
-        local caster = self:GetCaster()
-        StopSoundEvent("Chernobog.NightsProcessionChannelStart", caster)
-        StopSoundEvent('Chernobog.NightsProcessionChannelling', caster)
-    end
-end
-
-function chernobog_nights_procession:OnChannelInterrupted()
-    endChannel{ caster = self:GetCaster() }
-end
-
-function chernobog_nights_procession:OnChannelSucceeded()
+    if not IsServer() then
+	    return
+	end
 	local caster = self:GetCaster()
-	local r_3_level = caster:GetRuneValue("r", 3)
-    endChannel{ caster = caster }
-	self.radius = CalculateFinalRadius(caster, CHERNOBOG_R_RADIUS, DOTA_R_SLOT)
-    self.lifting_up_per_tick = 0
-    self.lifting_down_per_tick = 0
-    self.startPoint = caster:GetAbsOrigin()
-    self.endPoint = caster:GetCursorPosition()
-    CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_antimage/antimage_manavoid.vpcf", caster, 4)
-    EmitSoundOn("Chernobog.NightsProcessionChannelEnd", caster)
-    self:Lifting()
-    Filters:CastSkillArguments(BASE_ABILITY_R, caster)
+	caster:RemoveModifierByName("modifier_channel_start")
+    if interrupted then
+		StopSoundEvent("Chernobog.NightsProcessionChannelStart", caster)
+        StopSoundEvent('Chernobog.NightsProcessionChannelling', caster)
+    else
+	    self.radius = CalculateFinalRadius(caster, CHERNOBOG_R_RADIUS, DOTA_R_SLOT)
+        self.lifting_up_per_tick = 0
+        self.lifting_down_per_tick = 0
+        self.startPoint = caster:GetAbsOrigin()
+        self.endPoint = self:GetCastPosition()
+        CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_antimage/antimage_manavoid.vpcf", caster, 4)
+        EmitSoundOn("Chernobog.NightsProcessionChannelEnd", caster)
+        self:Lifting(caster)
+        Filters:CastSkillArguments(BASE_ABILITY_R, caster)
+	end
 end
 
-function chernobog_nights_procession:Lifting()
-    local caster = self:GetCaster()
-	local modifier_name = "modifier_chernobog_r_lifting"
+function chernobog_nights_procession:Lifting(caster)
     local liftingIntervalThink = 0.03
     local currentLiftingInterval = 0
-    local intervalIncrease = (1 + CHERNOBOG_R3_CHANNEL_TIME_REDUCTION * self:GetCaster().r3_level)
+    local intervalIncrease = (1 + CHERNOBOG_R3_CHANNEL_TIME_REDUCTION * self:GetCaster():GetRuneValue("r", 3))
     local liftingDownStartInterval = 60
     local liftingEndInterval = 120
     Timers:CreateTimer(function()
         if currentLiftingInterval == 0 then
-            self:LiftingStart(caster)
-            caster:AddNewModifier(caster, self,  modifier_name, {})
+            caster:AddNewModifier(caster, self, "modifier_chernobog_r_lifting", {})
         elseif currentLiftingInterval < liftingDownStartInterval then
             self:LiftingUp(caster, currentLiftingInterval, intervalIncrease)
         elseif currentLiftingInterval >= liftingDownStartInterval and currentLiftingInterval < liftingDownStartInterval + intervalIncrease then
@@ -117,18 +92,16 @@ function chernobog_nights_procession:Lifting()
         elseif currentLiftingInterval < liftingEndInterval then
             self:LiftingDown(caster, currentLiftingInterval - liftingDownStartInterval, intervalIncrease)
         elseif currentLiftingInterval >= liftingEndInterval then
-            self:CreateNightsProcession()
-			self:ProcR3()
-            self:LiftingEnd()
-            caster:RemoveModifierByName(modifier_name)
+            self:CreateNightsProcession(caster, self)
+            self:LiftingEnd(caster)
+            caster:RemoveModifierByName("modifier_chernobog_r_lifting")
             return
         end
         currentLiftingInterval = currentLiftingInterval + intervalIncrease
         return liftingIntervalThink
     end)
 end
-function chernobog_nights_procession:LiftingStart()
-end
+
 function chernobog_nights_procession:LiftingUp(caster, currentLiftingInterval, intervalIncrease)
     caster:SetAbsOrigin(caster:GetAbsOrigin() + Vector(0, 0, currentLiftingInterval * intervalIncrease))
     self.lifting_up_per_tick = self.lifting_up_per_tick +  currentLiftingInterval * intervalIncrease
@@ -143,8 +116,7 @@ function chernobog_nights_procession:LiftingDown(caster, currentLiftingInterval,
     self.lifting_down_per_tick = self.lifting_down_per_tick +  currentLiftingInterval * (intervalIncrease - 0.02)
 end
 
-function chernobog_nights_procession:LiftingEnd()
-    local caster = self:GetCaster()
+function chernobog_nights_procession:LiftingEnd(caster)
     FindClearSpaceForUnit(caster, self.endPoint, false)
     EmitSoundOn("Chernobog.NightsProcession.Land", caster)
     ScreenShake(caster:GetAbsOrigin(), 260, 0.3, 0.3, 9000, 0, true)
@@ -157,22 +129,29 @@ function chernobog_nights_procession:LiftingEnd()
     end)
 end
 
-function chernobog_nights_procession:CreateNightsProcession()
-	local caster = self:GetCaster()
-	local ability = self
+function chernobog_nights_procession:CreateNightsProcession(caster, ability)
 	local pos = ability.endPoint
 	local duration = Filters:GetAdjustedBuffDuration(self:GetCaster(), CHERNOBOG_R_DURATION)
-	local modifier_name = "modifier_chernobog_nights_procession"
-	CreateModifierThinker(caster, ability, modifier_name, {duration = duration, radius = ability.radius, positon = pos}, pos, caster:GetTeamNumber(), false)
+	CreateModifierThinker(caster, ability, "modifier_chernobog_nights_procession", {duration = duration, radius = ability.radius, positon = pos}, pos, caster:GetTeamNumber(), false)
 end
 
-function chernobog_nights_procession:ProcR3()
-	local caster = self:GetCaster()
-	local r_1_level = caster:GetRuneValue("r", 1)
-	if r_1_level > 0 then
-		local r_1_duration = CHERNOBOG_R_DURATION + CHERNOBOG_R1_DUR_BASE + r_1_level * CHERNOBOG_R1_DUR
-		ApplyModifier(caster, caster, ability, "modifier_chernobog_r1_effect", r_1_duration, nil)
-	end
+--lifting modifier
+function modifier_chernobog_r_lifting:IsHidden()
+	return true
+end
+
+function modifier_chernobog_r_lifting:IsDebuff()
+	return false
+end
+
+function modifier_chernobog_r_lifting:CheckState()
+	return {
+        [MODIFIER_STATE_ROOTED] = true,
+        [MODIFIER_STATE_DISARMED] = true,
+        [MODIFIER_STATE_SILENCED] = true,
+        [MODIFIER_STATE_MAGIC_IMMUNE] = true,
+        [MODIFIER_STATE_ATTACK_IMMUNE] = true,
+    }
 end
 
 --modifiers
@@ -222,26 +201,9 @@ function modifier_chernobog_nights_procession:OnCreated(event)
     end)
 end
 
---lifting modifier
-function modifier_chernobog_r_lifting:IsHidden()
-	return true
-end
-
-function modifier_chernobog_r_lifting:IsDebuff()
-	return false
-end
-
-function modifier_chernobog_r_lifting:CheckState()
-	return {
-        [MODIFIER_STATE_ROOTED] = true,
-        [MODIFIER_STATE_DISARMED] = true,
-        [MODIFIER_STATE_SILENCED] = true,
-        [MODIFIER_STATE_MAGIC_IMMUNE] = true,
-        [MODIFIER_STATE_ATTACK_IMMUNE] = true,
-    }
-end
-
---R effect
+----------------
+--- R effect ---
+----------------
 function modifier_chernobog_r_effect:IsHidden()
 	return false
 end
@@ -262,9 +224,11 @@ function modifier_chernobog_r_effect:GetStatusEffectName()
     return 'particles/status_fx/status_effect_faceless_chronosphere.vpcf'
 end
 
---R passive
+-----------------
+--- R passive ---
+-----------------
 function modifier_chernobog_r_passive:IsHidden()
-	return true
+    return true
 end
 
 function modifier_chernobog_r_passive:IsDebuff()
@@ -275,35 +239,45 @@ function modifier_chernobog_r_passive:RemoveOnDeath()
 	return false
 end
 
+function modifier_chernobog_r_passive:DestroyOnExpire()
+    return false
+end
+
 function modifier_chernobog_r_passive:OnCreated()
 	if not IsServer() then
 		return
 	end
 	self:SetSpecialTypes({
+	        MODIFIER_ROSHPIT_EVENT_ATTACK_LAND,
 			MODIFIER_ROSHPIT_R_FLAT_CD_MOD,
 			MODIFIER_ROSHPIT_R_FLAT_CHANNELTIME_MOD,
+			RPC_ELEMENT_DEMON,
+			RPC_ELEMENT_SHADOW
 	})
-	self:StartIntervalThink(0.5)
 end
 
-function modifier_chernobog_r_passive:OnIntervalThink()
-	if not IsServer() then
-		return
-	end
-	local caster = self:GetCaster()
+function modifier_chernobog_r_passive:RoshpitAttackLand(event)
+    local target = event.victim
+    local caster = self:GetCaster()
 	local r_1_level = caster:GetRuneValue("r", 1)
-	local r_1_modifier = "modifier_chernobog_r1_effect"
-	ModifierThink(caster, self:GetAbility(), DOTA_R_SLOT, "r", nil, false)
-	if r_1_level > 0 then
-		if caster:HasModifier("modifier_chernobog_glyph_5_2") then
-			ApplyModifier(caster, caster, ability, r_1_modifier, -1, nil)
-		else
-			if not (caster:HasModifier(r_1_modifier) and (caster:FindModifierByName("modifier_chernobog_r1_effect"):GetDuration() > 0)) then
-				caster:RemoveModifierByName(r_1_modifier)
-			end
+	if not (r_1_level > 0) then
+	    return
+	end
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * r_1_level * CHERNOBOG_R1_DMG_PER_ATT / 100
+	local radius = CalculateFinalRadius(caster, CHERNOBOG_R1_RADIUS, DOTA_R_SLOT)
+    local particle = ParticleManager:CreateParticle("particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf", PATTACH_WORLDORIGIN, caster)
+	local controlTable = {{0, target:GetAbsOrigin()}, {1, Vector(radius, radius, radius)}, {2, Vector(2.0, 2.0, 2.0)}, {4, Vector(22, 56, 148)}}
+	for i = 1, 4, 1 do
+        ParticleManager:SetParticleControl(particle, controlTable[i][1], controlTable[i][2])
+    end
+    Timers:CreateTimer(1.5, function()
+        ParticleManager:DestroyParticle(particle, false)
+    end)
+    local enemies = SearchEnemies(caster, target, radius, true)
+	if #enemies > 0 then
+		for _, enemy in pairs(enemies) do
+			ChernobogDealDamage(caster, enemy, damage, DAMAGE_TYPE_PHYSICAL, BASE_ABILITY_R, RPC_ELEMENT_DEMON, RPC_ELEMENT_NONE, false, true)
 		end
-	else
-		caster:RemoveModifierByName(r_1_modifier)
 	end
 end
 
@@ -312,122 +286,9 @@ function modifier_chernobog_r_passive:GetRoshpitRFlatCdModifier()
 end
 
 function modifier_chernobog_r_passive:GetRoshpitRFlatChanneltimeModifier()
-	local caster = self:GetCaster()
-	return -math.min(CHERNOBOG_R_CHANNEL_TIME, caster:GetRuneValue("r", 3) * CHERNOBOG_R3_CHANNEL_TIME_REDUCTION)
+	return -math.min(CHERNOBOG_R_CHANNEL_TIME, self:GetCaster():GetRuneValue("r", 3) * CHERNOBOG_R3_CHANNEL_TIME_REDUCTION)
 end
 
-function modifier_chernobog_r1_effect:IsHidden()
-	return false
-end
-
-function modifier_chernobog_r1_effect:IsDebuff()
-	return false
-end
-
-function modifier_chernobog_r1_effect:GetTexture()
-	return "chernobog/chernobog_rune_r_1"
-end
-
-function modifier_chernobog_r1_effect:DeclareFunctions()
-	return {MODIFIER_EVENT_ON_ATTACK_LANDED}
-end
-
-function modifier_chernobog_r1_effect:OnAttackLanded(event)
-    if not IsServer() then
-        return
-    end
-    if event.target == self:GetParent() or event.attacker ~= self:GetCaster() then
-        return
-    end
-    local caster = self:GetCaster()
-    local target = event.target
-	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * self:GetCaster():GetRuneValue("r", 1) * CHERNOBOG_R1_DMG_PER_ATT / 100
-	local radius = CalculateFinalRadius(caster, CHERNOBOG_R1_RADIUS, DOTA_R_SLOT)
-    local particleNameS = "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"
-    local particle2 = ParticleManager:CreateParticle(particleNameS, PATTACH_WORLDORIGIN, caster)
-    ParticleManager:SetParticleControl(particle2, 0, target:GetAbsOrigin())
-    ParticleManager:SetParticleControl(particle2, 1, Vector(radius, radius, radius))
-    ParticleManager:SetParticleControl(particle2, 2, Vector(2.0, 2.0, 2.0))
-    ParticleManager:SetParticleControl(particle2, 4, Vector(22, 56, 148))
-    Timers:CreateTimer(1.5, function()
-        ParticleManager:DestroyParticle(particle2, false)
-    end)
-    local enemies = SearchEnemies(caster, target, radius, true)
-	if #enemies > 0 then
-		for _, enemy in pairs(enemies) do
-			if enemy:HasModifier("modifier_chernobog_r_effect") then
-				damage = damage * (1 + CHERNOBOG_GLYPH_5_2_R1_AMP_IN_R / 100)
-			end
-			ChernobogDealDamage(caster, enemy, damage, DAMAGE_TYPE_PHYSICAL, BASE_ABILITY_R, RPC_ELEMENT_DEMON, RPC_ELEMENT_NONE, false, true)
-		end
-	end
-end
-
-
-
-----------
---- R4 ---
-----------
-function modifier_chernobog_r4_demon_amp:IsHidden()
-	return true
-end
-
-function modifier_chernobog_r4_demon_amp:IsDebuff()
-	return false
-end
-
-function modifier_chernobog_r4_demon_amp:IsPurgable()
-	return false
-end
-
-function modifier_chernobog_r4_demon_amp:RemoveOnDeath()
-	return false
-end
-
-function modifier_chernobog_r4_demon_amp:OnCreated()
-	if not IsServer() then
-		return
-	end
-	self:SetSpecialTypes({
-		RPC_ELEMENT_DEMON
-	})
-	self:StartIntervalThink(0.5)
-end
-
-function modifier_chernobog_r4_demon_amp:GetRoshpitElementalDmgBonus()
-	local caster = self:GetCaster()
-	local amp = caster:GetRuneValue("r", 4) * CHERNOBOG_R4_DEMON_AMP_PER_STR * caster:GetStrength() / 100
-	return amp
-end
-
-function modifier_chernobog_r4_shadow_amp:IsHidden()
-	return true
-end
-
-function modifier_chernobog_r4_shadow_amp:IsDebuff()
-	return false
-end
-
-function modifier_chernobog_r4_shadow_amp:IsPurgable()
-	return false
-end
-
-function modifier_chernobog_r4_shadow_amp:RemoveOnDeath()
-	return false
-end
-
-function modifier_chernobog_r4_shadow_amp:OnCreated()
-	if not IsServer() then
-		return
-	end
-	self:SetSpecialTypes({
-		RPC_ELEMENT_SHADOW
-	})
-	self:StartIntervalThink(0.5)
-end
-
-function modifier_chernobog_r4_shadow_amp:GetRoshpitElementalDmgBonus()
-	local caster = self:GetCaster()
-	local amp = caster:GetRuneValue("r", 4) * CHERNOBOG_R4_SHADOW_AMP_PER_AGI * caster:GetAgility() / 100
-	return amp
+function modifier_chernobog_r_passive:GetRoshpitElementalDmgBonus()
+	return self:GetCaster():GetRuneValue("r", 4) * CHERNOBOG_R4_DEMON_AND_SHADOW_AMP_PER_ATTR * (self:GetCaster():GetStrength() + self:GetCaster():GetAgility()) / 10000
 end

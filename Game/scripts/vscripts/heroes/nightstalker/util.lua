@@ -6,14 +6,27 @@ require("heroes/util/channeling")
 --- SPECIAL FOR DEALING DAMAGE ---
 ----------------------------------
 function ChernobogDealDamage(caster, target, damage, damageType, ability, element1, element2, isDot, powerScale)
-	local R_ability = caster:GetAbilityByIndex(DOTA_R_SLOT)
 	local luck = RandomInt(1, 100)
 	local q_1_bonus = caster:GetRuneValue("q", 1) * CHERNOBOG_Q1_PROC_AMP / 100 + 1
-	local r_2_scale = CHERNOBOG_R2_BASE_ABILITY_AMP * caster:GetRuneValue("r", 2) / 100
-	if caster:HasModifier("modifier_chernobog_glyph_4_1") then
-		r_2_scale = r_2_scale * (1 + CHERNOBOG_GLYPH_4_1_R2_AMP / 100)
+	local r_2_proc = CalculateR2Proc(caster, target)
+	if (ability == BASE_ABILITY_Q) then
+		if (luck < CHERNOBOG_Q1_PROC_CHANCE) and (q_1_bonus > 1) then
+			damage = damage * q_1_bonus 
+		end
+		if caster:HasModifier("modifier_chernobog_glyph_4_2") then
+			damage = damage * (1 + CHERNOBOG_GLYPH_4_2_Q_DMG_AMP / 100)
+		end
 	end
-	local r_2_bonus = r_2_scale
+	if (ability == BASE_ABILITY_W) and caster:HasModifier("modifier_chernobog_glyph_2_1") then
+		damage = damage * (1 + CHERNOBOG_GLYPH_2_1_W_DMG_AMP / 100)
+	end
+	if (ability == BASE_ABILITY_R) and target:HasModifier("modifier_chernobog_r_effect") and caster:HasModifier("modifier_chernobog_glyph_5_2") then
+		damage = damage * (1 + CHERNOBOG_GLYPH_5_2_R1_AMP_IN_R / 100)
+	end
+	if caster:HasModifier("modifier_chernobog_e3_effect") then
+		damage = damage * (1 + CHERNOBOG_E3_NEXT_DMG_AMP * caster:GetRuneValue("e", 3) / 100)
+		caster:RemoveModifierByName("modifier_chernobog_e3_effect")
+	end
 	if caster:HasModifier("modifier_chernobog_glyph_6_2") and (caster:GetHealthPercent() < CHERNOBOG_GLYPH_6_2_THRESHOLD) then
 		damage = damage * (1 - CHERNOBOG_GLYPH_6_2_DMG_DEC / 100)
 	end
@@ -54,34 +67,38 @@ function ChernobogDealDamage(caster, target, damage, damageType, ability, elemen
 			ApplyModifier(caster, target, nil, "modifier_chernobog_immortal_weapon_4_conditional_silence", 2, nil)
 		end
 	end
-	if (ability == BASE_ABILITY_Q) then
-		if (luck < CHERNOBOG_Q1_PROC_CHANCE) and (q_1_bonus > 1) then
-			damage = damage * q_1_bonus 
-		end
-		if caster:HasModifier("modifier_chernobog_glyph_4_2") then
-			damage = damage * (1 + CHERNOBOG_GLYPH_4_2_Q_DMG_AMP / 100)
-		end
-	end
-	if (ability == BASE_ABILITY_W) and caster:HasModifier("modifier_chernobog_glyph_2_1") then
-		damage = damage * (1 + CHERNOBOG_GLYPH_2_1_W_DMG_AMP / 100)
-	end
-	if caster:HasModifier("modifier_chernobog_e3_effect") then
-		damage = damage * (1 + CHERNOBOG_E3_NEXT_DMG_AMP * caster:GetRuneValue("e", 3) / 100)
-		caster:RemoveModifierByName("modifier_chernobog_e3_effect")
-	end
 	if isDot == true then
 		Filters:ApplyDotDamage(caster, ability, target, damage, damageType, ability, element1, element2)
-		if R_ability and (R_ability:GetAbilityName() == "chernobog_nights_procession") and target:HasModifier("modifier_chernobog_r_effect") and (r_2_bonus > 0 ) then
-			damage = damage * r_2_bonus
-			Filters:ApplyDotDamage(caster, ability, target, damage, damageType, ability, element1, element2)
+		if r_2_proc > 0 then
+		    for i = 1, r_2_proc, 1 do
+		        Filters:ApplyDotDamage(caster, ability, target, damage, damageType, ability, element1, element2)
+			end
 		end
 	else
 		Filters:TakeArgumentsAndApplyDamage(target, caster, damage, damageType, ability, element1, element2)
-		if R_ability and (R_ability:GetAbilityName() == "chernobog_nights_procession") and target:HasModifier("modifier_chernobog_r_effect") and (r_2_bonus > 0 ) then
-			damage = damage * r_2_bonus
-			Filters:TakeArgumentsAndApplyDamage(target, caster, damage, damageType, ability, element1, element2)
+		if r_2_proc > 0 then
+		    for i = 1, r_2_proc, 1 do
+		        Filters:TakeArgumentsAndApplyDamage(target, caster, damage, damageType, ability, element1, element2)
+			end
 		end
 	end
+end
+
+function CalculateR2Proc(caster, target)
+    local R_ability = caster:GetAbilityByIndex(DOTA_R_SLOT)
+	local r_2_level = caster:GetRuneValue("r", 2)
+    local r_2_chance = CHERNOBOG_R2_CHANCE * r_2_level
+	if not ( R_ability and R_ability:GetAbilityName() == "chernobog_nights_procession") then
+	    return 
+	end
+    if target:HasModifier("modifier_chernobog_r_effect") then
+	    r_2_chance = r_2_chance * 3
+	end
+	local procs = ((r_2_chance) - ((r_2_chance) % 100)) / 100
+	if RandomInt(0, 100) < (r_2_chance) % 100 then
+		procs = procs + 1
+	end
+	return procs
 end
 
 --------------------
@@ -151,103 +168,6 @@ function ApplyModifier(caster, target, ability, modifier_name, duration, stacks)
 		target:FindModifierByName(modifier_name):SetStackCount(stacks)
 	end
 	target:FindModifierByName(modifier_name):SetDuration(finalDuration, true)
-end
-
---------------------------------------------
---- MODIFIER THINKER FOR REALTIME UPDATE ---
---------------------------------------------
-local modifiers = {
-	{
-		{}, --Q1 MODIFIERS
-		{}, --Q2 MODIFIERS
-		{}, --Q3 MODIFIERS
-		{}	--Q4 MODIFIERS
-	},
-	{
-		{"modifier_chernobog_w1_effect"}, --W1 MODIFIERS
-		{"modifier_chernobog_w2_effect"}, --W2 MODIFIERS
-		{}, --W3 MODIFIERS
-		{"modifier_chernobog_w4_effect"}	--W4 MODIFIERS
-	},
-	{
-		{"modifier_chernobog_e1_buff"}, --E1 MODIFIERS
-		{"modifier_chernobog_e2_thinker"}, --E2 MODIFIERS
-		{"modifier_chernobog_e3_thinker"}, --E3 MODIFIERS
-		{"modifier_chernobog_e4_buff"}	--E4 MODIFIERS
-	},
-	{
-		{}, --R1 MODIFIERS
-		{}, --R2 MODIFIERS
-		{}, --R3 MODIFIERS
-		{"modifier_chernobog_r4_demon_amp", "modifier_chernobog_r4_shadow_amp"}	--R4 MODIFIERS
-	}
-}
-
-local arcana_modifiers = {
-	{
-		{}, --ARCANA Q1 MODIFIERS
-		{}, --ARCANA Q2 MODIFIERS
-		{}, --ARCANA Q3 MODIFIERS
-		{}	--ARCANA Q4 MODIFIERS
-	},
-	{
-		{}, --ARCANA W1 MODIFIERS
-		{}, --ARCANA W2 MODIFIERS
-		{}, --ARCANA W3 MODIFIERS
-		{}	--ARCANA W4 MODIFIERS
-	},
-	{
-		{}, --ARCANA E1 MODIFIERS
-		{"modifier_chernobog_arcana_e2_effect", "modifier_chernobog_arcana_e2_count"}, --ARCANA E2 MODIFIERS
-		{}, --ARCANA E3 MODIFIERS
-		{}	--ARCANA E4 MODIFIERS
-	},
-	{
-		{}, --ARCANA R1 MODIFIERS
-		{}, --ARCANA R2 MODIFIERS
-		{}, --ARCANA R3 MODIFIERS
-		{}	--ARCANA R4 MODIFIERS
-	}
-}
-
-function ModifierThink(caster, ability, abilitySlot, index, requireToggle, isArcana)
-	local slot = abilitySlot
-	if slot == 5 then
-		slot = slot - 1
-	else
-		slot = slot + 1
-	end
-	local modifierTable = nil
-	if isArcana == true then
-		modifierTable = arcana_modifiers[slot]
-	else
-		modifierTable = modifiers[slot]
-	end
-	for i = 1, 4, 1 do
-		local rune_level = caster:GetRuneValue(index, i)
-		if #modifierTable[i] > 0 then
-			for j = 1, #modifierTable[i], 1 do
-				local modifier_name = modifierTable[i][j]
-				if not requireToggle or (requireToggle == ability:GetToggleState()) then
-					if rune_level > 0 then
-						local stacks = nil
-						if modifier_name ~= "modifier_chernobog_arcana_e2_effect" then
-							stacks = rune_level
-						end
-						ApplyModifier(caster, caster, ability, modifier_name, -1, stacks)
-					else
-						if caster:HasModifier(modifier_name) then
-							caster:RemoveModifierByName(modifier_name)
-						end
-					end
-				else
-					if caster:HasModifier(modifier_name) and (caster:FindModifierByName(modifier_name):GetName() ~= "modifier_chernobog_e4_buff") then
-						caster:RemoveModifierByName(modifier_name)
-					end
-				end
-			end
-		end
-	end
 end
 
 ----------------------

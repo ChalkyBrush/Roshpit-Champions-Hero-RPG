@@ -86,24 +86,29 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% CHERNOBOG_ARCANA2_E4_RADIUS_INC %>"
+				"property_one_base"			"0"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two_base"		"<% CHERNOBOG_ARCANA2_E4_RADIUS %>"
+				"property_two"			"<% CHERNOBOG_ARCANA2_E4_RADIUS_INC %>"
 			}
 			"04"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"3"
+				"var_type"				"FIELD_FLOAT"
+				"property_two_base"		"<% CHERNOBOG_ARCANA2_E4_RADIUS %>"
 			}
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"element_one"			"<% RPC_ELEMENT_DEMON %>"
+				"base_ability"			"3"
 			}
 			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"<% RPC_ELEMENT_DEMON %>"
+			}
+			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"element_two"			"<% RPC_ELEMENT_SHADOW %>"

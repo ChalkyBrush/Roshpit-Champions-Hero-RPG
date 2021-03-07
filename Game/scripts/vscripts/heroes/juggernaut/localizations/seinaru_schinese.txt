@@ -31,9 +31,9 @@
     	"DOTA_Tooltip_modifier_seinaru_rune_q_2_slow_Description"		"移动速度减少"
 		
     	"DOTA_Tooltip_ability_seinaru_rune_q_3"							"[Q3] 强风"
-    	"DOTA_Tooltip_ability_seinaru_rune_q_3_Description"				"被 @Ability1 击中的敌人，剑圣将根据移速差获得税后伤害加成"
-	"DOTA_Tooltip_ability_seinaru_rune_q_3_property_one"			"税后增伤"
-    	"DOTA_Tooltip_ability_seinaru_rune_q_3_suffix"					"% 每一点移速差"
+    	"DOTA_Tooltip_ability_seinaru_rune_q_3_Description"				"释放 @Ability1 将会获得基于神圣剑客移动速度的物理穿透和魔法穿透"
+	"DOTA_Tooltip_ability_seinaru_rune_q_3_property_one"			"物理穿透和魔法穿透"
+    	"DOTA_Tooltip_ability_seinaru_rune_q_3_suffix"					"每点移速"
 		
     	"DOTA_Tooltip_ability_seinaru_rune_q_4"							"[Q4] 微风细雨"
     	"DOTA_Tooltip_ability_seinaru_rune_q_4_Description"				"神圣剑客攻击力的一部分会附加到微风伤害中"
@@ -203,46 +203,47 @@
     	"property_seinaru_arcana2_description"								"用炎阳冲锋替换 @Ability3 及其全部符文。"
 
     	"DOTA_Tooltip_ability_seinaru_sunstrider"						"炎阳冲锋"
-    	"DOTA_Tooltip_ability_seinaru_sunstrider_Description"			"在太阳的祝福下，神圣剑客朝着目标位置神圣冲锋. 神圣冲锋范围内的敌人在0.06秒内都将受到神圣剑客额外伤害加成的打击. 每次攻击都会产生AOE伤害，在目标周围造成<font color=ELEMENT_HOLY>神圣</font> 伤害."
+    	"DOTA_Tooltip_ability_seinaru_sunstrider_Description"			"在太阳的祝福下，神圣剑客朝着目标位置神圣冲锋. 神圣冲锋范围内的敌人在0.06秒内都将受到神圣剑客的打击. 每次攻击都会产生AOE伤害，在目标周围造成<font color=ELEMENT_HOLY>神圣</font> 伤害。每1.5秒获得一层充能，每层充能可以使得下一次释放不会进入冷却时间。"
     	"DOTA_Tooltip_ability_seinaru_sunstrider_cast_range"			"施法距离:"
     	"DOTA_Tooltip_ability_seinaru_sunstrider_targets_count"			"最大目标数:"
     	"DOTA_Tooltip_ability_seinaru_sunstrider_att_to_dmg"			"伤害基于总攻击力:"
+	"DOTA_Tooltip_ability_seinaru_sunstrider_max_stacks"            "最大自由释放充能:"
+	"DOTA_Tooltip_modifier_seinaru_arcana_e_passive"                "炎阳冲锋 - 自由释放充能"
 
     	"DOTA_Tooltip_modifier_sunstrider_in_air"						"炎阳冲锋"
 
   		"DOTA_Tooltip_ability_seinaru_rune_e_1_arcana2"						"[E1] 炎阳剑"
-    	"DOTA_Tooltip_ability_seinaru_rune_e_1_arcana2_Description"			"增加E技能额外打击伤害, 同时使E技能可以打击多个目标。这个攻击力加成在技能结束后仍然会存在3秒。"
+    	"DOTA_Tooltip_ability_seinaru_rune_e_1_arcana2_Description"			"释放@Ability3 后获得额外攻击力。这个攻击力加成在技能结束后仍然会存在3秒。此外被动提高@Ability3 的作用范围。"
     	"DOTA_Tooltip_ability_seinaru_rune_e_1_arcana2_property_one"			"攻击力提高"
     	"DOTA_Tooltip_ability_seinaru_rune_e_1_arcana2_suffix"					"%"
-    	"DOTA_Tooltip_ability_seinaru_rune_e_1_arcana2_property_two"			"最多目标"
+    	"DOTA_Tooltip_ability_seinaru_rune_e_1_arcana2_property_two"			"范围提高"
     	"DOTA_Tooltip_ability_seinaru_rune_e_1_arcana2_suffix_two"				""
-
+	"DOTA_Tooltip_modifier_seinaru_arcana_e1_effect"                        "炎阳剑"
+	"DOTA_Tooltip_modifier_seinaru_arcana_e1_effect_Description"            "提高攻击力"
+	
   		"DOTA_Tooltip_ability_seinaru_rune_e_2_arcana2"						"[E2] 光之庇佑"
-    	"DOTA_Tooltip_ability_seinaru_rune_e_2_arcana2_Description"			"施放炎阳冲锋后，将获得 <% SEINARU_ARCANA_E2_PURE_DMG_REDUCE * 100%>%  纯粹伤害减免，持续一段时间。"
+    	"DOTA_Tooltip_ability_seinaru_rune_e_2_arcana2_Description"			"施放炎阳冲锋后，将获得 <font color='#ccff66'>75</font>% 物理伤害减免，持续一段时间。此外，被动提高@Ability3的最大打击目标数"
     	"DOTA_Tooltip_ability_seinaru_rune_e_2_arcana2_property_one"			"持续时间"
     	"DOTA_Tooltip_ability_seinaru_rune_e_2_arcana2_suffix"					" 秒"
+	"DOTA_Tooltip_ability_seinaru_rune_e_2_arcana2_property_two"			"额外目标"
+    	"DOTA_Tooltip_ability_seinaru_rune_e_2_arcana2_suffix_two"				""
 
-    	"DOTA_Tooltip_modifier_sunstrider_lightsworn"						"光之庇佑"
-    	"DOTA_Tooltip_modifier_sunstrider_lightsworn_Description"						"提高 <% SEINARU_ARCANA_E2_PURE_DMG_REDUCE * 100%>%  纯粹伤害减免"
+    	"DOTA_Tooltip_modifier_seinaru_arcana_e2_effect"						"光之庇佑"
+    	"DOTA_Tooltip_modifier_seinaru_arcana_e2_effect_Description"						"提高 <font color='#ccff66'>75</font>%%  纯粹伤害减免"
 
 		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2"						"[E3] 光之斩"
-		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2_Description"			"施放E技能的过程中，提高神圣剑客的物理穿透和魔法穿透."
-		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2_property_one"			"双穿提高"
-		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2_suffix"					""
-
-
-		"DOTA_Tooltip_modifier_sunstrider_sunwarrior_vengeance_attack"		"光之斩"
-		"DOTA_Tooltip_modifier_sunstrider_sunwarrior_vengeance_attack_Description"	"双穿提高"
-
-		"DOTA_Tooltip_modifier_sunstrider_sunwarrior_vengeance_post_mit"	"光之斩"
-		"DOTA_Tooltip_modifier_sunstrider_sunwarrior_vengeance_post_mit_Description"	"双穿提高"
+		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2_Description"			"被动提高基础技能伤害。"
+		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2_property_one"			"基础技能伤害提高"
+		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2_suffix"					"%"
 
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2"						"[E4] 光能"
-		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_Description"			"当炎阳冲锋进入冷却时间时，神圣剑客有概率额外地获得一格充能，使炎阳冲锋可以自由施放一次而不进入冷却时间。概率超过 100% 可以获得多格充能。"
+		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_Description"			"神圣剑客的敏捷提高<font color=ELEMENT_HOLY>圣</font> 元素伤害， 此外释放@Ability3 时， 有概率获得一个buff，这个buff会使你下一次 @Ability4 立即释放，无需引导"
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_property_one"			"自由施放概率"
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_suffix"					"%"
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_property_two"			"<font color=ELEMENT_HOLY>圣</font> 元素伤害提高"
-		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_suffix_two"				"%"
+		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_suffix_two"				"%每10点敏捷"
+		"DOTA_Tooltip_modifier_seinaru_arcana_e4_effect"                        "光能"
+		"DOTA_Tooltip_modifier_seinaru_arcana_e4_effect_Description"            "下一次R可以立即释放"
 
     	"DOTA_Tooltip_modifier_sunstrider_freecast"							"炎阳冲锋自由施放充能"
 

@@ -994,7 +994,7 @@ function Filters:BeginRChannel(caster)
         return false
     end
     local baseCd = ability:GetCooldownTimeRemaining()
-    if not ability.BaseClass and (caster:HasModifier("modifier_iron_treads_of_destruction") or caster:HasModifier("modifier_baphomets_cursed_necklace_ruin_effect")) or caster:HasModifier("modifier_flamewaker_rune_q_4") then
+    if not ability.BaseClass and (caster:HasModifier("modifier_iron_treads_of_destruction") or caster:HasModifier("modifier_baphomets_cursed_necklace_ruin_effect")) or caster:HasModifier("modifier_flamewaker_rune_q_4") or caster:HasModifier("modifier_seinaru_arcana_e4_effect") then
         ability:OnChannelFinish(false)
         Timers:CreateTimer(0.03, function()
             ability:EndChannel(true)
@@ -2413,11 +2413,13 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
     if element2 ~= RPC_ELEMENT_NONE then
         table.insert(elements, element2)
     end
-    Util.Modifier:SimpleEvent(attacker, 'GetRoshpitElementalDmgBonus', elements, { }, 
-        function(result, data)
-            mult = mult + result
-        end
-    )
+    for i = 1, #elements, 1 do
+        Util.Modifier:SimpleEvent(attacker, 'GetRoshpitElementalDmgBonus', {elements[i]}, { }, 
+            function(result, data)
+                mult = mult + result
+            end
+        )
+    end
     local newDamageCalculatorData = {
         victim = victim,
         attacker = attacker,
@@ -2556,12 +2558,11 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 mult = mult + WARLORD_E4_ICE_EARTH_FIRE_BONUS * attacker.e_4_level
             end
         elseif unitName == "npc_dota_hero_invoker" then
+            local q_4_level = attacker:GetRuneValue("q", 4) 
             if attacker:HasAbility("summon_earth_aspect") then
-		local q_4_level = attacker:GetRuneValue("q", 4) 
-		mult = mult + CONJUROR_Q4_EARTH_AND_FIRE_AMP * q_4_level
-	    elseif attacker:HasAbility("summon_earth_deity") then
-		local q_4_level = attacker:GetRuneValue("q", 4)
-		mult = mult + CONJUROR_ARCANA_Q4_EARTH_AMP * attacker.q_4_level / 100
+		 mult = mult + CONJUROR_Q4_EARTH_AND_FIRE_AMP * q_4_level
+	    else
+		 mult = mult + CONJUROR_ARCANA_Q4_EARTH_AMP * q_4_level / 100
 	    end
         elseif unitName == "npc_dota_hero_legion_commander" then
             if attacker:HasAbility("mountain_protector_aeon_fracture") then
@@ -2666,11 +2667,6 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             if attacker:HasAbility("seinaru_odachi_leap") then
                 if attacker.e_4_level and attacker.e_4_level > 0 then
                     local multIncrease = attacker.e_4_level * SEINARU_E4_HOLY_AMP
-                    mult = mult + multIncrease
-                end
-            else
-                if attacker.e_4_level and attacker.e_4_level > 0 then
-                    local multIncrease = attacker.e_4_level * SEINARU_ARCANA2_E4_HOLY_AMP/100
                     mult = mult + multIncrease
                 end
             end

@@ -231,9 +231,6 @@ function modifier_chernobog_demon_form:ProcR2(caster, target)
 	end
 	local chance_base = CHERNOBOG_ARCANA_R2_CHANCE_BASE
 	local chance_inc =  CHERNOBOG_ARCANA_R2_CHANCE_INC * r_2_level
-	if caster:HasModifier("modifier_chernobog_glyph_4_1") then
-		chance_inc = chance_inc * (1 + CHERNOBOG_GLYPH_4_1_R2_AMP / 100)
-	end
 	local chance = chance_base + chance_inc
 	if RandomInt(1, 100) < chance then
 		if self.cd == false then

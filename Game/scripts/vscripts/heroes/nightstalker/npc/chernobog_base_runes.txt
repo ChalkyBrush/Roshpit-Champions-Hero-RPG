@@ -312,20 +312,10 @@
 			}
 			"02"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% CHERNOBOG_R1_DUR %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two_base"		"<% CHERNOBOG_R1_DUR_BASE>"
-			}
-			"04"
-			{
 				"var_type"				"FIELD_INTEGER"
 				"element_one"			"15"
 			}
-			"05"
+			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"base_ability"			"4"
@@ -346,13 +336,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% CHERNOBOG_R2_BASE_ABILITY_AMP %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"100"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"<% CHERNOBOG_R2_CHANCE %>"
 			}
 		}
 	}
@@ -398,12 +383,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% CHERNOBOG_R4_DEMON_AMP_PER_STR * 10 %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% CHERNOBOG_R4_SHADOW_AMP_PER_AGI * 10 %>"
+				"property_one"			"<% CHERNOBOG_R4_DEMON_AND_SHADOW_AMP_PER_ATTR %>"
 			}
 		}
 	}

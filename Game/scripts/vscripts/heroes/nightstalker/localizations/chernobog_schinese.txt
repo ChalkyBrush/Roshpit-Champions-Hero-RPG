@@ -74,10 +74,9 @@
     	"DOTA_Tooltip_ability_chernobog_rune_w_3_suffix"						" 每层"
     	"DOTA_Tooltip_ability_chernobog_rune_w_3_property_two"					"额外基础攻击力"
     	"DOTA_Tooltip_ability_chernobog_rune_w_3_suffix_two"					" 每层"
-		"DOTA_Tooltip_modifier_chernobog_w3_inactive"							"狂热 (敌方)"
-    	"DOTA_Tooltip_modifier_chernobog_w3_inactive_Description"				"魔甲和护甲降低。"	
-    	"DOTA_Tooltip_modifier_chernobog_w3_active"								"狂热 (自身)"
-    	"DOTA_Tooltip_modifier_chernobog_w3_active_Description"					"提高基础攻击力。"
+	"DOTA_Tooltip_modifier_chernobog_w3_effect"							"狂热"
+    	"DOTA_Tooltip_modifier_chernobog_w3_effect_Description"				"增加自身攻击力或者降低敌人的双甲。"	
+
 
     	"DOTA_Tooltip_ability_chernobog_rune_w_4"								"[W4] 猎人精髓"
     	"DOTA_Tooltip_ability_chernobog_rune_w_4_Description"					"@Ability2 关闭时获得额外力量，开启时获得额外敏捷。"
@@ -94,7 +93,7 @@
     	"DOTA_Tooltip_ability_chernobog_shadow_hunt_mp_drain_per_second"		"% 当前魔法值汲取量:"
 		
     	"DOTA_Tooltip_modifier_shadow_hunt"										"暗影追猎"
-    	"DOTA_Tooltip_modifier_shadow_hunt_Description"							"增加移动速和移动速度上限。"
+    	"DOTA_Tooltip_modifier_shadow_hunt_Description"							""
 
 		"DOTA_Tooltip_ability_chernobog_rune_e_1"								"[E1] 黑暗耳语"
     	"DOTA_Tooltip_ability_chernobog_rune_e_1_Description"					"@Ability3 开启时获得额外攻击力，移动速度和移动速度上限。"
@@ -102,9 +101,6 @@
     	"DOTA_Tooltip_ability_chernobog_rune_e_1_suffix"						"%"
 		"DOTA_Tooltip_ability_chernobog_rune_e_1_property_two"					"额外移动速度和移动速度上限"
     	"DOTA_Tooltip_ability_chernobog_rune_e_1_suffix_two"					""
-		
-    	"DOTA_Tooltip_modifier_chernobog_e1_buff"								"黑暗耳语"
-    	"DOTA_Tooltip_modifier_chernobog_e1_buff_Description"					"提高攻击力，移动速度和移动速度上限。"
 
     	"DOTA_Tooltip_ability_chernobog_rune_e_2"								"[E2] 阴影恐惧"
     	"DOTA_Tooltip_ability_chernobog_rune_e_2_Description"					"@Ability3 开启时，你将会获得一个光环，光环将会降低敌人的双甲和攻击速度。"
@@ -127,7 +123,7 @@
 		"DOTA_Tooltip_modifier_chernobog_e3_effect_Description"					"下一次造成的伤害将会提高。"
 		
     	"DOTA_Tooltip_ability_chernobog_rune_e_4"								"[E4] 日蚀"
-    	"DOTA_Tooltip_ability_chernobog_rune_e_4_Description"					"@Ability3 开启时将会获得额外魔甲并且有概率躲避远程弹道。这个效果在你的当前血量低于 <% CHERNOBOG_E4_BONUS_THRESHOLD %>%最大生命值时将会提高两倍。关闭 @Ability3 后这个buff仍然会存在一段时间。"
+    	"DOTA_Tooltip_ability_chernobog_rune_e_4_Description"					"@Ability3 开启时将会获得额外魔甲并且有概率躲避远程弹道。这个效果在你的当前血量低于 <% CHERNOBOG_E4_BONUS_THRESHOLD %>%最大生命值时将会提高两倍。关闭 @Ability3 后@Ability3 的buff仍然会存在一段时间并且不会汲取生命值。"
     	"DOTA_Tooltip_ability_chernobog_rune_e_4_property_one"					"关闭后持续时间"
     	"DOTA_Tooltip_ability_chernobog_rune_e_4_suffix"						" 秒"
     	"DOTA_Tooltip_ability_chernobog_rune_e_4_property_two"					"远程弹道躲闪概率"
@@ -147,7 +143,7 @@
     	"DOTA_Tooltip_modifier_chernobog_r_effect_Description"					"被冻结。"
 		
 		"DOTA_Tooltip_ability_chernobog_rune_r_1"								"[R1] 恶魔之爪"
-    	"DOTA_Tooltip_ability_chernobog_rune_r_1_Description"					"暗夜魔王攻击处于@Ability4中的敌人时将会对主目标周围 <% CHERNOBOG_R1_RADIUS %> 范围内的所有敌人造成物理伤害。这个buff在 @Ability4 结束后仍然存续一段时间。"
+    	"DOTA_Tooltip_ability_chernobog_rune_r_1_Description"					"暗夜魔王的攻击将会对主目标周围 <% CHERNOBOG_R1_RADIUS %> 范围内的所有敌人造成物理伤害。"
     	"DOTA_Tooltip_ability_chernobog_rune_r_1_property_one"					"额外伤害"
     	"DOTA_Tooltip_ability_chernobog_rune_r_1_suffix"						"% 攻击力"
     	"DOTA_Tooltip_ability_chernobog_rune_r_1_property_two"					"额外持续时间"
@@ -155,14 +151,11 @@
 		
 		"DOTA_Tooltip_modifier_chernobog_r1_effect"								"恶魔之爪"
     	"DOTA_Tooltip_modifier_chernobog_r1_effect_Description"					"普通攻击将会造成范围物理伤害。"
-		
-    	"DOTA_Tooltip_modifier_nights_procession_a_d_rune"						"Fiend's Grip"			
-    	"DOTA_Tooltip_modifier_nights_procession_a_d_rune_Description"			"Taking increased damage from Chernobog"	
 
     	"DOTA_Tooltip_ability_chernobog_rune_r_2"								"[R2] 暗夜行者"
-    	"DOTA_Tooltip_ability_chernobog_rune_r_2_Description"					"所有技能和符文对处于 @Ability4 中的敌人造成伤害时，暗夜魔王的暗影将会再次根据该次伤害再次造成基于该技能伤害百分比的伤害。"
-    	"DOTA_Tooltip_ability_chernobog_rune_r_2_property_one"					"额外伤害(基于该伤害基础伤害)"
-    	"DOTA_Tooltip_ability_chernobog_rune_r_2_suffix"						"%"
+    	"DOTA_Tooltip_ability_chernobog_rune_r_2_Description"					"获得一个概率使得暗夜魔王的影子在暗夜魔王造成伤害时再次造成相同伤害的打击， 这个触发概率对处于 @Ability4 中的敌人造成伤害时将会以3倍触发概率计算。概率大于100%意味着能够多重触发。"
+    	"DOTA_Tooltip_ability_chernobog_rune_r_2_property_one"					"触发概率"
+    	"DOTA_Tooltip_ability_chernobog_rune_r_2_suffix"					"%"
 
     	"DOTA_Tooltip_ability_chernobog_rune_r_3"								"[R3] 无尽黑暗"
     	"DOTA_Tooltip_ability_chernobog_rune_r_3_Description"					"降低 @Ability4 的冷却时间和引导时间，增加 @Ability4 的范围。"
@@ -174,11 +167,9 @@
         "DOTA_Tooltip_ability_chernobog_rune_r_3_suffix_three"					""
 
     	"DOTA_Tooltip_ability_chernobog_rune_r_4"								"[R4] 黑暗之心"
-    	"DOTA_Tooltip_ability_chernobog_rune_r_4_Description"					"被动从力量中获得额外 <font color='#5B648C'>恶魔</font> 伤害，从敏捷中获得额外 <font color='#7F4F84'>暗影</font> 伤害。"
-    	"DOTA_Tooltip_ability_chernobog_rune_r_4_property_one"					"<font color='#5B648C'>恶魔伤害</font> "
-        "DOTA_Tooltip_ability_chernobog_rune_r_4_suffix"						" % 每 10 点力量"
-		"DOTA_Tooltip_ability_chernobog_rune_r_4_property_two"					"<font color='#7F4F84'>暗影</font>"
-        "DOTA_Tooltip_ability_chernobog_rune_r_4_suffix_two"					" % 每 10 点敏捷"
+    	"DOTA_Tooltip_ability_chernobog_rune_r_4_Description"					"敏捷和力量提高 <font color='#5B648C'>恶魔</font> 和 <font color='#7F4F84'>暗影</font> 伤害。"
+    	"DOTA_Tooltip_ability_chernobog_rune_r_4_property_one"					"<font color='#5B648C'>恶魔</font> 和<font color='#7F4F84'>暗影</font>伤害 "
+        "DOTA_Tooltip_ability_chernobog_rune_r_4_suffix"						" % 每点力量和敏捷"
 		
 		//Arcanas
 		
@@ -247,15 +238,15 @@
     	"DOTA_Tooltip_ability_chernobog_rune_e_1_arcana2_suffix_two"			"%"
 
   		"DOTA_Tooltip_ability_chernobog_rune_e_2_arcana2"						"[E2] 异态碾压"
-    	"DOTA_Tooltip_ability_chernobog_rune_e_2_arcana2_Description"			"被动提高暗夜魔王的基础攻击力，移动速度和移动速度上限。每当周围<font color='#ccff66'>600</font>范围内有一个敌人存在时，这个效果将会被提高 <font color='#ccff66'>5</font>%, boss 视为 <font color='#ccff66'>10</font> 个单位，精英视为 <font color='#ccff66'>5</font> 个单位, 计数上限为 <font color='#ccff66'>20</font> 个单位。"
+    	"DOTA_Tooltip_ability_chernobog_rune_e_2_arcana2_Description"			"被动提高暗夜魔王的基础攻击力，移动速度和移动速度上限。每当周围<font color='#ccff66'>600</font>范围内有一个敌人存在时，这个效果将会被提高 <font color='#ccff66'>10</font>%, boss 视为 <font color='#ccff66'>6</font> 个单位，精英视为 <font color='#ccff66'>3</font> 个单位, 计数上限为 <font color='#ccff66'>10</font> 个单位。"
     	"DOTA_Tooltip_ability_chernobog_rune_e_2_arcana2_property_one"			"额外攻击力"
     	"DOTA_Tooltip_ability_chernobog_rune_e_2_arcana2_suffix"				"%"
 		"DOTA_Tooltip_ability_chernobog_rune_e_2_arcana2_property_two"			"额外移动速度和移动速度上限"
 		"DOTA_Tooltip_ability_chernobog_rune_e_2_arcana2_suffix_two"			""
 		
 
-    	"DOTA_Tooltip_modifier_chernobog_arcana_e2_effect"						"异态碾压"
-    	"DOTA_Tooltip_modifier_chernobog_arcana_e2_effect_Description"			"根据敌人数目提高效果。"	
+    	"DOTA_Tooltip_modifier_chernobog_arcana_e_passive"						"异态碾压"
+    	"DOTA_Tooltip_modifier_chernobog_arcana_e_passive_Description"			"根据敌人数目提高效果。"	
 
   		"DOTA_Tooltip_ability_chernobog_rune_e_3_arcana2"						"[E3] 地狱之能"
     	"DOTA_Tooltip_ability_chernobog_rune_e_3_arcana2_Description"			"暗夜魔王的 <font color='#5B648C'>恶魔</font> 元素伤害也会提高他的基础攻击力。"
@@ -280,13 +271,13 @@
 		"item_rpc_chernobog_glyph_3_1_description" 				"@Ability1 击中敌人时将会降低 @Ability4 的冷却时间 <% CHERNOBOG_GLYPH_3_1_CD_DEC %> 秒。此外释放@Ability4 时将会释放一次 @Ability1。"
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_4_1"		"[T4-1] 残影雕文"
-		"item_rpc_chernobog_glyph_4_1_description" 				"提高[R2]的效果 <% CHERNOBOG_GLYPH_4_1_R2_AMP %>%。"
+		"item_rpc_chernobog_glyph_4_1_description" 				"每点高于<font color='#ccff66'>500</font>的移动速度提高基础技能伤害 <% CHERNOBOG_GLYPH_4_1_BAD_OVER_THRES %>%。"
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_5_1"		"[T5-1] 狂怒恶魔雕文"
 		"item_rpc_chernobog_glyph_5_1_description" 				"对 [E3] 的目标周围 <% CHERNOBOG_GLYPH_5_1_RADIUS %> 范围内的所有敌人普通攻击 <% CHERNOBOG_GLYPH_5_1_HIT_COUNT %t> 次。"
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_6_1"		"[T6-1] 怒意狂击雕文"
-		"item_rpc_chernobog_glyph_6_1_description" 				"增加 [W3] 的最大层数 <% CHERNOBOG_GLYPH_6_1_W3_MAX_STACK_BONUS %> 并且普通攻击额外施加 <% CHERNOBOG_GLYPH_6_1_ADDITION_STACK %> 层 [W3]。"
+		"item_rpc_chernobog_glyph_6_1_description" 				"增加 [W3] 的最大层数 <% CHERNOBOG_GLYPH_6_1_W3_MAX_STACK_BONUS %> 并且普通攻击额外施加 <% CHERNOBOG_GLYPH_6_1_ADDITION_STACK %> 层 [W3]，此外，你将会永久获得<font color='#ccff66'>20</font>层 [W3]。"
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_7_1"		"[T7-1] 恶魔之魂雕文"
 		"item_rpc_chernobog_glyph_7_1_description" 				"降低 @Ability2 的承伤阈值 <% CHERNOBOG_GLYPH_7_1_W_THRESHOLD_REDUC %>%。"
@@ -307,7 +298,7 @@
 		"item_rpc_chernobog_glyph_4_2_description" 				"[Q3] 提高 @Ability1 的伤害<% CHERNOBOG_GLYPH_4_2_Q_DMG_AMP %>% 并且Debuff也会施加减速和攻击力降低，数值和@Ability1技能一致。"
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_5_2"		"[T5-2] 虚无之愿雕文"
-		"item_rpc_chernobog_glyph_5_2_description" 				"[R1] 变为被动并且对处于@Ability4 影响下的敌人造成的伤害提高 <% CHERNOBOG_GLYPH_5_2_R1_AMP_IN_R %>% 。"
+		"item_rpc_chernobog_glyph_5_2_description" 				"[R1] 对处于@Ability4 影响下的敌人造成的伤害提高 <% CHERNOBOG_GLYPH_5_2_R1_AMP_IN_R %>% 。"
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_6_2"		"[T6-2] 耐久雕文"
 		"item_rpc_chernobog_glyph_6_2_description" 				"在你当前生命值低于 <% CHERNOBOG_GLYPH_6_2_THRESHOLD %>% 最大生命值时开启 @Ability2 不会汲取生命值，但是所有技能和符文造成的伤害将会降低 <% CHERNOBOG_GLYPH_6_2_DMG_DEC %>%。"
@@ -338,7 +329,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_chernobog_immortal_weapon_2"            	"卡律布迪斯的下颚"
         "item_property_chernobog_immortal_weapon2"                             	"卡律布狄斯的漩涡"
-        "property_chernobog_immortal_weapon2_description"                      	"造成物理伤害后，你的下一次魔法伤害将会提高 <% CHERNOBOG_IMMORTAL_WEAPON_2_MAGIC_BONUS %>% 并且回复 <% CHERNOBOG_IMMORTAL_WEAPON_2_MANA_RESTORE_WHEN_AMP %>%最大魔法值，造成魔法伤害后，你的下一次物理伤害将会提高 <% CHERNOBOG_IMMORTAL_WEAPON_2_PHYS_BONUS %>%并且回复 <% CHERNOBOG_IMMORTAL_WEAPON_2_HEALTH_RESTORE_WHEN_AMP %>%最大生命值，这个资料无视禁疗但是不能被提高或降低。"
+        "property_chernobog_immortal_weapon2_description"                      	"造成物理伤害后，你的下一次魔法伤害将会提高 <% CHERNOBOG_IMMORTAL_WEAPON_2_MAGIC_BONUS %>% 并且回复 <% CHERNOBOG_IMMORTAL_WEAPON_2_MANA_RESTORE_WHEN_AMP %>%最大魔法值，造成魔法伤害后，你的下一次物理伤害将会提高 <% CHERNOBOG_IMMORTAL_WEAPON_2_PHYS_BONUS %>%并且回复 <% CHERNOBOG_IMMORTAL_WEAPON_2_HEALTH_RESTORE_WHEN_AMP %>%最大生命值，这个治疗无视禁疗但是不能被提高或降低。"
 
         "DOTA_Tooltip_ability_item_rpc_chernobog_immortal_weapon_3"            	"恶魔的不洁之爪"
         "item_property_chernobog_immortal_weapon3"                             	"不洁侵袭"

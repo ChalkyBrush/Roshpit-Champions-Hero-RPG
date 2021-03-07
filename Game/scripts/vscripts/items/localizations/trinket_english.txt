@@ -339,8 +339,8 @@
 
         "DOTA_Tooltip_ability_item_rpc_garnet_warfare_ring"                             "Garnet Warfare Ring"
 
-        "item_property_garnet_warfare"                          "Garnet Warfare"
-        "property_garnet_warfare_description"                    "Each point of Strength increases Base Ability Damage by <% ITEM_RPC_GARNET_WARFARE_RING_STR_TO_BAD %>%."
+        "item_property_garnet_warfare_ring"                          "Garnet Warfare"
+        "property_garnet_warfare_ring_description"                    "Each point of Strength increases Base Ability Damage by <% ITEM_RPC_GARNET_WARFARE_RING_STR_TO_BAD %>%."
 
         "item_rpc_garnet_warfare_ring_ruby1"                                "Increases Strength by @ruby_property1"
         "item_rpc_garnet_warfare_ring_emerald1"                             "Increases Armor Pierce and Spell Pierce by @emerald_property1"
@@ -532,20 +532,20 @@
         "DOTA_Tooltip_ability_item_rpc_sparkling_token_of_oceanis"                  "Sparkling Token of Oceanis"    
 
         "property_sparkling_token"                                              "Tropical Mend"
-        "property_sparkling_token_Description"                                  "Restore <% ITEM_RPC_SPARKLING_TOKEN_OF_OCEANIS_HEALTH_RESTORE %>% of Max Health and <% ITEM_RPC_SPARKLING_TOKEN_OF_OCEANIS_MANA_RESTORE %> of max mana every <% ITEM_RPC_SPARKLING_TOKEN_OF_OCEANIS_INTERVAL %> seconds."
-        "item_rpc_sparkling_token_of_oceanis_ruby1"                 "Increases Max Health by @ruby_property1 and Max Mana by @ruby_property2"
-        "item_rpc_sparkling_token_of_oceanis_emerald1"                  "Reduce Physical Damage taken by @emerald_property1%"
+        "property_sparkling_token_Description"                                  "Restore <% ITEM_RPC_SPARKLING_TOKEN_OF_OCEANIS_HEALTH_RESTORE %>% of max health and <% ITEM_RPC_SPARKLING_TOKEN_OF_OCEANIS_MANA_RESTORE %> of max mana every <% ITEM_RPC_SPARKLING_TOKEN_OF_OCEANIS_INTERVAL %> seconds."
+        "item_rpc_sparkling_token_of_oceanis_ruby1"                 "Increases max health by @ruby_property1 and max mana by @ruby_property2"
+        "item_rpc_sparkling_token_of_oceanis_emerald1"                  "Reduce Physical damage taken by @emerald_property1%"
         "item_rpc_sparkling_token_of_oceanis_sapphire1"                 "Increase Armor Pierce and Spell Pierce by @sapphire_property1"
-        "item_rpc_sparkling_token_of_oceanis_amethyst1"                 "Reduce Magic Damage taken by @amethyst_property1%" 
+        "item_rpc_sparkling_token_of_oceanis_amethyst1"                 "Reduce Magical damage taken by @amethyst_property1%" 
 
         "DOTA_Tooltip_ability_item_rpc_stargazers_sphere"            "Stargazer's Sphere"
 
         "item_property_stargazer"                                    "Eye of the Stargazer"
-        "property_stargazer_description"                            "Issuing an attack-move order within <% ITEM_RPC_STARGAZERS_SPHERE_MAX_CREATION_RANGE %> range will create a <% ITEM_RPC_STARGAZERS_SPHERE_RADIUS %> radius cosmic aperture with vision at that location. Enemies inside the aperture who take damage will be struck by a star which deals <% ITEM_RPC_STARGAZERS_SPHERE_STARFALL_DMG_PCT_ATK_POWER %>% of the Stargazer's attack power. Each enemy can only be hit by a star once every <% ITEM_RPC_STARGAZERS_SPHERE_STARFALL_CD %> seconds. Can only create a ring once every <% ITEM_RPC_STARGAZERS_SPHERE_RING_CREATION_CD %> seconds."
+        "property_stargazer_description"                            "Issuing an attack-move order within <% ITEM_RPC_STARGAZERS_SPHERE_MAX_CREATION_RANGE %> range will create a <% ITEM_RPC_STARGAZERS_SPHERE_RADIUS %>-radius cosmic aperture, providing vision at that location. Enemies inside the aperture who take damage will be struck by a star which deals <% ITEM_RPC_STARGAZERS_SPHERE_STARFALL_DMG_PCT_ATK_POWER %>% of the Stargazer's attack power. Each enemy can only be hit by a star once every <% ITEM_RPC_STARGAZERS_SPHERE_STARFALL_CD %> seconds. Can only create an aperture once every <% ITEM_RPC_STARGAZERS_SPHERE_RING_CREATION_CD %> seconds."
 
-        "item_rpc_stargazers_sphere_ruby1"            "Issuing an attack-move order within a circle instantly collapses it, forming a meteor that does @ruby_property1% your attack power in the area and stuns enemies for @ruby_property2 seconds."
-        "item_rpc_stargazers_sphere_emerald1"            "Reduces Eye of the Stargazer's cooldown by @emerald_property1 and max creation range by @emerald_property2"
-        "item_rpc_stargazers_sphere_sapphire1"            "Reduces the Starfall delay per enemy by @sapphire_property1 seconds and increases the Star's damage by @sapphire_property2"
+        "item_rpc_stargazers_sphere_ruby1"            "Issuing an attack-move order within a circle instantly collapses it, forming a meteor that deals @ruby_property1% of your attack power in the area and stuns enemies for @ruby_property2 seconds."
+        "item_rpc_stargazers_sphere_emerald1"            "Reduces Eye of the Stargazer's cooldown by @emerald_property1 and aperture creation range by @emerald_property2"
+        "item_rpc_stargazers_sphere_sapphire1"            "Reduces the Starfall delay per enemy by @sapphire_property1 seconds and increases the star's damage by @sapphire_property2"
         "item_rpc_stargazers_sphere_amethyst1"            "Increases Item and <font color=ELEMENT_COSMOS>Cosmic</font> Elemental Damage by @amethyst_property1%"
 
         "DOTA_Tooltip_modifier_in_stargazer_area"                   "Stargazer's Sphere"
@@ -612,20 +612,20 @@
         "DOTA_Tooltip_modifier_twig_of_the_enlightened_shield"  "Mana Shell"
         "DOTA_Tooltip_modifier_twig_of_the_enlightened_shield_Description"  "Absorbing Damage"
 
-        "item_rpc_twig_of_the_enlightened_ruby1"                            "The shield builds damage absorption by an additional @ruby_property1x Mana Gained"
-        "item_rpc_twig_of_the_enlightened_emerald1"                         "Restore @emerald_property1% of your Mana when taking damage"
-        "item_rpc_twig_of_the_enlightened_sapphire1"                            "Increases Mana Shell's capacity by an additional @sapphire_property1x of your Max Mana"
+        "item_rpc_twig_of_the_enlightened_ruby1"                            "The shield builds damage absorption by an additional @ruby_property1x mana gained"
+        "item_rpc_twig_of_the_enlightened_emerald1"                         "Restore @emerald_property1% of your max mana when taking damage"
+        "item_rpc_twig_of_the_enlightened_sapphire1"                            "Increases Mana Shell's maximum shield capacity by an additional @sapphire_property1x of your max mana"
         "item_rpc_twig_of_the_enlightened_amethyst1"                            "Increases Mana Regen by @amethyst_property1"
 
 		
 		"DOTA_Tooltip_ability_item_rpc_volcano_orb"										"Volcano Orb"
         "item_property_volcano_orb"                 "Fiery Core"
-        "property_volcano_orb_description"          "All attributes increase Spell Pierce by <% ITEM_RPC_VOLCANO_ORB_SPELL_PIERCE_PER_ATTR  %>."
+        "property_volcano_orb_description"          "All Attributes increase Spell Pierce by <% ITEM_RPC_VOLCANO_ORB_SPELL_PIERCE_PER_ATTR  %>."
 
-		"item_rpc_volcano_orb_ruby1"										"Increases Spell Pierce per attribute by additional @ruby_property1"
-		"item_rpc_volcano_orb_emerald1"										"Increases all attribute by @emerald_property1"
-		"item_rpc_volcano_orb_sapphire1"										"Increases base ability damage by @sapphire_property1%"
-		"item_rpc_volcano_orb_amethyst1"										"Increases <font color='#EF4126'>Fire</font> and item damage by @amethyst_property1%"
+		"item_rpc_volcano_orb_ruby1"										"All Attributes increase Spell Pierce by an additional @ruby_property1"
+		"item_rpc_volcano_orb_emerald1"										"Increases All Attributes by @emerald_property1"
+		"item_rpc_volcano_orb_sapphire1"										"Increases Base Ability Damage by @sapphire_property1%"
+		"item_rpc_volcano_orb_amethyst1"										"Increases <font color='#EF4126'>Fire</font> and Item Damage by @amethyst_property1%"
 
 		
        "DOTA_Tooltip_ability_item_rpc_wind_orchid"                                     "Wind Orchid"

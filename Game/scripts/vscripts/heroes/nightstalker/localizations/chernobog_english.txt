@@ -73,10 +73,8 @@
     	"DOTA_Tooltip_ability_chernobog_rune_w_3_suffix"						" per stack"
     	"DOTA_Tooltip_ability_chernobog_rune_w_3_property_two"					"Increased Attack Damage"
     	"DOTA_Tooltip_ability_chernobog_rune_w_3_suffix_two"					" per stack"
-		"DOTA_Tooltip_modifier_chernobog_w3_inactive"							"Fervor (Enemy)"
-    	"DOTA_Tooltip_modifier_chernobog_w3_inactive_Description"				"Reduced Armor and Magic Armor"	
-    	"DOTA_Tooltip_modifier_chernobog_w3_active"								"Fervor (Self)"
-    	"DOTA_Tooltip_modifier_chernobog_w3_active_Description"					"Increased attack damage"
+	"DOTA_Tooltip_modifier_chernobog_w3_effect"							"Fervor"
+    	"DOTA_Tooltip_modifier_chernobog_w3_effect_Description"				"Each stack increases attacker's attack damage or reducing target's armor and magic armor."
 
     	"DOTA_Tooltip_ability_chernobog_rune_w_4"								"[W4] Hunter's Marrow"
     	"DOTA_Tooltip_ability_chernobog_rune_w_4_Description"					"While @Ability2 is toggled off, gain bonus Strength. While toggled on, gain bonus Agility."
@@ -159,9 +157,9 @@
     	"DOTA_Tooltip_modifier_nights_procession_a_d_rune_Description"			"Taking increased damage from Chernobog"	
 
     	"DOTA_Tooltip_ability_chernobog_rune_r_2"								"[R2] Night Stalker"
-    	"DOTA_Tooltip_ability_chernobog_rune_r_2_Description"					"Enemies trapped by @Ability4 are surrounded by Chernobog's shadows, which will duplicate any Ability damage that Chernobog deals to them. A duplicated damage instance is more powerful than the strike which caused it."
-    	"DOTA_Tooltip_ability_chernobog_rune_r_2_property_one"					"Duplicated Damage Bonus"
-    	"DOTA_Tooltip_ability_chernobog_rune_r_2_suffix"						"%"
+    	"DOTA_Tooltip_ability_chernobog_rune_r_2_Description"					"Grants a chance that cause Chernobog's shadows to duplicate any Ability damage that Chernobog deals to them, a chance greater than 100% means it can proc multiple times. In addition, the chance is trippled when Chernobog dealing damage to enemies trapped by @Ability4."
+    	"DOTA_Tooltip_ability_chernobog_rune_r_2_property_one"					"Proc Chance"
+    	"DOTA_Tooltip_ability_chernobog_rune_r_2_suffix"					"%"
 
     	"DOTA_Tooltip_ability_chernobog_rune_r_3"								"[R3] Black Cauldron"
     	"DOTA_Tooltip_ability_chernobog_rune_r_3_Description"					"Reduce the cooldown and channel time of @Ability4, while also increasing its radius."
@@ -246,15 +244,15 @@
     	"DOTA_Tooltip_ability_chernobog_rune_e_1_arcana2_suffix_two"				"%"
 
   		"DOTA_Tooltip_ability_chernobog_rune_e_2_arcana2"						"[E2] Overwhelming Odds"
-    	"DOTA_Tooltip_ability_chernobog_rune_e_2_arcana2_Description"			"Passively increase Chernobog's attack damage, movespeed and movespeed cap, and each enemy unit within <font color='#ccff66'>600</font> range will further increase the bonus by <font color='#ccff66'>5</font>%. Bosses count as <font color='#ccff66'>10</font> enemies, while Paragon units count as <font color='#ccff66'>5</font> enemies. These bonuses are capped at <font color='#ccff66'>20</font> enemies, no matter how many more are within range."
+    	"DOTA_Tooltip_ability_chernobog_rune_e_2_arcana2_Description"			"Passively increase Chernobog's attack damage, movespeed and movespeed cap, and each enemy unit within <font color='#ccff66'>600</font> range will further increase the bonus by <font color='#ccff66'>10</font>%. Bosses count as <font color='#ccff66'>6</font> enemies, while Paragon units count as <font color='#ccff66'>3</font> enemies. These bonuses are capped at <font color='#ccff66'>10</font> enemies, no matter how many more are within range."
     	"DOTA_Tooltip_ability_chernobog_rune_e_2_arcana2_property_one"			"Attack Damage"
     	"DOTA_Tooltip_ability_chernobog_rune_e_2_arcana2_suffix"				"%"
 		"DOTA_Tooltip_ability_chernobog_rune_e_2_arcana2_property_two"			"Movespeed and Movespeed Cap"
 		"DOTA_Tooltip_ability_chernobog_rune_e_2_arcana2_suffix_two"				""
 		
 
-    	"DOTA_Tooltip_modifier_chernobog_arcana_e2_effect"						"Overwhelming Odds"
-    	"DOTA_Tooltip_modifier_chernobog_arcana_e2_effect_Description"			"The attack power bonus is increased based on number of nearby enemies"	
+    	"DOTA_Tooltip_modifier_chernobog_arcana_e_passive"						"Overwhelming Odds"
+    	"DOTA_Tooltip_modifier_chernobog_arcana_e_passive_Description"			"The attack power bonus is increased based on number of nearby enemies"	
 
   		"DOTA_Tooltip_ability_chernobog_rune_e_3_arcana2"						"[E3] Infernal Power"
     	"DOTA_Tooltip_ability_chernobog_rune_e_3_arcana2_Description"			"Chernobog's <font color='#5B648C'>Demon</font> elemental damage bonus also adds to his base attack damage."
@@ -278,14 +276,14 @@
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_3_1"		"[T3-1] Glyph of Nightmare's Grasp"
 		"item_rpc_chernobog_glyph_3_1_description" 				"Each enemy hit by @Ability1 reduces the cooldown of @Ability4 by <% CHERNOBOG_GLYPH_3_1_CD_DEC %> seconds. Additionally, @Ability1 is cast for free after channeling @Ability4."
 
-		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_4_1"		"[T4-1] Glyph of Penumbra"
-		"item_rpc_chernobog_glyph_4_1_description" 				"Increase the effectiveness of [R2] by <% CHERNOBOG_GLYPH_4_1_R2_AMP %>%."
+		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_4_1"		"[T4-1] Glyph of Sundown"
+		"item_rpc_chernobog_glyph_4_1_description" 				"Each point of current movement speed above <font color='#ccff66'>500</font> increases Base Ability Damage by <% CHERNOBOG_GLYPH_4_1_BAD_OVER_THRES %>%."
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_5_1"		"[T5-1] Glyph of the Raging Demon"
 		"item_rpc_chernobog_glyph_5_1_description" 				"Upon arrival from a Sudden Strike teleport, Chernobog performs <% CHERNOBOG_GLYPH_5_1_HIT_COUNT %> instant attacks against all enemies within <% CHERNOBOG_GLYPH_5_1_RADIUS %> range."
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_6_1"		"[T6-1] Glyph of Fury Swipes"
-		"item_rpc_chernobog_glyph_6_1_description" 				"Increase max stacks of [W3] by <% CHERNOBOG_GLYPH_6_1_W3_MAX_STACK_BONUS %>, and each attack will apply <% CHERNOBOG_GLYPH_6_1_ADDITION_STACK %> additional stack of both effects."
+		"item_rpc_chernobog_glyph_6_1_description" 				"Increase max stacks of [W3] by <% CHERNOBOG_GLYPH_6_1_W3_MAX_STACK_BONUS %>, and each attack will apply <% CHERNOBOG_GLYPH_6_1_ADDITION_STACK %> additional stack of both effects. Chernobog always has at least <font color='#ccff66'>20</font> stacks of [W3]'s attack damage bonus."
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_7_1"		"[T7-1] Glyph of Dreadfast"
 		"item_rpc_chernobog_glyph_7_1_description" 				"Reduce @Ability2 damage truncation threshold by <% CHERNOBOG_GLYPH_7_1_W_THRESHOLD_REDUC %>% of Chernobog's maximum health."
@@ -342,9 +340,9 @@
 
         "DOTA_Tooltip_ability_item_rpc_chernobog_immortal_weapon_3"            "Unholy Claw of Osyluth"
         "item_property_chernobog_immortal_weapon3"                             "Broadened Horizons"
-        "property_chernobog_immortal_weapon3_description"                      "For all abilities and runes that deal damage in intervals, or whose effects are applied in a radius around Chernobog, they tick <% CHERNOBOG_IMMORTAL_WEAPON_3_ALL_RATE_BONUS %>% faster and have <% CHERNOBOG_IMMORTAL_WEAPON_3_ALL_RADIUS_BONUS %>% increased range."
+        "property_chernobog_immortal_weapon3_description"                      "For all abilities and runes that deal damage in intervals, or whose effects are applied in a radius around Chernobog, they tick <% CHERNOBOG_IMMORTAL_WEAPON_3_ALL_RATE_BONUS %>% faster and have <% CHERNOBOG_IMMORTAL_WEAPON_3_ALL_RADIUS_BONUS %>% increased size."
 		
 		"DOTA_Tooltip_ability_item_rpc_chernobog_immortal_weapon_4"            "Saibot's Boon"
         "item_property_chernobog_immortal_weapon4"                             "Sinister Silhouette"
-        "property_chernobog_immortal_weapon4_description"                      "Increase the value of all Armor-reducing effects from Chernobog's runes and abilities by <% CHERNOBOG_IMMORTAL_WEAPON_4_ARMOR_REDUC_MULT %>%. You deal <% CHERNOBOG_IMMORTAL_WEAPON_4_AMP_ON_DEBUFFED_ENEMY %>% increased damage to enemy who affected by any Armor-reducing effects, if enemy's armor or magic armor drop to <font color='#ccff66'>0</font>, it will be silenced for <font color='#ccff66'>2</font> seconds."
+        "property_chernobog_immortal_weapon4_description"                      "Increase the value of all Armor-reducing effects from Chernobog's runes and abilities by <% CHERNOBOG_IMMORTAL_WEAPON_4_ARMOR_REDUC_MULT %>%. Chernobog's damage dealt to enemies affected by any of these debuffs is increased by <% CHERNOBOG_IMMORTAL_WEAPON_4_AMP_ON_DEBUFFED_ENEMY %>%. When receiving any ability damage from Chernobog, an enemy who has <font color='#ccff66'>0</font> Armor or Magic Armor will be silenced for <font color='#ccff66'>2</font> seconds."
 
