@@ -93,7 +93,7 @@
     	"DOTA_Tooltip_ability_chernobog_shadow_hunt_mp_drain_per_second"		"% 当前魔法值汲取量:"
 		
     	"DOTA_Tooltip_modifier_shadow_hunt"										"暗影追猎"
-    	"DOTA_Tooltip_modifier_shadow_hunt_Description"							"增加移动速和移动速度上限。"
+    	"DOTA_Tooltip_modifier_shadow_hunt_Description"							""
 
 		"DOTA_Tooltip_ability_chernobog_rune_e_1"								"[E1] 黑暗耳语"
     	"DOTA_Tooltip_ability_chernobog_rune_e_1_Description"					"@Ability3 开启时获得额外攻击力，移动速度和移动速度上限。"
@@ -101,9 +101,6 @@
     	"DOTA_Tooltip_ability_chernobog_rune_e_1_suffix"						"%"
 		"DOTA_Tooltip_ability_chernobog_rune_e_1_property_two"					"额外移动速度和移动速度上限"
     	"DOTA_Tooltip_ability_chernobog_rune_e_1_suffix_two"					""
-		
-    	"DOTA_Tooltip_modifier_chernobog_e1_buff"								"黑暗耳语"
-    	"DOTA_Tooltip_modifier_chernobog_e1_buff_Description"					"提高攻击力，移动速度和移动速度上限。"
 
     	"DOTA_Tooltip_ability_chernobog_rune_e_2"								"[E2] 阴影恐惧"
     	"DOTA_Tooltip_ability_chernobog_rune_e_2_Description"					"@Ability3 开启时，你将会获得一个光环，光环将会降低敌人的双甲和攻击速度。"
@@ -126,7 +123,7 @@
 		"DOTA_Tooltip_modifier_chernobog_e3_effect_Description"					"下一次造成的伤害将会提高。"
 		
     	"DOTA_Tooltip_ability_chernobog_rune_e_4"								"[E4] 日蚀"
-    	"DOTA_Tooltip_ability_chernobog_rune_e_4_Description"					"@Ability3 开启时将会获得额外魔甲并且有概率躲避远程弹道。这个效果在你的当前血量低于 <% CHERNOBOG_E4_BONUS_THRESHOLD %>%最大生命值时将会提高两倍。关闭 @Ability3 后这个buff仍然会存在一段时间。"
+    	"DOTA_Tooltip_ability_chernobog_rune_e_4_Description"					"@Ability3 开启时将会获得额外魔甲并且有概率躲避远程弹道。这个效果在你的当前血量低于 <% CHERNOBOG_E4_BONUS_THRESHOLD %>%最大生命值时将会提高两倍。关闭 @Ability3 后@Ability3 的buff仍然会存在一段时间并且不会汲取生命值。"
     	"DOTA_Tooltip_ability_chernobog_rune_e_4_property_one"					"关闭后持续时间"
     	"DOTA_Tooltip_ability_chernobog_rune_e_4_suffix"						" 秒"
     	"DOTA_Tooltip_ability_chernobog_rune_e_4_property_two"					"远程弹道躲闪概率"
@@ -146,7 +143,7 @@
     	"DOTA_Tooltip_modifier_chernobog_r_effect_Description"					"被冻结。"
 		
 		"DOTA_Tooltip_ability_chernobog_rune_r_1"								"[R1] 恶魔之爪"
-    	"DOTA_Tooltip_ability_chernobog_rune_r_1_Description"					"暗夜魔王攻击处于@Ability4中的敌人时将会对主目标周围 <% CHERNOBOG_R1_RADIUS %> 范围内的所有敌人造成物理伤害。这个buff在 @Ability4 结束后仍然存续一段时间。"
+    	"DOTA_Tooltip_ability_chernobog_rune_r_1_Description"					"暗夜魔王的攻击将会对主目标周围 <% CHERNOBOG_R1_RADIUS %> 范围内的所有敌人造成物理伤害。"
     	"DOTA_Tooltip_ability_chernobog_rune_r_1_property_one"					"额外伤害"
     	"DOTA_Tooltip_ability_chernobog_rune_r_1_suffix"						"% 攻击力"
     	"DOTA_Tooltip_ability_chernobog_rune_r_1_property_two"					"额外持续时间"
@@ -170,11 +167,9 @@
         "DOTA_Tooltip_ability_chernobog_rune_r_3_suffix_three"					""
 
     	"DOTA_Tooltip_ability_chernobog_rune_r_4"								"[R4] 黑暗之心"
-    	"DOTA_Tooltip_ability_chernobog_rune_r_4_Description"					"被动从力量中获得额外 <font color='#5B648C'>恶魔</font> 伤害，从敏捷中获得额外 <font color='#7F4F84'>暗影</font> 伤害。"
-    	"DOTA_Tooltip_ability_chernobog_rune_r_4_property_one"					"<font color='#5B648C'>恶魔伤害</font> "
-        "DOTA_Tooltip_ability_chernobog_rune_r_4_suffix"						" % 每 10 点力量"
-		"DOTA_Tooltip_ability_chernobog_rune_r_4_property_two"					"<font color='#7F4F84'>暗影</font>"
-        "DOTA_Tooltip_ability_chernobog_rune_r_4_suffix_two"					" % 每 10 点敏捷"
+    	"DOTA_Tooltip_ability_chernobog_rune_r_4_Description"					"敏捷和力量提高 <font color='#5B648C'>恶魔</font> 和 <font color='#7F4F84'>暗影</font> 伤害。"
+    	"DOTA_Tooltip_ability_chernobog_rune_r_4_property_one"					"<font color='#5B648C'>恶魔</font> 和<font color='#7F4F84'>暗影</font>伤害 "
+        "DOTA_Tooltip_ability_chernobog_rune_r_4_suffix"						" % 每点力量和敏捷"
 		
 		//Arcanas
 		
@@ -303,7 +298,7 @@
 		"item_rpc_chernobog_glyph_4_2_description" 				"[Q3] 提高 @Ability1 的伤害<% CHERNOBOG_GLYPH_4_2_Q_DMG_AMP %>% 并且Debuff也会施加减速和攻击力降低，数值和@Ability1技能一致。"
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_5_2"		"[T5-2] 虚无之愿雕文"
-		"item_rpc_chernobog_glyph_5_2_description" 				"[R1] 变为被动并且对处于@Ability4 影响下的敌人造成的伤害提高 <% CHERNOBOG_GLYPH_5_2_R1_AMP_IN_R %>% 。"
+		"item_rpc_chernobog_glyph_5_2_description" 				"[R1] 对处于@Ability4 影响下的敌人造成的伤害提高 <% CHERNOBOG_GLYPH_5_2_R1_AMP_IN_R %>% 。"
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_6_2"		"[T6-2] 耐久雕文"
 		"item_rpc_chernobog_glyph_6_2_description" 				"在你当前生命值低于 <% CHERNOBOG_GLYPH_6_2_THRESHOLD %>% 最大生命值时开启 @Ability2 不会汲取生命值，但是所有技能和符文造成的伤害将会降低 <% CHERNOBOG_GLYPH_6_2_DMG_DEC %>%。"
