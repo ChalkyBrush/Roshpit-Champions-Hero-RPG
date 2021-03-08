@@ -257,7 +257,7 @@
         
         "item_rpc_firelock_pendant_ruby1"                               "Each point of agility increases Armor Pierce by @ruby_property1"
         "item_rpc_firelock_pendant_emerald1"                                 "Increases <font color='#EF4126'>Fire</font> Elemental damage by @emerald_property1%"
-        "item_rpc_firelock_pendant_sapphire1"                               "Increase Attack Speed by @sapphire_property1 and your attack speed cannot fall below <font color='#ccff66'>300</font>"
+        "item_rpc_firelock_pendant_sapphire1"                               "Increase Attack Speed by @sapphire_property1 and your attack speed cannot fall below <font color='#ccff66'>300</font>, this effect does not work with any effect that locks you attack speed."
         "item_rpc_firelock_pendant_amethyst1"                               "Increase Strength and Agility by @amethyst_property1"
 
         "DOTA_Tooltip_ability_item_rpc_fortunes_talisman_of_truth"                      "Fortune's Talisman of Truth"

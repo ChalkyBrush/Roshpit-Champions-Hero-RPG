@@ -91,7 +91,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_three"			"<% CHERNOBOG_ARCANA1_R4_DEMON_AMP_PER_STR_AND_AGI * 10 %>"
+				"property_three"			"<% CHERNOBOG_ARCANA1_R4_DEMON_AMP_PER_STR_AND_AGI %>"
 			}
 			
 		}

@@ -41,7 +41,7 @@ function ChernobogDealDamage(caster, target, damage, damageType, ability, elemen
 				local hp_restored = caster:GetMaxHealth() * CHERNOBOG_IMMORTAL_WEAPON_2_HEALTH_RESTORE_WHEN_AMP / 100
 				caster:SetHealth(caster:GetHealth() + hp_restored)
 			end
-			ApplyModifier(caster, caster, nil, "modifier_chernobog_immortal_weapon_2_magic_buff", -1, nil)
+			caster:AddNewModifier(caster, nil, "modifier_chernobog_immortal_weapon_2_magic_buff", {})
 		end
 		if (damageType == DAMAGE_TYPE_MAGICAL) then
 			if caster:HasModifier("modifier_chernobog_immortal_weapon_2_magic_buff") then
@@ -50,7 +50,7 @@ function ChernobogDealDamage(caster, target, damage, damageType, ability, elemen
 				local mana_restored = caster:GetMaxMana() * CHERNOBOG_IMMORTAL_WEAPON_2_MANA_RESTORE_WHEN_AMP / 100
 				caster:GiveMana(mana_restored)
 			end
-			ApplyModifier(caster, caster, nil, "modifier_chernobog_immortal_weapon_2_phys_buff", -1, nil)
+			caster:AddNewModifier(caster, nil, "modifier_chernobog_immortal_weapon_2_phys_buff", {})
 		end
 	end
 	if caster:HasModifier("modifier_chernobog_immortal_weapon_4") then
@@ -64,19 +64,19 @@ function ChernobogDealDamage(caster, target, damage, damageType, ability, elemen
 			end
 		end
 		if (target:GetRoshpitArmor() == 0) or (target:GetRoshpitMagicArmor() == 0 ) then
-			ApplyModifier(caster, target, nil, "modifier_chernobog_immortal_weapon_4_conditional_silence", 2, nil)
+			target:AddNewModifier(caster , nil, "modifier_chernobog_immortal_weapon_4_conditional_silence", {duration = 2})
 		end
 	end
 	if isDot == true then
 		Filters:ApplyDotDamage(caster, ability, target, damage, damageType, ability, element1, element2)
-		if r_2_proc > 0 then
+		if r_2_proc and r_2_proc > 0 then
 		    for i = 1, r_2_proc, 1 do
 		        Filters:ApplyDotDamage(caster, ability, target, damage, damageType, ability, element1, element2)
 			end
 		end
 	else
 		Filters:TakeArgumentsAndApplyDamage(target, caster, damage, damageType, ability, element1, element2)
-		if r_2_proc > 0 then
+		if r_2_proc and r_2_proc > 0 then
 		    for i = 1, r_2_proc, 1 do
 		        Filters:TakeArgumentsAndApplyDamage(target, caster, damage, damageType, ability, element1, element2)
 			end
@@ -150,24 +150,6 @@ function CalculateFinalArmorReduction(caster, baseReduc)
 	end
 	finalReduc = (finalReduc + flatBonus) * multBonus
 	return finalReduc
-end
-
---------------------------
---- MODIFIERS APPLYING ---
---------------------------
-
-function ApplyModifier(caster, target, ability, modifier_name, duration, stacks)
-	local finalDuration = duration
-	if finalDuration ~= -1 then
-		finalDuration = Filters:GetAdjustedBuffDuration(caster, finalDuration, false)
-	end	
-	if not target:HasModifier(modifier_name) then
-		target:AddNewModifier(caster, ability, modifier_name, {duration = finalDuration})
-	end
-	if stacks then
-		target:FindModifierByName(modifier_name):SetStackCount(stacks)
-	end
-	target:FindModifierByName(modifier_name):SetDuration(finalDuration, true)
 end
 
 ----------------------
