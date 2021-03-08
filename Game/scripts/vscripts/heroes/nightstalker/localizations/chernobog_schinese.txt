@@ -146,8 +146,6 @@
     	"DOTA_Tooltip_ability_chernobog_rune_r_1_Description"					"暗夜魔王的攻击将会对主目标周围 <% CHERNOBOG_R1_RADIUS %> 范围内的所有敌人造成物理伤害。"
     	"DOTA_Tooltip_ability_chernobog_rune_r_1_property_one"					"额外伤害"
     	"DOTA_Tooltip_ability_chernobog_rune_r_1_suffix"						"% 攻击力"
-    	"DOTA_Tooltip_ability_chernobog_rune_r_1_property_two"					"额外持续时间"
-        "DOTA_Tooltip_ability_chernobog_rune_r_1_suffix_two"					" 秒"
 		
 		"DOTA_Tooltip_modifier_chernobog_r1_effect"								"恶魔之爪"
     	"DOTA_Tooltip_modifier_chernobog_r1_effect_Description"					"普通攻击将会造成范围物理伤害。"
