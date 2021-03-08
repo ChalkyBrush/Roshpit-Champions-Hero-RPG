@@ -205,7 +205,7 @@
 		"DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_property_two"			"引导时间降低"
     	"DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_suffix_two"			" 秒"
     	"DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_property_three"		"<font color='#5B648C'>恶魔</font> 伤害提高"
-    	"DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_suffix_three"			"% 每 10 点力量值和敏捷值"
+    	"DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_suffix_three"			"% 力量值和敏捷值"
 
     	//cherno arcana2
     	"item_property_chernobog_arcana2"										"恶魔飞升"
