@@ -279,7 +279,7 @@
 		"item_rpc_chernobog_glyph_3_1_description" 				"Each enemy hit by @Ability1 reduces the cooldown of @Ability4 by <% CHERNOBOG_GLYPH_3_1_CD_DEC %> seconds. Additionally, @Ability1 is cast for free after channeling @Ability4."
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_4_1"		"[T4-1] Glyph of Penumbra"
-		"item_rpc_chernobog_glyph_4_1_description" 				"Increase the effectiveness of [R2] by <% CHERNOBOG_GLYPH_4_1_R2_AMP %>%."
+		"item_rpc_chernobog_glyph_4_1_description" 				"Each point of current movement speed above <font color='#ccff66'>500</font> increases Base Ability Damage by <% CHERNOBOG_GLYPH_4_1_BAD_OVER_THRES %>%."
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_5_1"		"[T5-1] Glyph of the Raging Demon"
 		"item_rpc_chernobog_glyph_5_1_description" 				"Upon arrival from a Sudden Strike teleport, Chernobog performs <% CHERNOBOG_GLYPH_5_1_HIT_COUNT %> instant attacks against all enemies within <% CHERNOBOG_GLYPH_5_1_RADIUS %> range."
