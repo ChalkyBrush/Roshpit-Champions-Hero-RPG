@@ -36,76 +36,58 @@ function chernobog_demon_morph:GetCastAnimation()
 	return ACT_DOTA_VICTORY
 end
 
-function chernobog_demon_morph:GetDuration()
-	return self:GetSpecialValueFor("duration")
-end
-
 function chernobog_demon_morph:GetCooldownBase(level)
     return 70
 end
 
 function chernobog_demon_morph:OnSpellStartBase()
-    local caster = self:GetCaster()
-    beginChannel{ caster = caster }
-    EmitSoundOn("Chernobog.NightsProcessionChannelStart", caster)
+    EmitSoundOn("Chernobog.NightsProcessionChannelStart", self:GetCaster())
 end
 
 function chernobog_demon_morph:OnChannelFinish(interrupted)
-    endChannel{ caster = self:GetCaster() }
-    if IsServer() then
-        if interrupted then
-            self:OnChannelInterrupted()
-        else
-            self:OnChannelSucceeded()
-        end
-    end
-end
-
-function chernobog_demon_morph:OnChannelInterrupted()
-    endChannel{ caster = self:GetCaster() }
-end
-
-function chernobog_demon_morph:OnChannelSucceeded()
-	local caster = self:GetCaster()
-	local ability = self
-	local particleName = "particles/roshpit/chernobog/demon_form_transition.vpcf"
-	if caster:HasModifier("modifier_demon_hunter") then
-		particleName = "particles/units/heroes/hero_shadow_demon/shadow_demon_disruption.vpcf"
+    if not IsServer() then
+        return
 	end
-	EmitSoundOn("Chernobog.DemonForm.Transition", caster)
-	local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
-	ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin() + Vector(0, 0, 50))
-	Timers:CreateTimer(2.0, function()
-		ParticleManager:DestroyParticle(pfx, false)
-	end)
-	if caster:HasModifier("modifier_chernobog_glyph_3_1") then
-        local Qability = caster:GetAbilityByIndex(DOTA_Q_SLOT)
-        Qability:OnSpellStart()
+    if not interrupted then
+        local caster = self:GetCaster()
+	    local ability = self
+	    local particleName = "particles/roshpit/chernobog/demon_form_transition.vpcf"
+	    if caster:HasModifier("modifier_demon_hunter") then
+		    particleName = "particles/units/heroes/hero_shadow_demon/shadow_demon_disruption.vpcf"
+	    end
+	    EmitSoundOn("Chernobog.DemonForm.Transition", caster)
+	    local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
+	    ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin() + Vector(0, 0, 50))
+	    Timers:CreateTimer(2.0, function()
+		    ParticleManager:DestroyParticle(pfx, false)
+	    end)
+	    if caster:HasModifier("modifier_chernobog_glyph_3_1") then
+            local Qability = caster:GetAbilityByIndex(DOTA_Q_SLOT)
+            Qability:OnSpellStart()
+        end
+	    ProjectileManager:ProjectileDodge(caster)
+	    caster:AddNoDraw()
+	    caster:AddNewModifier(caster, ability, "modifier_chernobog_arcana_r_channel_end", {duration = 2.0})
+	    local morphDuration = Filters:GetAdjustedBuffDuration(caster, self:GetSpecialValueFor("duration"), false)
+	    Timers:CreateTimer(0.5, function()
+		    caster:RemoveNoDraw()
+		    caster:RemoveModifierByName("modifier_chernobog_arcana_r_channel_end")
+		    if caster:HasModifier("modifier_chernobog_demon_form") then
+			    StartAnimation(caster, {duration = 0.5, activity = ACT_DOTA_CAST_ABILITY_3, rate = 1.3})
+			    caster:AddNewModifier(caster, ability, "modifier_chernobog_demon_form", {})
+			    CustomAbilities:QuickAttachParticle("particles/roshpit/chernobog/demonform_start_start_ti7_lvl2.vpcf", caster, 3)
+			    EmitSoundOn("Chernobog.DemonForm.Anger", caster)
+			    EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Chernobog.DemonForm.Start", caster)
+		    end
+		    caster:AddNewModifier(caster, ability, "modifier_chernobog_demon_form", {duration = morphDuration})
+		    if caster:HasModifier("modifier_chernobog_arcana_e_passive") then
+			    if caster:GetAbilityByIndex(DOTA_E_SLOT):GetAbilityName() == "chernobog_demon_flight" then
+				    CustomAbilities:AddAndOrSwapSkill(caster, "chernobog_demon_flight", "chernobog_demon_walk", 2)
+			    end
+		    end
+		    Filters:CastSkillArguments(BASE_ABILITY_R, caster)
+	    end)
     end
-	ProjectileManager:ProjectileDodge(caster)
-	caster:AddNoDraw()
-	caster:AddNewModifier(caster, ability, "modifier_chernobog_arcana_r_channel_end", {duration = 2.0})
-	local duration = ability:GetDuration()
-	local morphDuration = Filters:GetAdjustedBuffDuration(caster, duration, false)
-	Timers:CreateTimer(0.5, function()
-		caster:RemoveNoDraw()
-		caster:RemoveModifierByName("modifier_chernobog_arcana_r_channel_end")
-		if caster:HasModifier("modifier_chernobog_demon_form") then
-			StartAnimation(caster, {duration = 0.5, activity = ACT_DOTA_CAST_ABILITY_3, rate = 1.3})
-			caster:AddNewModifier(caster, ability, "modifier_chernobog_demon_form", {})
-			CustomAbilities:QuickAttachParticle("particles/roshpit/chernobog/demonform_start_start_ti7_lvl2.vpcf", caster, 3)
-			EmitSoundOn("Chernobog.DemonForm.Anger", caster)
-			EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Chernobog.DemonForm.Start", caster)
-		end
-
-		caster:AddNewModifier(caster, ability, "modifier_chernobog_demon_form", {duration = morphDuration})
-		if caster:HasModifier("modifier_chernobog_arcana_e_passive") then
-			if caster:GetAbilityByIndex(DOTA_E_SLOT):GetAbilityName() == "chernobog_demon_flight" then
-				CustomAbilities:AddAndOrSwapSkill(caster, "chernobog_demon_flight", "chernobog_demon_walk", 2)
-			end
-		end
-		Filters:CastSkillArguments(BASE_ABILITY_R, caster)
-	end)
 end
 
 --modifiers
@@ -140,7 +122,6 @@ function modifier_chernobog_arcana_r_channel_end:OnDestroy()
 	CustomAbilities:QuickAttachParticle("particles/roshpit/chernobog/demonform_start_start_ti7_lvl2.vpcf", caster, 3)
 	EmitSoundOn("Chernobog.DemonForm.Anger", caster)
 	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Chernobog.DemonForm.Start", caster)
-
 	caster:SetAttackCapability(DOTA_UNIT_CAP_RANGED_ATTACK)
 end
 
@@ -171,10 +152,6 @@ end
 
 function modifier_chernobog_demon_form:IsDebuff()
 	return false
-end
-
-function modifier_chernobog_demon_form:RemoveOnDeath()
-	return true
 end
 
 function modifier_chernobog_demon_form:OnCreated()
@@ -234,13 +211,13 @@ function modifier_chernobog_demon_form:ProcR2(caster, target)
 	local chance = chance_base + chance_inc
 	if RandomInt(1, 100) < chance then
 		if self.cd == false then
-			 --if target == caster:GetAggroTarget() then
+			if target == caster:GetAggroTarget() then
 				Filters:PerformAttackSpecial(caster, target, true, true, true, false, true, false, false)
 				self.cd = true
 				Timers:CreateTimer(0.09, function()
 					self.cd = false
 				end)
-			--end
+			end
 		end
 	end
 end
@@ -356,7 +333,7 @@ end
 
 function modifier_chernobog_arcana_r_passive:GetRoshpitElementalDmgBonus()
 	local str_and_agi = self:GetCaster():GetStrength() + self:GetCaster():GetAgility()
-	return str_and_agi * self:GetCaster():GetRuneValue("r", 4) * CHERNOBOG_ARCANA1_R4_DEMON_AMP_PER_STR_AND_AGI / 100
+	return str_and_agi * self:GetCaster():GetRuneValue("r", 4) * CHERNOBOG_ARCANA1_R4_DEMON_AMP_PER_STR_AND_AGI / 10000
 end
 
 function modifier_chernobog_arcana_r_passive:GetRoshpitRFlatChanneltimeModifier()
