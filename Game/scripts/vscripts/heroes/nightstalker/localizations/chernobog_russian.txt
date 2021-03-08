@@ -86,7 +86,7 @@
     	"DOTA_Tooltip_ability_chernobog_rune_w_4_suffix_two"					""
 		
 		"DOTA_Tooltip_ability_chernobog_shadow_hunt"							"Shadow Hunt"
-    	"DOTA_Tooltip_ability_chernobog_shadow_hunt_Description"				"Пока способность активна, Чернобог увеличивает собственную Скорость и Лимит Скорости передвижения, однако, теряя при этом часть маны и здоровья каждую секунду."
+    	"DOTA_Tooltip_ability_chernobog_shadow_hunt_Description"				"Пока способность активна, Чернобог увеличивает собственную Скорость и Лимит Скорости передвижения, однако, теряя при этом часть маны и здоровья каждую секунду.The health drain and mana drain amount is decreased by <font color='#ccff66'>66</font>% while healing is disabled."
     	"DOTA_Tooltip_ability_chernobog_shadow_hunt_movespeed_cap"				"БОНУС ЛИМИТА СКОРОСТИ:"
     	"DOTA_Tooltip_ability_chernobog_shadow_hunt_movespeed_bonus"			"БОНУС СКОРОСТИ:"
     	"DOTA_Tooltip_ability_chernobog_shadow_hunt_hp_drain_per_second"		"% ПОТЕРЯ ЗДОРОВЬЯ, ОТ ТЕКУЩЕГО:"
@@ -106,7 +106,7 @@
     	"DOTA_Tooltip_modifier_chernobog_e1_buff_Description"					"Получает Бонусную Силу Атаки, скорость перемещения и лимит скорости, пока активна Shadow Hunt."
 
     	"DOTA_Tooltip_ability_chernobog_rune_e_2"								"[E2] Looming Terror"
-    	"DOTA_Tooltip_ability_chernobog_rune_e_2_Description"					"Пока @Ability3 активна, герой получает проклятую ауру, снижающую Броню, Магическую Защиту и Скорость Перемещения всех противников в радиусе <% CHERNOBOG_E2_RADIUS %> от Чернобога.The health drain and mana drain amount is decreased by <font color='#ccff66'>66</font>% while healing is disabled."
+    	"DOTA_Tooltip_ability_chernobog_rune_e_2_Description"					"Пока @Ability3 активна, герой получает проклятую ауру, снижающую Броню, Магическую Защиту и Скорость Перемещения всех противников в радиусе <% CHERNOBOG_E2_RADIUS %> от Чернобога."
     	"DOTA_Tooltip_ability_chernobog_rune_e_2_property_one"					"Снижение Брони и Защиты"
     	"DOTA_Tooltip_ability_chernobog_rune_e_2_suffix"						""
 		"DOTA_Tooltip_ability_chernobog_rune_e_2_property_two"					"Снижение Скорости"
