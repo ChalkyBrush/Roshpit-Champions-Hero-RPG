@@ -217,7 +217,7 @@
     	"DOTA_Tooltip_ability_seinaru_rune_e_2_arcana2_suffix"					" сек."
 
     	"DOTA_Tooltip_modifier_sunstrider_lightsworn"						"Lightsworn"
-		"DOTA_Tooltip_modifier_sunstrider_lightsworn_Description"						"<% SEINARU_ARCANA_E2_PURE_DMG_REDUCE * 100%>% дополнительного сопротивления Чистому урону."
+		"DOTA_Tooltip_modifier_sunstrider_lightsworn_Description"						"<font color='#ccff66'>75</font>%% дополнительного сопротивления Чистому урону."
 
 		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2"						"[E3] Sunwarrior's Vengeance"
 		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2_Description"			"Внутри @Ability3 герой имеет дополнительные Пробития Брони и Магической Брони."
