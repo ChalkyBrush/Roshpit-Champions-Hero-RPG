@@ -152,24 +152,6 @@ function CalculateFinalArmorReduction(caster, baseReduc)
 	return finalReduc
 end
 
---------------------------
---- MODIFIERS APPLYING ---
---------------------------
-
-function ApplyModifier(caster, target, ability, modifier_name, duration, stacks)
-	local finalDuration = duration
-	if finalDuration ~= -1 then
-		finalDuration = Filters:GetAdjustedBuffDuration(caster, finalDuration, false)
-	end	
-	if not target:HasModifier(modifier_name) then
-		target:AddNewModifier(caster, ability, modifier_name, {duration = finalDuration})
-	end
-	if stacks then
-		target:FindModifierByName(modifier_name):SetStackCount(stacks)
-	end
-	target:FindModifierByName(modifier_name):SetDuration(finalDuration, true)
-end
-
 ----------------------
 --- SEARCH ENEMIES ---
 ----------------------
