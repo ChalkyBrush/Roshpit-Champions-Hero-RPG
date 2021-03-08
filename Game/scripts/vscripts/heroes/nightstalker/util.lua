@@ -64,7 +64,7 @@ function ChernobogDealDamage(caster, target, damage, damageType, ability, elemen
 			end
 		end
 		if (target:GetRoshpitArmor() == 0) or (target:GetRoshpitMagicArmor() == 0 ) then
-			ApplyModifier(caster, target, nil, "modifier_chernobog_immortal_weapon_4_conditional_silence", 2, nil)
+			target:AddNewModifier(caster , nil, "modifier_chernobog_immortal_weapon_4_conditional_silence", {duration = 2})
 		end
 	end
 	if isDot == true then
