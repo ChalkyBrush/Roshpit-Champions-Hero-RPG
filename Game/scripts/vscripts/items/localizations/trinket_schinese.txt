@@ -336,7 +336,7 @@
         
             "item_rpc_firelock_pendant_ruby1"                               "每点敏捷额外提高物理穿透 @ruby_property1"
         "item_rpc_firelock_pendant_emerald1"                                 "提高 <font color='#EF4126'>火</font> 元素伤害 @emerald_property1%"
-        "item_rpc_firelock_pendant_sapphire1"                               "提高攻击速度 @sapphire_property1 并且你的攻击速度不能低于 <font color='#ccff66'>300</font>"
+        "item_rpc_firelock_pendant_sapphire1"                               "提高攻击速度 @sapphire_property1 并且你的攻击速度不能低于 <font color='#ccff66'>300</font>， 这个效果不会和锁定攻击速度的效果相互作用"
         "item_rpc_firelock_pendant_amethyst1"                               "提高力量值和敏捷值 @amethyst_property1"
 		 
 		 
