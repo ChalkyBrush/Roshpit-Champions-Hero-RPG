@@ -41,7 +41,7 @@ function ChernobogDealDamage(caster, target, damage, damageType, ability, elemen
 				local hp_restored = caster:GetMaxHealth() * CHERNOBOG_IMMORTAL_WEAPON_2_HEALTH_RESTORE_WHEN_AMP / 100
 				caster:SetHealth(caster:GetHealth() + hp_restored)
 			end
-			ApplyModifier(caster, caster, nil, "modifier_chernobog_immortal_weapon_2_magic_buff", -1, nil)
+			caster:AddNewModifier(caster, nil, "modifier_chernobog_immortal_weapon_2_magic_buff", {})
 		end
 		if (damageType == DAMAGE_TYPE_MAGICAL) then
 			if caster:HasModifier("modifier_chernobog_immortal_weapon_2_magic_buff") then
@@ -50,7 +50,7 @@ function ChernobogDealDamage(caster, target, damage, damageType, ability, elemen
 				local mana_restored = caster:GetMaxMana() * CHERNOBOG_IMMORTAL_WEAPON_2_MANA_RESTORE_WHEN_AMP / 100
 				caster:GiveMana(mana_restored)
 			end
-			ApplyModifier(caster, caster, nil, "modifier_chernobog_immortal_weapon_2_phys_buff", -1, nil)
+			caster:AddNewModifier(caster, nil, "modifier_chernobog_immortal_weapon_2_phys_buff", {})
 		end
 	end
 	if caster:HasModifier("modifier_chernobog_immortal_weapon_4") then
