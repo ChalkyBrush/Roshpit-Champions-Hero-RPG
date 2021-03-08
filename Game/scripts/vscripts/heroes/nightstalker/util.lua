@@ -69,14 +69,14 @@ function ChernobogDealDamage(caster, target, damage, damageType, ability, elemen
 	end
 	if isDot == true then
 		Filters:ApplyDotDamage(caster, ability, target, damage, damageType, ability, element1, element2)
-		if r_2_proc > 0 then
+		if r_2_proc and r_2_proc > 0 then
 		    for i = 1, r_2_proc, 1 do
 		        Filters:ApplyDotDamage(caster, ability, target, damage, damageType, ability, element1, element2)
 			end
 		end
 	else
 		Filters:TakeArgumentsAndApplyDamage(target, caster, damage, damageType, ability, element1, element2)
-		if r_2_proc > 0 then
+		if r_2_proc and r_2_proc > 0 then
 		    for i = 1, r_2_proc, 1 do
 		        Filters:TakeArgumentsAndApplyDamage(target, caster, damage, damageType, ability, element1, element2)
 			end
