@@ -333,7 +333,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_chernobog_immortal_weapon_2"            "Mandible of Charybdis"
         "item_property_chernobog_immortal_weapon2"                             "Tempest Terror"
-        "property_chernobog_immortal_weapon2_description"                      "After dealing an instance of Physical damage, Chernobog's next instance of Magical damage is increased by <% CHERNOBOG_IMMORTAL_WEAPON_2_MAGIC_BONUS %>%. After dealing an instance of Magical damage, his next instance of Physical damage is increased by <% CHERNOBOG_IMMORTAL_WEAPON_2_PHYS_BONUS %>%."
+        "property_chernobog_immortal_weapon2_description"                      "After dealing an instance of Physical damage, Chernobog's next instance of Magical damage is increased by <% CHERNOBOG_IMMORTAL_WEAPON_2_MAGIC_BONUS %>% and restore <% CHERNOBOG_IMMORTAL_WEAPON_2_MANA_RESTORE_WHEN_AMP %>% of max mana. After dealing an instance of Magical damage, his next instance of Physical damage is increased by <% CHERNOBOG_IMMORTAL_WEAPON_2_PHYS_BONUS %>% and restore <% CHERNOBOG_IMMORTAL_WEAPON_2_HEALTH_RESTORE_WHEN_AMP %> % of max health."
 
         "DOTA_Tooltip_ability_item_rpc_chernobog_immortal_weapon_3"            "Unholy Claw of Osyluth"
         "item_property_chernobog_immortal_weapon3"                             "Broadened Horizons"
