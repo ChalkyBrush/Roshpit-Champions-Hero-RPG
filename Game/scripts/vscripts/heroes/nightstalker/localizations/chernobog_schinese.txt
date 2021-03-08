@@ -168,8 +168,8 @@
 
     	"DOTA_Tooltip_ability_chernobog_rune_r_4"								"[R4] 黑暗之心"
     	"DOTA_Tooltip_ability_chernobog_rune_r_4_Description"					"敏捷和力量提高 <font color='#5B648C'>恶魔</font> 和 <font color='#7F4F84'>暗影</font> 伤害。"
-    	"DOTA_Tooltip_ability_chernobog_rune_r_4_property_one"					"<font color='#5B648C'>恶魔</font> 和<font color='#7F4F84'>暗影</font>伤害 "
-        "DOTA_Tooltip_ability_chernobog_rune_r_4_suffix"						" % 每点力量和敏捷"
+    	"DOTA_Tooltip_ability_chernobog_rune_r_4_property_one"					"<font color='#5B648C'>恶魔</font> 和<font color='#7F4F84'>暗影</font>伤害提升 "
+        "DOTA_Tooltip_ability_chernobog_rune_r_4_suffix"						" % 力量和敏捷"
 		
 		//Arcanas
 		
