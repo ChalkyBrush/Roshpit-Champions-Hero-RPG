@@ -68,7 +68,7 @@
     	"DOTA_Tooltip_modifier_chernobog_w2_effect_Description"					"Gain base attack damage while Demon Hunter is active and Armor while inactive."
 		
 		"DOTA_Tooltip_ability_chernobog_rune_w_3"								"[W3] Fervor"
-    	"DOTA_Tooltip_ability_chernobog_rune_w_3_Description"					"While @Ability2 is toggled off, Chernobog's attacks lower the target's Armor and Magic Armor; while toggled on, Chernobog's attacks grant him a stacking base attack damage buff. Both effects have a limit of <% CHERNOBOG_W3_MAX_STACKS %> stacks. Changing targets removes <% CHERNOBOG_W3_STACK_LOSE_PCT %>% of these stacks. Stacks last 8 seconds, and are refreshed when gaining new stacks.<br>This rune's effects are only applied to the target of Chernobog's attack orders, ignoring any secondary targets acquired through having multiple attack projectiles."						
+    	"DOTA_Tooltip_ability_chernobog_rune_w_3_Description"					"While @Ability2 is toggled off, Chernobog's attacks lower the target's Armor and Magic Armor; while toggled on, Chernobog's attacks grant him a stacking base attack damage buff. Both effects have a limit of <% CHERNOBOG_W3_MAX_STACKS %> stacks. Changing targets removes <% CHERNOBOG_W3_STACK_LOSE_PCT %>% of these stacks. Stacks last 8 seconds, and are refreshed when gaining new stacks."						
     	"DOTA_Tooltip_ability_chernobog_rune_w_3_property_one"					"Armor and Magic Armor Reduction"
     	"DOTA_Tooltip_ability_chernobog_rune_w_3_suffix"						" per stack"
     	"DOTA_Tooltip_ability_chernobog_rune_w_3_property_two"					"Increased Attack Damage"
