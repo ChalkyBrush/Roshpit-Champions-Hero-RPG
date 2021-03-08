@@ -341,7 +341,7 @@ function modifier_shadow_hunt:DoTeleport(caster, target, ability, end_point)
 	end)
 	if target ~= nil then
 		Timers:CreateTimer(0.15, function()
-			ApplyModifier(caster, caster, ability, "modifier_chernobog_e3_effect", -1, nil)
+			caster:AddNewModifier(caster, ability, "modifier_chernobog_e3_effect", {})
 			StartAnimation(caster, {duration = 0.3, activity = ACT_DOTA_ATTACK, rate = 3})
 			if caster:HasModifier("modifier_chernobog_glyph_5_1") then
 				local search_radius = CalculateFinalRadius(caster, CHERNOBOG_GLYPH_5_1_RADIUS, DOTA_E_SLOT)
