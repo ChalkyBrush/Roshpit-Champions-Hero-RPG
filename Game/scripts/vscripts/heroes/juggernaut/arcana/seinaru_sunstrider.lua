@@ -58,20 +58,40 @@ function seinaru_sunstrider:OnSpellStart()
 	local point = ability:GetCastPosition()
 	local target = WallPhysics:WallSearch(caster:GetAbsOrigin(), point, caster)
 	local speed = WallPhysics:GetDistance(caster:GetAbsOrigin(), point) / 0.5
-	local targets_count = ability:GetSpecialValueFor("targets_count")
-	local e_1_level = caster:GetRuneValue("e", 1)
-	local e_2_level = caster:GetRuneValue("e", 2)
 	local e_4_level = caster:GetRuneValue("e", 4)
 	local e_4_chance = e_4_level * SEINARU_ARCANA2_E4_R_FREE_CAST_CHANCE + 10
-	local radius = e_1_level * SEINARU_ARCANA_E1_E_RADIUS_BONUS + 300
+	caster:AddNewModifier(caster, ability, "modifier_seinaru_sunstrider_dash", {duration = 0.5}):SetStackCount(speed)
+	if e_4_level > 0 and e_4_chance > RandomInt(1, 100) then
+	    caster:AddNewModifier(caster, ability, "modifier_seinaru_arcana_e4_effect", {})
+	end
+	ability:CreateTravelProjectile(point)
+	EmitSoundOn("Seinaru.Sunstrider.Yell", caster)
+	EmitSoundOnLocationWithCaster(target, "Seinaru.Sunstrider.Cast", caster)
+	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Seinaru.Sunstrider.Launch", caster)
+	ability.point = target
+	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
+	if caster:HasModifier("modifier_seinaru_arcana_e_passive") then
+		local stacks = caster:GetModifierStackCount("modifier_seinaru_arcana_e_passive", caster)
+		if stacks > 0 then
+			caster:FindModifierByName("modifier_seinaru_arcana_e_passive"):DecrementStackCount()
+			ability:EndCooldown()
+		end
+	end
+end
+
+function seinaru_sunstrider:TriggerEffect(caster, ability, point)
+    local e_1_level = caster:GetRuneValue("e", 1)
+	local e_2_level = caster:GetRuneValue("e", 2)
+    local radius = e_1_level * SEINARU_ARCANA_E1_E_RADIUS_BONUS + 300
+	local targets_count = ability:GetSpecialValueFor("targets_count")
 	local maxTargets = targets_count + math.ceil(SEINARU_ARCANA_E2_TARGETS * e_2_level)
 	local targetsCounter = 0
-	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), point, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		for i = 1, #enemies, 1 do
 			if targetsCounter < maxTargets then
 				targetsCounter = targetsCounter + 1
-				Timers:CreateTimer(i * 0.06, function()
+				Timers:CreateTimer((i - 1) * 0.03, function()
 					local enemy = enemies[i]
 					CustomAbilities:QuickAttachParticle("particles/roshpit/seinaru/sunblade.vpcf", enemy, 0.6)
 					ability:Vengeance(caster, enemy)
@@ -92,23 +112,8 @@ function seinaru_sunstrider:OnSpellStart()
 				end)
 			end
 		end
-		caster:AddNewModifier(caster, ability, "modifier_seinaru_arcana_e1_effect", {duration = 3})
-	end
-	caster:AddNewModifier(caster, ability, "modifier_seinaru_sunstrider_dash", {duration = 0.5}):SetStackCount(speed)
-	if e_4_level > 0 and e_4_chance > RandomInt(1, 100) then
-	    caster:AddNewModifier(caster, ability, "modifier_seinaru_arcana_e4_effect", {})
-	end
-	ability:CreateTravelProjectile(point)
-	EmitSoundOn("Seinaru.Sunstrider.Yell", caster)
-	EmitSoundOnLocationWithCaster(target, "Seinaru.Sunstrider.Cast", caster)
-	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Seinaru.Sunstrider.Launch", caster)
-	ability.point = target
-	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
-	if caster:HasModifier("modifier_seinaru_arcana_e_passive") then
-		local stacks = caster:GetModifierStackCount("modifier_seinaru_arcana_e_passive", caster)
-		if stacks > 0 then
-			caster:FindModifierByName("modifier_seinaru_arcana_e_passive"):DecrementStackCount()
-			ability:EndCooldown()
+		if e_1_level > 0 then
+		    caster:AddNewModifier(caster, ability, "modifier_seinaru_arcana_e1_effect", {duration = 3})
 		end
 	end
 end
@@ -183,6 +188,7 @@ function modifier_seinaru_sunstrider_dash:OnCreated()
 	end
 	self:GetCaster():AddNoDraw()
 	self:StartIntervalThink(0.05)
+	self.proc = true
 end
 
 function modifier_seinaru_sunstrider_dash:OnIntervalThink()
@@ -197,8 +203,13 @@ function modifier_seinaru_sunstrider_dash:OnIntervalThink()
 	local obstruction = WallPhysics:FindNearestObstruction(newPosition)
 	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, newPosition, caster)
 	local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), ability.point)
-	if distance < 150 then
-		caster:RemoveModifierByName("modifier_seinaru_sunstrider_dash")
+	if distance < 220 then
+		if self.proc == true then
+		    self.proc = false
+	        self:GetAbility():TriggerEffect(caster, self:GetAbility(), caster:GetAbsOrigin())
+		end
+	elseif distance < 150 then
+		caster:RemoveModifierByName("modifier_seinaru_sunstrider_dash")		
 	end
 	if not blockUnit then
 		caster:SetOrigin(newPosition)
