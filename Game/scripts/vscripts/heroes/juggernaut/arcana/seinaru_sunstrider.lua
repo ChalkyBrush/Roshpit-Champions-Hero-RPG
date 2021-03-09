@@ -219,10 +219,11 @@ function modifier_seinaru_sunstrider_dash:OnDestroy()
 	local e_1_duration = Filters:GetAdjustedBuffDuration(caster, 3, false)
 	local e_2_duration = Filters:GetAdjustedBuffDuration(caster, SEINARU_ARCANA_E2_DUR * e_2_level, false)
 	local newPosition = GetGroundPosition(caster:GetAbsOrigin(), caster) + (self:GetAbility().point - caster:GetAbsOrigin()):Normalized() * 50
+	local ability = self:GetAbility()
+	ability:TriggerEffect(caster, ability, caster:GetAbsOrigin())	
 	Timers:CreateTimer(0.03, function()
 		FindClearSpaceForUnit(caster, newPosition, false)
-		self:GetAbility():TriggerEffect(caster, self:GetAbility(), caster:GetAbsOrigin())
-		caster:RemoveNoDraw()
+		caster:RemoveNoDraw()	
 	end)
 	if not caster:HasModifier("modifier_seinaru_arcana_e1_effect") and e_1_level > 0 then
 		caster:AddNewModifier(caster, ability, "modifier_seinaru_arcana_e1_effect", {duration = e_1_duration})
