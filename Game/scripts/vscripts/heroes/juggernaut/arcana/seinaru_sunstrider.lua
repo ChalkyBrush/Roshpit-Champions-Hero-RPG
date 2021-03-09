@@ -70,6 +70,9 @@ function seinaru_sunstrider:OnSpellStart()
 	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Seinaru.Sunstrider.Launch", caster)
 	ability.point = target
 	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
+	if caster:GetRuneValue("e", 1) > 0 then
+		caster:AddNewModifier(caster, ability, "modifier_seinaru_arcana_e1_effect", {duration = 3})
+	end
 	if caster:HasModifier("modifier_seinaru_arcana_e_passive") then
 		local stacks = caster:GetModifierStackCount("modifier_seinaru_arcana_e_passive", caster)
 		if stacks > 0 then
@@ -111,9 +114,6 @@ function seinaru_sunstrider:TriggerEffect(caster, ability, point)
 					end
 				end)
 			end
-		end
-		if e_1_level > 0 then
-		    caster:AddNewModifier(caster, ability, "modifier_seinaru_arcana_e1_effect", {duration = 3})
 		end
 	end
 end
@@ -226,12 +226,14 @@ function modifier_seinaru_sunstrider_dash:OnDestroy()
 	local e_1_duration = Filters:GetAdjustedBuffDuration(caster, 3, false)
 	local e_2_duration = Filters:GetAdjustedBuffDuration(caster, SEINARU_ARCANA_E2_DUR * e_2_level, false)
 	local newPosition = GetGroundPosition(caster:GetAbsOrigin(), caster) + (self:GetAbility().point - caster:GetAbsOrigin()):Normalized() * 50
-	Timers:CreateTimer( 0.03, function()
+	Timers:CreateTimer(0.03, function()
 		FindClearSpaceForUnit(caster, newPosition, false)
 		caster:RemoveNoDraw()
 	end)
 	if not caster:HasModifier("modifier_seinaru_arcana_e1_effect") and e_1_level > 0 then
 		caster:AddNewModifier(caster, ability, "modifier_seinaru_arcana_e1_effect", {duration = e_1_duration})
+	else
+	    caster:FindModifierByName("modifier_seinaru_arcana_e1_effect"):SetDuration(e_1_duration, true)
 	end
 	if e_2_level > 0 then
 		caster:AddNewModifier(caster, ability, "modifier_seinaru_arcana_e2_effect", {duration = e_2_duration})
