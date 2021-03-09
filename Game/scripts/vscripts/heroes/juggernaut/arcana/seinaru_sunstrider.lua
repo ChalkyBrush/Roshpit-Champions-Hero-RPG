@@ -202,9 +202,9 @@ function modifier_seinaru_sunstrider_dash:OnIntervalThink()
 	local obstruction = WallPhysics:FindNearestObstruction(newPosition)
 	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, newPosition, caster)
 	local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), ability.point)
-	if distance < 50 then
+	if distance < 148 or blockUnit then
 		caster:RemoveModifierByName("modifier_seinaru_sunstrider_dash")		
-	elseif not blockUnit then
+	else
 		caster:SetOrigin(newPosition)
 	end
 end
@@ -218,11 +218,10 @@ function modifier_seinaru_sunstrider_dash:OnDestroy()
 	local e_2_level = caster:GetRuneValue("e", 2)
 	local e_1_duration = Filters:GetAdjustedBuffDuration(caster, 3, false)
 	local e_2_duration = Filters:GetAdjustedBuffDuration(caster, SEINARU_ARCANA_E2_DUR * e_2_level, false)
-	local newPosition = GetGroundPosition(caster:GetAbsOrigin(), caster) + (self:GetAbility().point - caster:GetAbsOrigin()):Normalized() * 50
 	local ability = self:GetAbility()
 	ability:TriggerEffect(caster, ability, caster:GetAbsOrigin())	
 	Timers:CreateTimer(0.03, function()
-		FindClearSpaceForUnit(caster, newPosition, false)
+		FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
 		caster:RemoveNoDraw()	
 	end)
 	if not caster:HasModifier("modifier_seinaru_arcana_e1_effect") and e_1_level > 0 then
