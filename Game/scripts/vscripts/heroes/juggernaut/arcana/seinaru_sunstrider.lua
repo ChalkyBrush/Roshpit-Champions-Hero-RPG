@@ -126,7 +126,7 @@ function seinaru_sunstrider:Vengeance(caster, target)
 		ParticleManager:DestroyParticle(particle1, false)
 	end)
 	EmitSoundOn("Seinaru.Sunstrider.Vengeance", target)
-	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, caster:GetRuneValue("e", 1) * SEINARU_ARCANA_E1_E_RADIUS_BONUS + 300, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		for i = 1, #enemies, 1 do
 			local enemy = enemies[i]
