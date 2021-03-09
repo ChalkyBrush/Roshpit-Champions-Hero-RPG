@@ -199,7 +199,7 @@ function modifier_seinaru_sunstrider_dash:OnIntervalThink()
 	local ability = self:GetAbility()
 	local fv = (ability.point - caster:GetAbsOrigin()):Normalized()
 	local position = GetGroundPosition(caster:GetAbsOrigin(), caster)
-	local newPosition = position + fv * 150
+	local newPosition = position + fv * 200
 	local obstruction = WallPhysics:FindNearestObstruction(newPosition)
 	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, newPosition, caster)
 	local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), ability.point)
@@ -208,7 +208,7 @@ function modifier_seinaru_sunstrider_dash:OnIntervalThink()
 		    self.proc = false
 	        self:GetAbility():TriggerEffect(caster, self:GetAbility(), caster:GetAbsOrigin())
 		end
-	elseif distance < 150 then
+	elseif distance < 200 then
 		caster:RemoveModifierByName("modifier_seinaru_sunstrider_dash")		
 	end
 	if not blockUnit then
@@ -378,4 +378,3 @@ end
 function modifier_seinaru_arcana_e4_effect:OnCastRAbility()
     self:Destroy()
 end
-
