@@ -144,7 +144,7 @@ function seinaru_sunstrider:CreateTravelProjectile(point)
     local caster = self:GetCaster()
     local ability = self
 	local range = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), point) * 0.95
-	local speed = 3000--range / 0.5
+	local speed = 4000--range / 0.5
 	local casterOrigin = caster:GetAbsOrigin()
 	local fv = ((point - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
 	local info =
@@ -203,7 +203,6 @@ function modifier_seinaru_sunstrider_dash:OnIntervalThink()
 	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, newPosition, caster)
 	local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), ability.point)
 	if distance < 50 then
-	    self:GetAbility():TriggerEffect(caster, self:GetAbility(), caster:GetAbsOrigin())
 		caster:RemoveModifierByName("modifier_seinaru_sunstrider_dash")		
 	elseif not blockUnit then
 		caster:SetOrigin(newPosition)
@@ -222,6 +221,7 @@ function modifier_seinaru_sunstrider_dash:OnDestroy()
 	local newPosition = GetGroundPosition(caster:GetAbsOrigin(), caster) + (self:GetAbility().point - caster:GetAbsOrigin()):Normalized() * 50
 	Timers:CreateTimer(0.03, function()
 		FindClearSpaceForUnit(caster, newPosition, false)
+		self:GetAbility():TriggerEffect(caster, self:GetAbility(), caster:GetAbsOrigin())
 		caster:RemoveNoDraw()
 	end)
 	if not caster:HasModifier("modifier_seinaru_arcana_e1_effect") and e_1_level > 0 then
