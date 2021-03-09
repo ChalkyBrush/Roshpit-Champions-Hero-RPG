@@ -69,7 +69,7 @@ function arcana_dashing_think(event)
 		caster:SetAbsOrigin(caster:GetAbsOrigin() + Vector(0, 0, 10))
 	end
 	ability.interval = ability.interval + 1
-	local dashSpeed = 48
+	local dashSpeed = 96
 	local dashVector = Vector(1, 0)
 	if ability.target then
 		dashVector = ((ability.target:GetAbsOrigin() + Vector(0, 0, 100)) - caster:GetAbsOrigin()):Normalized()
