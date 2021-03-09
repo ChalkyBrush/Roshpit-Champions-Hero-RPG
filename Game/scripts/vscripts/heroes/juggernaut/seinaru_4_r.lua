@@ -27,7 +27,7 @@ function gorudo_start(event)
 	local r_4_level = caster:GetRuneValue("r", 4)
 	if r_2_level > 0 then
 		local radius = 500 + r_2_level * 5
-		local ringDuration = SEINARU_R2_DUR_BASE + r_2_level * 0.2
+		local ringDuration = SEINARU_R2_DUR_BASE + r_2_level * SEINARU_R2_DUR
 		local speed = 200
 		local dummy = CreateUnitByName("npc_dummy_unit", position, false, caster, caster, caster:GetTeam())
 		dummy:AddAbility("dummy_unit")
