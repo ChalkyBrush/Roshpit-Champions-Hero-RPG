@@ -2420,7 +2420,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             end
         )
     end
-    if attacker:HasModifier("modifier_neutral_glyph_4_1") and #elements > 1 then
+    if attacker:HasModifier("modifier_neutral_glyph_4_1") and #elements > 1 and elements[1] ~= RPC_ELEMENT_NORMAL and elements[2] ~= RPC_ELEMENT_NORMAL then
 	mult = mult - 0.5
     end
     local newDamageCalculatorData = {
