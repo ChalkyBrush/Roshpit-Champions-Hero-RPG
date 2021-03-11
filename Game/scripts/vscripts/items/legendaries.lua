@@ -6304,7 +6304,7 @@ function RPCItems:RollGarnetWarfareRing(item_level)
     item.newItemTable.property1name = "!immortal!_modifier_garnet_warfare_ring"
     item.newItemTable.property1 = 1
 
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_garnet_warfare_ring", "#D62D2D", 1, "#property_garnet_warfare_description")
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_garnet_warfare", "#D62D2D", 1, "#property_garnet_warfare_description")
 
     RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "strength", 2)
     RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
