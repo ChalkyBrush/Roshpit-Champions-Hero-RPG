@@ -1040,17 +1040,7 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_PHOENIX_GLOVES_GEM_EMERALD1, hero, "agility", RPC_GEAR_SLOT_GLOVES)
 		elseif socket_type == "amethyst" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_PHOENIX_GLOVES_GEM_AMETHYST1, hero, "spirit", RPC_GEAR_SLOT_GLOVES)
-		end	
-	elseif item:GetAbilityName() == "item_rpc_power_ranger_gloves" then
-		if socket_type == "ruby" then
-			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_POWER_RANGER_GLOVES_GEM_RUBY, hero, "armor", RPC_GEAR_SLOT_GLOVES)
-		elseif socket_type == "emerald" then
-			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_POWER_RANGER_GLOVES_GEM_EMERALD, hero, "armor_pierce", RPC_GEAR_SLOT_GLOVES)
-		elseif socket_type == "sapphire" then
-			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_POWER_RANGER_GLOVES_GEM_SAPPHIRE, hero, "spell_pierce", RPC_GEAR_SLOT_GLOVES)
-		elseif socket_type == "amethyst" then
-			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_POWER_RANGER_GLOVES_GEM_AMETHYST, hero, "magic_armor", RPC_GEAR_SLOT_GLOVES)
-		end	
+		end		
 	elseif item:GetAbilityName() == "item_rpc_scarecrow_gloves" then
 		if socket_type == "sapphire" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_SCARECROW_GLOVES_GEM_SAPPHIRE1, hero, "intelligence", RPC_GEAR_SLOT_GLOVES)
