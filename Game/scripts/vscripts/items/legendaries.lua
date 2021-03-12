@@ -4163,14 +4163,24 @@ function RPCItems:RollPowerRangerGloves(item_level)
     local rarity = RPC_ITEMS_RARITY_IMMORTAL
 
     local item = RPCItems:CreateVariant("item_rpc_power_ranger_gloves", "immortal", "Power Ranger Gloves", "hands", true, "Slot: Hands")
-
-    RPCItems:RollBasicItemProperty(item, item_slot, 1, item_level, "strength", 2)
-    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "agility", 2)
-    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "intelligence", 2)
-    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, "spirit", 2)
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_power_ranger_gloves"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_power_ranger_gloves", "#999999", 1, "#property_power_ranger_gloves_description")
+	
+    local luck = RandomInt(1, 3)
+    if luck == 1 then
+        local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 50, tier2 = 100})
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1.25)
+    elseif luck == 2 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "armor_pierce", 1.5)
+    else
+	RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "spell_pierce", 1.5)
+    end
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 2)
 
     RPCItems:GrantItemBaseArmor(item, item_level, 2)
-    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1)
     RPCItems:SocketsChance(item)
     RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
     return item
