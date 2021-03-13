@@ -4177,7 +4177,7 @@ function RPCItems:RollPowerRangerGloves(item_level)
 	RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "spell_pierce", 1.5)
     end
     RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
-    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 2)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
 
     RPCItems:GrantItemBaseArmor(item, item_level, 2)
     RPCItems:GrantItemBaseMagicArmor(item, item_level, 1)
