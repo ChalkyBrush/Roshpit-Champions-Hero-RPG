@@ -173,11 +173,10 @@
         "DOTA_Tooltip_ability_chernobog_rune_r_3_suffix_three"					""
 
     	"DOTA_Tooltip_ability_chernobog_rune_r_4"								"[R4] Heart of Darkness"
-    	"DOTA_Tooltip_ability_chernobog_rune_r_4_Description"					"Пассивно увеличивает урон <font color='#5B648C'>Демона</font> от очков Силы и урон <font color='#7F4F84'>Тени</font> от очков Ловкости."
-    	"DOTA_Tooltip_ability_chernobog_rune_r_4_property_one"					"Урон <font color='#5B648C'>Демона</font>"
-        "DOTA_Tooltip_ability_chernobog_rune_r_4_suffix"						"% за 10 Силы"
-		"DOTA_Tooltip_ability_chernobog_rune_r_4_property_two"					"Урон <font color='#7F4F84'>Тени</font>"
-        "DOTA_Tooltip_ability_chernobog_rune_r_4_suffix_two"					"% за 10 Ловкости"
+    	"DOTA_Tooltip_ability_chernobog_rune_r_4_Description"					"Пассивно увеличивает урон <font color='#5B648C'>Демона</font> и урон <font color='#7F4F84'>Тени</font> от очков Силы и Ловкости."
+    	"DOTA_Tooltip_ability_chernobog_rune_r_4_property_one"					"Урон <font color='#5B648C'>Демона</font> и <font color='#7F4F84'>Тени</font>"
+        "DOTA_Tooltip_ability_chernobog_rune_r_4_suffix"						"% от Силы и Ловкости"
+
 		
 		//Arcanas
 		
@@ -246,76 +245,77 @@
     	"DOTA_Tooltip_ability_chernobog_rune_e_1_arcana2_suffix_two"				"%"
 
   		"DOTA_Tooltip_ability_chernobog_rune_e_2_arcana2"						"[E2] Overwhelming Odds"
-    	"DOTA_Tooltip_ability_chernobog_rune_e_2_arcana2_Description"			"Passively increase Chernobog's attack damage, movespeed and movespeed cap, and each enemy unit within <font color='#ccff66'>600</font> range will further increase the bonus by <font color='#ccff66'>5</font>%. Bosses count as <font color='#ccff66'>10</font> enemies, while Paragon units count as <font color='#ccff66'>5</font> enemies. These bonuses are capped at <font color='#ccff66'>20</font> enemies, no matter how many more are within range."
-    	"DOTA_Tooltip_ability_chernobog_rune_e_2_arcana2_property_one"			"Attack Damage"
+    	"DOTA_Tooltip_ability_chernobog_rune_e_2_arcana2_Description"			"Пассивно увеличивает урон Атаки Чернобога, скорость перемещения и лимит скорости. Каждый противник в радиусе <font color='#ccff66'>600</font> дополнительно увеличит бонус на <font color='#ccff66'>5</font>%. Боссы считаются за <font color='#ccff66'>10</font> юнитов, Парагоны за  <font color='#ccff66'>5</font>. Максимальный бонус активируется при <font color='#ccff66'>20</font> противниках."
+    	"DOTA_Tooltip_ability_chernobog_rune_e_2_arcana2_property_one"			"Урон Атаки"
     	"DOTA_Tooltip_ability_chernobog_rune_e_2_arcana2_suffix"				"%"
-		"DOTA_Tooltip_ability_chernobog_rune_e_2_arcana2_property_two"			"Movespeed and Movespeed Cap"
+		"DOTA_Tooltip_ability_chernobog_rune_e_2_arcana2_property_two"			"Скорость и её лимит"
 		"DOTA_Tooltip_ability_chernobog_rune_e_2_arcana2_suffix_two"				""
 		
 
     	"DOTA_Tooltip_modifier_chernobog_arcana_e2_effect"						"Overwhelming Odds"
-    	"DOTA_Tooltip_modifier_chernobog_arcana_e2_effect_Description"			"The attack power bonus is increased based on number of nearby enemies"	
+    	"DOTA_Tooltip_modifier_chernobog_arcana_e2_effect_Description"			"Урон атаки увеличивает в зависимости от количества противников поблизости."	
 
   		"DOTA_Tooltip_ability_chernobog_rune_e_3_arcana2"						"[E3] Infernal Power"
-    	"DOTA_Tooltip_ability_chernobog_rune_e_3_arcana2_Description"			"Chernobog's <font color='#5B648C'>Demon</font> elemental damage bonus also adds to his base attack damage."
-    	"DOTA_Tooltip_ability_chernobog_rune_e_3_arcana2_property_one"			"Base Attack Damage"
-    	"DOTA_Tooltip_ability_chernobog_rune_e_3_arcana2_suffix"				" per 1% Demon damage bonus"
+    	"DOTA_Tooltip_ability_chernobog_rune_e_3_arcana2_Description"			"Урон элемента <font color='#5B648C'>Демон</font> добавляются и к базовому урон атаки."
+    	"DOTA_Tooltip_ability_chernobog_rune_e_3_arcana2_property_one"			"Базовый Урон Атаки"
+    	"DOTA_Tooltip_ability_chernobog_rune_e_3_arcana2_suffix"				" за 1% Демонического урона"
 
   		"DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2"						"[E4] Shadow Master"
-    	"DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2_Description"			"The shadows around Chernobog are permanently animated, and rip into all enemies every <font color='#ccff66'>0.3</font> seconds."
-    	"DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2_property_one"			"Shadow Damage"
-    	"DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2_suffix"				"% of Chernobog's attack power"
-		"DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2_property_two"			"Radius"
+    	"DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2_Description"			"Тени вокруг Чернобога оживают и атакуют противников поблизости каждые <font color='#ccff66'>0.3</font> сек."
+    	"DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2_property_one"			"Урон теней"
+    	"DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2_suffix"				"% от Силы Атаки героя"
+		"DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2_property_two"			"Радиус"
     	"DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2_suffix_two"			""
 		
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_1_1"		"[T1-1] Glyph of Infravision"
-		"item_rpc_chernobog_glyph_1_1_description" 				"Gain vision of nearby enemies while Shadow Hunt is toggled on. Vision persists for <font color='#ccff66'>2.4</font> seconds after toggling the ability off."
+		"item_rpc_chernobog_glyph_1_1_description" 				"Shadow Hunt позволяет видеть противников поблизости. Обзор держится еще <font color='#ccff66'>2.4</font> секунды после выключения способности."
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_2_1"		"[T2-1] Glyph of Fangs Bared"
-		"item_rpc_chernobog_glyph_2_1_description" 				"@Ability2 deals <% CHERNOBOG_GLYPH_2_1_W_DMG_AMP %>% increased damage."
+		"item_rpc_chernobog_glyph_2_1_description" 				"@Ability2 наносит на <% CHERNOBOG_GLYPH_2_1_W_DMG_AMP %>% больше урона."
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_3_1"		"[T3-1] Glyph of Nightmare's Grasp"
-		"item_rpc_chernobog_glyph_3_1_description" 				"Each enemy hit by @Ability1 reduces the cooldown of @Ability4 by <% CHERNOBOG_GLYPH_3_1_CD_DEC %> seconds. Additionally, @Ability1 is cast for free after channeling @Ability4."
+		"item_rpc_chernobog_glyph_3_1_description" 				"Каждый противник задетый @Ability1 снижает перезарядку @Ability4 на <% CHERNOBOG_GLYPH_3_1_CD_DEC %> сек. Дополнительно, @Ability1 кастуется при прочтении @Ability4."
 
-		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_4_1"		"[T4-1] Glyph of Penumbra"
-		"item_rpc_chernobog_glyph_4_1_description" 				"Increase the effectiveness of [R2] by <% CHERNOBOG_GLYPH_4_1_R2_AMP %>%."
+		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_4_1"		"[T4-1] Glyph of Sundown"
+		"item_rpc_chernobog_glyph_4_1_description" 				"Каждое очко скорости передвижения выше <font color='#ccff66'>500</font> увеличивает Базовый Урон Способностей на <% CHERNOBOG_GLYPH_4_1_BAD_OVER_THRES %>%."
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_5_1"		"[T5-1] Glyph of the Raging Demon"
-		"item_rpc_chernobog_glyph_5_1_description" 				"Upon arrival from a Sudden Strike teleport, Chernobog performs <% CHERNOBOG_GLYPH_5_1_HIT_COUNT %> instant attacks against all enemies within <% CHERNOBOG_GLYPH_5_1_RADIUS %> range."
+		"item_rpc_chernobog_glyph_5_1_description" 				"После удара Sudden Strike, Чернобог наносит <% CHERNOBOG_GLYPH_5_1_HIT_COUNT %> атак по всем противникам в радиусе <% CHERNOBOG_GLYPH_5_1_RADIUS %>."
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_6_1"		"[T6-1] Glyph of Fury Swipes"
-		"item_rpc_chernobog_glyph_6_1_description" 				"Increase max stacks of [W3] by <% CHERNOBOG_GLYPH_6_1_W3_MAX_STACK_BONUS %>, and each attack will apply <% CHERNOBOG_GLYPH_6_1_ADDITION_STACK %> additional stack of both effects."
+		"item_rpc_chernobog_glyph_6_1_description" 				"Увеличивает максиму зарядов [W3] на <% CHERNOBOG_GLYPH_6_1_W3_MAX_STACK_BONUS %>, и каждая атака добавит <% CHERNOBOG_GLYPH_6_1_ADDITION_STACK %> дополнительных заряда(ов) обоих эффектов. Чернобог всегда имеет как минимум <font color='#ccff66'>20</font> зарядов бонуса урона [W3]."
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_7_1"		"[T7-1] Glyph of Dreadfast"
-		"item_rpc_chernobog_glyph_7_1_description" 				"Reduce @Ability2 damage truncation threshold by <% CHERNOBOG_GLYPH_7_1_W_THRESHOLD_REDUC %>% of Chernobog's maximum health."
+		"item_rpc_chernobog_glyph_7_1_description" 				"Понимает порог урона @Ability2 на <% CHERNOBOG_GLYPH_7_1_W_THRESHOLD_REDUC %>% от максимального здоровья Чернобога."
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_5_a"		"[T5-a] Glyph of the Apex Predator"
-		"item_rpc_chernobog_glyph_5_a_description" 				"All runes for @Ability2 have both of their stated bonuses active at all times, regardless of the ability's toggle state."
+		"item_rpc_chernobog_glyph_5_a_description" 				"Все руны @Ability2 дают оба эффекта одновременно, вне зависимости, выключена ли или включена способность."
 		
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_1_2"		"[T1-2] Glyph of the Diabolic Tutor" //google it
-		"item_rpc_chernobog_glyph_1_2_description" 				"Each point in a T4 rune increases Intelligence by <% CHERNOBOG_GLYPH_1_2_INT %>."
+		"item_rpc_chernobog_glyph_1_2_description" 				"Каждое очко T4 увеличивает Интеллект на <% CHERNOBOG_GLYPH_1_2_INT %>."
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_2_2"		"[T2-2] Glyph of Underworld Tear"
-		"item_rpc_chernobog_glyph_2_2_description" 				"Damage instances received from standing in @Ability1 will deal their damage in a <% CHERNOBOG_GLYPH_2_2_Q_RADIUS %> radius."
+		"item_rpc_chernobog_glyph_2_2_description" 				"Урон @Ability1 становится уроном по области и наносит его в радиусе <% CHERNOBOG_GLYPH_2_2_Q_RADIUS %> от каждой пораженной цели."
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_3_2"		"[T3-2] Glyph of Baleful Blink"
 
-		"item_rpc_chernobog_glyph_3_2_description" 				"While Shadow Hunt is active, and the Shadow Strike rune is not on cooldown, issuing a move order within <% CHERNOBOG_GLYPH_3_2_TELE_DISTANCE_LOSS %>% of the rune's indicated maximum range will instantly teleport Chernobog to that location. This Glyph's effect has a <% CHERNOBOG_GLYPH_3_2_MOVE_CD %>-second cooldown, which also prevents Shadow Strike from being triggered normally during that time."
+		"item_rpc_chernobog_glyph_3_2_description" 				"При активной Shadow Hunt и готовом Shadow Strike приказ передвижения сработает как телепорт, если целевая точка находится ближе, чем <% CHERNOBOG_GLYPH_3_2_TELE_DISTANCE_LOSS %>% от максимальной дальности руны [E3]. Эффект этого глифа имеет <% CHERNOBOG_GLYPH_3_2_MOVE_CD %>-секундную перезарядку, также блокирующую Shadow Strike."
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_4_2"		"[T4-2] Glyph of Dark Alleys"
-		"item_rpc_chernobog_glyph_4_2_description" 				"@Ability1 deals <% CHERNOBOG_GLYPH_4_2_Q_DMG_AMP %>% increased damage. The shadowy trail left behind the projectile as it travels now provides all of the benefits of @Ability1 while it lasts; this includes free pathing and increased movespeed for allies, and reduced movespeed and attack damage for enemies."
+		"item_rpc_chernobog_glyph_4_2_description" 				"@Ability1 наносит <% CHERNOBOG_GLYPH_4_2_Q_DMG_AMP %>% увеличенный урон. Теневой след от способности также дает все эффекты основной способности, т.е. свободное передвижение и увеличенная скорость для союзников, и сниженная скорость и урон для противников."
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_5_2"		"[T5-2] Glyph of Empowerment"
-		"item_rpc_chernobog_glyph_5_2_description" 				"[R1] becomes passive and deals <% CHERNOBOG_GLYPH_5_2_R1_AMP_IN_R %> more damage to enemies who are affected by @Ability4."
+		"item_rpc_chernobog_glyph_5_2_description" 				"[R1] наносит <% CHERNOBOG_GLYPH_5_2_R1_AMP_IN_R %>% больше урона по противникам под действием @Ability4."
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_6_2"		"[T6-2] Glyph of Endurance"
-		"item_rpc_chernobog_glyph_6_2_description" 				"Attacking while @Ability2 is toggled on does not drain health while below <% CHERNOBOG_GLYPH_6_2_THRESHOLD %> of max health, but all damage from abilities or runes is reduced by <% CHERNOBOG_GLYPH_6_2_DMG_DEC %>."
+		"item_rpc_chernobog_glyph_6_2_description" 				"Атаки, в то время как способность @Ability2 активна, не тратят здоровье, если оно ниже <% CHERNOBOG_GLYPH_6_2_THRESHOLD %>% от максимума, но урон способностей и рун снижается на <% CHERNOBOG_GLYPH_6_2_DMG_DEC %>%."
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_7_2"		"[T7-2] Glyph of Indomitability"
-		"item_rpc_chernobog_glyph_7_2_description" 				"While @Ability2 is active, Chernobog is purged of debuffs applied by enemies every <% CHERNOBOG_GLYPH_7_2_THINK_INTERVAL %> seconds."
+		"item_rpc_chernobog_glyph_7_2_description" 				"Пока активна способность Shadow Hunt, с героя снимаются отрицательные эффекты статуса каждые <% CHERNOBOG_GLYPH_7_2_THINK_INTERVAL %> сек."
 		
-		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_book"    "Chernobog Glyph Book"
+		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_book"    "Книга Глифов (Чернобог)"
+
 		
 		//Weapons
 		"DOTA_Tooltip_ability_item_rpc_chernobog_weapon_00"		"Claws"
