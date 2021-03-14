@@ -609,10 +609,10 @@
         "item_property_volcano_orb"                 "Fiery Core"
         "property_volcano_orb_description"          "Любой Атрибут увеличивает Пробитие Магической Защиты на <% ITEM_RPC_VOLCANO_ORB_SPELL_PIERCE_PER_ATTR  %>."
 
-		"item_rpc_volcano_orb_ruby1"										"Увеличивает Силу на @ruby_property1"
-		"item_rpc_volcano_orb_emerald1"										"Увеличивает Ловкость на @emerald_property1"
-		"item_rpc_volcano_orb_sapphire1"										"Увеличивает Интеллект на @sapphire_property1"
-		"item_rpc_volcano_orb_amethyst1"										"Увеличивает Дух на @amethyst_property1"
+		"item_rpc_volcano_orb_ruby1"										"Любой Атрибут увеличивает Пробитие Магической Защиты дополнительно на @ruby_property1"
+		"item_rpc_volcano_orb_emerald1"										"Увеличивает Все Атрибуты на @emerald_property1"
+		"item_rpc_volcano_orb_sapphire1"										"Увеличивает Базовый Урон Способностей @sapphire_property1%"
+		"item_rpc_volcano_orb_amethyst1"										"Увеличивает урон <font color='#EF4126'>Огня</font> и Урон Предметов на @amethyst_property1%"
 
 		
        "DOTA_Tooltip_ability_item_rpc_wind_orchid"                                     "Wind Orchid"
