@@ -126,7 +126,7 @@
 		"DOTA_Tooltip_modifier_chernobog_e3_effect_Description"					"Следующая порция урона значительно увеличена."
 		
     	"DOTA_Tooltip_ability_chernobog_rune_e_4"								"[E4] Eclipse"
-    	"DOTA_Tooltip_ability_chernobog_rune_e_4_Description"					"Дает герою Магическую Защиту и шанс уклониться от любых летящих в него снарядов, пока @Ability3 активна. Эти бонусы удваиваются, когда Здоровье героя падает ниже отметки в <% CHERNOBOG_E4_BONUS_THRESHOLD %>%. Бонусы держатся некоторое время и после отключения способности."
+    	"DOTA_Tooltip_ability_chernobog_rune_e_4_Description"					"Дает герою Магическую Защиту и шанс уклониться от любых летящих в него снарядов, пока @Ability3 активна. Эти бонусы удваиваются, когда Здоровье героя падает ниже отметки в <% CHERNOBOG_E4_BONUS_THRESHOLD %>%. Бонусы @Ability3 держатся некоторое время и после отключения способности."
     	"DOTA_Tooltip_ability_chernobog_rune_e_4_property_one"					"Задержка после отключения"
     	"DOTA_Tooltip_ability_chernobog_rune_e_4_suffix"						" сек"
     	"DOTA_Tooltip_ability_chernobog_rune_e_4_property_two"					"Шанс уклонения"
@@ -191,14 +191,18 @@
     	"DOTA_Tooltip_modifier_chernobog_demon_form"							"Metamorphosis"
 
   		"DOTA_Tooltip_ability_chernobog_rune_r_1_arcana1"						"[R1] Dark Expanse"
-    	"DOTA_Tooltip_ability_chernobog_rune_r_1_arcana1_Description"			"Атаки во время действия @Ability4 нанесут дополнительный Физический урон всем противникам в радиусе <% CHERNOBOG_ARCANA1_R1_RADIUS %> от основной цели атаки."
+    	"DOTA_Tooltip_ability_chernobog_rune_r_1_arcana1_Description"			"Атаки нанесут дополнительный Физический урон всем противникам в радиусе <% CHERNOBOG_ARCANA1_R1_RADIUS %> от основной цели атаки."
     	"DOTA_Tooltip_ability_chernobog_rune_r_1_arcana1_property_one"			"Урон"
     	"DOTA_Tooltip_ability_chernobog_rune_r_1_arcana1_suffix"				"% от силы атаки"
+		
+		"DOTA_Tooltip_modifier_chernobog_r1_effect"								"Fiend's Grip"
+    	"DOTA_Tooltip_modifier_chernobog_r1_effect_Description"					"Атаки нанесут дополнительный Физический урон по области."
 
   		"DOTA_Tooltip_ability_chernobog_rune_r_2_arcana1"						"[R2] Anxiety"
-    	"DOTA_Tooltip_ability_chernobog_rune_r_2_arcana1_Description"			"Атаки во время действия @Ability4 имеют шанс запустить еще одну атаку в ту же цель."
-    	"DOTA_Tooltip_ability_chernobog_rune_r_2_arcana1_property_one"			"Шанс повтора атаки"
-    	"DOTA_Tooltip_ability_chernobog_rune_r_2_arcana1_suffix"				"%"
+    	"DOTA_Tooltip_ability_chernobog_rune_r_2_Description"					"Дает теням Чернобога шанс повторить любой нанесенный урон, шанс выше 100% означает несколько повторений. Шанс увеличивается в три раза, если противник находится внутри @Ability4."
+    	"DOTA_Tooltip_ability_chernobog_rune_r_2_property_one"					"Шанс повторения"
+    	"DOTA_Tooltip_ability_chernobog_rune_r_2_suffix"						"%"
+
 
   		"DOTA_Tooltip_ability_chernobog_rune_r_3_arcana1"						"[R3] Rain of Chaos"
     	"DOTA_Tooltip_ability_chernobog_rune_r_3_arcana1_Description"			"Атаки во время действия @Ability4 могут ударить дополнительного противника. Шанс выше 100% означает дополнтельные атаки по нескольким противникам."
