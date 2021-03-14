@@ -192,10 +192,12 @@
         "DOTA_Tooltip_ability_item_rpc_conquest_stone_falcon"                           "Conquest Stone Falcon"
         "item_property_stone_falcon"                        "Gift of the Reliquary"
         "property_stone_falcon_description"             "Магический или Чистый урон не может нанести герою больше <% ITEM_RPC_CONQUEST_STONE_FALCON_HP_THRESHOLD %>% от Максимального Здоровья."
-        "item_rpc_conquest_stone_falcon_ruby1"                          "Броня увеличена на @ruby_property1"
-        "item_rpc_conquest_stone_falcon_emerald1"                           "Пробитие Брони увеличено на @emerald_property1"
-        "item_rpc_conquest_stone_falcon_sapphire1"                          "Пробитие Магической Защиты увеличено на @sapphire_property1"
-        "item_rpc_conquest_stone_falcon_amethyst1"                          "Магическая Защита увеличена на @amethyst_property1"
+        "item_rpc_conquest_stone_falcon_ruby1"                          "Основной эффект ограничения урона уменьшен еще на @ruby_property1% от Максимального Здоровья"
+        "item_rpc_conquest_stone_falcon_emerald1"                           "Каждые <font color='#ccff66'>3</font> секунды, герой получает заряд щита, поглощающего Физический урон, максимум @emerald_property1 зарядов щита."
+        "item_rpc_conquest_stone_falcon_sapphire1"                          "Увеличивает Пробитие Брони и Пробитие Магической Защиты на @sapphire_property1"
+        "item_rpc_conquest_stone_falcon_amethyst1"                          "Летальный физический урон будет конвертирован в Чистый тип урона, перезарядка этого эффекта занимает @amethyst_property1 сек."
+		"DOTA_Tooltip_modifier_conquest_stone_falcon"                             "Conquest Stone Falcon, Emerald"
+        "DOTA_Tooltip_modifier_conquest_stone_falcon_amethyst_cd"                             "Conquest Stone Falcon, Amethyst, Перезарядка"
 
 
         "DOTA_Tooltip_ability_item_rpc_emerald_nullification_ring"                      "Emerald Nullification Ring"

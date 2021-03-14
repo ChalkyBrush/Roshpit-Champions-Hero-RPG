@@ -192,7 +192,7 @@
         "DOTA_Tooltip_ability_item_rpc_conquest_stone_falcon"                           "Conquest Stone Falcon"
         "item_property_conquest_stone_falcon"                        "Gift of the Reliquary"
         "property_conquest_stone_falcon_description"             "Instances of Magic or Pure damage taken can not exceed <% ITEM_RPC_CONQUEST_STONE_FALCON_HP_THRESHOLD %>% of max health."
-        "item_rpc_conquest_stone_falcon_ruby1"                          "Reduce the threshold by @ruby_property1%"
+        "item_rpc_conquest_stone_falcon_ruby1"                          "Reduces the threshold by @ruby_property1%"
         "item_rpc_conquest_stone_falcon_emerald1"                           "Every <font color='#ccff66'>3</font> seconds, gain a stack of shield, each stack will absorb one instance physical damage, max @emerald_property1 stacks."
         "item_rpc_conquest_stone_falcon_sapphire1"                          "Increases Armor Pierce and Spell Pierce by @sapphire_property1"
         "item_rpc_conquest_stone_falcon_amethyst1"                          "Lethal physical damage will be convert to pure damage, with inner cooldown of @amethyst_property1 seconds."
