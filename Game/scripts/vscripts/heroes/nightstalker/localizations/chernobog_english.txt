@@ -192,7 +192,7 @@
     	"DOTA_Tooltip_modifier_chernobog_demon_form"							"Metamorphosis"
 
   		"DOTA_Tooltip_ability_chernobog_rune_r_1_arcana1"						"[R1] Dark Expanse"
-    	"DOTA_Tooltip_ability_chernobog_rune_r_1_arcana1_Description"			"Attacks during Demonic Supremacy deal additional Physical damage to all enemies in a <% CHERNOBOG_ARCANA1_R1_RADIUS %> radius around the target."
+    	"DOTA_Tooltip_ability_chernobog_rune_r_1_arcana1_Description"			"Attacks during @Ability4 deal additional Physical damage to all enemies in a <% CHERNOBOG_ARCANA1_R1_RADIUS %> radius around the target."
     	"DOTA_Tooltip_ability_chernobog_rune_r_1_arcana1_property_one"			"Damage"
     	"DOTA_Tooltip_ability_chernobog_rune_r_1_arcana1_suffix"				"% of attack power"
 
@@ -300,17 +300,16 @@
 		"item_rpc_chernobog_glyph_2_2_description" 				"Damage instances received from standing in @Ability1 will deal their damage in a <% CHERNOBOG_GLYPH_2_2_Q_RADIUS %> radius."
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_3_2"		"[T3-2] Glyph of Baleful Blink"
-
 		"item_rpc_chernobog_glyph_3_2_description" 				"While Shadow Hunt is active, and the Shadow Strike rune is not on cooldown, issuing a move order within <% CHERNOBOG_GLYPH_3_2_TELE_DISTANCE_LOSS %>% of the rune's indicated maximum range will instantly teleport Chernobog to that location. This Glyph's effect has a <% CHERNOBOG_GLYPH_3_2_MOVE_CD %>-second cooldown, which also prevents Shadow Strike from being triggered normally during that time."
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_4_2"		"[T4-2] Glyph of Dark Alleys"
 		"item_rpc_chernobog_glyph_4_2_description" 				"@Ability1 deals <% CHERNOBOG_GLYPH_4_2_Q_DMG_AMP %>% increased damage. The shadowy trail left behind the projectile as it travels now provides all of the benefits of @Ability1 while it lasts; this includes free pathing and increased movespeed for allies, and reduced movespeed and attack damage for enemies."
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_5_2"		"[T5-2] Glyph of Empowerment"
-		"item_rpc_chernobog_glyph_5_2_description" 				"[R1] becomes passive and deals <% CHERNOBOG_GLYPH_5_2_R1_AMP_IN_R %> more damage to enemies who are affected by @Ability4."
+		"item_rpc_chernobog_glyph_5_2_description" 				"[R1] becomes passive and deals <% CHERNOBOG_GLYPH_5_2_R1_AMP_IN_R %>% more damage to enemies who are affected by @Ability4."
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_6_2"		"[T6-2] Glyph of Endurance"
-		"item_rpc_chernobog_glyph_6_2_description" 				"Attacking while @Ability2 is toggled on does not drain health while below <% CHERNOBOG_GLYPH_6_2_THRESHOLD %> of max health, but all damage from abilities or runes is reduced by <% CHERNOBOG_GLYPH_6_2_DMG_DEC %>."
+		"item_rpc_chernobog_glyph_6_2_description" 				"Attacking while @Ability2 is toggled on does not drain health while below <% CHERNOBOG_GLYPH_6_2_THRESHOLD %>% of max health, but all damage from abilities or runes is reduced by <% CHERNOBOG_GLYPH_6_2_DMG_DEC %>%."
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_7_2"		"[T7-2] Glyph of Indomitability"
 		"item_rpc_chernobog_glyph_7_2_description" 				"While @Ability2 is active, Chernobog is purged of debuffs applied by enemies every <% CHERNOBOG_GLYPH_7_2_THINK_INTERVAL %> seconds."
@@ -346,5 +345,4 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_chernobog_immortal_weapon_4"            "Saibot's Boon"
         "item_property_chernobog_immortal_weapon4"                             "Sinister Silhouette"
-        "property_chernobog_immortal_weapon4_description"                      "Increase the value of all Armor-reducing effects from Chernobog's runes and abilities by <% CHERNOBOG_IMMORTAL_WEAPON_4_ARMOR_REDUC_MULT %>%. You deal <% CHERNOBOG_IMMORTAL_WEAPON_4_AMP_ON_DEBUFFED_ENEMY %>% increased damage to enemy who affected by any Armor-reducing effects, if enemy's armor or magic armor drop to <font color='#ccff66'>0</font>, it will be silenced for <font color='#ccff66'>2</font> seconds."
-
+        "property_chernobog_immortal_weapon4_description"                      "Increase the value of all Armor-reducing effects from Chernobog's runes and abilities by <% CHERNOBOG_IMMORTAL_WEAPON_4_ARMOR_REDUC_MULT %>%."
