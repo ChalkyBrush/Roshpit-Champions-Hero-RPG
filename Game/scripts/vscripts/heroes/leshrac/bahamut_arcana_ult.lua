@@ -44,7 +44,7 @@ function leshrac_arcana_ult_effect_think(event)
 		CustomAbilities:QuickAttachParticle("particles/econ/items/zeus/arcana_chariot/zeus_arcana_blink_start.vpcf", caster, 5)
 	end
 
-	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, BAHAMUT_ARCANA_R_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, BAHAMUT_ARCANA_R_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 	local maxTargets = 1
 	if ability.r_4_level > 0 then
 		local procs = Runes:Procs(ability.r_4_level, BAHAMUT_ARCANA_R_R4_ADD_BOLTS_CHANCE, 1)
