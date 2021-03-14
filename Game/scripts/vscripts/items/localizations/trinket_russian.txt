@@ -69,12 +69,14 @@
 		"DOTA_Tooltip_ability_item_rpc_arbor_dragonfly"									"Arbor Dragonfly"
 
 		"item_property_arbor_dragonfly"				"Misty Wood's Blessing"
-		"property_arbor_dragonfly_description"		"Увеличивает длительность всех положительных эффектов, применяемых героем от Способностей, Рун и Глифов на<% ITEM_RPC_ARBOR_DRAGONFLY_BUFF_INCREASE_PCT %>%."
-
+		"property_arbor_dragonfly_description"		"За каждый видимый бафф, имеющий длительность (не бесконечный), Базовый Урон Способностей и Урон Предметов будет увеличен на <% ITEM_RPC_ARBOR_DRAGONFLY_BAD_PER_STACK %>%, максимально <font color='#ccff66'>300</font>%."
+		"DOTA_Tooltip_modifier_arbor_dragonfly"                             "Misty Wood's Blessing"
+		"DOTA_Tooltip_modifier_arbor_dragonfly_Description"                 "Базовый Урон Способностей и Урон Предметов будет увеличен в зависимости от количества текущих баффов."
+		
         "item_rpc_arbor_dragonfly_ruby1"                                    "Увеличивает все руны Т1 на @ruby_property1"
-        "item_rpc_arbor_dragonfly_emerald1"                                 "Увеличивает Базовый Урон Способностей и Урон Предметов на @emerald_property1"
+        "item_rpc_arbor_dragonfly_emerald1"                                 "Увеличивает длительность всех баффов на @emerald_property1%"
         "item_rpc_arbor_dragonfly_sapphire1"                                    "Увеличивает все руны Т2 на @sapphire_property1"
-        "item_rpc_arbor_dragonfly_amethyst1"                                    "Увеличивает все Атрибуты на @amethyst_property1"
+        "item_rpc_arbor_dragonfly_amethyst1"                                     "Основной эффект предмета также увеличивает Пробития Брони и Магической Защиты на @amethyst_property1 за каждый бафф"
 
 		"DOTA_Tooltip_ability_item_rpc_arcane_charm"									"Arcane Charm"
 
