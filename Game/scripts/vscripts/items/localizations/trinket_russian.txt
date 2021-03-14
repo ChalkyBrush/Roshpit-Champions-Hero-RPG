@@ -521,11 +521,11 @@
         "DOTA_Tooltip_ability_item_rpc_sparkling_token_of_oceanis"                  "Sparkling Token of Oceanis"    
 
         "property_sparkling_token"                                              "Tropical Mend"
-        "property_sparkling_token_Description"                                  "Восстанавливает <% ITEM_RPC_SPARKLING_TOKEN_OF_OCEANIS_HEALTH_RESTORE %>% от максимального запаса Здоровья каждые <% ITEM_RPC_SPARKLING_TOKEN_OF_OCEANIS_INTERVAL %> сек."
-        "item_rpc_sparkling_token_of_oceanis_ruby1"                 "Увеличивает запас Здоровья на @ruby_property1, а Маны на @ruby_property2"
-        "item_rpc_sparkling_token_of_oceanis_emerald1"                  "Увеличивает сопротивление Чистому урону на @emerald_property1%"
-        "item_rpc_sparkling_token_of_oceanis_sapphire1"                 "Восстанавливает @sapphire_property1% от запаса Маны каждые <% ITEM_RPC_SPARKLING_TOKEN_OF_OCEANIS_INTERVAL %> сек"
-        "item_rpc_sparkling_token_of_oceanis_amethyst1"                 "Увеличивает сопротивление Магическому урону на @amethyst_property1%"  
+        "property_sparkling_token_Description"                                  "Восстанавливает <% ITEM_RPC_SPARKLING_TOKEN_OF_OCEANIS_HEALTH_RESTORE %>% от максимального запаса Здоровья и <% ITEM_RPC_SPARKLING_TOKEN_OF_OCEANIS_MANA_RESTORE %> от запаса Маны каждые <% ITEM_RPC_SPARKLING_TOKEN_OF_OCEANIS_INTERVAL %> сек."
+        "item_rpc_sparkling_token_of_oceanis_ruby1"                 "Увеличивает Здоровье на @ruby_property1, Ману на @ruby_property2"
+        "item_rpc_sparkling_token_of_oceanis_emerald1"                  "Уменьшает получаемый Физический урон на @emerald_property1%"
+        "item_rpc_sparkling_token_of_oceanis_sapphire1"                 "Увеличивает Пробития Брони и Маг Защиты на @sapphire_property1"
+        "item_rpc_sparkling_token_of_oceanis_amethyst1"                 "Уменьшает получаемый Магический урон на @amethyst_property1%" 
 
         "DOTA_Tooltip_ability_item_rpc_stargazers_sphere"            "Stargazer's Sphere"
 
