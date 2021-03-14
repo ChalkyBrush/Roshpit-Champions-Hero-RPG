@@ -127,9 +127,11 @@
     	"DOTA_Tooltip_ability_paladin_rune_e_3_suffix"					"% от урона героя"
 		
 		"DOTA_Tooltip_ability_paladin_rune_e_4"							"[E4] Flutter"
-    	"DOTA_Tooltip_ability_paladin_rune_e_4_Description"				"Дает Магическую Защиту на <% PALADIN_E4_DURATION %> сек. после прочтения @Ability3."
-    	"DOTA_Tooltip_ability_paladin_rune_e_4_property_one"			"Магическая Защита"
+    	"DOTA_Tooltip_ability_paladin_rune_e_4_Description"				"Пассивно увеличивает Пробитие Брони и Магическую Защиту."
+    	"DOTA_Tooltip_ability_paladin_rune_e_4_property_one"			"Пробитие Брони"
     	"DOTA_Tooltip_ability_paladin_rune_e_4_suffix"					""
+		"DOTA_Tooltip_ability_paladin_rune_e_4_property_two"			"Магическая Защита"
+    	"DOTA_Tooltip_ability_paladin_rune_e_4_suffix_two"				""
 
     	"DOTA_Tooltip_modifier_paladin_d_c"								"Flutter"
     	"DOTA_Tooltip_modifier_paladin_d_c_Description"					"Получает увеличенный урон от Паладина"
