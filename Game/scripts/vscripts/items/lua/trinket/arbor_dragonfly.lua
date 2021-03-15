@@ -74,8 +74,7 @@ function modifierClass:OnCreated()
 		MODIFIER_ROSHPIT_R_BASE_ABILITY_DMG_BONUS,
 		MODIFIER_ROSHPIT_ITEM_DMG_BONUS,
     })
-	self:OnIntervalThink()
-	self:StartIntervalThink(0.2)
+	self:StartIntervalThink(0.1)
 end
 
 function modifierClass:OnIntervalThink()
@@ -83,20 +82,17 @@ function modifierClass:OnIntervalThink()
 	    return
 	end
 	local hero = self:GetParent()
-	local modifiers = hero:FindAllModifiers()
+	local abilitySlot = {DOTA_Q_SLOT, DOTA_W_SLOT, DOTA_E_SLOT, DOTA_R_SLOT}
 	local count = 0
-	if #modifiers > 0 then
-	   for i = 1, #modifiers, 1 do
-	       local modifier = modifiers[i]
-		   if modifier:GetDuration() > 0 then
-		      if (not (modifier.IsDebuff and modifier:IsDebuff() == true)) and (modifier.IsHidden and modifier:IsHidden() == false)then
-		         count = count + 1
-			  end
-		   end
-	   end
+    for i = 1, #abilitySlot, 1 do
+	    local ability = hero:GetAbilityByIndex(abilitySlot[i])
+		if ability:GetCooldown(-1) < 5 then
+	        count = count + 1
+		end
 	end
-	self:SetStackCount(math.min(5, count))
+    self:SetStackCount(count)
 end
+
 
 function modifierClass:GetRoshpitQBaseAbilityDmgBonus()
     return self:GetStackCount() * ITEM_RPC_ARBOR_DRAGONFLY_BAD_PER_STACK / 100
@@ -111,10 +107,6 @@ function modifierClass:GetRoshpitEBaseAbilityDmgBonus()
 end
 
 function modifierClass:GetRoshpitRBaseAbilityDmgBonus()
-    return self:GetStackCount() * ITEM_RPC_ARBOR_DRAGONFLY_BAD_PER_STACK / 100
-end
-
-function modifierClass:GetRoshpitItemDmgBonus()
     return self:GetStackCount() * ITEM_RPC_ARBOR_DRAGONFLY_BAD_PER_STACK / 100
 end
 
