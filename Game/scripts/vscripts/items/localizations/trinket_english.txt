@@ -69,7 +69,7 @@
 		"DOTA_Tooltip_ability_item_rpc_arbor_dragonfly"									"Arbor Dragonfly"
 
 		"item_property_arbor_dragonfly"				"Misty Wood's Blessing"
-		"property_arbor_dragonfly_description"		"Each ability that has 5 seconds or less cooldown increases your base ability damage and item damage by <% ITEM_RPC_ARBOR_DRAGONFLY_BAD_PER_STACK %>%."
+		"property_arbor_dragonfly_description"		"For each of your abilities with a cooldown of 5 seconds or less, or no cooldown at all, Base Ability and Item Damage are both increased by <% ITEM_RPC_ARBOR_DRAGONFLY_BAD_PER_STACK %>%."
         "item_rpc_arbor_dragonfly_ruby1"                                    "Increases all Tier 1 runes by @ruby_property1"
         "item_rpc_arbor_dragonfly_emerald1"                                 "Increases all buff duration by @emerald_property1%"
         "item_rpc_arbor_dragonfly_sapphire1"                                    "Increases all Tier 2 runes by @sapphire_property1"
