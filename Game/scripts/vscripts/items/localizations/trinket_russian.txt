@@ -69,12 +69,12 @@
 		"DOTA_Tooltip_ability_item_rpc_arbor_dragonfly"									"Arbor Dragonfly"
 
 		"item_property_arbor_dragonfly"				"Misty Wood's Blessing"
-		"property_arbor_dragonfly_description"		"Увеличивает длительность всех положительных эффектов, применяемых героем от Способностей, Рун и Глифов на<% ITEM_RPC_ARBOR_DRAGONFLY_BUFF_INCREASE_PCT %>%."
-
+		"property_arbor_dragonfly_description"		"Each ability that has 5 seconds or less cooldown increases your base ability damage and item damage by <% ITEM_RPC_ARBOR_DRAGONFLY_BAD_PER_STACK %>%."
         "item_rpc_arbor_dragonfly_ruby1"                                    "Увеличивает все руны Т1 на @ruby_property1"
-        "item_rpc_arbor_dragonfly_emerald1"                                 "Увеличивает Базовый Урон Способностей и Урон Предметов на @emerald_property1"
+        "item_rpc_arbor_dragonfly_emerald1"                                 "Increases all buff duration by @emerald_property1%"
         "item_rpc_arbor_dragonfly_sapphire1"                                    "Увеличивает все руны Т2 на @sapphire_property1"
-        "item_rpc_arbor_dragonfly_amethyst1"                                    "Увеличивает все Атрибуты на @amethyst_property1"
+        "item_rpc_arbor_dragonfly_amethyst1"                                    "Each ability that has 5 seconds or less cooldown increases increase your armor pierce and spell pierce by @amethyst_property1"
+
 
 		"DOTA_Tooltip_ability_item_rpc_arcane_charm"									"Arcane Charm"
 
