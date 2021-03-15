@@ -110,6 +110,10 @@ function modifierClass:GetRoshpitRBaseAbilityDmgBonus()
     return self:GetStackCount() * ITEM_RPC_ARBOR_DRAGONFLY_BAD_PER_STACK / 100
 end
 
+function modifierClass:GetRoshpitItemDmgBonus()
+    return self:GetStackCount() * ITEM_RPC_ARBOR_DRAGONFLY_BAD_PER_STACK / 100
+end
+
 function modifierClass:GetRoshpitSpellPierceBonus()
     local hero = self:GetParent()
 	local bonus_per_stack = hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_ARBOR_DRAGONFLY_GEM_AMETHYST)
