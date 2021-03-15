@@ -83,7 +83,7 @@ function modifierClass:OnIntervalThink()
 	local count = 0
     for i = 1, #abilitySlot, 1 do
 	    local ability = hero:GetAbilityByIndex(abilitySlot[i])
-		if ability:GetCooldown(-1) < 5 then
+		if ability:GetCooldown(-1) <= 5 then
 	        count = count + 1
 		end
 	end
