@@ -87,14 +87,12 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_arbor_dragonfly"									"点水蜻蜓"
 		"item_property_arbor_dragonfly"				"迷雾祝福"
-                "property_arbor_dragonfly_description"		"每一个存在的可视的有持续时间的buff提高基础技能伤害和物品伤害 <% ITEM_RPC_ARBOR_DRAGONFLY_BAD_PER_STACK %>%， 至多达到  <font color='#ccff66'>300</font>%。"
-		"DOTA_Tooltip_modifier_arbor_dragonfly"                             "迷雾祝福"
-		"DOTA_Tooltip_modifier_arbor_dragonfly_Description"                 "每一个存在的可视的有持续时间的buff提高基础技能伤害和物品伤害。"
+                "property_arbor_dragonfly_description"		"每一个冷却时间低于5秒的技能提高基础技能伤害和物品伤害<% ITEM_RPC_ARBOR_DRAGONFLY_BAD_PER_STACK %>%。"
 
         "item_rpc_arbor_dragonfly_ruby1"                                    "提高所有T1 符文 @ruby_property1"
         "item_rpc_arbor_dragonfly_emerald1"                                 "提高所有buff的持续时间 @emerald_property1%"
         "item_rpc_arbor_dragonfly_sapphire1"                                    "提高所有T2 符文 @sapphire_property1"
-        "item_rpc_arbor_dragonfly_amethyst1"                                    "每一个存在的可视的有持续时间的buff提高物理穿透和魔法穿透 @amethyst_property1"
+        "item_rpc_arbor_dragonfly_amethyst1"                                    "每一个冷却时间低于5秒的技能提高物理穿透和魔法穿透 @amethyst_property1"
 		
 		
 		
