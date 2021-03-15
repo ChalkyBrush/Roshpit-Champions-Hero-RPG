@@ -635,7 +635,7 @@
         "item_rpc_moon_shard_emerald1"                              "每1%当前魔法值提高移动速度和最大移动速度 @emerald_property1"
         "item_rpc_moon_shard_sapphire1"                             "每 @sapphire_property1 秒，获得一个buff，buff将会使你下一个释放的技能获得100%的冷却时间缩减"
         "DOTA_Tooltip_modifier_moon_shard_sapphire"                 "闪烁波动 (蓝宝石)"
-        "DOTA_Tooltip_modifier_moon_shard_sapphire_Description"     "下一个释放的技能将会获得 100% 冷却时间缩减" 
+        "DOTA_Tooltip_modifier_moon_shard_sapphire_Description"     "下一个释放的技能将会获得 100%% 冷却时间缩减" 
         "item_rpc_moon_shard_amethyst1"                             "移动 <% ITEM_RPC_MOON_SHARD_AMETHYST_DISTANCE_TO_TRIGGER %> 距离将会向周围<% ITEM_RPC_MOON_SHARD_AMETHYST_SEARCH_RADIUS %>范围内最近的敌人投掷至多 @amethyst_property1 个冰弹。造成 数值为@amethyst_property2 X 每点最大魔法值"
 	
        "DOTA_Tooltip_ability_item_rpc_horn_of_the_triumphant"                              "胜利号角"
