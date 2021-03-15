@@ -47,10 +47,7 @@ end
 
 -- BASE MODIIFER 
 function modifierClass:IsHidden()
-    if self:GetStackCount() > 0 then
-        return false
-	end
-	return true
+    return true
 end
 
 function modifierClass:RemoveOnDeath()
