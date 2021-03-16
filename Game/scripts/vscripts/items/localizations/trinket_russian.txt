@@ -69,11 +69,14 @@
 		"DOTA_Tooltip_ability_item_rpc_arbor_dragonfly"									"Arbor Dragonfly"
 
 		"item_property_arbor_dragonfly"				"Misty Wood's Blessing"
-		"property_arbor_dragonfly_description"		"For each of your abilities with a cooldown of 5 seconds or less, or no cooldown at all, Base Ability and Item Damage are both increased by <% ITEM_RPC_ARBOR_DRAGONFLY_BAD_PER_STACK %>%."
+		"property_arbor_dragonfly_description"		"За каждый видимый бафф, имеющий длительность (не бесконечный), Базовый Урон Способностей и Урон Предметов будет увеличен на <% ITEM_RPC_ARBOR_DRAGONFLY_BAD_PER_STACK %>%, максимально <font color='#ccff66'>300</font>%."
+		"DOTA_Tooltip_modifier_arbor_dragonfly"                             "Misty Wood's Blessing"
+		"DOTA_Tooltip_modifier_arbor_dragonfly_Description"                 "Базовый Урон Способностей и Урон Предметов будет увеличен в зависимости от количества текущих баффов."
+		
         "item_rpc_arbor_dragonfly_ruby1"                                    "Увеличивает все руны Т1 на @ruby_property1"
-        "item_rpc_arbor_dragonfly_emerald1"                                 "Increases all buff duration by @emerald_property1%"
+        "item_rpc_arbor_dragonfly_emerald1"                                 "Увеличивает длительность всех баффов на @emerald_property1%"
         "item_rpc_arbor_dragonfly_sapphire1"                                    "Увеличивает все руны Т2 на @sapphire_property1"
-        "item_rpc_arbor_dragonfly_amethyst1"                                    "Each ability that has 5 seconds or less cooldown increases increase your armor pierce and spell pierce by @amethyst_property1"
+        "item_rpc_arbor_dragonfly_amethyst1"                                     "Основной эффект предмета также увеличивает Пробития Брони и Магической Защиты на @amethyst_property1 за каждый бафф"
 
 
 		"DOTA_Tooltip_ability_item_rpc_arcane_charm"									"Arcane Charm"
@@ -190,10 +193,12 @@
         "DOTA_Tooltip_ability_item_rpc_conquest_stone_falcon"                           "Conquest Stone Falcon"
         "item_property_stone_falcon"                        "Gift of the Reliquary"
         "property_stone_falcon_description"             "Магический или Чистый урон не может нанести герою больше <% ITEM_RPC_CONQUEST_STONE_FALCON_HP_THRESHOLD %>% от Максимального Здоровья."
-        "item_rpc_conquest_stone_falcon_ruby1"                          "Броня увеличена на @ruby_property1"
-        "item_rpc_conquest_stone_falcon_emerald1"                           "Пробитие Брони увеличено на @emerald_property1"
-        "item_rpc_conquest_stone_falcon_sapphire1"                          "Пробитие Магической Защиты увеличено на @sapphire_property1"
-        "item_rpc_conquest_stone_falcon_amethyst1"                          "Магическая Защита увеличена на @amethyst_property1"
+        "item_rpc_conquest_stone_falcon_ruby1"                          "Основной эффект ограничения урона уменьшен еще на @ruby_property1% от Максимального Здоровья"
+        "item_rpc_conquest_stone_falcon_emerald1"                           "Каждые <font color='#ccff66'>3</font> секунды, герой получает заряд щита, поглощающего Физический урон, максимум @emerald_property1 зарядов щита."
+        "item_rpc_conquest_stone_falcon_sapphire1"                          "Увеличивает Пробитие Брони и Пробитие Магической Защиты на @sapphire_property1"
+        "item_rpc_conquest_stone_falcon_amethyst1"                          "Летальный физический урон будет конвертирован в Чистый тип урона, перезарядка этого эффекта занимает @amethyst_property1 сек."
+		"DOTA_Tooltip_modifier_conquest_stone_falcon"                             "Conquest Stone Falcon, Emerald"
+        "DOTA_Tooltip_modifier_conquest_stone_falcon_amethyst_cd"                             "Conquest Stone Falcon, Amethyst, Перезарядка"
 
 
         "DOTA_Tooltip_ability_item_rpc_emerald_nullification_ring"                      "Emerald Nullification Ring"
@@ -252,10 +257,10 @@
         "item_property_firelock"                            "Piercing Heat"      
         "property_firelock_description"                 "Сила увеличивает Пробитие Брони на <% ITEM_RPC_FIRELOCK_PENDANT_STR_TO_ARMOR_PIERCE %>."
         
-        "item_rpc_firelock_pendant_ruby1"                               "Увеличивает Силу и Ловкость на @ruby_property1"
-        "item_rpc_firelock_pendant_emerald1"                                 "Увеличивает Урон Предметов и урон <font color=ELEMENT_FIRE>Огня</font> на @emerald_property1%"
-        "item_rpc_firelock_pendant_sapphire1"                               "Ловкость и Сила увеличивают Скорость Атаки на @sapphire_property1"
-        "item_rpc_firelock_pendant_amethyst1"                               "Дух увеличивает Базовый Урон Атаки на @amethyst_property1"
+        "item_rpc_firelock_pendant_ruby1"                               "Ловкость увеличивает Пробитие Брони на @ruby_property1"
+        "item_rpc_firelock_pendant_emerald1"                                 "Увеличивает урон <font color='#EF4126'>Огня</font> на @emerald_property1%"
+        "item_rpc_firelock_pendant_sapphire1"                               "Увеличивает Скорость Атаки на @sapphire_property1, Скорость Атаки не может упасть ниже <font color='#ccff66'>300</font>, этот эффект не работает с другими ограничителями скорости."
+        "item_rpc_firelock_pendant_amethyst1"                               "Увеличивает Силу и Ловкость на @amethyst_property1"
 
         "DOTA_Tooltip_ability_item_rpc_fortunes_talisman_of_truth"                      "Fortune's Talisman of Truth"
 
@@ -517,11 +522,11 @@
         "DOTA_Tooltip_ability_item_rpc_sparkling_token_of_oceanis"                  "Sparkling Token of Oceanis"    
 
         "property_sparkling_token"                                              "Tropical Mend"
-        "property_sparkling_token_Description"                                  "Восстанавливает <% ITEM_RPC_SPARKLING_TOKEN_OF_OCEANIS_HEALTH_RESTORE %>% от максимального запаса Здоровья каждые <% ITEM_RPC_SPARKLING_TOKEN_OF_OCEANIS_INTERVAL %> сек."
-        "item_rpc_sparkling_token_of_oceanis_ruby1"                 "Увеличивает запас Здоровья на @ruby_property1, а Маны на @ruby_property2"
-        "item_rpc_sparkling_token_of_oceanis_emerald1"                  "Увеличивает сопротивление Чистому урону на @emerald_property1%"
-        "item_rpc_sparkling_token_of_oceanis_sapphire1"                 "Восстанавливает @sapphire_property1% от запаса Маны каждые <% ITEM_RPC_SPARKLING_TOKEN_OF_OCEANIS_INTERVAL %> сек"
-        "item_rpc_sparkling_token_of_oceanis_amethyst1"                 "Увеличивает сопротивление Магическому урону на @amethyst_property1%"  
+        "property_sparkling_token_Description"                                  "Восстанавливает <% ITEM_RPC_SPARKLING_TOKEN_OF_OCEANIS_HEALTH_RESTORE %>% от максимального запаса Здоровья и <% ITEM_RPC_SPARKLING_TOKEN_OF_OCEANIS_MANA_RESTORE %> от запаса Маны каждые <% ITEM_RPC_SPARKLING_TOKEN_OF_OCEANIS_INTERVAL %> сек."
+        "item_rpc_sparkling_token_of_oceanis_ruby1"                 "Увеличивает Здоровье на @ruby_property1, Ману на @ruby_property2"
+        "item_rpc_sparkling_token_of_oceanis_emerald1"                  "Уменьшает получаемый Физический урон на @emerald_property1%"
+        "item_rpc_sparkling_token_of_oceanis_sapphire1"                 "Увеличивает Пробития Брони и Маг Защиты на @sapphire_property1"
+        "item_rpc_sparkling_token_of_oceanis_amethyst1"                 "Уменьшает получаемый Магический урон на @amethyst_property1%" 
 
         "DOTA_Tooltip_ability_item_rpc_stargazers_sphere"            "Stargazer's Sphere"
 
@@ -607,10 +612,10 @@
         "item_property_volcano_orb"                 "Fiery Core"
         "property_volcano_orb_description"          "Любой Атрибут увеличивает Пробитие Магической Защиты на <% ITEM_RPC_VOLCANO_ORB_SPELL_PIERCE_PER_ATTR  %>."
 
-		"item_rpc_volcano_orb_ruby1"										"Увеличивает Силу на @ruby_property1"
-		"item_rpc_volcano_orb_emerald1"										"Увеличивает Ловкость на @emerald_property1"
-		"item_rpc_volcano_orb_sapphire1"										"Увеличивает Интеллект на @sapphire_property1"
-		"item_rpc_volcano_orb_amethyst1"										"Увеличивает Дух на @amethyst_property1"
+		"item_rpc_volcano_orb_ruby1"										"Любой Атрибут увеличивает Пробитие Магической Защиты дополнительно на @ruby_property1"
+		"item_rpc_volcano_orb_emerald1"										"Увеличивает Все Атрибуты на @emerald_property1"
+		"item_rpc_volcano_orb_sapphire1"										"Увеличивает Базовый Урон Способностей @sapphire_property1%"
+		"item_rpc_volcano_orb_amethyst1"										"Увеличивает урон <font color='#EF4126'>Огня</font> и Урон Предметов на @amethyst_property1%"
 
 		
        "DOTA_Tooltip_ability_item_rpc_wind_orchid"                                     "Wind Orchid"
