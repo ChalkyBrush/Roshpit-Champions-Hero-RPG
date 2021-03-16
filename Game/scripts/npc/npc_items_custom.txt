@@ -53256,7 +53256,8 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	"item_lua"
+		"ScriptFile" "items/lua/gloves/power_ranger_gloves.lua"
 		"AbilityTextureName"	"rpc/power_ranger_gloves" //"power_ranger_gloves"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -53275,22 +53276,22 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"400 800 1200 1600 2000"
+				"ruby1"				"0.02 0.04 0.06 0.08 0.1"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"400 800 1200 1600 2000"
+				"emerald1"			"700 1400 2100 2800 3500"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"400 800 1200 1600 2000"
+				"sapphire1"			"15 30 45 60 75"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"400 800 1200 1600 2000"
+				"amethyst1"			"9 18 27 36 45"
 			}
 		}
 		"OnSpellStart"
@@ -55921,22 +55922,22 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"2 3 4 5 6"
+				"ruby1"				"1 2 3 4 5"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"2 3 4 5 6"
+				"emerald1"			"1 2 3 4 5"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"2 3 4 5 6"
+				"sapphire1"			"1 2 3 4 5"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"2 3 4 5 6"
+				"amethyst1"			"1 2 3 4 5"
 			}
 		}
 		"OnSpellStart"
@@ -65607,7 +65608,8 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	"item_lua"
+		"ScriptFile" "items/lua/trinket/volcano_orb.lua"
 		"AbilityTextureName"	"rpc/volcano_orb"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -65626,22 +65628,22 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"25 50 75 100 125"
+				"ruby1"				"0.4 0.8 1.2 1.6 2"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"25 50 75 100 125"
+				"emerald1"			"15 30 45 60 75"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"25 50 75 100 125"
+				"sapphire1"			"15 30 45 60 75"
 			}
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"25 50 75 100 125"
+				"amethyst1"			"18 36 54 72 90"
 			}
 		}
 		"OnSpellStart"
@@ -65650,16 +65652,6 @@
 			{
 				"ScriptFile"	"items/equipment.lua"
 				"Function"		"equip_item"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_volcano_orb"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
 	}
@@ -66391,7 +66383,8 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	"item_lua"
+		"ScriptFile" "items/lua/trinket/sparkling_token_of_oceanis.lua"
 		"AbilityTextureName"	"seafortress/sparkling_token_of_oceanis" //"power_ranger_gloves"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -66414,27 +66407,27 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"500 1000 1500 2000 2500"
+				"ruby1"				"1200 2400 3600 4800 6000"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby2"				"300 600 900 1200 1500"
+				"ruby2"				"600 1200 1800 2400 3000"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"4 8 12 16 20"
+				"emerald1"			"8 16 24 32 40"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"0.1 0.2 0.3 0.4 0.5"
+				"sapphire1"			"600 1200 1800 2400 3000"
 			}
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"5 10 15 20 25"
+				"amethyst1"			"8 16 24 32 40"
 			}
 		}
 		"OnSpellStart"
@@ -67763,7 +67756,8 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	"item_lua"
+		"ScriptFile" "items/lua/trinket/lifesource_vessel.lua"
 		"AbilityTextureName"	"rpc/lifesource_vessel"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -67796,12 +67790,12 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"5 10 15 20 25"
+				"sapphire1"			"0.8 1.6 2.4 3.2 4"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"12 24 36 48 60"
+				"amethyst1"			"18 36 54 72 90"
 			}
 		}
 		"OnSpellStart"
@@ -67810,43 +67804,6 @@
 			{
 				"ScriptFile"	"items/equipment.lua"
 				"Function"		"equip_item"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_lifesource_vessel"
-			{
-				"Passive"	"0"
-				"IsHidden"	"1"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "0.1"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"lifesource_vessel_think"
-						"target"		"TARGET"
-					}
-				}
-				"OnDestroy"
-				{
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_lifesource_vessel_buff"
-						"Target" 		"TARGET"
-					}
-				}
-			}
-			"modifier_lifesource_vessel_buff"
-			{
-				"Passive"	"0"
-				"IsHidden"	"1"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "0.1"
-				}
 			}
 		}
 	}
@@ -68166,7 +68123,8 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	"item_lua"
+		"ScriptFile" "items/lua/trinket/garnet_warfare_ring.lua"
 		"AbilityTextureName"	"rpc/garnet_warfare_ring" //"raven_idol"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -68190,17 +68148,17 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"25 50 75 100 125 150"
+				"ruby1"				"30 60 90 120 150"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"300 600 900 1200 1500"
+				"emerald1"			"480 960 1440 1920 2400"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"7 14 21 28 35"
+				"sapphire1"			"10 20 30 40 50"
 			}
 			"05"
 			{
@@ -68214,53 +68172,6 @@
 			{
 				"ScriptFile"	"items/equipment.lua"
 				"Function"		"equip_item"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_garnet_warfare_ring"
-			{
-				"Passive"	"0"
-				"IsHidden"	"1"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "0.5"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"garnet_warfare_think"
-					}
-				}
-				"OnDestroy"
-				{
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_garnet_warfare_ring_sapphire_attack_power"
-						"Target" 		"TARGET"
-					}
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_garnet_warfare_ring_amethyst_base_attack"
-						"Target" 		"TARGET"
-					}
-				}
-			}
-			"modifier_garnet_warfare_ring_sapphire_attack_power"
-			{
-				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "1" 
-				}
-			}
-			"modifier_garnet_warfare_ring_amethyst_base_attack"
-			{
-				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1" 
-				}
 			}
 		}
 	}
@@ -69020,8 +68931,8 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
-
+		"BaseClass"	"item_lua"
+		"ScriptFile" "items/lua/trinket/firelock_pendant.lua"
 		"AbilityTextureName"	"rpc/firelock_pendant"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -69040,22 +68951,22 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"20 40 60 80 100"
+				"ruby1"				"0.6 1.2 1.8 2.4 3"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"10 20 30 40 50"
+				"emerald1"			"25 50 75 100 125"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"0.03 0.06 0.09 0.12 0.15"
+				"sapphire1"			"75 150 225 300 375"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"0.3 0.6 0.9 1.2 1.5"
+				"amethyst1"			"30 60 90 120 150"
 			}
 		}
 		"OnSpellStart"
@@ -69650,7 +69561,8 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	"item_lua"
+		"ScriptFile" "items/lua/trinket/conquest_stone_falcon.lua"
 		"AbilityTextureName"	"rpc/conquest_stone_falcon" //"conquest_stone_falcon"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -69669,22 +69581,22 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"350 700 1050 1400 1750"
+				"ruby1"				"3 6 9 12 15"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"350 700 1050 1400 1750"
+				"emerald1"			"1 2 3 4 5"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"350 700 1050 1400 1750"
+				"sapphire1"			"540 1080 1620 2160 2700"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"350 700 1050 1400 1750"
+				"amethyst1"			"12 10 8 6 4"
 			}
 		}
 		"precache"
@@ -69697,15 +69609,6 @@
 			{
 				"ScriptFile"	"items/equipment.lua"
 				"Function"		"equip_item"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_conquest_stone_falcon"
-			{
-				"Passive"	"0"
-				"IsHidden"	"1"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
 	}
@@ -70764,7 +70667,8 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	"item_lua"
+		"ScriptFile" "items/lua/trinket/arbor_dragonfly.lua"
 		"AbilityTextureName"	"rpc/arbor_dragonfly"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -70793,7 +70697,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"10 20 30 40 50"
+				"emerald1"			"8 16 24 32 40"
 			}
 			"04"
 			{
@@ -70803,7 +70707,7 @@
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"20 40 60 80 100"
+				"amethyst1"			"100 200 300 400 500"
 			}
 		}
 		"OnSpellStart"
@@ -70812,16 +70716,6 @@
 			{
 				"ScriptFile"	"items/equipment.lua"
 				"Function"		"equip_item"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_arbor_dragonfly"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
 	}

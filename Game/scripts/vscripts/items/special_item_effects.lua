@@ -10302,11 +10302,17 @@ function ring_of_mysteries_thinker(event)
 	local caster = event.caster
 	local hero = caster.hero
 	local target = event.target
-
+    local property_bonus_mult = 1
 	if not hero.runes_bonus_ring_of_mysteries then
 		hero.runes_bonus_ring_of_mysteries = {}
 	end
 
+	if hero:HasModifier("modifier_vermillion_dream_robes") then
+		property_bonus_mult = property_bonus_mult + hero.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_VERMILLION_DREAM_ROBES_GEM_EMERALD)/100
+	end
+	if hero:HasModifier("modifier_excavators_focus_cap") then
+		property_bonus_mult = property_bonus_mult + EXCAVATOR_GEAR_AMP/100
+	end
 	ability.base_runes_hash = {}
 
 	ability.total_rune_levels = 0
@@ -10344,14 +10350,14 @@ function ring_of_mysteries_thinker(event)
 
 	table.sort(ability.base_runes_hash, ring_of_mysteries_compare)
 	for k = 1, 3, 1 do
-		hero.runes_bonus_ring_of_mysteries[ability.base_runes_hash[k][1]] = ITEM_RPC_RING_OF_MYSTERIES_T1_AND_T2_BONUS + emerald_bonus
+		hero.runes_bonus_ring_of_mysteries[ability.base_runes_hash[k][1]] = (ITEM_RPC_RING_OF_MYSTERIES_T1_AND_T2_BONUS + emerald_bonus) * property_bonus_mult
 	end
 
 	if ability:GetGemValue("ruby") > 0 then
-		hero.runes_bonus_ring_of_mysteries[lowest_t3_name] = ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_RING_OF_MYSTERIES_GEM_RUBY)
+		hero.runes_bonus_ring_of_mysteries[lowest_t3_name] = ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_RING_OF_MYSTERIES_GEM_RUBY) * property_bonus_mult
 	end
 	if ability:GetGemValue("sapphire") > 0 then
-		hero.runes_bonus_ring_of_mysteries[lowest_t4_name] = ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_RING_OF_MYSTERIES_GEM_SAPPHIRE)
+		hero.runes_bonus_ring_of_mysteries[lowest_t4_name] = ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_RING_OF_MYSTERIES_GEM_SAPPHIRE) * property_bonus_mult
 	end
 	DeepPrintTable(hero.runes_bonus_ring_of_mysteries)
 	hero:UpdateRuneBonusesFromGear()

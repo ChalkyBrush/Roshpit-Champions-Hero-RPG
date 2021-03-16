@@ -170,7 +170,7 @@
     	"DOTA_Tooltip_ability_ekkan_rune_r_1_suffix"						"%"
 
     	"DOTA_Tooltip_ability_ekkan_rune_r_2"								"[R2] 灾难群"
-    	"DOTA_Tooltip_ability_ekkan_rune_r_2_Description"					"灵魂充能可以对单个敌人施放。对这个敌人造成全体召唤物 % 总攻击力的纯粹伤害。这个伤害无视坚定。"
+    	"DOTA_Tooltip_ability_ekkan_rune_r_2_Description"					"灵魂充能可以对单个敌人施放。对这个敌人造成全体召唤物 % 总攻击力的纯粹伤害。"
     	"DOTA_Tooltip_ability_ekkan_rune_r_2_property_one"					"伤害"
     	"DOTA_Tooltip_ability_ekkan_rune_r_2_suffix"						"% 全体召唤物的总攻击力"
 

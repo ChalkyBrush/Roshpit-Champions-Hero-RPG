@@ -336,3 +336,10 @@
         "DOTA_Tooltip_ability_item_rpc_mountain_protector_immortal_weapon_3"            "群山镌刻刀"
         "item_property_mountain_protector_immortal_weapon3"                             "山倾"
         "property_mountain_protector_immortal_weapon3_description"                      "@Ability3 投掷速度提高，并且冷却时间减少 <% MOUNTAIN_PROTECTOR_IMMORTAL_WEAPON_3_E_CD_REDUCTION_PCT %>%"
+	
+	"DOTA_Tooltip_ability_item_rpc_mountain_protector_immortal_weapon_4"            "山岳战旗"
+        "item_property_mountain_protector_immortal_weapon4"                             "七彩守卫"
+        "property_mountain_protector_immortal_weapon4_description"                      "降低所有在山丘守卫重生旗帜附近 <% MOUNTAIN_PROTECTOR_IMMORTAL_WEAPON_4_RADIUS %> 范围内的友方单位受到的伤害 <% MOUNTAIN_PROTECTOR_IMMORTAL_WEAPON_4_RESIST %>%。这个效果对非英雄单位将会提高2倍。"
+		
+		"DOTA_Tooltip_modifier_mountain_protector_immortal_weapon_4_resistance" 	"七彩守卫"
+		"DOTA_Tooltip_modifier_mountain_protector_immortal_weapon_4_resistance_description" 	"降低所有在山丘守卫重生旗帜附近 <% MOUNTAIN_PROTECTOR_IMMORTAL_WEAPON_4_RADIUS %> 范围内的友方单位受到的伤害 <% MOUNTAIN_PROTECTOR_IMMORTAL_WEAPON_4_RESIST %>%。这个效果对非英雄单位将会提高2倍。"

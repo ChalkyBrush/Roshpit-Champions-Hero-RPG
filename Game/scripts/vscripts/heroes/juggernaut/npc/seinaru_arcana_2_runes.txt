@@ -1,5 +1,4 @@
-
-	"seinaru_rune_e_1_arcana2"
+    "seinaru_rune_e_1_arcana2"
 	{
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -11,13 +10,13 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% SEINARU_ARCANA_E1_ATT_PCT %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% SEINARU_ARCANA_E1_TARGETS %>"
+				"property_two"			"<% SEINARU_ARCANA_E1_E_RADIUS_BONUS %>"
 			}
 		}
 	}
@@ -37,6 +36,11 @@
 				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% SEINARU_ARCANA_E2_DUR %>"
 			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"<% SEINARU_ARCANA_E2_TARGETS %>"
+			}
 		}
 	}
 
@@ -53,7 +57,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SEINARU_ARCANA_E3_ARMOR_PIERCE_AND_SPELL_PIERCE %>"
+				"property_one"			"<% SEINARU_ARCANA2_E3_BAD %>"
 			}
 		}
 	}
@@ -70,14 +74,18 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"<% SEINARU_ARCANA2_E4_R_FREE_CAST_CHANCE %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% SEINARU_ARCANA2_E4_HOLY_AMP %>"
+				"property_one_base"		"10"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"<% SEINARU_ARCANA2_E4_HOLY_AMP_PER_AGI * 10 %>"
 			}
 		}
 	}
-

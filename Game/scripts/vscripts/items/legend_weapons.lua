@@ -61,13 +61,13 @@ function Weapons:RollLegendWeapon3WithDotaName(class, deathLocation)
 end
 
 function Weapons:RollRandomLegendWeapon4(deathLocation)
-	local classTable = {"flamewaker", "voltex", "axe", "astral", "epoch", "paladin", "seinaru", "warlord", "duskbringer", "auriun", "trapper", "spirit_warrior", "mountain_protector", "solunia", "hydroxis", "jex", "omniro", "bahamut"}
+	local classTable = {"flamewaker", "voltex", "axe", "astral", "epoch", "paladin", "seinaru", "warlord", "duskbringer", "auriun", "trapper", "spirit_warrior", "mountain_protector", "solunia", "hydroxis", "jex", "omniro", "bahamut", "chernobog"}
 	local class = classTable[RandomInt(1, #classTable)]
 	return Weapons:RollLegendWeapon4(deathLocation, class)
 end
 
 function Weapons:RollLegendWeapon4WithDotaName(class, deathLocation)
-	local classTable = {"flamewaker", "voltex", "axe", "astral", "epoch", "paladin", "seinaru", "warlord", "duskbringer", "auriun", "trapper", "spirit_warrior", "mountain_protector", "solunia", "hydroxis", "jex", "omniro", "bahamut"}
+	local classTable = {"flamewaker", "voltex", "axe", "astral", "epoch", "paladin", "seinaru", "warlord", "duskbringer", "auriun", "trapper", "spirit_warrior", "mountain_protector", "solunia", "hydroxis", "jex", "omniro", "bahamut", "chernobog"}
 	class = HerosCustom:GetInternalHeroNameMain(class)
 	return Weapons:RollLegendWeapon4(deathLocation, class)
 end

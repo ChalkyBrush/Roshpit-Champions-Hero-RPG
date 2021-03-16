@@ -86,7 +86,7 @@
     	"DOTA_Tooltip_ability_chernobog_rune_w_4_suffix_two"					""
 		
 		"DOTA_Tooltip_ability_chernobog_shadow_hunt"							"Shadow Hunt"
-    	"DOTA_Tooltip_ability_chernobog_shadow_hunt_Description"				"Пока способность активна, Чернобог увеличивает собственную Скорость и Лимит Скорости передвижения, однако, теряя при этом часть маны и здоровья каждую секунду."
+    	"DOTA_Tooltip_ability_chernobog_shadow_hunt_Description"				"Пока способность активна, Чернобог увеличивает собственную Скорость и Лимит Скорости передвижения, однако, теряя при этом часть маны и здоровья каждую секунду.The health drain and mana drain amount is decreased by <font color='#ccff66'>66</font>% while healing is disabled."
     	"DOTA_Tooltip_ability_chernobog_shadow_hunt_movespeed_cap"				"БОНУС ЛИМИТА СКОРОСТИ:"
     	"DOTA_Tooltip_ability_chernobog_shadow_hunt_movespeed_bonus"			"БОНУС СКОРОСТИ:"
     	"DOTA_Tooltip_ability_chernobog_shadow_hunt_hp_drain_per_second"		"% ПОТЕРЯ ЗДОРОВЬЯ, ОТ ТЕКУЩЕГО:"
@@ -151,6 +151,7 @@
     	"DOTA_Tooltip_ability_chernobog_rune_r_1_suffix"						"% от силы атаки"
     	"DOTA_Tooltip_ability_chernobog_rune_r_1_property_two"					"Доп. Длительность"
         "DOTA_Tooltip_ability_chernobog_rune_r_1_suffix_two"					" сек"
+
 		
 		"DOTA_Tooltip_modifier_chernobog_r1_effect"								"Fiend's Grip"
     	"DOTA_Tooltip_modifier_chernobog_r1_effect_Description"					"Атаки наносят Физический урон по области."
@@ -176,7 +177,6 @@
     	"DOTA_Tooltip_ability_chernobog_rune_r_4_Description"					"Пассивно увеличивает урон <font color='#5B648C'>Демона</font> и урон <font color='#7F4F84'>Тени</font> от очков Силы и Ловкости."
     	"DOTA_Tooltip_ability_chernobog_rune_r_4_property_one"					"Урон <font color='#5B648C'>Демона</font> и <font color='#7F4F84'>Тени</font>"
         "DOTA_Tooltip_ability_chernobog_rune_r_4_suffix"						"% от Силы и Ловкости"
-
 		
 		//Arcanas
 		

@@ -135,13 +135,13 @@
 		"DOTA_Tooltip_modifier_mountain_dweller_regen_Description"	"增加生命回复"
 
 		"DOTA_Tooltip_ability_winterblight_frostiok_passive"	"冰箭皮肤"
-		"DOTA_Tooltip_ability_winterblight_frostiok_passive_Description"	"定期向周围的敌人发射冰箭。弹射造成伤害，并无限堆叠的层数，增加敌人受到的税后伤害。只以英雄为目标."
+		"DOTA_Tooltip_ability_winterblight_frostiok_passive_Description"	"定期向周围的敌人发射冰箭。弹射造成伤害，并无限堆叠的层数，增加敌人受到的伤害。只以英雄为目标."
 		"DOTA_Tooltip_ability_winterblight_frostiok_passive_damage"			"伤害:"
 		"DOTA_Tooltip_ability_winterblight_frostiok_passive_damage_amp_per_stack"	"每层伤害增加:"
 		"DOTA_Tooltip_ability_winterblight_frostiok_passive_radius"			"弹射半径:"
 
 		"DOTA_Tooltip_modifier_frostiok_damage_amp"				"冰刺"
-		"DOTA_Tooltip_modifier_frostiok_damage_amp_Description"	"增加税后伤害。"
+		"DOTA_Tooltip_modifier_frostiok_damage_amp_Description"	"增加伤害。"
 
 		"DOTA_Tooltip_ability_winterblight_marauder_passive"			"掠夺者"
 		"DOTA_Tooltip_ability_winterblight_marauder_passive_Description"	"攻击无视护甲."
@@ -529,8 +529,8 @@
 		"DOTA_Tooltip_ability_winterblight_ensnare_duration"		"缠绕持续时间:"
 
 		"DOTA_Tooltip_ability_winterblight_azalea_knife_passive"		"超级穿刺"
-		"DOTA_Tooltip_ability_winterblight_azalea_knife_passive_Description"	"被动增加税后伤害"
-		"DOTA_Tooltip_ability_winterblight_azalea_knife_passive_postmitigation"	"税后伤害%:"
+		"DOTA_Tooltip_ability_winterblight_azalea_knife_passive_Description"	"被动增加伤害"
+		"DOTA_Tooltip_ability_winterblight_azalea_knife_passive_postmitigation"	"伤害提高%:"
 
 		"DOTA_Tooltip_ability_buzuki_hex"							"布祖克的妖术"
 		"DOTA_Tooltip_ability_buzuki_hex_Description"				"将一个敌人变为一只动物，使其不能攻击和释放技能。"

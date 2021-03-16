@@ -128,7 +128,7 @@
     	"DOTA_Tooltip_modifier_auriun_ult_effect_Description"			"回复大量生命值并提高移动速度"
 		
 		"DOTA_Tooltip_ability_auriun_rune_r_1"						"[R1] 先哲"
-    	"DOTA_Tooltip_ability_auriun_rune_r_1_Description"			"俄瑞恩的智力将提高其攻击力并且在他的普通攻击时附带额外的纯粹伤害。"
+    	"DOTA_Tooltip_ability_auriun_rune_r_1_Description"			"俄瑞恩的智力将提高其攻击力并且在他的普通攻击时附带额外的魔法伤害。"
     	"DOTA_Tooltip_ability_auriun_rune_r_1_property_one"			"攻击力提高"
     	"DOTA_Tooltip_ability_auriun_rune_r_1_suffix"				"% 智力值"
 	"DOTA_Tooltip_ability_auriun_rune_r_1_property_two"         "造成的额外伤害"

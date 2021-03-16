@@ -31,13 +31,15 @@
 
 		
 		"DOTA_Tooltip_ability_item_rpc_conquest_stone_falcon" 							"征服石猎鹰"
-        "item_rpc_conquest_stone_falcon_ruby1"                          "提高护甲值 @ruby_property1"
-        "item_rpc_conquest_stone_falcon_emerald1"                           "提高物理穿透 @emerald_property1"
-        "item_rpc_conquest_stone_falcon_sapphire1"                          "提高魔法穿透 @sapphire_property1"
-        "item_rpc_conquest_stone_falcon_amethyst1"                          "提高魔甲 @amethyst_property1"
-		"item_property_stone_falcon"						"圣物"
-		"property_stone_falcon_description"				"受到的魔法伤害或者纯粹伤害不会超过你最大生命值的<% ITEM_RPC_CONQUEST_STONE_FALCON_HP_THRESHOLD %>%。"
-		
+		"item_property_conquest_stone_falcon"                        "圣物"
+        "property_conquest_stone_falcon_description"             "受到的魔法伤害或者纯粹伤害不会超过你最大生命值的<% ITEM_RPC_CONQUEST_STONE_FALCON_HP_THRESHOLD %>%。"
+        "item_rpc_conquest_stone_falcon_ruby1"                          "降低阈值 @ruby_property1%"
+        "item_rpc_conquest_stone_falcon_emerald1"                           "每 <font color='#ccff66'>3</font> 秒获得一层吸收物理伤害的盾，至多 @emerald_property1 层。"
+        "item_rpc_conquest_stone_falcon_sapphire1"                          "提高物理穿透和魔法穿透 @sapphire_property1"
+        "item_rpc_conquest_stone_falcon_amethyst1"                          "致命物理伤害将会被转化为纯粹伤害，内置冷却时间 @amethyst_property1 秒"
+		"DOTA_Tooltip_modifier_conquest_stone_falcon"                             "圣物 - 绿宝石特效"
+        "DOTA_Tooltip_modifier_conquest_stone_falcon_amethyst_cd"                             "圣物 - 紫宝石冷却时间"
+			
 		
 		"DOTA_Tooltip_ability_item_rpc_neverlord_soul_ring"							"灵魂之戒"
 		"item_property_neverlord_soul_ring"												"灵魂契约"
@@ -84,12 +86,14 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_arbor_dragonfly"									"点水蜻蜓"
-        "item_rpc_arbor_dragonfly_ruby1"                                    "提高所有 T 1 符文 @ruby_property1"
-        "item_rpc_arbor_dragonfly_emerald1"                                 "提高基础技能伤害和物品伤害 @emerald_property1"
-        "item_rpc_arbor_dragonfly_sapphire1"                                    "提高所有 T 1 符文 @sapphire_property1"
-        "item_rpc_arbor_dragonfly_amethyst1"                                    "提高全属性 @amethyst_property1"
 		"item_property_arbor_dragonfly"				"迷雾祝福"
-		"property_arbor_dragonfly_description"		"增加所有buff的持续时间 <% ITEM_RPC_ARBOR_DRAGONFLY_BUFF_INCREASE_PCT %>%，包括雕文和符文技能。"
+                "property_arbor_dragonfly_description"		"每一个冷却时间低于5秒的技能提高基础技能伤害和物品伤害<% ITEM_RPC_ARBOR_DRAGONFLY_BAD_PER_STACK %>%。"
+
+        "item_rpc_arbor_dragonfly_ruby1"                                    "提高所有T1 符文 @ruby_property1"
+        "item_rpc_arbor_dragonfly_emerald1"                                 "提高所有buff的持续时间 @emerald_property1%"
+        "item_rpc_arbor_dragonfly_sapphire1"                                    "提高所有T2 符文 @sapphire_property1"
+        "item_rpc_arbor_dragonfly_amethyst1"                                    "每一个冷却时间低于5秒的技能提高物理穿透和魔法穿透 @amethyst_property1"
+		
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_gem_of_eternal_frost"							"永冻宝石"
@@ -108,7 +112,7 @@
 
         "item_rpc_lifesource_vessel_ruby1"                              "每 <% ITEM_RPC_LIFESOURCE_VESSEL_RUBY_HEAL_INTERVAL %> 秒回复 @ruby_property1% 最大生命值 "
         "item_rpc_lifesource_vessel_emerald1"                               "全属性增加生命回复 @emerald_property1"
-        "item_rpc_lifesource_vessel_sapphire1"                              "提高最大生命值 @sapphire_property1%"   
+        "item_rpc_lifesource_vessel_sapphire1"                              "每 <font color='#ccff66'>5</font>% 当前生命值百分比提高攻击力 @sapphire_property1%"   
         "item_rpc_lifesource_vessel_amethyst1"                              "提高全属性 @amethyst_property1"
 		
 		
@@ -248,10 +252,10 @@
 		"item_property_volcano_orb"					"火热之心"
         "property_volcano_orb_description"          "全属性提高魔法穿透 <% ITEM_RPC_VOLCANO_ORB_SPELL_PIERCE_PER_ATTR  %>."
 
-		"item_rpc_volcano_orb_ruby1"										"提高力量值 @ruby_property1"
-		"item_rpc_volcano_orb_emerald1"										"提高敏捷值 @emerald_property1"
-		"item_rpc_volcano_orb_sapphire1"										"提高智力值 @sapphire_property1"
-		"item_rpc_volcano_orb_amethyst1"										"提高精神值 @amethyst_property1"
+		"item_rpc_volcano_orb_ruby1"										"每点全属性额外提高魔法穿透 @ruby_property1"
+		"item_rpc_volcano_orb_emerald1"										"提高全属性 @emerald_property1"
+		"item_rpc_volcano_orb_sapphire1"										"提高基础技能伤害 @sapphire_property1%"
+		"item_rpc_volcano_orb_amethyst1"										"提高 <font color='#EF4126'>火</font> 和物品伤害 @amethyst_property1%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_aeriths_tear"									"艾瑞丝的眼泪"
@@ -325,13 +329,13 @@
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_firelock_pendant"								"火枪吊坠"
-		"item_property_firelock"							"稳定火焰"		    
+		"item_property_firelock"							"穿透之炎"		    
         "property_firelock_description"                 "每点力量值提高物理穿透 <% ITEM_RPC_FIRELOCK_PENDANT_STR_TO_ARMOR_PIERCE %>."
         
-        "item_rpc_firelock_pendant_ruby1"                               "提高力量值和敏捷值 @ruby_property1"
-        "item_rpc_firelock_pendant_emerald1"                                 "提高物品伤害和所有 <font color=ELEMENT_FIRE>火</font> 元素伤害 @emerald_property1%"
-        "item_rpc_firelock_pendant_sapphire1"                               "每点敏捷值和力量值提高攻击速度@sapphire_property1"
-        "item_rpc_firelock_pendant_amethyst1"                               "每点精神值提高基础攻击力 @amethyst_property1"
+            "item_rpc_firelock_pendant_ruby1"                               "每点敏捷额外提高物理穿透 @ruby_property1"
+        "item_rpc_firelock_pendant_emerald1"                                 "提高 <font color='#EF4126'>火</font> 元素伤害 @emerald_property1%"
+        "item_rpc_firelock_pendant_sapphire1"                               "提高攻击速度 @sapphire_property1 并且你的攻击速度不能低于 <font color='#ccff66'>300</font>， 这个效果不会和锁定攻击速度的效果相互作用"
+        "item_rpc_firelock_pendant_amethyst1"                               "提高力量值和敏捷值 @amethyst_property1"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_antique_mana_relic"								"古老的魔法遗物"
@@ -408,11 +412,11 @@
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_garnet_warfare_ring"								"战争戒指"
-		"item_property_garnet_warfare"							"石榴战争"
-        "property_garnet_warfare_description"                    "每点力量值提高基础技能伤害 <% ITEM_RPC_GARNET_WARFARE_RING_STR_TO_BAD %>%."
+		"item_property_garnet_warfare_ring"							"石榴战争"
+        "property_garnet_warfare_ring_description"                    "每点力量值提高基础技能伤害 <% ITEM_RPC_GARNET_WARFARE_RING_STR_TO_BAD %>%."
 
         "item_rpc_garnet_warfare_ring_ruby1"                                "提高力量值 @ruby_property1"
-        "item_rpc_garnet_warfare_ring_emerald1"                             "提高护甲和物理穿透 @emerald_property1"
+        "item_rpc_garnet_warfare_ring_emerald1"                             "提高物理穿透和魔法穿透 @emerald_property1"
         "item_rpc_garnet_warfare_ring_sapphire1"                                "提高攻击力 @sapphire_property1%"
         "item_rpc_garnet_warfare_ring_amethyst1"                                "每点力量值和精神值提高基础攻击力 @amethyst_property1"
 		 
@@ -516,11 +520,11 @@
 
 		"DOTA_Tooltip_ability_item_rpc_sparkling_token_of_oceanis"					"海洋之心"	
 		"property_sparkling_token"												"炽热雾霭"
-        "property_sparkling_token_Description"                                  "每 <% ITEM_RPC_SPARKLING_TOKEN_OF_OCEANIS_INTERVAL %> 秒回复 <% ITEM_RPC_SPARKLING_TOKEN_OF_OCEANIS_HEALTH_RESTORE %>% 最大生命值的血量."
-        "item_rpc_sparkling_token_of_oceanis_ruby1"                 "提高最大生命值 @ruby_property1 和最大魔法值 @ruby_property2"
-        "item_rpc_sparkling_token_of_oceanis_emerald1"                  "降低受到的纯粹伤害 @emerald_property1%"
-        "item_rpc_sparkling_token_of_oceanis_sapphire1"                 "每 <% ITEM_RPC_SPARKLING_TOKEN_OF_OCEANIS_INTERVAL %> 秒回复 @sapphire_property1% 最大魔法值的法力 "
-        "item_rpc_sparkling_token_of_oceanis_amethyst1"                 "降低受到的魔法伤害 @amethyst_property1%"   
+        "property_sparkling_token_Description"                                  "每 <% ITEM_RPC_SPARKLING_TOKEN_OF_OCEANIS_INTERVAL %>秒回复 <% ITEM_RPC_SPARKLING_TOKEN_OF_OCEANIS_HEALTH_RESTORE %>% 最大生命值和 <% ITEM_RPC_SPARKLING_TOKEN_OF_OCEANIS_MANA_RESTORE %> 最大魔法值。"
+        "item_rpc_sparkling_token_of_oceanis_ruby1"                 "提高最大生命值 @ruby_property1以及最大魔法值 @ruby_property2"
+        "item_rpc_sparkling_token_of_oceanis_emerald1"                  "降低受到的物理伤害 @emerald_property1%"
+        "item_rpc_sparkling_token_of_oceanis_sapphire1"                 "提高物理穿透和魔法穿透 @sapphire_property1"
+        "item_rpc_sparkling_token_of_oceanis_amethyst1"                 "降低受到的魔法伤害 @amethyst_property1%" 
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_frozen_heart"				"阿祖赫仑的冰霜之心"
@@ -631,7 +635,7 @@
         "item_rpc_moon_shard_emerald1"                              "每1%当前魔法值提高移动速度和最大移动速度 @emerald_property1"
         "item_rpc_moon_shard_sapphire1"                             "每 @sapphire_property1 秒，获得一个buff，buff将会使你下一个释放的技能获得100%的冷却时间缩减"
         "DOTA_Tooltip_modifier_moon_shard_sapphire"                 "闪烁波动 (蓝宝石)"
-        "DOTA_Tooltip_modifier_moon_shard_sapphire_Description"     "下一个释放的技能将会获得 100% 冷却时间缩减" 
+        "DOTA_Tooltip_modifier_moon_shard_sapphire_Description"     "下一个释放的技能将会获得 100%% 冷却时间缩减" 
         "item_rpc_moon_shard_amethyst1"                             "移动 <% ITEM_RPC_MOON_SHARD_AMETHYST_DISTANCE_TO_TRIGGER %> 距离将会向周围<% ITEM_RPC_MOON_SHARD_AMETHYST_SEARCH_RADIUS %>范围内最近的敌人投掷至多 @amethyst_property1 个冰弹。造成 数值为@amethyst_property2 X 每点最大魔法值"
 	
        "DOTA_Tooltip_ability_item_rpc_horn_of_the_triumphant"                              "胜利号角"
