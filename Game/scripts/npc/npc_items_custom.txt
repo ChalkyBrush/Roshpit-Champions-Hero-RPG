@@ -70707,7 +70707,7 @@
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"100 200 300 400 500"
+				"amethyst1"			"120 240 360 480 600"
 			}
 		}
 		"OnSpellStart"
