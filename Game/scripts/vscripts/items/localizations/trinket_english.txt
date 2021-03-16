@@ -69,14 +69,11 @@
 		"DOTA_Tooltip_ability_item_rpc_arbor_dragonfly"									"Arbor Dragonfly"
 
 		"item_property_arbor_dragonfly"				"Misty Wood's Blessing"
-		"property_arbor_dragonfly_description"		"For each visible buff (which does not have infinite duration) you have, increase your base ability damage and item damage by <% ITEM_RPC_ARBOR_DRAGONFLY_BAD_PER_STACK %>%, capped at <font color='#ccff66'>300</font>%."
-		"DOTA_Tooltip_modifier_arbor_dragonfly"                             "Misty Wood's Blessing"
-		"DOTA_Tooltip_modifier_arbor_dragonfly_Description"                 "For each buff you have, increase your base ability damage."
-
+		"property_arbor_dragonfly_description"		"For each of your abilities with a cooldown of 5 seconds or less, or no cooldown at all, Base Ability and Item Damage are both increased by <% ITEM_RPC_ARBOR_DRAGONFLY_BAD_PER_STACK %>%."
         "item_rpc_arbor_dragonfly_ruby1"                                    "Increases all Tier 1 runes by @ruby_property1"
         "item_rpc_arbor_dragonfly_emerald1"                                 "Increases all buff duration by @emerald_property1%"
         "item_rpc_arbor_dragonfly_sapphire1"                                    "Increases all Tier 2 runes by @sapphire_property1"
-        "item_rpc_arbor_dragonfly_amethyst1"                                    "For each visible buff (which does not have infinite duration), increase your armor pierce and spell pierce by @amethyst_property1"
+        "item_rpc_arbor_dragonfly_amethyst1"                                    "Each ability that has 5 seconds or less cooldown increases increase your armor pierce and spell pierce by @amethyst_property1"
 
 		"DOTA_Tooltip_ability_item_rpc_arcane_charm"									"Arcane Charm"
 
@@ -677,7 +674,7 @@
         "item_rpc_moon_shard_emerald1"                              "Gain @emerald_property1 movespeed and max movespeed for each 1% of current mana."
         "item_rpc_moon_shard_sapphire1"                             "Every @sapphire_property1 seconds, gain a buff that makes your next spell cast have 100% reduced cooldown."
         "DOTA_Tooltip_modifier_moon_shard_sapphire"                 "Lumos Celerity (Sapphire)"
-        "DOTA_Tooltip_modifier_moon_shard_sapphire_Description"     "Next spell cast has 100% reduced cooldown" 
+        "DOTA_Tooltip_modifier_moon_shard_sapphire_Description"     "Next spell cast has 100%% reduced cooldown" 
         "item_rpc_moon_shard_amethyst1"                             "Travelling <% ITEM_RPC_MOON_SHARD_AMETHYST_DISTANCE_TO_TRIGGER %> distance throws up to @amethyst_property1 icicles at the nearest enemies within <% ITEM_RPC_MOON_SHARD_AMETHYST_SEARCH_RADIUS %> range. Deals @amethyst_property2 damage for each point of Max Mana."
 	
        "DOTA_Tooltip_ability_item_rpc_horn_of_the_triumphant"                              "Horn of the Triumphant"

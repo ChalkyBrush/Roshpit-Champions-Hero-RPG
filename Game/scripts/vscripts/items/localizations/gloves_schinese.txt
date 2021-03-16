@@ -215,8 +215,8 @@
     	"DOTA_Tooltip_ability_item_rpc_power_ranger_gloves"								"金刚护手"
     	"item_property_power_ranger_gloves"                                             "金刚之力"
 	"property_power_ranger_gloves_description"                                 "每点物理穿透和魔法穿透提高基础攻击力 <% ITEM_RPC_POWER_RANGER_DMG_PCT %> 。上限为 <% ITEM_RPC_POWER_RANGER_DMG_CAP %>。"
-    	"item_rpc_power_ranger_gloves_ruby1"								"提高该效果的基础攻击力上限 @ruby_property1。"
-    	"item_rpc_power_ranger_gloves_emerald1"								"每点物理穿透和魔法穿透额外提高基础攻击力 @emerald_property1"
+    	"item_rpc_power_ranger_gloves_ruby1"								"每点物理穿透和魔法穿透额外提高基础攻击力 @ruby_property1。"
+    	"item_rpc_power_ranger_gloves_emerald1"								"提高该效果的基础攻击力上限@emerald_property1"
     	"item_rpc_power_ranger_gloves_sapphire1"								"提高全属性 @sapphire_property1"
     	"item_rpc_power_ranger_gloves_amethyst1"								"提高基础技能伤害 @amethyst_property1%"
 		
