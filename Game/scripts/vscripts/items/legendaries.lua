@@ -6007,7 +6007,7 @@ function RPCItems:RollConquestStoneFalcon(item_level)
     local item = RPCItems:CreateVariant("item_rpc_conquest_stone_falcon", "immortal", "Conquest Stone Falcon", "amulet", true, "Slot: Trinket")
     item.newItemTable.property1name = "!immortal!_modifier_conquest_stone_falcon"
     item.newItemTable.property1 = 1
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_stone_falcon", "#A5B5A9", 1, "#property_stone_falcon_description")
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_conquest_stone_falcon", "#A5B5A9", 1, "#property_conquest_stone_falcon_description")
 
     local attr_rolls = {"armor", "armor_pierce", "spell_pierce", "magic_armor"}
     local attr_roll = attr_rolls[RandomInt(1, #attr_rolls)]
@@ -6314,7 +6314,7 @@ function RPCItems:RollGarnetWarfareRing(item_level)
     item.newItemTable.property1name = "!immortal!_modifier_garnet_warfare_ring"
     item.newItemTable.property1 = 1
 
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_garnet_warfare", "#D62D2D", 1, "#property_garnet_warfare_description")
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_garnet_warfare", "#D62D2D", 1, "#property_garnet_warfare_ring_description")
 
     RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "strength", 2)
     RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
@@ -6710,7 +6710,7 @@ function RPCItems:RollTokenOfOceanis(item_level)
     local item = RPCItems:CreateVariant("item_rpc_sparkling_token_of_oceanis", "immortal", "Sparkling Token of Oceanis", "amulet", true, "Slot: Trinket")
     item.newItemTable.property1name = "!immortal!_modifier_sparkling_token_of_oceanis"
     item.newItemTable.property1 = 1
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#property_sparkling_token", "#FFE884", 1, "#property_sparkling_token_Description")
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#property_sparkling_token_of_oceanis", "#FFE884", 1, "#property_sparkling_token_of_oceanis_Description")
 
     RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "all_elements", 2)
     RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1.5)

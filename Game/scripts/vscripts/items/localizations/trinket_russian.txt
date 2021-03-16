@@ -78,6 +78,7 @@
         "item_rpc_arbor_dragonfly_sapphire1"                                    "Увеличивает все руны Т2 на @sapphire_property1"
         "item_rpc_arbor_dragonfly_amethyst1"                                     "Основной эффект предмета также увеличивает Пробития Брони и Магической Защиты на @amethyst_property1 за каждый бафф"
 
+
 		"DOTA_Tooltip_ability_item_rpc_arcane_charm"									"Arcane Charm"
 
 		"item_property_arcane_charm"					"Magic Magnet"
