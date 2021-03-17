@@ -64,7 +64,7 @@ function seinaru_sunstrider:OnSpellStart()
 	if e_4_level > 0 and e_4_chance > RandomInt(1, 100) then
 	    caster:AddNewModifier(caster, ability, "modifier_seinaru_arcana_e4_effect", {})
 	end
-	ability:CreateTravelProjectile(point)
+	--ability:CreateTravelProjectile(point)
 	EmitSoundOn("Seinaru.Sunstrider.Yell", caster)
 	EmitSoundOnLocationWithCaster(target, "Seinaru.Sunstrider.Cast", caster)
 	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Seinaru.Sunstrider.Launch", caster)
@@ -140,37 +140,6 @@ function seinaru_sunstrider:Vengeance(caster, target)
 	end
 end
 
-function seinaru_sunstrider:CreateTravelProjectile(point)
-    local caster = self:GetCaster()
-    local ability = self
-	local range = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), point) * 0.95
-	local speed = 4000--range / 0.5
-	local casterOrigin = caster:GetAbsOrigin()
-	local fv = ((point - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
-	local info =
-	{
-		Ability = ability,
-		EffectName = "particles/roshpit/seinaru/sunstrider_movement.vpcf",
-		vSpawnOrigin = caster:GetAbsOrigin(),
-		fDistance = range,
-		fStartRadius = 0,
-		fEndRadius = 0,
-		Source = caster,
-		StartPosition = "attach_origin",
-		bHasFrontalCone = false,
-		bReplaceExisting = false,
-		iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
-		iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
-		iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-		fExpireTime = GameRules:GetGameTime() + 0.5,
-		bDeleteOnHit = false,
-		vVelocity = fv * speed,
-		bProvidesVision = true,
-		iVisionTeamNumber = caster:GetTeamNumber()
-
-	}
-	projectile = ProjectileManager:CreateLinearProjectile(info)
-end
 -----------------
 --- MODIFIERS ---
 -----------------
@@ -187,6 +156,18 @@ function modifier_seinaru_sunstrider_dash:OnCreated()
 		return
 	end
 	self:GetCaster():AddNoDraw()
+	local name = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m"}
+	local pfxName = {}
+	local prefix = "particles/roshpit/seinaru/sunstrider_movement_"
+	local suffix = ".vpcf"
+	for i = 1, #name, 1 do
+	    table.insert(pfxName, prefix..name[i]..suffix)
+	end
+	self.pfxTable = {}
+	for i = 1, #pfxName, 1 do
+	    local pfx = ParticleManager:CreateParticle( pfxName[i], PATTACH_ABSORIGIN_FOLLOW, self:GetCaster())
+		table.insert(self.pfxTable, pfx)
+	end
 	self:StartIntervalThink(0.03)
 end
 
@@ -222,10 +203,18 @@ function modifier_seinaru_sunstrider_dash:OnDestroy()
 	ability:TriggerEffect(caster, ability, caster:GetAbsOrigin())	
 	Timers:CreateTimer(0.03, function()
 		FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
+		Timers:CreateTimer(0.02, function()
+		    for i = 1, #self.pfxTable, 1 do
+	            local pfx = self.pfxTable[i]
+		        ParticleManager:DestroyParticle(pfx, false)
+	        end
+		end)
 		caster:RemoveNoDraw()	
 	end)
-	if not caster:HasModifier("modifier_seinaru_arcana_e1_effect") and e_1_level > 0 then
-		caster:AddNewModifier(caster, ability, "modifier_seinaru_arcana_e1_effect", {duration = e_1_duration})
+	if not caster:HasModifier("modifier_seinaru_arcana_e1_effect") then
+	    if e_1_level > 0 then
+		    caster:AddNewModifier(caster, ability, "modifier_seinaru_arcana_e1_effect", {duration = e_1_duration})
+		end
 	else
 	    caster:FindModifierByName("modifier_seinaru_arcana_e1_effect"):SetDuration(e_1_duration, true)
 	end
