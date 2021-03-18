@@ -28,7 +28,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"1"
+				"base_ability"			"2"
 			}
 			"05"
 			{
@@ -67,7 +67,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"1"
+				"base_ability"			"2"
 			}
 			"04"
 			{
@@ -106,7 +106,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"1"
+				"base_ability"			"2"
 			}
 			"04"
 			{
@@ -175,7 +175,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"1"
+				"base_ability"			"2"
 			}
 			"05"
 			{
@@ -219,7 +219,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"1"
+				"base_ability"			"2"
 			}
 			"04"
 			{
@@ -258,7 +258,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"1"
+				"base_ability"			"2"
 			}
 			"04"
 			{
@@ -344,7 +344,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"1"
+				"base_ability"			"2"
 			}
 			"04"
 			{
@@ -388,7 +388,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"1"
+				"base_ability"			"2"
 			}
 			"05"
 			{
