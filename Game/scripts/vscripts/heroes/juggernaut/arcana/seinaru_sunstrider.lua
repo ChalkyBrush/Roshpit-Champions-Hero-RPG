@@ -265,7 +265,7 @@ function modifier_seinaru_arcana_e_passive:GetRoshpitRBaseAbilityDmgBonus()
 end
 
 function modifier_seinaru_arcana_e_passive:GetRoshpitElementalDmgBonus()
-	return self:GetCaster():GetRuneValue("e", 4) * SEINARU_ARCANA2_E4_HOLY_AMP_PER_AGI / 100 * self:GetCaster():GetAgility()
+	return self:GetCaster():GetRuneValue("e", 4) * SEINARU_ARCANA2_E4_HOLY_AMP / 100
 end
 
 function modifier_seinaru_arcana_e_passive:OnIntervalThink()
