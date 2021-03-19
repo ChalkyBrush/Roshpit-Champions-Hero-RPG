@@ -248,7 +248,7 @@
 		
 
     	"DOTA_Tooltip_modifier_chernobog_arcana_e_passive"						"异态碾压"
-    	"DOTA_Tooltip_modifier_chernobog_arcana_e_passive_Description"			"效果根据敌人数目提高效果。"	
+    	"DOTA_Tooltip_modifier_chernobog_arcana_e_passive_Description"			"效果根据敌人数目提高。"	
 
   		"DOTA_Tooltip_ability_chernobog_rune_e_3_arcana2"						"[E3] 地狱之能"
     	"DOTA_Tooltip_ability_chernobog_rune_e_3_arcana2_Description"			"暗夜魔王的 <font color='#5B648C'>恶魔</font> 元素伤害也会提高他的基础攻击力。"
