@@ -358,12 +358,12 @@ end
 
 function modifier_chernobog_arcana_e_passive:GetModifierMoveSpeedBonus_Constant(params)
     if IsServer() then
-        return self:GetCaster():GetRuneValue("e", 2) * CHERNOBOG_ARCANA2_E2_MS_AND_CAP_BONUS *( self:GetStackCount() * 0.1 + 1)
+        return self:GetCaster():GetRuneValue("e", 2) * CHERNOBOG_ARCANA2_E2_MS_BONUS *( self:GetStackCount() * 0.1 + 1)
     end
 end
 
 function modifier_chernobog_arcana_e_passive:GetModifierMoveSpeed_Max_Increase(params)
-    return self:GetCaster():GetRuneValue("e", 2) * CHERNOBOG_ARCANA2_E2_MS_AND_CAP_BONUS *( self:GetStackCount() * 0.1 + 1)
+    return self:GetCaster():GetRuneValue("e", 2) * CHERNOBOG_ARCANA2_E2_MS_CAP_BONUS *( self:GetStackCount() * 0.1 + 1)
 end
 	
 function modifier_chernobog_arcana_e_passive:GetRoshpitMasterBaseDMG()
@@ -396,8 +396,6 @@ function modifier_chernobog_arcana_e_passive:ProcE4(caster, interval)
 				Timers:CreateTimer(damageDelay, function()
 					EmitSoundOn("Chernobog.BC.Hit", enemy)
 					ChernobogDealDamage(caster, enemy, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_E, RPC_ELEMENT_DEMON, RPC_ELEMENT_SHADOW, false, true)                
-					ParticleManager:DestroyParticle(pfx, false)
-					ParticleManager:ReleaseParticleIndex(pfx)
 				end)
 			end
 		end
