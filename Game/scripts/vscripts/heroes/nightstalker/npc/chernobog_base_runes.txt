@@ -197,6 +197,11 @@
 				"var_type"				"FIELD_FLOAT"
 				"property_two"			"<% CHERNOBOG_E1_MOVESPEED %>"
 			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_three"			"<% CHERNOBOG_E1_MOVESPEED_CAP %>"
+			}
 		}
 	}
 
@@ -246,12 +251,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% CHERNOBOG_E3_NEXT_DMG_AMP %>"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two_base"		"100"
+				"property_two"			"<% CHERNOBOG_E3_DMG_PCT %>"
 			}
 		}
 	}
@@ -383,7 +383,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% CHERNOBOG_R4_DEMON_AND_SHADOW_AMP_PER_ATTR %>"
+				"property_one"			"<% CHERNOBOG_R4_DEMON_AND_SHADOW_AMP %>"
 			}
 		}
 	}
