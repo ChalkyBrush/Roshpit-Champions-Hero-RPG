@@ -332,8 +332,7 @@ function modifier_chernobog_arcana_r_passive:GetRoshpitRFlatCdModifier()
 end
 
 function modifier_chernobog_arcana_r_passive:GetRoshpitElementalDmgBonus()
-	local str_and_agi = self:GetCaster():GetStrength() + self:GetCaster():GetAgility()
-	return str_and_agi * self:GetCaster():GetRuneValue("r", 4) * CHERNOBOG_ARCANA1_R4_DEMON_AMP_PER_STR_AND_AGI / 10000
+	return self:GetCaster():GetRuneValue("r", 4) * CHERNOBOG_ARCANA1_R4_DEMON_AMP / 100
 end
 
 function modifier_chernobog_arcana_r_passive:GetRoshpitRFlatChanneltimeModifier()
