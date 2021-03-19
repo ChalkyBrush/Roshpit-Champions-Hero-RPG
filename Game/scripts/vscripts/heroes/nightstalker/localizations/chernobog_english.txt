@@ -299,7 +299,7 @@
 		"item_rpc_chernobog_glyph_4_2_description" 				"@Ability1 deals <% CHERNOBOG_GLYPH_4_2_Q_DMG_AMP %>% increased damage. The shadowy trail left behind the projectile as it travels now provides all of the benefits of @Ability1 while it lasts; this includes free pathing and increased movespeed for allies, and reduced movespeed and attack damage for enemies."
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_5_2"		"[T5-2] Glyph of Despair"
-		"item_rpc_chernobog_glyph_5_2_description" 				"[R1] becomes passive and deals <% CHERNOBOG_GLYPH_5_2_R1_AMP_IN_R %>% more damage to enemies who are affected by @Ability4."
+		"item_rpc_chernobog_glyph_5_2_description" 				"[R1] deals <% CHERNOBOG_GLYPH_5_2_R1_AMP_IN_R %>% more damage to enemies who are affected by @Ability4."
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_6_2"		"[T6-2] Glyph of Endurance"
 		"item_rpc_chernobog_glyph_6_2_description" 				"Attacking while @Ability2 is toggled on does not drain health while below <% CHERNOBOG_GLYPH_6_2_THRESHOLD %>% of max health, but all damage from abilities or runes is reduced by <% CHERNOBOG_GLYPH_6_2_DMG_DEC %>%."
