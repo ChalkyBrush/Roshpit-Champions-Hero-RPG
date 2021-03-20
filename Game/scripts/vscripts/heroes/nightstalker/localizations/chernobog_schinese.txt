@@ -115,7 +115,7 @@
     	"DOTA_Tooltip_modifier_chernobog_e2_effect_Description"					"双甲和攻击速度降低。"
 		
      	"DOTA_Tooltip_ability_chernobog_rune_e_3"								"[E3] 突击"
-    	"DOTA_Tooltip_ability_chernobog_rune_e_3_Description"					"@Ability3 开启时，对一个敌人发出攻击攻击指令后将会将你传送至敌人身后并且立即普通攻击一次，内置冷却时间 <% CHERNOBOG_E3_INNTER_CD %> 秒。此外，每移动<% CHERNOBOG_E3_PROC_DISTANCE %> 距离或者触发该符文闪烁后，你将会对周围 <% CHERNOBOG_E3_RADIUS %> 范围内的敌人造成一次伤害。"
+    	"DOTA_Tooltip_ability_chernobog_rune_e_3_Description"					"@Ability3 开启时，对一个敌人发出攻击攻击指令后将会将你传送至敌人身后并且立即普通攻击一次，内置冷却时间 <% CHERNOBOG_E3_INNTER_CD %> 秒。此外，每移动<% CHERNOBOG_E3_PROC_DISTANCE %> 距离或者触发该符文闪烁后，你的暗影将会撕裂周围 <% CHERNOBOG_E3_RADIUS %> 范围内的敌人，造成一次魔法伤害。"
     	"DOTA_Tooltip_ability_chernobog_rune_e_3_property_one"					"传送距离"
     	"DOTA_Tooltip_ability_chernobog_rune_e_3_suffix"						""
     	"DOTA_Tooltip_ability_chernobog_rune_e_3_property_two"					"伤害"
@@ -152,7 +152,7 @@
 		"DOTA_Tooltip_modifier_chernobog_r1_effect"								"恶魔之爪"
     	"DOTA_Tooltip_modifier_chernobog_r1_effect_Description"					"普通攻击将会造成范围物理伤害。"
 
-    	"DOTA_Tooltip_ability_chernobog_rune_r_2"								"[R2] 暗夜行者"
+    	"DOTA_Tooltip_ability_chernobog_rune_r_2"								"[R2] 扭曲之影"
     	"DOTA_Tooltip_ability_chernobog_rune_r_2_Description"					"获得一个概率使得暗夜魔王的影子在暗夜魔王造成伤害时再次造成相同伤害的打击， 这个触发概率对处于 @Ability4 中的敌人造成伤害时将会以3倍触发概率计算。概率大于100%意味着能够多重触发。"
     	"DOTA_Tooltip_ability_chernobog_rune_r_2_property_one"					"触发概率"
     	"DOTA_Tooltip_ability_chernobog_rune_r_2_suffix"					"%"
@@ -188,7 +188,7 @@
     	"DOTA_Tooltip_ability_chernobog_rune_r_1_arcana1_property_one"			"伤害"
     	"DOTA_Tooltip_ability_chernobog_rune_r_1_arcana1_suffix"				"% 攻击力"
 
-  		"DOTA_Tooltip_ability_chernobog_rune_r_2_arcana1"						"[R2] 焦渴"
+  		"DOTA_Tooltip_ability_chernobog_rune_r_2_arcana1"						"[R2] 威胁临近"
     	"DOTA_Tooltip_ability_chernobog_rune_r_2_arcana1_Description"			"处于 @Ability4 状态下时，你的普通攻击有概率额外打击一次敌人。"
     	"DOTA_Tooltip_ability_chernobog_rune_r_2_arcana1_property_one"			"触发概率"
     	"DOTA_Tooltip_ability_chernobog_rune_r_2_arcana1_suffix"				"%"
