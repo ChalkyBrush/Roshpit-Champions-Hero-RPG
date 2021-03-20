@@ -1130,6 +1130,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 		local caster = unit:FindModifierByName("plague_bearer_acid_spray_effect"):GetCaster()
 		armor_modify = armor_modify + caster.w_3_level*EKKAN_ARCANA_W3A_ARMOR_REDUCTION
 	end
+	if unit:HasModifier("modifier_rubilash_immortal_weapon_4") then
+		armor_modify = armor_modify + unit:GetRuneValue("w", 1)*RUBILASH_IMMORTAL_WEAPON_WEAPON_4_DERIVATES_BONUS
+	end
 	if unit:HasModifier("modifier_burning_legionnaire_cloak_of_flame_aura") then
 		local caster = unit:FindModifierByName("modifier_burning_legionnaire_cloak_of_flame_aura"):GetCaster()
 		armor_modify = armor_modify + caster.w_2_level*EKKAN_ARCANA_W2C_BONUS_ARMOR
@@ -1762,6 +1765,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 			magic_armor_modify = magic_armor_modify + unit:GetHealth()*unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("emerald", ITEM_RPC_ANGELIC_GLOVES_OF_THE_JUDICIARY_GEM_EMERALD)
 		end
 	end
+	if unit:HasModifier("modifier_rubilash_immortal_weapon_4") then
+		magic_armor_modify = magic_armor_modify + unit:GetRuneValue("w", 1)*RUBILASH_IMMORTAL_WEAPON_WEAPON_4_DERIVATES_BONUS
+	end
 	
 	if unit:HasModifier("modifier_arkimus_q_1_armor_loss") then
 		local q_1_master = unit:FindModifierByName("modifier_arkimus_q_1_armor_loss"):GetCaster()
@@ -2141,6 +2147,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 	end
 	if unit:HasModifier("modifier_rubilash_arcana1") then
 		armor_pierce_modify = armor_pierce_modify + unit:GetRuneValue("e", 2)*RUBILASH_ARCANA1_RUNE_E2_PIERCES
+	end
+	if unit:HasModifier("modifier_rubilash_immortal_weapon_4") then
+		armor_pierce_modify = armor_pierce_modify + unit:GetRuneValue("w", 1)*RUBILASH_IMMORTAL_WEAPON_WEAPON_4_DERIVATES_BONUS
 	end
 	if unit:HasModifier("modifier_samurai_helmet_ruby") then
 		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("ruby", ADAMANTINE_SAMURAI_HELMET_RUBY)
@@ -2591,6 +2600,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	end
 	if unit:HasModifier("modifier_rubilash_arcana1") then
 		spell_pierce_modify = spell_pierce_modify + unit:GetRuneValue("e", 2)*RUBILASH_ARCANA1_RUNE_E2_PIERCES
+	end
+	if unit:HasModifier("modifier_rubilash_immortal_weapon_4") then
+		spell_pierce_modify = spell_pierce_modify + unit:GetRuneValue("w", 1)*RUBILASH_IMMORTAL_WEAPON_WEAPON_4_DERIVATES_BONUS
 	end
 	if unit:HasModifier("modifier_brazen_kabuto_channeling") then
 		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("ruby", KABUTO_RUBY)
