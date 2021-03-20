@@ -284,7 +284,9 @@ function modifier_chernobog_w_passive:ModifyStacks(caster, target, modifier_name
 	end
 	if caster:HasModifier("modifier_chernobog_glyph_6_1") then
 		maxStacks = maxStacks + CHERNOBOG_GLYPH_6_1_W3_MAX_STACK_BONUS
-		minStacks = 20
+		if caster == target then
+		    minStacks = 20
+		end
 		if stacks > 0 then
 			stacks = stacks + CHERNOBOG_GLYPH_6_1_ADDITION_STACK
 		end
