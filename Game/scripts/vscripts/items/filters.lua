@@ -1648,6 +1648,9 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             element1 = RPC_ELEMENT_HOLY
             damage_type = DAMAGE_TYPE_PURE
         end
+		if attacker:HasModifier("modifier_spirit_warrior_immortal_weapon_4") then
+            damage = 0
+        end
         if attacker:HasModifier("modifier_phoenix_gloves") then
             if attacker.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetGemValue("ruby") > 0 then
                 element1 = RPC_ELEMENT_FIRE

@@ -325,4 +325,4 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_immortal_weapon_4"            "Heavenbound Shakujo"
         "item_property_spirit_warrior_immortal_weapon4"                             "Path of Harmony"
-        "property_spirit_warrior_immortal_weapon4_description"                      "Spirit Warrior is disarmed while this weapon is equipped. Each point of Spirit adds <% SPIRIT_WARRIOR_IMMORTAL_WEAPON_4_SPIRIT_TO_DAMAGE %> Base Attack Damage and <% SPIRIT_WARRIOR_IMMORTAL_WEAPON_4_SPIRIT_TO_PIERCE %> each to Armor Pierce and Spell Pierce."
+        "property_spirit_warrior_immortal_weapon4_description"                      "Spirit Warrior's standard attacks cannot hurt enemies anymore. Each point of Spirit adds <% SPIRIT_WARRIOR_IMMORTAL_WEAPON_4_SPIRIT_TO_DAMAGE %> Base Attack Damage and <% SPIRIT_WARRIOR_IMMORTAL_WEAPON_4_SPIRIT_TO_PIERCE %> each to Armor Pierce and Spell Pierce."

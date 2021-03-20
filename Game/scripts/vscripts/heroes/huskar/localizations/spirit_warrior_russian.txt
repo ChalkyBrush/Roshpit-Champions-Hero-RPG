@@ -326,4 +326,4 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_immortal_weapon_4"            "Heavenbound Shakujo"
         "item_property_spirit_warrior_immortal_weapon4"                             "Path of Harmony"
-        "property_spirit_warrior_immortal_weapon4_description"                      "Обезоруживает героя. Каждое очко Духа добавляет <% SPIRIT_WARRIOR_IMMORTAL_WEAPON_4_SPIRIT_TO_DAMAGE %> Базового Урона Атаки и <% SPIRIT_WARRIOR_IMMORTAL_WEAPON_4_SPIRIT_TO_PIERCE %> к Пробитиям Брони и Магической Защиты."
+        "property_spirit_warrior_immortal_weapon4_description"                      "Стандартные атаки героя больше не могут навредить противникам. Каждое очко Духа добавляет <% SPIRIT_WARRIOR_IMMORTAL_WEAPON_4_SPIRIT_TO_DAMAGE %> Базового Урона Атаки и <% SPIRIT_WARRIOR_IMMORTAL_WEAPON_4_SPIRIT_TO_PIERCE %> к Пробитиям Брони и Магической Защиты."
