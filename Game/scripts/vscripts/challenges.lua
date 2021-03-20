@@ -68,7 +68,7 @@ function Challenges:ChiselItem(msg)
 	-- print("[Challenges:ChiselItem] actionAllowed:"..tostring(actionAllowed))
 	-- print("[Challenges:ChiselItem] current time:"..tostring(currentGameTime))
 	-- print("[Challenges:ChiselItem] timout time1:"..tostring(GameMode.EquipTimeouts[steamId]))
-	GameMode.EquipTimeouts[steamId] = currentGameTime + 60
+	GameMode.EquipTimeouts[steamId] = currentGameTime + 10
 	-- print("[Challenges:ChiselItem] timout time2:"..tostring(GameMode.EquipTimeouts[steamId]))
 	if not actionAllowed then
 		CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith", {})

@@ -496,7 +496,7 @@ function Gems:SalvageGemsFromitem(msg)
 	-- print("[Gems:SalvageGemsFromitem] actionAllowed:"..tostring(actionAllowed))
 	-- print("[Gems:SalvageGemsFromitem] current time:"..tostring(currentGameTime))
 	-- print("[Gems:SalvageGemsFromitem] timout time1:"..tostring(GameMode.EquipTimeouts[steamId]))
-	GameMode.EquipTimeouts[steamId] = currentGameTime + 60
+	GameMode.EquipTimeouts[steamId] = currentGameTime + 10
 	-- print("[Gems:SalvageGemsFromitem] timout time2:"..tostring(GameMode.EquipTimeouts[steamId]))
 	if not actionAllowed then
 		-- print("[Gems:SalvageGemsFromitem] RETURN!")
