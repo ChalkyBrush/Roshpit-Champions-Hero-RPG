@@ -5430,7 +5430,7 @@
     	"DOTA_Tooltip_ability_djanghor_rune_w_1_suffix"								"% 所造成的伤害"
 
     	"DOTA_Tooltip_ability_djanghor_rune_w_2"									"[W2] 碎裂"
-    	"DOTA_Tooltip_ability_djanghor_rune_w_2_Description"						"击杀一个敌方单位将会获得一层buff， buff将会提高物理穿透以及生命回复，基础持续时间 <font color='#ccff66'>10</font> 秒并且持续时间结束后将会一起消失。 <br>最高 <font color='#ccff66'>20</font> 层"
+    	"DOTA_Tooltip_ability_djanghor_rune_w_2_Description"						"击杀一个敌方单位将会获得一层buff， buff将会提高物理穿透以及生命回复，基础持续时间 <font color='#ccff66'>10</font> 秒并且持续时间结束后将会一起消失。 <br>最高 <font color='#ccff66'>15</font> 层"
     	"DOTA_Tooltip_ability_djanghor_rune_w_2_property_one"						"物理穿透"
 	"DOTA_Tooltip_ability_djanghor_rune_w_2_suffix"							""
 	"DOTA_Tooltip_ability_djanghor_rune_w_2_property_two"						"生命回复"
@@ -5550,7 +5550,7 @@
     	"DOTA_Tooltip_modifier_year_beast_b_d_health_Description"								"生命值提高"
 
     	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1"									"[R3] 翡翠之声"
-    	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1_Description"						"在@Ability4状态中时，所有受到的伤害将减少。上限<font color='#ccff66'>65</font>% 。"
+    	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1_Description"						"在@Ability4状态中时，所有受到的伤害将减少。上限<font color='#ccff66'>75</font>% 。"
     	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1_property_one"						"额外抗性："
     	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1_suffix"								"%"
 
@@ -8604,8 +8604,8 @@
     	"DOTA_Tooltip_ability_paladin_rune_e_2_property_two"			"额外固定反击伤害"
     	"DOTA_Tooltip_ability_paladin_rune_e_2_suffix_two"				""
 		
-		"DOTA_Tooltip_modifier_paladin_rune_e_2"						"反击"
-		"DOTA_Tooltip_modifier_paladin_rune_e_2_description" 			"反击任何伤害全能骑士的敌人，反击伤害为物理"
+		"DOTA_Tooltip_modifier_paladin_rune_e_2_damage"						"反击"
+		"DOTA_Tooltip_modifier_paladin_rune_e_2_damage_description" 			"反击任何伤害全能骑士的敌人，反击伤害为物理"
 		
 		"DOTA_Tooltip_ability_paladin_rune_e_3"							"[E3] 众志成城"
     	"DOTA_Tooltip_ability_paladin_rune_e_3_Description"				"十字军冲锋时释放众多飞鸟，对附近直线的敌人造成基于全能骑士攻击力的纯粹伤害。"
@@ -14356,7 +14356,7 @@
     	"item_rpc_hand_of_midas_sapphire1"									"提高贪婪之触的范围 @sapphire_property1 和伤害 @sapphire_property2"
     	"item_rpc_hand_of_midas_amethyst1"									"提高攻击速度 @amethyst_property1 和基础攻击力 @amethyst_property2"
 		"item_property_hand_of_midas"				"贪婪之触"
-		"property_hand_of_midas_description"		"攻击时有<font color='#ccff66'>20</font>% 几率对目标周围所有单位造成 <font color='#ccff66'>120</font>% 总攻击力的纯粹伤害并将敌人变成黄金————定身<font color='#ccff66'>2</font>秒。每<font color='#ccff66'>5</font>秒最多被定身1次。"
+		"property_hand_of_midas_description"		"攻击时有<font color='#ccff66'>20</font>% 几率对目标周围所有单位造成 <font color='#ccff66'>180</font>% 总攻击力的纯粹伤害并将敌人变成黄金————定身<font color='#ccff66'>2</font>秒。每<font color='#ccff66'>5</font>秒最多被定身1次。"
 		
 
     	"DOTA_Tooltip_ability_item_rpc_scarecrow_gloves"								"稻草人手套"
@@ -14923,7 +14923,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_hyper_visor"									"长沿帽"
 		"item_property_hyper_visor2"				"超级闪电"
-		"property_hyper_visor_description"			"攻击有<font color='#ccff66'>30</font>% 概率触发超级闪电电击目标单位, 在 <font color='#ccff66'>240</font> 范围内造成你攻击力 <font color='#ccff66'>80</font>% 的伤害. 你的基础攻击间隔改变成 <font color='#ccff66'>1.2</font> 秒."
+		"property_hyper_visor_description"			"攻击有<font color='#ccff66'>30</font>% 概率触发超级闪电电击目标单位, 在 <font color='#ccff66'>240</font> 范围内造成你攻击力 <font color='#ccff66'>150</font>% 的伤害. 你的基础攻击间隔改变成 <font color='#ccff66'>1.2</font> 秒."
 
 		"item_rpc_hyper_visor_ruby1"	"提高攻击速度 @ruby_property1"
 		"item_rpc_hyper_visor_emerald1"	"提高超级闪电伤害 @emerald_property1x 敏捷值"

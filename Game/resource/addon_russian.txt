@@ -3809,10 +3809,13 @@
     	"DOTA_Tooltip_ability_chernobog_rune_e_1_Description"					"Получает Бонусную Силу Атаки, скорость перемещения и лимит скорости, пока активна @Ability3."
     	"DOTA_Tooltip_ability_chernobog_rune_e_1_property_one"					"Бонусная Сила Атаки"
     	"DOTA_Tooltip_ability_chernobog_rune_e_1_suffix"						"%"
-		"DOTA_Tooltip_ability_chernobog_rune_e_1_property_two"					"Бонус Скорости и ее Лимита"
+		"DOTA_Tooltip_ability_chernobog_rune_e_1_property_two"					"Бонус Скорости"
     	"DOTA_Tooltip_ability_chernobog_rune_e_1_suffix_two"					""
-	"DOTA_Tooltip_ability_chernobog_rune_e_1_property_three"				"Bonus Movespeed Cap"
+
+		"DOTA_Tooltip_ability_chernobog_rune_e_1_property_three"				"Бонус Лимита Скорости"
     	"DOTA_Tooltip_ability_chernobog_rune_e_1_suffix_three"					""
+
+
 		
     	"DOTA_Tooltip_modifier_chernobog_e1_buff"								"Bloodlust"
     	"DOTA_Tooltip_modifier_chernobog_e1_buff_Description"					"Получает Бонусную Силу Атаки, скорость перемещения и лимит скорости, пока активна Shadow Hunt."
@@ -3828,11 +3831,11 @@
     	"DOTA_Tooltip_modifier_chernobog_e2_effect_Description"					"Броня, Магическая Защита и Скорость понижены."
 		
      	"DOTA_Tooltip_ability_chernobog_rune_e_3"								"[E3] Sudden Strike"
-    	"DOTA_Tooltip_ability_chernobog_rune_e_3_Description"					"Пока @Ability3 активна, приказ атаки телепортирует Чернобога за спину цели, в то же время давая существенный бонус к следующей порции урона от рун либо способностей. Длительность эффекта <font color='#ccff66'>0.4</font> сек."
+    	"DOTA_Tooltip_ability_chernobog_rune_e_3_Description"					"Пока @Ability3 активна, приказ атаки телепортирует Чернобога за спину цели и нанесет ей удар. Эффект имеет перезарядку <font color='#ccff66'>0.4</font> сек. Когда Чернобог преодолевает дистанцию в <font color='#ccff66'>300</font> , либо активирует телепортацию от эффекта, ожившие тени нанесут урон по всем противникам в радиусе <font color='#ccff66'>400</font> от героя."
     	"DOTA_Tooltip_ability_chernobog_rune_e_3_property_one"					"Радиус телепортации"
     	"DOTA_Tooltip_ability_chernobog_rune_e_3_suffix"						""
-    	"DOTA_Tooltip_ability_chernobog_rune_e_3_property_two"					"Бонус Урона"
-    	"DOTA_Tooltip_ability_chernobog_rune_e_3_suffix_two"					"%"
+    	"DOTA_Tooltip_ability_chernobog_rune_e_3_property_two"					"Урон Теней"
+    	"DOTA_Tooltip_ability_chernobog_rune_e_3_suffix_two"					"% от Силы Атаки героя"
 
 		"DOTA_Tooltip_modifier_chernobog_e3_effect"								"Sudden Strike"
 		"DOTA_Tooltip_modifier_chernobog_e3_effect_Description"					"Следующая порция урона значительно увеличена."
@@ -3886,9 +3889,9 @@
         "DOTA_Tooltip_ability_chernobog_rune_r_3_suffix_three"					""
 
     	"DOTA_Tooltip_ability_chernobog_rune_r_4"								"[R4] Heart of Darkness"
-    	"DOTA_Tooltip_ability_chernobog_rune_r_4_Description"					"Пассивно увеличивает урон <font color='#5B648C'>Демона</font> и урон <font color='#7F4F84'>Тени</font> от очков Силы и Ловкости."
+    	"DOTA_Tooltip_ability_chernobog_rune_r_4_Description"					"Пассивно увеличивает урон <font color='#5B648C'>Демона</font> и урон <font color='#7F4F84'>Тени</font>."
     	"DOTA_Tooltip_ability_chernobog_rune_r_4_property_one"					"Урон <font color='#5B648C'>Демона</font> и <font color='#7F4F84'>Тени</font>"
-        "DOTA_Tooltip_ability_chernobog_rune_r_4_suffix"						"% от Силы и Ловкости"
+        "DOTA_Tooltip_ability_chernobog_rune_r_4_suffix"						"%"
 		
 		//Arcanas
 		
@@ -3922,13 +3925,13 @@
     	"DOTA_Tooltip_ability_chernobog_rune_r_3_arcana1_suffix"				"%"
 
   		"DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1"						"[R4] Darkness Incarnate"
-    	"DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_Description"			"Перезарядка и длительность заряда @Ability4 уменьшаются, урон <font color='#5B648C'>Демона</font> увеличивается от суммы Силы и Ловкости."
+    	"DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_Description"			"Перезарядка и длительность заряда @Ability4 уменьшаются, урон <font color='#5B648C'>Демона</font> увеличен."
     	"DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_property_one"			"Снижение Перезарядки"
     	"DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_suffix"				" сек"
 		"DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_property_two"			"Снижение Времени Заряда"
     	"DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_suffix_two"			" сек"
     	"DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_property_three"		"Урон <font color='#5B648C'>Демона</font>"
-    	"DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_suffix_three"			"% за 10 очков Силы или Ловкости"
+    	"DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_suffix_three"			"%"
 
     	//cherno arcana2
     	"item_property_chernobog_arcana2"										"Demon Flight"
@@ -3964,10 +3967,12 @@
     	"DOTA_Tooltip_ability_chernobog_rune_e_2_arcana2_Description"			"Пассивно увеличивает урон Атаки Чернобога, скорость перемещения и лимит скорости. Каждый противник в радиусе <font color='#ccff66'>600</font> дополнительно увеличит бонус на <font color='#ccff66'>5</font>%. Боссы считаются за <font color='#ccff66'>10</font> юнитов, Парагоны за  <font color='#ccff66'>5</font>. Максимальный бонус активируется при <font color='#ccff66'>20</font> противниках."
     	"DOTA_Tooltip_ability_chernobog_rune_e_2_arcana2_property_one"			"Урон Атаки"
     	"DOTA_Tooltip_ability_chernobog_rune_e_2_arcana2_suffix"				"%"
-		"DOTA_Tooltip_ability_chernobog_rune_e_2_arcana2_property_two"			"Скорость и её лимит"
+		"DOTA_Tooltip_ability_chernobog_rune_e_2_arcana2_property_two"			"Скорость"
 		"DOTA_Tooltip_ability_chernobog_rune_e_2_arcana2_suffix_two"				""
-		"DOTA_Tooltip_ability_chernobog_rune_e_2_arcana2_property_three"			"Movespeed Cap Bonus"
+
+		"DOTA_Tooltip_ability_chernobog_rune_e_2_arcana2_property_three"			"Лимит Скорости"
 		"DOTA_Tooltip_ability_chernobog_rune_e_2_arcana2_suffix_three"				""
+
 		
     	"DOTA_Tooltip_modifier_chernobog_arcana_e2_effect"						"Overwhelming Odds"
     	"DOTA_Tooltip_modifier_chernobog_arcana_e2_effect_Description"			"Урон атаки увеличивает в зависимости от количества противников поблизости."	
@@ -5031,7 +5036,7 @@
     	"DOTA_Tooltip_ability_djanghor_rune_w_1_suffix"								"% от нанесённого урона"
 
     	"DOTA_Tooltip_ability_djanghor_rune_w_2"									"[W2] Feeding Frenzy"
-    	"DOTA_Tooltip_ability_djanghor_rune_w_2_Description"						"Убийство вражеского юнита увеличивает Пробитие Брони и Регенерацию Здоровья героя, эффект складывается до <font color='#ccff66'>20</font> раз, длительность эффекта <font color='#ccff66'>10</font> секунд."
+    	"DOTA_Tooltip_ability_djanghor_rune_w_2_Description"						"Убийство вражеского юнита увеличивает Пробитие Брони и Регенерацию Здоровья героя, эффект складывается до <font color='#ccff66'>15</font> раз, длительность эффекта <font color='#ccff66'>10</font> секунд."
     	"DOTA_Tooltip_ability_djanghor_rune_w_2_property_one"						"Пробитие Брони"
     	"DOTA_Tooltip_ability_djanghor_rune_w_2_suffix"								""
 		"DOTA_Tooltip_ability_djanghor_rune_w_2_property_two"						"Регенерация Здоровья"
@@ -5157,7 +5162,7 @@
     	"DOTA_Tooltip_modifier_year_beast_b_d_health_Description"								"Здоровье увеличено"
 
     	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1"									"[R3] Jade Voice"
-    	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1_Description"						"Превращение в @Ability4 дает дополнительное сопротивление ко всем типам урона. Максимально - <font color='#ccff66'>65</font>%."
+    	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1_Description"						"Превращение в @Ability4 дает дополнительное сопротивление ко всем типам урона. Максимально - <font color='#ccff66'>75</font>%."
     	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1_property_one"						"Доп. Сопротивление"
     	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1_suffix"								"%"
 
@@ -8252,8 +8257,8 @@
     	"DOTA_Tooltip_ability_paladin_rune_e_2_property_two"			"Возвращает урона (базовый)"
     	"DOTA_Tooltip_ability_paladin_rune_e_2_suffix_two"				""
 		
-		"DOTA_Tooltip_modifier_paladin_rune_e_2"						"Retribution"
-		"DOTA_Tooltip_modifier_paladin_rune_e_2_description" 			"Возвращает физический урон атакующим."
+		"DOTA_Tooltip_modifier_paladin_rune_e_2_damage"						"Retribution"
+		"DOTA_Tooltip_modifier_paladin_rune_e_2_damage_description" 			"Возвращает физический урон атакующим."
 		
 		"DOTA_Tooltip_ability_paladin_rune_e_3"							"[E3] Light's Falcon"
     	"DOTA_Tooltip_ability_paladin_rune_e_3_Description"				"При прочтении (E) Crusader Dash появляется сильный сокол, наносящий чистый урон врагам на своём пути."
@@ -14357,7 +14362,7 @@
     	"DOTA_Tooltip_ability_item_rpc_hand_of_midas"									"Hand of Midas"
 
 		"item_property_hand_of_midas"				"Прикосновение Мидаса"
-		"property_hand_of_midas_description"		"<font color='#ccff66'>20</font>% шанс при обычных атаках нанести дополнительно <font color='#ccff66'>120</font>% от урона атаки героя в радиусе <font color='#ccff66'>340</font> вокруг цели и превратить всех противников в золото (обездвиживая их) на <font color='#ccff66'>2</font> сек. Максимум 1 трансмутация каждые <font color='#ccff66'>5</font> сек."
+		"property_hand_of_midas_description"		"<font color='#ccff66'>20</font>% шанс при обычных атаках нанести дополнительно <font color='#ccff66'>180</font>% от урона атаки героя в радиусе <font color='#ccff66'>340</font> вокруг цели и превратить всех противников в золото (обездвиживая их) на <font color='#ccff66'>2</font> сек. Максимум 1 трансмутация каждые <font color='#ccff66'>5</font> сек."
 
     	"item_rpc_hand_of_midas_ruby1"									"Прикосновения Мидаса с шонсом @ruby_property1% становится Физическим типом урона, также позволяя наносит урон по целям, иммунным к заклинаниям"
     	"item_rpc_hand_of_midas_emerald1"									"Увеличивает длительность трансмутации противников в золото на @emerald_property1 сек"
@@ -15108,7 +15113,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_hyper_visor"									"Hyper Visor"
 		"item_property_hyper_visor"				"Hyper Lightning"
-		"property_hyper_visor_description"			"Герой получает <font color='#ccff66'>30</font>% шанс ударить противника разрядом молнии при атаке, которая нанесет урон в небольшой зоне <font color='#ccff66'>240</font> в <font color='#ccff66'>80</font>% от силы атаки героя. Изменяет Базовую Скорость Атаки героя на <font color='#ccff66'>1.2</font> сек."
+		"property_hyper_visor_description"			"Герой получает <font color='#ccff66'>30</font>% шанс ударить противника разрядом молнии при атаке, которая нанесет урон в небольшой зоне <font color='#ccff66'>240</font> в <font color='#ccff66'>150</font>% от силы атаки героя. Изменяет Базовую Скорость Атаки героя на <font color='#ccff66'>1.2</font> сек."
 
 		"item_rpc_hyper_visor_ruby1"	"Increases Attack Speed @ruby_property1"
 		"item_rpc_hyper_visor_emerald1"	"Увеличивает урон разряда молнии дополнительно на @emerald_property1x от Ловкости"

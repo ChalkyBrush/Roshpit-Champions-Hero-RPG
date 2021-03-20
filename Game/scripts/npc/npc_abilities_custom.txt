@@ -11375,7 +11375,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"1"
+				"base_ability"			"2"
 			}
 			"05"
 			{
@@ -11414,7 +11414,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"1"
+				"base_ability"			"2"
 			}
 			"04"
 			{
@@ -11453,7 +11453,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"1"
+				"base_ability"			"2"
 			}
 			"04"
 			{
@@ -11522,7 +11522,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"1"
+				"base_ability"			"2"
 			}
 			"05"
 			{
@@ -11566,7 +11566,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"1"
+				"base_ability"			"2"
 			}
 			"04"
 			{
@@ -11605,7 +11605,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"1"
+				"base_ability"			"2"
 			}
 			"04"
 			{
@@ -11691,7 +11691,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"1"
+				"base_ability"			"2"
 			}
 			"04"
 			{
@@ -11735,7 +11735,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"1"
+				"base_ability"			"2"
 			}
 			"05"
 			{
@@ -43802,12 +43802,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"1.7"
+				"property_one"			"2.1"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_max"			"65"
+				"property_one_max"			"75"
 			}
 		}
 	}
@@ -46136,7 +46136,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.01"
+				"property_two"			"0.02"
 			}
 		}
 	}
@@ -46242,7 +46242,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"4"
+				"property_one"			"10"
 			}
 			"02"
 			{
@@ -57530,7 +57530,7 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"duration"	"32 36 40 44 48 52 56"
+				"duration"	"50 75 100 125 150 175 200"
 			}
 		}
 	}
@@ -66844,6 +66844,108 @@
 				"IsHidden"	"1"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
+			"modifier_paladin_rune_e_2"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"ThinkInterval"  "0.3"
+				"Attributes" 		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/omniknight/paladin_3_e.lua"
+						"Function"		"paladin_rune_e_2"
+					}
+				}
+			}
+			"modifier_paladin_rune_e_2_damage"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"TextureName"		"skywrath_mage_mystic_flare_alt"
+				"Attributes" 		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnTakeDamage"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/omniknight/paladin_3_e.lua"
+						"Function"		"paladin_rune_e_2_attacked"
+						"attack_damage"	"%attack_damage"
+					}
+				}
+			}
+			"modifier_paladin_rune_e_2_thorn"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
+				"EffectName"		"particles/items2_fx/shivas_guard_impact.vpcf"
+				"EffectAttachType"	"follow_origin"
+			}
+			"modifier_paladin_rune_e_1_revivable"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"TextureName"		"skeleton_king_reincarnation"
+				"Attributes" 		"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+			"modifier_paladin_rune_e_1_reviving"
+			{
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"TextureName"		"skeleton_king_reincarnation"
+				"StatusEffectName" 		"particles\status_fx\status_effect_ghost.vpcf"
+				"StatusEffectPriority"  "10"
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVULNERABLE" "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_SILENCED"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/omniknight/paladin_3_e.lua"
+						"Function"		"paladin_rune_e_1_reviving_end"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_paladin_rune_e_1_invulnerable"
+			{
+				"IsHidden" "0"
+				"IsDebuff"	"0"
+				"TextureName"		"skeleton_king_reincarnation"
+				"States"
+				{
+					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ATTACK_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_paladin_rune_e_1_revive_cooldown"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
+				"TextureName"		"skeleton_king_reincarnation"
+				"Attributes" 		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnDestroy"
+				{
+					"ApplyModifier"
+					{
+						"ModifierName"	"modifier_paladin_rune_e_1_revivable"
+						"Target" 		"TARGET"
+					}
+				}
+			}
 		}
 
 	}
@@ -67487,65 +67589,6 @@
 				"property_one"			"0.05"
 			}
 		}
-		"Modifiers"
-		{
-			"modifier_paladin_rune_e_1_revivable"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"0"
-				"Attributes" 		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}
-			"modifier_paladin_rune_e_1_reviving"
-			{
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"StatusEffectName" 		"particles\status_fx\status_effect_ghost.vpcf"
-				"StatusEffectPriority"  "10"
-				"States"
-				{
-					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_INVULNERABLE" "MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_SILENCED"	"MODIFIER_STATE_VALUE_ENABLED"
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/omniknight/paladin_3_e.lua"
-						"Function"		"paladin_rune_e_1_reviving_end"
-						"target"		"TARGET"
-					}
-				}
-			}
-			"modifier_paladin_rune_e_1_invulnerable"
-			{
-				"IsHidden" "0"
-				"IsDebuff"	"0"
-				"States"
-				{
-					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_ATTACK_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-			"modifier_paladin_rune_e_1_revive_cooldown"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"1"
-				"IsStunDebuff"			"1"
-				"Attributes" 		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"OnDestroy"
-				{
-					"ApplyModifier"
-					{
-						"ModifierName"	"modifier_paladin_rune_e_1_revivable"
-						"Target" 		"TARGET"
-					}
-				}
-			}
-		}
 	}
 	
 	"paladin_rune_e_2"
@@ -67583,36 +67626,6 @@
 			{
 				"var_type"				"FIELD_FLOAT"
 				"base_ability"			"3"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_paladin_rune_e_2"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"0"
-				"Duration"			"99999"
-				"Attributes" 		"MODIFIER_ATTRIBUTE_PERMANENT"
-
-				"OnTakeDamage"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/omniknight/paladin_3_e.lua"
-						"Function"		"paladin_rune_e_2_attacked"
-						"attack_damage"	"%attack_damage"
-					}
-				}
-			}
-			"modifier_paladin_rune_e_2_thorn"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"1"
-				"IsStunDebuff"			"1"
-				"EffectName"		"particles/items2_fx/shivas_guard_impact.vpcf"
-				"EffectAttachType"	"follow_origin"
 			}
 		}
 	}

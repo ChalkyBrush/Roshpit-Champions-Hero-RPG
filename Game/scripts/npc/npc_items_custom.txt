@@ -61194,7 +61194,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"1 2 3 4 5"
+				"emerald1"				"1.6 3.2 4.8 6.4 8"
 			}
 			"04"
 			{

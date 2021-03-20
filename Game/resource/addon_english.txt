@@ -4815,7 +4815,7 @@
     	"DOTA_Tooltip_ability_djanghor_rune_w_1_suffix"								"% of damage dealt"
 
 		"DOTA_Tooltip_ability_djanghor_rune_w_2"									"[W2] Feeding Frenzy"
-		"DOTA_Tooltip_ability_djanghor_rune_w_2_Description"						"Killing an enemy unit gives Djanghor a stack of bonus Armor Pierce and Health Regeneration, which have a base duration of <font color='#ccff66'>10</font> seconds and expire all at once. <br>Maximum <font color='#ccff66'>20</font> stacks."
+		"DOTA_Tooltip_ability_djanghor_rune_w_2_Description"						"Killing an enemy unit gives Djanghor a stack of bonus Armor Pierce and Health Regeneration, which have a base duration of <font color='#ccff66'>10</font> seconds and expire all at once. <br>Maximum <font color='#ccff66'>15</font> stacks."
 		"DOTA_Tooltip_ability_djanghor_rune_w_2_property_one"						"Armor Pierce"
 		"DOTA_Tooltip_ability_djanghor_rune_w_2_suffix"								""
 		"DOTA_Tooltip_ability_djanghor_rune_w_2_property_two"						"Health Regeneration"
@@ -4949,7 +4949,7 @@
     	"DOTA_Tooltip_modifier_year_beast_b_d_health_Description"								"Increased Health"
 
     	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1"									"[R3] Jade Coat"
-    	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1_Description"						"All incoming damage is reduced while in @Ability4. Capped at <font color='#ccff66'>65</font>% damage reduction."
+    	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1_Description"						"All incoming damage is reduced while in @Ability4. Capped at <font color='#ccff66'>75</font>% damage reduction."
     	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1_property_one"						"Additional Resistance"
     	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1_suffix"								"%"
 
@@ -8638,8 +8638,8 @@
     	"DOTA_Tooltip_ability_paladin_rune_e_2_property_two"			"Flat Damage Return"
     	"DOTA_Tooltip_ability_paladin_rune_e_2_suffix_two"				""
 		
-		"DOTA_Tooltip_modifier_paladin_rune_e_2"						"Retribution"
-		"DOTA_Tooltip_modifier_paladin_rune_e_2_description" 			"Returning physical damage to attacking enemies."
+		"DOTA_Tooltip_modifier_paladin_rune_e_2_damage"						"Retribution"
+		"DOTA_Tooltip_modifier_paladin_rune_e_2_damage_description" 			"Returning physical damage to attacking enemies."
 		
 		"DOTA_Tooltip_ability_paladin_rune_e_3"							"[E3] Light's Falcon"
     	"DOTA_Tooltip_ability_paladin_rune_e_3_Description"				"Crusader Dash unleashes a powerful Falcon deals pure damage to enemies in a line based on attack power."
@@ -9387,11 +9387,13 @@
 		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2_suffix"					"%"
 		
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2"						"[E4] Luminary"
-		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_Description"			"Passively increases <font color='#F6FFB5'>Holy</font> damage. Additionally, each time @Ability3 is cast, there is a chance to gain a buff that causes the next cast of @Ability4 to be instantaneous, requiring no channel time."
+
+		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_Description"			"<font color='#F6FFB5'>Holy</font> damage is increased passively. Additionally, each time @Ability3 is cast, there is a chance to gain a buff that causes the next cast of @Ability4 to be instantaneous, requiring no channel time."
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_property_one"			"Chance for Free Cast"
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_suffix"					"%"
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_property_two"			"<font color='#F6FFB5'>Holy</font> Amplification"
-		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_suffix_two"				"%"
+		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_suffix_two"				"% "
+
 		"DOTA_Tooltip_modifier_seinaru_arcana_e4_effect"                        "Luminary"
 		"DOTA_Tooltip_modifier_seinaru_arcana_e4_effect_Description"            "Ultimate ability requires no channel time"
 
@@ -14228,7 +14230,7 @@
     	"DOTA_Tooltip_ability_item_rpc_hand_of_midas"									"Hand of Midas"
 
 		"item_property_hand_of_midas"				"Midas Touch"
-		"property_hand_of_midas_description"		"<font color='#ccff66'>20</font>% chance on attack to deal <font color='#ccff66'>120</font>% of your attack damage in a <font color='#ccff66'>340</font> radius area around the target and turn them all to solid gold, freezing for <font color='#ccff66'>2</font> seconds. Max 1 freeze every <font color='#ccff66'>5</font> seconds."
+		"property_hand_of_midas_description"		"<font color='#ccff66'>20</font>% chance on attack to deal <font color='#ccff66'>180</font>% of your attack damage in a <font color='#ccff66'>340</font> radius area around the target and turn them all to solid gold, freezing for <font color='#ccff66'>2</font> seconds. Max 1 freeze every <font color='#ccff66'>5</font> seconds."
 
     	"item_rpc_hand_of_midas_ruby1"									"When Midas Touch effect triggers, it has a @ruby_property1% chance to pierce Spell Immunity and deal Physical damage instead of Magical"
     	"item_rpc_hand_of_midas_emerald1"									"Increases the Transmutation freeze duration by @emerald_property1 seconds"
@@ -14979,7 +14981,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_hyper_visor"									"Hyper Visor"
 		"item_property_hyper_visor"				"Hyper Lightning"
-		"property_hyper_visor_description"			"<font color='#ccff66'>30</font>% chance on attack to drop a lightning bolt on your target, dealing damage in a small <font color='#ccff66'>240</font> area based on <font color='#ccff66'>80</font>% of your attack power. Changes your Base Attack Time to <font color='#ccff66'>1.2</font> seconds."
+		"property_hyper_visor_description"			"<font color='#ccff66'>30</font>% chance on attack to drop a lightning bolt on your target, dealing damage in a small <font color='#ccff66'>240</font> area based on <font color='#ccff66'>150</font>% of your attack power. Changes your Base Attack Time to <font color='#ccff66'>1.2</font> seconds."
 
 		"item_rpc_hyper_visor_ruby1"	"Increases Attack Speed @ruby_property1"
 		"item_rpc_hyper_visor_emerald1"	"Increases the lightning bolt's damage by @emerald_property1x Agility"
