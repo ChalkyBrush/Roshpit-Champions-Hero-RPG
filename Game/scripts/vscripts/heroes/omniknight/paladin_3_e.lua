@@ -70,7 +70,7 @@ function paladin_rune_e_1_die(event)
 	--print("a_c_death")
 	local e_1_level = caster:GetRuneValue("e", 1)
 	local runeUnit = caster.runeUnit
-	local runeAbility = runeUnit:FindAbilityByName("paladin_rune_e_1")
+	local runeAbility = event.ability
 	local reviveCooldown = PALADIN_E1_CD
 	if caster:HasModifier("modifier_paladin_glyph_1_1") then
 		reviveCooldown = PALADIN_GLYPH_1_1_E1_CD
@@ -112,6 +112,22 @@ function paladin_rune_e_1_revive_cooldown_end(event)
 	ability:ApplyDataDrivenModifier(caster, unit, "modifier_paladin_rune_e_1_revivable", {})
 end
 
+function paladin_rune_e_2(event)
+	local caster = event.caster
+	if caster.runeUnit2 ~= nil then
+		local rune_ability = caster.runeUnit2:GetAbilityByIndex(DOTA_E_SLOT)
+		if rune_ability:IsActivated() then
+			if caster:GetAbilityByIndex(DOTA_E_SLOT):GetAbilityName() == "crusader_dash" then
+				caster:GetAbilityByIndex(DOTA_E_SLOT):ApplyDataDrivenModifier(caster, caster, "modifier_paladin_rune_e_2_damage", {})	
+			end
+		else
+			if caster:HasModifier("modifier_paladin_rune_e_2_damage") then
+			caster:RemoveModifierByName("modifier_paladin_rune_e_2_damage")
+			end
+		end
+	end
+end
+
 function paladin_rune_e_2_attacked(event)
 	local caster = event.caster
 	local ability = event.ability
@@ -129,7 +145,7 @@ function paladin_rune_e_2_attacked(event)
 		end
 		Filters:TakeArgumentsAndApplyDamage(attacker, unit, damage, DAMAGE_TYPE_PHYSICAL, BASE_ABILITY_E, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 		if unit.retributions < 10 then
-			if attacker:GetMaxHealth() > 200 then
+			if attacker:GetMaxHealth() > 49 then
 				unit.retributions = unit.retributions + 1
 				local particleName = "particles/items_fx/chain_lightning.vpcf"
 				local lightningBolt = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, unit)

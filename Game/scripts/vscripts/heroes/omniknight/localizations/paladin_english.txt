@@ -118,8 +118,8 @@
     	"DOTA_Tooltip_ability_paladin_rune_e_2_property_two"			"Flat Damage Return"
     	"DOTA_Tooltip_ability_paladin_rune_e_2_suffix_two"				""
 		
-		"DOTA_Tooltip_modifier_paladin_rune_e_2"						"Retribution"
-		"DOTA_Tooltip_modifier_paladin_rune_e_2_description" 			"Returning physical damage to attacking enemies."
+		"DOTA_Tooltip_modifier_paladin_rune_e_2_damage"						"Retribution"
+		"DOTA_Tooltip_modifier_paladin_rune_e_2_damage_description" 			"Returning physical damage to attacking enemies."
 		
 		"DOTA_Tooltip_ability_paladin_rune_e_3"							"[E3] Light's Falcon"
     	"DOTA_Tooltip_ability_paladin_rune_e_3_Description"				"Crusader Dash unleashes a powerful Falcon deals pure damage to enemies in a line based on attack power."

@@ -1033,6 +1033,7 @@ function Runes:EquipArcana(hero, index)
 			Runes:EasySwapArcanaSkills(hero, 1, "justice_overwhelming", "paladin_penance", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 		elseif index == 2 then
 			hero:RemoveModifierByName("modifier_paladin_rune_e_2")
+			hero:RemoveModifierByName("modifier_paladin_rune_e_2_damage")		
 			hero:RemoveModifierByName("modifier_paladin_rune_e_1_revivable")
 			hero:RemoveModifierByName("modifier_paladin_rune_e_1_reviving")
 			hero:RemoveModifierByName("modifier_paladin_rune_e_1_revive_cooldown")

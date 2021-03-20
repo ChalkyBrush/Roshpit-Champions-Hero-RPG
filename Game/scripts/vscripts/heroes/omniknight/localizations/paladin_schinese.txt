@@ -109,8 +109,8 @@
     	"DOTA_Tooltip_ability_paladin_rune_e_2_property_two"			"额外固定反击伤害"
     	"DOTA_Tooltip_ability_paladin_rune_e_2_suffix_two"				""
 		
-		"DOTA_Tooltip_modifier_paladin_rune_e_2"						"反击"
-		"DOTA_Tooltip_modifier_paladin_rune_e_2_description" 			"反击任何伤害全能骑士的敌人，反击伤害为物理"
+		"DOTA_Tooltip_modifier_paladin_rune_e_2_damage"						"反击"
+		"DOTA_Tooltip_modifier_paladin_rune_e_2_damage_description" 			"反击任何伤害全能骑士的敌人，反击伤害为物理"
 		
 		"DOTA_Tooltip_ability_paladin_rune_e_3"							"[E3] 众志成城"
     	"DOTA_Tooltip_ability_paladin_rune_e_3_Description"				"十字军冲锋时释放众多飞鸟，对附近直线的敌人造成基于全能骑士攻击力的纯粹伤害。"
