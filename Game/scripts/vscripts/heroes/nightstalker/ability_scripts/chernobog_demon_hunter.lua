@@ -200,7 +200,7 @@ function modifier_chernobog_w_passive:OnIntervalThink()
 		return
 	end
 	if self:GetCaster():HasModifier("modifier_chernobog_glyph_6_1") then
-	    self:ModifyStacks(self:GetCaster(), self:GetCaster(), "modifier_chernobog_w3_effect", 0, CHERNOBOG_W3_DURATION, CHERNOBOG_W3_MAX_STACKS, 0, false, true)
+	    self:ModifyStacks(self:GetCaster(), self:GetCaster(), "modifier_chernobog_w3_effect", 0, CHERNOBOG_W3_DURATION, CHERNOBOG_W3_MAX_STACKS, 0, false)
 	end
 end
 
