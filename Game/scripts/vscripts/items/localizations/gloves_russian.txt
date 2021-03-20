@@ -437,11 +437,13 @@
     	"item_rpc_phoenix_gloves_sapphire1"									"Базовый Урон Атаки увеличивается на @sapphire_property1 за каждое текущее очко Здоровья"
     	"item_rpc_phoenix_gloves_amethyst1"									"Повышает Дух на @amethyst_property1, а каждое очко Духа увеличивает Здоровье на @amethyst_property2"
 
-    	"DOTA_Tooltip_ability_item_rpc_power_ranger_gloves"								"Power Source Gauntlet"
-    	"item_rpc_power_ranger_gloves_ruby1"								"Увеличивает Броню на @ruby_property1"
-    	"item_rpc_power_ranger_gloves_emerald1"								"Увеличивает Пробитие Брони на @emerald_property1"
-    	"item_rpc_power_ranger_gloves_sapphire1"								"Увеличивает Пробитие Магической Защиты на @sapphire_property1"
-    	"item_rpc_power_ranger_gloves_amethyst1"								"Увеличивает Магическую Защиту на @amethyst_property1"
+    	"DOTA_Tooltip_ability_item_rpc_power_ranger_gloves"					"Power Source Gauntlet"
+		"item_property_power_ranger_gloves"                                 "Power Source"
+		"property_power_ranger_gloves_description"                          "Увеличивает Базовый Урон Атаки на <% ITEM_RPC_POWER_RANGER_DMG_PCT %> за очки Пробития Брони и Магической Защиты. Максимальный бонус <% ITEM_RPC_POWER_RANGER_DMG_CAP %>."
+    	"item_rpc_power_ranger_gloves_ruby1"								"Увеличивает бонус урона за очки Пробитий на @ruby_property1"
+    	"item_rpc_power_ranger_gloves_emerald1"								"Увеличивает максимальный бонус урона на @emerald_property1"
+    	"item_rpc_power_ranger_gloves_sapphire1"							"Увеличивает все Атрибуты на @sapphire_property1"
+    	"item_rpc_power_ranger_gloves_amethyst1"							"Увеличивает Базовый Урон Способностей на @amethyst_property1%"
 
     	"DOTA_Tooltip_ability_item_rpc_royal_wristguards"								"Royal Wristguards"		
 		"item_property_royal_wrist"								"Commanding Steel"
@@ -658,7 +660,7 @@
 		"DOTA_Tooltip_ability_item_rpc_world_commander_gloves"			"World Commander Gloves"
 
 		"item_property_world_commander_gloves"							"Universal Might"
-		"property_world_commander_gloves_description"					"Каждое очко Пробития Брони и Пробития Магической Зашиты увеличивает Бонусную Силу Атаки на <% ITEM_RPC_WORLD_COMMANDER_GLOVES_DMG_PCT %>%"
+		"property_world_commander_gloves_description"					"Каждое очко Пробития Брони и Пробития Магической Зашиты увеличивает Бонусную Силу Атаки на <% ITEM_RPC_WORLD_COMMANDER_GLOVES_DMG_PCT %>%. Максимальный бонус <% ITEM_RPC_WORLD_COMMANDER_GLOVES_CAP %>%."
 
 		"item_rpc_world_commander_gloves_ruby1"				"Увеличивает показатель руны [Q4] на @ruby_property1"
 		"item_rpc_world_commander_gloves_emerald1"			"Увеличивает показатель руны [E4] на @emerald_property1"

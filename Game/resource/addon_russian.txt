@@ -3836,7 +3836,7 @@
 		"DOTA_Tooltip_modifier_chernobog_e3_effect_Description"					"Следующая порция урона значительно увеличена."
 		
     	"DOTA_Tooltip_ability_chernobog_rune_e_4"								"[E4] Eclipse"
-    	"DOTA_Tooltip_ability_chernobog_rune_e_4_Description"					"Дает герою Магическую Защиту и шанс уклониться от любых летящих в него снарядов, пока @Ability3 активна. Эти бонусы удваиваются, когда Здоровье героя падает ниже отметки в <font color='#ccff66'>15</font>%. Бонусы держатся некоторое время и после отключения способности."
+    	"DOTA_Tooltip_ability_chernobog_rune_e_4_Description"					"Дает герою Магическую Защиту и шанс уклониться от любых летящих в него снарядов, пока @Ability3 активна. Эти бонусы удваиваются, когда Здоровье героя падает ниже отметки в <font color='#ccff66'>15</font>%. Бонусы @Ability3 держатся некоторое время и после отключения способности."
     	"DOTA_Tooltip_ability_chernobog_rune_e_4_property_one"					"Задержка после отключения"
     	"DOTA_Tooltip_ability_chernobog_rune_e_4_suffix"						" сек"
     	"DOTA_Tooltip_ability_chernobog_rune_e_4_property_two"					"Шанс уклонения"
@@ -3856,172 +3856,180 @@
     	"DOTA_Tooltip_modifier_chernobog_r_effect_Description"					"Заморожен во времени"
 		
 		"DOTA_Tooltip_ability_chernobog_rune_r_1"								"[R1] Fiend's Grip"
-    	"DOTA_Tooltip_ability_chernobog_rune_r_1_Description"					"Парни я задолбался поэтому переведу дальше чуть ближе к выходным. Chernobog's attacks eviscerate all enemies within <font color='#ccff66'>200</font> units of the primary target, dealing Physical damage"
-    	"DOTA_Tooltip_ability_chernobog_rune_r_1_property_one"					"Vorpal Damage"
-    	"DOTA_Tooltip_ability_chernobog_rune_r_1_suffix"						"% of attack power"
+    	"DOTA_Tooltip_ability_chernobog_rune_r_1_Description"					"Атаки Чернобога во время @Ability4 поражают всех противников в радиусе <font color='#ccff66'>200</font> от основной цели, нанося при этом Физический урон. Эффект продолжается некоторое время и после окончания действия @Ability4."
+    	"DOTA_Tooltip_ability_chernobog_rune_r_1_property_one"					"Урон"
+    	"DOTA_Tooltip_ability_chernobog_rune_r_1_suffix"						"% от силы атаки"
+    	"DOTA_Tooltip_ability_chernobog_rune_r_1_property_two"					"Доп. Длительность"
+        "DOTA_Tooltip_ability_chernobog_rune_r_1_suffix_two"					" сек"
+
 		
 		"DOTA_Tooltip_modifier_chernobog_r1_effect"								"Fiend's Grip"
-    	"DOTA_Tooltip_modifier_chernobog_r1_effect_Description"					"Attacks deal Physical splash damage."
+    	"DOTA_Tooltip_modifier_chernobog_r1_effect_Description"					"Атаки наносят Физический урон по области."
 		
     	"DOTA_Tooltip_modifier_nights_procession_a_d_rune"						"Fiend's Grip"			
     	"DOTA_Tooltip_modifier_nights_procession_a_d_rune_Description"			"Taking increased damage from Chernobog"	
 
     	"DOTA_Tooltip_ability_chernobog_rune_r_2"								"[R2] Night Stalker"
-    	"DOTA_Tooltip_ability_chernobog_rune_r_2_Description"					"Grants a chance that cause Chernobog's shadows to duplicate any Ability damage that Chernobog deals to them, a chance greater than 100% means it can proc multiple times. In addition, the chance is trippled when Chernobog dealing damage to enemies trapped by @Ability4."
-    	"DOTA_Tooltip_ability_chernobog_rune_r_2_property_one"					"Proc Chance"
+    	"DOTA_Tooltip_ability_chernobog_rune_r_2_Description"					"Противники, замороженные в @Ability4 окружаются тенями, которые будут повторно наносить любой урон от Способностей Чернобога. Повторенный урон более мощен, чем изначальный урон способности."
+    	"DOTA_Tooltip_ability_chernobog_rune_r_2_property_one"					"Усиление Урона"
     	"DOTA_Tooltip_ability_chernobog_rune_r_2_suffix"						"%"
 
     	"DOTA_Tooltip_ability_chernobog_rune_r_3"								"[R3] Black Cauldron"
-    	"DOTA_Tooltip_ability_chernobog_rune_r_3_Description"					"Reduce the cooldown and channel time of @Ability4, while also increasing its radius."
-    	"DOTA_Tooltip_ability_chernobog_rune_r_3_property_one"					"Cooldown Reduction"
-    	"DOTA_Tooltip_ability_chernobog_rune_r_3_suffix"						" seconds"
-    	"DOTA_Tooltip_ability_chernobog_rune_r_3_property_two"					"Channel Time Reduction"
-        "DOTA_Tooltip_ability_chernobog_rune_r_3_suffix_two"					" seconds"
-		"DOTA_Tooltip_ability_chernobog_rune_r_3_property_three"				"Radius Increase"
+    	"DOTA_Tooltip_ability_chernobog_rune_r_3_Description"					"Уменьшает перезарядку и длительность заряда способности @Ability4, в то же время увеличивая её радиус."
+    	"DOTA_Tooltip_ability_chernobog_rune_r_3_property_one"					"Уменьшение Перезарядки"
+    	"DOTA_Tooltip_ability_chernobog_rune_r_3_suffix"						" сек"
+    	"DOTA_Tooltip_ability_chernobog_rune_r_3_property_two"					"Снижение Времени Заряда"
+        "DOTA_Tooltip_ability_chernobog_rune_r_3_suffix_two"					" сек"
+		"DOTA_Tooltip_ability_chernobog_rune_r_3_property_three"				"Увеличение Радиуса"
         "DOTA_Tooltip_ability_chernobog_rune_r_3_suffix_three"					""
 
     	"DOTA_Tooltip_ability_chernobog_rune_r_4"								"[R4] Heart of Darkness"
-    	"DOTA_Tooltip_ability_chernobog_rune_r_4_Description"					"Passively gain <font color='#5B648C'>Demon</font> and <font color='#7F4F84'>Shadow</font> damage from Strength and Agility."
-    	"DOTA_Tooltip_ability_chernobog_rune_r_4_property_one"					"<font color='#5B648C'>Demon</font> and <font color='#7F4F84'>Shadow</font> Amp"
-        "DOTA_Tooltip_ability_chernobog_rune_r_4_suffix"						"% of Strength and Agility"
+    	"DOTA_Tooltip_ability_chernobog_rune_r_4_Description"					"Пассивно увеличивает урон <font color='#5B648C'>Демона</font> и урон <font color='#7F4F84'>Тени</font> от очков Силы и Ловкости."
+    	"DOTA_Tooltip_ability_chernobog_rune_r_4_property_one"					"Урон <font color='#5B648C'>Демона</font> и <font color='#7F4F84'>Тени</font>"
+        "DOTA_Tooltip_ability_chernobog_rune_r_4_suffix"						"% от Силы и Ловкости"
 		
 		//Arcanas
 		
 		"item_property_chernobog_arcana1"										"Demonic Supremacy"
-    	"property_chernobog_arcana1_description"								"Replaces Night's Procession and all of its runes with Demonic Supremacy."
+    	"property_chernobog_arcana1_description"								"Заменяет Night's Procession и все соответствующие руны на Demonic Supremacy."
 
     	"DOTA_Tooltip_ability_chernobog_demon_morph"							"Metamorphosis"
-    	"DOTA_Tooltip_ability_chernobog_demon_morph_Description"				"Chernobog briefly vanishes into the realm of shadows; he emerges in a deadly new form, with ranged attacks, increased attack damage, and a much faster 0.9-second Base Attack Time."
-    	"DOTA_Tooltip_ability_chernobog_demon_morph_duration"					"DURATION:"
-    	"DOTA_Tooltip_ability_chernobog_demon_morph_attack_damage_percent"		"BONUS ATTACK DAMAGE %:"
+    	"DOTA_Tooltip_ability_chernobog_demon_morph_Description"				"Чернобог растворяется в тенях, в то же время превращаясь в демона с дальними атаками, увеличенным уроном и ускоренным базовым временем атак (0.9 сек против стандартных 1.7)."
+    	"DOTA_Tooltip_ability_chernobog_demon_morph_duration"					"ДЛИТЕЛЬНОСТЬ:"
+    	"DOTA_Tooltip_ability_chernobog_demon_morph_attack_damage_percent"		"БОНУС СИЛЫ АТАКИ %:"
 
     	"DOTA_Tooltip_modifier_chernobog_demon_form"							"Metamorphosis"
 
   		"DOTA_Tooltip_ability_chernobog_rune_r_1_arcana1"						"[R1] Dark Expanse"
-    	"DOTA_Tooltip_ability_chernobog_rune_r_1_arcana1_Description"			"Attacks during Demonic Supremacy deal additional Physical damage to all enemies in a <font color='#ccff66'>320</font> radius around the target."
-    	"DOTA_Tooltip_ability_chernobog_rune_r_1_arcana1_property_one"			"Damage"
-    	"DOTA_Tooltip_ability_chernobog_rune_r_1_arcana1_suffix"				"% of attack power"
+    	"DOTA_Tooltip_ability_chernobog_rune_r_1_arcana1_Description"			"Атаки нанесут дополнительный Физический урон всем противникам в радиусе <font color='#ccff66'>320</font> от основной цели атаки."
+    	"DOTA_Tooltip_ability_chernobog_rune_r_1_arcana1_property_one"			"Урон"
+    	"DOTA_Tooltip_ability_chernobog_rune_r_1_arcana1_suffix"				"% от силы атаки"
+		
+		"DOTA_Tooltip_modifier_chernobog_r1_effect"								"Fiend's Grip"
+    	"DOTA_Tooltip_modifier_chernobog_r1_effect_Description"					"Атаки нанесут дополнительный Физический урон по области."
 
   		"DOTA_Tooltip_ability_chernobog_rune_r_2_arcana1"						"[R2] Anxiety"
-    	"DOTA_Tooltip_ability_chernobog_rune_r_2_arcana1_Description"			"While in @Ability4 form, all of Chernobog's attacks have a chance to launch a second attack against that target."
-    	"DOTA_Tooltip_ability_chernobog_rune_r_2_arcana1_property_one"			"Double Attack Chance"
-    	"DOTA_Tooltip_ability_chernobog_rune_r_2_arcana1_suffix"				"%"
+    	"DOTA_Tooltip_ability_chernobog_rune_r_2_Description"					"Дает теням Чернобога шанс повторить любой нанесенный урон, шанс выше 100% означает несколько повторений. Шанс увеличивается в три раза, если противник находится внутри @Ability4."
+    	"DOTA_Tooltip_ability_chernobog_rune_r_2_property_one"					"Шанс повторения"
+    	"DOTA_Tooltip_ability_chernobog_rune_r_2_suffix"						"%"
+
 
   		"DOTA_Tooltip_ability_chernobog_rune_r_3_arcana1"						"[R3] Rain of Chaos"
-    	"DOTA_Tooltip_ability_chernobog_rune_r_3_arcana1_Description"			"Chernobog's attacks in @Ability4 form have a chance to split and hit additional enemies when the attack starts. A chance greater than 100% means they can split multiple times."
-    	"DOTA_Tooltip_ability_chernobog_rune_r_3_arcana1_property_one"			"Split Chance"
+    	"DOTA_Tooltip_ability_chernobog_rune_r_3_arcana1_Description"			"Атаки во время действия @Ability4 могут ударить дополнительного противника. Шанс выше 100% означает дополнтельные атаки по нескольким противникам."
+    	"DOTA_Tooltip_ability_chernobog_rune_r_3_arcana1_property_one"			"Шанс на доп. цели атак"
     	"DOTA_Tooltip_ability_chernobog_rune_r_3_arcana1_suffix"				"%"
 
   		"DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1"						"[R4] Darkness Incarnate"
-    	"DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_Description"			"Reduce the cooldown and cast time of @Ability4, and passively gain <font color='#5B648C'>Demon</font> damage from Strength and Agility."
-    	"DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_property_one"			"Cooldown Reduction"
-    	"DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_suffix"				" seconds"
-		"DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_property_two"			"Channel Time Reduction"
-    	"DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_suffix_two"			" seconds"
-    	"DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_property_three"		"<font color='#5B648C'>Demon</font> Damage Bonus"
-    	"DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_suffix_three"			"% of Strength and Agility"
+    	"DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_Description"			"Перезарядка и длительность заряда @Ability4 уменьшаются, урон <font color='#5B648C'>Демона</font> увеличивается от суммы Силы и Ловкости."
+    	"DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_property_one"			"Снижение Перезарядки"
+    	"DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_suffix"				" сек"
+		"DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_property_two"			"Снижение Времени Заряда"
+    	"DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_suffix_two"			" сек"
+    	"DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_property_three"		"Урон <font color='#5B648C'>Демона</font>"
+    	"DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_suffix_three"			"% за 10 очков Силы или Ловкости"
 
     	//cherno arcana2
     	"item_property_chernobog_arcana2"										"Demon Flight"
-    	"property_chernobog_arcana2_description"								"Replaces @Ability3 and all of its runes with Demon Flight."
+    	"property_chernobog_arcana2_description"								"Заменяет Shadow Hunt и все её руны на соответствующие Demon Flight."
 
     	"DOTA_Tooltip_ability_chernobog_demon_flight"							"Demon Flight"
-    	"DOTA_Tooltip_ability_chernobog_demon_flight_Description"				"Chernobog ascends into the night sky using his unhallowed wings, allowing him to traverse over obstacles. Issuing an attack order while in flight causes Chernobog to attack that target every <font color='#ccff66'>0.15</font> seconds as long as the target is within 900 range, even if Chernobog is not facing them. <br>This ability passively grants <font color='#ccff66'>50</font>% Evasion, even while inactive."
-    	"DOTA_Tooltip_ability_chernobog_demon_flight_duration"					"DURATION:"
-	"DOTA_Tooltip_ability_chernobog_demon_flight_movespeed_bonus"				"BONUS MOVESPEED AND MOVESPEED CAP:"
+    	"DOTA_Tooltip_ability_chernobog_demon_flight_Description"				"Чернобог взмывает в небо на своих крыльях, что позволяет ему игнорировать препятствия. Приказ атаки позволяет выпускать автоматические атаки по выбранной цели каждые <font color='#ccff66'>0.15</font> сек, пока цель находится в радиусе 900 от героя. <br>Герой пассивно получает <font color='#ccff66'>50</font>% Уклонения, даже если способность выключена."
+    	"DOTA_Tooltip_ability_chernobog_demon_flight_duration"					"ДЛИТЕЛЬНОСТЬ:"
+	"DOTA_Tooltip_ability_chernobog_demon_flight_movespeed_bonus"				"БОНУС СКОРОСТИ И ЛИМИТА ПЕРЕМЕЩЕНИЯ:"
 
     	"DOTA_Tooltip_modifier_chernobog_demon_flight"							"Demon Flight"
 
     	"DOTA_Tooltip_ability_chernobog_demon_walk"								"Shadow Stalk"
-    	"DOTA_Tooltip_ability_chernobog_demon_walk_Description"					"Chernobog cloaks himself in absolute darkness, making him invisible to enemies for a short duration. Chernobog maintains this invisibility even while attacking.<br>This ability passively grants <font color='#ccff66'>50</font>% Evasion, even while inactive."
-    	"DOTA_Tooltip_ability_chernobog_demon_walk_duration"					"DURATION:"
-	"DOTA_Tooltip_ability_chernobog_demon_walk_movespeed_bonus"					"BONUS MOVESPEED AND MOVESPEED CAP:"
+    	"DOTA_Tooltip_ability_chernobog_demon_walk_Description"					"Чернобог окутывается темнотой, становясь невидимым на небольшое время. Невидимость не отменяется при атаках. <br>Герой пассивно получает <font color='#ccff66'>50</font>% Уклонения, даже если способность выключена."
+    	"DOTA_Tooltip_ability_chernobog_demon_walk_duration"					"ДЛИТЕЛЬНОСТЬ:"
+	"DOTA_Tooltip_ability_chernobog_demon_walk_movespeed_bonus"					"БОНУС СКОРОСТИ И ЛИМИТА ПЕРЕМЕЩЕНИЯ:"
 
     	"DOTA_Tooltip_modifier_demon_walk"										"Shadow Stalk"
 
     	"DOTA_Tooltip_ability_chernobog_demon_warp"								"Flash of Orias"
-    	"DOTA_Tooltip_ability_chernobog_demon_warp_Description"					"Chernobog slips into the void and immediately relocates himself while enshrouded in a dark miasma. Disjoints incoming projectiles when cast."	
+    	"DOTA_Tooltip_ability_chernobog_demon_warp_Description"					"Чернобог мгновенно прыгает в выбранную область, при этом сбрасывая летящие в него снаряды."	
 
     	"DOTA_Tooltip_modifier_chernobog_arcana_e1_freecast"					"Flash of Orias Free Cast"
 
   		"DOTA_Tooltip_ability_chernobog_rune_e_1_arcana2"						"[E1] Flash of Orias"
-    	"DOTA_Tooltip_ability_chernobog_rune_e_1_arcana2_Description"			"Activating Demon Flight or Shadow Stalk temporarily replaces the ability with Flash of Orias. Flash of Orias consumes charges to teleport Chernobog immediately to the target location. When all flash charges are consumed or the duration of the base ability ends, Flash of Orias switches back."
-    	"DOTA_Tooltip_ability_chernobog_rune_e_1_arcana2_property_one"			"Clamp Distance"
+    	"DOTA_Tooltip_ability_chernobog_rune_e_1_arcana2_Description"			"Активация Demon Flight или Shadow Stalk временно заменяет способность на Flash of Orias. Flash of Orias имеет заряды, которые затраиваются с каждым прыжком. Если заряды израсходованы, то способность переключается назад на базовую."
+    	"DOTA_Tooltip_ability_chernobog_rune_e_1_arcana2_property_one"			"Дистанция прыжков"
     	"DOTA_Tooltip_ability_chernobog_rune_e_1_arcana2_suffix"				""
-    	"DOTA_Tooltip_ability_chernobog_rune_e_1_arcana2_property_two"			"Chance to gain additional Free Cast stacks"
+    	"DOTA_Tooltip_ability_chernobog_rune_e_1_arcana2_property_two"			"Шанс на доп. заряд прыжка"
     	"DOTA_Tooltip_ability_chernobog_rune_e_1_arcana2_suffix_two"				"%"
 
   		"DOTA_Tooltip_ability_chernobog_rune_e_2_arcana2"						"[E2] Overwhelming Odds"
-    	"DOTA_Tooltip_ability_chernobog_rune_e_2_arcana2_Description"			"Passively increase Chernobog's attack damage, movespeed and movespeed cap, and each enemy unit within <font color='#ccff66'>600</font> range will further increase the bonus by <font color='#ccff66'>5</font>%. Bosses count as <font color='#ccff66'>10</font> enemies, while Paragon units count as <font color='#ccff66'>5</font> enemies. These bonuses are capped at <font color='#ccff66'>20</font> enemies, no matter how many more are within range."
-    	"DOTA_Tooltip_ability_chernobog_rune_e_2_arcana2_property_one"			"Attack Damage"
+    	"DOTA_Tooltip_ability_chernobog_rune_e_2_arcana2_Description"			"Пассивно увеличивает урон Атаки Чернобога, скорость перемещения и лимит скорости. Каждый противник в радиусе <font color='#ccff66'>600</font> дополнительно увеличит бонус на <font color='#ccff66'>5</font>%. Боссы считаются за <font color='#ccff66'>10</font> юнитов, Парагоны за  <font color='#ccff66'>5</font>. Максимальный бонус активируется при <font color='#ccff66'>20</font> противниках."
+    	"DOTA_Tooltip_ability_chernobog_rune_e_2_arcana2_property_one"			"Урон Атаки"
     	"DOTA_Tooltip_ability_chernobog_rune_e_2_arcana2_suffix"				"%"
-		"DOTA_Tooltip_ability_chernobog_rune_e_2_arcana2_property_two"			"Movespeed and Movespeed Cap"
+		"DOTA_Tooltip_ability_chernobog_rune_e_2_arcana2_property_two"			"Скорость и её лимит"
 		"DOTA_Tooltip_ability_chernobog_rune_e_2_arcana2_suffix_two"				""
 		
 
     	"DOTA_Tooltip_modifier_chernobog_arcana_e2_effect"						"Overwhelming Odds"
-    	"DOTA_Tooltip_modifier_chernobog_arcana_e2_effect_Description"			"The attack power bonus is increased based on number of nearby enemies"	
+    	"DOTA_Tooltip_modifier_chernobog_arcana_e2_effect_Description"			"Урон атаки увеличивает в зависимости от количества противников поблизости."	
 
   		"DOTA_Tooltip_ability_chernobog_rune_e_3_arcana2"						"[E3] Infernal Power"
-    	"DOTA_Tooltip_ability_chernobog_rune_e_3_arcana2_Description"			"Chernobog's <font color='#5B648C'>Demon</font> elemental damage bonus also adds to his base attack damage."
-    	"DOTA_Tooltip_ability_chernobog_rune_e_3_arcana2_property_one"			"Base Attack Damage"
-    	"DOTA_Tooltip_ability_chernobog_rune_e_3_arcana2_suffix"				" per 1% Demon damage bonus"
+    	"DOTA_Tooltip_ability_chernobog_rune_e_3_arcana2_Description"			"Урон элемента <font color='#5B648C'>Демон</font> добавляются и к базовому урон атаки."
+    	"DOTA_Tooltip_ability_chernobog_rune_e_3_arcana2_property_one"			"Базовый Урон Атаки"
+    	"DOTA_Tooltip_ability_chernobog_rune_e_3_arcana2_suffix"				" за 1% Демонического урона"
 
   		"DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2"						"[E4] Shadow Master"
-    	"DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2_Description"			"The shadows around Chernobog are permanently animated, and rip into all enemies every <font color='#ccff66'>0.3</font> seconds."
-    	"DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2_property_one"			"Shadow Damage"
-    	"DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2_suffix"				"% of Chernobog's attack power"
-		"DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2_property_two"			"Radius"
+    	"DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2_Description"			"Тени вокруг Чернобога оживают и атакуют противников поблизости каждые <font color='#ccff66'>0.3</font> сек."
+    	"DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2_property_one"			"Урон теней"
+    	"DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2_suffix"				"% от Силы Атаки героя"
+		"DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2_property_two"			"Радиус"
     	"DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2_suffix_two"			""
 		
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_1_1"		"[T1-1] Glyph of Infravision"
-		"item_rpc_chernobog_glyph_1_1_description" 				"Gain vision of nearby enemies while Shadow Hunt is toggled on. Vision persists for <font color='#ccff66'>2.4</font> seconds after toggling the ability off."
+		"item_rpc_chernobog_glyph_1_1_description" 				"Shadow Hunt позволяет видеть противников поблизости. Обзор держится еще <font color='#ccff66'>2.4</font> секунды после выключения способности."
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_2_1"		"[T2-1] Glyph of Fangs Bared"
-		"item_rpc_chernobog_glyph_2_1_description" 				"@Ability2 deals <font color='#ccff66'>30</font>% increased damage."
+		"item_rpc_chernobog_glyph_2_1_description" 				"@Ability2 наносит на <font color='#ccff66'>30</font>% больше урона."
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_3_1"		"[T3-1] Glyph of Nightmare's Grasp"
-		"item_rpc_chernobog_glyph_3_1_description" 				"Each enemy hit by @Ability1 reduces the cooldown of @Ability4 by <font color='#ccff66'>0.5</font> seconds. Additionally, @Ability1 is cast for free after channeling @Ability4."
+		"item_rpc_chernobog_glyph_3_1_description" 				"Каждый противник задетый @Ability1 снижает перезарядку @Ability4 на <font color='#ccff66'>0.5</font> сек. Дополнительно, @Ability1 кастуется при прочтении @Ability4."
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_4_1"		"[T4-1] Glyph of Sundown"
-		"item_rpc_chernobog_glyph_4_1_description" 				"Each point of current movement speed above <font color='#ccff66'>500</font> increases Base Ability Damage by <font color='#ccff66'>0.5</font>%."
+		"item_rpc_chernobog_glyph_4_1_description" 				"Каждое очко скорости передвижения выше <font color='#ccff66'>500</font> увеличивает Базовый Урон Способностей на <font color='#ccff66'>0.5</font>%."
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_5_1"		"[T5-1] Glyph of the Raging Demon"
-		"item_rpc_chernobog_glyph_5_1_description" 				"Upon arrival from a Sudden Strike teleport, Chernobog performs <font color='#ccff66'>3</font> instant attacks against all enemies within <font color='#ccff66'>300</font> range."
+		"item_rpc_chernobog_glyph_5_1_description" 				"После удара Sudden Strike, Чернобог наносит <font color='#ccff66'>3</font> атак по всем противникам в радиусе <font color='#ccff66'>300</font>."
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_6_1"		"[T6-1] Glyph of Fury Swipes"
-		"item_rpc_chernobog_glyph_6_1_description" 				"Increase max stacks of [W3] by <font color='#ccff66'>20</font>, and each attack will apply <font color='#ccff66'>1</font> additional stack of both effects."
+		"item_rpc_chernobog_glyph_6_1_description" 				"Увеличивает максиму зарядов [W3] на <font color='#ccff66'>20</font>, и каждая атака добавит <font color='#ccff66'>1</font> дополнительных заряда(ов) обоих эффектов. Чернобог всегда имеет как минимум <font color='#ccff66'>20</font> зарядов бонуса урона [W3]."
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_7_1"		"[T7-1] Glyph of Dreadfast"
-		"item_rpc_chernobog_glyph_7_1_description" 				"Reduce @Ability2 damage truncation threshold by <font color='#ccff66'>2</font>% of Chernobog's maximum health."
+		"item_rpc_chernobog_glyph_7_1_description" 				"Понимает порог урона @Ability2 на <font color='#ccff66'>2</font>% от максимального здоровья Чернобога."
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_5_a"		"[T5-a] Glyph of the Apex Predator"
-		"item_rpc_chernobog_glyph_5_a_description" 				"All runes for @Ability2 have both of their stated bonuses active at all times, regardless of the ability's toggle state."
+		"item_rpc_chernobog_glyph_5_a_description" 				"Все руны @Ability2 дают оба эффекта одновременно, вне зависимости, выключена ли или включена способность."
 		
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_1_2"		"[T1-2] Glyph of the Diabolic Tutor" //google it
-		"item_rpc_chernobog_glyph_1_2_description" 				"Each point in a T4 rune increases Intelligence by <font color='#ccff66'>10</font>."
+		"item_rpc_chernobog_glyph_1_2_description" 				"Каждое очко T4 увеличивает Интеллект на <font color='#ccff66'>10</font>."
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_2_2"		"[T2-2] Glyph of Underworld Tear"
-		"item_rpc_chernobog_glyph_2_2_description" 				"Damage instances received from standing in @Ability1 will deal their damage in a <font color='#ccff66'>400</font> radius."
+		"item_rpc_chernobog_glyph_2_2_description" 				"Урон @Ability1 становится уроном по области и наносит его в радиусе <font color='#ccff66'>400</font> от каждой пораженной цели."
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_3_2"		"[T3-2] Glyph of Baleful Blink"
 
-		"item_rpc_chernobog_glyph_3_2_description" 				"While Shadow Hunt is active, and the Shadow Strike rune is not on cooldown, issuing a move order within <font color='#ccff66'>66</font>% of the rune's indicated maximum range will instantly teleport Chernobog to that location. This Glyph's effect has a <font color='#ccff66'>1</font>-second cooldown, which also prevents Shadow Strike from being triggered normally during that time."
+		"item_rpc_chernobog_glyph_3_2_description" 				"При активной Shadow Hunt и готовом Shadow Strike приказ передвижения сработает как телепорт, если целевая точка находится ближе, чем <font color='#ccff66'>66</font>% от максимальной дальности руны [E3]. Эффект этого глифа имеет <font color='#ccff66'>1</font>-секундную перезарядку, также блокирующую Shadow Strike."
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_4_2"		"[T4-2] Glyph of Dark Alleys"
-		"item_rpc_chernobog_glyph_4_2_description" 				"@Ability1 deals <font color='#ccff66'>40</font>% increased damage. The shadowy trail left behind the projectile as it travels now provides all of the benefits of @Ability1 while it lasts; this includes free pathing and increased movespeed for allies, and reduced movespeed and attack damage for enemies."
+		"item_rpc_chernobog_glyph_4_2_description" 				"@Ability1 наносит <font color='#ccff66'>40</font>% увеличенный урон. Теневой след от способности также дает все эффекты основной способности, т.е. свободное передвижение и увеличенная скорость для союзников, и сниженная скорость и урон для противников."
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_5_2"		"[T5-2] Glyph of Empowerment"
-		"item_rpc_chernobog_glyph_5_2_description" 				"[R1] deals <font color='#ccff66'>75</font> more damage to enemies who are affected by @Ability4."
+		"item_rpc_chernobog_glyph_5_2_description" 				"[R1] наносит <font color='#ccff66'>75</font>% больше урона по противникам под действием @Ability4."
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_6_2"		"[T6-2] Glyph of Endurance"
-		"item_rpc_chernobog_glyph_6_2_description" 				"Attacking while @Ability2 is toggled on does not drain health while below <font color='#ccff66'>30</font> of max health, but all damage from abilities or runes is reduced by <font color='#ccff66'>40</font>."
+		"item_rpc_chernobog_glyph_6_2_description" 				"Атаки, в то время как способность @Ability2 активна, не тратят здоровье, если оно ниже <font color='#ccff66'>30</font>% от максимума, но урон способностей и рун снижается на <font color='#ccff66'>40</font>%."
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_7_2"		"[T7-2] Glyph of Indomitability"
-		"item_rpc_chernobog_glyph_7_2_description" 				"While @Ability2 is active, Chernobog is purged of debuffs applied by enemies every <font color='#ccff66'>1</font> seconds."
+		"item_rpc_chernobog_glyph_7_2_description" 				"Пока активна способность Shadow Hunt, с героя снимаются отрицательные эффекты статуса каждые <font color='#ccff66'>1</font> сек."
 		
-		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_book"    "Chernobog Glyph Book"
+		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_book"    "Книга Глифов (Чернобог)"
+
 		
 		//Weapons
 		"DOTA_Tooltip_ability_item_rpc_chernobog_weapon_00"		"Claws"
@@ -4040,19 +4048,19 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_chernobog_immortal_weapon_1"				"Svarog's Divine Claw"
 		"item_property_chernobog_immortal_weapon"								"Extreme Violence"
-		"property_chernobog_immortal_weapon_description"						"Increases the damage of all abilities and runes by <font color='#ccff66'>50</font>%, unless their damage is based on Chernobog's attack power."
+		"property_chernobog_immortal_weapon_description"						"Увелиивает урон всех способностей и рун на <font color='#ccff66'>50</font>%, но только если их урон не рассчитывается от Силы Атаки героя."
 		
 		"DOTA_Tooltip_ability_item_rpc_chernobog_immortal_weapon_2"            "Mandible of Charybdis"
         "item_property_chernobog_immortal_weapon2"                             "Tempest Terror"
-        "property_chernobog_immortal_weapon2_description"                      "After dealing an instance of Physical damage, Chernobog's next instance of Magical damage is increased by <font color='#ccff66'>35</font>%. After dealing an instance of Magical damage, his next instance of Physical damage is increased by <font color='#ccff66'>35</font>%."
+        "property_chernobog_immortal_weapon2_description"                      "После нанесения Физического урона, следующая порция Магического урона будет увеличена на <font color='#ccff66'>35</font>%. После нанесения Магического урона, следующая порция Физического урона будет увеличена на <font color='#ccff66'>35</font>%."
 
         "DOTA_Tooltip_ability_item_rpc_chernobog_immortal_weapon_3"            "Unholy Claw of Osyluth"
         "item_property_chernobog_immortal_weapon3"                             "Broadened Horizons"
-        "property_chernobog_immortal_weapon3_description"                      "For all abilities and runes that deal damage in intervals, or whose effects are applied in a radius around Chernobog, they tick <font color='#ccff66'>25</font>% faster and have <font color='#ccff66'>50</font>% increased range."
+        "property_chernobog_immortal_weapon3_description"                      "Для всех способностей и рун, что наносят урон через интервал, либо имеют активный радиус эффекта вокруг героя, интервал снижается на <font color='#ccff66'>25</font>% а радиусы увеличиваются на <font color='#ccff66'>50</font>%."
 		
 		"DOTA_Tooltip_ability_item_rpc_chernobog_immortal_weapon_4"            "Saibot's Boon"
         "item_property_chernobog_immortal_weapon4"                             "Sinister Silhouette"
-        "property_chernobog_immortal_weapon4_description"                      "Increase the value of all Armor-reducing effects from Chernobog's runes and abilities by <font color='#ccff66'>100</font>%."
+        "property_chernobog_immortal_weapon4_description"                      "Увеличивает показатель снижения Брони всех рун и способностей Чернобога на <font color='#ccff66'>100</font>%."
 
 
 
@@ -8250,9 +8258,11 @@
     	"DOTA_Tooltip_ability_paladin_rune_e_3_suffix"					"% от урона героя"
 		
 		"DOTA_Tooltip_ability_paladin_rune_e_4"							"[E4] Flutter"
-    	"DOTA_Tooltip_ability_paladin_rune_e_4_Description"				"Дает Магическую Защиту на <font color='#ccff66'>6</font> сек. после прочтения @Ability3."
-    	"DOTA_Tooltip_ability_paladin_rune_e_4_property_one"			"Магическая Защита"
+    	"DOTA_Tooltip_ability_paladin_rune_e_4_Description"				"Пассивно увеличивает Пробитие Брони и Магическую Защиту."
+    	"DOTA_Tooltip_ability_paladin_rune_e_4_property_one"			"Пробитие Брони"
     	"DOTA_Tooltip_ability_paladin_rune_e_4_suffix"					""
+		"DOTA_Tooltip_ability_paladin_rune_e_4_property_two"			"Магическая Защита"
+    	"DOTA_Tooltip_ability_paladin_rune_e_4_suffix_two"				""
 
     	"DOTA_Tooltip_modifier_paladin_d_c"								"Flutter"
     	"DOTA_Tooltip_modifier_paladin_d_c_Description"					"Получает увеличенный урон от Паладина"
@@ -8959,32 +8969,37 @@
     	"property_seinaru_arcana2_description"								"Заменяет (E) @Ability3 и все соответствующие руны на (E) Sunstrider."
 
     	"DOTA_Tooltip_ability_seinaru_sunstrider"						"Sunstrider"
-    	"DOTA_Tooltip_ability_seinaru_sunstrider_Description"			"С благословления самого солнца, Seinaru совершает мощный рывок в выбранную точку. Противники внутри зоны поражения атакуются Seinaru каждые 0.06 секунды с бонусом к атаке. Каждая удар расщепляется на пучок <font color='#F6FFB5'>Света</font> в небольшой зоне вокруг цели."
+    	"DOTA_Tooltip_ability_seinaru_sunstrider_Description"			"Seinaru совершает мощный рывок в выбранную точку. Противники внутри зоны поражения атакуются Seinaru каждые 0.06 секунды с бонусом к атаке. Каждая удар расщепляется на пучок <font color='#F6FFB5'>Света</font> в небольшой зоне вокруг цели.<br><br>Каждые 1.5 сек дает заряд, позволяющий использовать способность без ухода на перезарядку."
     	"DOTA_Tooltip_ability_seinaru_sunstrider_cast_range"			"ДАЛЬНОСТЬ ПРИМЕНЕНИЯ:"
 		"DOTA_Tooltip_ability_seinaru_sunstrider_targets_count"			"КОЛИЧЕСТВО ЦЕЛЕЙ:"
-    	"DOTA_Tooltip_ability_seinaru_sunstrider_att_to_dmg"			"УРОНА ОТ АТАКИ:"
+    	"DOTA_Tooltip_ability_seinaru_sunstrider_att_to_dmg"			"УРОНА ОТ СИЛЫ АТАКИ ГЕРОЯ:"
+		"DOTA_Tooltip_ability_seinaru_sunstrider_max_stacks"            "МАКСИМУМ ЗАРЯДОВ:"
 
     	"DOTA_Tooltip_modifier_sunstrider_in_air"						"Sunstrider"
 
-  		"DOTA_Tooltip_ability_seinaru_rune_e_1_arcana2"						"[E1] Sunblade"
-    	"DOTA_Tooltip_ability_seinaru_rune_e_1_arcana2_Description"			"Увеличивает бонус урона во время @Ability3 и на 3 секунды после каста, и позволяет атаковать больше целей за раз."
-    	"DOTA_Tooltip_ability_seinaru_rune_e_1_arcana2_property_one"			"Доп. урон"
+  		"DOTA_Tooltip_ability_seinaru_rune_e_1_arcana2"						"[E1] Iaigiri"
+    	"DOTA_Tooltip_ability_seinaru_rune_e_1_arcana2_Description"			"Увеличивает Бонусный Урон Атаки во время рывка @Ability3 и радиус поиска целей. Бонус Урона Атаки сохраняется еще на 3 секунды после завершения рывка."
+    	"DOTA_Tooltip_ability_seinaru_rune_e_1_arcana2_property_one"			"Бонусный Урон"
     	"DOTA_Tooltip_ability_seinaru_rune_e_1_arcana2_suffix"					"%"
-    	"DOTA_Tooltip_ability_seinaru_rune_e_1_arcana2_property_two"			"Дополнительные цели"
+    	"DOTA_Tooltip_ability_seinaru_rune_e_1_arcana2_property_two"			"Доп. Радиус"
     	"DOTA_Tooltip_ability_seinaru_rune_e_1_arcana2_suffix_two"				""
+		"DOTA_Tooltip_modifier_seinaru_arcana_e1_effect"                        "Iaigiri"
+		"DOTA_Tooltip_modifier_seinaru_arcana_e1_effect_Description"            "Урон Атаки повышен"
 
   		"DOTA_Tooltip_ability_seinaru_rune_e_2_arcana2"						"[E2] Lightsworn"
-    	"DOTA_Tooltip_ability_seinaru_rune_e_2_arcana2_Description"			"Сразу после прочтения @Ability3, получает <font color='#ccff66'>75</font>% бонус к сопротивлению Чистому урону."
+    	"DOTA_Tooltip_ability_seinaru_rune_e_2_arcana2_Description"			"Сразу после прочтения @Ability3, получает <font color='#ccff66'>75</font>% бонус к сопротивлению Физическому урону и позволяет атаковать больше целей за рывок."
     	"DOTA_Tooltip_ability_seinaru_rune_e_2_arcana2_property_one"			"Длительность"
     	"DOTA_Tooltip_ability_seinaru_rune_e_2_arcana2_suffix"					" сек."
+		"DOTA_Tooltip_ability_seinaru_rune_e_2_arcana2_property_two"			"Дополнительные Цели"
+    	"DOTA_Tooltip_ability_seinaru_rune_e_2_arcana2_suffix_two"				""
 
     	"DOTA_Tooltip_modifier_sunstrider_lightsworn"						"Lightsworn"
-		"DOTA_Tooltip_modifier_sunstrider_lightsworn_Description"						"<font color='#ccff66'>75</font>%% дополнительного сопротивления Чистому урону."
+		"DOTA_Tooltip_modifier_sunstrider_lightsworn_Description"						"<font color='#ccff66'>75</font>%% дополнительного сопротивления Физическому урону."
 
 		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2"						"[E3] Sunwarrior's Vengeance"
-		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2_Description"			"Внутри @Ability3 герой имеет дополнительные Пробития Брони и Магической Брони."
-		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2_property_one"			"Пробитие Брони и Маг. Брони"
-		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2_suffix"					""
+		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2_Description"			"Пассивно Увеличивает Базовый Урон Способностей."
+		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2_property_one"			"Базовый Урон Способностей"
+		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2_suffix"					"%"
 
 		"DOTA_Tooltip_modifier_sunstrider_sunwarrior_vengeance_attack"		"Sunwarrior's Vengeance"
 		"DOTA_Tooltip_modifier_sunstrider_sunwarrior_vengeance_attack_Description"	"Пробитие Брони и Маг. Брони увеличено."
@@ -8993,11 +9008,14 @@
 		"DOTA_Tooltip_modifier_sunstrider_sunwarrior_vengeance_attack_Description"	"Пробитие Брони и Маг. Брони увеличено"
 
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2"						"[E4] Luminary"
-		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_Description"			"Добавляет шанс, что когда умение @Ability3 начнёт перезарядку, будет возможность снова произнести это умение без перезарядки. Значение выше 100% гарантирует получение нескольких зарядов для прыжка. Дополнительно увеличивает стихийный урон <font color='#F6FFB5'>Света</font>."
-		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_property_one"			"Шанс на свободное прочтение"
+		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_Description"			"Урон <font color='#F6FFB5'>Света</font> увеличивается от Ловкости героя. Кроме того, каждое прочтение @Ability3 дает шанс на то, что @Ability4 можно будет произнести мгновенно."
+		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_property_one"			"Шанс сделать следующий ульт мгновенным"
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_suffix"					"%"
-		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_property_two"			"Увеличение урона Света:"
-		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_suffix_two"				"%"
+		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_property_two"			"Урон <font color='#F6FFB5'>Света</font>"
+		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_suffix_two"				"% за 10 Ловкости"
+		
+		"DOTA_Tooltip_modifier_seinaru_arcana_e4_effect"                        "Luminary"
+		"DOTA_Tooltip_modifier_seinaru_arcana_e4_effect_Description"            "Ultimate ability requires no channel time"
 
     	"DOTA_Tooltip_modifier_sunstrider_freecast"							"Sunstrider Freecast"
 		"DOTA_Tooltip_modifier_sunstrider_freecast_Description"							"Герой может свободно произнести (E) Sunstrider"
@@ -14454,11 +14472,13 @@
     	"item_rpc_phoenix_gloves_sapphire1"									"Базовый Урон Атаки увеличивается на @sapphire_property1 за каждое текущее очко Здоровья"
     	"item_rpc_phoenix_gloves_amethyst1"									"Повышает Дух на @amethyst_property1, а каждое очко Духа увеличивает Здоровье на @amethyst_property2"
 
-    	"DOTA_Tooltip_ability_item_rpc_power_ranger_gloves"								"Power Source Gauntlet"
-    	"item_rpc_power_ranger_gloves_ruby1"								"Увеличивает Броню на @ruby_property1"
-    	"item_rpc_power_ranger_gloves_emerald1"								"Увеличивает Пробитие Брони на @emerald_property1"
-    	"item_rpc_power_ranger_gloves_sapphire1"								"Увеличивает Пробитие Магической Защиты на @sapphire_property1"
-    	"item_rpc_power_ranger_gloves_amethyst1"								"Увеличивает Магическую Защиту на @amethyst_property1"
+    	"DOTA_Tooltip_ability_item_rpc_power_ranger_gloves"					"Power Source Gauntlet"
+		"item_property_power_ranger_gloves"                                 "Power Source"
+		"property_power_ranger_gloves_description"                          "Увеличивает Базовый Урон Атаки на <font color='#ccff66'>0.1</font> за очки Пробития Брони и Магической Защиты. Максимальный бонус <font color='#ccff66'>4000</font>."
+    	"item_rpc_power_ranger_gloves_ruby1"								"Увеличивает бонус урона за очки Пробитий на @ruby_property1"
+    	"item_rpc_power_ranger_gloves_emerald1"								"Увеличивает максимальный бонус урона на @emerald_property1"
+    	"item_rpc_power_ranger_gloves_sapphire1"							"Увеличивает все Атрибуты на @sapphire_property1"
+    	"item_rpc_power_ranger_gloves_amethyst1"							"Увеличивает Базовый Урон Способностей на @amethyst_property1%"
 
     	"DOTA_Tooltip_ability_item_rpc_royal_wristguards"								"Royal Wristguards"		
 		"item_property_royal_wrist"								"Commanding Steel"
@@ -14675,7 +14695,7 @@
 		"DOTA_Tooltip_ability_item_rpc_world_commander_gloves"			"World Commander Gloves"
 
 		"item_property_world_commander_gloves"							"Universal Might"
-		"property_world_commander_gloves_description"					"Каждое очко Пробития Брони и Пробития Магической Зашиты увеличивает Бонусную Силу Атаки на <font color='#ccff66'>0.01</font>%"
+		"property_world_commander_gloves_description"					"Каждое очко Пробития Брони и Пробития Магической Зашиты увеличивает Бонусную Силу Атаки на <font color='#ccff66'>0.01</font>%. Максимальный бонус <font color='#ccff66'>300</font>%."
 
 		"item_rpc_world_commander_gloves_ruby1"				"Увеличивает показатель руны [Q4] на @ruby_property1"
 		"item_rpc_world_commander_gloves_emerald1"			"Увеличивает показатель руны [E4] на @emerald_property1"
@@ -15535,12 +15555,15 @@
 		"DOTA_Tooltip_ability_item_rpc_arbor_dragonfly"									"Arbor Dragonfly"
 
 		"item_property_arbor_dragonfly"				"Misty Wood's Blessing"
-		"property_arbor_dragonfly_description"		"Увеличивает длительность всех положительных эффектов, применяемых героем от Способностей, Рун и Глифов на<font color='#ccff66'>35</font>%."
-
+		"property_arbor_dragonfly_description"		"За каждый видимый бафф, имеющий длительность (не бесконечный), Базовый Урон Способностей и Урон Предметов будет увеличен на <font color='#ccff66'>75</font>%, максимально <font color='#ccff66'>300</font>%."
+		"DOTA_Tooltip_modifier_arbor_dragonfly"                             "Misty Wood's Blessing"
+		"DOTA_Tooltip_modifier_arbor_dragonfly_Description"                 "Базовый Урон Способностей и Урон Предметов будет увеличен в зависимости от количества текущих баффов."
+		
         "item_rpc_arbor_dragonfly_ruby1"                                    "Увеличивает все руны Т1 на @ruby_property1"
-        "item_rpc_arbor_dragonfly_emerald1"                                 "Увеличивает Базовый Урон Способностей и Урон Предметов на @emerald_property1"
+        "item_rpc_arbor_dragonfly_emerald1"                                 "Увеличивает длительность всех баффов на @emerald_property1%"
         "item_rpc_arbor_dragonfly_sapphire1"                                    "Увеличивает все руны Т2 на @sapphire_property1"
-        "item_rpc_arbor_dragonfly_amethyst1"                                    "Увеличивает все Атрибуты на @amethyst_property1"
+        "item_rpc_arbor_dragonfly_amethyst1"                                     "Основной эффект предмета также увеличивает Пробития Брони и Магической Защиты на @amethyst_property1 за каждый бафф"
+
 
 		"DOTA_Tooltip_ability_item_rpc_arcane_charm"									"Arcane Charm"
 
@@ -15656,10 +15679,12 @@
         "DOTA_Tooltip_ability_item_rpc_conquest_stone_falcon"                           "Conquest Stone Falcon"
         "item_property_stone_falcon"                        "Gift of the Reliquary"
         "property_stone_falcon_description"             "Магический или Чистый урон не может нанести герою больше <font color='#ccff66'>35</font>% от Максимального Здоровья."
-        "item_rpc_conquest_stone_falcon_ruby1"                          "Броня увеличена на @ruby_property1"
-        "item_rpc_conquest_stone_falcon_emerald1"                           "Пробитие Брони увеличено на @emerald_property1"
-        "item_rpc_conquest_stone_falcon_sapphire1"                          "Пробитие Магической Защиты увеличено на @sapphire_property1"
-        "item_rpc_conquest_stone_falcon_amethyst1"                          "Магическая Защита увеличена на @amethyst_property1"
+        "item_rpc_conquest_stone_falcon_ruby1"                          "Основной эффект ограничения урона уменьшен еще на @ruby_property1% от Максимального Здоровья"
+        "item_rpc_conquest_stone_falcon_emerald1"                           "Каждые <font color='#ccff66'>3</font> секунды, герой получает заряд щита, поглощающего Физический урон, максимум @emerald_property1 зарядов щита."
+        "item_rpc_conquest_stone_falcon_sapphire1"                          "Увеличивает Пробитие Брони и Пробитие Магической Защиты на @sapphire_property1"
+        "item_rpc_conquest_stone_falcon_amethyst1"                          "Летальный физический урон будет конвертирован в Чистый тип урона, перезарядка этого эффекта занимает @amethyst_property1 сек."
+		"DOTA_Tooltip_modifier_conquest_stone_falcon"                             "Conquest Stone Falcon, Emerald"
+        "DOTA_Tooltip_modifier_conquest_stone_falcon_amethyst_cd"                             "Conquest Stone Falcon, Amethyst, Перезарядка"
 
 
         "DOTA_Tooltip_ability_item_rpc_emerald_nullification_ring"                      "Emerald Nullification Ring"
@@ -15718,10 +15743,10 @@
         "item_property_firelock"                            "Piercing Heat"      
         "property_firelock_description"                 "Сила увеличивает Пробитие Брони на <font color='#ccff66'>3</font>."
         
-        "item_rpc_firelock_pendant_ruby1"                               "Увеличивает Силу и Ловкость на @ruby_property1"
-        "item_rpc_firelock_pendant_emerald1"                                 "Увеличивает Урон Предметов и урон <font color='#EF4126'>Огня</font> на @emerald_property1%"
-        "item_rpc_firelock_pendant_sapphire1"                               "Ловкость и Сила увеличивают Скорость Атаки на @sapphire_property1"
-        "item_rpc_firelock_pendant_amethyst1"                               "Дух увеличивает Базовый Урон Атаки на @amethyst_property1"
+        "item_rpc_firelock_pendant_ruby1"                               "Ловкость увеличивает Пробитие Брони на @ruby_property1"
+        "item_rpc_firelock_pendant_emerald1"                                 "Увеличивает урон <font color='#EF4126'>Огня</font> на @emerald_property1%"
+        "item_rpc_firelock_pendant_sapphire1"                               "Увеличивает Скорость Атаки на @sapphire_property1, Скорость Атаки не может упасть ниже <font color='#ccff66'>300</font>, этот эффект не работает с другими ограничителями скорости."
+        "item_rpc_firelock_pendant_amethyst1"                               "Увеличивает Силу и Ловкость на @amethyst_property1"
 
         "DOTA_Tooltip_ability_item_rpc_fortunes_talisman_of_truth"                      "Fortune's Talisman of Truth"
 
@@ -15983,11 +16008,11 @@
         "DOTA_Tooltip_ability_item_rpc_sparkling_token_of_oceanis"                  "Sparkling Token of Oceanis"    
 
         "property_sparkling_token"                                              "Tropical Mend"
-        "property_sparkling_token_Description"                                  "Восстанавливает <font color='#ccff66'>2</font>% от максимального запаса Здоровья каждые <font color='#ccff66'>0.2</font> сек."
-        "item_rpc_sparkling_token_of_oceanis_ruby1"                 "Увеличивает запас Здоровья на @ruby_property1, а Маны на @ruby_property2"
-        "item_rpc_sparkling_token_of_oceanis_emerald1"                  "Увеличивает сопротивление Чистому урону на @emerald_property1%"
-        "item_rpc_sparkling_token_of_oceanis_sapphire1"                 "Восстанавливает @sapphire_property1% от запаса Маны каждые <font color='#ccff66'>0.2</font> сек"
-        "item_rpc_sparkling_token_of_oceanis_amethyst1"                 "Увеличивает сопротивление Магическому урону на @amethyst_property1%"  
+        "property_sparkling_token_Description"                                  "Восстанавливает <font color='#ccff66'>2</font>% от максимального запаса Здоровья и <font color='#ccff66'>1</font> от запаса Маны каждые <font color='#ccff66'>0.2</font> сек."
+        "item_rpc_sparkling_token_of_oceanis_ruby1"                 "Увеличивает Здоровье на @ruby_property1, Ману на @ruby_property2"
+        "item_rpc_sparkling_token_of_oceanis_emerald1"                  "Уменьшает получаемый Физический урон на @emerald_property1%"
+        "item_rpc_sparkling_token_of_oceanis_sapphire1"                 "Увеличивает Пробития Брони и Маг Защиты на @sapphire_property1"
+        "item_rpc_sparkling_token_of_oceanis_amethyst1"                 "Уменьшает получаемый Магический урон на @amethyst_property1%" 
 
         "DOTA_Tooltip_ability_item_rpc_stargazers_sphere"            "Stargazer's Sphere"
 
@@ -16073,10 +16098,10 @@
         "item_property_volcano_orb"                 "Fiery Core"
         "property_volcano_orb_description"          "Любой Атрибут увеличивает Пробитие Магической Защиты на <font color='#ccff66'>2</font>."
 
-		"item_rpc_volcano_orb_ruby1"										"Увеличивает Силу на @ruby_property1"
-		"item_rpc_volcano_orb_emerald1"										"Увеличивает Ловкость на @emerald_property1"
-		"item_rpc_volcano_orb_sapphire1"										"Увеличивает Интеллект на @sapphire_property1"
-		"item_rpc_volcano_orb_amethyst1"										"Увеличивает Дух на @amethyst_property1"
+		"item_rpc_volcano_orb_ruby1"										"Любой Атрибут увеличивает Пробитие Магической Защиты дополнительно на @ruby_property1"
+		"item_rpc_volcano_orb_emerald1"										"Увеличивает Все Атрибуты на @emerald_property1"
+		"item_rpc_volcano_orb_sapphire1"										"Увеличивает Базовый Урон Способностей @sapphire_property1%"
+		"item_rpc_volcano_orb_amethyst1"										"Увеличивает урон <font color='#EF4126'>Огня</font> и Урон Предметов на @amethyst_property1%"
 
 		
        "DOTA_Tooltip_ability_item_rpc_wind_orchid"                                     "Wind Orchid"
@@ -16187,6 +16212,7 @@
         "item_rpc_ring_of_mysteries_emerald1"             "Бонус к рунам от эффекта этого предмета увеличивается на @emerald_property1"
         "item_rpc_ring_of_mysteries_sapphire1"                "Одна руна Т4 с наименьшим показателем получает бонус +@sapphire_property1"
         "item_rpc_ring_of_mysteries_amethyst1"                "Каждое очко рун увеличивает Дух на @amethyst_property1"
+
 
 		//Tier 1
 

@@ -14445,8 +14445,8 @@
     	"DOTA_Tooltip_ability_item_rpc_power_ranger_gloves"								"金刚护手"
     	"item_property_power_ranger_gloves"                                             "金刚之力"
 	"property_power_ranger_gloves_description"                                 "每点物理穿透和魔法穿透提高基础攻击力 <font color='#ccff66'>0.1</font> 。上限为 <font color='#ccff66'>4000</font>。"
-    	"item_rpc_power_ranger_gloves_ruby1"								"提高该效果的基础攻击力上限 @ruby_property1。"
-    	"item_rpc_power_ranger_gloves_emerald1"								"每点物理穿透和魔法穿透额外提高基础攻击力 @emerald_property1"
+    	"item_rpc_power_ranger_gloves_ruby1"								"每点物理穿透和魔法穿透额外提高基础攻击力 @ruby_property1。"
+    	"item_rpc_power_ranger_gloves_emerald1"								"提高该效果的基础攻击力上限@emerald_property1"
     	"item_rpc_power_ranger_gloves_sapphire1"								"提高全属性 @sapphire_property1"
     	"item_rpc_power_ranger_gloves_amethyst1"								"提高基础技能伤害 @amethyst_property1%"
 		
@@ -15699,14 +15699,12 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_arbor_dragonfly"									"点水蜻蜓"
 		"item_property_arbor_dragonfly"				"迷雾祝福"
-                "property_arbor_dragonfly_description"		"每一个存在的可视的有持续时间的buff提高基础技能伤害和物品伤害 <font color='#ccff66'>60</font>%， 至多达到  <font color='#ccff66'>300</font>%。"
-		"DOTA_Tooltip_modifier_arbor_dragonfly"                             "迷雾祝福"
-		"DOTA_Tooltip_modifier_arbor_dragonfly_Description"                 "每一个存在的可视的有持续时间的buff提高基础技能伤害和物品伤害。"
+                "property_arbor_dragonfly_description"		"每一个冷却时间低于5秒的技能提高基础技能伤害和物品伤害<font color='#ccff66'>75</font>%。"
 
         "item_rpc_arbor_dragonfly_ruby1"                                    "提高所有T1 符文 @ruby_property1"
         "item_rpc_arbor_dragonfly_emerald1"                                 "提高所有buff的持续时间 @emerald_property1%"
         "item_rpc_arbor_dragonfly_sapphire1"                                    "提高所有T2 符文 @sapphire_property1"
-        "item_rpc_arbor_dragonfly_amethyst1"                                    "每一个存在的可视的有持续时间的buff提高物理穿透和魔法穿透 @amethyst_property1"
+        "item_rpc_arbor_dragonfly_amethyst1"                                    "每一个冷却时间低于5秒的技能提高物理穿透和魔法穿透 @amethyst_property1"
 		
 		
 		
@@ -16249,7 +16247,7 @@
         "item_rpc_moon_shard_emerald1"                              "每1%当前魔法值提高移动速度和最大移动速度 @emerald_property1"
         "item_rpc_moon_shard_sapphire1"                             "每 @sapphire_property1 秒，获得一个buff，buff将会使你下一个释放的技能获得100%的冷却时间缩减"
         "DOTA_Tooltip_modifier_moon_shard_sapphire"                 "闪烁波动 (蓝宝石)"
-        "DOTA_Tooltip_modifier_moon_shard_sapphire_Description"     "下一个释放的技能将会获得 100% 冷却时间缩减" 
+        "DOTA_Tooltip_modifier_moon_shard_sapphire_Description"     "下一个释放的技能将会获得 100%% 冷却时间缩减" 
         "item_rpc_moon_shard_amethyst1"                             "移动 <font color='#ccff66'>500</font> 距离将会向周围<font color='#ccff66'>800</font>范围内最近的敌人投掷至多 @amethyst_property1 个冰弹。造成 数值为@amethyst_property2 X 每点最大魔法值"
 	
        "DOTA_Tooltip_ability_item_rpc_horn_of_the_triumphant"                              "胜利号角"
