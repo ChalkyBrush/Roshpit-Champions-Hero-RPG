@@ -3542,11 +3542,11 @@
     	"DOTA_Tooltip_modifier_demon_hunter_Description"						""
 			
 		"DOTA_Tooltip_ability_chernobog_rune_w_1"								"[W1] Demon's Grip"
-    	"DOTA_Tooltip_ability_chernobog_rune_w_1_Description"					"Gain bonus Armor Pierce while @Ability2 is toggled off. Gain bonus Spell Pierce while @Ability2 is toggled on."
+    	"DOTA_Tooltip_ability_chernobog_rune_w_1_Description"					"Gain bonus Armor Pierce from Strength while @Ability2 is toggled off. Gain bonus Spell Pierce from Agility while @Ability2 is toggled on."
     	"DOTA_Tooltip_ability_chernobog_rune_w_1_property_one"					"Armor Pierce"
-    	"DOTA_Tooltip_ability_chernobog_rune_w_1_suffix"						""
+    	"DOTA_Tooltip_ability_chernobog_rune_w_1_suffix"						"Per Strength"
     	"DOTA_Tooltip_ability_chernobog_rune_w_1_property_two"					"Spell Pierce"
-    	"DOTA_Tooltip_ability_chernobog_rune_w_1_suffix_two"					""
+    	"DOTA_Tooltip_ability_chernobog_rune_w_1_suffix_two"					"Per Agility"
 
     	"DOTA_Tooltip_ability_chernobog_rune_w_2"								"[W2] Inner Beast"
     	"DOTA_Tooltip_ability_chernobog_rune_w_2_Description"					"Gain bonus Armor while @Ability2 is toggled off. Gain base attack damage while @Ability2 is toggled on."
@@ -3588,8 +3588,10 @@
     	"DOTA_Tooltip_ability_chernobog_rune_e_1_Description"					"Gain bonus attack power, movespeed, and movespeed cap while @Ability3 is toggled on."
     	"DOTA_Tooltip_ability_chernobog_rune_e_1_property_one"					"Bonus Attack Power"
     	"DOTA_Tooltip_ability_chernobog_rune_e_1_suffix"						"%"
-		"DOTA_Tooltip_ability_chernobog_rune_e_1_property_two"					"Bonus Movespeed and Movespeed Cap"
+		"DOTA_Tooltip_ability_chernobog_rune_e_1_property_two"					"Bonus Movespeed"
     	"DOTA_Tooltip_ability_chernobog_rune_e_1_suffix_two"					""
+		"DOTA_Tooltip_ability_chernobog_rune_e_1_property_three"				"Bonus Movespeed Cap"
+    	"DOTA_Tooltip_ability_chernobog_rune_e_1_suffix_three"					""
 		
     	"DOTA_Tooltip_modifier_chernobog_e1_buff"								"Bloodlust"
     	"DOTA_Tooltip_modifier_chernobog_e1_buff_Description"					"Increased attack damage, movespeed and movespeed cap."
@@ -3604,12 +3606,12 @@
 		"DOTA_Tooltip_modifier_chernobog_e2_effect"								"Anxiety"
     	"DOTA_Tooltip_modifier_chernobog_e2_effect_Description"					"Reduced Armor, Magic Armor, and movespeed."
 		
-     	"DOTA_Tooltip_ability_chernobog_rune_e_3"								"[E3] Sudden Strike"
-    	"DOTA_Tooltip_ability_chernobog_rune_e_3_Description"					"While @Ability3 is toggled on, issuing an attack order on an enemy unit will teleport Chernobog behind the target, while gaining a buff that massively increases the next instance of damage he deals from an ability or any of his runes. This effect has a cooldown of <font color='#ccff66'>0.4</font> seconds."
-    	"DOTA_Tooltip_ability_chernobog_rune_e_3_property_one"					"Teleport Range"
-    	"DOTA_Tooltip_ability_chernobog_rune_e_3_suffix"						""
-    	"DOTA_Tooltip_ability_chernobog_rune_e_3_property_two"					"Damage Bonus"
-    	"DOTA_Tooltip_ability_chernobog_rune_e_3_suffix_two"					"%"
+     	"DOTA_Tooltip_ability_chernobog_rune_e_3"                                "[E3] Sudden Strike"
+        "DOTA_Tooltip_ability_chernobog_rune_e_3_Description"                    "While @Ability3 is toggled on, issuing an attack order on an enemy unit will teleport Chernobog behind the target and perform an instant attack on it. This effect has a cooldown of <font color='#ccff66'>0.4</font> seconds. Passively, the shadows around Chernobog become animated: After moving <font color='#ccff66'>300</font> distance, or using this rune's active effect, the shadows will lash out at all enemies within <font color='#ccff66'>400</font> range."
+        "DOTA_Tooltip_ability_chernobog_rune_e_3_property_one"                    "Max Teleport Range"
+        "DOTA_Tooltip_ability_chernobog_rune_e_3_suffix"                        ""
+        "DOTA_Tooltip_ability_chernobog_rune_e_3_property_two"                    "Shadow Damage"
+        "DOTA_Tooltip_ability_chernobog_rune_e_3_suffix_two"                    "% of Attack Power"
 
 		"DOTA_Tooltip_modifier_chernobog_e3_effect"								"Sudden Strike"
 		"DOTA_Tooltip_modifier_chernobog_e3_effect_Description"					"Next damage is greatly increased."
@@ -3654,9 +3656,9 @@
         "DOTA_Tooltip_ability_chernobog_rune_r_3_suffix_three"					""
 
     	"DOTA_Tooltip_ability_chernobog_rune_r_4"								"[R4] Heart of Darkness"
-    	"DOTA_Tooltip_ability_chernobog_rune_r_4_Description"					"Passively gain <font color='#5B648C'>Demon</font> and <font color='#7F4F84'>Shadow</font> damage from Strength and Agility."
+    	"DOTA_Tooltip_ability_chernobog_rune_r_4_Description"					"Passively increases <font color='#5B648C'>Demon</font> and <font color='#7F4F84'>Shadow</font> damage."
     	"DOTA_Tooltip_ability_chernobog_rune_r_4_property_one"					"<font color='#5B648C'>Demon</font> and <font color='#7F4F84'>Shadow</font> Amp"
-        "DOTA_Tooltip_ability_chernobog_rune_r_4_suffix"					"% of Strength and Agility"
+        "DOTA_Tooltip_ability_chernobog_rune_r_4_suffix"					    "%"
 
 		
 		//Arcanas
@@ -3687,13 +3689,13 @@
     	"DOTA_Tooltip_ability_chernobog_rune_r_3_arcana1_suffix"				"%"
 
   		"DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1"						"[R4] Darkness Incarnate"
-    	"DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_Description"			"Reduce the cooldown and cast time of @Ability4, and passively gain <font color='#5B648C'>Demon</font> damage from Strength and Agility."
+    	"DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_Description"			"Reduce the cooldown and cast time of @Ability4, and passively increases <font color='#5B648C'>Demon</font> damage."
     	"DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_property_one"			"Cooldown Reduction"
     	"DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_suffix"				" seconds"
 		"DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_property_two"			"Channel Time Reduction"
     	"DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_suffix_two"			" seconds"
     	"DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_property_three"		"<font color='#5B648C'>Demon</font> Damage Bonus"
-    	"DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_suffix_three"			"% of Strength and Agility"
+    	"DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_suffix_three"			"%"
 
     	//cherno arcana2
     	"item_property_chernobog_arcana2"										"Demon Flight"
@@ -3729,8 +3731,10 @@
     	"DOTA_Tooltip_ability_chernobog_rune_e_2_arcana2_Description"			"Passively increases bonus attack damage, movespeed, and movespeed cap. Each enemy unit within <font color='#ccff66'>600</font> range will further increase the indicated bonus by <font color='#ccff66'>10</font>%. Bosses count as <font color='#ccff66'>6</font> enemies, while Paragon units count as <font color='#ccff66'>3</font> enemies. These bonuses are capped at <font color='#ccff66'>10</font> enemies, no matter how many more are within range."
     	"DOTA_Tooltip_ability_chernobog_rune_e_2_arcana2_property_one"			"Attack Damage"
     	"DOTA_Tooltip_ability_chernobog_rune_e_2_arcana2_suffix"				"%"
-		"DOTA_Tooltip_ability_chernobog_rune_e_2_arcana2_property_two"			"Movespeed and Movespeed Cap"
+		"DOTA_Tooltip_ability_chernobog_rune_e_2_arcana2_property_two"			"Movespeed Bonus"
 		"DOTA_Tooltip_ability_chernobog_rune_e_2_arcana2_suffix_two"				""
+		"DOTA_Tooltip_ability_chernobog_rune_e_2_arcana2_property_three"			"Movespeed Cap Bonus"
+		"DOTA_Tooltip_ability_chernobog_rune_e_2_arcana2_suffix_three"				""
 		
 
     	"DOTA_Tooltip_modifier_chernobog_arcana_e_passive"						"Overwhelming Odds"
@@ -9383,11 +9387,11 @@
 		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2_suffix"					"%"
 		
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2"						"[E4] Luminary"
-		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_Description"			"<font color='#F6FFB5'>Holy</font> damage is increased by Seinaru's Agility. Additionally, each time @Ability3 is cast, there is a chance to gain a buff that causes the next cast of @Ability4 to be instantaneous, requiring no channel time."
+		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_Description"			"Passively increases <font color='#F6FFB5'>Holy</font> damage. Additionally, each time @Ability3 is cast, there is a chance to gain a buff that causes the next cast of @Ability4 to be instantaneous, requiring no channel time."
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_property_one"			"Chance for Free Cast"
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_suffix"					"%"
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_property_two"			"<font color='#F6FFB5'>Holy</font> Amplification"
-		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_suffix_two"				"% per 10 Agility"
+		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_suffix_two"				"%"
 		"DOTA_Tooltip_modifier_seinaru_arcana_e4_effect"                        "Luminary"
 		"DOTA_Tooltip_modifier_seinaru_arcana_e4_effect_Description"            "Ultimate ability requires no channel time"
 

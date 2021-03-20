@@ -34772,7 +34772,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.04"
+				"property_two"			"14"
 			}
 		}
 	}
@@ -49195,7 +49195,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_three"			"0.4"
+				"property_three"			"14"
 			}
 			
 		}
@@ -49330,6 +49330,11 @@
 			{
 				"var_type"				"FIELD_FLOAT"
 				"property_two"			"2"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_three"			"3"
 			}
 		}
 	}
@@ -49718,12 +49723,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"75"
+				"property_one"			"0.05"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"75"
+				"property_two"			"0.05"
 			}
 		}
 	}
@@ -49817,6 +49822,11 @@
 				"var_type"				"FIELD_FLOAT"
 				"property_two"			"2"
 			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_three"			"3"
+			}
 		}
 	}
 
@@ -49838,7 +49848,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"-8"
+				"property_two"			"-6"
 			}
 		}
 	}
@@ -49849,6 +49859,7 @@
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityTextureName"	"chernobog/chernobog_rune_e_3"
+		"AbilityUnitDamageType" "DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -49866,12 +49877,22 @@
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"5"
+				"property_two"			"4"
 			}
 			"04"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two_base"		"100"
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"3"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"15"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_two"			"11"
 			}
 		}
 	}
@@ -49928,7 +49949,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1.2"
+				"property_one"			"1.6"
 			}
 			"02"
 			{
@@ -50003,7 +50024,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.25"
+				"property_one"			"8"
 			}
 		}
 	}

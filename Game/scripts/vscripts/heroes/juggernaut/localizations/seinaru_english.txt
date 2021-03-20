@@ -226,11 +226,13 @@
 		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2_suffix"					"%"
 		
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2"						"[E4] Luminary"
+
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_Description"			"<font color='#F6FFB5'>Holy</font> damage is increased passively. Additionally, each time @Ability3 is cast, there is a chance to gain a buff that causes the next cast of @Ability4 to be instantaneous, requiring no channel time."
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_property_one"			"Chance for Free Cast"
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_suffix"					"%"
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_property_two"			"<font color='#F6FFB5'>Holy</font> Amplification"
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_suffix_two"				"% "
+
 		"DOTA_Tooltip_modifier_seinaru_arcana_e4_effect"                        "Luminary"
 		"DOTA_Tooltip_modifier_seinaru_arcana_e4_effect_Description"            "Ultimate ability requires no channel time"
 

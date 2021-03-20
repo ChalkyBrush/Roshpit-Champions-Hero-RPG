@@ -290,5 +290,5 @@ function modifier_chernobog_r_passive:GetRoshpitRFlatChanneltimeModifier()
 end
 
 function modifier_chernobog_r_passive:GetRoshpitElementalDmgBonus()
-	return self:GetCaster():GetRuneValue("r", 4) * CHERNOBOG_R4_DEMON_AND_SHADOW_AMP_PER_ATTR * (self:GetCaster():GetStrength() + self:GetCaster():GetAgility()) / 10000
+	return self:GetCaster():GetRuneValue("r", 4) * CHERNOBOG_R4_DEMON_AND_SHADOW_AMP / 100
 end

@@ -200,19 +200,19 @@ function modifier_chernobog_w_passive:OnIntervalThink()
 		return
 	end
 	if self:GetCaster():HasModifier("modifier_chernobog_glyph_6_1") then
-	    self:ModifyStacks(self:GetCaster(), self:GetCaster(), "modifier_chernobog_w3_effect", 0, CHERNOBOG_W3_DURATION, CHERNOBOG_W3_MAX_STACKS, 0, false, true)
+	    self:ModifyStacks(self:GetCaster(), self:GetCaster(), "modifier_chernobog_w3_effect", 0, CHERNOBOG_W3_DURATION, CHERNOBOG_W3_MAX_STACKS, 0, false)
 	end
 end
 
 function modifier_chernobog_w_passive:GetRoshpitSpellPierceBonus()
 	if (self:GetAbility():GetToggleState() == true) or self:GetCaster():HasModifier("modifier_chernobog_glyph_5_a") then
-		return self:GetCaster():GetRuneValue("w", 1) * CHERNOBOG_W1_PIERCE_SACLE
+		return self:GetCaster():GetRuneValue("w", 1) * CHERNOBOG_W1_PIERCE_SACLE * self:GetCaster():GetAgility()
 	end
 end
 
 function modifier_chernobog_w_passive:GetRoshpitArmorPierceBonus()
 	if (self:GetAbility():GetToggleState() == false) or self:GetCaster():HasModifier("modifier_chernobog_glyph_5_a") then
-		return self:GetCaster():GetRuneValue("w", 1) * CHERNOBOG_W1_PIERCE_SACLE
+		return self:GetCaster():GetRuneValue("w", 1) * CHERNOBOG_W1_PIERCE_SACLE * self:GetCaster():GetStrength()
 	end
 end
 
@@ -262,27 +262,31 @@ function modifier_chernobog_w_passive:ProcW3(caster, target)
 	end
 	if self.fevorTarget then
 		if target == self.fevorTarget then
-			self:ModifyStacks(caster, caster, modifier, 1, CHERNOBOG_W3_DURATION, CHERNOBOG_W3_MAX_STACKS, 0, false, true)
-			self:ModifyStacks(caster, target, modifier, 1, CHERNOBOG_W3_DURATION, CHERNOBOG_W3_MAX_STACKS, 0, false, false)
+			self:ModifyStacks(caster, caster, modifier, 1, CHERNOBOG_W3_DURATION, CHERNOBOG_W3_MAX_STACKS, 0, false)
+			self:ModifyStacks(caster, target, modifier, 1, CHERNOBOG_W3_DURATION, CHERNOBOG_W3_MAX_STACKS, 0, false)
 		else
 			self.fevorTarget = target
-			self:ModifyStacks(caster, caster, modifier, 1, CHERNOBOG_W3_DURATION, CHERNOBOG_W3_MAX_STACKS, 0, true, true)
-			self:ModifyStacks(caster, target, modifier, 1, CHERNOBOG_W3_DURATION, CHERNOBOG_W3_MAX_STACKS, 0, false, false)
+			self:ModifyStacks(caster, caster, modifier, 1, CHERNOBOG_W3_DURATION, CHERNOBOG_W3_MAX_STACKS, 0, true)
+			self:ModifyStacks(caster, target, modifier, 1, CHERNOBOG_W3_DURATION, CHERNOBOG_W3_MAX_STACKS, 0, false)
 		end
 	end
 end
 
-function modifier_chernobog_w_passive:ModifyStacks(caster, target, modifier_name, stacks, duration, maxStacks, minStacks, changeTarget, requireToggle)
+function modifier_chernobog_w_passive:ModifyStacks(caster, target, modifier_name, stacks, duration, maxStacks, minStacks, changeTarget)
 	local w_3_level = caster:GetRuneValue("w", 3)
 	if not (w_3_level > 0) then
 		return
 	end
-	if target ~= caster and requireToggle ~= self:GetAbility():GetToggleState() and not caster:FindModifierByName("modifier_chernobog_glyph_5_a") then
-		return
+	if not caster:HasModifier("modifier_chernobog_glyph_5_a") then
+     	if not ((caster == target and self:GetAbility():GetToggleState() == true) or (caster ~= target and self:GetAbility():GetToggleState() == false)) then
+		    return
+		end
 	end
 	if caster:HasModifier("modifier_chernobog_glyph_6_1") then
 		maxStacks = maxStacks + CHERNOBOG_GLYPH_6_1_W3_MAX_STACK_BONUS
-		minStacks = 20
+		if caster == target then
+		    minStacks = 20
+		end
 		if stacks > 0 then
 			stacks = stacks + CHERNOBOG_GLYPH_6_1_ADDITION_STACK
 		end
@@ -302,7 +306,8 @@ function modifier_chernobog_w_passive:ModifyStacks(caster, target, modifier_name
 	end
 	if stacks > 0 then
 	    if not target:HasModifier(modifier_name) then
-	        target:AddNewModifier(caster, self:GetAbility(), modifier_name, {duration = duration}):SetStackCount(finalStacks)
+	        target:AddNewModifier(caster, self:GetAbility(), modifier_name, {duration = duration})
+			target:SetModifierStackCount(modifier_name, caster, finalStacks)
 		else
 		    target:SetModifierStackCount(modifier_name, caster, finalStacks)
 			target:FindModifierByName(modifier_name):SetDuration(duration, true)
@@ -310,7 +315,8 @@ function modifier_chernobog_w_passive:ModifyStacks(caster, target, modifier_name
 	else
 	    if not (currentStacks > minStacks) then
 		    if not target:HasModifier(modifier_name) then
-		        target:AddNewModifier(caster, self:GetAbility(), modifier_name, {duration = duration}):SetStackCount(minStacks)
+		        target:AddNewModifier(caster, self:GetAbility(), modifier_name, {duration = duration})
+				target:SetModifierStackCount(modifier_name, caster, minStacks)
 			else
 			    target:SetModifierStackCount(modifier_name, target, minStacks)
 				target:FindModifierByName(modifier_name):SetDuration(duration, true)
