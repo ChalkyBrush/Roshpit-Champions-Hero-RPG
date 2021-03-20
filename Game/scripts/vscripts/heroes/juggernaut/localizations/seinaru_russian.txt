@@ -229,13 +229,14 @@
 
 		"DOTA_Tooltip_modifier_sunstrider_sunwarrior_vengeance_attack"	"Sunwarrior's Vengeance"
 		"DOTA_Tooltip_modifier_sunstrider_sunwarrior_vengeance_attack_Description"	"Пробитие Брони и Маг. Брони увеличено"
-
-		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2"						"[E4] Luminary"
-		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_Description"			"Добавляет шанс, что когда умение @Ability3 начнёт перезарядку, будет возможность снова произнести это умение без перезарядки. Значение выше 100% гарантирует получение нескольких зарядов для прыжка. Дополнительно увеличивает стихийный урон <font color=ELEMENT_HOLY>Света</font>."
-		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_property_one"			"Шанс на свободное прочтение"
+                "DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2"						"[E4] Luminary"
+		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_Description"			"<font color=ELEMENT_HOLY>Света</font> damage is increased by Seinaru's Agility. Additionally, each time @Ability3 is cast, there is a chance to gain a buff that causes the next cast of @Ability4 to be instantaneous, requiring no channel time."
+		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_property_one"			"Chance for Free Cast"
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_suffix"					"%"
-		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_property_two"			"Увеличение урона Света:"
+		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_property_two"			"<font color=ELEMENT_HOLY>Света</font> Amplification"
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_suffix_two"				"%"
+		"DOTA_Tooltip_modifier_seinaru_arcana_e4_effect"                        "Luminary"
+		"DOTA_Tooltip_modifier_seinaru_arcana_e4_effect_Description"            "Ultimate ability requires no channel time"
 
     	"DOTA_Tooltip_modifier_sunstrider_freecast"							"Sunstrider Freecast"
 		"DOTA_Tooltip_modifier_sunstrider_freecast_Description"							"Герой может свободно произнести (E) Sunstrider"
