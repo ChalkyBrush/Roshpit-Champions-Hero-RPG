@@ -149,7 +149,7 @@ function chernobog_charons_claw:CreateThinkerParticle(vLoc, destroy_interval)
     ParticleManager:SetParticleControl(pfx, 15, Vector(255, 255, 255))
     ParticleManager:SetParticleControl(pfx, 16, Vector(1, 0, 0))
     Timers:CreateTimer(self:GetClawPathDuration() + destroy_interval * 2, function()
-        ParticleManager:DestroyParticle(pfx, true)
+        ParticleManager:DestroyParticle(pfx, false)
 	end)
 end
 

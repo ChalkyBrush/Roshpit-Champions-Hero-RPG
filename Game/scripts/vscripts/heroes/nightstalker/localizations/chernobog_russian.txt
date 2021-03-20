@@ -101,6 +101,8 @@
     	"DOTA_Tooltip_ability_chernobog_rune_e_1_suffix"						"%"
 		"DOTA_Tooltip_ability_chernobog_rune_e_1_property_two"					"Бонус Скорости и ее Лимита"
     	"DOTA_Tooltip_ability_chernobog_rune_e_1_suffix_two"					""
+	"DOTA_Tooltip_ability_chernobog_rune_e_1_property_three"				"Bonus Movespeed Cap"
+    	"DOTA_Tooltip_ability_chernobog_rune_e_1_suffix_three"					""
 		
     	"DOTA_Tooltip_modifier_chernobog_e1_buff"								"Bloodlust"
     	"DOTA_Tooltip_modifier_chernobog_e1_buff_Description"					"Получает Бонусную Силу Атаки, скорость перемещения и лимит скорости, пока активна Shadow Hunt."
@@ -254,8 +256,9 @@
     	"DOTA_Tooltip_ability_chernobog_rune_e_2_arcana2_suffix"				"%"
 		"DOTA_Tooltip_ability_chernobog_rune_e_2_arcana2_property_two"			"Скорость и её лимит"
 		"DOTA_Tooltip_ability_chernobog_rune_e_2_arcana2_suffix_two"				""
+		"DOTA_Tooltip_ability_chernobog_rune_e_2_arcana2_property_three"			"Movespeed Cap Bonus"
+		"DOTA_Tooltip_ability_chernobog_rune_e_2_arcana2_suffix_three"				""
 		
-
     	"DOTA_Tooltip_modifier_chernobog_arcana_e2_effect"						"Overwhelming Odds"
     	"DOTA_Tooltip_modifier_chernobog_arcana_e2_effect_Description"			"Урон атаки увеличивает в зависимости от количества противников поблизости."	
 

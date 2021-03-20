@@ -58,6 +58,23 @@ function chernobog_shadow_hunt:OnToggle()
 	end
 end
 
+function chernobog_shadow_hunt:ProcE3Damage(caster, ability)
+    local e_3_level = caster:GetRuneValue("e", 3)
+	if not (e_3_level > 0) then
+	    return
+	end
+	local damage = (e_3_level * CHERNOBOG_E3_DMG_PCT) * OverflowProtectedGetAverageTrueAttackDamage(caster) / 100
+	local radius = CalculateFinalRadius(caster, CHERNOBOG_E3_RADIUS, DOTA_E_SLOT)
+	local enemies = SearchEnemies(caster, caster, radius, false)   
+	if #enemies > 0 then
+	    for _, enemy in pairs(enemies) do
+		    ChernobogDealDamage(caster, enemy, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_E, RPC_ELEMENT_DEMON, RPC_ELEMENT_NONE, false, false)
+			local pfx = CustomAbilities:QuickAttachParticle("particles/roshpit/chernobog/nights_procession_illusion.vpcf", enemy, 0.5)
+			ParticleManager:SetParticleControl(pfx, 1, Vector(0.5, 0, 0))
+		end
+	end
+end
+
 function modifier_shadow_hunt:IsHidden()
 	return false
 end
@@ -102,6 +119,7 @@ function modifier_shadow_hunt:OnCreated()
 		MODIFIER_SPECIAL_TYPE_ORDER_FILTER,
 		MODIFIER_ROSHPIT_MAGIC_ARMOR_BONUS
 	})
+	self.last_pos = self:GetCaster():GetAbsOrigin()
 	self:OnIntervalThink()
 	self:StartIntervalThink(CHERNOBOG_E_DRAIN_INTERVAL)
 end
@@ -120,6 +138,19 @@ function modifier_shadow_hunt:OnIntervalThink()
     local mp_drain = ability:GetSpecialValueFor("mp_drain_per_second")
     local allmodifier = caster:FindAllModifiers()
 	local e_2_radius = CalculateFinalRadius(self:GetCaster(), CHERNOBOG_E2_RADIUS, DOTA_E_SLOT)
+	local caster_pos = caster:GetAbsOrigin()
+	if caster_pos ~= self.last_pos then
+	    if not self.distance then
+	        self.distance = WallPhysics:GetDistance2d(caster_pos, self.last_pos)
+		else
+	        self.distance = self.distance + WallPhysics:GetDistance2d(caster_pos, self.last_pos)
+		end
+		if self.distance > CHERNOBOG_E3_PROC_DISTANCE then
+		    self.distance = 0
+			ability:ProcE3Damage(caster, ability)
+		end
+	    self.last_pos = caster_pos
+	end	
 	if self:IsAura() then
 	    if not self.pfx then
 	        self.pfx = ParticleManager:CreateParticle("particles/roshpit/chernobog/demon_form_slow_aura_spell_bloodbath_bubbles_.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
@@ -138,7 +169,11 @@ function modifier_shadow_hunt:OnIntervalThink()
 		    end
 	    end
     end
-	if not (self:GetDuration() > 0) then
+	if self:GetDuration() > 0 then
+	    if ability:GetToggleState() == true then
+		    self:SetDuration(-1, true)
+		end
+	else
         if currentHealth > minHealth then
            caster:SetHealth(math.max(currentHealth - currentHealth * CHERNOBOG_E_DRAIN_INTERVAL * hp_drain / 100, minHealth))
         end
@@ -177,7 +212,7 @@ end
 
 function modifier_shadow_hunt:GetModifierMoveSpeed_Max_Increase(params)
     if IsServer() then
-	    return self:GetAbility():GetSpecialValueFor("movespeed_cap") + self:GetCaster():GetRuneValue("e", 1) * CHERNOBOG_E1_MOVESPEED
+	    return self:GetAbility():GetSpecialValueFor("movespeed_cap") + self:GetCaster():GetRuneValue("e", 1) * CHERNOBOG_E1_MOVESPEED_CAP
     end
 end
 
@@ -327,21 +362,21 @@ function modifier_shadow_hunt:DoTeleport(caster, target, ability, end_point)
 	if afterWallPosition ~= end_point then
 		return
 	end
-	local particle1 = ParticleManager:CreateParticle("particles/roshpit/chernobog/chernobog_rune_c_c.vpcf", PATTACH_CUSTOMORIGIN, caster)
-	ParticleManager:SetParticleControl(particle1, 0, caster:GetAbsOrigin())		
+	local pfx1 = ParticleManager:CreateParticle("particles/roshpit/chernobog/chernobog_rune_c_c.vpcf", PATTACH_CUSTOMORIGIN, caster)
+	ParticleManager:SetParticleControl(pfx1, 0, caster:GetAbsOrigin())		
 	FindClearSpaceForUnit(caster, afterWallPosition, false)			
 	EmitSoundOn("Chernobog.TeleportMove", caster)
-	local particle2 = ParticleManager:CreateParticle("particles/roshpit/chernobog/chernobog_rune_c_c.vpcf", PATTACH_CUSTOMORIGIN, caster)
-	ParticleManager:SetParticleControl(particle2, 0, caster:GetAbsOrigin() + Vector(0, 0, 100))
+	ability:ProcE3Damage(caster, ability)	
+	local pfx2 = ParticleManager:CreateParticle("particles/roshpit/chernobog/chernobog_rune_c_c.vpcf", PATTACH_CUSTOMORIGIN, caster)
+	ParticleManager:SetParticleControl(pfx2, 0, caster:GetAbsOrigin() + Vector(0, 0, 100))
 	Timers:CreateTimer(3, function()
-		ParticleManager:DestroyParticle(particle1, false)
-		ParticleManager:ReleaseParticleIndex(particle1)		
-		ParticleManager:DestroyParticle(particle2, false)
-		ParticleManager:ReleaseParticleIndex(particle2)
+		ParticleManager:DestroyParticle(pfx1, false)
+		ParticleManager:ReleaseParticleIndex(pfx1)
+        ParticleManager:DestroyParticle(pfx2, false)
+		ParticleManager:ReleaseParticleIndex(pfx2)		
 	end)
 	if target ~= nil then
 		Timers:CreateTimer(0.15, function()
-			caster:AddNewModifier(caster, ability, "modifier_chernobog_e3_effect", {})
 			StartAnimation(caster, {duration = 0.3, activity = ACT_DOTA_ATTACK, rate = 3})
 			if caster:HasModifier("modifier_chernobog_glyph_5_1") then
 				local search_radius = CalculateFinalRadius(caster, CHERNOBOG_GLYPH_5_1_RADIUS, DOTA_E_SLOT)
@@ -359,26 +394,3 @@ function modifier_shadow_hunt:DoTeleport(caster, target, ability, end_point)
 		end)
 	end
 end
-
-function modifier_chernobog_e3_effect:OnCreated()
-    if not IsServer() then
-        return
-    end
-end
-
-function modifier_chernobog_e3_effect:GetTexture()
-    return "chernobog/chernobog_rune_e_3"
-end
-
-function modifier_chernobog_e3_cd:IsDebuff()
-	return true
-end
-
-function modifier_chernobog_e3_cd:IsPurgable()
-	return false
-end
-
-function modifier_chernobog_e3_cd:IsHidden()
-	return true
-end
-
