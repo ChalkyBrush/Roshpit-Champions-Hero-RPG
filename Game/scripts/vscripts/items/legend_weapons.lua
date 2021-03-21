@@ -571,10 +571,10 @@ function Weapons:RollLegendWeapon4(location, class, strictMaxItemLevel, disableD
 		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_4", "#BC96F2", nil, 4)
 		Weapons:SetLegendWeaponProperty2(weapon, "base_ability", 2)
 	elseif internalName == "paladin" then	
-		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_4", "#82C46D", nil, 4)
+		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_4", "#e2e83f", nil, 4)
 		Weapons:SetLegendWeaponProperty2(weapon, "base_ability", 2)
 	elseif internalName == "sorceress" then
-		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_4", "#E88640", nil, 4)
+		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_4", "#82C46D", nil, 4)
 		Weapons:SetLegendWeaponProperty2(weapon, "spirit", 2)
 	elseif internalName == "conjuror" then
 		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_4", "#C4FFE6", nil, 4)

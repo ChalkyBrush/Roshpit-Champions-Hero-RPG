@@ -758,6 +758,11 @@ function GameState:ModifierGainedFilter(modifierGainedTable)
 	if target and target:HasModifier("modifier_swamp_waders") and modifierGainedTable["duration"] > 0 then
 		modifierGainedTable["duration"] = modifierGainedTable["duration"] * (1 + ITEM_RPC_SWAMP_WADERS_BUFF_DURATION_INCREASE/100)
 	end
+	if target:HasModifier("modifier_sorceress_immortal_weapon_4_water_elemental") then
+		if target:GetTeamNumber() ~= caster:GetTeamNumber() and modifierGainedTable["duration"] > 0 then
+			modifierGainedTable["duration"] = modifierGainedTable["duration"]*(1-(SORCERESS_IMMORTAL_WEAPON_4_STATUS_RESISTANCE/100))
+		end
+	end
 	if caster and target and (target:GetTeamNumber() == caster:GetTeamNumber()) and modifierGainedTable["duration"] > 0 then
 		modifierGainedTable["duration"] = modifierGainedTable["duration"]*(1+(friendly_duration_modifier/100))
 	end
