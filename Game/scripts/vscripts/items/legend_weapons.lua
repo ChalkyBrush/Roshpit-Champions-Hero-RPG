@@ -61,7 +61,7 @@ function Weapons:RollLegendWeapon3WithDotaName(class, deathLocation)
 end
 
 function Weapons:RollRandomLegendWeapon4(deathLocation)
-	local classTable = {"flamewaker", "voltex", "axe", "astral", "epoch", "paladin", "seinaru", "warlord", "duskbringer", "auriun", "trapper", "spirit_warrior", "mountain_protector", "solunia", "hydroxis", "jex", "omniro", "bahamut", "chernobog", "rubilash"}
+	local classTable = {"flamewaker", "voltex", "axe", "astral", "epoch", "paladin", "seinaru", "warlord", "duskbringer", "auriun", "trapper", "spirit_warrior", "mountain_protector", "solunia", "hydroxis", "jex", "omniro", "bahamut", "chernobog", "rubilash", "venomort"}
 	local class = classTable[RandomInt(1, #classTable)]
 	return Weapons:RollLegendWeapon4(deathLocation, class)
 end
@@ -563,7 +563,7 @@ function Weapons:RollLegendWeapon4(location, class, strictMaxItemLevel, disableD
 		Weapons:SetLegendWeaponProperty2(weapon, "element_ice", 2)
 	elseif internalName == "venomort" then	
 		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_4", "#82C46D", nil, 4)
-		Weapons:SetLegendWeaponProperty2(weapon, "element_undead", 2)
+		Weapons:SetLegendWeaponProperty2(weapon, "item_damage", 3.5)
 	elseif internalName == "axe" then
 		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_4", "#EDDFDC", nil, 4)
 		Weapons:SetLegendWeaponProperty2(weapon, "max_health", 2.5)

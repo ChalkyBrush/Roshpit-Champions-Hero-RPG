@@ -362,3 +362,7 @@
     	"DOTA_Tooltip_ability_item_rpc_venomort_immortal_weapon_3"				"Hook of the Fetid Valley"
     	"item_property_venomort_immortal_weapon3"								"Mantle of Juiblex"
     	"property_venomort_immortal_weapon3_description"						"Each point of [E2] increases its base damage by @special_property1% of Venomort's maximum health."
+		
+		"DOTA_Tooltip_ability_item_rpc_venomort_immortal_weapon_4"				"Orb of Corrosion"
+    	"item_property_venomort_immortal_weapon4"								"Adder's Kiss"
+    	"property_venomort_immortal_weapon4_description"						"Venomort's attacks erupt in a <% VENOMORT_IMMORTAL_WEAPON_4_SPLASH_AOE %>-radius splash of acidic bile, dealing <% VENOMORT_IMMORTAL_WEAPON_4_SPLASH_DMG_PCT %>% of total attack power as Physical Poison damage and applying [W2] to affected enemies."

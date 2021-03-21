@@ -322,3 +322,7 @@
     	"DOTA_Tooltip_ability_item_rpc_venomort_immortal_weapon_3"				"Hook of the Fetid Valley"
     	"item_property_venomort_immortal_weapon3"								"Mantle of Juiblex"
     	"property_venomort_immortal_weapon3_description"						"Урон за руну [E2] увеличен на @special_property1% от максимального здоровья Venomort. "
+		
+		"DOTA_Tooltip_ability_item_rpc_venomort_immortal_weapon_4"				"Orb of Corrosion"
+    	"item_property_venomort_immortal_weapon4"								"Adder's Kiss"
+    	"property_venomort_immortal_weapon4_description"						"Атаки героя взрываются кислотными брызгами, поражая враго в радиусе <% VENOMORT_IMMORTAL_WEAPON_4_SPLASH_AOE %> от нанесенной атаки, при этом нанося урон в <% VENOMORT_IMMORTAL_WEAPON_4_SPLASH_DMG_PCT %>% от Силы Атаки героя и накладывая эффект [W2] на пораженных противников. Тип урона Физический, элемент - Яд."
