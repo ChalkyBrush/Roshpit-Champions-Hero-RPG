@@ -358,5 +358,6 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_chernobog_immortal_weapon_4"            "Saibot's Boon"
         "item_property_chernobog_immortal_weapon4"                             "Sinister Silhouette"
-        "property_chernobog_immortal_weapon4_description"                      "Увеличивает показатель снижения Брони всех рун и способностей Чернобога на <% CHERNOBOG_IMMORTAL_WEAPON_4_ARMOR_REDUC_MULT %>%."
+        "property_chernobog_immortal_weapon4_description"                      "Увеличивает показатель снижения Брони всех рун и способностей Чернобога на <% CHERNOBOG_IMMORTAL_WEAPON_4_ARMOR_REDUC_MULT %>%. Урон Чернобога по противникам под действием таких снижений Брони увеличивается на <% CHERNOBOG_IMMORTAL_WEAPON_4_AMP_ON_DEBUFFED_ENEMY %>%. Урон Способностей Чернобога по противникам с <font color='#ccff66'>0</font> Брони и Магической Защитой также наложит безмолвие на <font color='#ccff66'>2</font> сек."
+
 
