@@ -486,12 +486,12 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_ekkan_immortal_weapon_1"			"Soul Reacher"
 		"item_property_ekkan_immortal_weapon"							"Soul Collector"
-		"property_ekkan_immortal_weapon_description"					"Walking over a corpse collects it and adds <% EKKAN_IMMORTAL_WEAPON_1_BASE_DAMAGE %> base attack damage. Max 6 corpses and corpses last 10 seconds."
+		"property_ekkan_immortal_weapon_description"					"Walking over a corpse collects it and adds <% EKKAN_IMMORTAL_WEAPON_1_BASE_DAMAGE %> base attack damage. Max <% EKKAN_IMMORTAL_WEAPON_1_MAX_STACKS %> corpses and corpses last <% EKKAN_IMMORTAL_WEAPON_1_DURATION %> seconds."
 		
 		"DOTA_Tooltip_ability_item_rpc_ekkan_immortal_weapon_2"            "Encroaching Reach of Ymir"
         "item_property_ekkan_immortal_weapon2"                             "Gargoyle Command"
-        "property_ekkan_immortal_weapon2_description"                      "Ekkan's familiars' attacks deal an extra @special_property1% pure damage based on their attack power."
+        "property_ekkan_immortal_weapon2_description"                      "Ekkan's familiars' attacks deal an extra <% EKKAN_IMMORTAL_WEAPON_2_FAMILIAR_PURE_UNDEAD_ATTACK_PCT %> pure damage based on their attack power."
 
         "DOTA_Tooltip_ability_item_rpc_ekkan_immortal_weapon_3"            "Tormented Depth Spirits"
         "item_property_ekkan_immortal_weapon3"                             "Zombility"
-        "property_ekkan_immortal_weapon3_description"                      "Damage directly by Dominion units is increased by @special_property1x."
+        "property_ekkan_immortal_weapon3_description"                      "Damage directly by Dominion units is increased by <% EKKAN_IMMORTAL_WEAPON_3_AMP %>x."

@@ -483,12 +483,12 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_ekkan_immortal_weapon_1"			"Soul Reacher"
 		"item_property_ekkan_immortal_weapon"							"Soul Collector"
-		"property_ekkan_immortal_weapon_description"					"Прохождение рядом с трупом позволяет поглотить его и получить дополнительно 100000 базового урона. Максимум 6 бонусов, длительность 10 сек."
+		"property_ekkan_immortal_weapon_description"					"Прохождение рядом с трупом позволяет поглотить его и получить дополнительно <% EKKAN_IMMORTAL_WEAPON_1_BASE_DAMAGE %> базового урона. Максимум <% EKKAN_IMMORTAL_WEAPON_1_MAX_STACKS %> бонусов, длительность <% EKKAN_IMMORTAL_WEAPON_1_DURATION %> сек."
 		
 		"DOTA_Tooltip_ability_item_rpc_ekkan_immortal_weapon_2"            "Encroaching Reach of Ymir"
         "item_property_ekkan_immortal_weapon2"                             "Gargoyle Command"
-        "property_ekkan_immortal_weapon2_description"                      "Гаргульи наносят дополнительный чистый урон, равный @special_property1% от их текущего урона."
+        "property_ekkan_immortal_weapon2_description"                      "Гаргульи наносят дополнительный чистый урон, равный <% EKKAN_IMMORTAL_WEAPON_2_FAMILIAR_PURE_UNDEAD_ATTACK_PCT %>% от их текущего урона."
 
         "DOTA_Tooltip_ability_item_rpc_ekkan_immortal_weapon_3"            "Tormented Depth Spirits"
         "item_property_ekkan_immortal_weapon3"                             "Zombility"
-        "property_ekkan_immortal_weapon3_description"                      "Магический и чистый урон, напрямую наносимый умениями подчинённых юнитов увеличен в @special_property1 раз(а)."
+        "property_ekkan_immortal_weapon3_description"                      "Магический и чистый урон, напрямую наносимый умениями подчинённых юнитов увеличен в <% EKKAN_IMMORTAL_WEAPON_3_AMP %> раз(а)."
