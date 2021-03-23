@@ -495,3 +495,7 @@
         "DOTA_Tooltip_ability_item_rpc_ekkan_immortal_weapon_3"            "Tormented Depth Spirits"
         "item_property_ekkan_immortal_weapon3"                             "Zombility"
         "property_ekkan_immortal_weapon3_description"                      "Damage directly by Dominion units is increased by <% EKKAN_IMMORTAL_WEAPON_3_AMP %>x."
+		
+		"DOTA_Tooltip_ability_item_rpc_ekkan_immortal_weapon_4"            "Unbroken Circle"
+        "item_property_ekkan_immortal_weapon4"                             "Perpetual Cemetery"
+        "property_ekkan_immortal_weapon4_description"                      "[W] cast summons additional skeleton, even if no bone piles were in targeted area."

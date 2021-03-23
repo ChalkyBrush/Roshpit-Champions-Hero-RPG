@@ -492,3 +492,7 @@
         "DOTA_Tooltip_ability_item_rpc_ekkan_immortal_weapon_3"            "Tormented Depth Spirits"
         "item_property_ekkan_immortal_weapon3"                             "Zombility"
         "property_ekkan_immortal_weapon3_description"                      "Магический и чистый урон, напрямую наносимый умениями подчинённых юнитов увеличен в <% EKKAN_IMMORTAL_WEAPON_3_AMP %> раз(а)."
+		
+		"DOTA_Tooltip_ability_item_rpc_ekkan_immortal_weapon_4"            "Unbroken Circle"
+        "item_property_ekkan_immortal_weapon4"                             "Perpetual Cemetery"
+        "property_ekkan_immortal_weapon4_description"                      "[W] призывает дополнительного скелета, даже если в зоне заклинания нет ни одного трупа."

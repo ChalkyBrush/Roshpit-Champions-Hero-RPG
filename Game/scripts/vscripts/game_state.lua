@@ -2204,12 +2204,14 @@ function GameState:FilterDamage(filterTable)
 		end
 	end
 	if attacker:GetUnitName() == "ekkan_skeleton_mage" then
-		if filterTable.entindex_inflictor_const then
-			local ability_used = EntIndexToHScript(filterTable.entindex_inflictor_const)
-			if ability_used:GetAbilityName() == "ekkan_mage_blast" then
-				local damage = Filters:TakeArgumentsAndApplyDamage(victim, attacker.hero, filterTable.damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_NONE, true, nil)
-				filterTable["damage"] = damage
-				attacker.element1 = RPC_ELEMENT_UNDEAD
+		if ability_used ~= nil then
+			if filterTable.entindex_inflictor_const then
+				local ability_used = EntIndexToHScript(filterTable.entindex_inflictor_const)
+				if ability_used:GetAbilityName() == "ekkan_mage_blast" then
+					local damage = Filters:TakeArgumentsAndApplyDamage(victim, attacker.hero, filterTable.damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_NONE, true, nil)
+					filterTable["damage"] = damage
+					attacker.element1 = RPC_ELEMENT_UNDEAD
+				end
 			end
 		end
 	end

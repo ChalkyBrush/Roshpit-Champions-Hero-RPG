@@ -61,7 +61,7 @@ function Weapons:RollLegendWeapon3WithDotaName(class, deathLocation)
 end
 
 function Weapons:RollRandomLegendWeapon4(deathLocation)
-	local classTable = {"flamewaker", "voltex", "axe", "astral", "epoch", "paladin", "seinaru", "warlord", "duskbringer", "auriun", "trapper", "spirit_warrior", "mountain_protector", "solunia", "hydroxis", "jex", "omniro", "bahamut", "chernobog", "rubilash", "venomort"}
+	local classTable = {"flamewaker", "voltex", "axe", "astral", "epoch", "paladin", "seinaru", "warlord", "duskbringer", "auriun", "trapper", "spirit_warrior", "mountain_protector", "solunia", "hydroxis", "jex", "omniro", "bahamut", "chernobog", "rubilash", "venomort", "ekkan"}
 	local class = classTable[RandomInt(1, #classTable)]
 	return Weapons:RollLegendWeapon4(deathLocation, class)
 end
