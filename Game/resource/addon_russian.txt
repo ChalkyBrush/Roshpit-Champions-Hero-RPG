@@ -4068,7 +4068,8 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_chernobog_immortal_weapon_4"            "Saibot's Boon"
         "item_property_chernobog_immortal_weapon4"                             "Sinister Silhouette"
-        "property_chernobog_immortal_weapon4_description"                      "Увеличивает показатель снижения Брони всех рун и способностей Чернобога на <font color='#ccff66'>100</font>%."
+        "property_chernobog_immortal_weapon4_description"                      "Увеличивает показатель снижения Брони всех рун и способностей Чернобога на <font color='#ccff66'>100</font>%. Урон Чернобога по противникам под действием таких снижений Брони увеличивается на <font color='#ccff66'>20</font>%. Урон Способностей Чернобога по противникам с <font color='#ccff66'>0</font> Брони и Магической Защитой также наложит безмолвие на <font color='#ccff66'>2</font> сек."
+
 
 
 
@@ -6048,15 +6049,19 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_ekkan_immortal_weapon_1"			"Soul Reacher"
 		"item_property_ekkan_immortal_weapon"							"Soul Collector"
-		"property_ekkan_immortal_weapon_description"					"Прохождение рядом с трупом позволяет поглотить его и получить дополнительно 100000 базового урона. Максимум 6 бонусов, длительность 10 сек."
+		"property_ekkan_immortal_weapon_description"					"Прохождение рядом с трупом позволяет поглотить его и получить дополнительно <font color='#ccff66'>800</font> базового урона. Максимум <font color='#ccff66'>6</font> бонусов, длительность <font color='#ccff66'>10</font> сек."
 		
 		"DOTA_Tooltip_ability_item_rpc_ekkan_immortal_weapon_2"            "Encroaching Reach of Ymir"
         "item_property_ekkan_immortal_weapon2"                             "Gargoyle Command"
-        "property_ekkan_immortal_weapon2_description"                      "Гаргульи наносят дополнительный чистый урон, равный @special_property1% от их текущего урона."
+        "property_ekkan_immortal_weapon2_description"                      "Гаргульи наносят дополнительный чистый урон, равный <font color='#ccff66'>100</font>% от их текущего урона."
 
         "DOTA_Tooltip_ability_item_rpc_ekkan_immortal_weapon_3"            "Tormented Depth Spirits"
         "item_property_ekkan_immortal_weapon3"                             "Zombility"
-        "property_ekkan_immortal_weapon3_description"                      "Магический и чистый урон, напрямую наносимый умениями подчинённых юнитов увеличен в @special_property1 раз(а)."
+        "property_ekkan_immortal_weapon3_description"                      "Магический и чистый урон, напрямую наносимый умениями подчинённых юнитов увеличен в <font color='#ccff66'>3</font> раз(а)."
+		
+		"DOTA_Tooltip_ability_item_rpc_ekkan_immortal_weapon_4"            "Unbroken Circle"
+        "item_property_ekkan_immortal_weapon4"                             "Perpetual Cemetery"
+        "property_ekkan_immortal_weapon4_description"                      "[W] призывает дополнительного скелета, даже если в зоне заклинания нет ни одного трупа."
 
 		"tooltip_warlord_q_abilities"									"Stone Form, Ice Shell и Flame Rush"
 
@@ -8748,6 +8753,10 @@
 	"DOTA_Tooltip_ability_item_rpc_rubilash_immortal_weapon_3"            "Masterwork Brush"
 	"item_property_rubilash_immortal_weapon3"                             "Paint Mastery"
 	"property_rubilash_immortal_weapon3_description"                      "Урон способностей увеличивается на <font color='#ccff66'>1</font>x от Ловкости и Интеллекта, и на <font color='#ccff66'>5</font>% от Силы Атаки."
+	
+	"DOTA_Tooltip_ability_item_rpc_rubilash_immortal_weapon_4"            "Seal of Yemma"
+	"item_property_rubilash_immortal_weapon4"                             "Indelible Ink"
+	"property_rubilash_immortal_weapon4_description"                      "Каждое очко [W1] добавляет <font color='#ccff66'>90</font> к Броне, Магической Защите и обоим Пробитиям."
 
 	//ARCANAS
 
@@ -9017,11 +9026,11 @@
 
 
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2"						"[E4] Luminary"
-		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_Description"			"Урон <font color='#F6FFB5'>Света</font> увеличивается от Ловкости героя. Кроме того, каждое прочтение @Ability3 дает шанс на то, что @Ability4 можно будет произнести мгновенно."
+		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_Description"			"Урон <font color='#F6FFB5'>Света</font> увеличивается. Кроме того, каждое прочтение @Ability3 дает шанс на то, что @Ability4 можно будет произнести мгновенно."
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_property_one"			"Шанс сделать следующий ульт мгновенным"
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_suffix"					"%"
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_property_two"			"Урон <font color='#F6FFB5'>Света</font>"
-		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_suffix_two"				"% за 10 Ловкости"
+		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_suffix_two"				"%"
 
 		"DOTA_Tooltip_modifier_seinaru_arcana_e4_effect"                        "Luminary"
 		"DOTA_Tooltip_modifier_seinaru_arcana_e4_effect_Description"            "Ultimate ability requires no channel time"
@@ -10440,6 +10449,10 @@
         "item_property_sorceress_immortal_weapon3"                             "Fire Avatar"
         "property_sorceress_immortal_weapon3_description"                      "С прочтением (R) @Ability4 призывается копия Sorceress с текущими значениями (R) @Ability4 и (E) @Ability3. На призыв копии потратится 50% от макс. маны."
 		
+		"DOTA_Tooltip_ability_item_rpc_sorceress_immortal_weapon_4"            "Wind Waker"
+        "item_property_sorceress_immortal_weapon4"                             "Elemental Mastery"
+        "property_sorceress_immortal_weapon4_description"                      "[E2] наполняется энергией ветра, получая <font color='#ccff66'>80</font>% Сопротивления Эффектам, <font color='#ccff66'>300</font> дополнительной дальности атаки, <font color='#ccff66'>50</font> скорости атаки и <font color='#ccff66'>200</font> скорости перемещения. [E4] дополнительно получает элемент <font color='#7AE2A7'>Ветра</font>."
+		
 
     	"DOTA_Tooltip_ability_spirit_warrior_flametongue"			"Flameblood Weapon"
     	"DOTA_Tooltip_ability_spirit_warrior_flametongue_Description"	"Стихия: <font color='#EF4126'>Огонь</font><br>Накладывает на себя или выбранную союзную цель огненные чары, которые увеличивают урон и добавляют к атакам бонус магического урона. Пока активно, носитель получает увеличение <font color='#EF4126'>Огненного</font> урона."
@@ -10769,7 +10782,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_immortal_weapon_4"            "Heavenbound Shakujo"
         "item_property_spirit_warrior_immortal_weapon4"                             "Path of Harmony"
-        "property_spirit_warrior_immortal_weapon4_description"                      "Обезоруживает героя. Каждое очко Духа добавляет <font color='#ccff66'>1.5</font> Базового Урона Атаки и <font color='#ccff66'>3</font> к Пробитиям Брони и Магической Защиты."
+        "property_spirit_warrior_immortal_weapon4_description"                      "Стандартные атаки героя больше не могут навредить противникам. Каждое очко Духа добавляет <font color='#ccff66'>1.5</font> Базового Урона Атаки и <font color='#ccff66'>3</font> к Пробитиям Брони и Магической Защиты."
 
 
 		"tooltip_trapper_q"											"Fulminating Trap и Net Trap, Poison Trap и Torrent Trap"
@@ -11390,6 +11403,10 @@
     	"DOTA_Tooltip_ability_item_rpc_venomort_immortal_weapon_3"				"Hook of the Fetid Valley"
     	"item_property_venomort_immortal_weapon3"								"Mantle of Juiblex"
     	"property_venomort_immortal_weapon3_description"						"Урон за руну [E2] увеличен на @special_property1% от максимального здоровья Venomort. "
+		
+		"DOTA_Tooltip_ability_item_rpc_venomort_immortal_weapon_4"				"Orb of Corrosion"
+    	"item_property_venomort_immortal_weapon4"								"Adder's Kiss"
+    	"property_venomort_immortal_weapon4_description"						"Атаки героя взрываются кислотными брызгами, поражая враго в радиусе <font color='#ccff66'>250</font> от нанесенной атаки, при этом нанося урон в <font color='#ccff66'>45</font>% от Силы Атаки героя и накладывая эффект [W2] на пораженных противников. Тип урона Физический, элемент - Яд."
 
 		//Abilities
 		"DOTA_Tooltip_ability_voltex_overcharge"								"Overcharge"

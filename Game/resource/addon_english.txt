@@ -5853,15 +5853,19 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_ekkan_immortal_weapon_1"			"Soul Reacher"
 		"item_property_ekkan_immortal_weapon"							"Soul Collector"
-		"property_ekkan_immortal_weapon_description"					"Walking over a corpse collects it and adds <font color='#ccff66'>800</font> base attack damage. Max 6 corpses and corpses last 10 seconds."
+		"property_ekkan_immortal_weapon_description"					"Walking over a corpse collects it and adds <font color='#ccff66'>800</font> base attack damage. Max <font color='#ccff66'>6</font> corpses and corpses last <font color='#ccff66'>10</font> seconds."
 		
 		"DOTA_Tooltip_ability_item_rpc_ekkan_immortal_weapon_2"            "Encroaching Reach of Ymir"
         "item_property_ekkan_immortal_weapon2"                             "Gargoyle Command"
-        "property_ekkan_immortal_weapon2_description"                      "Ekkan's familiars' attacks deal an extra @special_property1% pure damage based on their attack power."
+        "property_ekkan_immortal_weapon2_description"                      "Ekkan's familiars' attacks deal an extra <font color='#ccff66'>100</font> pure damage based on their attack power."
 
         "DOTA_Tooltip_ability_item_rpc_ekkan_immortal_weapon_3"            "Tormented Depth Spirits"
         "item_property_ekkan_immortal_weapon3"                             "Zombility"
-        "property_ekkan_immortal_weapon3_description"                      "Damage directly by Dominion units is increased by @special_property1x."
+        "property_ekkan_immortal_weapon3_description"                      "Damage directly by Dominion units is increased by <font color='#ccff66'>3</font>x."
+		
+		"DOTA_Tooltip_ability_item_rpc_ekkan_immortal_weapon_4"            "Unbroken Circle"
+        "item_property_ekkan_immortal_weapon4"                             "Perpetual Cemetery"
+        "property_ekkan_immortal_weapon4_description"                      "[W] cast summons additional skeleton, even if no bone piles were in targeted area."
 
 
 		"tooltip_warlord_q_abilities"									"Stone Form, Ice Shell, and Flame Rush"
@@ -9129,6 +9133,10 @@
 	"DOTA_Tooltip_ability_item_rpc_rubilash_immortal_weapon_3"            "Masterwork Brush"
 	"item_property_rubilash_immortal_weapon3"                             "Paint Mastery"
 	"property_rubilash_immortal_weapon3_description"                      "All Base Paint damage is increased by <font color='#ccff66'>1</font>x Agility and Intelligence and <font color='#ccff66'>5</font>% of Attack Power."
+	
+	"DOTA_Tooltip_ability_item_rpc_rubilash_immortal_weapon_4"            "Seal of Yemma"
+	"item_property_rubilash_immortal_weapon4"                             "Indelible Ink"
+	"property_rubilash_immortal_weapon4_description"                      "Each point in [W1] also adds <font color='#ccff66'>90</font> to both Armors and both Pierces."
 
 	//ARCANAS
 
@@ -10815,6 +10823,9 @@
         "item_property_sorceress_immortal_weapon3"                             "Fire Avatar"
         "property_sorceress_immortal_weapon3_description"                      "Casting @Ability4 summons an avatar of Sorceress with a copy of @Ability4 and @Ability3. Summoning the avatar costs half of your max mana."
 		
+		"DOTA_Tooltip_ability_item_rpc_sorceress_immortal_weapon_4"            "Wind Waker"
+        "item_property_sorceress_immortal_weapon4"                             "Elemental Mastery"
+        "property_sorceress_immortal_weapon4_description"                      "[E2] is infused with air elemental energy, gaining <font color='#ccff66'>80</font>% Status Resistance, <font color='#ccff66'>300</font> bonus attack range and acquisition range, <font color='#ccff66'>50</font> bonus attack speed and <font color='#ccff66'>200</font> movement speed. Additionally, secondary element of [E4] becomes <font color='#7AE2A7'>Wind</font>."
 
     	"DOTA_Tooltip_ability_spirit_warrior_flametongue"			"Flameblood Weapon"
     	"DOTA_Tooltip_ability_spirit_warrior_flametongue_Description"	"Element: <font color='#EF4126'>Fire</font><br>Applies a fire buff to a target ally that increases attack damage and adds a flat burst of magic damage on attack land. While flameblood weapon is active, the carrier has increased <font color='#EF4126'>Fire</font> damage."
@@ -11143,7 +11154,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_immortal_weapon_4"            "Heavenbound Shakujo"
         "item_property_spirit_warrior_immortal_weapon4"                             "Path of Harmony"
-        "property_spirit_warrior_immortal_weapon4_description"                      "Spirit Warrior is disarmed while this weapon is equipped. Each point of Spirit adds <font color='#ccff66'>1.5</font> Base Attack Damage and <font color='#ccff66'>3</font> each to Armor Pierce and Spell Pierce."
+        "property_spirit_warrior_immortal_weapon4_description"                      "Spirit Warrior's standard attacks cannot hurt enemies anymore. Each point of Spirit adds <font color='#ccff66'>1.5</font> Base Attack Damage and <font color='#ccff66'>3</font> each to Armor Pierce and Spell Pierce."
 
 
 		"tooltip_trapper_q"											"Fulminating Trap, Net Trap, Poison Trap & Torrent Trap"
@@ -11809,6 +11820,10 @@
     	"DOTA_Tooltip_ability_item_rpc_venomort_immortal_weapon_3"				"Hook of the Fetid Valley"
     	"item_property_venomort_immortal_weapon3"								"Mantle of Juiblex"
     	"property_venomort_immortal_weapon3_description"						"Each point of [E2] increases its base damage by @special_property1% of Venomort's maximum health."
+		
+		"DOTA_Tooltip_ability_item_rpc_venomort_immortal_weapon_4"				"Orb of Corrosion"
+    	"item_property_venomort_immortal_weapon4"								"Adder's Kiss"
+    	"property_venomort_immortal_weapon4_description"						"Venomort's attacks erupt in a <font color='#ccff66'>250</font>-radius splash of acidic bile, dealing <font color='#ccff66'>45</font>% of total attack power as Physical Poison damage and applying [W2] to affected enemies."
 
 
 		//Abilities
