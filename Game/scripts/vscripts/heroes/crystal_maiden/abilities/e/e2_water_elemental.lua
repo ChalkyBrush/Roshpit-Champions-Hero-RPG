@@ -43,6 +43,13 @@ local function summon(caster, ability, origin)
     if caster:HasModifier("modifier_sorceress_glyph_4_1") then
         ability:ApplyDataDrivenModifier(caster, caster.waterElemental, "modifier_water_elemental_4_1_enchancement", {})
     end
+	if caster:HasModifier("modifier_sorceress_immortal_weapon_4") then
+		ability:ApplyDataDrivenModifier(caster, caster.waterElemental, "modifier_sorceress_immortal_weapon_4_water_elemental", {})
+		CustomAbilities:QuickAttachParticle("particles/econ/items/windrunner/windranger_arcana/windranger_arcana_frontpage_ambient.vpcf", caster.waterElemental, 9999)
+		local Acquisition = caster.waterElemental:GetAcquisitionRange()
+		caster.waterElemental:SetAcquisitionRange(Acquisition+SORCERESS_IMMORTAL_WEAPON_4_ACQUISITION_BONUS)
+		
+	end
 
     local armor = SORCERESS_E2_HEALTH_AMPLIFY * caster:GetPhysicalArmorValue(false)
 
@@ -96,6 +103,11 @@ function attack(event)
     local enemies = FindUnitsInRadius(attacker:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
     local slowDuration = 1.2
     local ability = attacker:FindAbilityByName('sorc_elemental_ability')
+	local element1 = RPC_ELEMENT_ICE
+	local element2 = RPC_ELEMENT_NONE
+	if creator:HasModifier("modifier_sorceress_immortal_weapon_4") then
+		element2 = RPC_ELEMENT_WIND
+	end
     if #enemies > 0 then
         for _, enemy in pairs(enemies) do
             local luck = RandomInt(1, 100)
@@ -108,7 +120,7 @@ function attack(event)
                 finalDamage = frozenDamage
             end
             if creator.e_4_level and creator.e_4_level > 0 then
-                Filters:TakeArgumentsAndApplyDamage(enemy, creator, finalDamage, DAMAGE_TYPE_MAGICAL, BASE_ITEM, RPC_ELEMENT_ICE, RPC_ELEMENT_NONE)
+                Filters:TakeArgumentsAndApplyDamage(enemy, creator, finalDamage, DAMAGE_TYPE_MAGICAL, BASE_ITEM, element1, element2)
             end
             ability:ApplyDataDrivenModifier(attacker, enemy, "modifier_elemental_slow", {duration = slowDuration})
         end
@@ -123,7 +135,6 @@ function attack(event)
             -- createProjectile(attacker, target, ability)
         end
     end
-
 end
 
 function createProjectile(attacker, enemy, ability)

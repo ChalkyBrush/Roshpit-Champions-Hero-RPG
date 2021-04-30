@@ -235,6 +235,10 @@
 	"DOTA_Tooltip_ability_item_rpc_rubilash_immortal_weapon_3"            "Masterwork Brush"
 	"item_property_rubilash_immortal_weapon3"                             "Paint Mastery"
 	"property_rubilash_immortal_weapon3_description"                      "All Base Paint damage is increased by <% RUBILASH_IMMORTAL_WEAPON_3_AGI_AND_INT_MULT_TO_PAINT %>x Agility and Intelligence and <% RUBILASH_IMMORTAL_WEAPON_3_ATK_DMG_PCT_TO_PAINT %>% of Attack Power."
+	
+	"DOTA_Tooltip_ability_item_rpc_rubilash_immortal_weapon_4"            "Seal of Yemma"
+	"item_property_rubilash_immortal_weapon4"                             "Indelible Ink"
+	"property_rubilash_immortal_weapon4_description"                      "Each point in [W1] also adds <% RUBILASH_IMMORTAL_WEAPON_WEAPON_4_DERIVATES_BONUS %> to both Armors and both Pierces."
 
 	//ARCANAS
 

@@ -391,3 +391,6 @@
         "item_property_sorceress_immortal_weapon3"                             "Fire Avatar"
         "property_sorceress_immortal_weapon3_description"                      "Casting @Ability4 summons an avatar of Sorceress with a copy of @Ability4 and @Ability3. Summoning the avatar costs half of your max mana."
 		
+		"DOTA_Tooltip_ability_item_rpc_sorceress_immortal_weapon_4"            "Wind Waker"
+        "item_property_sorceress_immortal_weapon4"                             "Elemental Mastery"
+        "property_sorceress_immortal_weapon4_description"                      "[E2] is infused with air elemental energy, gaining <% SORCERESS_IMMORTAL_WEAPON_4_STATUS_RESISTANCE %>% Status Resistance, <% SORCERESS_IMMORTAL_WEAPON_4_ATTACK_RANGE_BONUS %> bonus attack range and acquisition range, <% SORCERESS_IMMORTAL_WEAPON_4_ATTACK_SPEED_BONUS %> bonus attack speed and <% SORCERESS_IMMORTAL_WEAPON_4_ATTACK_MOVESPEED_BONUS %> movement speed. Additionally, secondary element of [E4] becomes <font color=ELEMENT_WIND>Wind</font>."

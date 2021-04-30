@@ -235,6 +235,10 @@
 	"DOTA_Tooltip_ability_item_rpc_rubilash_immortal_weapon_3"            "Masterwork Brush"
 	"item_property_rubilash_immortal_weapon3"                             "Paint Mastery"
 	"property_rubilash_immortal_weapon3_description"                      "Урон способностей увеличивается на <% RUBILASH_IMMORTAL_WEAPON_3_AGI_AND_INT_MULT_TO_PAINT %>x от Ловкости и Интеллекта, и на <% RUBILASH_IMMORTAL_WEAPON_3_ATK_DMG_PCT_TO_PAINT %>% от Силы Атаки."
+	
+	"DOTA_Tooltip_ability_item_rpc_rubilash_immortal_weapon_4"            "Seal of Yemma"
+	"item_property_rubilash_immortal_weapon4"                             "Indelible Ink"
+	"property_rubilash_immortal_weapon4_description"                      "Каждое очко [W1] добавляет <% RUBILASH_IMMORTAL_WEAPON_WEAPON_4_DERIVATES_BONUS %> к Броне, Магической Защите и обоим Пробитиям."
 
 	//ARCANAS
 

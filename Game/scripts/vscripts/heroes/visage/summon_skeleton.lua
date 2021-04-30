@@ -34,6 +34,11 @@ function cast_raise_skeleton(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
+	local attack_mult = event.attack_mult
+	local skeleton_duration = event.skeleton_duration
+	local armor_mult = event.armor_mult
+	local max_skeletons = event.max_skeletons
+	local skeleton_health = event.skeleton_health
 	local point = event.target_points[1]
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), point, nil, 105, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
@@ -43,99 +48,8 @@ function cast_raise_skeleton(event)
 				local summonPosition = enemy:GetAbsOrigin()
 				Timers:CreateTimer(0.2, function()
 					UTIL_Remove(target)
-					local unitName = "castle_skeleton_warrior"
-					local attackDamage = caster:GetAttackDamage() * event.attack_mult
-					local luck = RandomInt(1, 10)
-					local applyTexture = true
-					local w_3_level = 0
-					local w_1_level = Runes:GetTotalRuneLevel(caster, 1, "w_1", "ekkan")
-					local w_4_level = Runes:GetTotalRuneLevel(caster, 4, "w_4", "ekkan")
-					if luck <= 3 then
-						if w_1_level > 0 then
-							unitName = "ekkan_skeleton_archer"
-							attackDamage = EKKAN_W1_DAMAGE_FLAT * w_1_level + caster:GetAttackDamage() * w_1_level * EKKAN_W1_ATTACK_POWER_MULTIPLE
-							applyTexture = true
-						end
-					elseif luck <= 6 then
-						w_3_level = Runes:GetTotalRuneLevel(caster, 3, "w_3", "ekkan")
-						if w_3_level > 0 then
-							unitName = "ekkan_skeleton_mage"
-						end
-					end
-					local skeleton = CreateUnitByName(unitName, summonPosition, false, nil, nil, caster:GetTeamNumber())
-					skeleton:SetControllableByPlayer(caster:GetPlayerOwnerID(), false)
-					local skeletonDuration = event.skeleton_duration
-					local w_2_level = Runes:GetTotalRuneLevel(caster, 2, "w_2", "ekkan")
-					if w_2_level > 0 then
-						skeletonDuration = skeletonDuration + EKKAN_W2_DURATION * w_2_level
-					end
-					if caster:HasModifier("modifier_ekkan_glyph_3_1") then
-						skeletonDuration = skeletonDuration + skeletonDuration * EKKAN_GLYPH_3_1_SKELETON_DURATION_INCREASE_PCT/100
-					end
-
-					skeletonDuration = Filters:GetAdjustedBuffDuration(caster, skeletonDuration, false)
-					ability:ApplyDataDrivenModifier(caster, skeleton, "modifier_skeleton_summon_unit", {duration = skeletonDuration})
-					local skeleArmor = caster:GetRoshpitArmor() * event.armor_mult
-					local skeleMagicArmor = caster:GetRoshpitMagicArmor() * event.armor_mult + w_4_level*EKKAN_W4_MAGIC_ARMOR
-
-					local skele_armor_pierce = caster:GetRoshpitArmorPierce() + w_4_level*EKKAN_W4_PIERCES
-					local skele_spell_pierce = caster:GetRoshpitSpellPierce() + w_4_level*EKKAN_W4_PIERCES
-					--print(skeleArmor)
-					--print("------")
-					skeleton:SetBaseRoshpitArmor(skeleArmor)
-					skeleton:SetBaseRoshpitMagicArmor(skeleMagicArmor)
-					skeleton:SetBaseRoshpitArmorPierce(skele_armor_pierce)
-					skeleton:SetBaseRoshpitSpellPierce(skele_spell_pierce)
-					skeleton.w_1_level = w_1_level
-					skeleton:SetBaseDamageMin(attackDamage)
-					skeleton:SetBaseDamageMax(attackDamage)
-
-					if not ability.skeleTable then
-						ability.skeleTable = {}
-					end
-					local skeleton_health = event.skeleton_health
-					skeleton:SetMaxHealth(skeleton_health)
-					skeleton:SetBaseMaxHealth(skeleton_health)
-					skeleton:SetHealth(skeleton_health)
-					skeleton.ekkan_unit = true
-					skeleton.hero = caster
-					skeleton.w_3_level = w_3_level
-					skeleton.ekkan_dominion = true
-					skeleton.dominion = true
-
-					table.insert(ability.skeleTable, skeleton)
-					local max_skeletons = event.max_skeletons
-					if caster:HasModifier("modifier_ekkan_glyph_1_1") then
-						max_skeletons = max_skeletons + EKKAN_GLYPH_1_1_ADD_UNITS
-					end
-					if #ability.skeleTable > max_skeletons then
-						if IsValidEntity(ability.skeleTable[1]) then
-							ability.skeleTable[1]:ForceKill(false)
-						end
-					end
-					if applyTexture then
-						ability:ApplyDataDrivenModifier(caster, skeleton, "modifier_skeleton_summon_texture_effect", {})
-					end
-					reindexSkeleTable(ability)
-					StartAnimation(skeleton, {duration = 0.6, activity = ACT_DOTA_SPAWN, rate = 0.8})
-					ability:ApplyDataDrivenModifier(caster, skeleton, "modifier_skeleton_spawning", {duration = 0.5})
-					CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_visage/visage_stone_form.vpcf", skeleton, 3)
-					EmitSoundOn("Ekkan.SkeletonSpawn", skeleton)
-
-					if w_4_level > 0 then
-						ability:ApplyDataDrivenModifier(caster, skeleton, "modifier_ekkan_d_b_magic_resist", {})
-						skeleton:SetModifierStackCount("modifier_ekkan_d_b_magic_resist", caster, w_4_level)
-					end
-					skeleton:SetRoshpitLevel(caster:GetLevel())
-					skeleton.stance = "aggressive"
-					skeleton:SetOwner(caster)
-					FindClearSpaceForUnit(skeleton, skeleton:GetAbsOrigin(), false)
-					ability:ApplyDataDrivenModifier(caster, caster, "modifier_summon_skeleton_counter", {})
-					caster:SetModifierStackCount("modifier_summon_skeleton_counter", caster, #ability.skeleTable)
-					skeleton.owner = caster:GetPlayerOwnerID()
-					skeleton:CalculateAndSaveRoshpitAttributes()
+					create_skeleton(event, caster, ability, attack_mult, skeleton_duration, armor_mult, max_skeletons, skeleton_health, summonPosition)
 				end)
-
 				local beamPFX = ParticleManager:CreateParticle("particles/roshpit/ekkan/cast_beams_beams.vpcf", PATTACH_CUSTOMORIGIN, caster)
 				ParticleManager:SetParticleControl(beamPFX, 0, caster:GetAbsOrigin())
 				ParticleManager:SetParticleControl(beamPFX, 1, summonPosition)
@@ -146,7 +60,111 @@ function cast_raise_skeleton(event)
 			end
 		end
 	end
+	if caster:HasModifier("modifier_ekkan_immortal_weapon_4") then
+		create_skeleton(event, caster, ability, attack_mult, skeleton_duration, armor_mult, max_skeletons, skeleton_health, point)
+		local beamPFX = ParticleManager:CreateParticle("particles/roshpit/ekkan/cast_beams_beams.vpcf", PATTACH_CUSTOMORIGIN, caster)
+				ParticleManager:SetParticleControl(beamPFX, 0, caster:GetAbsOrigin())
+				ParticleManager:SetParticleControl(beamPFX, 1, point)
+		Timers:CreateTimer(3, function()
+				ParticleManager:DestroyParticle(beamPFX, false)
+				ParticleManager:ReleaseParticleIndex(beamPFX)
+		end)
+	end
 	Filters:CastSkillArguments(BASE_ABILITY_W, caster)
+end
+
+function create_skeleton(event, caster, ability, attack_mult, skeleton_duration, armor_mult, max_skeletons, skeleton_health, summonPosition)
+	local unitName = "castle_skeleton_warrior"
+	local attackDamage = caster:GetAttackDamage() * attack_mult
+	local luck = RandomInt(1, 10)
+	local applyTexture = true
+	local w_3_level = 0
+	local w_1_level = Runes:GetTotalRuneLevel(caster, 1, "w_1", "ekkan")
+	local w_4_level = Runes:GetTotalRuneLevel(caster, 4, "w_4", "ekkan")
+	if luck <= 3 then
+		if w_1_level > 0 then
+			unitName = "ekkan_skeleton_archer"
+			attackDamage = EKKAN_W1_DAMAGE_FLAT * w_1_level + caster:GetAttackDamage() * w_1_level * EKKAN_W1_ATTACK_POWER_MULTIPLE
+			applyTexture = true
+		end
+	elseif luck <= 6 then
+		w_3_level = Runes:GetTotalRuneLevel(caster, 3, "w_3", "ekkan")
+		if w_3_level > 0 then
+			unitName = "ekkan_skeleton_mage"
+		end
+	end
+	local skeleton = CreateUnitByName(unitName, summonPosition, false, nil, nil, caster:GetTeamNumber())
+	skeleton:SetControllableByPlayer(caster:GetPlayerOwnerID(), false)
+	local skeletonDuration = skeleton_duration
+	local w_2_level = Runes:GetTotalRuneLevel(caster, 2, "w_2", "ekkan")
+	if w_2_level > 0 then
+		skeletonDuration = skeletonDuration + EKKAN_W2_DURATION * w_2_level
+	end
+	if caster:HasModifier("modifier_ekkan_glyph_3_1") then
+		skeletonDuration = skeletonDuration + skeletonDuration * EKKAN_GLYPH_3_1_SKELETON_DURATION_INCREASE_PCT/100
+	end
+
+	skeletonDuration = Filters:GetAdjustedBuffDuration(caster, skeletonDuration, false)
+	ability:ApplyDataDrivenModifier(caster, skeleton, "modifier_skeleton_summon_unit", {duration = skeletonDuration})
+	local skeleArmor = caster:GetRoshpitArmor() * armor_mult
+	local skeleMagicArmor = caster:GetRoshpitMagicArmor() * armor_mult + w_4_level*EKKAN_W4_MAGIC_ARMOR
+
+	local skele_armor_pierce = caster:GetRoshpitArmorPierce() + w_4_level*EKKAN_W4_PIERCES
+	local skele_spell_pierce = caster:GetRoshpitSpellPierce() + w_4_level*EKKAN_W4_PIERCES
+	--print(skeleArmor)
+	--print("------")
+	skeleton:SetBaseRoshpitArmor(skeleArmor)
+	skeleton:SetBaseRoshpitMagicArmor(skeleMagicArmor)
+	skeleton:SetBaseRoshpitArmorPierce(skele_armor_pierce)
+	skeleton:SetBaseRoshpitSpellPierce(skele_spell_pierce)
+	skeleton.w_1_level = w_1_level
+	skeleton:SetBaseDamageMin(attackDamage)
+	skeleton:SetBaseDamageMax(attackDamage)
+
+	if not ability.skeleTable then
+		ability.skeleTable = {}
+	end
+	local skeleton_health = skeleton_health
+	skeleton:SetMaxHealth(skeleton_health)
+	skeleton:SetBaseMaxHealth(skeleton_health)
+	skeleton:SetHealth(skeleton_health)
+	skeleton.ekkan_unit = true
+	skeleton.hero = caster
+	skeleton.w_3_level = w_3_level
+	skeleton.ekkan_dominion = true
+	skeleton.dominion = true
+
+	table.insert(ability.skeleTable, skeleton)
+	local max_skeletons = max_skeletons
+	if caster:HasModifier("modifier_ekkan_glyph_1_1") then
+		max_skeletons = max_skeletons + EKKAN_GLYPH_1_1_ADD_UNITS
+	end
+	if #ability.skeleTable > max_skeletons then
+		if IsValidEntity(ability.skeleTable[1]) then
+			ability.skeleTable[1]:ForceKill(false)
+		end
+	end
+	if applyTexture then
+		ability:ApplyDataDrivenModifier(caster, skeleton, "modifier_skeleton_summon_texture_effect", {})
+	end
+	reindexSkeleTable(ability)
+	StartAnimation(skeleton, {duration = 0.6, activity = ACT_DOTA_SPAWN, rate = 0.8})
+	ability:ApplyDataDrivenModifier(caster, skeleton, "modifier_skeleton_spawning", {duration = 0.5})
+	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_visage/visage_stone_form.vpcf", skeleton, 3)
+	EmitSoundOn("Ekkan.SkeletonSpawn", skeleton)
+
+	if w_4_level > 0 then
+		ability:ApplyDataDrivenModifier(caster, skeleton, "modifier_ekkan_d_b_magic_resist", {})
+		skeleton:SetModifierStackCount("modifier_ekkan_d_b_magic_resist", caster, w_4_level)
+	end
+	skeleton:SetRoshpitLevel(caster:GetLevel())
+	skeleton.stance = "aggressive"
+	skeleton:SetOwner(caster)
+	FindClearSpaceForUnit(skeleton, skeleton:GetAbsOrigin(), false)
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_summon_skeleton_counter", {})
+	caster:SetModifierStackCount("modifier_summon_skeleton_counter", caster, #ability.skeleTable)
+	skeleton.owner = caster:GetPlayerOwnerID()
+	skeleton:CalculateAndSaveRoshpitAttributes()
 end
 
 function reindexSkeleTable(ability)

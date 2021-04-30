@@ -522,6 +522,7 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 		"BaseClass"	"item_datadriven"
 		"AbilityTextureName"	"weapons/legends/venomort_immortal_weapon_4"
 		"AbilityCastRange"	"900"
@@ -531,6 +532,10 @@
 		"ItemPermanent"			"0"
 		"ItemQuality"			"common"
 		"ItemDroppable"	"1"
+		"precache"
+        {
+            "particle"  "particles/roshpit/venomort/venomort_weapon_4_splash.vpcf"
+        }
 		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"MaxUpgradeLevel"	"1"
@@ -552,6 +557,22 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnAttackLanded"
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"	"heroes/hero_necrolyte/venomort_weapons.lua"
+                        "Function"		"venomort_immortal_weapon_4_attack_land"
+                    }
+                }
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"element_one"			"5"
 			}
 		}
 	}

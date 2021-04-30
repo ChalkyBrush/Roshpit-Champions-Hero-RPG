@@ -758,6 +758,11 @@ function GameState:ModifierGainedFilter(modifierGainedTable)
 	if target and target:HasModifier("modifier_swamp_waders") and modifierGainedTable["duration"] > 0 then
 		modifierGainedTable["duration"] = modifierGainedTable["duration"] * (1 + ITEM_RPC_SWAMP_WADERS_BUFF_DURATION_INCREASE/100)
 	end
+	if target:HasModifier("modifier_sorceress_immortal_weapon_4_water_elemental") then
+		if target:GetTeamNumber() ~= caster:GetTeamNumber() and modifierGainedTable["duration"] > 0 then
+			modifierGainedTable["duration"] = modifierGainedTable["duration"]*(1-(SORCERESS_IMMORTAL_WEAPON_4_STATUS_RESISTANCE/100))
+		end
+	end
 	if caster and target and (target:GetTeamNumber() == caster:GetTeamNumber()) and modifierGainedTable["duration"] > 0 then
 		modifierGainedTable["duration"] = modifierGainedTable["duration"]*(1+(friendly_duration_modifier/100))
 	end
@@ -2199,12 +2204,14 @@ function GameState:FilterDamage(filterTable)
 		end
 	end
 	if attacker:GetUnitName() == "ekkan_skeleton_mage" then
-		if filterTable.entindex_inflictor_const then
-			local ability_used = EntIndexToHScript(filterTable.entindex_inflictor_const)
-			if ability_used:GetAbilityName() == "ekkan_mage_blast" then
-				local damage = Filters:TakeArgumentsAndApplyDamage(victim, attacker.hero, filterTable.damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_NONE, true, nil)
-				filterTable["damage"] = damage
-				attacker.element1 = RPC_ELEMENT_UNDEAD
+		if ability_used ~= nil then
+			if filterTable.entindex_inflictor_const then
+				local ability_used = EntIndexToHScript(filterTable.entindex_inflictor_const)
+				if ability_used:GetAbilityName() == "ekkan_mage_blast" then
+					local damage = Filters:TakeArgumentsAndApplyDamage(victim, attacker.hero, filterTable.damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_NONE, true, nil)
+					filterTable["damage"] = damage
+					attacker.element1 = RPC_ELEMENT_UNDEAD
+				end
 			end
 		end
 	end

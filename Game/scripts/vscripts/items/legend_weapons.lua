@@ -61,13 +61,13 @@ function Weapons:RollLegendWeapon3WithDotaName(class, deathLocation)
 end
 
 function Weapons:RollRandomLegendWeapon4(deathLocation)
-	local classTable = {"flamewaker", "voltex", "axe", "astral", "epoch", "paladin", "seinaru", "warlord", "duskbringer", "auriun", "trapper", "spirit_warrior", "mountain_protector", "solunia", "hydroxis", "jex", "omniro", "bahamut", "chernobog"}
+	local classTable = {"flamewaker", "voltex", "axe", "astral", "epoch", "paladin", "seinaru", "warlord", "duskbringer", "auriun", "trapper", "spirit_warrior", "mountain_protector", "solunia", "hydroxis", "jex", "omniro", "bahamut", "chernobog", "rubilash", "venomort", "ekkan"}
 	local class = classTable[RandomInt(1, #classTable)]
 	return Weapons:RollLegendWeapon4(deathLocation, class)
 end
 
 function Weapons:RollLegendWeapon4WithDotaName(class, deathLocation)
-	local classTable = {"flamewaker", "voltex", "axe", "astral", "epoch", "paladin", "seinaru", "warlord", "duskbringer", "auriun", "trapper", "spirit_warrior", "mountain_protector", "solunia", "hydroxis", "jex", "omniro", "bahamut", "chernobog"}
+	local classTable = {"flamewaker", "voltex", "axe", "astral", "epoch", "paladin", "seinaru", "warlord", "duskbringer", "auriun", "trapper", "spirit_warrior", "mountain_protector", "solunia", "hydroxis", "jex", "omniro", "bahamut", "chernobog", "rubilash"}
 	class = HerosCustom:GetInternalHeroNameMain(class)
 	return Weapons:RollLegendWeapon4(deathLocation, class)
 end
@@ -563,7 +563,7 @@ function Weapons:RollLegendWeapon4(location, class, strictMaxItemLevel, disableD
 		Weapons:SetLegendWeaponProperty2(weapon, "element_ice", 2)
 	elseif internalName == "venomort" then	
 		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_4", "#82C46D", nil, 4)
-		Weapons:SetLegendWeaponProperty2(weapon, "element_undead", 2)
+		Weapons:SetLegendWeaponProperty2(weapon, "item_damage", 3.5)
 	elseif internalName == "axe" then
 		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_4", "#EDDFDC", nil, 4)
 		Weapons:SetLegendWeaponProperty2(weapon, "max_health", 2.5)
@@ -571,10 +571,10 @@ function Weapons:RollLegendWeapon4(location, class, strictMaxItemLevel, disableD
 		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_4", "#BC96F2", nil, 4)
 		Weapons:SetLegendWeaponProperty2(weapon, "base_ability", 2)
 	elseif internalName == "paladin" then	
-		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_4", "#82C46D", nil, 4)
+		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_4", "#e2e83f", nil, 4)
 		Weapons:SetLegendWeaponProperty2(weapon, "base_ability", 2)
 	elseif internalName == "sorceress" then
-		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_4", "#E88640", nil, 4)
+		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_4", "#82C46D", nil, 4)
 		Weapons:SetLegendWeaponProperty2(weapon, "spirit", 2)
 	elseif internalName == "conjuror" then
 		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_4", "#C4FFE6", nil, 4)
@@ -632,7 +632,7 @@ function Weapons:RollLegendWeapon4(location, class, strictMaxItemLevel, disableD
 		Weapons:SetLegendWeaponProperty2(weapon, "element_normal", 0.5)
 	elseif internalName == "rubilash" then
 		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_4", "#9cf0b1", nil, 4)
-		Weapons:SetLegendWeaponProperty2(weapon, "base_ability", 2)
+		Weapons:SetLegendWeaponProperty2(weapon, "strength", 2)
 	end
 
 

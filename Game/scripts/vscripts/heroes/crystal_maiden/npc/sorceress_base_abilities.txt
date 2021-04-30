@@ -544,6 +544,7 @@
 			"particle"					"particles/econ/items/meepo/meepo_colossal_crystal_chorus/sorceress_blink.vpcf"
 			"particle"					"particles/units/heroes/hero_necrolyte/necrolyte_scythe_mist.vpcf"
 			"soundfile"					"items/hotd.wav"
+			"particle"					"particles/econ/items/windrunner/windranger_arcana/windranger_arcana_frontpage_ambient.vpcf"
 		}
 
 		"OnSpellStart"
@@ -632,6 +633,18 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "<% SORCERESS_GLYPH_4_1_BONUS_AS_ELEMENTAL %>"
+				}
+			}
+			"modifier_sorceress_immortal_weapon_4_water_elemental"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "<% SORCERESS_IMMORTAL_WEAPON_4_ATTACK_RANGE_BONUS %>"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "<% SORCERESS_IMMORTAL_WEAPON_4_ATTACK_SPEED_BONUS %>"
+					 "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "<% SORCERESS_IMMORTAL_WEAPON_4_ATTACK_MOVESPEED_BONUS %>"
 				}
 			}
 			"modifier_clear_cast"

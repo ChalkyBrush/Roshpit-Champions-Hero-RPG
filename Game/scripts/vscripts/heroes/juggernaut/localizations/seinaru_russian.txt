@@ -237,11 +237,11 @@
 
 
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2"						"[E4] Luminary"
-		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_Description"			"Урон <font color='#F6FFB5'>Света</font> увеличивается от Ловкости героя. Кроме того, каждое прочтение @Ability3 дает шанс на то, что @Ability4 можно будет произнести мгновенно."
+		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_Description"			"Урон <font color='#F6FFB5'>Света</font> увеличивается. Кроме того, каждое прочтение @Ability3 дает шанс на то, что @Ability4 можно будет произнести мгновенно."
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_property_one"			"Шанс сделать следующий ульт мгновенным"
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_suffix"					"%"
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_property_two"			"Урон <font color='#F6FFB5'>Света</font>"
-		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_suffix_two"				"% за 10 Ловкости"
+		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_suffix_two"				"%"
 
 		"DOTA_Tooltip_modifier_seinaru_arcana_e4_effect"                        "Luminary"
 		"DOTA_Tooltip_modifier_seinaru_arcana_e4_effect_Description"            "Ultimate ability requires no channel time"
