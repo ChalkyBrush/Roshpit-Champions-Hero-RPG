@@ -1,5 +1,5 @@
 function getWeaponIndex(queryUnit, index){
-	var heroName = Entities.GetClassname(queryUnit)
+	var heroName = Entities.GetUnitName( queryUnit )
 	var weaponUpgrades = []
 	if (heroName == "npc_dota_hero_dragon_knight"){
 		weaponUpgrades = getFlamewakerWeapons(index)
@@ -775,7 +775,7 @@ function getUpgradePanelIndex(currentIndex){
 }
 
 function runeTranslate(queryUnit, rune){
-	var heroName = Entities.GetClassname(queryUnit)
+	var heroName = Entities.GetUnitName( queryUnit )
 	var runeName = ""
 	if (heroName == "npc_dota_hero_dragon_knight"){
 		runeName = "flamewaker_"+rune

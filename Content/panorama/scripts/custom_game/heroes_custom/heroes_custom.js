@@ -1,7 +1,7 @@
 function updateSkillInTooltip(tooltip, queryUnit){
 	if (tooltip.indexOf("@Ability") > -1){
 			for (i = 1; i <= 4; i++) { 
-                var heroName = Entities.GetClassname(queryUnit);
+                var heroName = Entities.GetUnitName( queryUnit );
                 var skillName = getSkillSlot2(queryUnit, i);
                 var exp = new RegExp("@Ability" + i, "g");
 				tooltip = tooltip.replace(exp, "<font color='#CCFF66'>"+$.Localize(skillName)+"</font>");
