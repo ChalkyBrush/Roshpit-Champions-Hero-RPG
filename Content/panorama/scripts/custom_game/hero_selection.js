@@ -257,7 +257,11 @@ function setHeroSlotActivate(heroImage, heroName, heroPreviewBox, slot)
         heroPreviewScene.BLoadLayoutSnippet('hero_preview') 
         var preview = $.CreatePanel("Panel", heroPreviewScene, "hero_preview_main_scene");
         preview.AddClass("HeroPreview");  
-        preview.BCreateChildren("<DOTAScenePanel particleonly='false' antialias='true' class='HeroPreviewScene SceneLoaded' unit='" + heroName + "' always-cache-composition-layer='true'/>")
+
+
+        var panelWithProperties = $.CreatePanelWithProperties("DOTAScenePanel", preview, heroName, { unit: heroName, light: "global_light", antialias: "true", drawbackground: "false", particleonly: "false", hittest: "false" });
+       // preview.BCreateChildren("<DOTAScenePanel particleonly='false' antialias='true' class='HeroPreviewScene SceneLoaded' unit='" + heroName + "' always-cache-composition-layer='true'/>")
+
         var nameLabel = heroPreviewBox.FindChildTraverse('hero_preview_name_label')
         nameLabel.text = $.Localize(heroName)
         nameLabel.RemoveClass("fadeInSmall")
