@@ -3816,11 +3816,11 @@ function captain_reynar_thinking(event)
 		return false
 	end
 	if caster.phase == 0 then
-		targetPos = Vector(-224, -7680)
+		targetPos = Vector(-4965, -7580)
 	elseif caster.phase == 1 then
 		targetPos = Vector(3712, -6656)
 	elseif caster.phase == 2 then
-		targetPos = Vector(10624, -8320)
+		targetPos = Vector(10624, -7320)
 	elseif caster.phase == 3 then
 		targetPos = Vector(11147, -11136)
 	end
