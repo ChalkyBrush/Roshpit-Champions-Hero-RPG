@@ -73,16 +73,16 @@ function begin_hydro_pump(event)
 								if ally:GetEntityIndex() == caster:GetEntityIndex() then
 									local newStacks = 0
 									if not caster:HasModifier("modifier_hydroxis_glyph_3_1") then
-										ability:ApplyDataDrivenModifier(caster, caster, "modifier_hydroxis_b_a_shield_visible", {duration = 12})
+										ability:ApplyDataDrivenModifier(caster, caster, "modifier_hydroxis_b_a_shield_visible", {duration = HYDROXIS_Q2_DURATION})
 										newStacks = caster:GetModifierStackCount("modifier_hydroxis_b_a_shield_visible", caster) + 1
 										caster:SetModifierStackCount("modifier_hydroxis_b_a_shield_visible", caster, newStacks)
 									else
-										ability:ApplyDataDrivenModifier(caster, caster, "modifier_hydroxis_b_a_shield_visible_glyphed", {duration = 12})
+										ability:ApplyDataDrivenModifier(caster, caster, "modifier_hydroxis_b_a_shield_visible_glyphed", {duration = HYDROXIS_Q2_DURATION})
 										newStacks = caster:GetModifierStackCount("modifier_hydroxis_b_a_shield_visible_glyphed", caster) + (HYDROXIS_GLYPH_3_1_Q2_TICKRATE_MULT-1)
 										caster:SetModifierStackCount("modifier_hydroxis_b_a_shield_visible_glyphed", caster, newStacks)
 									end
 
-									ability:ApplyDataDrivenModifier(caster, caster, "modifier_hydroxis_b_a_shield_invisible", {duration = 12})
+									ability:ApplyDataDrivenModifier(caster, caster, "modifier_hydroxis_b_a_shield_invisible", {duration = HYDROXIS_Q2_DURATION})
 									caster:SetModifierStackCount("modifier_hydroxis_b_a_shield_invisible", caster, newStacks * ability.q_2_level)
 								end
 							end

@@ -1408,6 +1408,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 		local modifier = unit:FindModifierByName("modifier_typhoon_w_2_magic_armor_loss")
 		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*SEINARU_W2_MAGIC_ARMOR_LOSS
 	end
+	if unit:HasModifier("modifier_voltex_rune_r_2_armor_loss") then
+		local modifier = unit:FindModifierByName("modifier_voltex_rune_r_2_armor_loss")
+		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*VOLTEX_R2_ARMOR_LOSS
+	end
 	if unit:HasModifier("modifier_seinaru_glyph_7_1") then
 		magic_armor_modify = magic_armor_modify + SEINARU_GLYPH_7_1_ARMOR_PIERCE_AND_MAGIC_ARMOR_PER_STR*unit:GetStrength()
 	end
