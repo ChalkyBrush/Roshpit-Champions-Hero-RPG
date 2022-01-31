@@ -7126,7 +7126,7 @@
     	"DOTA_Tooltip_ability_hydroxis_rune_q_1_suffix"						"% от урона способности"
 		
 		"DOTA_Tooltip_ability_hydroxis_rune_q_2"							"[Q2] Mystic Water Shield"
-    	"DOTA_Tooltip_ability_hydroxis_rune_q_2_Description"				"Находясь в созданном всплеске воды от умения @Ability1 получает заряды этой руны. Заряды длятся 12 секунд или до следующего прочтения @Ability1."
+    	"DOTA_Tooltip_ability_hydroxis_rune_q_2_Description"				"Находясь в созданном всплеске воды от умения @Ability1 получает заряды этой руны. Заряды длятся <font color='#ccff66'>17</font> секунд или до следующего прочтения @Ability1."
     	"DOTA_Tooltip_ability_hydroxis_rune_q_2_property_one"				"Броня и Магическая Защита за заряд"
     	"DOTA_Tooltip_ability_hydroxis_rune_q_2_suffix"						""
     	"DOTA_Tooltip_ability_hydroxis_rune_q_2_property_two"				"Лечение за заряд"
@@ -11548,10 +11548,10 @@
     	"DOTA_Tooltip_ability_voltex_rune_r_1_suffix_two"					""
 
     	"DOTA_Tooltip_ability_voltex_rune_r_2"								"[R2] Lightning Bolt"
-    	"DOTA_Tooltip_ability_voltex_rune_r_2_Description"					"Когда Voltex атакует противника, есть 30% шанс нанести цели дополнительный магический урон, оглушить её на 0.2 секунды и уменьшить показатель брони на <font color='#ccff66'>6</font> сек."
+    	"DOTA_Tooltip_ability_voltex_rune_r_2_Description"					"Когда Voltex атакует противника, есть 30% шанс нанести цели дополнительный магический урон, оглушить её на 0.2 секунды и уменьшить показатель Брони и Магической Защиты на <font color='#ccff66'>6</font> сек."
     	"DOTA_Tooltip_ability_voltex_rune_r_2_property_one"					"Урон"
     	"DOTA_Tooltip_ability_voltex_rune_r_2_suffix"						"% от базовой атаки"
-    	"DOTA_Tooltip_ability_voltex_rune_r_2_property_two"					"Снижение брони"
+    	"DOTA_Tooltip_ability_voltex_rune_r_2_property_two"					"Снижение Брони и Маг. Защиты"
     	"DOTA_Tooltip_ability_voltex_rune_r_2_suffix_two"					""
 
     	"DOTA_Tooltip_modifier_voltex_rune_r_2_rune_effect"					"Lightning Bolt"
@@ -12964,7 +12964,7 @@
 
         "DOTA_Tooltip_ability_item_rpc_oceanrunner_boots"                   "Oceanrunner Boots" 
         "property_oceanrunner"                                              "Oceanrunner"
-        "property_oceanrunner_Description"                                  "Ловкость увеличивает Базовый Урон Способностей на <font color='#ccff66'>0.15</font>%."
+        "property_oceanrunner_Description"                                  "Ловкость увеличивает Базовый Урон Способностей на <font color='#ccff66'>0.2</font>%."
 
         "item_rpc_oceanrunner_boots_ruby1"                  "Каждые <font color='#ccff66'>1000</font> пройденной дистанции вызывает шквал воды, оглушающий противников на @ruby_property1 сек и наносящий урон @ruby_property2% от Силы Атаки героя в области @ruby_property3"
         "item_rpc_oceanrunner_boots_emerald1"                   "Повышает Ловкость на @emerald_property1 и Скорость Передвижения на @emerald_property2"
