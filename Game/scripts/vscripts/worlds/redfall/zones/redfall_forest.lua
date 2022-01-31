@@ -810,6 +810,16 @@ function Redfall:PickupAshTwig()
 	end
 end
 
+function Redfall:DropAdditionalKey(position)
+	local item_name_table = {"item_redfall_purified_vermillion_bundle_normal", "item_redfall_hidden_shipyard_key_normal", "item_redfall_crimsyth_demon_relic_normal"}
+	local itemName = item_name_table[RandomInt(1, #item_name_table)]
+	local key = RPCItems:CreateConsumable(itemName, "rare", "redfall_key", "consumable", false, "Consumable", itemName.."_desc")
+	local drop = CreateItemOnPositionSync(position, key)
+	RPCItems:DropItem(key, position)
+
+	return key
+end
+
 function Redfall:SpawnAshTreant(position, fv)
 	local unit = Enemies:SpawnEnemy("redfall_ashen_treant", position, "Redfall.AshTreeAggro", fv, true)			
 	unit:SetRenderColor(255, 60, 60)

@@ -270,9 +270,9 @@ function seafortress_unit_die(event)
 	end
 	local paragonAdjust = 0
 	if caster.paragon then
-		paragonAdjust = 2000
+		paragonAdjust = 1000
 	end
-	local maxBound = math.max(10000 - (500 * premiumCount) - paragonAdjust, 10)
+	local maxBound = math.max(4000 - (300 * premiumCount) - paragonAdjust, 10)
 	local luck3 = RandomInt(1, maxBound)
 	if luck3 <= 2 then
 		Weapons:RollRandomLegendWeapon2(caster:GetAbsOrigin())
@@ -5228,7 +5228,19 @@ function tri_boss_die(caster)
 			RPCItems:RollAndDropUniqueArcana(caster, "item_rpc_hydroxis_arcana1")
 		end
 	end)
-	Weapons:RollRandomLegendWeapon2(caster:GetAbsOrigin())
+	local weapon_luck = RandomInt(1, 10)
+	if weapon_luck == 10 then
+		weapon_count = 3
+		else
+		weapon_count = 1
+	end
+	Timers:CreateTimer(3, function()
+			for i = 0, weapon_count, 1 do
+				Timers:CreateTimer(i, function()
+					Weapons:RollRandomLegendWeapon2(caster:GetAbsOrigin())
+				end)
+			end
+		end) 
 	Seafortress.MainBossesSlain = Seafortress.MainBossesSlain + 1
 	if Seafortress.MainBossesSlain == 3 then
 		Seafortress:AllBossesSlain()
@@ -5337,7 +5349,7 @@ function sea_fortress_final_boss_think(event)
 		end)
 		caster:BossDrops(20)
 		Timers:CreateTimer(3, function()
-			for i = 0, 2, 1 do
+			for i = 0, 3, 1 do
 				Timers:CreateTimer(i, function()
 					Weapons:RollRandomLegendWeapon3(caster:GetAbsOrigin())
 				end)
