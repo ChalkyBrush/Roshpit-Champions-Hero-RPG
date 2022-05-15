@@ -473,13 +473,13 @@ function ItemHideTooltip(panelId)
 {
 	if (panelId){
 		var itemPanel = $(panelId)
-		$.DispatchEvent( "UIHideCustomLayoutTooltip", itemPanel.toString() );
+		$.DispatchEvent( "UIHideCustomLayoutTooltip", itemPanel );
 	}
 }
 
 function ItemHideTooltipByPanel(itemPanel)
 {
-	$.DispatchEvent( "UIHideCustomLayoutTooltip", itemPanel.toString() );
+	$.DispatchEvent( "UIHideCustomLayoutTooltip", itemPanel );
 }
 
 function getControllingPlayerIndex()
