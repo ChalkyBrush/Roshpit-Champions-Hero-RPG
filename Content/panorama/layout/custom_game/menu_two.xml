@@ -22,7 +22,7 @@
 			<Button class="main_menu_button" id="menu_button_equipment" hittest="true"
 				onactivate='equipment_button()'>
 				<Image class="menu_buttom_image" src="file://{images}/custom_game/ui/swords.png" />
-				<Label id="equipment_button_label" class="main_menu_button_text" text="Equipment">
+				<Label id="equipment_button_label" class="main_menu_button_text" text="#Equipment">
 				</Label>
 				<Label class="menu_button_hotkey" text="(P)">
 				</Label>
@@ -30,7 +30,7 @@
 			<Button class="main_menu_button" id="menu_button_skills" hittest="true"
 				onactivate='skills_button()'>
 				<Image class="menu_buttom_image" src="file://{images}/custom_game/ui/book.png" />
-				<Label id="skills_button_label" class="main_menu_button_text" text="Skills">
+				<Label id="skills_button_label" class="main_menu_button_text" text="#Skills">
 				</Label>			
 				<Label class="menu_button_hotkey" text="(L)">
 				</Label>
@@ -38,7 +38,7 @@
 			<Button class="main_menu_button" id="menu_button_resources" hittest="true"
 				onactivate='resources_button()'>
 				<Image class="menu_buttom_image" src="file://{images}/custom_game/ui/gemstone.png" />
-				<Label id="resource_button_label" class="main_menu_button_text" text="tooltip_resources">
+				<Label id="resource_button_label" class="main_menu_button_text" text="#tooltip_resources">
 				</Label>			
 				<Label class="menu_button_hotkey" text="(O)">
 				</Label>
@@ -46,7 +46,7 @@
 			<Button class="main_menu_button" id="menu_button_stars" hittest="true"
 				onactivate='stars_button()'>
 				<Image class="menu_buttom_image" src="file://{images}/custom_game/ui/star.png" />
-				<Label id="stars_button_label" class="main_menu_button_text" text="stars_menu">
+				<Label id="stars_button_label" class="main_menu_button_text" text="#stars_menu">
 				</Label>			
 				<Label class="menu_button_hotkey" text="(K)">
 				</Label>
@@ -55,7 +55,7 @@
 			<Panel class="menu_stats_panel">
 				<Label class="menu_stats" id="menu_gold_label" text="Gold:">
 				</Label>
-				<Label class="menu_stats_value gold_color" id="gold_menu_label" text="Gold:">
+				<Label class="menu_stats_value gold_color" id="gold_menu_label" text="0">
 				</Label>
 			</Panel>
 <!-- 			<Panel class="menu_stats_panel">

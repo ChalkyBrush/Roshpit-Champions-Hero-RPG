@@ -3,6 +3,7 @@
 		<include src="file://{resources}/styles/custom_game/equipment.css" />
 	</styles>
 	<Panel class="ItemLoaderRoot">
+
 		<Image id="seq_bg" class="SeqBg" src="file://{images}/items/ablecore_greaves.png"/>
 		<Image id="seq_bg" class="SeqBg" src="file://{images}/items/adamantine_samurai_helmet.png"/>
 		<Image id="seq_bg" class="SeqBg" src="file://{images}/items/admirals_boot.png"/>

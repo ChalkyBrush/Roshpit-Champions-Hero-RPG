@@ -19,6 +19,7 @@
 				ondblclick="DoubleClickItem()"
 				oncontextmenu="RightClickItem()"
 				>
+			<Image hittest="false" id="ImageEmpty" class="inventory-item-image" src="file://{images}/custom_game/items/empty-inventory-slot.png"/>
 			<DOTAItemImage hittest="false" id="ItemImage" class="inventory-item-image" />
 			<Panel hittest="false" id="Cooldown">
 				<Panel hittest="false" id="CooldownOverlay" />

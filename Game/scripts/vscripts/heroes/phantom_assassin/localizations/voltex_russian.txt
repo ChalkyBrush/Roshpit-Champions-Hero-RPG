@@ -138,10 +138,10 @@
     	"DOTA_Tooltip_ability_voltex_rune_r_1_suffix_two"					""
 
     	"DOTA_Tooltip_ability_voltex_rune_r_2"								"[R2] Lightning Bolt"
-    	"DOTA_Tooltip_ability_voltex_rune_r_2_Description"					"Когда Voltex атакует противника, есть 30% шанс нанести цели дополнительный магический урон, оглушить её на 0.2 секунды и уменьшить показатель Брони и Магической Защиты на <% VOLTEX_R2_ARMOR_LOSS_DUR %> сек."
+    	"DOTA_Tooltip_ability_voltex_rune_r_2_Description"					"Когда Voltex атакует противника, есть 30% шанс нанести цели дополнительный магический урон, оглушить её на 0.2 секунды и уменьшить показатель брони на <% VOLTEX_R2_ARMOR_LOSS_DUR %> сек."
     	"DOTA_Tooltip_ability_voltex_rune_r_2_property_one"					"Урон"
     	"DOTA_Tooltip_ability_voltex_rune_r_2_suffix"						"% от базовой атаки"
-    	"DOTA_Tooltip_ability_voltex_rune_r_2_property_two"					"Снижение Брони и Маг. Защиты"
+    	"DOTA_Tooltip_ability_voltex_rune_r_2_property_two"					"Снижение брони"
     	"DOTA_Tooltip_ability_voltex_rune_r_2_suffix_two"					""
 
     	"DOTA_Tooltip_modifier_voltex_rune_r_2_rune_effect"					"Lightning Bolt"

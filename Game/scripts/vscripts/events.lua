@@ -1833,13 +1833,13 @@ function GameMode:OnConnectFull(keys)
 
 	GameMode:_OnConnectFull(keys)
 
-	local entIndex = keys.index + 1
-	-- The Player entity of the joining user
-	local ply = EntIndexToHScript(entIndex)
+	-- local entIndex = keys.index + 1
+	-- -- The Player entity of the joining user
+	-- local ply = EntIndexToHScript(entIndex)
 
-	-- The Player ID of the joining player
-	local playerID = ply:GetPlayerID()
-	PlayerResource:SetCustomTeamAssignment(playerID, DOTA_TEAM_GOODGUYS)
+	-- -- The Player ID of the joining player
+	-- local playerID = ply:GetPlayerID()
+	-- PlayerResource:SetCustomTeamAssignment(playerID, DOTA_TEAM_GOODGUYS)
 end
 
 -- This function is called whenever illusions are created and tells you which was/is the original entity

@@ -16,7 +16,7 @@
 				<Image id="shop_portrait"/>
 				</Button>
 				
-				<Label class="slot_label_name" id="slot_label_name" text="hero_name" hittest="false">
+				<Label class="slot_label_name" id="slot_label_name" text="#hero_name" hittest="false">
 				</Label>
 
 			</Panel>
@@ -52,7 +52,7 @@
 			<Panel id="glyphs_container" hittest="false">
 				<Panel id="header_image_container">
 					<Image id="header_image" src="file://{images}/custom_game/ui/glyph_enchanter_header.jpg"/>
-					<Label id="header_text" text="glyph_header" html="true"></Label>
+					<Label id="header_text" text="#glyph_header" html="true"></Label>
 				</Panel>
 					<Label id="glyph_loading_label" class="menu_button_text">
 					</Label>
@@ -62,14 +62,14 @@
 						</Panel>
 						<Panel id="resources-box-rows">
 							<Panel class="resources-box-row">
-								<Label id="current_crystals_label" text="tooltip_arcane_crystals:"></Label>
+								<Label id="current_crystals_label" text="#tooltip_arcane_crystals:"></Label>
 								<Panel id="crystal-image-container">
 									<Image id="current_arcane_crystals_image" src="file://{images}/custom_game/ui/arcane_crystal.png" />
 									<Label id="current_crystals_label_value" text="0"></Label>
 								</Panel>
 							</Panel>
 							<Panel class="resources-box-row">
-								<Label id="current_crystals_tier_label" text="tooltip_arcane_tier"></Label>
+								<Label id="current_crystals_tier_label" text="#tooltip_arcane_tier"></Label>
 								<Label id="current_crystals_tier_label_value" text="0"></Label>
 							</Panel>
 							<Panel class="resources-box-row-bottom" id="upgrade-tiers-box">
@@ -88,7 +88,7 @@
 						</Panel>
 					</Panel>
 					<Panel id="browse-label-container">
-						<Label id="browse-label" class="" text="tooltip_shop_glyphs">
+						<Label id="browse-label" class="" text="#tooltip_shop_glyphs">
 						</Label>	
 					</Panel>
 					<Panel id="herolist-box">

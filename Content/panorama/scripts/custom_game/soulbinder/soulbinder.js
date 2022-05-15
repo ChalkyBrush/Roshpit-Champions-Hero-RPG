@@ -41,7 +41,7 @@ function OpenSoulbinder(msg){
     var library_start_panel= $.CreatePanel("Panel", attach_point, "soulbinder-library")
     library_start_panel.BLoadLayoutSnippet("soulbinder_start_button");
     library_start_panel.FindChildTraverse("soulbinder_start_image").SetImage("file://{images}/custom_game/ui/spellbinder/soulbinder_library.png")
-    library_start_panel.FindChildTraverse('soulbinder_start_label').text = $.Localize("soulbinder_library_button_title")
+    library_start_panel.FindChildTraverse('soulbinder_start_label').text = $.Localize("#soulbinder_library_button_title")
     library_button = library_start_panel.FindChildTraverse('soulbinder_start_button_collect')
 	library_button.SetPanelEvent('onactivate', function Close() {
 		Game.EmitSound("UI.Soulbinder.Click")
@@ -52,7 +52,7 @@ function OpenSoulbinder(msg){
     var tips_start_panel= $.CreatePanel("Panel", attach_point, "soulbinder-tips")
     tips_start_panel.BLoadLayoutSnippet("soulbinder_start_button");
     tips_start_panel.FindChildTraverse("soulbinder_start_image").SetImage("file://{images}/custom_game/ui/spellbinder/soulbinder_tips.png")
-    tips_start_panel.FindChildTraverse('soulbinder_start_label').text = $.Localize("soulbind_tips_title")
+    tips_start_panel.FindChildTraverse('soulbinder_start_label').text = $.Localize("#soulbind_tips_title")
     tips = tips_start_panel.FindChildTraverse('soulbinder_start_button_collect')
 	tips.SetPanelEvent('onactivate', function Close() {
 		Game.EmitSound("UI.Soulbinder.Click")
@@ -60,7 +60,7 @@ function OpenSoulbinder(msg){
 	})
 
     mCloseButton = soulbinder_main.FindChildTraverse('close_button')
-    mCloseButton.FindChildTraverse('close_button_label').text = $.Localize("ui_close")
+    mCloseButton.FindChildTraverse('close_button_label').text = $.Localize("#ui_close")
    
 	soulbinder_main.FindChildTraverse('close_button').SetPanelEvent('onactivate', function Close() {
 		Game.EmitSound("Gemforger.UI.Close")
@@ -128,7 +128,7 @@ function search_button_click(soulbinder_item_start)
 		soulbinder_item_start.FindChildTraverse('search_results_help_text').text = "Searching..."
 		GameEvents.SendCustomGameEventToServer( "soulbinder", {event_type: "search", query: query});
 	}else{
-		soulbinder_item_start.FindChildTraverse('search_results_help_text').text = $.Localize("soulbinder_no_search_query_entered")
+		soulbinder_item_start.FindChildTraverse('search_results_help_text').text = $.Localize("#soulbinder_no_search_query_entered")
 	}
 }
 
@@ -161,7 +161,7 @@ function AttachSoulbinderSearchResult(resultData, attach_point){
     var image_name = "file://{images}/items/"+resultData.image_url+".png"
     var color = GetRarityColor(resultData.rarity)
     search_result_panel.FindChildTraverse("search_result_item_image").SetImage(image_name)
-    search_result_panel.FindChildTraverse("search_result_text").text = "<font color='"+color+"'>"+$.Localize("DOTA_Tooltip_ability_"+resultData.roshpit_item_name)+"</font>"
+    search_result_panel.FindChildTraverse("search_result_text").text = "<font color='"+color+"'>"+$.Localize("#DOTA_Tooltip_ability_"+resultData.roshpit_item_name)+"</font>"
     var button = search_result_panel.FindChildTraverse("soulbinder_search_result_button")
     setup_search_result_button_event(button, resultData.roshpit_item_name, image_name)
 }
@@ -196,7 +196,7 @@ function SoulBinderItemPageLoad(msg)
     	mCurrentItemName = msg.item_variant
     	mCurrentItemImage = msg.image_name
     }
-    soulbinder_item_start.FindChildTraverse("soulbinder_item_view_item_name").text = $.Localize("DOTA_Tooltip_ability_"+mCurrentItemName)
+    soulbinder_item_start.FindChildTraverse("soulbinder_item_view_item_name").text = $.Localize("#DOTA_Tooltip_ability_"+mCurrentItemName)
     soulbinder_item_start.FindChildTraverse('soulbinder_item_view_item_image').SetImage(mCurrentItemImage)
 
     
@@ -206,7 +206,7 @@ function SoulBinderItemPageLoad(msg)
     	if (msg.result[i]){
 		    var soulbound_item_panel = $.CreatePanel("Panel", items_attacher, "soulbinder-item-"+i)
 		    soulbound_item_panel.BLoadLayoutSnippet("soulbinder_item_slot");    	
-		    soulbound_item_panel.FindChildTraverse('soulbinder_item_slot_title').text = $.Localize("soulbinder_slot") + " " + i
+		    soulbound_item_panel.FindChildTraverse('soulbinder_item_slot_title').text = $.Localize("#soulbinder_slot") + " " + i
 		    soulbound_item_panel.FindChildTraverse('soulbind_item_image').SetImage("file://{images}/custom_game/ui/empty-inventory-slot.png")
 
 		    var item_parent_panel = soulbound_item_panel.FindChildTraverse('soulbind_item_slot')
@@ -274,7 +274,7 @@ function soulbind_slot_click(index, slot_data, item){
 			delete_button.SetPanelEvent('onactivate', function FinalBind() {
 				var state = delete_button.GetAttributeInt("state", -1)
 				if (state == 0){
-					$.GetContextPanel().FindChildTraverse('soulbind_final_delete_button_label').text = $.Localize("soulbinder_final_equip_delete_button_confirm")
+					$.GetContextPanel().FindChildTraverse('soulbind_final_delete_button_label').text = $.Localize("#soulbinder_final_equip_delete_button_confirm")
 					Game.EmitSound("UI.Soulbinder.FinalBindButton")
 					delete_button.SetAttributeInt("state", 1)
 				}else if (state == 1){
@@ -301,8 +301,8 @@ function soulbind_slot_click(index, slot_data, item){
 		}else{
 		    var soulbinder_empty_options = $.CreatePanel("Panel", attach_area, "empty-soulbind-options")
 		    soulbinder_empty_options.BLoadLayoutSnippet("soulbinder_item_slot_options_empty");
-		    var item_name_text = "<font color='#E3CDA1'>"+$.Localize("DOTA_Tooltip_ability_"+mCurrentItemName)+"</font>"
-		    var base_message = $.Localize("soulbinder_empty_slot_instructions")
+		    var item_name_text = "<font color='#E3CDA1'>"+$.Localize("#DOTA_Tooltip_ability_"+mCurrentItemName)+"</font>"
+		    var base_message = $.Localize("#soulbinder_empty_slot_instructions")
 		    $.GetContextPanel().FindChildTraverse('soulbind_empty_slot_instructions').text = base_message.replace("@item_name", item_name_text).replace("@item_name", item_name_text)
 			$.GetContextPanel().FindChildTraverse('soulbind_slot_item_attacher').BLoadLayout( "file://{resources}/layout/custom_game/soulbinder/soulbinder_binding_slot.xml", false, false );  
 			var item_slot_input = $.GetContextPanel().FindChildTraverse('soulbind_slot_item_attacher')
@@ -320,9 +320,9 @@ function SoulbinderItemUpForSoulbind(msg){
 	var cost = msg.cost
 	var current_crystals = msg.currentCrystals
 	$.GetContextPanel().FindChildTraverse('soulbind-cost-container').RemoveClass("none")
-	$.GetContextPanel().FindChildTraverse('soulbind-cost-label').text = $.Localize("soulbinder_cost_to_soulbind") 
+	$.GetContextPanel().FindChildTraverse('soulbind-cost-label').text = $.Localize("#soulbinder_cost_to_soulbind") 
 	$.GetContextPanel().FindChildTraverse('soulbind-cost-number').text = cost
-	var button_text = $.Localize("soulbinder_final_bind_button").replace("@slot_number", msg.slot_number)
+	var button_text = $.Localize("#soulbinder_final_bind_button").replace("@slot_number", msg.slot_number)
 	$.GetContextPanel().FindChildTraverse('soulbind_final_bind_label').text = button_text
 	if (current_crystals >= cost)
 	{
@@ -496,7 +496,7 @@ function LibraryLoad2(msg){
 	    		item_panel.BLoadLayoutSnippet('soulbinder_category_result')
 	    		var image_name = "file://{images}/items/"+result[key].image_path+".png"
 	    		item_panel.FindChildTraverse('category_item_image').SetImage(image_name)
-	    		item_panel.FindChildTraverse('category_result_text').text = $.Localize("DOTA_Tooltip_ability_"+result[key].item_name)
+	    		item_panel.FindChildTraverse('category_result_text').text = $.Localize("#DOTA_Tooltip_ability_"+result[key].item_name)
 	    		var button = item_panel.FindChildTraverse('soulbinder_library_result_button')
 	    		setup_search_result_button_event(button, result[key].item_name, result[key].image_path)
 	    	}

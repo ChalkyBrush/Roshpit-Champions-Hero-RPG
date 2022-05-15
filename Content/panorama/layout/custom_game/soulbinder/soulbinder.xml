@@ -18,7 +18,7 @@
 					<Image id="soulbinder_header" hittest="false">
 						<Panel id="soulbinder_header_container" hittest="false">
 							<Panel id="soulbinder_header_container_bg" hittest="false"></Panel>
-							<Label id="soulbinder_header_title" text="the_soulbinder" hittest="false"/>
+							<Label id="soulbinder_header_title" text="#the_soulbinder" hittest="false"/>
 						</Panel>
 					</Image>
 					<Panel id="soulbinder_attach_contents">
@@ -26,7 +26,7 @@
 					<Panel id="soulbinder_attach_contents_down">
 					</Panel>
 					<Button id="close_button">
-						<Label id="close_button_label" text="ui_close"/>
+						<Label id="close_button_label" text="#ui_close"/>
 					</Button>
 				</Panel>
 			</Panel>
@@ -35,26 +35,26 @@
 			<Panel class="soulbinder_start_button_root" hittest="false">
 				<Button id="soulbinder_start_button_collect" class="soulbinder_reward_active" hittest="true">
 					<Image id="soulbinder_start_image" hittest="false"/>
-					<Label id="soulbinder_start_label" text="soulbinder_item_search" hittest="false" html="true"/>
+					<Label id="soulbinder_start_label" text="#soulbinder_item_search" hittest="false" html="true"/>
 				</Button>
 			</Panel>
 		</snippet>
 		<snippet name="soulbinder_item_search">
 			<Panel class="soulbinder_item_search_root" hittest="false">
-				<Label id="soulbinder_search_label" text="soulbinder_item_search" hittest="false" html="true"/>
+				<Label id="soulbinder_search_label" text="#soulbinder_item_search" hittest="false" html="true"/>
 				<TextEntry id="soulbinder_item_search_box" maxchars="255"/>
 				<Button id="soulbinder_item_search_button">
-					<Label id="soulbinder_item_search_label" text="soulbinder_item_search_button"/>
+					<Label id="soulbinder_item_search_label" text="#soulbinder_item_search_button"/>
 				</Button>
 				<Panel id="soulbinder_search_results">
-					<Label id="search_results_title" text="soulbinder_item_search_results" hittest="false" html="true"/>
-					<Label id="search_results_help_text" text="soulbinder_search_help_text" hittest="false" html="true"/>
+					<Label id="search_results_title" text="#soulbinder_item_search_results" hittest="false" html="true"/>
+					<Label id="search_results_help_text" text="#soulbinder_search_help_text" hittest="false" html="true"/>
 					<Panel id="soulbinder_search_results_attacher">
 						
 					</Panel>
 				</Panel>
 				<Button id="soulbind_back_button">
-					<Label id="soulbind_back_button_label" text="ui_back"/>
+					<Label id="soulbind_back_button_label" text="#ui_back"/>
 				</Button>
 			</Panel>
 		</snippet>
@@ -62,7 +62,7 @@
 			<Panel class="soulbinder_search_result_root" hittest="false">
 				<Button id="soulbinder_search_result_button" hittest="true">
 					<Image id="search_result_item_image" hittest="false"/>
-					<Label class="search_result_text" id="search_result_text" text="result" hittest="false" html="true"/>
+					<Label class="search_result_text" id="search_result_text" text="#result" hittest="false" html="true"/>
 				</Button>
 			</Panel>
 		</snippet>
@@ -73,7 +73,7 @@
 				<Panel id="soulbinder_item_view_attacher">
 				</Panel>
 				<Panel id="soulbinder_selection_area">
-					<Label id="soulbinder_selection_area_label" text="soulbinder_item_view_first_tip" hittest="false" html="true"/>
+					<Label id="soulbinder_selection_area_label" text="#soulbinder_item_view_first_tip" hittest="false" html="true"/>
 				</Panel>
 			</Panel>
 		</snippet>
@@ -93,17 +93,17 @@
 					</Panel>
 				</Panel>
 				<Button id="soulbind_slot_select_button">
-					<Label id="soulbind_slot_select_button_label" text="soulbinder_slot_select"/>
+					<Label id="soulbind_slot_select_button_label" text="#soulbinder_slot_select"/>
 				</Button>					
 			</Panel>
 		</snippet>
 		<snippet name="soulbinder_item_slot_options_empty">
 			<Panel class="soulbinder_item_slot_options_root" hittest="false">
-				<Label id="soulbind_empty_slot_instructions" text="soulbinder_empty_slot_instructions" html="true"/>
+				<Label id="soulbind_empty_slot_instructions" text="#soulbinder_empty_slot_instructions" html="true"/>
 				<Panel id="soulbind_slot_item_attacher"/>
-				<Label id="soulbind_empty_slot_weapon_warning" class="none" text="soulbinder_empty_slot_weapon_warning" html="true"/>
+				<Label id="soulbind_empty_slot_weapon_warning" class="none" text="#soulbinder_empty_slot_weapon_warning" html="true"/>
 				<Button id="soulbind_final_bind_button" class="none final_button_enabled">
-					<Label id="soulbind_final_bind_label" text="soulbinder_slot_select"/>
+					<Label id="soulbind_final_bind_label" text="#soulbinder_slot_select"/>
 				</Button>
 				<Panel id="soulbind-cost-container" class="none">
 					<Label id="soulbind-cost-label" text=""></Label>
@@ -116,38 +116,38 @@
 		</snippet>
 		<snippet name="soulbinder_item_slot_options_exists">
 			<Panel class="soulbinder_item_slot_options_root" hittest="false">
-				<Label id="soulbind_empty_slot_instructions" text="soulbinder_slot_exists_instructions" html="true"/>
+				<Label id="soulbind_empty_slot_instructions" text="#soulbinder_slot_exists_instructions" html="true"/>
 				<Button id="soulbind_final_equip_button" class="final_equip_button_enabled">
-					<Label id="soulbind_final_equip_label" class="soulbind_final_equip_button_label" text="soulbinder_final_equip_button"/>
+					<Label id="soulbind_final_equip_label" class="soulbind_final_equip_button_label" text="#soulbinder_final_equip_button"/>
 				</Button>
 				<Button id="soulbind_final_delete_button" class="final_delete_button_enabled">
-					<Label id="soulbind_final_delete_button_label" class="soulbind_final_equip_button_label" text="soulbinder_final_equip_delete_button"/>
+					<Label id="soulbind_final_delete_button_label" class="soulbind_final_equip_button_label" text="#soulbinder_final_equip_delete_button"/>
 				</Button>
 			</Panel>
 		</snippet>
 		<snippet name="soulbinder_tips">
 			<Panel class="soulbinder_tips_root" hittest="false">
-				<Label id="soulbinder_tip_title" text="soulbind_tips_title" hittest="false" html="true"/>
-				<Label id="soulbinder_tip1" class="soulbinder_tip" text="soulbinder_tip_1" hittest="false" html="true"/>
-				<Label id="soulbinder_tip2" class="soulbinder_tip" text="soulbinder_tip_2" hittest="false" html="true"/>
-				<Label id="soulbinder_tip3" class="soulbinder_tip" text="soulbinder_tip_3" hittest="false" html="true"/>
-				<Label id="soulbinder_tip4" class="soulbinder_tip" text="soulbinder_tip_4" hittest="false" html="true"/>
-				<Label id="soulbinder_tip5" class="soulbinder_tip" text="soulbinder_tip_5" hittest="false" html="true"/>
-				<Label id="soulbinder_tip6" class="soulbinder_tip" text="soulbinder_tip_6" hittest="false" html="true"/>
-				<Label id="soulbinder_tip7" class="soulbinder_tip" text="soulbinder_tip_7" hittest="false" html="true"/>
+				<Label id="soulbinder_tip_title" text="#soulbind_tips_title" hittest="false" html="true"/>
+				<Label id="soulbinder_tip1" class="soulbinder_tip" text="#soulbinder_tip_1" hittest="false" html="true"/>
+				<Label id="soulbinder_tip2" class="soulbinder_tip" text="#soulbinder_tip_2" hittest="false" html="true"/>
+				<Label id="soulbinder_tip3" class="soulbinder_tip" text="#soulbinder_tip_3" hittest="false" html="true"/>
+				<Label id="soulbinder_tip4" class="soulbinder_tip" text="#soulbinder_tip_4" hittest="false" html="true"/>
+				<Label id="soulbinder_tip5" class="soulbinder_tip" text="#soulbinder_tip_5" hittest="false" html="true"/>
+				<Label id="soulbinder_tip6" class="soulbinder_tip" text="#soulbinder_tip_6" hittest="false" html="true"/>
+				<Label id="soulbinder_tip7" class="soulbinder_tip" text="#soulbinder_tip_7" hittest="false" html="true"/>
 				<Button id="soulbind_back_button">
-					<Label id="soulbind_back_button_label" text="ui_back"/>
+					<Label id="soulbind_back_button_label" text="#ui_back"/>
 				</Button>
 			</Panel>
 		</snippet>
 		<snippet name="soulbinder_library_start">
 			<Panel class="soulbinder_library_start_root" hittest="false">
-				<Label id="soulbinder_tip_title" text="soulbinder_library" hittest="false" html="true"/>
+				<Label id="soulbinder_tip_title" text="#soulbinder_library" hittest="false" html="true"/>
 				<Panel id="soulbinder_library_results_attach" hittest="false">
-					<Label id="soulbinder_library_loading" text="soulbinder_library_loading" hittest="false" html="true"/>
+					<Label id="soulbinder_library_loading" text="#soulbinder_library_loading" hittest="false" html="true"/>
 				</Panel>
 				<Button id="soulbind_back_button">
-					<Label id="soulbind_back_button_label" text="ui_back"/>
+					<Label id="soulbind_back_button_label" text="#ui_back"/>
 				</Button>
 			</Panel>
 		</snippet>
@@ -155,35 +155,35 @@
 			<Panel class="soulbinder_library_start_root" hittest="false">
 				<Panel class="soulbinder_library_start_row">
 					<Button id="soulbinder_library_button1" class="soulbinder_library_button" hittest="true">
-						<Label class="library_category_text" text="soulbinder_library_helms" hittest="false" html="true"/>
+						<Label class="library_category_text" text="#soulbinder_library_helms" hittest="false" html="true"/>
 						<Label id="libarary_category_label_helms" class="library_category_numbers" text="0/0" hittest="false" html="true"/>
 					</Button>
 					<Button id="soulbinder_library_button2" class="soulbinder_library_button" hittest="true">
-						<Label class="library_category_text" text="soulbinder_library_bodies" hittest="false" html="true"/>
+						<Label class="library_category_text" text="#soulbinder_library_bodies" hittest="false" html="true"/>
 						<Label id="libarary_category_label_bodies" class="library_category_numbers" text="0/0" hittest="false" html="true"/>
 					</Button>
 					<Button id="soulbinder_library_button3" class="soulbinder_library_button" hittest="true">
-						<Label class="library_category_text" text="soulbinder_library_weapons" hittest="false" html="true"/>
+						<Label class="library_category_text" text="#soulbinder_library_weapons" hittest="false" html="true"/>
 						<Label id="libarary_category_label_weapons" class="library_category_numbers" text="0/0" hittest="false" html="true"/>
 					</Button>
 				</Panel>
 				<Panel class="soulbinder_library_start_row">
 					<Button id="soulbinder_library_button4" class="soulbinder_library_button" hittest="true">
-						<Label class="library_category_text" text="soulbinder_library_gloves" hittest="false" html="true"/>
+						<Label class="library_category_text" text="#soulbinder_library_gloves" hittest="false" html="true"/>
 						<Label id="libarary_category_label_hands" class="library_category_numbers" text="0/0" hittest="false" html="true"/>
 					</Button>
 					<Button id="soulbinder_library_button5" class="soulbinder_library_button" hittest="true">
-						<Label class="library_category_text" text="soulbinder_library_boots" hittest="false" html="true"/>
+						<Label class="library_category_text" text="#soulbinder_library_boots" hittest="false" html="true"/>
 						<Label id="libarary_category_label_feet" class="library_category_numbers" text="0/0" hittest="false" html="true"/>
 					</Button>
 					<Button id="soulbinder_library_button6" class="soulbinder_library_button" hittest="true">
-						<Label class="library_category_text" text="soulbinder_library_trinkets" hittest="false" html="true"/>
+						<Label class="library_category_text" text="#soulbinder_library_trinkets" hittest="false" html="true"/>
 						<Label id="libarary_category_label_trinkets" class="library_category_numbers" text="0/0" hittest="false" html="true"/>
 					</Button>
 				</Panel>
 				<Panel class="soulbinder_library_start_row">
 					<Button id="soulbinder_library_button7" class="soulbinder_library_button library_button_centered" hittest="true">
-						<Label class="library_category_text" text="soulbinder_library_arcanas" hittest="false" html="true"/>
+						<Label class="library_category_text" text="#soulbinder_library_arcanas" hittest="false" html="true"/>
 						<Label id="libarary_category_label_arcanas" class="library_category_numbers" text="0/0" hittest="false" html="true"/>
 					</Button>
 				</Panel>
@@ -204,7 +204,7 @@
 			<Panel class="soulbinder_category_result_root" hittest="false">
 				<Button id="soulbinder_library_result_button" hittest="true">
 					<Image id="category_item_image" hittest="false"/>
-					<Label id="category_result_text" text="result" hittest="false" html="true"/>
+					<Label id="category_result_text" text="#result" hittest="false" html="true"/>
 				</Button>
 			</Panel>
 		</snippet>

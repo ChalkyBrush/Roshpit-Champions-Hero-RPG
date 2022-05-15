@@ -28,9 +28,9 @@ function BasicDialogue(msg){
 var camera = "default_camera";
 var style = "width:80px;height:100px;margin-bottom:10px;";
 //$.Msg(msg.nameColorClass)
-heroPortraitContainer.LoadLayoutFromStringAsync("<root><Panel><DOTAScenePanel particleonly='false' style='" + style + "' class='SceneLoaded' camera='" + camera + "' unit='" + unitName +"'/></Panel></root>", false, false);
+// heroPortraitContainer.LoadLayoutFromStringAsync("<root><Panel><DOTAScenePanel particleonly='false' style='" + style + "' class='SceneLoaded' camera='" + camera + "' unit='" + unitName +"'/></Panel></root>", false, false);
     var dialogueHeader = dialogue.FindChildTraverse('dialoge_name_label')
-    dialogueHeader.text = $.Localize(unitName)
+    dialogueHeader.text = $.Localize("#"+unitName)
     dialogueHeader.AddClass(msg.nameColorClass)
     var dialogueLabel = dialogue.FindChildTraverse('dialogue_text')
     

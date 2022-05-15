@@ -9,7 +9,7 @@
 	</scripts>
 	<Panel class="item_tooltip_new_root" ontooltiploaded="initializeTooltip()">
 		<Panel id="version-warning" class="invisible">
-			<Label id="version-warning-label" text="gear_version_warning"/>
+			<Label id="version-warning-label" text="#gear_version_warning"/>
 		</Panel>
 		<Panel id="tooltip_main_container">
 			<Panel id="tooltip_title_container">

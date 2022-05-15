@@ -25,8 +25,8 @@ function CloseOracle(){
 }
 
 function InitializeOracle(){
-	$('#save_button_label').text = $.Localize("saveload_save")
-	$('#load_button_label').text = $.Localize("saveload_load")
+	$('#save_button_label').text = $.Localize("#saveload_save")
+	$('#load_button_label').text = $.Localize("#saveload_load")
 	GameUI.CustomUIConfig().oracleLoad = $('#oracle_load')
 	GameUI.CustomUIConfig().oracleLoadLabel = $('#load_button_label')
 	GameUI.CustomUIConfig().oracleSave = $('#oracle_save')
@@ -73,7 +73,7 @@ function recentlySaved(msg){
 	}
  	$.Schedule(saveCooldown, function(){
  		//$.Msg("10 seconds")
- 		GameUI.CustomUIConfig().oracleSaveLabel.text = $.Localize("saveload_save")
+ 		GameUI.CustomUIConfig().oracleSaveLabel.text = $.Localize("#saveload_save")
 		GameUI.CustomUIConfig().oracleSave.RemoveClass('button_inactive')
 		GameUI.CustomUIConfig().oracleSave.AddClass('main_menu_button')	
 		GameUI.CustomUIConfig().oracleSave.state = 0	 		
@@ -253,7 +253,7 @@ function KeyHover(titleText, board, color){
     if ($.GetContextPanel().keysLocked){
     	return true
     }
-	var title = "<font color='"+color+"'>"+$.Localize(titleText)
+	var title = "<font color='"+color+"'>"+$.Localize("#"+titleText)
 	var tooltip = $.Localize("#key_hover_tooltip")
 	$.DispatchEvent("DOTAShowTitleTextTooltip", board, title, tooltip);
 	board.AddClass("keyhover")

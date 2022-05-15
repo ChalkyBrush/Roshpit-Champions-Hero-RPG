@@ -47,7 +47,7 @@ function initializeTooltip(func){
 	//$.Msg(Abilities.GetCaster( rune ).toString()+"-runeUnit")
 	var runeUnitTable = CustomNetTables.GetTableValue( "player_stats", Abilities.GetCaster( rune ).toString()+"-runeUnit");
 	var queryUnit = runeUnitTable.hero
-	var abilityName = $.Localize("DOTA_Tooltip_Ability_"+abilityNameInternal)
+	var abilityName = $.Localize("#DOTA_Tooltip_Ability_"+abilityNameInternal)
 	//TITLE
 
 	var title = abilityName
@@ -67,7 +67,7 @@ function initializeTooltip(func){
 		$('#rune_level_detail').text = baseLevel+"/"+max_level
 	}
 	if (!(baseLevel == max_level)){
-		$('#level_cost_tip').text = $.Localize("rune_points_cost_tip").replace("@points", COST_LEVEL_UP_RUNES[rune_tier-1])
+		$('#level_cost_tip').text = $.Localize("#rune_points_cost_tip").replace("@points", COST_LEVEL_UP_RUNES[rune_tier-1])
 		$('#level_cost_tip').RemoveClass("invisible")
 	}else{
 		$('#level_cost_tip').AddClass("invisible")
@@ -404,12 +404,12 @@ function updateSkillInTooltipHandler(tooltip, itemValues, queryUnit){
 function handleSpecialProperty(itemProperty, index, item, queryUnit, itemValues, itemProperty){
 	if (!(itemProperty === undefined)){
 		if (!(itemProperty.specialDescription === undefined)){
-			specialText1 = $.Localize(itemProperty.specialDescription)
+			specialText1 = $.Localize("#"+itemProperty.specialDescription)
 			specialText1 = SpecialDescriptionValues(specialText1, item)
 			specialText1 = updateSkillInTooltipHandler(specialText1, itemValues, queryUnit)
 			$('#properties_special'+index).RemoveClass('invisible')
 			$('#properties_special_text'+index).text = specialText1
-			$('#properties_special_title'+index).text = tooltipName = "<font color='"+itemProperty.propertyColor+"'>"+$.Localize(itemProperty.propertyName)+"</font>"
+			$('#properties_special_title'+index).text = tooltipName = "<font color='"+itemProperty.propertyColor+"'>"+$.Localize("#"+itemProperty.propertyName)+"</font>"
 			if (index == 1){
 				var typeData = AddDamageTypeAndElementToItem(item)
 				if (typeData[2]){
@@ -446,7 +446,7 @@ function AddAffixToItem(tooltip, itemProperty, queryUnit, requiredHero, rarityFa
 	if (OGpropertyName === undefined){
 		return tooltip
 	}
-	var propertyName = $.Localize(itemProperty.propertyName)
+	var propertyName = $.Localize("#"+itemProperty.propertyName)
 	// itemProperty = itemPropertyCheck(itemProperty)
 	//$.Msg(OGpropertyName)
 	if (OGpropertyName.indexOf("rune_") >= 0){
@@ -466,16 +466,16 @@ function AddAffixToItem(tooltip, itemProperty, queryUnit, requiredHero, rarityFa
 			var rune_unit_index = skill_tree_data.runeUnit;
 			var abilitySlot = getRuneIndexFromRuneName(OGpropertyName)
 			var abilityIndex = 	Entities.GetAbility( rune_unit_index, abilitySlot)
-			propertyName = $.Localize("DOTA_Tooltip_Ability_"+Abilities.GetAbilityName( abilityIndex ))
+			propertyName = $.Localize("#DOTA_Tooltip_Ability_"+Abilities.GetAbilityName( abilityIndex ))
 		}else{
 			if (rarityFactor == 6){
 				var RPCName = convertFullHeroNameToRPC(requiredHero)	
 				var arcanaSuffix = itemName.replace("item_rpc_"+RPCName+"_", "_");
-				propertyName = $.Localize("DOTA_Tooltip_Ability_"+RPCName+"_"+OGpropertyName+arcanaSuffix)
+				propertyName = $.Localize("#DOTA_Tooltip_Ability_"+RPCName+"_"+OGpropertyName+arcanaSuffix)
 				//$.Msg(propertyName)
 			}else{
 				var RPCName = convertFullHeroNameToRPC(requiredHero)	
-				propertyName = $.Localize("DOTA_Tooltip_Ability_"+RPCName+"_"+OGpropertyName)
+				propertyName = $.Localize("#DOTA_Tooltip_Ability_"+RPCName+"_"+OGpropertyName)
 				//$.Msg(propertyName)		
 			}
 		}

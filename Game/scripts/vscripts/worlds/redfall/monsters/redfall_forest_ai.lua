@@ -1303,9 +1303,6 @@ function redfall_unit_die(event)
 	if luck == 3 then
 		RPCItems:RollAndDropUniqueItem(event.unit, "item_rpc_fuchsia_ring")
 	end
-	if luck == 4 then
-		Redfall:DropAdditionalKey(event.unit:GetAbsOrigin())
-	end
 end
 
 function use_glowing_redfall_leaf(event)

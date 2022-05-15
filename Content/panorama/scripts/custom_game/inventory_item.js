@@ -48,7 +48,9 @@ function UpdateItem()
 	$( "#ItemImage" ).contextEntityIndex = m_Item;
 
 	if (m_Item == -1){
-		$( "#ItemImage" ).SetImage("file://{images}/custom_game/ui/empty-inventory-slot.png")
+		$( "#ImageEmpty" ).RemoveClass("invisible");
+	}else{
+		$( "#ImageEmpty" ).AddClass("invisible");
 	}
 
 	$( "#ChargeCount" ).text = chargeCount;
@@ -304,6 +306,7 @@ function AddAffixToItem(tooltip, itemProperty)
 
 function ItemHideTooltipInit()
 {
+	$.Msg("ITEM HID TOOLTIP")
 	ItemHideTooltipByPanel($.GetContextPanel())
 	// $.DispatchEvent( "DOTAHideTitleTextTooltip", $.GetContextPanel() );
 	// $.DispatchEvent( "DOTAHideAbilityTooltip", $.GetContextPanel() );

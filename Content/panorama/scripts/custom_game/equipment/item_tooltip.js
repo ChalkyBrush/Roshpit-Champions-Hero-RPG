@@ -56,7 +56,7 @@ function AddWeaponDataToTooltip(tooltip, itemTable, item){
 			if (weaponValues.level == weaponValues.maxLevel){
 				tooltip = tooltip + "<font color='#f4dc42'>"+"★ MAX LEVEL ★"+"</font>"
 			}else{
-				tooltip = tooltip + "<font color='#FFFFFF'>"+$.Localize("weapon_current_level")+": "+weaponValues.level+"</font>"
+				tooltip = tooltip + "<font color='#FFFFFF'>"+$.Localize("#weapon_current_level")+": "+weaponValues.level+"</font>"
 				tooltip = tooltip + " - ["+weaponValues.xp+" / "+weaponValues.xpNeeded+"]"
 			}
 		}
@@ -473,13 +473,13 @@ function ItemHideTooltip(panelId)
 {
 	if (panelId){
 		var itemPanel = $(panelId)
-		$.DispatchEvent( "UIHideCustomLayoutTooltip", itemPanel );
+		$.DispatchEvent( "UIHideCustomLayoutTooltip", itemPanel.toString() );
 	}
 }
 
 function ItemHideTooltipByPanel(itemPanel)
 {
-	$.DispatchEvent( "UIHideCustomLayoutTooltip", itemPanel );
+	$.DispatchEvent( "UIHideCustomLayoutTooltip", itemPanel.toString() );
 }
 
 function getControllingPlayerIndex()

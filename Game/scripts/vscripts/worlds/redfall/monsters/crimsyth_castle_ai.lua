@@ -2392,7 +2392,6 @@ function archivist_death(event)
 	EmitSoundOn("Redfall.ArchivistMainDeathVO", caster)
 	if GameState:GetDifficultyFactor() >= 3 then
 		Glyphs:RollArchivistT5Glyph(caster:GetAbsOrigin())
-		Glyphs:RollArchivistT5Glyph(caster:GetAbsOrigin())
 	end
 end
 

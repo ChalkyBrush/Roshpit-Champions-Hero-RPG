@@ -72,6 +72,7 @@
 						onactivate='EquipmentClick(0)'
 						onmouseover="ItemShowTooltipInit(0)"
 						onmouseout="ItemHideTooltipInit(0)">
+						<Image hittest="false" id="ImageEmpty" class="inventory-item-image" src="file://{images}/custom_game/items/empty-inventory-slot.png"/>
 						<DOTAItemImage hittest="false" id="ItemImageHelm"/>
 						<Panel id="gems_container0" class="gems-equipment-container"/>
 						<Panel hittest="false" id="Cooldown0" class="Cooldown">
@@ -85,6 +86,7 @@
 						onactivate='EquipmentClick(4)'
 						onmouseover="ItemShowTooltipInit(4)"
 						onmouseout="ItemHideTooltipInit(4)">
+						<Image hittest="false" id="ImageEmpty" class="inventory-item-image" src="file://{images}/custom_game/items/empty-inventory-slot.png"/>
 						<DOTAItemImage hittest="false" id="ItemImageArmor"/>
 						<Panel id="gems_container4" class="gems-equipment-container"/>
 						<Panel hittest="false" id="Cooldown4" class="Cooldown">
@@ -98,6 +100,7 @@
 						onactivate='EquipmentClick(1)'
 						onmouseover="ItemShowTooltipInit(1)"
 						onmouseout="ItemHideTooltipInit(1)">
+						<Image hittest="false" id="ImageEmpty" class="inventory-item-image" src="file://{images}/custom_game/items/empty-inventory-slot.png"/>
 						<DOTAItemImage hittest="false" id="ItemImageWeapon"/>
 						<Panel id="gems_container1" class="gems-equipment-container"/>
 						<Panel hittest="false" id="Cooldown1" class="Cooldown">
@@ -109,6 +112,7 @@
 						onactivate='EquipmentClick(2)'
 						onmouseover="ItemShowTooltipInit(2)"
 						onmouseout="ItemHideTooltipInit(2)">
+						<Image hittest="false" id="ImageEmpty" class="inventory-item-image" src="file://{images}/custom_game/items/empty-inventory-slot.png"/>
 						<DOTAItemImage hittest="false" id="ItemImageGlove"/>
 						<Panel id="gems_container2" class="gems-equipment-container"/>
 						<Panel hittest="false" id="Cooldown2" class="Cooldown">
@@ -122,6 +126,7 @@
 						onactivate='EquipmentClick(3)'
 						onmouseover="ItemShowTooltipInit(3)"
 						onmouseout="ItemHideTooltipInit(3)">
+						<Image hittest="false" id="ImageEmpty" class="inventory-item-image" src="file://{images}/custom_game/items/empty-inventory-slot.png"/>
 						<DOTAItemImage hittest="false" id="ItemImageBoot"/>
 						<Panel id="gems_container3" class="gems-equipment-container"/>
 						<Panel hittest="false" id="Cooldown3" class="Cooldown">
@@ -133,6 +138,7 @@
 						onactivate='EquipmentClick(5)'
 						onmouseover="ItemShowTooltipInit(5)"
 						onmouseout="ItemHideTooltipInit(5)">
+						<Image hittest="false" id="ImageEmpty" class="inventory-item-image" src="file://{images}/custom_game/items/empty-inventory-slot.png"/>
 						<DOTAItemImage hittest="false" id="ItemImageAmulet"/>
 						<Panel id="gems_container5" class="gems-equipment-container"/>
 						<Panel hittest="false" id="Cooldown5" class="Cooldown">

@@ -68,7 +68,7 @@ function HeroSelectInit(animation)
     var mapName = Game.GetMapInfo().map_display_name
     if (mapName == "rpc_pvp_linewar_no_oracle"){
         board.FindChildTraverse('load-character').AddClass('invisible')
-        board.FindChildTraverse('new-character').FindChildTraverse('new-character-button-label').text = $.Localize("hero_select_character_general")
+        board.FindChildTraverse('new-character').FindChildTraverse('new-character-button-label').text = $.Localize("#hero_select_character_general")
     }
     board.FindChildTraverse('mute_music_button').SetPanelEvent('onactivate', function MuteMusic() {
         if (GameUI.CustomUIConfig().muteMusic == 0){
@@ -187,7 +187,7 @@ function heroSlotAddAndInit(row, heroName, heroPreviewBox, level, slot, heroesTa
     var board = $.CreatePanel("Panel", row, "newBoard")
     board.BLoadLayoutSnippet('hero_select_portrait')
     var heroImage = board.FindChildTraverse('hero_portrait_image')
-    board.FindChildTraverse('hero_portrait_name_label').text = $.Localize(heroName)
+    board.FindChildTraverse('hero_portrait_name_label').text = $.Localize("#"+heroName)
     board.heroName = heroName
     m_heroPanels.push(board)
     heroImage.SetImage( "file://{images}/heroes/" + heroName + ".png" );
@@ -257,9 +257,10 @@ function setHeroSlotActivate(heroImage, heroName, heroPreviewBox, slot)
         heroPreviewScene.BLoadLayoutSnippet('hero_preview') 
         var preview = $.CreatePanel("Panel", heroPreviewScene, "hero_preview_main_scene");
         preview.AddClass("HeroPreview");  
-        preview.BCreateChildren("<DOTAScenePanel particleonly='false' antialias='true' class='HeroPreviewScene SceneLoaded' unit='" + heroName + "' always-cache-composition-layer='true'/>")
+        $.CreatePanelWithProperties("DOTAScenePanel", preview, "hero_preview_"+heroName, {class:"HeroPreviewScene SceneLoaded", hittest: "false", unit:heroName} );
+        // preview.CreatePanelWithProperties("<DOTAScenePanel particleonly='false' antialias='true' class='HeroPreviewScene SceneLoaded' unit='" + heroName + "' always-cache-composition-layer='true'/>")
         var nameLabel = heroPreviewBox.FindChildTraverse('hero_preview_name_label')
-        nameLabel.text = $.Localize(heroName)
+        nameLabel.text = $.Localize("#"+heroName)
         nameLabel.RemoveClass("fadeInSmall")
         nameLabel.AddClass("fadeInSmall")
         var enterWorldButton = $.GetContextPanel().FindChildTraverse('enter-world-button')
@@ -276,11 +277,11 @@ function setHeroSlotActivate(heroImage, heroName, heroPreviewBox, slot)
 
         if (heroImage.level > 0){
             heroPreviewBox.FindChildTraverse('hero_preview_level_label').RemoveClass('invisible')
-            heroPreviewBox.FindChildTraverse('hero_preview_level_label').text = $.Localize('arena_prizebox_level')+" "+heroImage.level
+            heroPreviewBox.FindChildTraverse('hero_preview_level_label').text = $.Localize('#arena_prizebox_level')+" "+heroImage.level
             setEnterWorldLoad(heroName, enterWorldButton, slot)
         }else{
             setEnterWorldHeroName(heroName, enterWorldButton)
-            heroPreviewBox.FindChildTraverse('hero_lore_text').text = $.Localize(heroName+"_lore")
+            heroPreviewBox.FindChildTraverse('hero_lore_text').text = $.Localize("#"+heroName+"_lore")
         }
     }
 }
@@ -327,7 +328,7 @@ function setEnterWorldLoad(heroName, enterWorldButton, slot)
         if (!($.GetContextPanel().selectLock)){ 
             $.GetContextPanel().selectLock = true
             Game.EmitSound("Roshpit.UI.SelectHero")
-            enterWorldButton.text = $.Localize("ui_loading")
+            enterWorldButton.text = $.Localize("#ui_loading")
             var backButton = $.GetContextPanel().FindChildTraverse('back-button')
             backButton.AddClass('invisible')
             backButton.SetPanelEvent('onactivate', function(){
@@ -429,7 +430,7 @@ function LoadCharactersLoaded(msg){
         var newBoard = $.CreatePanel("Panel", parent, "newBoard")
         newBoard.BLoadLayoutSnippet('hero_select_new')
         newBoard.AddClass('animateFromBottom')
-        newBoard.FindChildTraverse('hero_select_new_title').text = $.Localize('hero_select_load_character')
+        newBoard.FindChildTraverse('hero_select_new_title').text = $.Localize('#hero_select_load_character')
         var heroPreviewBox = $('#hero_preview_box')
         newBoard.FindChildTraverse('premium_notifier').RemoveClass('invisible')
         //$.Msg(result)
@@ -544,7 +545,7 @@ function LoadCharactersLoaded(msg){
 }
 
 function load_characters_fail(){
-    $.GetContextPanel().FindChildTraverse('loading_mesage').text = $.Localize("load_characters_fail")
+    $.GetContextPanel().FindChildTraverse('loading_mesage').text = $.Localize("#load_characters_fail")
     $.GetContextPanel().FindChildTraverse('reload-characters').RemoveClass('invisible')
     var parent = $('#hero_select_content')
     $.GetContextPanel().FindChildTraverse('reload-characters').SetPanelEvent('onactivate', function LoadHeroOption() {

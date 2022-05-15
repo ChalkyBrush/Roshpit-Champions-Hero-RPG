@@ -35,8 +35,6 @@ function generic_pit_enemy_die(event)
 	local luck3 = RandomInt(1, maxBound)
 	if luck3 == 1 then
 		Weapons:RollRandomLegendWeapon1(event.unit:GetAbsOrigin())
-		Weapons:RollRandomLegendWeapon1(event.unit:GetAbsOrigin())
-		Weapons:RollRandomLegendWeapon1(event.unit:GetAbsOrigin())
 	end
 end
 
@@ -3476,7 +3474,6 @@ function pit_boss_final_death(caster, ability)
 		end
 		if Arena.PitLevel == 7 then
 			Timers:CreateTimer(6, function()
-				Weapons:RollRandomLegendWeapon1(bossOrigin)
 				Weapons:RollRandomLegendWeapon1(bossOrigin)
 			end)
 		end

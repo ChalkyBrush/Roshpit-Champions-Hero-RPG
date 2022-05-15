@@ -4,7 +4,7 @@ function updateSkillInTooltip(tooltip, queryUnit){
                 var heroName = Entities.GetUnitName( queryUnit );
                 var skillName = getSkillSlot2(queryUnit, i);
                 var exp = new RegExp("@Ability" + i, "g");
-				tooltip = tooltip.replace(exp, "<font color='#CCFF66'>"+$.Localize(skillName)+"</font>");
+				tooltip = tooltip.replace(exp, "<font color='#CCFF66'>"+$.Localize("#"+skillName)+"</font>");
 			}
 	}
     return tooltip;
@@ -15,7 +15,7 @@ function updateSkillInTooltipByName(tooltip, heroName){
 		for (i = 1; i <= 4; i++) { 
             var skillName = getSkillSlot(heroName, i);
             var exp = new RegExp("@Ability" + i, "g");
-			tooltip = tooltip.replace(exp, "<font color='#CCFF66'>"+$.Localize(skillName)+"</font>");
+			tooltip = tooltip.replace(exp, "<font color='#CCFF66'>"+$.Localize("#"+skillName)+"</font>");
 		}
 	}
     return tooltip;

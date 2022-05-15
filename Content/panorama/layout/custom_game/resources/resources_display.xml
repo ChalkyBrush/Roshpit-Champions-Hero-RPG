@@ -13,12 +13,12 @@
 		</Panel>	
 		<Panel id="resources_display_parent">
 			<Panel id="resources_title_panel">
-				<Label id="resources_title_label" text="tooltip_resources">
+				<Label id="resources_title_label" text="#tooltip_resources">
 				</Label>	
 			</Panel>
 			<Panel id="mithril_shards_container">
 				<Panel id="mithril_shards_title_container">
-						<Label id="mithril_shards_title_label" text="ui_mithril_shards"></Label>
+						<Label id="mithril_shards_title_label" text="#ui_mithril_shards"></Label>
 				</Panel>
 				<Panel id="mithril_shards_value_container">
 						<Image id="mithril_shards_image_resources" src="file://{images}/custom_game/ui/mithril_shard.png" />
@@ -29,7 +29,7 @@
 			</Panel>
 			<Panel id="arcane_crystals_container">
 				<Panel id="arcane_crystals_title_container">
-						<Label id="arcane_crystals_title_label" text="tooltip_arcane_crystals"></Label>
+						<Label id="arcane_crystals_title_label" text="#tooltip_arcane_crystals"></Label>
 				</Panel>
 				<Panel id="arcane_crystals_value_container">
 						<Image id="arcane_crystal_image_resources" src="file://{images}/custom_game/ui/arcane_crystal.png" />
@@ -40,7 +40,7 @@
 			</Panel>
 			<Panel id="prismatic_gemstones_container">
 				<Panel id="prismatic_gemstones_title_container">
-						<Label id="prismatic_gemstones_title_label" text="tooltip_prismatic_gemstones"></Label>
+						<Label id="prismatic_gemstones_title_label" text="#tooltip_prismatic_gemstones"></Label>
 				</Panel>
 				<Panel id="prismatic_gemstones_value_container">
 						<Image id="prismatic_gemstone_image_resources" src="file://{images}/custom_game/ui/prismatic_gemstone.png" />

@@ -18,12 +18,12 @@
 					<Button id="back-button"  hittest="true">
 					  <Label text="←" class="dummy_option_text"></Label>
 					</Button>
-					<Label id="hero_select_new_title" text="hero_select_new_character"/>
+					<Label id="hero_select_new_title" text="#hero_select_new_character"/>
 				</Panel>
 				<Panel id="hero_selection_row1" class="hero_selection_row"/>
 				<Panel id="premium_notifier" class="invisible">
 					<Panel id="premium_notifier_band"/>
-					<Label id="premium_notifier_text" text="saveload_premium_slots"/>
+					<Label id="premium_notifier_text" text="#saveload_premium_slots"/>
 
 				</Panel>
 				<Panel id="hero_selection_row2" class="hero_selection_row"/>
@@ -44,7 +44,7 @@
 					</Panel>
 				</Panel>
 				<Button id="enter-world-button" hittest="true" class="invisible">
-				  <Label text="hero_select_enter_world" class="dummy_option_text"></Label>
+				  <Label text="#hero_select_enter_world" class="dummy_option_text"></Label>
 				</Button>
 			</Panel>
 		</snippet>
@@ -53,9 +53,9 @@
 				<Button id="back-button"  hittest="true">
 				  <Label text="←" class="dummy_option_text"></Label>
 				</Button>
-				<Label text="hero_select_loading_heroes" class="loading_text" id="loading_mesage"></Label>
+				<Label text="#hero_select_loading_heroes" class="loading_text" id="loading_mesage"></Label>
 					<Button id="reload-characters"  hittest="true" class="invisible">
-					  <Label text="ui_reload" class="dummy_option_text"></Label>
+					  <Label text="#ui_reload" class="dummy_option_text"></Label>
 					</Button>
 			</Panel>
 		</snippet>
@@ -81,16 +81,16 @@
 			<Panel class="new-or-load-container" hittest="false">
 				<Image class="rpc_image" src="file://{images}/custom_game/loading_screen/rpc-logo-white.png" />
 				<Button id="new-character" class="dummy_option_button" hittest="true">
-				  <Label text="hero_select_new_character" class="dummy_option_text" id="new-character-button-label"></Label>
+				  <Label text="#hero_select_new_character" class="dummy_option_text" id="new-character-button-label"></Label>
 				</Button>
 				<Button id="load-character" class="dummy_option_button" hittest="true">
-				  <Label text="hero_select_load_character" class="dummy_option_text"></Label>
+				  <Label text="#hero_select_load_character" class="dummy_option_text"></Label>
 				</Button>
 				<Panel id="mute_music_option_panel">
 					<Button id="mute_music_button">
 						<Image id="button_check" class="invisible" src="file://{images}/custom_game/ui/green-check.png" />
 					</Button>
-					<Label text="ui_mute_music" class="mute_music_text"></Label>
+					<Label text="#ui_mute_music" class="mute_music_text"></Label>
 				</Panel>
 			</Panel>
 		</snippet>

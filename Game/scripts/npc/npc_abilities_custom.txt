@@ -5699,7 +5699,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_mult"			"60 80 100 120 140 160 180"
+				"damage_mult"			"6 8 10 12 14 16 18"
 			}
 			"04"
 			{
@@ -5714,7 +5714,7 @@
 			"06"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"w_4_agility_added_to_lightning_damage"			"0.5"
+				"w_4_agility_added_to_lightning_damage"			"0.1"
 			}
 		}
 	}
@@ -13364,12 +13364,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"400"
+				"property_one"			"120"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"200"
+				"property_two"			"100"
 			}
 		}
 	}
@@ -13510,7 +13510,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"1.5"
+				"property_one"			"0.5"
 			}
 			"02"
 			{
@@ -14125,7 +14125,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"45"
+				"property_one"			"35"
 			}
 		}
 	}
@@ -25862,7 +25862,7 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"180"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"150"
 				}
 		    }
 			"modifier_reaper_slice_shield"
@@ -25969,7 +25969,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.5"
+				"property_one"			"0.2"
 			}
 			"02"
 			{
@@ -26000,7 +26000,7 @@
 			"02"
             {
                     "var_type"                             "FIELD_INTEGER"
-                    "property_two"                         "180"
+                    "property_two"                         "150"
             }
 		}
 	}
@@ -31484,7 +31484,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.06"
+				"property_one"			"0.04"
 			}
 			"02"
 			{
@@ -31530,7 +31530,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.7"
+				"property_two"			"0.5"
 			}
 		}
 	}
@@ -52552,7 +52552,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"1"
+				"property_one"			"0.2"
 			}
 			"02"
 			{
@@ -54955,7 +54955,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"10"
+				"property_one"			"7.5"
 			}
 			"02"
 			{
@@ -56444,7 +56444,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.15"
+				"property_two"			"0.1"
 			}
 		}
 	}
@@ -56463,7 +56463,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"3"
+				"property_one"			"1"
 			}
 			"02"
 			{
@@ -56697,7 +56697,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"3.5"
+				"property_one"			"2"
 			}
 			"02"
 			{
@@ -64054,7 +64054,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"12"
+				"property_one"			"8"
 			}
 			"02"
 			{
@@ -65137,7 +65137,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"12"
+				"property_one"			"8"
 			}
 		}
 	}
@@ -65488,7 +65488,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"property_one"			"8"
 			}
 		}
 		"Modifiers"
@@ -65544,7 +65544,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"50"
+				"property_two"			"12"
 			}
 			"04"
 			{
@@ -65671,7 +65671,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.7"
+				"property_one"			"0.4"
 			}
 		}
 		"Modifiers"

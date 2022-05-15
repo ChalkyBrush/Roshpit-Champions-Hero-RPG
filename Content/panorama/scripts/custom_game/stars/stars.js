@@ -37,7 +37,7 @@ function OpenStarsMenu(playerID, starData, grandTotalStars)
     //$.Msg(steamID)
     board.FindChildTraverse('player_avatar').steamid = steamID
     //$.Msg(playerInfo)
-    board.FindChildTraverse('total_stars_label').text = $.Localize("stars_menu")+": ★"+ grandTotalStars + "/"+MAX_STARS
+    board.FindChildTraverse('total_stars_label').text = $.Localize("#stars_menu")+": ★"+ grandTotalStars + "/"+MAX_STARS
     board.FindChildTraverse('close-button').SetPanelEvent('onactivate', function ClosePanel() {
 		GameUI.CustomUIConfig().starsParent.AddClass('outLeftBig')
 		GameUI.CustomUIConfig().starsOpen = false
@@ -139,7 +139,7 @@ function setCategoryButtonFunction(starsContainer, heroName, buttonParent, categ
 		    starIcon2.heroimagestyle = "icon";
 		}
 
-		newChildPanel.FindChildTraverse('stars_title').text = $.Localize(herosStarsArray[i-1])
+		newChildPanel.FindChildTraverse('stars_title').text = $.Localize("#"+herosStarsArray[i-1])
 		var starDescriptionData = getStarDescription(categoryData, herosStarsArray[i-1], heroName, 0)
 		$.Msg(starDescriptionData)
 		var starDescription = starDescriptionData[0]
@@ -182,7 +182,7 @@ function setCategoryButtonFunction(starsContainer, heroName, buttonParent, categ
 	if (heroName == "solo_stars"){
 		categoryStarMax = 33
 	}
-	$.GetContextPanel().FindChildTraverse('stars_category_text').text = $.Localize(heroName)+" "+$.Localize("stars_menu")+": <font color='#F4DC42'>★"+categoryStars+"/"+categoryStarMax+"</font>"
+	$.GetContextPanel().FindChildTraverse('stars_category_text').text = $.Localize("#"+heroName)+" "+$.Localize("#stars_menu")+": <font color='#F4DC42'>★"+categoryStars+"/"+categoryStarMax+"</font>"
 }
 
 function getStarDescription(categoryData, star_title, heroName, starOverride)
@@ -197,7 +197,7 @@ function getStarDescription(categoryData, star_title, heroName, starOverride)
 		//$.Msg("HEJHEHEHE")
 	}
 	if (star_title == "stars_hero_level_title"){
-		starDescription = $.Localize('stars_hero_level_description')
+		starDescription = $.Localize('#stars_hero_level_description')
 		starAmount = categoryData.power_up
 		if (starOverride > 0){
 			starAmount = starOverride - 1
@@ -216,11 +216,11 @@ function getStarDescription(categoryData, star_title, heroName, starOverride)
 			starAmount = starOverride - 1
 		}
 		if (starAmount == 0){
-			starDescription = $.Localize("star_description_basic").replace("@heroname", localizeWithColor(heroName)).replace("@boss_name", localizeWithColor("redfall_canyon_boss")).replace("@map_name", $.Localize("zone_redfall"))
+			starDescription = $.Localize("#star_description_basic").replace("@heroname", localizeWithColor(heroName)).replace("@boss_name", localizeWithColor("redfall_canyon_boss")).replace("@map_name", $.Localize("#zone_redfall"))
 		}else if (starAmount == 1){
-			starDescription = $.Localize("star_description_basic2").replace("@heroname", localizeWithColor(heroName)).replace("@boss_name", localizeWithColor("redfall_canyon_boss")).replace("@map_name", $.Localize("zone_redfall"))
+			starDescription = $.Localize("#star_description_basic2").replace("@heroname", localizeWithColor(heroName)).replace("@boss_name", localizeWithColor("redfall_canyon_boss")).replace("@map_name", $.Localize("#zone_redfall"))
 		}else if (starAmount >= 2){
-			starDescription = $.Localize("star_description_basic3_redfall").replace("@heroname", localizeWithColor(heroName)).replace("@boss_name", localizeWithColor("redfall_canyon_boss")).replace("@map_name", $.Localize("zone_redfall"))
+			starDescription = $.Localize("#star_description_basic3_redfall").replace("@heroname", localizeWithColor(heroName)).replace("@boss_name", localizeWithColor("redfall_canyon_boss")).replace("@map_name", $.Localize("#zone_redfall"))
 		}			
 	}else if (star_title == "abandoned_shipyard"){
 		starAmount = categoryData.shipyard
@@ -228,11 +228,11 @@ function getStarDescription(categoryData, star_title, heroName, starOverride)
 			starAmount = starOverride - 1
 		}
 		if (starAmount == 0){
-			starDescription = $.Localize("star_description_basic").replace("@heroname", localizeWithColor(heroName)).replace("@boss_name", localizeWithColor("redfall_shipyard_boss")).replace("@map_name", $.Localize("zone_redfall"))
+			starDescription = $.Localize("#star_description_basic").replace("@heroname", localizeWithColor(heroName)).replace("@boss_name", localizeWithColor("redfall_shipyard_boss")).replace("@map_name", $.Localize("#zone_redfall"))
 		}else if (starAmount == 1){
-			starDescription = $.Localize("star_description_basic2").replace("@heroname", localizeWithColor(heroName)).replace("@boss_name", localizeWithColor("redfall_shipyard_boss")).replace("@map_name", $.Localize("zone_redfall"))
+			starDescription = $.Localize("#star_description_basic2").replace("@heroname", localizeWithColor(heroName)).replace("@boss_name", localizeWithColor("redfall_shipyard_boss")).replace("@map_name", $.Localize("#zone_redfall"))
 		}else if (starAmount >= 2){
-			starDescription = $.Localize("star_description_basic3_redfall").replace("@heroname", localizeWithColor(heroName)).replace("@boss_name", localizeWithColor("redfall_shipyard_boss")).replace("@map_name", $.Localize("zone_redfall"))
+			starDescription = $.Localize("#star_description_basic3_redfall").replace("@heroname", localizeWithColor(heroName)).replace("@boss_name", localizeWithColor("redfall_shipyard_boss")).replace("@map_name", $.Localize("#zone_redfall"))
 		}			
 	}else if (star_title == "redfall_crimsyth_castle"){
 		starAmount = categoryData.castle
@@ -240,11 +240,11 @@ function getStarDescription(categoryData, star_title, heroName, starOverride)
 			starAmount = starOverride - 1
 		}
 		if (starAmount == 0){
-			starDescription = $.Localize("star_description_basic").replace("@heroname", localizeWithColor(heroName)).replace("@boss_name", localizeWithColor("redfall_crimsyth_castle_boss")).replace("@map_name", $.Localize("zone_redfall"))
+			starDescription = $.Localize("#star_description_basic").replace("@heroname", localizeWithColor(heroName)).replace("@boss_name", localizeWithColor("redfall_crimsyth_castle_boss")).replace("@map_name", $.Localize("#zone_redfall"))
 		}else if (starAmount == 1){
-			starDescription = $.Localize("star_description_basic2").replace("@heroname", localizeWithColor(heroName)).replace("@boss_name", localizeWithColor("redfall_crimsyth_castle_boss")).replace("@map_name", $.Localize("zone_redfall"))
+			starDescription = $.Localize("#star_description_basic2").replace("@heroname", localizeWithColor(heroName)).replace("@boss_name", localizeWithColor("redfall_crimsyth_castle_boss")).replace("@map_name", $.Localize("#zone_redfall"))
 		}else if (starAmount >= 2){
-			starDescription = $.Localize("star_description_basic3_redfall").replace("@heroname", localizeWithColor(heroName)).replace("@boss_name", localizeWithColor("redfall_crimsyth_castle_boss")).replace("@map_name", $.Localize("zone_redfall"))
+			starDescription = $.Localize("#star_description_basic3_redfall").replace("@heroname", localizeWithColor(heroName)).replace("@boss_name", localizeWithColor("redfall_crimsyth_castle_boss")).replace("@map_name", $.Localize("#zone_redfall"))
 		}			
 	}else if (star_title == "zone_tanari_wind_temple"){
 		starAmount = categoryData.wind
@@ -252,11 +252,11 @@ function getStarDescription(categoryData, star_title, heroName, starOverride)
 			starAmount = starOverride - 1
 		}
 		if (starAmount == 0){
-			starDescription = $.Localize("star_description_basic").replace("@heroname", localizeWithColor(heroName)).replace("@boss_name", localizeWithColor("wind_temple_boss")).replace("@map_name", $.Localize("world_tanari_jungle"))
+			starDescription = $.Localize("#star_description_basic").replace("@heroname", localizeWithColor(heroName)).replace("@boss_name", localizeWithColor("wind_temple_boss")).replace("@map_name", $.Localize("#world_tanari_jungle"))
 		}else if (starAmount == 1){
-			starDescription = $.Localize("star_description_basic2").replace("@heroname", localizeWithColor(heroName)).replace("@boss_name", localizeWithColor("wind_temple_boss")).replace("@map_name", $.Localize("world_tanari_jungle"))
+			starDescription = $.Localize("#star_description_basic2").replace("@heroname", localizeWithColor(heroName)).replace("@boss_name", localizeWithColor("wind_temple_boss")).replace("@map_name", $.Localize("#world_tanari_jungle"))
 		}else if (starAmount >= 2){
-			starDescription = $.Localize("star_description_basic3_tanari").replace("@heroname", localizeWithColor(heroName)).replace("@boss_name", localizeWithColor("wind_temple_boss")).replace("@map_name", $.Localize("world_tanari_jungle"))
+			starDescription = $.Localize("#star_description_basic3_tanari").replace("@heroname", localizeWithColor(heroName)).replace("@boss_name", localizeWithColor("wind_temple_boss")).replace("@map_name", $.Localize("#world_tanari_jungle"))
 		}			
 	}else if (star_title == "zone_tanari_water_temple"){
 		starAmount = categoryData.water
@@ -264,11 +264,11 @@ function getStarDescription(categoryData, star_title, heroName, starOverride)
 			starAmount = starOverride - 1
 		}
 		if (starAmount == 0){
-			starDescription = $.Localize("star_description_basic").replace("@heroname", localizeWithColor(heroName)).replace("@boss_name", localizeWithColor("water_temple_boss")).replace("@map_name", $.Localize("world_tanari_jungle"))
+			starDescription = $.Localize("#star_description_basic").replace("@heroname", localizeWithColor(heroName)).replace("@boss_name", localizeWithColor("water_temple_boss")).replace("@map_name", $.Localize("#world_tanari_jungle"))
 		}else if (starAmount == 1){
-			starDescription = $.Localize("star_description_basic2").replace("@heroname", localizeWithColor(heroName)).replace("@boss_name", localizeWithColor("water_temple_boss")).replace("@map_name", $.Localize("world_tanari_jungle"))
+			starDescription = $.Localize("#star_description_basic2").replace("@heroname", localizeWithColor(heroName)).replace("@boss_name", localizeWithColor("water_temple_boss")).replace("@map_name", $.Localize("#world_tanari_jungle"))
 		}else if (starAmount >= 2){
-			starDescription = $.Localize("star_description_basic3_tanari").replace("@heroname", localizeWithColor(heroName)).replace("@boss_name", localizeWithColor("water_temple_boss")).replace("@map_name", $.Localize("world_tanari_jungle"))
+			starDescription = $.Localize("#star_description_basic3_tanari").replace("@heroname", localizeWithColor(heroName)).replace("@boss_name", localizeWithColor("water_temple_boss")).replace("@map_name", $.Localize("#world_tanari_jungle"))
 		}			
 	}else if (star_title == "zone_tanari_fire_temple"){
 		starAmount = categoryData.fire
@@ -276,11 +276,11 @@ function getStarDescription(categoryData, star_title, heroName, starOverride)
 			starAmount = starOverride - 1
 		}
 		if (starAmount == 0){
-			starDescription = $.Localize("star_description_basic").replace("@heroname", localizeWithColor(heroName)).replace("@boss_name", localizeWithColor("fire_temple_neverlord_reborn")).replace("@map_name", $.Localize("world_tanari_jungle"))
+			starDescription = $.Localize("#star_description_basic").replace("@heroname", localizeWithColor(heroName)).replace("@boss_name", localizeWithColor("fire_temple_neverlord_reborn")).replace("@map_name", $.Localize("#world_tanari_jungle"))
 		}else if (starAmount == 1){
-			starDescription = $.Localize("star_description_basic2").replace("@heroname", localizeWithColor(heroName)).replace("@boss_name", localizeWithColor("fire_temple_neverlord_reborn")).replace("@map_name", $.Localize("world_tanari_jungle"))
+			starDescription = $.Localize("#star_description_basic2").replace("@heroname", localizeWithColor(heroName)).replace("@boss_name", localizeWithColor("fire_temple_neverlord_reborn")).replace("@map_name", $.Localize("#world_tanari_jungle"))
 		}else if (starAmount >= 2){
-			starDescription = $.Localize("star_description_basic3_tanari").replace("@heroname", localizeWithColor(heroName)).replace("@boss_name", localizeWithColor("fire_temple_neverlord_reborn")).replace("@map_name", $.Localize("world_tanari_jungle"))
+			starDescription = $.Localize("#star_description_basic3_tanari").replace("@heroname", localizeWithColor(heroName)).replace("@boss_name", localizeWithColor("fire_temple_neverlord_reborn")).replace("@map_name", $.Localize("#world_tanari_jungle"))
 		}			
 	}else if (star_title == "arena_left_leaderboard_title"){
 		starAmount = categoryData.champleague
@@ -288,11 +288,11 @@ function getStarDescription(categoryData, star_title, heroName, starOverride)
 			starAmount = starOverride - 1
 		}
 		if (starAmount == 0){
-			starDescription = $.Localize("star_description_champions_league").replace("@heroname", localizeWithColor(heroName)).replace("@rank", fontStart+10+fontEnd)
+			starDescription = $.Localize("#star_description_champions_league").replace("@heroname", localizeWithColor(heroName)).replace("@rank", fontStart+10+fontEnd)
 		}else if (starAmount == 1){
-			starDescription = $.Localize("star_description_champions_league").replace("@heroname", localizeWithColor(heroName)).replace("@rank", fontStart+5+fontEnd)
+			starDescription = $.Localize("#star_description_champions_league").replace("@heroname", localizeWithColor(heroName)).replace("@rank", fontStart+5+fontEnd)
 		}else if (starAmount >= 2){
-			starDescription = $.Localize("star_description_champions_league").replace("@heroname", localizeWithColor(heroName)).replace("@rank", fontStart+1+fontEnd)
+			starDescription = $.Localize("#star_description_champions_league").replace("@heroname", localizeWithColor(heroName)).replace("@rank", fontStart+1+fontEnd)
 		}			
 	}else if (star_title == "tooltip_pit_of_trials"){
 		starAmount = categoryData.pitoftrials
@@ -300,11 +300,11 @@ function getStarDescription(categoryData, star_title, heroName, starOverride)
 			starAmount = starOverride - 1
 		}
 		if (starAmount == 0){
-			starDescription = $.Localize("star_description_pit").replace("@heroname", localizeWithColor(heroName)).replace("@boss_name", localizeWithColor("arena_pit_of_trials_final_boss")).replace("@map_name", $.Localize("roshpit_arena")).replace("@level", fontStart+1+fontEnd)
+			starDescription = $.Localize("#star_description_pit").replace("@heroname", localizeWithColor(heroName)).replace("@boss_name", localizeWithColor("arena_pit_of_trials_final_boss")).replace("@map_name", $.Localize("#roshpit_arena")).replace("@level", fontStart+1+fontEnd)
 		}else if (starAmount == 1){
-			starDescription = $.Localize("star_description_pit").replace("@heroname", localizeWithColor(heroName)).replace("@boss_name", localizeWithColor("arena_pit_of_trials_final_boss")).replace("@map_name", $.Localize("roshpit_arena")).replace("@level", fontStart+4+fontEnd)
+			starDescription = $.Localize("#star_description_pit").replace("@heroname", localizeWithColor(heroName)).replace("@boss_name", localizeWithColor("arena_pit_of_trials_final_boss")).replace("@map_name", $.Localize("#roshpit_arena")).replace("@level", fontStart+4+fontEnd)
 		}else if (starAmount >= 2){
-			starDescription = $.Localize("star_description_pit7").replace("@heroname", localizeWithColor(heroName)).replace("@boss_name", localizeWithColor("arena_pit_of_trials_final_boss")).replace("@map_name", $.Localize("roshpit_arena")).replace("@level", fontStart+7+fontEnd)
+			starDescription = $.Localize("#star_description_pit7").replace("@heroname", localizeWithColor(heroName)).replace("@boss_name", localizeWithColor("arena_pit_of_trials_final_boss")).replace("@map_name", $.Localize("#roshpit_arena")).replace("@level", fontStart+7+fontEnd)
 		}	
 		//$.Msg("PIT OF TRIALS WTF?")
 		//$.Msg(starDescription)		
@@ -314,11 +314,11 @@ function getStarDescription(categoryData, star_title, heroName, starOverride)
 			starAmount = starOverride - 1
 		}
 		if (starAmount == 0){
-			starDescription = $.Localize("immortal_weapon_star_description").replace("@heroname", localizeWithColor(heroName))
+			starDescription = $.Localize("#immortal_weapon_star_description").replace("@heroname", localizeWithColor(heroName))
 		}else if (starAmount == 1){
-			starDescription = $.Localize("immortal_weapon_star_description2").replace("@heroname", localizeWithColor(heroName)).replace("@level", fontStart+5+fontEnd)
+			starDescription = $.Localize("#immortal_weapon_star_description2").replace("@heroname", localizeWithColor(heroName)).replace("@level", fontStart+5+fontEnd)
 		}else if (starAmount >= 2){
-			starDescription = $.Localize("immortal_weapon_star_description2").replace("@heroname", localizeWithColor(heroName)).replace("@level", fontStart+10+fontEnd)
+			starDescription = $.Localize("#immortal_weapon_star_description2").replace("@heroname", localizeWithColor(heroName)).replace("@level", fontStart+10+fontEnd)
 		}		
 	}else if (star_title == "tanari_ancient_hero"){
 		starAmount = categoryData.weapon
@@ -326,11 +326,11 @@ function getStarDescription(categoryData, star_title, heroName, starOverride)
 			starAmount = starOverride - 1
 		}
 		if (starAmount == 0){
-			starDescription = $.Localize("star_ancient_god_description1").replace("@heroname", localizeWithColor(heroName)).replace("@map_name", $.Localize("world_tanari_jungle"))
+			starDescription = $.Localize("#star_ancient_god_description1").replace("@heroname", localizeWithColor(heroName)).replace("@map_name", $.Localize("#world_tanari_jungle"))
 		}else if (starAmount == 1){
-			starDescription = $.Localize("star_ancient_god_description2").replace("@heroname", localizeWithColor(heroName)).replace("@boss_name", localizeWithColor("tanari_ancient_hero")).replace("@map_name", $.Localize("world_tanari_jungle"))
+			starDescription = $.Localize("#star_ancient_god_description2").replace("@heroname", localizeWithColor(heroName)).replace("@boss_name", localizeWithColor("tanari_ancient_hero")).replace("@map_name", $.Localize("#world_tanari_jungle"))
 		}else if (starAmount >= 2){
-			starDescription = $.Localize("star_ancient_god_description3").replace("@heroname", localizeWithColor(heroName)).replace("@boss_name", localizeWithColor("tanari_ancient_hero")).replace("@map_name", $.Localize("world_tanari_jungle"))
+			starDescription = $.Localize("#star_ancient_god_description3").replace("@heroname", localizeWithColor(heroName)).replace("@boss_name", localizeWithColor("tanari_ancient_hero")).replace("@map_name", $.Localize("#world_tanari_jungle"))
 		}	
 	}else if (star_title == "star_serengaard_title"){
 		starAmount = categoryData.serengaard
@@ -338,11 +338,11 @@ function getStarDescription(categoryData, star_title, heroName, starOverride)
 			starAmount = starOverride - 1
 		}
 		if (starAmount == 0){
-			starDescription = $.Localize("star_serengaard_description").replace("@heroname", localizeWithColor(heroName)).replace("@wave_number", localizeWithColor(20))
+			starDescription = $.Localize("#star_serengaard_description").replace("@heroname", localizeWithColor(heroName)).replace("@wave_number", localizeWithColor(20))
 		}else if (starAmount == 1){
-			starDescription = $.Localize("star_serengaard_description2").replace("@heroname", localizeWithColor(heroName)).replace("@wave_number", localizeWithColor(30))
+			starDescription = $.Localize("#star_serengaard_description2").replace("@heroname", localizeWithColor(heroName)).replace("@wave_number", localizeWithColor(30))
 		}else if (starAmount >= 2){
-			starDescription = $.Localize("star_serengaard_description3").replace("@heroname", localizeWithColor(heroName)).replace("@wave_number", localizeWithColor(30))
+			starDescription = $.Localize("#star_serengaard_description3").replace("@heroname", localizeWithColor(heroName)).replace("@wave_number", localizeWithColor(30))
 		}
 	}else if (star_title == "star_serengaard_infinite_title"){
 		starAmount = categoryData.serengaard_infinite
@@ -350,11 +350,11 @@ function getStarDescription(categoryData, star_title, heroName, starOverride)
 			starAmount = starOverride - 1
 		}
 		if (starAmount == 0){
-			starDescription = $.Localize("star_serengaard_infinite_description").replace("@heroname", localizeWithColor(heroName)).replace("@wave_number", localizeWithColor(10))
+			starDescription = $.Localize("#star_serengaard_infinite_description").replace("@heroname", localizeWithColor(heroName)).replace("@wave_number", localizeWithColor(10))
 		}else if (starAmount == 1){
-			starDescription = $.Localize("star_serengaard_infinite_description").replace("@heroname", localizeWithColor(heroName)).replace("@wave_number", localizeWithColor(30))
+			starDescription = $.Localize("#star_serengaard_infinite_description").replace("@heroname", localizeWithColor(heroName)).replace("@wave_number", localizeWithColor(30))
 		}else if (starAmount >= 2){
-			starDescription = $.Localize("star_serengaard_infinite_description").replace("@heroname", localizeWithColor(heroName)).replace("@wave_number", localizeWithColor(60))
+			starDescription = $.Localize("#star_serengaard_infinite_description").replace("@heroname", localizeWithColor(heroName)).replace("@wave_number", localizeWithColor(60))
 		}
 	}else if (star_title == "star_valdun_title"){
 		starAmount = categoryData.valdun
@@ -362,11 +362,11 @@ function getStarDescription(categoryData, star_title, heroName, starOverride)
 			starAmount = starOverride - 1
 		}
 		if (starAmount == 0){
-			starDescription = $.Localize("star_valdun_description").replace("@heroname", localizeWithColor(heroName)).replace("@bossname", localizeWithColor("seafortress_final_boss")).replace("@mapname", $.Localize("rpc_sea_fortress"))
+			starDescription = $.Localize("#star_valdun_description").replace("@heroname", localizeWithColor(heroName)).replace("@bossname", localizeWithColor("seafortress_final_boss")).replace("@mapname", $.Localize("#rpc_sea_fortress"))
 		}else if (starAmount == 1){
-			starDescription = $.Localize("star_valdun_description2").replace("@heroname", localizeWithColor(heroName)).replace("@bossname", localizeWithColor("seafortress_final_boss")).replace("@mapname", $.Localize("rpc_sea_fortress"))
+			starDescription = $.Localize("#star_valdun_description2").replace("@heroname", localizeWithColor(heroName)).replace("@bossname", localizeWithColor("seafortress_final_boss")).replace("@mapname", $.Localize("#rpc_sea_fortress"))
 		}else if (starAmount >= 2){
-			starDescription = $.Localize("star_valdun_description3").replace("@heroname", localizeWithColor(heroName)).replace("@bossname", localizeWithColor("seafortress_final_boss")).replace("@mapname", $.Localize("rpc_sea_fortress"))
+			starDescription = $.Localize("#star_valdun_description3").replace("@heroname", localizeWithColor(heroName)).replace("@bossname", localizeWithColor("seafortress_final_boss")).replace("@mapname", $.Localize("#rpc_sea_fortress"))
 		}
 	}else if (star_title == "star_azalea_title"){
 		starAmount = categoryData.azalea
@@ -374,11 +374,11 @@ function getStarDescription(categoryData, star_title, heroName, starOverride)
 			starAmount = starOverride - 1
 		}
 		if (starAmount == 0){
-			starDescription = $.Localize("star_azalea_description").replace("@heroname", localizeWithColor(heroName)).replace("@bossname", localizeWithColor("azalea_boss")).replace("@mapname", $.Localize("rpc_winterblight_mountain"))
+			starDescription = $.Localize("#star_azalea_description").replace("@heroname", localizeWithColor(heroName)).replace("@bossname", localizeWithColor("azalea_boss")).replace("@mapname", $.Localize("#rpc_winterblight_mountain"))
 		}else if (starAmount == 1){
-			starDescription = $.Localize("star_azalea_description2").replace("@heroname", localizeWithColor(heroName)).replace("@bossname", localizeWithColor("azalea_boss")).replace("@mapname", $.Localize("rpc_winterblight_mountain"))
+			starDescription = $.Localize("#star_azalea_description2").replace("@heroname", localizeWithColor(heroName)).replace("@bossname", localizeWithColor("azalea_boss")).replace("@mapname", $.Localize("#rpc_winterblight_mountain"))
 		}else if (starAmount >= 2){
-			starDescription = $.Localize("star_azalea_description3").replace("@heroname", localizeWithColor(heroName)).replace("@bossname", localizeWithColor("azalea_boss")).replace("@mapname", $.Localize("rpc_winterblight_mountain"))
+			starDescription = $.Localize("#star_azalea_description3").replace("@heroname", localizeWithColor(heroName)).replace("@bossname", localizeWithColor("azalea_boss")).replace("@mapname", $.Localize("#rpc_winterblight_mountain"))
 		}
 	}else if (star_title == "winterblight_cavern"){
 		starAmount = categoryData.wb_cavern
@@ -386,11 +386,11 @@ function getStarDescription(categoryData, star_title, heroName, starOverride)
 			starAmount = starOverride - 1
 		}
 		if (starAmount == 0){
-			starDescription = $.Localize("star_wb_cavern_description").replace("@heroname", localizeWithColor(heroName)).replace("@bossname", localizeWithColor("winterblight_cavern_boss_tiamat")).replace("@mapname", $.Localize("rpc_winterblight_mountain"))
+			starDescription = $.Localize("#star_wb_cavern_description").replace("@heroname", localizeWithColor(heroName)).replace("@bossname", localizeWithColor("#winterblight_cavern_boss_tiamat")).replace("@mapname", $.Localize("#rpc_winterblight_mountain"))
 		}else if (starAmount == 1){
-			starDescription = $.Localize("star_wb_cavern_description2").replace("@heroname", localizeWithColor(heroName)).replace("@bossname", localizeWithColor("winterblight_cavern_boss_tiamat")).replace("@mapname", $.Localize("rpc_winterblight_mountain"))
+			starDescription = $.Localize("#star_wb_cavern_description2").replace("@heroname", localizeWithColor(heroName)).replace("@bossname", localizeWithColor("#winterblight_cavern_boss_tiamat")).replace("@mapname", $.Localize("#rpc_winterblight_mountain"))
 		}else if (starAmount >= 2){
-			starDescription = $.Localize("star_wb_cavern_description3").replace("@heroname", localizeWithColor(heroName)).replace("@bossname", localizeWithColor("winterblight_cavern_boss_tiamat")).replace("@mapname", $.Localize("rpc_winterblight_mountain"))
+			starDescription = $.Localize("#star_wb_cavern_description3").replace("@heroname", localizeWithColor(heroName)).replace("@bossname", localizeWithColor("#winterblight_cavern_boss_tiamat")).replace("@mapname", $.Localize("#rpc_winterblight_mountain"))
 		}
 	}else if (star_title == "star_wb_master_title"){
 		starAmount = categoryData.cavern_master
@@ -398,11 +398,11 @@ function getStarDescription(categoryData, star_title, heroName, starOverride)
 			starAmount = starOverride - 1
 		}
 		if (starAmount == 0){
-			starDescription = $.Localize("star_wb_cavern_master_description").replace("@heroname", localizeWithColor(heroName)).replace("@dungeon_name", localizeWithColor("winterblight_cavern")).replace("@level", 10)
+			starDescription = $.Localize("#star_wb_cavern_master_description").replace("@heroname", localizeWithColor(heroName)).replace("@dungeon_name", localizeWithColor("winterblight_cavern")).replace("@level", 10)
 		}else if (starAmount == 1){
-			starDescription = $.Localize("star_wb_cavern_master_description").replace("@heroname", localizeWithColor(heroName)).replace("@dungeon_name", localizeWithColor("winterblight_cavern")).replace("@level", 20)
+			starDescription = $.Localize("#star_wb_cavern_master_description").replace("@heroname", localizeWithColor(heroName)).replace("@dungeon_name", localizeWithColor("winterblight_cavern")).replace("@level", 20)
 		}else if (starAmount >= 2){
-			starDescription = $.Localize("star_wb_cavern_master_description").replace("@heroname", localizeWithColor(heroName)).replace("@dungeon_name", localizeWithColor("winterblight_cavern")).replace("@level", 30)
+			starDescription = $.Localize("#star_wb_cavern_master_description").replace("@heroname", localizeWithColor(heroName)).replace("@dungeon_name", localizeWithColor("winterblight_cavern")).replace("@level", 30)
 		}
 	}else if (star_title == "winterblight_castle"){
 		starAmount = categoryData.wb_castle
@@ -411,11 +411,11 @@ function getStarDescription(categoryData, star_title, heroName, starOverride)
 			starAmount = starOverride - 1
 		}
 		if (starAmount == 0){
-			starDescription = $.Localize("star_wb_castle_description").replace("@heroname", localizeWithColor(heroName)).replace("@bossname", localizeWithColor("winterblight_castle_boss")).replace("@mapname", $.Localize("rpc_winterblight_mountain"))
+			starDescription = $.Localize("#star_wb_castle_description").replace("@heroname", localizeWithColor(heroName)).replace("@bossname", localizeWithColor("winterblight_castle_boss")).replace("@mapname", $.Localize("#rpc_winterblight_mountain"))
 		}else if (starAmount == 1){
-			starDescription = $.Localize("star_wb_castle_description2").replace("@heroname", localizeWithColor(heroName)).replace("@bossname", localizeWithColor("winterblight_castle_boss")).replace("@mapname", $.Localize("rpc_winterblight_mountain"))
+			starDescription = $.Localize("#star_wb_castle_description2").replace("@heroname", localizeWithColor(heroName)).replace("@bossname", localizeWithColor("winterblight_castle_boss")).replace("@mapname", $.Localize("#rpc_winterblight_mountain"))
 		}else if (starAmount >= 2){
-			starDescription = $.Localize("star_wb_castle_description3").replace("@heroname", localizeWithColor(heroName)).replace("@bossname", localizeWithColor("winterblight_castle_boss")).replace("@mapname", $.Localize("rpc_winterblight_mountain"))
+			starDescription = $.Localize("#star_wb_castle_description3").replace("@heroname", localizeWithColor(heroName)).replace("@bossname", localizeWithColor("winterblight_castle_boss")).replace("@mapname", $.Localize("#rpc_winterblight_mountain"))
 		}
 	}else if (star_title == "star_valdun_title_solo"){
 		starAmount = categoryData.valdun
@@ -423,23 +423,23 @@ function getStarDescription(categoryData, star_title, heroName, starOverride)
 			starAmount = starOverride - 1
 		}
 		if (starAmount == 0){
-			starDescription = $.Localize("star_valdun_description1solo").replace("@heroname", localizeWithColor(heroName)).replace("@bossname", localizeWithColor("seafortress_final_boss")).replace("@mapname", $.Localize("rpc_sea_fortress"))
+			starDescription = $.Localize("#star_valdun_description1solo").replace("@heroname", localizeWithColor(heroName)).replace("@bossname", localizeWithColor("seafortress_final_boss")).replace("@mapname", $.Localize("#rpc_sea_fortress"))
 		}else if (starAmount == 1){
-			starDescription = $.Localize("star_valdun_description2solo").replace("@heroname", localizeWithColor(heroName)).replace("@bossname", localizeWithColor("seafortress_final_boss")).replace("@mapname", $.Localize("rpc_sea_fortress"))
+			starDescription = $.Localize("#star_valdun_description2solo").replace("@heroname", localizeWithColor(heroName)).replace("@bossname", localizeWithColor("seafortress_final_boss")).replace("@mapname", $.Localize("#rpc_sea_fortress"))
 		}else if (starAmount >= 2){
-			starDescription = $.Localize("star_valdun_description3solo").replace("@heroname", localizeWithColor(heroName)).replace("@bossname", localizeWithColor("seafortress_final_boss")).replace("@mapname", $.Localize("rpc_sea_fortress"))
+			starDescription = $.Localize("#star_valdun_description3solo").replace("@heroname", localizeWithColor(heroName)).replace("@bossname", localizeWithColor("seafortress_final_boss")).replace("@mapname", $.Localize("#rpc_sea_fortress"))
 		}
-	}else if (star_title == "rpc_tutorial"){
+	}else if (star_title == "#rpc_tutorial"){
 		starAmount = categoryData.champleague
 		if (starOverride > 0){
 			starAmount = starOverride - 1
 		}
 		if (starAmount == 0){
-			starDescription = $.Localize("tutorial_star_1")
+			starDescription = $.Localize("#tutorial_star_1")
 		}else if (starAmount == 1){
-			starDescription = $.Localize("tutorial_star_2")
+			starDescription = $.Localize("#tutorial_star_2")
 		}else if (starAmount >= 2){
-			starDescription = $.Localize("tutorial_star_3")
+			starDescription = $.Localize("#tutorial_star_3")
 		}
 	}									
 	return [starDescription, starAmount]
@@ -447,9 +447,12 @@ function getStarDescription(categoryData, star_title, heroName, starOverride)
 
 function localizeWithColor(text)
 {
+	// if (text.charAt(0) != "#"){
+	// 	text = "#"+text;
+	// }
 	var fontStart = "<font color='#85e5a3'>"
 	var fontEnd = "</font>"
-	var newString = fontStart + $.Localize(text) + fontEnd
+	var newString = fontStart + $.Localize("#"+text) + fontEnd
 	return newString
 }
 
@@ -588,7 +591,7 @@ function starPopout(msg)
 	    starIcon2.heroimagestyle = "icon";
 	}
 
-	board.FindChildTraverse('stars_title').text = $.Localize(starTitle)
+	board.FindChildTraverse('stars_title').text = $.Localize("#"+starTitle)
 
 	var starDescription = getStarDescription([], starTitle, heroName, starAmount)[0]
 	

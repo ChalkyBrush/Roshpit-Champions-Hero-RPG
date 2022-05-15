@@ -148,9 +148,9 @@ function closeBuilderMenu(){
 function BuilderItemShowTooltip(button, builderItemData)
 {
 	var title = "<font color='#ede744'>"+$.Localize(builderItemData.unitName)+"</font>"
-	var costTip = "<font color='#a0dd6a'>"+$.Localize("rpc_pvp_gold_cost")+": </font>"+"<font color='#FFFFFF'>"+builderItemData.goldCost+"</font>"
-	costTip = costTip+"<br><font color='#a0dd6a'>"+$.Localize("rpc_pvp_income")+": </font>"+"<font color='#FFFFFF'>+"+builderItemData.income+"</font>"
-	var tooltip = $.Localize("pvp_"+builderItemData.unitName+"_Description")
+	var costTip = "<font color='#a0dd6a'>"+$.Localize("#rpc_pvp_gold_cost")+": </font>"+"<font color='#FFFFFF'>"+builderItemData.goldCost+"</font>"
+	costTip = costTip+"<br><font color='#a0dd6a'>"+$.Localize("#rpc_pvp_income")+": </font>"+"<font color='#FFFFFF'>+"+builderItemData.income+"</font>"
+	var tooltip = $.Localize("#pvp_"+builderItemData.unitName+"_Description")
 	tooltip = "<br>"+breakUpTooltip(tooltip)
 	tooltip = costTip+tooltip
 
@@ -173,7 +173,7 @@ function createLineWarIncomeTimer(msg){
 		var parent = $.GetContextPanel()
 	    var board = $.CreatePanel("Panel", parent, "pvp_goal")
 	    board.BLoadLayoutSnippet("pvp_goal");
-	    board.FindChildTraverse('goal-name').text = $.Localize("rpc_pvp_income")+":"
+	    board.FindChildTraverse('goal-name').text = $.Localize("#rpc_pvp_income")+":"
 	    // board.FindChildTraverse('goal-label').text = msg.incomeTimer
 	    board.FindChildTraverse('goal-label').text = 60
 
@@ -198,7 +198,7 @@ function recreateLineWarIncomeTimer(msg){
 			var parent = $.GetContextPanel()
 		    var board = $.CreatePanel("Panel", parent, "pvp_goal")
 		    board.BLoadLayoutSnippet("pvp_goal");
-		    board.FindChildTraverse('goal-name').text = $.Localize("rpc_pvp_income")+":"
+		    board.FindChildTraverse('goal-name').text = $.Localize("#rpc_pvp_income")+":"
 		    board.FindChildTraverse('goal-label').text = msg.incomeTimer
 
 		    var board2 = $.CreatePanel("Panel", parent, "line_builder_container")
@@ -257,7 +257,7 @@ function updateLineWarFoodCap(){
 	}else{
 		var playerID = Players.GetLocalPlayer()
 		var foodData = CustomNetTables.GetTableValue( "premium_pass", "line_war_food_cap_"+playerID )
-		panel.text = $.Localize("pvp_max_units")+": "+foodData.currentFood+"/"+foodData.maxFood
+		panel.text = $.Localize("#pvp_max_units")+": "+foodData.currentFood+"/"+foodData.maxFood
 	}
 	
 }
@@ -272,7 +272,7 @@ function InitDummmy(){
     board.AddClass('animateFromBottom')
     $.GetContextPanel().dpsText = ""
     $.GetContextPanel().lineCount = 0
-    board.FindChildTraverse('capacity_text').text = $.Localize('arena_log_capacity')+": 0/30"
+    board.FindChildTraverse('capacity_text').text = $.Localize('#arena_log_capacity')+": 0/30"
     
 
     board.FindChildTraverse('target-dummy-button-clear').SetPanelEvent('onactivate', function ClearLog() {
@@ -280,7 +280,7 @@ function InitDummmy(){
 	    $.GetContextPanel().lineCount = 0
 	    var dpsBox = $.GetContextPanel().FindChildTraverse("target_dummy_contents").FindChildTraverse('dps_text')
 	    dpsBox.text = ""
-	    $.GetContextPanel().FindChildTraverse('capacity_text').text = $.Localize('arena_log_capacity')+": 0/30"
+	    $.GetContextPanel().FindChildTraverse('capacity_text').text = $.Localize('#arena_log_capacity')+": 0/30"
 	});
 
     board.FindChildTraverse('target-dummy-button-exit').SetPanelEvent('onactivate', function ExitDummy() {
@@ -315,11 +315,11 @@ function InitDummmy(){
 function magic_immunity_button(board)
 {
 	if (!(magic_immune)){
-		board.FindChildTraverse("magic-immunity-label").text = $.Localize("dummy_remove_magic_immunity").toUpperCase()
+		board.FindChildTraverse("magic-immunity-label").text = $.Localize("#dummy_remove_magic_immunity").toUpperCase()
 		magic_immune = true
 		GameEvents.SendCustomGameEventToServer( "arena_dialogue", {dummy: 1, magic_immune: 1, playerID: Players.GetLocalPlayer()} );
 	}else{
-		board.FindChildTraverse("magic-immunity-label").text = $.Localize("dummy_add_magic_immunity").toUpperCase()
+		board.FindChildTraverse("magic-immunity-label").text = $.Localize("#dummy_add_magic_immunity").toUpperCase()
 		magic_immune = false
 		GameEvents.SendCustomGameEventToServer( "arena_dialogue", {dummy: 0, magic_immune: 1, playerID: Players.GetLocalPlayer()} );
 	}	
@@ -327,10 +327,10 @@ function magic_immunity_button(board)
 
 function toggle_dps_display_button(board) {
     if (!scientific_display) {
-        board.FindChildTraverse("dps-display-label").text = $.Localize("dummy_toggle_dps_scientific").toUpperCase();
+        board.FindChildTraverse("dps-display-label").text = $.Localize("#dummy_toggle_dps_scientific").toUpperCase();
         scientific_display = true;
     } else {
-        board.FindChildTraverse("dps-display-label").text = $.Localize("dummy_toggle_dps_normal").toUpperCase();
+        board.FindChildTraverse("dps-display-label").text = $.Localize("#dummy_toggle_dps_normal").toUpperCase();
         scientific_display = false;
     }
 }
@@ -350,7 +350,7 @@ function timerfunction(timerButton, bigTimer)
 
 	}
 	$.Schedule(DPS_TIMER_TIME, function(){
-		timerButton.text = $.Localize('arena_training_button_2')
+		timerButton.text = $.Localize('#arena_training_button_2')
 		bigTimer.AddClass('invisible')
 	})	
 }
@@ -394,10 +394,10 @@ function updateTargetDummy(msg){
 				}
 			}	
 			// $.GetContextPanel().dpsText = $.GetContextPanel().dpsText + "<font color='#CCFF66'>"+ $.Localize(heroName)  + "</font> " + $.Localize('arena_training_dummy_sentence_1') + " <font color='#CCFF66'>" + $.Localize(victimName) + "</font> " + $.Localize('arena_training_dummy_sentence_2') + " <font color='#f99459'>" + dmg + "</font> " + $.Localize('arena_training_dummy_sentence_3') + "<br>"
-			$.GetContextPanel().dpsText = $.GetContextPanel().dpsText + "<font color='#CCFF66'>"+ $.Localize(heroName)  + "</font> " + $.Localize('arena_training_dummy_sentence_1') + " " + $.Localize('arena_training_dummy_sentence_2') + " <font color='#f99459'>" + dmg + "</font> " + damageTypeText + " " + elementText + " " + $.Localize('arena_training_dummy_sentence_3') + "<br>"
+			$.GetContextPanel().dpsText = $.GetContextPanel().dpsText + "<font color='#CCFF66'>"+ $.Localize("#"+heroName)  + "</font> " + $.Localize('#arena_training_dummy_sentence_1') + " " + $.Localize('#arena_training_dummy_sentence_2') + " <font color='#f99459'>" + dmg + "</font> " + damageTypeText + " " + elementText + " " + $.Localize('#arena_training_dummy_sentence_3') + "<br>"
 			dpsBox.text = $.GetContextPanel().dpsText
 			$.GetContextPanel().lineCount = $.GetContextPanel().lineCount + 1
-			panel.FindChildTraverse('capacity_text').text = $.Localize('arena_log_capacity')+": "+$.GetContextPanel().lineCount+"/30"
+			panel.FindChildTraverse('capacity_text').text = $.Localize('#arena_log_capacity')+": "+$.GetContextPanel().lineCount+"/30"
 		}
 	}	
 }
@@ -472,7 +472,7 @@ function sereengardInitialize()
 	var parent = $.GetContextPanel()
     var board = $.CreatePanel("Panel", parent, "pvp_goal")
     board.BLoadLayoutSnippet("pvp_goal");
-    board.FindChildTraverse('goal-name').text = $.Localize("wave_starting_timer")+":"
+    board.FindChildTraverse('goal-name').text = $.Localize("#wave_starting_timer")+":"
     // board.FindChildTraverse('goal-label').text = msg.incomeTimer
     board.FindChildTraverse('goal-label').text = "-"
 
@@ -486,14 +486,14 @@ function sereengardInitialize()
 function serengaardUpdateData(msg)
 {
 	var waveNumber = msg.waveNumber
-	$.GetContextPanel().FindChildTraverse('serengaard_wave_label').text = $.Localize('wave_name')+": "+waveNumber
+	$.GetContextPanel().FindChildTraverse('serengaard_wave_label').text = $.Localize('#wave_name')+": "+waveNumber
 	if (msg.enemiesMax){
-		$.GetContextPanel().FindChildTraverse('serengaard_enemies_label').text = $.Localize("enemies_slain")+": "+msg.currentEnemies+"/"+msg.enemiesMax
+		$.GetContextPanel().FindChildTraverse('serengaard_enemies_label').text = $.Localize("#enemies_slain")+": "+msg.currentEnemies+"/"+msg.enemiesMax
 		var waveProgressWidth = Math.round((msg.currentEnemies*100)/msg.enemiesMax)
 		$.Msg(waveProgressWidth)
 		$.GetContextPanel().FindChildTraverse('wave_box_contents').style.width = waveProgressWidth+"%"
 	}else{
-		$.GetContextPanel().FindChildTraverse('serengaard_enemies_label').text = $.Localize("enemies_slain")+": -"
+		$.GetContextPanel().FindChildTraverse('serengaard_enemies_label').text = $.Localize("#enemies_slain")+": -"
 	}
 }
 
@@ -502,7 +502,7 @@ function serengaardWaveSpawn(msg)
 	var parent = $('#pvp_container')
     var board = $.CreatePanel("Panel", parent, "serengaard_wave_spawning")
     board.BLoadLayoutSnippet("serengaard_wave_spawning");
-    board.FindChildTraverse('serengaard_wave_spawn_label').text = $.Localize("wave_spawning")
+    board.FindChildTraverse('serengaard_wave_spawn_label').text = $.Localize("#wave_spawning")
 
     board.AddClass('fade-in')
     Game.EmitSound("Serengaard.RoundStart")
@@ -537,7 +537,7 @@ function serengaardLeaderboard(msg){
     board.FindChildTraverse('serengaard_leader_button_3').SetPanelEvent('onactivate', function SelectLeaderButton3() {
     	serengaardLeaderboardCategoryActivate(3, msg.resultTable, leaderContentsContainer)
 	});
-    // board.FindChildTraverse('serengaard_wave_spawn_label').text = $.Localize("wave_spawning")
+    // board.FindChildTraverse('serengaard_wave_spawn_label').text = $.Localize("#wave_spawning")
 }
 
 function serengaardLeaderboardHide(){
@@ -576,7 +576,7 @@ function serengaardLeaderboardCategoryActivate(index, results, leaderContentsCon
 		board.AddClass('serengaard_leaderboard_box')
 		board.BLoadLayoutSnippet("serengaard_record")
 		board.FindChildTraverse('rank_text').text = i+". "
-		board.FindChildTraverse('wave_text').text = $.Localize("wave_name")+": <font color='#3bede4'>"+leaderData[i].wave_number+"</font>"
+		board.FindChildTraverse('wave_text').text = $.Localize("#wave_name")+": <font color='#3bede4'>"+leaderData[i].wave_number+"</font>"
 		var heroContainer = board.FindChildTraverse('serengaard_individual_hero_container')
 		for (var j = 1; j <= 4; j++){
 			var steam_id = -1

@@ -91,7 +91,7 @@ function itemPropertyCheck(itemProperty){
 	if (itemProperty.propertyValue === undefined){
 		itemProperty.propertyValue = "-"
 	}
-	itemProperty.propertyName = $.Localize(itemProperty.propertyName)
+	itemProperty.propertyName = $.Localize("#"+itemProperty.propertyName)
 	return itemProperty
 }
 
@@ -164,7 +164,7 @@ function AddSpecialDescriptionToTooltip(tooltip, itemProperty1, itemProperty2, i
 	var specialText4 = ""
 	if (!(itemProperty1 === undefined)){
 		if (!(itemProperty1.specialDescription === undefined)){
-			specialText1 = "<br>"+$.Localize(itemProperty1.specialDescription)
+			specialText1 = "<br>"+$.Localize("#"+itemProperty1.specialDescription)
 			specialText1 = SpecialDescriptionValues(specialText1, item)
 			specialBreak=true;
 			specialText1 = breakUpTooltip(specialText1)
@@ -173,7 +173,7 @@ function AddSpecialDescriptionToTooltip(tooltip, itemProperty1, itemProperty2, i
 	if (!(itemProperty2 === undefined)){
 		if (rarityFactor >= 2){
 			if (!(itemProperty2.specialDescription === undefined)){
-				specialText2 = "<br>"+$.Localize(itemProperty2.specialDescription)
+				specialText2 = "<br>"+$.Localize("#"+itemProperty2.specialDescription)
 				specialText2 = SpecialDescriptionValues(specialText2, item)
 				specialBreak=true;
 				specialText2 = breakUpTooltip(specialText2)
@@ -183,7 +183,7 @@ function AddSpecialDescriptionToTooltip(tooltip, itemProperty1, itemProperty2, i
 	if (!(itemProperty3 === undefined)){
 		if (rarityFactor >= 3){
 			if (!(itemProperty3.specialDescription === undefined)){
-				specialText3 = "<br>"+$.Localize(itemProperty3.specialDescription)
+				specialText3 = "<br>"+$.Localize("#"+itemProperty3.specialDescription)
 				specialText3 = SpecialDescriptionValues(specialText3, item)
 				specialBreak=true;
 				specialText3 = breakUpTooltip(specialText3)
@@ -193,7 +193,7 @@ function AddSpecialDescriptionToTooltip(tooltip, itemProperty1, itemProperty2, i
 	if (!(itemProperty4 === undefined)){
 		if (rarityFactor >= 4){
 			if (!(itemProperty4.specialDescription === undefined)){
-				specialText4 = "<br>"+$.Localize(itemProperty4.specialDescription)
+				specialText4 = "<br>"+$.Localize("#"+itemProperty4.specialDescription)
 				specialText4 = SpecialDescriptionValues(specialText4, item)
 				specialBreak=true;
 				specialText4 = breakUpTooltip(specialText4)

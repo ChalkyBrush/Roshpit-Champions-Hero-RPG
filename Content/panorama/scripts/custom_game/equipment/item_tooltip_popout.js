@@ -45,7 +45,7 @@ function initializeTooltip(func){
 	// SOULBINDER
 	if ((itemValues.soulbound) && (itemValues.soulbound == 1)){
 		$('#soulbound_label').SetHasClass( "invisible", false )
-		$('#soulbound_label').text = "*"+$.Localize("item_soulbound")+"*"
+		$('#soulbound_label').text = "*"+$.Localize("#item_soulbound")+"*"
 	}else{
 		$('#soulbound_label').SetHasClass( "invisible", true )
 	}
@@ -62,7 +62,7 @@ function initializeTooltip(func){
 
 		if (!(itemValues.useDescription === undefined)){
 			var tooltip = ""
-			tooltip = tooltip + "<font color='#A3D4A1'>"+$.Localize(itemValues.useDescription)+"</font>"
+			tooltip = tooltip + "<font color='#A3D4A1'>"+$.Localize("#"+itemValues.useDescription)+"</font>"
 			tooltip = replaceConsumableText(itemValues, tooltip)
 			tooltip = updateGlyphInTooltip(tooltip, item)
 
@@ -214,7 +214,7 @@ function initializeTooltip(func){
 		if (itemValues.requiredHero === undefined){
 			$('#tooltip_requirements_right').AddClass('invisible')
 		}else{
-			var requiredHeroText = $.Localize(itemValues.requiredHero)
+			var requiredHeroText = $.Localize("#"+itemValues.requiredHero)
 			$('#tooltip_requirements_right').RemoveClass('invisible')
 			$('#tooltip_requirements_right').text = requiredHeroText
 
@@ -239,9 +239,9 @@ function initializeTooltip(func){
 		//$.Msg(weaponValues)
 		if (!(weaponValues === undefined) && !(weaponValues.level === undefined) && (weaponValues.gear_slot == 1)){
 			$('#tooltip_weapons_data_container').RemoveClass('invisible')
-			$('#tooltip_weapon_left1').text = "<font color='#ffb8b7'>"+$.Localize('weapon_usable')+"</font> <font color='#AAAAAA'>"+$.Localize('weapon_current_level')+":</font>"
+			$('#tooltip_weapon_left1').text = "<font color='#ffb8b7'>"+$.Localize('#weapon_usable')+"</font> <font color='#AAAAAA'>"+$.Localize('#weapon_current_level')+":</font>"
 			$('#tooltip_weapon_right1').text = "<font color='#FFFFFF'>"+weaponValues.level+"</font>"
-			$('#tooltip_weapon_left2').text = "<font color='#ffb8b7'>"+$.Localize('weapon_usable')+"</font> <font color='#AAAAAA'>"+$.Localize('weapon_max_level')+":</font>"
+			$('#tooltip_weapon_left2').text = "<font color='#ffb8b7'>"+$.Localize('#weapon_usable')+"</font> <font color='#AAAAAA'>"+$.Localize('#weapon_max_level')+":</font>"
 			$('#tooltip_weapon_right2').text = "<font color='#FFFFFF'>"+weaponValues.maxLevel+"</font>"
 
 			$('#weapon_exp_bar').RemoveClass("invisible")
@@ -258,9 +258,9 @@ function initializeTooltip(func){
 
 		}else if(itemValues.maxLevel){
 			$('#tooltip_weapons_data_container').RemoveClass('invisible')
-			$('#tooltip_weapon_left1').text = "<font color='#ffb8b7'>"+$.Localize('weapon_usable')+"</font> <font color='#AAAAAA'>"+$.Localize('weapon_current_level')+":</font>"
+			$('#tooltip_weapon_left1').text = "<font color='#ffb8b7'>"+$.Localize('#weapon_usable')+"</font> <font color='#AAAAAA'>"+$.Localize('#weapon_current_level')+":</font>"
 			$('#tooltip_weapon_right1').text = "<font color='#FFFFFF'>"+1+"</font>"
-			$('#tooltip_weapon_left2').text = "<font color='#ffb8b7'>"+$.Localize('weapon_usable')+"</font> <font color='#AAAAAA'>"+$.Localize('weapon_max_level')+":</font>"
+			$('#tooltip_weapon_left2').text = "<font color='#ffb8b7'>"+$.Localize('#weapon_usable')+"</font> <font color='#AAAAAA'>"+$.Localize('#weapon_max_level')+":</font>"
 			$('#tooltip_weapon_right2').text = "<font color='#FFFFFF'>"+itemValues.maxLevel+"</font>"
 		}else{
 			$('#weapon_exp_bar').AddClass("invisible")
@@ -272,7 +272,7 @@ function initializeTooltip(func){
 			$('#dupe').AddClass("invisible")
 		}else{
 			$('#dupe').RemoveClass("invisible")
-			$('#dupe').text = "<font color='#FFFFFF'>*"+$.Localize('item_possibly_duped')+"</font>"
+			$('#dupe').text = "<font color='#FFFFFF'>*"+$.Localize('#item_possibly_duped')+"</font>"
 		}
 		manageTooltipGems(item, itemValues)
 }
@@ -285,13 +285,13 @@ function manageTooltipGems(item, item_table)
 				$('#gems_info_container').RemoveClass('invisible')
 				if (item_table.socket1 == "open"){
 					var gem_color = "#a87732"
-					$('#gem_title1').text =  "<font color='"+gem_color+"'>"+$.Localize("ui_open_socket")+"</font>"
+					$('#gem_title1').text =  "<font color='"+gem_color+"'>"+$.Localize("#ui_open_socket")+"</font>"
 					$('#gem_title1').AddClass("open_socket_title")
 					$('#gem_description1').AddClass('invisible')
 					$('#gem_image1').SetImage(null)
 				}else{
 					var gem_color = get_gem_color(item_table.socket1)
-					var gem_title = $.Localize("gems_"+item_table.socket1+item_table.socket1value)
+					var gem_title = $.Localize("#gems_"+item_table.socket1+item_table.socket1value)
 					$('#gem_title1').text = "<font color='"+gem_color+"'>"+gem_title+"</font>"	
 					$('#gem_title1').RemoveClass("open_socket_title")
 					$('#gem_description1').text = substituteGemDescriptions("unknown_description", item_table.socket1, item_table.socket1value, item, item_table.rarityFactor)
@@ -303,13 +303,13 @@ function manageTooltipGems(item, item_table)
 					$('#gem_info_2').RemoveClass('invisible')
 					if (item_table.socket2 == "open"){
 						var gem_color = "#a87732"
-						$('#gem_title2').text =  "<font color='"+gem_color+"'>"+$.Localize("ui_open_socket")+"</font>"
+						$('#gem_title2').text =  "<font color='"+gem_color+"'>"+$.Localize("#ui_open_socket")+"</font>"
 						$('#gem_title2').AddClass("open_socket_title")
 						$('#gem_description2').AddClass('invisible')
 						$('#gem_image2').SetImage(null)
 					}else{
 						var gem_color = get_gem_color(item_table.socket2)
-						var gem_title = $.Localize("gems_"+item_table.socket2+item_table.socket2value)
+						var gem_title = $.Localize("#gems_"+item_table.socket2+item_table.socket2value)
 						$('#gem_title2').text = "<font color='"+gem_color+"'>"+gem_title+"</font>"	
 						$('#gem_title2').RemoveClass("open_socket_title")
 						$('#gem_description2').text = substituteGemDescriptions("unknown_description", item_table.socket2, item_table.socket2value, item, item_table.rarityFactor)	
@@ -399,7 +399,11 @@ function AddAffixToItem(tooltip, itemProperty, queryUnit, requiredHero, rarityFa
 	if (OGpropertyName === undefined){
 		return tooltip
 	}
-	var propertyName = $.Localize(itemProperty.propertyName)
+	var stringToLocalize = itemProperty.propertyName;
+	if (stringToLocalize.charAt(0) != "#"){
+		stringToLocalize = "#"+stringToLocalize;
+	}
+	var propertyName = $.Localize(stringToLocalize)
 	// itemProperty = itemPropertyCheck(itemProperty)
     
 	if (OGpropertyName.indexOf("rune_") >= 0){
@@ -420,22 +424,22 @@ function AddAffixToItem(tooltip, itemProperty, queryUnit, requiredHero, rarityFa
 			var rune_unit_index = skill_tree_data.runeUnit;
             var abilityIndex = Entities.GetAbility(rune_unit_index, abilitySlot)
             var abilityName = Abilities.GetAbilityName(abilityIndex)
-            propertyName = $.Localize("DOTA_Tooltip_Ability_" + abilityName)
+            propertyName = $.Localize("#DOTA_Tooltip_Ability_" + abilityName)
 		}else{
 			if (rarityFactor == 6){
 				var RPCName = convertFullHeroNameToRPC(requiredHero)	
 				var arcanaSuffix = itemName.replace("item_rpc_"+RPCName+"_", "_");
-				propertyName = $.Localize("DOTA_Tooltip_Ability_"+RPCName+"_"+OGpropertyName+arcanaSuffix)
+				propertyName = $.Localize("#DOTA_Tooltip_Ability_"+RPCName+"_"+OGpropertyName+arcanaSuffix)
 
 			}else{
 				var RPCName = convertFullHeroNameToRPC(requiredHero)	
-				propertyName = $.Localize("DOTA_Tooltip_Ability_"+RPCName+"_"+OGpropertyName)	
+				propertyName = $.Localize("#DOTA_Tooltip_Ability_"+RPCName+"_"+OGpropertyName)	
 			}
 		}
 		// itemProperty = itemPropertyCheck(itemProperty)
 	}
 	if (OGpropertyName.indexOf("#DOTA_Tooltip_Ability") >= 0){
-		propertyName = $.Localize(OGpropertyName)
+		propertyName = $.Localize("#"+OGpropertyName)
 	}
 	tooltipName = "<font color='"+itemProperty.propertyColor+"'>"+propertyName+"</font>"
 	tooltipValue = "<font color='"+itemProperty.propertyColor+"'>"+itemProperty.propertyValue+"</font>"
@@ -478,7 +482,7 @@ function itemValuesCheck(itemValues)
 function replaceConsumableText(itemValues, tooltip)
 {
 	if (itemValues.property3color && itemValues.property3name){
-		tooltip = tooltip.replace("@consumableProperty3", "<font color='"+itemValues.property3color+"'>"+$.Localize(itemValues.property3name)+"</font>")
+		tooltip = tooltip.replace("@consumableProperty3", "<font color='"+itemValues.property3color+"'>"+$.Localize("#"+itemValues.property3name)+"</font>")
 	}
 	return tooltip
 }

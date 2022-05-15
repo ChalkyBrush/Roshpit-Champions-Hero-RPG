@@ -23,29 +23,29 @@
 			<Panel id="difficulty_vote_bg">
 			</Panel>
 			<Panel id="difficulty_vote_contents">
-				<Label id="difficulty_select_label" text="ui_difficulty_select" hittest="false"/>
-				<Label id="difficulty_select_tip_label" text="ui_difficulty_select_tip" hittest="false"/>
+				<Label id="difficulty_select_label" text="#ui_difficulty_select" hittest="false"/>
+				<Label id="difficulty_select_tip_label" text="#ui_difficulty_select_tip" hittest="false"/>
 				<Panel id="difficulty_contents_container" hittest="false">
 					<Panel class="difficulty_vote_button_container invisible" id="difficulty_container1" hittest="false">
 						<Panel class="difficulty_vote_button" id="difficulty_button1" hittest="true"
 							onactivate="ActivateDifficultyButton(1)">
-							<Label class="difficulty_vote_button_label normal_color" text="ui_normal"/>
+							<Label class="difficulty_vote_button_label normal_color" text="#ui_normal"/>
 						</Panel>
-						<Label class="difficulty_button_additional_info" text="ui_normal_tip"/>
+						<Label class="difficulty_button_additional_info" text="#ui_normal_tip"/>
 					</Panel>
 					<Panel class="difficulty_vote_button_container invisible" id="difficulty_container2" hittest="false">
 						<Panel class="difficulty_vote_button" id="difficulty_button2" hittest="true"
 							onactivate="ActivateDifficultyButton(2)">
-							<Label class="difficulty_vote_button_label elite_color" text="ui_elite"/>
+							<Label class="difficulty_vote_button_label elite_color" text="#ui_elite"/>
 						</Panel>
-						<Label class="difficulty_button_additional_info" text="ui_elite_tip"/>
+						<Label class="difficulty_button_additional_info" text="#ui_elite_tip"/>
 					</Panel>
 					<Panel class="difficulty_vote_button_container invisible" id="difficulty_container3" hittest="false">
 						<Panel class="difficulty_vote_button" hittest="true" id="difficulty_button3"
 							onactivate="ActivateDifficultyButton(3)">
-							<Label class="difficulty_vote_button_label legend_color" text="ui_legend"/>
+							<Label class="difficulty_vote_button_label legend_color" text="#ui_legend"/>
 						</Panel>
-						<Label class="difficulty_button_additional_info" text="ui_legend_tip"/>
+						<Label class="difficulty_button_additional_info" text="#ui_legend_tip"/>
 					</Panel>
 				</Panel>
 			</Panel>

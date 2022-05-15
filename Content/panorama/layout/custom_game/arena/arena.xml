@@ -13,7 +13,7 @@
 				<Panel id="leadboard_title">
 					<Panel class="arena_leaderboard_title_bg" hittest="false">
 					</Panel>
-					<Label id="leaderboard_title_text" text="arena_left_leaderboard_title" hittest="false"></Label>
+					<Label id="leaderboard_title_text" text="#arena_left_leaderboard_title" hittest="false"></Label>
 				</Panel>
 				<Panel id="leaderboard-leaders-box">
 				</Panel>
@@ -44,14 +44,14 @@
 					<Panel id="dialogue_header" hittest="false">
 						<Panel id="dialogue_portrait" hittest="false">
 						</Panel>
-						<Label id="dialogue_name" text="dialogue_name" hittest="false"></Label>
+						<Label id="dialogue_name" text="#dialogue_name" hittest="false"></Label>
 					</Panel>
 					<Panel id="dialogue_text" hittest="false">
 						<Panel id="dialogue_text_bg" hittest="false"></Panel>
-						<Label id="dialogue_text_text" text="dialogue_text" hittest="false"></Label>
+						<Label id="dialogue_text_text" text="#dialogue_text" hittest="false"></Label>
 					</Panel>
 					<Panel class="invisible" id="optional_dialogue_input">
-						<Label id="optional_input_label" text="some_label"/>
+						<Label id="optional_input_label" text="#some_label"/>
 						<NumberEntry id="arena_dialogue_input" min="0" max="100000"/>
 					</Panel>
 					<Panel id="dialogue_options" hittest="false">
@@ -82,24 +82,24 @@
 				</Panel>
 				<Panel id="terminal_content" hittest="false">
 					<Panel id="terminal_header" hittest="false">
-						<Label id="terminal_header_text" text="dialogue_name" hittest="false"></Label>
+						<Label id="terminal_header_text" text="#dialogue_name" hittest="false"></Label>
 					</Panel>
 					<Panel id="left_terminal" hittest="false">
 						<Panel id="hero_portrait" hittest="false"></Panel>
-						<Label id="hero_name_text" text="dialogue_name" hittest="false"></Label>
+						<Label id="hero_name_text" text="#dialogue_name" hittest="false"></Label>
 						<Panel id="trophy_box" hittest="false">
 						</Panel>
 						<Panel id="rank_box" hittest="false">
-							<Label id="rank_label" text="terminal_rank_display" hittest="false"/>
+							<Label id="rank_label" text="#terminal_rank_display" hittest="false"/>
 							<Label id="rank_value" text="--" hittest="false"/>
 						</Panel>
 
 					</Panel>
 					<Panel id="right_terminal" hittest="false">
 						<Panel id="right_terminal_column_a" class="invisible">
-							<Label id="wins_label" class="terminal_text" text="terminal_high_score" hittest="false"/>
+							<Label id="wins_label" class="terminal_text" text="#terminal_high_score" hittest="false"/>
 							<Panel class="horizontal-space"></Panel>
-							<Label id="fame_label" class="terminal_text" text="terminal_opponent_rank" hittest="false"/>
+							<Label id="fame_label" class="terminal_text" text="#terminal_opponent_rank" hittest="false"/>
 						</Panel>
 						<Panel id="right_terminal_column_b" class="invisible">
 							<Label id="wins_value" class="terminal_text" text="0" hittest="false"/>
@@ -107,15 +107,15 @@
 							<Label id="fame_value" class="terminal_text" text="0" hittest="false"/>
 						</Panel>
 						<Panel id="champions_league_opponent_container">
-							<Label id="enemy_name_text" text="terminal_opponent_unselected" hittest="false"></Label>
+							<Label id="enemy_name_text" text="#terminal_opponent_unselected" hittest="false"></Label>
 							<Panel id="enemy_portrait" hittest="false"></Panel>
 							<Label id="champion_high_score_text" text="" hittest="false" class="invisible"></Label>
 						</Panel>
 						<Panel id="champions_league_change_challenger_button">
-							<Label id="champions_league_change_challenger_button_label" text="terminal_choose_opponent" hittest="false"/>
+							<Label id="champions_league_change_challenger_button_label" text="#terminal_choose_opponent" hittest="false"/>
 						</Panel>
 						<Panel id="champions_league_start_button">
-							<Label id="champions_league_start_button_label" text="start_champions_league_battle" hittest="false"/>
+							<Label id="champions_league_start_button_label" text="#start_champions_league_battle" hittest="false"/>
 						</Panel>
 					</Panel>
 					<Panel id="opponent_select_box">
@@ -127,7 +127,7 @@
 			<Panel class="champions_league_opponent_select_container" hittest="false">
 				<Panel class="opponent_select_main_bg" hittest="false">
 				</Panel>
-				<Label id="champions_league_select_opponent_title" text="terminal_choose_opponent" hittest="false"/>
+				<Label id="champions_league_select_opponent_title" text="#terminal_choose_opponent" hittest="false"/>
 				<Panel id="terminal_opponent_buttons_container">
 					<Panel id="right_terminal_column_a_opponent">
 					</Panel>
@@ -143,7 +143,7 @@
 		</snippet>
 		<snippet name="arena_battle_timer">
 			<Panel class="arena_timer_container" hittest="false">
-				<Label id="champions_league_start_timer_text" text="arena_prebattle_text" hittest="false"/>
+				<Label id="champions_league_start_timer_text" text="#arena_prebattle_text" hittest="false"/>
 				<Label id="champions_league_start_timer" text="0:00" hittest="false"/>
 			</Panel>
 		</snippet>
@@ -159,7 +159,7 @@
 				</Panel>
 				<Panel id="skip_button_container">
 					<Button id="skip_button">
-						<Label id="skip_button_label" text="skip_button_label"></Label>
+						<Label id="skip_button_label" text="#skip_button_label"></Label>
 					</Button>
 				</Panel>
 				<Panel class="fighter_health_and_crowd" hittest="false">
@@ -260,27 +260,27 @@
 				</Panel>
 				<Panel id="terminal_content" hittest="false">
 					<Panel id="terminal_header" hittest="false">
-						<Label id="terminal_header_text" text="dialogue_name" hittest="false"></Label>
+						<Label id="terminal_header_text" text="#dialogue_name" hittest="false"></Label>
 					</Panel>
 					<Panel id="left_terminal" hittest="false">
 						<Panel id="hero_portrait" hittest="false"></Panel>
-						<Label id="hero_name_text" text="dialogue_name" hittest="false"></Label>
+						<Label id="hero_name_text" text="#dialogue_name" hittest="false"></Label>
 						<Panel id="rank_box_for_pit" hittest="false">
 							<Panel id="pit_player_info_row_1" class="pit_player_info_row">
-								<Label id="pit_level_label" class="pit_player_info_text" text="tooltip_pit_highest_level" hittest="false"/>
+								<Label id="pit_level_label" class="pit_player_info_text" text="#tooltip_pit_highest_level" hittest="false"/>
 								<Label id="pit_level_value" class="pit_player_info_text" text="0" hittest="false"/>
 							</Panel>
 							<Panel id="pit_player_info_row_2" class="pit_player_info_row">
-								<Label id="pit_lockout_label" class="pit_player_info_text" text="tooltip_no_lock_out" hittest="false" html="true"/>
+								<Label id="pit_lockout_label" class="pit_player_info_text" text="#tooltip_no_lock_out" hittest="false" html="true"/>
 							</Panel>
 						</Panel>
 
 					</Panel>
 					<Panel id="right_terminal" hittest="false">
 						<Panel id="right_terminal_column_a" class="invisible">
-							<Label id="wins_label" class="terminal_text" text="terminal_high_score" hittest="false"/>
+							<Label id="wins_label" class="terminal_text" text="#terminal_high_score" hittest="false"/>
 							<Panel class="horizontal-space"></Panel>
-							<Label id="fame_label" class="terminal_text" text="terminal_opponent_rank" hittest="false"/>
+							<Label id="fame_label" class="terminal_text" text="#terminal_opponent_rank" hittest="false"/>
 						</Panel>
 						<Panel id="right_terminal_column_b" class="invisible">
 							<Label id="wins_value" class="terminal_text" text="0" hittest="false"/>
@@ -288,22 +288,22 @@
 							<Label id="fame_value" class="terminal_text" text="0" hittest="false"/>
 						</Panel>
 						<Panel id="pit_data_container">
-							<Label id="enemy_name_text" text="terminal_opponent_unselected" hittest="false"></Label>
+							<Label id="enemy_name_text" text="#terminal_opponent_unselected" hittest="false"></Label>
 							<Panel id="pit_enemy_data_row_1" class="pit_enemy_data_row invisible" hittest="false">
-								<Label id="enemy_attack_damage_label" text="damage_label" hittest="false" class="enemy_label"></Label>
+								<Label id="enemy_attack_damage_label" text="#damage_label" hittest="false" class="enemy_label"></Label>
 								<Label id="enemy_attack_damage_value" text="0" hittest="false" class="enemy_label_value"></Label>
 							</Panel>
 							<Panel id="pit_enemy_data_row_2" class="pit_enemy_data_row invisible" hittest="false">
-								<Label id="enemy_resistance_label" text="damage_label" hittest="false" class="enemy_label"></Label>
+								<Label id="enemy_resistance_label" text="#damage_label" hittest="false" class="enemy_label"></Label>
 								<Label id="enemy_resistance_value" text="0" hittest="false" class="enemy_label_value"></Label>
 							</Panel>
 							<Panel id="pit_enemy_data_row_3" class="pit_enemy_data_row invisible" hittest="false">
-								<Label id="enemy_paragon_label" text="damage_label" hittest="false" class="enemy_label"></Label>
+								<Label id="enemy_paragon_label" text="#damage_label" hittest="false" class="enemy_label"></Label>
 								<Label id="enemy_paragon_value" text="0" hittest="false" class="enemy_label_value"></Label>
 							</Panel>
 						</Panel>
 						<Panel id="pit_difficulty_container">
-							<Label id="pit_difficulty_label" text="tooltip_select_pit_level_title" hittest="false"/>
+							<Label id="pit_difficulty_label" text="#tooltip_select_pit_level_title" hittest="false"/>
 							<Panel id="pit_stars_row" hittest="false">
 								<Label id="pit_star_1" text="★" hittest="true" class="pit_star"/>
 								<Label id="pit_star_2" text="★" hittest="true" class="pit_star"/>
@@ -315,7 +315,7 @@
 							</Panel>
 						</Panel>
 						<Panel id="champions_league_start_button">
-							<Label id="champions_league_start_button_label" text="start_champions_league_battle" hittest="false"/>
+							<Label id="champions_league_start_button_label" text="#start_champions_league_battle" hittest="false"/>
 						</Panel>
 					</Panel>
 					<Panel id="opponent_select_box">
@@ -330,7 +330,7 @@
 				</Panel>
 				<Button id="quest_close_button"
 					onactivate="closeQuestLog()">
-					<Label id="close_quest_text" html="true" hittest="false" text="ui_close_panel"></Label>
+					<Label id="close_quest_text" html="true" hittest="false" text="#ui_close_panel"></Label>
 				</Button>
 				<Panel class="quest_log" hittest="false">
 					<Panel id="quest_log_title_container" hittest="false">
@@ -339,11 +339,11 @@
 						<Panel id="active_complete_container">
 							<Button id="quest_active_button" class="quest_state_button"
 								onactivate="toggleQuestState(0)">
-								<Label class="quest_state_label" html="true" hittest="false" text="tooltip_active"></Label>
+								<Label class="quest_state_label" html="true" hittest="false" text="#tooltip_active"></Label>
 							</Button>
 							<Button id="quest_completed_button" class="quest_state_button"
 								onactivate="toggleQuestState(1)">
-								<Label class="quest_state_label" html="true" hittest="false" text="tooltip_completed"></Label>
+								<Label class="quest_state_label" html="true" hittest="false" text="#tooltip_completed"></Label>
 							</Button>
 						</Panel>
 						<Label id="quest_log_no_quests" hittest="false"/>
@@ -364,11 +364,11 @@
 						<Label id="quest-description" html="true" hittest="false"></Label>
 					</Panel>
 					<Panel id="quest-item-progress" hittest="false">
-						<Label id="quest-progress" hittest="false" text="tooltip_progress"></Label>
+						<Label id="quest-progress" hittest="false" text="#tooltip_progress"></Label>
 						<Label id="quest-progress-values" html="true" hittest="false"></Label>
 					</Panel>
 					<Panel id="quest-item-reward" hittest="false">
-						<Label id="quest-reward" hittest="false" text="tooltip_reward"></Label>
+						<Label id="quest-reward" hittest="false" text="#tooltip_reward"></Label>
 						<Image id="quest-reward-image" src="" 
 						onmouseout="HideQuestlogRewardTooltip()"/>
 					</Panel>

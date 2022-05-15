@@ -142,10 +142,10 @@
     	"DOTA_Tooltip_ability_voltex_rune_r_1_suffix_two"					""
 
     	"DOTA_Tooltip_ability_voltex_rune_r_2"								"[R2] Lightning Bolt"
-    	"DOTA_Tooltip_ability_voltex_rune_r_2_Description"					"Attacks have a 30% chance to deal bonus Magical damage, stun the target for 0.2 seconds, and reduce the target's Armor and Magic Armor for <% VOLTEX_R2_ARMOR_LOSS_DUR %> seconds."
+    	"DOTA_Tooltip_ability_voltex_rune_r_2_Description"					"Attacks have a 30% to deal bonus Magical damage, stun the target for 0.2 seconds, and reduce the target's Armor for <% VOLTEX_R2_ARMOR_LOSS_DUR %> seconds."
     	"DOTA_Tooltip_ability_voltex_rune_r_2_property_one"					"Damage"
     	"DOTA_Tooltip_ability_voltex_rune_r_2_suffix"						"% of attack damage"
-    	"DOTA_Tooltip_ability_voltex_rune_r_2_property_two"					"Armor and Magic Armor Reduction"
+    	"DOTA_Tooltip_ability_voltex_rune_r_2_property_two"					"Armor Reduction"
     	"DOTA_Tooltip_ability_voltex_rune_r_2_suffix_two"					""
 
     	"DOTA_Tooltip_modifier_voltex_rune_r_2_rune_effect"					"Lightning Bolt"

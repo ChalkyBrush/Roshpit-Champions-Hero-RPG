@@ -101,63 +101,63 @@ function TreasureGoblins:SpawnChance(treasure_unit)
 end
 
 function TreasureGoblins:SpawnTreasureGoblin(position)
-	TreasureGoblins.SpawnedCount = TreasureGoblins.SpawnedCount + 1
-	if TreasureGoblins.Data[GetMapName()] then
-		Timers:CreateTimer(0.05, function()
-			PrecacheUnitByNameAsync("treasure_goblin_"..GetMapName(), function(...) end)
-		end)
-		Timers:CreateTimer(2.5, function()
-			local goblin = CreateUnitByName("treasure_goblin_"..GetMapName(), position, false, nil, nil, DOTA_TEAM_NEUTRALS)
-			goblin:AddAbility("dungeon_creep")	
-			local ability = goblin:FindAbilityByName("dungeon_creep")
-			ability:SetLevel(1)
-			ability:ApplyDataDrivenModifier(goblin, goblin, "modifier_dungeon_thinker_creep", {})
-			goblin.aggroSound = "RPCItems.TreasureGoblin.Die"
-			goblin:SetForwardVector(RandomVector(1))
-			goblin:AddAbility("treasure_goblin_ability"):SetLevel(1)
-			local goblin_ability = goblin:FindAbilityByName("treasure_goblin_ability")
+	-- TreasureGoblins.SpawnedCount = TreasureGoblins.SpawnedCount + 1
+	-- if TreasureGoblins.Data[GetMapName()] then
+	-- 	Timers:CreateTimer(0.05, function()
+	-- 		PrecacheUnitByNameAsync("treasure_goblin_"..GetMapName(), function(...) end)
+	-- 	end)
+	-- 	Timers:CreateTimer(2.5, function()
+	-- 		local goblin = CreateUnitByName("treasure_goblin_"..GetMapName(), position, false, nil, nil, DOTA_TEAM_NEUTRALS)
+	-- 		goblin:AddAbility("dungeon_creep")	
+	-- 		local ability = goblin:FindAbilityByName("dungeon_creep")
+	-- 		ability:SetLevel(1)
+	-- 		ability:ApplyDataDrivenModifier(goblin, goblin, "modifier_dungeon_thinker_creep", {})
+	-- 		goblin.aggroSound = "RPCItems.TreasureGoblin.Die"
+	-- 		goblin:SetForwardVector(RandomVector(1))
+	-- 		goblin:AddAbility("treasure_goblin_ability"):SetLevel(1)
+	-- 		local goblin_ability = goblin:FindAbilityByName("treasure_goblin_ability")
 
-			goblin:AddNewModifier(goblin, nil, "modifier_treasure_goblin_speed", {})
-			goblin.run_speed = 300
-			local luck = RandomInt(1, 100)
-			if luck <= TreasureGoblins.SPECIAL_CHANCE then
-				goblin.tier = "special"
-				goblin_ability:ApplyDataDrivenModifier(goblin, goblin, "modifier_treasure_goblin_special", {})
-				goblin.run_speed = 350
-			else
-				goblin.tier = "regular"
-				goblin_ability:ApplyDataDrivenModifier(goblin, goblin, "modifier_treasure_goblin_regular", {})
-			end
-			goblin:SetModel(TreasureGoblins.Data[GetMapName()][goblin.tier]["model"])
-			goblin:SetOriginalModel(TreasureGoblins.Data[GetMapName()][goblin.tier]["model"])
-			goblin:SetModelScale(TreasureGoblins.Data[GetMapName()][goblin.tier]["scale"])
-			goblin.item_drops = RandomInt(4, 6)
+	-- 		goblin:AddNewModifier(goblin, nil, "modifier_treasure_goblin_speed", {})
+	-- 		goblin.run_speed = 300
+	-- 		local luck = RandomInt(1, 100)
+	-- 		if luck <= TreasureGoblins.SPECIAL_CHANCE then
+	-- 			goblin.tier = "special"
+	-- 			goblin_ability:ApplyDataDrivenModifier(goblin, goblin, "modifier_treasure_goblin_special", {})
+	-- 			goblin.run_speed = 350
+	-- 		else
+	-- 			goblin.tier = "regular"
+	-- 			goblin_ability:ApplyDataDrivenModifier(goblin, goblin, "modifier_treasure_goblin_regular", {})
+	-- 		end
+	-- 		goblin:SetModel(TreasureGoblins.Data[GetMapName()][goblin.tier]["model"])
+	-- 		goblin:SetOriginalModel(TreasureGoblins.Data[GetMapName()][goblin.tier]["model"])
+	-- 		goblin:SetModelScale(TreasureGoblins.Data[GetMapName()][goblin.tier]["scale"])
+	-- 		goblin.item_drops = RandomInt(4, 6)
 
-			local goblin_health = TreasureGoblins.Stats[GameState:GetDifficultyFactor()]["health"]
-			if goblin.tier == "special" then
-				goblin_health = goblin_health * TreasureGoblins.SPECIAL_GOBLIN_HEALTH_MULT
-			end
-			goblin:SetMaxHPandHealToFull(goblin_health)
-			local goblin_level = TreasureGoblins.Stats[GameState:GetDifficultyFactor()]["level"]
-			if goblin.tier == "special" then
-				goblin_level = goblin_level + TreasureGoblins.SPECIAL_GOBLIN_LEVEL_BOOST
-			end
-			if GetMapName() == "rpc_tanari_jungle" or GetMapName() == "rpc_redfall_ridge" then
-				if Events.SpiritRealm then
-					goblin_level = goblin_level + 10
-				end
-			end
-			if GetMapName() == "rpc_winterblight_mountain" then
-				goblin_level = goblin_level + Winterblight.Stones*5
-			end
-			if GetMapName() == "rpc_roshpit_arena" or GetMapName() == "rpc_sea_fortress" then
-				goblin_level = goblin_level + 12
-			end
-			goblin_level = math.min(120, goblin_level)
-			goblin:SetRoshpitLevel(goblin_level)
-			FindClearSpaceForUnit(goblin, goblin:GetAbsOrigin(), false)
-		end)
-	end
+	-- 		local goblin_health = TreasureGoblins.Stats[GameState:GetDifficultyFactor()]["health"]
+	-- 		if goblin.tier == "special" then
+	-- 			goblin_health = goblin_health * TreasureGoblins.SPECIAL_GOBLIN_HEALTH_MULT
+	-- 		end
+	-- 		goblin:SetMaxHPandHealToFull(goblin_health)
+	-- 		local goblin_level = TreasureGoblins.Stats[GameState:GetDifficultyFactor()]["level"]
+	-- 		if goblin.tier == "special" then
+	-- 			goblin_level = goblin_level + TreasureGoblins.SPECIAL_GOBLIN_LEVEL_BOOST
+	-- 		end
+	-- 		if GetMapName() == "rpc_tanari_jungle" or GetMapName() == "rpc_redfall_ridge" then
+	-- 			if Events.SpiritRealm then
+	-- 				goblin_level = goblin_level + 10
+	-- 			end
+	-- 		end
+	-- 		if GetMapName() == "rpc_winterblight_mountain" then
+	-- 			goblin_level = goblin_level + Winterblight.Stones*5
+	-- 		end
+	-- 		if GetMapName() == "rpc_roshpit_arena" or GetMapName() == "rpc_sea_fortress" then
+	-- 			goblin_level = goblin_level + 12
+	-- 		end
+	-- 		goblin_level = math.min(120, goblin_level)
+	-- 		goblin:SetRoshpitLevel(goblin_level)
+	-- 		FindClearSpaceForUnit(goblin, goblin:GetAbsOrigin(), false)
+	-- 	end)
+	-- end
 end
 
 function TreasureGoblins:RollRandomGemTier(roll)

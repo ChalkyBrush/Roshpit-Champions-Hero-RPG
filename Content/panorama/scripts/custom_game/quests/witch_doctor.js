@@ -27,13 +27,13 @@ function CloseWitchDoctor(msg){
 function InitializeWitchDoctor(){
 
 	CloseWitchDoctor(0);
-	$('#close_button_label').text = $.Localize("ui_close")
-	$('#header_text').text = $.Localize("tanari_witch_doctor")
-	$('#witch_doctor_tooltip').text = $.Localize("witch_doctor_tooltip")
+	$('#close_button_label').text = $.Localize("#ui_close")
+	$('#header_text').text = $.Localize("#tanari_witch_doctor")
+	$('#witch_doctor_tooltip').text = $.Localize("#witch_doctor_tooltip")
 	$.GetContextPanel().wind = -1
 	$.GetContextPanel().water = -1
 	$.GetContextPanel().fire = -1
-	$('#final_combine_button_label').text = $.Localize('combine_tanari_elements_button_label')
+	$('#final_combine_button_label').text = $.Localize('#combine_tanari_elements_button_label')
 
 }
 

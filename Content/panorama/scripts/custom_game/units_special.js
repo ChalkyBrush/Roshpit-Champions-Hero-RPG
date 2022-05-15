@@ -72,13 +72,13 @@ function units_special_check(msg){
 				onibi_element.BLoadLayoutSnippet("onibi_element_summary")
 				var elementNumber = convertElementNameToNumber(elements[i])
 				onibi_element.FindChildTraverse('onibi_element_icon').SetImage("file://{images}/custom_game/ui/elements/element"+elementNumber+".png")
-				onibi_element.FindChildTraverse('onibi_element_title').text = $.Localize('rpc_element'+elementNumber)
+				onibi_element.FindChildTraverse('onibi_element_title').text = $.Localize('#rpc_element'+elementNumber)
 				var color = get_element_color_by_index(elementNumber)
 				onibi_element.FindChildTraverse('onibi_element_title').style.color = color
 				var element_data = onibi_data[elements[i]]
-				onibi_element.FindChildTraverse('onibi_element_level').text = $.Localize("weapon_current_level") + ": "+element_data["level"]
+				onibi_element.FindChildTraverse('onibi_element_level').text = $.Localize("#weapon_current_level") + ": "+element_data["level"]
 				if (element_data["tech"] > 0){
-					onibi_element.FindChildTraverse('onibi_element_points').text = $.Localize("tech_points") + ": "+element_data["tech"]
+					onibi_element.FindChildTraverse('onibi_element_points').text = $.Localize("#tech_points") + ": "+element_data["tech"]
 				}
 				var percentage_exp = 0
 				if (element_data["required"] > 0){
@@ -86,7 +86,7 @@ function units_special_check(msg){
 				}
 				if (element_data["level"] >= 100){
 					percentage_exp = 100
-					onibi_element.FindChildTraverse('onibi_element_progress_text').text = $.Localize("weapon_max_level")
+					onibi_element.FindChildTraverse('onibi_element_progress_text').text = $.Localize("#weapon_max_level")
 				}else{
 					onibi_element.FindChildTraverse('onibi_element_progress_text').text = element_data["current"] + " / " + element_data["required"] 
 				}
@@ -119,7 +119,7 @@ function dialogue_button(unit_container, unitName)
 	unit_container.AddClass("dialogue")
 	var unit_special_panel = $.CreatePanel("Panel", unit_container, "dialogue_special")
 	unit_special_panel.BLoadLayoutSnippet("dialogue_button_container")
-	unit_special_panel.FindChildTraverse('dialogue_button_label').text = $.Localize("basic_open") + " " + $.Localize(unitName)
+	unit_special_panel.FindChildTraverse('dialogue_button_label').text = $.Localize("#basic_open") + " " + $.Localize("#"+unitName)
 	unit_special_panel.FindChildTraverse('dialogue_icon').SetImage("file://{images}/custom_game/ui/dialogue/"+unitName+".png")
 	var button = unit_special_panel.FindChildTraverse('dialogue_button')
 	mDialogueButton = button;
@@ -209,7 +209,7 @@ function onibi_element_click(element_panel, index, element_data, element, queryU
 	open_ability_panel.slot_index = index
 	ability_element_panel.style.marginLeft = marginLeft+"px"
 	var elementNumber = convertElementNameToNumber(element)
-	ability_element_panel.FindChildTraverse('onibi_element_abilities_meta_header').text = $.Localize('rpc_element'+elementNumber)
+	ability_element_panel.FindChildTraverse('onibi_element_abilities_meta_header').text = $.Localize('#rpc_element'+elementNumber)
 	var color = get_element_color_by_index(elementNumber)
 	ability_element_panel.FindChildTraverse('onibi_element_abilities_meta_header').style.color = color
 	var abilities = ["Q", "W", "E"]
@@ -244,7 +244,7 @@ function onibi_element_click(element_panel, index, element_data, element, queryU
 			var secondaryElementNumber = convertElementNameToNumber(secondaryElement)
 			onibi_ability_panel.FindChildTraverse('onibi_ability_element_icon1').SetImage("file://{images}/custom_game/ui/elements/element"+elementNumber+".png")
 			onibi_ability_panel.FindChildTraverse('onibi_ability_element_icon2').SetImage("file://{images}/custom_game/ui/elements/element"+secondaryElementNumber+".png")
-			onibi_ability_panel.FindChildTraverse('onibi_ability_name').text = $.Localize("DOTA_Tooltip_ability_"+onibi_data[element][secondaryElement][ability_key]["name"])
+			onibi_ability_panel.FindChildTraverse('onibi_ability_name').text = $.Localize("#DOTA_Tooltip_ability_"+onibi_data[element][secondaryElement][ability_key]["name"])
 			onibi_ability_panel.FindChildTraverse('onibi_ability_level').text = "Lv. "+ability_level_text
 
 			set_onibi_ability_hover_event(onibi_data[element][secondaryElement][ability_key]["name"], onibi_ability_panel)
@@ -274,8 +274,8 @@ function set_onibi_ability_hover_event(ability_name, onibi_ability_panel)
 {
 	onibi_ability_panel.FindChildTraverse('onibi_ability_name').SetPanelEvent('onmouseover', function UpgradeOnibi() {
 		var panel = onibi_ability_panel.FindChildTraverse('onibi_ability_name')
-		var title = "<font color='white'>"+$.Localize("DOTA_Tooltip_ability_"+ability_name)
-		var tooltip = $.Localize("DOTA_Tooltip_ability_"+ability_name+"_description")
+		var title = "<font color='white'>"+$.Localize("#DOTA_Tooltip_ability_"+ability_name)
+		var tooltip = $.Localize("#DOTA_Tooltip_ability_"+ability_name+"_description")
 		$.DispatchEvent("DOTAShowTitleTextTooltip", panel, title, tooltip);
 	})
 	onibi_ability_panel.FindChildTraverse('onibi_ability_name').SetPanelEvent('onmouseout', function UpgradeOnibi() {
@@ -336,17 +336,17 @@ function update_onibi(msg){
 			//$.Msg(msg.bLevelUp)
 			//$.Msg("-----")
 			if (parseInt(msg.bLevelUp) == 1){
-				onibi_element.FindChildTraverse('onibi_element_level').text = $.Localize("ui_level_up")
+				onibi_element.FindChildTraverse('onibi_element_level').text = $.Localize("#ui_level_up")
 				$.Schedule(2, function(){
 					var msg2 = {}
 					msg2.bLevelUp = 0
 					update_onibi(msg2)
 				});
 			}else{
-				onibi_element.FindChildTraverse('onibi_element_level').text = $.Localize("weapon_current_level") + ": "+element_data["level"]
+				onibi_element.FindChildTraverse('onibi_element_level').text = $.Localize("#weapon_current_level") + ": "+element_data["level"]
 			}
 			if (element_data["tech"] > 0){
-				onibi_element.FindChildTraverse('onibi_element_points').text = $.Localize("tech_points") + ": "+element_data["tech"]
+				onibi_element.FindChildTraverse('onibi_element_points').text = $.Localize("#tech_points") + ": "+element_data["tech"]
 			}else{
 				onibi_element.FindChildTraverse('onibi_element_points').text = ""
 			}
@@ -356,7 +356,7 @@ function update_onibi(msg){
 			}
 			if (element_data["level"] >= 100){
 				percentage_exp = 100
-				onibi_element.FindChildTraverse('onibi_element_progress_text').text = $.Localize("weapon_max_level")
+				onibi_element.FindChildTraverse('onibi_element_progress_text').text = $.Localize("#weapon_max_level")
 			}else{
 				onibi_element.FindChildTraverse('onibi_element_progress_text').text = element_data["current"] + " / " + element_data["required"] 
 			}

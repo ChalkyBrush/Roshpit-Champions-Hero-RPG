@@ -22,7 +22,7 @@ function OpenCrusader(msg){
 
 
     mCloseButton = crusader_main.FindChildTraverse('close_button')
-    mCloseButton.FindChildTraverse('close_button_label').text = $.Localize("ui_close")
+    mCloseButton.FindChildTraverse('close_button_label').text = $.Localize("#ui_close")
    
 	crusader_main.FindChildTraverse('close_button').SetPanelEvent('onactivate', function Close() {
 		Game.EmitSound("Gemforger.UI.Close")
@@ -36,11 +36,11 @@ function load_challenge(challenge, challenge_type, crusader_main){
 	var quest_start_panel = $.CreatePanel("Panel", attach_point, "quest-"+challenge_type)
 	quest_start_panel.BLoadLayoutSnippet("challenge_snippet");
 
-	var title = $.Localize("challenge_"+challenge_type+"_title")
-	var bossName = "<font color='#32a852'>"+$.Localize(challenge["challenge"]["objective"])+"</font>"
-	var mapName = "<font color='#32a852'>"+$.Localize(challenge["challenge"]["map_name"])+"</font>"
-	var difficulty = "<font color='#f1c40f'>"+$.Localize("ui_legend")+"</font>"
-	var challenge_text = $.Localize('challenge_main')
+	var title = $.Localize("#challenge_"+challenge_type+"_title")
+	var bossName = "<font color='#32a852'>"+$.Localize("#"+challenge["challenge"]["objective"])+"</font>"
+	var mapName = "<font color='#32a852'>"+$.Localize("#"+challenge["challenge"]["map_name"])+"</font>"
+	var difficulty = "<font color='#f1c40f'>"+$.Localize("#ui_legend")+"</font>"
+	var challenge_text = $.Localize('#challenge_main')
 	challenge_text = challenge_text.replace("@boss_name", bossName).replace("@map_name", mapName).replace("@difficulty_name", difficulty)
 	quest_start_panel.FindChildTraverse('challenge_title').text = title
 	quest_start_panel.FindChildTraverse('challenge_text').text = challenge_text
@@ -62,8 +62,8 @@ function load_challenge(challenge, challenge_type, crusader_main){
 	}
 	quest_start_panel.FindChildTraverse('challenge_reward_image').SetImage("file://{images}/custom_game/ui/prismatic_gemstone.png")
 	var reward = challenge["challenge"]["reward"]
-	quest_start_panel.FindChildTraverse('challenge_reward_text_left').text = $.Localize("ui_challenge_reward")+":"
-	quest_start_panel.FindChildTraverse('challenge_reward_text').text = reward+" "+$.Localize("tooltip_prismatic_gemstones")
+	quest_start_panel.FindChildTraverse('challenge_reward_text_left').text = $.Localize("#ui_challenge_reward")+":"
+	quest_start_panel.FindChildTraverse('challenge_reward_text').text = reward+" "+$.Localize("#tooltip_prismatic_gemstones")
 	var challenge_start_button = quest_start_panel.FindChildTraverse('challenge_start_button')
 	set_challenge_start_event(challenge_start_button, challenge_type, challenge_text, mod_array)
 
@@ -86,22 +86,22 @@ function add_difficulty_mod(challenge, panel){
 	var proceed = false
 	var mod_text = ""
 	if (challenge["challenge"]["map_name"] == "rpc_tanari_jungle" && challenge["challenge"]["difficulty_mod"] == 1){
-		mod_text = $.Localize("challenge_mod_spirit")
-		mod_text = mod_text.replace('@event', "<font color='#32a852'>"+$.Localize("challenge_spirit")+"</font>")
+		mod_text = $.Localize("#challenge_mod_spirit")
+		mod_text = mod_text.replace('@event', "<font color='#32a852'>"+$.Localize("#challenge_spirit")+"</font>")
 		proceed = true
 	}
 	if (challenge["challenge"]["map_name"] == "rpc_redfall_ridge" && challenge["challenge"]["difficulty_mod"] == 1){
 		mod_text = $.Localize("challenge_mod_spirit")
-		mod_text = mod_text.replace('@event', "<font color='#32a852'>"+$.Localize("challenge_equinox")+"</font>")
+		mod_text = mod_text.replace('@event', "<font color='#32a852'>"+$.Localize("#challenge_equinox")+"</font>")
 		proceed = true
 	}
 	if (challenge["challenge"]["map_name"] == "rpc_winterblight_mountain" && challenge["challenge"]["difficulty_mod"] > 0){
-		mod_text = $.Localize("challenge_mod_stones")
+		mod_text = $.Localize("#challenge_mod_stones")
 		mod_text = mod_text.replace('@stones', "<font color='#32a852'>"+challenge["challenge"]["difficulty_mod"]+"</font>")
 		proceed = true
 	}
 	if (challenge["challenge"]["map_name"] == "rpc_roshpit_arena" && challenge["challenge"]["difficulty_mod"] > 0){
-		mod_text = $.Localize("challenge_mod_pit_level")
+		mod_text = $.Localize("#challenge_mod_pit_level")
 		mod_text = mod_text.replace('@pit_level', "<font color='#32a852'>"+challenge["challenge"]["difficulty_mod"]+"</font>")
 		proceed = true
 	}
@@ -122,13 +122,13 @@ function load_mod(mod, panel, index){
 	var attach_point = panel.FindChildTraverse('challenge_mods_attacher')
 	var quest_mod_panel = $.CreatePanel("Panel", attach_point, "mod-"+index)
 	quest_mod_panel.BLoadLayoutSnippet("challenge_mod_snippet");
-	var mod_text = $.Localize('challenge_mod_'+mod["mod_type"])
+	var mod_text = $.Localize('#challenge_mod_'+mod["mod_type"])
 	if (mod["mod_type"] == "hero_limit" && mod["mod_int1"] == 1){
-		mod_text = $.Localize('challenge_mod_hero_limit_solo')
+		mod_text = $.Localize('#challenge_mod_hero_limit_solo')
 	}
 	if (mod["mod_type"] == "hero_spec"){
 		var spec_number = find_number_of_heroes_from_hero_spec(mod)
-		mod_text = $.Localize("challenge_mod_hero_spec_"+spec_number)
+		mod_text = $.Localize("#challenge_mod_hero_spec_"+spec_number)
 	}
 	if (mod["mod_type"] == "ability_disable"){
 		var ability_button = get_ability_button_from_mod(mod)
@@ -138,7 +138,7 @@ function load_mod(mod, panel, index){
 		var int_index = "mod_int"+i
 		var str_index = "mod_string"+i
 		mod_text = mod_text.replace("@int"+i, "<font color='#32a852'>"+mod[int_index]+"</font>")
-		mod_text = mod_text.replace("@string"+i, "<font color='#32a852'>"+$.Localize(mod[str_index])+"</font>")
+		mod_text = mod_text.replace("@string"+i, "<font color='#32a852'>"+$.Localize("#"+mod[str_index])+"</font>")
 	}
 	mod_text = "<font color='#f1c40f'>"+index+".</font> "+mod_text
 	quest_mod_panel.FindChildTraverse('mod_text').text = mod_text

@@ -6935,7 +6935,7 @@
     	"DOTA_Tooltip_ability_hydroxis_rune_q_1_suffix"						"% of Ocean Quake"
 		
 		"DOTA_Tooltip_ability_hydroxis_rune_q_2"							"[Q2] Mystic Water Shield"
-    	"DOTA_Tooltip_ability_hydroxis_rune_q_2_Description"				"Standing in your own @Ability1s adds stacks of [Q2]. Shield lasts <font color='#ccff66'>17</font> seconds and stacks reset when casting the ability again."
+    	"DOTA_Tooltip_ability_hydroxis_rune_q_2_Description"				"Standing in your own @Ability1s adds stacks of [Q2]. Shield lasts 12 seconds and stacks reset when casting the ability again."
     	"DOTA_Tooltip_ability_hydroxis_rune_q_2_property_one"				"Shield Armor and Magic Armor"
     	"DOTA_Tooltip_ability_hydroxis_rune_q_2_suffix"						""
     	"DOTA_Tooltip_ability_hydroxis_rune_q_2_property_two"				"Heal"
@@ -11970,10 +11970,10 @@
     	"DOTA_Tooltip_ability_voltex_rune_r_1_suffix_two"					""
 
     	"DOTA_Tooltip_ability_voltex_rune_r_2"								"[R2] Lightning Bolt"
-    	"DOTA_Tooltip_ability_voltex_rune_r_2_Description"					"Attacks have a 30% chance to deal bonus Magical damage, stun the target for 0.2 seconds, and reduce the target's Armor and Magic Armor for <font color='#ccff66'>6</font> seconds."
+    	"DOTA_Tooltip_ability_voltex_rune_r_2_Description"					"Attacks have a 30% to deal bonus Magical damage, stun the target for 0.2 seconds, and reduce the target's Armor for <font color='#ccff66'>6</font> seconds."
     	"DOTA_Tooltip_ability_voltex_rune_r_2_property_one"					"Damage"
     	"DOTA_Tooltip_ability_voltex_rune_r_2_suffix"						"% of attack damage"
-    	"DOTA_Tooltip_ability_voltex_rune_r_2_property_two"					"Armor and Magic Armor Reduction"
+    	"DOTA_Tooltip_ability_voltex_rune_r_2_property_two"					"Armor Reduction"
     	"DOTA_Tooltip_ability_voltex_rune_r_2_suffix_two"					""
 
     	"DOTA_Tooltip_modifier_voltex_rune_r_2_rune_effect"					"Lightning Bolt"
@@ -12819,7 +12819,7 @@
 
         "DOTA_Tooltip_ability_item_rpc_oceanrunner_boots"                   "Oceanrunner Boots" 
         "property_oceanrunner"                                              "Oceanrunner"
-        "property_oceanrunner_Description"                                  "Each point of Agility increases Base Ability Damage by <font color='#ccff66'>0.2</font>%."
+        "property_oceanrunner_Description"                                  "Each point of Agility increases Base Ability Damage by <font color='#ccff66'>0.15</font>%."
 
         "item_rpc_oceanrunner_boots_ruby1"                  "Every <font color='#ccff66'>1000</font> distance travelled, unleash a quick ocean squall that stuns enemies for @ruby_property1 seconds and deals @ruby_property2% of attack power as damage in a @ruby_property3 radius"
         "item_rpc_oceanrunner_boots_emerald1"                   "Increases Agility by @emerald_property1 and Movespeed by @emerald_property2"

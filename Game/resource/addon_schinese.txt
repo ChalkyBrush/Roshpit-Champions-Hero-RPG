@@ -7482,7 +7482,7 @@
     	"DOTA_Tooltip_ability_hydroxis_rune_q_1_suffix"						"% 海洋地震伤害"
 		
 		"DOTA_Tooltip_ability_hydroxis_rune_q_2"							"[Q2] 神秘水盾"
-    	"DOTA_Tooltip_ability_hydroxis_rune_q_2_Description"				"胖头鱼每站到一股 @Ability1上时，会增加一层神秘水盾的叠加层数。神秘水盾持续<font color='#ccff66'>17</font>秒。再次施放洪流时重置神秘水盾的层数。"
+    	"DOTA_Tooltip_ability_hydroxis_rune_q_2_Description"				"胖头鱼每站到一股 @Ability1上时，会增加一层神秘水盾的叠加层数。神秘水盾持续12秒。再次施放洪流时重置神秘水盾的层数。"
     	"DOTA_Tooltip_ability_hydroxis_rune_q_2_property_one"				"每层神秘水盾提高护甲值"
     	"DOTA_Tooltip_ability_hydroxis_rune_q_2_suffix"						""
     	"DOTA_Tooltip_ability_hydroxis_rune_q_2_property_two"				"每层每次治疗量（每0.2秒治疗一次）"
@@ -13304,7 +13304,7 @@
 	
 		"DOTA_Tooltip_ability_item_rpc_oceanrunner_boots"					"深海靴"	
 		"property_oceanrunner"												"轻盈"
-        "property_oceanrunner_Description"                                  "每点敏捷提供<font color='#ccff66'>0.2</font>%基础技能伤害。"
+        "property_oceanrunner_Description"                                  "每点敏捷提供<font color='#ccff66'>0.15</font>%基础技能伤害。"
 
         "item_rpc_oceanrunner_boots_ruby1"                  "每穿行<font color='#ccff66'>1000</font>距离后将会释放一阵海洋之风，眩晕@ruby_property3 范围内的敌人 @ruby_property1 秒并且造成 @ruby_property2% 攻击力的伤害"
         "item_rpc_oceanrunner_boots_emerald1"                   "增加敏捷 @emerald_property1点，移动速度 @emerald_property2点"

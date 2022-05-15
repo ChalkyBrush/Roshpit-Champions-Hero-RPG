@@ -23,7 +23,7 @@ function OpenGemforger(msg){
 
 	    gemforger_reward_panel.FindChildTraverse("gemforger_reward_image").SetImage("file://{images}/custom_game/ui/prismatic_gemstone.png")
     	Game.EmitSound("Gemforger.UI.RewardAvailable")
-    	gemforger_reward_panel.FindChildTraverse('reward_amount_label').text = "<b>"+msg.gem_reward + "</b> " + $.Localize('tooltip_prismatic_gemstones')
+    	gemforger_reward_panel.FindChildTraverse('reward_amount_label').text = "<b>"+msg.gem_reward + "</b> " + $.Localize('#tooltip_prismatic_gemstones')
     	var collect_reward_button = gemforger_reward_panel.FindChildTraverse('gemforger_reward_collect')
     	collect_reward_button.SetPanelEvent('onactivate', function Close() {
 			GameEvents.SendCustomGameEventToServer( "gems", {event_type: "collect_reward"});
@@ -40,7 +40,7 @@ function OpenGemforger(msg){
 	    gemforger_go_home_panel.BLoadLayoutSnippet("gemforger_start_button");
 
 	    gemforger_go_home_panel.FindChildTraverse("gemforger_start_image").SetImage("file://{images}/custom_game/ui/gemforger-go-home.png")
-    	gemforger_go_home_panel.FindChildTraverse('gem_forger_start_label').text = $.Localize("gem_forger_go_home")
+    	gemforger_go_home_panel.FindChildTraverse('gem_forger_start_label').text = $.Localize("#gem_forger_go_home")
     	var collect_reward_button = gemforger_go_home_panel.FindChildTraverse('gemforger_start_button_collect')
     	collect_reward_button.SetPanelEvent('onactivate', function Close() {
 			GameEvents.SendCustomGameEventToServer( "gems", {event_type: "go_home"});
@@ -64,7 +64,7 @@ function OpenGemforger(msg){
     var salvage_start_panel= $.CreatePanel("Panel", attach_point, "gemforger-start")
     salvage_start_panel.BLoadLayoutSnippet("gemforger_start_button");
     salvage_start_panel.FindChildTraverse("gemforger_start_image").SetImage("file://{images}/custom_game/ui/salvage_gems.png")
-    salvage_start_panel.FindChildTraverse('gem_forger_start_label').text = $.Localize("gem_forger_salvage")
+    salvage_start_panel.FindChildTraverse('gem_forger_start_label').text = $.Localize("#gem_forger_salvage")
     salvage_start_button = salvage_start_panel.FindChildTraverse('gemforger_start_button_collect')
 	salvage_start_button.SetPanelEvent('onactivate', function Close() {
 		Game.EmitSound("UI.Gemforger.Click")
@@ -72,7 +72,7 @@ function OpenGemforger(msg){
 	})
 
     mCloseButton = gemforger_main.FindChildTraverse('close_button')
-    mCloseButton.FindChildTraverse('close_button_label').text = $.Localize("ui_close")
+    mCloseButton.FindChildTraverse('close_button_label').text = $.Localize("#ui_close")
    
 	gemforger_main.FindChildTraverse('close_button').SetPanelEvent('onactivate', function Close() {
 		Game.EmitSound("Gemforger.UI.Close")
@@ -87,7 +87,7 @@ function salvage_gems_step_1(gemforger_main){
     var gemforger_item_start = $.CreatePanel("Panel", attach_point, "gemforger-item-start")
     gemforger_item_start.BLoadLayoutSnippet("forge_gems_start");
     gemforger_item_start.FindChildTraverse('forge_gems_item_attacher').BLoadLayout( "file://{resources}/layout/custom_game/gems/gemforger_salvage_slot.xml", false, false );    
-    gemforger_item_start.FindChildTraverse('forge_gems_start_tip').text = $.Localize("gemforge_salvage_select_help")
+    gemforger_item_start.FindChildTraverse('forge_gems_start_tip').text = $.Localize("#gemforge_salvage_select_help")
     var mainParent = GameUI.CustomUIConfig().equipmentContainer;
     var helmPanel = mainParent.FindChild("helm_main_container").FindChild("helm_container");
     var chestPanel = mainParent.FindChild("armor_main_container").FindChild("armor_container");
@@ -155,7 +155,7 @@ function ItemGemforgeMenu(msg){
         item_panel.contextEntityIndex = item;
         item_panel.SetAttributeInt("item", item)  
 
-        gemforger_fail.FindChildTraverse('socket_item_name').text = $.Localize("DOTA_Tooltip_ability_"+Abilities.GetAbilityName( item ))
+        gemforger_fail.FindChildTraverse('socket_item_name').text = $.Localize("#DOTA_Tooltip_ability_"+Abilities.GetAbilityName( item ))
 	}else if(msg.success == 1){
 		var parent = $('#gemforger_container')
 		var attach_point = parent.FindChildTraverse('gemforger_attach_contents')
@@ -167,7 +167,7 @@ function ItemGemforgeMenu(msg){
         item_panel.contextEntityIndex = item;
         item_panel.SetAttributeInt("item", item)  
 
-        gemforger_item_main.FindChildTraverse('socket_item_name_main').text = $.Localize("DOTA_Tooltip_ability_"+Abilities.GetAbilityName( item ));
+        gemforger_item_main.FindChildTraverse('socket_item_name_main').text = $.Localize("#DOTA_Tooltip_ability_"+Abilities.GetAbilityName( item ));
         gemforge_item = item
         manageSocketsWithRoot(item_panel, item)
         mTooltipPanel = item_panel
@@ -180,7 +180,7 @@ function ItemGemforgeMenu(msg){
         }else{
         	var socket1panel = $.CreatePanel("Panel", socket_attacher, "main_socket_panel1")
         	socket1panel.BLoadLayoutSnippet('gemforging_main_socket_snippet_no_socket')
-        	socket1panel.FindChildTraverse('socket_name').text = $.Localize("ui_socket") + " 1"
+        	socket1panel.FindChildTraverse('socket_name').text = $.Localize("#ui_socket") + " 1"
         }
         var socket_seperator = $.CreatePanel("Panel", socket_attacher, "socket_seperator")
         if (!(item_table.socket2===undefined) && !(item_table.socket2=="none")){
@@ -188,7 +188,7 @@ function ItemGemforgeMenu(msg){
         }else{
         	var socket2panel = $.CreatePanel("Panel", socket_attacher, "main_socket_panel2")
         	socket2panel.BLoadLayoutSnippet('gemforging_main_socket_snippet_no_socket')
-        	socket2panel.FindChildTraverse('socket_name').text = $.Localize("ui_socket") + " 2"
+        	socket2panel.FindChildTraverse('socket_name').text = $.Localize("#ui_socket") + " 2"
         }
 	}
 }
@@ -196,11 +196,11 @@ function ItemGemforgeMenu(msg){
 function make_gemforge_socket_panel(socket_number, socket_attacher, item, socket, socket_value, gems_total_array){
 	var socket_panel = $.CreatePanel("Panel", socket_attacher, "main_socket_panel"+socket_number)
 	socket_panel.BLoadLayoutSnippet('gemforging_main_socket_snippet')
-	socket_panel.FindChildTraverse('socket_name').text = $.Localize("ui_socket") + " " + socket_number
+	socket_panel.FindChildTraverse('socket_name').text = $.Localize("#ui_socket") + " " + socket_number
 	if (socket == "open"){
-		socket_panel.FindChildTraverse('socket_summary_text').text = $.Localize('ui_open_socket')
+		socket_panel.FindChildTraverse('socket_summary_text').text = $.Localize('#ui_open_socket')
 	}else{
-		socket_panel.FindChildTraverse('socket_summary_text').text = $.Localize("gems_"+socket+socket_value)
+		socket_panel.FindChildTraverse('socket_summary_text').text = $.Localize("#gems_"+socket+socket_value)
 	}
 	socket_panel.FindChildTraverse('socket_summary_text').AddClass('gem_color_'+socket)
 
@@ -291,10 +291,10 @@ function gem_hover(panel, item, gem, gem_number, current_level){
 	var qualityColor = itemValues.qualityColor
 	var rarityFactor = itemValues.rarityFactor
 	var item_name = Abilities.GetAbilityName(item)
-	var title = "<font color='"+title_color+"'>"+$.Localize("gems_"+gem+gem_number)+"</font>"
-	var tooltip = "<font color='"+qualityColor+"'>"+$.Localize("DOTA_Tooltip_ability_"+item_name)+"</font>"+"<br><br>"
+	var title = "<font color='"+title_color+"'>"+$.Localize("#gems_"+gem+gem_number)+"</font>"
+	var tooltip = "<font color='"+qualityColor+"'>"+$.Localize("#DOTA_Tooltip_ability_"+item_name)+"</font>"+"<br><br>"
 
-	var base_gem_tooltip = $.Localize(item_name+"_"+gem+gem_number)
+	var base_gem_tooltip = $.Localize("#"+item_name+"_"+gem+gem_number)
 
 	base_gem_tooltip = substituteGemDescriptions(base_gem_tooltip, gem, gem_number, item, rarityFactor)
 	var cost = calculate_forge_cost(current_level, gem_number, gem, rarityFactor)
@@ -362,12 +362,12 @@ function ItemGemSalvageMenu(msg){
 		attach_point.RemoveAndDeleteChildren(0)
 	    var gemforger_fail = $.CreatePanel("Panel", attach_point, "gemforger-item-start")
 	    gemforger_fail.BLoadLayoutSnippet("forge_gems_item_fail"); 
-	    gemforger_fail.FindChildTraverse('forge_gems_fail_tip').text = $.Localize("gem_forger_salvage_fail")
+	    gemforger_fail.FindChildTraverse('forge_gems_fail_tip').text = $.Localize("#gem_forger_salvage_fail")
 	    var item_panel = gemforger_fail.FindChildTraverse('socket_item_fail')
         item_panel.contextEntityIndex = item;
         item_panel.SetAttributeInt("item", item)  
 
-        gemforger_fail.FindChildTraverse('socket_item_name').text = $.Localize("DOTA_Tooltip_ability_"+Abilities.GetAbilityName( item ))
+        gemforger_fail.FindChildTraverse('socket_item_name').text = $.Localize("#DOTA_Tooltip_ability_"+Abilities.GetAbilityName( item ))
 	}else if(msg.success == 1){
 		var parent = $('#gemforger_container')
 		var attach_point = parent.FindChildTraverse('gemforger_attach_contents')
@@ -379,7 +379,7 @@ function ItemGemSalvageMenu(msg){
         item_panel.contextEntityIndex = item;
         item_panel.SetAttributeInt("item", item)  
 
-        gemforger_item_main.FindChildTraverse('socket_item_name_main').text = $.Localize("DOTA_Tooltip_ability_"+Abilities.GetAbilityName( item ));
+        gemforger_item_main.FindChildTraverse('socket_item_name_main').text = $.Localize("#DOTA_Tooltip_ability_"+Abilities.GetAbilityName( item ));
         gemforge_item = item
         manageSocketsWithRoot(item_panel, item)
         mTooltipPanel = item_panel
@@ -394,14 +394,14 @@ function ItemGemSalvageMenu(msg){
     		salvage_main_panel.FindChildTraverse('salvage_gem1').RemoveClass("invisible")
     		salvage_main_panel.FindChildTraverse('gem_salvage_image_1').SetImage("file://{images}/items/gems/"+item_table.socket1+item_table.socket1value+".png")
    			var substitution_color = get_gem_color(item_table.socket1)
-    		salvage_main_panel.FindChildTraverse('gem_salvage_name_1').text = "<font color='"+substitution_color+"'>" + $.Localize("gems_"+item_table.socket1+item_table.socket1value) + "</font>"
+    		salvage_main_panel.FindChildTraverse('gem_salvage_name_1').text = "<font color='"+substitution_color+"'>" + $.Localize("#gems_"+item_table.socket1+item_table.socket1value) + "</font>"
     		salvage_main_panel.FindChildTraverse('gem_salvage_value_1').text = msg.gems1value
     	}
     	if (msg.gems2value > 0){
     		salvage_main_panel.FindChildTraverse('salvage_gem2').RemoveClass("invisible")
     		salvage_main_panel.FindChildTraverse('gem_salvage_image_2').SetImage("file://{images}/items/gems/"+item_table.socket2+item_table.socket2value+".png")
    			var substitution_color = get_gem_color(item_table.socket2)
-    		salvage_main_panel.FindChildTraverse('gem_salvage_name_2').text = "<font color='"+substitution_color+"'>" + $.Localize("gems_"+item_table.socket2+item_table.socket2value) + "</font>"
+    		salvage_main_panel.FindChildTraverse('gem_salvage_name_2').text = "<font color='"+substitution_color+"'>" + $.Localize("#gems_"+item_table.socket2+item_table.socket2value) + "</font>"
     		salvage_main_panel.FindChildTraverse('gem_salvage_value_2').text = msg.gems2value
     	}
 

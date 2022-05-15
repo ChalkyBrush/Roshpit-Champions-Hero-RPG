@@ -306,9 +306,9 @@ function CorrectDotaUI(){
 
 
 function InitializeMenu(){
-	$('#skills_button_label').text=$.Localize("ui_skills")
-	$('#equipment_button_label').text=$.Localize("ui_equipment")
-	$('#resource_button_label').text=$.Localize("tooltip_resources")
+	$('#skills_button_label').text=$.Localize("#ui_skills")
+	$('#equipment_button_label').text=$.Localize("#ui_equipment")
+	$('#resource_button_label').text=$.Localize("#tooltip_resources")
 
 	//$('#menu_gold_label').text=$.Localize("ui_gold")
 	// $('#menu_skill_points_label').text=$.Localize("skill_points")
@@ -338,7 +338,7 @@ function KeyShowTooltip(keyName){
 	}
 	
 	var title = "<font color='"+titleColor+"'>"+$.Localize('#'+keyName+"_portal_key")
-	var tooltip = $.Localize('#'+keyName+"_portal_key_description")+" "+$.Localize(difficulty_name)
+	var tooltip = $.Localize('#'+keyName+"_portal_key_description")+" "+$.Localize("#"+difficulty_name)
 	$.DispatchEvent("DOTAShowTitleTextTooltip", panel, title, tooltip);
 }
 

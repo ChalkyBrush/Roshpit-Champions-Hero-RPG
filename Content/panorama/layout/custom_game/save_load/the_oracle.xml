@@ -9,14 +9,14 @@
 	<snippets>
 		<snippet name="key_bank">
 			<Panel class="keybank">
-				<Label id="keybank_description" text="keybank_description"/>
+				<Label id="keybank_description" text="#keybank_description"/>
 				<Panel class="keys_row" id="keys_row1" hittest="true"/>
 				<Panel class="keys_row" id="keys_row2" hittest="true"/>
 				<Panel class="keys_row" id="keys_row3" hittest="true"/>
 				<Panel class="keys_row" id="keys_row4" hittest="true"/>
 <!-- 				<Panel class="keys_row" id="keys_row4" hittest="true"/> -->
 
-				<Label id="key_deposit_slot_text" text="key_deposit" hittest="false"/>
+				<Label id="key_deposit_slot_text" text="#key_deposit" hittest="false"/>
 				<DOTAItemImage id="key_deposit_slot" src="file://{images}/custom_game/ui/empty-inventory-slot.png" hittest="true"/>
 			</Panel>
 		</snippet>
@@ -64,7 +64,7 @@
 			<Button class="main_menu_button_oracle" id="oracle_keybank" hittest="true"
 				onactivate='OpenKeyBank()'>
 <!-- 				<Image class="menu_buttom_image" src="file://{images}/custom_game/ui/book.png" /> -->
-				<Label id="stash_button_label" class="menu_button_text" text="keybank_label">
+				<Label id="stash_button_label" class="menu_button_text" text="#keybank_label">
 				</Label>			
 				<Label class="menu_button_hotkey" text="▼">
 				</Label>
@@ -75,7 +75,7 @@
 			<Button class="main_menu_button_oracle" id="close_oracle" hittest="true"
 				onactivate='CloseOracle()'>
 <!-- 				<Image class="menu_buttom_image" src="file://{images}/custom_game/ui/book.png" /> -->
-				<Label id="close_button_label" class="menu_button_text" text="Close">
+				<Label id="close_button_label" class="menu_button_text" text="#ui_close">
 				</Label>			
 			</Button>
 		</Panel>

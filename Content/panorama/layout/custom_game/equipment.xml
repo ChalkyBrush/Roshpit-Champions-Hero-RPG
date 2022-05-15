@@ -45,42 +45,42 @@
 				onmouseover="ItemShowTooltip(0)"
 				onmouseout="ItemHideTooltip(0)">
 				<DOTAItemImage hittest="false" id="ItemImageHelm" draggable="true"/>
-				<Image class="slot_image_helm" src="file://{images}/custom_game/ui/helm.png" />
+				<Image class="slot_image_helm" src="file://{images}/custom_game/items/empty-inventory-slot.png" />
 				<Panel id="gems_container0"/>
 			</Panel>
 			<Panel class="weapon_container" id="weapon_container" draggable="false"
 				onmouseover="ItemShowTooltip(1)"
 				onmouseout="ItemHideTooltip(1)">
 				<DOTAItemImage hittest="false" id="ItemImageWeapon" draggable="true"/>
-				<Image class="slot_image_weapon" src="file://{images}/custom_game/ui/weapon.png" />
+				<Image class="slot_image_weapon" src="file://{images}/custom_game/items/empty-inventory-slot.png" />
 				<Panel id="gems_container1"/>
 			</Panel>
 			<Panel class="glove_container" id="glove_container" draggable="false"
 				onmouseover="ItemShowTooltip(2)"
 				onmouseout="ItemHideTooltip(2)">
 				<DOTAItemImage hittest="false" id="ItemImageGlove" draggable="true"/>
-				<Image class="slot_image_glove" src="file://{images}/custom_game/ui/gloves.png" />
+				<Image class="slot_image_glove" src="file://{images}/custom_game/items/empty-inventory-slot.png" />
 				<Panel id="gems_container2"/>
 			</Panel>
 			<Panel class="boot_container" id="boot_container" draggable="false"
 				onmouseover="ItemShowTooltip(3)"
 				onmouseout="ItemHideTooltip(3)">
 				<DOTAItemImage hittest="false" id="ItemImageBoot" draggable="true"/>
-				<Image class="slot_image_boot" src="file://{images}/custom_game/ui/feet.png" />
+				<Image class="slot_image_boot" src="file://{images}/custom_game/items/empty-inventory-slot.png" />
 				<Panel id="gems_container3"/>
 			</Panel>
 			<Panel class="armor_container" id="armor_container" draggable="false"
 				onmouseover="ItemShowTooltip(4)"
 				onmouseout="ItemHideTooltip(4)">
 				<DOTAItemImage hittest="false" id="ItemImageArmor" draggable="true"/>
-				<Image class="slot_image_armor" src="file://{images}/custom_game/ui/shirt.png" />
+				<Image class="slot_image_armor" src="file://{images}/custom_game/items/empty-inventory-slot.png" />
 				<Panel id="gems_container4"/>
 			</Panel>
 			<Panel class="amulet_container" id="amulet_container" draggable="false"
 				onmouseover="ItemShowTooltip(5)"
 				onmouseout="ItemHideTooltip(5)">
 				<DOTAItemImage hittest="false" id="ItemImageAmulet" draggable="false"/>
-				<Image class="slot_image_amulet" src="file://{images}/custom_game/ui/amulet.png" />
+				<Image class="slot_image_amulet" src="file://{images}/custom_game/items/empty-inventory-slot.png" />
 				<Panel id="gems_container5"/>
 			</Panel>
 			<Panel id="recalculate_button_panel">

@@ -40,8 +40,8 @@ function OpenBlacksmith() {
         }
         $('#current_crystals_label_value').text = shards;
 
-        $('#current_crystals_label').text = $.Localize('tooltip_current_shards');
-        $('#upgrade-resource-button-label').text = $.Localize('tooltip_collect_income');
+        $('#current_crystals_label').text = $.Localize('#tooltip_current_shards');
+        $('#upgrade-resource-button-label').text = $.Localize('#tooltip_collect_income');
 
         var incomeAvailable = CustomNetTables.GetTableValue("player_stats", playerID.toString() + "-income").available;
         if (incomeAvailable === 0) {
@@ -411,26 +411,26 @@ function socketStep2(msg){
     var socket_panel = $.CreatePanel("Panel", $('#item-display-content'), "socket_panel")
     if (msg.validity == 0){
         socket_panel.BLoadLayoutSnippet("blacksmith_socket_item_selected_fail") 
-        socket_panel.FindChildTraverse('blacksmith_socket_item_select_tip').text = $.Localize(msg.error_message)
+        socket_panel.FindChildTraverse('blacksmith_socket_item_select_tip').text = $.Localize("#"+msg.error_message)
         Game.EmitSound("General.Cancel");
     }else{
         GameUI.CustomUIConfig().blacksmithSocketItem = msg.itemIndex
         var mithril = CustomNetTables.GetTableValue("player_stats", Game.GetLocalPlayerID().toString() + "-mithril").mithril;
         
         socket_panel.BLoadLayoutSnippet("blacksmith_socket_item_selected_ok") 
-        socket_panel.FindChildTraverse('blacksmith_socket_item_select_tip').text = $.Localize(msg.ok_message)
+        socket_panel.FindChildTraverse('blacksmith_socket_item_select_tip').text = $.Localize("#"+msg.ok_message)
         Game.EmitSound("ui.crafting_pulse");
 
         socket_panel.FindChildTraverse('blacksmith_socket_item_title').text = $.Localize("DOTA_Tooltip_ability_"+Abilities.GetAbilityName( msg.itemIndex ))
         socket_panel.FindChildTraverse('socket_item_image').contextEntityIndex = msg.itemIndex;
         socket_panel.FindChildTraverse('socket_item_image').SetAttributeInt("item", msg.itemIndex)  
 
-        socket_panel.FindChildTraverse('blacksmith_socket_mithril_cost_text').text = msg.cost + "<br>" + $.Localize("ui_mithril_shards")
-        socket_panel.FindChildTraverse('blacksmith_socket_item_forger_tip').text = $.Localize("item_forger_tip_for_socket")
+        socket_panel.FindChildTraverse('blacksmith_socket_mithril_cost_text').text = msg.cost + "<br>" + $.Localize("#ui_mithril_shards")
+        socket_panel.FindChildTraverse('blacksmith_socket_item_forger_tip').text = $.Localize("#item_forger_tip_for_socket")
 
         if (mithril < msg.cost){
             socket_panel.FindChildTraverse('blacksmith_socket_item_forger_attacher').AddClass('invisible')
-            socket_panel.FindChildTraverse('blacksmith_socket_item_forger_tip').text = $.Localize("socket_not_enough_mithril")
+            socket_panel.FindChildTraverse('blacksmith_socket_item_forger_tip').text = $.Localize("#socket_not_enough_mithril")
             socket_panel.FindChildTraverse('blacksmith_socket_item_forger_tip').style.marginTop = "20px"
             socket_panel.FindChildTraverse('plus_sign').AddClass('invisible')
         }
@@ -443,9 +443,9 @@ function socketStep2(msg){
 function socket_cutter_inserted(msg){
     //$.Msg("INSERTED")
     GameUI.CustomUIConfig().blacksmithCutterIndex = msg.itemIndex
-    GameUI.CustomUIConfig().socket_panel.FindChildTraverse('blacksmith_socket_item_forger_tip').text = $.Localize("DOTA_Tooltip_ability_item_rpc_socket_cutter")
+    GameUI.CustomUIConfig().socket_panel.FindChildTraverse('blacksmith_socket_item_forger_tip').text = $.Localize("#DOTA_Tooltip_ability_item_rpc_socket_cutter")
     $('#final_forge_button_container').RemoveClass('invisible');
-    $('#final_forge_button_label').text = $.Localize("final_add_socket");
+    $('#final_forge_button_label').text = $.Localize("#final_add_socket");
     $('#final_forge_button').AddClass('forge_button_color_main');
     $('#final_forge_button').RemoveClass('forge_button_deactivated');
 }
@@ -487,8 +487,8 @@ mDetailParent = false;
 m_Item = 0;
 
 function InitializeRerollPreScreen() {
-    $('#item_placement_tip').text = $.Localize('reroll_tip_one');
-    $('#reroll_other_tip').text = $.Localize('reroll_tip_two');
+    $('#item_placement_tip').text = $.Localize('#reroll_tip_one');
+    $('#reroll_other_tip').text = $.Localize('#reroll_tip_two');
     $('#item_image').SetImage("file://{images}/custom_game/ui/empty-inventory-slot.png");
     $.GetContextPanel().lockSlotsFromServerCall = lockSlotsFromServerCall;
     $.RegisterEventHandler('DragEnter', $('#item_image'), OnDragEnter);
