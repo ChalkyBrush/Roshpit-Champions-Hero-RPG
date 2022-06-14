@@ -91,13 +91,13 @@ function manageSockets(item)
 function substituteGemDescriptions(description, gem, gem_level, item, rarityFactor){
 	var item_name = Abilities.GetAbilityName(item)
 	if (rarityFactor < 5){
-		description = $.Localize("rpc_items_basic_"+gem)
+		description = $.Localize("#rpc_items_basic_"+gem)
 	}else{
 		for (i = gem_level; i >= 1; i--) {
-			var test_tooltip = $.Localize(item_name+"_"+gem+i)
+			var test_tooltip = $.Localize("#"+item_name+"_"+gem+i)
 			if (test_tooltip.indexOf(item_name) > -1){
 			}else{
-				description = $.Localize(item_name+"_"+gem+i)
+				description = $.Localize("#"+item_name+"_"+gem+i)
 				break
 			}
 		}

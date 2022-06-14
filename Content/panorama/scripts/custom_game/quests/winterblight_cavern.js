@@ -23,11 +23,11 @@ function OpenWinterblightCavernUi(msg, bIgnoreFade){
 	for (var i = 1; i <= 4; i++) {
 		var status = parseInt(msg.winterblight_cavern.Chambers[i]["status"])
 		if (status == 0){
-			cavern_ui_panel.FindChildTraverse('chamber-status-label-'+i).text = $.Localize("winterblight_cavern_status_prefix") + " " + $.Localize("winterblight_cavern_status_inactive")
+			cavern_ui_panel.FindChildTraverse('chamber-status-label-'+i).text = $.Localize("#winterblight_cavern_status_prefix") + " " + $.Localize("#winterblight_cavern_status_inactive")
 			var chamber_button = cavern_ui_panel.FindChildTraverse('chamber-button-'+i)
 			setChamberButtonActivate(chamber_button, i, msg)
 		}else if(status == 1 || status == 2 || status == 3){
-			cavern_ui_panel.FindChildTraverse('chamber-status-label-'+i).text = $.Localize("winterblight_cavern_status_prefix") + " " + $.Localize("winterblight_cavern_status_active")
+			cavern_ui_panel.FindChildTraverse('chamber-status-label-'+i).text = $.Localize("#winterblight_cavern_status_prefix") + " " + $.Localize("#winterblight_cavern_status_active")
 			cavern_ui_panel.FindChildTraverse('chamber-status-label-'+i).AddClass('active_chamber_label')
 			cavern_ui_panel.FindChildTraverse('chamber-button-'+i).AddClass('chamber-main-button-active')
 		}
@@ -62,16 +62,16 @@ function init_boss_menu(msg){
 	var backBtn = cavern_ui_panel.FindChildTraverse('winterblight_cavern_back_button')
 	Game.EmitSound("Winterblight.UI.ChamberSelect")
 	var fragments = parseInt(msg.winterblight_cavern.RelicsFragments)
-	cavern_ui_panel.FindChildTraverse('winterblight_chamber_event_fragments').text = $.Localize("winterblight_cavern_fragments") + " " + fragments
+	cavern_ui_panel.FindChildTraverse('winterblight_chamber_event_fragments').text = $.Localize("#winterblight_cavern_fragments") + " " + fragments
 	var total_boss_kills = 0
 	var total_boss_level_killed = 0
 	for (var i = 1; i <= 4; i++) {
 		var boss_button_attacher = cavern_ui_panel.FindChildTraverse('boss_button_attacher')
 		var cavern_event_button_panel = $.CreatePanel("Panel", boss_button_attacher, "cavern_boss_button_"+i)
 		cavern_event_button_panel.BLoadLayoutSnippet("winter_cavern_boss_button")
-		cavern_event_button_panel.FindChildTraverse('winterblight_cavern_boss_button_label').text = $.Localize(msg.winterblight_cavern.Chambers[i]["boss_name"])
+		cavern_event_button_panel.FindChildTraverse('winterblight_cavern_boss_button_label').text = $.Localize("#"+msg.winterblight_cavern.Chambers[i]["boss_name"])
 		cavern_event_button_panel.FindChildTraverse('winterblight_boss_fragments_cost').text = "2,000"
-		// var boss_tip_text = $.Localize("winterblight_cavern_boss_summary").replace('@boss_name', $.Localize(msg.winterblight_cavern.Chambers[i]["boss_name"])).replace('@chamber_name', $.Localize("winterblight_cavern_room"+i))
+		// var boss_tip_text = $.Localize("winterblight_cavern_boss_summary").replace('@boss_name', $.Localize("#"+msg.winterblight_cavern.Chambers[i]["boss_name"])).replace('@chamber_name', $.Localize("winterblight_cavern_room"+i))
 		// cavern_event_button_panel.FindChildTraverse('winterblight_cavern_boss_summary').text = boss_tip_text
 		// var status = parseInt(msg.winterblight_cavern.Chambers[index]["events"][i]["status"])
 		var cavern_button = cavern_event_button_panel.FindChildTraverse('winterblight_inner_cavern_boss_button')
@@ -95,7 +95,7 @@ function init_boss_menu(msg){
 		cavern_button.boss_cost = 2000
 		if (boss_status > 0){
 			cavern_button.FindChildTraverse('fragments_cost_icon').AddClass("invisible")
-			cavern_event_button_panel.FindChildTraverse('winterblight_boss_fragments_cost').text = $.Localize('winterblight_boss_status'+boss_status)
+			cavern_event_button_panel.FindChildTraverse('winterblight_boss_fragments_cost').text = $.Localize('#winterblight_boss_status'+boss_status)
 		}
 		if (boss_status == 1){
 			cavern_button.RemoveClass('winterblight_cavern_boss_button_active')
@@ -111,7 +111,7 @@ function init_boss_menu(msg){
 		var boss_button_attacher = cavern_ui_panel.FindChildTraverse('final_boss_button_attacher')
 		var cavern_event_button_panel = $.CreatePanel("Panel", boss_button_attacher, "realm_breaker_boss_button")
 		cavern_event_button_panel.BLoadLayoutSnippet("winter_cavern_boss_button")
-		cavern_event_button_panel.FindChildTraverse('winterblight_cavern_boss_button_label').text = $.Localize("winterblight_realm_breaker")
+		cavern_event_button_panel.FindChildTraverse('winterblight_cavern_boss_button_label').text = $.Localize("#winterblight_realm_breaker")
 		cavern_event_button_panel.FindChildTraverse('winterblight_boss_fragments_cost').text = "8,000"
 		// var boss_tip_text = $.Localize("winterblight_cavern_boss_summary").replace('@boss_name', $.Localize(msg.winterblight_cavern.Chambers[i]["boss_name"])).replace('@chamber_name', $.Localize("winterblight_cavern_room"+i))
 		// cavern_event_button_panel.FindChildTraverse('winterblight_cavern_boss_summary').text = boss_tip_text
@@ -133,7 +133,7 @@ function init_boss_menu(msg){
 		realm_breaker_cavern_button.boss_level = realm_breaker_level
 		if (boss_status > 0){
 			realm_breaker_cavern_button.FindChildTraverse('fragments_cost_icon').AddClass("invisible")
-			cavern_event_button_panel.FindChildTraverse('winterblight_boss_fragments_cost').text = $.Localize('winterblight_boss_status'+boss_status)
+			cavern_event_button_panel.FindChildTraverse('winterblight_boss_fragments_cost').text = $.Localize('#winterblight_boss_status'+boss_status)
 		}
 		if (boss_status == 1){
 			realm_breaker_cavern_button.RemoveClass('winterblight_cavern_boss_button_active')
@@ -148,7 +148,7 @@ function init_boss_menu(msg){
 	var boss_button_attacher = cavern_ui_panel.FindChildTraverse('final_boss_button_attacher')
 	var cavern_event_button_panel = $.CreatePanel("Panel", boss_button_attacher, "tiamat_boss_button")
 	cavern_event_button_panel.BLoadLayoutSnippet("winter_cavern_boss_button")
-	cavern_event_button_panel.FindChildTraverse('winterblight_cavern_boss_button_label').text = $.Localize("winterblight_cavern_boss_tiamat")
+	cavern_event_button_panel.FindChildTraverse('winterblight_cavern_boss_button_label').text = $.Localize("#winterblight_cavern_boss_tiamat")
 	cavern_event_button_panel.FindChildTraverse('winterblight_boss_fragments_cost').text = "4,000"
 	// var boss_tip_text = $.Localize("winterblight_cavern_boss_summary").replace('@boss_name', $.Localize(msg.winterblight_cavern.Chambers[i]["boss_name"])).replace('@chamber_name', $.Localize("winterblight_cavern_room"+i))
 	// cavern_event_button_panel.FindChildTraverse('winterblight_cavern_boss_summary').text = boss_tip_text
@@ -173,7 +173,7 @@ function init_boss_menu(msg){
 	tiamat_cavern_button.boss_cost = 4000
 	if (boss_status > 0){
 		tiamat_cavern_button.FindChildTraverse('fragments_cost_icon').AddClass("invisible")
-		cavern_event_button_panel.FindChildTraverse('winterblight_boss_fragments_cost').text = $.Localize('winterblight_boss_status'+boss_status)
+		cavern_event_button_panel.FindChildTraverse('winterblight_boss_fragments_cost').text = $.Localize('#winterblight_boss_status'+boss_status)
 	}
 	if (boss_status == 1){
 		tiamat_cavern_button.RemoveClass('winterblight_cavern_boss_button_active')
@@ -245,14 +245,14 @@ function button_mouse_over_tooltip(cavern_button, msg, i){
 	var title = ""
 	var tooltip = ""
 	if (i == 5){
-		title = $.Localize("winterblight_cavern_boss_tiamat")
-		tooltip = $.Localize("winterblight_cavern_final_boss_summary")
+		title = $.Localize("#winterblight_cavern_boss_tiamat")
+		tooltip = $.Localize("#winterblight_cavern_final_boss_summary")
 	}else if(i == 6){
-		title = $.Localize("winterblight_realm_breaker")
-		tooltip = $.Localize("winterblight_realm_breaker_summary")		
+		title = $.Localize("#winterblight_realm_breaker")
+		tooltip = $.Localize("#winterblight_realm_breaker_summary")		
 	}else{
-		title = $.Localize(msg.winterblight_cavern.Chambers[i]["boss_name"])
-		tooltip = $.Localize("winterblight_cavern_boss_summary").replace('@boss_name', $.Localize(msg.winterblight_cavern.Chambers[i]["boss_name"])).replace('@chamber_name', $.Localize("winterblight_cavern_room"+i))
+		title = $.Localize("#"+msg.winterblight_cavern.Chambers[i]["boss_name"])
+		tooltip = $.Localize("#winterblight_cavern_boss_summary").replace('@boss_name', $.Localize("#"+msg.winterblight_cavern.Chambers[i]["boss_name"])).replace('@chamber_name', $.Localize("#winterblight_cavern_room"+i))
 
 	}
 	$.DispatchEvent("DOTAShowTitleTextTooltip", cavern_button, title, tooltip);
@@ -263,7 +263,7 @@ function ChamberButtonActivate(index, msg){
 	var cavern_ui_panel = $.CreatePanel("Panel", $('#winterblight_cavern_main_ui'), "cavern_ui")
 	$.GetContextPanel.cavern_ui_panel = cavern_ui_panel
 	cavern_ui_panel.BLoadLayoutSnippet("winter_cavern_chamber")
-	cavern_ui_panel.FindChildTraverse('winterblight_cavern_title').text = $.Localize("winterblight_cavern_room"+index)
+	cavern_ui_panel.FindChildTraverse('winterblight_cavern_title').text = $.Localize("#winterblight_cavern_room"+index)
 	cavern_ui_panel.FindChildTraverse('chamber_main_image').SetImage("file://{images}/custom_game/ui/winterblight/"+room_mapping[index-1]+".jpg")
 	Game.EmitSound("Winterblight.UI.ChamberSelect")
 	for (var i = 1; i <= event_count; i++) {
@@ -308,8 +308,8 @@ function ChamberEventButtonActivate(cavern_ui_panel, cavern_event_buttons_contai
 	cavern_ui_panel.FindChildTraverse('winter_cavern_event_details_container').RemoveClass("invisible")
 	cavern_ui_panel.FindChildTraverse('chamber_event_records_container').RemoveClass("invisible")
 	cavern_ui_panel.FindChildTraverse("chamber_event_start_container").RemoveClass("invisible")
-	cavern_ui_panel.FindChildTraverse('winterblight_chamber_event_title').text = $.Localize("winterblight_cavern_room"+chamber_index+"_event"+index)
-	cavern_ui_panel.FindChildTraverse('winterblight_chamber_event_description').text = $.Localize("winterblight_cavern_room"+chamber_index+"_event"+index+"_description")
+	cavern_ui_panel.FindChildTraverse('winterblight_chamber_event_title').text = $.Localize("#winterblight_cavern_room"+chamber_index+"_event"+index)
+	cavern_ui_panel.FindChildTraverse('winterblight_chamber_event_description').text = $.Localize("#winterblight_cavern_room"+chamber_index+"_event"+index+"_description")
 	var fragments_gained = "???"
 	if (fragments > 0){
 		fragments_gained = fragments
@@ -317,7 +317,7 @@ function ChamberEventButtonActivate(cavern_ui_panel, cavern_event_buttons_contai
 	}else{
 		cavern_ui_panel.FindChildTraverse('chamber_event_fragments_container').RemoveClass('chamber_event_fragments_container_completed')
 	}
-	cavern_ui_panel.FindChildTraverse('winterblight_chamber_event_fragments').text = $.Localize("winterblight_cavern_fragments") + " " + fragments_gained
+	cavern_ui_panel.FindChildTraverse('winterblight_chamber_event_fragments').text = $.Localize("#winterblight_cavern_fragments") + " " + fragments_gained
 
 	cavern_ui_panel.event_index = index
 	cavern_ui_panel.chamber_index = chamber_index
@@ -412,7 +412,7 @@ function CavernRecordsLoaded(msg){
 	// var number_entry = cavern_ui_panel.FindChildTraverse('max_level_input')
 	// number_entry.max(parseInt(overall_max))
 	// number_entry.value(parseInt(overall_max))
-	cavern_ui_panel.FindChildTraverse('event_max_main_label').text = $.Localize("winterblight_event_max") + ": " + overall_max
+	cavern_ui_panel.FindChildTraverse('event_max_main_label').text = $.Localize("#winterblight_event_max") + ": " + overall_max
 	cavern_ui_panel.FindChildTraverse('your-max-level-label').text = your_hero_max
 	cavern_ui_panel.FindChildTraverse('start_event_button').RemoveClass('invisible')
 	//FILL RECORDS
@@ -426,17 +426,17 @@ function CavernRecordsLoaded(msg){
 	var hero_image_name = "file://{images}/heroes/" + hero_name + ".png"
 	cavern_ui_panel.FindChildTraverse('loading-records-left').AddClass('invisible')
 	cavern_ui_panel.FindChildTraverse('loading-records-right').AddClass('invisible')
-	cavern_ui_panel.FindChildTraverse('records-title-top-left').text = $.Localize('cavern_record_yours_hero') + " " + $.Localize(hero_name)
-	cavern_ui_panel.FindChildTraverse('records-title-bottom-left').text = $.Localize('cavern_record_yours_all')
-	cavern_ui_panel.FindChildTraverse('records-title-top-right').text = $.Localize('cavern_record_global_hero') + " " + $.Localize(hero_name)
-	cavern_ui_panel.FindChildTraverse('records-title-bottom-right').text = $.Localize('cavern_record_global_all')
+	cavern_ui_panel.FindChildTraverse('records-title-top-left').text = $.Localize('#cavern_record_yours_hero') + " " + $.Localize("#"+hero_name)
+	cavern_ui_panel.FindChildTraverse('records-title-bottom-left').text = $.Localize('#cavern_record_yours_all')
+	cavern_ui_panel.FindChildTraverse('records-title-top-right').text = $.Localize('#cavern_record_global_hero') + " " + $.Localize("#"+hero_name)
+	cavern_ui_panel.FindChildTraverse('records-title-bottom-right').text = $.Localize('#cavern_record_global_all')
 	if (your_hero_record > 0){
 		left_record_panel.BLoadLayoutSnippet("winter_cavern_individual_record")
 		var steam_id_long = msg.steam_id_long
 		left_record_panel.FindChildTraverse('hero_portrait').SetImage(hero_image_name)
 		left_record_panel.FindChildTraverse('player_avatar').steamid = steam_id_long
 		left_record_panel.FindChildTraverse('dota_player_name').steamid = steam_id_long
-		left_record_panel.FindChildTraverse('record_label').text = $.Localize("arena_prizebox_level") + ": " + your_hero_record
+		left_record_panel.FindChildTraverse('record_label').text = $.Localize("#arena_prizebox_level") + ": " + your_hero_record
 	}else{
 		left_record_panel.BLoadLayoutSnippet("winter_cavern_no_record")
 	}
@@ -454,7 +454,7 @@ function CavernRecordsLoaded(msg){
 		left_record_panel_bottom.FindChildTraverse('hero_portrait').SetImage("file://{images}/heroes/" + hero_name + ".png")
 		left_record_panel_bottom.FindChildTraverse('player_avatar').steamid = steam_id_long
 		left_record_panel_bottom.FindChildTraverse('dota_player_name').steamid = steam_id_long
-		left_record_panel_bottom.FindChildTraverse('record_label').text = $.Localize("arena_prizebox_level") + ": " + your_overall_record
+		left_record_panel_bottom.FindChildTraverse('record_label').text = $.Localize("#arena_prizebox_level") + ": " + your_overall_record
 	}else{
 		left_record_panel_bottom.BLoadLayoutSnippet("winter_cavern_no_record")
 	}
@@ -472,7 +472,7 @@ function CavernRecordsLoaded(msg){
 		right_record_panel.FindChildTraverse('hero_portrait').SetImage(hero_image_name)
 		right_record_panel.FindChildTraverse('player_avatar').steamid = steam_id_long
 		right_record_panel.FindChildTraverse('dota_player_name').steamid = steam_id_long
-		right_record_panel.FindChildTraverse('record_label').text = $.Localize("arena_prizebox_level") + ": " + global_hero_record
+		right_record_panel.FindChildTraverse('record_label').text = $.Localize("#arena_prizebox_level") + ": " + global_hero_record
 	}else{
 		right_record_panel.BLoadLayoutSnippet("winter_cavern_no_record")
 	}
@@ -489,7 +489,7 @@ function CavernRecordsLoaded(msg){
 		right_record_panel_bottom.FindChildTraverse('hero_portrait').SetImage("file://{images}/heroes/" + hero_name + ".png")
 		right_record_panel_bottom.FindChildTraverse('player_avatar').steamid = steam_id_long
 		right_record_panel_bottom.FindChildTraverse('dota_player_name').steamid = steam_id_long
-		right_record_panel_bottom.FindChildTraverse('record_label').text = $.Localize("arena_prizebox_level") + ": " + global_overall_record
+		right_record_panel_bottom.FindChildTraverse('record_label').text = $.Localize("#arena_prizebox_level") + ": " + global_overall_record
 	}else{
 		right_record_panel_bottom.BLoadLayoutSnippet("winter_cavern_no_record")
 	}
@@ -550,7 +550,7 @@ function CavernSummaryInit(msg)
 			var event_index = chamber_data["event"]
 			var event_parent = $.CreatePanel("Panel", attacher, "cavern_summary_event_"+i)
 			event_parent.BLoadLayoutSnippet('cavern_summary_item')
-			event_parent.FindChildTraverse('winter_event_chamber_name').text = $.Localize("winterblight_cavern_room"+i) + " - "
+			event_parent.FindChildTraverse('winter_event_chamber_name').text = $.Localize("#winterblight_cavern_room"+i) + " - "
 			var hero_name = Entities.GetUnitName( chamber_data["hero"] )
 			event_parent.FindChildTraverse('event_hero_portrait').SetImage("file://{images}/heroes/" + hero_name + ".png")
 			event_parent.FindChildTraverse('event_player_name').steamid = chamber_data["steam_id_long"]
@@ -567,13 +567,13 @@ function CavernSummaryInit(msg)
 			var event_index = chamber_data["event"]
 			var event_parent = $.CreatePanel("Panel", attacher, "cavern_summary_event_"+i)
 			event_parent.BLoadLayoutSnippet('cavern_summary_item')
-			event_parent.FindChildTraverse('winter_event_chamber_name').text = $.Localize("winterblight_cavern_room"+i) + " - "
+			event_parent.FindChildTraverse('winter_event_chamber_name').text = $.Localize("#winterblight_cavern_room"+i) + " - "
 			var hero_name = Entities.GetUnitName( chamber_data["hero"] )
 			event_parent.FindChildTraverse('event_hero_portrait').SetImage("file://{images}/heroes/" + hero_name + ".png")
 			event_parent.FindChildTraverse('event_player_name').steamid = chamber_data["steam_id_long"]
-			event_parent.FindChildTraverse('winter_event_event_name').text = $.Localize("winterblight_cavern_room"+chamber_index+"_event"+event_index)
+			event_parent.FindChildTraverse('winter_event_event_name').text = $.Localize("#winterblight_cavern_room"+chamber_index+"_event"+event_index)
 			event_parent.FindChildTraverse('winter_event_event_level').text = "LV"+chamber_data["level"]
-			event_parent.FindChildTraverse('event-progress-bar-label').text = $.Localize('cavern_ui_failed')
+			event_parent.FindChildTraverse('event-progress-bar-label').text = $.Localize('#cavern_ui_failed')
 			var fill_bar = event_parent.FindChildTraverse('event-progress-bar-fill')
 			fill_bar.style.width = "100%"
 			fill_bar.AddClass("fill_fail")
@@ -585,13 +585,13 @@ function CavernSummaryInit(msg)
 			var event_index = chamber_data["event"]
 			var event_parent = $.CreatePanel("Panel", attacher, "cavern_summary_event_"+i)
 			event_parent.BLoadLayoutSnippet('cavern_summary_item')
-			event_parent.FindChildTraverse('winter_event_chamber_name').text = $.Localize("winterblight_cavern_room"+i) + " - "
+			event_parent.FindChildTraverse('winter_event_chamber_name').text = $.Localize("#winterblight_cavern_room"+i) + " - "
 			var hero_name = Entities.GetUnitName( chamber_data["hero"] )
 			event_parent.FindChildTraverse('event_hero_portrait').SetImage("file://{images}/heroes/" + hero_name + ".png")
 			event_parent.FindChildTraverse('event_player_name').steamid = chamber_data["steam_id_long"]
-			event_parent.FindChildTraverse('winter_event_event_name').text = $.Localize("winterblight_cavern_room"+chamber_index+"_event"+event_index)
+			event_parent.FindChildTraverse('winter_event_event_name').text = $.Localize("#winterblight_cavern_room"+chamber_index+"_event"+event_index)
 			event_parent.FindChildTraverse('winter_event_event_level').text = "LV"+chamber_data["level"]
-			event_parent.FindChildTraverse('event-progress-bar-label').text = $.Localize('cavern_ui_completed')
+			event_parent.FindChildTraverse('event-progress-bar-label').text = $.Localize('#cavern_ui_completed')
 			var fill_bar = event_parent.FindChildTraverse('event-progress-bar-fill')
 			fill_bar.style.width = "100%"
 			fill_bar.AddClass("fill_win")

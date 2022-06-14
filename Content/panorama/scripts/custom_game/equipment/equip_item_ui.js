@@ -11,15 +11,15 @@ function NewItemEquip(msg)
 	var attacher = old_item_panel.FindChildTraverse('item_attacher')
 	var old_item_tooltip = $.CreatePanel("Panel", attacher, "old_item_tooltip")
 	old_item_tooltip.BLoadLayoutSnippet("equip_item_display")
-	old_item_tooltip.FindChildTraverse('new_or_old').text = $.Localize('ui_old_item')
+	old_item_tooltip.FindChildTraverse('new_or_old').text = $.Localize('#ui_old_item')
 	initializeTooltip(old_item_tooltip, msg.oldItem)
 
 	var button_attacher = old_item_panel.FindChildTraverse('buttons_attacher')
 	var buttons_container = $.CreatePanel("Panel", button_attacher, "old_item_button_attacher")
 	buttons_container.BLoadLayoutSnippet('equip_item_button_options')
-	buttons_container.FindChildTraverse('button-option-1-text').text = $.Localize("ui_old_item_option_1")
-	buttons_container.FindChildTraverse('button-option-2-text').text = $.Localize("ui_old_item_option_2")
-	buttons_container.FindChildTraverse('buttons-title').text = $.Localize("ui_old_item_main_option") + ":"
+	buttons_container.FindChildTraverse('button-option-1-text').text = $.Localize("#ui_old_item_option_1")
+	buttons_container.FindChildTraverse('button-option-2-text').text = $.Localize("#ui_old_item_option_2")
+	buttons_container.FindChildTraverse('buttons-title').text = $.Localize("#ui_old_item_main_option") + ":"
 	buttons_container.FindChildTraverse('buttons-title').style.color="#6eb1db"
 	buttons_container.FindChildTraverse('button-option-1').AddClass('buttons_old_colors')
 	buttons_container.FindChildTraverse('button-option-2').AddClass('buttons_old_colors')
@@ -36,16 +36,16 @@ function NewItemEquip(msg)
 	var attacher = new_item_panel.FindChildTraverse('item_attacher')
 	var new_item_tooltip = $.CreatePanel("Panel", attacher, "new_item_tooltip")
 	new_item_tooltip.BLoadLayoutSnippet("equip_item_display")
-	new_item_tooltip.FindChildTraverse('new_or_old').text = "*"+$.Localize('ui_new_item')+"*"
+	new_item_tooltip.FindChildTraverse('new_or_old').text = "*"+$.Localize('#ui_new_item')+"*"
 	new_item_tooltip.FindChildTraverse('new_or_old').AddClass('new_item_color')
 	initializeTooltip(new_item_tooltip, msg.newItem)
 
 	var button_attacher = new_item_panel.FindChildTraverse('buttons_attacher')
 	var buttons_container = $.CreatePanel("Panel", button_attacher, "new_item_button_attacher")
 	buttons_container.BLoadLayoutSnippet('equip_item_button_options')
-	buttons_container.FindChildTraverse('button-option-1-text').text = $.Localize("ui_new_item_option_1")
-	buttons_container.FindChildTraverse('button-option-2-text').text = $.Localize("ui_new_item_option_2")
-	buttons_container.FindChildTraverse('buttons-title').text = $.Localize("ui_new_item_main_option") + ":"
+	buttons_container.FindChildTraverse('button-option-1-text').text = $.Localize("#ui_new_item_option_1")
+	buttons_container.FindChildTraverse('button-option-2-text').text = $.Localize("#ui_new_item_option_2")
+	buttons_container.FindChildTraverse('buttons-title').text = $.Localize("#ui_new_item_main_option") + ":"
 	buttons_container.FindChildTraverse('buttons-title').style.color="#6eb1db"
 	buttons_container.FindChildTraverse('button-option-1').AddClass('buttons_new_colors')
 	buttons_container.FindChildTraverse('button-option-2').AddClass('buttons_new_colors')
@@ -57,7 +57,7 @@ function NewItemEquip(msg)
 	set_swap_button_event(button2, 4)
 
 	if (msg.hero_slot == 0){
-		buttons_container.FindChildTraverse('button-option-1-text').text = $.Localize("ui_new_item_option_no_save_slot")
+		buttons_container.FindChildTraverse('button-option-1-text').text = $.Localize("#ui_new_item_option_no_save_slot")
 		button2.AddClass('invisible')
 	}
 
@@ -73,8 +73,8 @@ function set_swap_button_event(button, index){
 function EquipTooltip()
 {
 	var panel = $.GetContextPanel().FindChildTraverse('extra-equip-info')
-	var title = "<font color='yellow'>"+$.Localize("ui_new_item_equip_tooltip_title")
-	var tooltip = $.Localize("ui_new_item_equip_tooltip_text")
+	var title = "<font color='yellow'>"+$.Localize("#ui_new_item_equip_tooltip_title")
+	var tooltip = $.Localize("#ui_new_item_equip_tooltip_text")
 	tooltip = breakUpTooltip(tooltip)
 	$.DispatchEvent("DOTAShowTitleTextTooltip", panel, title, tooltip);
 }
@@ -321,9 +321,9 @@ function initializeTooltip(main_panel, item){
 			//$.Msg("SHOULD BE HERE!!!")
 			//$.Msg("item_tooltip_popout.js weaponValues")
 			main_panel.FindChildTraverse('tooltip_weapons_data_container').RemoveClass('invisible')
-			main_panel.FindChildTraverse('tooltip_weapon_left1').text = "<font color='#ffb8b7'>"+$.Localize('weapon_usable')+"</font> <font color='#AAAAAA'>"+$.Localize('weapon_current_level')+":</font>"
+			main_panel.FindChildTraverse('tooltip_weapon_left1').text = "<font color='#ffb8b7'>"+$.Localize('#weapon_usable')+"</font> <font color='#AAAAAA'>"+$.Localize('#weapon_current_level')+":</font>"
 			main_panel.FindChildTraverse('tooltip_weapon_right1').text = "<font color='#FFFFFF'>"+weaponValues.level+"</font>"
-			main_panel.FindChildTraverse('tooltip_weapon_left2').text = "<font color='#ffb8b7'>"+$.Localize('weapon_usable')+"</font> <font color='#AAAAAA'>"+$.Localize('weapon_max_level')+":</font>"
+			main_panel.FindChildTraverse('tooltip_weapon_left2').text = "<font color='#ffb8b7'>"+$.Localize('#weapon_usable')+"</font> <font color='#AAAAAA'>"+$.Localize('#weapon_max_level')+":</font>"
 			main_panel.FindChildTraverse('tooltip_weapon_right2').text = "<font color='#FFFFFF'>"+weaponValues.maxLevel+"</font>"
 
 			main_panel.FindChildTraverse('weapon_exp_bar').RemoveClass("invisible")
@@ -341,9 +341,9 @@ function initializeTooltip(main_panel, item){
 
 		}else if(itemValues.maxLevel){
 			main_panel.FindChildTraverse('tooltip_weapons_data_container').RemoveClass('invisible')
-			main_panel.FindChildTraverse('tooltip_weapon_left1').text = "<font color='#ffb8b7'>"+$.Localize('weapon_usable')+"</font> <font color='#AAAAAA'>"+$.Localize('weapon_current_level')+":</font>"
+			main_panel.FindChildTraverse('tooltip_weapon_left1').text = "<font color='#ffb8b7'>"+$.Localize('#weapon_usable')+"</font> <font color='#AAAAAA'>"+$.Localize('#weapon_current_level')+":</font>"
 			main_panel.FindChildTraverse('tooltip_weapon_right1').text = "<font color='#FFFFFF'>"+1+"</font>"
-			main_panel.FindChildTraverse('tooltip_weapon_left2').text = "<font color='#ffb8b7'>"+$.Localize('weapon_usable')+"</font> <font color='#AAAAAA'>"+$.Localize('weapon_max_level')+":</font>"
+			main_panel.FindChildTraverse('tooltip_weapon_left2').text = "<font color='#ffb8b7'>"+$.Localize('#weapon_usable')+"</font> <font color='#AAAAAA'>"+$.Localize('#weapon_max_level')+":</font>"
 			main_panel.FindChildTraverse('tooltip_weapon_right2').text = "<font color='#FFFFFF'>"+itemValues.maxLevel+"</font>"
 		}else{
 			main_panel.FindChildTraverse('weapon_exp_bar').AddClass("invisible")
@@ -441,23 +441,23 @@ function AddAffixToItem(tooltip, itemProperty, queryUnit, requiredHero, rarityFa
 			var rune_unit_index = skill_tree_data.runeUnit;
             var abilityIndex = Entities.GetAbility(rune_unit_index, abilitySlot)
             var abilityName = Abilities.GetAbilityName(abilityIndex)
-            propertyName = $.Localize("DOTA_Tooltip_Ability_" + abilityName)
+            propertyName = $.Localize("#DOTA_Tooltip_Ability_" + abilityName)
 		}else{
 			if (rarityFactor == 6){
 				var RPCName = convertFullHeroNameToRPC(requiredHero)	
 				var arcanaSuffix = itemName.replace("item_rpc_"+RPCName+"_", "_");
-				propertyName = $.Localize("DOTA_Tooltip_Ability_"+RPCName+"_"+OGpropertyName+arcanaSuffix)
+				propertyName = $.Localize("#DOTA_Tooltip_Ability_"+RPCName+"_"+OGpropertyName+arcanaSuffix)
 				//$.Msg(propertyName)
 			}else{
 				var RPCName = convertFullHeroNameToRPC(requiredHero)	
-				propertyName = $.Localize("DOTA_Tooltip_Ability_"+RPCName+"_"+OGpropertyName)
+				propertyName = $.Localize("#DOTA_Tooltip_Ability_"+RPCName+"_"+OGpropertyName)
 				//$.Msg(propertyName)		
 			}
 		}
 		// itemProperty = itemPropertyCheck(itemProperty)
 	}
 	if (OGpropertyName.indexOf("#DOTA_Tooltip_Ability") >= 0){
-		propertyName = $.Localize(OGpropertyName)
+		propertyName = $.Localize("#"+OGpropertyName)
 		//$.Msg("OGPROPERTYNAME!")
 	}
 	tooltipName = "<font color='"+itemProperty.propertyColor+"'>"+propertyName+"</font>"
@@ -501,7 +501,7 @@ function itemValuesCheck(itemValues)
 function replaceConsumableText(itemValues, tooltip)
 {
 	if (itemValues.property3color && itemValues.property3name){
-		tooltip = tooltip.replace("@consumableProperty3", "<font color='"+itemValues.property3color+"'>"+$.Localize(itemValues.property3name)+"</font>")
+		tooltip = tooltip.replace("@consumableProperty3", "<font color='"+itemValues.property3color+"'>"+$.Localize("#"+itemValues.property3name)+"</font>")
 	}
 	return tooltip
 }

@@ -163,7 +163,7 @@ function typeText(label, text, labelLevel)
 
 function ViewSign(msg)
 {
-	var text = $.Localize(msg.sign)
+	var text = $.Localize("#"+msg.sign)
 	var parent = $('#arena_container')
     var sign = $.CreatePanel("Panel", parent, "leaderboard")
     sign.BLoadLayoutSnippet("arena_sign");
@@ -199,7 +199,7 @@ function ArenaGenericNPCDialogue(msg){
     button.heroimagestyle = "portrait";
 
     var dialogueHeader = dialogue.FindChildTraverse('dialogue_name')
-    dialogueHeader.text = $.Localize(headerText)
+    dialogueHeader.text = $.Localize("#"+headerText)
 
     var dialogueLabel = dialogue.FindChildTraverse('dialogue_text_text')
     dialogueLabel.level = 0
@@ -209,13 +209,13 @@ function ArenaGenericNPCDialogue(msg){
     	dialogue.FindChildTraverse('dialogue_price_box').RemoveClass('invisible')
     	dialogue.FindChildTraverse('dialogue_price_amount').text = labelCost
     }
-    typeText(dialogueLabel, $.Localize(messageText), 0)
+    typeText(dialogueLabel, $.Localize("#"+messageText), 0)
     if (bDialogue == 1){
     	if (!(subLabel === undefined)){
     		dialogue.FindChildTraverse('dialogue_price_box')
     	}
-    	dialogue.FindChildTraverse('dialogue_label1').text = $.Localize(option1)
-    	dialogue.FindChildTraverse('dialogue_label2').text = $.Localize(option2)
+    	dialogue.FindChildTraverse('dialogue_label1').text = $.Localize("#"+option1)
+    	dialogue.FindChildTraverse('dialogue_label2').text = $.Localize("#"+option2)
  		dialogue.FindChildTraverse('option1').SetPanelEvent('onactivate', function DialogueOption1() {
  			var accept = 1
  			var npc = headerText
@@ -240,7 +240,7 @@ function ArenaGenericNPCDialogue(msg){
 
     if (msg.headerText == "arena_pit_conquest_shrine_of_karzhun"){
         dialogue.FindChildTraverse('optional_dialogue_input').RemoveClass("invisible")
-        dialogue.FindChildTraverse('optional_input_label').text = $.Localize("arena_karzhun_offering_tip")
+        dialogue.FindChildTraverse('optional_input_label').text = $.Localize("#arena_karzhun_offering_tip")
     }
 }
 
@@ -249,7 +249,7 @@ function ArenaTerminal(msg){
     var sign = $.CreatePanel("Panel", parent, "arena_terminal")
     sign.BLoadLayoutSnippet("arena_terminal");
     $('#arena_container').AddClass('animateEaseClass') 
-    sign.FindChildTraverse('terminal_header_text').text = $.Localize('arena_left_leaderboard_title')
+    sign.FindChildTraverse('terminal_header_text').text = $.Localize('#arena_left_leaderboard_title')
     var heroName = msg.heroName
     var championsLeague = msg.ChampionsLeague
     var heroPortraitContainer = sign.FindChildTraverse('hero_portrait')
@@ -261,11 +261,11 @@ function ArenaTerminal(msg){
     sign.FindChildTraverse('rank_value').text = championsLeague.rank
     sign.FindChildTraverse('enemy_portrait').AddClass('invisible')
     if (msg.ChampionsLeague.state == -1){
-        sign.FindChildTraverse('hero_name_text').text = $.Localize('terminal_registrant_not_found')
+        sign.FindChildTraverse('hero_name_text').text = $.Localize('#terminal_registrant_not_found')
         var imageName = "file://{images}/custom_game/ui/silhouette.png"
         portrait.SetImage(imageName)
         sign.FindChildTraverse('champions_league_start_button').AddClass('champions_league_start_button_inactive')
-        sign.FindChildTraverse('champions_league_start_button_label').text=$.Localize('terminal_cant_register')
+        sign.FindChildTraverse('champions_league_start_button_label').text=$.Localize('#terminal_cant_register')
         sign.FindChildTraverse('rank_value').text = "--"
         sign.FindChildTraverse('champions_league_change_challenger_button').AddClass('champions_league_start_button_inactive')
         sign.FindChildTraverse('champions_league_change_challenger_button_label').text="--"
@@ -273,14 +273,14 @@ function ArenaTerminal(msg){
     }
     else if(msg.ArenaChampions.battlePrep){
          sign.FindChildTraverse('champions_league_start_button').AddClass('champions_league_start_button_inactive')
-         sign.FindChildTraverse('champions_league_start_button_label').text=$.Localize('terminal_cant_register')
+         sign.FindChildTraverse('champions_league_start_button_label').text=$.Localize('#terminal_cant_register')
         sign.FindChildTraverse('champions_league_change_challenger_button').AddClass('champions_league_start_button_inactive')
-        sign.FindChildTraverse('champions_league_change_challenger_button_label').text=$.Localize("terminal_cant_choose_opponent")       
+        sign.FindChildTraverse('champions_league_change_challenger_button_label').text=$.Localize("#terminal_cant_choose_opponent")       
     }else{
         sign.FindChildTraverse('champions_league_change_challenger_button').AddClass('champions_league_start_button_active')
         // sign.FindChildTraverse('champions_league_start_button').AddClass('champions_league_start_button_active')
          sign.FindChildTraverse('champions_league_start_button').AddClass('champions_league_start_button_inactive')
-         sign.FindChildTraverse('champions_league_start_button_label').text=$.Localize('terminal_cant_register')
+         sign.FindChildTraverse('champions_league_start_button_label').text=$.Localize('#terminal_cant_register')
         // sign.FindChildTraverse('champions_league_start_button').SetPanelEvent('onactivate', function TerminalButtonActivate() {
         //     var accept = 1
         //     var intattr = 0
@@ -512,7 +512,7 @@ function ArenaBattleUI(msg){
     arenaUI.FindChildTraverse('right-fighter-name').text = enemyNameText
     arenaUI.FindChildTraverse('left-right-health').style.width = "100%"
     arenaUI.FindChildTraverse('right-right-health').style.width = "100%"
-    arenaUI.FindChildTraverse('left-crowd-label').text = $.Localize('arena_fan_support')+": "
+    arenaUI.FindChildTraverse('left-crowd-label').text = $.Localize('#arena_fan_support')+": "
     arenaUI.FindChildTraverse('left-crowd-label-number').text = msg.crowdSizeL
     arenaUI.FindChildTraverse('right-crowd-label-number').text = msg.crowdSizeR
     arenaUI.FindChildTraverse('skip_button').SetPanelEvent('onactivate', function SkipButtonActivate() {
@@ -606,7 +606,7 @@ function VSClash(msg){
     heroImageR.heroimagestyle = "portrait";
 
     arenaUI.FindChildTraverse('left_vs_name_label').text = Players.GetPlayerName( Players.GetLocalPlayer() )
-    arenaUI.FindChildTraverse('right_vs_name_label').text = $.Localize(enemyName)
+    arenaUI.FindChildTraverse('right_vs_name_label').text = $.Localize("#"+enemyName)
 
     arenaUI.FindChildTraverse('left_vs_clash').AddClass('animateFromTop')
     arenaUI.FindChildTraverse('right_vs_clash').AddClass('animateFromBottom')
@@ -665,7 +665,7 @@ function championsLeagueLose(msg){
     arenaUI.FindChildTraverse('league_hero_image').heroname = allyHero
     arenaUI.FindChildTraverse('league_hero_image').heroimagestyle = "portrait";
     var outcomeMessage = msg.outcomeMessage
-    arenaUI.FindChildTraverse('champions_league_outcome_message').text = $.Localize(outcomeMessage)
+    arenaUI.FindChildTraverse('champions_league_outcome_message').text = $.Localize("#"+outcomeMessage)
     arenaUI.FindChildTraverse('champions_league_outcome_name').text = Players.GetPlayerName( Players.GetLocalPlayer() )
     $.Schedule(1.5, function(){
         var timeLabel = arenaUI.FindChildTraverse('champions_league_time_bonus')
@@ -745,7 +745,7 @@ function PitTerminal(msg){
     var pitLevelAvailable = msg.pitData.pit_level
     sign.BLoadLayoutSnippet("pit_terminal");
     $('#arena_container').AddClass('animateEaseClass') 
-    sign.FindChildTraverse('terminal_header_text').text = $.Localize('tooltip_pit_of_trials')
+    sign.FindChildTraverse('terminal_header_text').text = $.Localize('#tooltip_pit_of_trials')
     var heroName = msg.heroName
     var championsLeague = msg.ChampionsLeague
     var heroPortraitContainer = sign.FindChildTraverse('hero_portrait')
@@ -754,7 +754,7 @@ function PitTerminal(msg){
     mChampionsData = championsLeague
     portrait.heroimagestyle = "portrait";
     sign.FindChildTraverse('hero_name_text').text = Players.GetPlayerName( Players.GetLocalPlayer() )
-    sign.FindChildTraverse('pit_level_label').text = $.Localize("tooltip_pit_highest_level") + ":"
+    sign.FindChildTraverse('pit_level_label').text = $.Localize("#tooltip_pit_highest_level") + ":"
     sign.FindChildTraverse('pit_level_value').text = msg.pitData.pit_level
 
     // msg.lockoutStatus = 1
@@ -775,17 +775,17 @@ function PitTerminal(msg){
     
     
     if (msg.lockoutStatus == 1){
-         sign.FindChildTraverse('pit_lockout_label').text = $.Localize("tooltip_lock_out")
+         sign.FindChildTraverse('pit_lockout_label').text = $.Localize("#tooltip_lock_out")
          sign.FindChildTraverse('champions_league_start_button').AddClass('champions_league_start_button_inactive')
-         sign.FindChildTraverse('champions_league_start_button_label').text=$.Localize("tooltip_dungeon_lockout")
+         sign.FindChildTraverse('champions_league_start_button_label').text=$.Localize("#tooltip_dungeon_lockout")
     }
     else if(msg.lockoutStatus == 0){
          sign.FindChildTraverse('champions_league_start_button').AddClass('champions_league_start_button_inactive')
-         sign.FindChildTraverse('champions_league_start_button_label').text=$.Localize('tooltip_select_pit_level')      
+         sign.FindChildTraverse('champions_league_start_button_label').text=$.Localize('#tooltip_select_pit_level')      
     }
     else if(msg.lockoutStatus == 2){
          sign.FindChildTraverse('champions_league_start_button').AddClass('champions_league_start_button_inactive')
-         sign.FindChildTraverse('champions_league_start_button_label').text=$.Localize("tooltip_pit_open")      
+         sign.FindChildTraverse('champions_league_start_button_label').text=$.Localize("#tooltip_pit_open")      
     }
     
 }
@@ -840,13 +840,13 @@ function setPitLevel(sign, starLevel, pitLevelAvailable, star, lockout)
     sign.FindChildTraverse('pit_enemy_data_row_2').RemoveClass('invisible')
     sign.FindChildTraverse('pit_enemy_data_row_3').RemoveClass('invisible')
     var pitData = GetPitModData(starLevel)
-    sign.FindChildTraverse('enemy_attack_damage_label').text = $.Localize('tooltip_pit_enemy_damage')+": "
+    sign.FindChildTraverse('enemy_attack_damage_label').text = $.Localize('#tooltip_pit_enemy_damage')+": "
     sign.FindChildTraverse('enemy_attack_damage_value').text = "+"+pitData[0]+"%"
-    sign.FindChildTraverse('enemy_resistance_label').text = $.Localize('tooltip_pit_enemy_armors_and_pierces')+": "
+    sign.FindChildTraverse('enemy_resistance_label').text = $.Localize('#tooltip_pit_enemy_armors_and_pierces')+": "
     sign.FindChildTraverse('enemy_resistance_value').text = "+"+pitData[1]+"%"
-    sign.FindChildTraverse('enemy_paragon_label').text = $.Localize('tooltip_pit_enemy_health')+": "
+    sign.FindChildTraverse('enemy_paragon_label').text = $.Localize('#tooltip_pit_enemy_health')+": "
     sign.FindChildTraverse('enemy_paragon_value').text = "+"+pitData[2]+"%"
-    sign.FindChildTraverse('enemy_name_text').text = $.Localize('tooltip_pit_of_trials') + " " + $.Localize("weapon_current_level") + " " + starLevel
+    sign.FindChildTraverse('enemy_name_text').text = $.Localize('#tooltip_pit_of_trials') + " " + $.Localize("#weapon_current_level") + " " + starLevel
     for (i = 1; i <= 7; i++) { 
         if (i <= starLevel){
             var star = sign.FindChildTraverse('pit_star_'+i)
@@ -867,7 +867,7 @@ function setPitLevel(sign, starLevel, pitLevelAvailable, star, lockout)
     if (lockout == 0){
         sign.FindChildTraverse('champions_league_start_button').AddClass('champions_league_start_button_active')
         sign.FindChildTraverse('champions_league_start_button').RemoveClass('champions_league_start_button_inactive')
-        sign.FindChildTraverse('champions_league_start_button_label').text=$.Localize("tooltip_open_pit")
+        sign.FindChildTraverse('champions_league_start_button_label').text=$.Localize("#tooltip_open_pit")
         sign.FindChildTraverse('champions_league_start_button').SetPanelEvent('onactivate', function TerminalButtonActivate() {
             var accept = 1
             var intattr = 0
@@ -882,9 +882,9 @@ function setPitLevel(sign, starLevel, pitLevelAvailable, star, lockout)
 function updatePitData(sign){
     var pitLevel = sign.GetAttributeInt( "currentPitLevel", 0)
     if (pitLevel == 0){
-        sign.FindChildTraverse('enemy_name_text').text = $.Localize('tooltip_select_pit_level')
+        sign.FindChildTraverse('enemy_name_text').text = $.Localize('#tooltip_select_pit_level')
     }else{
-        sign.FindChildTraverse('enemy_name_text').text = $.Localize('tooltip_pit_of_trials') + " " + $.Localize("weapon_current_level") + " " + pitLevel
+        sign.FindChildTraverse('enemy_name_text').text = $.Localize('#tooltip_pit_of_trials') + " " + $.Localize("#weapon_current_level") + " " + pitLevel
     }
 }
 
@@ -903,8 +903,8 @@ function OpenQuestLog(msg){
         //$.Msg("OPENING QUEST LOG")
 
 
-        $('#quest_log_title').text = $.Localize('zone_redfall')
-        $('#quest_log_title_b').text = $.Localize('tooltip_quest_log')
+        $('#quest_log_title').text = $.Localize('#zone_redfall')
+        $('#quest_log_title_b').text = $.Localize('#tooltip_quest_log')
 
         if (GameUI.QuestLog == 1){
             $('#quest_active_button').AddClass('quest_state_button_active')
@@ -923,9 +923,9 @@ function OpenQuestLog(msg){
         }
         if (noQuests){
             if (GameUI.QuestLog == 1){
-             $('#quest_log_no_quests').text = $.Localize('tooltip_no_quests')
+             $('#quest_log_no_quests').text = $.Localize('#tooltip_no_quests')
             }else if(GameUI.QuestLog == 2){
-             $('#quest_log_no_quests').text = $.Localize('tooltip_no_quests_completed')
+             $('#quest_log_no_quests').text = $.Localize('#tooltip_no_quests_completed')
             }
         }else{
             $('#quest_log_no_quests').AddClass('invisible')
