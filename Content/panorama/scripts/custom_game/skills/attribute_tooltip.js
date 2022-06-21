@@ -29,7 +29,7 @@ function initializeTooltip(func){
 	}else{
 		$('#paragon-skull').AddClass('invisible')
 	}
-	$('#tooltip_title').text = "<font color='"+nameColor+"'>"+$.Localize(name)+"</font>"
+	$('#tooltip_title').text = "<font color='"+nameColor+"'>"+$.Localize("#"+name)+"</font>"
 	$('#tooltip_level').text = "Lv "+level
 	if (Entities.IsHero( queryUnit )){
 		$('#attribute_title_strength').text = $.Localize("#item_strength")
@@ -242,7 +242,7 @@ function initializeTooltip(func){
 	$('#def_6_right').text = resist+"%"
 	
 	// $.Msg(GameUI.StatQueryData)
-	$('#attack_defense_subtitle_resist').text = $.Localize('ui_additional_resistance')
+	$('#attack_defense_subtitle_resist').text = $.Localize('#ui_additional_resistance')
 
 	var phys_resist = GameUI.StatQueryData.phys
 	$('#resist_title_phys').text = $.Localize("#DOTA_ToolTip_Damage_Physical")
@@ -270,10 +270,10 @@ function initializeTooltip(func){
 		board.FindChildTraverse('element_value'+i).text = Math.round(GameUI.StatQueryData.elements[i])+"%"
 	}
 	//movement
-	$('#attack_defense_subtitle_movement').text = $.Localize("ui_movement")
-	$('#move_1_left').text = $.Localize("ui_base_movement_speed")
-	$('#move_2_left').text = $.Localize("ui_bonus_movement_speed")
-	$('#move_3_left').text = $.Localize("ui_max_movement_speed")
+	$('#attack_defense_subtitle_movement').text = $.Localize("#ui_movement")
+	$('#move_1_left').text = $.Localize("#ui_base_movement_speed")
+	$('#move_2_left').text = $.Localize("#ui_bonus_movement_speed")
+	$('#move_3_left').text = $.Localize("#ui_max_movement_speed")
 
 	$('#move_1_right').text = GameUI.StatQueryData.movespeed
 	if (GameUI.StatQueryData.movespeed_bonus >= 0){

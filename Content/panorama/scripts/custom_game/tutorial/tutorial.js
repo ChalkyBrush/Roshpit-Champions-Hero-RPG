@@ -17,12 +17,12 @@ function TutorialExtraHelp(msg){
     if (msg.help_index == 2){
     	Game.EmitSound( "Tutorial.FirstOpen" )
     }
-    tutorial_main.FindChildTraverse('tutorial_help_text').text = $.Localize("tutorial_make_new_lobby_help"+msg.help_index)
-    tutorial_main.FindChildTraverse('tutorial_help_title').text = $.Localize("tutorial_exit_help_title"+msg.help_index)
+    tutorial_main.FindChildTraverse('tutorial_help_text').text = $.Localize("#tutorial_make_new_lobby_help"+msg.help_index)
+    tutorial_main.FindChildTraverse('tutorial_help_title').text = $.Localize("#tutorial_exit_help_title"+msg.help_index)
 
 
     mCloseButton = tutorial_main.FindChildTraverse('close_button')
-    mCloseButton.FindChildTraverse('close_button_label').text = $.Localize("tutorial_make_new_lobby_confirm")
+    mCloseButton.FindChildTraverse('close_button_label').text = $.Localize("#tutorial_make_new_lobby_confirm")
 
    
 	tutorial_main.FindChildTraverse('close_button').SetPanelEvent('onactivate', function Close() {
@@ -50,7 +50,7 @@ function OpenTutorial(msg){
 
 
     mCloseButton = tutorial_main.FindChildTraverse('close_button')
-    mCloseButton.FindChildTraverse('close_button_label').text = $.Localize("ui_close")
+    mCloseButton.FindChildTraverse('close_button_label').text = $.Localize("#ui_close")
     var available_category_count = Object.keys(msg.categories).length
 	for (var i = 0; i < available_category_count; i++) {
 		var category = msg.categories[i+1]
@@ -77,17 +77,17 @@ function setupCategory(category, index, parent, bStatic, msg)
 {
 	var categoryPanel = $.CreatePanel("Panel", parent, "category"+index)
 	categoryPanel.BLoadLayoutSnippet("tutorial_category")
-	categoryPanel.FindChildTraverse('tutorial_category_header_label').text = $.Localize(category["header"])
-	categoryPanel.FindChildTraverse('tutorial_category_description_label').text = $.Localize(category["description"])
+	categoryPanel.FindChildTraverse('tutorial_category_header_label').text = $.Localize("#"+category["header"])
+	categoryPanel.FindChildTraverse('tutorial_category_description_label').text = $.Localize("#"+category["description"])
 	var categoryButton = categoryPanel.FindChildTraverse('tutorial_category_clickable')
 	if (!(bStatic)){
 		categoryPanel.rewardActive = isCategoryRewardActive(category, index, msg)
 		if (categoryPanel.rewardActive){
 			categoryPanel.FindChildTraverse('tutorial_category_header').AddClass('reward_active')
-			categoryPanel.FindChildTraverse('tutorial_category_header_label').text = $.Localize(category["header"]) + " - <font color='#e6ff59'>"+$.Localize('quest_reward_available')+"</font>"
+			categoryPanel.FindChildTraverse('tutorial_category_header_label').text = $.Localize("#"+category["header"]) + " - <font color='#e6ff59'>"+$.Localize('#quest_reward_available')+"</font>"
 		}
 		if (isCategoryRewardClaimed(category, index, msg)){
-			categoryPanel.FindChildTraverse('tutorial_category_header_label').text = $.Localize(category["header"]) + " - <font color='#e6ff59'>"+$.Localize("tutorial_section_completed")+"</font>"
+			categoryPanel.FindChildTraverse('tutorial_category_header_label').text = $.Localize("#"+category["header"]) + " - <font color='#e6ff59'>"+$.Localize("#tutorial_section_completed")+"</font>"
 		}
 		categoryPanel.SetPanelEvent('onmouseover', function HoverIn() {
 			if (categoryPanel.rewardActive){
@@ -147,7 +147,7 @@ function category_panel_click_setup(categoryPanel, index, category, msg){
 		}
 	}
 	Game.EmitSound("Tutorial.UI.CategoryClick")
-	mCloseButton.FindChildTraverse('close_button_label').text = $.Localize("ui_back")
+	mCloseButton.FindChildTraverse('close_button_label').text = $.Localize("#ui_back")
 	mCloseButton.SetPanelEvent('onactivate', function Back() {
 		Game.EmitSound("Tutorial.UI.Back")
 		OpenTutorial(msg)
@@ -162,7 +162,7 @@ function setupChallenge(category, challenge, index, challengeListPanel, challeng
 		var quest_number = category["index"]
 		var challenge_number = index + 1
 		//$.Msg("---CHALLENGE NUMBER:"+challenge_number)
-		challengePanel.FindChildTraverse('tutorial_challenge_text').text = $.Localize('quest_'+quest_number+"_challenge_"+challenge_number) 
+		challengePanel.FindChildTraverse('tutorial_challenge_text').text = $.Localize('#quest_'+quest_number+"_challenge_"+challenge_number) 
 		challengePanel.FindChildTraverse('challenge_button').SetPanelEvent('onactivate', function Activate() {
 			challenge_activate(category, challenge_number, challengeListPanel)
 		});
@@ -171,7 +171,7 @@ function setupChallenge(category, challenge, index, challengeListPanel, challeng
 			if ((category["progress"] == challengeCount) && (index+1 == challengeCount)){
 				var challengePanel = $.CreatePanel("Panel", challenge_list_adder_panel, "reward"+index)
 				challengePanel.BLoadLayoutSnippet("tutorial_challenge")	
-				challengePanel.FindChildTraverse('tutorial_challenge_text').text = $.Localize("quest_reward_label") + " " + $.Localize("quest_"+quest_number+"_reward_title")
+				challengePanel.FindChildTraverse('tutorial_challenge_text').text = $.Localize("#quest_reward_label") + " " + $.Localize("#quest_"+quest_number+"_reward_title")
 				challengePanel.FindChildTraverse('tutorial_challenge_text').AddClass('challenge_reward_button')
 				challengePanel.FindChildTraverse('tutorial_challenge_text').style.color = '#f0f940'
 				if (category["reward"] == 1){
@@ -202,23 +202,23 @@ function reward_activate(category, challengeListPanel, reward, stars){
 		starReq = STARS_REQ[starsMap]
 	}
 	//$.Msg("------")
-	descripAndGoPanel.FindChildTraverse('reward_and_go_description_text').text = $.Localize("quest_"+category["index"]+"_reward_description")
+	descripAndGoPanel.FindChildTraverse('reward_and_go_description_text').text = $.Localize("#quest_"+category["index"]+"_reward_description")
 	descripAndGoPanel.FindChildTraverse('reward_image').SetImage("file://{images}/spellicons/tutorial/reward"+category["index"]+".png")
 	if ((reward == 0) && (starReq) && (stars < starReq)){
 		descripAndGoPanel.FindChildTraverse('reward-stars-warning').RemoveClass('invisible')
-		descripAndGoPanel.FindChildTraverse('reward-stars-warning').text = $.Localize('tutorial_stars_reward_warning').replace('@stars', starReq)
-		descripAndGoPanel.FindChildTraverse('challenge_go_button_text').text = $.Localize("tutorial_button_get_more_stars").replace('@stars', starReq)
+		descripAndGoPanel.FindChildTraverse('reward-stars-warning').text = $.Localize('#tutorial_stars_reward_warning').replace('@stars', starReq)
+		descripAndGoPanel.FindChildTraverse('challenge_go_button_text').text = $.Localize("#tutorial_button_get_more_stars").replace('@stars', starReq)
 		descripAndGoPanel.FindChildTraverse('reward_go_button').AddClass('reward_claimed')
 		descripAndGoPanel.FindChildTraverse('reward_go_button').RemoveClass('reward_unclaimed')
 		descripAndGoPanel.FindChildTraverse('challenge_go_button_text').style.color = '#777777'
 	}else if (reward == 0){
-		descripAndGoPanel.FindChildTraverse('challenge_go_button_text').text = $.Localize("quest_reward_claim")
+		descripAndGoPanel.FindChildTraverse('challenge_go_button_text').text = $.Localize("#quest_reward_claim")
 		descripAndGoPanel.FindChildTraverse('reward_go_button').SetPanelEvent('onactivate', function Activate() {
 				Game.EmitSound("Tutorial.Win")
 				reward_claim_final(category)
 		});
 	}else{
-		descripAndGoPanel.FindChildTraverse('challenge_go_button_text').text = $.Localize("quest_reward_claimed")
+		descripAndGoPanel.FindChildTraverse('challenge_go_button_text').text = $.Localize("#quest_reward_claimed")
 		descripAndGoPanel.FindChildTraverse('reward_go_button').AddClass('reward_claimed')
 		descripAndGoPanel.FindChildTraverse('reward_go_button').RemoveClass('reward_unclaimed')
 		descripAndGoPanel.FindChildTraverse('challenge_go_button_text').style.color = '#777777'
@@ -237,12 +237,12 @@ function challenge_activate(category, challenge_index, challengeListPanel){
 	Game.EmitSound("Tutorial.UI.ChallengeClick")
 	descripAndGoPanel.BLoadLayoutSnippet('challenge_description_and_go')
 
-	descripAndGoPanel.FindChildTraverse('descrip_and_go_description_text').text = $.Localize("quest_"+category["index"]+"_challenge_"+challenge_index+"_desc")
+	descripAndGoPanel.FindChildTraverse('descrip_and_go_description_text').text = $.Localize("#quest_"+category["index"]+"_challenge_"+challenge_index+"_desc")
 	descripAndGoPanel.FindChildTraverse('challenge_go_button').SetPanelEvent('onactivate', function Activate() {
 			Game.EmitSound("Tutorial.UI.ChallengeSelect")
 			challenge_go_final(category, challenge_index)
 	});
-	descripAndGoPanel.FindChildTraverse('challenge_go_button_text').text = $.Localize("tutorial_challenge_go")
+	descripAndGoPanel.FindChildTraverse('challenge_go_button_text').text = $.Localize("#tutorial_challenge_go")
 }
 
 function challenge_go_final(category, challenge_index)
@@ -268,7 +268,7 @@ function ChallengeSummary(msg)
 	for (var i = 0; i <= listItemCount; i++) {
 		var challenge_progress_panel = $.CreatePanel("Panel", tutorial_challenge_panel, "tutorial-challenge-progress-"+i)
 		challenge_progress_panel.BLoadLayoutSnippet('challenge_summary_item')
-		challenge_progress_panel.FindChildTraverse('challenge_summary_item_label').text = $.Localize('quest_'+msg.category_index+'_challenge_'+msg.challenge_index+'_sub_'+i+'_summary')
+		challenge_progress_panel.FindChildTraverse('challenge_summary_item_label').text = $.Localize('#quest_'+msg.category_index+'_challenge_'+msg.challenge_index+'_sub_'+i+'_summary')
 		if (msg.sub_index > i){
 			challenge_progress_panel.FindChildTraverse('challenge_summary_item_label').AddClass('challenge_summary_item_completed')
 		}
@@ -290,10 +290,10 @@ function CallQuizBox(msg){
     quiz_box.BLoadLayoutSnippet("quiz_box");
     var quiz_text = $.Localize(msg.quiz_question)
     if (!(msg.gsub1 === undefined)){
-    	quiz_text = quiz_text.replace('@sub1', "<font color='#7DFF12'>"+ $.Localize(msg.gsub1)+"</font>")
+    	quiz_text = quiz_text.replace('@sub1', "<font color='#7DFF12'>"+ $.Localize("#"+msg.gsub1)+"</font>")
     }
     if (!(msg.gsub2 === undefined)){
-    	quiz_text = quiz_text.replace('@sub2', "<font color='#7DFF12'>"+$.Localize(msg.gsub2)+"</font>")
+    	quiz_text = quiz_text.replace('@sub2', "<font color='#7DFF12'>"+$.Localize("#"+msg.gsub2)+"</font>")
     }
     quiz_box.FindChildTraverse('quiz_box_question').text = quiz_text
     if (msg.buttons === undefined){
@@ -313,7 +313,7 @@ function CallQuizBox(msg){
 			var button_box = $.CreatePanel("Panel", button_parent, "quiz-multiple-button"+i)
 			button_box.BLoadLayoutSnippet("quiz_box_multiple_choice_button");
 			var answerButton = button_box.FindChildTraverse('multiple_choice_submit_button')
-			button_box.FindChildTraverse('multiple_choice_submit_label').text = $.Localize(msg.buttons[i+1])
+			button_box.FindChildTraverse('multiple_choice_submit_label').text = $.Localize("#"+msg.buttons[i+1])
 			var input = msg.buttons[i+1]
 			setup_quiz_answer_submit(answerButton, parent, msg, input)
 		}
@@ -348,11 +348,11 @@ function setupQuizAnswerSubmit(parent, identifier, sequence, verifier, bLocalize
 	}
 	var hero = Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer())
 	if (bLocalize == 1){
-		verifier = $.Localize(verifier).toLowerCase()
+		verifier = $.Localize("#"+verifier).toLowerCase()
 		input = input.toLowerCase()
 	}
 	if (localize_input){
-		input = $.Localize(input).toLowerCase()
+		input = $.Localize("#"+input).toLowerCase()
 	}
 	GameEvents.SendCustomGameEventToServer( "tutorial", {hero: hero, code: "submit_quiz", challenge_index: identifier, sequence: sequence, verifier: verifier, answer: input, challenge_progress: parseInt(challenge_progress), bLocalize: bLocalize} );	
 }

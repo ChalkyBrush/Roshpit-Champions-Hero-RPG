@@ -259,7 +259,7 @@ function Challenges:PanoramaInput(msg)
 			CustomAbilities:QuickAttachParticle("particles/econ/items/sven/sven_warcry_ti5/sven_spell_warcry_ti_5.vpcf", MAIN_HERO_TABLE[i], 4)
 			EmitSoundOn("Challenges.Crusader.Enter", MAIN_HERO_TABLE[i])
 		end
-		Notifications:BottomToAll({text = "ui_challenge_started", duration = 4.2})
+		Notifications:BottomToAll({text = "#ui_challenge_started", duration = 4.2})
 		local challenge_text = msg.challenge_text
 		for _, mod in pairs(msg.mod_array) do
 			challenge_text = challenge_text .. "<br>"..mod
@@ -634,7 +634,7 @@ end
 function Challenges:HeroDied()
 	if Challenges.NoDeaths == 0 then
 		CustomGameEventManager:Send_ServerToAllClients("enter_equinox", {})
-		Notifications:BottomToAll({text = "ui_challenge_failed", duration = 7})
+		Notifications:BottomToAll({text = "#ui_challenge_failed", duration = 7})
 		Challenges.NoDeaths = 1
 	end
 end
