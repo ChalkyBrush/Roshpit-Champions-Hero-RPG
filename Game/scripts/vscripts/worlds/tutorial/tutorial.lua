@@ -1442,7 +1442,7 @@ function Tutorial:MasterSequenceWithLocks(hero, code)
 				local player = PlayerResource:GetPlayer(hero:GetPlayerOwnerID())
 				local question = "tutorial_quiz_question_19"
 				local verifier = "krjua5"
-				CustomGameEventManager:Send_ServerToPlayer(player, "call_quiz", {hero = hero:GetEntityIndex(), identifier = "6_5", quiz_question = question, sequence = 0, verifier = verifier, localize_verifier = 1, challenge_progress = 0})
+				CustomGameEventManager:Send_ServerToPlayer(player, "call_quiz", {hero = hero:GetEntityIndex(), identifier = "6_5", quiz_question = question, sequence = 0, verifier = verifier, localize_verifier = 0, challenge_progress = 0})
 				CustomGameEventManager:Send_ServerToPlayer(player, "quiz_sound", {sound = "Tutorial.Hint"})
 			end
 		end)

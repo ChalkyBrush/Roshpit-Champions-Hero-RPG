@@ -288,7 +288,7 @@ function CallQuizBox(msg){
 	parent.RemoveAndDeleteChildren(0)
     var quiz_box = $.CreatePanel("Panel", parent, "quiz")
     quiz_box.BLoadLayoutSnippet("quiz_box");
-    var quiz_text = $.Localize(msg.quiz_question)
+    var quiz_text = $.Localize("#"+msg.quiz_question)
     if (!(msg.gsub1 === undefined)){
     	quiz_text = quiz_text.replace('@sub1', "<font color='#7DFF12'>"+ $.Localize("#"+msg.gsub1)+"</font>")
     }
