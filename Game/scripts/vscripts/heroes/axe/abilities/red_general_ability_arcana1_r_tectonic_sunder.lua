@@ -191,7 +191,7 @@ function red_general_ability_arcana1_r_dealDamage(caster, ability, damage, stun_
 		EmitSoundOnLocationWithCaster(startPoint, "RedGeneral.ArcanaSunder.Explode"..i, caster)
 	end
 
-	local enemies = FindUnitsInLine(caster:GetTeamNumber(), startPoint, endPoint, nil, 150, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0)
+	local enemies = FindUnitsInLine(caster:GetTeamNumber(), startPoint, endPoint, nil, 150, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES)
 	for _, enemy in pairs(enemies) do
 		red_general_rune_arcana1_r_2_applyBuff(caster, ability)
 		red_general_rune_arcana1_r_3_applyDebuff(caster, enemy, ability)

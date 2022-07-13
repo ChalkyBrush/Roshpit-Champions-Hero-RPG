@@ -119,9 +119,9 @@ function GetItemDataForCurator(msg)
 		//$.Msg("GetItemDataForCurator Property1")
 		var tooltip = itemValues.property1tooltip == "rune" ? itemValues.property1name : itemValues.property1tooltip
 		var property1special = SpecialDescriptionValues($.Localize("#"+itemValues.property1special), item)
-		var property1localized = $.Localize("#"+tooltip)
+		var property1localized = $.Localize(tooltip)
 		if (tooltip.indexOf("rune_") > 0){
-			property1localized = $.Localize("#"+tooltip.substr(tooltip.length - 8))
+			property1localized = $.Localize(tooltip.substr(tooltip.length - 8))
 		}
 		var property1data = [itemValues.property1color, tooltip, property1localized, itemValues.property1special, property1special, itemValues.property1]
 		//$.Msg(property1data)
@@ -132,9 +132,9 @@ function GetItemDataForCurator(msg)
 		//$.Msg("GetItemDataForCurator Property2")
 		var tooltip = itemValues.property2tooltip == "rune" ? itemValues.property2name : itemValues.property2tooltip
 		var property2special = SpecialDescriptionValues($.Localize("#"+itemValues.property2special), item)
-		var property2localized = $.Localize("#"+tooltip)
+		var property2localized = $.Localize(tooltip)
 		if (tooltip.indexOf("rune_") > 0){
-			property2localized = $.Localize("#"+tooltip.substr(tooltip.length - 8))
+			property2localized = $.Localize(tooltip.substr(tooltip.length - 8))
 		}
 		var property2data = [itemValues.property2color, tooltip, property2localized, itemValues.property2special, property2special, itemValues.property2]
 		//$.Msg(property2data)
@@ -145,9 +145,9 @@ function GetItemDataForCurator(msg)
 		//$.Msg("GetItemDataForCurator Property3")
 		var tooltip = itemValues.property3tooltip == "rune" ? itemValues.property3name : itemValues.property3tooltip
 		var property3special = SpecialDescriptionValues($.Localize("#"+itemValues.property3special), item)
-		var property3localized = $.Localize("#"+tooltip)
+		var property3localized = $.Localize(tooltip)
 		if (tooltip.indexOf("rune_") > 0){
-			property3localized = $.Localize("#"+tooltip.substr(tooltip.length - 8))
+			property3localized = $.Localize(tooltip.substr(tooltip.length - 8))
 		}
 		var property3data = [itemValues.property3color, tooltip, property3localized, itemValues.property3special, property3special, itemValues.property3]
 		//$.Msg(property3data)
@@ -158,9 +158,9 @@ function GetItemDataForCurator(msg)
 		//$.Msg("GetItemDataForCurator Property4")
 		var tooltip = itemValues.property4tooltip == "rune" ? itemValues.property4name : itemValues.property4tooltip
 		var property4special = SpecialDescriptionValues($.Localize("#"+itemValues.property4special), item)
-		var property4localized = $.Localize("#"+tooltip)
+		var property4localized = $.Localize(tooltip)
 		if (tooltip.indexOf("rune_") > 0){
-			property4localized = $.Localize("#"+tooltip.substr(tooltip.length - 8))
+			property4localized = $.Localize(tooltip.substr(tooltip.length - 8))
 		}
 		var property4data = [itemValues.property4color, tooltip, property4localized, itemValues.property4special, property4special, itemValues.property4]
 		//$.Msg(property4data)

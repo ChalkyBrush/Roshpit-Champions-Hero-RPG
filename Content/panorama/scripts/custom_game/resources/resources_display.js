@@ -18,6 +18,11 @@ function InitializeResourceDisplay()
 	$('#arcane_crystals_increment').text = ""
 	$('#mithril_shards_increment').text = ""
 	$('#prismatic_gemstones_increment').text = ""
+
+	$('#resources_title_label').text = $.Localize("#tooltip_resources");
+	$('#mithril_shards_title_label').text = $.Localize("#ui_mithril_shards");
+	$('#arcane_crystals_title_label').text = $.Localize("#tooltip_arcane_crystals");
+	$('#prismatic_gemstones_title_label').text = $.Localize("#tooltip_prismatic_gemstones");
 }
 
 function numberWithCommas(x) {
