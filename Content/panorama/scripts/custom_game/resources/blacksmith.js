@@ -732,7 +732,7 @@ function createAttributeRow(itemProperty, parentPanel, i, detail_parent) {
         newChildPanel.propertySlot = i
         newChildPanel.rerollParent = $("#reroll_prescreen_root");
         newChildPanel.BLoadLayoutSnippet("blacksmith_item_row");
-        newChildPanel.FindChildTraverse('property_name').text = "<font color='" + itemProperty.propertyColor + "'>" + $.Localize(itemProperty.propertyName) + "</font>"
+        newChildPanel.FindChildTraverse('property_name').text = "<font color='" + itemProperty.propertyColor + "'>" + LocalizeHashtagSafe(itemProperty.propertyName) + "</font>"
         newChildPanel.FindChildTraverse('property_value').text = "<font color='" + itemProperty.propertyColor + "'>" + itemProperty.propertyValue + "</font>"
 
         var button = newChildPanel.FindChildTraverse('property_row_button')
@@ -831,3 +831,11 @@ function HidePropertyTooltip(panel) {
     $.DispatchEvent("DOTAHideTitleTextTooltip", panel);
 }
 
+function LocalizeHashtagSafe(text_to_translate){
+    var letter = text_to_translate.charAt(0);
+    if (letter == "#"){
+        return $.Localize(text_to_translate);
+    }else{
+        return $.Localize("#"+text_to_translate);
+    }
+}

@@ -50,20 +50,20 @@
 	    </snippet>
 	    <snippet name="blacksmith_socket_item_select">
 	    	<Panel class="blacksmith_socket_item_select_root" hittest="false">
-	    		<Label id="blacksmith_socket_item_select_tip" hittest="false" text="socket_item_select_help"/>
+	    		<Label id="blacksmith_socket_item_select_tip" hittest="false" text="#socket_item_select_help"/>
 				<Panel id="blacksmith_socket_item_attacher"/>
 	    	</Panel>
 	    </snippet>
 	    <snippet name="blacksmith_socket_item_selected_fail">
 	    	<Panel class="blacksmith_socket_item_select_root" hittest="false">
-	    		<Label id="blacksmith_socket_item_select_tip" hittest="false" text="socket_item_select_help"/>
+	    		<Label id="blacksmith_socket_item_select_tip" hittest="false" text="#socket_item_select_help"/>
 	    	</Panel>
 	    </snippet>
 	    <snippet name="blacksmith_socket_item_selected_ok">
 	    	<Panel class="blacksmith_socket_item_select_root" hittest="false">
-	    		<Label id="blacksmith_socket_item_title" hittest="false" text="socket_item_select_help"/>
+	    		<Label id="blacksmith_socket_item_title" hittest="false" text="#socket_item_select_help"/>
 	    		<DOTAItemImage hittest="true" id="socket_item_image" class="white_glow"/>
-	    		<Label id="blacksmith_socket_item_select_tip" hittest="false" text="socket_item_select_help"/>
+	    		<Label id="blacksmith_socket_item_select_tip" hittest="false" text="#socket_item_select_help"/>
 	    		<Panel id="blacksmith_socket_costs_container">
 	    			<Panel id="blacksmith_socket_costs_forger">
 	    				<Panel id="blacksmith_socket_item_forger_attacher"/>

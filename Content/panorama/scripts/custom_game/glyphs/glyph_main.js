@@ -83,7 +83,7 @@ function InitializeHeroMenu(){
         parentPanel1.heroButton = newChildPanel	
 		if (newChildPanel.heroName == "tooltip_neutral"){
 			newChildPanel.FindChildTraverse('shop_portrait').SetImage( "file://{images}/custom_game/ui/empty_inventory.png")
-			newChildPanel.FindChildTraverse('slot_label_name').text = $.Localize(newChildPanel.heroName)
+			newChildPanel.FindChildTraverse('slot_label_name').text = $.Localize("#"+newChildPanel.heroName)
 		}else{
 			newChildPanel.FindChildTraverse('shop_portrait').SetImage( "file://{images}/heroes/" + newChildPanel.heroName + ".png")
 			newChildPanel.FindChildTraverse('slot_label_name').text = ""

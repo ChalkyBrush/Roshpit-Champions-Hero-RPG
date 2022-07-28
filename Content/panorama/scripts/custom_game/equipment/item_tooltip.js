@@ -107,7 +107,7 @@ function AddSpecialDescriptionToTooltip(tooltip, itemProperty1, itemProperty2, i
 	var specialText4 = ""
 	if (!(itemProperty1 === undefined)){
 		if (!(itemProperty1.specialDescription === undefined)){
-			specialText1 = "<br>"+$.Localize(itemProperty1.specialDescription)
+			specialText1 = "<br>"+LocalizeHashtagSafe(itemProperty1.specialDescription)
 			
 			specialBreak=true;
 			specialText1 = breakUpTooltip(specialText1)
@@ -117,7 +117,7 @@ function AddSpecialDescriptionToTooltip(tooltip, itemProperty1, itemProperty2, i
 	if (!(itemProperty2 === undefined)){
 		if (rarityFactor >= 2){
 			if (!(itemProperty2.specialDescription === undefined)){
-				specialText2 = "<br>"+$.Localize(itemProperty2.specialDescription)
+				specialText2 = "<br>"+LocalizeHashtagSafe(itemProperty2.specialDescription)
 				
 				specialBreak=true;
 				specialText2 = breakUpTooltip(specialText2)
@@ -132,7 +132,7 @@ function AddSpecialDescriptionToTooltip(tooltip, itemProperty1, itemProperty2, i
 				specialText3 = SpecialDescriptionValues(specialText3, item)
 				specialBreak=true;
 				specialText3 = breakUpTooltip(specialText3)
-				specialText3 = "<br>"+$.Localize(itemProperty3.specialDescription)
+				specialText3 = "<br>"+LocalizeHashtagSafe(itemProperty3.specialDescription)
 			}
 		}
 	}
@@ -143,7 +143,7 @@ function AddSpecialDescriptionToTooltip(tooltip, itemProperty1, itemProperty2, i
 				specialText4 = SpecialDescriptionValues(specialText4, item)
 				specialBreak=true;
 				specialText4 = breakUpTooltip(specialText4)
-				specialText4 = "<br>"+$.Localize(itemProperty4.specialDescription)
+				specialText4 = "<br>"+LocalizeHashtagSafe(itemProperty4.specialDescription)
 			}
 		}
 	}
@@ -342,7 +342,7 @@ function itemPropertyCheck(itemProperty){
 	if (itemProperty.propertyValue === undefined){
 		itemProperty.propertyValue = "-"
 	}
-	itemProperty.propertyName = $.Localize(itemProperty.propertyName)
+	itemProperty.propertyName = LocalizeHashtagSafe(itemProperty.propertyName)
 	return itemProperty
 }
 
@@ -411,7 +411,7 @@ function AddAffixToItem(tooltip, itemProperty, queryUnit, requiredHero, rarityFa
 	if (OGpropertyName === undefined){
 		return tooltip
 	}
-	var propertyName = $.Localize(itemProperty.propertyName)
+	var propertyName = LocalizeHashtagSafe(itemProperty.propertyName)
 	// itemProperty = itemPropertyCheck(itemProperty)
 	//$.Msg(OGpropertyName)
     if (OGpropertyName.indexOf("rune_") >= 0) {
@@ -431,23 +431,23 @@ function AddAffixToItem(tooltip, itemProperty, queryUnit, requiredHero, rarityFa
 			var skill_tree_data = CustomNetTables.GetTableValue( "skill_tree", playerIndex.toString()+"rune_unit"+runeIndex );
 			var rune_unit_index = skill_tree_data.runeUnit;
 			var abilityIndex = 	Entities.GetAbility( rune_unit_index, abilitySlot)
-			propertyName = $.Localize("DOTA_Tooltip_ability_"+Abilities.GetAbilityName( abilityIndex ))
+			propertyName = $.Localize("#DOTA_Tooltip_ability_"+Abilities.GetAbilityName( abilityIndex ))
 		}else{
 			if (rarityFactor == 6){
 				var RPCName = convertFullHeroNameToRPC(requiredHero)	
 				var arcanaSuffix = itemName.replace("item_rpc_"+RPCName+"_", "_");
-				propertyName = $.Localize("DOTA_Tooltip_ability_"+RPCName+"_"+OGpropertyName+arcanaSuffix)
+				propertyName = $.Localize("#DOTA_Tooltip_ability_"+RPCName+"_"+OGpropertyName+arcanaSuffix)
 				//$.Msg(propertyName)
 			}else{
 				var RPCName = convertFullHeroNameToRPC(requiredHero)	
-				propertyName = $.Localize("DOTA_Tooltip_ability_"+RPCName+"_"+OGpropertyName)
+				propertyName = $.Localize("#DOTA_Tooltip_ability_"+RPCName+"_"+OGpropertyName)
 				//$.Msg(propertyName)		
 			}
 		}
 		// itemProperty = itemPropertyCheck(itemProperty)
 	}
 	if (OGpropertyName.indexOf("#DOTA_Tooltip_ability") >= 0){
-		propertyName = $.Localize(OGpropertyName)
+		propertyName = LocalizeHashtagSafe(OGpropertyName)
 		//$.Msg("OGPROPERTYNAME!")
 	}
 	tooltip = tooltip+"<br><font color='"+itemProperty.propertyColor+"'>"+propertyName+": "+itemProperty.propertyValue+"</font>"
@@ -502,4 +502,13 @@ function getControllingPlayerIndex()
 		playerIndex = Game.GetAllPlayerIDs()[0];
 	}
 	return parseInt(playerIndex)
+}
+
+function LocalizeHashtagSafe(text_to_translate){
+	var letter = text_to_translate.charAt(0);
+	if (letter == "#"){
+		return $.Localize(text_to_translate);
+	}else{
+		return $.Localize("#"+text_to_translate);
+	}
 }
