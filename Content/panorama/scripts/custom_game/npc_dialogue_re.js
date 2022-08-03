@@ -118,10 +118,10 @@ function GetItemDataForCurator(msg)
 	if (!(itemValues===undefined || itemValues.property1tooltip === undefined)){
 		//$.Msg("GetItemDataForCurator Property1")
 		var tooltip = itemValues.property1tooltip == "rune" ? itemValues.property1name : itemValues.property1tooltip
-		var property1special = SpecialDescriptionValues($.Localize("#"+itemValues.property1special), item)
-		var property1localized = $.Localize(tooltip)
+		var property1special = SpecialDescriptionValues(LocalizeHashtagSafe(itemValues.property1special), item)
+		var property1localized = LocalizeHashtagSafe(tooltip)
 		if (tooltip.indexOf("rune_") > 0){
-			property1localized = $.Localize(tooltip.substr(tooltip.length - 8))
+			property1localized = LocalizeHashtagSafe(tooltip.substr(tooltip.length - 8))
 		}
 		var property1data = [itemValues.property1color, tooltip, property1localized, itemValues.property1special, property1special, itemValues.property1]
 		//$.Msg(property1data)
@@ -131,10 +131,10 @@ function GetItemDataForCurator(msg)
 	if (!(itemValues===undefined || itemValues.property2tooltip === undefined)){
 		//$.Msg("GetItemDataForCurator Property2")
 		var tooltip = itemValues.property2tooltip == "rune" ? itemValues.property2name : itemValues.property2tooltip
-		var property2special = SpecialDescriptionValues($.Localize("#"+itemValues.property2special), item)
-		var property2localized = $.Localize(tooltip)
+		var property2special = SpecialDescriptionValues(LocalizeHashtagSafe(itemValues.property2special), item)
+		var property2localized = LocalizeHashtagSafe(tooltip)
 		if (tooltip.indexOf("rune_") > 0){
-			property2localized = $.Localize(tooltip.substr(tooltip.length - 8))
+			property2localized = LocalizeHashtagSafe(tooltip.substr(tooltip.length - 8))
 		}
 		var property2data = [itemValues.property2color, tooltip, property2localized, itemValues.property2special, property2special, itemValues.property2]
 		//$.Msg(property2data)
@@ -144,10 +144,10 @@ function GetItemDataForCurator(msg)
 	if (!(itemValues===undefined || itemValues.property3tooltip === undefined)){
 		//$.Msg("GetItemDataForCurator Property3")
 		var tooltip = itemValues.property3tooltip == "rune" ? itemValues.property3name : itemValues.property3tooltip
-		var property3special = SpecialDescriptionValues($.Localize("#"+itemValues.property3special), item)
-		var property3localized = $.Localize(tooltip)
+		var property3special = SpecialDescriptionValues(LocalizeHashtagSafe(itemValues.property3special), item)
+		var property3localized = LocalizeHashtagSafe(tooltip)
 		if (tooltip.indexOf("rune_") > 0){
-			property3localized = $.Localize(tooltip.substr(tooltip.length - 8))
+			property3localized = LocalizeHashtagSafe(tooltip.substr(tooltip.length - 8))
 		}
 		var property3data = [itemValues.property3color, tooltip, property3localized, itemValues.property3special, property3special, itemValues.property3]
 		//$.Msg(property3data)
@@ -157,10 +157,10 @@ function GetItemDataForCurator(msg)
 	if (!(itemValues===undefined || itemValues.property4tooltip === undefined)){
 		//$.Msg("GetItemDataForCurator Property4")
 		var tooltip = itemValues.property4tooltip == "rune" ? itemValues.property4name : itemValues.property4tooltip
-		var property4special = SpecialDescriptionValues($.Localize("#"+itemValues.property4special), item)
-		var property4localized = $.Localize(tooltip)
+		var property4special = SpecialDescriptionValues(LocalizeHashtagSafe(itemValues.property4special), item)
+		var property4localized = LocalizeHashtagSafe(tooltip)
 		if (tooltip.indexOf("rune_") > 0){
-			property4localized = $.Localize(tooltip.substr(tooltip.length - 8))
+			property4localized = LocalizeHashtagSafe(tooltip.substr(tooltip.length - 8))
 		}
 		var property4data = [itemValues.property4color, tooltip, property4localized, itemValues.property4special, property4special, itemValues.property4]
 		//$.Msg(property4data)
@@ -346,7 +346,7 @@ function populateCurateItem(item)
     attributeItem.BLoadLayoutSnippet("curator_item_row");   
 	if (!(itemValues===undefined)){
 		var tooltip = itemValues.property1tooltip == "rune" ? itemValues.property1name : itemValues.property1tooltip
-		attributeItem.FindChildTraverse('property_name').text = "<font color='"+itemValues.property1color+"'>"+$.Localize("#"+tooltip)+"</font>"
+		attributeItem.FindChildTraverse('property_name').text = "<font color='"+itemValues.property1color+"'>"+LocalizeHashtagSafe(tooltip)+"</font>"
 		attributeItem.FindChildTraverse('property_value').text = "<font color='"+itemValues.property1color+"'>"+itemValues.property1+"</font>"
 	}
 
@@ -356,7 +356,7 @@ function populateCurateItem(item)
     attributeItem.BLoadLayoutSnippet("curator_item_row");   
 	if (!(itemValues===undefined)){
 		var tooltip = itemValues.property2tooltip == "rune" ? itemValues.property2name : itemValues.property2tooltip
-		attributeItem.FindChildTraverse('property_name').text = "<font color='"+itemValues.property2color+"'>"+$.Localize("#"+tooltip)+"</font>"
+		attributeItem.FindChildTraverse('property_name').text = "<font color='"+itemValues.property2color+"'>"+LocalizeHashtagSafe(tooltip)+"</font>"
 		attributeItem.FindChildTraverse('property_value').text = "<font color='"+itemValues.property2color+"'>"+itemValues.property2+"</font>"
 	}
 
@@ -366,7 +366,7 @@ function populateCurateItem(item)
     attributeItem.BLoadLayoutSnippet("curator_item_row");   
 	if (!(itemValues===undefined)){
 		var tooltip = itemValues.property3tooltip == "rune" ? itemValues.property3name : itemValues.property3tooltip
-		attributeItem.FindChildTraverse('property_name').text = "<font color='"+itemValues.property3color+"'>"+$.Localize("#"+tooltip)+"</font>"
+		attributeItem.FindChildTraverse('property_name').text = "<font color='"+itemValues.property3color+"'>"+LocalizeHashtagSafe(tooltip)+"</font>"
 		attributeItem.FindChildTraverse('property_value').text = "<font color='"+itemValues.property3color+"'>"+itemValues.property3+"</font>"
 	}
 
@@ -376,7 +376,7 @@ function populateCurateItem(item)
     attributeItem.BLoadLayoutSnippet("curator_item_row");   
 	if (!(itemValues===undefined)){
 		var tooltip = itemValues.property4tooltip == "rune" ? itemValues.property4name : itemValues.property4tooltip
-		attributeItem.FindChildTraverse('property_name').text = "<font color='"+itemValues.property4color+"'>"+$.Localize("#"+tooltip)+"</font>"
+		attributeItem.FindChildTraverse('property_name').text = "<font color='"+itemValues.property4color+"'>"+LocalizeHashtagSafe(tooltip)+"</font>"
 		attributeItem.FindChildTraverse('property_value').text = "<font color='"+itemValues.property4color+"'>"+itemValues.property4+"</font>"
 	}
 
@@ -484,7 +484,7 @@ function GetGlyphDataForCurator(msg)
     // var hero = msg.heroIndex
     // var heroName = Entities.GetUnitName( hero );
     var localizedName = $.Localize('#DOTA_Tooltip_Ability_'+msg.glyphName)
-    var localizedDescription  = $.Localize("#"+msg.glyphDescription)
+    var localizedDescription  = LocalizeHashtagSafe(msg.glyphDescription)
     localizedDescription =  updateGlyphInTooltip(localizedDescription, msg.glyphIndex)
     var language = $.Language()
     //$.Msg(localizedName)
@@ -510,6 +510,15 @@ function updateGlyphInTooltip(tooltip, item)
         tooltip = tooltip.replace("@glyph_property3", "<font color='#CCFF66'>"+value3+"</font>");
     }
     return tooltip
+}
+
+function LocalizeHashtagSafe(text_to_translate){
+    var letter = text_to_translate.charAt(0);
+    if (letter == "#"){
+        return $.Localize(text_to_translate);
+    }else{
+        return $.Localize("#"+text_to_translate);
+    }
 }
 
 (function()

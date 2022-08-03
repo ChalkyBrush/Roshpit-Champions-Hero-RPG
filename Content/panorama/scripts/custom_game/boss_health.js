@@ -9,7 +9,7 @@ function showBossHealth(msg) {
 		newBossHealthBar.BLoadLayoutSnippet("boss_health_bar_snippet"); 
 		newBossHealthBar.FindChildTraverse("boss_current_health").style.width = "100%";
 		newBossHealthBar.SetAttributeInt("boss_entity_index", msg.bossEntityIndex);
-		newBossHealthBar.FindChildTraverse("boss_name").text = $.Localize(Entities.GetUnitName(msg.bossEntityIndex));
+		newBossHealthBar.FindChildTraverse("boss_name").text = $.Localize("#"+Entities.GetUnitName(msg.bossEntityIndex));
 		updateHealthBar[msg.bossEntityIndex] = true;
 		updateBossHealth(msg.bossEntityIndex);
 	}
@@ -20,7 +20,7 @@ function updateBossHealth(bossEntityIndex){
 		$.Schedule(0.03, () => updateBossHealth(bossEntityIndex));
 		var bossHealthContainer = bossHealthContext.FindChildTraverse("boss" + bossEntityIndex);
 		if (bossHealthContainer.FindChildTraverse("boss_name").text === "") {
-			bossHealthContainer.FindChildTraverse("boss_name").text = $.Localize(Entities.GetUnitName(bossEntityIndex));
+			bossHealthContainer.FindChildTraverse("boss_name").text = $.Localize("#"+Entities.GetUnitName(bossEntityIndex));
 		}
 		bossHealthContainer.FindChildTraverse("boss_current_health").style.width = (Entities.GetHealth(bossEntityIndex) / Entities.GetMaxHealth(bossEntityIndex)) * 100 + "%";
 	}

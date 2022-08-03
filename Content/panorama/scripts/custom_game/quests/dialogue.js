@@ -14,7 +14,7 @@ function BasicDialogue(msg){
     var portraitHero = msg.portraitHero
     var unitName = msg.unitName
     var messageText = msg.messageText
-    messageText = $.Localize("#"+messageText)
+    messageText = LocalizeHashtagSafe(messageText)
     var bDialogue = msg.bDialogue
     $('#hud_dialogue_container').unlock = false
     if (!(msg.azalea === undefined)){
@@ -30,7 +30,7 @@ var style = "width:80px;height:100px;margin-bottom:10px;";
 //$.Msg(msg.nameColorClass)
 // heroPortraitContainer.LoadLayoutFromStringAsync("<root><Panel><DOTAScenePanel particleonly='false' style='" + style + "' class='SceneLoaded' camera='" + camera + "' unit='" + unitName +"'/></Panel></root>", false, false);
     var dialogueHeader = dialogue.FindChildTraverse('dialoge_name_label')
-    dialogueHeader.text = $.Localize("#"+unitName)
+    dialogueHeader.text = LocalizeHashtagSafe(unitName)
     dialogueHeader.AddClass(msg.nameColorClass)
     var dialogueLabel = dialogue.FindChildTraverse('dialogue_text')
     
@@ -96,6 +96,15 @@ function typeText(label, text, labelLevel)
 	 		}
 	 	});
 	}
+}
+
+function LocalizeHashtagSafe(text_to_translate){
+    var letter = text_to_translate.charAt(0);
+    if (letter == "#"){
+        return $.Localize(text_to_translate);
+    }else{
+        return $.Localize("#"+text_to_translate);
+    }
 }
 
 (function()
