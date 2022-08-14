@@ -67,7 +67,7 @@ function solunia_napalm_galactic:NapalmThinker(napalm)
 		napalm:SetAngles(napalm.interval * 4, WallPhysics:vectorToAngle(newFV), napalm.interval * 4)
 		napalm.interval = napalm.interval + 1
 		local groundHeight = GetGroundHeight(napalm:GetAbsOrigin(), napalm)
-		if napalm:GetAbsOrigin().z - groundHeight < 10 then
+		if napalm:GetAbsOrigin().z - groundHeight < 10 or napalm.interval > 250 then
 			napalm.disabled = true
 			local explosionPosition = GetGroundPosition(napalm:GetAbsOrigin(), napalm)
 			self:NapalmExplosion(explosionPosition)

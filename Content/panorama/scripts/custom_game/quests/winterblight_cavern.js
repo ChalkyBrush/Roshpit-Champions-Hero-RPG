@@ -554,7 +554,7 @@ function CavernSummaryInit(msg)
 			var hero_name = Entities.GetUnitName( chamber_data["hero"] )
 			event_parent.FindChildTraverse('event_hero_portrait').SetImage("file://{images}/heroes/" + hero_name + ".png")
 			event_parent.FindChildTraverse('event_player_name').steamid = chamber_data["steam_id_long"]
-			event_parent.FindChildTraverse('winter_event_event_name').text = $.Localize("winterblight_cavern_room"+chamber_index+"_event"+event_index)
+			event_parent.FindChildTraverse('winter_event_event_name').text = $.Localize("#winterblight_cavern_room"+chamber_index+"_event"+event_index)
 			event_parent.FindChildTraverse('winter_event_event_level').text = "LV"+chamber_data["level"]
 			event_parent.FindChildTraverse('event-progress-bar-label').text = chamber_data["progress"] + "/" + chamber_data["goal"]
 			var completion_percentage = chamber_data["progress"]*100/chamber_data["goal"]

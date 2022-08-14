@@ -122,7 +122,7 @@
 		<snippet name="curate_pre_screen">
 			<Panel class="curate_prescreen_root" hittest="false">
 					<Panel id="curate_tip_container">
-						<Label id="reroll_other_tip" text="curate_tip" html="true"></Label>
+						<Label id="reroll_other_tip" text="#curate_tip" html="true"></Label>
 					</Panel>		
 					<DOTAItemImage hittest="true" id="item_image" class="white_glow"/>
 						<Label id="item_placement_tip" text="" html="true">

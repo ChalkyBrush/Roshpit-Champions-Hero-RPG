@@ -255,6 +255,11 @@ function OpenCurator(msg)
         //$.Msg("OPEN CURATOR")
         var listItem = $.CreatePanel("Panel", parent, "curator")
         listItem.BLoadLayoutSnippet("curator");
+        $('#curate_tip1').text = LocalizeHashtagSafe("#curate_tip1");
+        $('#chisel_button_label').text = LocalizeHashtagSafe("#curator_button1");
+        $('#final_forge_button_label').text = LocalizeHashtagSafe("#curator_button_final");
+        
+        
     }
 }
 
@@ -513,6 +518,14 @@ function updateGlyphInTooltip(tooltip, item)
 }
 
 function LocalizeHashtagSafe(text_to_translate){
+    if (text_to_translate === undefined){
+        return "";
+    }
+    var firstTwoLetters = text_to_translate.slice(0, 2);
+    if (firstTwoLetters == "##"){
+        text_to_translate = text_to_translate.replace("##", "#")
+        return $.Localize(text_to_translate);
+    }
     var letter = text_to_translate.charAt(0);
     if (letter == "#"){
         return $.Localize(text_to_translate);
