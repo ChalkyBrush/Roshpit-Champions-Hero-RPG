@@ -18,6 +18,9 @@ function AbilityShowTooltip(element)
             break;
         }
     }
+    if (slot == 9){
+    	slot = 5;
+    }
 	var m_Ability = Entities.GetAbility(m_QueryUnit, slot)
 	var abilityName = Abilities.GetAbilityName( m_Ability );
 	$.DispatchEvent( "DOTAShowAbilityTooltipForEntityIndex", element, abilityName, m_QueryUnit);
