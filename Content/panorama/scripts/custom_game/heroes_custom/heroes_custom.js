@@ -4,7 +4,7 @@ function updateSkillInTooltip(tooltip, queryUnit){
                 var heroName = Entities.GetUnitName( queryUnit );
                 var skillName = getSkillSlot2(queryUnit, i);
                 var exp = new RegExp("@Ability" + i, "g");
-				tooltip = tooltip.replace(exp, "<font color='#CCFF66'>"+$.Localize("#"+skillName)+"</font>");
+				tooltip = tooltip.replace(exp, "<font color='#CCFF66'>"+LocalizeHashtagSafe(skillName)+"</font>");
 			}
 	}
     return tooltip;
@@ -15,7 +15,7 @@ function updateSkillInTooltipByName(tooltip, heroName){
 		for (i = 1; i <= 4; i++) { 
             var skillName = getSkillSlot(heroName, i);
             var exp = new RegExp("@Ability" + i, "g");
-			tooltip = tooltip.replace(exp, "<font color='#CCFF66'>"+$.Localize("#"+skillName)+"</font>");
+			tooltip = tooltip.replace(exp, "<font color='#CCFF66'>"+LocalizeHashtagSafe(skillName)+"</font>");
 		}
 	}
     return tooltip;
@@ -37,9 +37,9 @@ function replaceRuneTooltip(tooltip, queryUnit, requiredHero)
                 if (queryUnit > 0) {
                     skill_tree_data = CustomNetTables.GetTableValue("skill_tree", playerIndex.toString() + "rune_unit" + tier).runeUnit;
                     ability = Entities.GetAbility(skill_tree_data, skillIndex);
-                    tooltip = tooltip.replace(regex, "<font color='#7DFF12'>" + $.Localize("DOTA_Tooltip_Ability_" + Abilities.GetAbilityName(ability)) + "</font>");
+                    tooltip = tooltip.replace(regex, "<font color='#7DFF12'>" + $.Localize("#DOTA_Tooltip_Ability_" + Abilities.GetAbilityName(ability)) + "</font>");
                 } else if (!(requiredHero === "")) {
-                    tooltip = tooltip.replace(regex, "<font color='#7DFF12'>" + $.Localize("DOTA_Tooltip_Ability_" + heroName + "_rune_" + skill + "_" + tier) + "</font>");
+                    tooltip = tooltip.replace(regex, "<font color='#7DFF12'>" + $.Localize("#DOTA_Tooltip_Ability_" + heroName + "_rune_" + skill + "_" + tier) + "</font>");
                 }
             }
         });
@@ -741,4 +741,21 @@ function convertFullHeroNameToRPC(heroName){
 		rpcName = "neutral"
 	}
 	return rpcName
+}
+
+function LocalizeHashtagSafe(text_to_translate){
+    if (text_to_translate === undefined){
+        return "";
+    }
+    var firstTwoLetters = text_to_translate.slice(0, 2);
+    if (firstTwoLetters == "##"){
+        text_to_translate = text_to_translate.replace("##", "#")
+        return $.Localize(text_to_translate);
+    }
+    var letter = text_to_translate.charAt(0);
+    if (letter == "#"){
+        return $.Localize(text_to_translate);
+    }else{
+        return $.Localize("#"+text_to_translate);
+    }
 }

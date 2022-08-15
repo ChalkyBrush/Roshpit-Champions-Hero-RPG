@@ -37,7 +37,8 @@ function Tanari:Debug()
 
     -- RPCItems:RollAxeArcana2(Vector(-4928, 2048))
     -- RPCItems:RollHarvesterBoots(Vector(-4928, 2048))
-    -- RPCItems:RollSkulldiggerGloves(Vector(-4928, 2048))
+    local arcana = RPCItems:RollArcanaByName("item_rpc_solunia_arcana2", 1)
+    RPCItems:BasicDropItem(Vector(-4928, 2048), arcana)
     -- Events:SpawnAertega(Vector(-4928, 2048))
     -- Events:SpawnTorturok(Vector(-4928, 2048))
 

@@ -16,10 +16,11 @@ function ItemShowTooltipOnPanel(itemPanel)
 
 	// $.DispatchEvent("UIShowCustomLayoutParametersTooltip", itemPanel, "ItemTooltip","file://{resources}/layout/custom_game/equipment/item_tooltip.xml",name2="ay lmao");
 	//$.Msg("TOOLTIP GLYPH.."+queryUnit)
-	var tooltipArgs = "item="+item+"&queryUnit="+queryUnit
-	$.DispatchEvent("UIShowCustomLayoutParametersTooltip", itemPanel, "file://{resources}/layout/custom_game/equipment/item_tooltip.xml", tooltipArgs);
-	// $.DispatchEvent("DOTAShowTitleTextTooltip", itemPanel, title, tooltip);
-	//$.DispatchEvent("DOTAShowTitleTextTooltip", $.GetContextPanel(),  "#DOTA_Tooltip_ability_"+itemName, tooltip );
+	GameUI.CustomUIConfig.itemTooltip = item
+	$.DispatchEvent("UIShowCustomLayoutTooltip", itemPanel, "ItemTooltip", "file://{resources}/layout/custom_game/equipment/item_tooltip.xml");
+	// var tooltipArgs = "item="+item+"&queryUnit="+queryUnit
+	// $.DispatchEvent("UIShowCustomLayoutParametersTooltip", itemPanel, "file://{resources}/layout/custom_game/equipment/item_tooltip.xml", tooltipArgs);
+
 }
 
 function ItemShowTooltip(panelId)
@@ -34,13 +35,10 @@ function ItemShowTooltip(panelId)
 	if ( item == -1 )
 		return;
 
-	var tooltipArgs = "item="+item+"&queryUnit="+queryUnit
-	$.DispatchEvent("UIShowCustomLayoutParametersTooltip", itemPanel, "file://{resources}/layout/custom_game/equipment/item_tooltip.xml", tooltipArgs);
-
-	// $.DispatchEvent("DOTAShowTitleTextTooltip", itemPanel, title, tooltip);
-
-
-	//$.DispatchEvent("DOTAShowTitleTextTooltip", $.GetContextPanel(),  "#DOTA_Tooltip_ability_"+itemName, tooltip );
+	// var tooltipArgs = "item="+item+"&queryUnit="+queryUnit
+	// $.DispatchEvent("UIShowCustomLayoutParametersTooltip", itemPanel, "file://{resources}/layout/custom_game/equipment/item_tooltip.xml", tooltipArgs);
+	GameUI.CustomUIConfig.itemTooltip = item
+	$.DispatchEvent("UIShowCustomLayoutTooltip", itemPanel, "ItemTooltip", "file://{resources}/layout/custom_game/equipment/item_tooltip.xml");
 }
 
 function AddWeaponDataToTooltip(tooltip, itemTable, item){
@@ -473,13 +471,13 @@ function ItemHideTooltip(panelId)
 {
 	if (panelId){
 		var itemPanel = $(panelId)
-		$.DispatchEvent( "UIHideCustomLayoutTooltip", itemPanel );
+		$.DispatchEvent("UIHideCustomLayoutTooltip", "ItemTooltip");
 	}
 }
 
 function ItemHideTooltipByPanel(itemPanel)
 {
-	$.DispatchEvent( "UIHideCustomLayoutTooltip", itemPanel );
+	$.DispatchEvent("UIHideCustomLayoutTooltip", "ItemTooltip");
 }
 
 function getControllingPlayerIndex()
