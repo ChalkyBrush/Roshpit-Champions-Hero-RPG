@@ -256,6 +256,7 @@ function OpenCurator(msg)
         var listItem = $.CreatePanel("Panel", parent, "curator")
         listItem.BLoadLayoutSnippet("curator");
         $('#curate_tip1').text = LocalizeHashtagSafe("#curate_tip1");
+        $('#header_text').text = LocalizeHashtagSafe("#the_curator");
         $('#chisel_button_label').text = LocalizeHashtagSafe("#curator_button1");
         $('#final_forge_button_label').text = LocalizeHashtagSafe("#curator_button_final");
         

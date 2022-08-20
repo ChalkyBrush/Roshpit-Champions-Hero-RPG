@@ -26,7 +26,7 @@ function InitializeSaveSlot(){
 		}
 	}else{
 		$('#slot_portrait').SetImage( "file://{images}/heroes/" + heroName + ".png")
-		$('#slot_label').text = $.Localize(heroName)
+		$('#slot_label').text = $.Localize("#"+heroName)
 		$('#slot_label_level').text = "Lv "+heroLevel
 		if (unlocked == 0){
 			$('#slot_overlay').AddClass("overlay_out");		
