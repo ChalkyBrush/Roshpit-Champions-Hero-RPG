@@ -190,6 +190,8 @@
     	"DOTA_Tooltip_modifier_seinaru_arcana_evasion_buff"						"Sidestep"
     	"DOTA_Tooltip_modifier_seinaru_arcana_evasion_buff_Description"			"Gaining Evasion"
 
+    	"item_property_seinaru_arcana2"										"Sunstrider"
+    	"property_seinaru_arcana2_description"								"Replaces @Ability3 and all of its runes with Sunstrider."
 
     	"DOTA_Tooltip_ability_seinaru_sunstrider"						"Sunstrider"
     	"DOTA_Tooltip_ability_seinaru_sunstrider_Description"			"Seinaru merges with the power of the rising sun and blazes toward the target location, becoming invincible while traveling. All enemies within the cast area of the ability are first attacked by Seinaru a single time, 0.06 seconds apart. Each attack echoes, dealing intense <font color='#F6FFB5'>Holy</font> damage in a small area around the target.<br><br>Every 1.5 seconds, gain 1 freecast stack, which allows the ability to be cast without activating its cooldown."

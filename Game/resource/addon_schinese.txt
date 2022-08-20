@@ -16135,8 +16135,8 @@
 
 
 		"DOTA_Tooltip_ability_item_rpc_sparkling_token_of_oceanis"					"海洋之心"	
-		"property_sparkling_token"												"炽热雾霭"
-        "property_sparkling_token_Description"                                  "每 <font color='#ccff66'>0.2</font>秒回复 <font color='#ccff66'>2</font>% 最大生命值和 <font color='#ccff66'>1</font> 最大魔法值。"
+		"property_sparkling_token_of_oceanis"												"炽热雾霭"
+        "property_sparkling_token_of_oceanis_Description"                                  "每 <font color='#ccff66'>0.2</font>秒回复 <font color='#ccff66'>2</font>% 最大生命值和 <font color='#ccff66'>1</font> 最大魔法值。"
         "item_rpc_sparkling_token_of_oceanis_ruby1"                 "提高最大生命值 @ruby_property1以及最大魔法值 @ruby_property2"
         "item_rpc_sparkling_token_of_oceanis_emerald1"                  "降低受到的物理伤害 @emerald_property1%"
         "item_rpc_sparkling_token_of_oceanis_sapphire1"                 "提高物理穿透和魔法穿透 @sapphire_property1"

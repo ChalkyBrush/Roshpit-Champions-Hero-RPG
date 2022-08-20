@@ -15704,7 +15704,7 @@
 
         "DOTA_Tooltip_ability_item_rpc_conquest_stone_falcon"                           "Conquest Stone Falcon"
         "item_property_stone_falcon"                        "Gift of the Reliquary"
-        "property_stone_falcon_description"             "Магический или Чистый урон не может нанести герою больше <font color='#ccff66'>35</font>% от Максимального Здоровья."
+        "item_property_conquest_stone_falcon"             "Магический или Чистый урон не может нанести герою больше <font color='#ccff66'>35</font>% от Максимального Здоровья."
         "item_rpc_conquest_stone_falcon_ruby1"                          "Основной эффект ограничения урона уменьшен еще на @ruby_property1% от Максимального Здоровья"
         "item_rpc_conquest_stone_falcon_emerald1"                           "Каждые <font color='#ccff66'>3</font> секунды, герой получает заряд щита, поглощающего Физический урон, максимум @emerald_property1 зарядов щита."
         "item_rpc_conquest_stone_falcon_sapphire1"                          "Увеличивает Пробитие Брони и Пробитие Магической Защиты на @sapphire_property1"
@@ -16033,8 +16033,8 @@
 
         "DOTA_Tooltip_ability_item_rpc_sparkling_token_of_oceanis"                  "Sparkling Token of Oceanis"    
 
-        "property_sparkling_token"                                              "Tropical Mend"
-        "property_sparkling_token_Description"                                  "Восстанавливает <font color='#ccff66'>2</font>% от максимального запаса Здоровья и <font color='#ccff66'>1</font> от запаса Маны каждые <font color='#ccff66'>0.2</font> сек."
+        "property_sparkling_token_of_oceanis"                                              "Tropical Mend"
+        "property_sparkling_token_of_oceanis_Description"                                  "Восстанавливает <font color='#ccff66'>2</font>% от максимального запаса Здоровья и <font color='#ccff66'>1</font> от запаса Маны каждые <font color='#ccff66'>0.2</font> сек."
         "item_rpc_sparkling_token_of_oceanis_ruby1"                 "Увеличивает Здоровье на @ruby_property1, Ману на @ruby_property2"
         "item_rpc_sparkling_token_of_oceanis_emerald1"                  "Уменьшает получаемый Физический урон на @emerald_property1%"
         "item_rpc_sparkling_token_of_oceanis_sapphire1"                 "Увеличивает Пробития Брони и Маг Защиты на @sapphire_property1"

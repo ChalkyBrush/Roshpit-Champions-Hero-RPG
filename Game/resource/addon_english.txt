@@ -9359,6 +9359,8 @@
     	"DOTA_Tooltip_modifier_seinaru_arcana_evasion_buff"						"Sidestep"
     	"DOTA_Tooltip_modifier_seinaru_arcana_evasion_buff_Description"			"Gaining Evasion"
 
+    	"item_property_seinaru_arcana2"										"Sunstrider"
+    	"property_seinaru_arcana2_description"								"Replaces @Ability3 and all of its runes with Sunstrider."
 
     	"DOTA_Tooltip_ability_seinaru_sunstrider"						"Sunstrider"
     	"DOTA_Tooltip_ability_seinaru_sunstrider_Description"			"Seinaru merges with the power of the rising sun and blazes toward the target location, becoming invincible while traveling. All enemies within the cast area of the ability are first attacked by Seinaru a single time, 0.06 seconds apart. Each attack echoes, dealing intense <font color='#F6FFB5'>Holy</font> damage in a small area around the target.<br><br>Every 1.5 seconds, gain 1 freecast stack, which allows the ability to be cast without activating its cooldown."
@@ -15909,8 +15911,8 @@
 
         "DOTA_Tooltip_ability_item_rpc_sparkling_token_of_oceanis"                  "Sparkling Token of Oceanis"    
 
-        "property_sparkling_token"                                              "Tropical Mend"
-        "property_sparkling_token_Description"                                  "Restore <font color='#ccff66'>2</font>% of Max Health and <font color='#ccff66'>1</font> of Max Mana Every <font color='#ccff66'>0.2</font> seconds."
+        "property_sparkling_token_of_oceanis"                                              "Tropical Mend"
+        "property_sparkling_token_of_oceanis_Description"                                  "Restore <font color='#ccff66'>2</font>% of Max Health and <font color='#ccff66'>1</font> of Max Mana Every <font color='#ccff66'>0.2</font> seconds."
         "item_rpc_sparkling_token_of_oceanis_ruby1"                 "Increases Max Health by @ruby_property1 and Max Mana by @ruby_property2"
         "item_rpc_sparkling_token_of_oceanis_emerald1"                  "Reduces Physical damage taken by @emerald_property1%"
         "item_rpc_sparkling_token_of_oceanis_sapphire1"                 "Increases Armor Pierce and Spell Pierce by @sapphire_property1"
