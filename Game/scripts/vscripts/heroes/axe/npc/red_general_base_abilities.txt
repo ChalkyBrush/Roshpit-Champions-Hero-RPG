@@ -445,11 +445,6 @@
 
 		"OnSpellStart"
 		{
-			"DestroyTrees"
-	        {
-	        	"Center"	"CASTER"
-	        	"Radius"	"%radius"
-	        }
 			"FireSound"
 			{
 				"EffectName"	"RedGeneral.Whirlwind"
@@ -493,16 +488,12 @@
 				"ThinkInterval"  "0.03"
 				"OnIntervalThink"
 				{
-					"DestroyTrees"
-			        {
-			        	"Center"	"CASTER"
-			        	"Radius"	"%radius"
-			        }
 					"RunScript"
 					{
 						"ScriptFile"	"heroes/axe/abilities/red_general_ability_base_e_whirlwind.lua"
 						"Function"		"red_general_ability_base_q_whirlwind_think"
 						"heal"		"%heal"
+						"radius"	"%radius"
 					}
 				}
 				"States"

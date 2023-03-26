@@ -71,6 +71,7 @@ function voltex_azure_leap_landing(keys)
 	voltex_rune_e_1(caster, ability)
 	CustomAbilities:QuickAttachParticle("particles/econ/items/zeus/lightning_weapon_fx/zuus_lb_cfx_il.vpcf", caster, 2)
 	local pfx = CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_stormspirit/stormspirit_static_remnant.vpcf", caster, 0.03)
+	GridNav:DestroyTreesAroundPoint(caster:GetAbsOrigin(), keys.land_radius, false)
 end
 
 function voltex_azure_leap_actontargets(event)

@@ -483,11 +483,6 @@
 						"EffectName"	"Voltex.LightningLand"
 						"Target"		"CASTER"
 					}
-					"DestroyTrees"
-			        {
-			        	"Center"	"CASTER"
-			        	"Radius"	"%land_radius"
-			        }
 					"ActOnTargets"
 					{
 						"Target"
@@ -506,6 +501,7 @@
 								"Function"		"voltex_azure_leap_actontargets"
 								"stun_duration"	"%land_stun_duration"
 								"land_damage"	"%land_damage"
+								"land_radius"	"%land_radius"
 								"target"		"TARGET"
 							}
 						}

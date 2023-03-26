@@ -103,6 +103,7 @@ function red_general_ability_base_q_whirlwind_think(event)
             end
         end
     end
+    GridNav:DestroyTreesAroundPoint(hero:GetAbsOrigin(), event.radius, false)
     hero.oldEposition = hero:GetAbsOrigin()
 
     ability.forwardVec = ((ability.forwardVec * 3 + hero:GetForwardVector()) / 4):Normalized()
