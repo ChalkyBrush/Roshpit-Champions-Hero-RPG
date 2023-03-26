@@ -15852,8 +15852,8 @@
 
         "DOTA_Tooltip_ability_item_rpc_garnet_warfare_ring"                             "Garnet Warfare Ring"
 
-        "item_property_garnet_warfare"                          "Garnet Warfare"
-        "property_garnet_warfare_description"                    "Сила увеличивает Базовый Урон Способностей на <font color='#ccff66'>0.12</font>%."
+        "item_property_garnet_warfare_ring"                          "Garnet Warfare"
+        "property_garnet_warfare_ring_description"                    "Сила увеличивает Базовый Урон Способностей на <font color='#ccff66'>0.12</font>%."
 
         "item_rpc_garnet_warfare_ring_ruby1"                                "Увеличивает Силу на @ruby_property1"
         "item_rpc_garnet_warfare_ring_emerald1"                             "Увеличивает Брони и Пробитие Брони на @emerald_property1"
@@ -16033,7 +16033,7 @@
 
         "DOTA_Tooltip_ability_item_rpc_sparkling_token_of_oceanis"                  "Sparkling Token of Oceanis"    
 
-        "property_sparkling_token_of_oceanis"                                              "Tropical Mend"
+        "item_property_sparkling_token_of_oceanis"                                              "Tropical Mend"
         "property_sparkling_token_of_oceanis_Description"                                  "Восстанавливает <font color='#ccff66'>2</font>% от максимального запаса Здоровья и <font color='#ccff66'>1</font> от запаса Маны каждые <font color='#ccff66'>0.2</font> сек."
         "item_rpc_sparkling_token_of_oceanis_ruby1"                 "Увеличивает Здоровье на @ruby_property1, Ману на @ruby_property2"
         "item_rpc_sparkling_token_of_oceanis_emerald1"                  "Уменьшает получаемый Физический урон на @emerald_property1%"

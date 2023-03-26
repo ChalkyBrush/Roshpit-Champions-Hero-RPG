@@ -69452,11 +69452,6 @@
 					}
 					"RemoveModifier"
 					{
-						"ModifierName"	"modifier_epsilon"
-						"Target" 		"TARGET"
-					}
-					"RemoveModifier"
-					{
 						"ModifierName"	"modifier_epsilons_eyeglass_range_effect_attack_range"
 						"Target" 		"TARGET"
 					}

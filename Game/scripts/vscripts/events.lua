@@ -274,6 +274,7 @@ function GameMode:CorrectRespawn(npc)
 		npc:RemoveModifierByName("modifier_crusader_a_c_extension")
 	end
 	--print("RESPAWN DURATION: "..duration)
+	npc:RemoveModifierByName("modifier_fountain_invulnerability")
 	respawnAbility:ApplyDataDrivenModifier(Events.GameMaster, npc, "modifier_recently_respawned", {duration = duration})
 end
 

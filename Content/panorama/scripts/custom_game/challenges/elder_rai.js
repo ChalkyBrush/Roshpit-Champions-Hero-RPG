@@ -19,23 +19,23 @@ function OpenElderRai(msg){
     var action_panel = $.CreatePanel("Panel", attach_parent, "elder_rai-unrefined-gemstones")
     action_panel.BLoadLayoutSnippet('elder_rai_action')
     action_panel.FindChildTraverse('elder_rai_action_image').SetImage('file://{images}/custom_game/ui/items_for_ui/unrefined_gemstones.png')
-    action_panel.FindChildTraverse('elder_rai_action_text').text = $.Localize('elder_rai_refine_gemstones')
+    action_panel.FindChildTraverse('elder_rai_action_text').text = $.Localize('#elder_rai_refine_gemstones')
     setElderRaiAction(action_panel, "gemstones", phase_2_attacher)
 
     var action_panel = $.CreatePanel("Panel", attach_parent, "elder_rai-exp-orb")
     action_panel.BLoadLayoutSnippet('elder_rai_action')
     action_panel.FindChildTraverse('elder_rai_action_image').SetImage('file://{images}/custom_game/ui/items_for_ui/exp_orb.png')
-    action_panel.FindChildTraverse('elder_rai_action_text').text = $.Localize("elder_rai_buy_exp_orb")
+    action_panel.FindChildTraverse('elder_rai_action_text').text = $.Localize("#elder_rai_buy_exp_orb")
     setElderRaiAction(action_panel, "exp-orb-1", phase_2_attacher)
 
     var action_panel = $.CreatePanel("Panel", attach_parent, "elder_rai-greater-exp-orb")
     action_panel.BLoadLayoutSnippet('elder_rai_action')
     action_panel.FindChildTraverse('elder_rai_action_image').SetImage('file://{images}/custom_game/ui/items_for_ui/greater_exp_orb.png')
-    action_panel.FindChildTraverse('elder_rai_action_text').text = $.Localize('elder_rai_buy_greater_exp_orb')
+    action_panel.FindChildTraverse('elder_rai_action_text').text = $.Localize('#elder_rai_buy_greater_exp_orb')
     setElderRaiAction(action_panel, "exp-orb-2", phase_2_attacher)
 
     mCloseButton = elder_rai_main.FindChildTraverse('close_button')
-    mCloseButton.FindChildTraverse('close_button_label').text = $.Localize("ui_close")
+    mCloseButton.FindChildTraverse('close_button_label').text = $.Localize("#ui_close")
    
 	elder_rai_main.FindChildTraverse('close_button').SetPanelEvent('onactivate', function Close() {
 		Game.EmitSound("Gemforger.UI.Close")
@@ -61,18 +61,18 @@ function elderRaiAction(action, phase_2_attacher){
 		rai_detail_panel.BLoadLayoutSnippet('elder_rai_exp_orb_purchase')
 		rai_detail_panel.FindChildTraverse('elder_rai_orb_image_preview').SetImage('file://{images}/custom_game/ui/items_for_ui/exp_orb.png')
 		rai_detail_panel.FindChildTraverse('elder_rai_orb_image_title').text = $.Localize('#DOTA_Tooltip_ability_item_rpc_exp_orb')
-		rai_detail_panel.FindChildTraverse('elder_rai_orb_description').text = $.Localize("item_rpc_exp_orb_description")
+		rai_detail_panel.FindChildTraverse('elder_rai_orb_description').text = $.Localize("#item_rpc_exp_orb_description")
 		rai_detail_panel.FindChildTraverse('elder_rai_orb_mithril_cost_right').text = numberWithCommas(mithril_cost)
-		rai_detail_panel.FindChildTraverse('elder_rai_orb_mithril_cost_left').text = $.Localize("ui_cost") + ": "
+		rai_detail_panel.FindChildTraverse('elder_rai_orb_mithril_cost_left').text = $.Localize("#ui_cost") + ": "
 		rai_detail_panel.FindChildTraverse('elder_rai_orb_your_mithril_right').text = numberWithCommas(shards)
-		rai_detail_panel.FindChildTraverse('elder_rai_orb_your_mithril_left').text = $.Localize("elder_rai_your_mithril_shards") + ": "
-		rai_detail_panel.FindChildTraverse('final_elder_rai_orb_purchase_label').text = $.Localize("ui_purchase")+" "+$.Localize('DOTA_Tooltip_ability_item_rpc_exp_orb')
+		rai_detail_panel.FindChildTraverse('elder_rai_orb_your_mithril_left').text = $.Localize("#elder_rai_your_mithril_shards") + ": "
+		rai_detail_panel.FindChildTraverse('final_elder_rai_orb_purchase_label').text = $.Localize("#ui_purchase")+" "+$.Localize('#DOTA_Tooltip_ability_item_rpc_exp_orb')
 		var button = rai_detail_panel.FindChildTraverse('elder_rai_orb_final_purchase')
 		if (mithril_cost <= shards){
 			set_purchase_orb_button(button, action)
 			button.AddClass('elder_rai_orb_final_purchase_ok')
 		}else{
-			button.FindChildTraverse('final_elder_rai_orb_purchase_label').text = $.Localize("not_enough_shards")
+			button.FindChildTraverse('final_elder_rai_orb_purchase_label').text = $.Localize("#not_enough_shards")
 			button.AddClass("button-disabled")
 		}
 	}else if(action == "exp-orb-2"){
@@ -83,18 +83,18 @@ function elderRaiAction(action, phase_2_attacher){
 		rai_detail_panel.BLoadLayoutSnippet('elder_rai_exp_orb_purchase')
 		rai_detail_panel.FindChildTraverse('elder_rai_orb_image_preview').SetImage('file://{images}/custom_game/ui/items_for_ui/greater_exp_orb.png')
 		rai_detail_panel.FindChildTraverse('elder_rai_orb_image_title').text = $.Localize('#DOTA_Tooltip_ability_item_rpc_greater_exp_orb')
-		rai_detail_panel.FindChildTraverse('elder_rai_orb_description').text = $.Localize("item_rpc_greater_exp_orb_description")
+		rai_detail_panel.FindChildTraverse('elder_rai_orb_description').text = $.Localize("#item_rpc_greater_exp_orb_description")
 		rai_detail_panel.FindChildTraverse('elder_rai_orb_mithril_cost_right').text = numberWithCommas(mithril_cost)
-		rai_detail_panel.FindChildTraverse('elder_rai_orb_mithril_cost_left').text = $.Localize("ui_cost") + ": "
+		rai_detail_panel.FindChildTraverse('elder_rai_orb_mithril_cost_left').text = $.Localize("#ui_cost") + ": "
 		rai_detail_panel.FindChildTraverse('elder_rai_orb_your_mithril_right').text = numberWithCommas(shards)
-		rai_detail_panel.FindChildTraverse('elder_rai_orb_your_mithril_left').text = $.Localize("elder_rai_your_mithril_shards") + ": "
-		rai_detail_panel.FindChildTraverse('final_elder_rai_orb_purchase_label').text = $.Localize("ui_purchase")+" "+$.Localize('DOTA_Tooltip_ability_item_rpc_greater_exp_orb')
+		rai_detail_panel.FindChildTraverse('elder_rai_orb_your_mithril_left').text = $.Localize("#elder_rai_your_mithril_shards") + ": "
+		rai_detail_panel.FindChildTraverse('final_elder_rai_orb_purchase_label').text = $.Localize("#ui_purchase")+" "+$.Localize('#DOTA_Tooltip_ability_item_rpc_greater_exp_orb')
 		var button = rai_detail_panel.FindChildTraverse('elder_rai_orb_final_purchase')
 		if (mithril_cost <= shards){
 			set_purchase_orb_button(button, action)
 			button.AddClass('elder_rai_orb_final_purchase_ok')
 		}else{
-			button.FindChildTraverse('final_elder_rai_orb_purchase_label').text = $.Localize("not_enough_shards")
+			button.FindChildTraverse('final_elder_rai_orb_purchase_label').text = $.Localize("#not_enough_shards")
 			button.AddClass("button-disabled")
 		}
 	}else if (action == "gemstones"){
@@ -121,16 +121,16 @@ function elderRaiAction(action, phase_2_attacher){
 		rai_detail_panel.FindChildTraverse('elder_rai_orb_image_title').text = $.Localize('#DOTA_Tooltip_ability_item_rpc_unrefined_gemstones')
 		rai_detail_panel.FindChildTraverse('elder_rai_orb_image_title').style.color = "#E4AE33"
 		if (unrefined_items_count <= 1){
-			rai_detail_panel.FindChildTraverse('elder_rai_orb_description').text = $.Localize("elder_rai_you_have_x_gemstones_1")
+			rai_detail_panel.FindChildTraverse('elder_rai_orb_description').text = $.Localize("#elder_rai_you_have_x_gemstones_1")
 		}else if(unrefined_items_count == 2){
-			rai_detail_panel.FindChildTraverse('elder_rai_orb_description').text = $.Localize("elder_rai_you_have_x_gemstones_2")
+			rai_detail_panel.FindChildTraverse('elder_rai_orb_description').text = $.Localize("#elder_rai_you_have_x_gemstones_2")
 		}else{
-			rai_detail_panel.FindChildTraverse('elder_rai_orb_description').text = $.Localize("elder_rai_you_have_x_gemstones_3").replace("@count", unrefined_items_count)
+			rai_detail_panel.FindChildTraverse('elder_rai_orb_description').text = $.Localize("#elder_rai_you_have_x_gemstones_3").replace("@count", unrefined_items_count)
 		}
 		rai_detail_panel.FindChildTraverse('elder_rai_orb_description').style.fontSize = "14px"
 		rai_detail_panel.FindChildTraverse('elder_rai_orb_mithril_cost_right').text = numberWithCommas(gems_count)
-		rai_detail_panel.FindChildTraverse('elder_rai_orb_mithril_cost_left').text = $.Localize("tooltip_prismatic_gemstones") + ": "
-		rai_detail_panel.FindChildTraverse('final_elder_rai_orb_purchase_label').text = $.Localize("elder_rai_refine_gemstones")
+		rai_detail_panel.FindChildTraverse('elder_rai_orb_mithril_cost_left').text = $.Localize("#tooltip_prismatic_gemstones") + ": "
+		rai_detail_panel.FindChildTraverse('final_elder_rai_orb_purchase_label').text = $.Localize("#elder_rai_refine_gemstones")
 		var button = rai_detail_panel.FindChildTraverse('elder_rai_orb_final_purchase')
 		if (gems_value > 0){
 			button.SetPanelEvent('onactivate', function FinalBuy() {
@@ -140,7 +140,7 @@ function elderRaiAction(action, phase_2_attacher){
 			})	
 			button.AddClass('elder_rai_orb_final_purchase_ok')
 		}else{
-			button.FindChildTraverse('final_elder_rai_orb_purchase_label').text = $.Localize("ui_no_unrefined_gemstones")
+			button.FindChildTraverse('final_elder_rai_orb_purchase_label').text = $.Localize("#ui_no_unrefined_gemstones")
 			button.AddClass("button-disabled")
 		}
 

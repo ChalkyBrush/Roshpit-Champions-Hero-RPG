@@ -15911,7 +15911,7 @@
 
         "DOTA_Tooltip_ability_item_rpc_sparkling_token_of_oceanis"                  "Sparkling Token of Oceanis"    
 
-        "property_sparkling_token_of_oceanis"                                              "Tropical Mend"
+        "item_property_sparkling_token_of_oceanis"                                              "Tropical Mend"
         "property_sparkling_token_of_oceanis_Description"                                  "Restore <font color='#ccff66'>2</font>% of Max Health and <font color='#ccff66'>1</font> of Max Mana Every <font color='#ccff66'>0.2</font> seconds."
         "item_rpc_sparkling_token_of_oceanis_ruby1"                 "Increases Max Health by @ruby_property1 and Max Mana by @ruby_property2"
         "item_rpc_sparkling_token_of_oceanis_emerald1"                  "Reduces Physical damage taken by @emerald_property1%"
