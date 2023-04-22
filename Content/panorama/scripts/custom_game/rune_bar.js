@@ -96,7 +96,7 @@ function UpdateRuneList()
 				ability_level = rune_levels["d"]
 			}
 
-	        var ability = Entities.GetAbility(queryUnit, i);
+	        var ability = Entities.GetAbility(queryUnit, i+1);
 			if ( ability == -1 )
 				continue;
 			if ( !Abilities.IsDisplayedAbility(ability) )

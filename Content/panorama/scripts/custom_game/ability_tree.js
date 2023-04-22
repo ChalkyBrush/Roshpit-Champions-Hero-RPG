@@ -110,19 +110,19 @@ function UpdateAbilityTree(){
 
 	var queryUnit = Players.GetLocalPlayerPortraitUnit()
 	if ($('#ability_level_overlay1')){
-		var ability = Entities.GetAbility( queryUnit, 0 )
+		var ability = Entities.GetAbility( queryUnit, 1 )
 		$('#ability_level_overlay_text1').text = "LV"+Abilities.GetLevel( ability )
 	}
 	if ($('#ability_level_overlay2')){
-		var ability = Entities.GetAbility( queryUnit, 1 )
+		var ability = Entities.GetAbility( queryUnit, 2 )
 		$('#ability_level_overlay_text2').text = "LV"+Abilities.GetLevel( ability )
 	}
 	if ($('#ability_level_overlay3')){
-		var ability = Entities.GetAbility( queryUnit, 2 )
+		var ability = Entities.GetAbility( queryUnit, 3 )
 		$('#ability_level_overlay_text3').text = "LV"+Abilities.GetLevel( ability )
 	}
 	if ($('#ability_level_overlay4')){
-		var ability = Entities.GetAbility( queryUnit, 3 )
+		var ability = Entities.GetAbility( queryUnit, 4 )
 		$('#ability_level_overlay_text4').text = "LV"+Abilities.GetLevel( ability )
 	}
 }

@@ -500,13 +500,13 @@ end
 function CDOTA_BaseNPC:GetRuneValue(letter, tier)
 	local index = 0
 	if letter == "q" then
-		index = 0
+		index = DOTA_Q_SLOT
 	elseif letter == "w" then
-		index = 1
+		index = DOTA_W_SLOT
 	elseif letter == "e" then
-		index = 2
+		index = DOTA_E_SLOT
 	elseif letter == "r" then
-		index = 3
+		index = DOTA_R_SLOT
 	end
 	local runeUnit = ""
 	if self:HasModifier("modifier_sorceress_immortal_ice_avatar") or self:HasModifier("modifier_sorceress_immortal_fire_avatar") then
