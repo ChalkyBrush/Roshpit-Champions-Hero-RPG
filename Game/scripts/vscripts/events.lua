@@ -1439,22 +1439,34 @@ function Events:LevelUpAbility(keys)
 end
 
 function Events:CreateRuneUnits(heroEntity, playerID)
+	for i = 0, 10, 1 do
+		local ability = heroEntity:GetAbilityByIndex(i)
+		if ability == nil then
+			print(heroEntity:GetUnitName().." RGB: No ability in slot "..i)
+		else
+			print(heroEntity:GetUnitName().." RGB: ABILITY FOUND IN SLOT "..i.." : "..ability:GetAbilityName())
+		end
+	end
 	local runeUnit = CreateUnitByName("rune_unit", RPCItems.DROP_LOCATION, true, heroEntity, PlayerResource:GetPlayer(playerID), heroEntity:GetTeamNumber())
+	runeUnit:RemoveAbility("twin_gate_portal_warp")
 	heroEntity.runeUnit = runeUnit
 	CustomNetTables:SetTableValue("skill_tree", tostring(playerID) .. "rune_unit1", {runeUnit = runeUnit:GetEntityIndex()})
 	-- runeUnit:AddAbility("town_unit"):SetLevel(1)
 
 	local runeUnit2 = CreateUnitByName("rune_unit", RPCItems.DROP_LOCATION, true, heroEntity, player, heroEntity:GetTeamNumber())
+	runeUnit2:RemoveAbility("twin_gate_portal_warp")
 	heroEntity.runeUnit2 = runeUnit2
 	CustomNetTables:SetTableValue("skill_tree", tostring(playerID) .. "rune_unit2", {runeUnit = runeUnit2:GetEntityIndex()})
 	-- runeUnit2:AddAbility("town_unit"):SetLevel(1)
 
 	local runeUnit3 = CreateUnitByName("rune_unit", RPCItems.DROP_LOCATION, true, heroEntity, player, heroEntity:GetTeamNumber())
+	runeUnit3:RemoveAbility("twin_gate_portal_warp")
 	heroEntity.runeUnit3 = runeUnit3
 	CustomNetTables:SetTableValue("skill_tree", tostring(playerID) .. "rune_unit3", {runeUnit = runeUnit3:GetEntityIndex()})
 	-- runeUnit3:AddAbility("town_unit"):SetLevel(1)
 
 	local runeUnit4 = CreateUnitByName("rune_unit", RPCItems.DROP_LOCATION, true, heroEntity, player, heroEntity:GetTeamNumber())
+	runeUnit4:RemoveAbility("twin_gate_portal_warp")
 	heroEntity.runeUnit4 = runeUnit4
 	CustomNetTables:SetTableValue("skill_tree", tostring(playerID) .. "rune_unit4", {runeUnit = runeUnit4:GetEntityIndex()})
 	-- runeUnit4:AddAbility("town_unit"):SetLevel(1)
@@ -1508,7 +1520,7 @@ function Events:SetupHeroes(heroEntity)
 	heroEntity.crystalsPickedUp = 0
 	heroEntity.crystalsToSave = 0
 	heroEntity.baseAttackCapability = heroEntity:GetAttackCapability()
-
+	heroEntity:RemoveAbility("twin_gate_portal_warp")
 	local letters = {'q','w','e','r' }
 	for _,letter in pairs(letters) do
 		for tier = 1,4 do
@@ -1571,6 +1583,15 @@ function Events:SetupHeroes(heroEntity)
 				return 3
 			end
 		end)
+	end
+
+	for i = 0, 10, 1 do
+		local ability = heroEntity:GetAbilityByIndex(i)
+		if ability == nil then
+			print("HERO: No ability in slot "..i)
+		else
+			print("HERO: ABILITY FOUND IN SLOT "..i.." : "..ability:GetAbilityName())
+		end
 	end
 end
 
@@ -2674,6 +2695,7 @@ function Events:spawnUnit(unitName, spawnPoint, quantity)
 				Paragon:SpawnParagonUnit(unitName, spawnPoint)
 			else
 				local unit = CreateUnitByName(unitName, spawnPoint, true, nil, nil, DOTA_TEAM_NEUTRALS)
+				unit:RemoveAbility("twin_gate_portal_warp")
 				Events:AdjustDeathXP(unit)
 				Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_world_1_wave_unit", {})
 			end

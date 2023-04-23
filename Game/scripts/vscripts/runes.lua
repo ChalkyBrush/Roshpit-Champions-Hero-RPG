@@ -117,10 +117,20 @@ function Runes:SetRuneUnitModifiersForUI(hero)
 	local rune_units = {hero.runeUnit, hero.runeUnit2, hero.runeUnit3, hero.runeUnit4}
 	for i = 1, #rune_units, 1 do
 		local rune_unit = rune_units[i]
-		local q_stacks = rune_unit:GetAbilityByIndex(DOTA_Q_SLOT):GetBaseRuneLevel()
-		local w_stacks = rune_unit:GetAbilityByIndex(DOTA_W_SLOT):GetBaseRuneLevel()
-		local e_stacks = rune_unit:GetAbilityByIndex(DOTA_E_SLOT):GetBaseRuneLevel()
-		local d_stacks = rune_unit:GetAbilityByIndex(DOTA_D_SLOT):GetBaseRuneLevel()
+
+		for i = 0, 10, 1 do
+			local ability = rune_unit:GetAbilityByIndex(i)
+			if ability == nil then
+				print("RUNE UNIT: No ability in slot "..i)
+			else
+				print("RUNE UNIT: ABILITY FOUND IN SLOT "..i.." : "..ability:GetAbilityName())
+			end
+		end
+
+		local q_stacks = rune_unit:GetAbilityByIndex(RUNE_UNIT_Q_SLOT):GetBaseRuneLevel()
+		local w_stacks = rune_unit:GetAbilityByIndex(RUNE_UNIT_W_SLOT):GetBaseRuneLevel()
+		local e_stacks = rune_unit:GetAbilityByIndex(RUNE_UNIT_E_SLOT):GetBaseRuneLevel()
+		local d_stacks = rune_unit:GetAbilityByIndex(RUNE_UNIT_R_SLOT):GetBaseRuneLevel()
 
 		game_master_ability:ApplyDataDrivenModifier(Events.GameMaster, rune_unit, "modifier_rune_points_q", {})
 		rune_unit:SetModifierStackCount("modifier_rune_points_q", Events.GameMaster, q_stacks)
@@ -377,6 +387,7 @@ function Runes:CollectHeroRunes(runeUnit, runeUnit2, runeUnit3, runeUnit4, playe
 	local ability = runeUnit:AddAbility(heroString.."_rune_r_1")
 	ability:SetLevel(1)
 	ability.rune_level = 0
+	ability:SetAbilityIndex(RUNE_UNIT_Q_SLOT)
 
 	local ability = runeUnit2:AddAbility(heroString.."_rune_q_2")
 	ability:SetLevel(1)
@@ -390,6 +401,7 @@ function Runes:CollectHeroRunes(runeUnit, runeUnit2, runeUnit3, runeUnit4, playe
 	local ability = runeUnit2:AddAbility(heroString.."_rune_r_2")
 	ability:SetLevel(1)
 	ability.rune_level = 0
+	ability:SetAbilityIndex(RUNE_UNIT_W_SLOT)
 
 	local ability = runeUnit3:AddAbility(heroString.."_rune_q_3")
 	ability:SetLevel(1)
@@ -403,6 +415,7 @@ function Runes:CollectHeroRunes(runeUnit, runeUnit2, runeUnit3, runeUnit4, playe
 	local ability = runeUnit3:AddAbility(heroString.."_rune_r_3")
 	ability:SetLevel(1)
 	ability.rune_level = 0
+	ability:SetAbilityIndex(RUNE_UNIT_E_SLOT)
 
 	local ability = runeUnit4:AddAbility(heroString.."_rune_q_4")
 	ability:SetLevel(1)
@@ -416,6 +429,7 @@ function Runes:CollectHeroRunes(runeUnit, runeUnit2, runeUnit3, runeUnit4, playe
 	local ability = runeUnit4:AddAbility(heroString.."_rune_r_4")
 	ability:SetLevel(1)
 	ability.rune_level = 0
+	ability:SetAbilityIndex(RUNE_UNIT_R_SLOT)
 end
 
 function Runes:Procs(runeLevel, chancePerLevel, mod)
@@ -500,13 +514,13 @@ end
 function CDOTA_BaseNPC:GetRuneValue(letter, tier)
 	local index = 0
 	if letter == "q" then
-		index = DOTA_Q_SLOT
+		index = RUNE_UNIT_Q_SLOT
 	elseif letter == "w" then
-		index = DOTA_W_SLOT
+		index = RUNE_UNIT_W_SLOT
 	elseif letter == "e" then
-		index = DOTA_E_SLOT
+		index = RUNE_UNIT_E_SLOT
 	elseif letter == "r" then
-		index = DOTA_R_SLOT
+		index = RUNE_UNIT_R_SLOT
 	end
 	local runeUnit = ""
 	if self:HasModifier("modifier_sorceress_immortal_ice_avatar") or self:HasModifier("modifier_sorceress_immortal_fire_avatar") then
@@ -743,10 +757,10 @@ function Runes:EquipArcana(hero, index)
 		if index == 1 then
 			local origAbility = hero:GetAbilityByIndex(DOTA_R_SLOT)
 			local abilityLevel = hero:GetAbilityByIndex(DOTA_R_SLOT):GetLevel()
-			local runeLevel1 = hero.runeUnit:GetAbilityByIndex(DOTA_D_SLOT).rune_level
-			local runeLevel2 = hero.runeUnit2:GetAbilityByIndex(DOTA_D_SLOT).rune_level
-			local runeLevel3 = hero.runeUnit3:GetAbilityByIndex(DOTA_D_SLOT).rune_level
-			local runeLevel4 = hero.runeUnit4:GetAbilityByIndex(DOTA_D_SLOT).rune_level
+			local runeLevel1 = hero.runeUnit:GetAbilityByIndex(DOTA_R_SLOT).rune_level
+			local runeLevel2 = hero.runeUnit2:GetAbilityByIndex(DOTA_R_SLOT).rune_level
+			local runeLevel3 = hero.runeUnit3:GetAbilityByIndex(DOTA_R_SLOT).rune_level
+			local runeLevel4 = hero.runeUnit4:GetAbilityByIndex(DOTA_R_SLOT).rune_level
 			hero:RemoveAbility("charge_of_light")
 			local newAbility = hero:AddAbility("bahamut_arcana_ulti")
 			newAbility:SetLevel(abilityLevel)
@@ -856,10 +870,10 @@ function Runes:EquipArcana(hero, index)
 		if index == 1 then
 			local origAbility = hero:GetAbilityByIndex(DOTA_R_SLOT)
 			local abilityLevel = hero:GetAbilityByIndex(DOTA_R_SLOT):GetLevel()
-			local runeLevel1 = hero.runeUnit:GetAbilityByIndex(DOTA_D_SLOT).rune_level
-			local runeLevel2 = hero.runeUnit2:GetAbilityByIndex(DOTA_D_SLOT).rune_level
-			local runeLevel3 = hero.runeUnit3:GetAbilityByIndex(DOTA_D_SLOT).rune_level
-			local runeLevel4 = hero.runeUnit4:GetAbilityByIndex(DOTA_D_SLOT).rune_level
+			local runeLevel1 = hero.runeUnit:GetAbilityByIndex(DOTA_R_SLOT).rune_level
+			local runeLevel2 = hero.runeUnit2:GetAbilityByIndex(DOTA_R_SLOT).rune_level
+			local runeLevel3 = hero.runeUnit3:GetAbilityByIndex(DOTA_R_SLOT).rune_level
+			local runeLevel4 = hero.runeUnit4:GetAbilityByIndex(DOTA_R_SLOT).rune_level
 			hero:RemoveAbility("call_of_elements")
 			local newAbility = hero:AddAbility("conjuror_elemental_deity")
 			newAbility:SetLevel(abilityLevel)
@@ -1253,7 +1267,7 @@ function Runes:EquipArcana(hero, index)
 		
 		if hero.onibi and element ~= nil then
 			local onibi = hero.onibi
-			local onibi_ability_check1 = onibi:GetAbilityByIndex(DOTA_D_SLOT)
+			local onibi_ability_check1 = onibi:GetAbilityByIndex(DOTA_R_SLOT)
 			CustomAbilities:AddAndOrSwapSkill(onibi, onibi_ability_check1:GetAbilityName(), "onibi_"..element.."_1", 3)
 			local onibi_ability_check2 = onibi:GetAbilityByIndex(DOTA_F_SLOT)
 			CustomAbilities:AddAndOrSwapSkill(onibi, onibi_ability_check2:GetAbilityName(), "onibi_"..element.."_2", 4)
@@ -1466,10 +1480,10 @@ function Runes:UnequipArcana(hero, index)
 		if index == 1 then
 			local origAbility = hero:GetAbilityByIndex(DOTA_R_SLOT)
 			local abilityLevel = hero:GetAbilityByIndex(DOTA_R_SLOT):GetLevel()
-			local runeLevel1 = hero.runeUnit:GetAbilityByIndex(DOTA_D_SLOT).rune_level
-			local runeLevel2 = hero.runeUnit2:GetAbilityByIndex(DOTA_D_SLOT).rune_level
-			local runeLevel3 = hero.runeUnit3:GetAbilityByIndex(DOTA_D_SLOT).rune_level
-			local runeLevel4 = hero.runeUnit4:GetAbilityByIndex(DOTA_D_SLOT).rune_level
+			local runeLevel1 = hero.runeUnit:GetAbilityByIndex(DOTA_R_SLOT).rune_level
+			local runeLevel2 = hero.runeUnit2:GetAbilityByIndex(DOTA_R_SLOT).rune_level
+			local runeLevel3 = hero.runeUnit3:GetAbilityByIndex(DOTA_R_SLOT).rune_level
+			local runeLevel4 = hero.runeUnit4:GetAbilityByIndex(DOTA_R_SLOT).rune_level
 			hero:RemoveAbility("bahamut_arcana_ulti")
 			local newAbility = hero:AddAbility("charge_of_light")
 			newAbility:SetLevel(abilityLevel)
@@ -1579,10 +1593,10 @@ function Runes:UnequipArcana(hero, index)
 		if index == 1 then
 			local origAbility = hero:GetAbilityByIndex(DOTA_R_SLOT)
 			local abilityLevel = hero:GetAbilityByIndex(DOTA_R_SLOT):GetLevel()
-			local runeLevel1 = hero.runeUnit:GetAbilityByIndex(DOTA_D_SLOT).rune_level
-			local runeLevel2 = hero.runeUnit2:GetAbilityByIndex(DOTA_D_SLOT).rune_level
-			local runeLevel3 = hero.runeUnit3:GetAbilityByIndex(DOTA_D_SLOT).rune_level
-			local runeLevel4 = hero.runeUnit4:GetAbilityByIndex(DOTA_D_SLOT).rune_level
+			local runeLevel1 = hero.runeUnit:GetAbilityByIndex(DOTA_R_SLOT).rune_level
+			local runeLevel2 = hero.runeUnit2:GetAbilityByIndex(DOTA_R_SLOT).rune_level
+			local runeLevel3 = hero.runeUnit3:GetAbilityByIndex(DOTA_R_SLOT).rune_level
+			local runeLevel4 = hero.runeUnit4:GetAbilityByIndex(DOTA_R_SLOT).rune_level
 			hero:RemoveAbility("conjuror_elemental_deity")
 			local newAbility = hero:AddAbility("call_of_elements")
 			newAbility:SetLevel(abilityLevel)
@@ -1968,7 +1982,7 @@ function Runes:UnequipArcana(hero, index)
 		
 		if hero.onibi and oldElement ~= nil and newElement ~= nil then
 			local onibi = hero.onibi
-			local onibi_ability_check1 = onibi:GetAbilityByIndex(DOTA_D_SLOT)
+			local onibi_ability_check1 = onibi:GetAbilityByIndex(DOTA_R_SLOT)
 			CustomAbilities:AddAndOrSwapSkill(onibi, onibi_ability_check1:GetAbilityName(), "onibi_"..newElement.."_1", 3)
 			local onibi_ability_check2 = onibi:GetAbilityByIndex(DOTA_F_SLOT)
 			CustomAbilities:AddAndOrSwapSkill(onibi, onibi_ability_check2:GetAbilityName(), "onibi_"..newElement.."_2", 4)

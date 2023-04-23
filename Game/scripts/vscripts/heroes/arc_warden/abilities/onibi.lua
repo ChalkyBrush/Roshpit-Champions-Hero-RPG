@@ -5,15 +5,25 @@ function load_onibi_data(caster, onibi_data)
 	local spawnPoint = caster:GetAbsOrigin() - caster:GetForwardVector() * 100
 	caster.onibi = CreateUnitByName("jex_onibi", spawnPoint, false, caster, caster, caster:GetTeamNumber())
 
+	for i = 0, 10, 1 do
+		local ability = caster.onibi:GetAbilityByIndex(i)
+		if ability == nil then
+			print("ONIBI: No ability in slot "..i)
+		else
+			print("ONIBI: ABILITY FOUND IN SLOT "..i.." : "..ability:GetAbilityName())
+		end
+	end
+
 	jex_ability:ApplyDataDrivenModifier(caster, caster.onibi, "modifier_jex_onibi_thinker", {})
 	caster.onibi.caster = caster
 	caster.onibi:SetRenderColor(20, 0, 255)
 	caster.onibi:SetControllableByPlayer(caster:GetPlayerOwnerID(), true)
-	caster.onibi:GetAbilityByIndex(DOTA_Q_SLOT):SetLevel(1)
-	caster.onibi:GetAbilityByIndex(DOTA_W_SLOT):SetLevel(1)
-	caster.onibi:GetAbilityByIndex(DOTA_E_SLOT):SetLevel(1)
-	caster.onibi:GetAbilityByIndex(DOTA_D_SLOT):SetLevel(1)
-	caster.onibi:GetAbilityByIndex(DOTA_F_SLOT):SetLevel(1)
+	caster.onibi:GetAbilityByIndex(0):SetLevel(1)
+	caster.onibi:GetAbilityByIndex(1):SetLevel(1)
+	caster.onibi:GetAbilityByIndex(2):SetLevel(1)
+	caster.onibi:GetAbilityByIndex(3):SetLevel(1)
+	caster.onibi:GetAbilityByIndex(4):SetLevel(1)
+
 	caster.onibi.stats_table = {}
 	local elements_table = all_possible_onibi_elements(caster.onibi)
 	local ability_keys = {"Q", "W", "E"}
@@ -421,9 +431,9 @@ function onibi_activate_ability_key(event)
 	local caster = event.caster
 	local ability = event.ability
 	local onibi = caster
-	local element1 = string.gsub(caster:GetAbilityByIndex(DOTA_D_SLOT):GetAbilityName(), "onibi_", "")
+	local element1 = string.gsub(caster:GetAbilityByIndex(3):GetAbilityName(), "onibi_", "")
 	element1 = string.gsub(element1, '_1', "")
-	local element2 = string.gsub(caster:GetAbilityByIndex(DOTA_F_SLOT):GetAbilityName(), "onibi_", "")
+	local element2 = string.gsub(caster:GetAbilityByIndex(4):GetAbilityName(), "onibi_", "")
 	element2 = string.gsub(element2, '_2', "")
 	local ability_key = string.upper(event.ability_key)
 	local ability_level = caster.stats_table[element1][element2][ability_key]["level"]

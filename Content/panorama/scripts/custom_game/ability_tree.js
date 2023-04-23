@@ -110,26 +110,26 @@ function UpdateAbilityTree(){
 
 	var queryUnit = Players.GetLocalPlayerPortraitUnit()
 	if ($('#ability_level_overlay1')){
-		var ability = Entities.GetAbility( queryUnit, 1 )
+		var ability = Entities.GetAbility( queryUnit, 0 )
 		$('#ability_level_overlay_text1').text = "LV"+Abilities.GetLevel( ability )
 	}
 	if ($('#ability_level_overlay2')){
-		var ability = Entities.GetAbility( queryUnit, 2 )
+		var ability = Entities.GetAbility( queryUnit, 1 )
 		$('#ability_level_overlay_text2').text = "LV"+Abilities.GetLevel( ability )
 	}
 	if ($('#ability_level_overlay3')){
-		var ability = Entities.GetAbility( queryUnit, 3 )
+		var ability = Entities.GetAbility( queryUnit, 2 )
 		$('#ability_level_overlay_text3').text = "LV"+Abilities.GetLevel( ability )
 	}
 	if ($('#ability_level_overlay4')){
-		var ability = Entities.GetAbility( queryUnit, 4 )
+		var ability = Entities.GetAbility( queryUnit, 5 )
 		$('#ability_level_overlay_text4').text = "LV"+Abilities.GetLevel( ability )
 	}
 }
 
 function basic_skill_points_tooltip(){
-	var title = $.Localize("skill_points")
-	var tooltip = $.Localize("skill_points_help")
+	var title = $.Localize("#skill_points")
+	var tooltip = $.Localize("#skill_points_help")
 	$.DispatchEvent("DOTAShowTitleTextTooltip", $('#basic_skills_text_up'), title, tooltip);
 }
 
@@ -138,8 +138,8 @@ function basic_skill_points_tooltip_end(){
 }
 
 function rune_points_tooltip(){
-	var title = $.Localize("runic_points")
-	var tooltip = $.Localize("runic_points_help")
+	var title = $.Localize("#runic_points")
+	var tooltip = $.Localize("#runic_points_help")
 	$.DispatchEvent("DOTAShowTitleTextTooltip", $('#runes_text_up'), title, tooltip);
 }
 
@@ -165,27 +165,22 @@ function OpenCharacterPanel()
 
 function heroLevelUpAnimation(msg){
 	if (msg.skill_points > 0){
-		if (!$('#ability_points_up') === undefined){
-			$('#ability_points_up').RemoveClass('invisible')
-			$('#ability_points_up').AddClass('ability_up_animate')
-			$('#ability_points_up').text = "+"+msg.skill_points
-			$.Schedule(1.45, function(){
-				$('#ability_points_up').AddClass('invisible')
-				$('#ability_points_up').RemoveClass('ability_up_animate')
-			});			
-		}
-
+		$('#ability_points_up').RemoveClass('invisible')
+		$('#ability_points_up').AddClass('ability_up_animate')
+		$('#ability_points_up').text = "+"+msg.skill_points
+		$.Schedule(1.45, function(){
+			$('#ability_points_up').AddClass('invisible')
+			$('#ability_points_up').RemoveClass('ability_up_animate')
+		});
 	}
 	if (msg.rune_points > 0){
-		if (!$('#rune_points_up') === undefined){
-			$('#rune_points_up').RemoveClass('invisible')
-			$('#rune_points_up').AddClass('rune_up_animate')
-			$('#rune_points_up').text = "+"+msg.rune_points
-			$.Schedule(1.45, function(){
-				$('#rune_points_up').AddClass('invisible')
-				$('#rune_points_up').RemoveClass('rune_up_animate')
-			});
-		}
+		$('#rune_points_up').RemoveClass('invisible')
+		$('#rune_points_up').AddClass('rune_up_animate')
+		$('#rune_points_up').text = "+"+msg.rune_points
+		$.Schedule(1.45, function(){
+			$('#rune_points_up').AddClass('invisible')
+			$('#rune_points_up').RemoveClass('rune_up_animate')
+		});
 	}
 }
 

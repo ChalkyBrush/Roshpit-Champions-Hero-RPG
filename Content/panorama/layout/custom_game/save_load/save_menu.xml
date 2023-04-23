@@ -1,6 +1,5 @@
 <root>
 	<styles>
-		<include src="file://{resources}/styles/dotastyles.css" />
 		<include src="file://{resources}/styles/custom_game/save_load/save_load.css" />
 		<include src="file://{resources}/styles/custom_game/menu/menu.css" />
 	</styles>

@@ -48,7 +48,7 @@ function UpdateAbilityList()
 	// update all the panels
 	var nUsedPanels = 0;
 	for ( var i = 0; i < Entities.GetAbilityCount( queryUnit ); ++i )
-	// for ( var i = 1; i < 5; ++i )
+	// for ( var i = 0; i < 4; ++i )
 	{
 		var ability = Entities.GetAbility( queryUnit, i );
 		
@@ -119,4 +119,3 @@ function UpdateAbilityList()
 	
 	UpdateAbilityList(); // initial update
 })();
-
