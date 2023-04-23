@@ -115,7 +115,7 @@ function mist_active_think(event)
 	local ability = event.ability
 	local manaDrain = event.mana_drain
 	if caster:GetMana() > manaDrain then
-		caster:ReduceMana(manaDrain)
+		caster:Script_ReduceMana(manaDrain, nil)
 	else
 		ability:ToggleAbility()
 	end

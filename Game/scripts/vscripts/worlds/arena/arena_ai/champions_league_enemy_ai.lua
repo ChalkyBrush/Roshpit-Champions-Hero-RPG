@@ -325,7 +325,7 @@ end
 function arena_mana_drain_effect(event)
 	local target = event.target
 	local manaDrain = target:GetMaxMana() * 0.02
-	target:ReduceMana(manaDrain)
+	target:Script_ReduceMana(manaDrain, nil)
 end
 
 function war_rally_think(event)

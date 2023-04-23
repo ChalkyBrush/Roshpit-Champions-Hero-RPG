@@ -135,7 +135,7 @@ function modifier_demon_hunter:RoshpitAttackLand(event)
 	if not (caster:HasModifier("modifier_chernobog_glyph_6_2") and (caster:GetHealthPercent() < CHERNOBOG_GLYPH_6_2_THRESHOLD)) then
 		caster:SetHealth(newHealth)
 	end
-	caster:ReduceMana(mp_drain)
+	caster:Script_ReduceMana(mp_drain, nil)
 	local enemies = SearchEnemies(caster, target, radius, false)
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do 

@@ -165,22 +165,27 @@ function OpenCharacterPanel()
 
 function heroLevelUpAnimation(msg){
 	if (msg.skill_points > 0){
-		$('#ability_points_up').RemoveClass('invisible')
-		$('#ability_points_up').AddClass('ability_up_animate')
-		$('#ability_points_up').text = "+"+msg.skill_points
-		$.Schedule(1.45, function(){
-			$('#ability_points_up').AddClass('invisible')
-			$('#ability_points_up').RemoveClass('ability_up_animate')
-		});
+		if (!$('#ability_points_up') === undefined){
+			$('#ability_points_up').RemoveClass('invisible')
+			$('#ability_points_up').AddClass('ability_up_animate')
+			$('#ability_points_up').text = "+"+msg.skill_points
+			$.Schedule(1.45, function(){
+				$('#ability_points_up').AddClass('invisible')
+				$('#ability_points_up').RemoveClass('ability_up_animate')
+			});			
+		}
+
 	}
 	if (msg.rune_points > 0){
-		$('#rune_points_up').RemoveClass('invisible')
-		$('#rune_points_up').AddClass('rune_up_animate')
-		$('#rune_points_up').text = "+"+msg.rune_points
-		$.Schedule(1.45, function(){
-			$('#rune_points_up').AddClass('invisible')
-			$('#rune_points_up').RemoveClass('rune_up_animate')
-		});
+		if (!$('#rune_points_up') === undefined){
+			$('#rune_points_up').RemoveClass('invisible')
+			$('#rune_points_up').AddClass('rune_up_animate')
+			$('#rune_points_up').text = "+"+msg.rune_points
+			$.Schedule(1.45, function(){
+				$('#rune_points_up').AddClass('invisible')
+				$('#rune_points_up').RemoveClass('rune_up_animate')
+			});
+		}
 	}
 }
 

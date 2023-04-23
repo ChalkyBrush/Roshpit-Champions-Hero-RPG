@@ -690,10 +690,10 @@ function Runes:EquipArcana(hero, index)
 	if hero:GetUnitName() == "npc_dota_hero_dragon_knight" then
 		if index == 1 then
 			hero:RemoveModifierByName("modifier_flamewaker_q_passive")
-			Runes:EasySwapArcanaSkills(hero, 0, "flamewaker_seismic_flare", "flamewaker_dragon_fire", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+			Runes:EasySwapArcanaSkills(hero, DOTA_Q_SLOT, "flamewaker_seismic_flare", "flamewaker_dragon_fire", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 		elseif index == 2 then
 			hero:RemoveModifierByName("modifier_flamewaker_w_passive")
-			Runes:EasySwapArcanaSkills(hero, 1, "flamewaker_dragon_breath", "flamewaker_fireborne", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
+			Runes:EasySwapArcanaSkills(hero, DOTA_W_SLOT, "flamewaker_dragon_breath", "flamewaker_fireborne", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_juggernaut" then
 		if index == 1 then
@@ -706,7 +706,7 @@ function Runes:EquipArcana(hero, index)
 			hero:RemoveAbility("seinaru_konokaze")
 			local newAbility = hero:AddAbility("seinaru_blade_dash")
 			newAbility:SetLevel(abilityLevel)
-			newAbility:SetAbilityIndex(0)
+			newAbility:SetAbilityIndex(DOTA_Q_SLOT)
 
 			hero.runeUnit:RemoveAbility("seinaru_rune_q_1")
 			hero.runeUnit2:RemoveAbility("seinaru_rune_q_2")
@@ -780,7 +780,7 @@ function Runes:EquipArcana(hero, index)
 			hero:RemoveModifierByName("modifier_moon_shroud_passive")
 			hero:RemoveModifierByName("modifier_astral_rune_q_4_visible")
 			hero:RemoveModifierByName("modifier_astral_rune_q_4_invisible")
-			local abilityIndex = 0
+			local abilityIndex = DOTA_Q_SLOT
 			local origAbility = hero:GetAbilityByIndex(abilityIndex)
 			local abilityLevel = hero:GetAbilityByIndex(abilityIndex):GetLevel()
 			local runeLevel1 = hero.runeUnit:GetAbilityByIndex(abilityIndex).rune_level
@@ -810,7 +810,7 @@ function Runes:EquipArcana(hero, index)
 			newRune.rune_level = runeLevel4
 			newRune:SetAbilityIndex(abilityIndex)
 		elseif index == 2 then
-			Runes:EasySwapArcanaSkills(hero, 1, "split_shot", "shot_of_apollo", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
+			Runes:EasySwapArcanaSkills(hero, DOTA_W_SlOT, "split_shot", "shot_of_apollo", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 		elseif index == 3 then
 			--print("R$$$F")
 			Runes:EasySwapArcanaSkills(hero, DOTA_R_SLOT, "ranger_aoe_explosion", "crystal_arrow", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana3")
@@ -849,7 +849,7 @@ function Runes:EquipArcana(hero, index)
 			newRune:SetAbilityIndex(abilityIndex)
 		elseif index == 2 then
 			hero:RemoveModifierByName("modifier_flail_passive")
-			Runes:EasySwapArcanaSkills(hero, 0, "whirling_flail", "duskbringer_arcana_terrorize", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
+			Runes:EasySwapArcanaSkills(hero, DOTA_Q_SLOT, "whirling_flail", "duskbringer_arcana_terrorize", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_invoker" then
 		--print("-----HELLO----")
@@ -892,7 +892,7 @@ function Runes:EquipArcana(hero, index)
 			if hero:HasAbility("immolation") then
 				hero:RemoveAbility("immolation")
 			end
-			Runes:EasySwapArcanaSkills(hero, 1, "summon_fire_aspect", "summon_fire_deity", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
+			Runes:EasySwapArcanaSkills(hero, DOTA_W_SLOT, "summon_fire_aspect", "summon_fire_deity", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 		elseif index == 3 then
 			if hero.earthAspect then
 				if IsValidEntity(hero.earthAspect) then
@@ -904,7 +904,7 @@ function Runes:EquipArcana(hero, index)
 			if hero:HasAbility("earthquake") then
 				hero:RemoveAbility("earthquake")
 			end
-			Runes:EasySwapArcanaSkills(hero, 0, "summon_earth_aspect", "summon_earth_deity", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana3")
+			Runes:EasySwapArcanaSkills(hero, DOTA_Q_SLOT, "summon_earth_aspect", "summon_earth_deity", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana3")
 		elseif index == 4 then
 			if hero.shadowAspect then
 				if IsValidEntity(hero.shadowAspect) then
@@ -915,12 +915,12 @@ function Runes:EquipArcana(hero, index)
 			if hero:HasAbility("shadow_gate") then
 				hero:RemoveAbility("shadow_gate")
 			end
-			Runes:EasySwapArcanaSkills(hero, 2, "summon_shadow_aspect", "summon_shadow_deity", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana4")
+			Runes:EasySwapArcanaSkills(hero, DOTA_E_SLOT, "summon_shadow_aspect", "summon_shadow_deity", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana4")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_templar_assassin" then
 		if index == 1 then
 			-- hero:RemoveModifierByName("modifier_hidden_ghost_hallow_passive")
-			local abilityIndex = 1
+			local abilityIndex = DOTA_W_SLOT
 			local origAbility = hero:GetAbilityByIndex(abilityIndex)
 			local abilityLevel = hero:GetAbilityByIndex(abilityIndex):GetLevel()
 			local runeLevel1 = hero.runeUnit:GetAbilityByIndex(abilityIndex).rune_level
@@ -970,25 +970,25 @@ function Runes:EquipArcana(hero, index)
 			Runes:EasySwapArcanaSkills(hero, DOTA_R_SLOT, "spirit_warrior_ancient_vigor", "spirit_warrior_ancient_rain", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 		elseif index == 2 then
 			hero:RemoveModifierByName("modifier_spirit_warrior_passive")
-			Runes:EasySwapArcanaSkills(hero, 1, "spirit_warrior_soul_thrust", "spirit_warrior_blazing_javelin", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
+			Runes:EasySwapArcanaSkills(hero, DOTA_W_SLOT, "spirit_warrior_soul_thrust", "spirit_warrior_blazing_javelin", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 		elseif index == 3 then
-			Runes:EasySwapArcanaSkills(hero, 2, "spirit_warrior_ancient_spirit", "spirit_warrior_ancient_spirit_elite", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana3")
+			Runes:EasySwapArcanaSkills(hero, DOTA_E_SLOT, "spirit_warrior_ancient_spirit", "spirit_warrior_ancient_spirit_elite", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana3")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_legion_commander" then
 		if index == 1 then
 			hero:RemoveModifierByName("modifier_mountain_protector_mountain_guardian")
-			Runes:EasySwapArcanaSkills(hero, 1, "mountain_protector_mountain_guardian", "mountain_protector_steelforge_stance", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+			Runes:EasySwapArcanaSkills(hero, DOTA_W_SLOT, "mountain_protector_mountain_guardian", "mountain_protector_steelforge_stance", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 		elseif index == 2 then
 			-- Events:ColorWearables(hero, Vector(0, 0, 255))
 			Runes:EasySwapArcanaSkills(hero, DOTA_R_SLOT, "mountain_protector_aeon_fracture", "mountain_protector_hailstorm", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 		elseif index == 3 then
-			Runes:EasySwapArcanaSkills(hero, 2, "mountain_protector_emberstone", "mountain_protector_rockfall", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana3")
+			Runes:EasySwapArcanaSkills(hero, DOTA_E_SLOT, "mountain_protector_emberstone", "mountain_protector_rockfall", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana3")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_zuus" then
 		if index == 1 then
-			Runes:EasySwapArcanaSkills(hero, 0, "heavens_shield", "auriun_aoe_shield", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+			Runes:EasySwapArcanaSkills(hero, DOTA_Q_SLOT, "heavens_shield", "auriun_aoe_shield", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 		elseif index == 2 then
-			Runes:EasySwapArcanaSkills(hero, 0, "heavens_shield", "auriun_shadow_trap", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
+			Runes:EasySwapArcanaSkills(hero, DOTA_Q_SLOT, "heavens_shield", "auriun_shadow_trap", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_necrolyte" then
 		if index == 1 then
@@ -1004,7 +1004,7 @@ function Runes:EquipArcana(hero, index)
 			if hero:FindAbilityByName("chernobog_shadow_hunt"):GetToggleState() then
 				hero:FindAbilityByName("chernobog_shadow_hunt"):ToggleAbility()
 			end
-			Runes:EasySwapArcanaSkills(hero, 2, "chernobog_shadow_hunt", "chernobog_demon_flight", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
+			Runes:EasySwapArcanaSkills(hero, DOTA_E_SLOT, "chernobog_shadow_hunt", "chernobog_demon_flight", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 			if hero:HasModifier("modifier_chernobog_demon_form") then
 				CustomAbilities:AddAndOrSwapSkill(hero, "chernobog_demon_flight", "chernobog_demon_walk", 2)
 			end
@@ -1017,27 +1017,27 @@ function Runes:EquipArcana(hero, index)
 					local azure_leap = hero:FindAbilityByName("voltex_azure_leap")
 					azure_leap:SetLevel(heavensCharge:GetLevel())
 					hero:SwapAbilities("voltex_rune_e_3_heavens_charge", "voltex_azure_leap", false, true)
-					azure_leap:SetAbilityIndex(2)
+					azure_leap:SetAbilityIndex(DOTA_E_SLOT)
 					hero:RemoveAbility("voltex_rune_e_3_heavens_charge")
 				else
 					hero:RemoveAbility("voltex_rune_e_3_heavens_charge")
 				end
 			end
-			Runes:EasySwapArcanaSkills(hero, 2, "voltex_azure_leap", "voltex_lightning_dash", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+			Runes:EasySwapArcanaSkills(hero, DOTA_E_SLOT, "voltex_azure_leap", "voltex_lightning_dash", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 		elseif index == 2 then
-			Runes:EasySwapArcanaSkills(hero, 0, "voltex_overcharge", "voltex_magnet", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
+			Runes:EasySwapArcanaSkills(hero, DOTA_Q_SLOT, "voltex_overcharge", "voltex_magnet", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_omniknight" then
 		if index == 1 then
 			hero:RemoveModifierByName("modifier_paladin_c_b_passive")
-			Runes:EasySwapArcanaSkills(hero, 1, "justice_overwhelming", "paladin_penance", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+			Runes:EasySwapArcanaSkills(hero, DOTA_W_SLOT, "justice_overwhelming", "paladin_penance", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 		elseif index == 2 then
 			hero:RemoveModifierByName("modifier_paladin_rune_e_2")
 			hero:RemoveModifierByName("modifier_paladin_rune_e_2_damage")		
 			hero:RemoveModifierByName("modifier_paladin_rune_e_1_revivable")
 			hero:RemoveModifierByName("modifier_paladin_rune_e_1_reviving")
 			hero:RemoveModifierByName("modifier_paladin_rune_e_1_revive_cooldown")
-			Runes:EasySwapArcanaSkills(hero, 2, "crusader_dash", "paladin_crusader_comet", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
+			Runes:EasySwapArcanaSkills(hero, DOTA_E_SLOT, "crusader_dash", "paladin_crusader_comet", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_crystal_maiden" then
 		if index == 1 then
@@ -1069,12 +1069,12 @@ function Runes:EquipArcana(hero, index)
 				end
 				hero:RemoveModifierByName("modifier_ice_lance_passive")
 			end
-			Runes:EasySwapArcanaSkills(hero, 0, "blizzard", "sorceress_fire_arcana_q", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
+			Runes:EasySwapArcanaSkills(hero, DOTA_Q_SLOT, "blizzard", "sorceress_fire_arcana_q", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_obsidian_destroyer" then
 		hero:RemoveModifierByName("modifier_epoch_q_passive")
 		if index == 1 then
-			Runes:EasySwapArcanaSkills(hero, 0, "epoch_time_binder", "epoch_temporal_grip", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+			Runes:EasySwapArcanaSkills(hero, DOTA_Q_SLOT, "epoch_time_binder", "epoch_temporal_grip", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_axe" then
 		if index == 1 then
@@ -1083,7 +1083,7 @@ function Runes:EquipArcana(hero, index)
 			hero:RemoveModifierByName("modifier_axe_rune_r_4_invisible")
 			Runes:EasySwapArcanaSkills(hero, DOTA_R_SLOT, "red_general_ability_base_r_sunder", "red_general_ability_arcana1_r_tectonic_sunder", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 		elseif index == 2 then
-			Runes:EasySwapArcanaSkills(hero, 1, "red_general_ability_base_w_backshock", "red_general_ability_arcana2_w_stonewall", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
+			Runes:EasySwapArcanaSkills(hero, DOTA_W_SLOT, "red_general_ability_base_w_backshock", "red_general_ability_arcana2_w_stonewall", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_beastmaster" then
 		if index == 1 then
@@ -1108,7 +1108,7 @@ function Runes:EquipArcana(hero, index)
 					hero:RemoveAbility(ability_name)
 				end
 			end
-			Runes:EasySwapArcanaSkills(hero, 0, abilityCheck:GetAbilityName(), new_ability_name, HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
+			Runes:EasySwapArcanaSkills(hero, DOTA_Q_SLOT, abilityCheck:GetAbilityName(), new_ability_name, HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_visage" then
 		if index == 1 then
@@ -1118,26 +1118,26 @@ function Runes:EquipArcana(hero, index)
 					dominionAbility.dominionTable[1]:ForceKill(false)
 				end
 			end
-			Runes:EasySwapArcanaSkills(hero, 0, "ekkan_dominion", "ekkan_arcana_black_dominion", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+			Runes:EasySwapArcanaSkills(hero, DOTA_Q_SLOT, "ekkan_dominion", "ekkan_arcana_black_dominion", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 		elseif index == 2 then
 			hero:RemoveModifierByName("modifier_ekkan_passive_aura")
-			Runes:EasySwapArcanaSkills(hero, 1, "ekkan_summon_skeleton", "ekkan_arcana2_plague_bearer", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2a")
+			Runes:EasySwapArcanaSkills(hero, DOTA_W_SLOT, "ekkan_summon_skeleton", "ekkan_arcana2_plague_bearer", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2a")
 		elseif index == 3 then
 			hero:RemoveModifierByName("modifier_ekkan_passive_aura")
-			Runes:EasySwapArcanaSkills(hero, 1, "ekkan_summon_skeleton", "ekkan_arcana2_frost_wraith", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2b")
+			Runes:EasySwapArcanaSkills(hero, DOTA_W_SLOT, "ekkan_summon_skeleton", "ekkan_arcana2_frost_wraith", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2b")
 		elseif index == 4 then
 			hero:RemoveModifierByName("modifier_ekkan_passive_aura")
-			Runes:EasySwapArcanaSkills(hero, 1, "ekkan_summon_skeleton", "ekkan_arcana2_burning_legionnaire", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2c")
+			Runes:EasySwapArcanaSkills(hero, DOTA_W_SLOT, "ekkan_summon_skeleton", "ekkan_arcana2_burning_legionnaire", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2c")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_antimage" then
 		if index == 1 then
-			Runes:EasySwapArcanaSkills(hero, 0, "arkimus_dimension_coil", "arkimus_magnetic_flux", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+			Runes:EasySwapArcanaSkills(hero, DOTA_Q_SLOT, "arkimus_dimension_coil", "arkimus_magnetic_flux", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 		elseif index == 2 then
 			Runes:EasySwapArcanaSkills(hero, DOTA_R_SLOT, "arkimus_energy_field", "arkimus_archon_form", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_dark_seer" then
 		if index == 1 then
-			Runes:EasySwapArcanaSkills(hero, 2, "zonik_lightspeed", "zhonik_temporal_field", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+			Runes:EasySwapArcanaSkills(hero, DOTA_E_SLOT, "zonik_lightspeed", "zhonik_temporal_field", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 		elseif index == 2 then
 			hero:RemoveModifierByName("modifier_speedball_b_d_mana_regen")
 			hero:RemoveModifierByName("modifier_speedball_b_d_regen")
@@ -1146,7 +1146,7 @@ function Runes:EquipArcana(hero, index)
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_slardar" then
 		if index == 1 then
-			Runes:EasySwapArcanaSkills(hero, 1, "hydroxis_water_blade", "hydroxis_arcana_ability_1", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+			Runes:EasySwapArcanaSkills(hero, DOTA_W_SLOT, "hydroxis_water_blade", "hydroxis_arcana_ability_1", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 		elseif index == 2 then
 			Runes:EasySwapArcanaSkills(hero, DOTA_R_SLOT, "hydroxis_tsunami", "hydroxis_spellbound_flood_basin", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 		end
@@ -1154,7 +1154,7 @@ function Runes:EquipArcana(hero, index)
 		if index == 1 then
 			local q_ability = hero:GetAbilityByIndex(DOTA_Q_SLOT)
 			hero:RemoveModifierByName(q_ability:GetIntrinsicModifierName())
-			Runes:EasySwapArcanaSkills(hero, 0, q_ability:GetAbilityName(), q_ability:GetArcana1AbilityName(), HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+			Runes:EasySwapArcanaSkills(hero, DOTA_Q_SLOT, q_ability:GetAbilityName(), q_ability:GetArcana1AbilityName(), HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 		elseif index == 2 then
 			local r_ability = hero:GetAbilityByIndex(DOTA_R_SLOT)
 			hero:RemoveModifierByName(r_ability:GetIntrinsicModifierName())
@@ -1163,7 +1163,7 @@ function Runes:EquipArcana(hero, index)
 			local w_ability = hero:GetAbilityByIndex(DOTA_W_SLOT)
 			hero:RemoveModifierByName(w_ability:GetIntrinsicModifierName())
 			w_ability:OnArcanaAbilitySwap()
-			Runes:EasySwapArcanaSkills(hero, 1, w_ability:GetAbilityName(), w_ability:GetArcana3AbilityName(), HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana3")
+			Runes:EasySwapArcanaSkills(hero, DOTA_W_SLOT, w_ability:GetAbilityName(), w_ability:GetArcana3AbilityName(), HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana3")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_monkey_king" then
 		if index == 1 then
@@ -1190,11 +1190,11 @@ function Runes:EquipArcana(hero, index)
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_skywrath_mage" then
 		if index == 1 then
-			Runes:EasySwapArcanaSkills(hero, 1, "piercing_gale", "icewind_gale", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+			Runes:EasySwapArcanaSkills(hero, DOTA_W_SLOT, "piercing_gale", "icewind_gale", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 			hero:RemoveModifierByName("modifier_sephyr_gale_passive")
 		elseif index == 2 then
 			hero:RemoveModifierByName("modifier_sephyr_passive")
-			Runes:EasySwapArcanaSkills(hero, 0, "sephyr_lightbomb", "sephyr_hurricane", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
+			Runes:EasySwapArcanaSkills(hero, DOTA_Q_SLOT, "sephyr_lightbomb", "sephyr_hurricane", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_winter_wyvern" then
 		if index == 1 then
@@ -1204,7 +1204,7 @@ function Runes:EquipArcana(hero, index)
 				UTIL_Remove(oldAbility.ring)
 				oldAbility.ring = false
 			end
-			Runes:EasySwapArcanaSkills(hero, 1, "dinath_drake_ring", "dinath_dragon_fire", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+			Runes:EasySwapArcanaSkills(hero, DOTA_W_SLOT, "dinath_drake_ring", "dinath_dragon_fire", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 			hero:RemoveModifierByName("modifier_drake_ring_passive")
 		elseif index == 2 then
 			local hyperbeam = hero:FindAbilityByName("dinath_hyper_beam")
@@ -1247,7 +1247,7 @@ function Runes:EquipArcana(hero, index)
 					hero:RemoveAbility(ability_name)
 				end
 			end
-			Runes:EasySwapArcanaSkills(hero, 1, "jex_base_cannon_lightning", "jex_base_cannon_fire", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+			Runes:EasySwapArcanaSkills(hero, DOTA_W_SLOT, "jex_base_cannon_lightning", "jex_base_cannon_fire", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 				
 		end
 		
@@ -1278,7 +1278,7 @@ function Runes:EquipArcana(hero, index)
 			hero:RemoveModifierByName("modifier_slipfinn_b_c_health_regen")
 			hero:RemoveModifierByName("modifier_slipfinn_shadow_rush_passive")
 			hero:RemoveAbility("slipfinn_shadow_warp")
-			Runes:EasySwapArcanaSkills(hero, 2, "slipfinn_shadow_rush", "slipfinn_bog_roller", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+			Runes:EasySwapArcanaSkills(hero, DOTA_E_SLOT, "slipfinn_shadow_rush", "slipfinn_bog_roller", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_grimstroke" then
 		if index == 1 then
@@ -1303,7 +1303,7 @@ function Runes:EquipArcana(hero, index)
 					hero:RemoveAbility("rubilash_paint_splatter_"..other_colors[i])
 				end
 			end
-			Runes:EasySwapArcanaSkills(hero, 2, "rubilash_paint_splatter_red", "rubilash_paint_splatter_white", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+			Runes:EasySwapArcanaSkills(hero, DOTA_E_SLOT, "rubilash_paint_splatter_red", "rubilash_paint_splatter_white", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 			CustomAbilities:AddAndOrSwapSkill(hero, "rubilash_phantom_brush_red", "rubilash_phantom_brush_white", DOTA_Q_SLOT)
 			CustomAbilities:AddAndOrSwapSkill(hero, "rubilash_ink_blot_red", "rubilash_ink_blot_white", DOTA_W_SLOT)
 		end

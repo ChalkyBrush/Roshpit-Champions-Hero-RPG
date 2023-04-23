@@ -457,7 +457,7 @@ function crow_think(event)
 		if caster:GetMana() < manaDrain then
 			monkey_form(event)
 		else
-			caster:ReduceMana(manaDrain)
+			caster:Script_ReduceMana(manaDrain, nil)
 		end
 	end
 

@@ -183,7 +183,7 @@ function hell_bandit_attack(event)
 	local mana_burn_percent = event.mana_burn_percent
 	local manaBurn = math.min(target:GetMaxMana() * mana_burn_percent / 100, target:GetMana())
 	local damage = manaBurn
-	target:ReduceMana(manaBurn)
+	target:Script_ReduceMana(manaBurn, nil)
 	ApplyDamage({victim = target, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability})
 	local pfx = ParticleManager:CreateParticle("particles/roshpit/redfall/prism_strike.vpcf", PATTACH_CUSTOMORIGIN, target)
 	ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
@@ -4208,7 +4208,7 @@ function elthezun_projectile_hit(event)
 	local mana_drain = event.mana_drain
 	EmitSoundOn("Redfall.Elthezun.ProjectileHit", target)
 	ApplyDamage({victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability})
-	target:ReduceMana(mana_drain)
+	target:Script_ReduceMana(mana_drain, nil)
 end
 
 function elthezun_die(event)

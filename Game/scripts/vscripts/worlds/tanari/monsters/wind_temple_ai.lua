@@ -1259,7 +1259,7 @@ function wind_prophet_take_damage(event)
 	local mana_drain_percent = event.mana_drain / 100
 	local mana_drain = math.max(mana_drain_percent * attacker:GetMaxMana(), 0)
 	local ability = event.ability
-	attacker:ReduceMana(mana_drain)
+	attacker:Script_ReduceMana(mana_drain, nil)
 	local particleName = "particles/econ/items/pugna/pugna_ward_ti5/wind_prophet_shield.vpcf"
 	local pfx = ParticleManager:CreateParticle(particleName, PATTACH_POINT, attacker)
 	ParticleManager:SetParticleControlEnt(pfx, 0, unit, PATTACH_POINT, "attach_hitloc", unit:GetAbsOrigin(), true)

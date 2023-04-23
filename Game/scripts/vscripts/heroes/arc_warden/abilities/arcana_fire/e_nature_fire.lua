@@ -72,7 +72,7 @@ function jex_cinderbark_base_thinking(event)
 		if caster:GetMana() < target.manaDrain then
 			target:ForceKill(false)
 		end
-		caster:ReduceMana(target.manaDrain)
+		caster:Script_ReduceMana(target.manaDrain, nil)
 	end
 end
 

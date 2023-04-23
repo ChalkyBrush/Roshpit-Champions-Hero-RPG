@@ -152,7 +152,7 @@ function summon_water_elemental(caster, origin, totalLevel, ability)
     caster.waterElemental:SetPhysicalArmorBaseValue(caster:GetPhysicalArmorValue(false))
     caster.waterElemental.e_4_level = d_c_level
   end)
-  caster:ReduceMana(totalLevel * 100 + 100)
+  caster:Script_ReduceMana(totalLevel * 100 + 100, nil)
 
 end
 

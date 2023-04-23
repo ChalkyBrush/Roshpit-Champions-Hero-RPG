@@ -132,7 +132,7 @@ function dash_think(event)
 			local tickManaDrain = caster:GetMaxMana() * event.mana_drain_per_second * 0.09 / 100
 
 			if caster:GetMana() > tickManaDrain then
-				caster:ReduceMana(tickManaDrain)
+				caster:Script_ReduceMana(tickManaDrain, nil)
 			else
 				caster:RemoveModifierByName("modifier_bahamut_sphere_of_divinity")
 			end

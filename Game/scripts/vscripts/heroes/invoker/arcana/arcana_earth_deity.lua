@@ -35,7 +35,7 @@ function earth_deity(event)
 	local earthquake = caster:FindAbilityByName("arcana_earth_shock")
 	if not earthquake then
 		earthquake = caster:AddAbility("arcana_earth_shock")
-		earthquake:SetAbilityIndex(0)
+		earthquake:SetAbilityIndex(DOTA_Q_SLOT)
 	end
 	earthquake:SetLevel(ability:GetLevel())
 	if caster:HasModifier("modifier_conjuror_immortal_weapon_3") then
@@ -116,7 +116,7 @@ function earth_deity_sandstorm_thinking(event)
 	if caster:GetMana() < manaCost then
 		ability:ToggleAbility()
 	else
-		caster:ReduceMana(manaCost)
+		caster:Script_ReduceMana(manaCost, nil)
 	end
 	if ability.sandPFX then
 		ParticleManager:SetParticleControl(ability.sandPFX, 0, caster:GetAbsOrigin())

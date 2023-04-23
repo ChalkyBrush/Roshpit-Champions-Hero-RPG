@@ -594,7 +594,7 @@ function mana_null_attack_land(event)
 		end) 	
 	end
 	local burnDamage = math.min(target:GetMana(), mana_burn)*10
-	target:ReduceMana(mana_burn)
+	target:Script_ReduceMana(mana_burn, nil)
 	ApplyDamage({ victim = target, attacker = caster, damage = burnDamage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })
 end
 

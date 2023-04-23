@@ -135,7 +135,7 @@ function wandering_mage_mana_leak_think(event)
 	target.manaLeakdistanceMoved = target.manaLeakdistanceMoved + distance
 	if target.manaLeakdistanceMoved > 80 then
 		for i = 1, target.manaLeakdistanceMoved/80, 1 do
-			target:ReduceMana(target:GetMaxMana()*0.03)
+			target:Script_ReduceMana(target:GetMaxMana()*0.03, nil)
 			local particleName = "particles/units/heroes/hero_keeper_of_the_light/keeper_mana_leak_impact_bits.vpcf"
 			local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, target )
 			ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
@@ -353,7 +353,7 @@ function blighted_sapling_photosynthesis_think(event)
 	local manaSteal = math.floor(target:GetMaxMana()*0.04)
 	if caster:IsAlive() then
 		local heal = math.floor(math.min(manaSteal, target:GetMana()))
-		target:ReduceMana(manaSteal)
+		target:Script_ReduceMana(manaSteal, nil)
 		caster:Heal(heal, caster)
 		if heal > 0 then
 			PopupHealing(caster, heal)

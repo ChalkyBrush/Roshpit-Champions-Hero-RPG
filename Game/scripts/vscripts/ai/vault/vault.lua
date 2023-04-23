@@ -535,7 +535,7 @@ function majinaq_projectile_hit(event)
 	local damage = Events:GetAdjustedAbilityDamage(3000, 30000, 0)
 	EmitSoundOn("Hero_Silencer.LastWord.Damage", caster)
 	ApplyDamage({victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL})
-	target:ReduceMana(400)
+	target:Script_ReduceMana(400, nil)
 end
 
 function findEmptyDialogSlot()

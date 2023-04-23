@@ -376,7 +376,7 @@ function CustomAbilities:ChernobogDemonHunter(victim, damage)
 	if damage > victim:GetMaxHealth() * threshold then
 		damage = victim:GetMaxHealth() * threshold
 		local manaDrain = ability:GetSpecialValueFor("mana_drain_when_threshold_used")
-		victim:ReduceMana(manaDrain)
+		victim:Script_ReduceMana(manaDrain, nil)
 		CustomAbilities:ChernobogDemonHunterManaReduced(victim)
 		CustomAbilities:QuickAttachParticle("particles/econ/items/nightstalker/nightstalker_black_nihility/nightstalker_black_nihility_void_hit_body_flash.vpcf", victim, 2)
 	end

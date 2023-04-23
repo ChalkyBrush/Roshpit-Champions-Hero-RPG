@@ -398,7 +398,7 @@ function modifier_epoch_q_passive:OnAttackStart(event)
     	if mana_pct >= mana_drain_pct then
     		caster:SetModifierStackCount("modifier_epoch_q_passive", caster, 1)
     		local mana_drain = caster:GetMaxMana()*(mana_drain_pct/100)
-    		caster:ReduceMana(mana_drain)
+    		caster:Script_ReduceMana(mana_drain, nil)
     		if not ability.q_1_attacks then
     			ability.q_1_attacks = {}
     		end

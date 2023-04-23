@@ -68,7 +68,7 @@ function modifierClass:OnIntervalThink()
         manaDrain = caster:GetMana()
     end
     self:GetAbility().damage = manaDrain * ARCANE_CASCADE_DAMAGE
-    caster:ReduceMana(manaDrain)
+    caster:Script_ReduceMana(manaDrain, nil)
 end
 
 function modifierClass:IsHidden()

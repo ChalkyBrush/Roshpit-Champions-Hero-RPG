@@ -73,7 +73,7 @@ function modifierClass:OnCastWAbility()
     local ability = caster:GetAbilityByIndex(DOTA_W_SLOT)
     if not ability.BaseClass then
         local extraManaCost  = ability:GetManaCost(-1) * self:GetRoshpitWPctManaCostModifier()
-        caster:ReduceMana(extraManaCost)
+        caster:Script_ReduceMana(extraManaCost, nil)
     end
 end
 

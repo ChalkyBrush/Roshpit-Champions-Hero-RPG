@@ -311,7 +311,7 @@ function c_b_mana(ability, caster)
 		if caster:GetMana() < manaDrain then
 			manaDrain = caster:GetMana()
 		end
-		caster:ReduceMana(manaDrain)
+		caster:Script_ReduceMana(manaDrain, nil)
 		local damageBonus = (manaDrain / 100) * 150 * ability.w_3_level
 		return damageBonus
 	else

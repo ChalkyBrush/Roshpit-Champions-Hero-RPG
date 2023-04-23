@@ -111,7 +111,7 @@ function bat_attack_land(event)
 	local ability = event.ability
 	local manaDrainMult = event.mana_drain_percent / 100
 	local manaDrain = math.min(target:GetMana(), target:GetMaxMana() * manaDrainMult)
-	target:ReduceMana(manaDrain)
+	target:Script_ReduceMana(manaDrain, nil)
 	ApplyDamage({victim = target, attacker = caster, damage = manaDrain, damage_type = DAMAGE_TYPE_PURE, ability = ability})
 	CustomAbilities:QuickAttachParticle("particles/generic_gameplay/generic_manaburn.vpcf", target, 1)
 end

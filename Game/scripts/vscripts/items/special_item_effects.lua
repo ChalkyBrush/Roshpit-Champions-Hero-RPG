@@ -491,7 +491,7 @@ function emerald_douli_damage(event)
 	local manaDamage = math.floor(damage * EMERALD_DOULI_MANA_DAMAGE/100)
 	if target:GetMana() > manaDamage then
 		target:Heal(manaDamage, target)
-		target:ReduceMana(math.floor(manaDamage / 15))
+		target:Script_ReduceMana(math.floor(manaDamage / 15), nil)
 	end
 end
 
@@ -1901,7 +1901,7 @@ function arcanys_slipper_think(event)
 		manaDrain = target:GetMana()
 	end
 	local damageIncrease = manaDrain * ITEM_RPC_ARCANYS_SLIPPER_BASE_ATTACK_FOR_MANA_DRAIN/100
-	target:ReduceMana(manaDrain)
+	target:Script_ReduceMana(manaDrain, nil)
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_arcanys_slipper_buff", {duration = ITEM_RPC_ARCANYS_SLIPPER_BUFF_DURATION})
 	local currentStacks = target:GetModifierStackCount("modifier_arcanys_slipper_buff", caster)
 	target:SetModifierStackCount("modifier_arcanys_slipper_buff", caster, damageIncrease + currentStacks)
@@ -2486,7 +2486,7 @@ function ocean_tempest_think(event)
 	end
 	local manaDrain = math.min(target:GetMaxMana() * (ability.total_mana_drain_pct/total_ticks)/100, target:GetMana())
 	manaDrain = math.floor(manaDrain)
-	target:ReduceMana(manaDrain)
+	target:Script_ReduceMana(manaDrain, nil)
 	PopupLoseMana(target, manaDrain)
 	ability.total_mana_drained = ability.total_mana_drained + manaDrain
 
@@ -2872,7 +2872,7 @@ function cascade_hat_think(event)
 		manaDrain = caster:GetMana()
 	end
 	ability.damage = manaDrain * ARCANE_CASCADE_DAMAGE
-	caster:ReduceMana(manaDrain)
+	caster:Script_ReduceMana(manaDrain, nil)
 end
 
 function cascade_aura(event)
@@ -5987,7 +5987,7 @@ function mugato_think(event)
 		local mana_drain = 0
 		mana_drain = mana_drain + ability:GetFinalGemPropertyValue("sapphire", MUGATO_SAPPHIRE1) + ability:GetFinalGemPropertyValue("amethyst", MUGATO_AMETHYST1)
 		if mana_drain > 0 then
-			hero:ReduceMana(mana_drain)
+			hero:Script_ReduceMana(mana_drain, nil)
 		end
 	end
 end
@@ -7382,7 +7382,7 @@ function wraith_crown_think(event)
 
 	local mana_drain_pct = math.max(WRAITH_CROWN_ETHEREAL_MANA_DRAIN_PCT - ability:GetFinalGemPropertyValue("ruby", WRAITH_CROWN_RUBY), 0)
 	local mana_drain = hero:GetMaxMana()*(mana_drain_pct/100)
-	hero:ReduceMana(mana_drain)
+	hero:Script_ReduceMana(mana_drain, nil)
 end
 
 function wraith_crown_amethyst_start(event)
@@ -8677,7 +8677,7 @@ function depth_demon_sapphire_attack_land(event)
 	local hero = caster.hero
 	local ability = event.ability
 	local mana_drain = hero:GetMaxMana()*(ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_DEPTH_DEMON_CLAW_GEM_SAPPHIRE2))/100
-	hero:ReduceMana(mana_drain)
+	hero:Script_ReduceMana(mana_drain, nil)
 end
 
 function depth_demon_amethyst_take_damage(event)

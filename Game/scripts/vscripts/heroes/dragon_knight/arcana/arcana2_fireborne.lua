@@ -231,7 +231,7 @@ function modifier_flamewaker_arcana_fireborne:OnIntervalThink()
 				ability.interval = 0
 			end
 			if caster:GetMana() > mana_drain then
-				caster:ReduceMana(mana_drain)
+				caster:Script_ReduceMana(mana_drain, nil)
 			else
 				ability:ToggleAbility()
 			end

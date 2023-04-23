@@ -21,7 +21,7 @@ function cast(event)
 
     if caster:HasModifier("modifier_sorceress_glyph_7_2") then
         damage = damage * SORCERESS_GLYPH_7_2_DAMAGE_AMPLIFY
-        caster:ReduceMana(caster:GetMaxMana() * SORCERESS_GLYPH_7_2_MANA_DRAIN_PERCENT / 100)
+        caster:Script_ReduceMana(caster:GetMaxMana() * SORCERESS_GLYPH_7_2_MANA_DRAIN_PERCENT / 100, nil)
     end
 
     ability.damage = damage

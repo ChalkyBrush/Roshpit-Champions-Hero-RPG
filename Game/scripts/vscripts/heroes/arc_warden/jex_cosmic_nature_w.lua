@@ -107,5 +107,5 @@ function modifier_jex_cosmic_nature_w:OnIntervalThink()
 	if mana_usage > caster:GetMana() then
 		ability:ToggleAbility()
 	end
-	caster:ReduceMana(mana_usage)
+	caster:Script_ReduceMana(mana_usage, nil)
 end

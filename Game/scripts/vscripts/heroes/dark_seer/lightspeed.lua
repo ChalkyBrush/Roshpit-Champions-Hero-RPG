@@ -78,7 +78,7 @@ function lightspeed_think(event)
 				DistanceMult = 0
 			end
 			manaDrain = manaDrain * DistanceMult
-			caster:ReduceMana(manaDrain)
+			caster:Script_ReduceMana(manaDrain, nil)
 			if caster:GetMana() < 1 then
 				caster:RemoveModifierByName("modifier_zhonik_lightspeed")
 			end

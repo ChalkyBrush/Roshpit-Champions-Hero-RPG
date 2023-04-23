@@ -754,7 +754,7 @@ function OmniroOmniMaceBasicHit(caster, ability, target)
 		end
 	elseif caster.active_element == RPC_ELEMENT_ARCANE then
 		local manaDrain = math.min(caster:GetMana(), caster:GetMaxMana() * (OMNIRO_ARCANE_MANA_DRAIN_PERCENTAGE / 100))
-		caster:ReduceMana(manaDrain)
+		caster:Script_ReduceMana(manaDrain, nil)
 		local arcane_damage = OMNIRO_MACE_ARCANE_DMG_PER_MANA[ability:GetLevel()] * manaDrain * caster.omniro_data[RPC_ELEMENT_ARCANE]["level"]
 		Filters:TakeArgumentsAndApplyDamage(target, caster, arcane_damage, mace_hit_data["damage_type"], BASE_ABILITY_Q, RPC_ELEMENT_ARCANE, RPC_ELEMENT_NONE)
 		return arcane_damage

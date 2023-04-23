@@ -146,7 +146,7 @@ function arcane_torrent_channel_think(event)
 	end
 	local manaDrain = math.min(caster:GetMaxMana() * manaDrainPercent, caster:GetMana())
 	manaDrain = math.floor(manaDrain)
-	caster:ReduceMana(manaDrain)
+	caster:Script_ReduceMana(manaDrain, nil)
 	ability.damage = ability.base_damage + (manaDrain / 100) * 0.003 * ability.w_4_level * ability.base_damage
 
 	projectile = ProjectileManager:CreateTrackingProjectile(info)
@@ -159,7 +159,7 @@ function arcane_torrent_channel_think(event)
 		local manaDrain = 0
 		if currentStacks < 3 then
 			manaDrain = caster:GetMaxMana() * 0.1 * addedStacks
-			caster:ReduceMana(manaDrain)
+			caster:Script_ReduceMana(manaDrain, nil)
 		end
 		local blinkAbility = caster:FindAbilityByName("sorceress_blink")
 		blinkAbility.w_4_amp = ((caster:GetMaxMana() * 0.1) / 100) * SORCERESS_D_B_FACTOR * w_4_level

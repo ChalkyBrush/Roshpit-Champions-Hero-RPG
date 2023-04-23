@@ -54,7 +54,7 @@ function spire_on_mana_drain(event)
 	if caster:GetMana() < mana_spend then
 		ability:ToggleAbility()
 	end
-	caster:ReduceMana(mana_spend)
+	caster:Script_ReduceMana(mana_spend, nil)
 end
 
 function spire_breath_attack_land(event)

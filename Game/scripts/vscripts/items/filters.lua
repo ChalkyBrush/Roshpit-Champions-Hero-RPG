@@ -922,17 +922,17 @@ function Filters:CastSkillArguments(slot, caster)
     end
     if caster:HasModifier("modifier_depth_demon_claw_sapphire") then
         local mana_drain = caster:GetMaxMana()*(caster.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_DEPTH_DEMON_CLAW_GEM_SAPPHIRE3))/100
-        caster:ReduceMana(mana_drain)
+        caster:Script_ReduceMana(mana_drain, nil)
     end
     if caster:HasModifier("modifier_mana_striders") then
         if caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetGemValue("amethyst") > 0 then
             local manaDrain = caster:GetMaxMana()*caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_MANA_STRIDERS_GEM_AMETHYST2)/100
-            caster:ReduceMana(manaDrain)
+            caster:Script_ReduceMana(manaDrain, nil)
         end
     end
     if caster:HasModifier("modifier_antique_mana_relic") then
         local mana_drain = ITEM_RPC_ANTIQUE_MANA_RELIC_MANA_DRAIN - caster.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_ANTIQUE_MANA_RELIC_GEM_AMETHYST)
-        caster:ReduceMana(caster:GetMaxMana() * mana_drain/100)
+        caster:Script_ReduceMana(caster:GetMaxMana() * mana_drain/100, nil)
         CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_keeper_of_the_light/keeper_mana_leak.vpcf", caster, 2)
     end
     Events:TutorialServerEvent(caster, "2_1", 1)
@@ -1210,7 +1210,7 @@ function Filters:ApplyQskills(caster)
                 end
                 avatar.origCaster = caster
                 avatar:AddAbility("normal_steadfast"):SetLevel(GameState:GetDifficultyFactor())
-                caster:ReduceMana(caster:GetMaxMana() * 0.5)
+                caster:Script_ReduceMana(caster:GetMaxMana() * 0.5, nil)
             end
         end
     end
@@ -1561,7 +1561,7 @@ function Filters:ApplyRskills(caster)
                 end
                 avatar.origCaster = caster
                 avatar:AddAbility("normal_steadfast"):SetLevel(GameState:GetDifficultyFactor())
-                caster:ReduceMana(caster:GetMaxMana() * 0.5)
+                caster:Script_ReduceMana(caster:GetMaxMana() * 0.5, nil)
             end
         end
     end
@@ -3036,7 +3036,7 @@ function Filters:SeraphicVest(caster, ability_slot)
                 projectile_count = 2
             end
             local mana_drain = caster:GetMaxMana() * ITEM_RPC_SERAPHIC_SOULVEST_MANA_COST_PCT/100
-            caster:ReduceMana(mana_drain)
+            caster:Script_ReduceMana(mana_drain, nil)
         elseif ability_slot == BASE_ABILITY_R then
             EmitSoundOn("RPCItem.Seraphic.Amethyst", caster)
             projectile_count = soul_vest:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SERAPHIC_SOULVEST_GEM_AMETHYST)
@@ -3138,7 +3138,7 @@ function Filters:WhiteMageHat(caster)
     local healAmount = caster:GetIntellect() * WHITE_MAGE_INT_TO_HEAL + caster:GetSpirit() * ability:GetFinalGemPropertyValue("amethyst", WHITE_MAGE_AMETHYST) 
     local inventoryUnit = caster.InventoryUnit
     local mana_drain = caster:GetMaxMana()*(WHITE_MAGE_EXTRA_MANA_COST_PCT_MAX/100)
-    caster:ReduceMana(mana_drain)
+    caster:Script_ReduceMana(mana_drain, nil)
     if #allies > 0 then
         for _, ally in pairs(allies) do
             ally:RemoveModifierByName("modifier_white_mage_hat_effect")
@@ -3886,10 +3886,10 @@ function Filters:EmeraldDouliHit(victim, damage)
         local normalDamage = damage * (1 - douli_damage_absorb_pct / 100)
         local availableMana = victim:GetMana()
         if availableMana > manaDamage then
-            victim:ReduceMana(manaDamage)
+            victim:Script_ReduceMana(manaDamage, nil)
             return normalDamage
         else
-            victim:ReduceMana(availableMana)
+            victim:Script_ReduceMana(availableMana, nil)
             return (manaDamage - availableMana) * dmg_absorb_per_mana + normalDamage
         end
     else
@@ -3905,7 +3905,7 @@ function Filters:SpellShieldHit(victim, damage)
         manaDamage = victim:GetMana()
         bSplice = false
     end
-    victim:ReduceMana(manaDamage)
+    victim:Script_ReduceMana(manaDamage, nil)
     if bSplice then
         return splicedDamage
     else
@@ -4450,11 +4450,11 @@ function Filters:ManawallDamageTaken(victim, damage)
     local reducedDamage = damage * damage_reduction
     local currentMana = victim:GetMana()
     if currentMana >= reducedDamage then
-        victim:ReduceMana(reducedDamage)
+        victim:Script_ReduceMana(reducedDamage, nil)
         return 0
     else
         local newDamage = reducedDamage - currentMana
-        victim:ReduceMana(currentMana)
+        victim:Script_ReduceMana(currentMana, nil)
         return math.floor(newDamage/damage_reduction)
     end
 end
@@ -4950,7 +4950,7 @@ function Filters:JexCosmicNatureW(caster)
     if mana_usage > caster:GetMana() then
         ability:ToggleAbility()
     end
-    caster:ReduceMana(mana_usage)
+    caster:Script_ReduceMana(mana_usage, nil)
 end
 
 function Filters:AlienArmor(caster)

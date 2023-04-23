@@ -1146,7 +1146,7 @@ function GameState:OrderFilter(orderTable)
 						end
 						strafe.e_4_level = e_4_level
 						local manaReduce = strafe:GetLevelSpecialValueFor("mana_percent_use", strafe:GetLevel()) / 100
-						unit:ReduceMana(unit:GetMaxMana() * manaReduce)
+						unit:Script_ReduceMana(unit:GetMaxMana() * manaReduce, nil)
 						strafe:ApplyDataDrivenModifier(unit, unit, "modifier_strafe_sprinting", {duration = 3})
 						strafe.fv = moveDirection
 						strafe.targetPoint = unit:GetAbsOrigin() + abilityDistance * moveDirection

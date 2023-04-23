@@ -93,7 +93,7 @@ function makeShot(caster, ability, w3ability, manaCost, range, minArrow, maxArro
     else
         -- StartAnimation(caster, {duration=ASTRAL_RANGER_W_DELAY-0.06, activity=ACT_DOTA_CAST_ABILITY_2, rate=1.8, translate="ti6"})
     end
-    caster:ReduceMana(manaCost)
+    caster:Script_ReduceMana(manaCost, nil)
     local event = {}
     event.ability = caster.body
     event.event_ability = ability

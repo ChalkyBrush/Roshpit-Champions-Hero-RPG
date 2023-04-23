@@ -391,7 +391,7 @@ function winter_mystic_wave_impact(event)
 			ParticleManager:DestroyParticle(pfx, false)
 		end)
 		local manaBurn = math.min(event.mana_burn, target:GetMana())
-		target:ReduceMana(manaBurn)
+		target:Script_ReduceMana(manaBurn, nil)
 		damage = damage + manaBurn
 		EmitSoundOn("Winterblight.Assassin.ManaBurn", target)
 		ApplyDamage({victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability})
@@ -1525,7 +1525,7 @@ function ice_specter_attack_land(event)
 		end)
 	end
 	local burnDamage = math.min(target:GetMana(), mana_burn)
-	target:ReduceMana(mana_burn)
+	target:Script_ReduceMana(mana_burn, nil)
 	ApplyDamage({victim = target, attacker = caster, damage = burnDamage, damage_type = DAMAGE_TYPE_PURE, ability = ability})
 end
 
@@ -1545,7 +1545,7 @@ function ice_specter_die(event)
 		if #enemies > 0 then
 			for _, enemy in pairs(enemies) do
 				local burnDamage = math.min(enemy:GetMana(), mana_burn) * 10
-				enemy:ReduceMana(mana_burn)
+				enemy:Script_ReduceMana(mana_burn, nil)
 				ApplyDamage({victim = enemy, attacker = caster, damage = burnDamage, damage_type = DAMAGE_TYPE_PURE, ability = ability})
 			end
 		end

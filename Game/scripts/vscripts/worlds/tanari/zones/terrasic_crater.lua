@@ -425,7 +425,7 @@ function Tanari:SpawnRedWarlock(position, fv)
 	stone.itemLevel = 80
 	stone:SetRenderColor(255, 120, 120)
 	Events:AdjustBossPower(stone, 2, 3)
-	stone:ReduceMana(1000)
+	stone:Script_ReduceMana(1000, nil)
 	stone.dominion = true
 	return stone
 end

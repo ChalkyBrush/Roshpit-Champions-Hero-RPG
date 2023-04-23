@@ -178,7 +178,7 @@ function modifier_shadow_hunt:OnIntervalThink()
            caster:SetHealth(math.max(currentHealth - currentHealth * CHERNOBOG_E_DRAIN_INTERVAL * hp_drain / 100, minHealth))
         end
         if currentMana > minMana then
-           caster:ReduceMana(math.min(currentMana * CHERNOBOG_E_DRAIN_INTERVAL * mp_drain / 100, currentMana - minMana))
+           caster:Script_ReduceMana(math.min(currentMana * CHERNOBOG_E_DRAIN_INTERVAL * mp_drain / 100, currentMana - minMana), nil)
         end
 	end
 	if caster:HasModifier("modifier_chernobog_glyph_1_1") then

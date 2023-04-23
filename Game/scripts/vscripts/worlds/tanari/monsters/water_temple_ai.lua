@@ -600,7 +600,7 @@ function vault_lord_mana_spill_attack(event)
 			end
 		end
 	end
-	target:ReduceMana(target:GetMaxMana() * manaDrainPercent)
+	target:Script_ReduceMana(target:GetMaxMana() * manaDrainPercent, nil)
 	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_keeper_of_the_light/keeper_mana_leak.vpcf", target, 1.2)
 	EmitSoundOn("Tanari.WaterTemple.ManaSpill", target)
 end
@@ -730,7 +730,7 @@ function blue_warlock_attack_land(event)
 		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_dazzle/dazzle_shadow_wave_impact_damage.vpcf", target, 1)
 		EmitSoundOn("Tanari.WaterTemple.BlueWarlockAttack", target)
 	end
-	caster:ReduceMana(manaDrain)
+	caster:Script_ReduceMana(manaDrain, nil)
 	local magicDamage = manaDrain * damage_per_mana
 	ApplyDamage({victim = target, attacker = attacker, damage = magicDamage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability})
 end

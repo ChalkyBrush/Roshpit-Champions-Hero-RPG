@@ -52,7 +52,7 @@ function think(event)
 
     local manaDrain = math.min(ability.manacost, caster:GetMana())
     manaDrain = math.floor(manaDrain)
-    caster:ReduceMana(manaDrain)
+    caster:Script_ReduceMana(manaDrain, nil)
 
     if caster:GetMana() < manaDrain then
         ability:ToggleAbility()
