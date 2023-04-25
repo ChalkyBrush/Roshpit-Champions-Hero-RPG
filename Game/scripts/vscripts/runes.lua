@@ -1451,34 +1451,7 @@ function Runes:UnequipArcana(hero, index)
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_leshrac" then
 		if index == 1 then
-			local origAbility = hero:GetAbilityByIndex(DOTA_R_SLOT)
-			local abilityLevel = hero:GetAbilityByIndex(DOTA_R_SLOT):GetLevel()
-			local runeLevel1 = hero.runeUnit:GetAbilityByIndex(DOTA_R_SLOT).rune_level
-			local runeLevel2 = hero.runeUnit2:GetAbilityByIndex(DOTA_R_SLOT).rune_level
-			local runeLevel3 = hero.runeUnit3:GetAbilityByIndex(DOTA_R_SLOT).rune_level
-			local runeLevel4 = hero.runeUnit4:GetAbilityByIndex(DOTA_R_SLOT).rune_level
-			hero:RemoveAbility("bahamut_arcana_ulti")
-			local newAbility = hero:AddAbility("charge_of_light")
-			newAbility:SetLevel(abilityLevel)
-			newAbility:SetAbilityIndex(DOTA_R_SLOT)
-
-			hero.runeUnit:RemoveAbility("bahamut_rune_r_1_arcana1")
-			hero.runeUnit2:RemoveAbility("bahamut_rune_r_2_arcana1")
-			hero.runeUnit3:RemoveAbility("bahamut_rune_r_3_arcana1")
-			hero.runeUnit4:RemoveAbility("bahamut_rune_r_4_arcana1")
-
-			local newRune = hero.runeUnit:AddAbility("bahamut_rune_r_1")
-			newRune.rune_level = runeLevel1
-			newRune:SetAbilityIndex(3)
-			local newRune = hero.runeUnit2:AddAbility("bahamut_rune_r_2")
-			newRune.rune_level = runeLevel2
-			newRune:SetAbilityIndex(3)
-			local newRune = hero.runeUnit3:AddAbility("bahamut_rune_r_3")
-			newRune.rune_level = runeLevel3
-			newRune:SetAbilityIndex(3)
-			local newRune = hero.runeUnit4:AddAbility("bahamut_rune_r_4")
-			newRune.rune_level = runeLevel4
-			newRune:SetAbilityIndex(3)
+			Runes:EasyRevertArcanaSkills(hero, DOTA_R_SLOT, "charge_of_light", "bahamut_arcana_ulti", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 		elseif index == 2 then
 			Runes:EasyRevertArcanaSkills(hero, 1, "leshrac_nuke", "bahamut_arcana_orb", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 			hero:RemoveModifierByName("modifier_lightning_dash")
