@@ -5213,20 +5213,9 @@
                 }
 
             }
-            "OffensiveAbilities"
-            {
-                "Ability1"                
-                {
-                    "Name"               "venomancer_poison_nova"
-                    "AOE"                "1"
-                    "Radius"             "280"
-                    "MinimumTargets"     "1"
-                }               
-            }
 
         }
 
-        "Ability1"  "venomancer_poison_nova"
         "Ability2"  "venomancer_poison_sting"
     }
 
@@ -31810,21 +31799,10 @@
                 }
 
             }
-            "OffensiveAbilities"
-            {
-                "Ability1"                
-                {
-                    "Name"               "venomancer_poison_nova"
-                    "AOE"                "1"
-                    "Radius"             "280"
-                    "MinimumTargets"     "1"
-                }               
-            }
 
         }
 
-        "Ability1"  "venomancer_poison_nova"
-        "Ability2"  "dungeon_creep"
+        "Ability1"  "dungeon_creep"
     }
 
     "wind_temple_staff"
@@ -48755,7 +48733,6 @@
         "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
         "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-        "Ability1"  "arena_temple_expolorer_poison_nova"
         "Ability2"  "arena_temple_explorer_passive"
         "Ability3"  "dark_seer_surge"
         "Ability4"  "use_ability_1_no_target_ai"
@@ -71366,8 +71343,6 @@
         "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
         "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-        "Ability1"      "arena_temple_expolorer_poison_nova"
-        "Ability2"      "use_ability_1_no_target_ai"
         "Ability3"      "amber_spider_ai"
         "Creature"
         {
@@ -79716,8 +79691,6 @@
         "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
         "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-        "Ability1"      "seafortress_dragoon_poison_nova"
-        "Ability2"      "use_ability_1_no_target_ai"
         "Ability3"      "dungeon_creep"
         "Creature"
         {

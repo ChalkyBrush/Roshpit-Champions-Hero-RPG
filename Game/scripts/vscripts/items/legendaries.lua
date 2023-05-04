@@ -3451,7 +3451,7 @@ function RPCItems:RollDiamondClawsOfTiamat(item_level)
     if luck == 1 then
 	RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "base_ability", 2)
     else
-	RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "item_damage", 2)
+	RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "item_damage", 2)
     end
 
     RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, "all_elements", 2)
