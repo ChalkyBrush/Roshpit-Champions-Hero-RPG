@@ -122,7 +122,7 @@ function aura_debuff_class:OnAttackStart(event)
     	return false
     end
 	local limitKey = hero:GetEntityIndex().."_shadowguard"
-	local max_procs_per_second = ITEM_RPC_SHADOWGUARD_HELM_MAX_PROCS_PER_SECOND + ability:GetFinalGemPropertyValue("ruby", GEM_RPC_SHADOWGUARD_HELM_RUBY2)
+	local max_procs_per_second = ITEM_RPC_SHADOWGUARD_HELM_MAX_PROCS_PER_SECOND + ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_SHADOWGUARD_HELM_RUBY2)
     Util.Common:LimitPerTime(max_procs_per_second, 1, limitKey, function()      
 		local travel_speed = ITEM_RPC_SHADOWGUARD_HELM_PROJECTILE_SPEED + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_SHADOWGUARD_HELM_EMERALD)
 		local info =

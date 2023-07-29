@@ -1,6 +1,6 @@
 #Hero_Strength_Icon{
 	/*background-image: url("s2r://panorama/images/primary_attribute_icons/primary_attribute_icon_strength_psd.vtex");*/
-	background-image: url("s2r://panorama/images/hud/reborn/mini_strength_icon_psd.vtex");
+	background-image: url("file://{images}/custom_game/ui/strength_transparent.png");
 	width:16px;
 	height:16px;
 	horizontal-align:right;
@@ -12,7 +12,7 @@
 
 #Hero_Agility_Icon{
 	/*background-image: url("s2r://panorama/images/primary_attribute_icons/primary_attribute_icon_agility_psd.vtex");*/
-	background-image: url("s2r://panorama/images/hud/reborn/mini_agi_icon_psd.vtex");
+	background-image: url("file://{images}/custom_game/ui/agility_transparent.png");
 	width:16px;
 	height:16px;
 	horizontal-align:right;
@@ -24,7 +24,7 @@
 
 #Hero_Intelligence_Icon{
 	/*background-image: url("s2r://panorama/images/primary_attribute_icons/primary_attribute_icon_intelligence_psd.vtex");*/
-	background-image: url("s2r://panorama/images/hud/reborn/mini_int_icon_psd.vtex");
+	background-image: url("file://{images}/custom_game/ui/intelligence_transparent.png");
 	width:16px;
 	height:16px;
 	horizontal-align:right;
@@ -114,6 +114,7 @@
 .hero_stats_root{
 	width:210px;
 	height:94px;
+	margin-left: 8px;
 }
 
 #unit_stats_container{
@@ -167,18 +168,22 @@
 
 #unit_attribute_armor{
 	background-image: url("s2r://panorama/images/hud/reborn/icon_armor_psd.vtex");
+	opacity: 0.2;
 }
 
 #unit_attribute_armor_pierce{
 	background-image: url("file://{images}/custom_game/ui/armor_pierce.png");
+	opacity: 0.2;
 }
 
 #unit_attribute_magic_armor{
 	background-image: url("file://{images}/custom_game/ui/magic_armor.png");
+	opacity: 0.2;
 }
 
 #unit_attribute_spell_pierce{
 	background-image: url("file://{images}/custom_game/ui/spell_pierce.png");
+	opacity: 0.2;
 }
 
 

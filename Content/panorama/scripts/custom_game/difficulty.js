@@ -48,7 +48,7 @@ function KeyReceived(msg){
 
 function ServerConfirmed(msg){
 	$('#server_status_image').SetImage("file://{images}/custom_game/ui/green-check.png")
-	$('#server_status_text').text = $.Localize("server_status_save")
+	$('#server_status_text').text = $.Localize("#server_status_save")
 	$('#server_status_text').AddClass('status_good')
 	$('#server_status_text').RemoveClass('status_bad')
 	$.Schedule(20, function(){

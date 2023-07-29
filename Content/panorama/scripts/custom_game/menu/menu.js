@@ -206,12 +206,13 @@ function CorrectDotaUI(){
 
 	// 4.0
 	parent.FindChildTraverse("Damage").style.height = "20px"
+	parent.FindChildTraverse("Damage").style.fontSize = "8px"
+	parent.FindChildTraverse("AttackSpeed").style.visibility = "collapse";
 	parent.FindChildTraverse("MoveSpeedLabelBase").style.marginBottom = "2px"
 	parent.FindChildTraverse("MoveSpeedIcon").style.marginTop = "0px"
-	parent.FindChildTraverse("MoveSpeed").style.height = "20px"
-	parent.FindChildTraverse("MoveSpeed").style.marginBottom = "4px"
 	parent.FindChildTraverse("DamageIcon").style.marginTop = "2px"
 	parent.FindChildTraverse("Armor").style.visibility = "collapse";
+	parent.FindChildTraverse("MagicResist").style.visibility = "collapse";
 	if (!(_new_attributes_initialized)){
 		_new_attributes_initialized = true
 		parent.FindChildTraverse('Strength').style.visibility = "collapse";
