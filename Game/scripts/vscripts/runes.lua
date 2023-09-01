@@ -841,34 +841,35 @@ function Runes:EquipArcana(hero, index)
 	elseif hero:GetUnitName() == "npc_dota_hero_invoker" then
 		--print("-----HELLO----")
 		if index == 1 then
-			local origAbility = hero:GetAbilityByIndex(DOTA_R_SLOT)
-			local abilityLevel = hero:GetAbilityByIndex(DOTA_R_SLOT):GetLevel()
-			local runeLevel1 = hero.runeUnit:GetAbilityByIndex(DOTA_R_SLOT).rune_level
-			local runeLevel2 = hero.runeUnit2:GetAbilityByIndex(DOTA_R_SLOT).rune_level
-			local runeLevel3 = hero.runeUnit3:GetAbilityByIndex(DOTA_R_SLOT).rune_level
-			local runeLevel4 = hero.runeUnit4:GetAbilityByIndex(DOTA_R_SLOT).rune_level
-			hero:RemoveAbility("call_of_elements")
-			local newAbility = hero:AddAbility("conjuror_elemental_deity")
-			newAbility:SetLevel(abilityLevel)
-			newAbility:SetAbilityIndex(DOTA_R_SLOT)
+      		local abilityIndex = 3
+            local origAbility = hero:GetAbilityByIndex(abilityIndex)
+            local abilityLevel = hero:GetAbilityByIndex(abilityIndex):GetLevel()
+            local runeLevel1 = hero.runeUnit:GetAbilityByIndex(abilityIndex).rune_level
+            local runeLevel2 = hero.runeUnit2:GetAbilityByIndex(abilityIndex).rune_level
+            local runeLevel3 = hero.runeUnit3:GetAbilityByIndex(abilityIndex).rune_level
+            local runeLevel4 = hero.runeUnit4:GetAbilityByIndex(abilityIndex).rune_level
+            hero:RemoveAbility("call_of_elements")
+            local newAbility = hero:AddAbility("conjuror_elemental_deity")
+            newAbility:SetLevel(abilityLevel)
+            newAbility:SetAbilityIndex(abilityIndex)
 
-			hero.runeUnit:RemoveAbility("conjuror_rune_r_1")
-			hero.runeUnit2:RemoveAbility("conjuror_rune_r_2")
-			hero.runeUnit3:RemoveAbility("conjuror_rune_r_3")
-			hero.runeUnit4:RemoveAbility("conjuror_rune_r_4")
+            hero.runeUnit:RemoveAbility("conjuror_rune_r_1")
+            hero.runeUnit2:RemoveAbility("conjuror_rune_r_2")
+            hero.runeUnit3:RemoveAbility("conjuror_rune_r_3")
+            hero.runeUnit4:RemoveAbility("conjuror_rune_r_4")
 
-			local newRune = hero.runeUnit:AddAbility("conjuror_rune_r_1_arcana1")
-			newRune.rune_level = runeLevel1
-			newRune:SetAbilityIndex(3)
-			local newRune = hero.runeUnit2:AddAbility("conjuror_rune_r_2_arcana1")
-			newRune.rune_level = runeLevel2
-			newRune:SetAbilityIndex(3)
-			local newRune = hero.runeUnit3:AddAbility("conjuror_rune_r_3_arcana1")
-			newRune.rune_level = runeLevel3
-			newRune:SetAbilityIndex(3)
-			local newRune = hero.runeUnit4:AddAbility("conjuror_rune_r_4_arcana1")
-			newRune.rune_level = runeLevel4
-			newRune:SetAbilityIndex(3)
+            local newRune = hero.runeUnit:AddAbility("conjuror_rune_r_1_arcana1")
+            newRune.rune_level = runeLevel1
+            newRune:SetAbilityIndex(abilityIndex)
+            local newRune = hero.runeUnit2:AddAbility("conjuror_rune_r_2_arcana1")
+            newRune.rune_level = runeLevel2
+            newRune:SetAbilityIndex(abilityIndex)
+            local newRune = hero.runeUnit3:AddAbility("conjuror_rune_r_3_arcana1")
+            newRune.rune_level = runeLevel3
+            newRune:SetAbilityIndex(abilityIndex)
+            local newRune = hero.runeUnit4:AddAbility("conjuror_rune_r_4_arcana1")
+            newRune.rune_level = runeLevel4
+            newRune:SetAbilityIndex(abilityIndex)
 		elseif index == 2 then
 			if hero.fireAspect then
 				if IsValidEntity(hero.fireAspect) then
@@ -1537,34 +1538,35 @@ function Runes:UnequipArcana(hero, index)
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_invoker" then
 		if index == 1 then
-			local origAbility = hero:GetAbilityByIndex(DOTA_R_SLOT)
-			local abilityLevel = hero:GetAbilityByIndex(DOTA_R_SLOT):GetLevel()
-			local runeLevel1 = hero.runeUnit:GetAbilityByIndex(DOTA_R_SLOT).rune_level
-			local runeLevel2 = hero.runeUnit2:GetAbilityByIndex(DOTA_R_SLOT).rune_level
-			local runeLevel3 = hero.runeUnit3:GetAbilityByIndex(DOTA_R_SLOT).rune_level
-			local runeLevel4 = hero.runeUnit4:GetAbilityByIndex(DOTA_R_SLOT).rune_level
-			hero:RemoveAbility("conjuror_elemental_deity")
-			local newAbility = hero:AddAbility("call_of_elements")
-			newAbility:SetLevel(abilityLevel)
-			newAbility:SetAbilityIndex(DOTA_R_SLOT)
+        	local abilityIndex = 3
+            local origAbility = hero:GetAbilityByIndex(abilityIndex)
+            local abilityLevel = hero:GetAbilityByIndex(abilityIndex):GetLevel()
+            local runeLevel1 = hero.runeUnit:GetAbilityByIndex(abilityIndex).rune_level
+            local runeLevel2 = hero.runeUnit2:GetAbilityByIndex(abilityIndex).rune_level
+            local runeLevel3 = hero.runeUnit3:GetAbilityByIndex(abilityIndex).rune_level
+            local runeLevel4 = hero.runeUnit4:GetAbilityByIndex(abilityIndex).rune_level
+            hero:RemoveAbility("conjuror_elemental_deity")
+            local newAbility = hero:AddAbility("call_of_elements")
+            newAbility:SetLevel(abilityLevel)
+            newAbility:SetAbilityIndex(abilityIndex)
 
-			hero.runeUnit:RemoveAbility("conjuror_rune_r_1_arcana1")
-			hero.runeUnit2:RemoveAbility("conjuror_rune_r_2_arcana1")
-			hero.runeUnit3:RemoveAbility("conjuror_rune_r_3_arcana1")
-			hero.runeUnit4:RemoveAbility("conjuror_rune_r_4_arcana1")
+            hero.runeUnit:RemoveAbility("conjuror_rune_r_1_arcana1")
+            hero.runeUnit2:RemoveAbility("conjuror_rune_r_2_arcana1")
+            hero.runeUnit3:RemoveAbility("conjuror_rune_r_3_arcana1")
+            hero.runeUnit4:RemoveAbility("conjuror_rune_r_4_arcana1")
 
-			local newRune = hero.runeUnit:AddAbility("conjuror_rune_r_1")
-			newRune.rune_level = runeLevel1
-			newRune:SetAbilityIndex(3)
-			local newRune = hero.runeUnit2:AddAbility("conjuror_rune_r_2")
-			newRune.rune_level = runeLevel2
-			newRune:SetAbilityIndex(3)
-			local newRune = hero.runeUnit3:AddAbility("conjuror_rune_r_3")
-			newRune.rune_level = runeLevel3
-			newRune:SetAbilityIndex(3)
-			local newRune = hero.runeUnit4:AddAbility("conjuror_rune_r_4")
-			newRune.rune_level = runeLevel4
-			newRune:SetAbilityIndex(3)
+            local newRune = hero.runeUnit:AddAbility("conjuror_rune_r_1")
+            newRune.rune_level = runeLevel1
+            newRune:SetAbilityIndex(abilityIndex)
+            local newRune = hero.runeUnit2:AddAbility("conjuror_rune_r_2")
+            newRune.rune_level = runeLevel2
+            newRune:SetAbilityIndex(abilityIndex)
+            local newRune = hero.runeUnit3:AddAbility("conjuror_rune_r_3")
+            newRune.rune_level = runeLevel3
+            newRune:SetAbilityIndex(abilityIndex)
+            local newRune = hero.runeUnit4:AddAbility("conjuror_rune_r_4")
+            newRune.rune_level = runeLevel4
+            newRune:SetAbilityIndex(abilityIndex)
 
 			if hero.deity then
 				hero.deity:ForceKill(false)
