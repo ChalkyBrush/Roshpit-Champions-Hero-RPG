@@ -2,12 +2,6 @@
 	<styles>
 		<include src="file://{resources}/styles/custom_game/error_logger.css" />
 	</styles>
-	<script>
-		const print = $.Msg
-	</script>
-	<scripts>
-		<include src="file://{resources}/scripts/custom_game/error_logger.js" />
-	</scripts>
 	<Panel class="error_logger_root" hittest="false">
 		<Panel id="logger_root">
 			<Panel id="logger">

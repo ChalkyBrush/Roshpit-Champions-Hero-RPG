@@ -1,6 +1,6 @@
 <root>
 	<styles>
-		<include src="file://{resources}/styles/dotastyles.css" />
+		
 		<include src="file://{resources}/styles/custom_game/weapons.css" />
 		<include src="file://{resources}/styles/custom_game/equipment.css" />
 		<include src="file://{resources}/styles/custom_game/shop.css" />
