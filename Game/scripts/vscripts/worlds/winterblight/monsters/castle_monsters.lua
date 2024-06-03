@@ -3729,6 +3729,10 @@ function hanging_slayer_die(event)
 		local position = caster:GetAbsOrigin()+RandomVector(RandomInt(40, 160))
 		Winterblight:GeneralChestSpawn(position, Vector(0,-1))
 	end
+	local luck = RandomInt(1, 100)
+    if luck <= 3 then
+        RPCItems:RollAndDropUniqueItem(caster, "item_rpc_hangman_slippers")
+    end
 end
 
 function water_bearer_attack_land(event)

@@ -163,7 +163,7 @@ function modifier_sephyr_hurricane_passive:OnAttackStart(event)
                 end
             end
         end
-        caster:AddNewModifier(caster, ability, "modifier_sephyr_hurricane_dont_split", {duration = 1/caster:GetAttacksPerSecond()})
+        caster:AddNewModifier(caster, ability, "modifier_sephyr_hurricane_dont_split", {duration = 1/caster:GetAttacksPerSecond(false)})
     end
 end
 

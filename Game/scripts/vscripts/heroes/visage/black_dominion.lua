@@ -40,7 +40,9 @@ function dominion_bolt_impact(event)
 	if dominion_allowed_selfcasted_units(target:GetUnitName()) then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_ekkan_dominion_debuff", {duration = debuff_duration})
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_ekkan_dominion_overhead_effect", {duration = debuff_duration})
-		target:ForceKill(false)
+		for i = 1, 10, 1 do
+			Filters:TakeArgumentsAndApplyDamage(target, caster, target:GetHealth()*100, DAMAGE_TYPE_PURE, BASE_AUTO_ATTACK, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE)
+		end
 	elseif target:GetTeamNumber() == caster:GetTeamNumber() then
 		target:ForceKill(false)
 	else

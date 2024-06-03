@@ -167,6 +167,9 @@ function CorrectDotaUI(){
 	// parent.FindChildTraverse("StatBranch").style.width = '0px';
 	// parent.FindChildTraverse("StatBranch").visible = false;
 
+	//REMOVE FACETS !!--ALERT--!! Generic ID, could break things later, Remove later if its a problem. For now this line removes Facets UI
+	var facetsContainer = parent.FindChildTraverse("AbilitiesAndStatBranch").FindChildTraverse("ContentsContainer");
+	facetsContainer.GetParent().style.visibility = 'collapse';
 
 	// StatBranch.style.visibility = 'collapse';
 	// StatBranch.AddClass("GGStats")

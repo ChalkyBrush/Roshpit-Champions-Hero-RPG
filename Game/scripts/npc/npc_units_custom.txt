@@ -65268,9 +65268,7 @@
         "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
         "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-        "Ability1"  "crimsyth_gunman_shrapnel"
-        "Ability2"  "use_ability_1_position_ai"
-        "Ability3"  "dungeon_creep"
+        "Ability1"  "dungeon_creep"
         "Creature"
         {
             "DisableClumpingBehavior"   "1"

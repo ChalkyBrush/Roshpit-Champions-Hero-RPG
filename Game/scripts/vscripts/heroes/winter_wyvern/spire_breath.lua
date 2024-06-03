@@ -92,7 +92,7 @@ function spire_attack_start(event)
 		return false
 	end
 	EmitSoundOn("Dinath.BreathSound", caster)
-	local lock_duration = 1 / attacker:GetAttacksPerSecond()
+	local lock_duration = 1 / attacker:GetAttacksPerSecond(false)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_breath_lock", {duration = lock_duration})
 	local radius = 800
 	local w_4_level = caster:GetRuneValue("w", 4)

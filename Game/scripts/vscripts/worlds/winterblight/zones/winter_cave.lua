@@ -4466,6 +4466,7 @@ function Winterblight:SpawnTorturok(position)
 	boss:SetRenderColor(100, 100, 255)
 	EmitSoundOn("Torturok.Spawn", boss)
 	boss.reduc = 0.1
+	boss.mainBoss = true
 	return boss
 end
 
@@ -4477,14 +4478,16 @@ function Winterblight:SpawnRealmBreaker(position)
 		EmitSoundOn("Winterblight.RealmBreaker.Spawn", boss)
 	end)
 	boss.reduc = 0.01
+	boss.mainBoss = true
 	return boss
 end
 
 function Winterblight:SpawnAertega(position)
 	local boss = Events:SpawnDescentOfWinterblightDungeonUnit("descent_of_winterblight_aertega", position, 9, 12, "Events.DescentOfWinterblight.Aertega.Aggro", RandomVector(1), false)
 	boss:SetRenderColor(100, 100, 255)
-	boss.reduc = 0.15
+	boss.reduc = 0.1
 	EmitSoundOn("Events.DescentOfWinterblight.Aertega.Spawn", boss)
+	boss.mainBoss = true
 	return boss
 end
 
@@ -4495,6 +4498,7 @@ function Winterblight:SpawnOzubu(position)
 	boss.maxSummons = (1 - (boss:GetHealth() / boss:GetMaxHealth())) * 23 + 2
 	boss.reduc = 0.05
 	EmitSoundOn("Winterblight.Ozubu.Spawn", boss)
+	boss.mainBoss = true
 	return boss
 end
 
@@ -4503,6 +4507,7 @@ function Winterblight:SpawnGigarraun(position)
 	Events:ColorWearablesAndBase(boss, Vector(100, 120, 255))
 	boss.reduc = 0.08
 	EmitSoundOn("Winterblight.Gigarraun.Spawn", boss)
+	boss.mainBoss = true
 	return boss
 end
 
