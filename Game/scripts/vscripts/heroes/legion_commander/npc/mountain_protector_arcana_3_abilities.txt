@@ -33,30 +33,13 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"stun_duration"	"0.8"
-			}
-			"02"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"self_damage"	"<% MOUNTAIN_PROTECTOR_ARCANA3_E_SELF_DMG_PCT %>"
-			}
-			"03"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"additional_str_damage"		"1"
-			}
-			"04"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"magic_armor_reduce"		"-100 -180 -260 -340 -420 -500 -580"
-			}
-
-		}
+		"AbilityValues"
+        {
+            "stun_duration" "0.8"
+            "self_damage" "<% MOUNTAIN_PROTECTOR_ARCANA3_E_SELF_DMG_PCT %>"
+            "additional_str_damage" "1"
+            "magic_armor_reduce" "-100 -180 -260 -340 -420 -500 -580"
+        }
 		"OnAbilityPhaseStart"
 		{
 			"RunScript"
@@ -166,19 +149,11 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"cast_range"	"1100 1150 1200 1250 1300 1350 1400"
-			}
-			"01"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"range"		"800 840 880 920 960 1000 1040"
-			}
-		}
+		"AbilityValues"
+        {
+            "cast_range" "1100 1150 1200 1250 1300 1350 1400"
+            "range" "800 840 880 920 960 1000 1040"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"

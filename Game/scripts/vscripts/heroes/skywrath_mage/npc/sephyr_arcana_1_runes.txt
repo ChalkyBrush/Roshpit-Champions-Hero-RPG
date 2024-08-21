@@ -9,19 +9,11 @@
 		"AbilityTextureName"	"sephyr/sephyr_rune_w_1_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SEPHYR_ARCANA_W1_MANA_REGEN_FLAT %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% SEPHYR_ARCANA_W1_DAMAGE_PER_MANAREGEN %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SEPHYR_ARCANA_W1_MANA_REGEN_FLAT %>"
+            "property_two" "<% SEPHYR_ARCANA_W1_DAMAGE_PER_MANAREGEN %>"
+        }
 	}
 
 	"sephyr_rune_w_2_arcana1"
@@ -34,14 +26,10 @@
 		"AbilityTextureName"	"sephyr/sephyr_rune_w_2_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SEPHYR_ARCANA_W2_ATTACK_TO_DAMAGE_PCT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SEPHYR_ARCANA_W2_ATTACK_TO_DAMAGE_PCT %>"
+        }
 	}
 
 	"sephyr_rune_w_3_arcana1"
@@ -54,14 +42,10 @@
 		"AbilityTextureName"	"sephyr/sephyr_rune_w_3_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SEPHYR_ARCANA_W3_SHIELD_CHANCE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SEPHYR_ARCANA_W3_SHIELD_CHANCE %>"
+        }
 	}
 
 	"sephyr_rune_w_4_arcana1"
@@ -74,13 +58,9 @@
 		"AbilityTextureName"	"sephyr/sephyr_rune_w_4_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SEPHYR_ARCANA_W4_WIND_AMP_PCT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SEPHYR_ARCANA_W4_WIND_AMP_PCT %>"
+        }
 	}
 

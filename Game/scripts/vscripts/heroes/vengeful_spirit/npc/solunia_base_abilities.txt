@@ -21,34 +21,14 @@
 			"particle"	"particles/roshpit/solunia/a_a_wave_lunar.vpcf"
 			"particle"	"particles/roshpit/solunia/a_a_wave_solar.vpcf"
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"range"			"1400"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"95 215 425 835 1445 2555 4665"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"projectiles"		"3 3 4 4 5 5 6"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"stun_duration"		"1.2"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"damage_add_agility"		"1.5"
-			}
-		}
+		"AbilityValues"
+        {
+            "range" "1400"
+            "damage" "95 215 425 835 1445 2555 4665"
+            "projectiles" "3 3 4 4 5 5 6"
+            "stun_duration" "1.2"
+            "damage_add_agility" "1.5"
+        }
 	}
 
 	"solunia_napalm_lunar"
@@ -71,34 +51,14 @@
 		{
 
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"range"			"1400"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"95 215 425 835 1445 2555 4665"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"projectiles"		"3 3 4 4 5 5 6"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"stun_duration"		"1.2"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"damage_add_intelligence"		"1.5"
-			}
-		}
+		"AbilityValues"
+        {
+            "range" "1400"
+            "damage" "95 215 425 835 1445 2555 4665"
+            "projectiles" "3 3 4 4 5 5 6"
+            "stun_duration" "1.2"
+            "damage_add_intelligence" "1.5"
+        }
 	}
 
 	"solunia_boomerang_solar"
@@ -127,29 +87,13 @@
 			"particle"	"particles/roshpit/solunia/magic_marker_shield.vpcf"
 			"particle"	"particles/roshpit/solunia/black_widow_buff.vpcf"
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"range"			"1000"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"max_boomerangs"			"2 2 3 3 4 4 5"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"40 120 200 340 540 800 1240"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"atk_power_added_to_dmg"			"30"
-			}
-		}
+		"AbilityValues"
+        {
+            "range" "1000"
+            "max_boomerangs" "2 2 3 3 4 4 5"
+            "damage" "40 120 200 340 540 800 1240"
+            "atk_power_added_to_dmg" "30"
+        }
 	}
 
 	"solunia_boomerang_lunar"
@@ -171,29 +115,13 @@
 		{
 
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"range"			"1000"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"max_boomerangs"			"2 2 3 3 4 4 5"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"40 120 200 340 540 800 1240"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"atk_power_added_to_dmg"			"30"
-			}
-		}
+		"AbilityValues"
+        {
+            "range" "1000"
+            "max_boomerangs" "2 2 3 3 4 4 5"
+            "damage" "40 120 200 340 540 800 1240"
+            "atk_power_added_to_dmg" "30"
+        }
 	}
 
 	"solunia_warp_flare_solar"
@@ -221,14 +149,10 @@
 			"particle"		"particles/roshpit/solunia/shooting_star_shield.vpcf"
 			"particle"		"particles/roshpit/solunia/shooting_star_shield_solar.vpcf"
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"cast_range"			"700 750 800 850 900 950 1000"
-			}
-		}
+		"AbilityValues"
+        {
+            "cast_range" "700 750 800 850 900 950 1000"
+        }
 	}
 
 	"solunia_warp_flare_lunar"
@@ -249,14 +173,10 @@
 		{
 
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"cast_range"			"700 750 800 850 900 950 1000"
-			}
-		}
+		"AbilityValues"
+        {
+            "cast_range" "700 750 800 850 900 950 1000"
+        }
 	}
 
 
@@ -280,29 +200,13 @@
 			"particle"	"particles/roshpit/solunia/channel_eclipse.vpcf"
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"damage"	"200 500 800 1600 3000 5000 10000"
-			}
-			"02"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"stun_duration"	"2.0 2.3 2.6 2.9 3.2 3.5 3.8"
-			}
-			"03"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"radius"	"580"
-			}
-			"04"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"all_attributes_damage"	"2"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "200 500 800 1600 3000 5000 10000"
+            "stun_duration" "2.0 2.3 2.6 2.9 3.2 3.5 3.8"
+            "radius" "580"
+            "all_attributes_damage" "2"
+        }
 	}
 
 	"solunia_supernova_lunar"
@@ -322,28 +226,12 @@
 
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"damage"	"200 500 800 1600 3000 5000 10000"
-			}
-			"02"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"stun_duration"	"2.0 2.3 2.6 2.9 3.2 3.5 3.8"
-			}
-			"03"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"radius"	"580"
-			}
-			"04"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"all_attributes_damage"	"2"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "200 500 800 1600 3000 5000 10000"
+            "stun_duration" "2.0 2.3 2.6 2.9 3.2 3.5 3.8"
+            "radius" "580"
+            "all_attributes_damage" "2"
+        }
 	}
 

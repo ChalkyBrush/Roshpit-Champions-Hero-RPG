@@ -13,34 +13,14 @@
 		"MaxLevel"				 		"7"
 		"AbilityTextureName"			"ekkan/ekkan_dark_dominion"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"max_summons"			"1 2 3 4 5 6 7"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"debuff_duration"		"10"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"move_slow"				"-18 -21 -24 -27 -30 -33 -36"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"burn_damage"				"80 110 130 150 170 180 200"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"flat_hp_increase"		"300 500 800 1200 1800 2000 2500"
-			}
-		}
+		"AbilityValues"
+        {
+            "max_summons" "1 2 3 4 5 6 7"
+            "debuff_duration" "10"
+            "move_slow" "-18 -21 -24 -27 -30 -33 -36"
+            "burn_damage" "80 110 130 150 170 180 200"
+            "flat_hp_increase" "300 500 800 1200 1800 2000 2500"
+        }
 		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_2"
 		// Precache
 		//-------------------------------------------------------
@@ -327,34 +307,14 @@
 		"MaxLevel"				 		"7"
 		"AOERadius"						"100"
 		"AbilityTextureName"			"ekkan/ekkan_summon_skeleton"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"max_skeletons"			"6 7 8 9 10 11 12"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"skeleton_duration"		"45"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"armor_mult"			"2"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"attack_mult"			"2"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"skeleton_health"		"340 740 1140 1540 1940 2340 2740"
-			}
-		}
+		"AbilityValues"
+        {
+            "max_skeletons" "6 7 8 9 10 11 12"
+            "skeleton_duration" "45"
+            "armor_mult" "2"
+            "attack_mult" "2"
+            "skeleton_health" "340 740 1140 1540 1940 2340 2740"
+        }
 		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_4"
 		// Precache
 		//-------------------------------------------------------
@@ -655,10 +615,9 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"visage_summon_familiars_stone_form"
 		"MaxLevel"	"1"
-		"AbilitySpecial"
-		{
-
-		}
+		"AbilityValues"
+        {
+        }
 		"Modifiers"
 		{
 			"modifier_familiar_passive"
@@ -747,10 +706,9 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"visage_summon_familiars_stone_form"
 		"MaxLevel"	"1"
-		"AbilitySpecial"
-		{
-
-		}
+		"AbilityValues"
+        {
+        }
 		"Modifiers"
 		{
 			"modifier_super_skeleton_passive"
@@ -1026,14 +984,10 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"cast_range"		"700 900 1100 1300 1500 1700 1900"
-			}
-		}
+		"AbilityValues"
+        {
+            "cast_range" "700 900 1100 1300 1500 1700 1900"
+        }
 
 		// Data driven
 		//-------------------------------------------------------
@@ -1354,27 +1308,11 @@
 			}
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"buff_duration"	"18.0"
-			}
-			"02"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"percent_attack_damage"	"40 50 70 90 110 130 150"
-			}
-			"03"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"attack_speed"	"90"
-			}
-			"04"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"health_regen"	"2.0"
-			}
-		}
+		"AbilityValues"
+        {
+            "buff_duration" "18.0"
+            "percent_attack_damage" "40 50 70 90 110 130 150"
+            "attack_speed" "90"
+            "health_regen" "2.0"
+        }
 	}

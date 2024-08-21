@@ -59,14 +59,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"50"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "50"
+        }
 	}
 
 	"item_rpc_trapper_glyph_2_1"
@@ -98,14 +94,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% TRAPPER_GLYPH_2_1_HEAL_PCT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% TRAPPER_GLYPH_2_1_HEAL_PCT %>"
+        }
 	}
 
 	"item_rpc_trapper_glyph_3_1"
@@ -154,24 +146,12 @@
 				}
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% TRAPPER_GLYPH_3_1_ADD_BOMBS %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% TRAPPER_GLYPH_3_1_ADD_RADIUS %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_three"			"<% TRAPPER_GLYPH_3_1_SHIELDS %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% TRAPPER_GLYPH_3_1_ADD_BOMBS %>"
+            "property_two" "<% TRAPPER_GLYPH_3_1_ADD_RADIUS %>"
+            "property_three" "<% TRAPPER_GLYPH_3_1_SHIELDS %>"
+        }
 	}
 
 	"item_rpc_trapper_glyph_4_1"
@@ -203,14 +183,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% TRAPPER_PARAGON_T4_GLYPH_DMG_MULT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% TRAPPER_PARAGON_T4_GLYPH_DMG_MULT %>"
+        }
 	}
 
 	"item_rpc_trapper_glyph_5_1"
@@ -260,19 +236,11 @@
 				"IsDebuff"			"0"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% TRAPPER_GLYPH_5_1_RADIUS_AMPLIFY_PERCENT %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% TRAPPER_GLYPH_5_1_MAX_STACKS_COUNT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% TRAPPER_GLYPH_5_1_RADIUS_AMPLIFY_PERCENT %>"
+            "property_two" "<% TRAPPER_GLYPH_5_1_MAX_STACKS_COUNT %>"
+        }
 	}
 
 	"item_rpc_trapper_glyph_6_1"
@@ -304,14 +272,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% TRAPPER_GLYPH_6_1_NORMAL_AMPLIFY_DECREASE_PERCENT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% TRAPPER_GLYPH_6_1_NORMAL_AMPLIFY_DECREASE_PERCENT %>"
+        }
 	}
 
 	"item_rpc_trapper_glyph_7_1"
@@ -371,14 +335,10 @@
 				}
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.5"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "0.5"
+        }
 	}
 
 	"item_rpc_trapper_glyph_1_2"
@@ -410,14 +370,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% TRAPPER_GLYPH_1_2_Q3_PCT_AMP * 100 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% TRAPPER_GLYPH_1_2_Q3_PCT_AMP * 100 %>"
+        }
 	}
 
 	"item_rpc_trapper_glyph_2_2"
@@ -496,14 +452,10 @@
                 }
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% TRAPPER_T32_DAMAGE_RED * 100 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% TRAPPER_T32_DAMAGE_RED * 100 %>"
+        }
 	}
 
 	"item_rpc_trapper_glyph_4_2"
@@ -566,14 +518,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% T52_STACKS_COUNT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% T52_STACKS_COUNT %>"
+        }
 	}
 
 	"item_rpc_trapper_glyph_6_2"
@@ -605,19 +553,11 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% T62_DECOY_HEALTH %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% T62_DECOY_DAMAGE_AMPLIFY_PERCENT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% T62_DECOY_HEALTH %>"
+            "property_two" "<% T62_DECOY_DAMAGE_AMPLIFY_PERCENT %>"
+        }
 	}
 
 	"item_rpc_trapper_glyph_7_2"
@@ -680,13 +620,9 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% T5A_DAMAGE_AMPLIFY %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% T5A_DAMAGE_AMPLIFY %>"
+        }
 	}
 

@@ -16,24 +16,12 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityChannelTime"			"4.5"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"50 150 320 500 600 750 900"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"aoe_radius"		"550 600 650 700 750 800 850"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"duration"			"10"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "50 150 320 500 600 750 900"
+            "aoe_radius" "550 600 650 700 750 800 850"
+            "duration" "10"
+        }
 		// Precache
 		//-------------------------------------------------------
 		"precache"
@@ -219,14 +207,10 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"range"						"900 1000 1100 1200 1300 1400"
-			}
-		}
+		"AbilityValues"
+        {
+            "range" "900 1000 1100 1200 1300 1400"
+        }
 
 		// Data driven
 		//-------------------------------------------------------

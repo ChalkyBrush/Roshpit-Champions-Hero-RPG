@@ -11,29 +11,13 @@
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SORCERESS_Q1_ADD_DAMAGE %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"<% SORCERESS_Q1_BASE_DAMAGE %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"		"1"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"		 	"9"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SORCERESS_Q1_ADD_DAMAGE %>"
+            "property_one_base" "<% SORCERESS_Q1_BASE_DAMAGE %>"
+            "base_ability" "1"
+            "element_one" "9"
+        }
 	}
 
 	"sorceress_rune_q_2"
@@ -47,24 +31,12 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SORCERESS_Q2_FROST_NOVA_DAMAGE %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.1"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two_base"		"<% SORCERESS_Q2_BASE_DURATION %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SORCERESS_Q2_FROST_NOVA_DAMAGE %>"
+            "property_two" "0.1"
+            "property_two_base" "<% SORCERESS_Q2_BASE_DURATION %>"
+        }
 	}
 
 	"sorceress_rune_q_3"
@@ -78,24 +50,12 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SORCERESS_Q3_AMPLIFY_PERCENT %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% SORCERESS_Q3_ADD_DURATION %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two_base"		"<% SORCERESS_Q3_BASE_DURATION %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SORCERESS_Q3_AMPLIFY_PERCENT %>"
+            "property_two" "<% SORCERESS_Q3_ADD_DURATION %>"
+            "property_two_base" "<% SORCERESS_Q3_BASE_DURATION %>"
+        }
 	}
 
 	"sorceress_rune_q_4"
@@ -109,14 +69,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SORCERESS_Q4_ICE_AMP %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SORCERESS_Q4_ICE_AMP %>"
+        }
 	}
 
 	"sorceress_rune_w_1"
@@ -131,34 +87,14 @@
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.1"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one_base"		"1.2"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% SORCERESS_W1_DMG_INT_MULT %>"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"		 	"10"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"2"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "0.1"
+            "property_one_base" "1.2"
+            "property_two" "<% SORCERESS_W1_DMG_INT_MULT %>"
+            "element_one" "10"
+            "base_ability" "2"
+        }
 		"Modifiers"
 		{
 			"modifier_arcane_shell"
@@ -184,14 +120,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "5"
+        }
 	}
 
 	"sorceress_rune_w_3"
@@ -205,19 +137,11 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SORCERESS_W3_INTELLECT %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% SORCERESS_W3_MANA_REGEN %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SORCERESS_W3_INTELLECT %>"
+            "property_two" "<% SORCERESS_W3_MANA_REGEN %>"
+        }
 		"Modifiers"
 		{
 			"modifier_arcane_intellect_aura"
@@ -290,14 +214,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SORCERESS_W4_AMPLIFY_PERCENT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SORCERESS_W4_AMPLIFY_PERCENT %>"
+        }
 	}
 
 	"sorceress_rune_e_1"
@@ -311,14 +231,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SORCERESS_E1_STACKS %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SORCERESS_E1_STACKS %>"
+        }
 		"Modifiers"
 		{
 			"modifier_flicker_charges"
@@ -341,19 +257,11 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SORCERESS_E2_ADD_DAMAGE %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"<% SORCERESS_E2_BASE_DAMAGE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SORCERESS_E2_ADD_DAMAGE %>"
+            "property_one_base" "<% SORCERESS_E2_BASE_DAMAGE %>"
+        }
 	}
 
 	"sorceress_rune_e_3"
@@ -367,14 +275,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SORCERESS_E3_AMPLIFY_PERCENT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SORCERESS_E3_AMPLIFY_PERCENT %>"
+        }
 		"Modifiers"
 		{
 			"modifier_clear_cast"
@@ -420,29 +324,13 @@
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"    "DAMAGE_TYPE_MAGICAL"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SORCERESS_E4_DAMAGE_AS_PCT_OF_ELEMENTAL_ATK_POWER %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"1"
-			}
-			"03"
-            {
-                "var_type"                "FIELD_INTEGER"
-                "element_one"             "9"
-            }
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"3"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SORCERESS_E4_DAMAGE_AS_PCT_OF_ELEMENTAL_ATK_POWER %>"
+            "property_two" "1"
+            "element_one" "9"
+            "base_ability" "3"
+        }
 	}
 
 	"sorceress_rune_r_1"
@@ -457,34 +345,14 @@
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SORCERESS_R1_ADD_DAMAGE %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"<% SORCERESS_R1_BASE_DAMAGE %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"10"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"4"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"		 	"2"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SORCERESS_R1_ADD_DAMAGE %>"
+            "property_one_base" "<% SORCERESS_R1_BASE_DAMAGE %>"
+            "property_two" "10"
+            "base_ability" "4"
+            "element_one" "2"
+        }
 	}
 
 	"sorceress_rune_r_2"
@@ -499,19 +367,11 @@
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SORCERESS_R2_IGNITE_DAMAGE_PCT %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"		 	"2"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SORCERESS_R2_IGNITE_DAMAGE_PCT %>"
+            "element_one" "2"
+        }
 	}
 
 	"sorceress_rune_r_3"
@@ -525,14 +385,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SORCERESS_R3_FIRE_AMP * 100 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SORCERESS_R3_FIRE_AMP * 100 %>"
+        }
 		"Modifiers"
 		{
 			"modifier_ring_of_fire_up"
@@ -581,13 +437,9 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SORCERESS_R4_FIRE_AMP * 100 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SORCERESS_R4_FIRE_AMP * 100 %>"
+        }
 	}
 

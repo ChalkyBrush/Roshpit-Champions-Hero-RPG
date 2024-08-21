@@ -6,17 +6,9 @@
     "FightRecapLevel"				"1"
     "AbilityTextureName"			"omni_knight/adoring_wingfall/omniknight_purification"
     "MaxLevel"				 		"3"
-    "AbilitySpecial"
-    {
-        "01"
+    "AbilityValues"
         {
-            "var_type"					"FIELD_INTEGER"
-            "max_taken_damage_per_second"		"35 7 2"
+            "max_taken_damage_per_second" "35 7 2"
+            "sum_up_time" "3 9 20"
         }
-        "02"
-        {
-            "var_type"					"FIELD_INTEGER"
-            "sum_up_time"						"3 9 20"
-        }
-    }
 }

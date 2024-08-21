@@ -9,14 +9,10 @@
 		"AbilityTextureName"	"bahamut/bahamut_r_1_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% BAHAMUT_ARCANA_R_R1_DMG_OF_W_PCT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% BAHAMUT_ARCANA_R_R1_DMG_OF_W_PCT %>"
+        }
 	}
 
 	"bahamut_rune_r_2_arcana1"
@@ -29,14 +25,10 @@
 		"AbilityTextureName"	"bahamut/bahamut_r_2_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% BAHAMUT_ARCANA_R2_PIERCES %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% BAHAMUT_ARCANA_R2_PIERCES %>"
+        }
 	}
 
 	"bahamut_rune_r_3_arcana1"
@@ -49,14 +41,10 @@
 		"AbilityTextureName"	"bahamut/bahamut_r_3_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% BAHAMUT_ARCANA_R_R3_ATTRIBUTES_TO_DMG %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% BAHAMUT_ARCANA_R_R3_ATTRIBUTES_TO_DMG %>"
+        }
 	}
 
 	"bahamut_rune_r_4_arcana1"
@@ -69,13 +57,9 @@
 		"AbilityTextureName"	"bahamut/bahamut_r_4_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% BAHAMUT_ARCANA_R_R4_ADD_BOLTS_CHANCE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% BAHAMUT_ARCANA_R_R4_ADD_BOLTS_CHANCE %>"
+        }
 	}
 

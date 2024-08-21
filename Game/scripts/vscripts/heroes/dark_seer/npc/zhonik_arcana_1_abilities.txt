@@ -35,44 +35,16 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"movespeed_cap_bonus"		"<% ZHONIK_E_ARCANA_MS_CAP_BONUS %>"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"movespeed_bonus"		"<% ZHONIK_E_ARCANA_MS_BONUS %>"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"duration"					"10"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"cast_range"					"800 850 900 950 1000 1050 1100"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"enemy_move_slow"				"-50"
-			}
-			"06"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"damage_resistance"				"<% ZHONIK_E_ARCANA_DMG_REDUCTION_PCT %>"
-			}
-			"07"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"lose_rate"					"3"
-			}
-		}
+		"AbilityValues"
+        {
+            "movespeed_cap_bonus" "<% ZHONIK_E_ARCANA_MS_CAP_BONUS %>"
+            "movespeed_bonus" "<% ZHONIK_E_ARCANA_MS_BONUS %>"
+            "duration" "10"
+            "cast_range" "800 850 900 950 1000 1050 1100"
+            "enemy_move_slow" "-50"
+            "damage_resistance" "<% ZHONIK_E_ARCANA_DMG_REDUCTION_PCT %>"
+            "lose_rate" "3"
+        }
 		"OnAbilityPhaseStart"
 		{
 			"RunScript"

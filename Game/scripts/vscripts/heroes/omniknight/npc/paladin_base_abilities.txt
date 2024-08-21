@@ -44,34 +44,14 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"starting_aoe"		"100"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"distance"			"600"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"final_aoe"			"450"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"speed"				"1100"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"120 320 520 720 920 1120 1320"
-			}
-		}
+		"AbilityValues"
+        {
+            "starting_aoe" "100"
+            "distance" "600"
+            "final_aoe" "450"
+            "speed" "1100"
+            "damage" "120 320 520 720 920 1120 1320"
+        }
 		"OnAbilityPhaseStart"
 		{
 			"RunScript"
@@ -583,19 +563,11 @@
 			}
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"heal_per_tick_percent"			"0.6 0.7 0.8 0.9 1.0 1.1"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"summon_duration"			"30 31 32 33 34 35 36"
-			}
-		}
+		"AbilityValues"
+        {
+            "heal_per_tick_percent" "0.6 0.7 0.8 0.9 1.0 1.1"
+            "summon_duration" "30 31 32 33 34 35 36"
+        }
 
 	}
 
@@ -658,45 +630,16 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"5.5 5.8 6.1 6.4 6.7 7.0 7.3"
-			}
-
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"damage"					"70 110 160 220 300 420 500"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"radius"					"300 330 360 390 420 450 480"
-			}
-			"04"
-			{
-				"var_type" 				"FIELD_FLOAT"
-				"heal_percent" 			"6.0"
-			}
-			"05"
-			{
-				"var_type" 				"FIELD_INTEGER"
-				"slow" 					"-100 -115 -130 -145 -160 -175 -190"
-			}
-			"06"
-			{
-				"var_type" 				"FIELD_INTEGER"
-				"attack_damage_bonus"	"12 15 18 21 24 27 30"
-			}
-			"07"
-			{
-				"var_type" 				"FIELD_INTEGER"
-				"movespeed"				"500"
-			}
-		}
+		"AbilityValues"
+        {
+            "duration" "5.5 5.8 6.1 6.4 6.7 7.0 7.3"
+            "damage" "70 110 160 220 300 420 500"
+            "radius" "300 330 360 390 420 450 480"
+            "heal_percent" "6.0"
+            "slow" "-100 -115 -130 -145 -160 -175 -190"
+            "attack_damage_bonus" "12 15 18 21 24 27 30"
+            "movespeed" "500"
+        }
 	}
 
 	"holy_blink"
@@ -738,24 +681,12 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"1.5 1.8 2.1 2.4 2.7 3.0 3.3"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"100 500 1500 3400 7000 20000 50000"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"400 415 430 445 460 475 490"
-			}
-		}
+		"AbilityValues"
+        {
+            "duration" "1.5 1.8 2.1 2.4 2.7 3.0 3.3"
+            "damage" "100 500 1500 3400 7000 20000 50000"
+            "radius" "400 415 430 445 460 475 490"
+        }
 
 		"OnSpellStart"
 		{
@@ -1038,14 +969,10 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"1.5 1.8 2.1 2.4 2.7 3.0 3.3"
-			}
-		}
+		"AbilityValues"
+        {
+            "duration" "1.5 1.8 2.1 2.4 2.7 3.0 3.3"
+        }
 
 		"OnSpellStart"
 		{
@@ -1342,24 +1269,12 @@
 		"AbilityManaCost"				"0"
 
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"heal_per_tick_percent"			"0.6 0.7 0.8 0.9 1.0 1.1 1.2"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"duration"			"<% PALADIN_R_HEAL_DUR %>"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"summon_duration"			"30 31 32 33 34 35 36"
-			}
-		}
+		"AbilityValues"
+        {
+            "heal_per_tick_percent" "0.6 0.7 0.8 0.9 1.0 1.1 1.2"
+            "duration" "<% PALADIN_R_HEAL_DUR %>"
+            "summon_duration" "30 31 32 33 34 35 36"
+        }
 		"OnSpellStart"
 		{
 			"ApplyModifier"

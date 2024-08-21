@@ -35,39 +35,15 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"attack_speed"		"30 45 60 75 90 105 120"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"bolt_aoe"			"500"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"bolt_damage"		"100 300 500 700 900 1100 1300"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"duration"			"2.0 2.1 2.2 2.3 2.4 2.5 2.6"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"buff_duration"		"3.0 3.2 3.4 3.6 3.8 4.0 4.2"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"cast_range"		"500 600 700 800 900 1000 1100"
-			}
-		}
+		"AbilityValues"
+        {
+            "attack_speed" "30 45 60 75 90 105 120"
+            "bolt_aoe" "500"
+            "bolt_damage" "100 300 500 700 900 1100 1300"
+            "duration" "2.0 2.1 2.2 2.3 2.4 2.5 2.6"
+            "buff_duration" "3.0 3.2 3.4 3.6 3.8 4.0 4.2"
+            "cast_range" "500 600 700 800 900 1000 1100"
+        }
 
 		"OnSpellStart"
 		{
@@ -269,34 +245,14 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"start_radius"				"110 110 110 110"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"end_radius"				"300 300 300 300"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"range"						"800"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"speed"						"600 700 800 900 1000 1100 1200"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"main_damage"				"50 150 250 350 450 550 650"
-			}
-		}
+		"AbilityValues"
+        {
+            "start_radius" "110 110 110 110"
+            "end_radius" "300 300 300 300"
+            "range" "800"
+            "speed" "600 700 800 900 1000 1100 1200"
+            "main_damage" "50 150 250 350 450 550 650"
+        }
 
 		"OnSpellStart"
 		{
@@ -429,19 +385,11 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"heal"				"<% RED_GENERAL_E_HEAL %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"radius"				"<% RED_GENERAL_E_RADIUS %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "heal" "<% RED_GENERAL_E_HEAL %>"
+            "radius" "<% RED_GENERAL_E_RADIUS %>"
+        }
 
 		"OnSpellStart"
 		{
@@ -816,35 +764,13 @@
 			}
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"echo_slam_damage_range"	"575"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"echo_slam_echo_search_range" "575"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"echo_slam_echo_range"		"575"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"echo_slam_echo_damage"		"15 20 25 30 35 40"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"main_damage"				"30 40 50 60 70 80 90"
-			}
-
-
-		}
+		"AbilityValues"
+        {
+            "echo_slam_damage_range" "575"
+            "echo_slam_echo_search_range" "575"
+            "echo_slam_echo_range" "575"
+            "echo_slam_echo_damage" "15 20 25 30 35 40"
+            "main_damage" "30 40 50 60 70 80 90"
+        }
 	}
 

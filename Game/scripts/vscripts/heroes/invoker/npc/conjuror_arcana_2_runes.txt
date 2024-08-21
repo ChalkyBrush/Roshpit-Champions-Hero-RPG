@@ -10,19 +10,11 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% CONJUROR_ARCANA_W1_BASE_ATTACK_FROM_BUFF %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% CONJUROR_ARCANA_W1_ATTACK_PCT_FROM_INT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% CONJUROR_ARCANA_W1_BASE_ATTACK_FROM_BUFF %>"
+            "property_two" "<% CONJUROR_ARCANA_W1_ATTACK_PCT_FROM_INT %>"
+        }
 	}
 
 	"conjuror_rune_w_2_arcana2"
@@ -36,19 +28,11 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% CONJUROR_ARCANA_W2_FLAT_FIRE_AMP %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% CONJUROR_ARCANA_W2_DAMAGE_BONUS_W_PCT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% CONJUROR_ARCANA_W2_FLAT_FIRE_AMP %>"
+            "property_two" "<% CONJUROR_ARCANA_W2_DAMAGE_BONUS_W_PCT %>"
+        }
 	}
 
 	"conjuror_rune_w_3_arcana2"
@@ -63,24 +47,12 @@
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% CONJUROR_ARCANA_W3_CRIT_DMG_PCT %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"2"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"2"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% CONJUROR_ARCANA_W3_CRIT_DMG_PCT %>"
+            "element_one" "2"
+            "base_ability" "2"
+        }
 		"Modifiers"
 		{
 
@@ -98,18 +70,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% CONJUROR_ARCANA_W4_AGI_AND_INT_PCT %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% CONJUROR_ARCANA_W4_STR_PCT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% CONJUROR_ARCANA_W4_AGI_AND_INT_PCT %>"
+            "property_two" "<% CONJUROR_ARCANA_W4_STR_PCT %>"
+        }
 	}
 

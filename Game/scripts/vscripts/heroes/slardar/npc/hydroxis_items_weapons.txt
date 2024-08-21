@@ -475,14 +475,10 @@
 				}
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"property_one"			"1.2"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "1.2"
+        }
 	}
 
 	"item_rpc_hydroxis_immortal_weapon_3"
@@ -522,14 +518,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"50"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "50"
+        }
 	}
 	
 	"item_rpc_hydroxis_immortal_weapon_4"

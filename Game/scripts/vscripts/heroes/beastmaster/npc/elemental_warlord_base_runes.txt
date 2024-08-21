@@ -10,15 +10,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% WARLORD_Q1_HP_REGEN %>"
-			}
-
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% WARLORD_Q1_HP_REGEN %>"
+        }
 
 		"Modifiers"
 		{
@@ -47,14 +42,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% WARLORD_Q2_ARMOR %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% WARLORD_Q2_ARMOR %>"
+        }
 
 		"Modifiers"
 		{
@@ -84,14 +75,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% WARLORD_Q3_ARMOR_RED %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% WARLORD_Q3_ARMOR_RED %>"
+        }
 
 		"Modifiers"
 		{
@@ -146,14 +133,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% WARLORD_Q4_ALL_ATTRIBUTES %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% WARLORD_Q4_ALL_ATTRIBUTES %>"
+        }
 		"Modifiers"
 		{
 			"modifier_warlord_rune_q_4_strength"
@@ -189,24 +172,12 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% WARLORD_W1_RADIUS %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"<% WARLORD_W1_RADIUS_BASE %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% WARLORD_W1_STUN_DUR %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% WARLORD_W1_RADIUS %>"
+            "property_one_base" "<% WARLORD_W1_RADIUS_BASE %>"
+            "property_two" "<% WARLORD_W1_STUN_DUR %>"
+        }
 	}
 
 	"warlord_rune_w_2"
@@ -220,19 +191,11 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% WARLORD_W2_FREEZE_DUR %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one_base"		"<% WARLORD_W2_FREEZE_DUR_BASE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% WARLORD_W2_FREEZE_DUR %>"
+            "property_one_base" "<% WARLORD_W2_FREEZE_DUR_BASE %>"
+        }
 	}
 
 	"warlord_rune_w_3"
@@ -246,19 +209,11 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% WARLORD_W3_RADIUS_INCR %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% WARLORD_W3_DMG_BONUS_PER_BASEATT * 100 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% WARLORD_W3_RADIUS_INCR %>"
+            "property_two" "<% WARLORD_W3_DMG_BONUS_PER_BASEATT * 100 %>"
+        }
 	}
 
 	"warlord_rune_w_4"
@@ -272,19 +227,11 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% WARLORD_W4_DMG_BONUS_PER_DMG * 100 %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% WARLORD_W4_DMG_BONUS_PER_BASEATT * 100 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% WARLORD_W4_DMG_BONUS_PER_DMG * 100 %>"
+            "property_two" "<% WARLORD_W4_DMG_BONUS_PER_BASEATT * 100 %>"
+        }
 	}
 
 	"warlord_rune_e_1"
@@ -298,14 +245,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% WARLORD_E1_MAGIC_ARMOR_PER_EARTH_CHARGE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% WARLORD_E1_MAGIC_ARMOR_PER_EARTH_CHARGE %>"
+        }
 	}
 
 	"warlord_rune_e_2"
@@ -319,19 +262,11 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% WARLORD_E2_MANA_RESTORE %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% WARLORD_E2_W_BONUS_DMG_PCT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% WARLORD_E2_MANA_RESTORE %>"
+            "property_two" "<% WARLORD_E2_W_BONUS_DMG_PCT %>"
+        }
 	}
 
 	"warlord_rune_e_3"
@@ -346,39 +281,15 @@
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% WARLORD_E3_DMG %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"<% WARLORD_E3_DMG_BASE %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% WARLORD_E3_TARGETS %>"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two_base"		"<% WARLORD_E3_TARGETS_BASE %>"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"<% BASE_ABILITY_E %>"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"<% RPC_ELEMENT_FIRE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% WARLORD_E3_DMG %>"
+            "property_one_base" "<% WARLORD_E3_DMG_BASE %>"
+            "property_two" "<% WARLORD_E3_TARGETS %>"
+            "property_two_base" "<% WARLORD_E3_TARGETS_BASE %>"
+            "base_ability" "<% BASE_ABILITY_E %>"
+            "element_one" "<% RPC_ELEMENT_FIRE %>"
+        }
 	}
 
 	"warlord_rune_e_4"
@@ -392,14 +303,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% WARLORD_E4_ICE_EARTH_FIRE_BONUS * 100 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% WARLORD_E4_ICE_EARTH_FIRE_BONUS * 100 %>"
+        }
 	}
 
 	"warlord_rune_r_1"
@@ -414,24 +321,12 @@
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% WARLORD_R1_HEAL_PER_R_HEAL * 100 %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% WARLORD_R1_DMG_PER_CHARGE %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"<% RPC_ELEMENT_EARTH %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% WARLORD_R1_HEAL_PER_R_HEAL * 100 %>"
+            "property_two" "<% WARLORD_R1_DMG_PER_CHARGE %>"
+            "element_one" "<% RPC_ELEMENT_EARTH %>"
+        }
 		"Modifiers"
 		{
 			"modifier_warlord_rune_r_1"
@@ -464,14 +359,10 @@
 		"AbilityTextureName"	"ancient_apparition_chilling_touch"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% WARLORD_R2_MAGIC_ARMOR_REDUCTION %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% WARLORD_R2_MAGIC_ARMOR_REDUCTION %>"
+        }
 	}
 
 	"warlord_rune_r_3"
@@ -485,14 +376,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% WARLORD_R3_ATT_DMG_BONUS_PER_FIRE_CHARGE_PCT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% WARLORD_R3_ATT_DMG_BONUS_PER_FIRE_CHARGE_PCT %>"
+        }
 		"Modifiers"
 		{
 			"modifier_warlord_rune_r_3_effect"
@@ -520,14 +407,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% WARLORD_R4_ATT_DMG_BONUS_PER_CHARGE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% WARLORD_R4_ATT_DMG_BONUS_PER_CHARGE %>"
+        }
 		"Modifiers"
 		{
 			"modifier_warlord_rune_r_4_invisible"

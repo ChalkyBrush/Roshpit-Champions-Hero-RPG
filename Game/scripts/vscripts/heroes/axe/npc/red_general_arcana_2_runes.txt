@@ -7,14 +7,10 @@
 		"AbilityTextureName"	"axe/axe_rune_w_1_arcana2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% RED_GENERAL_ARCANA2_W1_ARMOR_AND_SPELL_PIERCE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% RED_GENERAL_ARCANA2_W1_ARMOR_AND_SPELL_PIERCE %>"
+        }
 	}
 
 	"axe_rune_w_2_arcana2"
@@ -25,19 +21,11 @@
 		"AbilityTextureName"	"axe/axe_rune_w_2_arcana2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% RED_GENERAL_ARCANA2_W2_ARMOR %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% RED_GENERAL_ARCANA2_W2_STRENGTH %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% RED_GENERAL_ARCANA2_W2_ARMOR %>"
+            "property_two" "<% RED_GENERAL_ARCANA2_W2_STRENGTH %>"
+        }
 	}
 
 	"axe_rune_w_3_arcana2"
@@ -49,24 +37,12 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% RED_GENERAL_ARCANA2_W3_DMG_PCT_ATK_POWER %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"1"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"2"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% RED_GENERAL_ARCANA2_W3_DMG_PCT_ATK_POWER %>"
+            "element_one" "1"
+            "base_ability" "2"
+        }
 	}
 
 	"axe_rune_w_4_arcana2"
@@ -77,18 +53,10 @@
 		"AbilityTextureName"	"axe/axe_rune_w_4_arcana2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% RED_GENERAL_ARCANA2_W3_RADIUS_GROWTH %>"
-			}
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one_base"			"<% RED_GENERAL_ARCANA2_W3_RADIUS_BASE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% RED_GENERAL_ARCANA2_W3_RADIUS_GROWTH %>"
+            "property_one_base" "<% RED_GENERAL_ARCANA2_W3_RADIUS_BASE %>"
+        }
 	}
 

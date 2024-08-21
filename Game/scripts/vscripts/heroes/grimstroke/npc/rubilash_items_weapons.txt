@@ -452,10 +452,9 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-
-		}
+		"AbilityValues"
+        {
+        }
 	}
 
 	"item_rpc_rubilash_immortal_weapon_3"

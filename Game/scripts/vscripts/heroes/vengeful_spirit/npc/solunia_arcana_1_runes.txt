@@ -7,19 +7,11 @@
 		"AbilityTextureName"	"solunia/solunia_rune_q_1_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SOLUNIA_ARCANA_Q1_MANA_REGEN %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% SOLUNIA_ARCANA_Q1_BONUS_ATTACK_PCT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SOLUNIA_ARCANA_Q1_MANA_REGEN %>"
+            "property_two" "<% SOLUNIA_ARCANA_Q1_BONUS_ATTACK_PCT %>"
+        }
 	}
 
 	"solunia_rune_q_2_arcana1"
@@ -30,19 +22,11 @@
 		"AbilityTextureName"	"solunia/solunia_rune_q_2_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SOLUNIA_ARCANA_Q2_BASE_DMG_INCREASE_PER_MANA %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% SOLUNIA_ARCANA_Q2_MANA_COST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SOLUNIA_ARCANA_Q2_BASE_DMG_INCREASE_PER_MANA %>"
+            "property_two" "<% SOLUNIA_ARCANA_Q2_MANA_COST %>"
+        }
 	}
 
 	"solunia_rune_q_3_arcana1"
@@ -56,14 +40,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SOLUNIA_ARCANA_Q3_STR_AND_SPR_PCT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SOLUNIA_ARCANA_Q3_STR_AND_SPR_PCT %>"
+        }
 	}
 
 	"solunia_rune_q_4_arcana1"
@@ -77,13 +57,9 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SOLUNIA_ARCANA_Q4_ATTACK_DMG_PER_ATTR %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SOLUNIA_ARCANA_Q4_ATTACK_DMG_PER_ATTR %>"
+        }
 	}
 

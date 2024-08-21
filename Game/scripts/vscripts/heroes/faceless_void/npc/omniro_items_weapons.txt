@@ -452,14 +452,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"<% OMNIRO_LEGEND_WEAPON_2_RECHARGE_INCREASE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% OMNIRO_LEGEND_WEAPON_2_RECHARGE_INCREASE %>"
+        }
 	}
 
 	"item_rpc_omniro_immortal_weapon_3"

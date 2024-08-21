@@ -9,14 +9,10 @@
 		"AbilityTextureName"	"dinath/dinath_rune_q_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"-<% DINATH_Q1_MOVESPEED_SLOW %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "-<% DINATH_Q1_MOVESPEED_SLOW %>"
+        }
 	}
 
 	"dinath_rune_q_2"
@@ -29,14 +25,10 @@
 		"AbilityTextureName"	"dinath/dinath_rune_q_2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% DINATH_Q2_FIRE_DURATION %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% DINATH_Q2_FIRE_DURATION %>"
+        }
 	}
 
 	"dinath_rune_q_3"
@@ -49,34 +41,14 @@
 		"AbilityTextureName"	"dinath/dinath_rune_q_3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% DINATH_Q3_CAST_RANGE %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one_base"			"<% DINATH_Q3_CAST_RANGE_BASE %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"1"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"				"18"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_two"				"2"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% DINATH_Q3_CAST_RANGE %>"
+            "property_one_base" "<% DINATH_Q3_CAST_RANGE_BASE %>"
+            "base_ability" "1"
+            "element_one" "18"
+            "element_two" "2"
+        }
 	}
 
 	"dinath_rune_q_4"
@@ -89,14 +61,10 @@
 		"AbilityTextureName"	"dinath/dinath_rune_q_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"-<% DINATH_Q4_CAST_RATE_REDUCTION %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "-<% DINATH_Q4_CAST_RATE_REDUCTION %>"
+        }
 	}
 
 	"dinath_rune_w_1"
@@ -109,14 +77,10 @@
 		"AbilityTextureName"	"dinath/dinath_rune_w_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% DINATH_W1_BONUS_ATTACK_DAMAGE * 100 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% DINATH_W1_BONUS_ATTACK_DAMAGE * 100 %>"
+        }
 	}
 
 	"dinath_rune_w_2"
@@ -129,14 +93,10 @@
 		"AbilityTextureName"	"dinath/dinath_rune_w_2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% DINATH_W2_ARMOR_REDUCTION %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% DINATH_W2_ARMOR_REDUCTION %>"
+        }
 	}
 
 	"dinath_rune_w_3"
@@ -149,19 +109,11 @@
 		"AbilityTextureName"	"dinath/dinath_rune_w_3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one_base"			"<% DINATH_W3_ROOT_BASE %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% DINATH_W3_ROOT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one_base" "<% DINATH_W3_ROOT_BASE %>"
+            "property_one" "<% DINATH_W3_ROOT %>"
+        }
 	}
 
 	"dinath_rune_w_4"
@@ -174,14 +126,10 @@
 		"AbilityTextureName"	"dinath/dinath_rune_w_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% DINATH_W4_RADUIS %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% DINATH_W4_RADUIS %>"
+        }
 	}
 
 	"dinath_rune_e_1"
@@ -194,14 +142,10 @@
 		"AbilityTextureName"	"dinath/dinath_rune_e_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% DINATH_E1_ATTACK_SPEED %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% DINATH_E1_ATTACK_SPEED %>"
+        }
 	}
 
 	"dinath_rune_e_2"
@@ -214,14 +158,10 @@
 		"AbilityTextureName"	"dinath/dinath_rune_e_2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% DINATH_E2_GEAR_BASE_DAMAGE_AMP * 100 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% DINATH_E2_GEAR_BASE_DAMAGE_AMP * 100 %>"
+        }
 	}
 
 	"dinath_rune_e_3"
@@ -234,14 +174,10 @@
 		"AbilityTextureName"	"dinath/dinath_rune_e_3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% DINATH_E3_ATTACK_RANGE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% DINATH_E3_ATTACK_RANGE %>"
+        }
 	}
 
 	"dinath_rune_e_4"
@@ -254,19 +190,11 @@
 		"AbilityTextureName"	"dinath/dinath_rune_e_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one_base"			"<% DINATH_E4_Z_THRESHOLD_BASE %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"				"-<% DINATH_E4_Z_THRESHOLD_REDUCTION %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one_base" "<% DINATH_E4_Z_THRESHOLD_BASE %>"
+            "property_one" "-<% DINATH_E4_Z_THRESHOLD_REDUCTION %>"
+        }
 	}
 
 	"dinath_rune_r_1"
@@ -280,29 +208,13 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% DINATH_R1_DAMAGE %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"4"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"18"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_two"			"4"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% DINATH_R1_DAMAGE %>"
+            "base_ability" "4"
+            "element_one" "18"
+            "element_two" "4"
+        }
 	}
 
 	"dinath_rune_r_2"
@@ -315,14 +227,10 @@
 		"AbilityTextureName"	"dinath/dinath_rune_r_2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% DINATH_R2_MAGIC_ARMOR_REDUCTION %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% DINATH_R2_MAGIC_ARMOR_REDUCTION %>"
+        }
 	}
 
 	"dinath_rune_r_3"
@@ -335,14 +243,10 @@
 		"AbilityTextureName"	"dinath/dinath_rune_r_3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% DINATH_R3_CHARGE_RATE * 100 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% DINATH_R3_CHARGE_RATE * 100 %>"
+        }
 	}
 
 	"dinath_rune_r_4"
@@ -355,13 +259,9 @@
 		"AbilityTextureName"	"dinath/dinath_rune_r_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% DINATH_R4_DRAGON_AMP %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% DINATH_R4_DRAGON_AMP %>"
+        }
 	}
 

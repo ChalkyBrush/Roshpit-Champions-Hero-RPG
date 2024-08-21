@@ -8,24 +8,12 @@
 		"MaxLevel"				"20"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% VOLTEX_ARCANA1_E1_DMG_PER_ATT * 100 %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"3"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"4"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% VOLTEX_ARCANA1_E1_DMG_PER_ATT * 100 %>"
+            "base_ability" "3"
+            "element_one" "4"
+        }
 	}
 
 	"voltex_rune_e_2_arcana1"
@@ -37,29 +25,13 @@
 		"MaxLevel"				"20"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% VOLTEX_ARCANA1_E2_DMG_PER_ATT * 100 %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.01"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"3"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"4"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% VOLTEX_ARCANA1_E2_DMG_PER_ATT * 100 %>"
+            "property_two" "0.01"
+            "base_ability" "3"
+            "element_one" "4"
+        }
 	}
 
 	"voltex_rune_e_3_arcana1"
@@ -70,14 +42,10 @@
 		"AbilityTextureName"	"voltex/voltex_rune_e_3_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% VOLTEX_ARCANA1_E3_REGEN_PER_AGI %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% VOLTEX_ARCANA1_E3_REGEN_PER_AGI %>"
+        }
 	}
 
 	"voltex_rune_e_4_arcana1"
@@ -90,13 +58,9 @@
 		"AbilityTextureName"	"voltex/voltex_rune_e_4_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% VOLTEX_ARCANA_E4_LIGHTNING_AMP %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% VOLTEX_ARCANA_E4_LIGHTNING_AMP %>"
+        }
 	}
 

@@ -329,45 +329,15 @@
 
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"duration"	"4.0"
-			}
-
-			"02"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"damage_reduction"	"-50"
-			}
-
-			"03"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"radius"	"150"
-			}
-
-			"04"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"speed"	"1800"
-			}
-
-			"05"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"distance"	"900"
-			}
-
-			"06"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"damage"	"125"
-			}
-
-		}
+		"AbilityValues"
+        {
+            "duration" "4.0"
+            "damage_reduction" "-50"
+            "radius" "150"
+            "speed" "1800"
+            "distance" "900"
+            "damage" "125"
+        }
 
 	}
 
@@ -1254,15 +1224,10 @@
 
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"duration"	"4.0"
-			}
-
-		}
+		"AbilityValues"
+        {
+            "duration" "4.0"
+        }
 
 	}
 
@@ -1317,15 +1282,10 @@
 
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"duration"	"4.0"
-			}
-
-		}
+		"AbilityValues"
+        {
+            "duration" "4.0"
+        }
 
 	}
 
@@ -1378,15 +1338,10 @@
 
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"duration"	"4.0"
-			}
-
-		}
+		"AbilityValues"
+        {
+            "duration" "4.0"
+        }
 
 	}
 
@@ -3503,29 +3458,13 @@
 				"Function"		"equip_item"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ruby1"				"<% BASIC_RUBY_STRENGTH %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"emerald1"				"<% BASIC_EMERALD_AGILITY %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"sapphire1"				"<% BASIC_SAPPHIRE_INTELLIGENCE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"amethyst1"				"<% BASIC_AMETHYST_SPIRIT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% BASIC_RUBY_STRENGTH %>"
+            "emerald1" "<% BASIC_EMERALD_AGILITY %>"
+            "sapphire1" "<% BASIC_SAPPHIRE_INTELLIGENCE %>"
+            "amethyst1" "<% BASIC_AMETHYST_SPIRIT %>"
+        }
 	}
 
 	"item_cap"
@@ -3555,29 +3494,13 @@
 				"Function"		"equip_item"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ruby1"				"<% BASIC_RUBY_STRENGTH %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"emerald1"				"<% BASIC_EMERALD_AGILITY %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"sapphire1"				"<% BASIC_SAPPHIRE_INTELLIGENCE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"amethyst1"				"<% BASIC_AMETHYST_SPIRIT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% BASIC_RUBY_STRENGTH %>"
+            "emerald1" "<% BASIC_EMERALD_AGILITY %>"
+            "sapphire1" "<% BASIC_SAPPHIRE_INTELLIGENCE %>"
+            "amethyst1" "<% BASIC_AMETHYST_SPIRIT %>"
+        }
 	}
 
 	"item_helm"
@@ -3607,29 +3530,13 @@
 				"Function"		"equip_item"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ruby1"				"<% BASIC_RUBY_STRENGTH %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"emerald1"				"<% BASIC_EMERALD_AGILITY %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"sapphire1"				"<% BASIC_SAPPHIRE_INTELLIGENCE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"amethyst1"				"<% BASIC_AMETHYST_SPIRIT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% BASIC_RUBY_STRENGTH %>"
+            "emerald1" "<% BASIC_EMERALD_AGILITY %>"
+            "sapphire1" "<% BASIC_SAPPHIRE_INTELLIGENCE %>"
+            "amethyst1" "<% BASIC_AMETHYST_SPIRIT %>"
+        }
 	}
 
 	"item_wraps"
@@ -3659,29 +3566,13 @@
 				"Function"		"equip_item"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ruby1"				"<% BASIC_RUBY_STRENGTH %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"emerald1"				"<% BASIC_EMERALD_AGILITY %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"sapphire1"				"<% BASIC_SAPPHIRE_INTELLIGENCE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"amethyst1"				"<% BASIC_AMETHYST_SPIRIT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% BASIC_RUBY_STRENGTH %>"
+            "emerald1" "<% BASIC_EMERALD_AGILITY %>"
+            "sapphire1" "<% BASIC_SAPPHIRE_INTELLIGENCE %>"
+            "amethyst1" "<% BASIC_AMETHYST_SPIRIT %>"
+        }
 	}
 
 	"item_rpc_gloves"
@@ -3711,29 +3602,13 @@
 				"Function"		"equip_item"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ruby1"				"<% BASIC_RUBY_STRENGTH %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"emerald1"				"<% BASIC_EMERALD_AGILITY %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"sapphire1"				"<% BASIC_SAPPHIRE_INTELLIGENCE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"amethyst1"				"<% BASIC_AMETHYST_SPIRIT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% BASIC_RUBY_STRENGTH %>"
+            "emerald1" "<% BASIC_EMERALD_AGILITY %>"
+            "sapphire1" "<% BASIC_SAPPHIRE_INTELLIGENCE %>"
+            "amethyst1" "<% BASIC_AMETHYST_SPIRIT %>"
+        }
 	}
 
 	"item_rpc_gauntlets"
@@ -3763,29 +3638,13 @@
 				"Function"		"equip_item"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ruby1"				"<% BASIC_RUBY_STRENGTH %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"emerald1"				"<% BASIC_EMERALD_AGILITY %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"sapphire1"				"<% BASIC_SAPPHIRE_INTELLIGENCE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"amethyst1"				"<% BASIC_AMETHYST_SPIRIT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% BASIC_RUBY_STRENGTH %>"
+            "emerald1" "<% BASIC_EMERALD_AGILITY %>"
+            "sapphire1" "<% BASIC_SAPPHIRE_INTELLIGENCE %>"
+            "amethyst1" "<% BASIC_AMETHYST_SPIRIT %>"
+        }
 	}
 
 	"item_rpc_slippers"
@@ -3815,29 +3674,13 @@
 				"Function"		"equip_item"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ruby1"				"<% BASIC_RUBY_STRENGTH %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"emerald1"				"<% BASIC_EMERALD_AGILITY %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"sapphire1"				"<% BASIC_SAPPHIRE_INTELLIGENCE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"amethyst1"				"<% BASIC_AMETHYST_SPIRIT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% BASIC_RUBY_STRENGTH %>"
+            "emerald1" "<% BASIC_EMERALD_AGILITY %>"
+            "sapphire1" "<% BASIC_SAPPHIRE_INTELLIGENCE %>"
+            "amethyst1" "<% BASIC_AMETHYST_SPIRIT %>"
+        }
 	}
 
 	"item_rpc_boots"
@@ -3867,29 +3710,13 @@
 				"Function"		"equip_item"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ruby1"				"<% BASIC_RUBY_STRENGTH %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"emerald1"				"<% BASIC_EMERALD_AGILITY %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"sapphire1"				"<% BASIC_SAPPHIRE_INTELLIGENCE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"amethyst1"				"<% BASIC_AMETHYST_SPIRIT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% BASIC_RUBY_STRENGTH %>"
+            "emerald1" "<% BASIC_EMERALD_AGILITY %>"
+            "sapphire1" "<% BASIC_SAPPHIRE_INTELLIGENCE %>"
+            "amethyst1" "<% BASIC_AMETHYST_SPIRIT %>"
+        }
 	}
 
 	"item_rpc_treads"
@@ -3919,29 +3746,13 @@
 				"Function"		"equip_item"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ruby1"				"<% BASIC_RUBY_STRENGTH %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"emerald1"				"<% BASIC_EMERALD_AGILITY %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"sapphire1"				"<% BASIC_SAPPHIRE_INTELLIGENCE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"amethyst1"				"<% BASIC_AMETHYST_SPIRIT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% BASIC_RUBY_STRENGTH %>"
+            "emerald1" "<% BASIC_EMERALD_AGILITY %>"
+            "sapphire1" "<% BASIC_SAPPHIRE_INTELLIGENCE %>"
+            "amethyst1" "<% BASIC_AMETHYST_SPIRIT %>"
+        }
 	}
 
 	"item_rpc_robe"
@@ -3971,29 +3782,13 @@
 				"Function"		"equip_item"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ruby1"				"<% BASIC_RUBY_STRENGTH %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"emerald1"				"<% BASIC_EMERALD_AGILITY %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"sapphire1"				"<% BASIC_SAPPHIRE_INTELLIGENCE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"amethyst1"				"<% BASIC_AMETHYST_SPIRIT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% BASIC_RUBY_STRENGTH %>"
+            "emerald1" "<% BASIC_EMERALD_AGILITY %>"
+            "sapphire1" "<% BASIC_SAPPHIRE_INTELLIGENCE %>"
+            "amethyst1" "<% BASIC_AMETHYST_SPIRIT %>"
+        }
 	}
 
 	"item_rpc_mantle"
@@ -4023,29 +3818,13 @@
 				"Function"		"equip_item"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ruby1"				"<% BASIC_RUBY_STRENGTH %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"emerald1"				"<% BASIC_EMERALD_AGILITY %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"sapphire1"				"<% BASIC_SAPPHIRE_INTELLIGENCE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"amethyst1"				"<% BASIC_AMETHYST_SPIRIT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% BASIC_RUBY_STRENGTH %>"
+            "emerald1" "<% BASIC_EMERALD_AGILITY %>"
+            "sapphire1" "<% BASIC_SAPPHIRE_INTELLIGENCE %>"
+            "amethyst1" "<% BASIC_AMETHYST_SPIRIT %>"
+        }
 	}
 
 	"item_rpc_mail"
@@ -4075,29 +3854,13 @@
 				"Function"		"equip_item"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ruby1"				"<% BASIC_RUBY_STRENGTH %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"emerald1"				"<% BASIC_EMERALD_AGILITY %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"sapphire1"				"<% BASIC_SAPPHIRE_INTELLIGENCE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"amethyst1"				"<% BASIC_AMETHYST_SPIRIT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% BASIC_RUBY_STRENGTH %>"
+            "emerald1" "<% BASIC_EMERALD_AGILITY %>"
+            "sapphire1" "<% BASIC_SAPPHIRE_INTELLIGENCE %>"
+            "amethyst1" "<% BASIC_AMETHYST_SPIRIT %>"
+        }
 	}
 
 	"item_rpc_ruby_ring"
@@ -4127,29 +3890,13 @@
 				"Function"		"equip_item"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ruby1"				"<% BASIC_RUBY_STRENGTH %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"emerald1"				"<% BASIC_EMERALD_AGILITY %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"sapphire1"				"<% BASIC_SAPPHIRE_INTELLIGENCE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"amethyst1"				"<% BASIC_AMETHYST_SPIRIT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% BASIC_RUBY_STRENGTH %>"
+            "emerald1" "<% BASIC_EMERALD_AGILITY %>"
+            "sapphire1" "<% BASIC_SAPPHIRE_INTELLIGENCE %>"
+            "amethyst1" "<% BASIC_AMETHYST_SPIRIT %>"
+        }
 	}
 
 	"item_rpc_talisman"
@@ -4179,29 +3926,13 @@
 				"Function"		"equip_item"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ruby1"				"<% BASIC_RUBY_STRENGTH %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"emerald1"				"<% BASIC_EMERALD_AGILITY %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"sapphire1"				"<% BASIC_SAPPHIRE_INTELLIGENCE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"amethyst1"				"<% BASIC_AMETHYST_SPIRIT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% BASIC_RUBY_STRENGTH %>"
+            "emerald1" "<% BASIC_EMERALD_AGILITY %>"
+            "sapphire1" "<% BASIC_SAPPHIRE_INTELLIGENCE %>"
+            "amethyst1" "<% BASIC_AMETHYST_SPIRIT %>"
+        }
 	}
 
 	"item_rpc_steel_ring"
@@ -4231,29 +3962,13 @@
 				"Function"		"equip_item"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ruby1"				"<% BASIC_RUBY_STRENGTH %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"emerald1"				"<% BASIC_EMERALD_AGILITY %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"sapphire1"				"<% BASIC_SAPPHIRE_INTELLIGENCE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"amethyst1"				"<% BASIC_AMETHYST_SPIRIT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% BASIC_RUBY_STRENGTH %>"
+            "emerald1" "<% BASIC_EMERALD_AGILITY %>"
+            "sapphire1" "<% BASIC_SAPPHIRE_INTELLIGENCE %>"
+            "amethyst1" "<% BASIC_AMETHYST_SPIRIT %>"
+        }
 	}
 
 
@@ -4435,24 +4150,12 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"blink_range"			"99999"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"blink_damage_cooldown"	"0"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"blink_range_clamp"		"99999"
-			}
-		}
+		"AbilityValues"
+        {
+            "blink_range" "99999"
+            "blink_damage_cooldown" "0"
+            "blink_range_clamp" "99999"
+        }
 	}
 
 	//WEAPONS
@@ -4608,14 +4311,10 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"1100"
-			}
-		}
+		"AbilityValues"
+        {
+            "radius" "1100"
+        }
 
 		"Modifiers"
 		{
@@ -4673,14 +4372,10 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"1100"
-			}
-		}
+		"AbilityValues"
+        {
+            "radius" "1100"
+        }
 
 		"Modifiers"
 		{

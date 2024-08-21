@@ -456,19 +456,11 @@
 				}
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"25"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"property_two"			"4.5"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "25"
+            "property_two" "4.5"
+        }
 	}
 
 	"item_rpc_bahamut_immortal_weapon_3"
@@ -508,19 +500,11 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"100"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_two"			"200"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "100"
+            "property_two" "200"
+        }
 	}
 	
 	"item_rpc_bahamut_immortal_weapon_4"

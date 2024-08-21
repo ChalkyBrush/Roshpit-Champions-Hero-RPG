@@ -10,34 +10,14 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% MOUNTAIN_PROTECTOR_ARCANA1_W1_DMG_OF_ATTACK_POWER_PCT %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% MOUNTAIN_PROTECTOR_ARCANA1_W1_DMG_OF_STR %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"2"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"3"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_two"			"9"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% MOUNTAIN_PROTECTOR_ARCANA1_W1_DMG_OF_ATTACK_POWER_PCT %>"
+            "property_two" "<% MOUNTAIN_PROTECTOR_ARCANA1_W1_DMG_OF_STR %>"
+            "base_ability" "2"
+            "element_one" "3"
+            "element_two" "9"
+        }
 	}
 
 	"mountain_protector_rune_w_2_arcana1"
@@ -50,19 +30,11 @@
 		"AbilityTextureName"			"mountain_protector/mountain_protector_w_2_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% MOUNTAIN_PROTECTOR_ARCANA1_W2_MOVE_SLOW %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% MOUNTAIN_PROTECTOR_ARCANA1_W2_ATTACK_SLOW %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% MOUNTAIN_PROTECTOR_ARCANA1_W2_MOVE_SLOW %>"
+            "property_two" "<% MOUNTAIN_PROTECTOR_ARCANA1_W2_ATTACK_SLOW %>"
+        }
 	}
 
 	"mountain_protector_rune_w_3_arcana1"
@@ -76,29 +48,13 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% MOUNTAIN_PROTECTOR_ARCANA1_W3_DAMAGE_PERCENT %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"2"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"1"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_two"			"9"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% MOUNTAIN_PROTECTOR_ARCANA1_W3_DAMAGE_PERCENT %>"
+            "base_ability" "2"
+            "element_one" "1"
+            "element_two" "9"
+        }
 	}
 
 	"mountain_protector_rune_w_4_arcana1"
@@ -111,13 +67,9 @@
 		"AbilityTextureName"			"mountain_protector/mountain_protector_rune_w_4_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% MOUNTAIN_PROTECTOR_ARCANA1_W4_ATTACK_PER_STR %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% MOUNTAIN_PROTECTOR_ARCANA1_W4_ATTACK_PER_STR %>"
+        }
 	}
 

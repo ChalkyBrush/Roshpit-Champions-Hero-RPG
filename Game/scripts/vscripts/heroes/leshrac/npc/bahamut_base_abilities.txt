@@ -38,19 +38,11 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"340 355 370 385 400 415 430"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"damage"				"90 220 350 480 610 740 870"
-			}
-		}
+		"AbilityValues"
+        {
+            "radius" "340 355 370 385 400 415 430"
+            "damage" "90 220 350 480 610 740 870"
+        }
 
 		"OnSpellStart"
 		{
@@ -191,34 +183,14 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"<% BAHAMUT_Q_DAMAGE %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"wall_length"			"<% BAHAMUT_Q_WALL_LENGTH %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"attack_loss"			"<% BAHAMUT_Q_ATTACK_LOSS_PCT %>"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"slow"					"<% BAHAMUT_Q_MOVEMENT_SLOW %>"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"duration"				"<% BAHAMUT_Q_BASE_DURATION %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "<% BAHAMUT_Q_DAMAGE %>"
+            "wall_length" "<% BAHAMUT_Q_WALL_LENGTH %>"
+            "attack_loss" "<% BAHAMUT_Q_ATTACK_LOSS_PCT %>"
+            "slow" "<% BAHAMUT_Q_MOVEMENT_SLOW %>"
+            "duration" "<% BAHAMUT_Q_BASE_DURATION %>"
+        }
 		"OnAbilityPhaseStart"
 		{
 			"RunScript"
@@ -431,14 +403,10 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"range"						"1100 1200 1300 1400 1500 1600 1700"
-			}
-		}
+		"AbilityValues"
+        {
+            "range" "1100 1200 1300 1400 1500 1600 1700"
+        }
 
 		// Data driven
 		//-------------------------------------------------------
@@ -624,14 +592,10 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"movespeed"					"-<% BAHAMUT_E3_MS_SLOW_PER_TICK %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "movespeed" "-<% BAHAMUT_E3_MS_SLOW_PER_TICK %>"
+        }
 
 		"OnSpellStart"
 		{
@@ -972,18 +936,10 @@
 			}
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"<% BAHAMUT_R_DAMAGE %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"range"					"<% BAHAMUT_R_RANGE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "<% BAHAMUT_R_DAMAGE %>"
+            "range" "<% BAHAMUT_R_RANGE %>"
+        }
 	}
 

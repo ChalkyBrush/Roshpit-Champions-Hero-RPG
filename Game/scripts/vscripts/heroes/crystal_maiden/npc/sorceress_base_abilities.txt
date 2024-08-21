@@ -44,19 +44,11 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"340 360 380 400 420 440 460"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"damage"				"10 15 20 25 30 35 40"
-			}
-		}
+		"AbilityValues"
+        {
+            "radius" "340 360 380 400 420 440 460"
+            "damage" "10 15 20 25 30 35 40"
+        }
 
 		"OnSpellStart"
 		{
@@ -279,49 +271,17 @@
 		"AOERadius"     				"%radius"
 		"AbilityChannelTime"			"4.5"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"400"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"wave_duration"			"8.5"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"wave_count"			"9"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"wave_damage"			"100 300 500 700 900 1100 1300"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"wave_interval"			"1.0"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"slow_duration"			"1.2"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"movement_slow"			"-100 -130 -160 -190 -220 -250 -280"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"ice_resist_loss"			"8 16 24 32 40 48 56"
-			}
-		}
+		"AbilityValues"
+        {
+            "radius" "400"
+            "wave_duration" "8.5"
+            "wave_count" "9"
+            "wave_damage" "100 300 500 700 900 1100 1300"
+            "wave_interval" "1.0"
+            "slow_duration" "1.2"
+            "movement_slow" "-100 -130 -160 -190 -220 -250 -280"
+            "ice_resist_loss" "8 16 24 32 40 48 56"
+        }
 
 		"precache"
 		{
@@ -522,19 +482,11 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"range"						"800 875 900 975 1050 1125 1200"
-			}
-			"02"
-            {
-            	"var_type"					"FIELD_FLOAT"
-            	"amp"					    "40 50 60 70 80 90 100"
-            }
-		}
+		"AbilityValues"
+        {
+            "range" "800 875 900 975 1050 1125 1200"
+            "amp" "40 50 60 70 80 90 100"
+        }
 
 		// Data driven
 		//-------------------------------------------------------
@@ -705,14 +657,10 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"range"						"800 900 1000 1100 1200 1300 1400"
-			}
-		}
+		"AbilityValues"
+        {
+            "range" "800 900 1000 1100 1200 1300 1400"
+        }
 
 		// Data driven
 		//-------------------------------------------------------
@@ -853,14 +801,10 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"range"						"900 1000 1100 1200 1300 1400"
-			}
-		}
+		"AbilityValues"
+        {
+            "range" "900 1000 1100 1200 1300 1400"
+        }
 
 		// Data driven
 		//-------------------------------------------------------
@@ -1188,39 +1132,14 @@
 			}
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"duration"	"0.1"
-			}
-
-			"02"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"damage"	"160 380 600 820 1040 1260 1480"
-			}
-
-			"03"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"radius"	"600"
-			}
-
-			"04"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"stun_duration"	"2.1 2.3 2.5 2.7 2.9 3.1 3.3"
-			}
-
-			"05"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"range"		"1600 1725 1850 1975 2100 2225 2350"
-			}
-
-		}
+		"AbilityValues"
+        {
+            "duration" "0.1"
+            "damage" "160 380 600 820 1040 1260 1480"
+            "radius" "600"
+            "stun_duration" "2.1 2.3 2.5 2.7 2.9 3.1 3.3"
+            "range" "1600 1725 1850 1975 2100 2225 2350"
+        }
 	}
 
 	"arcane_torrent"
@@ -1322,24 +1241,12 @@
 			}
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"range"						"<% SORCERESS_GLYPH_5_1_RADIUS %>"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"mana_drain_per_second"		"50 90 130 170 210 250 290"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"damage"				"10 15 20 25 30 35 40"
-			}
-		}
+		"AbilityValues"
+        {
+            "range" "<% SORCERESS_GLYPH_5_1_RADIUS %>"
+            "mana_drain_per_second" "50 90 130 170 210 250 290"
+            "damage" "10 15 20 25 30 35 40"
+        }
 	}
 
 	"sorc_elemental_ability"

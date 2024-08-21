@@ -13,14 +13,10 @@
 		"MaxLevel"				 		"7"
 		"AbilityTextureName"			"auriun/auriun_shadow_bind"
 		"AOERadius"						"220"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"			"220 230 240 250 260 270 280"
-			}
-		}
+		"AbilityValues"
+        {
+            "radius" "220 230 240 250 260 270 280"
+        }
 		// Precache
 		//-------------------------------------------------------
 		"precache"

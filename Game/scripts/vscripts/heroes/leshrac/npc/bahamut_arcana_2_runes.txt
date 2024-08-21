@@ -10,14 +10,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% BAHAMUT_ARCANA_W_W1_LIFESTEAL_PCT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% BAHAMUT_ARCANA_W_W1_LIFESTEAL_PCT %>"
+        }
 	}
 
 	"bahamut_rune_w_2_arcana2"
@@ -31,14 +27,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% BAHAMUT_ARCANA_W_W2_SPELL_PIERCE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% BAHAMUT_ARCANA_W_W2_SPELL_PIERCE %>"
+        }
 	}
 
 	"bahamut_rune_w_3_arcana2"
@@ -52,14 +44,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% BAHAMUT_ARCANA_W_W3_PARALYSIS %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% BAHAMUT_ARCANA_W_W3_PARALYSIS %>"
+        }
 	}
 
 	"bahamut_rune_w_4_arcana2"
@@ -73,12 +61,8 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% BAHAMUT_ARCANA_W_W4_ATK_DMG_PER_MISSING_MANA %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% BAHAMUT_ARCANA_W_W4_ATK_DMG_PER_MISSING_MANA %>"
+        }
 	}

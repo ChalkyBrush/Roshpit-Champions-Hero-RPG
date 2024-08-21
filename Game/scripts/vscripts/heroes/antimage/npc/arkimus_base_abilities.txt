@@ -26,19 +26,11 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"<% ARKIMUS_Q_DAMAGE %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"cast_range"		"<% ARKIMUS_Q_CAST_RANGE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "<% ARKIMUS_Q_DAMAGE %>"
+            "cast_range" "<% ARKIMUS_Q_CAST_RANGE %>"
+        }
 	}
 
 	"arkimus_flash_source"
@@ -70,14 +62,10 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage_mult"			"<% ARKIMUS_W_DAMAGE_PCT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage_mult" "<% ARKIMUS_W_DAMAGE_PCT %>"
+        }
 	}
 
 	"arkimus_orbital_leap"
@@ -103,14 +91,10 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"cast_range"			"<% ARKIMUS_E_CAST_RANGE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "cast_range" "<% ARKIMUS_E_CAST_RANGE %>"
+        }
 	}
 
 	"arkimus_energy_field"
@@ -131,23 +115,11 @@
 			"particle"			"particles/econ/items/wisp/wisp_guardian_explosion_ti7.vpcf"
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"<% ARKIMUS_R_DAMAGE %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"spirits"			"<% ARKIMUS_R_CELLS %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage_reduce"		"<% ARKIMUS_R_DAMAGE_REDUCTION_PCT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "<% ARKIMUS_R_DAMAGE %>"
+            "spirits" "<% ARKIMUS_R_CELLS %>"
+            "damage_reduce" "<% ARKIMUS_R_DAMAGE_REDUCTION_PCT %>"
+        }
 	}
 

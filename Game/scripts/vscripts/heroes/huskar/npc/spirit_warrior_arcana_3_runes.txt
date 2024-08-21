@@ -11,24 +11,12 @@
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SPIRIT_WARRIOR_ARCANA_E1_DMG %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"3"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"12"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SPIRIT_WARRIOR_ARCANA_E1_DMG %>"
+            "base_ability" "3"
+            "element_one" "12"
+        }
 	}
 
 	"spirit_warrior_rune_e_2_arcana3"
@@ -42,19 +30,11 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SPIRIT_WARRIOR_ARCANA_E2_HEALTH %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% SPIRIT_WARRIOR_ARCANA_E2_ARMOR %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SPIRIT_WARRIOR_ARCANA_E2_HEALTH %>"
+            "property_two" "<% SPIRIT_WARRIOR_ARCANA_E2_ARMOR %>"
+        }
 	}
 
 	"spirit_warrior_rune_e_3_arcana3"
@@ -69,39 +49,15 @@
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SPIRIT_WARRIOR_ARCANA_E3_DPS %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% SPIRIT_WARRIOR_ARCANA_E3_DURATION %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two_base"			"<% SPIRIT_WARRIOR_ARCANA_E3_DURATION_BASE %>"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"3"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"12"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_two"			"4"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SPIRIT_WARRIOR_ARCANA_E3_DPS %>"
+            "property_two" "<% SPIRIT_WARRIOR_ARCANA_E3_DURATION %>"
+            "property_two_base" "<% SPIRIT_WARRIOR_ARCANA_E3_DURATION_BASE %>"
+            "base_ability" "3"
+            "element_one" "12"
+            "element_two" "4"
+        }
 		"Modifiers"
 		{
 			"modifier_spirit_rune_e_3_aura"
@@ -189,14 +145,10 @@
 		"AbilityTextureName"	"spirit_warrior/spirit_warrior_e_4_arcana3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SPIRIT_WARRIOR_ARCANA_E4_WIND_AMP * 100 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SPIRIT_WARRIOR_ARCANA_E4_WIND_AMP * 100 %>"
+        }
 	}
 
 	"spirit_warrior_b_c_special_arcana3"
@@ -210,14 +162,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"12"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "12"
+        }
 		"Modifiers"
 		{
 			"modifier_spirit_rune_e_2_aura"

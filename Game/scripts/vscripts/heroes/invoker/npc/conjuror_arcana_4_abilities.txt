@@ -23,39 +23,15 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"aspect_health"				"4000 10000 18000 28000 40000 54000 70000"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"aspect_damage"				"100 240 420 640 900 1200 1560"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"aspect_armor"				"40 120 240 400 600 840 1120"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"aspect_magic_resist"		"40 120 240 400 600 840 1120"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"aspect_armor_pierce"		"200 400 700 1100 1600 2200 2900"
-			}
-			"06"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"aspect_spell_pierce"		"100 200 400 700 1100 1600 2200"
-			}
-		}
+		"AbilityValues"
+        {
+            "aspect_health" "4000 10000 18000 28000 40000 54000 70000"
+            "aspect_damage" "100 240 420 640 900 1200 1560"
+            "aspect_armor" "40 120 240 400 600 840 1120"
+            "aspect_magic_resist" "40 120 240 400 600 840 1120"
+            "aspect_armor_pierce" "200 400 700 1100 1600 2200 2900"
+            "aspect_spell_pierce" "100 200 400 700 1100 1600 2200"
+        }
 
 		// Data driven
 		//-------------------------------------------------------
@@ -214,19 +190,11 @@
 
 		"AbilityManaCost"				"0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"800"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"4.0 4.5 5.0 5.5 6.0 6.5 7.0"
-			}
-		}
+		"AbilityValues"
+        {
+            "radius" "800"
+            "duration" "4.0 4.5 5.0 5.5 6.0 6.5 7.0"
+        }
 		"OnAbilityPhaseStart"
 		{
 			"RunScript"
@@ -312,19 +280,11 @@
 
 		"AbilityManaCost"				"0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"240"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"2.4"
-			}
-		}
+		"AbilityValues"
+        {
+            "radius" "240"
+            "duration" "2.4"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -421,14 +381,10 @@
 
 		"AbilityManaCost"				"0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"range"					"800 860 920 980 1040 1100 1160"
-			}
-		}
+		"AbilityValues"
+        {
+            "range" "800 860 920 980 1040 1100 1160"
+        }
 
 		"OnSpellStart"
 		{
@@ -497,14 +453,10 @@
 
 		"AbilityManaCost"				"0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"30"
-			}
-		}
+		"AbilityValues"
+        {
+            "duration" "30"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"

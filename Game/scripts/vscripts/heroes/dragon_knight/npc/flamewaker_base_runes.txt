@@ -10,20 +10,11 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% FLAMEWAKER_Q1_ARMOR %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% FLAMEWAKER_Q1_HEALTH_REGEN %>"
-			}
-
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% FLAMEWAKER_Q1_ARMOR %>"
+            "property_two" "<% FLAMEWAKER_Q1_HEALTH_REGEN %>"
+        }
 	}
 
 	"flamewaker_rune_q_2"
@@ -36,14 +27,10 @@
 		"AbilityTextureName"	"flamewaker/flamewaker_rune_q_2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% FLAMEWAKER_Q2_HEALTH_PCT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% FLAMEWAKER_Q2_HEALTH_PCT %>"
+        }
 	}
 
 	"flamewaker_rune_q_3"
@@ -57,14 +44,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% FLAMEWAKER_Q3_BASE_DMG %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% FLAMEWAKER_Q3_BASE_DMG %>"
+        }
 	}
 
 	"flamewaker_rune_q_4"
@@ -77,24 +60,12 @@
 		"AbilityTextureName"	"flamewaker/flamewaker_rune_q_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% FLAMEWAKER_Q4_PROC_CHANCE %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% FLAMEWAKER_Q4_FREECAST_DURATION %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two_base"			"<% FLAMEWAKER_Q4_FREECAST_DURATION_BASE %>"
-			}			
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% FLAMEWAKER_Q4_PROC_CHANCE %>"
+            "property_two" "<% FLAMEWAKER_Q4_FREECAST_DURATION %>"
+            "property_two_base" "<% FLAMEWAKER_Q4_FREECAST_DURATION_BASE %>"
+        }
 	}
 
 	"flamewaker_rune_w_1"
@@ -109,24 +80,12 @@
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% FLAMEWAKER_W1_DMG_PER_ATT * 100 %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"2"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"				"2"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% FLAMEWAKER_W1_DMG_PER_ATT * 100 %>"
+            "base_ability" "2"
+            "element_one" "2"
+        }
 	}
 
 	"flamewaker_rune_w_2"
@@ -139,24 +98,12 @@
 		"AbilityTextureName"	"ogre_magi_fireblast"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% FLAMEWAKER_W2_RANGE %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one_max"		"<% FLAMEWAKER_W2_MAX_RANGE %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% FLAMEWAKER_W2_SPEED_BONUS %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% FLAMEWAKER_W2_RANGE %>"
+            "property_one_max" "<% FLAMEWAKER_W2_MAX_RANGE %>"
+            "property_two" "<% FLAMEWAKER_W2_SPEED_BONUS %>"
+        }
 	}
 
 	"flamewaker_rune_w_3"
@@ -169,14 +116,10 @@
 		"AbilityTextureName"	"flamewaker/flamewaker_rune_w_3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% FLAMEWAKER_W3_ARMOR_SHRED_PER_STACK %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% FLAMEWAKER_W3_ARMOR_SHRED_PER_STACK %>"
+        }
 	}
 
 	"flamewaker_rune_w_4"
@@ -190,19 +133,11 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% FLAMEWAKER_W4_FIRE_SPIT_CHANCE %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% FLAMEWAKER_W4_W_BAD %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% FLAMEWAKER_W4_FIRE_SPIT_CHANCE %>"
+            "property_two" "<% FLAMEWAKER_W4_W_BAD %>"
+        }
 	}
 
 
@@ -216,19 +151,11 @@
 		"AbilityTextureName"	"flamewaker/flamewaker_rune_e_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% FLAMEWAKER_E1_ATK_POWER %>"
-			}
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% FLAMEWAKER_E1_ATK_SPEED %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% FLAMEWAKER_E1_ATK_POWER %>"
+            "property_two" "<% FLAMEWAKER_E1_ATK_SPEED %>"
+        }
 	}
 
 	"flamewaker_rune_e_2"
@@ -243,24 +170,12 @@
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% FLAMEWAKER_E2_DMG_ATK_PWR %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"3"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"				"<% RPC_ELEMENT_FIRE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% FLAMEWAKER_E2_DMG_ATK_PWR %>"
+            "base_ability" "3"
+            "element_one" "<% RPC_ELEMENT_FIRE %>"
+        }
 	}
 
 
@@ -275,19 +190,11 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% FLAMEWAKER_E3_BASE_DMG_PER_MS_OVER_THRESH %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% FLAMEWAKER_E3_PIERCE_PER_MS_OVER_THRESH %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% FLAMEWAKER_E3_BASE_DMG_PER_MS_OVER_THRESH %>"
+            "property_two" "<% FLAMEWAKER_E3_PIERCE_PER_MS_OVER_THRESH %>"
+        }
 	}
 
 	"flamewaker_rune_e_4"
@@ -300,14 +207,10 @@
 		"AbilityTextureName"	"flamewaker/flamewaker_rune_e_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% FLAMEWAKER_E4_MS_CAP %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% FLAMEWAKER_E4_MS_CAP %>"
+        }
 	}
 
 	"flamewaker_rune_r_1"
@@ -320,14 +223,10 @@
 		"AbilityTextureName"	"flamewaker/flamewaker_rune_r_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% FLAMEWAKER_R1_BONUS_ATT_DMG_PCT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% FLAMEWAKER_R1_BONUS_ATT_DMG_PCT %>"
+        }
 	}
 
 	"flamewaker_rune_r_2"
@@ -340,24 +239,12 @@
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% FLAMEWAKER_R2_DAMAGE_ATK_POWER %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"4"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"				"2"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% FLAMEWAKER_R2_DAMAGE_ATK_POWER %>"
+            "base_ability" "4"
+            "element_one" "2"
+        }
 	}
 
 	"flamewaker_rune_r_3"
@@ -370,14 +257,10 @@
 		"AbilityTextureName"	"flamewaker/flamewaker_rune_r_3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% FLAMEWAKER_R3_STRENGTH %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% FLAMEWAKER_R3_STRENGTH %>"
+        }
 	}
 
 	"flamewaker_rune_r_4"
@@ -390,12 +273,8 @@
 		"AbilityTextureName"	"flamewaker/flamewaker_rune_r_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% FLAMEWAKER_R4_FIRE_DAMAGE_AMP %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% FLAMEWAKER_R4_FIRE_DAMAGE_AMP %>"
+        }
 	}

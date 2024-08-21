@@ -7,19 +7,11 @@
 		"AbilityTextureName"	"paladin/paladin_rune_e_1_arcana2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% PALADIN_ARCANA_E1_HEAL %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% PALADIN_ARCANA_E1_MANA_RESTORE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% PALADIN_ARCANA_E1_HEAL %>"
+            "property_two" "<% PALADIN_ARCANA_E1_MANA_RESTORE %>"
+        }
 	}
 
 	"paladin_rune_e_2_arcana2"
@@ -30,14 +22,10 @@
 		"AbilityTextureName"	"paladin/paladin_rune_e_2_arcana2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% PALADIN_ARCANA_E2_ATT_PER_HOLY %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% PALADIN_ARCANA_E2_ATT_PER_HOLY %>"
+        }
 	}
 
 	"paladin_rune_e_3_arcana2"
@@ -48,19 +36,11 @@
 		"AbilityTextureName"	"paladin/paladin_rune_e_3_arcana2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% PALADIN_ARCANA_E3_DUR %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one_base"		"<% PALADIN_ARCANA_E3_BASE_DUR %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% PALADIN_ARCANA_E3_DUR %>"
+            "property_one_base" "<% PALADIN_ARCANA_E3_BASE_DUR %>"
+        }
 	}
 
 	"paladin_rune_e_4_arcana2"
@@ -71,17 +51,9 @@
 		"AbilityTextureName"	"paladin/paladin_rune_e_4_arcana2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% PALADIN_ARCANA2_E4_HOLY_AMP_PER_SPIRIT * 100 %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% PALADIN_ARCANA2_E4_SPELL_PIERCE_PER_SPIRIT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% PALADIN_ARCANA2_E4_HOLY_AMP_PER_SPIRIT * 100 %>"
+            "property_two" "<% PALADIN_ARCANA2_E4_SPELL_PIERCE_PER_SPIRIT %>"
+        }
 	}

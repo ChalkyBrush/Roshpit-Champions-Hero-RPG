@@ -7,27 +7,11 @@
     "AbilityTextureName"			"ogre_magi_fireblast"
     "AbilityCooldown"	"2"
     "MaxLevel"				 		"3"
-    "AbilitySpecial"
-    {
-        "01"
+    "AbilityValues"
         {
-            "var_type"					"FIELD_INTEGER"
-            "count"		"1"
+            "count" "1"
+            "speed" "450"
+            "damage" "300 1000 20000"
+            "aoe_radius" "1700"
         }
-        "02"
-        {
-            "var_type"					"FIELD_INTEGER"
-            "speed"						"450"
-        }
-        "03"
-        {
-            "var_type"					"FIELD_INTEGER"
-            "damage"						"300 1000 20000"
-        }
-        "04"
-        {
-            "var_type"					"FIELD_INTEGER"
-            "aoe_radius"						"1700"
-        }
-    }
 }

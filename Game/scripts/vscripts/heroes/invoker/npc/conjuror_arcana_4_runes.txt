@@ -10,29 +10,13 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% CONJUROR_ARCANA_E1_ATTACK_POWER_BLACK_RAZOR %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% CONJUROR_ARCANA_E1_ATTACK_POWER_BONUS_PCT %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"11"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"3"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% CONJUROR_ARCANA_E1_ATTACK_POWER_BLACK_RAZOR %>"
+            "property_two" "<% CONJUROR_ARCANA_E1_ATTACK_POWER_BONUS_PCT %>"
+            "element_one" "11"
+            "base_ability" "3"
+        }
 	}
 
 	"conjuror_rune_e_2_arcana4"
@@ -46,14 +30,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% CONJUROR_ARCANA_E2_SHADOW_DAMAGE_INSTANCES %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% CONJUROR_ARCANA_E2_SHADOW_DAMAGE_INSTANCES %>"
+        }
 	}
 
 	"conjuror_rune_e_3_arcana4"
@@ -67,19 +47,11 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% CONJUROR_ARCANA_E3_SHADOW_AMP %>"
-			}
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% CONJUROR_ARCANA_E3_AGILITY_GEAR_AMP %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% CONJUROR_ARCANA_E3_SHADOW_AMP %>"
+            "property_two" "<% CONJUROR_ARCANA_E3_AGILITY_GEAR_AMP %>"
+        }
 	}
 
 	"conjuror_rune_e_4_arcana4"
@@ -93,12 +65,8 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% CONJUROR_ARCANA_E4_SPLIT_CHANCE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% CONJUROR_ARCANA_E4_SPLIT_CHANCE %>"
+        }
 	}

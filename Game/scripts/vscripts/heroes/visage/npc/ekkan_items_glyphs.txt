@@ -28,14 +28,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"4"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "4"
+        }
 	}
 
 	"item_rpc_ekkan_glyph_2_1"
@@ -67,14 +63,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "5"
+        }
 	}
 
 	"item_rpc_ekkan_glyph_3_1"
@@ -106,14 +98,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"100"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "100"
+        }
 	}
 
 	"item_rpc_ekkan_glyph_4_1"
@@ -145,19 +133,11 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"60"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"80"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "60"
+            "property_two" "80"
+        }
 	}
 
 	"item_rpc_ekkan_glyph_5_1"
@@ -189,14 +169,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "2"
+        }
 	}
 
 	"item_rpc_ekkan_glyph_6_1"
@@ -228,14 +204,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "1"
+        }
 	}
 
 	"item_rpc_ekkan_glyph_7_1"
@@ -267,14 +239,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "2"
+        }
 	}
 
 	"item_rpc_ekkan_glyph_5_a"
@@ -306,14 +274,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1000"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "1000"
+        }
 	}
 
 

@@ -7,14 +7,10 @@
 		"AbilityTextureName"	"zonik/zonik_rune_e_1_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% ZHONIK_E1_ARCANA_MAGIC_ARMOR_LOSS %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% ZHONIK_E1_ARCANA_MAGIC_ARMOR_LOSS %>"
+        }
 	}
 
 	"zonik_rune_e_2_arcana1"
@@ -26,24 +22,12 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% ZHONIK_E2_ARCANA_DMG_PCT %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"3"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"6"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% ZHONIK_E2_ARCANA_DMG_PCT %>"
+            "base_ability" "3"
+            "element_one" "6"
+        }
 	}
 
 	"zonik_rune_e_3_arcana1"
@@ -54,14 +38,10 @@
 		"AbilityTextureName"	"zonik/zonik_rune_e_3_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% ZHONIK_E3_ARCANA_E_BAD_PCT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% ZHONIK_E3_ARCANA_E_BAD_PCT %>"
+        }
 	}
 
 	"zonik_rune_e_4_arcana1"
@@ -72,18 +52,10 @@
 		"AbilityTextureName"	"zonik/zonik_rune_e_4_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% ZHONIK_E4_ARCANA_TEMPORAL_AMP_PCT %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% ZHONIK_E4_ARCANA_MS_STICKY_DURATION %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% ZHONIK_E4_ARCANA_TEMPORAL_AMP_PCT %>"
+            "property_two" "<% ZHONIK_E4_ARCANA_MS_STICKY_DURATION %>"
+        }
 	}
 

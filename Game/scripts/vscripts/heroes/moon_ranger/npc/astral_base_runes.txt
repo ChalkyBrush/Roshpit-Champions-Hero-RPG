@@ -6,14 +6,10 @@
 		"AbilityTextureName"	"faceless_void_time_walk"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ASTRAL_RANGER_Q1_RANGE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% ASTRAL_RANGER_Q1_RANGE %>"
+        }
 	}
 
 	"astral_rune_q_2"
@@ -25,29 +21,13 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% ASTRAL_RANGER_Q2_DMG_PER_ATT* 100 %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% ASTRAL_RANGER_Q2_ARMOR_LOSS %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"8"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"1"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% ASTRAL_RANGER_Q2_DMG_PER_ATT* 100 %>"
+            "property_two" "<% ASTRAL_RANGER_Q2_ARMOR_LOSS %>"
+            "element_one" "8"
+            "base_ability" "1"
+        }
 	}
 
 	"astral_rune_q_3"
@@ -58,14 +38,10 @@
 		"AbilityTextureName"	"astral_ranger/astral_rune_q_3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ASTRAL_RANGER_Q3_ATTACK_PCT_IN_SHROUD %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% ASTRAL_RANGER_Q3_ATTACK_PCT_IN_SHROUD %>"
+        }
 	}
 
 	"astral_rune_q_4"
@@ -76,14 +52,10 @@
 		"AbilityTextureName"	"astral_ranger/astral_rune_q_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% ASTRAL_RANGER_Q4_ATTACK_DAMAGE_PER_ATTRIBUTE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% ASTRAL_RANGER_Q4_ATTACK_DAMAGE_PER_ATTRIBUTE %>"
+        }
 		"Modifiers"
 		{
 			"modifier_astral_rune_q_4_visible"
@@ -117,14 +89,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% ASTRAL_RANGER_W1_ATTRIBUTES_PER_STACK %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% ASTRAL_RANGER_W1_ATTRIBUTES_PER_STACK %>"
+        }
 
 		"OnProjectileHitUnit"
 		{
@@ -146,14 +114,10 @@
 		"AbilityTextureName"	"drow_ranger_trueshot"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ASTRAL_RANGER_W2_MULTIPLY_CHANCE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% ASTRAL_RANGER_W2_MULTIPLY_CHANCE %>"
+        }
 	}
 
 	"astral_rune_w_3"
@@ -164,19 +128,11 @@
 		"AbilityTextureName"	"astral_ranger/astral_rune_w_3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ASTRAL_RANGER_W3_MULTIPLY_PERCENT*100 %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"8"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% ASTRAL_RANGER_W3_MULTIPLY_PERCENT*100 %>"
+            "element_one" "8"
+        }
 		"OnProjectileHitUnit"
 		{
 			"DeleteOnHit"	"0"
@@ -197,14 +153,10 @@
 		"AbilityTextureName"	"rpc/astral_w_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% ASTRAL_RANGER_W4_MAGIC_ARMOR_LOSS %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% ASTRAL_RANGER_W4_MAGIC_ARMOR_LOSS %>"
+        }
 	}
 
 	"astral_rune_e_1"
@@ -215,24 +167,12 @@
 		"AbilityTextureName"	"astral_ranger/astral_rune_e_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% ASTRAL_RANGER_E1_MAGIC_ARMOR_REDUCE %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% ASTRAL_RANGER_E1_ADD_DURATION %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two_base"		"<% ASTRAL_RANGER_E1_MAX_STACKS_COUNT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% ASTRAL_RANGER_E1_MAGIC_ARMOR_REDUCE %>"
+            "property_two" "<% ASTRAL_RANGER_E1_ADD_DURATION %>"
+            "property_two_base" "<% ASTRAL_RANGER_E1_MAX_STACKS_COUNT %>"
+        }
 	}
 
 	"astral_rune_e_2"
@@ -243,19 +183,11 @@
 		"AbilityTextureName"	"astral_ranger/astral_rune_e_2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ASTRAL_RANGER_E2_ATTACK_SPEED %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% ASTRAL_RANGER_E2_DAMAGE_BONUS %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% ASTRAL_RANGER_E2_ATTACK_SPEED %>"
+            "property_two" "<% ASTRAL_RANGER_E2_DAMAGE_BONUS %>"
+        }
 	}
 
 	"astral_rune_e_3"
@@ -266,24 +198,12 @@
 		"AbilityTextureName"	"astral_ranger/astral_rune_e_3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% ASTRAL_RANGER_E3_ADD_DURATION %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one_base"			"<% ASTRAL_RANGER_E3_START_DURATION %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% ASTRAL_RANGER_E3_MAGIC_ARMOR %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% ASTRAL_RANGER_E3_ADD_DURATION %>"
+            "property_one_base" "<% ASTRAL_RANGER_E3_START_DURATION %>"
+            "property_two" "<% ASTRAL_RANGER_E3_MAGIC_ARMOR %>"
+        }
 	}
 
 	"astral_rune_e_4"
@@ -294,19 +214,11 @@
 		"AbilityTextureName"	"drow_ranger_frost_arrows"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ASTRAL_RANGER_E4_ALL_ATTRIBUTES %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% ASTRAL_RANGER_E4_COSMIC_AMP %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% ASTRAL_RANGER_E4_ALL_ATTRIBUTES %>"
+            "property_two" "<% ASTRAL_RANGER_E4_COSMIC_AMP %>"
+        }
 		"Modifiers"
 		{
 			"modifier_astral_d_c_visible"
@@ -327,34 +239,14 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"20"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% ASTRAL_RANGER_R1_DAMAGE %>"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"base_ability"			"4"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"8"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "1"
+            "property_one_base" "20"
+            "property_two" "<% ASTRAL_RANGER_R1_DAMAGE %>"
+            "base_ability" "4"
+            "element_one" "8"
+        }
 	}
 
 	"astral_rune_r_2"
@@ -366,29 +258,13 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% ASTRAL_RANGER_R2_DAMAGE_X_STATS %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% ASTRAL_RANGER_R2_STUN_DURATION %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"4"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"8"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% ASTRAL_RANGER_R2_DAMAGE_X_STATS %>"
+            "property_two" "<% ASTRAL_RANGER_R2_STUN_DURATION %>"
+            "base_ability" "4"
+            "element_one" "8"
+        }
 	}
 
 	"astral_rune_r_3"
@@ -400,34 +276,14 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% ASTRAL_RANGER_R3_ATTACK_DAMAGE_PERCENT * 100 %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"0"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% ASTRAL_RANGER_R3_FLAT_DAMAGE %>"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"4"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"8"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% ASTRAL_RANGER_R3_ATTACK_DAMAGE_PERCENT * 100 %>"
+            "property_one_base" "0"
+            "property_two" "<% ASTRAL_RANGER_R3_FLAT_DAMAGE %>"
+            "base_ability" "4"
+            "element_one" "8"
+        }
 		"Modifiers"
 		{
 			"modifier_rune_r_3_phoenix"
@@ -516,12 +372,8 @@
 		"AbilityTextureName"	"luna/zodiac_sigils_skills/luna_lucent_beam"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"1"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "1"
+        }
 	}

@@ -59,14 +59,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"30"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "30"
+        }
 	}
 
 	"item_rpc_duskbringer_glyph_2_1"
@@ -98,14 +94,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% DUSKBRINGER_GLYPH_2_1_STACKS_PER_SEC %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% DUSKBRINGER_GLYPH_2_1_STACKS_PER_SEC %>"
+        }
 	}
 
 	"item_rpc_duskbringer_glyph_3_1"
@@ -137,14 +129,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "5"
+        }
 	}
 
 	"item_rpc_duskbringer_glyph_4_1"
@@ -176,19 +164,11 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"300"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"1.2"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "300"
+            "property_two" "1.2"
+        }
 	}
 
 	"item_rpc_duskbringer_glyph_5_1"
@@ -220,14 +200,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"7"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "7"
+        }
 	}
 
 	"item_rpc_duskbringer_glyph_6_1"
@@ -259,14 +235,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"4"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "4"
+        }
 	}
 
 	"item_rpc_duskbringer_glyph_7_1"
@@ -316,14 +288,10 @@
 				}
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% DUSKBRINGER_GLYPH_7_1_MULT_STACKS %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% DUSKBRINGER_GLYPH_7_1_MULT_STACKS %>"
+        }
 	}
 
 	"item_rpc_duskbringer_glyph_1_2"
@@ -376,19 +344,11 @@
                 }
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% DUSKBRINGER_GLYPH_1_2_HPREG %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% DUSKBRINGER_GLYPH_1_2_BASE_DUR %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% DUSKBRINGER_GLYPH_1_2_HPREG %>"
+            "property_two" "<% DUSKBRINGER_GLYPH_1_2_BASE_DUR %>"
+        }
 	}
 
 	"item_rpc_duskbringer_glyph_2_2"
@@ -420,14 +380,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% DUSKBRINGER_GLYPH_2_2_Q1_STACKS %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% DUSKBRINGER_GLYPH_2_2_Q1_STACKS %>"
+        }
 	}
 
 	"item_rpc_duskbringer_glyph_3_2"
@@ -459,19 +415,11 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% DUSKBRINGER_GLYPH_3_2_TICK_TIME_DECR %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% DUSKBRINGER_GLYPH_3_2_DMG_DECR * 100 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% DUSKBRINGER_GLYPH_3_2_TICK_TIME_DECR %>"
+            "property_two" "<% DUSKBRINGER_GLYPH_3_2_DMG_DECR * 100 %>"
+        }
 	}
 
 	"item_rpc_duskbringer_glyph_4_2"
@@ -519,19 +467,11 @@
 				"TextureName" "duskbringer/t_4_2"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% DUSKBRINGER_GLYPH_4_2_RES_PER_STACK * 100 %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% DUSKBRINGER_GLYPH_4_2_MAX_STACKS %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% DUSKBRINGER_GLYPH_4_2_RES_PER_STACK * 100 %>"
+            "property_two" "<% DUSKBRINGER_GLYPH_4_2_MAX_STACKS %>"
+        }
 	}
 
 	"item_rpc_duskbringer_glyph_5_2"
@@ -563,14 +503,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% DUSKBRINGER_GLYPH_5_2_BASE_RADIUS %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% DUSKBRINGER_GLYPH_5_2_BASE_RADIUS %>"
+        }
 	}
 
 	"item_rpc_duskbringer_glyph_6_2"
@@ -611,14 +547,10 @@
 				}
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.3"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "0.3"
+        }
 	}
 
 	"item_rpc_duskbringer_glyph_7_2"
@@ -681,13 +613,9 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"22"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "22"
+        }
 	}
 

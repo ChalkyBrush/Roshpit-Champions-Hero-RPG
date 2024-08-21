@@ -7,19 +7,11 @@
 		"AbilityTextureName"	"djanghor/djanghor_rune_q_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% DJANGHOR_Q1_REGEN_FLAT %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% DJANGHOR_Q1_REGEN_PCT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% DJANGHOR_Q1_REGEN_FLAT %>"
+            "property_two" "<% DJANGHOR_Q1_REGEN_PCT %>"
+        }
 	}
 
 	"djanghor_rune_q_2"
@@ -30,14 +22,10 @@
 		"AbilityTextureName"	"djanghor/djanghor_rune_q_2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% DJANGHOR_Q2_ATT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% DJANGHOR_Q2_ATT %>"
+        }
 	}
 
 	"djanghor_rune_q_3"
@@ -48,19 +36,11 @@
 		"AbilityTextureName"	"djanghor/djanghor_rune_q_3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one_base"			"0.3"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% DJANGHOR_Q3_BUFF_DURATION_INCREASE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one_base" "0.3"
+            "property_one" "<% DJANGHOR_Q3_BUFF_DURATION_INCREASE %>"
+        }
 	}
 
 	"djanghor_rune_q_4"
@@ -71,14 +51,10 @@
 		"AbilityTextureName"	"djanghor/djanghor_rune_q_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "5"
+        }
 	}
 
 	"djanghor_rune_w_1"
@@ -90,24 +66,12 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% DJANGHOR_W1_DAMAGE_MULT * 100 %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"2"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"16"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% DJANGHOR_W1_DAMAGE_MULT * 100 %>"
+            "base_ability" "2"
+            "element_one" "16"
+        }
 	}
 
 	"djanghor_rune_w_2"
@@ -118,19 +82,11 @@
 		"AbilityTextureName"	"djanghor/djanghor_rune_w_2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% DJANGHOR_W2_BONUS_ARMOR_PIERCE_PER_STACK %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% DJANGHOR_W2_BONUS_HP_REGEN_PER_STACK %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% DJANGHOR_W2_BONUS_ARMOR_PIERCE_PER_STACK %>"
+            "property_two" "<% DJANGHOR_W2_BONUS_HP_REGEN_PER_STACK %>"
+        }
 	}
 
 	"djanghor_rune_w_3"
@@ -141,14 +97,10 @@
 		"AbilityTextureName"	"djanghor/djanghor_rune_w_3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% DJANGHOR_W3_ATTACK_PERCENT_ADDED_TO_TORNADO_AND_STOMP * 100 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% DJANGHOR_W3_ATTACK_PERCENT_ADDED_TO_TORNADO_AND_STOMP * 100 %>"
+        }
 	}
 
 	"djanghor_rune_w_4"
@@ -159,14 +111,10 @@
 		"AbilityTextureName"	"djanghor/djanghor_rune_w_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% DJANGHOR_W4_NATURE_AMP * 100 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% DJANGHOR_W4_NATURE_AMP * 100 %>"
+        }
 	}
 
 	"djanghor_rune_e_1"
@@ -177,14 +125,10 @@
 		"AbilityTextureName"	"djanghor/djanghor_rune_e_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% DJANGHOR_E1_ARMOR_AND_MAGIC_ARMOR_REDUCE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% DJANGHOR_E1_ARMOR_AND_MAGIC_ARMOR_REDUCE %>"
+        }
 	}
 
 	"djanghor_rune_e_2"
@@ -195,19 +139,11 @@
 		"AbilityTextureName"	"djanghor/djanghor_rune_e_2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% DJANGHOR_E2_JINBO_BOOST_IN_LEAP * 100 %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% DJANGHOR_E2_R_FREECAST_STACK_CHANCE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% DJANGHOR_E2_JINBO_BOOST_IN_LEAP * 100 %>"
+            "property_two" "<% DJANGHOR_E2_R_FREECAST_STACK_CHANCE %>"
+        }
 	}
 
 	"djanghor_rune_e_3"
@@ -218,14 +154,10 @@
 		"AbilityTextureName"	"djanghor/djanghor_rune_e_3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% DJANGHOR_E3_CLEANCE_CHANCE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% DJANGHOR_E3_CLEANCE_CHANCE %>"
+        }
 	}
 
 	"djanghor_rune_e_4"
@@ -236,14 +168,10 @@
 		"AbilityTextureName"	"djanghor/djanghor_rune_e_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% DJANGHOR_E4_DURATION_INCREASE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% DJANGHOR_E4_DURATION_INCREASE %>"
+        }
 	}
 
 	"djanghor_rune_r_1"
@@ -254,14 +182,10 @@
 		"AbilityTextureName"	"djanghor/djanghor_rune_r_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% DJANGHOR_R1_ATTACK_POWER_PER_STAT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% DJANGHOR_R1_ATTACK_POWER_PER_STAT %>"
+        }
 	}
 
 	"djanghor_rune_r_2"
@@ -272,14 +196,10 @@
 		"AbilityTextureName"	"djanghor/djanghor_rune_r_2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% DJANGHOR_R2_BONUS_HP %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% DJANGHOR_R2_BONUS_HP %>"
+        }
 	}
 
 	"djanghor_rune_r_3"
@@ -290,14 +210,10 @@
 		"AbilityTextureName"	"djanghor/djanghor_rune_r_3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% DJANGHOR_R3_BIRD_BAD_PCT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% DJANGHOR_R3_BIRD_BAD_PCT %>"
+        }
 	}
 
 	"djanghor_rune_r_4"
@@ -308,13 +224,9 @@
 		"AbilityTextureName"	"djanghor/djanghor_rune_r_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% DJANGHOR_R4_BONUS_ATTRIBUTE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% DJANGHOR_R4_BONUS_ATTRIBUTE %>"
+        }
 	}
 

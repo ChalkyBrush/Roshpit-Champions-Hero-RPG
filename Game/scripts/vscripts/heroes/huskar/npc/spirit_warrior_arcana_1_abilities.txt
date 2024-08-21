@@ -172,29 +172,13 @@
 			}
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"duration"	"45"
-			}
-			"02"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"damage_reduction_percent"	"35"
-			}
-			"03"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"attackspeed"	"120 140 160 180 200 220 240"
-			}
-			"04"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"armor_and_magic_armor"	"100 250 400 550 700 850 1000"
-			}
-		}
+		"AbilityValues"
+        {
+            "duration" "45"
+            "damage_reduction_percent" "35"
+            "attackspeed" "120 140 160 180 200 220 240"
+            "armor_and_magic_armor" "100 250 400 550 700 850 1000"
+        }
 	}
 
 	"spirit_warrior_waterheart_weapon"
@@ -211,14 +195,10 @@
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"
 		"AbilityTextureName"			"spirit_warrior/waterheart_weapon"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"60"
-			}
-		}
+		"AbilityValues"
+        {
+            "duration" "60"
+        }
 
 		// Casting
 		//-------------------------------------------------------

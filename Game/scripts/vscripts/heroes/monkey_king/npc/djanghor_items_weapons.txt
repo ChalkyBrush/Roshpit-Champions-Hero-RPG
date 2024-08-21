@@ -407,14 +407,10 @@
 				"Function"		"equip_item"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"5"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "5"
+        }
 		"Modifiers"
 		{
 			"modifier_djanghor_immortal_weapon_1"
@@ -468,14 +464,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"<% DJANGHOR_IMMORTAL_WEAPON_2_HP_THRESHOLD_PCT * 100 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% DJANGHOR_IMMORTAL_WEAPON_2_HP_THRESHOLD_PCT * 100 %>"
+        }
 	}
 
 	"item_rpc_djanghor_immortal_weapon_3"
@@ -519,14 +511,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"100"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "100"
+        }
 	}
 	
 	"item_rpc_djanghor_immortal_weapon_4"

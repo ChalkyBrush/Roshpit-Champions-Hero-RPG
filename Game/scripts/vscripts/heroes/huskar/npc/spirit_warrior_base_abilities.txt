@@ -13,29 +13,13 @@
 		"MaxLevel"				 		"7"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityTextureName"			"huskar_burning_spear"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_increase"		"<% SPIRIT_WARRIOR_Q_FIRE_BONUS_DAMAGE_BUFF %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"40"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"damage"				"40 60 80 100 120 140 160"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"fire_damage_amp"		"10 15 20 25 30 35 40"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage_increase" "<% SPIRIT_WARRIOR_Q_FIRE_BONUS_DAMAGE_BUFF %>"
+            "duration" "40"
+            "damage" "40 60 80 100 120 140 160"
+            "fire_damage_amp" "10 15 20 25 30 35 40"
+        }
 		// Precache
 		//-------------------------------------------------------
 		"precache"
@@ -172,19 +156,11 @@
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"
 		"AbilityTextureName"			"spirit_warrior/windstrike_weapon"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"40"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"attackspeed"			"60"
-			}
-		}
+		"AbilityValues"
+        {
+            "duration" "40"
+            "attackspeed" "60"
+        }
 
 		// Casting
 		//-------------------------------------------------------
@@ -279,14 +255,10 @@
 			"particle"					"particles/units/heroes/hero_vengeful/spirit_warrior_d_b_buff.vpcf"
 			"particle"					"particles/units/heroes/hero_ember_spirit/spirit_warrior_d_b_pop.vpcf"
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"<% SPIRIT_WARRIOR_W_DAMAGE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "<% SPIRIT_WARRIOR_W_DAMAGE %>"
+        }
 		"AbilityCastPoint"				"0.3"
 
 		// Time
@@ -381,19 +353,11 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cooldown"				"0.5"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"cast_range"			"1200 1300 1400 1500 1600 1700 1800"
-			}
-		}
+		"AbilityValues"
+        {
+            "cooldown" "0.5"
+            "cast_range" "1200 1300 1400 1500 1600 1700 1800"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -790,24 +754,11 @@
 			}
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"duration"	"14"
-			}
-			"02"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"flat_damage"	"40 70 100 130 160 190 220"
-			}
-			"03"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"attackspeed" "140 150 160 170 180 190 200"
-			}
-
-		}
+		"AbilityValues"
+        {
+            "duration" "14"
+            "flat_damage" "40 70 100 130 160 190 220"
+            "attackspeed" "140 150 160 170 180 190 200"
+        }
 	}
 

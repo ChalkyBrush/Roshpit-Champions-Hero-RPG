@@ -32,19 +32,11 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"stun_duration"	"<% MOUNTAIN_PROTECTOR_Q_STUN_DURATION %>"
-			}
-			"01"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"range"		"800 840 880 920 960 1000 1040"
-			}
-		}
+		"AbilityValues"
+        {
+            "stun_duration" "<% MOUNTAIN_PROTECTOR_Q_STUN_DURATION %>"
+            "range" "800 840 880 920 960 1000 1040"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -144,14 +136,10 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"armor_and_magic_armor"		"<% MOUNTAIN_PROTECTOR_W_ARMOR_AND_MAGIC_ARMOR %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "armor_and_magic_armor" "<% MOUNTAIN_PROTECTOR_W_ARMOR_AND_MAGIC_ARMOR %>"
+        }
 	}
 
 	"mountain_protector_emberstone"
@@ -191,14 +179,10 @@
 		}
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"range"						"800 875 900 975 1050 1125 1200"
-			}
-		}
+		"AbilityValues"
+        {
+            "range" "800 875 900 975 1050 1125 1200"
+        }
 
 		// Data driven
 		//-------------------------------------------------------
@@ -464,23 +448,11 @@
 			}
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"stun_duration"	"1.5"
-			}
-			"02"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"explosions"	"24 26 28 30 32 34 36"
-			}
-			"03"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"refresh_chance"	"2 4 6 8 10 12 14"
-			}
-		}
+		"AbilityValues"
+        {
+            "stun_duration" "1.5"
+            "explosions" "24 26 28 30 32 34 36"
+            "refresh_chance" "2 4 6 8 10 12 14"
+        }
 	}
 

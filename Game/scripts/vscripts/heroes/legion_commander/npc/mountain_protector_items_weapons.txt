@@ -471,19 +471,11 @@
 				}
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"1"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_two"			"1"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "1"
+            "property_two" "1"
+        }
 	}
 
 	"item_rpc_mountain_protector_immortal_weapon_3"
@@ -523,14 +515,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"65"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "65"
+        }
 	}
 	
 	"item_rpc_mountain_protector_immortal_weapon_4"

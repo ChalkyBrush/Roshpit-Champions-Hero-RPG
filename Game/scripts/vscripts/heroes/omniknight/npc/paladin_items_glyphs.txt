@@ -58,14 +58,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% PALADIN_GLYPH_1_1_E1_CD %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% PALADIN_GLYPH_1_1_E1_CD %>"
+        }
 	}
 
 	"item_rpc_paladin_glyph_2_1"
@@ -106,14 +102,10 @@
 				}
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"0"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "0"
+        }
 	}
 
 	"item_rpc_paladin_glyph_3_1"
@@ -147,14 +139,10 @@
 				"IsBuff"			"1"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"20"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "20"
+        }
 	}
 
 	"item_rpc_paladin_glyph_4_1"
@@ -186,14 +174,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"4"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "4"
+        }
 	}
 
 	"item_rpc_paladin_glyph_5_1"
@@ -225,14 +209,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"8"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "8"
+        }
 	}
 
 	"item_rpc_paladin_glyph_6_1"
@@ -282,14 +262,10 @@
 				}
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"70"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "70"
+        }
 	}
 
 	"item_rpc_paladin_glyph_7_1"
@@ -347,14 +323,10 @@
 				}
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"40"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "40"
+        }
 	}
 
 	"item_rpc_paladin_glyph_5_a"
@@ -386,19 +358,11 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"520"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"1"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "520"
+            "property_two" "1"
+        }
 	}
 
 	"item_rpc_paladin_glyph_1_2"
@@ -430,14 +394,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% PALADIN_GLYPH_1_2_AS_SLOW %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% PALADIN_GLYPH_1_2_AS_SLOW %>"
+        }
 	}
 
 	"item_rpc_paladin_glyph_2_2"
@@ -487,14 +447,10 @@
 				}
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% PALADIN_GLYPH_2_2_WEAPON_BONUS_PCT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% PALADIN_GLYPH_2_2_WEAPON_BONUS_PCT %>"
+        }
 	}
 
 	"item_rpc_paladin_glyph_3_2"
@@ -528,14 +484,10 @@
 				"IsBuff"			"1"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"20"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "20"
+        }
 	}
 
 	"item_rpc_paladin_glyph_4_2"
@@ -586,14 +538,10 @@
 				}
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.05"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "0.05"
+        }
 	}
 
 	"item_rpc_paladin_glyph_5_2"
@@ -625,14 +573,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "10"
+        }
 	}
 
 	"item_rpc_paladin_glyph_6_2"
@@ -665,14 +609,10 @@
 				"IsBuff"			"1"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"240"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "240"
+        }
 	}
 
 	"item_rpc_paladin_glyph_7_2"
@@ -704,18 +644,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"99"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"99.9"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "99"
+            "property_two" "99.9"
+        }
 	}
 	

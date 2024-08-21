@@ -34,20 +34,11 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"mana_drain_per_second"	"15"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"speed"					"<% BAHAMUT_ARCANA_W_BASE_SPEED %>"
-			}
-
-		}
+		"AbilityValues"
+        {
+            "mana_drain_per_second" "15"
+            "speed" "<% BAHAMUT_ARCANA_W_BASE_SPEED %>"
+        }
 
 		"OnSpellStart"
 		{

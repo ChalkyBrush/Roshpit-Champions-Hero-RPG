@@ -32,19 +32,11 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"damage_reduction"				"32 35 38 41 44 47 50"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"duration"				"7"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage_reduction" "32 35 38 41 44 47 50"
+            "duration" "7"
+        }
 
 		"OnSpellStart"
 		{

@@ -38,35 +38,14 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"attack_speed"				"60 90 120 150 180 210 240"
-			}
-
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"proc_targets"				"9 10 11 12 13 14 15"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"proc_damage"				"60 120 180 240 300 360 420"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"duration"					"<% VOLTEX_Q_BASE_DUR %>"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"search_radius"				"520 530 540 550 560 570 580"
-			}
-		}
+		"AbilityValues"
+        {
+            "attack_speed" "60 90 120 150 180 210 240"
+            "proc_targets" "9 10 11 12 13 14 15"
+            "proc_damage" "60 120 180 240 300 360 420"
+            "duration" "<% VOLTEX_Q_BASE_DUR %>"
+            "search_radius" "520 530 540 550 560 570 580"
+        }
 
 		"OnSpellStart"
 		{
@@ -182,19 +161,11 @@
 
 	    // Special
 	    //-------------------------------------------
-	    "AbilitySpecial"
-	    {
-	        "01"
-	        {
-	            "var_type" "FIELD_INTEGER"
-	            "radius" "380 390 400 410 420 430 440"
-	        }
-	        "02"
-	        {
-	        	"var_type" "FIELD_INTEGER"
-	        	"damage" "35 65 95 125 155 185 215"
-	        }
-	    }
+	    "AbilityValues"
+        {
+            "radius" "380 390 400 410 420 430 440"
+            "damage" "35 65 95 125 155 185 215"
+        }
 
 	    "precache"
 	    {
@@ -417,24 +388,12 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"land_stun_duration"	"1.3 1.5 1.7 1.9 2.1 2.3 2.5"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"land_radius"			"270 280 290 300 310 320 330"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"land_damage"			"180 380 580 780 980 1180 1380"
-			}
-		}
+		"AbilityValues"
+        {
+            "land_stun_duration" "1.3 1.5 1.7 1.9 2.1 2.3 2.5"
+            "land_radius" "270 280 290 300 310 320 330"
+            "land_damage" "180 380 580 780 980 1180 1380"
+        }
 
 		"OnSpellStart"
 		{
@@ -872,22 +831,10 @@
 			}
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"damage"	"<% VOLTEX_R_DAMAGE %>"
-			}
-			"02"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"num_sparks" "9 11 13 15 17 19 21"
-			}
-			"03"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"magic_armor_reduction_per_stack"	"-30 -60 -90 -120 -150 -180 -210"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "<% VOLTEX_R_DAMAGE %>"
+            "num_sparks" "9 11 13 15 17 19 21"
+            "magic_armor_reduction_per_stack" "-30 -60 -90 -120 -150 -180 -210"
+        }
 	}

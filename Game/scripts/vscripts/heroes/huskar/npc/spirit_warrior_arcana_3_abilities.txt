@@ -29,19 +29,11 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cooldown"				"1"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"cast_range"			"1050 1200 1350 1500 1650 1800 1950"
-			}
-		}
+		"AbilityValues"
+        {
+            "cooldown" "1"
+            "cast_range" "1050 1200 1350 1500 1650 1800 1950"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"

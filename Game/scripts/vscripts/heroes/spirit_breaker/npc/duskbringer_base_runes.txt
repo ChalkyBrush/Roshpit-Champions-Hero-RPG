@@ -11,29 +11,13 @@
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% DUSKBRINGER_Q1_DMG_PER_STACK %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"1"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"13"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_two"			"2"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% DUSKBRINGER_Q1_DMG_PER_STACK %>"
+            "base_ability" "1"
+            "element_one" "13"
+            "element_two" "2"
+        }
 	}
 
 	"duskbringer_rune_q_2"
@@ -47,14 +31,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% DUSKBRINGER_Q2_ITEM_PCT * 100 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% DUSKBRINGER_Q2_ITEM_PCT * 100 %>"
+        }
 	}
 
 	"duskbringer_rune_q_3"
@@ -68,14 +48,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% DUSKBRINGER_Q3_ADD_DMG_PCT_MAX * 100 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% DUSKBRINGER_Q3_ADD_DMG_PCT_MAX * 100 %>"
+        }
 	}
 
 	"duskbringer_rune_q_4"
@@ -89,19 +65,11 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% DUSKBRINGER_Q4_ADD_DMG_PCT * 100 %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% DUSKBRINGER_Q4_ADD_RADIUS %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% DUSKBRINGER_Q4_ADD_DMG_PCT * 100 %>"
+            "property_two" "<% DUSKBRINGER_Q4_ADD_RADIUS %>"
+        }
 	}
 
 	"duskbringer_rune_w_1"
@@ -116,29 +84,13 @@
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% DUSKBRINGER_W1_BASE_DMG %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% DUSKBRINGER_W1_DMG_PER_ATT * 100 %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"13"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"2"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% DUSKBRINGER_W1_BASE_DMG %>"
+            "property_two" "<% DUSKBRINGER_W1_DMG_PER_ATT * 100 %>"
+            "element_one" "13"
+            "base_ability" "2"
+        }
 	}
 
 	"duskbringer_rune_w_2"
@@ -152,14 +104,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% DUSKBRINGER_W2_MAG_RES_RED %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% DUSKBRINGER_W2_MAG_RES_RED %>"
+        }
 	}
 
 	"duskbringer_rune_w_3"
@@ -173,14 +121,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% DUSKBRINGER_W3_HEAL %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% DUSKBRINGER_W3_HEAL %>"
+        }
 	}
 
 	"duskbringer_rune_w_4"
@@ -194,14 +138,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% DUSKBRINGER_W4_ROOTED_DAMAGE_BLOCK_PCT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% DUSKBRINGER_W4_ROOTED_DAMAGE_BLOCK_PCT %>"
+        }
 		"Modifiers"
 		{
 			"modifier_duskbringer_rune_w_4_visible"
@@ -253,19 +193,11 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% DUSKBRINGER_E1_ATT_DMG %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% DUSKBRINGER_E1_ARMOR %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% DUSKBRINGER_E1_ATT_DMG %>"
+            "property_two" "<% DUSKBRINGER_E1_ARMOR %>"
+        }
 		"Modifiers"
 		{
 			"modifier_duskbringer_rune_e_1_passive"
@@ -316,19 +248,11 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% DUSKBRINGER_E2_DUR %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one_base"		"<% DUSKBRINGER_E2_BASE_DUR %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% DUSKBRINGER_E2_DUR %>"
+            "property_one_base" "<% DUSKBRINGER_E2_BASE_DUR %>"
+        }
 	}
 
 	"duskbringer_rune_e_3"
@@ -342,14 +266,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% DUSKBRINGER_E3_PROC_CHANCE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% DUSKBRINGER_E3_PROC_CHANCE %>"
+        }
 	}
 
 	"duskbringer_rune_e_4"
@@ -363,14 +283,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% DUSKBRINGER_E4_DUR %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% DUSKBRINGER_E4_DUR %>"
+        }
 	}
 
 	"duskbringer_rune_r_1"
@@ -385,24 +301,12 @@
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% DUSKBRINGER_R1_DMG_PER_DMG * 100 %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"4"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"13"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% DUSKBRINGER_R1_DMG_PER_DMG * 100 %>"
+            "base_ability" "4"
+            "element_one" "13"
+        }
 	}
 
 	"duskbringer_rune_r_2"
@@ -416,14 +320,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% DUSKBRINGER_R2_PIERCES %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% DUSKBRINGER_R2_PIERCES %>"
+        }
 		"Modifiers"
 		{
 			"modifier_duskbringer_rune_r_2_visible"
@@ -453,14 +353,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% DUSKBRINGER_R3_ATT_DMG_PCT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% DUSKBRINGER_R3_ATT_DMG_PCT %>"
+        }
 		"Modifiers"
 		{
 			"modifier_duskbringer_rune_r_3"
@@ -489,13 +385,9 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% DUSKBRINGER_R4_GHOST_AMP * 100 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% DUSKBRINGER_R4_GHOST_AMP * 100 %>"
+        }
 	}
 

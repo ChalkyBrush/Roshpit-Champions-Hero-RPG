@@ -11,27 +11,11 @@
 		"LevelsBetweenUpgrades"  		"0"
 		"MaxLevel"				 		"7"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"cast_range"			"1000 1100 1200 1300 1400 1500 1600"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"targets_count"			"1 1 1 2 2 2 3"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"att_to_dmg"			"1 1.5 2 2.5 3 3.5 4"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"max_stacks"			"1 1 2 2 3 4 5"
-			}
-		}
+		"AbilityValues"
+        {
+            "cast_range" "1000 1100 1200 1300 1400 1500 1600"
+            "targets_count" "1 1 1 2 2 2 3"
+            "att_to_dmg" "1 1.5 2 2.5 3 3.5 4"
+            "max_stacks" "1 1 2 2 3 4 5"
+        }
 	}

@@ -13,49 +13,17 @@
 		"MaxLevel"				 		"7"
 		"AOERadius"						"100"
 		"AbilityTextureName"			"ekkan/arcana2/summon_plaguebearer"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"max_skeletons"			"4 4 5 5 6 6 7"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"skeleton_duration"		"45"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"armor_mult"			"4"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"attack_mult"			"8"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"skeleton_health"		"5 10 15 20 25 30 35"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"poison_duration"		"3"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"poison_damage_interval"		"1"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"poison_damage"		"8 16 24 32 40 48 56"
-			}
-		}
+		"AbilityValues"
+        {
+            "max_skeletons" "4 4 5 5 6 6 7"
+            "skeleton_duration" "45"
+            "armor_mult" "4"
+            "attack_mult" "8"
+            "skeleton_health" "5 10 15 20 25 30 35"
+            "poison_duration" "3"
+            "poison_damage_interval" "1"
+            "poison_damage" "8 16 24 32 40 48 56"
+        }
 		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_4"
 		// Precache
 		//-------------------------------------------------------
@@ -234,24 +202,12 @@
 		"AbilityTextureName"	"ekkan/arcana2/plaguebearer_passive"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"poison_duration"		"3"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"poison_damage_interval"		"1"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"poison_damage"		"8 16 24 32 40 48 56"
-			}
-		}
+		"AbilityValues"
+        {
+            "poison_duration" "3"
+            "poison_damage_interval" "1"
+            "poison_damage" "8 16 24 32 40 48 56"
+        }
 		"Modifiers"
 		{
 			"modifier_plaguebearer_passive"
@@ -419,10 +375,9 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-
-		}
+		"AbilityValues"
+        {
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -503,49 +458,17 @@
 		"MaxLevel"				 		"7"
 		"AOERadius"						"100"
 		"AbilityTextureName"			"ekkan/arcana2/summon_frost_wraith"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"max_skeletons"			"4 4 5 5 6 6 7"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"skeleton_duration"		"45"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"armor_mult"			"4"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"attack_mult"			"8"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"skeleton_health"		"5 10 15 20 25 30 35"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cold_duration"			"5"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cold_ms_slow"			"-80 -100 -120 -140 -160 -180 -200"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"cold_as_slow"			"-20 -40 -60 -80 -100 -120 -140"
-			}
-		}
+		"AbilityValues"
+        {
+            "max_skeletons" "4 4 5 5 6 6 7"
+            "skeleton_duration" "45"
+            "armor_mult" "4"
+            "attack_mult" "8"
+            "skeleton_health" "5 10 15 20 25 30 35"
+            "cold_duration" "5"
+            "cold_ms_slow" "-80 -100 -120 -140 -160 -180 -200"
+            "cold_as_slow" "-20 -40 -60 -80 -100 -120 -140"
+        }
 		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_4"
 		// Precache
 		//-------------------------------------------------------
@@ -732,24 +655,12 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"ekkan/arcana2/frost_wraith_passive"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cold_duration"			"5"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cold_ms_slow"			"-80 -100 -120 -140 -160 -180 -200"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"cold_as_slow"			"-20 -40 -60 -80 -100 -120 -140"
-			}
-		}
+		"AbilityValues"
+        {
+            "cold_duration" "5"
+            "cold_ms_slow" "-80 -100 -120 -140 -160 -180 -200"
+            "cold_as_slow" "-20 -40 -60 -80 -100 -120 -140"
+        }
 		"OnProjectileHitUnit"
 		{
 			"DeleteOnHit"	"1"
@@ -858,10 +769,9 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-
-		}
+		"AbilityValues"
+        {
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -904,39 +814,15 @@
 		"AOERadius"						"100"
 		"AbilityTextureName"			"ekkan/arcana2/summon_burning_legionnaire"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"max_skeletons"			"4 4 5 5 6 6 7"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"skeleton_duration"		"45"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"armor_mult"			"4"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"attack_mult"			"8"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"skeleton_health"		"5 10 15 20 25 30 35"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"fire_damage"			"100"
-			}
-		}
+		"AbilityValues"
+        {
+            "max_skeletons" "4 4 5 5 6 6 7"
+            "skeleton_duration" "45"
+            "armor_mult" "4"
+            "attack_mult" "8"
+            "skeleton_health" "5 10 15 20 25 30 35"
+            "fire_damage" "100"
+        }
 		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_4"
 		// Precache
 		//-------------------------------------------------------
@@ -1124,14 +1010,10 @@
 		"AbilityTextureName"	"ekkan/arcana2/burning_legionnaire_passive"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"fire_damage"			"100"
-			}
-		}
+		"AbilityValues"
+        {
+            "fire_damage" "100"
+        }
 		"Modifiers"
 		{
 			"modifier_burning_legionnaire_passive"
@@ -1278,10 +1160,9 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-
-		}
+		"AbilityValues"
+        {
+        }
 		"OnSpellStart"
 		{
 			"RunScript"

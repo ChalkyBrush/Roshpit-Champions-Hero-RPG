@@ -32,29 +32,13 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage_mult"			"<% DINATH_ARCANA_W_DAMAGE %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"mana_cost"			"10 40 70 100 130 160"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"extra_range"			"200 220 240 260 280 300 320"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"max_targets"			"4 4 5 5 6 6 7"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage_mult" "<% DINATH_ARCANA_W_DAMAGE %>"
+            "mana_cost" "10 40 70 100 130 160"
+            "extra_range" "200 220 240 260 280 300 320"
+            "max_targets" "4 4 5 5 6 6 7"
+        }
 		"OnToggleOn"
 		{
 			"ApplyModifier"

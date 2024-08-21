@@ -4,14 +4,10 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"tusk_snowball"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"eow_armor"			"5 20 100"
-			}
-		}
+		"AbilityValues"
+        {
+            "eow_armor" "5 20 100"
+        }
 		"Modifiers"
 		{
 			"modifier_winterblight_passive"
@@ -390,14 +386,10 @@
 		"AbilityTextureName"	"tusk_snowball"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"5000"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "5000"
+        }
 		"Modifiers"
 		{
 			"modifier_snowball_thrower"
@@ -463,14 +455,10 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"winterblight/crab_spawner_ability"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"armor"			"4 100 1500"
-			}
-		}
+		"AbilityValues"
+        {
+            "armor" "4 100 1500"
+        }
 		"OnOwnerDied"
 		{
 			"RunScript"
@@ -517,34 +505,14 @@
 		"AbilityTextureName"	"winterblight/ogre_armor"
 		"MaxLevel"	"3"
 		"AbilityCooldown"	"2"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage_resist"			"60"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"30 120 600"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"stun_duration"			"0.3"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"instances_count"			"1 2 3"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"min_distance"		"450"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage_resist" "60"
+            "damage" "30 120 600"
+            "stun_duration" "0.3"
+            "instances_count" "1 2 3"
+            "min_distance" "450"
+        }
 		"Modifiers"
 		{
 			"modifier_ogre_armor"
@@ -585,14 +553,10 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"redfall/autumn_spawner"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"armor"			"4 100 1500"
-			}
-		}
+		"AbilityValues"
+        {
+            "armor" "4 100 1500"
+        }
 		"Modifiers"
 		{
 			"modifier_disable_player"
@@ -642,24 +606,12 @@
 		"AbilityTextureName"	"rpc/axe_throw_ice"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"20 100 600"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ms_loss"			"-60 -80 -120"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ms_self"			"20 100 200"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "20 100 600"
+            "ms_loss" "-60 -80 -120"
+            "ms_self" "20 100 200"
+        }
 		"Modifiers"
 		{
 			"modifier_disable_player"
@@ -723,24 +675,12 @@
 		"AbilityTextureName"	"winter_wyvern_splinter_blast"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"500 2500 12000"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ms_loss"			"-140 -240 -480"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ms_self"			"20 100 200"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "500 2500 12000"
+            "ms_loss" "-140 -240 -480"
+            "ms_self" "20 100 200"
+        }
 		"Modifiers"
 		{
 			"modifier_aertega_passive"
@@ -875,19 +815,11 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"freeze_duration"				"2 3 4"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"2000 5000 10000"
-			}
-		}
+		"AbilityValues"
+        {
+            "freeze_duration" "2 3 4"
+            "damage" "2000 5000 10000"
+        }
 		"OnAbilityPhaseStart"
 		{
 			"RunScript"
@@ -934,24 +866,12 @@
 		"AbilityTextureName"	"sorceress/sorceress_rune_r_2_arcana1"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"100 400 900"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ms_loss"			"-100 -150 -200"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"as_loss"			"-60 -90 -140"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "100 400 900"
+            "ms_loss" "-100 -150 -200"
+            "as_loss" "-60 -90 -140"
+        }
 		"OnProjectileHitUnit"
 		{
 			"DeleteOnHit"	"1"
@@ -1042,19 +962,11 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"cast_range"	"2500 2750 3000"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_damage"	"8000"
-			}
-		}
+		"AbilityValues"
+        {
+            "cast_range" "2500 2750 3000"
+            "base_damage" "8000"
+        }
 
 		"OnSpellStart"
 		{
@@ -1146,14 +1058,10 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"sorceress/sorceress_rune_r_4_arcana1"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage_per_distance"		"1 2 10"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage_per_distance" "1 2 10"
+        }
 		"Modifiers"
 		{
 			"modifier_torturok_aura"
@@ -1211,24 +1119,12 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"broodmother_incapacitating_bite"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"300 5000 15000"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ms_loss"			"-60 -90 -120"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"as_loss"			"-150 -340 -840"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "300 5000 15000"
+            "ms_loss" "-60 -90 -120"
+            "as_loss" "-150 -340 -840"
+        }
 		"Modifiers"
 		{
 			"modifier_ozubu_passive"
@@ -1308,24 +1204,12 @@
 		//-------------------------------------------------------
 		"AbilityManaCost"				"0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"300 5000 12000"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ms_loss"			"-60 -120 -160"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"as_loss"			"-50 -140 -240"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "300 5000 12000"
+            "ms_loss" "-60 -120 -160"
+            "as_loss" "-50 -140 -240"
+        }
 
 		"OnSpellStart"
 		{
@@ -1400,19 +1284,11 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"broodmother_incapacitating_bite"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage_per_distance"		"2 12 60"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"dot_damage"		"60 300 900"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage_per_distance" "2 12 60"
+            "dot_damage" "60 300 900"
+        }
 		"Modifiers"
 		{
 			"modifier_ozubu_spiderling_passive"
@@ -1578,14 +1454,10 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"tiny_craggy_exterior"
 		"MaxLevel"	"1"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"evasion"			"30 50 70"
-			}
-		}
+		"AbilityValues"
+        {
+            "evasion" "30 50 70"
+        }
 		"Modifiers"
 		{
 			"modifier_mountain_assassin_passive"
@@ -1651,14 +1523,10 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"cast_range"			"1500"
-			}
-		}
+		"AbilityValues"
+        {
+            "cast_range" "1500"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -1733,19 +1601,11 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"range"		"1200"
-			}
-			"02"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"mana_burn"		"500 5000 50000"
-			}
-		}
+		"AbilityValues"
+        {
+            "range" "1200"
+            "mana_burn" "500 5000 50000"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -1846,14 +1706,10 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"earthshaker_echo_slam"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"duration"			"1 2 3"
-			}
-		}
+		"AbilityValues"
+        {
+            "duration" "1 2 3"
+        }
 		"Modifiers"
 		{
 			"modifier_mountain_bully_ai"
@@ -1906,14 +1762,10 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"lycan_howl"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"attack_damage_increase"				"50 70 90"
-			}
-		}
+		"AbilityValues"
+        {
+            "attack_damage_increase" "50 70 90"
+        }
 		"Modifiers"
 		{
 			"modifier_fenrir_attack_aura"
@@ -1999,14 +1851,10 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"treant/fungal_protector_icons/treant_leech_seed"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"attack_to_magic_immunity"			"16 11 6"
-			}
-		}
+		"AbilityValues"
+        {
+            "attack_to_magic_immunity" "16 11 6"
+        }
 		"Modifiers"
 		{
 			"modifier_leaflet_passive"
@@ -2076,19 +1924,11 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"cast_range"	"800 1000 1200"
-			}
-			"01"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"range"		"800 1000 1200"
-			}
-		}
+		"AbilityValues"
+        {
+            "cast_range" "800 1000 1200"
+            "range" "800 1000 1200"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -2131,14 +1971,10 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"ancient_apparition/shatterblast_crown/ancient_apparition_ice_blast"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"health_regen"			"2 6 10"
-			}
-		}
+		"AbilityValues"
+        {
+            "health_regen" "2 6 10"
+        }
 		"Modifiers"
 		{
 			"modifier_mountain_dweller_passive"
@@ -2190,24 +2026,12 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"30 110 800"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage_amp_per_stack"			"1 4 8"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"radius"			"500 650 800"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "30 110 800"
+            "damage_amp_per_stack" "1 4 8"
+            "radius" "500 650 800"
+        }
 		"OnProjectileHitUnit"
 		{
 			"DeleteOnHit"	"1"
@@ -2302,14 +2126,10 @@
 		//-------------------------------------------------------
 		"AbilityManaCost"				"0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"85 300 2800"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "85 300 2800"
+        }
 
 		"OnSpellStart"
 		{
@@ -2347,14 +2167,10 @@
 		"AbilityTextureName"	"winter_wyvern_cold_embrace"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"stacks"			"1 1 2"
-			}
-		}
+		"AbilityValues"
+        {
+            "stacks" "1 1 2"
+        }
 		"Modifiers"
 		{
 			"modifier_frost_colossus_passive"
@@ -2429,19 +2245,11 @@
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"AOERadius"				"1000"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"60 200 800"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"movespeed"			"100 150 200"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "60 200 800"
+            "movespeed" "100 150 200"
+        }
 		"Modifiers"
 		{
 			"modifier_norgok_passive"
@@ -2543,14 +2351,10 @@
 		//-------------------------------------------------------
 		"AbilityManaCost"				"0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"2 10 80"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "2 10 80"
+        }
 
 		"OnSpellStart"
 		{
@@ -2595,10 +2399,9 @@
 		"AbilityTextureName"	"winterblight/snowshaker_passive"
 		"AbilityCooldown"		"1.2 0.75 0.3"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-
-		}
+		"AbilityValues"
+        {
+        }
 		"Modifiers"
 		{
 			"modifier_snowshaker_passive"
@@ -2647,29 +2450,13 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"fissure_range"				"1400"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"fissure_duration"			"3.5"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"fissure_radius"				"225"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"stun_duration"				"0.3 0.45 0.6"
-			}
-		}
+		"AbilityValues"
+        {
+            "fissure_range" "1400"
+            "fissure_duration" "3.5"
+            "fissure_radius" "225"
+            "stun_duration" "0.3 0.45 0.6"
+        }
 	}
 
     "frigid_growth_charge"
@@ -2701,23 +2488,11 @@
 
         // Special
         //-------------------------------------------------------
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "damage"                "20 250 1200"
-            }
-            "02"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "radius"                "200 215 230"
-            }
-            "03"
-            {
-                "var_type"              "FIELD_FLOAT"
-                "duration"              "1.5"
-            }
+            "damage" "20 250 1200"
+            "radius" "200 215 230"
+            "duration" "1.5"
         }
         "OnSpellStart"
         {
@@ -2798,19 +2573,11 @@
 		"AbilityTextureName"	"winterblight/birch_shell"
 		"AOERadius"				"1000"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"damage_reduc"			"30 60 90"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"health_regen"			"2 3 5"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage_reduc" "30 60 90"
+            "health_regen" "2 3 5"
+        }
 		"Modifiers"
 		{
 			"modifier_frigid_growth_passive"
@@ -2928,19 +2695,11 @@
 		"AbilityTextureName"	"ancient_apparition_chilling_touch"
 		"AOERadius"				"1000"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"as_loss"			"-20 -120 -240"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ms_loss"			"-60 -120 -240"
-			}
-		}
+		"AbilityValues"
+        {
+            "as_loss" "-20 -120 -240"
+            "ms_loss" "-60 -120 -240"
+        }
 		"Modifiers"
 		{
 			"modifier_chill_attack_passive"
@@ -3071,19 +2830,11 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"cast_range"			"1500"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"200 800 1400"
-			}
-		}
+		"AbilityValues"
+        {
+            "cast_range" "1500"
+            "damage" "200 800 1400"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -3142,19 +2893,11 @@
 		"AbilityTextureName"	"tidehunter_kraken_shell"
 		"AOERadius"				"1000"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"as_loss"			"-20 -120 -240"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ms_loss"			"-60 -120 -240"
-			}
-		}
+		"AbilityValues"
+        {
+            "as_loss" "-20 -120 -240"
+            "ms_loss" "-60 -120 -240"
+        }
 		"Modifiers"
 		{
 			"modifier_assassin_passive"
@@ -3187,14 +2930,10 @@
 		"AbilityTextureName"	"winterblight/ankle_breaker"
 		"AOERadius"				"1000"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"duration"			"4 6 8"
-			}
-		}
+		"AbilityValues"
+        {
+            "duration" "4 6 8"
+        }
 		"Modifiers"
 		{
 			"modifier_bear_passive"
@@ -3263,14 +3002,10 @@
 		"AbilityManaCost"				"0"
 
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ms_bonus"			"10 60 130"
-			}
-		}
+		"AbilityValues"
+        {
+            "ms_bonus" "10 60 130"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -3312,19 +3047,11 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"seafortress/endurance"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage_reduction"			"90"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage_increase"			"100 150 200"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage_reduction" "90"
+            "damage_increase" "100 150 200"
+        }
 		"Modifiers"
 		{
 			"modifier_winterblight_endurance_thinker"
@@ -3375,29 +3102,13 @@
 		"AOERadius"				"1000"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"as_loss"			"-1"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ms_loss"			"-1"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"max_stacks"			"4 10 30"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"1"
-			}
-		}
+		"AbilityValues"
+        {
+            "as_loss" "-1"
+            "ms_loss" "-1"
+            "max_stacks" "4 10 30"
+            "damage" "1"
+        }
 		"Modifiers"
 		{
 			"modifier_frostbite_attack_passive"
@@ -3459,25 +3170,16 @@
 		
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"radius"					"900 900 900"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"bonus_damage"				"100 1000 5000"
-				"LinkedSpecialBonus"	"special_bonus_unique_luna_3"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"bonus_night_vision"		"250 500 750"
-			}
-		}
+		"AbilityValues"
+        {
+            "radius" "900 900 900"
+            "bonus_damage"
+            {
+                "value" "100 1000 5000"
+                "LinkedSpecialBonus" "special_bonus_unique_luna_3"
+            }
+            "bonus_night_vision" "250 500 750"
+        }
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
 
@@ -3487,14 +3189,10 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"winterblight/luna_taskmaster_shield"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"charges"			"5 10 20"
-			}
-		}
+		"AbilityValues"
+        {
+            "charges" "5 10 20"
+        }
 		"Modifiers"
 		{
 			"modifier_luna_taskmaster_passive"
@@ -3528,19 +3226,11 @@
 		"AbilityTextureName"	"winterblight/azalea_sorc_passive"
 		"AOERadius"				"1000"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"as_per_stack"			"5 6 7"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"range_per_stack"			"3 8 10"
-			}
-		}
+		"AbilityValues"
+        {
+            "as_per_stack" "5 6 7"
+            "range_per_stack" "3 8 10"
+        }
 		"Modifiers"
 		{
 			"modifier_sorc_passive"
@@ -3601,14 +3291,10 @@
 		"AbilityTextureName"	"antimage_mana_break"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"mana_burn"			"10 80 180"
-			}
-		}
+		"AbilityValues"
+        {
+            "mana_burn" "10 80 180"
+        }
 		"Modifiers"
 		{
 			"modifier_ice_specter_passive"
@@ -3649,24 +3335,12 @@
 		"AbilityTextureName"	"ancient_apparition_ice_vortex"
 		"AOERadius"				"1000"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"as_loss"			"-40 -120 -200"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ms_loss"			"-120"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"radius"			"360 480 600"
-			}
-		}
+		"AbilityValues"
+        {
+            "as_loss" "-40 -120 -200"
+            "ms_loss" "-120"
+            "radius" "360 480 600"
+        }
 		"Modifiers"
 		{
 			"modifier_chill_attack_passive"
@@ -3720,24 +3394,12 @@
 		"AbilityTextureName"	"crystal_maiden_crystal_nova"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"400 2000 4000"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"as_loss"			"-40 -100 -200"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ms_loss"			"-80 -120 -180"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "400 2000 4000"
+            "as_loss" "-40 -100 -200"
+            "ms_loss" "-80 -120 -180"
+        }
 		"Modifiers"
 		{
 			"modifier_ice_specter_passive"
@@ -3806,29 +3468,13 @@
 		//-------------------------------------------------------
 		"AbilityManaCost"				"0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"10 40 300"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"duration"			"2 4 6"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"bounce_range"		"400 500 600"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"immun_duration"	"5"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "10 40 300"
+            "duration" "2 4 6"
+            "bounce_range" "400 500 600"
+            "immun_duration" "5"
+        }
 
 		"OnSpellStart"
 		{
@@ -4017,29 +3663,13 @@
 		"AbilityTextureName"	"winterblight/frost_titan_passive"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"as_bonus"				"100 250 450"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ms_bonus"				"20 180 400"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"base_regen"				"3 6 12"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"				"70 280 1500"
-			}
-		}
+		"AbilityValues"
+        {
+            "as_bonus" "100 250 450"
+            "ms_bonus" "20 180 400"
+            "base_regen" "3 6 12"
+            "damage" "70 280 1500"
+        }
 		"OnProjectileHitUnit"
 		{
 			"DeleteOnHit"	"0"
@@ -4146,14 +3776,10 @@
 		//-------------------------------------------------------
 		"AbilityManaCost"				"0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"100 325 2650"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "100 325 2650"
+        }
 
 		"OnSpellStart"
 		{
@@ -4215,14 +3841,10 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"winterblight/dimension_spear"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"duration"			"0 0.1 0.3"
-			}
-		}
+		"AbilityValues"
+        {
+            "duration" "0 0.1 0.3"
+        }
 		"Modifiers"
 		{
 			"modifier_dimension_spear_passive"
@@ -4278,24 +3900,12 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"as_slow"			"-40 -140 -260"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ms_slow"			"-40 -120 -280"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"health_regen_percent"			"-0.3 -1 -5"
-			}
-		}
+		"AbilityValues"
+        {
+            "as_slow" "-40 -140 -260"
+            "ms_slow" "-40 -120 -280"
+            "health_regen_percent" "-0.3 -1 -5"
+        }
 		"OnAbilityPhaseStart"
 		{
 			"FireSound"
@@ -4355,19 +3965,11 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"winterblight/zealot_passive"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"radius"			"800 1000 1200"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage_reduction"	"30 70 98"
-			}
-		}
+		"AbilityValues"
+        {
+            "radius" "800 1000 1200"
+            "damage_reduction" "30 70 98"
+        }
 		"OnOwnerDied"
 		{
 			"RunScript"
@@ -4475,19 +4077,11 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"cooldown_added"			"1 4 7"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"150 750 1500"
-			}
-		}
+		"AbilityValues"
+        {
+            "cooldown_added" "1 4 7"
+            "damage" "150 750 1500"
+        }
 		"OnAbilityPhaseStart"
 		{
 			"FireSound"
@@ -4559,34 +4153,14 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"wave_damage"			"75 300 1800"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"burn_damage"			"10 40 240"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"max_stacks"			"<% WINTERBLIGHT_SOULFIRE_STORM_STACKS %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"tick_rate"			"<% WINTERBLIGHT_SOULFIRE_TICK_RATE %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"burn_duration"			"<% WINTERBLIGHT_SOULFIRE_BURN_DURATION %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "wave_damage" "75 300 1800"
+            "burn_damage" "10 40 240"
+            "max_stacks" "<% WINTERBLIGHT_SOULFIRE_STORM_STACKS %>"
+            "tick_rate" "<% WINTERBLIGHT_SOULFIRE_TICK_RATE %>"
+            "burn_duration" "<% WINTERBLIGHT_SOULFIRE_BURN_DURATION %>"
+        }
 		"OnAbilityPhaseStart"
 		{
 			"FireSound"
@@ -4648,19 +4222,11 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"winterblight/speed_softening"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ms_threshold"			"300"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"damage_reduc"			"40 60 80"
-			}
-		}
+		"AbilityValues"
+        {
+            "ms_threshold" "300"
+            "damage_reduc" "40 60 80"
+        }
 		"Modifiers"
 		{
 			"modifier_speed_softening"
@@ -4700,40 +4266,19 @@
 		
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"radius"			"425 500 575"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"movespeed_slow"	"-50 -120 -200"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"attackspeed_slow"	"-30 -100 -300"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"duration"			"4.5"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"vision_duration"	"6.0"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"nova_damage"			"100 400 2500"
-				"LinkedSpecialBonus"	"special_bonus_unique_crystal_maiden_2"
-			}
-		}
+		"AbilityValues"
+        {
+            "radius" "425 500 575"
+            "movespeed_slow" "-50 -120 -200"
+            "attackspeed_slow" "-30 -100 -300"
+            "duration" "4.5"
+            "vision_duration" "6.0"
+            "nova_damage"
+            {
+                "value" "100 400 2500"
+                "LinkedSpecialBonus" "special_bonus_unique_crystal_maiden_2"
+            }
+        }
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}	
 
@@ -4771,40 +4316,19 @@
 		
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage_per_second_tooltip"			"50 210 1000"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"2.0 2.5 3.0"
-				"LinkedSpecialBonus"	"special_bonus_unique_crystal_maiden_1"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"hero_damage_tooltip"			"50 210 1000"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"creep_duration"	"2.0 2.5 3.0"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"creep_damage_tooltip"	"50 210 1000"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"damage"			"50 210 1000"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage_per_second_tooltip" "50 210 1000"
+            "duration"
+            {
+                "value" "2.0 2.5 3.0"
+                "LinkedSpecialBonus" "special_bonus_unique_crystal_maiden_1"
+            }
+            "hero_damage_tooltip" "50 210 1000"
+            "creep_duration" "2.0 2.5 3.0"
+            "creep_damage_tooltip" "50 210 1000"
+            "damage" "50 210 1000"
+        }
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
 
@@ -4814,14 +4338,10 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"winterblight/magic_shield"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"charges"			"8 16 24"
-			}
-		}
+		"AbilityValues"
+        {
+            "charges" "8 16 24"
+        }
 		"Modifiers"
 		{
 			"modifier_maiden_passive"
@@ -4916,19 +4436,11 @@
 		"AbilityTextureName"	"winterblight/zefnar_passive"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"burn_damage"			"5 30 50"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"100 800 1500"
-			}
-		}
+		"AbilityValues"
+        {
+            "burn_damage" "5 30 50"
+            "damage" "100 800 1500"
+        }
 		"OnOwnerDied"
 		{
 			"RunScript"
@@ -5023,24 +4535,12 @@
 		"AbilityTextureName"	"lion_mana_drain"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"regen_per_stack"			"0.1 0.3 0.8"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"lost_regen"			"-20 -15 -10"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"lost_regen_per_stack"			"-0.1 -0.3 -0.8"
-			}
-		}
+		"AbilityValues"
+        {
+            "regen_per_stack" "0.1 0.3 0.8"
+            "lost_regen" "-20 -15 -10"
+            "lost_regen_per_stack" "-0.1 -0.3 -0.8"
+        }
 		"Modifiers"
 		{
 			"modifier_syphist_passive"
@@ -5114,19 +4614,11 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"winterblight/source_revenant"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"damage_per_mana"			"0.1 2.0 5.0"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"mana_restore_on_attack"			"8"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage_per_mana" "0.1 2.0 5.0"
+            "mana_restore_on_attack" "8"
+        }
 		"Modifiers"
 		{
 			"modifier_source_revenant_passive"
@@ -5223,29 +4715,13 @@
 		"AbilityTextureName"	"winterblight/suicide_skater"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"as_loss"			"-40 -140 -260"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ms_loss"			"-40 -120 -280"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"health_threshold_percent"			"30"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"800 1500 6000"
-			}
-		}
+		"AbilityValues"
+        {
+            "as_loss" "-40 -140 -260"
+            "ms_loss" "-40 -120 -280"
+            "health_threshold_percent" "30"
+            "damage" "800 1500 6000"
+        }
 		"Modifiers"
 		{
 			"modifier_suicide_thinker"
@@ -5313,29 +4789,13 @@
 		"AbilityTextureName"	"silencer_glaives_of_wisdom"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"percentage"			"3"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"intelligence"			"50 200 1000"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"mana_threshold"			"1000"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"max_strikes"			"15"
-			}
-		}
+		"AbilityValues"
+        {
+            "percentage" "3"
+            "intelligence" "50 200 1000"
+            "mana_threshold" "1000"
+            "max_strikes" "15"
+        }
 		"Modifiers"
 		{
 			"modifier_mindbreaker_passive"
@@ -5365,14 +4825,10 @@
 		"AbilityTextureName"	"winterblight/ghost_striker"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"damage_per_missing_hp"			"0.2 0.3 0.4"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage_per_missing_hp" "0.2 0.3 0.4"
+        }
 		"Modifiers"
 		{
 			"modifier_ghost_striker_passive"
@@ -5410,14 +4866,10 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"winterblight/secret_keeper"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"agility_loss"			"25 50 75"
-			}
-		}
+		"AbilityValues"
+        {
+            "agility_loss" "25 50 75"
+        }
 		"Modifiers"
 		{
 			"modifier_secret_keeper_passive"
@@ -5490,14 +4942,10 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"winterblight/crippling_return"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage_loss"			"35 70 95"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage_loss" "35 70 95"
+        }
 		"Modifiers"
 		{
 			"modifier_crippling_return_passive"
@@ -5534,19 +4982,11 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"winterblight/armor_softening"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"armor_threshold"			"0"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"damage_reduc"			"65"
-			}
-		}
+		"AbilityValues"
+        {
+            "armor_threshold" "0"
+            "damage_reduc" "65"
+        }
 		"Modifiers"
 		{
 			"modifier_armor_softening"
@@ -5678,24 +5118,12 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_reduction_percent"	"45 50 55 60 65 70 75"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"cast_range"	"1500 1625 1750"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"		"80 300 2000"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage_reduction_percent" "45 50 55 60 65 70 75"
+            "cast_range" "1500 1625 1750"
+            "damage" "80 300 2000"
+        }
 
 		"OnSpellStart"
 		{
@@ -5775,14 +5203,10 @@
 		"AbilityTextureName"	"roshan_spell_block"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"attacks"			"2 3 4"
-			}
-		}
+		"AbilityValues"
+        {
+            "attacks" "2 3 4"
+        }
 		"Modifiers"
 		{
 			"modifier_crystal_meditation_passive"
@@ -6072,19 +5496,11 @@
 		"AbilityTextureName"	"winterblight/spectre_desolate"
 		"AOERadius"			"600"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"damage_reduction"			"35 75 99.5"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"attack_damage_bonus"			"30 150 400"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage_reduction" "35 75 99.5"
+            "attack_damage_bonus" "30 150 400"
+        }
 		"Modifiers"
 		{
 			"modifier_spectral_witch_passive"
@@ -6138,14 +5554,10 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"winterblight/hockey_passive"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"armor"			"4 100 1500"
-			}
-		}
+		"AbilityValues"
+        {
+            "armor" "4 100 1500"
+        }
 		"Modifiers"
 		{
 			"modifier_disable_player"
@@ -6248,19 +5660,11 @@
 		"AbilityTextureName"	"tusk_frozen_sigil"
 		"MaxLevel"	"3"
 		"AbilityCooldown"				"3 1.5 0.5"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"attack_damage"			"30 90 300"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"duration"		"3.0 4.0 5.0"
-			}
-		}
+		"AbilityValues"
+        {
+            "attack_damage" "30 90 300"
+            "duration" "3.0 4.0 5.0"
+        }
 		"Modifiers"
 		{
 			"modifier_air_spirit_passive"
@@ -6315,19 +5719,11 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"winterblight/hockey_passive"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"physical_damage"			"500 8000 16000"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"armor_loss_per_stack"		"-3 -30 -300"
-			}
-		}
+		"AbilityValues"
+        {
+            "physical_damage" "500 8000 16000"
+            "armor_loss_per_stack" "-3 -30 -300"
+        }
 		"OnOwnerDied"
 		{
 			"RunScript"
@@ -6446,95 +5842,26 @@
 		
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius_min"			"275 275 275"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"radius_grow"			"50.0 50.0 50.0"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius_max"			"1000 1000 1000"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"path_radius"			"275 275 275"
-			}
-			"05"
-			{	
-				"var_type"				"FIELD_FLOAT"
-				"frostbite_duration"	"6"
-			}
-			"06"
-			{	
-				"var_type"				"FIELD_FLOAT"
-				"dot_damage"			"50 200 800"
-			}
-			"07"
-			{	
-				"var_type"				"FIELD_INTEGER"
-				"speed"					"1500 1500 1500 1500"
-			}
-			"08"
-			{	
-				"var_type"				"FIELD_FLOAT"
-				"kill_pct"				"10.0 11.0 12.0"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"target_sight_radius"	"500 500 500"
-			}
-			"10"
-			{	
-				"var_type"				"FIELD_FLOAT"
-				"frostbite_duration_scepter"	"17"
-			}
-			// Extra
-			"11"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"min_time"				"2"
-			}
-			"12"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"base_speed"			"750"	// This is the actual projectile, not the tracer
-			}
-			"13"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"travel_vision"			"500"
-			}
-			"14"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"travel_vision_duration"	"3.0"
-			}
-			"15"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"area_vision"			"650"
-			}
-			"16"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"area_vision_duration"	"4.0"
-			}
-			"17"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"think_interval"		"1.0"
-			}
-		}
+		"AbilityValues"
+        {
+            "radius_min" "275 275 275"
+            "radius_grow" "50.0 50.0 50.0"
+            "radius_max" "1000 1000 1000"
+            "path_radius" "275 275 275"
+            "frostbite_duration" "6"
+            "dot_damage" "50 200 800"
+            "speed" "1500 1500 1500 1500"
+            "kill_pct" "10.0 11.0 12.0"
+            "target_sight_radius" "500 500 500"
+            "frostbite_duration_scepter" "17"
+            "min_time" "2"
+            "base_speed" "750"
+            "travel_vision" "500"
+            "travel_vision_duration" "3.0"
+            "area_vision" "650"
+            "area_vision_duration" "4.0"
+            "think_interval" "1.0"
+        }
 
 		"OnSpellStart"
 		{
@@ -6769,15 +6096,10 @@
 		"AbilityCooldown"	"0"
 		"AbilityManaCost"	"0"
 		"AbilityChannelTime"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"radius"	"650 875 1100"
-			}
-
-		}
+		"AbilityValues"
+        {
+            "radius" "650 875 1100"
+        }
 		"Modifiers"
 		{
 			"modifier_blue_effect"
@@ -6858,19 +6180,11 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"winterblight/bladewielder_force"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"attack_outgoing"			"100 200 300"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"armor"			"100 800 8000"
-			}
-		}
+		"AbilityValues"
+        {
+            "attack_outgoing" "100 200 300"
+            "armor" "100 800 8000"
+        }
 		"Modifiers"
 		{
 			"modifier_bladewielder_passive"
@@ -7110,29 +6424,13 @@
 			}
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"stun_duration"	"1.0 1.3 1.6"
-			}
-			"02"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"damage"	"240 800 3000"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"as_slow"			"-60 -240 -400"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ms_slow"			"-80 -160 -240"
-			}
-		}
+		"AbilityValues"
+        {
+            "stun_duration" "1.0 1.3 1.6"
+            "damage" "240 800 3000"
+            "as_slow" "-60 -240 -400"
+            "ms_slow" "-80 -160 -240"
+        }
 
 	}
 
@@ -7143,19 +6441,11 @@
 		"AbilityTextureName"	"winterblight/rupthold_passive"
 		"MaxLevel"	"3"
 		"AOERadius"	"750 1500 2500"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"aoe_radius"			"750 1500 2500"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"health_regen_loss_percent"			"-1 -2 -3"
-			}
-		}
+		"AbilityValues"
+        {
+            "aoe_radius" "750 1500 2500"
+            "health_regen_loss_percent" "-1 -2 -3"
+        }
 		"OnOwnerDied"
 		{
 			"RunScript"
@@ -7214,14 +6504,10 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"visage_summon_familiars_stone_form"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"pure_resist"			"50 75 100"
-			}
-		}
+		"AbilityValues"
+        {
+            "pure_resist" "50 75 100"
+        }
 		"Modifiers"
 		{
 			"modifier_blue_gargoyle_passive"
@@ -7242,19 +6528,11 @@
 		"AbilityTextureName"	"winterblight/nightmare_aura"
 		"MaxLevel"	"3"
 		"AOERadius"	"750"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"disarm_duration"			"2 3 4"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"attack_damage_percent"			"-20 -50 -80"
-			}
-		}
+		"AbilityValues"
+        {
+            "disarm_duration" "2 3 4"
+            "attack_damage_percent" "-20 -50 -80"
+        }
 		"Modifiers"
 		{
 			"modifier_ghost_aura_passive"
@@ -7321,14 +6599,10 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"winterblight/regression_strike"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"attack_power_mult"			"20 50 90"
-			}
-		}
+		"AbilityValues"
+        {
+            "attack_power_mult" "20 50 90"
+        }
 		"Modifiers"
 		{
 			"modifier_regression_strike_passive"
@@ -7356,19 +6630,11 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"winterblight/dragoon_passive"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage_block"			"98"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"distance"			"800 600 400"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage_block" "98"
+            "distance" "800 600 400"
+        }
 		"Modifiers"
 		{
 			"modifier_azalea_dragoon_passive"
@@ -7412,24 +6678,12 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"duration"					"2.0 3.0 4.0 5.0"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"net_speed"					"1500 1500 1500 1500"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"fake_ensnare_distance"		"900 900 900 900"	
-			}
-		}
+		"AbilityValues"
+        {
+            "duration" "2.0 3.0 4.0 5.0"
+            "net_speed" "1500 1500 1500 1500"
+            "fake_ensnare_distance" "900 900 900 900"
+        }
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}	
 
@@ -7439,14 +6693,10 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"winterblight/knife_wielder"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"postmitigation"			"500"
-			}
-		}
+		"AbilityValues"
+        {
+            "postmitigation" "500"
+        }
 		"Modifiers"
 		{
 			"modifier_azalea_knife_postmitigation"
@@ -7489,19 +6739,11 @@
 		
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"duration"					"2 2.5 3.0"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"movespeed"					"140"
-			}
-		}
+		"AbilityValues"
+        {
+            "duration" "2 2.5 3.0"
+            "movespeed" "140"
+        }
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
 
@@ -7532,36 +6774,22 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"275 275 275 275"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"movement_speed_pct"	"-30 -60 -90"
-				"LinkedSpecialBonus"	"special_bonus_unique_ancient_apparition_4"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"spell_resist_pct"		"-25 -100 -200"
-				"LinkedSpecialBonus"	"special_bonus_unique_ancient_apparition_4"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"vision_aoe"		"200 200 200 200"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"vortex_duration"		"6"
-			}
-		}
+		"AbilityValues"
+        {
+            "radius" "275 275 275 275"
+            "movement_speed_pct"
+            {
+                "value" "-30 -60 -90"
+                "LinkedSpecialBonus" "special_bonus_unique_ancient_apparition_4"
+            }
+            "spell_resist_pct"
+            {
+                "value" "-25 -100 -200"
+                "LinkedSpecialBonus" "special_bonus_unique_ancient_apparition_4"
+            }
+            "vision_aoe" "200 200 200 200"
+            "vortex_duration" "6"
+        }
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
 
@@ -7600,34 +6828,14 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"damage"				"150 500 1750"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"break_distance"		"740 740 740 740"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"stun_duration"			"2.0"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"cast_range_tooltip"			"700 800 900 1000"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"charge_restore_time"	"10 9 8 7"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "150 500 1750"
+            "break_distance" "740 740 740 740"
+            "stun_duration" "2.0"
+            "cast_range_tooltip" "700 800 900 1000"
+            "charge_restore_time" "10 9 8 7"
+        }
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
 
@@ -7659,24 +6867,12 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"as_loss"			"-50 -100 -150"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ms_loss"			"-150 -200 -200"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"90 280 700"
-			}
-		}
+		"AbilityValues"
+        {
+            "as_loss" "-50 -100 -150"
+            "ms_loss" "-150 -200 -200"
+            "damage" "90 280 700"
+        }
 
 		// Data driven
 		//-------------------------------------------------------
@@ -7761,19 +6957,11 @@
 		"AbilityTextureName"	"winterblight/buzuki_passive"
 		"MaxLevel"	"3"
 		"AOERadius"	"500 650 800"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"range"				"700 800 900"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"60 200 2400"
-			}
-		}
+		"AbilityValues"
+        {
+            "range" "700 800 900"
+            "damage" "60 200 2400"
+        }
 		"Modifiers"
 		{
 			"modifier_buzuki_passive"
@@ -7802,29 +6990,13 @@
 		"AbilityTextureName"	"winterblight/opportunity"
 		"MaxLevel"	"3"
 		"AOERadius"	"500 650 800"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"as_bonus"				"60 90 150"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"duration"			"8"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"attack_power_bonus"			"20 40 60"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ms_bonus"				"40 80 120"
-			}
-		}
+		"AbilityValues"
+        {
+            "as_bonus" "60 90 150"
+            "duration" "8"
+            "attack_power_bonus" "20 40 60"
+            "ms_bonus" "40 80 120"
+        }
 		"Modifiers"
 		{
 			"modifier_fencer_opportunity_passive"
@@ -7909,10 +7081,9 @@
 		"AbilityTextureName"	"treant/fungal_protector_icons/treant_leech_seed"
 		"MaxLevel"	"3"
 		"AOERadius"	"500 650 800"
-		"AbilitySpecial"
-		{
-
-		}
+		"AbilityValues"
+        {
+        }
 		"Modifiers"
 		{
 			"modifier_mystery_fairy_passive"
@@ -7961,14 +7132,10 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"winterblight/mystery_summon"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"health_set"			"1000 500 100"
-			}
-		}
+		"AbilityValues"
+        {
+            "health_set" "1000 500 100"
+        }
 		"Modifiers"
 		{
 			"modifier_mystery_summon_passive"
@@ -8030,34 +7197,14 @@
 		
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"cast_range"				"800 1000 1500"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"bonus_damage"				"500 1000 7000"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"bonus_duration"			"1.2"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"min_range"					"0.3"
-			}
-			"06"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"max_range"					"0.8"
-			}
-		}
+		"AbilityValues"
+        {
+            "cast_range" "800 1000 1500"
+            "bonus_damage" "500 1000 7000"
+            "bonus_duration" "1.2"
+            "min_range" "0.3"
+            "max_range" "0.8"
+        }
 
 		"OnAbilityPhaseStart"
 		{
@@ -8208,29 +7355,13 @@
 		//-------------------------------------------------------
 		"AbilityManaCost"				"0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage_per_star"			"65 200 1200"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"stun_per_star"			"0.03"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"duration_ability"			"0.8"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"duration_attack"			"0.3"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage_per_star" "65 200 1200"
+            "stun_per_star" "0.03"
+            "duration_ability" "0.8"
+            "duration_attack" "0.3"
+        }
 
 		"OnSpellStart"
 		{
@@ -8311,24 +7442,12 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
 		"AOERadius"					"600 700 800"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"radius"			"600 700 800"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"stun_duration"		"1.0 1.25 1.5"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"75 225 1000"
-			}
-		}
+		"AbilityValues"
+        {
+            "radius" "600 700 800"
+            "stun_duration" "1.0 1.25 1.5"
+            "damage" "75 225 1000"
+        }
 		"OnProjectileHitUnit"
 		{
 			"DeleteOnHit"	"1"
@@ -8384,19 +7503,11 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"winterblight/stargazer_passive"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"75 250 1800"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"comet_damage"		"400 1000 2000"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "75 250 1800"
+            "comet_damage" "400 1000 2000"
+        }
 		"Modifiers"
 		{
 			"modifier_stargazer_passive"
@@ -8486,19 +7597,11 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"cast_range"	"2000"
-			}
-			"01"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"range"		"2000"
-			}
-		}
+		"AbilityValues"
+        {
+            "cast_range" "2000"
+            "range" "2000"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -8542,14 +7645,10 @@
 		"AbilityTextureName"	"winterblight/luna_taskmaster_shield"
 		"AOERadius"			"650"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"stacks"			"1 2 3"
-			}
-		}
+		"AbilityValues"
+        {
+            "stacks" "1 2 3"
+        }
 		"Modifiers"
 		{
 			"modifier_luna_taskmaster_passive"
@@ -8587,29 +7686,13 @@
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ice_damage"			"300 1000 8000"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"root_duration"		"2.5 3.0 3.5"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ms_loss"			"-200 -350 -500"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"as_loss"			"-200 -600 -2000"
-			}
-		}
+		"AbilityValues"
+        {
+            "ice_damage" "300 1000 8000"
+            "root_duration" "2.5 3.0 3.5"
+            "ms_loss" "-200 -350 -500"
+            "as_loss" "-200 -600 -2000"
+        }
 		"OnProjectileHitUnit"
 		{
 			"DeleteOnHit"	"0"
@@ -8726,24 +7809,12 @@
 		"AbilityTextureName"	"winterblight/azalea_boss"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage_attack_power"			"10 50 100"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ms_loss"			"-60 -140 -240"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"nova_damage"			"180 700 4000"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage_attack_power" "10 50 100"
+            "ms_loss" "-60 -140 -240"
+            "nova_damage" "180 700 4000"
+        }
 		"Modifiers"
 		{
 			"modifier_azalea_boss_passive"
@@ -9035,24 +8106,12 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"as_loss"			"-100 -500 -1200"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ms_loss"			"-150 -300 -500"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"65 200 1500"
-			}
-		}
+		"AbilityValues"
+        {
+            "as_loss" "-100 -500 -1200"
+            "ms_loss" "-150 -300 -500"
+            "damage" "65 200 1500"
+        }
 
 		// Data driven
 		//-------------------------------------------------------
@@ -9135,34 +8194,14 @@
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"AOERadius"				"900 1100 1300"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"200 600 6000"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"radius"			"900 1100 1300"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ms_loss"			"-60 -120 -180"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"as_loss"			"-60 -80 -100"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"atk_power_dmg"			"5 10 15"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "200 600 6000"
+            "radius" "900 1100 1300"
+            "ms_loss" "-60 -120 -180"
+            "as_loss" "-60 -80 -100"
+            "atk_power_dmg" "5 10 15"
+        }
 		"OnProjectileHitUnit"
 		{
 			"DeleteOnHit"	"1"
@@ -9299,14 +8338,10 @@
 		"AOERadius"				"450"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"300 1000 11000"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "300 1000 11000"
+        }
 		"Modifiers"
 		{
 			"modifier_mountain_god_passive"
@@ -9382,24 +8417,12 @@
 		"AbilityTextureName"	"winterblight/iceblood"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"as_loss"			"-40 -90 -150"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ms_loss"			"-50 -100 -150"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"1000 4000 5000"
-			}
-		}
+		"AbilityValues"
+        {
+            "as_loss" "-40 -90 -150"
+            "ms_loss" "-50 -100 -150"
+            "damage" "1000 4000 5000"
+        }
 		"Modifiers"
 		{
 			"modifier_frozen_heart"
@@ -9480,10 +8503,9 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"morphling_adaptive_strike"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-
-		}
+		"AbilityValues"
+        {
+        }
 		"Modifiers"
 		{
 			"modifier_orthok_min_health"
@@ -9630,14 +8652,10 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"winterblight/stalacorr_passive"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"300 1200 10000"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "300 1200 10000"
+        }
 		"OnOwnerDied"
 		{
 			"RunScript"
@@ -9777,14 +8795,10 @@
 		//-------------------------------------------------------
 		"AbilityManaCost"				"0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"250 2000 12500"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "250 2000 12500"
+        }
 
 		"OnSpellStart"
 		{
@@ -9822,29 +8836,13 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"meepo_divided_we_stand"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"armor_and_magic_armor"				"10 80 500"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"attack_damage_percent"				"10 12 16"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"attack_speed"				"8 10 12"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"movespeed"				"15 20 30"
-			}
-		}
+		"AbilityValues"
+        {
+            "armor_and_magic_armor" "10 80 500"
+            "attack_damage_percent" "10 12 16"
+            "attack_speed" "8 10 12"
+            "movespeed" "15 20 30"
+        }
 		"Modifiers"
 		{
 			"modifier_gang_up_passive"
@@ -9898,19 +8896,11 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"meepo_geostrike"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage_sap"				"10 20 25"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage_sap_enemy"				"-10 -20 -25"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage_sap" "10 20 25"
+            "damage_sap_enemy" "-10 -20 -25"
+        }
 		"Modifiers"
 		{
 			"modifier_damage_sap"
@@ -9981,14 +8971,10 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"cast_range"			"1200 1250 1300"
-			}
-		}
+		"AbilityValues"
+        {
+            "cast_range" "1200 1250 1300"
+        }
 		"OnAbilityPhaseStart"
 		{
 			"RunScript"
@@ -10074,24 +9060,12 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"slow_duration"				"6 7 8"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"ms_slow"				"-100 -240 -500"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"as_slow"				"-100 -150 -200"
-			}
-		}
+		"AbilityValues"
+        {
+            "slow_duration" "6 7 8"
+            "ms_slow" "-100 -240 -500"
+            "as_slow" "-100 -150 -200"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -10132,19 +9106,11 @@
 		"AbilityTextureName"	"winterblight/p2/stone_guardian"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"stacks"			"8 7 5"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"500 2000 6000"
-			}
-		}
+		"AbilityValues"
+        {
+            "stacks" "8 7 5"
+            "damage" "500 2000 6000"
+        }
 		"OnOwnerDied"
 		{
 			"RunScript"
@@ -10252,19 +9218,11 @@
 		"AbilityTextureName"	"winterblight/p2/merokuro_passive"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"burn_damage"			"30 300 700"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"500 5000 8000"
-			}
-		}
+		"AbilityValues"
+        {
+            "burn_damage" "30 300 700"
+            "damage" "500 5000 8000"
+        }
 		"OnOwnerDied"
 		{
 			"RunScript"
@@ -10324,14 +9282,10 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"redfall/autumn_spawner"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"armor"			"4 100 1500"
-			}
-		}
+		"AbilityValues"
+        {
+            "armor" "4 100 1500"
+        }
 		"Modifiers"
 		{
 			"modifier_disable_player"
@@ -10449,24 +9403,12 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"ms_bonus"				"100 200 300"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"duration"				"8"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"atk_pct"				"100 200 300"
-			}
-		}
+		"AbilityValues"
+        {
+            "ms_bonus" "100 200 300"
+            "duration" "8"
+            "atk_pct" "100 200 300"
+        }
 		"OnAbilityPhaseStart"
 		{
 			"FireSound"
@@ -10540,14 +9482,10 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"cast_range"	"2500 2750 3000"
-			}
-		}
+		"AbilityValues"
+        {
+            "cast_range" "2500 2750 3000"
+        }
 
 		"OnSpellStart"
 		{
@@ -10625,14 +9563,10 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityTextureName"	"winterblight/p2/mana_null_passive"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"mana_drain_percent"			"1 3 5"
-			}
-		}
+		"AbilityValues"
+        {
+            "mana_drain_percent" "1 3 5"
+        }
 		"Modifiers"
 		{
 			"modifier_mana_null"
@@ -10662,24 +9596,12 @@
 		"AbilityTextureName"	"winterblight/p2/blood_might"
 		"AOERadius"				"1000"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"attack_damage_pct_pct_of_current_health"			"1 2 3"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"attack_damage_per_missing_health"			"0.1"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"radius"			"1000"
-			}
-		}
+		"AbilityValues"
+        {
+            "attack_damage_pct_pct_of_current_health" "1 2 3"
+            "attack_damage_per_missing_health" "0.1"
+            "radius" "1000"
+        }
 		"Modifiers"
 		{
 			"modifier_blood_might_passive"
@@ -10752,29 +9674,13 @@
 		//-------------------------------------------------------
 		"AbilityManaCost"				"0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"pct_damage_on_spell_cast"			"4 6 8"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"base_attack_damage_reduction"			"40 60 80"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"movement_slow"			"-20 -25 -30"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"duration"			"8"
-			}
-		}
+		"AbilityValues"
+        {
+            "pct_damage_on_spell_cast" "4 6 8"
+            "base_attack_damage_reduction" "40 60 80"
+            "movement_slow" "-20 -25 -30"
+            "duration" "8"
+        }
 
 		"OnSpellStart"
 		{
@@ -10839,24 +9745,12 @@
 		"AbilityTextureName"	"winterblight/p2/ultra_ice_passive"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"100 200 500"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ms_loss"			"-100 -150 -200"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"as_loss"			"-60 -140 -340"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "100 200 500"
+            "ms_loss" "-100 -150 -200"
+            "as_loss" "-60 -140 -340"
+        }
 		"OnProjectileHitUnit"
 		{
 			"DeleteOnHit"	"1"
@@ -10985,19 +9879,11 @@
 		"AOERadius"				"1000"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage_from_attack_power"			"20"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"quake_radius"			"500"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage_from_attack_power" "20"
+            "quake_radius" "500"
+        }
 		"Modifiers"
 		{
 			"modifier_drill_digger_passive"
@@ -11044,25 +9930,12 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"juggernaut/bladekeeper/juggernaut_blade_dance"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"stacks_count"			"<% DRILL_CRUSHER_MAX_STACKS_COUNT %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"postimitigation_buff"			"<% DRILL_CRUSHER_POSTMITIGATION * 100 %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"duration"			"<% DRILL_CRUSHER_DURATION %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "stacks_count" "<% DRILL_CRUSHER_MAX_STACKS_COUNT %>"
+            "postimitigation_buff" "<% DRILL_CRUSHER_POSTMITIGATION * 100 %>"
+            "duration" "<% DRILL_CRUSHER_DURATION %>"
+        }
 		"Modifiers"
 		{
 			"modifier_drill_crusher_passive"
@@ -11097,19 +9970,11 @@
 		"AbilityTextureName"	"winterblight/p2/deceptive_light"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"disarm_duration"			"1.5"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage_atk_pwr_pct"			"100 200 400"
-			}
-		}
+		"AbilityValues"
+        {
+            "disarm_duration" "1.5"
+            "damage_atk_pwr_pct" "100 200 400"
+        }
 		"Modifiers"
 		{
 			"modifier_deceptive_light_passive"
@@ -11224,14 +10089,10 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"winterblight/p2/tanky"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage_block"			"60"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage_block" "60"
+        }
 		"Modifiers"
 		{
 			"modifier_water_jailer_passive"
@@ -11276,25 +10137,12 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"base_damage"			"50 200 300"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"paralyze_duration"			"0.1"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"percent_attack_power"			"50"
-			}
-
-		}
+		"AbilityValues"
+        {
+            "base_damage" "50 200 300"
+            "paralyze_duration" "0.1"
+            "percent_attack_power" "50"
+        }
 		"OnAbilityPhaseStart"
 		{
 			"RunScript"
@@ -11465,14 +10313,10 @@
 
 		"AbilityManaCost"				"0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"2.0 3.0 4.0"
-			}
-		}
+		"AbilityValues"
+        {
+            "duration" "2.0 3.0 4.0"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -11540,14 +10384,10 @@
 
 		"AbilityManaCost"				"0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"6.0 7.0 8.0"
-			}
-		}
+		"AbilityValues"
+        {
+            "duration" "6.0 7.0 8.0"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -11600,14 +10440,10 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"winterblight/p2/fungal_minion"
 		"MaxLevel"	"1"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"poison_damage"			"300 1000 5000"
-			}
-		}
+		"AbilityValues"
+        {
+            "poison_damage" "300 1000 5000"
+        }
 		"Modifiers"
 		{
 			"modifier_fungal_overlord_passive"
@@ -11685,14 +10521,10 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"winterblight/p2/myopia_aura"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"range_cap"			"300"
-			}
-		}
+		"AbilityValues"
+        {
+            "range_cap" "300"
+        }
 		"Modifiers"
 		{
 			"modifier_distance_cap_aura"
@@ -11745,19 +10577,11 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"100 700 2000"
-			}	
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"slow_and_silence_duration"				"0.6"
-			}	
-		}
+		"AbilityValues"
+        {
+            "damage" "100 700 2000"
+            "slow_and_silence_duration" "0.6"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -11808,14 +10632,10 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"winterblight/p2/aeon_shield"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"theshold"			"40 35 30"
-			}
-		}
+		"AbilityValues"
+        {
+            "theshold" "40 35 30"
+        }
 		"Modifiers"
 		{
 			"modifier_aeon_shield_passive"
@@ -11927,31 +10747,21 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"radius"					"240 240 240 240"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"strikes"					"4"
-				"LinkedSpecialBonus"		"special_bonus_unique_disruptor"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"strike_interval"			"2.0 2.0 2.0 2.0"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"strike_damage"				"320 800 8000"
-				"LinkedSpecialBonus"		"special_bonus_unique_disruptor_3"
-			}
-		}
+		"AbilityValues"
+        {
+            "radius" "240 240 240 240"
+            "strikes"
+            {
+                "value" "4"
+                "LinkedSpecialBonus" "special_bonus_unique_disruptor"
+            }
+            "strike_interval" "2.0 2.0 2.0 2.0"
+            "strike_damage"
+            {
+                "value" "320 800 8000"
+                "LinkedSpecialBonus" "special_bonus_unique_disruptor_3"
+            }
+        }
 	}
 
 	"zect_rider_arc_lightning"
@@ -11981,30 +10791,17 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"arc_damage"			"250 800 6000"
-				"LinkedSpecialBonus"	"special_bonus_unique_zeus_2"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"500 500 500"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"jump_count"			"5 7 9"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"jump_delay"			"0.25 0.25 0.25 0.25"
-			}
-		}
+		"AbilityValues"
+        {
+            "arc_damage"
+            {
+                "value" "250 800 6000"
+                "LinkedSpecialBonus" "special_bonus_unique_zeus_2"
+            }
+            "radius" "500 500 500"
+            "jump_count" "5 7 9"
+            "jump_delay" "0.25 0.25 0.25 0.25"
+        }
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
 
@@ -12045,39 +10842,15 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"cast_range_tooltip"	"1000"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"true_sight_radius"		"750"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"sight_radius_day"		"750"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"sight_radius_night"	"750"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"sight_duration"		"4.5"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"spread_aoe"	"325"
-			}
-		}
+		"AbilityValues"
+        {
+            "cast_range_tooltip" "1000"
+            "true_sight_radius" "750"
+            "sight_radius_day" "750"
+            "sight_radius_night" "750"
+            "sight_duration" "4.5"
+            "spread_aoe" "325"
+        }
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
 
@@ -12114,24 +10887,12 @@
 		//-------------------------------------------------------
 		"AbilityManaCost"				"0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"modifier_duration_reduction"			"50 60 80"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"slow"				"0.5 1.0 1.5"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"curse_duration"			"8"
-			}
-		}
+		"AbilityValues"
+        {
+            "modifier_duration_reduction" "50 60 80"
+            "slow" "0.5 1.0 1.5"
+            "curse_duration" "8"
+        }
 
 		"OnSpellStart"
 		{
@@ -12202,29 +10963,13 @@
 		//-------------------------------------------------------
 		"AbilityManaCost"				"0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"max_stacks"			"4"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"100 350 4500"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ms_loss"			"-60 -100 -140"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"as_loss"			"-30 -60 -90"
-			}
-		}
+		"AbilityValues"
+        {
+            "max_stacks" "4"
+            "damage" "100 350 4500"
+            "ms_loss" "-60 -100 -140"
+            "as_loss" "-30 -60 -90"
+        }
 
 		"OnSpellStart"
 		{
@@ -12277,19 +11022,11 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"winterblight/p2/shroom_procurement"
 		"MaxLevel"	"1"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage_per_tick"			"300 900 9800"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"duration"		"3.0 4.0 5.0"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage_per_tick" "300 900 9800"
+            "duration" "3.0 4.0 5.0"
+        }
 		"Modifiers"
 		{
 			"modifier_shroom_procurement_passive"
@@ -12381,14 +11118,10 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"winterblight/p2/demented_mushroom_passive"
 		"MaxLevel"	"1"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"350 1000 3000"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "350 1000 3000"
+        }
 		"OnOwnerDied"
 		{
 			"RunScript"
@@ -12621,24 +11354,12 @@
 				}
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"attacks"	"3 3 3"
-			}
-			"02"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"bonus_damage"	"100 400 2000"
-			}
-			"03"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"stun_duration"	"1.0"
-			}
-		}
+		"AbilityValues"
+        {
+            "attacks" "3 3 3"
+            "bonus_damage" "100 400 2000"
+            "stun_duration" "1.0"
+        }
 	}
 
 	"winterblight_gravekeeper"
@@ -12739,14 +11460,10 @@
 		"AbilityTextureName"	"winterblight/p2/frost_core"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"radius"			"600 800 1000"
-			}
-		}
+		"AbilityValues"
+        {
+            "radius" "600 800 1000"
+        }
 		"Modifiers"
 		{
 			"modifier_frost_overwhelming_passive"
@@ -12869,19 +11586,11 @@
 		}
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"duration"				"8"
-			}	
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"400 500 600"
-			}	
-		}
+		"AbilityValues"
+        {
+            "duration" "8"
+            "radius" "400 500 600"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -12929,14 +11638,10 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"winterblight/p2/unshakeable"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"modifier_duration_reduction"			"80 90 95"
-			}
-		}
+		"AbilityValues"
+        {
+            "modifier_duration_reduction" "80 90 95"
+        }
 		"Modifiers"
 		{
 			"modifier_unshakable"
@@ -13046,24 +11751,12 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"winterblight/p2/ultimate_predator"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage_bonus_per_stack"			"40"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"duration"		"7"
-			}
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage_bonus_full_shark"			"400"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage_bonus_per_stack" "40"
+            "duration" "7"
+            "damage_bonus_full_shark" "400"
+        }
 		"Modifiers"
 		{
 			"modifier_space_shark_passive"
@@ -13143,24 +11836,12 @@
 		"AbilityTextureName"	"winterblight/p2/diamond_disarray"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"75 275 1800"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ms_loss"			"-100 -155 -210"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"as_loss"			"-60 -120 -320"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "75 275 1800"
+            "ms_loss" "-100 -155 -210"
+            "as_loss" "-60 -120 -320"
+        }
 		"Modifiers"
 		{
 			"modifier_bone_blister_passive"
@@ -13202,14 +11883,10 @@
 		"AbilityTextureName"	"winterblight/p2/astral_weapon"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage_pct_target_max_health"			"2 3 4"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage_pct_target_max_health" "2 3 4"
+        }
 		"Modifiers"
 		{
 			"modifier_astral_weapon"
@@ -13245,14 +11922,10 @@
 		"AbilityTextureName"	"winterblight/p2/satellite_beacon"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"100 500 1000"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "100 500 1000"
+        }
 		"Modifiers"
 		{
 			"modifier_star_eater_passive"
@@ -13283,25 +11956,12 @@
 		"AbilityTextureName"	"winterblight/p2/galaxy_knight_passive"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ms_loss"			"-250 -300 -350"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"hp_loss_percent"	"4"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"dot_duration"	"4"
-			}
-
-		}
+		"AbilityValues"
+        {
+            "ms_loss" "-250 -300 -350"
+            "hp_loss_percent" "4"
+            "dot_duration" "4"
+        }
 		"Modifiers"
 		{
 			"modifier_galaxy_knight_passive"
@@ -13381,19 +12041,11 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"damage"	"500 2000 15000"
-			}
-			"01"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"disarm_duration"		"0.5 1.0 2.0"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "500 2000 15000"
+            "disarm_duration" "0.5 1.0 2.0"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -13460,14 +12112,10 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"duration"	"4"
-			}
-		}
+		"AbilityValues"
+        {
+            "duration" "4"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -13549,19 +12197,11 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"duration"	"10"
-			}
-			"02"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"heal_percent"	"3 7 10"
-			}
-		}
+		"AbilityValues"
+        {
+            "duration" "10"
+            "heal_percent" "3 7 10"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -13673,29 +12313,13 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"fissure_range"				"3000"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"fissure_duration"			"6"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"fissure_radius"				"225"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"stun_duration"				"0.3 0.45 0.6"
-			}
-		}
+		"AbilityValues"
+        {
+            "fissure_range" "3000"
+            "fissure_duration" "6"
+            "fissure_radius" "225"
+            "stun_duration" "0.3 0.45 0.6"
+        }
 	}
 
 	"gigarraun_passive"
@@ -13705,19 +12329,11 @@
 		"AbilityTextureName"	"sorceress/sorceress_rune_r_2_arcana1"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"back_damage"			"250 750 6800"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"main_damage"			"2000 6000 12000"
-			}
-		}
+		"AbilityValues"
+        {
+            "back_damage" "250 750 6800"
+            "main_damage" "2000 6000 12000"
+        }
 		"Modifiers"
 		{
 			"modifier_gigarraun_passive"
@@ -13793,14 +12409,10 @@
 		{
 
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"cast_range"			"3000"
-			}
-		}
+		"AbilityValues"
+        {
+            "cast_range" "3000"
+        }
 		// Casting
 		//-------------------------------------------------------
 		"AbilityCastPoint"				"0.26"
@@ -13955,14 +12567,10 @@
 			}
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"damage"	"220 720 7400"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "220 720 7400"
+        }
 	}
 
 	"tiamat_boss_passive"
@@ -14086,19 +12694,11 @@
 		"AbilityTextureName"	"winterblight/p2/tiamat_crystal_breath"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"1200 2000 3000"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ms_loss"			"-60 -100 -180"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "1200 2000 3000"
+            "ms_loss" "-60 -100 -180"
+        }
 		"Modifiers"
 		{
 			"modifier_tiamat_frost_attack"
@@ -14392,29 +12992,13 @@
 		}
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"400 1350 5000"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"search_radius"				"600"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"max_blades"				"9 10 12"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_bounces"				"4"
-			}	
-		}
+		"AbilityValues"
+        {
+            "damage" "400 1350 5000"
+            "search_radius" "600"
+            "max_blades" "9 10 12"
+            "base_bounces" "4"
+        }
 		"Modifiers"
 		{
 			"modifier_radeon_breaker_passive"
@@ -14486,24 +13070,12 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"radius"					"650"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"damage_percent"			"15.0 15.0 15.0"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"duration"					"10"
-			}
-		}
+		"AbilityValues"
+        {
+            "radius" "650"
+            "damage_percent" "15.0 15.0 15.0"
+            "duration" "10"
+        }
 	}
 
 	"wailing_snow_specter_aura"
@@ -14513,14 +13085,10 @@
 		"AbilityTextureName"	"death_prophet_carrion_swarm"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"pierces_reduction"			"-200 -2000 -8000"
-			}
-		}
+		"AbilityValues"
+        {
+            "pierces_reduction" "-200 -2000 -8000"
+        }
 		"OnOwnerDied"
 		{
 			"RunScript"
@@ -14582,19 +13150,11 @@
 		"AbilityTextureName"	"winterblight/p2/tiamat_crystal_breath"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"1200 2000 3000"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ms_loss"			"-60 -100 -180"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "1200 2000 3000"
+            "ms_loss" "-60 -100 -180"
+        }
 		"Modifiers"
 		{
 			"modifier_rubble_passive"
@@ -14806,29 +13366,13 @@
 			}
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"stun_duration"	"0.5"
-			}
-			"02"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"damage"	"240 800 3000"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"as_slow"			"-60 -240 -400"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ms_slow"			"-80 -160 -240"
-			}
-		}
+		"AbilityValues"
+        {
+            "stun_duration" "0.5"
+            "damage" "240 800 3000"
+            "as_slow" "-60 -240 -400"
+            "ms_slow" "-80 -160 -240"
+        }
 
 	}
 
@@ -14911,19 +13455,11 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"range"						"800 900 1000"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"damage"						"300 1000 8000"
-			}
-		}
+		"AbilityValues"
+        {
+            "range" "800 900 1000"
+            "damage" "300 1000 8000"
+        }
 
 		// Data driven
 		//-------------------------------------------------------
@@ -14994,10 +13530,9 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"winterblight/magic_shield"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-
-		}
+		"AbilityValues"
+        {
+        }
 		"Modifiers"
 		{
 			"modifier_hinterlands_guardian_passive"
@@ -15024,14 +13559,10 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"winterblight/castle/demonoid_passive"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"attack_power_bonus"			"100 200 400"
-			}
-		}
+		"AbilityValues"
+        {
+            "attack_power_bonus" "100 200 400"
+        }
 		"Modifiers"
 		{
 			"modifier_demonoid_passive"
@@ -15054,19 +13585,11 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"winterblight/castle/glint_of_onu"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"attack_speed_bonus"			"100 180 260"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"proc_chance"			"30 35 40"
-			}
-		}
+		"AbilityValues"
+        {
+            "attack_speed_bonus" "100 180 260"
+            "proc_chance" "30 35 40"
+        }
 		"Modifiers"
 		{
 			"modifier_blinded_glint_of_onu"
@@ -15107,19 +13630,11 @@
 		"AbilityTextureName"	"winterblight/castle/mountain_tombstone"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"petrify_duration"			"3 4 5"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"300 1000 7500"
-			}
-		}
+		"AbilityValues"
+        {
+            "petrify_duration" "3 4 5"
+            "damage" "300 1000 7500"
+        }
 		"OnOwnerDied"
 		{
 			"RunScript"
@@ -15262,24 +13777,12 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"range"						"1450"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"damage"						"500 1500 10000"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"stun_duration"						"0.6 0.9 1.2"
-			}
-		}
+		"AbilityValues"
+        {
+            "range" "1450"
+            "damage" "500 1500 10000"
+            "stun_duration" "0.6 0.9 1.2"
+        }
 
 		// Data driven
 		//-------------------------------------------------------
@@ -15327,19 +13830,11 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"winterblight/castle/ghost_blink"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"attack_speed_bonus"			"100 180 260"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"proc_chance"			"30 35 40"
-			}
-		}
+		"AbilityValues"
+        {
+            "attack_speed_bonus" "100 180 260"
+            "proc_chance" "30 35 40"
+        }
 		"Modifiers"
 		{
 			"modifier_grave_ghost_passive"
@@ -15475,29 +13970,13 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"winterblight/castle/defiler_passive"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"max_stacks"			"10"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"duration"			"9"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage_gain_per_stack"			"5 10 15"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage_loss_per_stack"			"-3 -6 -10"
-			}
-		}
+		"AbilityValues"
+        {
+            "max_stacks" "10"
+            "duration" "9"
+            "damage_gain_per_stack" "5 10 15"
+            "damage_loss_per_stack" "-3 -6 -10"
+        }
 		"Modifiers"
 		{
 			"modifier_winterblight_defiler_passive"
@@ -15572,20 +14051,11 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"base_damage"			"300 800 5000"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"paralyze_duration"			"0.3"
-			}
-
-		}
+		"AbilityValues"
+        {
+            "base_damage" "300 800 5000"
+            "paralyze_duration" "0.3"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -15647,34 +14117,14 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"base_damage"			"120 400 1500"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"movespeed_slow"			"-80"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"movespeed_slow_duration"			"0.3"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"percent_attack_power"			"50"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"number_of_arrows"			"3 4 5"
-			}
-		}
+		"AbilityValues"
+        {
+            "base_damage" "120 400 1500"
+            "movespeed_slow" "-80"
+            "movespeed_slow_duration" "0.3"
+            "percent_attack_power" "50"
+            "number_of_arrows" "3 4 5"
+        }
 		"OnProjectileHitUnit"
 		{
 			"DeleteOnHit"	"0"
@@ -15724,14 +14174,10 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"winterblight/source_revenant"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"max_stacks"			"10"
-			}
-		}
+		"AbilityValues"
+        {
+            "max_stacks" "10"
+        }
 		"Modifiers"
 		{
 			"modifier_sonder_temp_invul"
@@ -15776,24 +14222,12 @@
 		"AbilityTextureName"	"winterblight/castle/accursed_passive"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"bonus_pure_damage"			"100 500 2000"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"health_regen_pct"			"2"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"root_duration"			"0.5"
-			}
-		}
+		"AbilityValues"
+        {
+            "bonus_pure_damage" "100 500 2000"
+            "health_regen_pct" "2"
+            "root_duration" "0.5"
+        }
 		"Modifiers"
 		{
 			"modifier_accursed_passive"
@@ -15840,24 +14274,12 @@
 		"AbilityTextureName"	"winterblight/castle/life_drain"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"life_drain"			"200 800 1200"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"life_drain_heal_mult"			"3 7 12"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"movement_slow"		"-8 -16 -24"
-			}
-		}
+		"AbilityValues"
+        {
+            "life_drain" "200 800 1200"
+            "life_drain_heal_mult" "3 7 12"
+            "movement_slow" "-8 -16 -24"
+        }
 		"Modifiers"
 		{
 			"modifier_life_drain_aura"
@@ -15968,89 +14390,25 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"redfall/autumn_spawner"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"hierophant_spirit"			"100 300 1000"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"hierophant_mana_regen"		"40 120 400"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"chariot_enemy_ms"		"20 25 30"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"strength_attack_power_enemy"		"30 65 100"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"strength_attack_power_player"		"40 70 100"
-			}	
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"hermit_vision_loss_pct"		"-40 -60 -80"
-			}	
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"hermit_vision_gain_pct"		"40 60 80"
-			}		
-			"08"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"justice_as_per_stack"		"3 6 9"
-			}	
-			"09"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"justice_ms_per_stack"		"1 2 3"
-			}	
-			"10"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"justice_pwr_per_stack"		"6 12 30"
-			}	
-			"11"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"justice_regen_per_stack"		"10 50 150"
-			}	
-			"12"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"temperance_atk_pwr_debuff"		"-20"
-			}
-			"13"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"temperance_ms_debuff_pct"		"-20"
-			}
-			"14"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"tower_atk_buff_pct"		"50 100 150"
-			}
-			"15"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"star_all_stats"			"50 150 400"
-			}
-			"16"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"immolation_damage"			"200 750 5000"
-			}
-		}
+		"AbilityValues"
+        {
+            "hierophant_spirit" "100 300 1000"
+            "hierophant_mana_regen" "40 120 400"
+            "chariot_enemy_ms" "20 25 30"
+            "strength_attack_power_enemy" "30 65 100"
+            "strength_attack_power_player" "40 70 100"
+            "hermit_vision_loss_pct" "-40 -60 -80"
+            "hermit_vision_gain_pct" "40 60 80"
+            "justice_as_per_stack" "3 6 9"
+            "justice_ms_per_stack" "1 2 3"
+            "justice_pwr_per_stack" "6 12 30"
+            "justice_regen_per_stack" "10 50 150"
+            "temperance_atk_pwr_debuff" "-20"
+            "temperance_ms_debuff_pct" "-20"
+            "tower_atk_buff_pct" "50 100 150"
+            "star_all_stats" "50 150 400"
+            "immolation_damage" "200 750 5000"
+        }
 		"Modifiers"
 		{
 			"modifier_winter_castle_room_unit"
@@ -16735,14 +15093,10 @@
 		"AbilityTextureName"	"winterblight/castle/reincarnation"
 		"MaxLevel"	"3"
 		"AbilityCooldown"				"60 45 30"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"respawn_delay"			"3"
-			}
-		}
+		"AbilityValues"
+        {
+            "respawn_delay" "3"
+        }
 		"Modifiers"
 		{
 			"modifier_winterblight_reincarnation"
@@ -16784,19 +15138,11 @@
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage_pct_atk_power"			"20 40 60"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage_pct_max_health"			"1 2 4"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage_pct_atk_power" "20 40 60"
+            "damage_pct_max_health" "1 2 4"
+        }
 		"Modifiers"
 		{
 			"modifier_winterblight_reaper_swipe"
@@ -16867,19 +15213,11 @@
 				"IsHidden"	"1"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"base_damage"			"100 500 1500"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"paralyze_duration"			"0.2"
-			}
-		}
+		"AbilityValues"
+        {
+            "base_damage" "100 500 1500"
+            "paralyze_duration" "0.2"
+        }
 		"OnProjectileHitUnit"
 		{
 			"DeleteOnHit"	"0"
@@ -16900,34 +15238,14 @@
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage_per_tick_per_stack"			"20 60 240"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"move_slow_per_stack"			"-2 -4 -6"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"max_stacks"			"6"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"duration"			"6.0"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"damage_interval"			"0.1"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage_per_tick_per_stack" "20 60 240"
+            "move_slow_per_stack" "-2 -4 -6"
+            "max_stacks" "6"
+            "duration" "6.0"
+            "damage_interval" "0.1"
+        }
 		"Modifiers"
 		{
 			"modifier_winterblight_venomous_bite"
@@ -16996,24 +15314,12 @@
 		"AbilityTextureName"	"winterblight/castle/frost_wyrm_passive"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"100 500 2500"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ms_loss"			"-60 -80 -120"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ms_self"			"20 80 100"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "100 500 2500"
+            "ms_loss" "-60 -80 -120"
+            "ms_self" "20 80 100"
+        }
 		"Modifiers"
 		{
 			"modifier_frost_wyrm_passive"
@@ -17091,19 +15397,11 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"wave_damage"			"150 500 3000"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"burn_damage"			"50 200 1040"
-			}
-		}
+		"AbilityValues"
+        {
+            "wave_damage" "150 500 3000"
+            "burn_damage" "50 200 1040"
+        }
 		"OnAbilityPhaseStart"
 		{
 			"FireSound"
@@ -17166,19 +15464,11 @@
 		"AbilityTextureName"	"winterblight/castle/spike_trap_passive"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage_base"			"300 1500 8000"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage_pct_max_health"			"25 35 50"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage_base" "300 1500 8000"
+            "damage_pct_max_health" "25 35 50"
+        }
 		"Modifiers"
 		{
 			"modifier_spike_trap_passive"
@@ -17261,19 +15551,11 @@
 		"AbilityTextureName"	"rpc/axe_throw_ice"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage_base"			"60 180 800"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage_pct_max_health"			"10 20 30"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage_base" "60 180 800"
+            "damage_pct_max_health" "10 20 30"
+        }
 		"Modifiers"
 		{
 			"modifier_ground_blade_passive"
@@ -17318,14 +15600,10 @@
 		"AbilityTextureName"	"pudge_dismember"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bleed_damage"			"300 1000 5000"
-			}
-		}
+		"AbilityValues"
+        {
+            "bleed_damage" "300 1000 5000"
+        }
 		"Modifiers"
 		{
 			"modifier_torturor_ai"
@@ -17390,34 +15668,14 @@
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"AOERadius"				"300 550 800"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"as_loss"			"-20 -120 -240"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ms_loss"			"-60 -140 -280"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"aoe_radius"			"350 600 850"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"dmg_pct_atk_power"			"100"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"slow_duration"			"3.0"
-			}
-		}
+		"AbilityValues"
+        {
+            "as_loss" "-20 -120 -240"
+            "ms_loss" "-60 -140 -280"
+            "aoe_radius" "350 600 850"
+            "dmg_pct_atk_power" "100"
+            "slow_duration" "3.0"
+        }
 		"OnProjectileHitUnit"
 		{
 			"DeleteOnHit"	"1"
@@ -17483,29 +15741,13 @@
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"AOERadius"				"240"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"as_loss"			"-20 -120 -240"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ms_loss"			"-60 -140 -280"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"aoe_radius"			"240"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"dps"				"100 500 6000"
-			}
-		}
+		"AbilityValues"
+        {
+            "as_loss" "-20 -120 -240"
+            "ms_loss" "-60 -140 -280"
+            "aoe_radius" "240"
+            "dps" "100 500 6000"
+        }
 		"Modifiers"
 		{
 			"modifier_rot_aura"
@@ -17564,14 +15806,10 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"winterblight/castle/shield_block"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"front_damage_block"			"40 80 96"
-			}
-		}
+		"AbilityValues"
+        {
+            "front_damage_block" "40 80 96"
+        }
 		"Modifiers"
 		{
 			"modifier_shield_block"
@@ -17628,29 +15866,13 @@
 		"AbilityTextureName"	"winterblight/castle/rabid"
 		"AOERadius"				"1000"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"duration"			"8"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"max_stacks"			"10"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"base_attack_per_stack"			"30 120 600"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"bonus_as_per_stack"			"10 15 20"
-			}
-		}
+		"AbilityValues"
+        {
+            "duration" "8"
+            "max_stacks" "10"
+            "base_attack_per_stack" "30 120 600"
+            "bonus_as_per_stack" "10 15 20"
+        }
 		"Modifiers"
 		{
 			"modifier_ice_bear_passive"
@@ -17781,24 +16003,12 @@
 		"AbilityTextureName"	"winterblight/castle/moon_warden_passive"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"300 900 5000"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"silence_duration"		"2 3 4"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"damage_bonus"		"20 50 100"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "300 900 5000"
+            "silence_duration" "2 3 4"
+            "damage_bonus" "20 50 100"
+        }
 		"Modifiers"
 		{
 			"modifier_moon_warden_passive"
@@ -17860,29 +16070,13 @@
 		"AbilityTextureName"	"winterblight/castle/blue_slime"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"attack_speed_loss"		"-100 -300 -700"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"movespeed_loss"			"-100 -200 -400"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"bonus_aoe_magic_damage"			"80 300 1200"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sticky_duration"			"0.8 1.6 2.4"
-			}
-		}
+		"AbilityValues"
+        {
+            "attack_speed_loss" "-100 -300 -700"
+            "movespeed_loss" "-100 -200 -400"
+            "bonus_aoe_magic_damage" "80 300 1200"
+            "sticky_duration" "0.8 1.6 2.4"
+        }
 		"Modifiers"
 		{
 			"modifier_blue_slime_ai"
@@ -17954,29 +16148,13 @@
 		"AbilityTextureName"	"winterblight/castle/blue_slime"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"attack_speed_loss"		"-100 -300 -700"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"movespeed_loss"			"-100 -200 -400"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"bonus_aoe_magic_damage"			"80 300 1200"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sticky_duration"			"0.8 1.6 2.4"
-			}
-		}
+		"AbilityValues"
+        {
+            "attack_speed_loss" "-100 -300 -700"
+            "movespeed_loss" "-100 -200 -400"
+            "bonus_aoe_magic_damage" "80 300 1200"
+            "sticky_duration" "0.8 1.6 2.4"
+        }
 		"Modifiers"
 		{
 			"modifier_blue_slime_ai"
@@ -18018,44 +16196,16 @@
 		"AbilityTextureName"	"winterblight/castle/cruxys"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"attack_speed_loss"		"-100 -200 -400"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ms_loss"			"-80 -120 -160"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"nuke_damage"		"500 1500 9000"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"slow_duration"		"5"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"burn_damage"		"60 240 1000"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"chain_frost_damage"		"240 700 2500"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"chain_frost_ms_loss_pct"			"-25 -33 -40"
-			}
-		}
+		"AbilityValues"
+        {
+            "attack_speed_loss" "-100 -200 -400"
+            "ms_loss" "-80 -120 -160"
+            "nuke_damage" "500 1500 9000"
+            "slow_duration" "5"
+            "burn_damage" "60 240 1000"
+            "chain_frost_damage" "240 700 2500"
+            "chain_frost_ms_loss_pct" "-25 -33 -40"
+        }
 		"Modifiers"
 		{
 			"modifier_castle_boss_ai"
@@ -18201,14 +16351,10 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"winterblight/castle/cruxys"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"attack_speed_loss"		"-100 -300 -700"
-			}
-		}
+		"AbilityValues"
+        {
+            "attack_speed_loss" "-100 -300 -700"
+        }
 		"Modifiers"
 		{
 			"modifier_surrogate_ai"
@@ -18317,14 +16463,10 @@
 				"damage"		"%damage"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"damage"	"35 90 600"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "35 90 600"
+        }
 
 	}
 
@@ -18335,19 +16477,11 @@
 		"AbilityTextureName"	"winterblight/castle/red_mage_attack"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"burn_damage"		"100 300 1200"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"burn_duration"		"4 5 6"
-			}
-		}
+		"AbilityValues"
+        {
+            "burn_damage" "100 300 1200"
+            "burn_duration" "4 5 6"
+        }
 		"Modifiers"
 		{
 			"modifier_red_mage_attack_passive"
@@ -18422,24 +16556,12 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"impact_damage"			"300 1000 6500"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"dot_damage"			"40 150 1000"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"slow_ms_stacks"			"5 10 15"
-			}
-		}
+		"AbilityValues"
+        {
+            "impact_damage" "300 1000 6500"
+            "dot_damage" "40 150 1000"
+            "slow_ms_stacks" "5 10 15"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -18500,19 +16622,11 @@
 		"AbilityTextureName"	"venomancer_poison_sting"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"poison_damage"		"15 50 300"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"poison_duration"		"1 1.2 1.4"
-			}
-		}
+		"AbilityValues"
+        {
+            "poison_damage" "15 50 300"
+            "poison_duration" "1 1.2 1.4"
+        }
 		"Modifiers"
 		{
 			"modifier_green_mage_attack_passive"
@@ -18588,19 +16702,11 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"nova_damage"			"200 800 4000"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"root_duration"			"0.6 1.2 1.8"
-			}
-		}
+		"AbilityValues"
+        {
+            "nova_damage" "200 800 4000"
+            "root_duration" "0.6 1.2 1.8"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -18648,24 +16754,12 @@
 		"AbilityTextureName"	"winterblight/castle/chilling_bite_aura"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ms_slow"		"-40 -80 -160"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"as_slow"		"-60 -120 -180"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"slow_duration"		"2.5 3.0 3.5"
-			}
-		}
+		"AbilityValues"
+        {
+            "ms_slow" "-40 -80 -160"
+            "as_slow" "-60 -120 -180"
+            "slow_duration" "2.5 3.0 3.5"
+        }
 		"Modifiers"
 		{
 			"modifier_blue_mage_attack_passive"
@@ -18761,14 +16855,10 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"heal_pct_max_health"			"10 20 30"
-			}
-		}
+		"AbilityValues"
+        {
+            "heal_pct_max_health" "10 20 30"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -18817,35 +16907,14 @@
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"AOERadius"				"300 550 800"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"as_loss"			"-10 -20 -30"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ms_loss"			"-10 -15 -20"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"mana_regen_loss"			"-7 -20 -80"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"aoe_radius"			"450 700 950"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"slow_duration"			"7.0"
-			}
-
-		}
+		"AbilityValues"
+        {
+            "as_loss" "-10 -20 -30"
+            "ms_loss" "-10 -15 -20"
+            "mana_regen_loss" "-7 -20 -80"
+            "aoe_radius" "450 700 950"
+            "slow_duration" "7.0"
+        }
 		"OnProjectileHitUnit"
 		{
 			"DeleteOnHit"	"1"
@@ -18910,14 +16979,10 @@
 		"AbilityTextureName"	"winterblight/castle/necro_knight"
 		"MaxLevel"	"3"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"max_summons"			"2 4 6"
-			}
-		}
+		"AbilityValues"
+        {
+            "max_summons" "2 4 6"
+        }
 		"Modifiers"
 		{
 			"modifier_winterblight_necro_knight_attack"
@@ -19013,29 +17078,13 @@
 		"AbilityTextureName"	"jakiro_dual_breath"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ms_slow"		"-40 -80 -160"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"as_slow"		"-60 -120 -180"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"slow_duration"		"2.5 3.0 3.5"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"burn_damage"		"80 220 1200"
-			}
-		}
+		"AbilityValues"
+        {
+            "ms_slow" "-40 -80 -160"
+            "as_slow" "-60 -120 -180"
+            "slow_duration" "2.5 3.0 3.5"
+            "burn_damage" "80 220 1200"
+        }
 		"Modifiers"
 		{
 			"modifier_dragon_dual_burn_passive"
@@ -19137,19 +17186,11 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"500 3000 20000"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"stun_duration"				"2"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "500 3000 20000"
+            "stun_duration" "2"
+        }
 
 		"OnSpellStart"
 		{
@@ -19254,24 +17295,12 @@
 				"Function"		"hermit_eye_die"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"movement_slow"			"-15"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"vision_loss"			"-300 -500 -700"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"200 600 3000"
-			}
-		}
+		"AbilityValues"
+        {
+            "movement_slow" "-15"
+            "vision_loss" "-300 -500 -700"
+            "damage" "200 600 3000"
+        }
 		"OnProjectileHitUnit"
 		{
 			"DeleteOnHit"	"1"
@@ -19390,24 +17419,12 @@
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"miss_chance"			"30 60 90"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"mana_regen_loss"			"-40 -80 -400"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"duration"			"3"
-			}
-		}
+		"AbilityValues"
+        {
+            "miss_chance" "30 60 90"
+            "mana_regen_loss" "-40 -80 -400"
+            "duration" "3"
+        }
 		"Modifiers"
 		{
 			"modifier_hermit_hoodling_passive"
@@ -19585,39 +17602,15 @@
 				"damage"		"%splinter_damage"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"50 250 1500"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"move_slow"			"-24 -26 -28"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"max_tornados"			"5 6 7"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"splinter_damage"			"100 500 5000"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"miss_chance"			"35 65 95"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"tornado_interval"			"3.0 2.5 2.0"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "50 250 1500"
+            "move_slow" "-24 -26 -28"
+            "max_tornados" "5 6 7"
+            "splinter_damage" "100 500 5000"
+            "miss_chance" "35 65 95"
+            "tornado_interval" "3.0 2.5 2.0"
+        }
 	}
 
    	"winterblight_shadow_mist"
@@ -19628,29 +17621,13 @@
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"AOERadius"				"240"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"silence_duration"			"0.3 0.4 0.5"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ms_loss"			"-60 -140 -280"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"aoe_radius"			"240"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"dps"				"60 240 1600"
-			}
-		}
+		"AbilityValues"
+        {
+            "silence_duration" "0.3 0.4 0.5"
+            "ms_loss" "-60 -140 -280"
+            "aoe_radius" "240"
+            "dps" "60 240 1600"
+        }
 		"Modifiers"
 		{
 			"modifier_shadow_mist_aura"
@@ -19757,44 +17734,16 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"land_slow_duration"	"2.1 2.3 2.5"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"land_radius"			"440"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"land_damage"			"500 2500 15000"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"attack_speed_loss"		"-100 -300 -700"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"movespeed_loss"			"-100 -200 -400"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sticky_duration"			"0.5 0.6 0.7"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"bonus_aoe_magic_damage"			"80 200 1600"
-			}
-		}
+		"AbilityValues"
+        {
+            "land_slow_duration" "2.1 2.3 2.5"
+            "land_radius" "440"
+            "land_damage" "500 2500 15000"
+            "attack_speed_loss" "-100 -300 -700"
+            "movespeed_loss" "-100 -200 -400"
+            "sticky_duration" "0.5 0.6 0.7"
+            "bonus_aoe_magic_damage" "80 200 1600"
+        }
 
 		"OnSpellStart"
 		{
@@ -19941,14 +17890,10 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"tick_damage"	"160 440 5000"
-			}
-		}
+		"AbilityValues"
+        {
+            "tick_damage" "160 440 5000"
+        }
 
 		"OnSpellStart"
 		{
@@ -19972,14 +17917,10 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"winterblight/castle/demon_lifesteal"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"lifesteal"			"30"
-			}
-		}
+		"AbilityValues"
+        {
+            "lifesteal" "30"
+        }
 		"Modifiers"
 		{
 			"modifier_justice_demon_lifesteal_passive"
@@ -19998,19 +17939,11 @@
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage_pct_atk_power"			"20 40 60"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage_pct_max_health"			"1 2 4"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage_pct_atk_power" "20 40 60"
+            "damage_pct_max_health" "1 2 4"
+        }
 		"OnOwnerDied"
 		{
 			"RunScript"
@@ -20071,24 +18004,12 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"tidehunter_gush"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"moveslow"			"-20 -30 -80"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"attack_slow"		"-80 -100 -150"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"damage"			"300 1000 8000"
-			}
-		}
+		"AbilityValues"
+        {
+            "moveslow" "-20 -30 -80"
+            "attack_slow" "-80 -100 -150"
+            "damage" "300 1000 8000"
+        }
 		"MaxLevel"	"3"
 		"Modifiers"
 		{
@@ -20189,19 +18110,11 @@
 				"Duration"		"%duration"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"100 400 1500"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"duration"		"2 3 4"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "100 400 1500"
+            "duration" "2 3 4"
+        }
 		"Modifiers"
 		{
 			"modifier_winterblight_doom"
@@ -20254,29 +18167,13 @@
 		"AbilityTextureName"	"winterblight/castle/dual_blade"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ms_slow"		"-40 -80 -160"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"as_slow"		"-60 -120 -180"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"slow_duration"		"2.5 3.0 3.5"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"burn_damage"		"100 400 2000"
-			}
-		}
+		"AbilityValues"
+        {
+            "ms_slow" "-40 -80 -160"
+            "as_slow" "-60 -120 -180"
+            "slow_duration" "2.5 3.0 3.5"
+            "burn_damage" "100 400 2000"
+        }
 		"Modifiers"
 		{
 			"modifier_dual_blade_passive"
@@ -20329,19 +18226,11 @@
 		"AbilityTextureName"	"winterblight/castle/face_ripper"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"instance_count"		"4 7 10"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"damage"		"80 400 4000"
-			}
-		}
+		"AbilityValues"
+        {
+            "instance_count" "4 7 10"
+            "damage" "80 400 4000"
+        }
 		"Modifiers"
 		{
 			"modifier_faceripper_passive"
@@ -20388,24 +18277,12 @@
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"AOERadius"				"800"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"		"80 270 1500"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"star_interval"		"1.5"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"radius"			"800"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "80 270 1500"
+            "star_interval" "1.5"
+            "radius" "800"
+        }
 		"Modifiers"
 		{
 			"modifier_starwatcher_passive"
@@ -20435,24 +18312,12 @@
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"AOERadius"				"800"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"		"60 185 575"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"beam_interval"		"0.5 0.4 0.2"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"radius"			"1000"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "60 185 575"
+            "beam_interval" "0.5 0.4 0.2"
+            "radius" "1000"
+        }
 		"Modifiers"
 		{
 			"modifier_lumos_king_passive"
@@ -20508,19 +18373,11 @@
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"AOERadius"				"800"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"fear_chance"		"30"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"fear_duration"		"1.0 1.25 1.50"
-			}
-		}
+		"AbilityValues"
+        {
+            "fear_chance" "30"
+            "fear_duration" "1.0 1.25 1.50"
+        }
 		"Modifiers"
 		{
 			"modifier_claws_of_terror_passive"
@@ -20549,24 +18406,12 @@
 		"AbilityTextureName"	"winterblight/castle/sun_phoenix"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"burn_damage"		"100 300 1200"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"burn_duration"		"4 5 6"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"attack_speed_loss"		"-100 -240 -600"
-			}
-		}
+		"AbilityValues"
+        {
+            "burn_damage" "100 300 1200"
+            "burn_duration" "4 5 6"
+            "attack_speed_loss" "-100 -240 -600"
+        }
 		"OnOwnerDied"
 		{
 			"RunScript"
@@ -20624,24 +18469,12 @@
 		"AbilityTextureName"	"clinkz_searing_arrow"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"impact_damage"		"100 300 1200"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"armor_loss_duration"		"7"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"armor_loss"		"-300 -1200 -9000"
-			}
-		}
+		"AbilityValues"
+        {
+            "impact_damage" "100 300 1200"
+            "armor_loss_duration" "7"
+            "armor_loss" "-300 -1200 -9000"
+        }
 		"Modifiers"
 		{
 			"modifier_winterblight_searing_arrow_passive"
@@ -20758,19 +18591,11 @@
 		"AbilityTextureName"	"winterblight/castle/solos_passive"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"burn_dps"			"100 350 2500"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"impact_damage"			"100 350 2500"
-			}
-		}
+		"AbilityValues"
+        {
+            "burn_dps" "100 350 2500"
+            "impact_damage" "100 350 2500"
+        }
 		"OnProjectileHitUnit"
 		{
 			"DeleteOnHit"	"1"
@@ -20852,24 +18677,12 @@
 		"AbilityTextureName"	"winterblight/castle/vorethrex_passive"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"buff_damage"		"100 200 300"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"buff_attackspeed"		"120 280 500"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"buff_ms"		"40 70 100"
-			}
-		}
+		"AbilityValues"
+        {
+            "buff_damage" "100 200 300"
+            "buff_attackspeed" "120 280 500"
+            "buff_ms" "40 70 100"
+        }
 
 		"Modifiers"
 		{
@@ -20972,29 +18785,13 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"debuff_duration"				"6"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"atk_power_loss"				"-40 -70 -100"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"200 3200 25000"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"health_regen_loss"				"-3 -5 -7"
-			}
-		}
+		"AbilityValues"
+        {
+            "debuff_duration" "6"
+            "atk_power_loss" "-40 -70 -100"
+            "damage" "200 3200 25000"
+            "health_regen_loss" "-3 -5 -7"
+        }
 
 		"OnSpellStart"
 		{
@@ -21077,24 +18874,12 @@
 		"AbilityTextureName"	"winterblight/castle/judgement_bash"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"impact_damage"		"500 2000 15000"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"stun_duration"		"0.3 0.5 0.7"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"stun_chance"		"25"
-			}
-		}
+		"AbilityValues"
+        {
+            "impact_damage" "500 2000 15000"
+            "stun_duration" "0.3 0.5 0.7"
+            "stun_chance" "25"
+        }
 		"Modifiers"
 		{
 			"modifier_winterblight_paragon_of_judgement_passive"
@@ -21150,25 +18935,12 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"base_damage"			"100 1000 10000"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"paralyze_duration"			"0.3"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"percent_attack_power"			"100"
-			}
-
-		}
+		"AbilityValues"
+        {
+            "base_damage" "100 1000 10000"
+            "paralyze_duration" "0.3"
+            "percent_attack_power" "100"
+        }
 		"OnAbilityPhaseStart"
 		{
 			"RunScript"
@@ -21224,39 +18996,15 @@
 		"AbilityTextureName"	"winterblight/castle/xelethar_passive"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage_base"			"50 200 1000"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage_pct_max_health"			"2 4 6"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"orb_damage"			"500 2000 10000"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"slow_duration"				"5"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"ms_slow"				"-60 -140 -400"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"as_slow"				"-100 -150 -200"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage_base" "50 200 1000"
+            "damage_pct_max_health" "2 4 6"
+            "orb_damage" "500 2000 10000"
+            "slow_duration" "5"
+            "ms_slow" "-60 -140 -400"
+            "as_slow" "-100 -150 -200"
+        }
 		"Modifiers"
 		{
 			"modifier_xelethar_passive"
@@ -21331,14 +19079,10 @@
 
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"fear_duration"			"3 4 5"
-			}
-		}
+		"AbilityValues"
+        {
+            "fear_duration" "3 4 5"
+        }
 	}
 
 	"bishop_of_hades_dot"
@@ -21378,14 +19122,10 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"300 1000 15000"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "300 1000 15000"
+        }
 
 		"OnSpellStart"
 		{
@@ -21426,14 +19166,10 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"winterblight/castle/red_star_attack"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"respawn_delay"			"3"
-			}
-		}
+		"AbilityValues"
+        {
+            "respawn_delay" "3"
+        }
 		"Modifiers"
 		{
 			"modifier_winter_star_boss_passive"
@@ -21468,19 +19204,11 @@
 		"AbilityTextureName"	"invoker_chaos_meteor"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"magic_resist_loss"			"-100 -500 -5000"
-			}
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"80 300 2000"
-			}
-		}
+		"AbilityValues"
+        {
+            "magic_resist_loss" "-100 -500 -5000"
+            "damage" "80 300 2000"
+        }
 		"Modifiers"
 		{
 			"modifier_autumn_mage_passive"
@@ -21540,14 +19268,10 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"templar_assassin_meld"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"evasion"			"30 60 90"
-			}
-		}
+		"AbilityValues"
+        {
+            "evasion" "30 60 90"
+        }
 		"Modifiers"
 		{
 			"modifier_empress_emasz_passive"

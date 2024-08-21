@@ -9,14 +9,10 @@
 		"AbilityTextureName"	"faceless_void_time_walk"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ASTRAL_RANGER_ARCANA1_Q1_ATTACK_RANGE_INCREASE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% ASTRAL_RANGER_ARCANA1_Q1_ATTACK_RANGE_INCREASE %>"
+        }
 	}
 
 	"astral_rune_q_2_arcana1"
@@ -28,29 +24,13 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ASTRAL_RANGER_ARCANA1_Q2_DMG_PER_ATT * 100 %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% ASTRAL_RANGER_ARCANA1_Q2_ARMOR_LOSS %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"8"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"1"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% ASTRAL_RANGER_ARCANA1_Q2_DMG_PER_ATT * 100 %>"
+            "property_two" "<% ASTRAL_RANGER_ARCANA1_Q2_ARMOR_LOSS %>"
+            "element_one" "8"
+            "base_ability" "1"
+        }
 	}
 
 	"astral_rune_q_3_arcana1"
@@ -61,14 +41,10 @@
 		"AbilityTextureName"	"astral_ranger/astral_rune_q_3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ASTRAL_RANGER_ARCANA1_Q3_DAMAGE_BONUS %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% ASTRAL_RANGER_ARCANA1_Q3_DAMAGE_BONUS %>"
+        }
 	}
 
 	"astral_rune_q_4_arcana1"
@@ -79,13 +55,9 @@
 		"AbilityTextureName"	"astral_ranger/astral_rune_q_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% ASTRAL_RANGER_ARCANA1_Q4_DAMAGE_PER_ATTRIBUTE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% ASTRAL_RANGER_ARCANA1_Q4_DAMAGE_PER_ATTRIBUTE %>"
+        }
 	}
 

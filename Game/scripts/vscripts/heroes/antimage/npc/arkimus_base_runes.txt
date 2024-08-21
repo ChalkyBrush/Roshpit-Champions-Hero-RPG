@@ -7,14 +7,10 @@
 		"AbilityTextureName"	"arkimus/arkimus_rune_q_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ARKIMUS_Q1_MAGIC_ARMOR_REDUCTION %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% ARKIMUS_Q1_MAGIC_ARMOR_REDUCTION %>"
+        }
 	}
 
 	"arkimus_rune_q_2"
@@ -26,34 +22,14 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ARKIMUS_Q2_DAMAGE %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% ARKIMUS_Q2_DAMAGE_BASE %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"1"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"10"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_two"			"4"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% ARKIMUS_Q2_DAMAGE %>"
+            "property_two" "<% ARKIMUS_Q2_DAMAGE_BASE %>"
+            "base_ability" "1"
+            "element_one" "10"
+            "element_two" "4"
+        }
 	}
 
 	"arkimus_rune_q_3"
@@ -64,19 +40,11 @@
 		"AbilityTextureName"	"arkimus/arkimus_rune_q_3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ARKIMUS_Q3_INTERVAL_REDUC_PCT %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% ARKIMUS_Q3_RADIUS_AND_CAST_RANGE_BONUS %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% ARKIMUS_Q3_INTERVAL_REDUC_PCT %>"
+            "property_two" "<% ARKIMUS_Q3_RADIUS_AND_CAST_RANGE_BONUS %>"
+        }
 	}
 
 	"arkimus_rune_q_4"
@@ -87,19 +55,11 @@
 		"AbilityTextureName"	"arkimus/arkimus_rune_q_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% ARKIMUS_Q4_ADD_DMG_PCT %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% ARKIMUS_Q4_COIL_ADD_DURATION_PCT * 100 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% ARKIMUS_Q4_ADD_DMG_PCT %>"
+            "property_two" "<% ARKIMUS_Q4_COIL_ADD_DURATION_PCT * 100 %>"
+        }
 	}
 
 	"arkimus_rune_w_1"
@@ -110,14 +70,10 @@
 		"AbilityTextureName"	"arkimus/arkimus_rune_w_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% ARKIMUS_W1_BASE_ATTACK_DMG %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% ARKIMUS_W1_BASE_ATTACK_DMG %>"
+        }
 	}
 
 	"arkimus_rune_w_2"
@@ -128,14 +84,10 @@
 		"AbilityTextureName"	"arkimus/arkimus_rune_w_2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% ARKIMUS_W2_SPELL_PIERCE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% ARKIMUS_W2_SPELL_PIERCE %>"
+        }
 	}
 
 	"arkimus_rune_w_3"
@@ -146,14 +98,10 @@
 		"AbilityTextureName"	"arkimus/arkimus_rune_w_3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% ARKIMUS_W3_BONUS_DMG %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% ARKIMUS_W3_BONUS_DMG %>"
+        }
 	}
 
 	"arkimus_rune_w_4"
@@ -164,14 +112,10 @@
 		"AbilityTextureName"	"arkimus/arkimus_rune_w_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ARKIMUS_W4_SHIELD_CHANCE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% ARKIMUS_W4_SHIELD_CHANCE %>"
+        }
 	}
 
 	"arkimus_rune_e_1"
@@ -183,39 +127,15 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ARKIMUS_E1_DMG_OF_ATTACK_POWER_PCT %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% ARKIMUS_E1_RADIUS %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two_base"		"<% ARKIMUS_E1_RADIUS_BASE %>"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"3"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"10"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_two"			"4"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% ARKIMUS_E1_DMG_OF_ATTACK_POWER_PCT %>"
+            "property_two" "<% ARKIMUS_E1_RADIUS %>"
+            "property_two_base" "<% ARKIMUS_E1_RADIUS_BASE %>"
+            "base_ability" "3"
+            "element_one" "10"
+            "element_two" "4"
+        }
 	}
 
 
@@ -227,14 +147,10 @@
 		"AbilityTextureName"	"arkimus/arkimus_rune_e_2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% ARKIMUS_E2_HEAL_PER_MANA_GAIN %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% ARKIMUS_E2_HEAL_PER_MANA_GAIN %>"
+        }
 	}
 
 	"arkimus_rune_e_3"
@@ -245,14 +161,10 @@
 		"AbilityTextureName"	"arkimus/arkimus_rune_e_3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ARKIMUS_E3_PIERCES %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% ARKIMUS_E3_PIERCES %>"
+        }
 	}
 
 	"arkimus_rune_e_4"
@@ -263,19 +175,11 @@
 		"AbilityTextureName"	"arkimus/arkimus_rune_e_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ARKIMUS_E4_AGI %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% ARKIMUS_E4_EVASION %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% ARKIMUS_E4_AGI %>"
+            "property_two" "<% ARKIMUS_E4_EVASION %>"
+        }
 	}
 
 	"arkimus_rune_r_1"
@@ -286,19 +190,11 @@
 		"AbilityTextureName"	"arkimus/arkimus_rune_r_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% ARKIMUS_R1_BONUS_DMG %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% ARKIMUS_R1_MANA_REGEN %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% ARKIMUS_R1_BONUS_DMG %>"
+            "property_two" "<% ARKIMUS_R1_MANA_REGEN %>"
+        }
 	}
 
 	"arkimus_rune_r_2"
@@ -309,14 +205,10 @@
 		"AbilityTextureName"	"arkimus/arkimus_rune_r_2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% ARKIMUS_R2_ATTACK_POWER_TO_R_PCT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% ARKIMUS_R2_ATTACK_POWER_TO_R_PCT %>"
+        }
 	}
 
 	"arkimus_rune_r_3"
@@ -327,14 +219,10 @@
 		"AbilityTextureName"	"arkimus/arkimus_rune_r_3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% ARKIMUS_R3_DURATION %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% ARKIMUS_R3_DURATION %>"
+        }
 	}
 
 	"arkimus_rune_r_4"
@@ -347,13 +235,9 @@
 		"AbilityTextureName"	"arkimus/arkimus_rune_r_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% ARKIMUS_R4_ARCANE_AMP %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% ARKIMUS_R4_ARCANE_AMP %>"
+        }
 	}
 

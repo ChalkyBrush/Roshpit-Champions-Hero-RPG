@@ -59,14 +59,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% VENOMORT_GLYPH_1_1_COOLDOWN %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% VENOMORT_GLYPH_1_1_COOLDOWN %>"
+        }
 	}
 
 	"item_rpc_venomort_glyph_2_1"
@@ -98,19 +94,11 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% VENOMORT_GLYPH_2_1_BOSSES_COUNT_AS_ENEMIES %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% VENOMORT_GLYPH_2_1_PARAGONS_COUNT_AS_ENEMIES %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% VENOMORT_GLYPH_2_1_BOSSES_COUNT_AS_ENEMIES %>"
+            "property_two" "<% VENOMORT_GLYPH_2_1_PARAGONS_COUNT_AS_ENEMIES %>"
+        }
 	}
 
 	"item_rpc_venomort_glyph_3_1"
@@ -154,14 +142,10 @@
 				}
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% VENOMORT_GLYPH_3_1_HEAL_PERCENT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% VENOMORT_GLYPH_3_1_HEAL_PERCENT %>"
+        }
 	}
 
 	"item_rpc_venomort_glyph_4_1"
@@ -224,14 +208,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% VENOMORT_GLYPH_5_1_AMPLIFY_W3 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% VENOMORT_GLYPH_5_1_AMPLIFY_W3 %>"
+        }
 	}
 
 	"item_rpc_venomort_glyph_6_1"
@@ -269,14 +249,10 @@
 				"IsDebuff"			"0"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% VENOMORT_GLYPH_6_1_DAMAGE_REDUCTION_PERCENT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% VENOMORT_GLYPH_6_1_DAMAGE_REDUCTION_PERCENT %>"
+        }
 	}
 
 	"item_rpc_venomort_glyph_7_1"
@@ -308,19 +284,11 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% VENOMORT_GLYPH_7_1_ADDITIONAL_LIFETIME %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% VENOMORT_GLYPH_7_1_ADDITIONAL_ATTACK_SPEED %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% VENOMORT_GLYPH_7_1_ADDITIONAL_LIFETIME %>"
+            "property_two" "<% VENOMORT_GLYPH_7_1_ADDITIONAL_ATTACK_SPEED %>"
+        }
 	}
 
 	"item_rpc_venomort_glyph_5_a"
@@ -383,19 +351,11 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% VENOMORT_GLYPH_1_2_DURATION_INCREASE_PERCENT %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% VENOMORT_W2_CHANCE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% VENOMORT_GLYPH_1_2_DURATION_INCREASE_PERCENT %>"
+            "property_two" "<% VENOMORT_W2_CHANCE %>"
+        }
 	}
 
 	"item_rpc_venomort_glyph_2_2"
@@ -427,14 +387,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% VENOMORT_GLYPH_2_2_RADIUS %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% VENOMORT_GLYPH_2_2_RADIUS %>"
+        }
 	}
 
 	"item_rpc_venomort_glyph_3_2"
@@ -466,19 +422,11 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% VENOMORT_GLYPH_3_2_HEALTH_THRESHOLD_PERCENT %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% VENOMORT_GLYPH_3_2_AMPLIFY %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% VENOMORT_GLYPH_3_2_HEALTH_THRESHOLD_PERCENT %>"
+            "property_two" "<% VENOMORT_GLYPH_3_2_AMPLIFY %>"
+        }
 	}
 
 	"item_rpc_venomort_glyph_4_2"
@@ -510,13 +458,9 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"				"FIELD_INTEGER"
-                "property_one"			"<% VENOMORT_GLYPH_4_2_DURATION %>"
-            }
+            "property_one" "<% VENOMORT_GLYPH_4_2_DURATION %>"
         }
 	}
 
@@ -549,14 +493,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% VENOMORT_GLYPH_5_2_RANGE_INCREASE_PERCENT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% VENOMORT_GLYPH_5_2_RANGE_INCREASE_PERCENT %>"
+        }
 	}
 
 	"item_rpc_venomort_glyph_6_2"
@@ -619,18 +559,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% VENOMORT_GLYPH_7_2_HEALTH_THRESHOLD_PERCENT %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% VENOMORT_GLYPH_7_2_POSTMITIGATION_PERCENT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% VENOMORT_GLYPH_7_2_HEALTH_THRESHOLD_PERCENT %>"
+            "property_two" "<% VENOMORT_GLYPH_7_2_POSTMITIGATION_PERCENT %>"
+        }
 	}
 

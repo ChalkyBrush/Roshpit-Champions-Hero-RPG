@@ -12,29 +12,12 @@
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% VENOMORT_ARCANA_1_R1_DAMAGE_PERCENT %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"4"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"5"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"17"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% VENOMORT_ARCANA_1_R1_DAMAGE_PERCENT %>"
+            "base_ability" "4"
+            "element_one" "17"
+        }
 	}
 
 	"venomort_rune_r_2_arcana1"
@@ -48,19 +31,11 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% VENOMORT_ARCANA_1_R2_RADIUS %>"
-			}
-			"02"
-		        {
-			"var_type"				"FIELD_FLOAT"
-			"property_two"			"<% VENOMORT_ARCANA_1_R2_INSTANCES_FOR_R1 %>"
-		        }
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% VENOMORT_ARCANA_1_R2_RADIUS %>"
+            "property_two" "<% VENOMORT_ARCANA_1_R2_INSTANCES_FOR_R1 %>"
+        }
 	}
 
 	"venomort_rune_r_3_arcana1"
@@ -74,19 +49,11 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% VENOMORT_ARCANA_1_R3_HEAL_PERCENT %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% VENOMORT_ARCANA_1_R3_SHIELD_PERCENT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% VENOMORT_ARCANA_1_R3_HEAL_PERCENT %>"
+            "property_two" "<% VENOMORT_ARCANA_1_R3_SHIELD_PERCENT %>"
+        }
 	}
 
 	"venomort_rune_r_4_arcana1"
@@ -100,18 +67,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% VENOMORT_ARCANA_1_R4_BONUS_MOVESPEED %>"
-			}
-			"02"
-            {
-                    "var_type"                             "FIELD_INTEGER"
-                    "property_two"                         "<% VENOMORT_ARCANA_1_R4_ARMOR_BONUS %>"
-            }
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% VENOMORT_ARCANA_1_R4_BONUS_MOVESPEED %>"
+            "property_two" "<% VENOMORT_ARCANA_1_R4_ARMOR_BONUS %>"
+        }
 	}
 

@@ -8,24 +8,12 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% EKKAN_ARCANA_Q1_DAMAGE * 100 %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"1"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"17"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% EKKAN_ARCANA_Q1_DAMAGE * 100 %>"
+            "base_ability" "1"
+            "element_one" "17"
+        }
 	}
 
 	"ekkan_rune_q_2_arcana1"
@@ -36,34 +24,14 @@
 		"AbilityTextureName"	"ekkan/ekkan_rune_q_2_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% EKKAN_ARCANA_Q2_BASE_ATTACK_DAMAGE %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% EKKAN_ARCANA_Q2_ARMOR_LOSS %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"1"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"5"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_two"			"17"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% EKKAN_ARCANA_Q2_BASE_ATTACK_DAMAGE %>"
+            "property_two" "<% EKKAN_ARCANA_Q2_ARMOR_LOSS %>"
+            "base_ability" "1"
+            "element_one" "5"
+            "element_two" "17"
+        }
 	}
 
 	"ekkan_rune_q_3_arcana1"
@@ -74,19 +42,11 @@
 		"AbilityTextureName"	"ekkan/ekkan_rune_q_3_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% EKKAN_ARCANA_Q3_BASE_ATTACK_DAMAGE %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% EKKAN_ARCANA_Q3_ARMOR %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% EKKAN_ARCANA_Q3_BASE_ATTACK_DAMAGE %>"
+            "property_two" "<% EKKAN_ARCANA_Q3_ARMOR %>"
+        }
 	}
 
 	"ekkan_rune_q_4_arcana1"
@@ -97,18 +57,10 @@
 		"AbilityTextureName"	"ekkan/ekkan_rune_q_4_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% EKKAN_ARCANA_Q4_BONUS_DAMAGE_AURA * 100 %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% EKKAN_ARCANA_Q4_ARMOR_AURA %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% EKKAN_ARCANA_Q4_BONUS_DAMAGE_AURA * 100 %>"
+            "property_two" "<% EKKAN_ARCANA_Q4_ARMOR_AURA %>"
+        }
 	}
 

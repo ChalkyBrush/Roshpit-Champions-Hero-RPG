@@ -225,23 +225,11 @@
 			}
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"damage"	"<% ZHONIK_R_ARCANA_DAMAGE %>"
-			}
-			"02"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"ms_mult"	"<% ZHONIK_R_ARCANA_SPEED_MULT_TO_R_DAMAGE %>"
-			}
-			"03"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"create_interval"	"0.36 0.33 0.3 0.27 0.24 0.21 0.18"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "<% ZHONIK_R_ARCANA_DAMAGE %>"
+            "ms_mult" "<% ZHONIK_R_ARCANA_SPEED_MULT_TO_R_DAMAGE %>"
+            "create_interval" "0.36 0.33 0.3 0.27 0.24 0.21 0.18"
+        }
 	}
 

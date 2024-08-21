@@ -31,44 +31,16 @@
 				"Function"		"equip_item"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"element_one"				"<% RPC_ELEMENT_UNDEAD %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"element_two"				"<% RPC_ELEMENT_ICE %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_LICH_KINGS_GAZE_RUBY1 %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby2"				"<% ITEM_RPC_LICH_KINGS_GAZE_RUBY2 %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"<% ITEM_RPC_LICH_KINGS_GAZE_EMERALD %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% ITEM_RPC_LICH_KINGS_GAZE_SAPPHIRE %>"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"<% ITEM_RPC_LICH_KINGS_GAZE_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "element_one" "<% RPC_ELEMENT_UNDEAD %>"
+            "element_two" "<% RPC_ELEMENT_ICE %>"
+            "ruby1" "<% ITEM_RPC_LICH_KINGS_GAZE_RUBY1 %>"
+            "ruby2" "<% ITEM_RPC_LICH_KINGS_GAZE_RUBY2 %>"
+            "emerald1" "<% ITEM_RPC_LICH_KINGS_GAZE_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_LICH_KINGS_GAZE_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_LICH_KINGS_GAZE_AMETHYST %>"
+        }
 	}
 
 
@@ -104,29 +76,13 @@
 				"Function"		"equip_item"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_IRON_TOWER_BARBUTE_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"<% ITEM_RPC_IRON_TOWER_BARBUTE_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% ITEM_RPC_IRON_TOWER_BARBUTE_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"<% ITEM_RPC_IRON_TOWER_BARBUTE_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_IRON_TOWER_BARBUTE_RUBY %>"
+            "emerald1" "<% ITEM_RPC_IRON_TOWER_BARBUTE_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_IRON_TOWER_BARBUTE_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_IRON_TOWER_BARBUTE_AMETHYST %>"
+        }
 	}
 
 	"item_rpc_cloak_of_the_cimmerian_priesthood"
@@ -165,44 +121,16 @@
 				"Function"		"equip_item"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_one"			"<% RPC_ELEMENT_SHADOW %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_two"		"<% RPC_ELEMENT_HOLY %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_CLOAK_OF_THE_CIMMERIAN_PRIESTHOOD_RUBY1 %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby2"				"<% ITEM_RPC_CLOAK_OF_THE_CIMMERIAN_PRIESTHOOD_RUBY2 %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"<% ITEM_RPC_CLOAK_OF_THE_CIMMERIAN_PRIESTHOOD_EMERALD %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% ITEM_RPC_CLOAK_OF_THE_CIMMERIAN_PRIESTHOOD_SAPPHIRE %>"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"<% ITEM_RPC_CLOAK_OF_THE_CIMMERIAN_PRIESTHOOD_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "element_one" "<% RPC_ELEMENT_SHADOW %>"
+            "element_two" "<% RPC_ELEMENT_HOLY %>"
+            "ruby1" "<% ITEM_RPC_CLOAK_OF_THE_CIMMERIAN_PRIESTHOOD_RUBY1 %>"
+            "ruby2" "<% ITEM_RPC_CLOAK_OF_THE_CIMMERIAN_PRIESTHOOD_RUBY2 %>"
+            "emerald1" "<% ITEM_RPC_CLOAK_OF_THE_CIMMERIAN_PRIESTHOOD_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_CLOAK_OF_THE_CIMMERIAN_PRIESTHOOD_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_CLOAK_OF_THE_CIMMERIAN_PRIESTHOOD_AMETHYST %>"
+        }
 	}
 
 	"item_rpc_sun_gods_visage"
@@ -237,39 +165,15 @@
 				"Function"		"equip_item"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_SUN_GODS_VISAGE_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"<% ITEM_RPC_SUN_GODS_VISAGE_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% ITEM_RPC_SUN_GODS_VISAGE_SAPPHIRE1 %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire2"				"<% ITEM_RPC_SUN_GODS_VISAGE_SAPPHIRE2 %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"<% ITEM_RPC_SUN_GODS_VISAGE_AMETHYST1 %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst2"				"<% ITEM_RPC_SUN_GODS_VISAGE_AMETHYST2 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_SUN_GODS_VISAGE_RUBY %>"
+            "emerald1" "<% ITEM_RPC_SUN_GODS_VISAGE_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_SUN_GODS_VISAGE_SAPPHIRE1 %>"
+            "sapphire2" "<% ITEM_RPC_SUN_GODS_VISAGE_SAPPHIRE2 %>"
+            "amethyst1" "<% ITEM_RPC_SUN_GODS_VISAGE_AMETHYST1 %>"
+            "amethyst2" "<% ITEM_RPC_SUN_GODS_VISAGE_AMETHYST2 %>"
+        }
 	}
 
 	"item_rpc_shadowguard_helm"
@@ -306,44 +210,16 @@
 				"Function"		"equip_item"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_one"			"<% RPC_ELEMENT_SHADOW %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_two"		"<% RPC_ELEMENT_GHOST %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_SHADOWGUARD_HELM_RUBY1 %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby2"				"<% ITEM_RPC_SHADOWGUARD_HELM_RUBY2 %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"<% ITEM_RPC_SHADOWGUARD_HELM_EMERALD %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% ITEM_RPC_SHADOWGUARD_HELM_SAPPHIRE %>"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"<% ITEM_RPC_SHADOWGUARD_HELM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "element_one" "<% RPC_ELEMENT_SHADOW %>"
+            "element_two" "<% RPC_ELEMENT_GHOST %>"
+            "ruby1" "<% ITEM_RPC_SHADOWGUARD_HELM_RUBY1 %>"
+            "ruby2" "<% ITEM_RPC_SHADOWGUARD_HELM_RUBY2 %>"
+            "emerald1" "<% ITEM_RPC_SHADOWGUARD_HELM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_SHADOWGUARD_HELM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_SHADOWGUARD_HELM_AMETHYST %>"
+        }
 	}
 
 
@@ -387,29 +263,13 @@
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"					"<% WRAITH_HUNTER_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"<% WRAITH_HUNTER_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% WRAITH_HUNTER_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"<% WRAITH_HUNTER_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% WRAITH_HUNTER_RUBY %>"
+            "emerald1" "<% WRAITH_HUNTER_EMERALD %>"
+            "sapphire1" "<% WRAITH_HUNTER_SAPPHIRE %>"
+            "amethyst1" "<% WRAITH_HUNTER_AMETHYST %>"
+        }
 	}
 
 	"item_rpc_wraith_crown"
@@ -542,29 +402,13 @@
 				"IsDebuff"	"1"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"					"<% WRAITH_CROWN_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"<% WRAITH_CROWN_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% WRAITH_CROWN_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"<% WRAITH_CROWN_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% WRAITH_CROWN_RUBY %>"
+            "emerald1" "<% WRAITH_CROWN_EMERALD %>"
+            "sapphire1" "<% WRAITH_CROWN_SAPPHIRE %>"
+            "amethyst1" "<% WRAITH_CROWN_AMETHYST %>"
+        }
 	}
 
 	"item_rpc_wolfir_druids_spirit_helm"
@@ -591,44 +435,16 @@
 			"particle"  "particles/units/heroes/hero_lycan/lycan_claw_blur_b.vpcf"
 			"particle"	"particles/units/heroes/hero_lycan/lycan_claw_blur.vpcf"
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_one"			"16"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_two"		"<% RPC_ELEMENT_GHOST %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"					"<% WOLFIR_DRUID_RUBY %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"<% WOLFIR_DRUID_EMERALD1 %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald2"				"<% WOLFIR_DRUID_EMERALD2 %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% WOLFIR_DRUID_SAPPHIRE %>"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"<% WOLFIR_DRUID_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "element_one" "16"
+            "element_two" "<% RPC_ELEMENT_GHOST %>"
+            "ruby1" "<% WOLFIR_DRUID_RUBY %>"
+            "emerald1" "<% WOLFIR_DRUID_EMERALD1 %>"
+            "emerald2" "<% WOLFIR_DRUID_EMERALD2 %>"
+            "sapphire1" "<% WOLFIR_DRUID_SAPPHIRE %>"
+            "amethyst1" "<% WOLFIR_DRUID_AMETHYST %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -821,29 +637,13 @@
 				}
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"					"<% WHITE_MAGE_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"<% WHITE_MAGE_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% WHITE_MAGE_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"<% WHITE_MAGE_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% WHITE_MAGE_RUBY %>"
+            "emerald1" "<% WHITE_MAGE_EMERALD %>"
+            "sapphire1" "<% WHITE_MAGE_SAPPHIRE %>"
+            "amethyst1" "<% WHITE_MAGE_AMETHYST %>"
+        }
 	}
 
 	"item_rpc_wind_deity_crown"
@@ -935,34 +735,14 @@
 				}
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"					"<% WIND_DEITY_RUBY1 %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby2"					"<% WIND_DEITY_RUBY2 %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"<% WIND_DEITY_EMERALD %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% WIND_DEITY_SAPPHIRE %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"<% WIND_DEITY_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% WIND_DEITY_RUBY1 %>"
+            "ruby2" "<% WIND_DEITY_RUBY2 %>"
+            "emerald1" "<% WIND_DEITY_EMERALD %>"
+            "sapphire1" "<% WIND_DEITY_SAPPHIRE %>"
+            "amethyst1" "<% WIND_DEITY_AMETHYST %>"
+        }
 	}
 
 	"item_rpc_water_deity_crown"
@@ -1028,34 +808,14 @@
 				}
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_one"			"14"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"					"<% WATER_DEITY_RUBY %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"<% WATER_DEITY_EMERALD %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% WATER_DEITY_SAPPHIRE %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"<% WATER_DEITY_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "element_one" "14"
+            "ruby1" "<% WATER_DEITY_RUBY %>"
+            "emerald1" "<% WATER_DEITY_EMERALD %>"
+            "sapphire1" "<% WATER_DEITY_SAPPHIRE %>"
+            "amethyst1" "<% WATER_DEITY_AMETHYST %>"
+        }
 	}
 
 	"item_rpc_veil_of_the_cerulean_high_guard"
@@ -1095,34 +855,14 @@
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"					"<% CERULEAN_HIGHGUARD_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"<% CERULEAN_HIGHGUARD_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% CERULEAN_HIGHGUARD_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"<% CERULEAN_HIGHGUARD_AMETHYST1 %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst2"				"<% CERULEAN_HIGHGUARD_AMETHYST2 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% CERULEAN_HIGHGUARD_RUBY %>"
+            "emerald1" "<% CERULEAN_HIGHGUARD_EMERALD %>"
+            "sapphire1" "<% CERULEAN_HIGHGUARD_SAPPHIRE %>"
+            "amethyst1" "<% CERULEAN_HIGHGUARD_AMETHYST1 %>"
+            "amethyst2" "<% CERULEAN_HIGHGUARD_AMETHYST2 %>"
+        }
 	}
 
 	"item_rpc_undertakers_hood"
@@ -1228,44 +968,16 @@
 				"target"		"TARGET"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_one"			"17"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_two"			"13"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"					"<% UNDERTAKER_RUBY %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"<% UNDERTAKER_EMERALD1 %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald2"				"<% UNDERTAKER_EMERALD2 %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% UNDERTAKER_SAPPHIRE %>"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"<% UNDERTAKER_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "element_one" "17"
+            "element_two" "13"
+            "ruby1" "<% UNDERTAKER_RUBY %>"
+            "emerald1" "<% UNDERTAKER_EMERALD1 %>"
+            "emerald2" "<% UNDERTAKER_EMERALD2 %>"
+            "sapphire1" "<% UNDERTAKER_SAPPHIRE %>"
+            "amethyst1" "<% UNDERTAKER_AMETHYST %>"
+        }
 	}
 
 	"item_rpc_twisted_blue_mask_of_ahnqhir"
@@ -1296,29 +1008,13 @@
 				"Function"		"equip_item"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"					"<% TWISTED_BLUE_AHNQHIR_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"<% TWISTED_BLUE_AHNQHIR_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% TWISTED_BLUE_AHNQHIR_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"<% TWISTED_BLUE_AHNQHIR_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% TWISTED_BLUE_AHNQHIR_RUBY %>"
+            "emerald1" "<% TWISTED_BLUE_AHNQHIR_EMERALD %>"
+            "sapphire1" "<% TWISTED_BLUE_AHNQHIR_SAPPHIRE %>"
+            "amethyst1" "<% TWISTED_BLUE_AHNQHIR_AMETHYST %>"
+        }
 	}
 
 	"item_rpc_twisted_purple_mask_of_ahnqhir"
@@ -1349,29 +1045,13 @@
 				"Function"		"equip_item"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"					"<% TWISTED_PURPLE_AHNQHIR_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"<% TWISTED_PURPLE_AHNQHIR_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% TWISTED_PURPLE_AHNQHIR_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"<% TWISTED_PURPLE_AHNQHIR_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% TWISTED_PURPLE_AHNQHIR_RUBY %>"
+            "emerald1" "<% TWISTED_PURPLE_AHNQHIR_EMERALD %>"
+            "sapphire1" "<% TWISTED_PURPLE_AHNQHIR_SAPPHIRE %>"
+            "amethyst1" "<% TWISTED_PURPLE_AHNQHIR_AMETHYST %>"
+        }
 	}
 
 	"item_rpc_twisted_yellow_mask_of_ahnqhir"
@@ -1402,29 +1082,13 @@
 				"Function"		"equip_item"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"					"<% TWISTED_YELLOW_AHNQHIR_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"<% TWISTED_YELLOW_AHNQHIR_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% TWISTED_YELLOW_AHNQHIR_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"<% TWISTED_YELLOW_AHNQHIR_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% TWISTED_YELLOW_AHNQHIR_RUBY %>"
+            "emerald1" "<% TWISTED_YELLOW_AHNQHIR_EMERALD %>"
+            "sapphire1" "<% TWISTED_YELLOW_AHNQHIR_SAPPHIRE %>"
+            "amethyst1" "<% TWISTED_YELLOW_AHNQHIR_AMETHYST %>"
+        }
 	}
 
 	"item_rpc_tricksters_mask"
@@ -1513,29 +1177,13 @@
 				}
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% TRICKSTER_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"<% TRICKSTER_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% TRICKSTER_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"<% TRICKSTER_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% TRICKSTER_RUBY %>"
+            "emerald1" "<% TRICKSTER_EMERALD %>"
+            "sapphire1" "<% TRICKSTER_SAPPHIRE %>"
+            "amethyst1" "<% TRICKSTER_AMETHYST %>"
+        }
 	}
 
 	"item_rpc_swamp_witch_hat"
@@ -1605,39 +1253,15 @@
 				"target"		"TARGET"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_one"				"<% RPC_ELEMENT_SHADOW %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% SWAMP_WITCH_RUBY %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"<% SWAMP_WITCH_EMERALD %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% SWAMP_WITCH_SAPPHIRE1 %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire2"				"<% SWAMP_WITCH_SAPPHIRE2 %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"<% SWAMP_WITCH_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "element_one" "<% RPC_ELEMENT_SHADOW %>"
+            "ruby1" "<% SWAMP_WITCH_RUBY %>"
+            "emerald1" "<% SWAMP_WITCH_EMERALD %>"
+            "sapphire1" "<% SWAMP_WITCH_SAPPHIRE1 %>"
+            "sapphire2" "<% SWAMP_WITCH_SAPPHIRE2 %>"
+            "amethyst1" "<% SWAMP_WITCH_AMETHYST %>"
+        }
 	}
 
 	"item_rpc_swamp_doctors_tribal_mask"
@@ -1715,29 +1339,13 @@
 				"IsHidden"	"0"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% SWAMP_DOCTOR_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"<% SWAMP_DOCTOR_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% SWAMP_DOCTOR_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"<% SWAMP_DOCTOR_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% SWAMP_DOCTOR_RUBY %>"
+            "emerald1" "<% SWAMP_DOCTOR_EMERALD %>"
+            "sapphire1" "<% SWAMP_DOCTOR_SAPPHIRE %>"
+            "amethyst1" "<% SWAMP_DOCTOR_AMETHYST %>"
+        }
 	}
 
     "item_rpc_super_ascendency_mask"
@@ -1771,29 +1379,13 @@
 				"Function"		"equip_item"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% SUPER_ASCENDENCY_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"<% SUPER_ASCENDENCY_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% SUPER_ASCENDENCY_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"<% SUPER_ASCENDENCY_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% SUPER_ASCENDENCY_RUBY %>"
+            "emerald1" "<% SUPER_ASCENDENCY_EMERALD %>"
+            "sapphire1" "<% SUPER_ASCENDENCY_SAPPHIRE %>"
+            "amethyst1" "<% SUPER_ASCENDENCY_AMETHYST %>"
+        }
 		"Modifiers"
 		{
 			"modifier_super_ascendency_mask"
@@ -1940,44 +1532,16 @@
 				"Function"		"equip_item"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_one"			"1"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_two"		"4"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% STORMCRACK_RUBY %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"<% STORMCRACK_EMERALD %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% STORMCRACK_SAPPHIRE %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"<% STORMCRACK_AMETHYST1 %>"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst2"				"<% STORMCRACK_AMETHYST2 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "element_one" "1"
+            "element_two" "4"
+            "ruby1" "<% STORMCRACK_RUBY %>"
+            "emerald1" "<% STORMCRACK_EMERALD %>"
+            "sapphire1" "<% STORMCRACK_SAPPHIRE %>"
+            "amethyst1" "<% STORMCRACK_AMETHYST1 %>"
+            "amethyst2" "<% STORMCRACK_AMETHYST2 %>"
+        }
 		"Modifiers"
 		{
 			"modifier_stormcrack_helm"
@@ -2127,29 +1691,13 @@
 				}
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ETERNAL_NIGHT_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"<% ETERNAL_NIGHT_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% ETERNAL_NIGHT_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"<% ETERNAL_NIGHT_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ETERNAL_NIGHT_RUBY %>"
+            "emerald1" "<% ETERNAL_NIGHT_EMERALD %>"
+            "sapphire1" "<% ETERNAL_NIGHT_SAPPHIRE %>"
+            "amethyst1" "<% ETERNAL_NIGHT_AMETHYST %>"
+        }
 	}
 
 	"item_rpc_shipyard_veil_lv1"
@@ -2184,39 +1732,15 @@
 				"Function"		"equip_item"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% SHIPYARD_VEIL_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"<% SHIPYARD_VEIL_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% SHIPYARD_VEIL_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"<% SHIPYARD_VEIL_AMETHYST %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_one"		"<% RPC_ELEMENT_UNDEAD %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_two"		"<% RPC_ELEMENT_GHOST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% SHIPYARD_VEIL_RUBY %>"
+            "emerald1" "<% SHIPYARD_VEIL_EMERALD %>"
+            "sapphire1" "<% SHIPYARD_VEIL_SAPPHIRE %>"
+            "amethyst1" "<% SHIPYARD_VEIL_AMETHYST %>"
+            "element_one" "<% RPC_ELEMENT_UNDEAD %>"
+            "element_two" "<% RPC_ELEMENT_GHOST %>"
+        }
 		"Modifiers"
 		{
 			"modifier_shipyard_veil"
@@ -2343,29 +1867,13 @@
 				}
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% SCOURGE_KNIGHT_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"<% SCOURGE_KNIGHT_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% SCOURGE_KNIGHT_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"<% SCOURGE_KNIGHT_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% SCOURGE_KNIGHT_RUBY %>"
+            "emerald1" "<% SCOURGE_KNIGHT_EMERALD %>"
+            "sapphire1" "<% SCOURGE_KNIGHT_SAPPHIRE %>"
+            "amethyst1" "<% SCOURGE_KNIGHT_AMETHYST %>"
+        }
 	}
 
 	"item_rpc_odin_helmet"
@@ -2446,34 +1954,14 @@
 				}
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ODIN_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"<% ODIN_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% ODIN_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"<% ODIN_AMETHYST %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_one"				"<% RPC_ELEMENT_DRAGON %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ODIN_RUBY %>"
+            "emerald1" "<% ODIN_EMERALD %>"
+            "sapphire1" "<% ODIN_SAPPHIRE %>"
+            "amethyst1" "<% ODIN_AMETHYST %>"
+            "element_one" "<% RPC_ELEMENT_DRAGON %>"
+        }
 	}
 
 	"item_rpc_ocean_helm_of_valdun"
@@ -2512,29 +2000,13 @@
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% OCEAN_HELM_VALDUN_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"<% OCEAN_HELM_VALDUN_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% OCEAN_HELM_VALDUN_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"<% OCEAN_HELM_VALDUN_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% OCEAN_HELM_VALDUN_RUBY %>"
+            "emerald1" "<% OCEAN_HELM_VALDUN_EMERALD %>"
+            "sapphire1" "<% OCEAN_HELM_VALDUN_SAPPHIRE %>"
+            "amethyst1" "<% OCEAN_HELM_VALDUN_AMETHYST %>"
+        }
 	}
 
 	"item_rpc_ruptholds_helm_of_gluttony"
@@ -2624,34 +2096,14 @@
 				"IsDebuff"	"1"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"					"<% ITEM_RPC_RUPTHOLDS_HELM_OF_GLUTTONY_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"<% ITEM_RPC_RUPTHOLDS_HELM_OF_GLUTTONY_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% ITEM_RPC_RUPTHOLDS_HELM_OF_GLUTTONY_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"<% ITEM_RPC_RUPTHOLDS_HELM_OF_GLUTTONY_AMETHYST1 %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst2"				"<% ITEM_RPC_RUPTHOLDS_HELM_OF_GLUTTONY_AMETHYST2 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_RUPTHOLDS_HELM_OF_GLUTTONY_RUBY %>"
+            "emerald1" "<% ITEM_RPC_RUPTHOLDS_HELM_OF_GLUTTONY_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_RUPTHOLDS_HELM_OF_GLUTTONY_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_RUPTHOLDS_HELM_OF_GLUTTONY_AMETHYST1 %>"
+            "amethyst2" "<% ITEM_RPC_RUPTHOLDS_HELM_OF_GLUTTONY_AMETHYST2 %>"
+        }
 	}
 
 	"item_rpc_mask_of_tyrius"
@@ -2673,39 +2125,15 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% TYRIUS_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"<% TYRIUS_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% TYRIUS_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire2"				"<% TYRIUS_SAPPHIRE2 %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"<% TYRIUS_AMETHYST %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst2"				"<% TYRIUS_AMETHYST2 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% TYRIUS_RUBY %>"
+            "emerald1" "<% TYRIUS_EMERALD %>"
+            "sapphire1" "<% TYRIUS_SAPPHIRE %>"
+            "sapphire2" "<% TYRIUS_SAPPHIRE2 %>"
+            "amethyst1" "<% TYRIUS_AMETHYST %>"
+            "amethyst2" "<% TYRIUS_AMETHYST2 %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -2817,34 +2245,14 @@
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% PHANTOM_SORCERER_RUBY1 %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby2"				"<% PHANTOM_SORCERER_RUBY2 %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"<% PHANTOM_SORCERER_EMERALD %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% PHANTOM_SORCERER_SAPPHIRE %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"<% PHANTOM_SORCERER_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% PHANTOM_SORCERER_RUBY1 %>"
+            "ruby2" "<% PHANTOM_SORCERER_RUBY2 %>"
+            "emerald1" "<% PHANTOM_SORCERER_EMERALD %>"
+            "sapphire1" "<% PHANTOM_SORCERER_SAPPHIRE %>"
+            "amethyst1" "<% PHANTOM_SORCERER_AMETHYST %>"
+        }
 	}
 
 	"item_rpc_mask_of_the_desert_necromancer"
@@ -2922,39 +2330,15 @@
 				}
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% DESERT_NECROMANCER_RUBY1 %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby2"				"<% DESERT_NECROMANCER_RUBY2 %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"<% DESERT_NECROMANCER_EMERALD %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% DESERT_NECROMANCER_SAPPHIRE %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"<% DESERT_NECROMANCER_AMETHYST %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"element_one"				"<% RPC_ELEMENT_UNDEAD %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% DESERT_NECROMANCER_RUBY1 %>"
+            "ruby2" "<% DESERT_NECROMANCER_RUBY2 %>"
+            "emerald1" "<% DESERT_NECROMANCER_EMERALD %>"
+            "sapphire1" "<% DESERT_NECROMANCER_SAPPHIRE %>"
+            "amethyst1" "<% DESERT_NECROMANCER_AMETHYST %>"
+            "element_one" "<% RPC_ELEMENT_UNDEAD %>"
+        }
 	}
 
 
@@ -3012,39 +2396,15 @@
                 }
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% MUGATO_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"<% MUGATO_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% MUGATO_SAPPHIRE1 %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"<% MUGATO_AMETHYST1 %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire2"				"<% MUGATO_SAPPHIRE2 %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst2"				"<% MUGATO_AMETHYST2 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% MUGATO_RUBY %>"
+            "emerald1" "<% MUGATO_EMERALD %>"
+            "sapphire1" "<% MUGATO_SAPPHIRE1 %>"
+            "amethyst1" "<% MUGATO_AMETHYST1 %>"
+            "sapphire2" "<% MUGATO_SAPPHIRE2 %>"
+            "amethyst2" "<% MUGATO_AMETHYST2 %>"
+        }
 	}
 
 	"item_rpc_magistrates_hood"
@@ -3110,34 +2470,14 @@
 				"TextureName"	"winterblight/p2/spell_spreader"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% MAGISTRATE_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"<% MAGISTRATE_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% MAGISTRATE_SAPPHIRE1 %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire2"				"<% MAGISTRATE_SAPPHIRE2 %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"<% MAGISTRATE_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% MAGISTRATE_RUBY %>"
+            "emerald1" "<% MAGISTRATE_EMERALD %>"
+            "sapphire1" "<% MAGISTRATE_SAPPHIRE1 %>"
+            "sapphire2" "<% MAGISTRATE_SAPPHIRE2 %>"
+            "amethyst1" "<% MAGISTRATE_AMETHYST %>"
+        }
 	}
 
 	"item_rpc_helm_of_the_iron_colossus"
@@ -3169,34 +2509,14 @@
 				"Function"		"equip_item"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_one"			"<% RPC_ELEMENT_NORMAL %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% IRON_COLOSSUS_RUBY %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"<% IRON_COLOSSUS_EMERALD %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% IRON_COLOSSUS_SAPPHIRE %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"<% IRON_COLOSSUS_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "element_one" "<% RPC_ELEMENT_NORMAL %>"
+            "ruby1" "<% IRON_COLOSSUS_RUBY %>"
+            "emerald1" "<% IRON_COLOSSUS_EMERALD %>"
+            "sapphire1" "<% IRON_COLOSSUS_SAPPHIRE %>"
+            "amethyst1" "<% IRON_COLOSSUS_AMETHYST %>"
+        }
 	}
 
 	"item_rpc_igneous_canine_helm"
@@ -3306,44 +2626,16 @@
 				}
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_one"			"2"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_two"			"<% RPC_ELEMENT_EARTH %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% IGNEOUS_CANINE_RUBY1 %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby2"				"<% IGNEOUS_CANINE_RUBY2 %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"<% IGNEOUS_CANINE_EMERALD %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% IGNEOUS_CANINE_SAPPHIRE %>"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"<% IGNEOUS_CANINE_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "element_one" "2"
+            "element_two" "<% RPC_ELEMENT_EARTH %>"
+            "ruby1" "<% IGNEOUS_CANINE_RUBY1 %>"
+            "ruby2" "<% IGNEOUS_CANINE_RUBY2 %>"
+            "emerald1" "<% IGNEOUS_CANINE_EMERALD %>"
+            "sapphire1" "<% IGNEOUS_CANINE_SAPPHIRE %>"
+            "amethyst1" "<% IGNEOUS_CANINE_AMETHYST %>"
+        }
 	}
 
 	"item_rpc_hyper_visor"
@@ -3379,34 +2671,14 @@
 				"Function"		"equip_item"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_one"		"4"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% HYPER_VISOR_RUBY %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"<% HYPER_VISOR_EMERALD %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% HYPER_VISOR_SAPPHIRE %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"<% HYPER_VISOR_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "element_one" "4"
+            "ruby1" "<% HYPER_VISOR_RUBY %>"
+            "emerald1" "<% HYPER_VISOR_EMERALD %>"
+            "sapphire1" "<% HYPER_VISOR_SAPPHIRE %>"
+            "amethyst1" "<% HYPER_VISOR_AMETHYST %>"
+        }
 		"Modifiers"
 		{
 			"modifier_hyper_visor"
@@ -3543,29 +2815,13 @@
 				}
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% SEA_ORACLE_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"<% SEA_ORACLE_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% SEA_ORACLE_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"<% SEA_ORACLE_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% SEA_ORACLE_RUBY %>"
+            "emerald1" "<% SEA_ORACLE_EMERALD %>"
+            "sapphire1" "<% SEA_ORACLE_SAPPHIRE %>"
+            "amethyst1" "<% SEA_ORACLE_AMETHYST %>"
+        }
 	}
 
 	"item_rpc_hood_of_the_black_mage"
@@ -3604,34 +2860,14 @@
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% HOOD_OF_BLACK_MAGE_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"<% HOOD_OF_BLACK_MAGE_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% HOOD_OF_BLACK_MAGE_SAPPHIRE1 %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire2"				"<% HOOD_OF_BLACK_MAGE_SAPPHIRE2 %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"<% HOOD_OF_BLACK_MAGE_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% HOOD_OF_BLACK_MAGE_RUBY %>"
+            "emerald1" "<% HOOD_OF_BLACK_MAGE_EMERALD %>"
+            "sapphire1" "<% HOOD_OF_BLACK_MAGE_SAPPHIRE1 %>"
+            "sapphire2" "<% HOOD_OF_BLACK_MAGE_SAPPHIRE2 %>"
+            "amethyst1" "<% HOOD_OF_BLACK_MAGE_AMETHYST %>"
+        }
 	}
 
 	"item_rpc_hood_of_lords"
@@ -3662,29 +2898,13 @@
 				"Function"		"equip_item"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% HOOD_OF_LORDS_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"<% HOOD_OF_LORDS_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% HOOD_OF_LORDS_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"<% HOOD_OF_LORDS_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% HOOD_OF_LORDS_RUBY %>"
+            "emerald1" "<% HOOD_OF_LORDS_EMERALD %>"
+            "sapphire1" "<% HOOD_OF_LORDS_SAPPHIRE %>"
+            "amethyst1" "<% HOOD_OF_LORDS_AMETHYST %>"
+        }
 	}
 
 
@@ -3720,29 +2940,13 @@
 				"Function"		"equip_item"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% HOOD_OF_DEFILER_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"<% HOOD_OF_DEFILER_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% HOOD_OF_DEFILER_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"<% HOOD_OF_DEFILER_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% HOOD_OF_DEFILER_RUBY %>"
+            "emerald1" "<% HOOD_OF_DEFILER_EMERALD %>"
+            "sapphire1" "<% HOOD_OF_DEFILER_SAPPHIRE %>"
+            "amethyst1" "<% HOOD_OF_DEFILER_AMETHYST %>"
+        }
 		"Modifiers"
 		{
 			"modifier_hood_of_defiler"
@@ -3823,29 +3027,13 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% HOOD_OF_CHOSEN_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"<% HOOD_OF_CHOSEN_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% HOOD_OF_CHOSEN_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"<% HOOD_OF_CHOSEN_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% HOOD_OF_CHOSEN_RUBY %>"
+            "emerald1" "<% HOOD_OF_CHOSEN_EMERALD %>"
+            "sapphire1" "<% HOOD_OF_CHOSEN_SAPPHIRE %>"
+            "amethyst1" "<% HOOD_OF_CHOSEN_AMETHYST %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -3882,39 +3070,15 @@
 			"particle"  "particles/dark_smoke_test.vpcf"
 			"particle"	"particles/units/heroes/hero_vengeful/vengeful_magic_missle.vpcf"
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_one"			"10"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_two"		"15"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% SILENT_TEMPLAR_RUBY %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"<% SILENT_TEMPLAR_EMERALD %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% SILENT_TEMPLAR_SAPPHIRE %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"<% SILENT_TEMPLAR_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "element_one" "10"
+            "element_two" "15"
+            "ruby1" "<% SILENT_TEMPLAR_RUBY %>"
+            "emerald1" "<% SILENT_TEMPLAR_EMERALD %>"
+            "sapphire1" "<% SILENT_TEMPLAR_SAPPHIRE %>"
+            "amethyst1" "<% SILENT_TEMPLAR_AMETHYST %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -4043,29 +3207,13 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% MOUNTAIN_GIANT_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"<% MOUNTAIN_GIANT_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% MOUNTAIN_GIANT_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"<% MOUNTAIN_GIANT_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% MOUNTAIN_GIANT_RUBY %>"
+            "emerald1" "<% MOUNTAIN_GIANT_EMERALD %>"
+            "sapphire1" "<% MOUNTAIN_GIANT_SAPPHIRE %>"
+            "amethyst1" "<% MOUNTAIN_GIANT_AMETHYST %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -4117,29 +3265,13 @@
 			"particle"  "particles/roshpit/items/knight_hawk_buff.vpcf"
 			"particle"	"particles/econ/items/rubick/rubick_arcana/rbck_arc_skywrath_mage_mystic_flare_ambient_hit.vpcf"
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% KNIGHT_HAWK_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"<% KNIGHT_HAWK_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% KNIGHT_HAWK_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"<% KNIGHT_HAWK_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% KNIGHT_HAWK_RUBY %>"
+            "emerald1" "<% KNIGHT_HAWK_EMERALD %>"
+            "sapphire1" "<% KNIGHT_HAWK_SAPPHIRE %>"
+            "amethyst1" "<% KNIGHT_HAWK_AMETHYST %>"
+        }
 		"Modifiers"
 		{
 			"modifier_knight_hawk_helm"
@@ -4241,29 +3373,13 @@
 				"Function"		"equip_item"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% CHAMPIONS_GEAR_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"<% CHAMPIONS_GEAR_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% CHAMPIONS_GEAR_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"<% CHAMPIONS_GEAR_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% CHAMPIONS_GEAR_RUBY %>"
+            "emerald1" "<% CHAMPIONS_GEAR_EMERALD %>"
+            "sapphire1" "<% CHAMPIONS_GEAR_SAPPHIRE %>"
+            "amethyst1" "<% CHAMPIONS_GEAR_AMETHYST %>"
+        }
 	}
 
 	"item_rpc_guard_of_luma"
@@ -4298,39 +3414,15 @@
 				"Function"		"equip_item"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_one"			"8"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% LUMA_RUBY %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"<% LUMA_EMERALD %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% LUMA_SAPPHIRE1 %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire2"				"<% LUMA_SAPPHIRE2 %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"<% LUMA_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "element_one" "8"
+            "ruby1" "<% LUMA_RUBY %>"
+            "emerald1" "<% LUMA_EMERALD %>"
+            "sapphire1" "<% LUMA_SAPPHIRE1 %>"
+            "sapphire2" "<% LUMA_SAPPHIRE2 %>"
+            "amethyst1" "<% LUMA_AMETHYST %>"
+        }
 		"Modifiers"
 		{
 			"modifier_guard_of_luma"
@@ -4402,29 +3494,13 @@
 			"particle"  "particles/units/heroes/hero_oracle/grithault_heal.vpcf"
 			"particle"	"particles/roshpit/items/grithault_shield.vpcf"
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% GRITHAULT_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"<% GRITHAULT_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% GRITHAULT_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"<% GRITHAULT_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% GRITHAULT_RUBY %>"
+            "emerald1" "<% GRITHAULT_EMERALD %>"
+            "sapphire1" "<% GRITHAULT_SAPPHIRE %>"
+            "amethyst1" "<% GRITHAULT_AMETHYST %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -4473,29 +3549,13 @@
 		{
 			"particle"  "particles/units/heroes/hero_lone_druid/lone_druid_savage_roar.vpcf"
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% FROSTMAW_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"<% FROSTMAW_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% FROSTMAW_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"<% FROSTMAW_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% FROSTMAW_RUBY %>"
+            "emerald1" "<% FROSTMAW_EMERALD %>"
+            "sapphire1" "<% FROSTMAW_SAPPHIRE %>"
+            "amethyst1" "<% FROSTMAW_AMETHYST %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -4579,34 +3639,14 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_one"			"2"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% FIRE_DEITY_RUBY %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"<% FIRE_DEITY_EMERALD %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% FIRE_DEITY_SAPPHIRE %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"<% FIRE_DEITY_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "element_one" "2"
+            "ruby1" "<% FIRE_DEITY_RUBY %>"
+            "emerald1" "<% FIRE_DEITY_EMERALD %>"
+            "sapphire1" "<% FIRE_DEITY_SAPPHIRE %>"
+            "amethyst1" "<% FIRE_DEITY_AMETHYST %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -4684,29 +3724,13 @@
 				"IsHidden"	"1"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% EYE_OF_SEASONS_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"<% EYE_OF_SEASONS_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% EYE_OF_SEASONS_SAPPHIRE %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"<% EYE_OF_SEASONS_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% EYE_OF_SEASONS_RUBY %>"
+            "emerald1" "<% EYE_OF_SEASONS_EMERALD %>"
+            "sapphire1" "<% EYE_OF_SEASONS_SAPPHIRE %>"
+            "amethyst1" "<% EYE_OF_SEASONS_AMETHYST %>"
+        }
 	}
 
 	"item_rpc_excavators_focus_cap"
@@ -4745,29 +3769,13 @@
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% EXCAVATOR_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"<% EXCAVATOR_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% EXCAVATOR_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"<% EXCAVATOR_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% EXCAVATOR_RUBY %>"
+            "emerald1" "<% EXCAVATOR_EMERALD %>"
+            "sapphire1" "<% EXCAVATOR_SAPPHIRE %>"
+            "amethyst1" "<% EXCAVATOR_AMETHYST %>"
+        }
 	}
 
 	"item_rpc_emerald_douli"
@@ -4831,34 +3839,14 @@
 				"EffectAttachType"	"follow_origin"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% EMERALD_DOULI_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"<% EMERALD_DOULI_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% EMERALD_DOULI_SAPPHIRE1 %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire2"				"<% EMERALD_DOULI_SAPPHIRE2 %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"<% EMERALD_DOULI_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% EMERALD_DOULI_RUBY %>"
+            "emerald1" "<% EMERALD_DOULI_EMERALD %>"
+            "sapphire1" "<% EMERALD_DOULI_SAPPHIRE1 %>"
+            "sapphire2" "<% EMERALD_DOULI_SAPPHIRE2 %>"
+            "amethyst1" "<% EMERALD_DOULI_AMETHYST %>"
+        }
 	}
 
 	"item_rpc_demon_mask"
@@ -4902,34 +3890,14 @@
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_one"			"15"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% DEMON_MASK_RUBY %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"<% DEMON_MASK_EMERALD %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% DEMON_MASK_SAPPHIRE %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"<% DEMON_MASK_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "element_one" "15"
+            "ruby1" "<% DEMON_MASK_RUBY %>"
+            "emerald1" "<% DEMON_MASK_EMERALD %>"
+            "sapphire1" "<% DEMON_MASK_SAPPHIRE %>"
+            "amethyst1" "<% DEMON_MASK_AMETHYST %>"
+        }
 	}
 
 	"item_rpc_death_whisper_helm"
@@ -4964,29 +3932,13 @@
 			"particle"  "particles/roshpit/conjuror/shadow_deity_cloak_of_shadows.vpcf"
 			"particle"  "particles/econ/generic/generic_buff_1/death_whisper_helm_debuff.vpcf"
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% DEATH_WHISPER_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"<% DEATH_WHISPER_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% DEATH_WHISPER_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"<% DEATH_WHISPER_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% DEATH_WHISPER_RUBY %>"
+            "emerald1" "<% DEATH_WHISPER_EMERALD %>"
+            "sapphire1" "<% DEATH_WHISPER_SAPPHIRE %>"
+            "amethyst1" "<% DEATH_WHISPER_AMETHYST %>"
+        }
 		"Modifiers"
 		{
 			"modifier_death_whisper_helm"
@@ -5065,29 +4017,13 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% DARK_REEF_SHARK_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"<% DARK_REEF_SHARK_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% DARK_REEF_SHARK_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"<% DARK_REEF_SHARK_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% DARK_REEF_SHARK_RUBY %>"
+            "emerald1" "<% DARK_REEF_SHARK_EMERALD %>"
+            "sapphire1" "<% DARK_REEF_SHARK_SAPPHIRE %>"
+            "amethyst1" "<% DARK_REEF_SHARK_AMETHYST %>"
+        }
 		"precache"
 		{
 			"particle"  "particles/roshpit/items/shark_helmet.vpcf"
@@ -5178,34 +4114,14 @@
 		{
 			"particle"  "particles/units/heroes/hero_oracle/oracle_false_promise_heal.vpcf"
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ROKNAR_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"<% ROKNAR_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% ROKNAR_SAPPHIRE1 %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire2"				"<% ROKNAR_SAPPHIRE2 %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"<% ROKNAR_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ROKNAR_RUBY %>"
+            "emerald1" "<% ROKNAR_EMERALD %>"
+            "sapphire1" "<% ROKNAR_SAPPHIRE1 %>"
+            "sapphire2" "<% ROKNAR_SAPPHIRE2 %>"
+            "amethyst1" "<% ROKNAR_AMETHYST %>"
+        }
 		"Modifiers"
 		{
 			"modifier_crown_of_the_roknar_emperor"
@@ -5251,39 +4167,15 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_one"			"<% RPC_ELEMENT_FIRE %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_two"			"<% RPC_ELEMENT_WIND %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ruby1"				"<% LAVA_FORGE_RUBY %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"<% LAVA_FORGE_EMERALD %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% LAVA_FORGE_SAPPHIRE %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"<% LAVA_FORGE_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "element_one" "<% RPC_ELEMENT_FIRE %>"
+            "element_two" "<% RPC_ELEMENT_WIND %>"
+            "ruby1" "<% LAVA_FORGE_RUBY %>"
+            "emerald1" "<% LAVA_FORGE_EMERALD %>"
+            "sapphire1" "<% LAVA_FORGE_SAPPHIRE %>"
+            "amethyst1" "<% LAVA_FORGE_AMETHYST %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -5395,34 +4287,14 @@
 				}
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_one"		"<% RPC_ELEMENT_FIRE %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ruby1"				"<% RUBY_DRAGON_RUBY %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"<% RUBY_DRAGON_EMERALD %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% RUBY_DRAGON_SAPPHIRE %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"<% RUBY_DRAGON_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "element_one" "<% RPC_ELEMENT_FIRE %>"
+            "ruby1" "<% RUBY_DRAGON_RUBY %>"
+            "emerald1" "<% RUBY_DRAGON_EMERALD %>"
+            "sapphire1" "<% RUBY_DRAGON_SAPPHIRE %>"
+            "amethyst1" "<% RUBY_DRAGON_AMETHYST %>"
+        }
 	}
 
 	"item_rpc_crimson_skull_cap"
@@ -5509,34 +4381,14 @@
 				}
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_one"			"17"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ruby1"				"<% CRIMSON_SKULL_CAP_RUBY %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"<% CRIMSON_SKULL_CAP_EMERALD %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% CRIMSON_SKULL_CAP_SAPPHIRE %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"<% CRIMSON_SKULL_CAP_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "element_one" "17"
+            "ruby1" "<% CRIMSON_SKULL_CAP_RUBY %>"
+            "emerald1" "<% CRIMSON_SKULL_CAP_EMERALD %>"
+            "sapphire1" "<% CRIMSON_SKULL_CAP_SAPPHIRE %>"
+            "amethyst1" "<% CRIMSON_SKULL_CAP_AMETHYST %>"
+        }
 	}
 
 	"item_rpc_crest_of_the_umbral_sentinel"
@@ -5563,39 +4415,15 @@
 			"particle"	"particles/econ/generic/generic_buff_1/umbral_sentinel.vpcf"
 			"particle"	"particles/roshpit/items/umbral_sentinel_ruby_aura.vpcf"
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ruby1"				"<% UMBRAL_SENTINEL_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"<% UMBRAL_SENTINEL_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% UMBRAL_SENTINEL_SAPPHIRE1 %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire2"				"<% UMBRAL_SENTINEL_SAPPHIRE2 %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"<% UMBRAL_SENTINEL_AMETHYST1 %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst2"				"<% UMBRAL_SENTINEL_AMETHYST2 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% UMBRAL_SENTINEL_RUBY %>"
+            "emerald1" "<% UMBRAL_SENTINEL_EMERALD %>"
+            "sapphire1" "<% UMBRAL_SENTINEL_SAPPHIRE1 %>"
+            "sapphire2" "<% UMBRAL_SENTINEL_SAPPHIRE2 %>"
+            "amethyst1" "<% UMBRAL_SENTINEL_AMETHYST1 %>"
+            "amethyst2" "<% UMBRAL_SENTINEL_AMETHYST2 %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -5726,29 +4554,13 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ruby1"				"<% ORTHOK_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"<% ORTHOK_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% ORTHOK_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"<% ORTHOK_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ORTHOK_RUBY %>"
+            "emerald1" "<% ORTHOK_EMERALD %>"
+            "sapphire1" "<% ORTHOK_SAPPHIRE %>"
+            "amethyst1" "<% ORTHOK_AMETHYST %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -5895,34 +4707,14 @@
 				}
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ruby1"				"<% CENTAUR_HORNS_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"emerald1"				"<% CENTAUR_HORNS_EMERALD1 %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"emerald2"				"<% CENTAUR_HORNS_EMERALD2 %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% CENTAUR_HORNS_SAPPHIRE %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"<% CENTAUR_HORNS_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% CENTAUR_HORNS_RUBY %>"
+            "emerald1" "<% CENTAUR_HORNS_EMERALD1 %>"
+            "emerald2" "<% CENTAUR_HORNS_EMERALD2 %>"
+            "sapphire1" "<% CENTAUR_HORNS_SAPPHIRE %>"
+            "amethyst1" "<% CENTAUR_HORNS_AMETHYST %>"
+        }
 	}
 
 	"item_rpc_carbuncles_helm_of_reflection"
@@ -5958,39 +4750,15 @@
 				"Function"		"equip_item"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_one"			"2"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_two"			"10"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ruby1"				"<% CARBUNCLE_RUBY %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"emerald1"				"<% CARBUNCLE_EMERALD %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% CARBUNCLE_SAPPHIRE %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"<% CARBUNCLE_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "element_one" "2"
+            "element_two" "10"
+            "ruby1" "<% CARBUNCLE_RUBY %>"
+            "emerald1" "<% CARBUNCLE_EMERALD %>"
+            "sapphire1" "<% CARBUNCLE_SAPPHIRE %>"
+            "amethyst1" "<% CARBUNCLE_AMETHYST %>"
+        }
 		"Modifiers"
 		{
 			"modifier_carbuncles_helm_of_reflection"
@@ -6066,39 +4834,15 @@
 				"Function"		"equip_item"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_one"			"<% RPC_ELEMENT_NATURE %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ruby1"				"<% WILD_NATURE_RUBY %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"emerald1"				"<% WILD_NATURE_EMERALD %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% WILD_NATURE_SAPPHIRE %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"<% WILD_NATURE_AMETHYST %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst2"				"<% WILD_NATURE_AMETHYST_HP_REGEN_PCT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "element_one" "<% RPC_ELEMENT_NATURE %>"
+            "ruby1" "<% WILD_NATURE_RUBY %>"
+            "emerald1" "<% WILD_NATURE_EMERALD %>"
+            "sapphire1" "<% WILD_NATURE_SAPPHIRE %>"
+            "amethyst1" "<% WILD_NATURE_AMETHYST %>"
+            "amethyst2" "<% WILD_NATURE_AMETHYST_HP_REGEN_PCT %>"
+        }
 		"Modifiers"
 		{
 			"modifier_cap_of_wild_nature1"
@@ -6281,44 +5025,16 @@
 				"target"        "TARGET"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_one"			"2"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ruby1"				"<% BURNING_SPIRIT_RUBY %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"emerald1"				"<% BURNING_SPIRIT_EMERALD1 %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"emerald2"				"<% BURNING_SPIRIT_EMERALD2 %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"sapphire1"				"<% BURNING_SPIRIT_SAPPHIRE1 %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"sapphire2"				"<% BURNING_SPIRIT_SAPPHIRE2 %>"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"<% BURNING_SPIRIT_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "element_one" "2"
+            "ruby1" "<% BURNING_SPIRIT_RUBY %>"
+            "emerald1" "<% BURNING_SPIRIT_EMERALD1 %>"
+            "emerald2" "<% BURNING_SPIRIT_EMERALD2 %>"
+            "sapphire1" "<% BURNING_SPIRIT_SAPPHIRE1 %>"
+            "sapphire2" "<% BURNING_SPIRIT_SAPPHIRE2 %>"
+            "amethyst1" "<% BURNING_SPIRIT_AMETHYST %>"
+        }
 	}	
 
 	"item_rpc_brazen_kabuto_of_the_desert_realm"
@@ -6353,29 +5069,13 @@
 				"Function"		"equip_item"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ruby1"				"<% KABUTO_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"emerald1"				"<% KABUTO_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% KABUTO_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"amethyst1"				"<% KABUTO_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% KABUTO_RUBY %>"
+            "emerald1" "<% KABUTO_EMERALD %>"
+            "sapphire1" "<% KABUTO_SAPPHIRE %>"
+            "amethyst1" "<% KABUTO_AMETHYST %>"
+        }
 		"Modifiers"
 		{
 			"modifier_brazen_kabuto"
@@ -6455,34 +5155,14 @@
 				"Function"		"equip_item"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ruby1"				"<% GLINT_OF_ONU_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"emerald1"				"<% GLINT_OF_ONU_EMERALD1 %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"emerald2"				"<% GLINT_OF_ONU_EMERALD2 %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% GLINT_OF_ONU_SAPPHIRE %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"amethyst1"				"<% GLINT_OF_ONU_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% GLINT_OF_ONU_RUBY %>"
+            "emerald1" "<% GLINT_OF_ONU_EMERALD1 %>"
+            "emerald2" "<% GLINT_OF_ONU_EMERALD2 %>"
+            "sapphire1" "<% GLINT_OF_ONU_SAPPHIRE %>"
+            "amethyst1" "<% GLINT_OF_ONU_AMETHYST %>"
+        }
 		"Modifiers"
 		{
 			"modifier_blinded_glint_of_onu"
@@ -6557,54 +5237,18 @@
 			"particle"	"particles/roshpit/items/blackfeather_spawn.vpcf"
 			"particle"	"particles/roshpit/solunia/warp_core_lunar_flash_c.vpcf"
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_one"				"<% RPC_ELEMENT_LIGHTNING %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_two"				"<% RPC_ELEMENT_SHADOW %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ruby1"				"<% BLACKFEATHER_RUBY1 %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ruby2"				"<% BLACKFEATHER_RUBY2 %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"emerald1"				"<% BLACKFEATHER_EMERALD %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% BLACKFEATHER_SAPPHIRE1 %>"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire2"				"<% BLACKFEATHER_SAPPHIRE2 %>"
-			}
-			"08"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"amethyst1"				"<% BLACKFEATHER_AMETHYST1 %>"
-			}
-			"09"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"amethyst2"				"<% BLACKFEATHER_AMETHYST2 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "element_one" "<% RPC_ELEMENT_LIGHTNING %>"
+            "element_two" "<% RPC_ELEMENT_SHADOW %>"
+            "ruby1" "<% BLACKFEATHER_RUBY1 %>"
+            "ruby2" "<% BLACKFEATHER_RUBY2 %>"
+            "emerald1" "<% BLACKFEATHER_EMERALD %>"
+            "sapphire1" "<% BLACKFEATHER_SAPPHIRE1 %>"
+            "sapphire2" "<% BLACKFEATHER_SAPPHIRE2 %>"
+            "amethyst1" "<% BLACKFEATHER_AMETHYST1 %>"
+            "amethyst2" "<% BLACKFEATHER_AMETHYST2 %>"
+        }
 		"Modifiers"
 		{
 			"modifier_blackfeather_crown"
@@ -6723,44 +5367,16 @@
 				"Function"		"equip_item"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_one"			"<% RPC_ELEMENT_POISON %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_two"			"<% RPC_ELEMENT_DEMON %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ruby1"				"<% BASILISK_PLAGUE_RUBY %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"emerald1"				"<% BASILISK_PLAGUE_EMERALD %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% BASILISK_PLAGUE_SAPPHIRE1 %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire2"				"<% BASILISK_PLAGUE_SAPPHIRE2 %>"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"amethyst1"				"<% BASILISK_PLAGUE_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "element_one" "<% RPC_ELEMENT_POISON %>"
+            "element_two" "<% RPC_ELEMENT_DEMON %>"
+            "ruby1" "<% BASILISK_PLAGUE_RUBY %>"
+            "emerald1" "<% BASILISK_PLAGUE_EMERALD %>"
+            "sapphire1" "<% BASILISK_PLAGUE_SAPPHIRE1 %>"
+            "sapphire2" "<% BASILISK_PLAGUE_SAPPHIRE2 %>"
+            "amethyst1" "<% BASILISK_PLAGUE_AMETHYST %>"
+        }
 		"Modifiers"
 		{
 			"modifier_basilisk_plague_helm"
@@ -6908,34 +5524,14 @@
 				"Function"		"equip_item"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_one"			"<% RPC_ELEMENT_NATURE %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ruby1"				"<% AUTUMN_SLEEPER_RUBY %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"emerald1"				"<% AUTUMN_SLEEPER_EMERALD %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"sapphire1"				"<% AUTUMN_SLEEPER_SAPPHIRE %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"amethyst1"				"<% AUTUMN_SLEEPER_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "element_one" "<% RPC_ELEMENT_NATURE %>"
+            "ruby1" "<% AUTUMN_SLEEPER_RUBY %>"
+            "emerald1" "<% AUTUMN_SLEEPER_EMERALD %>"
+            "sapphire1" "<% AUTUMN_SLEEPER_SAPPHIRE %>"
+            "amethyst1" "<% AUTUMN_SLEEPER_AMETHYST %>"
+        }
 		"Modifiers"
 		{
 			"modifier_autumn_sleeper_mask"
@@ -7068,39 +5664,15 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_one"			"10"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ruby1"				"<% ARCANE_CASCADE_RUBY %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"emerald1"				"<% ARCANE_CASCADE_EMERALD %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"emerald2"				"<% ARCANE_CASCADE_EMERALD_MANA_REGEN %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"sapphire1"				"<% ARCANE_CASCADE_SAPPHIRE %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"amethyst1"				"<% ARCANE_CASCADE_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "element_one" "10"
+            "ruby1" "<% ARCANE_CASCADE_RUBY %>"
+            "emerald1" "<% ARCANE_CASCADE_EMERALD %>"
+            "emerald2" "<% ARCANE_CASCADE_EMERALD_MANA_REGEN %>"
+            "sapphire1" "<% ARCANE_CASCADE_SAPPHIRE %>"
+            "amethyst1" "<% ARCANE_CASCADE_AMETHYST %>"
+        }
 	}	
 
 	"item_rpc_adamantine_samurai_helmet"
@@ -7134,39 +5706,15 @@
 				"Function"		"equip_item"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"<% ADAMANTINE_SAMURAI_CHANCE %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_two"		"<% ADAMANTINE_SAMURAI_CRIT %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ruby1"				"<% ADAMANTINE_SAMURAI_HELMET_RUBY %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"<% ADAMANTINE_SAMURAI_HELMET_EMERALD %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"sapphire1"				"<% ADAMANTINE_SAMURAI_HELMET_SAPPHIRE %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"amethyst1"				"<% ADAMANTINE_SAMURAI_HELMET_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% ADAMANTINE_SAMURAI_CHANCE %>"
+            "property_two" "<% ADAMANTINE_SAMURAI_CRIT %>"
+            "ruby1" "<% ADAMANTINE_SAMURAI_HELMET_RUBY %>"
+            "emerald1" "<% ADAMANTINE_SAMURAI_HELMET_EMERALD %>"
+            "sapphire1" "<% ADAMANTINE_SAMURAI_HELMET_SAPPHIRE %>"
+            "amethyst1" "<% ADAMANTINE_SAMURAI_HELMET_AMETHYST %>"
+        }
 		"Modifiers"
 		{
 			"modifier_samurai_helmet"

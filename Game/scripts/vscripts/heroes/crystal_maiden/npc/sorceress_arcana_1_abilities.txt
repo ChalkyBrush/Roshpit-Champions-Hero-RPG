@@ -260,23 +260,11 @@
 				"target"		"TARGET"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"80 180 280 380 480 580 680"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"move_slow"			"-24 -26 -28 -30 -32 -34 -36"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"max_tornados"			"3 3 4 4 5 5 6"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "80 180 280 380 480 580 680"
+            "move_slow" "-24 -26 -28 -30 -32 -34 -36"
+            "max_tornados" "3 3 4 4 5 5 6"
+        }
 	}
 

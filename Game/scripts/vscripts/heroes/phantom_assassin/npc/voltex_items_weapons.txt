@@ -508,14 +508,10 @@
 				}
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"property_one"			"4.5"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "4.5"
+        }
 	}
 	
 	"item_rpc_voltex_immortal_weapon_4"

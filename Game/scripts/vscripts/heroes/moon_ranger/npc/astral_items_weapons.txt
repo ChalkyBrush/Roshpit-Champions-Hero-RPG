@@ -426,14 +426,10 @@
 				}
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"1"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "1"
+        }
 	}
 
 	"item_rpc_astral_immortal_weapon_2"
@@ -473,14 +469,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"40"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "40"
+        }
 	}
 
 	"item_rpc_astral_immortal_weapon_3"
@@ -536,19 +528,11 @@
 				}
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"1000"
-			}
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_two"			"400"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "1000"
+            "property_two" "400"
+        }
 	}
 	
 	"item_rpc_astral_immortal_weapon_4"

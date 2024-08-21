@@ -28,14 +28,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"60"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "60"
+        }
 	}
 
 	"item_rpc_djanghor_glyph_2_1"
@@ -67,19 +63,11 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"20"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"1000"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "20"
+            "property_two" "1000"
+        }
 	}
 
 	"item_rpc_djanghor_glyph_3_1"
@@ -111,19 +99,11 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"60"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"30"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "60"
+            "property_two" "30"
+        }
 	}
 
 	"item_rpc_djanghor_glyph_4_1"
@@ -155,14 +135,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% DJANGHOR_GLYPH_4_1_SHIELD_STACKS %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% DJANGHOR_GLYPH_4_1_SHIELD_STACKS %>"
+        }
 	}
 
 	"item_rpc_djanghor_glyph_5_1"
@@ -194,14 +170,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"3"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "3"
+        }
 	}
 
 	"item_rpc_djanghor_glyph_6_1"
@@ -243,14 +215,10 @@
 				}
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "2"
+        }
 	}
 
 	"item_rpc_djanghor_glyph_7_1"
@@ -282,24 +250,12 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"25"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"400"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_three"		"1.5"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "25"
+            "property_two" "400"
+            "property_three" "1.5"
+        }
 	}
 
 	"item_rpc_djanghor_glyph_5_a"
@@ -331,13 +287,9 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"3"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "3"
+        }
 	}
 

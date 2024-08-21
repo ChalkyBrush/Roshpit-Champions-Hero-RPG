@@ -11,34 +11,14 @@
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SORCERESS_ARCANA2_Q1_BASE_DMG_PER_LEVEL %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"<% SORCERESS_ARCANA2_Q1_BASE_DMG %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"		"1"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"		 	"2"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% SORCERESS_ARCANA2_Q1_ATT_TO_DMG_PCT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SORCERESS_ARCANA2_Q1_BASE_DMG_PER_LEVEL %>"
+            "property_one_base" "<% SORCERESS_ARCANA2_Q1_BASE_DMG %>"
+            "base_ability" "1"
+            "element_one" "2"
+            "property_two" "<% SORCERESS_ARCANA2_Q1_ATT_TO_DMG_PCT %>"
+        }
 	}
 
 	"sorceress_rune_q_2_arcana2"
@@ -53,29 +33,13 @@
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SORCERESS_ARCANA2_Q2_DAMAGE %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% SORCERESS_Q2_ADD_DURATION %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two_base"		"<% SORCERESS_Q2_BASE_DURATION %>"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"		 	"2"
-			}	
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SORCERESS_ARCANA2_Q2_DAMAGE %>"
+            "property_two" "<% SORCERESS_Q2_ADD_DURATION %>"
+            "property_two_base" "<% SORCERESS_Q2_BASE_DURATION %>"
+            "element_one" "2"
+        }
 	}
 
 	"sorceress_rune_q_3_arcana2"
@@ -90,24 +54,12 @@
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SORCERESS_ARCANA2_Q3_DAMAGE_PCT %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% SORCERESS_Q3_ADD_DURATION %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two_base"		"<% SORCERESS_Q3_BASE_DURATION %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SORCERESS_ARCANA2_Q3_DAMAGE_PCT %>"
+            "property_two" "<% SORCERESS_Q3_ADD_DURATION %>"
+            "property_two_base" "<% SORCERESS_Q3_BASE_DURATION %>"
+        }
 	}
 
 	"sorceress_rune_q_4_arcana2"
@@ -121,13 +73,9 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SORCERESS_ARCANA2_Q4_FIRE_AMP %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SORCERESS_ARCANA2_Q4_FIRE_AMP %>"
+        }
 	}
 

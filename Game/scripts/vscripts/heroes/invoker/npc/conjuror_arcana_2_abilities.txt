@@ -24,39 +24,15 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"aspect_health"				"6000 12000 24000 42000 66000 96000 132000"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"aspect_damage"				"150 360 570 780 990 1200 1410"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"aspect_armor"				"80 240 480 800 1200 1680 2240"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"aspect_magic_armor"		"80 240 480 800 1200 1680 2240"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"aspect_armor_pierce"		"100 200 400 700 1100 1600 2200"
-			}
-			"06"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"aspect_spell_pierce"		"100 200 350 550 800 1100 1450"
-			}
-		}
+		"AbilityValues"
+        {
+            "aspect_health" "6000 12000 24000 42000 66000 96000 132000"
+            "aspect_damage" "150 360 570 780 990 1200 1410"
+            "aspect_armor" "80 240 480 800 1200 1680 2240"
+            "aspect_magic_armor" "80 240 480 800 1200 1680 2240"
+            "aspect_armor_pierce" "100 200 400 700 1100 1600 2200"
+            "aspect_spell_pierce" "100 200 350 550 800 1100 1450"
+        }
 
 		// Data driven
 		//-------------------------------------------------------------------------------------------------------------
@@ -209,29 +185,13 @@
 
 		"AbilityManaCost"				"100 180 260 340 420 500 580"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"120 200 280 360 440 520 600"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"heal_pct"				"2.0 2.5 3.0 3.5 4.0 4.5 5.0"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"attack_speed"				"30 40 50 60 70 80 90"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"buff_attack_damage"				"10 15 20 30 40 60 80"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "120 200 280 360 440 520 600"
+            "heal_pct" "2.0 2.5 3.0 3.5 4.0 4.5 5.0"
+            "attack_speed" "30 40 50 60 70 80 90"
+            "buff_attack_damage" "10 15 20 30 40 60 80"
+        }
 		"OnAbilityPhaseStart"
 		{
 			"RunScript"
@@ -356,14 +316,10 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage_percentage"			"100"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage_percentage" "100"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"

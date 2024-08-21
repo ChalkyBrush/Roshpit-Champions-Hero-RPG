@@ -6,19 +6,11 @@
 		"AbilityTextureName"	"seinaru/seinaru_rune_e_1_arcana2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SEINARU_ARCANA_E1_ATT_PCT %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% SEINARU_ARCANA_E1_E_RADIUS_BONUS %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SEINARU_ARCANA_E1_ATT_PCT %>"
+            "property_two" "<% SEINARU_ARCANA_E1_E_RADIUS_BONUS %>"
+        }
 	}
 
 	"seinaru_rune_e_2_arcana2"
@@ -29,19 +21,11 @@
 		"AbilityTextureName"	"seinaru/seinaru_rune_e_2_arcana2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SEINARU_ARCANA_E2_DUR %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% SEINARU_ARCANA_E2_TARGETS %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SEINARU_ARCANA_E2_DUR %>"
+            "property_two" "<% SEINARU_ARCANA_E2_TARGETS %>"
+        }
 	}
 
 	"seinaru_rune_e_3_arcana2"
@@ -52,14 +36,10 @@
 		"AbilityTextureName"	"seinaru/seinaru_rune_e_3_arcana2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SEINARU_ARCANA2_E3_BAD %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SEINARU_ARCANA2_E3_BAD %>"
+        }
 	}
 
 	"seinaru_rune_e_4_arcana2"
@@ -70,22 +50,10 @@
 		"AbilityTextureName"	"seinaru/seinaru_rune_e_4_arcana2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SEINARU_ARCANA2_E4_R_FREE_CAST_CHANCE %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"10"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% SEINARU_ARCANA2_E4_HOLY_AMP %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SEINARU_ARCANA2_E4_R_FREE_CAST_CHANCE %>"
+            "property_one_base" "10"
+            "property_two" "<% SEINARU_ARCANA2_E4_HOLY_AMP %>"
+        }
 	}

@@ -14,24 +14,12 @@
 		"AbilityTextureName"			"zonik/tachyon_shell"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"duration"				"<% ZHONIK_Q_DURATION %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"<% ZHONIK_Q_DAMAGE %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"move_slow"				"-24 -26 -28 -30 -32 -34 -36"
-			}
-		}
+		"AbilityValues"
+        {
+            "duration" "<% ZHONIK_Q_DURATION %>"
+            "damage" "<% ZHONIK_Q_DAMAGE %>"
+            "move_slow" "-24 -26 -28 -30 -32 -34 -36"
+        }
 		// Precache
 		//-------------------------------------------------------
 		"precache"
@@ -182,19 +170,11 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
 		"AbilityManaCost"				"<% ZHONIK_W_MANACOST %>"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"stun_duration"				"0.1 0.2 0.3 0.4 0.5 0.6 0.7"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_mult"				"<% ZHONIK_W_DAMAGE_PCT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "stun_duration" "0.1 0.2 0.3 0.4 0.5 0.6 0.7"
+            "damage_mult" "<% ZHONIK_W_DAMAGE_PCT %>"
+        }
 		// Precache
 		//-------------------------------------------------------
 		"precache"
@@ -324,19 +304,11 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
 		"AbilityManaCost"				"<% ZHONIK_W_MANACOST %>"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"stun_duration"				"0.1 0.2 0.3 0.4 0.5 0.6 0.7"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_mult"				"<% ZHONIK_W_DAMAGE_PCT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "stun_duration" "0.1 0.2 0.3 0.4 0.5 0.6 0.7"
+            "damage_mult" "<% ZHONIK_W_DAMAGE_PCT %>"
+        }
 		// Precache
 		//-------------------------------------------------------
 		"precache"
@@ -494,24 +466,12 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"movespeed_cap_increase"	"<% ZHONIK_E_MOVESPEED_CAP %>"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"movespeed_bonus"		"<% ZHONIK_E_MOVESPEED_BONUS %>"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"duration"					"<% ZHONIK_E_DURATION %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "movespeed_cap_increase" "<% ZHONIK_E_MOVESPEED_CAP %>"
+            "movespeed_bonus" "<% ZHONIK_E_MOVESPEED_BONUS %>"
+            "duration" "<% ZHONIK_E_DURATION %>"
+        }
 		"OnToggleOn"
 		{
 			"ApplyModifier"
@@ -949,33 +909,13 @@
 			}
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"movespeed_bonus"	"<% ZHONIK_R_MS_BONUS %>"
-			}
-			"02"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"movespeed_cap_bonus"	"<% ZHONIK_R_MS_CAP_BONUS %>"
-			}
-			"03"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"damage"	"<% ZHONIK_R_DAMAGE %>"
-			}
-			"04"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"speed_mult"	"<% ZHONIK_R_MULT %>"
-			}
-			"05"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"stun_duration"	"<% ZHONIK_R_STUN %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "movespeed_bonus" "<% ZHONIK_R_MS_BONUS %>"
+            "movespeed_cap_bonus" "<% ZHONIK_R_MS_CAP_BONUS %>"
+            "damage" "<% ZHONIK_R_DAMAGE %>"
+            "speed_mult" "<% ZHONIK_R_MULT %>"
+            "stun_duration" "<% ZHONIK_R_STUN %>"
+        }
 	}
 

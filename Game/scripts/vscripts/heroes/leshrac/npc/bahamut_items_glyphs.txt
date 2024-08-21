@@ -28,14 +28,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"30"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "30"
+        }
 	}
 
 	"item_rpc_bahamut_glyph_2_1"
@@ -67,14 +63,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"0"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "0"
+        }
 	}
 
 	"item_rpc_bahamut_glyph_3_1"
@@ -106,14 +98,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"30"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "30"
+        }
 	}
 
 	"item_rpc_bahamut_glyph_4_1"
@@ -145,14 +133,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "2"
+        }
 	}
 
 	"item_rpc_bahamut_glyph_5_1"
@@ -184,14 +168,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"3"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "3"
+        }
 	}
 
 	"item_rpc_bahamut_glyph_6_1"
@@ -251,14 +231,10 @@
 				}
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"1.5"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "1.5"
+        }
 	}
 
 	"item_rpc_bahamut_glyph_7_1"
@@ -290,14 +266,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"40"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "40"
+        }
 	}
 
 	"item_rpc_bahamut_glyph_5_a"
@@ -329,18 +301,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"4"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"1"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "4"
+            "property_two" "1"
+        }
 	}
 

@@ -6,14 +6,10 @@
 		"AbilityTextureName"	"jex/fire/jex_rune_w_1_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% JEX_RUNE_ROW_1_VALUE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% JEX_RUNE_ROW_1_VALUE %>"
+        }
 	}
 
 	"jex_rune_w_2_arcana1"
@@ -24,19 +20,11 @@
 		"AbilityTextureName"	"jex/fire/jex_rune_w_2_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% JEX_RUNE_ROW_2_VALUE * 100 %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"2"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% JEX_RUNE_ROW_2_VALUE * 100 %>"
+            "element_one" "2"
+        }
 	}
 
 	"jex_rune_w_3_arcana1"
@@ -47,14 +35,10 @@
 		"AbilityTextureName"	"jex/fire/jex_rune_w_3_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% JEX_RUNE_ROW_3_VALUE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% JEX_RUNE_ROW_3_VALUE %>"
+        }
 	}
 
 	"jex_rune_w_4_arcana1"
@@ -65,12 +49,8 @@
 		"AbilityTextureName"	"jex/fire/jex_rune_w_4_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "1"
+        }
 	}

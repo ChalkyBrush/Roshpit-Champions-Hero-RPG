@@ -43,24 +43,12 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"120 260 400 540 680 820 960"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"stun_duration"			"0.4"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"number_of_bombs"			"1 1 1 2 2 2 3"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "120 260 400 540 680 820 960"
+            "stun_duration" "0.4"
+            "number_of_bombs" "1 1 1 2 2 2 3"
+        }
 		"OnAbilityPhaseStart"
 		{
 			"RunScript"
@@ -187,14 +175,10 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"radius"				"400 425 450 475 500 525 550"
-			}
-		}
+		"AbilityValues"
+        {
+            "radius" "400 425 450 475 500 525 550"
+        }
 
 		"OnSpellStart"
 		{
@@ -256,10 +240,9 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-
-		}
+		"AbilityValues"
+        {
+        }
 
 		"OnSpellStart"
 		{
@@ -338,14 +321,10 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"60 200 340 480 620 780 920"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "60 200 340 480 620 780 920"
+        }
 
 		"OnSpellStart"
 		{
@@ -491,19 +470,11 @@
 		"AbilityManaCost"				"0"
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"root_duration"			"5.0 5.3 5.6 5.9 6.2 6.5 6.8"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"attack_range_loss"				"-100 -140 -180 -220 -260 -300 -340"
-			}
-		}
+		"AbilityValues"
+        {
+            "root_duration" "5.0 5.3 5.6 5.9 6.2 6.5 6.8"
+            "attack_range_loss" "-100 -140 -180 -220 -260 -300 -340"
+        }
 
 		"OnSpellStart"
 		{
@@ -548,14 +519,10 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"rubick_empty1"
 		"MaxLevel"	"1"
-		"AbilitySpecial"
-		{
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"attack_range_loss"				"-100 -140 -180 -220 -260 -300 -340"
-			}
-		}
+		"AbilityValues"
+        {
+            "attack_range_loss" "-100 -140 -180 -220 -260 -300 -340"
+        }
 		"Modifiers"
 		{
 			"lanaya_net_passive"
@@ -692,9 +659,9 @@
 		"AbilityManaCost"				"0"
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-		}
+		"AbilityValues"
+        {
+        }
 
 		"OnSpellStart"
 		{
@@ -860,14 +827,10 @@
 		"AbilityManaCost"				"0"
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"root_duration"			"5.0 5.3 5.6 5.9 6.2 6.5 6.8"
-			}
-		}
+		"AbilityValues"
+        {
+            "root_duration" "5.0 5.3 5.6 5.9 6.2 6.5 6.8"
+        }
 
 		"OnSpellStart"
 		{
@@ -1034,24 +997,12 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"5.1 5.4 5.7 6.0 6.3 6.6 6.9"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"movespeed_cap"				"60 100 140 180 210 240 260"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"movespeed_bonus"				"100 140 180 210 240 260 280"
-			}
-		}
+		"AbilityValues"
+        {
+            "duration" "5.1 5.4 5.7 6.0 6.3 6.6 6.9"
+            "movespeed_cap" "60 100 140 180 210 240 260"
+            "movespeed_bonus" "100 140 180 210 240 260 280"
+        }
 
 		"OnSpellStart"
 		{
@@ -1473,14 +1424,10 @@
         	}
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"movespeed_loss_const"	"-240 -220 -200 -180 -160 -140 -120"
-			}
-		}
+		"AbilityValues"
+        {
+            "movespeed_loss_const" "-240 -220 -200 -180 -160 -140 -120"
+        }
 	}
 
 	"trapper_backstab"
@@ -1717,14 +1664,10 @@
 			}
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"damage_mult"	"8 9 10 11 12 13 14"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage_mult" "8 9 10 11 12 13 14"
+        }
 	}
 
 	"trapper_action_leap"
@@ -1775,14 +1718,10 @@
 				"max_distance"	"%max_distance"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"max_distance"			"1000 1050 1100 1150 1200 1250 1300"
-			}
-		}
+		"AbilityValues"
+        {
+            "max_distance" "1000 1050 1100 1150 1200 1250 1300"
+        }
 	}
 
     "lanaya_decoy_passive"

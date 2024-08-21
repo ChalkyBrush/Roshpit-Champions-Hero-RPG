@@ -11,14 +11,10 @@
 		"LevelsBetweenUpgrades" "0"
 		
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% VENOMORT_Q1_BAD_PER_ENEMY_PERCENT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% VENOMORT_Q1_BAD_PER_ENEMY_PERCENT %>"
+        }
 	}
 
 	"venomort_rune_q_2"
@@ -32,14 +28,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% VENOMORT_Q2_DAMAGE_PER_INT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% VENOMORT_Q2_DAMAGE_PER_INT %>"
+        }
 	}
 
 	"venomort_rune_q_3"
@@ -54,14 +46,10 @@
 		"LevelsBetweenUpgrades" "0"
 		
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% VENOMORT_Q3_ATTACK_SPEED_SLOW %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% VENOMORT_Q3_ATTACK_SPEED_SLOW %>"
+        }
 	}
 
 	"venomort_rune_q_4"
@@ -75,14 +63,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% VENOMORT_Q4_RANGE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% VENOMORT_Q4_RANGE %>"
+        }
 	}
 
 	"venomort_rune_w_1"
@@ -96,14 +80,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% VENOMORT_W1_DAMAGE_PER_HP_PERCENT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% VENOMORT_W1_DAMAGE_PER_HP_PERCENT %>"
+        }
 	}
 
 	"venomort_rune_w_2"
@@ -118,14 +98,10 @@
 		"LevelsBetweenUpgrades" "0"
 		
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"		    "<% VENOMORT_W2_DURATION %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% VENOMORT_W2_DURATION %>"
+        }
 	}
 
 	"venomort_rune_w_3"
@@ -139,19 +115,11 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% VENOMORT_W3_CAST_RATE %>"
-			}
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% VENOMORT_W3_ATTACK_SPEED %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% VENOMORT_W3_CAST_RATE %>"
+            "property_two" "<% VENOMORT_W3_ATTACK_SPEED %>"
+        }
 	}
 
 	"venomort_rune_w_4"
@@ -165,14 +133,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% VENOMORT_W4_POSTMIT_PER_HP_PERCENT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% VENOMORT_W4_POSTMIT_PER_HP_PERCENT %>"
+        }
 	}
 
 	"venomort_rune_e_1"
@@ -186,14 +150,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% VENOMORT_E1_POISON_AMPLIFY_PERCENT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% VENOMORT_E1_POISON_AMPLIFY_PERCENT %>"
+        }
 	}
 
 	"venomort_rune_e_2"
@@ -209,24 +169,12 @@
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% VENOMORT_E2_DAMAGE_PER_LEVEL %>"
-			}
-            "02"
-            {
-                "var_type"				"FIELD_INTEGER"
-                "base_ability"			"<% BASE_ABILITY_E %>"
-            }
-            "03"
-            {
-                "var_type"				"FIELD_INTEGER"
-                "element_one"			"<% RPC_ELEMENT_POISON %>"
-            }
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% VENOMORT_E2_DAMAGE_PER_LEVEL %>"
+            "base_ability" "<% BASE_ABILITY_E %>"
+            "element_one" "<% RPC_ELEMENT_POISON %>"
+        }
 	}
 
 	"venomort_rune_e_3"
@@ -240,14 +188,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"		"<% VENOMORT_E3_AURA_DAMAGE_PERCENT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% VENOMORT_E3_AURA_DAMAGE_PERCENT %>"
+        }
 	}
 
 	"venomort_rune_e_4"
@@ -261,19 +205,11 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% VENOMORT_E4_HP_PER_ENEMY %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% VENOMORT_E4_EVASION_PER_ENEMY %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% VENOMORT_E4_HP_PER_ENEMY %>"
+            "property_two" "<% VENOMORT_E4_EVASION_PER_ENEMY %>"
+        }
 	}
 
 	"venomort_rune_r_1"
@@ -289,24 +225,12 @@
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% VENOMORT_R1_VIPER_DAMAGE_PERCENT %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"base_ability"			"6"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"5"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% VENOMORT_R1_VIPER_DAMAGE_PERCENT %>"
+            "base_ability" "6"
+            "element_one" "5"
+        }
 	}
 
 	"venomort_rune_r_2"
@@ -318,14 +242,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% VENOMORT_R2_VIPER_SCALE_PERCENT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% VENOMORT_R2_VIPER_SCALE_PERCENT %>"
+        }
 	}
 
 	"venomort_rune_r_3"
@@ -340,14 +260,10 @@
 		"LevelsBetweenUpgrades" "0"
 		
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% VENOMORT_R3_STACKS %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% VENOMORT_R3_STACKS %>"
+        }
 	}
 
 	"venomort_rune_r_4"
@@ -361,23 +277,11 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% VENOMORT_R4_ADD_HP %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% VENOMORT_R4_ADD_DAMAGE %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_three"			"<% VENOMORT_R4_VIPER_ARMOR_PIERCE %>"
-			}			
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% VENOMORT_R4_ADD_HP %>"
+            "property_two" "<% VENOMORT_R4_ADD_DAMAGE %>"
+            "property_three" "<% VENOMORT_R4_VIPER_ARMOR_PIERCE %>"
+        }
 	}
 

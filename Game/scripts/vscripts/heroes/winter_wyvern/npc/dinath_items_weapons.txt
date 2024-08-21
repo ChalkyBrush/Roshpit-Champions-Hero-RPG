@@ -403,19 +403,11 @@
 				"Function"		"equip_item"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"100"
-			}
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_two"			"1000"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "100"
+            "property_two" "1000"
+        }
 		"Modifiers"
 		{
 			"modifier_dinath_immortal_weapon_1"
@@ -473,14 +465,10 @@
 				"TextureName"	"dinath/dinath_rune_w_3"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"3"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "3"
+        }
 	}
 
 	"item_rpc_dinath_immortal_weapon_3"
@@ -522,14 +510,10 @@
 				"EffectAttachType" "follow_origin"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"7"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "7"
+        }
 	}
 	
 	"item_rpc_dinath_immortal_weapon_4"

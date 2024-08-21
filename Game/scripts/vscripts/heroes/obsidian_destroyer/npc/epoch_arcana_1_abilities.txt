@@ -35,14 +35,10 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"root_duration"			"1.5 1.8 2.1 2.4 2.7 3.0 3.3"
-			}
-		}
+		"AbilityValues"
+        {
+            "root_duration" "1.5 1.8 2.1 2.4 2.7 3.0 3.3"
+        }
 
 		"OnSpellStart"
 		{
@@ -145,22 +141,10 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"aoe_radius"			"450"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"root_duration"			"1.8 2.1 2.4 2.7 3.0 3.3 3.6"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"dmg_atk_power"			"50 60 70 80 90 100 110"
-			}
-		}
+		"AbilityValues"
+        {
+            "aoe_radius" "450"
+            "root_duration" "1.8 2.1 2.4 2.7 3.0 3.3 3.6"
+            "dmg_atk_power" "50 60 70 80 90 100 110"
+        }
 	}

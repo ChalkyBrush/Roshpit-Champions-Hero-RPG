@@ -10,19 +10,11 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% MOUNTAIN_PROTECTOR_Q1_MS_BUFF %>"
-			}
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"-<% MOUNTAIN_PROTECTOR_Q1_MS_DEBUFF %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% MOUNTAIN_PROTECTOR_Q1_MS_BUFF %>"
+            "property_two" "-<% MOUNTAIN_PROTECTOR_Q1_MS_DEBUFF %>"
+        }
 	}
 
 	"mountain_protector_rune_q_2"
@@ -36,14 +28,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% MOUNTAIN_PROTECTOR_Q2_DMG_PCT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% MOUNTAIN_PROTECTOR_Q2_DMG_PCT %>"
+        }
 	}
 
 	"mountain_protector_rune_q_3"
@@ -57,14 +45,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% MOUNTAIN_PROTECTOR_Q3_MULTI_HIT_CHANCE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% MOUNTAIN_PROTECTOR_Q3_MULTI_HIT_CHANCE %>"
+        }
 	}
 
 	"mountain_protector_rune_q_4"
@@ -78,19 +62,11 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% MOUNTAIN_PROTECTOR_Q4_DIST %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"1"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% MOUNTAIN_PROTECTOR_Q4_DIST %>"
+            "property_two" "1"
+        }
 	}
 
 	"mountain_protector_rune_w_1"
@@ -104,14 +80,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% MOUNTAIN_PROTECTOR_W1_HP_REGEN_PERCENT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% MOUNTAIN_PROTECTOR_W1_HP_REGEN_PERCENT %>"
+        }
 	}
 
 	"mountain_protector_rune_w_2"
@@ -125,14 +97,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% MOUNTAIN_PROTECTOR_W2_SPELL_PIERCE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% MOUNTAIN_PROTECTOR_W2_SPELL_PIERCE %>"
+        }
 	}
 
 	"mountain_protector_rune_w_3"
@@ -147,34 +115,14 @@
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% MOUNTAIN_PROTECTOR_W3_PCT %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% MOUNTAIN_PROTECTOR_W3_HP_PART_PCT %>"
-			}			
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"2"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"1"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_two"			"3"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% MOUNTAIN_PROTECTOR_W3_PCT %>"
+            "property_two" "<% MOUNTAIN_PROTECTOR_W3_HP_PART_PCT %>"
+            "base_ability" "2"
+            "element_one" "1"
+            "element_two" "3"
+        }
 	}
 
 	"mountain_protector_rune_w_4"
@@ -188,14 +136,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% MOUNTAIN_PROTECTOR_W4 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% MOUNTAIN_PROTECTOR_W4 %>"
+        }
 	}
 
 	"mountain_protector_rune_e_1"
@@ -210,49 +154,17 @@
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% MOUNTAIN_PROTECTOR_E1_DMG_PCT %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"<% MOUNTAIN_PROTECTOR_E1_BASE %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% MOUNTAIN_PROTECTOR_E1_STUN_DURATION %>"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_three"		"<% MOUNTAIN_PROTECTOR_E1_RADIUS %>"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_three_base"	"<% MOUNTAIN_PROTECTOR_E1_RADIUS_BASE %>"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"<% BASE_ABILITY_R %>"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"<% RPC_ELEMENT_EARTH %>"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_two"			"<% RPC_ELEMENT_FIRE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% MOUNTAIN_PROTECTOR_E1_DMG_PCT %>"
+            "property_one_base" "<% MOUNTAIN_PROTECTOR_E1_BASE %>"
+            "property_two" "<% MOUNTAIN_PROTECTOR_E1_STUN_DURATION %>"
+            "property_three" "<% MOUNTAIN_PROTECTOR_E1_RADIUS %>"
+            "property_three_base" "<% MOUNTAIN_PROTECTOR_E1_RADIUS_BASE %>"
+            "base_ability" "<% BASE_ABILITY_R %>"
+            "element_one" "<% RPC_ELEMENT_EARTH %>"
+            "element_two" "<% RPC_ELEMENT_FIRE %>"
+        }
 	}
 
 	"mountain_protector_rune_e_2"
@@ -267,14 +179,10 @@
 		"LevelsBetweenUpgrades" "0"
 
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% MOUNTAIN_PROTECTOR_E2_BONUS_STR %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% MOUNTAIN_PROTECTOR_E2_BONUS_STR %>"
+        }
 		"Modifiers"
 		{
 			"modifier_mountain_protector_rune_e_2"
@@ -300,14 +208,10 @@
 		"LevelsBetweenUpgrades" "0"
 
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% MOUNTAIN_PROTECTOR_E3_AMP_PCT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% MOUNTAIN_PROTECTOR_E3_AMP_PCT %>"
+        }
 	}
 
 	"mountain_protector_rune_e_4"
@@ -321,19 +225,11 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% MOUNTAIN_PROTECTOR_E4_BASE_ATT_DMG %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% MOUNTAIN_PROTECTOR_E4_BAD * 100 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% MOUNTAIN_PROTECTOR_E4_BASE_ATT_DMG %>"
+            "property_two" "<% MOUNTAIN_PROTECTOR_E4_BAD * 100 %>"
+        }
 	}
 
 	"mountain_protector_rune_r_1"
@@ -348,24 +244,12 @@
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% MOUNTAIN_PROTECTOR_R1_PCT %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"1"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"4"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% MOUNTAIN_PROTECTOR_R1_PCT %>"
+            "element_one" "1"
+            "base_ability" "4"
+        }
 	}
 
 	"mountain_protector_rune_r_2"
@@ -379,19 +263,11 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% MOUNTAIN_PROTECTOR_R2_BASE_DMG %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% MOUNTAIN_PROTECTOR_R2_STRENGTH_PER_STACK %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% MOUNTAIN_PROTECTOR_R2_BASE_DMG %>"
+            "property_two" "<% MOUNTAIN_PROTECTOR_R2_STRENGTH_PER_STACK %>"
+        }
 		"Modifiers"
 		{
 			"modifier_mountain_protector_rune_r_2_visible"
@@ -426,29 +302,13 @@
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% MOUNTAIN_PROTECTOR_R3_DAMAGE %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% MOUNTAIN_PROTECTOR_R3_DAMAGE_PER_STR %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"4"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"2"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% MOUNTAIN_PROTECTOR_R3_DAMAGE %>"
+            "property_two" "<% MOUNTAIN_PROTECTOR_R3_DAMAGE_PER_STR %>"
+            "base_ability" "4"
+            "element_one" "2"
+        }
 	}
 
 	"mountain_protector_rune_r_4"
@@ -462,13 +322,9 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% MOUNTAIN_PROTECTOR_R4_EARTH_FIRE_AMP * 100 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% MOUNTAIN_PROTECTOR_R4_EARTH_FIRE_AMP * 100 %>"
+        }
 	}
 

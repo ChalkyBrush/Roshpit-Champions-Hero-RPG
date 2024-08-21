@@ -9,14 +9,10 @@
 		"AbilityTextureName"	"duskbringer/duskbringer_rune_w_1_arcana"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% DUSKBRINGER_ARCANA_W1_ADD_DMG_PER_ATT_PER_LEVEL * 100 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% DUSKBRINGER_ARCANA_W1_ADD_DMG_PER_ATT_PER_LEVEL * 100 %>"
+        }
 	}
 
 	"duskbringer_rune_w_2_arcana1"
@@ -29,14 +25,10 @@
 		"AbilityTextureName"	"duskbringer/duskbringer_rune_w_2_arcana"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% DUSKBRINGER_ARCANA1_W2_ARMORS %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% DUSKBRINGER_ARCANA1_W2_ARMORS %>"
+        }
 	}
 
 	"duskbringer_rune_w_3_arcana1"
@@ -49,14 +41,10 @@
 		"AbilityTextureName"	"duskbringer/duskbringer_rune_w_3_arcana"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% DUSKBRINGER_ARCANA_W3_PROC_CHANCE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% DUSKBRINGER_ARCANA_W3_PROC_CHANCE %>"
+        }
 	}
 
 	"duskbringer_rune_w_4_arcana1"
@@ -69,18 +57,10 @@
 		"AbilityTextureName"	"duskbringer/duskbringer_rune_w_4_arcana"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% DUSKBRINGER_ARCANA_W4_ATT_FLAT %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% DUSKBRINGER_ARCANA_W4_ATT_PCT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% DUSKBRINGER_ARCANA_W4_ATT_FLAT %>"
+            "property_two" "<% DUSKBRINGER_ARCANA_W4_ATT_PCT %>"
+        }
 	}
 

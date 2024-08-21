@@ -11,34 +11,14 @@
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SORCERESS_ARCANA_R1_DMG_X_INT_PER_LVL %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% SORCERESS_ARCANA_R1_RADIUS_SEARCH_PER_LVL %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two_base"		"<% SORCERESS_ARCANA_R1_RADIUS_SEARCH_BASE %>"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"4"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"		 	"9"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SORCERESS_ARCANA_R1_DMG_X_INT_PER_LVL %>"
+            "property_two" "<% SORCERESS_ARCANA_R1_RADIUS_SEARCH_PER_LVL %>"
+            "property_two_base" "<% SORCERESS_ARCANA_R1_RADIUS_SEARCH_BASE %>"
+            "base_ability" "4"
+            "element_one" "9"
+        }
 	}
 
 	"sorceress_rune_r_2_arcana1"
@@ -52,24 +32,12 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SORCERESS_ARCANA1_R2_ADD_DURATION %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one_base"		"<% SORCERESS_ARCANA1_R2_START_DURATION %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% SORCERESS_ARCANA1_R2_CRIT_DAMAGE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SORCERESS_ARCANA1_R2_ADD_DURATION %>"
+            "property_one_base" "<% SORCERESS_ARCANA1_R2_START_DURATION %>"
+            "property_two" "<% SORCERESS_ARCANA1_R2_CRIT_DAMAGE %>"
+        }
 	}
 
 	"sorceress_rune_r_3_arcana1"
@@ -83,14 +51,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SORCERESS_ARCANA1_R3_ICE_RESIST_LOSS * 100 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SORCERESS_ARCANA1_R3_ICE_RESIST_LOSS * 100 %>"
+        }
 	}
 
 	"sorceress_rune_r_4_arcana1"
@@ -104,23 +68,11 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one_base"			"7.0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.2"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"10"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one_base" "7.0"
+            "property_one" "0.2"
+            "property_two" "10"
+        }
 	}
 

@@ -11,34 +11,14 @@
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SPIRIT_WARRIOR_Q1_DMG %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"<% SPIRIT_WARRIOR_Q1_BASE %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% SPIRIT_WARRIOR_Q1_ARMOR_DEBUFF %>"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"2"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"<% BASE_ABILITY_Q %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SPIRIT_WARRIOR_Q1_DMG %>"
+            "property_one_base" "<% SPIRIT_WARRIOR_Q1_BASE %>"
+            "property_two" "<% SPIRIT_WARRIOR_Q1_ARMOR_DEBUFF %>"
+            "element_one" "2"
+            "base_ability" "<% BASE_ABILITY_Q %>"
+        }
 	}
 
 	"spirit_warrior_rune_q_2"
@@ -52,19 +32,11 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SPIRIT_WARRIOR_Q2_FIRE_SHIELD_ARMORS %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% SPIRIT_WARRIOR_Q2_EVASION %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SPIRIT_WARRIOR_Q2_FIRE_SHIELD_ARMORS %>"
+            "property_two" "<% SPIRIT_WARRIOR_Q2_EVASION %>"
+        }
 	}
 
 	"spirit_warrior_rune_q_3"
@@ -79,24 +51,12 @@
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SPIRIT_WARRIOR_Q3_DMG_PCT %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"<% BASE_ABILITY_Q %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"12"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SPIRIT_WARRIOR_Q3_DMG_PCT %>"
+            "base_ability" "<% BASE_ABILITY_Q %>"
+            "element_one" "12"
+        }
 	}
 
 	"spirit_warrior_rune_q_4"
@@ -110,14 +70,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SPIRIT_WARRIOR_Q4_FIRE_AND_WIND_AMP * 100 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SPIRIT_WARRIOR_Q4_FIRE_AND_WIND_AMP * 100 %>"
+        }
 	}
 
 	"spirit_warrior_rune_w_1"
@@ -131,14 +87,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SPIRIT_WARRIOR_W1_BASE_DMG_PER_MANA_PCT_MISSING %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SPIRIT_WARRIOR_W1_BASE_DMG_PER_MANA_PCT_MISSING %>"
+        }
 		"Modifiers"
 		{
 			"modifier_spirit_warrior_rune_w_1"
@@ -166,14 +118,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SPIRIT_WARRIOR_W2_BASE_DMG %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SPIRIT_WARRIOR_W2_BASE_DMG %>"
+        }
 		"Modifiers"
 		{
 			"modifier_spirit_warrior_rune_w_2_visible"
@@ -215,19 +163,11 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SPIRIT_WARRIOR_W3_ATTACK_POWER_TO_DMG_PCT %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% SPIRIT_WARRIOR_W3_Q_MULT_PCT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SPIRIT_WARRIOR_W3_ATTACK_POWER_TO_DMG_PCT %>"
+            "property_two" "<% SPIRIT_WARRIOR_W3_Q_MULT_PCT %>"
+        }
 	}
 
 	"spirit_warrior_rune_w_4"
@@ -241,19 +181,11 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SPIRIT_WARRIOR_W4_DMG_INCR_PCT %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% SPIRIT_WARRIOR_W4_STUN %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SPIRIT_WARRIOR_W4_DMG_INCR_PCT %>"
+            "property_two" "<% SPIRIT_WARRIOR_W4_STUN %>"
+        }
 		"Modifiers"
 		{
 			"modifier_spirit_warrior_d_b"
@@ -280,29 +212,13 @@
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SPIRIT_WARRIOR_E1_DMG %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% SPIRIT_WARRIOR_E1_BONUS_WINDSRIKE_PCT %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"3"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"12"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SPIRIT_WARRIOR_E1_DMG %>"
+            "property_two" "<% SPIRIT_WARRIOR_E1_BONUS_WINDSRIKE_PCT %>"
+            "base_ability" "3"
+            "element_one" "12"
+        }
 	}
 
 	"spirit_warrior_rune_e_2"
@@ -316,14 +232,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SPIRIT_WARRIOR_E2_ARMOR_AURA %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SPIRIT_WARRIOR_E2_ARMOR_AURA %>"
+        }
 	}
 
 	"spirit_warrior_b_c_special"
@@ -337,14 +249,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SPIRIT_WARRIOR_E2_ARMOR_AURA %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SPIRIT_WARRIOR_E2_ARMOR_AURA %>"
+        }
 		"Modifiers"
 		{
 			"modifier_spirit_rune_e_2_aura"
@@ -403,39 +311,15 @@
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SPIRIT_WARRIOR_E3_DPS %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% SPIRIT_WARRIOR_E3_DURATION %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two_base"			"<% SPIRIT_WARRIOR_E3_DURATION_BASE %>"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"3"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"12"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_two"			"4"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SPIRIT_WARRIOR_E3_DPS %>"
+            "property_two" "<% SPIRIT_WARRIOR_E3_DURATION %>"
+            "property_two_base" "<% SPIRIT_WARRIOR_E3_DURATION_BASE %>"
+            "base_ability" "3"
+            "element_one" "12"
+            "element_two" "4"
+        }
 		"Modifiers"
 		{
 			"modifier_spirit_rune_e_3_aura"
@@ -524,14 +408,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SPIRIT_WARRIOR_E4_SPIRIT_AND_INT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SPIRIT_WARRIOR_E4_SPIRIT_AND_INT %>"
+        }
 	}
 
 	"spirit_warrior_rune_r_1"
@@ -545,14 +425,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SPIRIT_WARRIOR_R1_LIFESTEAL_PCT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SPIRIT_WARRIOR_R1_LIFESTEAL_PCT %>"
+        }
 	}
 
 	"spirit_warrior_rune_r_2"
@@ -566,14 +442,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SPIRIT_WARRIOR_R2_BONUS_DMG_PCT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SPIRIT_WARRIOR_R2_BONUS_DMG_PCT %>"
+        }
 	}
 
 	"spirit_warrior_rune_r_3"
@@ -588,29 +460,13 @@
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SPIRIT_WARRIOR_R3_ATTACK_POWER_TO_DAMAGE %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"4"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"1"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_two"			"12"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SPIRIT_WARRIOR_R3_ATTACK_POWER_TO_DAMAGE %>"
+            "base_ability" "4"
+            "element_one" "1"
+            "element_two" "12"
+        }
 	}
 
 	"spirit_warrior_rune_r_4"
@@ -624,13 +480,9 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SPIRIT_WARRIOR_R4_AS_BOOST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SPIRIT_WARRIOR_R4_AS_BOOST %>"
+        }
 	}
 

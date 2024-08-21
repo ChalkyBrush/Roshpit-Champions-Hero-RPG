@@ -7,24 +7,12 @@
 		"AbilityTextureName"	"chernobog/flash_of_orias"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% CHERNOBOG_ARCANA2_E1_RANGE %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"<% CHERNOBOG_ARCANA2_E1_RANGE_BASE %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% CHERNOBOG_ARCANA2_E1_CHANCE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% CHERNOBOG_ARCANA2_E1_RANGE %>"
+            "property_one_base" "<% CHERNOBOG_ARCANA2_E1_RANGE_BASE %>"
+            "property_two" "<% CHERNOBOG_ARCANA2_E1_CHANCE %>"
+        }
 	}
 
 	"chernobog_rune_e_2_arcana2"
@@ -35,24 +23,12 @@
 		"AbilityTextureName"	"chernobog/chernobog_rune_e_2_arcana2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% CHERNOBOG_ARCANA2_E2_ATT_PCT %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% CHERNOBOG_ARCANA2_E2_MS_BONUS %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_three"			"<% CHERNOBOG_ARCANA2_E2_MS_CAP_BONUS %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% CHERNOBOG_ARCANA2_E2_ATT_PCT %>"
+            "property_two" "<% CHERNOBOG_ARCANA2_E2_MS_BONUS %>"
+            "property_three" "<% CHERNOBOG_ARCANA2_E2_MS_CAP_BONUS %>"
+        }
 	}
 
 	"chernobog_rune_e_3_arcana2"
@@ -63,14 +39,10 @@
 		"AbilityTextureName"	"chernobog/chernobog_rune_e_3_arcana2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% CHERNOBOG_ARCANA2_E3_ATT_PER_DEMON_PCT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% CHERNOBOG_ARCANA2_E3_ATT_PER_DEMON_PCT %>"
+        }
 	}
 
 	"chernobog_rune_e_4_arcana2"
@@ -81,42 +53,14 @@
 		"AbilityTextureName"	"chernobog/chernobog_rune_e_4_arcana2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% CHERNOBOG_ARCANA2_E4_DMG_PCT %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one_base"			"0"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% CHERNOBOG_ARCANA2_E4_RADIUS_INC %>"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two_base"		"<% CHERNOBOG_ARCANA2_E4_RADIUS %>"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"3"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"<% RPC_ELEMENT_DEMON %>"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_two"			"<% RPC_ELEMENT_SHADOW %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% CHERNOBOG_ARCANA2_E4_DMG_PCT %>"
+            "property_one_base" "0"
+            "property_two" "<% CHERNOBOG_ARCANA2_E4_RADIUS_INC %>"
+            "property_two_base" "<% CHERNOBOG_ARCANA2_E4_RADIUS %>"
+            "base_ability" "3"
+            "element_one" "<% RPC_ELEMENT_DEMON %>"
+            "element_two" "<% RPC_ELEMENT_SHADOW %>"
+        }
 	}

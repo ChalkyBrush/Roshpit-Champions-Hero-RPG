@@ -36,13 +36,9 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"shots"						"8 9 10 11 12 13 14"
-			}
-		}
+		"AbilityValues"
+        {
+            "shots" "8 9 10 11 12 13 14"
+        }
 	}
 

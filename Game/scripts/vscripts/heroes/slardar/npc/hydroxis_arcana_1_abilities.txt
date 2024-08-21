@@ -32,24 +32,12 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"blind"						"100"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"magic_armor"				"300 600 900 1200 1500 1800 2100"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"mana_drain"				"50 80 110 140 170 200 230"
-			}
-		}
+		"AbilityValues"
+        {
+            "blind" "100"
+            "magic_armor" "300 600 900 1200 1500 1800 2100"
+            "mana_drain" "50 80 110 140 170 200 230"
+        }
 		"OnToggleOn"
 		{
 			"ApplyModifier"

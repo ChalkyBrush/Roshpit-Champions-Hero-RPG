@@ -18,23 +18,11 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"armor_and_magic_armor"		"<% MOUNTAIN_PROTECTOR_ARCANA1_W_ARMOR_AND_MAGIC_ARMOR %>"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"damage_resist"				"<% MOUNTAIN_PROTECTOR_ARCANA1_W_DMG_RED %>"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"regen_percent"		    	"<% MOUNTAIN_PROTECTOR_ARCANA1_W_HP_REGEN_PCT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "armor_and_magic_armor" "<% MOUNTAIN_PROTECTOR_ARCANA1_W_ARMOR_AND_MAGIC_ARMOR %>"
+            "damage_resist" "<% MOUNTAIN_PROTECTOR_ARCANA1_W_DMG_RED %>"
+            "regen_percent" "<% MOUNTAIN_PROTECTOR_ARCANA1_W_HP_REGEN_PCT %>"
+        }
 	}
 

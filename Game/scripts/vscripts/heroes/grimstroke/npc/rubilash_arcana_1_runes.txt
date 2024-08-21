@@ -9,14 +9,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% RUBILASH_ARCANA1_RUNE_E1_HEALTH_RESTORE_PCT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% RUBILASH_ARCANA1_RUNE_E1_HEALTH_RESTORE_PCT %>"
+        }
 	}
 
 	"rubilash_rune_e_2_arcana1"
@@ -31,14 +27,10 @@
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% RUBILASH_ARCANA1_RUNE_E2_PIERCES %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% RUBILASH_ARCANA1_RUNE_E2_PIERCES %>"
+        }
 	}
 
 	"rubilash_rune_e_3_arcana1"
@@ -52,14 +44,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% RUBILASH_ARCANA1_RUNE_E3_FLAT_DMG %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% RUBILASH_ARCANA1_RUNE_E3_FLAT_DMG %>"
+        }
 	}
 
 	"rubilash_rune_e_4_arcana1"
@@ -73,17 +61,9 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% RUBILASH_ARCANA1_RUNE_E4_ALL_ATTRIBUTES %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% RUBILASH_ARCANA1_RUNE_E4_ATK_PER_ATTR %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% RUBILASH_ARCANA1_RUNE_E4_ALL_ATTRIBUTES %>"
+            "property_two" "<% RUBILASH_ARCANA1_RUNE_E4_ATK_PER_ATTR %>"
+        }
 	}

@@ -38,14 +38,10 @@
 				}
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"50"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "50"
+        }
 	}
 
 	"item_rpc_mountain_protector_glyph_2_1"
@@ -77,14 +73,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"30"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "30"
+        }
 	}
 
 	"item_rpc_mountain_protector_glyph_3_1"
@@ -116,14 +108,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"6"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "6"
+        }
 	}
 
 	"item_rpc_mountain_protector_glyph_4_1"
@@ -155,14 +143,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"25"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "25"
+        }
 	}
 
 	"item_rpc_mountain_protector_glyph_5_1"
@@ -194,14 +178,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"50"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "50"
+        }
 	}
 
 	"item_rpc_mountain_protector_glyph_6_1"
@@ -233,14 +213,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"8"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "8"
+        }
 	}
 
 	"item_rpc_mountain_protector_glyph_7_1"
@@ -280,14 +256,10 @@
 				}
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"30"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "30"
+        }
 	}
 
 	"item_rpc_mountain_protector_glyph_5_a"
@@ -319,13 +291,9 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5000"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "5000"
+        }
 	}
 

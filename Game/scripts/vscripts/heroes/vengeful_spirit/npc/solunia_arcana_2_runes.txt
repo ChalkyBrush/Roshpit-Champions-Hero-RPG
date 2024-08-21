@@ -7,19 +7,11 @@
 		"AbilityTextureName"	"solunia/solunia_rune_r_1_arcana2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SOLUNIA_ARCANA_R1_MS %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% SOLUNIA_ARCANA_R1_MAX_MS %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SOLUNIA_ARCANA_R1_MS %>"
+            "property_two" "<% SOLUNIA_ARCANA_R1_MAX_MS %>"
+        }
 	}
 
 	"solunia_rune_r_2_arcana2"
@@ -30,14 +22,10 @@
 		"AbilityTextureName"	"solunia/solunia_rune_r_2_arcana2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SOLUNIA_ARCANA_R2_PURE_CHANCE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SOLUNIA_ARCANA_R2_PURE_CHANCE %>"
+        }
 	}
 
 	"solunia_rune_r_3_arcana2"
@@ -48,14 +36,10 @@
 		"AbilityTextureName"	"solunia/solunia_rune_r_3_arcana2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SOLUNIA_ARCANA_R3_ATTR_PCT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SOLUNIA_ARCANA_R3_ATTR_PCT %>"
+        }
 	}
 
 	"solunia_rune_r_4_arcana2"
@@ -66,18 +50,10 @@
 		"AbilityTextureName"	"solunia/solunia_rune_r_4_arcana2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SOLUNIA_ARCANA_R4_CD_REDUCE %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% SOLUNIA_ARCANA_R4_COSMIC_AMP %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SOLUNIA_ARCANA_R4_CD_REDUCE %>"
+            "property_two" "<% SOLUNIA_ARCANA_R4_COSMIC_AMP %>"
+        }
 	}
 

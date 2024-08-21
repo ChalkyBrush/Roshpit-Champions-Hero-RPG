@@ -10,19 +10,11 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% BAHAMUT_Q1_MANA_PER_TICK / BAHAMUT_Q1_SELF_TICK_INTERVAL %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% BAHAMUT_Q1_MANAPOOL_MAX_STACKS * BAHAMUT_Q1_MANAPOOL_PER_STACK %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% BAHAMUT_Q1_MANA_PER_TICK / BAHAMUT_Q1_SELF_TICK_INTERVAL %>"
+            "property_two" "<% BAHAMUT_Q1_MANAPOOL_MAX_STACKS * BAHAMUT_Q1_MANAPOOL_PER_STACK %>"
+        }
 	}
 
 	"bahamut_rune_q_2"
@@ -36,14 +28,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% BAHAMUT_Q2_ATTACK_RANGE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% BAHAMUT_Q2_ATTACK_RANGE %>"
+        }
 		"Modifiers"
 		{
 			"modifier_bahamut_b_a_buff"
@@ -71,14 +59,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% BAHAMUT_Q3_MANA_TO_Q_DAMAGE_PCT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% BAHAMUT_Q3_MANA_TO_Q_DAMAGE_PCT %>"
+        }
 	}
 
 	"bahamut_rune_q_4"
@@ -92,14 +76,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% BAHAMUT_Q4_INT_BONUS %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% BAHAMUT_Q4_INT_BONUS %>"
+        }
 		"Modifiers"
 		{
 			"modifier_bahamut_d_a_passive_thinker"
@@ -138,14 +118,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% BAHAMUT_W1_BONUS_DMG_AND_BAD_PCT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% BAHAMUT_W1_BONUS_DMG_AND_BAD_PCT %>"
+        }
 		"Modifiers"
 		{
 			"modifier_bahamut_a_b_buff"
@@ -174,14 +150,10 @@
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% BAHAMUT_W2_DAMAGE_PCT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% BAHAMUT_W2_DAMAGE_PCT %>"
+        }
 	}
 
 	"bahamut_rune_w_3"
@@ -196,34 +168,14 @@
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% BAHAMUT_W3_DMG %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"<% BAHAMUT_W3_BASE_DMG %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% BAHAMUT_W3_ATTACK_TO_DMG_PCT %>"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"2"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"7"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% BAHAMUT_W3_DMG %>"
+            "property_one_base" "<% BAHAMUT_W3_BASE_DMG %>"
+            "property_two" "<% BAHAMUT_W3_ATTACK_TO_DMG_PCT %>"
+            "base_ability" "2"
+            "element_one" "7"
+        }
 		"OnProjectileHitUnit"
 		{
 			"DeleteOnHit"	"0"
@@ -247,14 +199,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% BAHAMUT_W4_ATT_PER_MANA %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% BAHAMUT_W4_ATT_PER_MANA %>"
+        }
 	}
 
 	"bahamut_rune_e_1"
@@ -268,14 +216,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% BAHAMUT_E1_CHANCE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% BAHAMUT_E1_CHANCE %>"
+        }
 	}
 
 	"bahamut_rune_e_2"
@@ -290,29 +234,13 @@
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% BAHAMUT_E2_DAMAGE %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"3"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"7"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% BAHAMUT_E2_PARALYZE_DURATION %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% BAHAMUT_E2_DAMAGE %>"
+            "base_ability" "3"
+            "element_one" "7"
+            "property_two" "<% BAHAMUT_E2_PARALYZE_DURATION %>"
+        }
 	}
 
 	"bahamut_rune_e_3"
@@ -327,24 +255,12 @@
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% BAHAMUT_E3_BASE_DAMAGE_PER_LVL %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"3"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"7"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% BAHAMUT_E3_BASE_DAMAGE_PER_LVL %>"
+            "base_ability" "3"
+            "element_one" "7"
+        }
 	}
 
 	"bahamut_rune_e_4"
@@ -358,14 +274,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% BAHAMUT_E4_HOLY_AMP * 100 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% BAHAMUT_E4_HOLY_AMP * 100 %>"
+        }
 	}
 
 	"bahamut_rune_r_1"
@@ -379,19 +291,11 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% BAHAMUT_R1_ATTACKSPEED %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% BAHAMUT_R1_MOVESPEED %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% BAHAMUT_R1_ATTACKSPEED %>"
+            "property_two" "<% BAHAMUT_R1_MOVESPEED %>"
+        }
 	}
 
 	"bahamut_rune_r_2"
@@ -406,34 +310,14 @@
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% BAHAMUT_R2_DAMAGE_PCT %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"<% BAHAMUT_R2_BASE_DAMAGE_PCT %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"4"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"7"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% BAHAMUT_R2_SPELL_PIERCE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% BAHAMUT_R2_DAMAGE_PCT %>"
+            "property_one_base" "<% BAHAMUT_R2_BASE_DAMAGE_PCT %>"
+            "base_ability" "4"
+            "element_one" "7"
+            "property_two" "<% BAHAMUT_R2_SPELL_PIERCE %>"
+        }
 	}
 
 	"bahamut_rune_r_3"
@@ -447,19 +331,11 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% BAHAMUT_R3_MS_SLOW %>"
-			}
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% BAHAMUT_R3_AS_SLOW %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% BAHAMUT_R3_MS_SLOW %>"
+            "property_two" "<% BAHAMUT_R3_AS_SLOW %>"
+        }
 	}
 
 	"bahamut_rune_r_4"
@@ -473,19 +349,11 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% BAHAMUT_R4_STATS_PER_TICK %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% BAHAMUT_R4_R_BONUS_DAMAGE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% BAHAMUT_R4_STATS_PER_TICK %>"
+            "property_two" "<% BAHAMUT_R4_R_BONUS_DAMAGE %>"
+        }
 		"Modifiers"
 		{
 			"modifier_bahamut_rune_r_4_shell"

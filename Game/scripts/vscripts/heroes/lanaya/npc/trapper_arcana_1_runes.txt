@@ -9,14 +9,10 @@
 		"AbilityTextureName"			"trapper/trapper_rune_w_1_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% TRAPPER_ARCANA_W_W1_MAGIC_ARMOR_PER_STACK %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% TRAPPER_ARCANA_W_W1_MAGIC_ARMOR_PER_STACK %>"
+        }
 	}
 
 	"trapper_rune_w_2_arcana1"
@@ -29,14 +25,10 @@
 		"AbilityTextureName"			"trapper/trapper_rune_w_2_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% TRAPPER_ARCANA_W_W2_NORMAL_PCT * 100 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% TRAPPER_ARCANA_W_W2_NORMAL_PCT * 100 %>"
+        }
 	}
 
 	"trapper_rune_w_3_arcana1"
@@ -49,24 +41,12 @@
 		"AbilityTextureName"			"trapper/trapper_rune_w_3_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% TRAPPER_ARCANA_W_W3_AGI_DAMAGE %>"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"base_ability"				"2"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"1"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% TRAPPER_ARCANA_W_W3_AGI_DAMAGE %>"
+            "base_ability" "2"
+            "element_one" "1"
+        }
 	}
 
 	"trapper_rune_w_4_arcana1"
@@ -79,13 +59,9 @@
 		"AbilityTextureName"			"trapper/trapper_rune_w_4_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% TRAPPER_ARCANA_W_W4_ELEMENTAL_AMP * 100 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% TRAPPER_ARCANA_W_W4_ELEMENTAL_AMP * 100 %>"
+        }
 	}
 

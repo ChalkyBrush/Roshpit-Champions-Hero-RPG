@@ -28,14 +28,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SEPHYR_GLYPH_1_1_ADDITIONAL_E1_PUCK %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SEPHYR_GLYPH_1_1_ADDITIONAL_E1_PUCK %>"
+        }
 	}
 
 	"item_rpc_sephyr_glyph_2_1"
@@ -71,14 +67,10 @@
 				}
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SEPHYR_GLYPH_2_1_EVASION_PCT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SEPHYR_GLYPH_2_1_EVASION_PCT %>"
+        }
 	}
 
 	"item_rpc_sephyr_glyph_3_1"
@@ -110,14 +102,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SEPHYR_GLYPH_3_1_R_BONUS_RADIUS %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SEPHYR_GLYPH_3_1_R_BONUS_RADIUS %>"
+        }
 	}
 
 	"item_rpc_sephyr_glyph_4_1"
@@ -149,14 +137,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SEPHYR_GLYPH_4_1_W_BONUS_RANGE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SEPHYR_GLYPH_4_1_W_BONUS_RANGE %>"
+        }
 	}
 
 	"item_rpc_sephyr_glyph_5_1"
@@ -188,14 +172,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SEPHYR_GLYPH_5_1_Q_FREEZE_DUR %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SEPHYR_GLYPH_5_1_Q_FREEZE_DUR %>"
+        }
 	}
 
 	"item_rpc_sephyr_glyph_6_1"
@@ -227,14 +207,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SEPHYR_GLYPH_6_1_DAMAGE_NEGATION_CHANCE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SEPHYR_GLYPH_6_1_DAMAGE_NEGATION_CHANCE %>"
+        }
 	}
 
 	"item_rpc_sephyr_glyph_7_1"
@@ -304,14 +280,10 @@
 				}
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SEPHYR_GLYPH_7_1_Z_DISTANCE_FOR_IMMUNITY %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SEPHYR_GLYPH_7_1_Z_DISTANCE_FOR_IMMUNITY %>"
+        }
 	}
 
 	"item_rpc_sephyr_glyph_5_a"
@@ -343,13 +315,9 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SEPHYR_GLYPH_5_A_R_DMG_REDUCTION_PCT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SEPHYR_GLYPH_5_A_R_DMG_REDUCTION_PCT %>"
+        }
 	}
 

@@ -403,19 +403,11 @@
 				"Function"		"equip_item"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"100"
-			}
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_two"			"15"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "100"
+            "property_two" "15"
+        }
 		"Modifiers"
 		{
 			"modifier_sephyr_immortal_weapon_1"
@@ -465,14 +457,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"3"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "3"
+        }
 	}
 
 	"item_rpc_sephyr_immortal_weapon_3"
@@ -512,14 +500,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"7"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "7"
+        }
 	}
 	
 	"item_rpc_sephyr_immortal_weapon_4"

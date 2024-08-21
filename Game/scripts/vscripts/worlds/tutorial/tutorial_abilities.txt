@@ -4,14 +4,10 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"tusk_snowball"
 		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"armor"			"4 100 1500"
-			}
-		}
+		"AbilityValues"
+        {
+            "armor" "4 100 1500"
+        }
 		"Modifiers"
 		{
 			"modifier_tutorial_passive"

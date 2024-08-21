@@ -14,19 +14,11 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"duration"					"4.2 4.5 4.8 5.1 5.4 5.7 6.0"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"movespeed_bonus"			"120 140 160 180 200 220 240"
-			}
-		}
+		"AbilityValues"
+        {
+            "duration" "4.2 4.5 4.8 5.1 5.4 5.7 6.0"
+            "movespeed_bonus" "120 140 160 180 200 220 240"
+        }
 		"precache"
 		{
 			"particle"  "particles/roshpit/chernobog/boot_arcana_attack.vpcf"
@@ -46,19 +38,11 @@
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"5.0 5.3 5.6 5.9 6.2 6.5 6.8"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"movespeed_bonus"			"30 50 70 90 110 130 150"
-			}
-		}
+		"AbilityValues"
+        {
+            "duration" "5.0 5.3 5.6 5.9 6.2 6.5 6.8"
+            "movespeed_bonus" "30 50 70 90 110 130 150"
+        }
 	}
 
 	"chernobog_demon_warp"

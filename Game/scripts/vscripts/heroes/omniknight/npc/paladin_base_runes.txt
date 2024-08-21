@@ -6,14 +6,10 @@
 		"AbilityTextureName"	"sven_storm_bolt"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% PALADIN_Q1_ADD_DMG_PER_ATT * 100 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% PALADIN_Q1_ADD_DMG_PER_ATT * 100 %>"
+        }
 	}
 	
 	"paladin_rune_q_2"
@@ -25,24 +21,12 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% PALADIN_Q2_DMG_PER_ATT * 100 %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"base_ability"			"1"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"<% RPC_ELEMENT_HOLY %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% PALADIN_Q2_DMG_PER_ATT * 100 %>"
+            "base_ability" "1"
+            "element_one" "<% RPC_ELEMENT_HOLY %>"
+        }
 	}
 
 
@@ -56,29 +40,13 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% PALADIN_Q3_DUR %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one_base"		"<% PALADIN_Q3_BASE_DUR %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% PALADIN_Q3_DMG_PER_STR %>"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"<% RPC_ELEMENT_HOLY %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% PALADIN_Q3_DUR %>"
+            "property_one_base" "<% PALADIN_Q3_BASE_DUR %>"
+            "property_two" "<% PALADIN_Q3_DMG_PER_STR %>"
+            "element_one" "<% RPC_ELEMENT_HOLY %>"
+        }
 		"Modifiers"
 		{
 			"modifier_paladin_rune_q_3"
@@ -153,19 +121,11 @@
 		"AbilityTextureName"	"rpc/paladin_q_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% PALADIN_Q4_MAX_SHIELD_PER_MAX_HP * 100 %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% PALADIN_Q4_HOLY_AMP * 100%>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% PALADIN_Q4_MAX_SHIELD_PER_MAX_HP * 100 %>"
+            "property_two" "<% PALADIN_Q4_HOLY_AMP * 100%>"
+        }
 	}
 
 	"paladin_rune_w_1"
@@ -177,44 +137,16 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% PALADIN_W1_DMG_PER_LEVEL %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"<% PALADIN_W1_BASE_DMG %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% PALADIN_W1_DURATION_PER_LEVEL %>"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two_base"		"<% PALADIN_W1_BASE_DURATION %>"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"base_ability"		"2"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"		"<% RPC_ELEMENT_HOLY %>"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_two"		"<% RPC_ELEMENT_FIRE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% PALADIN_W1_DMG_PER_LEVEL %>"
+            "property_one_base" "<% PALADIN_W1_BASE_DMG %>"
+            "property_two" "<% PALADIN_W1_DURATION_PER_LEVEL %>"
+            "property_two_base" "<% PALADIN_W1_BASE_DURATION %>"
+            "base_ability" "2"
+            "element_one" "<% RPC_ELEMENT_HOLY %>"
+            "element_two" "<% RPC_ELEMENT_FIRE %>"
+        }
 	}
 	
 	"paladin_rune_w_2"
@@ -225,14 +157,10 @@
 		"AbilityTextureName"	"omniknight_purification"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% PALADIN_W2_HEAL_PER_DMG * 100 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% PALADIN_W2_HEAL_PER_DMG * 100 %>"
+        }
 	}
 	
 	"paladin_rune_w_3"
@@ -244,29 +172,13 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% PALADIN_W3_DMG_PER_INT %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% PALADIN_W3_HEAL_PER_INT %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"base_ability"			"2"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"<% RPC_ELEMENT_HOLY %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% PALADIN_W3_DMG_PER_INT %>"
+            "property_two" "<% PALADIN_W3_HEAL_PER_INT %>"
+            "base_ability" "2"
+            "element_one" "<% RPC_ELEMENT_HOLY %>"
+        }
 	}
 	
 	"paladin_rune_w_4"
@@ -277,19 +189,11 @@
 		"AbilityTextureName"	"rpc/paladin_w_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% PALADIN_W4_MAX_STACKS %>"
-			}
-			"02"
-			{
-			    "var_type"              "FIELD_INTEGER"
-			    "property_one_base"     "<% PALADIN_W4_BASE_MAX_STACKS %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% PALADIN_W4_MAX_STACKS %>"
+            "property_one_base" "<% PALADIN_W4_BASE_MAX_STACKS %>"
+        }
 	}
 	
 	"paladin_rune_e_1"
@@ -300,14 +204,10 @@
 		"AbilityTextureName"	"skeleton_king_reincarnation"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% PALADIN_E1_INVUL_TIME %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% PALADIN_E1_INVUL_TIME %>"
+        }
 	}
 	
 	"paladin_rune_e_2"
@@ -319,34 +219,14 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% PALADIN_E2_DMG_PER_ATT * 100 %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% PALADIN_E2_DMG %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two_base"		"<% PALADIN_E2_BASE_DMG %>"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"<% RPC_ELEMENT_HOLY %>"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"base_ability"			"3"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% PALADIN_E2_DMG_PER_ATT * 100 %>"
+            "property_two" "<% PALADIN_E2_DMG %>"
+            "property_two_base" "<% PALADIN_E2_BASE_DMG %>"
+            "element_one" "<% RPC_ELEMENT_HOLY %>"
+            "base_ability" "3"
+        }
 	}
 	
 	"paladin_rune_e_3"
@@ -358,29 +238,13 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% PALADIN_E3_DMG_PER_ATT * 100 %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"<% PALADIN_E3_BASE_DMG_PER_ATT * 100 %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"3"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"<% RPC_ELEMENT_HOLY %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% PALADIN_E3_DMG_PER_ATT * 100 %>"
+            "property_one_base" "<% PALADIN_E3_BASE_DMG_PER_ATT * 100 %>"
+            "base_ability" "3"
+            "element_one" "<% RPC_ELEMENT_HOLY %>"
+        }
 	}
 	
 	"paladin_rune_e_4"
@@ -391,19 +255,11 @@
 		"AbilityTextureName"	"rpc/paladin_e_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% PALADIN_E4_MAGIC_ARMOR %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% PALADIN_E4_ARMOR_PIERCE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% PALADIN_E4_MAGIC_ARMOR %>"
+            "property_two" "<% PALADIN_E4_ARMOR_PIERCE %>"
+        }
 	}
 
 	"paladin_rune_r_1"
@@ -414,14 +270,10 @@
 		"AbilityTextureName"	"rpc/paladin_r_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% PALADIN_R1_ARMOR %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% PALADIN_R1_ARMOR %>"
+        }
 	}
 
 	"paladin_rune_r_2"
@@ -432,19 +284,11 @@
 		"AbilityTextureName"	"rpc/paladin_r_2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% PALADIN_R2_ATT_PCT_PER_STACK %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% PALADIN_R2_ARMOR_PER_STACK %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% PALADIN_R2_ATT_PCT_PER_STACK %>"
+            "property_two" "<% PALADIN_R2_ARMOR_PER_STACK %>"
+        }
 	}
 	
 	"paladin_rune_r_3"
@@ -456,24 +300,12 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% PALADIN_R3_DMG_PER_ATT * 100 %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"4"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"<% RPC_ELEMENT_HOLY %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% PALADIN_R3_DMG_PER_ATT * 100 %>"
+            "base_ability" "4"
+            "element_one" "<% RPC_ELEMENT_HOLY %>"
+        }
 	}
 	
 	"paladin_rune_r_4"
@@ -484,19 +316,11 @@
 		"AbilityTextureName"	"rpc/paladin_r_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% PALADIN_R4_DUR %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one_base"			"<% PALADIN_R4_BASE_DUR %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% PALADIN_R4_DUR %>"
+            "property_one_base" "<% PALADIN_R4_BASE_DUR %>"
+        }
 		"Modifiers"
 		{
 			"modifier_paladin_rune_r_4_effect"

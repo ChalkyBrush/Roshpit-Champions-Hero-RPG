@@ -33,34 +33,14 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"damage"					"<% SEPHYR_ARCANA_W_DAMAGE %>"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"as_loss"					"-20 -30 -40 -50 -60 -70 -80"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"ms_loss"					"-40 -60 -80 -100 -120 -140 -160"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"crit_mult"					"<% SEPHYR_ARCANA_W_CRIT_MULT %>"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"crit_chance"					"<% SEPHYR_ARCANA_GALE_CRIT_CHANCE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "<% SEPHYR_ARCANA_W_DAMAGE %>"
+            "as_loss" "-20 -30 -40 -50 -60 -70 -80"
+            "ms_loss" "-40 -60 -80 -100 -120 -140 -160"
+            "crit_mult" "<% SEPHYR_ARCANA_W_CRIT_MULT %>"
+            "crit_chance" "<% SEPHYR_ARCANA_GALE_CRIT_CHANCE %>"
+        }
 
 		"OnSpellStart"
 		{

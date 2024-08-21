@@ -25,44 +25,16 @@
 			"particle"		"particles/roshpit/winterblight/colorable_pop.vpcf"
 			"particle"		"particles/units/heroes/hero_arc_warden/arc_warden_tempest_cast.vpcf"
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"element_one"				"<% RPC_ELEMENT_UNDEAD %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"element_two"				"<% RPC_ELEMENT_ICE %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_DISSIMILATION_GREAVES_GEM_RUBY %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_DISSIMILATION_GREAVES_GEM_EMERALD %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_DISSIMILATION_GREAVES_GEM_SAPPHIRE %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_DISSIMILATION_GREAVES_GEM_AMETHYST1 %>"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst2"			"<% ITEM_RPC_DISSIMILATION_GREAVES_GEM_AMETHYST2 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "element_one" "<% RPC_ELEMENT_UNDEAD %>"
+            "element_two" "<% RPC_ELEMENT_ICE %>"
+            "ruby1" "<% ITEM_RPC_DISSIMILATION_GREAVES_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_DISSIMILATION_GREAVES_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_DISSIMILATION_GREAVES_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_DISSIMILATION_GREAVES_GEM_AMETHYST1 %>"
+            "amethyst2" "<% ITEM_RPC_DISSIMILATION_GREAVES_GEM_AMETHYST2 %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -97,44 +69,16 @@
 		{
 
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_GRAVEWALKERS_GEM_RUBY1 %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby2"				"<% ITEM_RPC_GRAVEWALKERS_GEM_RUBY2 %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby3"				"<% ITEM_RPC_GRAVEWALKERS_GEM_RUBY3 %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"<% ITEM_RPC_GRAVEWALKERS_GEM_EMERALD1 %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald2"				"<% ITEM_RPC_GRAVEWALKERS_GEM_EMERALD2 %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_GRAVEWALKERS_GEM_SAPPHIRE %>"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_GRAVEWALKERS_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_GRAVEWALKERS_GEM_RUBY1 %>"
+            "ruby2" "<% ITEM_RPC_GRAVEWALKERS_GEM_RUBY2 %>"
+            "ruby3" "<% ITEM_RPC_GRAVEWALKERS_GEM_RUBY3 %>"
+            "emerald1" "<% ITEM_RPC_GRAVEWALKERS_GEM_EMERALD1 %>"
+            "emerald2" "<% ITEM_RPC_GRAVEWALKERS_GEM_EMERALD2 %>"
+            "sapphire1" "<% ITEM_RPC_GRAVEWALKERS_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_GRAVEWALKERS_GEM_AMETHYST %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -171,49 +115,17 @@
 			"particle"	"particles/units/heroes/hero_vengeful/vengeful_nether_swap.vpcf"
 			"particle"	"particles/roshpit/winterblight/colorable_pop.vpcf"
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_BOOTS_OF_TEMPERANCE_GEM_RUBY1 %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby2"				"<% ITEM_RPC_BOOTS_OF_TEMPERANCE_GEM_RUBY2 %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby3"				"<% ITEM_RPC_BOOTS_OF_TEMPERANCE_GEM_RUBY3 %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"<% ITEM_RPC_BOOTS_OF_TEMPERANCE_GEM_EMERALD1 %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald2"				"<% ITEM_RPC_BOOTS_OF_TEMPERANCE_GEM_EMERALD2 %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_BOOTS_OF_TEMPERANCE_GEM_SAPPHIRE1 %>"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire2"			"<% ITEM_RPC_BOOTS_OF_TEMPERANCE_GEM_SAPPHIRE2 %>"
-			}
-			"08"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_BOOTS_OF_TEMPERANCE_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_BOOTS_OF_TEMPERANCE_GEM_RUBY1 %>"
+            "ruby2" "<% ITEM_RPC_BOOTS_OF_TEMPERANCE_GEM_RUBY2 %>"
+            "ruby3" "<% ITEM_RPC_BOOTS_OF_TEMPERANCE_GEM_RUBY3 %>"
+            "emerald1" "<% ITEM_RPC_BOOTS_OF_TEMPERANCE_GEM_EMERALD1 %>"
+            "emerald2" "<% ITEM_RPC_BOOTS_OF_TEMPERANCE_GEM_EMERALD2 %>"
+            "sapphire1" "<% ITEM_RPC_BOOTS_OF_TEMPERANCE_GEM_SAPPHIRE1 %>"
+            "sapphire2" "<% ITEM_RPC_BOOTS_OF_TEMPERANCE_GEM_SAPPHIRE2 %>"
+            "amethyst1" "<% ITEM_RPC_BOOTS_OF_TEMPERANCE_GEM_AMETHYST %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -248,34 +160,14 @@
 		{
 
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_HANGMAN_SLIPPERS_GEM_RUBY1 %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby2"				"<% ITEM_RPC_HANGMAN_SLIPPERS_GEM_RUBY2 %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_HANGMAN_SLIPPERS_GEM_EMERALD %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_HANGMAN_SLIPPERS_GEM_SAPPHIRE %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_HANGMAN_SLIPPERS_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_HANGMAN_SLIPPERS_GEM_RUBY1 %>"
+            "ruby2" "<% ITEM_RPC_HANGMAN_SLIPPERS_GEM_RUBY2 %>"
+            "emerald1" "<% ITEM_RPC_HANGMAN_SLIPPERS_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_HANGMAN_SLIPPERS_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_HANGMAN_SLIPPERS_GEM_AMETHYST %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -310,34 +202,14 @@
 		{
 			"particle"  "particles/units/heroes/hero_mars/mars_shield_of_mars.vpcf"
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_JUSTICE_GREAVES_GEM_RUBY1 %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby2"				"<% ITEM_RPC_JUSTICE_GREAVES_GEM_RUBY2 %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_JUSTICE_GREAVES_GEM_EMERALD %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_JUSTICE_GREAVES_GEM_SAPPHIRE %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_JUSTICE_GREAVES_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_JUSTICE_GREAVES_GEM_RUBY1 %>"
+            "ruby2" "<% ITEM_RPC_JUSTICE_GREAVES_GEM_RUBY2 %>"
+            "emerald1" "<% ITEM_RPC_JUSTICE_GREAVES_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_JUSTICE_GREAVES_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_JUSTICE_GREAVES_GEM_AMETHYST %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -413,29 +285,13 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_YASHA_BOOTS_GEM_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_YASHA_BOOTS_GEM_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_YASHA_BOOTS_GEM_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_YASHA_BOOTS_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_YASHA_BOOTS_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_YASHA_BOOTS_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_YASHA_BOOTS_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_YASHA_BOOTS_GEM_AMETHYST %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -530,34 +386,14 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_VOYAGER_BOOTS_GEM_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_VOYAGER_BOOTS_GEM_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_VOYAGER_BOOTS_GEM_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_VOYAGER_BOOTS_GEM_AMETHYST1 %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst2"			"<% ITEM_RPC_VOYAGER_BOOTS_GEM_AMETHYST2 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_VOYAGER_BOOTS_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_VOYAGER_BOOTS_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_VOYAGER_BOOTS_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_VOYAGER_BOOTS_GEM_AMETHYST1 %>"
+            "amethyst2" "<% ITEM_RPC_VOYAGER_BOOTS_GEM_AMETHYST2 %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -633,39 +469,15 @@
 			"particle"  "particles/units/heroes/hero_enchantress/enchantress_natures_attendants_lvl2.vpcf"
 			"particle"	"particles/items2_fx/tranquil_boots.vpcf"
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_TRANQUIL_BOOTS_GEM_RUBY1 %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby2"				"<% ITEM_RPC_TRANQUIL_BOOTS_GEM_RUBY2 %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_TRANQUIL_BOOTS_GEM_EMERALD %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_TRANQUIL_BOOTS_GEM_SAPPHIRE1 %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire2"			"<% ITEM_RPC_TRANQUIL_BOOTS_GEM_SAPPHIRE2 %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_TRANQUIL_BOOTS_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_TRANQUIL_BOOTS_GEM_RUBY1 %>"
+            "ruby2" "<% ITEM_RPC_TRANQUIL_BOOTS_GEM_RUBY2 %>"
+            "emerald1" "<% ITEM_RPC_TRANQUIL_BOOTS_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_TRANQUIL_BOOTS_GEM_SAPPHIRE1 %>"
+            "sapphire2" "<% ITEM_RPC_TRANQUIL_BOOTS_GEM_SAPPHIRE2 %>"
+            "amethyst1" "<% ITEM_RPC_TRANQUIL_BOOTS_GEM_AMETHYST %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -761,44 +573,16 @@
 			"model"		"models/items/invoker/forge_spirit/cadenza_spirit/cadenza_spirit.vmdl"
 			"particle"	"particles/units/heroes/hero_invoker_kid/invoker_kid_forged_spirit_projectile.vpcf"
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_TERRASIC_LAVA_BOOTS_GEM_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_TERRASIC_LAVA_BOOTS_GEM_EMERALD1 %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald2"			"<% ITEM_RPC_TERRASIC_LAVA_BOOTS_GEM_EMERALD2 %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_TERRASIC_LAVA_BOOTS_GEM_SAPPHIRE1 %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire2"			"<% ITEM_RPC_TERRASIC_LAVA_BOOTS_GEM_SAPPHIRE2 %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_TERRASIC_LAVA_BOOTS_GEM_AMETHYST %>"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"element_one"			"<% RPC_ELEMENT_FIRE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_TERRASIC_LAVA_BOOTS_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_TERRASIC_LAVA_BOOTS_GEM_EMERALD1 %>"
+            "emerald2" "<% ITEM_RPC_TERRASIC_LAVA_BOOTS_GEM_EMERALD2 %>"
+            "sapphire1" "<% ITEM_RPC_TERRASIC_LAVA_BOOTS_GEM_SAPPHIRE1 %>"
+            "sapphire2" "<% ITEM_RPC_TERRASIC_LAVA_BOOTS_GEM_SAPPHIRE2 %>"
+            "amethyst1" "<% ITEM_RPC_TERRASIC_LAVA_BOOTS_GEM_AMETHYST %>"
+            "element_one" "<% RPC_ELEMENT_FIRE %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -876,34 +660,14 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_TEMPORAL_WARP_BOOTS_GEM_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_TEMPORAL_WARP_BOOTS_GEM_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_TEMPORAL_WARP_BOOTS_GEM_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_TEMPORAL_WARP_BOOTS_GEM_AMETHYST1 %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst2"			"<% ITEM_RPC_TEMPORAL_WARP_BOOTS_GEM_AMETHYST2 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_TEMPORAL_WARP_BOOTS_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_TEMPORAL_WARP_BOOTS_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_TEMPORAL_WARP_BOOTS_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_TEMPORAL_WARP_BOOTS_GEM_AMETHYST1 %>"
+            "amethyst2" "<% ITEM_RPC_TEMPORAL_WARP_BOOTS_GEM_AMETHYST2 %>"
+        }
 		"precache"
 		{
 			"particle"  "particles/roshpit/items/temporal_warp.vpcf"
@@ -1003,49 +767,17 @@
 		{
 			"particle"  "particles/roshpit/items/swamp_waders_emerald.vpcf"
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"element_one"				"<% RPC_ELEMENT_POISON %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_SWAMP_WADERS_GEM_RUBY1 %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby2"				"<% ITEM_RPC_SWAMP_WADERS_GEM_RUBY2 %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_SWAMP_WADERS_GEM_EMERALD1 %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald2"			"<% ITEM_RPC_SWAMP_WADERS_GEM_EMERALD2 %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_SWAMP_WADERS_GEM_SAPPHIRE %>"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_SWAMP_WADERS_GEM_AMETHYST1 %>"
-			}
-			"08"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst2"			"<% ITEM_RPC_SWAMP_WADERS_GEM_AMETHYST2 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "element_one" "<% RPC_ELEMENT_POISON %>"
+            "ruby1" "<% ITEM_RPC_SWAMP_WADERS_GEM_RUBY1 %>"
+            "ruby2" "<% ITEM_RPC_SWAMP_WADERS_GEM_RUBY2 %>"
+            "emerald1" "<% ITEM_RPC_SWAMP_WADERS_GEM_EMERALD1 %>"
+            "emerald2" "<% ITEM_RPC_SWAMP_WADERS_GEM_EMERALD2 %>"
+            "sapphire1" "<% ITEM_RPC_SWAMP_WADERS_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_SWAMP_WADERS_GEM_AMETHYST1 %>"
+            "amethyst2" "<% ITEM_RPC_SWAMP_WADERS_GEM_AMETHYST2 %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -1077,34 +809,14 @@
         "ItemBaseLevel"	"1"
         "Model" 		"models/props_gameplay/treasure_chest001.vmdl"
         "AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_STORM_PACER_SABATONS_GEM_RUBY1 %>"
-			}
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby2"				"<% ITEM_RPC_STORM_PACER_SABATONS_GEM_RUBY2 %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_STORM_PACER_SABATONS_GEM_EMERALD %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_STORM_PACER_SABATONS_GEM_SAPPHIRE %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_STORM_PACER_SABATONS_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_STORM_PACER_SABATONS_GEM_RUBY1 %>"
+            "ruby2" "<% ITEM_RPC_STORM_PACER_SABATONS_GEM_RUBY2 %>"
+            "emerald1" "<% ITEM_RPC_STORM_PACER_SABATONS_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_STORM_PACER_SABATONS_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_STORM_PACER_SABATONS_GEM_AMETHYST %>"
+        }
 
         "precache"
         {
@@ -1131,34 +843,14 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_STEAMBOOTS_GEM_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_STEAMBOOTS_GEM_EMERALD1 %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald2"			"<% ITEM_RPC_STEAMBOOTS_GEM_EMERALD2 %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_STEAMBOOTS_GEM_SAPPHIRE %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_STEAMBOOTS_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_STEAMBOOTS_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_STEAMBOOTS_GEM_EMERALD1 %>"
+            "emerald2" "<% ITEM_RPC_STEAMBOOTS_GEM_EMERALD2 %>"
+            "sapphire1" "<% ITEM_RPC_STEAMBOOTS_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_STEAMBOOTS_GEM_AMETHYST %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -1197,34 +889,14 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"850"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_SONIC_BOOTS_GEM_RUBY %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_SONIC_BOOTS_GEM_EMERALD %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_SONIC_BOOTS_GEM_SAPPHIRE %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_SONIC_BOOTS_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "850"
+            "ruby1" "<% ITEM_RPC_SONIC_BOOTS_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_SONIC_BOOTS_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_SONIC_BOOTS_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_SONIC_BOOTS_GEM_AMETHYST %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -1330,49 +1002,17 @@
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"element_One"				"<% RPC_ELEMENT_NORMAL %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_SLINGER_BOOTS_GEM_RUBY %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_SLINGER_BOOTS_GEM_EMERALD1 %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald2"			"<% ITEM_RPC_SLINGER_BOOTS_GEM_EMERALD2 %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_SLINGER_BOOTS_GEM_SAPPHIRE1 %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire2"			"<% ITEM_RPC_SLINGER_BOOTS_GEM_SAPPHIRE2 %>"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_SLINGER_BOOTS_GEM_AMETHYST1 %>"
-			}
-			"08"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst2"			"<% ITEM_RPC_SLINGER_BOOTS_GEM_AMETHYST2 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "element_One" "<% RPC_ELEMENT_NORMAL %>"
+            "ruby1" "<% ITEM_RPC_SLINGER_BOOTS_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_SLINGER_BOOTS_GEM_EMERALD1 %>"
+            "emerald2" "<% ITEM_RPC_SLINGER_BOOTS_GEM_EMERALD2 %>"
+            "sapphire1" "<% ITEM_RPC_SLINGER_BOOTS_GEM_SAPPHIRE1 %>"
+            "sapphire2" "<% ITEM_RPC_SLINGER_BOOTS_GEM_SAPPHIRE2 %>"
+            "amethyst1" "<% ITEM_RPC_SLINGER_BOOTS_GEM_AMETHYST1 %>"
+            "amethyst2" "<% ITEM_RPC_SLINGER_BOOTS_GEM_AMETHYST2 %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -1460,29 +1100,13 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_SANGE_BOOTS_GEM_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_SANGE_BOOTS_GEM_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_SANGE_BOOTS_GEM_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_SANGE_BOOTS_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_SANGE_BOOTS_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_SANGE_BOOTS_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_SANGE_BOOTS_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_SANGE_BOOTS_GEM_AMETHYST %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -1549,54 +1173,18 @@
 		"ItemBaseLevel"	"1"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"element_one"				"<% RPC_ELEMENT_EARTH %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_SANDSTREAM_SLIPPERS_GEM_RUBY1 %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby2"				"<% ITEM_RPC_SANDSTREAM_SLIPPERS_GEM_RUBY2 %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_SANDSTREAM_SLIPPERS_GEM_EMERALD1 %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald2"			"<% ITEM_RPC_SANDSTREAM_SLIPPERS_GEM_EMERALD2 %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_SANDSTREAM_SLIPPERS_GEM_SAPPHIRE %>"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_SANDSTREAM_SLIPPERS_GEM_AMETHYST1 %>"
-			}
-			"08"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst2"			"<% ITEM_RPC_SANDSTREAM_SLIPPERS_GEM_AMETHYST2 %>"
-			}
-			"09"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst3"			"<% ITEM_RPC_SANDSTREAM_SLIPPERS_GEM_AMETHYST3 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "element_one" "<% RPC_ELEMENT_EARTH %>"
+            "ruby1" "<% ITEM_RPC_SANDSTREAM_SLIPPERS_GEM_RUBY1 %>"
+            "ruby2" "<% ITEM_RPC_SANDSTREAM_SLIPPERS_GEM_RUBY2 %>"
+            "emerald1" "<% ITEM_RPC_SANDSTREAM_SLIPPERS_GEM_EMERALD1 %>"
+            "emerald2" "<% ITEM_RPC_SANDSTREAM_SLIPPERS_GEM_EMERALD2 %>"
+            "sapphire1" "<% ITEM_RPC_SANDSTREAM_SLIPPERS_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_SANDSTREAM_SLIPPERS_GEM_AMETHYST1 %>"
+            "amethyst2" "<% ITEM_RPC_SANDSTREAM_SLIPPERS_GEM_AMETHYST2 %>"
+            "amethyst3" "<% ITEM_RPC_SANDSTREAM_SLIPPERS_GEM_AMETHYST3 %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -1739,29 +1327,13 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_ROOTED_FEET_GEM_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_ROOTED_FEET_GEM_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_ROOTED_FEET_GEM_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_ROOTED_FEET_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_ROOTED_FEET_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_ROOTED_FEET_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_ROOTED_FEET_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_ROOTED_FEET_GEM_AMETHYST %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -1847,29 +1419,13 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_RESPLENDENT_RUBBER_BOOTS_GEM_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_RESPLENDENT_RUBBER_BOOTS_GEM_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_RESPLENDENT_RUBBER_BOOTS_GEM_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_RESPLENDENT_RUBBER_BOOTS_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_RESPLENDENT_RUBBER_BOOTS_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_RESPLENDENT_RUBBER_BOOTS_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_RESPLENDENT_RUBBER_BOOTS_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_RESPLENDENT_RUBBER_BOOTS_GEM_AMETHYST %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -1909,29 +1465,13 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_REDROCK_FOOTWEAR_GEM_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_REDROCK_FOOTWEAR_GEM_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_REDROCK_FOOTWEAR_GEM_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_REDROCK_FOOTWEAR_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_REDROCK_FOOTWEAR_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_REDROCK_FOOTWEAR_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_REDROCK_FOOTWEAR_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_REDROCK_FOOTWEAR_GEM_AMETHYST %>"
+        }
 		"precache"
 		{
 			"particle"		"particles/units/heroes/hero_faceless_void/redrock_timedialate.vpcf"
@@ -2040,54 +1580,18 @@
 			"particle"  "particles/roshpit/items/eternal_forest_striders.vpcf"
 			"particle"	"particles/roshpit/items/eternal_striders_root.vpcf"
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_one"		"<% RPC_ELEMENT_NATURE %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_two"		"<% RPC_ELEMENT_TIME %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_RED_OCTOBER_BOOTS_GEM_RUBY1 %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby2"				"<% ITEM_RPC_RED_OCTOBER_BOOTS_GEM_RUBY2 %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_RED_OCTOBER_BOOTS_GEM_EMERALD %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_RED_OCTOBER_BOOTS_GEM_SAPPHIRE1 %>"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire2"			"<% ITEM_RPC_RED_OCTOBER_BOOTS_GEM_SAPPHIRE2 %>"
-			}
-			"08"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_RED_OCTOBER_BOOTS_GEM_AMETHYST1 %>"
-			}
-			"09"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst2"			"<% ITEM_RPC_RED_OCTOBER_BOOTS_GEM_AMETHYST2 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "element_one" "<% RPC_ELEMENT_NATURE %>"
+            "element_two" "<% RPC_ELEMENT_TIME %>"
+            "ruby1" "<% ITEM_RPC_RED_OCTOBER_BOOTS_GEM_RUBY1 %>"
+            "ruby2" "<% ITEM_RPC_RED_OCTOBER_BOOTS_GEM_RUBY2 %>"
+            "emerald1" "<% ITEM_RPC_RED_OCTOBER_BOOTS_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_RED_OCTOBER_BOOTS_GEM_SAPPHIRE1 %>"
+            "sapphire2" "<% ITEM_RPC_RED_OCTOBER_BOOTS_GEM_SAPPHIRE2 %>"
+            "amethyst1" "<% ITEM_RPC_RED_OCTOBER_BOOTS_GEM_AMETHYST1 %>"
+            "amethyst2" "<% ITEM_RPC_RED_OCTOBER_BOOTS_GEM_AMETHYST2 %>"
+        }
 		"precache"
 		{
 			"particle"	"particles/econ/items/antimage/antimage_weapon_basher_ti5_gold/am_basher_lightning.vpcf"
@@ -2143,29 +1647,13 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_REDFALL_RUNNERS_GEM_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_REDFALL_RUNNERS_GEM_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_REDFALL_RUNNERS_GEM_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_REDFALL_RUNNERS_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_REDFALL_RUNNERS_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_REDFALL_RUNNERS_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_REDFALL_RUNNERS_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_REDFALL_RUNNERS_GEM_AMETHYST %>"
+        }
 		"precache"
 		{
 			"particle"  "particles/roshpit/redfall/status_effect_experimental_fire.vpcf"
@@ -2191,34 +1679,14 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_PIVOTAL_SWIFTBOOTS_GEM_RUBY1 %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby2"				"<% ITEM_RPC_PIVOTAL_SWIFTBOOTS_GEM_RUBY2 %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_PIVOTAL_SWIFTBOOTS_GEM_EMERALD %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_PIVOTAL_SWIFTBOOTS_GEM_SAPPHIRE %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_PIVOTAL_SWIFTBOOTS_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_PIVOTAL_SWIFTBOOTS_GEM_RUBY1 %>"
+            "ruby2" "<% ITEM_RPC_PIVOTAL_SWIFTBOOTS_GEM_RUBY2 %>"
+            "emerald1" "<% ITEM_RPC_PIVOTAL_SWIFTBOOTS_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_PIVOTAL_SWIFTBOOTS_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_PIVOTAL_SWIFTBOOTS_GEM_AMETHYST %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -2292,34 +1760,14 @@
 		{
 			"particle"  "particles/roshpit/items/pegasus_boots_wing_dash.vpcf"
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_PEGASUS_BOOTS_GEM_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_PEGASUS_BOOTS_GEM_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_PEGASUS_BOOTS_GEM_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_PEGASUS_BOOTS_GEM_AMETHYST1 %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst2"			"<% ITEM_RPC_PEGASUS_BOOTS_GEM_AMETHYST2 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_PEGASUS_BOOTS_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_PEGASUS_BOOTS_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_PEGASUS_BOOTS_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_PEGASUS_BOOTS_GEM_AMETHYST1 %>"
+            "amethyst2" "<% ITEM_RPC_PEGASUS_BOOTS_GEM_AMETHYST2 %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -2445,29 +1893,13 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_PATHFINDERS_RESONANT_BOOTS_GEM_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_PATHFINDERS_RESONANT_BOOTS_GEM_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_PATHFINDERS_RESONANT_BOOTS_GEM_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_PATHFINDERS_RESONANT_BOOTS_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_PATHFINDERS_RESONANT_BOOTS_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_PATHFINDERS_RESONANT_BOOTS_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_PATHFINDERS_RESONANT_BOOTS_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_PATHFINDERS_RESONANT_BOOTS_GEM_AMETHYST %>"
+        }
 		"precache"
 		{
 			"particle"	"particles/frostivus_gameplay/wraith_king_heal.vpcf"
@@ -2592,54 +2024,18 @@
 		{
 			"particle"  "particles/roshpit/items/ocean_runner_squall.vpcf"
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_OCEANRUNNER_BOOTS_GEM_RUBY1 %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby2"				"<% ITEM_RPC_OCEANRUNNER_BOOTS_GEM_RUBY2 %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby3"				"<% ITEM_RPC_OCEANRUNNER_BOOTS_GEM_RUBY3 %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_OCEANRUNNER_BOOTS_GEM_EMERALD1 %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald2"			"<% ITEM_RPC_OCEANRUNNER_BOOTS_GEM_EMERALD2 %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_OCEANRUNNER_BOOTS_GEM_SAPPHIRE %>"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_OCEANRUNNER_BOOTS_GEM_AMETHYST %>"
-			}
-			"08"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"element_one"			"<% RPC_ELEMENT_WIND %>"
-			}
-			"09"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"element_two"			"<% RPC_ELEMENT_WATER %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_OCEANRUNNER_BOOTS_GEM_RUBY1 %>"
+            "ruby2" "<% ITEM_RPC_OCEANRUNNER_BOOTS_GEM_RUBY2 %>"
+            "ruby3" "<% ITEM_RPC_OCEANRUNNER_BOOTS_GEM_RUBY3 %>"
+            "emerald1" "<% ITEM_RPC_OCEANRUNNER_BOOTS_GEM_EMERALD1 %>"
+            "emerald2" "<% ITEM_RPC_OCEANRUNNER_BOOTS_GEM_EMERALD2 %>"
+            "sapphire1" "<% ITEM_RPC_OCEANRUNNER_BOOTS_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_OCEANRUNNER_BOOTS_GEM_AMETHYST %>"
+            "element_one" "<% RPC_ELEMENT_WIND %>"
+            "element_two" "<% RPC_ELEMENT_WATER %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -2706,49 +2102,17 @@
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_NEPTUNES_WATER_GLIDERS_GEM_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_NEPTUNES_WATER_GLIDERS_GEM_EMERALD1 %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald2"			"<% ITEM_RPC_NEPTUNES_WATER_GLIDERS_GEM_EMERALD2 %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_NEPTUNES_WATER_GLIDERS_GEM_SAPPHIRE1 %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire2"			"<% ITEM_RPC_NEPTUNES_WATER_GLIDERS_GEM_SAPPHIRE2 %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire3"			"<% ITEM_RPC_NEPTUNES_WATER_GLIDERS_GEM_SAPPHIRE3 %>"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_NEPTUNES_WATER_GLIDERS_GEM_AMETHYST %>"
-			}
-			"08"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"element_one"				"<% RPC_ELEMENT_WATER %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_NEPTUNES_WATER_GLIDERS_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_NEPTUNES_WATER_GLIDERS_GEM_EMERALD1 %>"
+            "emerald2" "<% ITEM_RPC_NEPTUNES_WATER_GLIDERS_GEM_EMERALD2 %>"
+            "sapphire1" "<% ITEM_RPC_NEPTUNES_WATER_GLIDERS_GEM_SAPPHIRE1 %>"
+            "sapphire2" "<% ITEM_RPC_NEPTUNES_WATER_GLIDERS_GEM_SAPPHIRE2 %>"
+            "sapphire3" "<% ITEM_RPC_NEPTUNES_WATER_GLIDERS_GEM_SAPPHIRE3 %>"
+            "amethyst1" "<% ITEM_RPC_NEPTUNES_WATER_GLIDERS_GEM_AMETHYST %>"
+            "element_one" "<% RPC_ELEMENT_WATER %>"
+        }
 		"precache"
 		{
 			"particle"	"particles/roshpit/hydroxis/slipstream_puddle.vpcf"
@@ -2947,44 +2311,16 @@
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"element_one"				"<% RPC_ELEMENT_COSMOS %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_MOON_TECH_RUNNERS_GEM_RUBY1 %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby2"				"<% ITEM_RPC_MOON_TECH_RUNNERS_GEM_RUBY2 %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_MOON_TECH_RUNNERS_GEM_EMERALD %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_MOON_TECH_RUNNERS_GEM_SAPPHIRE1 %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire2"			"<% ITEM_RPC_MOON_TECH_RUNNERS_GEM_SAPPHIRE2 %>"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_MOON_TECH_RUNNERS_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "element_one" "<% RPC_ELEMENT_COSMOS %>"
+            "ruby1" "<% ITEM_RPC_MOON_TECH_RUNNERS_GEM_RUBY1 %>"
+            "ruby2" "<% ITEM_RPC_MOON_TECH_RUNNERS_GEM_RUBY2 %>"
+            "emerald1" "<% ITEM_RPC_MOON_TECH_RUNNERS_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_MOON_TECH_RUNNERS_GEM_SAPPHIRE1 %>"
+            "sapphire2" "<% ITEM_RPC_MOON_TECH_RUNNERS_GEM_SAPPHIRE2 %>"
+            "amethyst1" "<% ITEM_RPC_MOON_TECH_RUNNERS_GEM_AMETHYST %>"
+        }
 		"precache"
 		{
 			"particle"  "particles/units/heroes/hero_riki/moon_techs.vpcf"
@@ -3131,44 +2467,16 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_MANA_STRIDERS_GEM_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_MANA_STRIDERS_GEM_EMERALD1 %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald2"			"<% ITEM_RPC_MANA_STRIDERS_GEM_EMERALD2 %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_MANA_STRIDERS_GEM_SAPPHIRE1 %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire2"			"<% ITEM_RPC_MANA_STRIDERS_GEM_SAPPHIRE2 %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_MANA_STRIDERS_GEM_AMETHYST1 %>"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst2"			"<% ITEM_RPC_MANA_STRIDERS_GEM_AMETHYST2 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_MANA_STRIDERS_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_MANA_STRIDERS_GEM_EMERALD1 %>"
+            "emerald2" "<% ITEM_RPC_MANA_STRIDERS_GEM_EMERALD2 %>"
+            "sapphire1" "<% ITEM_RPC_MANA_STRIDERS_GEM_SAPPHIRE1 %>"
+            "sapphire2" "<% ITEM_RPC_MANA_STRIDERS_GEM_SAPPHIRE2 %>"
+            "amethyst1" "<% ITEM_RPC_MANA_STRIDERS_GEM_AMETHYST1 %>"
+            "amethyst2" "<% ITEM_RPC_MANA_STRIDERS_GEM_AMETHYST2 %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -3236,29 +2544,13 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_IRON_TREADS_OF_DESTRUCTION_GEM_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_IRON_TREADS_OF_DESTRUCTION_GEM_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_IRON_TREADS_OF_DESTRUCTION_GEM_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_IRON_TREADS_OF_DESTRUCTION_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_IRON_TREADS_OF_DESTRUCTION_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_IRON_TREADS_OF_DESTRUCTION_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_IRON_TREADS_OF_DESTRUCTION_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_IRON_TREADS_OF_DESTRUCTION_GEM_AMETHYST %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -3298,39 +2590,15 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_ICE_FLOE_SLIPPERS_GEM_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_ICE_FLOE_SLIPPERS_GEM_EMERALD1 %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald2"			"<% ITEM_RPC_ICE_FLOE_SLIPPERS_GEM_EMERALD2 %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_ICE_FLOE_SLIPPERS_GEM_SAPPHIRE1 %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire2"			"<% ITEM_RPC_ICE_FLOE_SLIPPERS_GEM_SAPPHIRE2 %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_ICE_FLOE_SLIPPERS_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_ICE_FLOE_SLIPPERS_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_ICE_FLOE_SLIPPERS_GEM_EMERALD1 %>"
+            "emerald2" "<% ITEM_RPC_ICE_FLOE_SLIPPERS_GEM_EMERALD2 %>"
+            "sapphire1" "<% ITEM_RPC_ICE_FLOE_SLIPPERS_GEM_SAPPHIRE1 %>"
+            "sapphire2" "<% ITEM_RPC_ICE_FLOE_SLIPPERS_GEM_SAPPHIRE2 %>"
+            "amethyst1" "<% ITEM_RPC_ICE_FLOE_SLIPPERS_GEM_AMETHYST %>"
+        }
 		"precache"
 		{
 			"particle"  "particles/roshpit/items/ice_flow_slippers_b.vpcf"
@@ -3409,29 +2677,13 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_HARVESTER_BOOTS_GEM_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_HARVESTER_BOOTS_GEM_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_HARVESTER_BOOTS_GEM_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_HARVESTER_BOOTS_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_HARVESTER_BOOTS_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_HARVESTER_BOOTS_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_HARVESTER_BOOTS_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_HARVESTER_BOOTS_GEM_AMETHYST %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -3467,29 +2719,13 @@
 			"particle"	"particles/items3_fx/warmage.vpcf"
 			"particle"	"particles/items3_fx/warmage_recipient.vpcf"
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_GUARDIAN_GREAVES_GEM_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_GUARDIAN_GREAVES_GEM_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_GUARDIAN_GREAVES_GEM_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_GUARDIAN_GREAVES_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_GUARDIAN_GREAVES_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_GUARDIAN_GREAVES_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_GUARDIAN_GREAVES_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_GUARDIAN_GREAVES_GEM_AMETHYST %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -3569,34 +2805,14 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_GRAVELFOOT_TREADS_GEM_RUBY1 %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby2"				"<% ITEM_RPC_GRAVELFOOT_TREADS_GEM_RUBY2 %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_GRAVELFOOT_TREADS_GEM_EMERALD %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_GRAVELFOOT_TREADS_GEM_SAPPHIRE %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_GRAVELFOOT_TREADS_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_GRAVELFOOT_TREADS_GEM_RUBY1 %>"
+            "ruby2" "<% ITEM_RPC_GRAVELFOOT_TREADS_GEM_RUBY2 %>"
+            "emerald1" "<% ITEM_RPC_GRAVELFOOT_TREADS_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_GRAVELFOOT_TREADS_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_GRAVELFOOT_TREADS_GEM_AMETHYST %>"
+        }
 		"precache"
 		{
 			"particle"  "particles/roshpit/winterblight/gravelfoot_dispel.vpcf"
@@ -3683,29 +2899,13 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_GIANT_HUNTERS_BOOTS_OF_RESILIENCE_GEM_RUBY %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_GIANT_HUNTERS_BOOTS_OF_RESILIENCE_GEM_EMERALD %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_GIANT_HUNTERS_BOOTS_OF_RESILIENCE_GEM_SAPPHIRE %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_GIANT_HUNTERS_BOOTS_OF_RESILIENCE_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_GIANT_HUNTERS_BOOTS_OF_RESILIENCE_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_GIANT_HUNTERS_BOOTS_OF_RESILIENCE_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_GIANT_HUNTERS_BOOTS_OF_RESILIENCE_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_GIANT_HUNTERS_BOOTS_OF_RESILIENCE_GEM_AMETHYST %>"
+        }
 		"precache"
 		{
 			"particle"	"particles/econ/items/effigies/status_fx_effigies/base_statue_destruction_gold_lvl2_a.vpcf"
@@ -3795,29 +2995,13 @@
 				"Function"		"equip_item"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ruby1"				"<% ITEM_RPC_GHOST_SLIPPERS_GEM_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"emerald1"			"<% ITEM_RPC_GHOST_SLIPPERS_GEM_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"sapphire1"				"<% ITEM_RPC_GHOST_SLIPPERS_GEM_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"amethyst1"				"<% ITEM_RPC_GHOST_SLIPPERS_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_GHOST_SLIPPERS_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_GHOST_SLIPPERS_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_GHOST_SLIPPERS_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_GHOST_SLIPPERS_GEM_AMETHYST %>"
+        }
 		"Modifiers"
 		{
 			"modifier_ghost_slippers"
@@ -3858,44 +3042,16 @@
 		{
 			"particle"  "particles/econ/courier/courier_roshan_lava/courier_roshan_lava.vpcf"
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_one"			"<% RPC_ELEMENT_FIRE %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_FIRE_WALKERS_GEM_RUBY1 %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby2"				"<% ITEM_RPC_FIRE_WALKERS_GEM_RUBY2 %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_FIRE_WALKERS_GEM_EMERALD1 %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald2"			"<% ITEM_RPC_FIRE_WALKERS_GEM_EMERALD2 %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_FIRE_WALKERS_GEM_SAPPHIRE %>"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_FIRE_WALKERS_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "element_one" "<% RPC_ELEMENT_FIRE %>"
+            "ruby1" "<% ITEM_RPC_FIRE_WALKERS_GEM_RUBY1 %>"
+            "ruby2" "<% ITEM_RPC_FIRE_WALKERS_GEM_RUBY2 %>"
+            "emerald1" "<% ITEM_RPC_FIRE_WALKERS_GEM_EMERALD1 %>"
+            "emerald2" "<% ITEM_RPC_FIRE_WALKERS_GEM_EMERALD2 %>"
+            "sapphire1" "<% ITEM_RPC_FIRE_WALKERS_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_FIRE_WALKERS_GEM_AMETHYST %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -4025,44 +3181,16 @@
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_FALCON_BOOTS_GEM_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_FALCON_BOOTS_GEM_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_FALCON_BOOTS_GEM_SAPPHIRE1 %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire2"			"<% ITEM_RPC_FALCON_BOOTS_GEM_SAPPHIRE2 %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_FALCON_BOOTS_GEM_AMETHYST1 %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst2"			"<% ITEM_RPC_FALCON_BOOTS_GEM_AMETHYST2 %>"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"element_one"			"<% RPC_ELEMENT_HOLY %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_FALCON_BOOTS_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_FALCON_BOOTS_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_FALCON_BOOTS_GEM_SAPPHIRE1 %>"
+            "sapphire2" "<% ITEM_RPC_FALCON_BOOTS_GEM_SAPPHIRE2 %>"
+            "amethyst1" "<% ITEM_RPC_FALCON_BOOTS_GEM_AMETHYST1 %>"
+            "amethyst2" "<% ITEM_RPC_FALCON_BOOTS_GEM_AMETHYST2 %>"
+            "element_one" "<% RPC_ELEMENT_HOLY %>"
+        }
 		"precache"
 		{
 			"particle"  "particles/units/heroes/hero_beastmaster/beastmaster_call_bird_glow_base.vpcf"
@@ -4198,44 +3326,16 @@
 			"particle"  "particles/econ/events/ti8/blink_dagger_ti8_end.vpcf"
 			"particle"	"particles/roshpit/items/emerald_speed_runners_haste.vpcf"
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"600"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_EMERALD_SPEED_RUNNERS_GEM_RUBY %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_EMERALD_SPEED_RUNNERS_GEM_EMERALD1 %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald2"			"<% ITEM_RPC_EMERALD_SPEED_RUNNERS_GEM_EMERALD2 %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_EMERALD_SPEED_RUNNERS_GEM_SAPPHIRE1 %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire2"			"<% ITEM_RPC_EMERALD_SPEED_RUNNERS_GEM_SAPPHIRE2 %>"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_EMERALD_SPEED_RUNNERS_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "600"
+            "ruby1" "<% ITEM_RPC_EMERALD_SPEED_RUNNERS_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_EMERALD_SPEED_RUNNERS_GEM_EMERALD1 %>"
+            "emerald2" "<% ITEM_RPC_EMERALD_SPEED_RUNNERS_GEM_EMERALD2 %>"
+            "sapphire1" "<% ITEM_RPC_EMERALD_SPEED_RUNNERS_GEM_SAPPHIRE1 %>"
+            "sapphire2" "<% ITEM_RPC_EMERALD_SPEED_RUNNERS_GEM_SAPPHIRE2 %>"
+            "amethyst1" "<% ITEM_RPC_EMERALD_SPEED_RUNNERS_GEM_AMETHYST %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -4296,29 +3396,13 @@
 		{
 			"particle"  "particles/econ/items/monkey_king/arcana/water/monkey_king_spring_cast_water_spiral.vpcf"
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_DUNETREADS_GEM_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_DUNETREADS_GEM_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_DUNETREADS_GEM_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_DUNETREADS_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_DUNETREADS_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_DUNETREADS_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_DUNETREADS_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_DUNETREADS_GEM_AMETHYST %>"
+        }
 	}
 
 	"item_rpc_crystalline_slippers"
@@ -4345,44 +3429,16 @@
 			"particle"  "particles/roshpit/items/crystalline_emerald_motion.vpcf"
 			"particle"	"particles/roshpit/items/crystalline_root_pnt.vpcf"
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_CRYSTALLINE_SLIPPERS_GEM_RUBY1 %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby2"				"<% ITEM_RPC_CRYSTALLINE_SLIPPERS_GEM_RUBY2 %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_CRYSTALLINE_SLIPPERS_GEM_EMERALD1 %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald2"			"<% ITEM_RPC_CRYSTALLINE_SLIPPERS_GEM_EMERALD2 %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_CRYSTALLINE_SLIPPERS_GEM_SAPPHIRE %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_CRYSTALLINE_SLIPPERS_GEM_AMETHYST1 %>"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst2"			"<% ITEM_RPC_CRYSTALLINE_SLIPPERS_GEM_AMETHYST2 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_CRYSTALLINE_SLIPPERS_GEM_RUBY1 %>"
+            "ruby2" "<% ITEM_RPC_CRYSTALLINE_SLIPPERS_GEM_RUBY2 %>"
+            "emerald1" "<% ITEM_RPC_CRYSTALLINE_SLIPPERS_GEM_EMERALD1 %>"
+            "emerald2" "<% ITEM_RPC_CRYSTALLINE_SLIPPERS_GEM_EMERALD2 %>"
+            "sapphire1" "<% ITEM_RPC_CRYSTALLINE_SLIPPERS_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_CRYSTALLINE_SLIPPERS_GEM_AMETHYST1 %>"
+            "amethyst2" "<% ITEM_RPC_CRYSTALLINE_SLIPPERS_GEM_AMETHYST2 %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -4476,44 +3532,16 @@
 		{
 			"particle"  "particles/items_fx/devotion_aura.vpcf"
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_CRUSADER_BOOTS_GEM_RUBY1 %>"
-			}
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby2"				"<% ITEM_RPC_CRUSADER_BOOTS_GEM_RUBY2 %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_CRUSADER_BOOTS_GEM_EMERALD %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_CRUSADER_BOOTS_GEM_SAPPHIRE1 %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire2"			"<% ITEM_RPC_CRUSADER_BOOTS_GEM_SAPPHIRE2 %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_CRUSADER_BOOTS_GEM_AMETHYST1 %>"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst2"			"<% ITEM_RPC_CRUSADER_BOOTS_GEM_AMETHYST2 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_CRUSADER_BOOTS_GEM_RUBY1 %>"
+            "ruby2" "<% ITEM_RPC_CRUSADER_BOOTS_GEM_RUBY2 %>"
+            "emerald1" "<% ITEM_RPC_CRUSADER_BOOTS_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_CRUSADER_BOOTS_GEM_SAPPHIRE1 %>"
+            "sapphire2" "<% ITEM_RPC_CRUSADER_BOOTS_GEM_SAPPHIRE2 %>"
+            "amethyst1" "<% ITEM_RPC_CRUSADER_BOOTS_GEM_AMETHYST1 %>"
+            "amethyst2" "<% ITEM_RPC_CRUSADER_BOOTS_GEM_AMETHYST2 %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -4604,34 +3632,14 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_CRIMSYTH_ELITE_GREAVES_LV1_GEM_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_CRIMSYTH_ELITE_GREAVES_LV1_GEM_EMERALD1 %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald2"			"<% ITEM_RPC_CRIMSYTH_ELITE_GREAVES_LV1_GEM_EMERALD2 %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_CRIMSYTH_ELITE_GREAVES_LV1_GEM_SAPPHIRE %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_CRIMSYTH_ELITE_GREAVES_LV1_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_CRIMSYTH_ELITE_GREAVES_LV1_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_CRIMSYTH_ELITE_GREAVES_LV1_GEM_EMERALD1 %>"
+            "emerald2" "<% ITEM_RPC_CRIMSYTH_ELITE_GREAVES_LV1_GEM_EMERALD2 %>"
+            "sapphire1" "<% ITEM_RPC_CRIMSYTH_ELITE_GREAVES_LV1_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_CRIMSYTH_ELITE_GREAVES_LV1_GEM_AMETHYST %>"
+        }
 		"precache"
 		{
 			"particle"  "particles/roshpit/items/crimsyth_elite_armor.vpcf"
@@ -4720,34 +3728,14 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_BOOTS_OF_THE_VIOLET_GUARD_GEM_RUBY1 %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby2"				"<% ITEM_RPC_BOOTS_OF_THE_VIOLET_GUARD_GEM_RUBY2 %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_BOOTS_OF_THE_VIOLET_GUARD_GEM_EMERALD %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_BOOTS_OF_THE_VIOLET_GUARD_GEM_SAPPHIRE %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_BOOTS_OF_THE_VIOLET_GUARD_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_BOOTS_OF_THE_VIOLET_GUARD_GEM_RUBY1 %>"
+            "ruby2" "<% ITEM_RPC_BOOTS_OF_THE_VIOLET_GUARD_GEM_RUBY2 %>"
+            "emerald1" "<% ITEM_RPC_BOOTS_OF_THE_VIOLET_GUARD_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_BOOTS_OF_THE_VIOLET_GUARD_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_BOOTS_OF_THE_VIOLET_GUARD_GEM_AMETHYST %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -4806,49 +3794,17 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_one"		"<% RPC_ELEMENT_WATER %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_BOOTS_OF_PURE_WATERS_GEM_RUBY1 %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby2"				"<% ITEM_RPC_BOOTS_OF_PURE_WATERS_GEM_RUBY2 %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_BOOTS_OF_PURE_WATERS_GEM_EMERALD1 %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald2"			"<% ITEM_RPC_BOOTS_OF_PURE_WATERS_GEM_EMERALD2 %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_BOOTS_OF_PURE_WATERS_GEM_SAPPHIRE1 %>"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire2"			"<% ITEM_RPC_BOOTS_OF_PURE_WATERS_GEM_SAPPHIRE2 %>"
-			}
-			"08"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_BOOTS_OF_PURE_WATERS_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "element_one" "<% RPC_ELEMENT_WATER %>"
+            "ruby1" "<% ITEM_RPC_BOOTS_OF_PURE_WATERS_GEM_RUBY1 %>"
+            "ruby2" "<% ITEM_RPC_BOOTS_OF_PURE_WATERS_GEM_RUBY2 %>"
+            "emerald1" "<% ITEM_RPC_BOOTS_OF_PURE_WATERS_GEM_EMERALD1 %>"
+            "emerald2" "<% ITEM_RPC_BOOTS_OF_PURE_WATERS_GEM_EMERALD2 %>"
+            "sapphire1" "<% ITEM_RPC_BOOTS_OF_PURE_WATERS_GEM_SAPPHIRE1 %>"
+            "sapphire2" "<% ITEM_RPC_BOOTS_OF_PURE_WATERS_GEM_SAPPHIRE2 %>"
+            "amethyst1" "<% ITEM_RPC_BOOTS_OF_PURE_WATERS_GEM_AMETHYST %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -4929,39 +3885,15 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_BOOTS_OF_OLD_WISDOM_GEM_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_BOOTS_OF_OLD_WISDOM_GEM_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_BOOTS_OF_OLD_WISDOM_GEM_SAPPHIRE1 %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire2"			"<% ITEM_RPC_BOOTS_OF_OLD_WISDOM_GEM_SAPPHIRE2 %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_BOOTS_OF_OLD_WISDOM_GEM_AMETHYST1 %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst2"			"<% ITEM_RPC_BOOTS_OF_OLD_WISDOM_GEM_AMETHYST2 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_BOOTS_OF_OLD_WISDOM_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_BOOTS_OF_OLD_WISDOM_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_BOOTS_OF_OLD_WISDOM_GEM_SAPPHIRE1 %>"
+            "sapphire2" "<% ITEM_RPC_BOOTS_OF_OLD_WISDOM_GEM_SAPPHIRE2 %>"
+            "amethyst1" "<% ITEM_RPC_BOOTS_OF_OLD_WISDOM_GEM_AMETHYST1 %>"
+            "amethyst2" "<% ITEM_RPC_BOOTS_OF_OLD_WISDOM_GEM_AMETHYST2 %>"
+        }
 		"precache"
 		{
 			"particle"  "particles/econ/items/doom/doom_f2p_death_effect/boots_of_old_wisdom.vpcf"
@@ -5128,29 +4060,13 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_BOOTS_OF_GREAT_FORTUNE_GEM_RUBY %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_BOOTS_OF_GREAT_FORTUNE_GEM_EMERALD %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_BOOTS_OF_GREAT_FORTUNE_GEM_SAPPHIRE %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_BOOTS_OF_GREAT_FORTUNE_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_BOOTS_OF_GREAT_FORTUNE_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_BOOTS_OF_GREAT_FORTUNE_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_BOOTS_OF_GREAT_FORTUNE_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_BOOTS_OF_GREAT_FORTUNE_GEM_AMETHYST %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -5260,29 +4176,13 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% CHAMPIONS_GEAR_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% CHAMPIONS_GEAR_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% CHAMPIONS_GEAR_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% CHAMPIONS_GEAR_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% CHAMPIONS_GEAR_RUBY %>"
+            "emerald1" "<% CHAMPIONS_GEAR_EMERALD %>"
+            "sapphire1" "<% CHAMPIONS_GEAR_SAPPHIRE %>"
+            "amethyst1" "<% CHAMPIONS_GEAR_AMETHYST %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -5312,29 +4212,13 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_BOOTS_OF_ASHARA_GEM_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_BOOTS_OF_ASHARA_GEM_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_BOOTS_OF_ASHARA_GEM_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_BOOTS_OF_ASHARA_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_BOOTS_OF_ASHARA_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_BOOTS_OF_ASHARA_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_BOOTS_OF_ASHARA_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_BOOTS_OF_ASHARA_GEM_AMETHYST %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -5390,39 +4274,15 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_BLUE_DRAGON_GREAVES_GEM_RUBY1 %>"
-			}
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby2"				"<% ITEM_RPC_BLUE_DRAGON_GREAVES_GEM_RUBY2 %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_BLUE_DRAGON_GREAVES_GEM_EMERALD %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_BLUE_DRAGON_GREAVES_GEM_SAPPHIRE1 %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire2"			"<% ITEM_RPC_BLUE_DRAGON_GREAVES_GEM_SAPPHIRE2 %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_BLUE_DRAGON_GREAVES_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_BLUE_DRAGON_GREAVES_GEM_RUBY1 %>"
+            "ruby2" "<% ITEM_RPC_BLUE_DRAGON_GREAVES_GEM_RUBY2 %>"
+            "emerald1" "<% ITEM_RPC_BLUE_DRAGON_GREAVES_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_BLUE_DRAGON_GREAVES_GEM_SAPPHIRE1 %>"
+            "sapphire2" "<% ITEM_RPC_BLUE_DRAGON_GREAVES_GEM_SAPPHIRE2 %>"
+            "amethyst1" "<% ITEM_RPC_BLUE_DRAGON_GREAVES_GEM_AMETHYST %>"
+        }
 		"precache"
 		{
 			"particle" "particles/units/heroes/hero_windrunner/blue_dragon_greaves.vpcf"
@@ -5535,34 +4395,14 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_BLOODSTONE_BOOTS_GEM_RUBY %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_BLOODSTONE_BOOTS_GEM_EMERALD %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_BLOODSTONE_BOOTS_GEM_SAPPHIRE %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_BLOODSTONE_BOOTS_GEM_AMETHYST1 %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst2"			"<% ITEM_RPC_BLOODSTONE_BOOTS_GEM_AMETHYST2 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_BLOODSTONE_BOOTS_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_BLOODSTONE_BOOTS_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_BLOODSTONE_BOOTS_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_BLOODSTONE_BOOTS_GEM_AMETHYST1 %>"
+            "amethyst2" "<% ITEM_RPC_BLOODSTONE_BOOTS_GEM_AMETHYST2 %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -5620,39 +4460,15 @@
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_one"			"<% RPC_ELEMENT_ARCANE %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_ARCANYS_SLIPPER_GEM_RUBY %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_ARCANYS_SLIPPER_GEM_EMERALD %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_ARCANYS_SLIPPER_GEM_SAPPHIRE %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_ARCANYS_SLIPPER_GEM_AMETHYST1 %>"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst2"			"<% ITEM_RPC_ARCANYS_SLIPPER_GEM_AMETHYST2 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "element_one" "<% RPC_ELEMENT_ARCANE %>"
+            "ruby1" "<% ITEM_RPC_ARCANYS_SLIPPER_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_ARCANYS_SLIPPER_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_ARCANYS_SLIPPER_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_ARCANYS_SLIPPER_GEM_AMETHYST1 %>"
+            "amethyst2" "<% ITEM_RPC_ARCANYS_SLIPPER_GEM_AMETHYST2 %>"
+        }
 		"precache"
 		{
 			"particle"  "particles/econ/courier/courier_dolfrat_and_roshinante/arcanys_poof.vpcf"
@@ -5727,39 +4543,15 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_one"		"<% RPC_ELEMENT_ICE %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_ALARANAS_ICE_BOOT_GEM_RUBY1 %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby2"				"<% ITEM_RPC_ALARANAS_ICE_BOOT_GEM_RUBY2 %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_ALARANAS_ICE_BOOT_GEM_EMERALD %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_ALARANAS_ICE_BOOT_GEM_SAPPHIRE %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_ALARANAS_ICE_BOOT_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "element_one" "<% RPC_ELEMENT_ICE %>"
+            "ruby1" "<% ITEM_RPC_ALARANAS_ICE_BOOT_GEM_RUBY1 %>"
+            "ruby2" "<% ITEM_RPC_ALARANAS_ICE_BOOT_GEM_RUBY2 %>"
+            "emerald1" "<% ITEM_RPC_ALARANAS_ICE_BOOT_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_ALARANAS_ICE_BOOT_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_ALARANAS_ICE_BOOT_GEM_AMETHYST %>"
+        }
 		"precache"
 		{
 			"particle"  "particles/units/heroes/hero_winter_wyvern/wyvern_cold_embrace_buff.vpcf"
@@ -5866,29 +4658,13 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_ADMIRAL_BOOTS_GEM_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_ADMIRAL_BOOTS_GEM_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_ADMIRAL_BOOTS_GEM_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_ADMIRAL_BOOTS_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_ADMIRAL_BOOTS_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_ADMIRAL_BOOTS_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_ADMIRAL_BOOTS_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_ADMIRAL_BOOTS_GEM_AMETHYST %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -5932,39 +4708,15 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_ABLECORE_GREAVES_GEM_RUBY1 %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby2"				"<% ITEM_RPC_ABLECORE_GREAVES_GEM_RUBY2 %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_ABLECORE_GREAVES_GEM_EMERALD1 %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald2"			"<% ITEM_RPC_ABLECORE_GREAVES_GEM_EMERALD2 %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_ABLECORE_GREAVES_GEM_SAPPHIRE %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_ABLECORE_GREAVES_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_ABLECORE_GREAVES_GEM_RUBY1 %>"
+            "ruby2" "<% ITEM_RPC_ABLECORE_GREAVES_GEM_RUBY2 %>"
+            "emerald1" "<% ITEM_RPC_ABLECORE_GREAVES_GEM_EMERALD1 %>"
+            "emerald2" "<% ITEM_RPC_ABLECORE_GREAVES_GEM_EMERALD2 %>"
+            "sapphire1" "<% ITEM_RPC_ABLECORE_GREAVES_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_ABLECORE_GREAVES_GEM_AMETHYST %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"

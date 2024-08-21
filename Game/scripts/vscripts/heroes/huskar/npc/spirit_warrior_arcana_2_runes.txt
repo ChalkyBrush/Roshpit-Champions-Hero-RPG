@@ -9,19 +9,11 @@
 		"AbilityTextureName"	"spirit_warrior/spirit_warrior_rune_w_1_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SPIRIT_WARRIOR_ARCANA_W1_BASE_DMG_PER_HP %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% SPIRIT_WARRIOR_ARCANA_W1_BONUS_HP %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SPIRIT_WARRIOR_ARCANA_W1_BASE_DMG_PER_HP %>"
+            "property_two" "<% SPIRIT_WARRIOR_ARCANA_W1_BONUS_HP %>"
+        }
 	}
 
 	"spirit_warrior_rune_w_2_arcana2"
@@ -34,14 +26,10 @@
 		"AbilityTextureName"	"spirit_warrior/spirit_warrior_rune_w_2_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SPIRIT_WARRIOR_ARCANA_W2_PCT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SPIRIT_WARRIOR_ARCANA_W2_PCT %>"
+        }
 	}
 
 	"spirit_warrior_rune_w_3_arcana2"
@@ -54,14 +42,10 @@
 		"AbilityTextureName"	"spirit_warrior/spirit_warrior_rune_w_3_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SPIRIT_WARRIOR_ARCANA_W3_MULTIPLE_THROW_CHANCE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SPIRIT_WARRIOR_ARCANA_W3_MULTIPLE_THROW_CHANCE %>"
+        }
 	}
 
 	"spirit_warrior_rune_w_4_arcana2"
@@ -74,13 +58,9 @@
 		"AbilityTextureName"	"spirit_warrior/spirit_warrior_rune_w_4_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SPIRIT_WARRIOR_ARCANA_W4_FIRE_AMP * 100 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SPIRIT_WARRIOR_ARCANA_W4_FIRE_AMP * 100 %>"
+        }
 	}
 

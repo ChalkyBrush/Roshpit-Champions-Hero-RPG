@@ -28,24 +28,12 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"160 400 1000 2000 5000 10000 20000"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"aoe_radius"			"320"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"stun_duration"			"1.8 2.0 2.2 2.4 2.6 2.8 3.0"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "160 400 1000 2000 5000 10000 20000"
+            "aoe_radius" "320"
+            "stun_duration" "1.8 2.0 2.2 2.4 2.6 2.8 3.0"
+        }
 	}
 
 	"flamewaker_dragon_breath"
@@ -75,34 +63,14 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"damage"					"<% FLAMEWAKER_W_DAMAGE %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"start_radius"			"140"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"end_radius"			"240"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"range"					"600 600 600 600"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"speed"					"1050"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "<% FLAMEWAKER_W_DAMAGE %>"
+            "start_radius" "140"
+            "end_radius" "240"
+            "range" "600 600 600 600"
+            "speed" "1050"
+        }
 	}
 
 	"flamewaker_heat_wave"
@@ -131,29 +99,13 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"movespeed"			"250 260 270 280 290 300 310"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"duration"			"2.4 2.5 2.6 2.7 2.8 2.9 3.0"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ms_cap_bonus"			"90"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"cooldown"			"8.0 7.7 7.4 7.1 6.8 6.5 6.2"
-			}
-		}
+		"AbilityValues"
+        {
+            "movespeed" "250 260 270 280 290 300 310"
+            "duration" "2.4 2.5 2.6 2.7 2.8 2.9 3.0"
+            "ms_cap_bonus" "90"
+            "cooldown" "8.0 7.7 7.4 7.1 6.8 6.5 6.2"
+        }
 	}
 
 	"flamewaker_cataclysm"
@@ -176,23 +128,11 @@
 			"particle"		"particles/roshpit/red_general/cyclone_shield.vpcf"
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"damage"	"<% FLAMEWAKER_R_DAMAGE %>"
-			}
-			"02"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"radius"	"600"
-			}
-			"03"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"stun_duration"	"2.0 2.2 2.4 2.6 2.8 3.0 3.2"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "<% FLAMEWAKER_R_DAMAGE %>"
+            "radius" "600"
+            "stun_duration" "2.0 2.2 2.4 2.6 2.8 3.0 3.2"
+        }
 	}
 

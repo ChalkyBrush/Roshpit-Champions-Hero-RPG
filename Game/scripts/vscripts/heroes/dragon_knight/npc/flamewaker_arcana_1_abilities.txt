@@ -25,32 +25,12 @@
 
                 // Special
                 //-------------------------------------------------------
-                "AbilitySpecial"
-                {
-                        "01"
-                        {
-                                "var_type"      "FIELD_FLOAT"
-                                "stun_duration" "1.2"
-                        }
-                        "02"
-                        {
-                                "var_type"      "FIELD_FLOAT"
-                                "strength_mult" "<% FLAMEWAKER_ARCANA_Q_STR_TO_DAMAGE_MULT %>"
-                        }
-                        "03"
-                        {
-                                "var_type"      "FIELD_INTEGER"
-                                "damage"                "<% FLAMEWAKER_ARCANA_Q_DAMAGE %>"
-                        }
-                        "04"
-                        {
-                                "var_type"      "FIELD_INTEGER"
-                                "max_distance" "400"
-                        }
-                        "05"
-                        {
-                                "var_type"      "FIELD_INTEGER"
-                                "aoe_radius"    "280"
-                        }
-                }
+                "AbilityValues"
+        {
+            "stun_duration" "1.2"
+            "strength_mult" "<% FLAMEWAKER_ARCANA_Q_STR_TO_DAMAGE_MULT %>"
+            "damage" "<% FLAMEWAKER_ARCANA_Q_DAMAGE %>"
+            "max_distance" "400"
+            "aoe_radius" "280"
+        }
         }

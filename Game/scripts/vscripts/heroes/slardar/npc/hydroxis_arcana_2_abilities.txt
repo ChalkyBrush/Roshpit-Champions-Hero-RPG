@@ -290,23 +290,11 @@
 			}
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"cast_time"	"30 35 40 45 50 55 60"
-			}
-			"02"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"mana_regen"	"40 120 200 280 360 440 520"
-			}
-			"03"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"radius"	"550"
-			}
-		}
+		"AbilityValues"
+        {
+            "cast_time" "30 35 40 45 50 55 60"
+            "mana_regen" "40 120 200 280 360 440 520"
+            "radius" "550"
+        }
 	}
 

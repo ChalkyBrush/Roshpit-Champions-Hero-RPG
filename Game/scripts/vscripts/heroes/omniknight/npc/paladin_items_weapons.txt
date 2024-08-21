@@ -441,24 +441,12 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"4"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_two"			"8"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_three"			"4"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "4"
+            "property_two" "8"
+            "property_three" "4"
+        }
 	}
 
 	"item_rpc_paladin_immortal_weapon_2"
@@ -504,14 +492,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"<% PALADIN_IMMORTAL_WEAPON_2_DISCIPLES_CD_RED * 100 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% PALADIN_IMMORTAL_WEAPON_2_DISCIPLES_CD_RED * 100 %>"
+        }
 	}
 
 	"item_rpc_paladin_immortal_weapon_3"
@@ -574,14 +558,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"12"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "12"
+        }
 	}
 	
 	"item_rpc_paladin_immortal_weapon_4"

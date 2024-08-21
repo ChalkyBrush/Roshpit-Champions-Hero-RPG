@@ -10,19 +10,11 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% CONJUROR_Q1_ASPECT_HP_BONUS_PCT %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% CONJUROR_Q1_ARMOR_AURA %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% CONJUROR_Q1_ASPECT_HP_BONUS_PCT %>"
+            "property_two" "<% CONJUROR_Q1_ARMOR_AURA %>"
+        }
 	}
 
 	"conjuror_rune_q_2"
@@ -37,24 +29,12 @@
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% CONJUROR_Q2_CLAP_DAMAGE_OF_ASPECT_HP_PCT %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"1"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"3"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% CONJUROR_Q2_CLAP_DAMAGE_OF_ASPECT_HP_PCT %>"
+            "base_ability" "1"
+            "element_one" "3"
+        }
 	}
 
 	"earth_aspect_rune_q_2_clap"
@@ -81,39 +61,15 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"radius"					"<% CONJUROR_Q2_RADIUS %>"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"duration"					"3"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"duration_creeps"			"3"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"damage"					"0"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"movement_slow"				"-45"
-			}
-			"06"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"attack_speed_slow"			"-25"
-			}
-		}
+		"AbilityValues"
+        {
+            "radius" "<% CONJUROR_Q2_RADIUS %>"
+            "duration" "3"
+            "duration_creeps" "3"
+            "damage" "0"
+            "movement_slow" "-45"
+            "attack_speed_slow" "-25"
+        }
 
 		"precache"
 		{
@@ -181,14 +137,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% CONJUROR_Q3_HP_REGEN %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% CONJUROR_Q3_HP_REGEN %>"
+        }
 		"Modifiers"
 		{
 			"conjuror_rune_q_3_heal_effect"
@@ -220,14 +172,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% CONJUROR_Q4_EARTH_AND_FIRE_AMP * 100%>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% CONJUROR_Q4_EARTH_AND_FIRE_AMP * 100%>"
+        }
 	}
 
 	"conjuror_rune_w_1"
@@ -242,29 +190,13 @@
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% CONJUROR_W1_DMG %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"<% CONJUROR_W1_DMG_BASE %>"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"2"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"2"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% CONJUROR_W1_DMG %>"
+            "property_one_base" "<% CONJUROR_W1_DMG_BASE %>"
+            "base_ability" "2"
+            "element_one" "2"
+        }
 		"Modifiers"
 		{
 			"modifier_permanent_immolation"
@@ -362,19 +294,11 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% CONJUROR_W2_BONUS_DMG_PCT %>"
-			}
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% CONJUROR_W2_ARMOR_REDUCTION %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% CONJUROR_W2_BONUS_DMG_PCT %>"
+            "property_two" "<% CONJUROR_W2_ARMOR_REDUCTION %>"
+        }
 		"Modifiers"
 		{
 			"modifier_soul_sear_visible_friendly"
@@ -445,24 +369,12 @@
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% CONJUROR_W3_CRIT_DMG_PCT %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"2"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"2"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% CONJUROR_W3_CRIT_DMG_PCT %>"
+            "element_one" "2"
+            "base_ability" "2"
+        }
 		"Modifiers"
 		{
 
@@ -481,29 +393,13 @@
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% CONJUROR_W4_HEALTH_DAMAGE_PER_TICK %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% CONJUROR_W4_AMP_ON_FIRE %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"2"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"2"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% CONJUROR_W4_HEALTH_DAMAGE_PER_TICK %>"
+            "property_two" "<% CONJUROR_W4_AMP_ON_FIRE %>"
+            "base_ability" "2"
+            "element_one" "2"
+        }
 	}
 
 	"conjuror_rune_e_1"
@@ -517,19 +413,11 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% CONJUROR_E1_BONUS_DMG_PCT %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% CONJUROR_E1_BONUS_AGI %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% CONJUROR_E1_BONUS_DMG_PCT %>"
+            "property_two" "<% CONJUROR_E1_BONUS_AGI %>"
+        }
 	}
 
 	"conjuror_rune_e_2"
@@ -544,34 +432,14 @@
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% CONJUROR_E2_DAMAGE %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"<% CONJUROR_E2_BASE_DAMAGE %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% CONJUROR_E2_ADDITIONAL_DAMAGE_PER_AGI %>"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"3"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"11"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% CONJUROR_E2_DAMAGE %>"
+            "property_one_base" "<% CONJUROR_E2_BASE_DAMAGE %>"
+            "property_two" "<% CONJUROR_E2_ADDITIONAL_DAMAGE_PER_AGI %>"
+            "base_ability" "3"
+            "element_one" "11"
+        }
 	}
 
 	"conjuror_rune_e_3"
@@ -585,19 +453,11 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% CONJUROR_E3_STATS_TO_ATTACK_DAMAGE_PCT %>"
-			}
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% CONJUROR_E3_BONUS_ATTACK_RANGE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% CONJUROR_E3_STATS_TO_ATTACK_DAMAGE_PCT %>"
+            "property_two" "<% CONJUROR_E3_BONUS_ATTACK_RANGE %>"
+        }
 	}
 
 	"conjuror_rune_e_4"
@@ -612,29 +472,13 @@
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% CONJUROR_E4_ATTACK_PURE_PCT %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% CONJUROR_E4_E2_PURE_PCT %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"11"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"3"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% CONJUROR_E4_ATTACK_PURE_PCT %>"
+            "property_two" "<% CONJUROR_E4_E2_PURE_PCT %>"
+            "element_one" "11"
+            "base_ability" "3"
+        }
 	}
 
 	"conjuror_rune_r_1"
@@ -649,29 +493,13 @@
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% CONJUROR_R1_Q_AMP_PCT %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% CONJUROR_R1_STUN %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"1"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"3"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% CONJUROR_R1_Q_AMP_PCT %>"
+            "property_two" "<% CONJUROR_R1_STUN %>"
+            "base_ability" "1"
+            "element_one" "3"
+        }
 	}
 
 	"conjuror_rune_r_2"
@@ -685,19 +513,11 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% CONJUROR_R2_BONUS_DMG_PCT %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% CONJUROR_R2_ARMOR_SHRED %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% CONJUROR_R2_BONUS_DMG_PCT %>"
+            "property_two" "<% CONJUROR_R2_ARMOR_SHRED %>"
+        }
 	}
 
 	"conjuror_rune_r_3"
@@ -711,19 +531,11 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"-<% CONJUROR_R3_AS_REDUCTION %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"-<% CONJUROR_R3_MS_REDUCTION %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "-<% CONJUROR_R3_AS_REDUCTION %>"
+            "property_two" "-<% CONJUROR_R3_MS_REDUCTION %>"
+        }
 	}
 
 	"conjuror_rune_r_4"
@@ -737,13 +549,9 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% CONJUROR_R4_R_DUR_INCREASE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% CONJUROR_R4_R_DUR_INCREASE %>"
+        }
 	}
 

@@ -408,14 +408,10 @@
 				"Function"		"equip_item"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_one"			"12"
-			}
-		}
+		"AbilityValues"
+        {
+            "element_one" "12"
+        }
 		"Modifiers"
 		{
 			"modifier_seinaru_immortal_weapon_1"
@@ -494,24 +490,12 @@
 				}
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"80"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_two"			"200"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_three"			"60"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "80"
+            "property_two" "200"
+            "property_three" "60"
+        }
 	}
 
 	"item_rpc_seinaru_immortal_weapon_3"
@@ -578,19 +562,11 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"2"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_two"		"-150"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "2"
+            "property_two" "-150"
+        }
 	}
 	
 	"item_rpc_seinaru_immortal_weapon_4"

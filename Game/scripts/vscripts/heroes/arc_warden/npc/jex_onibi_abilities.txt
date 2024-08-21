@@ -25,10 +25,9 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-
-		}
+		"AbilityValues"
+        {
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -72,10 +71,9 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-
-		}
+		"AbilityValues"
+        {
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -119,10 +117,9 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-
-		}
+		"AbilityValues"
+        {
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -166,10 +163,9 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-
-		}
+		"AbilityValues"
+        {
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -213,10 +209,9 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-
-		}
+		"AbilityValues"
+        {
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -260,10 +255,9 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-
-		}
+		"AbilityValues"
+        {
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -307,10 +301,9 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-
-		}
+		"AbilityValues"
+        {
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -378,10 +371,9 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-
-		}
+		"AbilityValues"
+        {
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -424,10 +416,9 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-
-		}
+		"AbilityValues"
+        {
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -470,10 +461,9 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-
-		}
+		"AbilityValues"
+        {
+        }
 		"OnSpellStart"
 		{
 			"RunScript"

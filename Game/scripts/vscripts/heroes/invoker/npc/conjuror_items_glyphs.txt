@@ -28,19 +28,11 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% CONJUROR_GLYPH_1_1_FIRE_ASPECT_BONUS_AS %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% CONJUROR_GLYPH_1_1_FIRE_ASPECT_BONUS_ATTACK_DMG_PCT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% CONJUROR_GLYPH_1_1_FIRE_ASPECT_BONUS_AS %>"
+            "property_two" "<% CONJUROR_GLYPH_1_1_FIRE_ASPECT_BONUS_ATTACK_DMG_PCT %>"
+        }
 	}
 
 	"item_rpc_conjuror_glyph_2_1"
@@ -72,14 +64,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% CONJUROR_GLYPH_2_1_BONUS_ASPECTS_HP_PCT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% CONJUROR_GLYPH_2_1_BONUS_ASPECTS_HP_PCT %>"
+        }
 	}
 
 	"item_rpc_conjuror_glyph_3_1"
@@ -111,14 +99,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"4"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "4"
+        }
 	}
 
 	"item_rpc_conjuror_glyph_4_1"
@@ -150,14 +134,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% CONJUROR_GLYPH_4_1_SHADOW_ASPECT_BONUS_ATTACK_RANGE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% CONJUROR_GLYPH_4_1_SHADOW_ASPECT_BONUS_ATTACK_RANGE %>"
+        }
 	}
 
 	"item_rpc_conjuror_glyph_5_1"
@@ -189,19 +169,11 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"80"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"1.5"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "80"
+            "property_two" "1.5"
+        }
 	}
 
 	"item_rpc_conjuror_glyph_6_1"
@@ -233,14 +205,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "5"
+        }
 	}
 
 	"item_rpc_conjuror_glyph_7_1"
@@ -272,14 +240,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"80"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "80"
+        }
 	}
 
 	"item_rpc_conjuror_glyph_5_a"
@@ -311,18 +275,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"50"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"1"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "50"
+            "property_two" "1"
+        }
 	}
 

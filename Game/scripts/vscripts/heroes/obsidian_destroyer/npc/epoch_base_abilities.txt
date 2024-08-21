@@ -40,64 +40,20 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"speed"		"1000"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"range"		"2000"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"max_links"			"7 8 9 10 11 12 13"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"link_search_range"			"600"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"link_duration"			"8"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ms_slow_base"			"-60 -70 -80 -90 -100 -110 -120"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ms_slow_per_stack"			"-20"
-			}
-			"08"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"impact_radius"			"320"
-			}
-			"09"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"impact_damage_base"			"100 300 800 2000 4000 8000 16000"
-			}
-			"10"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"impact_damage_int_mult"			"5"
-			}
-			"11"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"dot_damage_pct_impact"			"4"
-			}
-		}
+		"AbilityValues"
+        {
+            "speed" "1000"
+            "range" "2000"
+            "max_links" "7 8 9 10 11 12 13"
+            "link_search_range" "600"
+            "link_duration" "8"
+            "ms_slow_base" "-60 -70 -80 -90 -100 -110 -120"
+            "ms_slow_per_stack" "-20"
+            "impact_radius" "320"
+            "impact_damage_base" "100 300 800 2000 4000 8000 16000"
+            "impact_damage_int_mult" "5"
+            "dot_damage_pct_impact" "4"
+        }
 	}
 
 	"epoch_genesis_orb"
@@ -142,34 +98,14 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"60 200 340 480 640 880 1020"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"cast_range"			"1000"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"max_bounces"			"3 4 5 6 7 8 9"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"base_projectile_speed"			"1350"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"projectile_speed_gain"			"150"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "60 200 340 480 640 880 1020"
+            "cast_range" "1000"
+            "max_bounces" "3 4 5 6 7 8 9"
+            "base_projectile_speed" "1350"
+            "projectile_speed_gain" "150"
+        }
 	}
 
 	"epoch_distortion_orb"
@@ -212,24 +148,12 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"speed"				"1000"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"range"		"1200 1300 1400 1500 1600 1700 1800"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"		"150 450 850 1350 1950 2650 3450"
-			}
-		}
+		"AbilityValues"
+        {
+            "speed" "1000"
+            "range" "1200 1300 1400 1500 1600 1700 1800"
+            "damage" "150 450 850 1350 1950 2650 3450"
+        }
 	}
 
 	"epoch_eternity_flood"
@@ -254,38 +178,14 @@
 			"particle"	"particles/status_fx/status_effect_faceless_chronosphere.vpcf"
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"radius"	"500"
-			}
-			"02"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"damage"	"100 350 600 850 1100 1350 1600"
-			}
-			"03"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"damage_sum_attrs"	"1"
-			}
-			"04"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"cast_range"	"800 900 1000 1100 1200 1300 1400"
-			}
-			"05"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"cooldown"	"16 15 14 13 12 11 10"
-			}
-			"06"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"freeze_duration"	"2.4 2.6 2.8 3.0 3.2 3.4 3.6"
-			}
-		}
+		"AbilityValues"
+        {
+            "radius" "500"
+            "damage" "100 350 600 850 1100 1350 1600"
+            "damage_sum_attrs" "1"
+            "cast_range" "800 900 1000 1100 1200 1300 1400"
+            "cooldown" "16 15 14 13 12 11 10"
+            "freeze_duration" "2.4 2.6 2.8 3.0 3.2 3.4 3.6"
+        }
 	}
 

@@ -10,24 +10,12 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% CONJUROR_ARCANA_R1_DAMAGE_SPLASH_PCT %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"4"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"2"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% CONJUROR_ARCANA_R1_DAMAGE_SPLASH_PCT %>"
+            "base_ability" "4"
+            "element_one" "2"
+        }
 	}
 
 	"conjuror_rune_r_2_arcana1"
@@ -41,29 +29,13 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% CONJUROR_ARCANA_R2_DAMAGE_PER_ATTACK_PCT %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% CONJUROR_ARCANA_R2_STUN %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"4"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"3"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% CONJUROR_ARCANA_R2_DAMAGE_PER_ATTACK_PCT %>"
+            "property_two" "<% CONJUROR_ARCANA_R2_STUN %>"
+            "base_ability" "4"
+            "element_one" "3"
+        }
 	}
 
 	"conjuror_rune_r_3_arcana1"
@@ -76,14 +48,10 @@
 		"AbilityTextureName"	"invoker_deafening_blast"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% CONJUROR_ARCANA_R3_STACK_CHANCE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% CONJUROR_ARCANA_R3_STACK_CHANCE %>"
+        }
 	}
 
 	"conjuror_rune_r_4_arcana1"
@@ -96,13 +64,9 @@
 		"AbilityTextureName"	"conjuror/invoker_arcana_r_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% CONJUROR_ARCANA_R4_DURATION %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% CONJUROR_ARCANA_R4_DURATION %>"
+        }
 	}
 

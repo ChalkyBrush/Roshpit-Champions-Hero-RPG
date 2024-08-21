@@ -36,29 +36,13 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"distance"					"1000 1100 1200 1300 1400 1500 1600"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"stun_duration"					"2.8 3.0 3.2 3.4 3.6 3.8 4.0"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"damage"					"150 350 550 750 950 1150 1350"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"str_mult"					"3.6 4.0 4.4 4.8 5.2 5.6 6.0"
-			}
-		}
+		"AbilityValues"
+        {
+            "distance" "1000 1100 1200 1300 1400 1500 1600"
+            "stun_duration" "2.8 3.0 3.2 3.4 3.6 3.8 4.0"
+            "damage" "150 350 550 750 950 1150 1350"
+            "str_mult" "3.6 4.0 4.4 4.8 5.2 5.6 6.0"
+        }
 		"Modifiers"
 		{
 			"modifier_cataclysm_shaker_thinker"
@@ -101,54 +85,18 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"cast_range"			"1300"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"320"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"main_aoe_duration"				"12"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"freeze_delay"				"1.5"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"freeze_pop_aoe"				"250 260 270 280 290 300 310"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"in_thinker_slow"				"-100 -120 -140 -160 -180 -200 -220"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_damage"			"80 180 280 380 480 580 680"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"freeze_duration"				"2.8 3.0 3.2 3.4 3.6 3.8 4.0"
-			}
-			"09"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"int_mult"					"1.8 2.0 2.2 2.4 2.6 2.8 3.0"
-			}
-		}
+		"AbilityValues"
+        {
+            "cast_range" "1300"
+            "radius" "320"
+            "main_aoe_duration" "12"
+            "freeze_delay" "1.5"
+            "freeze_pop_aoe" "250 260 270 280 290 300 310"
+            "in_thinker_slow" "-100 -120 -140 -160 -180 -200 -220"
+            "base_damage" "80 180 280 380 480 580 680"
+            "freeze_duration" "2.8 3.0 3.2 3.4 3.6 3.8 4.0"
+            "int_mult" "1.8 2.0 2.2 2.4 2.6 2.8 3.0"
+        }
 		"precache"
 		{
 
@@ -326,39 +274,15 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"range"			"1000 1100 1200 1300 1400 1500 1600"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"wreck_duration"			"12"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_damage"			"60 130 200 270 340 410 480"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"agi_mult"					"1.8 2.0 2.2 2.4 2.6 2.8 3.0"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"ms_bonus"			"200 230 260 290 320 350 380"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"ms_cap"			"700 720 740 760 780 800 820"
-			}			
-		}
+		"AbilityValues"
+        {
+            "range" "1000 1100 1200 1300 1400 1500 1600"
+            "wreck_duration" "12"
+            "base_damage" "60 130 200 270 340 410 480"
+            "agi_mult" "1.8 2.0 2.2 2.4 2.6 2.8 3.0"
+            "ms_bonus" "200 230 260 290 320 350 380"
+            "ms_cap" "700 720 740 760 780 800 820"
+        }
 		"precache"
 		{
 

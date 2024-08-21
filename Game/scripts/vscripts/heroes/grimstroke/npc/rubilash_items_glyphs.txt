@@ -28,10 +28,9 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-
-		}
+		"AbilityValues"
+        {
+        }
 	}
 
 	"item_rpc_rubilash_glyph_2_1"
@@ -63,10 +62,9 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-
-		}
+		"AbilityValues"
+        {
+        }
 	}
 
 	"item_rpc_rubilash_glyph_3_1"
@@ -98,10 +96,9 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-
-		}
+		"AbilityValues"
+        {
+        }
 	}
 
 	"item_rpc_rubilash_glyph_4_1"
@@ -133,10 +130,9 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-
-		}
+		"AbilityValues"
+        {
+        }
 	}
 
 	"item_rpc_rubilash_glyph_5_1"
@@ -168,20 +164,11 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% OMNIRO_GLYPH_5_1_BOTTOM_NUMBER_OF_ELEMENTS %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% OMNIRO_GLYPH_5_1_BOTTOM_ELEMENTS_MAX_CHARGES %>"
-			}
-			
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% OMNIRO_GLYPH_5_1_BOTTOM_NUMBER_OF_ELEMENTS %>"
+            "property_two" "<% OMNIRO_GLYPH_5_1_BOTTOM_ELEMENTS_MAX_CHARGES %>"
+        }
 	}
 
 	"item_rpc_rubilash_glyph_6_1"
@@ -213,14 +200,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% OMNIRO_GLYPH_6_1_RECHARGE_ON_ATTACK_PERCENT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% OMNIRO_GLYPH_6_1_RECHARGE_ON_ATTACK_PERCENT %>"
+        }
 	}
 
 	"item_rpc_rubilash_glyph_7_1"
@@ -253,14 +236,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% OMNIRO_GLYPH_7_1_HIGHEST_ELEMENT_ADDITIONAL_CHARGES %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% OMNIRO_GLYPH_7_1_HIGHEST_ELEMENT_ADDITIONAL_CHARGES %>"
+        }
 	}
 
 	"item_rpc_rubilash_glyph_5_a"
@@ -292,9 +271,8 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-
-		}
+		"AbilityValues"
+        {
+        }
 	}
 

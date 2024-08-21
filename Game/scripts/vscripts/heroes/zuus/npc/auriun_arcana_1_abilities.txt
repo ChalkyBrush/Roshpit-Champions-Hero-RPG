@@ -13,19 +13,11 @@
 		"MaxLevel"				 		"7"
 		"AbilityTextureName"			"auriun/auriun_aoe_shield"
 		"AOERadius"						"<% AURIUN_ARCANA_1_Q_RADIUS %>"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"stacks"				"2 3 4 5 6 7 8"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"aoe_radius"				"<% AURIUN_ARCANA_1_Q_RADIUS %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "stacks" "2 3 4 5 6 7 8"
+            "aoe_radius" "<% AURIUN_ARCANA_1_Q_RADIUS %>"
+        }
 		// Precache
 		//-------------------------------------------------------
 		"precache"

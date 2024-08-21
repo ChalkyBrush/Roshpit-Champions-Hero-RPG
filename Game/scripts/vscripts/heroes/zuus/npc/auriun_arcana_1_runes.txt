@@ -11,29 +11,13 @@
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% AURIUN_ARCANA_1_Q1_DAMAGE %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"<% AURIUN_ARCANA_1_Q1_DAMAGE_BASE %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"1"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"7"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% AURIUN_ARCANA_1_Q1_DAMAGE %>"
+            "property_one_base" "<% AURIUN_ARCANA_1_Q1_DAMAGE_BASE %>"
+            "base_ability" "1"
+            "element_one" "7"
+        }
 
 	}
 
@@ -48,19 +32,11 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% AURIUN_ARCANA_1_Q2_SHIELD_CHANCE %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"<% AURIUN_ARCANA_1_Q2_SHIELD_CHANCE_BASE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% AURIUN_ARCANA_1_Q2_SHIELD_CHANCE %>"
+            "property_one_base" "<% AURIUN_ARCANA_1_Q2_SHIELD_CHANCE_BASE %>"
+        }
 
 	}
 
@@ -75,14 +51,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% AURIUN_ARCANA_1_Q3_HOLY_AMP * 100 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% AURIUN_ARCANA_1_Q3_HOLY_AMP * 100 %>"
+        }
 
 	}
 
@@ -97,23 +69,11 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% AURIUN_ARCANA_1_Q4_TP_DISTANCE %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"<% AURIUN_ARCANA_1_Q4_TP_DISTANCE_BASE %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% AURIUN_ARCANA_1_Q4_MANA_REGEN %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% AURIUN_ARCANA_1_Q4_TP_DISTANCE %>"
+            "property_one_base" "<% AURIUN_ARCANA_1_Q4_TP_DISTANCE_BASE %>"
+            "property_two" "<% AURIUN_ARCANA_1_Q4_MANA_REGEN %>"
+        }
 	}
 

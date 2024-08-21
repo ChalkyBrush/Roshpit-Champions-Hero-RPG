@@ -28,14 +28,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"40"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "40"
+        }
 	}
 
 	"item_rpc_slipfinn_glyph_2_1"
@@ -67,14 +63,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"8"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "8"
+        }
 	}
 
 	"item_rpc_slipfinn_glyph_3_1"
@@ -106,14 +98,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "15"
+        }
 	}
 
 	"item_rpc_slipfinn_glyph_4_1"
@@ -145,14 +133,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"50"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "50"
+        }
 	}
 
 	"item_rpc_slipfinn_glyph_5_1"
@@ -184,14 +168,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"1.8"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "1.8"
+        }
 	}
 
 	"item_rpc_slipfinn_glyph_6_1"
@@ -233,14 +213,10 @@
 				}
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"50"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "50"
+        }
 	}
 
 	"item_rpc_slipfinn_glyph_7_1"
@@ -272,10 +248,9 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-
-		}
+		"AbilityValues"
+        {
+        }
 	}
 
 	"item_rpc_slipfinn_glyph_5_a"
@@ -307,13 +282,9 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"60"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "60"
+        }
 	}
 

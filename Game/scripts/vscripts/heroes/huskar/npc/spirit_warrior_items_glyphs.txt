@@ -28,14 +28,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"50"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "50"
+        }
 	}
 
 	"item_rpc_spirit_warrior_glyph_2_1"
@@ -129,19 +125,11 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"4"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.75"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "4"
+            "property_two" "0.75"
+        }
 	}
 
 	"item_rpc_spirit_warrior_glyph_5_1"
@@ -173,14 +161,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "15"
+        }
 	}
 
 	"item_rpc_spirit_warrior_glyph_6_1"
@@ -243,14 +227,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SPIRIT_WARRIOR_GLYPH_7_1_ADDITIONAL_DURATION %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SPIRIT_WARRIOR_GLYPH_7_1_ADDITIONAL_DURATION %>"
+        }
 	}
 
 	"item_rpc_spirit_warrior_glyph_5_a"
@@ -295,23 +275,11 @@
 				}
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"25"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"15"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_three"		"15"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "25"
+            "property_two" "15"
+            "property_three" "15"
+        }
 	}
 

@@ -12,14 +12,10 @@
 		"MaxLevel"				 		"7"
 		"AbilityTextureName"			"jex/fire/fire_gun"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"100 200 300 400 500 600 700"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "100 200 300 400 500 600 700"
+        }
 		"AbilityCastAnimation"	"ACT_DOTA_ATTACK2"
 		// Precache
 		//-------------------------------------------------------
@@ -96,10 +92,9 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-
-		}
+		"AbilityValues"
+        {
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -186,10 +181,9 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-
-		}
+		"AbilityValues"
+        {
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -236,39 +230,15 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"attack_damage_per_tech"				"6"
-			}	
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cooldown_reduction_per_tech"				"0.1"
-			}	
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_damage"				"75 175 275 375 475 575 675"
-			}	
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"700 750 800 850 900 950 1000"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"agility_added_to_base_damage"		"0.8 0.9 1.0 1.1 1.2 1.3 1.4"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"w_4_damage_increase_pct_edges"		"20"
-			}
-		}
+		"AbilityValues"
+        {
+            "attack_damage_per_tech" "6"
+            "cooldown_reduction_per_tech" "0.1"
+            "base_damage" "75 175 275 375 475 575 675"
+            "radius" "700 750 800 850 900 950 1000"
+            "agility_added_to_base_damage" "0.8 0.9 1.0 1.1 1.2 1.3 1.4"
+            "w_4_damage_increase_pct_edges" "20"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -336,44 +306,16 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"meteors_per_tech"				"4"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"attack_damage_percent_added_per_tech"				"8"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_damage"				"50 120 190 260 340 410 480"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_meteors"				"12"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"strength_added_to_damage"				"0.8 0.9 1.0 1.1 1.2 1.3 1.4"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"w_4_base_damage_increase"				"10"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"e_4_stun_duration"				"0.03"
-			}
-		}
+		"AbilityValues"
+        {
+            "meteors_per_tech" "4"
+            "attack_damage_percent_added_per_tech" "8"
+            "base_damage" "50 120 190 260 340 410 480"
+            "base_meteors" "12"
+            "strength_added_to_damage" "0.8 0.9 1.0 1.1 1.2 1.3 1.4"
+            "w_4_base_damage_increase" "10"
+            "e_4_stun_duration" "0.03"
+        }
 		"OnAbilityPhaseStart"
 		{
 			"RunScript"
@@ -444,49 +386,17 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"health_per_tech"				"3"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"taunt_duration_per_tech"				"0.2"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"taunt_duration_base"				"1"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"health_base"				"6"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"cast_range"				"800 900 1000 1100 1200 1300 1400"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"duration"				"25"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"q_4_duration_increase"				"0.5"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"w_4_attack_damage_from_pulse"				"3"
-			}
-		}
+		"AbilityValues"
+        {
+            "health_per_tech" "3"
+            "taunt_duration_per_tech" "0.2"
+            "taunt_duration_base" "1"
+            "health_base" "6"
+            "cast_range" "800 900 1000 1100 1200 1300 1400"
+            "duration" "25"
+            "q_4_duration_increase" "0.5"
+            "w_4_attack_damage_from_pulse" "3"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -640,29 +550,13 @@
 			}
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"flames_per_tech"	"2"
-			}
-			"02"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"attack_damage_percent_added_per_tech"	"2 3 4 5 6 7 8"
-			}
-			"03"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"base_damage"	"80 180 280 380 480 580 680"
-			}
-			"04"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"w_4_attack_slow"	"-10"
-			}
-		}
+		"AbilityValues"
+        {
+            "flames_per_tech" "2"
+            "attack_damage_percent_added_per_tech" "2 3 4 5 6 7 8"
+            "base_damage" "80 180 280 380 480 580 680"
+            "w_4_attack_slow" "-10"
+        }
 	}
 
 
@@ -682,35 +576,14 @@
 		"AbilityTextureName"			"jex/fire/nature_fire_w"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastRange"				"900 1000 1100 1200 1300 1400 1500"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"attack_damage_of_target_per_tech"				"10"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_damage"				"50 200 350 500 650 800 950"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"cast_range"				"900 1000 1100 1200 1300 1400 1500"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"q_4_stun_duration"				"0.05"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"w_4_damage_increase_from_target_max_health"				"0.01"
-			}
-
-		}
+		"AbilityValues"
+        {
+            "attack_damage_of_target_per_tech" "10"
+            "base_damage" "50 200 350 500 650 800 950"
+            "cast_range" "900 1000 1100 1200 1300 1400 1500"
+            "q_4_stun_duration" "0.05"
+            "w_4_damage_increase_from_target_max_health" "0.01"
+        }
 		"AbilityCastAnimation"	"ACT_DOTA_ATTACK2"
 		// Precache
 		//-------------------------------------------------------
@@ -831,39 +704,15 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"attack_damage_added_per_tech"				"20"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"fire_speed_per_tech"				"150"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"fire_speed_base"				"850"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"fire_range"				"1200 1400 1600 1800 2000 2200 2400"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"base_damage"				"80 220 360 500 640 780 920"
-			}
-			"06"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"w_4_burn_damage_attack_power"				"3"
-			}
-		}
+		"AbilityValues"
+        {
+            "attack_damage_added_per_tech" "20"
+            "fire_speed_per_tech" "150"
+            "fire_speed_base" "850"
+            "fire_range" "1200 1400 1600 1800 2000 2200 2400"
+            "base_damage" "80 220 360 500 640 780 920"
+            "w_4_burn_damage_attack_power" "3"
+        }
 		"OnProjectileHitUnit"
 		{
 			"DeleteOnHit"	"0"
@@ -1024,34 +873,14 @@
 			}
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"base_ability_damage_per_flame_tech"			"2"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"flames"			"2 2 3 3 4 4 5"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"duration"			"150"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"w_4_base_attack_damage_per_flame"			"20 40 60 80 100 120 140"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"e_4_mana_regen_per_flame"			"1 2 3 4 5 6 7"
-			}
-		}
+		"AbilityValues"
+        {
+            "base_ability_damage_per_flame_tech" "2"
+            "flames" "2 2 3 3 4 4 5"
+            "duration" "150"
+            "w_4_base_attack_damage_per_flame" "20 40 60 80 100 120 140"
+            "e_4_mana_regen_per_flame" "1 2 3 4 5 6 7"
+        }
 	}
 
 	"jex_nature_fire_e"
@@ -1084,54 +913,18 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"explosion_attack_damage_per_tech"				"50"
-			}		
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"explosive_attack_damage_per_tech"				"10"
-			}	
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"roshpit_attr_per_tech"				"2"
-			}	
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"attack_mult_per_tech"				"0.2"
-			}		
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"attack_gain_per_second"				"10 20 30 40 50 60 70"
-			}	
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"max_health_mult"				"2 2.2 2.4 2.6 2.8 3.0 3.2"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"mana_cost_increase_per_second"				"10 20 30 40 50 60 70"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"q_4_cooldown_reduction"				"0.15"
-			}	
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"w_4_burn_damage_explosion_damage"					"10"
-			}	
-		}
+		"AbilityValues"
+        {
+            "explosion_attack_damage_per_tech" "50"
+            "explosive_attack_damage_per_tech" "10"
+            "roshpit_attr_per_tech" "2"
+            "attack_mult_per_tech" "0.2"
+            "attack_gain_per_second" "10 20 30 40 50 60 70"
+            "max_health_mult" "2 2.2 2.4 2.6 2.8 3.0 3.2"
+            "mana_cost_increase_per_second" "10 20 30 40 50 60 70"
+            "q_4_cooldown_reduction" "0.15"
+            "w_4_burn_damage_explosion_damage" "10"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -1267,19 +1060,11 @@
 
 		"AbilityManaCost"				"0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"240"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"2.4"
-			}
-		}
+		"AbilityValues"
+        {
+            "radius" "240"
+            "duration" "2.4"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -1320,10 +1105,9 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-
-		}
+		"AbilityValues"
+        {
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -1392,34 +1176,14 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"clamp_distance_per_tech"	"60"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cooldown_reduction_per_tech"	"0.15"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"clamp_distance_base"	"875"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"w_4_burn_damage_attack_power"					"5"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"e_4_mana_restore_on_land"					"10 20 30 40 50 60 70"
-			}
-		}
+		"AbilityValues"
+        {
+            "clamp_distance_per_tech" "60"
+            "cooldown_reduction_per_tech" "0.15"
+            "clamp_distance_base" "875"
+            "w_4_burn_damage_attack_power" "5"
+            "e_4_mana_restore_on_land" "10 20 30 40 50 60 70"
+        }
 
 		"OnSpellStart"
 		{

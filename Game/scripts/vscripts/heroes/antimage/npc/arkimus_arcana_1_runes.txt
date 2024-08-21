@@ -7,14 +7,10 @@
 		"AbilityTextureName"	"arkimus/arkimus_rune_q_1_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ARKIMUS_ARCANA1_Q1_INT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% ARKIMUS_ARCANA1_Q1_INT %>"
+        }
 	}
 
 	"arkimus_rune_q_2_arcana1"
@@ -25,14 +21,10 @@
 		"AbilityTextureName"	"arkimus/arkimus_rune_q_2_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% ARKIMUS_ARCANA1_Q2_MAGIC_ARMOR_REDUCTION %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% ARKIMUS_ARCANA1_Q2_MAGIC_ARMOR_REDUCTION %>"
+        }
 	}
 
 	"arkimus_rune_q_3_arcana1"
@@ -43,14 +35,10 @@
 		"AbilityTextureName"	"arkimus/arkimus_rune_q_3_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ARKIMUS_ARCANA1_Q3_STACKS %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% ARKIMUS_ARCANA1_Q3_STACKS %>"
+        }
 	}
 
 	"arkimus_rune_q_4_arcana1"
@@ -64,18 +52,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ARKIMUS_ARCANA1_Q4_AGI %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% ARKIMUS_ARCANA1_Q4_LIGHTNING_AMP * 100 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% ARKIMUS_ARCANA1_Q4_AGI %>"
+            "property_two" "<% ARKIMUS_ARCANA1_Q4_LIGHTNING_AMP * 100 %>"
+        }
 	}
 

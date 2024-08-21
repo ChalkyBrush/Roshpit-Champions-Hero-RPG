@@ -7,14 +7,10 @@
 		"AbilityTextureName"	"djanghor/year_beast/djanghor_rune_r_1_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% DJANGHOR_ARCANA_R_R1_ATTACK_POWER %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% DJANGHOR_ARCANA_R_R1_ATTACK_POWER %>"
+        }
 	}
 
 	"djanghor_rune_r_2_arcana1"
@@ -25,14 +21,10 @@
 		"AbilityTextureName"	"djanghor/year_beast/djanghor_rune_r_2_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% DJANGHOR_ARCANA_R_R2_HEALTH_PER_ATTRIBUTE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% DJANGHOR_ARCANA_R_R2_HEALTH_PER_ATTRIBUTE %>"
+        }
 	}
 
 	"djanghor_rune_r_3_arcana1"
@@ -43,19 +35,11 @@
 		"AbilityTextureName"	"djanghor/year_beast/djanghor_rune_r_3_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% DJANGHOR_ARCANA_R_R3_RESIST_PCT * 100 %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one_max"			"<% DJANGHOR_ARCANA_R_R3_RESIST_MAX_PCT * 100 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% DJANGHOR_ARCANA_R_R3_RESIST_PCT * 100 %>"
+            "property_one_max" "<% DJANGHOR_ARCANA_R_R3_RESIST_MAX_PCT * 100 %>"
+        }
 	}
 
 	"djanghor_rune_r_4_arcana1"
@@ -66,13 +50,9 @@
 		"AbilityTextureName"	"djanghor/year_beast/djanghor_rune_r_4_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% DJANGHOR_ARCANA_R_R4_BONUS_ATTRIBUTE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% DJANGHOR_ARCANA_R_R4_BONUS_ATTRIBUTE %>"
+        }
 	}
 

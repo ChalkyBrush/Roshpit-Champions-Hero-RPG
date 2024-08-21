@@ -166,19 +166,11 @@
 			}
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"duration"				"<% BAHAMUT_ARCANA_R_DURATION %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"30 60 90 120 150 180 210"
-			}
-		}
+		"AbilityValues"
+        {
+            "duration" "<% BAHAMUT_ARCANA_R_DURATION %>"
+            "damage" "30 60 90 120 150 180 210"
+        }
 
 	}
 

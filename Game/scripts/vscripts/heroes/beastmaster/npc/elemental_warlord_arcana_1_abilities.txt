@@ -252,18 +252,10 @@
 				"Function"		"pressure_fireball_impact"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"attack_range"	"75 150 225 300 375 450 525"
-			}
-			"02"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"duration"	"18"
-			}
-		}
+		"AbilityValues"
+        {
+            "attack_range" "75 150 225 300 375 450 525"
+            "duration" "18"
+        }
 	}
 

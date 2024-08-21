@@ -7,14 +7,10 @@
 		"AbilityTextureName"	"axe/axe_rune_q_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% RED_GENERAL_Q1_ATTACK_DAMAGE_PROCENT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% RED_GENERAL_Q1_ATTACK_DAMAGE_PROCENT %>"
+        }
 	}
 
 	"axe_rune_q_2"
@@ -25,19 +21,11 @@
 		"AbilityTextureName"	"axe/axe_rune_q_2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% RED_GENERAL_Q2_ATTACK_SPEED %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% RED_GENERAL_Q2_ATTACK_DAMAGE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% RED_GENERAL_Q2_ATTACK_SPEED %>"
+            "property_two" "<% RED_GENERAL_Q2_ATTACK_DAMAGE %>"
+        }
 		"Modifiers"
 		{
 			"modifier_axe_rune_q_2_base"
@@ -83,24 +71,12 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% RED_GENERAL_Q3_AMPLIFY_PERCENT %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"4"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"1"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% RED_GENERAL_Q3_AMPLIFY_PERCENT %>"
+            "base_ability" "4"
+            "element_one" "1"
+        }
 		"Modifiers"
 		{
 			"modifier_axe_rune_q_3_jump"
@@ -170,15 +146,10 @@
 		"AbilityTextureName"	"rpc/axe_q_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% RED_GENERAL_Q4_RADIUS_INCREASE %>"
-			}
-
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% RED_GENERAL_Q4_RADIUS_INCREASE %>"
+        }
 	}
 
 	"axe_rune_w_1"
@@ -190,24 +161,12 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% RED_GENERAL_W1_DAMAGE_PERCENT %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"2"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"1"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% RED_GENERAL_W1_DAMAGE_PERCENT %>"
+            "base_ability" "2"
+            "element_one" "1"
+        }
 	}
 
 	"axe_rune_w_2"
@@ -218,19 +177,11 @@
 		"AbilityTextureName"	"axe/axe_rune_w_2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% RED_GENERAL_W2_MAGIC_ARMOR_REDUCTION %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one_base"		"0.1"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% RED_GENERAL_W2_MAGIC_ARMOR_REDUCTION %>"
+            "property_one_base" "0.1"
+        }
 	}
 
 	"axe_rune_w_3"
@@ -241,19 +192,11 @@
 		"AbilityTextureName"	"axe/axe_rune_w_3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% RED_GENERAL_W3_HEAL_FLAT %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% RED_GENERAL_W3_HEAL_PCT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% RED_GENERAL_W3_HEAL_FLAT %>"
+            "property_two" "<% RED_GENERAL_W3_HEAL_PCT %>"
+        }
 		"Modifiers"
 		{
 			"modifier_axe_rune_w_3_visible"
@@ -294,14 +237,10 @@
 		"AbilityTextureName"	"rpc/axe_w_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% RED_GENERAL_W4_AMPLIFY_PERCENT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% RED_GENERAL_W4_AMPLIFY_PERCENT %>"
+        }
 		"Modifiers"
 		{
 			"modifier_axe_rune_w_4_stacks"
@@ -327,14 +266,10 @@
 		"AbilityTextureName"	"axe/axe_rune_e_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% RED_GENERAL_E1_ATTRIBUTES_GAIN %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% RED_GENERAL_E1_ATTRIBUTES_GAIN %>"
+        }
 		"Modifiers"
 		{
 			"modifier_axe_rune_e_1_visible"
@@ -360,14 +295,10 @@
 		"AbilityTextureName"	"axe/axe_rune_e_2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% RED_GENERAL_E2_BONUS_DAMAGE_PERCENT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% RED_GENERAL_E2_BONUS_DAMAGE_PERCENT %>"
+        }
 	}
 
 	"axe_rune_e_3"
@@ -379,24 +310,12 @@
 		"MaxLevel"				"20"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% RED_GENERAL_E3_DAMAGE_PERCENT %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"3"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"1"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% RED_GENERAL_E3_DAMAGE_PERCENT %>"
+            "base_ability" "3"
+            "element_one" "1"
+        }
 		"Modifiers"
 		{
 			"modifier_axe_rune_e_3"
@@ -428,14 +347,10 @@
 		"AbilityTextureName"	"axe/axe_rune_e_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% RED_GENERAL_E4_PROC_CHANCE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% RED_GENERAL_E4_PROC_CHANCE %>"
+        }
 	}
 
 	"axe_rune_r_1"
@@ -447,24 +362,12 @@
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% RED_GENERAL_R1_DAMAGE %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"4"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"1"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% RED_GENERAL_R1_DAMAGE %>"
+            "base_ability" "4"
+            "element_one" "1"
+        }
 	}
 
 	"axe_rune_r_2"
@@ -476,29 +379,13 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% RED_GENERAL_R2_AMPLIFY_PERCENT %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two_base"		"500"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"4"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"1"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% RED_GENERAL_R2_AMPLIFY_PERCENT %>"
+            "property_two_base" "500"
+            "base_ability" "4"
+            "element_one" "1"
+        }
 	}
 
 	"axe_rune_r_3"
@@ -509,19 +396,11 @@
 		"AbilityTextureName"	"axe/axe_rune_r_3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% RED_GENERAL_R3_BONUS_HEALTH %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% RED_GENERAL_R3_BONUS_ARMOR %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% RED_GENERAL_R3_BONUS_HEALTH %>"
+            "property_two" "<% RED_GENERAL_R3_BONUS_ARMOR %>"
+        }
 		"Modifiers"
 		{
 			"modifier_axe_rune_r_3"
@@ -543,13 +422,9 @@
 		"AbilityTextureName"	"axe/axe_rune_r_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% RED_GENERAL_R4_ARMOR_PIERCE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% RED_GENERAL_R4_ARMOR_PIERCE %>"
+        }
 	}
 

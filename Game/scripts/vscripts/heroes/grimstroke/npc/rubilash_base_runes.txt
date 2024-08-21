@@ -10,14 +10,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% RUBILASH_RUNE_Q1_CAST_RANGE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% RUBILASH_RUNE_Q1_CAST_RANGE %>"
+        }
 	}
 
 	"rubilash_rune_q_2"
@@ -31,14 +27,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% RUBILASH_RUNE_Q2_ARMOR_AND_MAGIC_ARMOR_LOSS %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% RUBILASH_RUNE_Q2_ARMOR_AND_MAGIC_ARMOR_LOSS %>"
+        }
 	}
 
 	"rubilash_rune_q_3"
@@ -52,19 +44,11 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% RUBILASH_RUNE_Q3_FEAR_DURATION %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one_base"			"<% RUBILASH_RUNE_Q3_FEAR_DURATION_BASE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% RUBILASH_RUNE_Q3_FEAR_DURATION %>"
+            "property_one_base" "<% RUBILASH_RUNE_Q3_FEAR_DURATION_BASE %>"
+        }
 	}
 
 	"rubilash_rune_q_4"
@@ -78,14 +62,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% RUBILASH_RUNE_Q4_DEMON_AND_GHOST_AMP %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% RUBILASH_RUNE_Q4_DEMON_AND_GHOST_AMP %>"
+        }
 	}
 
 	"rubilash_rune_w_1"
@@ -99,14 +79,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% RUBILASH_RUNE_W1_EXTRA_PAINT_DURATION %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% RUBILASH_RUNE_W1_EXTRA_PAINT_DURATION %>"
+        }
 	}
 
 	"rubilash_rune_w_2"
@@ -120,14 +96,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% RUBILASH_RUNE_W2_ARMOR_PIERCE_AND_MAGIC_ARMOR_LOSS %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% RUBILASH_RUNE_W2_ARMOR_PIERCE_AND_MAGIC_ARMOR_LOSS %>"
+        }
 	}
 
 	"rubilash_rune_w_3"
@@ -142,34 +114,14 @@
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% RUBILASH_RUNE_W3_ATTACK_SPEED %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% RUBILASH_RUNE_W3_W_AMP %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"2"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"<% RPC_ELEMENT_DEMON %>"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_two"			"<% RPC_ELEMENT_GHOST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% RUBILASH_RUNE_W3_ATTACK_SPEED %>"
+            "property_two" "<% RUBILASH_RUNE_W3_W_AMP %>"
+            "base_ability" "2"
+            "element_one" "<% RPC_ELEMENT_DEMON %>"
+            "element_two" "<% RPC_ELEMENT_GHOST %>"
+        }
 		"Modifiers"
 		{
 
@@ -187,14 +139,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% RUBILASH_RUNE_W4_SLOW %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% RUBILASH_RUNE_W4_SLOW %>"
+        }
 	}
 
 	"rubilash_rune_e_1"
@@ -208,19 +156,11 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% RUBILASH_RUNE_E1_MANA_RESTORE %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% RUBILASH_RUNE_E1_ATTACK_PER_MANA %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% RUBILASH_RUNE_E1_MANA_RESTORE %>"
+            "property_two" "<% RUBILASH_RUNE_E1_ATTACK_PER_MANA %>"
+        }
 	}
 
 	"rubilash_rune_e_2"
@@ -234,14 +174,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% RUBILASH_RUNE_E2_SPELL_PIERCE_AND_MAGIC_ARMOR_LOSS %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% RUBILASH_RUNE_E2_SPELL_PIERCE_AND_MAGIC_ARMOR_LOSS %>"
+        }
 	}
 
 	"rubilash_rune_e_3"
@@ -255,14 +191,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% RUBILASH_RUNE_E3_PAINT_HEAL_PCT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% RUBILASH_RUNE_E3_PAINT_HEAL_PCT %>"
+        }
 	}
 
 	"rubilash_rune_e_4"
@@ -276,14 +208,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% RUBILASH_RUNE_E4_HEALTH_PER_ATTR %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% RUBILASH_RUNE_E4_HEALTH_PER_ATTR %>"
+        }
 	}
 
 	"rubilash_rune_r_1"
@@ -298,14 +226,10 @@
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% RUBILASH_RUNE_R1_SPELL_PIERCE_PER_AGI %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% RUBILASH_RUNE_R1_SPELL_PIERCE_PER_AGI %>"
+        }
 	}
 
 	"rubilash_rune_r_2"
@@ -319,25 +243,12 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% RUBILASH_RUNE_R2_INVIS_DURATION_SCALE %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one_base"			"<% RUBILASH_RUNE_R2_INVIS_DURATION_BASE %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% RUBILASH_RUNE_R2_BAD_AND_ITEM_WHILE_INVIS %>"
-			}
-			
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% RUBILASH_RUNE_R2_INVIS_DURATION_SCALE %>"
+            "property_one_base" "<% RUBILASH_RUNE_R2_INVIS_DURATION_BASE %>"
+            "property_two" "<% RUBILASH_RUNE_R2_BAD_AND_ITEM_WHILE_INVIS %>"
+        }
 	}
 
 	"rubilash_rune_r_3"
@@ -351,34 +262,14 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one_base"			"<% RUBILASH_RUNE_R3_INTERVAL_BASE %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% RUBILASH_RUNE_R3_INTERVAL_REDUCTION %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two_base"			"<% RUBILASH_RUNE_R3_RANGE_BASE %>"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% RUBILASH_RUNE_R3_RANGE_SCALE %>"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"base_ability"			"<% BASE_ABILITY_W %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one_base" "<% RUBILASH_RUNE_R3_INTERVAL_BASE %>"
+            "property_one" "<% RUBILASH_RUNE_R3_INTERVAL_REDUCTION %>"
+            "property_two_base" "<% RUBILASH_RUNE_R3_RANGE_BASE %>"
+            "property_two" "<% RUBILASH_RUNE_R3_RANGE_SCALE %>"
+            "base_ability" "<% BASE_ABILITY_W %>"
+        }
 	}
 
 	"rubilash_rune_r_4"
@@ -392,18 +283,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% RUBILASH_RUNE_R4_PORTRAIT_DELAY_REDUCTION %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% RUBILASH_RUNE_R4_PORTRAIT_MS_BONUS %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% RUBILASH_RUNE_R4_PORTRAIT_DELAY_REDUCTION %>"
+            "property_two" "<% RUBILASH_RUNE_R4_PORTRAIT_MS_BONUS %>"
+        }
 	}
 

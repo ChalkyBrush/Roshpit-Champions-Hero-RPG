@@ -58,14 +58,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"80"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "80"
+        }
 	}
 
 	"item_rpc_voltex_glyph_2_1"
@@ -97,19 +93,11 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"200"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "2"
+            "property_two" "200"
+        }
 	}
 
 	"item_rpc_voltex_glyph_3_1"
@@ -141,14 +129,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"0"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "0"
+        }
 	}
 
 	"item_rpc_voltex_glyph_4_1"
@@ -197,19 +181,11 @@
 				"Function"		"voltex_glyph_4_1_strike"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"9"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"2"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "9"
+            "property_two" "2"
+        }
 	}
 
 	"item_rpc_voltex_glyph_5_1"
@@ -241,19 +217,11 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"12"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"50"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "12"
+            "property_two" "50"
+        }
 	}
 
 	"item_rpc_voltex_glyph_6_1"
@@ -285,19 +253,11 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"50"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"150"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "50"
+            "property_two" "150"
+        }
 	}
 
 	"item_rpc_voltex_glyph_7_1"
@@ -329,19 +289,11 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"200"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"2.5"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "200"
+            "property_two" "2.5"
+        }
 	}
 
 	"item_rpc_voltex_glyph_5_a"
@@ -373,14 +325,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% VOLTEX_GLYPH_5_A_DURATION_INCREASE_PCT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% VOLTEX_GLYPH_5_A_DURATION_INCREASE_PCT %>"
+        }
 	}
 	
 	"item_rpc_voltex_glyph_1_2"

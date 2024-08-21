@@ -31,14 +31,10 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-            "01"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "base_duration"                "3"
-            }
-		}
+		"AbilityValues"
+        {
+            "base_duration" "3"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -197,23 +193,11 @@
 
         // Special
         //-------------------------------------------------------
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "damage"                "180 400 620 840 1060 1280 1500"
-            }
-            "02"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "additional_damage_atk_power_pct"                "6 7 8 9 10 11 12"
-            }
-            "03"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "move_slow_percent"         "-20 -24 -28 -32 -34 -36 -38"
-            }
+            "damage" "180 400 620 840 1060 1280 1500"
+            "additional_damage_atk_power_pct" "6 7 8 9 10 11 12"
+            "move_slow_percent" "-20 -24 -28 -32 -34 -36 -38"
         }
         "OnSpellStart"
         {
@@ -293,28 +277,12 @@
         "LevelsBetweenUpgrades" "0"
         "AbilityUnitDamageType" "DAMAGE_TYPE_MAGICAL"
 
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "property_one"          "<% DUSKBRINGER_Q1_ARCANA2_DMG_PER_STACK %>"
-            }
-            "03"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "base_ability"          "1"
-            }
-            "04"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "element_one"           "13"
-            }
-            "05"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "element_two"           "2"
-            }
+            "property_one" "<% DUSKBRINGER_Q1_ARCANA2_DMG_PER_STACK %>"
+            "base_ability" "1"
+            "element_one" "13"
+            "element_two" "2"
         }
     }
 
@@ -329,13 +297,9 @@
         "MaxLevel"              "20"
         "LevelsBetweenUpgrades" "0"
 
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"              "FIELD_FLOAT"
-                "property_one"          "<% DUSKBRINGER_Q2_ARCANA2_DURATION_PER_LV %>"
-            }
+            "property_one" "<% DUSKBRINGER_Q2_ARCANA2_DURATION_PER_LV %>"
         }
     }
 
@@ -350,13 +314,9 @@
         "MaxLevel"              "20"
         "LevelsBetweenUpgrades" "0"
 
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"              "FIELD_FLOAT"
-                "property_one"          "<% DUSKBRINGER_Q3_ARCANA2_DURATION_INCREASE %>"
-            }
+            "property_one" "<% DUSKBRINGER_Q3_ARCANA2_DURATION_INCREASE %>"
         }
     }
 
@@ -371,17 +331,9 @@
         "MaxLevel"              "20"
         "LevelsBetweenUpgrades" "0"
 
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "property_one"          "<% DUSKBRINGER_ARCANA2_Q4_SPELL_PIERCE %>"
-            }
-            "02"
-            {
-                "var_type"              "FIELD_FLOAT"
-                "property_two"          "<% DUSKBRINGER_ARCANA2_Q4_ATTACK_POWER_PCT %>"
-            }
+            "property_one" "<% DUSKBRINGER_ARCANA2_Q4_SPELL_PIERCE %>"
+            "property_two" "<% DUSKBRINGER_ARCANA2_Q4_ATTACK_POWER_PCT %>"
         }
     }

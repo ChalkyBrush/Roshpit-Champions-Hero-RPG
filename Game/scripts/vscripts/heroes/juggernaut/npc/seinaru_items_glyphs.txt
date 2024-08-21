@@ -37,14 +37,10 @@
 				}
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SEINARU_GLYPH1_LIFESTEAL * 100 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SEINARU_GLYPH1_LIFESTEAL * 100 %>"
+        }
 	}
 
 	"item_rpc_seinaru_glyph_2_1"
@@ -124,14 +120,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SEINARU_GLYPH3_R3_RADIUS %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SEINARU_GLYPH3_R3_RADIUS %>"
+        }
 	}
 
 	"item_rpc_seinaru_glyph_4_1"

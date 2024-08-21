@@ -10,14 +10,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% MOUNTAIN_PROTECTOR_ARCANA3_E1_MAGIC_ARMOR_AND_SPELL_PIERCE_PER_MISSING_PCT_HP %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% MOUNTAIN_PROTECTOR_ARCANA3_E1_MAGIC_ARMOR_AND_SPELL_PIERCE_PER_MISSING_PCT_HP %>"
+        }
 	}
 
 	"mountain_protector_rune_e_2_arcana3"
@@ -31,19 +27,11 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% MOUNTAIN_PROTECTOR_ARCANA3_E2_STR %>"
-			}
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% MOUNTAIN_PROTECTOR_ARCANA3_E2_AGI %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% MOUNTAIN_PROTECTOR_ARCANA3_E2_STR %>"
+            "property_two" "<% MOUNTAIN_PROTECTOR_ARCANA3_E2_AGI %>"
+        }
 	}
 
 	"mountain_protector_rune_e_3_arcana3"
@@ -57,14 +45,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% MOUNTAIN_PROTECTOR_ARCANA3_E3_FREECAST_STACK_CHANCE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% MOUNTAIN_PROTECTOR_ARCANA3_E3_FREECAST_STACK_CHANCE %>"
+        }
 	}
 
 	"mountain_protector_rune_e_4_arcana3"
@@ -78,13 +62,9 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% MOUNTAIN_PROTECTOR_ARCANA3_E4_EXTRA_MAGIC_ARMOR_REDUCE_WHEN_HP_HIGHER %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% MOUNTAIN_PROTECTOR_ARCANA3_E4_EXTRA_MAGIC_ARMOR_REDUCE_WHEN_HP_HIGHER %>"
+        }
 	}
 

@@ -250,19 +250,11 @@
 			}
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"agility_bonus"			"30 60 90 120 150 180 210"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"resist"			"<% DJANGHOR_WOLF_MAG_PURE_RED * 100 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "agility_bonus" "30 60 90 120 150 180 210"
+            "resist" "<% DJANGHOR_WOLF_MAG_PURE_RED * 100 %>"
+        }
 	}
 
 	"draghor_shapeshift_bear"
@@ -460,19 +452,11 @@
 			}
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"strength_bonus"			"30 60 90 120 150 180 210"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"resist"			"<% DJANGHOR_BEAR_PHYS_PURE_RED * 100 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "strength_bonus" "30 60 90 120 150 180 210"
+            "resist" "<% DJANGHOR_BEAR_PHYS_PURE_RED * 100 %>"
+        }
 	}
 
 	"draghor_shapeshift_crow"
@@ -660,19 +644,11 @@
 			}
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"int_bonus"			"30 60 90 120 150 180 210"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"block"			"<% DJANGHOR_BIRD_PURE_MAG_BLOCK %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "int_bonus" "30 60 90 120 150 180 210"
+            "block" "<% DJANGHOR_BIRD_PURE_MAG_BLOCK %>"
+        }
 	}
 
 	"draghor_monkey_form"
@@ -708,14 +684,10 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage_mult"			"80 100 120 140 160 180 200"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage_mult" "80 100 120 140 160 180 200"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -795,29 +767,13 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"attack_speed"			"60 75 90 105 120 135 150"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"attack_damage_base"			"30 60 120 210 330 480 760"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"attack_speed_rune"			"3 3.75 4.5 5.25 6.0 6.75 7.5"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"attack_damage_base_rune"			"1.5 3.0 6 10.5 16.5 24 38"
-			}
-		}
+		"AbilityValues"
+        {
+            "attack_speed" "60 75 90 105 120 135 150"
+            "attack_damage_base" "30 60 120 210 330 480 760"
+            "attack_speed_rune" "3 3.75 4.5 5.25 6.0 6.75 7.5"
+            "attack_damage_base_rune" "1.5 3.0 6 10.5 16.5 24 38"
+        }
 		"Modifiers"
 		{
 			"modifier_mark_of_the_fang"
@@ -888,29 +844,13 @@
 		"AbilityManaCost"				"0"
 
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"armor_bonus"			"30 60 200 400 700 1000 1400"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"health_regen"			"10 25 55 75 120 200 250"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"armor_bonus_rune"			"1.5 3.0 10 20 35 50 70"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"health_regen_rune"			"0.5 1.25 2.75 3.75 6 10 12.5"
-			}
-		}
+		"AbilityValues"
+        {
+            "armor_bonus" "30 60 200 400 700 1000 1400"
+            "health_regen" "10 25 55 75 120 200 250"
+            "armor_bonus_rune" "1.5 3.0 10 20 35 50 70"
+            "health_regen_rune" "0.5 1.25 2.75 3.75 6 10 12.5"
+        }
 		"Modifiers"
 		{
 			"modifier_mark_of_the_claw"
@@ -979,29 +919,13 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"mana_regen"			"30 60 100 150 210 280 360"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"magic_armor_increase"			"30 60 200 400 700 1000 1400"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"mana_regen_rune"			"1.5 3 5 7.5 10.5 14 18"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"magic_armor_increase_rune"			"1.5 3.0 10 20 35 50 70"
-			}
-		}
+		"AbilityValues"
+        {
+            "mana_regen" "30 60 100 150 210 280 360"
+            "magic_armor_increase" "30 60 200 400 700 1000 1400"
+            "mana_regen_rune" "1.5 3 5 7.5 10.5 14 18"
+            "magic_armor_increase_rune" "1.5 3.0 10 20 35 50 70"
+        }
 		"Modifiers"
 		{
 			"modifier_mark_of_the_talon"
@@ -1072,19 +996,11 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage_mult"			"70 90 100 120 130 160 180"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"stun_duration"			"0.6 0.65 0.7 0.75 0.8 0.85 0.9"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage_mult" "70 90 100 120 130 160 180"
+            "stun_duration" "0.6 0.65 0.7 0.75 0.8 0.85 0.9"
+        }
 		"OnAbilityPhaseStart"
 		{
 			"RunScript"
@@ -1229,14 +1145,10 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"cast_range"			"1100 1150 1200 1250 1300 1350 1400"
-			}
-		}
+		"AbilityValues"
+        {
+            "cast_range" "1100 1150 1200 1250 1300 1350 1400"
+        }
 		"OnAbilityPhaseStart"
 		{
 			"RunScript"
@@ -1363,24 +1275,12 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage_increase_percent"		"20 25 30 35 40 45 50"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"duration"			"16"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage_increase_percent_ally"		"5 10 15 20 25 30 35"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage_increase_percent" "20 25 30 35 40 45 50"
+            "duration" "16"
+            "damage_increase_percent_ally" "5 10 15 20 25 30 35"
+        }
 		"Modifiers"
 		{
 			"modifier_wolf_howl"
@@ -1458,29 +1358,13 @@
 		{
 				"particle"		"particles/econ/events/ti5/teleport_end_dust_ti5.vpcf"
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"movespeed_increase"		"710"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"movespeed_cap"		"590 610 630 650 670 690 710"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"duration"			"8"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"cooldown"			"10.0"
-			}
-		}
+		"AbilityValues"
+        {
+            "movespeed_increase" "710"
+            "movespeed_cap" "590 610 630 650 670 690 710"
+            "duration" "8"
+            "cooldown" "10.0"
+        }
 	}
 
 	"draghor_wolf_rend"
@@ -1516,29 +1400,13 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage_mult"			"60 65 70 75 80 85 90"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"bleed_damage"			"8 10 12 14 16 18 20"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"bleed_duration"			"12"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"rend_armor_reduction"		"-10 -80 -180 -240 -300 -360 -420"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage_mult" "60 65 70 75 80 85 90"
+            "bleed_damage" "8 10 12 14 16 18 20"
+            "bleed_duration" "12"
+            "rend_armor_reduction" "-10 -80 -180 -240 -300 -360 -420"
+        }
 		"OnAbilityPhaseStart"
 		{
 			"RunScript"
@@ -1645,19 +1513,11 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"duration"			"2.1 2.25 2.4 2.55 2.7 2.85 3.0"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"armor_bonus"		"30 70 150 350 400 700 900"
-			}
-		}
+		"AbilityValues"
+        {
+            "duration" "2.1 2.25 2.4 2.55 2.7 2.85 3.0"
+            "armor_bonus" "30 70 150 350 400 700 900"
+        }
 		"Modifiers"
 		{
 			"modifier_bear_roar_taunt"
@@ -1769,24 +1629,12 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"		"120 260 400 540 680 820 1040"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"stun_duration"			"0.45 0.5 0.55 0.6 0.65 0.7 0.75"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"rend_armor_reduction"		"-10 -80 -180 -240 -300 -360 -420"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "120 260 400 540 680 820 1040"
+            "stun_duration" "0.45 0.5 0.55 0.6 0.65 0.7 0.75"
+            "rend_armor_reduction" "-10 -80 -180 -240 -300 -360 -420"
+        }
 		"Modifiers"
 		{
 			"modifier_bear_rend_armor_loss"
@@ -1852,19 +1700,11 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"stun_duration"				"0.5"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"max_distance"				"800 900 1000 1100 1200 1300 1400"
-			}
-		}
+		"AbilityValues"
+        {
+            "stun_duration" "0.5"
+            "max_distance" "800 900 1000 1100 1200 1300 1400"
+        }
 
 		"OnSpellStart"
 		{
@@ -1981,24 +1821,12 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"120 220 320 420 520 620 720"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"debuff_duration"				"6 8 10 12 14 16 18"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"magic_armor_reduction"			"-100 -200 -300 -400 -500 -600 -700"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "120 220 320 420 520 620 720"
+            "debuff_duration" "6 8 10 12 14 16 18"
+            "magic_armor_reduction" "-100 -200 -300 -400 -500 -600 -700"
+        }
 		"OnAbilityPhaseStart"
 		{
 			"RunScript"
@@ -2093,29 +1921,13 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"bonus_movement_speed"			"-5 -7 -9 -11 -13 -15 -17"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"attack_speed"			"-15"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"30 100 170 240 310 380 450"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"int_mult"			"0.7 0.75 0.80 0.85 0.90 0.95 1.00"
-			}
-		}
+		"AbilityValues"
+        {
+            "bonus_movement_speed" "-5 -7 -9 -11 -13 -15 -17"
+            "attack_speed" "-15"
+            "damage" "30 100 170 240 310 380 450"
+            "int_mult" "0.7 0.75 0.80 0.85 0.90 0.95 1.00"
+        }
 		"OnAbilityPhaseStart"
 		{
 			"RunScript"
@@ -2213,19 +2025,11 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"duration"		"6.0 6.3 6.6 6.9 7.2 7.5 7.8"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"movespeed"			"700"
-			}
-		}
+		"AbilityValues"
+        {
+            "duration" "6.0 6.3 6.6 6.9 7.2 7.5 7.8"
+            "movespeed" "700"
+        }
 		"Modifiers"
 		{
 			"modifier_hawk_soar"

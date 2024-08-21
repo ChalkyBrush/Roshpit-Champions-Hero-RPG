@@ -413,14 +413,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"<% VENOMORT_IMMORTAL_WEAPON_1_AOE_RADIUS %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% VENOMORT_IMMORTAL_WEAPON_1_AOE_RADIUS %>"
+        }
 	}
 
 	"item_rpc_venomort_immortal_weapon_2"
@@ -460,14 +456,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"<% VENOMORT_IMMORTAL_WEAPON_2_FUSIONS_COUNT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% VENOMORT_IMMORTAL_WEAPON_2_FUSIONS_COUNT %>"
+        }
 	}
 
 	"item_rpc_venomort_immortal_weapon_3"
@@ -507,14 +499,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"property_one"		"<% VENOMORT_IMMORTAL_WEAPON_3_E2_DAMAGE_PER_RUNE_FROM_HP_PERCENT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% VENOMORT_IMMORTAL_WEAPON_3_E2_DAMAGE_PER_RUNE_FROM_HP_PERCENT %>"
+        }
 	}
 	
 	"item_rpc_venomort_immortal_weapon_4"
@@ -567,13 +555,9 @@
                 }
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_one"			"5"
-			}
-		}
+		"AbilityValues"
+        {
+            "element_one" "5"
+        }
 	}
 

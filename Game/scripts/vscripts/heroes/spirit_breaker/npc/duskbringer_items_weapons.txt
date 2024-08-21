@@ -452,14 +452,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"property_one"			"0.8"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "0.8"
+        }
 	}
 
 	"item_rpc_duskbringer_immortal_weapon_3"
@@ -508,24 +504,12 @@
 				}
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"25"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"property_two"			"2.0"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_three"			"5"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "25"
+            "property_two" "2.0"
+            "property_three" "5"
+        }
 	}
 	
 	"item_rpc_duskbringer_immortal_weapon_4"

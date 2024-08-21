@@ -434,14 +434,10 @@
 				"Function"		"equip_item"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"property_one"			"1.5"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "1.5"
+        }
 	}
 
 	"item_rpc_chernobog_immortal_weapon_3"

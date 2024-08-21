@@ -7,14 +7,10 @@
 		"AbilityTextureName"	"phantom_assassin_blur"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% VOLTEX_Q1_ARMOR %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% VOLTEX_Q1_ARMOR %>"
+        }
 		"Modifiers"
 		{
 			"modifier_voltex_rune_q_1_buff"
@@ -36,14 +32,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% VOLTEX_Q2_SPELL_PIERCE_PER_AGI %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% VOLTEX_Q2_SPELL_PIERCE_PER_AGI %>"
+        }
 
 		"Modifiers"
 		{
@@ -59,19 +51,11 @@
 		"AbilityTextureName"	"lina_laguna_blade"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% VOLTEX_Q3_ATK_DAMAGE_ADDED_TO_Q %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"1"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% VOLTEX_Q3_ATK_DAMAGE_ADDED_TO_Q %>"
+            "base_ability" "1"
+        }
 		"Modifiers"
 		{
 			"modifier_voltex_rune_q_3"
@@ -96,14 +80,10 @@
 		"AbilityTextureName"	"zuus_lightning_bolt"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% VOLTEX_Q4_PARALYZE_DURATION %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% VOLTEX_Q4_PARALYZE_DURATION %>"
+        }
 	}
 
 	"voltex_rune_w_1"
@@ -115,24 +95,12 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% VOLTEX_W1_DMG_PER_ATT_PER_LVL * 100 %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"2"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"<% RPC_ELEMENT_LIGHTNING %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% VOLTEX_W1_DMG_PER_ATT_PER_LVL * 100 %>"
+            "base_ability" "2"
+            "element_one" "<% RPC_ELEMENT_LIGHTNING %>"
+        }
 	}
 
 	"voltex_rune_w_2"
@@ -143,29 +111,13 @@
 		"AbilityTextureName"	"chen_test_of_faith"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% VOLTEX_W2_ATT_SPD %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% VOLTEX_W2_ATT_PCT %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_three"		"<% VOLTEX_W2_ALLY_ATT_SPD %>"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_four"			"<% VOLTEX_W2_ALLY_ATT_PCT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% VOLTEX_W2_ATT_SPD %>"
+            "property_two" "<% VOLTEX_W2_ATT_PCT %>"
+            "property_three" "<% VOLTEX_W2_ALLY_ATT_SPD %>"
+            "property_four" "<% VOLTEX_W2_ALLY_ATT_PCT %>"
+        }
 		"Modifiers"
 		{
 
@@ -184,34 +136,14 @@
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% VOLTEX_W3_DUR %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one_base"		"<% VOLTEX_W3_BASE_DUR %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% VOLTEX_W3_DMG_PER_AGI %>"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"2"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"<% RPC_ELEMENT_LIGHTNING %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% VOLTEX_W3_DUR %>"
+            "property_one_base" "<% VOLTEX_W3_BASE_DUR %>"
+            "property_two" "<% VOLTEX_W3_DMG_PER_AGI %>"
+            "base_ability" "2"
+            "element_one" "<% RPC_ELEMENT_LIGHTNING %>"
+        }
 	}
 
 	"voltex_rune_w_4"
@@ -224,14 +156,10 @@
 		"AbilityTextureName"	"nyx_assassin_mana_burn"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% VOLTEX_W4_MAGIC_ARMOR_REDUCE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% VOLTEX_W4_MAGIC_ARMOR_REDUCE %>"
+        }
 	}
 
 	"voltex_rune_e_1"
@@ -242,24 +170,12 @@
 		"AbilityTextureName"	"disruptor_glimpse"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% VOLTEX_E1_DUR %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one_base"		"<% VOLTEX_E1_BASE_DUR %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% VOLTEX_E1_ATTACK_POWER %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% VOLTEX_E1_DUR %>"
+            "property_one_base" "<% VOLTEX_E1_BASE_DUR %>"
+            "property_two" "<% VOLTEX_E1_ATTACK_POWER %>"
+        }
 	}
 
 	"voltex_rune_e_2"
@@ -271,39 +187,15 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% VOLTEX_E2_DUR %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one_base"		"<% VOLTEX_E2_BASE_DUR %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% VOLTEX_E2_DMG %>"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two_base"		"<% VOLTEX_E2_BASE_DMG %>"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"3"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"<% RPC_ELEMENT_LIGHTNING %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% VOLTEX_E2_DUR %>"
+            "property_one_base" "<% VOLTEX_E2_BASE_DUR %>"
+            "property_two" "<% VOLTEX_E2_DMG %>"
+            "property_two_base" "<% VOLTEX_E2_BASE_DMG %>"
+            "base_ability" "3"
+            "element_one" "<% RPC_ELEMENT_LIGHTNING %>"
+        }
 		"Modifiers"
 		{
 
@@ -319,34 +211,14 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% VOLTEX_E3_DMG %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% VOLTEX_E3_RANGE %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two_base"		"<% VOLTEX_E3_BASE_RANGE %>"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"3"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"<% RPC_ELEMENT_LIGHTNING %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% VOLTEX_E3_DMG %>"
+            "property_two" "<% VOLTEX_E3_RANGE %>"
+            "property_two_base" "<% VOLTEX_E3_BASE_RANGE %>"
+            "base_ability" "3"
+            "element_one" "<% RPC_ELEMENT_LIGHTNING %>"
+        }
 	}
 
 	"voltex_rune_e_4"
@@ -359,14 +231,10 @@
 		"AbilityTextureName"	"rpc/winged_lightning"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% VOLTEX_E4_LIGHTNING_AMP %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% VOLTEX_E4_LIGHTNING_AMP %>"
+        }
 	}
 
 	"voltex_rune_r_1"
@@ -378,39 +246,15 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% VOLTEX_R1_AMOUNT %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"<% VOLTEX_R1_BASE_AMOUNT %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% VOLTEX_R1_DMG %>"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two_base"		"<% VOLTEX_R1_BASE_DMG %>"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"4"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"<% RPC_ELEMENT_LIGHTNING %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% VOLTEX_R1_AMOUNT %>"
+            "property_one_base" "<% VOLTEX_R1_BASE_AMOUNT %>"
+            "property_two" "<% VOLTEX_R1_DMG %>"
+            "property_two_base" "<% VOLTEX_R1_BASE_DMG %>"
+            "base_ability" "4"
+            "element_one" "<% RPC_ELEMENT_LIGHTNING %>"
+        }
 	}
 
 	"voltex_rune_r_2"
@@ -422,29 +266,13 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% VOLTEX_R2_DMG_PER_ATT%>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% VOLTEX_R2_ARMOR_LOSS %>"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"<% RPC_ELEMENT_LIGHTNING %>"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"4"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% VOLTEX_R2_DMG_PER_ATT%>"
+            "property_two" "<% VOLTEX_R2_ARMOR_LOSS %>"
+            "element_one" "<% RPC_ELEMENT_LIGHTNING %>"
+            "base_ability" "4"
+        }
 	}
 
 	"voltex_rune_r_3"
@@ -455,19 +283,11 @@
 		"AbilityTextureName"	"razor_unstable_current"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% VOLTEX_R3_ATT_BONUS %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% VOLTEX_R3_MAGIC_ARMOR %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% VOLTEX_R3_ATT_BONUS %>"
+            "property_two" "<% VOLTEX_R3_MAGIC_ARMOR %>"
+        }
 		"Modifiers"
 		{
 			"modifier_voltex_rune_r_3_avatar"
@@ -563,14 +383,10 @@
 		"AbilityTextureName"	"magnataur_shockwave"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% VOLTEX_R4_ATT_PCT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% VOLTEX_R4_ATT_PCT %>"
+        }
 		"Modifiers"
 		{
 			"modifier_voltex_rune_r_4_visible"

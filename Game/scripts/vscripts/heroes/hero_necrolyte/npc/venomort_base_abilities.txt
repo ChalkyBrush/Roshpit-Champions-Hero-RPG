@@ -87,29 +87,13 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"<% VENOMORT_Q_DEBUFF_DURATION %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"tick_rate"			    "<% VENOMORT_Q_TICK_RATE %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"			    "<% VENOMORT_Q_DAMAGE %>"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"range"			    "<% VENOMORT_Q_RANGE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "duration" "<% VENOMORT_Q_DEBUFF_DURATION %>"
+            "tick_rate" "<% VENOMORT_Q_TICK_RATE %>"
+            "damage" "<% VENOMORT_Q_DAMAGE %>"
+            "range" "<% VENOMORT_Q_RANGE %>"
+        }
 
 		"OnSpellStart"
 		{
@@ -215,24 +199,12 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"movespeed_slow"			"-80 -100 -120 -140 -160 -180 -200"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"damage"				    "<% VENOMORT_W_DAMAGE %>"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"range"				    "800 900 1000 1100 1200 1300 1400"
-			}
-		}
+		"AbilityValues"
+        {
+            "movespeed_slow" "-80 -100 -120 -140 -160 -180 -200"
+            "damage" "<% VENOMORT_W_DAMAGE %>"
+            "range" "800 900 1000 1100 1200 1300 1400"
+        }
 		"OnAbilityPhaseStart"
 		{
 			"RunScript"
@@ -349,19 +321,11 @@
 			"particle"	"particles/units/heroes/hero_venomancer/venomancer_poison_debuff_nova.vpcf"
 			"particle"	"particles/econ/courier/courier_polycount_01/courier_trail_polycount_01.vpcf"
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"cast_range"			"900 1000 1100 1200 1300 1400 1500"
-			}
-			"02"
-			{
-				"var_type"			    "FIELD_FLOAT"
-				"invisible_duration"	"2 2.2 2.4 2.6 2.8 3 3.2"
-			}
-		}
+		"AbilityValues"
+        {
+            "cast_range" "900 1000 1100 1200 1300 1400 1500"
+            "invisible_duration" "2 2.2 2.4 2.6 2.8 3 3.2"
+        }
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"				"0.26"
@@ -708,29 +672,12 @@
 			}
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"			    "80 150 320 500 700 850 1000"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"health"			    "340 500 700 900 1200 1500 2500"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"attack_speed"			"<% VENOMORT_R_ATTACK_SPEED %>"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"duration"			    "<% VENOMORT_R_DURATION %>"
-			}
-
-		}
+		"AbilityValues"
+        {
+            "damage" "80 150 320 500 700 850 1000"
+            "health" "340 500 700 900 1200 1500 2500"
+            "attack_speed" "<% VENOMORT_R_ATTACK_SPEED %>"
+            "duration" "<% VENOMORT_R_DURATION %>"
+        }
 	}
 

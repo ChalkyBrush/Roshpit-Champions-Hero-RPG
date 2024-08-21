@@ -34,34 +34,14 @@
 		}
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"100 300 500 700 900 1100 1300"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"search_radius"				"600"
-			}	
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"max_blades"				"3 4 5 6 7 8 9"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_bounces"				"2"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"atk_power_added_to_dmg"			"30"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "100 300 500 700 900 1100 1300"
+            "search_radius" "600"
+            "max_blades" "3 4 5 6 7 8 9"
+            "base_bounces" "2"
+            "atk_power_added_to_dmg" "30"
+        }
 	}
 
 	"solunia_vorpal_blades_lunar"
@@ -100,34 +80,14 @@
 		}
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"100 300 500 700 900 1100 1300"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"search_radius"				"600"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"max_blades"				"3 4 5 6 7 8 9"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_bounces"				"2"
-			}	
-			"05"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"atk_power_added_to_dmg"			"30"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "100 300 500 700 900 1100 1300"
+            "search_radius" "600"
+            "max_blades" "3 4 5 6 7 8 9"
+            "base_bounces" "2"
+            "atk_power_added_to_dmg" "30"
+        }
 	}
 
 
@@ -139,14 +99,10 @@
 		"AbilityTextureName"	"solunia/solunia_rune_w_1_arcana3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SOLUNIA_ARCANA_W1_CRIT_DAMAGE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SOLUNIA_ARCANA_W1_CRIT_DAMAGE %>"
+        }
 	}
 
 	"solunia_rune_w_2_arcana3"
@@ -157,19 +113,11 @@
 		"AbilityTextureName"	"solunia/solunia_rune_w_2_arcana3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SOLUNIA_ARCANA_W2_MANA_RESTORE_PER_HIT %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% SOLUNIA_ARCANA_W2_CURRENT_MANA_ADDED_TO_DAMAGE_PCT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SOLUNIA_ARCANA_W2_MANA_RESTORE_PER_HIT %>"
+            "property_two" "<% SOLUNIA_ARCANA_W2_CURRENT_MANA_ADDED_TO_DAMAGE_PCT %>"
+        }
 	}
 
 	"solunia_rune_w_3_arcana3"
@@ -180,19 +128,11 @@
 		"AbilityTextureName"	"solunia/solunia_rune_w_3_arcana3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SOLUNIA_ARCANA_W3_MANA_COST %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% SOLUNIA_ARCANA_W3_BAD_W %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SOLUNIA_ARCANA_W3_MANA_COST %>"
+            "property_two" "<% SOLUNIA_ARCANA_W3_BAD_W %>"
+        }
 	}
 
 	"solunia_rune_w_4_arcana3"
@@ -203,12 +143,8 @@
 		"AbilityTextureName"	"solunia/solunia_rune_w_4_arcana3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SOLUNIA_ARCANA_W4_EXTRA_BOUNCE_CHANCE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SOLUNIA_ARCANA_W4_EXTRA_BOUNCE_CHANCE %>"
+        }
 	}

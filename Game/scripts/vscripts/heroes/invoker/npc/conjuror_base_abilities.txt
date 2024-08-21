@@ -24,24 +24,12 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"aspect_health"				"2500 7500 15000 25000 37500 52500 70000"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"aspect_armor"				"50 150 250 450 650 950 1300"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"aspect_magic_armor"		"50 150 250 450 650 950 1300"
-			}
-		}
+		"AbilityValues"
+        {
+            "aspect_health" "2500 7500 15000 25000 37500 52500 70000"
+            "aspect_armor" "50 150 250 450 650 950 1300"
+            "aspect_magic_armor" "50 150 250 450 650 950 1300"
+        }
 
 		// Data driven
 		//-------------------------------------------------------
@@ -248,39 +236,15 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"aspect_health"				"1500 3000 6000 10500 17000 24000 33000"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"aspect_damage"				"50 120 190 260 330 400 470"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"aspect_armor"				"40 120 240 400 600 840 1120"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"aspect_magic_armor"		"40 120 240 400 600 840 1120"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"aspect_armor_pierce"		"50 100 200 350 550 800 1100"
-			}
-			"06"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"aspect_spell_pierce"		"100 200 350 550 800 1100 1450"
-			}
-		}
+		"AbilityValues"
+        {
+            "aspect_health" "1500 3000 6000 10500 17000 24000 33000"
+            "aspect_damage" "50 120 190 260 330 400 470"
+            "aspect_armor" "40 120 240 400 600 840 1120"
+            "aspect_magic_armor" "40 120 240 400 600 840 1120"
+            "aspect_armor_pierce" "50 100 200 350 550 800 1100"
+            "aspect_spell_pierce" "100 200 350 550 800 1100 1450"
+        }
 
 		// Data driven
 		//-------------------------------------------------------
@@ -439,44 +403,16 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"aspect_health"				"1500 2000 4500 8000 16000 22000 35000"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"aspect_damage"				"50 120 210 320 450 600 780"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"aspect_armor"				"20 60 120 200 300 420 560"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"aspect_magic_resist"		"20 60 120 200 300 420 560"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"aspect_attack_splits"		"2 3 4 5 6 7 8"
-			}
-			"06"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"aspect_armor_pierce"		"100 200 350 550 800 1100 1450"
-			}
-			"07"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"aspect_spell_pierce"		"50 100 200 350 550 800 1100"
-			}
-		}
+		"AbilityValues"
+        {
+            "aspect_health" "1500 2000 4500 8000 16000 22000 35000"
+            "aspect_damage" "50 120 210 320 450 600 780"
+            "aspect_armor" "20 60 120 200 300 420 560"
+            "aspect_magic_resist" "20 60 120 200 300 420 560"
+            "aspect_attack_splits" "2 3 4 5 6 7 8"
+            "aspect_armor_pierce" "100 200 350 550 800 1100 1450"
+            "aspect_spell_pierce" "50 100 200 350 550 800 1100"
+        }
 
 		// Data driven
 		//-------------------------------------------------------
@@ -634,14 +570,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "2"
+        }
 		"Modifiers"
 		{
 			"modifier_earth_aspect_a_a_ability"
@@ -981,39 +913,15 @@
 			}
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"health_regen"			"20 40 60 80 100 120 140"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"magic_armor"			"30 70 120 180 250 330 420"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"attack_speed"			"60 80 100 120 140 160 180"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"movespeed"				"100 120 140 160 180 200 220"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"30 90 160 240 330 430 540"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"duration"				"<% CONJUROR_R_DURATION_BASE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "health_regen" "20 40 60 80 100 120 140"
+            "magic_armor" "30 70 120 180 250 330 420"
+            "attack_speed" "60 80 100 120 140 160 180"
+            "movespeed" "100 120 140 160 180 200 220"
+            "bonus_damage" "30 90 160 240 330 430 540"
+            "duration" "<% CONJUROR_R_DURATION_BASE %>"
+        }
 	}
 
 	"earthquake"
@@ -1047,24 +955,12 @@
 
 		"AbilityManaCost"				"0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"70 140 210 280 350 420 490"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"stun_duration"			"1.3 1.5 1.7 1.9 2.1 2.3 2.5"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"160 165 170 175 180 185 190 195"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "70 140 210 280 350 420 490"
+            "stun_duration" "1.3 1.5 1.7 1.9 2.1 2.3 2.5"
+            "radius" "160 165 170 175 180 185 190 195"
+        }
 
 		"OnSpellStart"
 		{
@@ -1132,24 +1028,12 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"radius"					"280 290 300 310 320 330"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"damage"					"40 80 120 160 200 240 280"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"mana_cost"					"50 90 130 170 210 250 290"
-			}
-		}
+		"AbilityValues"
+        {
+            "radius" "280 290 300 310 320 330"
+            "damage" "40 80 120 160 200 240 280"
+            "mana_cost" "50 90 130 170 210 250 290"
+        }
 
 		// Data driven
 		//-------------------------------------------------------
@@ -1212,29 +1096,13 @@
 
 		"AbilityManaCost"				"0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"30 60 90 120 150 180 210"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"5.0 5.5 6.0 6.5 7.0 7.5 8.0"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"310 335 360 385 410 435 460"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"range"					"800 860 920 980 1040 1100 1160"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "30 60 90 120 150 180 210"
+            "duration" "5.0 5.5 6.0 6.5 7.0 7.5 8.0"
+            "radius" "310 335 360 385 410 435 460"
+            "range" "800 860 920 980 1040 1100 1160"
+        }
 
 		"OnSpellStart"
 		{
@@ -1353,19 +1221,11 @@
 
 		"AbilityManaCost"				"0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"240"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"2.4"
-			}
-		}
+		"AbilityValues"
+        {
+            "radius" "240"
+            "duration" "2.4"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"

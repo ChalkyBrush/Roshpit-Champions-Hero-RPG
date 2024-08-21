@@ -16,29 +16,13 @@
 		"AOERadius"						"240"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"100 350 600 850 1100 1350 1600"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"max_charges"		"<% SOLUNIA_ARCANA1_RELOAD_CHARGES %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"stun_duration"		"0.3"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"damage_add_agility"		"1.5"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "100 350 600 850 1100 1350 1600"
+            "max_charges" "<% SOLUNIA_ARCANA1_RELOAD_CHARGES %>"
+            "stun_duration" "0.3"
+            "damage_add_agility" "1.5"
+        }
 		// Precache
 		//-------------------------------------------------------
 		"precache"
@@ -75,29 +59,13 @@
 		"AOERadius"						"240"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"100 350 600 850 1100 1350 1600"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"max_charges"		"<% SOLUNIA_ARCANA1_RELOAD_CHARGES %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"stun_duration"		"0.3"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"damage_add_intelligence"		"1.5"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "100 350 600 850 1100 1350 1600"
+            "max_charges" "<% SOLUNIA_ARCANA1_RELOAD_CHARGES %>"
+            "stun_duration" "0.3"
+            "damage_add_intelligence" "1.5"
+        }
 		// Precache
 		//-------------------------------------------------------
 		"precache"

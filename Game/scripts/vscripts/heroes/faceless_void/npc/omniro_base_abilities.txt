@@ -34,134 +34,34 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage_mult"			"<% OMNIRO_MACE_BASE_Q_ATTACK_DAMAGE_PCT * 100 %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"fire_special_a"			"<% OMNIRO_MACE_FIRE_BASE_ATTACK_DAMAGE %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"earth_special_a"			"<% OMNIRO_MACE_EARTH_ARMOR %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"earth_special_b"			"<% OMNIRO_MACE_EARTH_MAGIC_ARMOR %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"lightning_special_a"			"<% OMNIRO_MACE_LIGHTNING_DAMAGE_PER_AGI * 100 %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"poison_special_a"			"<% OMNIRO_MACE_POISON_ATTACK_POWER_MULT_PCT * 100 %>"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"time_special_a"			"<% OMNIRO_MACE_TIME_MOVE_SPEED %>"
-			}
-			"08"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"time_special_b"			"<% OMNIRO_MACE_TIME_ATTACK_SPEED %>"
-			}
-			"09"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"holy_special_a"			"<% OMNIRO_MACE_HOLY_SPELL_IMMUN_DURATION %>"
-			}
-			"10"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"cosmic_special_a"			"<% OMNIRO_MACE_COSMIC_HP %>"
-			}
-			"11"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ice_special_a"			"<% OMNIRO_MACE_ICE_MOVE_SLOW %>"
-			}
-			"12"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ice_special_b"			"<% OMNIRO_MACE_ICE_ATTACK_SLOW %>"
-			}
-			"13"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"arcane_special_a"			"<% OMNIRO_MACE_ARCANE_DMG_PER_MANA %>"
-			}
-			"14"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"shadow_special_a"			"<% OMNIRO_MACE_SHADOW_Q_HIT_MULT_PCT * 100 %>"
-			}
-			"15"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"shadow_special_b"			"<% OMNIRO_MACE_SHADOW_ARMOR_REDUCTION %>"
-			}
-			"16"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"wind_special_a"			"<% OMNIRO_MACE_WIND_AGI_BONUS %>"
-			}
-			"17"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ghost_special_a"			"<% OMNIRO_MACE_GHOST_EVASION_DURATION %>"
-			}
-			"18"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"water_special_a"			"<% OMNIRO_MACE_WATER_HEAL %>"
-			}
-			"19"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"water_special_b"			"<% OMNIRO_MACE_WATER_REGEN %>"
-			}
-			"20"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"demon_special_a"			"<% OMNIRO_MACE_DEMON_BONUS_ATTACK_DAMAGE %>"
-			}
-			"21"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"nature_special_a"			"<% OMNIRO_MACE_NATURE_ROOT_DURATION %>"
-			}
-			"22"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"nature_special_b"			"<% OMNIRO_MACE_NATURE_ATTACK_POWER_MULT_PCT * 100 %>"
-			}
-			"23"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"undead_special_a"			"<% OMNIRO_MACE_UNDEAD_HP_REGEN_DISABLE_DUR %>"
-			}
-			"24"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"undead_special_b"			"<% OMNIRO_MACE_UNDEAD_ARMOR_PIERCE %>"
-			}
-			"25"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"dragon_special_a"			"<% OMNIRO_MACE_DRAGON_ELEMENTAL_BUFF %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage_mult" "<% OMNIRO_MACE_BASE_Q_ATTACK_DAMAGE_PCT * 100 %>"
+            "fire_special_a" "<% OMNIRO_MACE_FIRE_BASE_ATTACK_DAMAGE %>"
+            "earth_special_a" "<% OMNIRO_MACE_EARTH_ARMOR %>"
+            "earth_special_b" "<% OMNIRO_MACE_EARTH_MAGIC_ARMOR %>"
+            "lightning_special_a" "<% OMNIRO_MACE_LIGHTNING_DAMAGE_PER_AGI * 100 %>"
+            "poison_special_a" "<% OMNIRO_MACE_POISON_ATTACK_POWER_MULT_PCT * 100 %>"
+            "time_special_a" "<% OMNIRO_MACE_TIME_MOVE_SPEED %>"
+            "time_special_b" "<% OMNIRO_MACE_TIME_ATTACK_SPEED %>"
+            "holy_special_a" "<% OMNIRO_MACE_HOLY_SPELL_IMMUN_DURATION %>"
+            "cosmic_special_a" "<% OMNIRO_MACE_COSMIC_HP %>"
+            "ice_special_a" "<% OMNIRO_MACE_ICE_MOVE_SLOW %>"
+            "ice_special_b" "<% OMNIRO_MACE_ICE_ATTACK_SLOW %>"
+            "arcane_special_a" "<% OMNIRO_MACE_ARCANE_DMG_PER_MANA %>"
+            "shadow_special_a" "<% OMNIRO_MACE_SHADOW_Q_HIT_MULT_PCT * 100 %>"
+            "shadow_special_b" "<% OMNIRO_MACE_SHADOW_ARMOR_REDUCTION %>"
+            "wind_special_a" "<% OMNIRO_MACE_WIND_AGI_BONUS %>"
+            "ghost_special_a" "<% OMNIRO_MACE_GHOST_EVASION_DURATION %>"
+            "water_special_a" "<% OMNIRO_MACE_WATER_HEAL %>"
+            "water_special_b" "<% OMNIRO_MACE_WATER_REGEN %>"
+            "demon_special_a" "<% OMNIRO_MACE_DEMON_BONUS_ATTACK_DAMAGE %>"
+            "nature_special_a" "<% OMNIRO_MACE_NATURE_ROOT_DURATION %>"
+            "nature_special_b" "<% OMNIRO_MACE_NATURE_ATTACK_POWER_MULT_PCT * 100 %>"
+            "undead_special_a" "<% OMNIRO_MACE_UNDEAD_HP_REGEN_DISABLE_DUR %>"
+            "undead_special_b" "<% OMNIRO_MACE_UNDEAD_ARMOR_PIERCE %>"
+            "dragon_special_a" "<% OMNIRO_MACE_DRAGON_ELEMENTAL_BUFF %>"
+        }
 	}
 
 	"omniro_omni_orb"
@@ -216,149 +116,37 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"normal_orb_a"			"<% OMNIRO_ORB_NORMAL_ATTACK_POWER_MULT_PCT * 100 %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"fire_orb_a"			"<% OMNIRO_ORB_FIRE_ATTACK_POWER_MULT_PCT * 100 %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"earth_orb_a"			"<% OMNIRO_ORB_EARTH_STR_MULT_PCT * 100 %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"earth_orb_b"			"<% OMNIRO_ORB_EARTH_STUN_DUR %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"lightning_orb_a"			"<% OMNIRO_ORB_LIGHTNING_AGI_MULT_PCT * 100 %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"poison_orb_a"			"<% OMNIRO_ORB_POISON_ATTACK_POWER_MULT_PCT * 100 %>"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"time_orb_a"			"<% OMNIRO_ORB_TIME_ATTACK_POWER_MULT_PCT %>"
-			}
-			"08"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"time_orb_b"			"<% OMNIRO_ORB_TIME_FREEZE_DURATION %>"
-			}
-			"09"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"holy_orb_a"			"<% OMNIRO_ORB_HOLY_INT_MULT_PCT * 100 %>"
-			}
-			"10"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"holy_orb_b"			"<% OMNIRO_ORB_HOLY_ARMOR_MULT_PCT * 100 %>"
-			}
-			"11"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"cosmic_orb_a"			"<% OMNIRO_ORB_COSMIC_ATTACK_POWER_MULT_PCT * 100 %>"
-			}
-			"12"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"cosmic_orb_b"			"<% OMNIRO_ORB_COSMIC_HP_MULT_PCT * 100 %>"
-			}
-			"13"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ice_orb_a"			"<% OMNIRO_ORB_ICE_ALL_ATTRIBUTES_MULT_PCT * 100 %>"
-			}
-			"14"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ice_orb_b"			"<% OMNIRO_ORB_ICE_RADIUS_GROW %>"
-			}
-			"15"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"arcane_orb_a"			"<% OMNIRO_ORB_ARCANE_RADIUS_GROW %>"
-			}
-			"16"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"arcane_orb_b"			"<% OMNIRO_ORB_ARCANE_MAGIC_ARMOR_LOSS %>"
-			}
-			"17"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"shadow_orb_a"			"<% OMNIRO_ORB_SHADOW_ATTACK_POWER_MULT_PCT * 100 %>"
-			}
-			"18"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"shadow_orb_b"			"<% OMNIRO_ORB_SHADOW_RADIUS_GROW %>"
-			}
-			"19"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"wind_orb_a"			"<% OMNIRO_ORB_WIND_ATTACK_POWER_MULT_PCT * 100 %>"
-			}
-			"20"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"wind_orb_b"			"<% OMNIRO_ORB_WIND_AGI_MULT_PCT * 100 %>"
-			}
-			"21"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ghost_orb_a"		"<% OMNIRO_ORB_GHOST_ATTACK_POWER_MULT_PCT %>"
-			}
-			"22"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ghost_orb_b"			"<% OMNIRO_ORB_GHOST_ADD_DURATION %>"
-			}
-			"23"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"water_orb_a"			"<% OMNIRO_ORB_WATER_ATTACK_POWER_MULT_PCT * 100 %>"
-			}
-			"24"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"demon_orb_a"			"<% OMNIRO_ORB_DEMON_ATTACK_POWER_MULT_PCT * 100 %>"
-			}
-			"23"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"nature_orb_a"			"<% OMNIRO_ORB_NATURE_SHIELDS_CHANCE %>"
-			}
-			"24"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"nature_orb_b"			"<% OMNIRO_ORB_NATURE_ADD_SHIELDS %>"
-			}
-			"25"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"undead_orb_a"			"<% OMNIRO_ORB_UNDEAD_ATTACK_POWER_MULT_PCT * 100 %>"
-			}
-			"26"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"undead_orb_b"			"<% OMNIRO_ORB_UNDEAD_DAMAGE_PER_CURR_HERO_HP * 100 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "normal_orb_a" "<% OMNIRO_ORB_NORMAL_ATTACK_POWER_MULT_PCT * 100 %>"
+            "fire_orb_a" "<% OMNIRO_ORB_FIRE_ATTACK_POWER_MULT_PCT * 100 %>"
+            "earth_orb_a" "<% OMNIRO_ORB_EARTH_STR_MULT_PCT * 100 %>"
+            "earth_orb_b" "<% OMNIRO_ORB_EARTH_STUN_DUR %>"
+            "lightning_orb_a" "<% OMNIRO_ORB_LIGHTNING_AGI_MULT_PCT * 100 %>"
+            "poison_orb_a" "<% OMNIRO_ORB_POISON_ATTACK_POWER_MULT_PCT * 100 %>"
+            "time_orb_a" "<% OMNIRO_ORB_TIME_ATTACK_POWER_MULT_PCT %>"
+            "time_orb_b" "<% OMNIRO_ORB_TIME_FREEZE_DURATION %>"
+            "holy_orb_a" "<% OMNIRO_ORB_HOLY_INT_MULT_PCT * 100 %>"
+            "holy_orb_b" "<% OMNIRO_ORB_HOLY_ARMOR_MULT_PCT * 100 %>"
+            "cosmic_orb_a" "<% OMNIRO_ORB_COSMIC_ATTACK_POWER_MULT_PCT * 100 %>"
+            "cosmic_orb_b" "<% OMNIRO_ORB_COSMIC_HP_MULT_PCT * 100 %>"
+            "ice_orb_a" "<% OMNIRO_ORB_ICE_ALL_ATTRIBUTES_MULT_PCT * 100 %>"
+            "ice_orb_b" "<% OMNIRO_ORB_ICE_RADIUS_GROW %>"
+            "arcane_orb_a" "<% OMNIRO_ORB_ARCANE_RADIUS_GROW %>"
+            "arcane_orb_b" "<% OMNIRO_ORB_ARCANE_MAGIC_ARMOR_LOSS %>"
+            "shadow_orb_a" "<% OMNIRO_ORB_SHADOW_ATTACK_POWER_MULT_PCT * 100 %>"
+            "shadow_orb_b" "<% OMNIRO_ORB_SHADOW_RADIUS_GROW %>"
+            "wind_orb_a" "<% OMNIRO_ORB_WIND_ATTACK_POWER_MULT_PCT * 100 %>"
+            "wind_orb_b" "<% OMNIRO_ORB_WIND_AGI_MULT_PCT * 100 %>"
+            "ghost_orb_a" "<% OMNIRO_ORB_GHOST_ATTACK_POWER_MULT_PCT %>"
+            "ghost_orb_b" "<% OMNIRO_ORB_GHOST_ADD_DURATION %>"
+            "water_orb_a" "<% OMNIRO_ORB_WATER_ATTACK_POWER_MULT_PCT * 100 %>"
+            "demon_orb_a" "<% OMNIRO_ORB_DEMON_ATTACK_POWER_MULT_PCT * 100 %>"
+            "nature_orb_a" "<% OMNIRO_ORB_NATURE_SHIELDS_CHANCE %>"
+            "nature_orb_b" "<% OMNIRO_ORB_NATURE_ADD_SHIELDS %>"
+            "undead_orb_a" "<% OMNIRO_ORB_UNDEAD_ATTACK_POWER_MULT_PCT * 100 %>"
+            "undead_orb_b" "<% OMNIRO_ORB_UNDEAD_DAMAGE_PER_CURR_HERO_HP * 100 %>"
+        }
 		"OnToggleOn"
 		{
 			"ApplyModifier"
@@ -609,19 +397,11 @@
 		}
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"min_movespeed"				"680 710 740 770 800 830 860"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"duration"				"<% OMNIRO_CHRONO_PATH_DURATION %>"
-			}	
-		}
+		"AbilityValues"
+        {
+            "min_movespeed" "680 710 740 770 800 830 860"
+            "duration" "<% OMNIRO_CHRONO_PATH_DURATION %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -882,18 +662,10 @@
             }
         }
 
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "radius"                    "1000"
-            }
-            "02"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "max_targets"                    "6 7 8 9 10 11 12"
-            }
+            "radius" "1000"
+            "max_targets" "6 7 8 9 10 11 12"
         }
     }
 

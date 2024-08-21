@@ -37,14 +37,10 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"cast_range"	"1700 1850 2000 2150 2300 2450 2600"
-			}
-		}
+		"AbilityValues"
+        {
+            "cast_range" "1700 1850 2000 2150 2300 2450 2600"
+        }
 		"OnAbilityPhaseStart"
 		{
 			"RunScript"
@@ -363,14 +359,10 @@
 			}
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"freeze_duration"	"1.8 2.0 2.2 2.4 2.6 2.8 3.0"
-			}
-		}
+		"AbilityValues"
+        {
+            "freeze_duration" "1.8 2.0 2.2 2.4 2.6 2.8 3.0"
+        }
 	}
 
 	"dinath_arctic_burn"
@@ -487,19 +479,11 @@
 			}
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"damage_base"	"<% DINATH_Q_DAMAGE_FLAT %>"
-			}
-			"02"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"damage_attack_power"	"<% DINATH_Q_DAMAGE_PCT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage_base" "<% DINATH_Q_DAMAGE_FLAT %>"
+            "damage_attack_power" "<% DINATH_Q_DAMAGE_PCT %>"
+        }
 	}
 
 	"dinath_drake_ring"
@@ -537,24 +521,12 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"210 225 240 255 270 285 300"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"attack_range_bonus"				"320 350 380 410 440 470 500"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_mult"				"<% DINATH_W_DAMAGE_PCT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "radius" "210 225 240 255 270 285 300"
+            "attack_range_bonus" "320 350 380 410 440 470 500"
+            "damage_mult" "<% DINATH_W_DAMAGE_PCT %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -669,14 +641,10 @@
 		{
 
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"cast_range"			"<% DINATH_E_CAST_RANGE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "cast_range" "<% DINATH_E_CAST_RANGE %>"
+        }
 		// Casting
 		//-------------------------------------------------------
 		"AbilityCastPoint"				"0.26"

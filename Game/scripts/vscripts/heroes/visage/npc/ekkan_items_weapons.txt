@@ -507,19 +507,11 @@
 				}
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"100"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_one"			"17"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "100"
+            "element_one" "17"
+        }
 	}
 
 	"item_rpc_ekkan_immortal_weapon_3"
@@ -559,14 +551,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"<% EKKAN_IMMORTAL_WEAPON_3_AMP %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% EKKAN_IMMORTAL_WEAPON_3_AMP %>"
+        }
 	}
 	"item_rpc_ekkan_immortal_weapon_4"
 	{

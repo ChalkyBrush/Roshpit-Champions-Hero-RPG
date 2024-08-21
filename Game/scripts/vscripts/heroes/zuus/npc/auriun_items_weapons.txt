@@ -592,24 +592,12 @@
 				}
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"-8"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_two"			"10"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_three"			"200"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "-8"
+            "property_two" "10"
+            "property_three" "200"
+        }
 	}
 	
 	"item_rpc_auriun_immortal_weapon_4"

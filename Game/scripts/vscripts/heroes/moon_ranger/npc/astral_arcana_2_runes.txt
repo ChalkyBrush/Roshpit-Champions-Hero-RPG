@@ -9,14 +9,10 @@
 		"AbilityTextureName"	"astral_ranger/astral_rune_w_1_arcana2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% ASTRAL_RANGER_ARCANA2_W_1_ATTRIBUTES %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% ASTRAL_RANGER_ARCANA2_W_1_ATTRIBUTES %>"
+        }
 	}
 
 	"astral_rune_w_2_arcana2"
@@ -26,14 +22,10 @@
 		"AbilityTextureName"	"astral_ranger/astral_rune_w_2_arcana2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "2"
+        }
 	}
 
 	"astral_rune_w_3_arcana2"
@@ -45,24 +37,12 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% ASTRAL_RANGER_ARCANA2_W_3_DAMAGE_PCT_ATK_POWER * 100 %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"2"
-			}
-			"3"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"8"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% ASTRAL_RANGER_ARCANA2_W_3_DAMAGE_PCT_ATK_POWER * 100 %>"
+            "base_ability" "2"
+            "element_one" "8"
+        }
 	}
 
 	"astral_rune_w_4_arcana2"
@@ -73,13 +53,9 @@
 		"AbilityTextureName"	"astral_ranger/astral_rune_w_4_arcana2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.7"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "0.7"
+        }
 	}
 

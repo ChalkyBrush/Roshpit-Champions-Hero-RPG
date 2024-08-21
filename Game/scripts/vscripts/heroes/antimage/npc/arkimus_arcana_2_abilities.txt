@@ -20,23 +20,11 @@
 			"particle"			"particles/base_attacks/astral_glyph_2_1_projectile.vpcf"
 			"particle"			"particles/econ/items/wisp/wisp_guardian_explosion_ti7.vpcf"
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"attack_range"			"<% ARKIMUS_ARCANA2_R_ATTACK_RANGE_BONUS %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"duration"			"<% ARKIMUS_ARCANA2_R_DURATION %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage_resist"			"<% ARKIMUS_ARCANA2_R_DMG_REDUCTION %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "attack_range" "<% ARKIMUS_ARCANA2_R_ATTACK_RANGE_BONUS %>"
+            "duration" "<% ARKIMUS_ARCANA2_R_DURATION %>"
+            "damage_resist" "<% ARKIMUS_ARCANA2_R_DMG_REDUCTION %>"
+        }
 	}
 

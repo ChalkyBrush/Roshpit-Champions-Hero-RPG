@@ -15,27 +15,11 @@
 
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"damage"	"200 500 800 1600 3000 5000 10000"
-			}
-			"02"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"stun_duration"	"2.0 2.3 2.6 2.9 3.2 3.5 3.8"
-			}
-			"03"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"radius"	"580"
-			}
-			"04"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"all_attributes_damage"	"2"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "200 500 800 1600 3000 5000 10000"
+            "stun_duration" "2.0 2.3 2.6 2.9 3.2 3.5 3.8"
+            "radius" "580"
+            "all_attributes_damage" "2"
+        }
 	}

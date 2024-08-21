@@ -297,13 +297,9 @@
             }
         }
 
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "damage"                    "500 1500 2500 3500 4500 5500 6500"
-            }
+            "damage" "500 1500 2500 3500 4500 5500 6500"
         }
     }
 

@@ -10,19 +10,11 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% FLAMEWAKER_ARCANA2_W1_SHIELD_DELAY %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% FLAMEWAKER_ARCANA2_W1_SHIELD_STICKY %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% FLAMEWAKER_ARCANA2_W1_SHIELD_DELAY %>"
+            "property_two" "<% FLAMEWAKER_ARCANA2_W1_SHIELD_STICKY %>"
+        }
 	}
 
 	"flamewaker_rune_w_2_arcana2"
@@ -36,19 +28,11 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% FLAMEWAKER_ARCANA2_W2_HEALTH_REGEN %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% FLAMEWAKER_ARCANA2_W2_ARMOR %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% FLAMEWAKER_ARCANA2_W2_HEALTH_REGEN %>"
+            "property_two" "<% FLAMEWAKER_ARCANA2_W2_ARMOR %>"
+        }
 	}
 
 	"flamewaker_rune_w_3_arcana2"
@@ -62,19 +46,11 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% FLAMEWAKER_ARCANA2_W3_ATK_POWER_ADDED_TO_FLAME %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% FLAMEWAKER_ARCANA2_W3_RANGE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% FLAMEWAKER_ARCANA2_W3_ATK_POWER_ADDED_TO_FLAME %>"
+            "property_two" "<% FLAMEWAKER_ARCANA2_W3_RANGE %>"
+        }
 	}
 
 	"flamewaker_rune_w_4_arcana2"
@@ -88,13 +64,9 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% FLAMEWAKER_ARCANA2_W4_CD_REDUCTION %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% FLAMEWAKER_ARCANA2_W4_CD_REDUCTION %>"
+        }
 	}
 

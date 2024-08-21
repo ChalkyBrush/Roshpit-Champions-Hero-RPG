@@ -9,24 +9,12 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% OMNIRO_T1_RUNE_MAX_CHARGES %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"2"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "1"
+            "property_two" "<% OMNIRO_T1_RUNE_MAX_CHARGES %>"
+            "element_one" "2"
+        }
 	}
 
 	"omniro_rune_w_1"
@@ -41,24 +29,12 @@
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% OMNIRO_T1_RUNE_MAX_CHARGES %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"3"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "1"
+            "property_two" "<% OMNIRO_T1_RUNE_MAX_CHARGES %>"
+            "element_one" "3"
+        }
 	}
 
 	"omniro_rune_e_1"
@@ -73,24 +49,12 @@
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% OMNIRO_T1_RUNE_MAX_CHARGES %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"4"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "1"
+            "property_two" "<% OMNIRO_T1_RUNE_MAX_CHARGES %>"
+            "element_one" "4"
+        }
 	}
 
 	"omniro_rune_r_1"
@@ -105,24 +69,12 @@
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% OMNIRO_T1_RUNE_MAX_CHARGES %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"5"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "1"
+            "property_two" "<% OMNIRO_T1_RUNE_MAX_CHARGES %>"
+            "element_one" "5"
+        }
 	}
 
 
@@ -138,24 +90,12 @@
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% OMNIRO_T2_RUNE_MAX_CHARGES %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"6"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "1"
+            "property_two" "<% OMNIRO_T2_RUNE_MAX_CHARGES %>"
+            "element_one" "6"
+        }
 	}
 
 	"omniro_rune_w_2"
@@ -170,24 +110,12 @@
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% OMNIRO_T2_RUNE_MAX_CHARGES %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"7"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "1"
+            "property_two" "<% OMNIRO_T2_RUNE_MAX_CHARGES %>"
+            "element_one" "7"
+        }
 	}
 
 	"omniro_rune_e_2"
@@ -202,24 +130,12 @@
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% OMNIRO_T2_RUNE_MAX_CHARGES %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"8"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "1"
+            "property_two" "<% OMNIRO_T2_RUNE_MAX_CHARGES %>"
+            "element_one" "8"
+        }
 	}
 
 	"omniro_rune_r_2"
@@ -234,24 +150,12 @@
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% OMNIRO_T2_RUNE_MAX_CHARGES %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"9"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "1"
+            "property_two" "<% OMNIRO_T2_RUNE_MAX_CHARGES %>"
+            "element_one" "9"
+        }
 	}
 
 
@@ -267,24 +171,12 @@
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% OMNIRO_T3_RUNE_MAX_CHARGES %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"10"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "1"
+            "property_two" "<% OMNIRO_T3_RUNE_MAX_CHARGES %>"
+            "element_one" "10"
+        }
 	}
 
 	"omniro_rune_w_3"
@@ -299,24 +191,12 @@
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% OMNIRO_T3_RUNE_MAX_CHARGES %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"11"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "1"
+            "property_two" "<% OMNIRO_T3_RUNE_MAX_CHARGES %>"
+            "element_one" "11"
+        }
 	}
 
 	"omniro_rune_e_3"
@@ -331,24 +211,12 @@
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% OMNIRO_T3_RUNE_MAX_CHARGES %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"12"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "1"
+            "property_two" "<% OMNIRO_T3_RUNE_MAX_CHARGES %>"
+            "element_one" "12"
+        }
 		"OnProjectileHitUnit"
 		{
 			"DeleteOnHit"	"0"
@@ -373,24 +241,12 @@
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% OMNIRO_T3_RUNE_MAX_CHARGES %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"13"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "1"
+            "property_two" "<% OMNIRO_T3_RUNE_MAX_CHARGES %>"
+            "element_one" "13"
+        }
 	}
 
 
@@ -406,24 +262,12 @@
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% OMNIRO_T4_RUNE_MAX_CHARGES %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"14"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "1"
+            "property_two" "<% OMNIRO_T4_RUNE_MAX_CHARGES %>"
+            "element_one" "14"
+        }
 	}
 
 	"omniro_rune_w_4"
@@ -438,24 +282,12 @@
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% OMNIRO_T4_RUNE_MAX_CHARGES %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"15"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "1"
+            "property_two" "<% OMNIRO_T4_RUNE_MAX_CHARGES %>"
+            "element_one" "15"
+        }
 	}
 
 	"omniro_rune_e_4"
@@ -470,24 +302,12 @@
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% OMNIRO_T4_RUNE_MAX_CHARGES %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"16"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "1"
+            "property_two" "<% OMNIRO_T4_RUNE_MAX_CHARGES %>"
+            "element_one" "16"
+        }
 	}
 
 	"omniro_rune_r_4"
@@ -502,24 +322,12 @@
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% OMNIRO_T4_RUNE_MAX_CHARGES %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"17"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "1"
+            "property_two" "<% OMNIRO_T4_RUNE_MAX_CHARGES %>"
+            "element_one" "17"
+        }
 
 		"OnProjectileHitUnit"
 		{

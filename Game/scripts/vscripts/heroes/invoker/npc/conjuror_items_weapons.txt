@@ -452,24 +452,12 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"property_one"			"0.03"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"property_two"			"0.03"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"property_three"		"0.03"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "0.03"
+            "property_two" "0.03"
+            "property_three" "0.03"
+        }
 	}
 
 	"item_rpc_conjuror_immortal_weapon_3"

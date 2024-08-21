@@ -11,29 +11,13 @@
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% AURIUN_ARCANA_2_Q1_DAMAGE %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"<% AURIUN_ARCANA_2_Q1_DAMAGE_BASE %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"1"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"11"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% AURIUN_ARCANA_2_Q1_DAMAGE %>"
+            "property_one_base" "<% AURIUN_ARCANA_2_Q1_DAMAGE_BASE %>"
+            "base_ability" "1"
+            "element_one" "11"
+        }
 	}
 
 	"auriun_rune_q_2_arcana2"
@@ -47,14 +31,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"8"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "8"
+        }
 	}
 
 	"auriun_rune_q_3_arcana2"
@@ -68,14 +48,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% AURIUN_ARCANA_2_Q3_SHADOW_AMP * 100 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% AURIUN_ARCANA_2_Q3_SHADOW_AMP * 100 %>"
+        }
 	}
 
 	"auriun_rune_q_4_arcana2"
@@ -89,18 +65,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% AURIUN_ARCANA_2_Q4_SPELL_PIERCE %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% AURIUN_ARCANA_2_Q4_MANA_REGEN %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% AURIUN_ARCANA_2_Q4_SPELL_PIERCE %>"
+            "property_two" "<% AURIUN_ARCANA_2_Q4_MANA_REGEN %>"
+        }
 	}
 

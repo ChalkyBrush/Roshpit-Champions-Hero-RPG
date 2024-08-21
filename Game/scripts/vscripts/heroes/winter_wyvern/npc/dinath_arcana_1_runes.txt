@@ -9,14 +9,10 @@
 		"AbilityTextureName"	"dinath/dinath_rune_w_1_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% DINATH_ARCANA_W1_BONUS_ATTACK_DAMAGE * 100 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% DINATH_ARCANA_W1_BONUS_ATTACK_DAMAGE * 100 %>"
+        }
 	}
 
 	"dinath_rune_w_2_arcana1"
@@ -29,14 +25,10 @@
 		"AbilityTextureName"	"dinath/dinath_rune_w_2_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% DINATH_ARCANA_W2_SPELL_PIERCE_AND_ARMOR_PIERCE_PER_MS %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% DINATH_ARCANA_W2_SPELL_PIERCE_AND_ARMOR_PIERCE_PER_MS %>"
+        }
 	}
 
 	"dinath_rune_w_3_arcana1"
@@ -49,19 +41,11 @@
 		"AbilityTextureName"	"dinath/dinath_rune_w_3_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% DINATH_ARCANA_W3_MOVESPEED_BONUS %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% DINATH_ARCANA_W3_MOVESPEED_CAP_BONUS %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% DINATH_ARCANA_W3_MOVESPEED_BONUS %>"
+            "property_two" "<% DINATH_ARCANA_W3_MOVESPEED_CAP_BONUS %>"
+        }
 	}
 
 	"dinath_rune_w_4_arcana1"
@@ -74,18 +58,10 @@
 		"AbilityTextureName"	"dinath/dinath_rune_w_4_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% DINATH_ARCANA_W4_ATTACK_RADIUS_INCREASE %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% DINATH_ARCANA_W4_CHANCE_FOR_TARGET %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% DINATH_ARCANA_W4_ATTACK_RADIUS_INCREASE %>"
+            "property_two" "<% DINATH_ARCANA_W4_CHANCE_FOR_TARGET %>"
+        }
 	}
 

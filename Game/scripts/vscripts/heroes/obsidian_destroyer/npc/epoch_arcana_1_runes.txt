@@ -8,24 +8,12 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% EPOCH_ARCANA_Q1_DMG_PER_MANA_DRAIN %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"1"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"<% RPC_ELEMENT_TIME %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% EPOCH_ARCANA_Q1_DMG_PER_MANA_DRAIN %>"
+            "base_ability" "1"
+            "element_one" "<% RPC_ELEMENT_TIME %>"
+        }
 	}
 
 	"epoch_rune_q_2_arcana1"
@@ -36,14 +24,10 @@
 		"AbilityTextureName"	"epoch/epoch_rune_q_2_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% EPOCH_ARCANA_Q2_STAT_PCT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% EPOCH_ARCANA_Q2_STAT_PCT %>"
+        }
 	}
 
 	"epoch_rune_q_3_arcana1"
@@ -54,19 +38,11 @@
 		"AbilityTextureName"	"epoch/epoch_rune_q_3_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% EPOCH_ARCANA_Q3_BASE_ATTACK_DAMAGE %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% EPOCH_ARCANA_Q3_SPELL_PIERCE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% EPOCH_ARCANA_Q3_BASE_ATTACK_DAMAGE %>"
+            "property_two" "<% EPOCH_ARCANA_Q3_SPELL_PIERCE %>"
+        }
 	}
 
 	"epoch_rune_q_4_arcana1"
@@ -77,17 +53,9 @@
 		"AbilityTextureName"	"epoch/epoch_rune_q_4_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% EPOCH_ARCANA_Q4_CAST_RANGE %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% EPOCH_ARCANA_Q4_AOE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% EPOCH_ARCANA_Q4_CAST_RANGE %>"
+            "property_two" "<% EPOCH_ARCANA_Q4_AOE %>"
+        }
 	}

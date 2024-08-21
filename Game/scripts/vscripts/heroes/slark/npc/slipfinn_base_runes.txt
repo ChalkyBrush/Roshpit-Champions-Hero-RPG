@@ -9,14 +9,10 @@
 		"AbilityTextureName"	"slipfinn/slipfinn_rune_q_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SLIPFINN_Q1_DISTANCE_BONUS * 100 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SLIPFINN_Q1_DISTANCE_BONUS * 100 %>"
+        }
 	}
 
 	"slipfinn_rune_q_2"
@@ -29,14 +25,10 @@
 		"AbilityTextureName"	"slipfinn/slipfinn_rune_q_2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SLIPFINN_Q2_ARMORS %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SLIPFINN_Q2_ARMORS %>"
+        }
 	}
 
 	"slipfinn_rune_q_3"
@@ -49,14 +41,10 @@
 		"AbilityTextureName"	"slipfinn/slipfinn_rune_q_3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SLIPFINN_Q3_DMG_PER_HEIGHT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SLIPFINN_Q3_DMG_PER_HEIGHT %>"
+        }
 	}
 
 	"slipfinn_rune_q_4"
@@ -69,14 +57,10 @@
 		"AbilityTextureName"	"slipfinn/slipfinn_rune_q_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SLIPFINN_Q4_SHADOW_WATER_AMP * 100 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SLIPFINN_Q4_SHADOW_WATER_AMP * 100 %>"
+        }
 	}
 
 	"slipfinn_rune_w_1"
@@ -90,34 +74,14 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SLIPFINN_W1_BASE %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% SLIPFINN_W1_ATK * 100 %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"2"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"				"11"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_two"				"14"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SLIPFINN_W1_BASE %>"
+            "property_two" "<% SLIPFINN_W1_ATK * 100 %>"
+            "base_ability" "2"
+            "element_one" "11"
+            "element_two" "14"
+        }
 	}
 
 	"slipfinn_rune_w_2"
@@ -130,14 +94,10 @@
 		"AbilityTextureName"	"slipfinn/slipfinn_rune_w_2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SLIPFINN_W2_MAGIC_ARMOR_REDUCTION %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SLIPFINN_W2_MAGIC_ARMOR_REDUCTION %>"
+        }
 	}
 
 	"slipfinn_rune_w_3"
@@ -150,14 +110,10 @@
 		"AbilityTextureName"	"slipfinn/slipfinn_rune_w_3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SLIPFINN_W3_BONUS_ATTACK_DAMAGE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SLIPFINN_W3_BONUS_ATTACK_DAMAGE %>"
+        }
 	}
 
 	"slipfinn_rune_w_4"
@@ -170,14 +126,10 @@
 		"AbilityTextureName"	"slipfinn/slipfinn_rune_w_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SLIPFINN_W4_JUMP_FORCE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SLIPFINN_W4_JUMP_FORCE %>"
+        }
 	}
 
 	"slipfinn_rune_e_1"
@@ -191,24 +143,12 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SLIPFINN_E1_MULT * 100 %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"3"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"				"11"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SLIPFINN_E1_MULT * 100 %>"
+            "base_ability" "3"
+            "element_one" "11"
+        }
 	}
 
 	"slipfinn_rune_e_2"
@@ -221,24 +161,12 @@
 		"AbilityTextureName"	"slipfinn/slipfinn_rune_e_2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SLIPFINN_E2_HEALTH %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% SLIPFINN_E2_HEALTH_REGEN %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_three"			"<% SLIPFINN_E2_ARMOR %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SLIPFINN_E2_HEALTH %>"
+            "property_two" "<% SLIPFINN_E2_HEALTH_REGEN %>"
+            "property_three" "<% SLIPFINN_E2_ARMOR %>"
+        }
 	}
 
 	"slipfinn_rune_e_3"
@@ -251,14 +179,10 @@
 		"AbilityTextureName"	"slipfinn/slipfinn_rune_e_3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SLIPFINN_E3_DURATION %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SLIPFINN_E3_DURATION %>"
+        }
 	}
 
 	"slipfinn_rune_e_4"
@@ -271,14 +195,10 @@
 		"AbilityTextureName"	"slipfinn/slipfinn_rune_e_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SLIPFINN_E4_ARMOR_AND_SPELL_PIERCE_AFTER_KILL %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SLIPFINN_E4_ARMOR_AND_SPELL_PIERCE_AFTER_KILL %>"
+        }
 	}
 
 	"slipfinn_rune_r_1"
@@ -291,14 +211,10 @@
 		"AbilityTextureName"	"slipfinn/slipfinn_rune_r_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SLIPFINN_R1_DAMAGE_INCREASE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SLIPFINN_R1_DAMAGE_INCREASE %>"
+        }
 	}
 
 	"slipfinn_rune_r_2"
@@ -311,14 +227,10 @@
 		"AbilityTextureName"	"slipfinn/slipfinn_rune_r_2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SLIPFINN_R2_STUN_DURATION %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SLIPFINN_R2_STUN_DURATION %>"
+        }
 	}
 
 	"slipfinn_rune_r_3"
@@ -331,14 +243,10 @@
 		"AbilityTextureName"	"slipfinn/slipfinn_rune_r_3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SLIPFINN_R3_POST_MITI %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SLIPFINN_R3_POST_MITI %>"
+        }
 	}
 
 	"slipfinn_rune_r_4"
@@ -351,14 +259,10 @@
 		"AbilityTextureName"	"slipfinn/slipfinn_rune_r_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SLIPFINN_R4_ATTACK_POWER_STEAL * 100 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SLIPFINN_R4_ATTACK_POWER_STEAL * 100 %>"
+        }
 	}
 
 

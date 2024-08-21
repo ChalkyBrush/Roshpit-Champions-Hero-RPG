@@ -58,14 +58,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ZHONIK_GLYPH_1_1_TACHYON_SHELL_RADIUS %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% ZHONIK_GLYPH_1_1_TACHYON_SHELL_RADIUS %>"
+        }
 	}
 
 	"item_rpc_zonik_glyph_2_1"
@@ -97,14 +93,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ZHONIK_GLYPH_2_1_DAMAGE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% ZHONIK_GLYPH_2_1_DAMAGE %>"
+        }
 	}
 
 	"item_rpc_zonik_glyph_3_1"
@@ -136,14 +128,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ZHONIK_GLYPH_3_1_CHANCE_TO_PUNCH_TWICE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% ZHONIK_GLYPH_3_1_CHANCE_TO_PUNCH_TWICE %>"
+        }
 	}
 
 	"item_rpc_zonik_glyph_4_1"
@@ -175,14 +163,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ZHONIK_GLYPH_4_1_SONIC_RADIUS %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% ZHONIK_GLYPH_4_1_SONIC_RADIUS %>"
+        }
 	}
 
 	"item_rpc_zonik_glyph_5_1"
@@ -214,14 +198,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ZHONIK_GLYPH_5_1_LIGHTSPEED_ADDITIONAL_MS %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% ZHONIK_GLYPH_5_1_LIGHTSPEED_ADDITIONAL_MS %>"
+        }
 	}
 
 	"item_rpc_zonik_glyph_6_1"
@@ -253,19 +233,11 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"200"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% ZHONIK_GLYPH_6_1_MULTI %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "200"
+            "property_two" "<% ZHONIK_GLYPH_6_1_MULTI %>"
+        }
 	}
 
 	"item_rpc_zonik_glyph_7_1"
@@ -297,14 +269,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ZHONIK_GLYPH_7_1_ELEMENT_TEMPORAL %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% ZHONIK_GLYPH_7_1_ELEMENT_TEMPORAL %>"
+        }
 	}
 
 	"item_rpc_zonik_glyph_5_a"

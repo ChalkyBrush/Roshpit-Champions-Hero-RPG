@@ -7,14 +7,10 @@
 		"AbilityTextureName"	"jex/runes/jex_rune_q_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% JEX_RUNE_ROW_1_VALUE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% JEX_RUNE_ROW_1_VALUE %>"
+        }
 	}
 
 	"jex_rune_q_2"
@@ -25,19 +21,11 @@
 		"AbilityTextureName"	"jex/runes/jex_rune_q_2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% JEX_RUNE_ROW_2_VALUE * 100 %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"16"
-			}			
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% JEX_RUNE_ROW_2_VALUE * 100 %>"
+            "element_one" "16"
+        }
 	}
 
 	"jex_rune_q_3"
@@ -48,14 +36,10 @@
 		"AbilityTextureName"	"jex/runes/jex_rune_q_3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% JEX_RUNE_ROW_3_VALUE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% JEX_RUNE_ROW_3_VALUE %>"
+        }
 	}
 
 	"jex_rune_q_4"
@@ -66,14 +50,10 @@
 		"AbilityTextureName"	"jex/runes/jex_rune_q_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"1"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "1"
+        }
 	}
 
 	"jex_rune_w_1"
@@ -84,14 +64,10 @@
 		"AbilityTextureName"	"jex/runes/jex_rune_w_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% JEX_RUNE_ROW_1_VALUE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% JEX_RUNE_ROW_1_VALUE %>"
+        }
 	}
 
 	"jex_rune_w_2"
@@ -102,19 +78,11 @@
 		"AbilityTextureName"	"jex/runes/jex_rune_w_2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% JEX_RUNE_ROW_2_VALUE * 100 %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"4"
-			}	
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% JEX_RUNE_ROW_2_VALUE * 100 %>"
+            "element_one" "4"
+        }
 	}
 
 	"jex_rune_w_3"
@@ -125,14 +93,10 @@
 		"AbilityTextureName"	"jex/runes/jex_rune_w_3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% JEX_RUNE_ROW_3_VALUE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% JEX_RUNE_ROW_3_VALUE %>"
+        }
 	}
 
 	"jex_rune_w_4"
@@ -143,14 +107,10 @@
 		"AbilityTextureName"	"jex/runes/jex_rune_w_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"1"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "1"
+        }
 	}
 	"jex_rune_e_1"
 	{
@@ -160,14 +120,10 @@
 		"AbilityTextureName"	"jex/runes/jex_rune_e_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% JEX_RUNE_ROW_1_VALUE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% JEX_RUNE_ROW_1_VALUE %>"
+        }
 	}
 
 	"jex_rune_e_2"
@@ -178,19 +134,11 @@
 		"AbilityTextureName"	"jex/runes/jex_rune_e_2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% JEX_RUNE_ROW_2_VALUE * 100 %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"8"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% JEX_RUNE_ROW_2_VALUE * 100 %>"
+            "element_one" "8"
+        }
 	}
 
 	"jex_rune_e_3"
@@ -201,14 +149,10 @@
 		"AbilityTextureName"	"jex/runes/jex_rune_e_3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% JEX_RUNE_ROW_3_VALUE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% JEX_RUNE_ROW_3_VALUE %>"
+        }
 	}
 
 	"jex_rune_e_4"
@@ -219,14 +163,10 @@
 		"AbilityTextureName"	"jex/runes/jex_rune_e_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"1"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "1"
+        }
 	}
 
 	"jex_rune_r_1"
@@ -237,14 +177,10 @@
 		"AbilityTextureName"	"jex/runes/jex_rune_r_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% JEX_RUNE_BASE_ABILITY_R1 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% JEX_RUNE_BASE_ABILITY_R1 %>"
+        }
 	}
 
 	"jex_rune_r_2"
@@ -255,14 +191,10 @@
 		"AbilityTextureName"	"jex/runes/jex_rune_r_2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% JEX_RUNE_BASE_ABILITY_R2 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% JEX_RUNE_BASE_ABILITY_R2 %>"
+        }
 	}
 
 	"jex_rune_r_3"
@@ -273,14 +205,10 @@
 		"AbilityTextureName"	"jex/runes/jex_rune_r_3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% JEX_RUNE_BASE_ABILITY_R3 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% JEX_RUNE_BASE_ABILITY_R3 %>"
+        }
 	}
 
 	"jex_rune_r_4"
@@ -291,12 +219,8 @@
 		"AbilityTextureName"	"jex/runes/jex_rune_r_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% JEX_RUNE_R4_SPELL_PIERCE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% JEX_RUNE_R4_SPELL_PIERCE %>"
+        }
 	}

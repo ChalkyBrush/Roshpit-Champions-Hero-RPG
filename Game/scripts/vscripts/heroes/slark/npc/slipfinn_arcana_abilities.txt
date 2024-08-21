@@ -33,19 +33,11 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"armor_break"						"-400 -500 -600 -700 -800 -900 -1000"
-			}
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"shadow_damage_on_attack"						"<% SLIPFINN_ARCANA_1_E_SHADOW_DMG_PCT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "armor_break" "-400 -500 -600 -700 -800 -900 -1000"
+            "shadow_damage_on_attack" "<% SLIPFINN_ARCANA_1_E_SHADOW_DMG_PCT %>"
+        }
 		"OnToggleOn"
 		{
 			"RunScript"
@@ -231,44 +223,16 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SLIPFINN_ARCANA_1_E1_CYCLONE_DAMAGE_PER_ATTACK_PCT %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% SLIPFINN_ARCANA_1_E1_SPEED_SLOW_PCT %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two_base"			"<% SLIPFINN_ARCANA_1_E1_SPEED_SLOW_BASE_PCT %>"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two_max"			"<% SLIPFINN_ARCANA_1_E1_SPEED_SLOW_PCT_CAP %>"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"3"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"				"11"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_two"				"14"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SLIPFINN_ARCANA_1_E1_CYCLONE_DAMAGE_PER_ATTACK_PCT %>"
+            "property_two" "<% SLIPFINN_ARCANA_1_E1_SPEED_SLOW_PCT %>"
+            "property_two_base" "<% SLIPFINN_ARCANA_1_E1_SPEED_SLOW_BASE_PCT %>"
+            "property_two_max" "<% SLIPFINN_ARCANA_1_E1_SPEED_SLOW_PCT_CAP %>"
+            "base_ability" "3"
+            "element_one" "11"
+            "element_two" "14"
+        }
 	}
 
 	"slipfinn_rune_e_2_arcana1"
@@ -282,29 +246,13 @@
 		"MaxLevel"				"20"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SLIPFINN_ARCANA_1_E2_BONUS_DAMAGE_PCT %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% SLIPFINN_ARCANA_1_E2_MODIFIER_DAMAGE_PCT %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"3"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"				"14"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SLIPFINN_ARCANA_1_E2_BONUS_DAMAGE_PCT %>"
+            "property_two" "<% SLIPFINN_ARCANA_1_E2_MODIFIER_DAMAGE_PCT %>"
+            "base_ability" "3"
+            "element_one" "14"
+        }
 	}
 
 	"slipfinn_rune_e_3_arcana1"
@@ -317,19 +265,11 @@
 		"AbilityTextureName"	"slipfinn/arcana1/slipfinn_e_3_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SLIPFINN_ARCANA_1_E3_ARMOR_BONUS %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% SLIPFINN_ARCANA_1_E3_SPELL_PIERCE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SLIPFINN_ARCANA_1_E3_ARMOR_BONUS %>"
+            "property_two" "<% SLIPFINN_ARCANA_1_E3_SPELL_PIERCE %>"
+        }
 	}
 
 	"slipfinn_rune_e_4_arcana1"
@@ -343,32 +283,12 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SLIPFINN_ARCANA_1_E4_STUN_DURATION %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% SLIPFINN_ARCANA_1_E4_LAND_DAMAGE_PER_ATTACK_PCT %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"3"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"				"14"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_two"				"11"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SLIPFINN_ARCANA_1_E4_STUN_DURATION %>"
+            "property_two" "<% SLIPFINN_ARCANA_1_E4_LAND_DAMAGE_PER_ATTACK_PCT %>"
+            "base_ability" "3"
+            "element_one" "14"
+            "element_two" "11"
+        }
 	}

@@ -28,14 +28,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"35"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "35"
+        }
 	}
 
 	"item_rpc_warlord_glyph_2_1"
@@ -67,14 +63,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"60"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "60"
+        }
 	}
 
 	"item_rpc_warlord_glyph_3_1"
@@ -106,14 +98,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"40"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "40"
+        }
 	}
 
 	"item_rpc_warlord_glyph_4_1"
@@ -145,19 +133,11 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"4"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"5"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "4"
+            "property_two" "5"
+        }
 	}
 
 	"item_rpc_warlord_glyph_5_1"
@@ -217,19 +197,11 @@
 				}
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"4"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"9"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "4"
+            "property_two" "9"
+        }
 	}
 
 	"item_rpc_warlord_glyph_6_1"
@@ -261,14 +233,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.8"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "0.8"
+        }
 	}
 
 	"item_rpc_warlord_glyph_7_1"
@@ -309,14 +277,10 @@
 				}
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"100"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "100"
+        }
 	}
 
 	"item_rpc_warlord_glyph_5_a"
@@ -356,17 +320,9 @@
 				}
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"1"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "2"
+            "property_two" "1"
+        }
 	}

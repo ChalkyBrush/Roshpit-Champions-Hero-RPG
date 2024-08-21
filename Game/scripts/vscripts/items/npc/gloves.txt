@@ -22,29 +22,13 @@
 		{
 
 		}
-		"AbilitySpecial"
-		{
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_WORLD_COMMANDER_GLOVES_GEM_RUBY %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_WORLD_COMMANDER_GLOVES_GEM_EMERALD %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_WORLD_COMMANDER_GLOVES_GEM_SAPPHIRE %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_WORLD_COMMANDER_GLOVES_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_WORLD_COMMANDER_GLOVES_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_WORLD_COMMANDER_GLOVES_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_WORLD_COMMANDER_GLOVES_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_WORLD_COMMANDER_GLOVES_GEM_AMETHYST %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -81,44 +65,16 @@
 			"particle"	"particles/units/heroes/hero_void_spirit/void_spirit_wormhole_cast.vpcf"
 			"particle"	"particles/roshpit/items/exodia_projectile.vpcf"
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_one"				"<% RPC_ELEMENT_COSMOS %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_two"				"<% RPC_ELEMENT_SHADOW %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_EXODIA_GLOVES_GEM_RUBY %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_EXODIA_GLOVES_GEM_EMERALD %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_EXODIA_GLOVES_GEM_SAPPHIRE %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_EXODIA_GLOVES_GEM_AMETHYST1 %>"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst2"			"<% ITEM_RPC_EXODIA_GLOVES_GEM_AMETHYST2 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "element_one" "<% RPC_ELEMENT_COSMOS %>"
+            "element_two" "<% RPC_ELEMENT_SHADOW %>"
+            "ruby1" "<% ITEM_RPC_EXODIA_GLOVES_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_EXODIA_GLOVES_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_EXODIA_GLOVES_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_EXODIA_GLOVES_GEM_AMETHYST1 %>"
+            "amethyst2" "<% ITEM_RPC_EXODIA_GLOVES_GEM_AMETHYST2 %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -155,44 +111,16 @@
 			"particle"	"particles/neutral_fx/mud_golem_hurl_boulder.vpcf"
 			"particle"	"particles/roshpit/winterblight/red_buff.vpcf"
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_one"				"<% RPC_ELEMENT_EARTH %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_two"				"<% RPC_ELEMENT_NORMAL %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_STONEBREAKER_GAUNTLET_GEM_RUBY %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_STONEBREAKER_GAUNTLET_GEM_EMERALD1 %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald2"			"<% ITEM_RPC_STONEBREAKER_GAUNTLET_GEM_EMERALD2 %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_STONEBREAKER_GAUNTLET_GEM_SAPPHIRE %>"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_STONEBREAKER_GAUNTLET_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "element_one" "<% RPC_ELEMENT_EARTH %>"
+            "element_two" "<% RPC_ELEMENT_NORMAL %>"
+            "ruby1" "<% ITEM_RPC_STONEBREAKER_GAUNTLET_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_STONEBREAKER_GAUNTLET_GEM_EMERALD1 %>"
+            "emerald2" "<% ITEM_RPC_STONEBREAKER_GAUNTLET_GEM_EMERALD2 %>"
+            "sapphire1" "<% ITEM_RPC_STONEBREAKER_GAUNTLET_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_STONEBREAKER_GAUNTLET_GEM_AMETHYST %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -232,69 +160,21 @@
 			"particle"	"particles/units/heroes/hero_pudge/pudge_rot.vpcf"
 			"particle"	"particles/units/heroes/hero_alchemist/alchemist_acid_spray.vpcf"
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_one"				"<% RPC_ELEMENT_UNDEAD %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_ZOMBIEGRIP_GAUNTLET_GEM_RUBY1 %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby2"				"<% ITEM_RPC_ZOMBIEGRIP_GAUNTLET_GEM_RUBY2 %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby3"				"<% ITEM_RPC_ZOMBIEGRIP_GAUNTLET_GEM_RUBY3 %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_ZOMBIEGRIP_GAUNTLET_GEM_EMERALD1 %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald2"			"<% ITEM_RPC_ZOMBIEGRIP_GAUNTLET_GEM_EMERALD2 %>"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald3"			"<% ITEM_RPC_ZOMBIEGRIP_GAUNTLET_GEM_EMERALD3 %>"
-			}
-			"08"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_ZOMBIEGRIP_GAUNTLET_GEM_SAPPHIRE1 %>"
-			}
-			"09"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire2"			"<% ITEM_RPC_ZOMBIEGRIP_GAUNTLET_GEM_SAPPHIRE2 %>"
-			}
-			"10"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire3"			"<% ITEM_RPC_ZOMBIEGRIP_GAUNTLET_GEM_SAPPHIRE3 %>"
-			}
-			"11"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_ZOMBIEGRIP_GAUNTLET_GEM_AMETHYST1 %>"
-			}
-			"12"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst2"			"<% ITEM_RPC_ZOMBIEGRIP_GAUNTLET_GEM_AMETHYST2 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "element_one" "<% RPC_ELEMENT_UNDEAD %>"
+            "ruby1" "<% ITEM_RPC_ZOMBIEGRIP_GAUNTLET_GEM_RUBY1 %>"
+            "ruby2" "<% ITEM_RPC_ZOMBIEGRIP_GAUNTLET_GEM_RUBY2 %>"
+            "ruby3" "<% ITEM_RPC_ZOMBIEGRIP_GAUNTLET_GEM_RUBY3 %>"
+            "emerald1" "<% ITEM_RPC_ZOMBIEGRIP_GAUNTLET_GEM_EMERALD1 %>"
+            "emerald2" "<% ITEM_RPC_ZOMBIEGRIP_GAUNTLET_GEM_EMERALD2 %>"
+            "emerald3" "<% ITEM_RPC_ZOMBIEGRIP_GAUNTLET_GEM_EMERALD3 %>"
+            "sapphire1" "<% ITEM_RPC_ZOMBIEGRIP_GAUNTLET_GEM_SAPPHIRE1 %>"
+            "sapphire2" "<% ITEM_RPC_ZOMBIEGRIP_GAUNTLET_GEM_SAPPHIRE2 %>"
+            "sapphire3" "<% ITEM_RPC_ZOMBIEGRIP_GAUNTLET_GEM_SAPPHIRE3 %>"
+            "amethyst1" "<% ITEM_RPC_ZOMBIEGRIP_GAUNTLET_GEM_AMETHYST1 %>"
+            "amethyst2" "<% ITEM_RPC_ZOMBIEGRIP_GAUNTLET_GEM_AMETHYST2 %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -332,44 +212,16 @@
 			"particle"	"particles/units/heroes/hero_keeper_of_the_light/keeper_of_the_light_blinding_light_debuff.vpcf"
 			"particle"	"particles/roshpit/winterblight/purple_buff.vpcf"
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_one"				"<% RPC_ELEMENT_HOLY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_two"				"<% RPC_ELEMENT_GHOST %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_GLOVE_OF_THE_HIEROPHANT_GEM_RUBY %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_GLOVE_OF_THE_HIEROPHANT_GEM_EMERALD %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_GLOVE_OF_THE_HIEROPHANT_GEM_SAPPHIRE1 %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire2"			"<% ITEM_RPC_GLOVE_OF_THE_HIEROPHANT_GEM_SAPPHIRE2 %>"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_GLOVE_OF_THE_HIEROPHANT_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "element_one" "<% RPC_ELEMENT_HOLY %>"
+            "element_two" "<% RPC_ELEMENT_GHOST %>"
+            "ruby1" "<% ITEM_RPC_GLOVE_OF_THE_HIEROPHANT_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_GLOVE_OF_THE_HIEROPHANT_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_GLOVE_OF_THE_HIEROPHANT_GEM_SAPPHIRE1 %>"
+            "sapphire2" "<% ITEM_RPC_GLOVE_OF_THE_HIEROPHANT_GEM_SAPPHIRE2 %>"
+            "amethyst1" "<% ITEM_RPC_GLOVE_OF_THE_HIEROPHANT_GEM_AMETHYST %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -429,29 +281,13 @@
 		{
 			"particle"		"particles/roshpit/winterblight/red_lifesteal.vpcf"
 		}
-		"AbilitySpecial"
-		{
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_DEMONIC_GLOVES_OF_THE_JUDICIARY_GEM_RUBY %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_DEMONIC_GLOVES_OF_THE_JUDICIARY_GEM_EMERALD %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_DEMONIC_GLOVES_OF_THE_JUDICIARY_GEM_SAPPHIRE %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_DEMONIC_GLOVES_OF_THE_JUDICIARY_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_DEMONIC_GLOVES_OF_THE_JUDICIARY_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_DEMONIC_GLOVES_OF_THE_JUDICIARY_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_DEMONIC_GLOVES_OF_THE_JUDICIARY_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_DEMONIC_GLOVES_OF_THE_JUDICIARY_GEM_AMETHYST %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -527,29 +363,13 @@
 		{
 			"particle"		"particles/roshpit/winterblight/lifesteal_colorable.vpcf"
 		}
-		"AbilitySpecial"
-		{
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_ANGELIC_GLOVES_OF_THE_JUDICIARY_GEM_RUBY %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_ANGELIC_GLOVES_OF_THE_JUDICIARY_GEM_EMERALD %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_ANGELIC_GLOVES_OF_THE_JUDICIARY_GEM_SAPPHIRE %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_ANGELIC_GLOVES_OF_THE_JUDICIARY_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_ANGELIC_GLOVES_OF_THE_JUDICIARY_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_ANGELIC_GLOVES_OF_THE_JUDICIARY_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_ANGELIC_GLOVES_OF_THE_JUDICIARY_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_ANGELIC_GLOVES_OF_THE_JUDICIARY_GEM_AMETHYST %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -618,34 +438,14 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_SWIFTSPIKE_BRACER_GEM_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_SWIFTSPIKE_BRACER_GEM_EMERALD1 %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald2"			"<% ITEM_RPC_SWIFTSPIKE_BRACER_GEM_EMERALD2 %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_SWIFTSPIKE_BRACER_GEM_SAPPHIRE %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_SWIFTSPIKE_BRACER_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_SWIFTSPIKE_BRACER_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_SWIFTSPIKE_BRACER_GEM_EMERALD1 %>"
+            "emerald2" "<% ITEM_RPC_SWIFTSPIKE_BRACER_GEM_EMERALD2 %>"
+            "sapphire1" "<% ITEM_RPC_SWIFTSPIKE_BRACER_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_SWIFTSPIKE_BRACER_GEM_AMETHYST %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -686,39 +486,15 @@
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_STORMCLOTH_BRACER_GEM_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_STORMCLOTH_BRACER_GEM_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_STORMCLOTH_BRACER_GEM_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_STORMCLOTH_BRACER_GEM_AMETHYST %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"element_one"			"<% RPC_ELEMENT_LIGHTNING %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"element_two"			"<% RPC_ELEMENT_WIND %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_STORMCLOTH_BRACER_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_STORMCLOTH_BRACER_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_STORMCLOTH_BRACER_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_STORMCLOTH_BRACER_GEM_AMETHYST %>"
+            "element_one" "<% RPC_ELEMENT_LIGHTNING %>"
+            "element_two" "<% RPC_ELEMENT_WIND %>"
+        }
 		"precache"
 		{
 			"particle"	"particles/roshpit/items/stormcloth_start.vpcf"
@@ -841,39 +617,15 @@
 		{
 			"particle"  "particles/econ/items/monkey_king/arcana/base/monkey_king_arcana_spring_cast_spiral.vpcf"
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_SPIRITUAL_EMPOWERMENT_GLOVE_GEM_RUBY1 %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby2"				"<% ITEM_RPC_SPIRITUAL_EMPOWERMENT_GLOVE_GEM_RUBY2 %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_SPIRITUAL_EMPOWERMENT_GLOVE_GEM_EMERALD %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_SPIRITUAL_EMPOWERMENT_GLOVE_GEM_SAPPHIRE %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_SPIRITUAL_EMPOWERMENT_GLOVE_GEM_AMETHYST1 %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst2"			"<% ITEM_RPC_SPIRITUAL_EMPOWERMENT_GLOVE_GEM_AMETHYST2 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_SPIRITUAL_EMPOWERMENT_GLOVE_GEM_RUBY1 %>"
+            "ruby2" "<% ITEM_RPC_SPIRITUAL_EMPOWERMENT_GLOVE_GEM_RUBY2 %>"
+            "emerald1" "<% ITEM_RPC_SPIRITUAL_EMPOWERMENT_GLOVE_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_SPIRITUAL_EMPOWERMENT_GLOVE_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_SPIRITUAL_EMPOWERMENT_GLOVE_GEM_AMETHYST1 %>"
+            "amethyst2" "<% ITEM_RPC_SPIRITUAL_EMPOWERMENT_GLOVE_GEM_AMETHYST2 %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -957,39 +709,15 @@
 		{
 			"particle"  "particles/roshpit/items/spirit_glove_heal.vpcf"
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_SPIRIT_GLOVE_GEM_RUBY1 %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby2"				"<% ITEM_RPC_SPIRIT_GLOVE_GEM_RUBY2 %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_SPIRIT_GLOVE_GEM_EMERALD %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_SPIRIT_GLOVE_GEM_SAPPHIRE %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_SPIRIT_GLOVE_GEM_AMETHYST1 %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst2"			"<% ITEM_RPC_SPIRIT_GLOVE_GEM_AMETHYST2 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_SPIRIT_GLOVE_GEM_RUBY1 %>"
+            "ruby2" "<% ITEM_RPC_SPIRIT_GLOVE_GEM_RUBY2 %>"
+            "emerald1" "<% ITEM_RPC_SPIRIT_GLOVE_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_SPIRIT_GLOVE_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_SPIRIT_GLOVE_GEM_AMETHYST1 %>"
+            "amethyst2" "<% ITEM_RPC_SPIRIT_GLOVE_GEM_AMETHYST2 %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -1102,29 +830,13 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_SPELLFIRE_GLOVES_GEM_RUBY %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_SPELLFIRE_GLOVES_GEM_EMERALD %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_SPELLFIRE_GLOVES_GEM_SAPPHIRE %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_SPELLFIRE_GLOVES_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_SPELLFIRE_GLOVES_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_SPELLFIRE_GLOVES_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_SPELLFIRE_GLOVES_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_SPELLFIRE_GLOVES_GEM_AMETHYST %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -1186,54 +898,17 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_one"		"<% RPC_ELEMENT_UNDEAD %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_one"		"<% RPC_ELEMENT_GHOST %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_SKULLDIGGER_GAUNTLET_GEM_RUBY1 %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby2"				"<% ITEM_RPC_SKULLDIGGER_GAUNTLET_GEM_RUBY2 %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_SKULLDIGGER_GAUNTLET_GEM_EMERALD1 %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald2"			"<% ITEM_RPC_SKULLDIGGER_GAUNTLET_GEM_EMERALD2 %>"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_SKULLDIGGER_GAUNTLET_GEM_SAPPHIRE %>"
-			}
-			"08"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_SKULLDIGGER_GAUNTLET_GEM_AMETHYST1 %>"
-			}
-			"09"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst2"			"<% ITEM_RPC_SKULLDIGGER_GAUNTLET_GEM_AMETHYST2 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "element_one" "<% RPC_ELEMENT_GHOST %>"
+            "ruby1" "<% ITEM_RPC_SKULLDIGGER_GAUNTLET_GEM_RUBY1 %>"
+            "ruby2" "<% ITEM_RPC_SKULLDIGGER_GAUNTLET_GEM_RUBY2 %>"
+            "emerald1" "<% ITEM_RPC_SKULLDIGGER_GAUNTLET_GEM_EMERALD1 %>"
+            "emerald2" "<% ITEM_RPC_SKULLDIGGER_GAUNTLET_GEM_EMERALD2 %>"
+            "sapphire1" "<% ITEM_RPC_SKULLDIGGER_GAUNTLET_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_SKULLDIGGER_GAUNTLET_GEM_AMETHYST1 %>"
+            "amethyst2" "<% ITEM_RPC_SKULLDIGGER_GAUNTLET_GEM_AMETHYST2 %>"
+        }
 		"precache"
 		{
 			"particle"  "particles/units/heroes/hero_skeletonking/skeletonking_hellfireblast.vpcf"
@@ -1346,29 +1021,13 @@
 		{
 			"particle"  "particles/roshpit/items/silverspring_puddle.vpcf"
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_SILVERSPRING_GLOVES_GEM_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_SILVERSPRING_GLOVES_GEM_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_SILVERSPRING_GLOVES_GEM_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_SILVERSPRING_GLOVES_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_SILVERSPRING_GLOVES_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_SILVERSPRING_GLOVES_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_SILVERSPRING_GLOVES_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_SILVERSPRING_GLOVES_GEM_AMETHYST %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -1505,49 +1164,17 @@
 			"particle"  "particles/roshpit/items/shadowflame_fist.vpcf"
 		}
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_one"			"<% RPC_ELEMENT_SHADOW %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_two"			"<% RPC_ELEMENT_FIRE %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_SHADOWFLAME_FIST_GEM_RUBY %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_SHADOWFLAME_FIST_GEM_EMERALD %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_SHADOWFLAME_FIST_GEM_SAPPHIRE1 %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire2"			"<% ITEM_RPC_SHADOWFLAME_FIST_GEM_SAPPHIRE2 %>"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_SHADOWFLAME_FIST_GEM_AMETHYST1 %>"
-			}
-			"08"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst2"			"<% ITEM_RPC_SHADOWFLAME_FIST_GEM_AMETHYST2 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "element_one" "<% RPC_ELEMENT_SHADOW %>"
+            "element_two" "<% RPC_ELEMENT_FIRE %>"
+            "ruby1" "<% ITEM_RPC_SHADOWFLAME_FIST_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_SHADOWFLAME_FIST_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_SHADOWFLAME_FIST_GEM_SAPPHIRE1 %>"
+            "sapphire2" "<% ITEM_RPC_SHADOWFLAME_FIST_GEM_SAPPHIRE2 %>"
+            "amethyst1" "<% ITEM_RPC_SHADOWFLAME_FIST_GEM_AMETHYST1 %>"
+            "amethyst2" "<% ITEM_RPC_SHADOWFLAME_FIST_GEM_AMETHYST2 %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -1664,34 +1291,14 @@
 			"particle"  "particles/units/heroes/hero_huskar/call_of_shadow.vpcf"
 			"particle"	"particles/roshpit/conjuror/shadow_deity_cloak_of_shadows.vpcf"
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_SHADOW_ARMLET_GEM_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_SHADOW_ARMLET_GEM_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_SHADOW_ARMLET_GEM_SAPPHIRE1 %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire2"			"<% ITEM_RPC_SHADOW_ARMLET_GEM_SAPPHIRE2 %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_SHADOW_ARMLET_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_SHADOW_ARMLET_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_SHADOW_ARMLET_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_SHADOW_ARMLET_GEM_SAPPHIRE1 %>"
+            "sapphire2" "<% ITEM_RPC_SHADOW_ARMLET_GEM_SAPPHIRE2 %>"
+            "amethyst1" "<% ITEM_RPC_SHADOW_ARMLET_GEM_AMETHYST %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -1801,54 +1408,18 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_one"			"<% RPC_ELEMENT_FIRE %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_SCORCHED_GAUNTLETS_GEM_RUBY1 %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_SCORCHED_GAUNTLETS_GEM_EMERALD1 %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_SCORCHED_GAUNTLETS_GEM_SAPPHIRE1 %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_SCORCHED_GAUNTLETS_GEM_AMETHYST1 %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby2"				"<% ITEM_RPC_SCORCHED_GAUNTLETS_GEM_RUBY2 %>"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald2"			"<% ITEM_RPC_SCORCHED_GAUNTLETS_GEM_EMERALD2 %>"
-			}
-			"08"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire2"			"<% ITEM_RPC_SCORCHED_GAUNTLETS_GEM_SAPPHIRE2 %>"
-			}
-			"09"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst2"			"<% ITEM_RPC_SCORCHED_GAUNTLETS_GEM_AMETHYST2 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "element_one" "<% RPC_ELEMENT_FIRE %>"
+            "ruby1" "<% ITEM_RPC_SCORCHED_GAUNTLETS_GEM_RUBY1 %>"
+            "emerald1" "<% ITEM_RPC_SCORCHED_GAUNTLETS_GEM_EMERALD1 %>"
+            "sapphire1" "<% ITEM_RPC_SCORCHED_GAUNTLETS_GEM_SAPPHIRE1 %>"
+            "amethyst1" "<% ITEM_RPC_SCORCHED_GAUNTLETS_GEM_AMETHYST1 %>"
+            "ruby2" "<% ITEM_RPC_SCORCHED_GAUNTLETS_GEM_RUBY2 %>"
+            "emerald2" "<% ITEM_RPC_SCORCHED_GAUNTLETS_GEM_EMERALD2 %>"
+            "sapphire2" "<% ITEM_RPC_SCORCHED_GAUNTLETS_GEM_SAPPHIRE2 %>"
+            "amethyst2" "<% ITEM_RPC_SCORCHED_GAUNTLETS_GEM_AMETHYST2 %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -1947,34 +1518,14 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_SCARECROW_GLOVES_GEM_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_SCARECROW_GLOVES_GEM_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_SCARECROW_GLOVES_GEM_SAPPHIRE1 %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire2"			"<% ITEM_RPC_SCARECROW_GLOVES_GEM_SAPPHIRE2 %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_SCARECROW_GLOVES_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_SCARECROW_GLOVES_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_SCARECROW_GLOVES_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_SCARECROW_GLOVES_GEM_SAPPHIRE1 %>"
+            "sapphire2" "<% ITEM_RPC_SCARECROW_GLOVES_GEM_SAPPHIRE2 %>"
+            "amethyst1" "<% ITEM_RPC_SCARECROW_GLOVES_GEM_AMETHYST %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -2068,29 +1619,13 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_ROYAL_WRISTGUARDS_GEM_RUBY %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_ROYAL_WRISTGUARDS_GEM_EMERALD %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_ROYAL_WRISTGUARDS_GEM_SAPPHIRE %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_ROYAL_WRISTGUARDS_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_ROYAL_WRISTGUARDS_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_ROYAL_WRISTGUARDS_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_ROYAL_WRISTGUARDS_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_ROYAL_WRISTGUARDS_GEM_AMETHYST %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -2170,29 +1705,13 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_POWER_RANGER_GLOVES_GEM_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_POWER_RANGER_GLOVES_GEM_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_POWER_RANGER_GLOVES_GEM_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_POWER_RANGER_GLOVES_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_POWER_RANGER_GLOVES_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_POWER_RANGER_GLOVES_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_POWER_RANGER_GLOVES_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_POWER_RANGER_GLOVES_GEM_AMETHYST %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -2231,39 +1750,15 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_PHOENIX_GLOVES_GEM_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_PHOENIX_GLOVES_GEM_EMERALD1 %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald2"			"<% ITEM_RPC_PHOENIX_GLOVES_GEM_EMERALD2 %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_PHOENIX_GLOVES_GEM_SAPPHIRE %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_PHOENIX_GLOVES_GEM_AMETHYST1 %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst2"			"<% ITEM_RPC_PHOENIX_GLOVES_GEM_AMETHYST2 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_PHOENIX_GLOVES_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_PHOENIX_GLOVES_GEM_EMERALD1 %>"
+            "emerald2" "<% ITEM_RPC_PHOENIX_GLOVES_GEM_EMERALD2 %>"
+            "sapphire1" "<% ITEM_RPC_PHOENIX_GLOVES_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_PHOENIX_GLOVES_GEM_AMETHYST1 %>"
+            "amethyst2" "<% ITEM_RPC_PHOENIX_GLOVES_GEM_AMETHYST2 %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -2347,54 +1842,18 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_one"		"<% RPC_ELEMENT_NORMAL %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_two"		"<% RPC_ELEMENT_EARTH %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_MOUNTAIN_VAMBRACES_GEM_RUBY1 %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby2"				"<% ITEM_RPC_MOUNTAIN_VAMBRACES_GEM_RUBY2 %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_MOUNTAIN_VAMBRACES_GEM_EMERALD1 %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald2"			"<% ITEM_RPC_MOUNTAIN_VAMBRACES_GEM_EMERALD2 %>"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_MOUNTAIN_VAMBRACES_GEM_SAPPHIRE %>"
-			}
-			"08"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_MOUNTAIN_VAMBRACES_GEM_AMETHYST1 %>"
-			}
-			"09"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst2"			"<% ITEM_RPC_MOUNTAIN_VAMBRACES_GEM_AMETHYST2 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "element_one" "<% RPC_ELEMENT_NORMAL %>"
+            "element_two" "<% RPC_ELEMENT_EARTH %>"
+            "ruby1" "<% ITEM_RPC_MOUNTAIN_VAMBRACES_GEM_RUBY1 %>"
+            "ruby2" "<% ITEM_RPC_MOUNTAIN_VAMBRACES_GEM_RUBY2 %>"
+            "emerald1" "<% ITEM_RPC_MOUNTAIN_VAMBRACES_GEM_EMERALD1 %>"
+            "emerald2" "<% ITEM_RPC_MOUNTAIN_VAMBRACES_GEM_EMERALD2 %>"
+            "sapphire1" "<% ITEM_RPC_MOUNTAIN_VAMBRACES_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_MOUNTAIN_VAMBRACES_GEM_AMETHYST1 %>"
+            "amethyst2" "<% ITEM_RPC_MOUNTAIN_VAMBRACES_GEM_AMETHYST2 %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -2454,29 +1913,13 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_MORDIGGUS_GAUNTLET_GEM_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_MORDIGGUS_GAUNTLET_GEM_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_MORDIGGUS_GAUNTLET_GEM_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_MORDIGGUS_GAUNTLET_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_MORDIGGUS_GAUNTLET_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_MORDIGGUS_GAUNTLET_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_MORDIGGUS_GAUNTLET_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_MORDIGGUS_GAUNTLET_GEM_AMETHYST %>"
+        }
 		"precache"
 		{
 			"particle"		"particles/econ/items/bloodseeker/bloodseeker_eztzhok_weapon/bloodseeker_bloodbath_eztzhok_ember.vpcf"
@@ -2528,29 +1971,13 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_MASTER_GLOVES_GEM_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_MASTER_GLOVES_GEM_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_MASTER_GLOVES_GEM_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_MASTER_GLOVES_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_MASTER_GLOVES_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_MASTER_GLOVES_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_MASTER_GLOVES_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_MASTER_GLOVES_GEM_AMETHYST %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -2590,29 +2017,13 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_MARAUDER_GLOVES_GEM_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_MARAUDER_GLOVES_GEM_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_MARAUDER_GLOVES_GEM_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_MARAUDER_GLOVES_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_MARAUDER_GLOVES_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_MARAUDER_GLOVES_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_MARAUDER_GLOVES_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_MARAUDER_GLOVES_GEM_AMETHYST %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -2651,29 +2062,13 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_MALACHITE_SHADE_BRACER_GEM_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_MALACHITE_SHADE_BRACER_GEM_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_MALACHITE_SHADE_BRACER_GEM_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_MALACHITE_SHADE_BRACER_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_MALACHITE_SHADE_BRACER_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_MALACHITE_SHADE_BRACER_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_MALACHITE_SHADE_BRACER_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_MALACHITE_SHADE_BRACER_GEM_AMETHYST %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -2755,29 +2150,13 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_MAGEBANE_GLOVES_GEM_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_MAGEBANE_GLOVES_GEM_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_MAGEBANE_GLOVES_GEM_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_MAGEBANE_GLOVES_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_MAGEBANE_GLOVES_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_MAGEBANE_GLOVES_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_MAGEBANE_GLOVES_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_MAGEBANE_GLOVES_GEM_AMETHYST %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -2807,39 +2186,15 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_LIVING_GAUNTLET_GEM_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_LIVING_GAUNTLET_GEM_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_LIVING_GAUNTLET_GEM_SAPPHIRE1 %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire2"			"<% ITEM_RPC_LIVING_GAUNTLET_GEM_SAPPHIRE2 %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_LIVING_GAUNTLET_GEM_AMETHYST1 %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst2"			"<% ITEM_RPC_LIVING_GAUNTLET_GEM_AMETHYST2 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_LIVING_GAUNTLET_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_LIVING_GAUNTLET_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_LIVING_GAUNTLET_GEM_SAPPHIRE1 %>"
+            "sapphire2" "<% ITEM_RPC_LIVING_GAUNTLET_GEM_SAPPHIRE2 %>"
+            "amethyst1" "<% ITEM_RPC_LIVING_GAUNTLET_GEM_AMETHYST1 %>"
+            "amethyst2" "<% ITEM_RPC_LIVING_GAUNTLET_GEM_AMETHYST2 %>"
+        }
 		"precache"
 		{
 			"particle"  "particles/units/heroes/hero_treant/treant_livingarmor.vpcf"
@@ -2958,34 +2313,14 @@
 			"particle"  "particles/econ/generic/generic_buff_1/rainbow_buff.vpcf"
 			"particle"	"particles/units/heroes/hero_leshrac/leshrac_disco_tnt.vpcf"
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_KAPPA_PRIDE_GLOVES_GEM_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_KAPPA_PRIDE_GLOVES_GEM_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_KAPPA_PRIDE_GLOVES_GEM_SAPPHIRE1 %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire2"			"<% ITEM_RPC_KAPPA_PRIDE_GLOVES_GEM_SAPPHIRE2 %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_KAPPA_PRIDE_GLOVES_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_KAPPA_PRIDE_GLOVES_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_KAPPA_PRIDE_GLOVES_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_KAPPA_PRIDE_GLOVES_GEM_SAPPHIRE1 %>"
+            "sapphire2" "<% ITEM_RPC_KAPPA_PRIDE_GLOVES_GEM_SAPPHIRE2 %>"
+            "amethyst1" "<% ITEM_RPC_KAPPA_PRIDE_GLOVES_GEM_AMETHYST %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -3118,34 +2453,14 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"<% ITEM_RPC_IRONBOUND_GLOVES_ATTACK_PER_ARMOR %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_IRONBOUND_GLOVES_GEM_RUBY %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_IRONBOUND_GLOVES_GEM_EMERALD %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_IRONBOUND_GLOVES_GEM_SAPPHIRE %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_IRONBOUND_GLOVES_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% ITEM_RPC_IRONBOUND_GLOVES_ATTACK_PER_ARMOR %>"
+            "ruby1" "<% ITEM_RPC_IRONBOUND_GLOVES_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_IRONBOUND_GLOVES_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_IRONBOUND_GLOVES_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_IRONBOUND_GLOVES_GEM_AMETHYST %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -3217,29 +2532,13 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_HEAVY_ECHO_GAUNTLET_GEM_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_HEAVY_ECHO_GAUNTLET_GEM_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_HEAVY_ECHO_GAUNTLET_GEM_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_HEAVY_ECHO_GAUNTLET_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_HEAVY_ECHO_GAUNTLET_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_HEAVY_ECHO_GAUNTLET_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_HEAVY_ECHO_GAUNTLET_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_HEAVY_ECHO_GAUNTLET_GEM_AMETHYST %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -3331,44 +2630,16 @@
 		{
 			"particle"  "particles/econ/items/luna/luna_lucent_ti5_gold/luna_lucent_beam_impact_ti_5_gold.vpcf"
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_one"			"<% RPC_ELEMENT_HOLY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_HAND_OF_MIDAS_GEM_RUBY %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_HAND_OF_MIDAS_GEM_EMERALD %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_HAND_OF_MIDAS_GEM_SAPPHIRE1 %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire2"			"<% ITEM_RPC_HAND_OF_MIDAS_GEM_SAPPHIRE2 %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_HAND_OF_MIDAS_GEM_AMETHYST1 %>"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst2"			"<% ITEM_RPC_HAND_OF_MIDAS_GEM_AMETHYST2 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "element_one" "<% RPC_ELEMENT_HOLY %>"
+            "ruby1" "<% ITEM_RPC_HAND_OF_MIDAS_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_HAND_OF_MIDAS_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_HAND_OF_MIDAS_GEM_SAPPHIRE1 %>"
+            "sapphire2" "<% ITEM_RPC_HAND_OF_MIDAS_GEM_SAPPHIRE2 %>"
+            "amethyst1" "<% ITEM_RPC_HAND_OF_MIDAS_GEM_AMETHYST1 %>"
+            "amethyst2" "<% ITEM_RPC_HAND_OF_MIDAS_GEM_AMETHYST2 %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -3438,29 +2709,13 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_HALCYON_SOUL_GLOVE_GEM_RUBY %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_HALCYON_SOUL_GLOVE_GEM_EMERALD %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_HALCYON_SOUL_GLOVE_GEM_SAPPHIRE %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_HALCYON_SOUL_GLOVE_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_HALCYON_SOUL_GLOVE_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_HALCYON_SOUL_GLOVE_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_HALCYON_SOUL_GLOVE_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_HALCYON_SOUL_GLOVE_GEM_AMETHYST %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -3526,29 +2781,13 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_GREENSAND_COPPER_GAUNTLETS_GEM_ENHANCE %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_GREENSAND_COPPER_GAUNTLETS_GEM_ENHANCE %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_GREENSAND_COPPER_GAUNTLETS_GEM_ENHANCE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_GREENSAND_COPPER_GAUNTLETS_GEM_ENHANCE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_GREENSAND_COPPER_GAUNTLETS_GEM_ENHANCE %>"
+            "emerald1" "<% ITEM_RPC_GREENSAND_COPPER_GAUNTLETS_GEM_ENHANCE %>"
+            "sapphire1" "<% ITEM_RPC_GREENSAND_COPPER_GAUNTLETS_GEM_ENHANCE %>"
+            "amethyst1" "<% ITEM_RPC_GREENSAND_COPPER_GAUNTLETS_GEM_ENHANCE %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -3603,29 +2842,13 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_GRAVEKEEPERS_GAUNTLET_GEM_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_GRAVEKEEPERS_GAUNTLET_GEM_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_GRAVEKEEPERS_GAUNTLET_GEM_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_GRAVEKEEPERS_GAUNTLET_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_GRAVEKEEPERS_GAUNTLET_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_GRAVEKEEPERS_GAUNTLET_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_GRAVEKEEPERS_GAUNTLET_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_GRAVEKEEPERS_GAUNTLET_GEM_AMETHYST %>"
+        }
 		"precache"
 		{
 			"particle"  "particles/roshpit/items/gravekeeper_gauntlet_tgt.vpcf"
@@ -3767,34 +2990,14 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_GRASP_OF_ELDER_GEM_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_GRASP_OF_ELDER_GEM_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_GRASP_OF_ELDER_GEM_SAPPHIRE1 %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire2"			"<% ITEM_RPC_GRASP_OF_ELDER_GEM_SAPPHIRE2 %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_GRASP_OF_ELDER_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_GRASP_OF_ELDER_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_GRASP_OF_ELDER_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_GRASP_OF_ELDER_GEM_SAPPHIRE1 %>"
+            "sapphire2" "<% ITEM_RPC_GRASP_OF_ELDER_GEM_SAPPHIRE2 %>"
+            "amethyst1" "<% ITEM_RPC_GRASP_OF_ELDER_GEM_AMETHYST %>"
+        }
 		"precache"
 		{
 			"particle"  "particles/units/heroes/hero_oracle/white_mage_healheal.vpcf"
@@ -3846,39 +3049,15 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_GRAND_ARCANIST_WRAPS_GEM_RUBY1 %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby2"				"<% ITEM_RPC_GRAND_ARCANIST_WRAPS_GEM_RUBY2 %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby3"				"<% ITEM_RPC_GRAND_ARCANIST_WRAPS_GEM_RUBY3 %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_GRAND_ARCANIST_WRAPS_GEM_EMERALD %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_GRAND_ARCANIST_WRAPS_GEM_SAPPHIRE %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_GRAND_ARCANIST_WRAPS_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_GRAND_ARCANIST_WRAPS_GEM_RUBY1 %>"
+            "ruby2" "<% ITEM_RPC_GRAND_ARCANIST_WRAPS_GEM_RUBY2 %>"
+            "ruby3" "<% ITEM_RPC_GRAND_ARCANIST_WRAPS_GEM_RUBY3 %>"
+            "emerald1" "<% ITEM_RPC_GRAND_ARCANIST_WRAPS_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_GRAND_ARCANIST_WRAPS_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_GRAND_ARCANIST_WRAPS_GEM_AMETHYST %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -3918,54 +3097,18 @@
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_GOLDBREAKER_GAUNTLET_GEM_RUBY1 %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby2"				"<% ITEM_RPC_GOLDBREAKER_GAUNTLET_GEM_RUBY2 %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_GOLDBREAKER_GAUNTLET_GEM_EMERALD1 %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald2"			"<% ITEM_RPC_GOLDBREAKER_GAUNTLET_GEM_EMERALD2 %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_GOLDBREAKER_GAUNTLET_GEM_SAPPHIRE1 %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire2"			"<% ITEM_RPC_GOLDBREAKER_GAUNTLET_GEM_SAPPHIRE2 %>"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_GOLDBREAKER_GAUNTLET_GEM_AMETHYST1 %>"
-			}
-			"08"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst2"			"<% ITEM_RPC_GOLDBREAKER_GAUNTLET_GEM_AMETHYST2 %>"
-			}
-			"09"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"element_one"			"<% RPC_ELEMENT_HOLY %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_GOLDBREAKER_GAUNTLET_GEM_RUBY1 %>"
+            "ruby2" "<% ITEM_RPC_GOLDBREAKER_GAUNTLET_GEM_RUBY2 %>"
+            "emerald1" "<% ITEM_RPC_GOLDBREAKER_GAUNTLET_GEM_EMERALD1 %>"
+            "emerald2" "<% ITEM_RPC_GOLDBREAKER_GAUNTLET_GEM_EMERALD2 %>"
+            "sapphire1" "<% ITEM_RPC_GOLDBREAKER_GAUNTLET_GEM_SAPPHIRE1 %>"
+            "sapphire2" "<% ITEM_RPC_GOLDBREAKER_GAUNTLET_GEM_SAPPHIRE2 %>"
+            "amethyst1" "<% ITEM_RPC_GOLDBREAKER_GAUNTLET_GEM_AMETHYST1 %>"
+            "amethyst2" "<% ITEM_RPC_GOLDBREAKER_GAUNTLET_GEM_AMETHYST2 %>"
+            "element_one" "<% RPC_ELEMENT_HOLY %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -4060,39 +3203,15 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_one"			"12"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_GLOVES_OF_SWEEPING_WIND_GEM_RUBY %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_GLOVES_OF_SWEEPING_WIND_GEM_EMERALD %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_GLOVES_OF_SWEEPING_WIND_GEM_SAPPHIRE %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_GLOVES_OF_SWEEPING_WIND_GEM_AMETHYST1 %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst2"			"<% ITEM_RPC_GLOVES_OF_SWEEPING_WIND_GEM_AMETHYST2 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "element_one" "12"
+            "ruby1" "<% ITEM_RPC_GLOVES_OF_SWEEPING_WIND_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_GLOVES_OF_SWEEPING_WIND_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_GLOVES_OF_SWEEPING_WIND_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_GLOVES_OF_SWEEPING_WIND_GEM_AMETHYST1 %>"
+            "amethyst2" "<% ITEM_RPC_GLOVES_OF_SWEEPING_WIND_GEM_AMETHYST2 %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -4189,29 +3308,13 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_GLOVE_OF_THE_FORGOTTEN_GHOST_GEM_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_GLOVE_OF_THE_FORGOTTEN_GHOST_GEM_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_GLOVE_OF_THE_FORGOTTEN_GHOST_GEM_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_GLOVE_OF_THE_FORGOTTEN_GHOST_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_GLOVE_OF_THE_FORGOTTEN_GHOST_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_GLOVE_OF_THE_FORGOTTEN_GHOST_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_GLOVE_OF_THE_FORGOTTEN_GHOST_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_GLOVE_OF_THE_FORGOTTEN_GHOST_GEM_AMETHYST %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -4276,34 +3379,14 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_one"			"7"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_GAUNTLET_OF_DIVINE_PURITY_GEM_RUBY %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_GAUNTLET_OF_DIVINE_PURITY_GEM_EMERALD %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_GAUNTLET_OF_DIVINE_PURITY_GEM_SAPPHIRE %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_GAUNTLET_OF_DIVINE_PURITY_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "element_one" "7"
+            "ruby1" "<% ITEM_RPC_GAUNTLET_OF_DIVINE_PURITY_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_GAUNTLET_OF_DIVINE_PURITY_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_GAUNTLET_OF_DIVINE_PURITY_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_GAUNTLET_OF_DIVINE_PURITY_GEM_AMETHYST %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -4361,29 +3444,13 @@
 				"Function"		"equip_item"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% CHAMPIONS_GEAR_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"<% CHAMPIONS_GEAR_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% CHAMPIONS_GEAR_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"<% CHAMPIONS_GEAR_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% CHAMPIONS_GEAR_RUBY %>"
+            "emerald1" "<% CHAMPIONS_GEAR_EMERALD %>"
+            "sapphire1" "<% CHAMPIONS_GEAR_SAPPHIRE %>"
+            "amethyst1" "<% CHAMPIONS_GEAR_AMETHYST %>"
+        }
 	}
 
 	"item_rpc_frostburn_gauntlets"
@@ -4406,55 +3473,18 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_one"			"<% RPC_ELEMENT_ICE %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_FROSTBURN_GAUNTLETS_GEM_RUBY1 %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_FROSTBURN_GAUNTLETS_GEM_EMERALD1 %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_FROSTBURN_GAUNTLETS_GEM_SAPPHIRE1 %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_FROSTBURN_GAUNTLETS_GEM_AMETHYST1 %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby2"				"<% ITEM_RPC_FROSTBURN_GAUNTLETS_GEM_RUBY2 %>"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald2"			"<% ITEM_RPC_FROSTBURN_GAUNTLETS_GEM_EMERALD2 %>"
-			}
-			"08"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire2"			"<% ITEM_RPC_FROSTBURN_GAUNTLETS_GEM_SAPPHIRE2 %>"
-			}
-			"09"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst2"			"<% ITEM_RPC_FROSTBURN_GAUNTLETS_GEM_AMETHYST2 %>"
-			}
-
-		}
+		"AbilityValues"
+        {
+            "element_one" "<% RPC_ELEMENT_ICE %>"
+            "ruby1" "<% ITEM_RPC_FROSTBURN_GAUNTLETS_GEM_RUBY1 %>"
+            "emerald1" "<% ITEM_RPC_FROSTBURN_GAUNTLETS_GEM_EMERALD1 %>"
+            "sapphire1" "<% ITEM_RPC_FROSTBURN_GAUNTLETS_GEM_SAPPHIRE1 %>"
+            "amethyst1" "<% ITEM_RPC_FROSTBURN_GAUNTLETS_GEM_AMETHYST1 %>"
+            "ruby2" "<% ITEM_RPC_FROSTBURN_GAUNTLETS_GEM_RUBY2 %>"
+            "emerald2" "<% ITEM_RPC_FROSTBURN_GAUNTLETS_GEM_EMERALD2 %>"
+            "sapphire2" "<% ITEM_RPC_FROSTBURN_GAUNTLETS_GEM_SAPPHIRE2 %>"
+            "amethyst2" "<% ITEM_RPC_FROSTBURN_GAUNTLETS_GEM_AMETHYST2 %>"
+        }
 		"precache"
 		{
 			"particle"  "particles/econ/items/ancient_apparition/aa_blast_ti_5/ancient_apparition_ice_blast_ice_c_ti5.vpcf"
@@ -4529,34 +3559,14 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_FAR_SEERS_ENCHANTED_GLOVES_GEM_RUBY1 %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby2"				"<% ITEM_RPC_FAR_SEERS_ENCHANTED_GLOVES_GEM_RUBY2 %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_FAR_SEERS_ENCHANTED_GLOVES_GEM_EMERALD %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_FAR_SEERS_ENCHANTED_GLOVES_GEM_SAPPHIRE %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_FAR_SEERS_ENCHANTED_GLOVES_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_FAR_SEERS_ENCHANTED_GLOVES_GEM_RUBY1 %>"
+            "ruby2" "<% ITEM_RPC_FAR_SEERS_ENCHANTED_GLOVES_GEM_RUBY2 %>"
+            "emerald1" "<% ITEM_RPC_FAR_SEERS_ENCHANTED_GLOVES_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_FAR_SEERS_ENCHANTED_GLOVES_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_FAR_SEERS_ENCHANTED_GLOVES_GEM_AMETHYST %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -4637,29 +3647,13 @@
 			"particle"  "particles/units/heroes/hero_oracle/eternal_gauntlet_heal.vpcf"
 			"particle"  "particles/roshpit/items/eternal_essence_buff_apply_heal.vpcf"
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_ETERNAL_ESSENCE_GAUNTLET_GEM_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_ETERNAL_ESSENCE_GAUNTLET_GEM_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_ETERNAL_ESSENCE_GAUNTLET_GEM_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_ETERNAL_ESSENCE_GAUNTLET_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_ETERNAL_ESSENCE_GAUNTLET_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_ETERNAL_ESSENCE_GAUNTLET_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_ETERNAL_ESSENCE_GAUNTLET_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_ETERNAL_ESSENCE_GAUNTLET_GEM_AMETHYST %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -4741,34 +3735,14 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"property_one"			"0.05"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_ENERGY_WHIP_GLOVE_GEM_RUBY %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_ENERGY_WHIP_GLOVE_GEM_EMERALD %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_ENERGY_WHIP_GLOVE_GEM_SAPPHIRE %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_ENERGY_WHIP_GLOVE_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "0.05"
+            "ruby1" "<% ITEM_RPC_ENERGY_WHIP_GLOVE_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_ENERGY_WHIP_GLOVE_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_ENERGY_WHIP_GLOVE_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_ENERGY_WHIP_GLOVE_GEM_AMETHYST %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -4816,29 +3790,13 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_DIAMOND_CLAWS_OF_TIAMAT_GEM_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_DIAMOND_CLAWS_OF_TIAMAT_GEM_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_DIAMOND_CLAWS_OF_TIAMAT_GEM_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_DIAMOND_CLAWS_OF_TIAMAT_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_DIAMOND_CLAWS_OF_TIAMAT_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_DIAMOND_CLAWS_OF_TIAMAT_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_DIAMOND_CLAWS_OF_TIAMAT_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_DIAMOND_CLAWS_OF_TIAMAT_GEM_AMETHYST %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -4897,49 +3855,17 @@
 		{
 			"particle"  "particles/roshpit/items/depth_demon_claw_amethyst_shield.vpcf"
 		}
-		"AbilitySpecial"
-		{
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_DEPTH_DEMON_CLAW_GEM_RUBY1 %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby2"				"<% ITEM_RPC_DEPTH_DEMON_CLAW_GEM_RUBY2 %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_DEPTH_DEMON_CLAW_GEM_EMERALD1 %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald2"			"<% ITEM_RPC_DEPTH_DEMON_CLAW_GEM_EMERALD2 %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_DEPTH_DEMON_CLAW_GEM_SAPPHIRE1 %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire2"			"<% ITEM_RPC_DEPTH_DEMON_CLAW_GEM_SAPPHIRE2 %>"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire3"			"<% ITEM_RPC_DEPTH_DEMON_CLAW_GEM_SAPPHIRE3 %>"
-			}
-			"08"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_DEPTH_DEMON_CLAW_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_DEPTH_DEMON_CLAW_GEM_RUBY1 %>"
+            "ruby2" "<% ITEM_RPC_DEPTH_DEMON_CLAW_GEM_RUBY2 %>"
+            "emerald1" "<% ITEM_RPC_DEPTH_DEMON_CLAW_GEM_EMERALD1 %>"
+            "emerald2" "<% ITEM_RPC_DEPTH_DEMON_CLAW_GEM_EMERALD2 %>"
+            "sapphire1" "<% ITEM_RPC_DEPTH_DEMON_CLAW_GEM_SAPPHIRE1 %>"
+            "sapphire2" "<% ITEM_RPC_DEPTH_DEMON_CLAW_GEM_SAPPHIRE2 %>"
+            "sapphire3" "<% ITEM_RPC_DEPTH_DEMON_CLAW_GEM_SAPPHIRE3 %>"
+            "amethyst1" "<% ITEM_RPC_DEPTH_DEMON_CLAW_GEM_AMETHYST %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -5106,54 +4032,18 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_one"			"<% RPC_ELEMENT_DEMON %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_two"			"<% RPC_ELEMENT_FIRE %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_three"	"<% ITEM_RPC_DEMONFIRE_GAUNTLET_STACKS %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_DEMONFIRE_GAUNTLET_GEM_RUBY1 %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby2"				"<% ITEM_RPC_DEMONFIRE_GAUNTLET_GEM_RUBY2 %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_DEMONFIRE_GAUNTLET_GEM_EMERALD1 %>"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald2"			"<% ITEM_RPC_DEMONFIRE_GAUNTLET_GEM_EMERALD2 %>"
-			}
-			"08"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_DEMONFIRE_GAUNTLET_GEM_SAPPHIRE %>"
-			}
-			"09"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_DEMONFIRE_GAUNTLET_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "element_one" "<% RPC_ELEMENT_DEMON %>"
+            "element_two" "<% RPC_ELEMENT_FIRE %>"
+            "property_three" "<% ITEM_RPC_DEMONFIRE_GAUNTLET_STACKS %>"
+            "ruby1" "<% ITEM_RPC_DEMONFIRE_GAUNTLET_GEM_RUBY1 %>"
+            "ruby2" "<% ITEM_RPC_DEMONFIRE_GAUNTLET_GEM_RUBY2 %>"
+            "emerald1" "<% ITEM_RPC_DEMONFIRE_GAUNTLET_GEM_EMERALD1 %>"
+            "emerald2" "<% ITEM_RPC_DEMONFIRE_GAUNTLET_GEM_EMERALD2 %>"
+            "sapphire1" "<% ITEM_RPC_DEMONFIRE_GAUNTLET_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_DEMONFIRE_GAUNTLET_GEM_AMETHYST %>"
+        }
 		"precache"
 		{
 			"particle"  "particles/units/heroes/hero_lion/lion_spell_finger_of_death.vpcf"
@@ -5235,49 +4125,17 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_one"			"<% RPC_ELEMENT_GHOST %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_DARK_EMISSARY_GLOVE_GEM_RUBY1 %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby2"				"<% ITEM_RPC_DARK_EMISSARY_GLOVE_GEM_RUBY2 %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_DARK_EMISSARY_GLOVE_GEM_EMERALD1 %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald2"			"<% ITEM_RPC_DARK_EMISSARY_GLOVE_GEM_EMERALD2 %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_DARK_EMISSARY_GLOVE_GEM_SAPPHIRE %>"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_DARK_EMISSARY_GLOVE_GEM_AMETHYST1 %>"
-			}
-			"08"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst2"			"<% ITEM_RPC_DARK_EMISSARY_GLOVE_GEM_AMETHYST2 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "element_one" "<% RPC_ELEMENT_GHOST %>"
+            "ruby1" "<% ITEM_RPC_DARK_EMISSARY_GLOVE_GEM_RUBY1 %>"
+            "ruby2" "<% ITEM_RPC_DARK_EMISSARY_GLOVE_GEM_RUBY2 %>"
+            "emerald1" "<% ITEM_RPC_DARK_EMISSARY_GLOVE_GEM_EMERALD1 %>"
+            "emerald2" "<% ITEM_RPC_DARK_EMISSARY_GLOVE_GEM_EMERALD2 %>"
+            "sapphire1" "<% ITEM_RPC_DARK_EMISSARY_GLOVE_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_DARK_EMISSARY_GLOVE_GEM_AMETHYST1 %>"
+            "amethyst2" "<% ITEM_RPC_DARK_EMISSARY_GLOVE_GEM_AMETHYST2 %>"
+        }
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"precache"
 		{
@@ -5434,44 +4292,16 @@
 		{
 			"particle"  "particles/units/heroes/hero_tinker/tinker_laser.vpcf"
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_one"			"6"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_two"			"4"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_CYTOPIAN_LASER_GLOVE_GEM_RUBY %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_CYTOPIAN_LASER_GLOVE_GEM_EMERALD %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_CYTOPIAN_LASER_GLOVE_GEM_SAPPHIRE1 %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire2"			"<% ITEM_RPC_CYTOPIAN_LASER_GLOVE_GEM_SAPPHIRE2 %>"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_CYTOPIAN_LASER_GLOVE_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "element_one" "6"
+            "element_two" "4"
+            "ruby1" "<% ITEM_RPC_CYTOPIAN_LASER_GLOVE_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_CYTOPIAN_LASER_GLOVE_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_CYTOPIAN_LASER_GLOVE_GEM_SAPPHIRE1 %>"
+            "sapphire2" "<% ITEM_RPC_CYTOPIAN_LASER_GLOVE_GEM_SAPPHIRE2 %>"
+            "amethyst1" "<% ITEM_RPC_CYTOPIAN_LASER_GLOVE_GEM_AMETHYST %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -5536,44 +4366,16 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_CLAWS_OF_THE_ETHEREAL_REVENANT_GEM_RUBY1 %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby2"				"<% ITEM_RPC_CLAWS_OF_THE_ETHEREAL_REVENANT_GEM_RUBY2 %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_CLAWS_OF_THE_ETHEREAL_REVENANT_GEM_EMERALD1 %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald2"			"<% ITEM_RPC_CLAWS_OF_THE_ETHEREAL_REVENANT_GEM_EMERALD2 %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_CLAWS_OF_THE_ETHEREAL_REVENANT_GEM_SAPPHIRE %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_CLAWS_OF_THE_ETHEREAL_REVENANT_GEM_AMETHYST1 %>"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst2"			"<% ITEM_RPC_CLAWS_OF_THE_ETHEREAL_REVENANT_GEM_AMETHYST2 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_CLAWS_OF_THE_ETHEREAL_REVENANT_GEM_RUBY1 %>"
+            "ruby2" "<% ITEM_RPC_CLAWS_OF_THE_ETHEREAL_REVENANT_GEM_RUBY2 %>"
+            "emerald1" "<% ITEM_RPC_CLAWS_OF_THE_ETHEREAL_REVENANT_GEM_EMERALD1 %>"
+            "emerald2" "<% ITEM_RPC_CLAWS_OF_THE_ETHEREAL_REVENANT_GEM_EMERALD2 %>"
+            "sapphire1" "<% ITEM_RPC_CLAWS_OF_THE_ETHEREAL_REVENANT_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_CLAWS_OF_THE_ETHEREAL_REVENANT_GEM_AMETHYST1 %>"
+            "amethyst2" "<% ITEM_RPC_CLAWS_OF_THE_ETHEREAL_REVENANT_GEM_AMETHYST2 %>"
+        }
 		"precache"
 		{
 			"particle"  "particles/units/heroes/hero_razor/razor_static_link.vpcf"
@@ -5690,39 +4492,15 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_CLAW_OF_AZINOTH_GEM_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_CLAW_OF_AZINOTH_GEM_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_CLAW_OF_AZINOTH_GEM_SAPPHIRE1 %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire2"			"<% ITEM_RPC_CLAW_OF_AZINOTH_GEM_SAPPHIRE2 %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_CLAW_OF_AZINOTH_GEM_AMETHYST1 %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst2"			"<% ITEM_RPC_CLAW_OF_AZINOTH_GEM_AMETHYST2 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_CLAW_OF_AZINOTH_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_CLAW_OF_AZINOTH_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_CLAW_OF_AZINOTH_GEM_SAPPHIRE1 %>"
+            "sapphire2" "<% ITEM_RPC_CLAW_OF_AZINOTH_GEM_SAPPHIRE2 %>"
+            "amethyst1" "<% ITEM_RPC_CLAW_OF_AZINOTH_GEM_AMETHYST1 %>"
+            "amethyst2" "<% ITEM_RPC_CLAW_OF_AZINOTH_GEM_AMETHYST2 %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -5773,29 +4551,13 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_CHITINOUS_LOBSTER_CLAW_GEM_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_CHITINOUS_LOBSTER_CLAW_GEM_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_CHITINOUS_LOBSTER_CLAW_GEM_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_CHITINOUS_LOBSTER_CLAW_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_CHITINOUS_LOBSTER_CLAW_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_CHITINOUS_LOBSTER_CLAW_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_CHITINOUS_LOBSTER_CLAW_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_CHITINOUS_LOBSTER_CLAW_GEM_AMETHYST %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -5857,39 +4619,15 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_one"			"9"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_two"			"15"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_BUZUKIS_FINGER_GEM_RUBY %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_BUZUKIS_FINGER_GEM_EMERALD %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_BUZUKIS_FINGER_GEM_SAPPHIRE %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_BUZUKIS_FINGER_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "element_one" "9"
+            "element_two" "15"
+            "ruby1" "<% ITEM_RPC_BUZUKIS_FINGER_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_BUZUKIS_FINGER_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_BUZUKIS_FINGER_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_BUZUKIS_FINGER_GEM_AMETHYST %>"
+        }
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"precache"
 		{
@@ -6011,44 +4749,16 @@
 			"particle"  "particles/roshpit/items/scourge_knight_ambient.vpcf"
 			"model"		"models/items/wraith_king/wk_ti8_creep/wk_ti8_creep.vmdl"
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_BONEGUARD_GAUNTLETS_GEM_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_BONEGUARD_GAUNTLETS_GEM_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_BONEGUARD_GAUNTLETS_GEM_SAPPHIRE1 %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire2"			"<% ITEM_RPC_BONEGUARD_GAUNTLETS_GEM_SAPPHIRE2 %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_BONEGUARD_GAUNTLETS_GEM_AMETHYST1 %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst2"			"<% ITEM_RPC_BONEGUARD_GAUNTLETS_GEM_AMETHYST2 %>"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"element_one"			"<% RPC_ELEMENT_UNDEAD %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "ruby1" "<% ITEM_RPC_BONEGUARD_GAUNTLETS_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_BONEGUARD_GAUNTLETS_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_BONEGUARD_GAUNTLETS_GEM_SAPPHIRE1 %>"
+            "sapphire2" "<% ITEM_RPC_BONEGUARD_GAUNTLETS_GEM_SAPPHIRE2 %>"
+            "amethyst1" "<% ITEM_RPC_BONEGUARD_GAUNTLETS_GEM_AMETHYST1 %>"
+            "amethyst2" "<% ITEM_RPC_BONEGUARD_GAUNTLETS_GEM_AMETHYST2 %>"
+            "element_one" "<% RPC_ELEMENT_UNDEAD %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -6117,44 +4827,16 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_one"			"<% RPC_ELEMENT_WATER %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_BLUE_RAIN_GAUNTLET_GEM_RUBY1 %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby2"				"<% ITEM_RPC_BLUE_RAIN_GAUNTLET_GEM_RUBY2 %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_BLUE_RAIN_GAUNTLET_GEM_EMERALD1 %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald2"			"<% ITEM_RPC_BLUE_RAIN_GAUNTLET_GEM_EMERALD2 %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_BLUE_RAIN_GAUNTLET_GEM_SAPPHIRE %>"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_BLUE_RAIN_GAUNTLET_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "element_one" "<% RPC_ELEMENT_WATER %>"
+            "ruby1" "<% ITEM_RPC_BLUE_RAIN_GAUNTLET_GEM_RUBY1 %>"
+            "ruby2" "<% ITEM_RPC_BLUE_RAIN_GAUNTLET_GEM_RUBY2 %>"
+            "emerald1" "<% ITEM_RPC_BLUE_RAIN_GAUNTLET_GEM_EMERALD1 %>"
+            "emerald2" "<% ITEM_RPC_BLUE_RAIN_GAUNTLET_GEM_EMERALD2 %>"
+            "sapphire1" "<% ITEM_RPC_BLUE_RAIN_GAUNTLET_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_BLUE_RAIN_GAUNTLET_GEM_AMETHYST %>"
+        }
 		"precache"
 		{
 			"particle"  "particles/econ/items/monkey_king/ti7_weapon/mk_ti7_immortal_strike.vpcf"
@@ -6211,49 +4893,17 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_one"			"<% RPC_ELEMENT_NORMAL %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_BLADEFORGE_GAUNTLET_GEM_RUBY %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_BLADEFORGE_GAUNTLET_GEM_EMERALD1 %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald2"			"<% ITEM_RPC_BLADEFORGE_GAUNTLET_GEM_EMERALD2 %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_BLADEFORGE_GAUNTLET_GEM_SAPPHIRE1 %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire2"			"<% ITEM_RPC_BLADEFORGE_GAUNTLET_GEM_SAPPHIRE2 %>"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_BLADEFORGE_GAUNTLET_GEM_AMETHYST1 %>"
-			}
-			"08"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst2"			"<% ITEM_RPC_BLADEFORGE_GAUNTLET_GEM_AMETHYST2 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "element_one" "<% RPC_ELEMENT_NORMAL %>"
+            "ruby1" "<% ITEM_RPC_BLADEFORGE_GAUNTLET_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_BLADEFORGE_GAUNTLET_GEM_EMERALD1 %>"
+            "emerald2" "<% ITEM_RPC_BLADEFORGE_GAUNTLET_GEM_EMERALD2 %>"
+            "sapphire1" "<% ITEM_RPC_BLADEFORGE_GAUNTLET_GEM_SAPPHIRE1 %>"
+            "sapphire2" "<% ITEM_RPC_BLADEFORGE_GAUNTLET_GEM_SAPPHIRE2 %>"
+            "amethyst1" "<% ITEM_RPC_BLADEFORGE_GAUNTLET_GEM_AMETHYST1 %>"
+            "amethyst2" "<% ITEM_RPC_BLADEFORGE_GAUNTLET_GEM_AMETHYST2 %>"
+        }
 		"precache"
 		{
 			"particle"  "particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf"
@@ -6377,49 +5027,17 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"200"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_two"		"30"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_three"		"12"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_four"		"5"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_BERSERKER_GLOVES_GEM_RUBY %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_BERSERKER_GLOVES_GEM_EMERALD %>"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_BERSERKER_GLOVES_GEM_SAPPHIRE %>"
-			}
-			"08"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_BERSERKER_GLOVES_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "200"
+            "property_two" "30"
+            "property_three" "12"
+            "property_four" "5"
+            "ruby1" "<% ITEM_RPC_BERSERKER_GLOVES_GEM_RUBY %>"
+            "emerald1" "<% ITEM_RPC_BERSERKER_GLOVES_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_BERSERKER_GLOVES_GEM_SAPPHIRE %>"
+            "amethyst1" "<% ITEM_RPC_BERSERKER_GLOVES_GEM_AMETHYST %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -6521,49 +5139,17 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_one"			"<% RPC_ELEMENT_EARTH %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_AUTUMNROCK_BRACER_GEM_RUBY1 %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby2"				"<% ITEM_RPC_AUTUMNROCK_BRACER_GEM_RUBY2 %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_AUTUMNROCK_BRACER_GEM_EMERALD1 %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald2"			"<% ITEM_RPC_AUTUMNROCK_BRACER_GEM_EMERALD2 %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_AUTUMNROCK_BRACER_GEM_SAPPHIRE1 %>"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire2"			"<% ITEM_RPC_AUTUMNROCK_BRACER_GEM_SAPPHIRE2 %>"
-			}
-			"08"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_AUTUMNROCK_BRACER_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "element_one" "<% RPC_ELEMENT_EARTH %>"
+            "ruby1" "<% ITEM_RPC_AUTUMNROCK_BRACER_GEM_RUBY1 %>"
+            "ruby2" "<% ITEM_RPC_AUTUMNROCK_BRACER_GEM_RUBY2 %>"
+            "emerald1" "<% ITEM_RPC_AUTUMNROCK_BRACER_GEM_EMERALD1 %>"
+            "emerald2" "<% ITEM_RPC_AUTUMNROCK_BRACER_GEM_EMERALD2 %>"
+            "sapphire1" "<% ITEM_RPC_AUTUMNROCK_BRACER_GEM_SAPPHIRE1 %>"
+            "sapphire2" "<% ITEM_RPC_AUTUMNROCK_BRACER_GEM_SAPPHIRE2 %>"
+            "amethyst1" "<% ITEM_RPC_AUTUMNROCK_BRACER_GEM_AMETHYST %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -6616,44 +5202,16 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_one"			"<% RPC_ELEMENT_WATER %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_AQUASTEEL_BRACERS_GEM_RUBY1 %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby2"				"<% ITEM_RPC_AQUASTEEL_BRACERS_GEM_RUBY2 %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_AQUASTEEL_BRACERS_GEM_EMERALD %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_AQUASTEEL_BRACERS_GEM_SAPPHIRE1 %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire2"			"<% ITEM_RPC_AQUASTEEL_BRACERS_GEM_SAPPHIRE2 %>"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_AQUASTEEL_BRACERS_GEM_AMETHYST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "element_one" "<% RPC_ELEMENT_WATER %>"
+            "ruby1" "<% ITEM_RPC_AQUASTEEL_BRACERS_GEM_RUBY1 %>"
+            "ruby2" "<% ITEM_RPC_AQUASTEEL_BRACERS_GEM_RUBY2 %>"
+            "emerald1" "<% ITEM_RPC_AQUASTEEL_BRACERS_GEM_EMERALD %>"
+            "sapphire1" "<% ITEM_RPC_AQUASTEEL_BRACERS_GEM_SAPPHIRE1 %>"
+            "sapphire2" "<% ITEM_RPC_AQUASTEEL_BRACERS_GEM_SAPPHIRE2 %>"
+            "amethyst1" "<% ITEM_RPC_AQUASTEEL_BRACERS_GEM_AMETHYST %>"
+        }
 		"precache"
 		{
 			"particle"  "particles/econ/events/ti7/dagon_ti7.vpcf"

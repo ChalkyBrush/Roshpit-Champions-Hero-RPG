@@ -10,19 +10,11 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SEINARU_Q1_ATT_PCT_PER_STACK %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% SEINARU_Q1_ATT_SPD_PER_STACK %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SEINARU_Q1_ATT_PCT_PER_STACK %>"
+            "property_two" "<% SEINARU_Q1_ATT_SPD_PER_STACK %>"
+        }
 	}
 
 	"seinaru_rune_q_2"
@@ -36,19 +28,11 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SEINARU_Q2_MOV_SPD %>"
-			}
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% SEINARU_Q2_MOV_SLOW %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SEINARU_Q2_MOV_SPD %>"
+            "property_two" "<% SEINARU_Q2_MOV_SLOW %>"
+        }
 	}
 
 	"seinaru_rune_q_3"
@@ -63,14 +47,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SEINARU_Q3_ARMOR_AND_SPELL_PIERCE_PER_MS %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SEINARU_Q3_ARMOR_AND_SPELL_PIERCE_PER_MS %>"
+        }
 	}
 
 	"seinaru_rune_q_4"
@@ -85,14 +65,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SEINARU_Q4_ADD_DMG_PER_ATT * 100 %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SEINARU_Q4_ADD_DMG_PER_ATT * 100 %>"
+        }
 	}
 
 	"seinaru_rune_w_1"
@@ -107,34 +83,14 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SEINARU_W1_RANGE_PER_LVL %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one_base"			"<% SEINARU_W1_RANGE_BASE %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% SEINARU_W1_DAMAGE %>"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"2"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"12"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SEINARU_W1_RANGE_PER_LVL %>"
+            "property_one_base" "<% SEINARU_W1_RANGE_BASE %>"
+            "property_two" "<% SEINARU_W1_DAMAGE %>"
+            "base_ability" "2"
+            "element_one" "12"
+        }
 	}
 	
 	"seinaru_rune_w_2"
@@ -149,30 +105,13 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SEINARU_W2_DMG %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% SEINARU_W2_MAGIC_ARMOR_LOSS %>"
-			}
-			
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"2"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"12"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SEINARU_W2_DMG %>"
+            "property_two" "<% SEINARU_W2_MAGIC_ARMOR_LOSS %>"
+            "base_ability" "2"
+            "element_one" "12"
+        }
 		"Modifiers"
 		{
 
@@ -191,14 +130,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SEINARU_W3_SHIELD_PER_AGI %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SEINARU_W3_SHIELD_PER_AGI %>"
+        }
 		"Modifiers"
 		{
 
@@ -217,19 +152,11 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SEINARU_W4_WIND_AMP %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% SEINARU_W4_SPIRIT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SEINARU_W4_WIND_AMP %>"
+            "property_two" "<% SEINARU_W4_SPIRIT %>"
+        }
 	}
 
 	"seinaru_rune_e_1"
@@ -244,24 +171,12 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SEINARU_E1_ATT_PCT %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two_base"		"<% SEINARU_E1_TARGETS_BASE %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% SEINARU_E1_TARGETS %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SEINARU_E1_ATT_PCT %>"
+            "property_two_base" "<% SEINARU_E1_TARGETS_BASE %>"
+            "property_two" "<% SEINARU_E1_TARGETS %>"
+        }
 	}
 	
 	"seinaru_rune_e_2"
@@ -275,14 +190,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SEINARU_E2_CHANCE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SEINARU_E2_CHANCE %>"
+        }
 	}
 	
 
@@ -298,14 +209,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SEINARU_E3_ARMOR_PIERCE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SEINARU_E3_ARMOR_PIERCE %>"
+        }
 	}
 	
 	"seinaru_rune_e_4"
@@ -320,19 +227,11 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SEINARU_E4_HOLY_AMP * 100%>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% SEINARU_E4_AGILITY %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SEINARU_E4_HOLY_AMP * 100%>"
+            "property_two" "<% SEINARU_E4_AGILITY %>"
+        }
 	}
 
 	"seinaru_rune_r_1"
@@ -347,14 +246,10 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SEINARU_R1_ARMOR_RED %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SEINARU_R1_ARMOR_RED %>"
+        }
 	}
 
 	"seinaru_rune_r_2"
@@ -369,29 +264,13 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.1"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one_base"			"8.0"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"5"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two_base"			"500"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "0.1"
+            "property_one_base" "8.0"
+            "property_two" "5"
+            "property_two_base" "500"
+        }
 	}
 
 	"seinaru_rune_r_3"
@@ -406,34 +285,14 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SEINARU_R3_DMG_PER_ATT * 100 %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% SEINARU_R3_DMG_BASE %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"4"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"7"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_two"			"1"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SEINARU_R3_DMG_PER_ATT * 100 %>"
+            "property_two" "<% SEINARU_R3_DMG_BASE %>"
+            "base_ability" "4"
+            "element_one" "7"
+            "element_two" "1"
+        }
 	}
 
 	"seinaru_rune_r_4"
@@ -448,13 +307,9 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SEINARU_R4_STRENGTH %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% SEINARU_R4_STRENGTH %>"
+        }
 	}
 

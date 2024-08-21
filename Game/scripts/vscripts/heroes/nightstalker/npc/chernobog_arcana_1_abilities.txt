@@ -15,17 +15,9 @@
 		"MaxLevel"				 		"7"
 		"AbilityManaCost"	"0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"duration"	"19 25 31 37 43 49 55"
-			}
-			"02"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"attack_damage_percent"	"55 60 65 70 75 80 85"
-			}
-		}
+		"AbilityValues"
+        {
+            "duration" "19 25 31 37 43 49 55"
+            "attack_damage_percent" "55 60 65 70 75 80 85"
+        }
 	}

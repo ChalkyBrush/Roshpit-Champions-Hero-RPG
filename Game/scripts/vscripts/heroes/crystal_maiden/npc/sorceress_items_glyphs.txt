@@ -28,19 +28,11 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"100"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "2"
+            "property_two" "100"
+        }
 	}
 
 	"item_rpc_sorceress_glyph_2_1"
@@ -72,14 +64,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"0"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "0"
+        }
 	}
 
 	"item_rpc_sorceress_glyph_3_1"
@@ -111,14 +99,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"25"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "25"
+        }
 	}
 
 	"item_rpc_sorceress_glyph_4_1"
@@ -154,14 +138,10 @@
 				}
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"260"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "260"
+        }
 	}
 
 	"item_rpc_sorceress_glyph_5_1"
@@ -211,14 +191,10 @@
 				}
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"3"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "3"
+        }
 	}
 
 	"item_rpc_sorceress_glyph_6_1"
@@ -250,14 +226,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "1"
+        }
 	}
 
 	"item_rpc_sorceress_glyph_7_1"
@@ -289,14 +261,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"1.5"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "1.5"
+        }
 	}
 
 	"item_rpc_sorceress_glyph_5_a"
@@ -328,14 +296,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"20"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "20"
+        }
 	}
 
 	"item_rpc_sorceress_glyph_book"
@@ -398,19 +362,11 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"1"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "15"
+            "property_two" "1"
+        }
 	}
 
 	"item_rpc_sorceress_glyph_2_2"
@@ -442,19 +398,11 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"40"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"50"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "40"
+            "property_two" "50"
+        }
 	}
 
 	"item_rpc_sorceress_glyph_3_2"
@@ -486,14 +434,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "2"
+        }
 	}
 
 	"item_rpc_sorceress_glyph_4_2"
@@ -525,14 +469,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"7"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "7"
+        }
 	}
 
 	"item_rpc_sorceress_glyph_5_2"
@@ -564,14 +504,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"50"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "50"
+        }
 	}
 
 	"item_rpc_sorceress_glyph_6_2"
@@ -603,14 +539,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"100"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "100"
+        }
 	}
 
 	"item_rpc_sorceress_glyph_7_2"
@@ -642,17 +574,9 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"150"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"5"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "150"
+            "property_two" "5"
+        }
 	}

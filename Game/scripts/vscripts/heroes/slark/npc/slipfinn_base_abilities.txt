@@ -33,14 +33,10 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"height_immune"			"330 310 290 270 250 230 210"
-			}
-		}
+		"AbilityValues"
+        {
+            "height_immune" "330 310 290 270 250 230 210"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -226,19 +222,11 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"<% SLIPFINN_Q_DAMAGE %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"magic_pure_resist"			"<% SLIPFINN_Q_RESIST %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "<% SLIPFINN_Q_DAMAGE %>"
+            "magic_pure_resist" "<% SLIPFINN_Q_RESIST %>"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -337,19 +325,11 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ms_bonus_and_max"		"700 800 900 1000 1100 1200 1300"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"duration"			"3"
-			}
-		}
+		"AbilityValues"
+        {
+            "ms_bonus_and_max" "700 800 900 1000 1100 1200 1300"
+            "duration" "3"
+        }
 		"Modifiers"
 		{
 			"modifier_slipfinn_shadow_rush_passive"
@@ -485,14 +465,10 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"cast_range"		"400 420 440 460 480 500 520"
-			}
-		}
+		"AbilityValues"
+        {
+            "cast_range" "400 420 440 460 480 500 520"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -793,14 +769,10 @@
 				}
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"duration"	"<% SLIPFINN_R_DURATION %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "duration" "<% SLIPFINN_R_DURATION %>"
+        }
 	}
 
 	"slipfinn_release_possess"
@@ -834,10 +806,9 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-
-		}
+		"AbilityValues"
+        {
+        }
 		"OnSpellStart"
 		{
 			"RunScript"

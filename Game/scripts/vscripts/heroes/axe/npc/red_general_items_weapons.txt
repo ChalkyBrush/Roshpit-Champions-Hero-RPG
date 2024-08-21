@@ -463,19 +463,11 @@
                 }
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"<% RED_GENERAL_IMMORTAL_WEAPON_2_ADD_MOVESPEED %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_two"		"<% RED_GENERAL_IMMORTAL_WEAPON_2_AMPLIFY_PERCENT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% RED_GENERAL_IMMORTAL_WEAPON_2_ADD_MOVESPEED %>"
+            "property_two" "<% RED_GENERAL_IMMORTAL_WEAPON_2_AMPLIFY_PERCENT %>"
+        }
 	}
 
 	"item_rpc_axe_immortal_weapon_3"
@@ -519,14 +511,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"<% RED_GENERAL_IMMORTAL_WEAPON_3_BONUS_SHIELDS_PERCENT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% RED_GENERAL_IMMORTAL_WEAPON_3_BONUS_SHIELDS_PERCENT %>"
+        }
 	}
 	
 	"item_rpc_axe_immortal_weapon_4"

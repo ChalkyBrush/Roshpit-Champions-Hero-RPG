@@ -28,14 +28,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% DINATH_GLYPH_1_1_FREEZE_DURATION_INCREASE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% DINATH_GLYPH_1_1_FREEZE_DURATION_INCREASE %>"
+        }
 	}
 
 	"item_rpc_dinath_glyph_2_1"
@@ -67,14 +63,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% DINATH_GLYPH_2_1_FLY_HEIGHT_INCREASE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% DINATH_GLYPH_2_1_FLY_HEIGHT_INCREASE %>"
+        }
 	}
 
 	"item_rpc_dinath_glyph_3_1"
@@ -106,14 +98,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% DINATH_GLYPH_3_1_Q_CHARGES_INCREASE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% DINATH_GLYPH_3_1_Q_CHARGES_INCREASE %>"
+        }
 	}
 
 	"item_rpc_dinath_glyph_4_1"
@@ -167,14 +155,10 @@
 				"IsBuff"	"1"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% DINATH_GLYPH_4_1_E_FREE_CAST_INTERVAL %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% DINATH_GLYPH_4_1_E_FREE_CAST_INTERVAL %>"
+        }
 	}
 
 	"item_rpc_dinath_glyph_5_1"
@@ -215,14 +199,10 @@
 				}
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% DINATH_GLYPH_5_1_CD_REDUCTION_PER_ATTACK %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% DINATH_GLYPH_5_1_CD_REDUCTION_PER_ATTACK %>"
+        }
 	}
 
 	"item_rpc_dinath_glyph_6_1"
@@ -254,14 +234,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% DINATH_GLYPH_6_1_FIRE_ICE_LIGHTING_COSMIC_AMP %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% DINATH_GLYPH_6_1_FIRE_ICE_LIGHTING_COSMIC_AMP %>"
+        }
 	}
 
 	"item_rpc_dinath_glyph_7_1"
@@ -293,19 +269,11 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% DINATH_GLYPH_7_1_CURR_MANA_TO_W_DAMAGE %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% DINATH_GLYPH_7_1_MANA_RESTORED_PER_ATTACK_PCT %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% DINATH_GLYPH_7_1_CURR_MANA_TO_W_DAMAGE %>"
+            "property_two" "<% DINATH_GLYPH_7_1_MANA_RESTORED_PER_ATTACK_PCT %>"
+        }
 	}
 
 	"item_rpc_dinath_glyph_5_a"
@@ -378,18 +346,10 @@
 				"IsHidden"	"1"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% DINATH_GLYPH_5_A_MAGIC_IMMUNITY_DURATION %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% DINATH_GLYPH_5_A_MAGIC_IMMUNITY_CD %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% DINATH_GLYPH_5_A_MAGIC_IMMUNITY_DURATION %>"
+            "property_two" "<% DINATH_GLYPH_5_A_MAGIC_IMMUNITY_CD %>"
+        }
 	}
 

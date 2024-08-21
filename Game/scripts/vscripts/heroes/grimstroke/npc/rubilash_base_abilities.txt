@@ -53,19 +53,11 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"<% RUBILASH_PHANTOM_BRUSH_DAMAGE %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"range"					"1500"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "<% RUBILASH_PHANTOM_BRUSH_DAMAGE %>"
+            "range" "1500"
+        }
 		"OnAbilityPhaseStart"
 		{
 			"RunScript"
@@ -193,19 +185,11 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"<% RUBILASH_PHANTOM_BRUSH_DAMAGE %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"range"					"1500"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "<% RUBILASH_PHANTOM_BRUSH_DAMAGE %>"
+            "range" "1500"
+        }
 		"OnAbilityPhaseStart"
 		{
 			"RunScript"
@@ -333,19 +317,11 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"<% RUBILASH_PHANTOM_BRUSH_DAMAGE %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"range"					"1500"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "<% RUBILASH_PHANTOM_BRUSH_DAMAGE %>"
+            "range" "1500"
+        }
 		"OnAbilityPhaseStart"
 		{
 			"RunScript"
@@ -473,19 +449,11 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"<% RUBILASH_PHANTOM_BRUSH_DAMAGE_WHITE %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"range"					"1500"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "<% RUBILASH_PHANTOM_BRUSH_DAMAGE_WHITE %>"
+            "range" "1500"
+        }
 		"OnAbilityPhaseStart"
 		{
 			"RunScript"
@@ -620,19 +588,11 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"<% RUBILASH_INK_BLOT_DAMAGE %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_radius"				"225"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "<% RUBILASH_INK_BLOT_DAMAGE %>"
+            "damage_radius" "225"
+        }
 		"OnAbilityPhaseStart"
 		{
 			"RunScript"
@@ -852,19 +812,11 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"<% RUBILASH_INK_BLOT_DAMAGE %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_radius"				"225"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "<% RUBILASH_INK_BLOT_DAMAGE %>"
+            "damage_radius" "225"
+        }
 		"OnAbilityPhaseStart"
 		{
 			"RunScript"
@@ -1084,19 +1036,11 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"<% RUBILASH_INK_BLOT_DAMAGE %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_radius"				"225"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "<% RUBILASH_INK_BLOT_DAMAGE %>"
+            "damage_radius" "225"
+        }
 		"OnAbilityPhaseStart"
 		{
 			"RunScript"
@@ -1316,19 +1260,11 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"<% RUBILASH_INK_BLOT_DAMAGE_WHITE %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_radius"				"225"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "<% RUBILASH_INK_BLOT_DAMAGE_WHITE %>"
+            "damage_radius" "225"
+        }
 		"OnAbilityPhaseStart"
 		{
 			"RunScript"
@@ -1571,24 +1507,12 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"500 2000 3500 5000 6500 8000 9500"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_radius"				"400"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"cast_range"				"600 680 760 840 920 1000 1080"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "500 2000 3500 5000 6500 8000 9500"
+            "damage_radius" "400"
+            "cast_range" "600 680 760 840 920 1000 1080"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -1673,24 +1597,12 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"500 2000 3500 5000 6500 8000 9500"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_radius"				"400"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"cast_range"				"600 680 760 840 920 1000 1080"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "500 2000 3500 5000 6500 8000 9500"
+            "damage_radius" "400"
+            "cast_range" "600 680 760 840 920 1000 1080"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -1775,24 +1687,12 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"500 2000 3500 5000 6500 8000 9500"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_radius"				"400"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"cast_range"				"600 680 760 840 920 1000 1080"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "500 2000 3500 5000 6500 8000 9500"
+            "damage_radius" "400"
+            "cast_range" "600 680 760 840 920 1000 1080"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -1877,24 +1777,12 @@
 
 		// Special
 		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"500 2000 3500 5000 6500 8000 9500"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_radius"				"400"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"cast_range"				"600 680 760 840 920 1000 1080"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "500 2000 3500 5000 6500 8000 9500"
+            "damage_radius" "400"
+            "cast_range" "600 680 760 840 920 1000 1080"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -2121,13 +2009,9 @@
             }
         }
 
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "duration"                    "30 40 50 60 70 80 90"
-            }
+            "duration" "30 40 50 60 70 80 90"
         }
     }
 

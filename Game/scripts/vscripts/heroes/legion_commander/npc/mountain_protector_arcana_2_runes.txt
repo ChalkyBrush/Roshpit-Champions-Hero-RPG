@@ -9,14 +9,10 @@
 		"AbilityTextureName"			"mountain_protector/mountain_protector_rune_r_1_arcana2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% MOUNTAIN_PROTECTOR_ARCANA2_R1_STR_BONUS %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% MOUNTAIN_PROTECTOR_ARCANA2_R1_STR_BONUS %>"
+        }
 	}
 
 	"mountain_protector_rune_r_2_arcana2"
@@ -29,29 +25,13 @@
 		"AbilityTextureName"			"mountain_protector/mountain_protector_rune_r_2_arcana2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one_base"		"<% MOUNTAIN_PROTECTOR_ARCANA2_R2_DURATION_BASE %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"		"<% MOUNTAIN_PROTECTOR_ARCANA2_R2_DURATION %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% MOUNTAIN_PROTECTOR_ARCANA2_R2_STUN_DURATION %>"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"constant_one"			"<% MOUNTAIN_PROTECTOR_ARCANA2_R2_RADIUS %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one_base" "<% MOUNTAIN_PROTECTOR_ARCANA2_R2_DURATION_BASE %>"
+            "property_one" "<% MOUNTAIN_PROTECTOR_ARCANA2_R2_DURATION %>"
+            "property_two" "<% MOUNTAIN_PROTECTOR_ARCANA2_R2_STUN_DURATION %>"
+            "constant_one" "<% MOUNTAIN_PROTECTOR_ARCANA2_R2_RADIUS %>"
+        }
 	}
 
 	"mountain_protector_rune_r_3_arcana2"
@@ -64,14 +44,10 @@
 		"AbilityTextureName"			"mountain_protector/mountain_protector_rune_r_3_arcana2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% MOUNTAIN_PROTECTOR_ARCANA2_R3_ARMOR_AND_MAGIC_ARMOR_LOSS %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% MOUNTAIN_PROTECTOR_ARCANA2_R3_ARMOR_AND_MAGIC_ARMOR_LOSS %>"
+        }
 	}
 
 	"mountain_protector_rune_r_4_arcana2"
@@ -84,13 +60,9 @@
 		"AbilityTextureName"			"mountain_protector/mountain_protector_rune_r_4_arcana2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% MOUNTAIN_PROTECTOR_ARCANA2_R4_ICE_EARTH * 100%>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% MOUNTAIN_PROTECTOR_ARCANA2_R4_ICE_EARTH * 100%>"
+        }
 	}
 

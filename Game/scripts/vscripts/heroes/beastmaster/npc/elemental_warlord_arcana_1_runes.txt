@@ -11,24 +11,12 @@
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% WARLORD_ARCANA1_R1_DMG_PCT * 100 %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"4"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"3"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% WARLORD_ARCANA1_R1_DMG_PCT * 100 %>"
+            "base_ability" "4"
+            "element_one" "3"
+        }
 	}
 
 	"warlord_rune_r_2_arcana1"
@@ -43,24 +31,12 @@
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% WARLORD_ARCANA1_R2_DMG_PER_ATTRIBUTES %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"4"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"9"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% WARLORD_ARCANA1_R2_DMG_PER_ATTRIBUTES %>"
+            "base_ability" "4"
+            "element_one" "9"
+        }
 	}
 
 	"warlord_rune_r_3_arcana1"
@@ -75,24 +51,12 @@
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% WARLORD_ARCANA1_R3_DMG_PCT_MAX_HEALTH * 100 %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"4"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"2"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "<% WARLORD_ARCANA1_R3_DMG_PCT_MAX_HEALTH * 100 %>"
+            "base_ability" "4"
+            "element_one" "2"
+        }
 	}
 
 	"warlord_rune_r_4_arcana1"
@@ -105,18 +69,10 @@
 		"AbilityTextureName"	"warlord/warlord_rune_r_4_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% WARLORD_ARCANA1_R4_ATK_PER_FIRE_CHARGE %>"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "1"
+            "property_two" "<% WARLORD_ARCANA1_R4_ATK_PER_FIRE_CHARGE %>"
+        }
 	}
 

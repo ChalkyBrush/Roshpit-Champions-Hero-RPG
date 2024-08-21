@@ -456,14 +456,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"property_one"			"0.5"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "0.5"
+        }
 	}
 
 	"item_rpc_arkimus_immortal_weapon_3"
@@ -503,14 +499,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"99"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "99"
+        }
 	}
 	
 	"item_rpc_arkimus_immortal_weapon_4"

@@ -28,19 +28,11 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"200"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"4"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "200"
+            "property_two" "4"
+        }
 	}
 
 	"item_rpc_auriun_glyph_2_1"
@@ -72,14 +64,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"300"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "300"
+        }
 	}
 
 	"item_rpc_auriun_glyph_3_1"
@@ -111,14 +99,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"25"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "25"
+        }
 	}
 
 	"item_rpc_auriun_glyph_4_1"
@@ -154,14 +138,10 @@
 				}
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"280"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "280"
+        }
 	}
 
 	"item_rpc_auriun_glyph_5_1"
@@ -193,14 +173,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"65"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "65"
+        }
 	}
 
 	"item_rpc_auriun_glyph_6_1"
@@ -232,14 +208,10 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"2.0"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "2.0"
+        }
 	}
 
 	"item_rpc_auriun_glyph_7_1"
@@ -344,23 +316,11 @@
 				}
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"100"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"-20"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"11"
-			}
-		}
+		"AbilityValues"
+        {
+            "property_one" "100"
+            "property_two" "-20"
+            "element_one" "11"
+        }
 	}
 
