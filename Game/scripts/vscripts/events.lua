@@ -1446,8 +1446,20 @@ function Events:CreateRuneUnits(heroEntity, playerID)
 			if (i == DOTA_Q_SLOT or i == DOTA_W_SLOT or i == DOTA_E_SLOT or i == DOTA_R_SLOT) then
 				print(heroEntity:GetUnitName().." RGB: ABILITY FOUND IN SLOT "..i.." : "..ability:GetAbilityName())
 			else
-				print(heroEntity:GetUnitName().." RGB: ABILITY FOUND IN SLOT "..i.." : "..ability:GetAbilityName().. " - REMOVING")
-				heroEntity:RemoveAbility(ability:GetAbilityName())
+				if (i <= DOTA_R_SLOT) then
+					if (ability:GetAbilityName() ~= "generic_hidden") then
+						print(heroEntity:GetUnitName().." RGB: ABILITY FOUND IN SLOT "..i.." : "..ability:GetAbilityName().." - REPLACING WITH generic_hidden!")
+						local abilityToReplace = ability:GetAbilityName()
+						heroEntity:RemoveAbility(abilityToReplace)
+						local hiddenAbilityAdded = heroEntity:AddAbility("generic_hidden")
+						hiddenAbilityAdded:SetAbilityIndex(i)
+					else
+						print(heroEntity:GetUnitName().." RGB: ABILITY FOUND IN SLOT "..i.." : "..ability:GetAbilityName())
+					end
+				else
+					print(heroEntity:GetUnitName().." RGB: ABILITY FOUND IN SLOT "..i.." : "..ability:GetAbilityName().. " - REMOVING")
+					heroEntity:RemoveAbility(ability:GetAbilityName())
+				end
 			end
 			
 		end
