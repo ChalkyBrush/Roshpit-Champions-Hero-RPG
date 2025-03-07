@@ -1438,12 +1438,18 @@ function Events:LevelUpAbility(keys)
 end
 
 function Events:CreateRuneUnits(heroEntity, playerID)
-	for i = 0, 10, 1 do
+	for i = 0, 9, 1 do
 		local ability = heroEntity:GetAbilityByIndex(i)
 		if ability == nil then
 			print(heroEntity:GetUnitName().." RGB: No ability in slot "..i)
 		else
-			print(heroEntity:GetUnitName().." RGB: ABILITY FOUND IN SLOT "..i.." : "..ability:GetAbilityName())
+			if (i == DOTA_Q_SLOT or i == DOTA_W_SLOT or i == DOTA_E_SLOT or i == DOTA_R_SLOT) then
+				print(heroEntity:GetUnitName().." RGB: ABILITY FOUND IN SLOT "..i.." : "..ability:GetAbilityName())
+			else
+				print(heroEntity:GetUnitName().." RGB: ABILITY FOUND IN SLOT "..i.." : "..ability:GetAbilityName().. " - REMOVING")
+				heroEntity:RemoveAbility(ability:GetAbilityName())
+			end
+			
 		end
 	end
 	local runeUnit = CreateUnitByName("rune_unit", RPCItems.DROP_LOCATION, true, heroEntity, PlayerResource:GetPlayer(playerID), heroEntity:GetTeamNumber())
@@ -1530,8 +1536,11 @@ function Events:SetupHeroes(heroEntity)
 	--print(heroEntity:GetUnitName())
 	Timers:CreateTimer(14, function()
 		if Events.HEROKV then
-			heroEntity.originalProjectile = Events.HEROKV[heroEntity:GetUnitName()]["ProjectileModel"]
-			heroEntity.baseProjectileSpeed = heroEntity:GetProjectileSpeed()
+			if (Events.HEROKV[heroEntity:GetUnitName()] == nil) then
+			else
+				heroEntity.originalProjectile = Events.HEROKV[heroEntity:GetUnitName()]["ProjectileModel"]
+				heroEntity.baseProjectileSpeed = heroEntity:GetProjectileSpeed()
+			end
 		end
 	end)
 	heroEntity.castPointQ = heroEntity:GetAbilityByIndex(DOTA_Q_SLOT):GetCastPoint()

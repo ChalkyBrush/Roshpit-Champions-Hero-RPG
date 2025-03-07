@@ -163,6 +163,7 @@ function CorrectDotaUI(){
 	parent.FindChildTraverse("AbilitiesAndStatBranch").FindChildTraverse("StatBranch").style.visibility = 'collapse';
 	//REMOVE AGH AND SHARD UI
 	parent.FindChildTraverse("AbilitiesAndStatBranch").FindChildTraverse("AghsStatusContainer").style.visibility = 'collapse';
+
 	// $.Msg(StatBranch)
 	// parent.FindChildTraverse("StatBranch").style.width = '0px';
 	// parent.FindChildTraverse("StatBranch").visible = false;
@@ -170,6 +171,9 @@ function CorrectDotaUI(){
 	//REMOVE FACETS !!--ALERT--!! Generic ID, could break things later, Remove later if its a problem. For now this line removes Facets UI
 	var facetsContainer = parent.FindChildTraverse("AbilitiesAndStatBranch").FindChildTraverse("ContentsContainer");
 	facetsContainer.GetParent().style.visibility = 'collapse';
+
+	//remove neutral UI wandering waters
+	parent.FindChildTraverse("inventory_neutral_craft_holder").style.visibility = 'collapse';
 
 	// StatBranch.style.visibility = 'collapse';
 	// StatBranch.AddClass("GGStats")

@@ -49035,7 +49035,7 @@
             }
 
         }
-        "Ability1"  "arena_lies_plasma_field"
+        "Ability1"  ""
         "Ability2"  "electron_ai"
         "Ability3"  "use_ability_1_no_target_ai"
         "Ability4"  "dungeon_creep"
@@ -58732,7 +58732,7 @@
         "StatusManaRegen"   "100"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
-        "Ability1"      "shipyard_plasma_field"
+        "Ability1"      ""
         "Ability2"      "redfall_void_task_shield"
         "Ability3"      "use_ability_1_no_target_ai"
         "Ability4"      "dungeon_creep"
@@ -75633,7 +75633,7 @@
 
         "TeamName"  "DOTA_TEAM_NEUTRALS"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-        "Ability1"  "seafortress_plasma_field"
+        "Ability1"  ""
         "Ability2"  "seafortress_zot_passive"
         "Ability3"  "normal_steadfast"
         "Ability4"  "dungeon_creep"
