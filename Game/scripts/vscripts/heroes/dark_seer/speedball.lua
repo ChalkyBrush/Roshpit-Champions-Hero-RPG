@@ -6,8 +6,11 @@ LinkLuaModifier("modifier_zhonik_speedball_invisible", "modifiers/zhonik/modifie
 
 function start_channel(event)
 	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
 	StartSoundEvent("Zonik.Speedball.Channel", caster)
 	EmitSoundOn("Zonik.Speedball.StartChannel", caster)
+	ability.speedTarget = target
 end
 
 function channel_interrupt(event)
@@ -54,8 +57,8 @@ function speedball_start(event)
 	StopSoundEvent("Zonik.Speedball.Channel", caster)
 
 	EmitSoundOn("Zonik.Speedball.StartVO", caster)
-
-	ability.speedTarget = target
+	-- print("SPEEDBALL TARGET: "..ability.speedTarget:GetEntityIndex())
+	
 	local duration = Filters:GetAdjustedBuffDuration(caster, 8, false)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_zonik_speedball", {duration = duration})
 	caster:AddNewModifier(caster, ability, "modifier_zhonik_speedball_invisible", {duration = duration})

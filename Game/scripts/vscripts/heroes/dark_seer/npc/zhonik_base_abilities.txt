@@ -694,6 +694,7 @@
 			{
 				"ScriptFile"	"heroes/dark_seer/speedball.lua"
 				"Function"		"start_channel"
+				"target"		"TARGET"
 			}
 
 		}
