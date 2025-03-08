@@ -87,22 +87,24 @@ function UpdateAbilityList()
 	var wAbility = abilityListPanel.Children()[1];
 	var eAbility = abilityListPanel.Children()[2];
 	var rAbility = abilityListPanel.Children()[3];
+	if (!(qAbility === undefined)){
+		qAbility.SetPanelEvent('onmouseover', () => AbilityShowTooltip(qAbility))
+		qAbility.SetAttributeInt("abilityIndex", 0)
+		qAbility.SetPanelEvent('onmouseout', () => AbilityHideTooltip(qAbility))
 
-	qAbility.SetPanelEvent('onmouseover', () => AbilityShowTooltip(qAbility))
-	qAbility.SetAttributeInt("abilityIndex", 0)
-	qAbility.SetPanelEvent('onmouseout', () => AbilityHideTooltip(qAbility))
+		wAbility.SetPanelEvent('onmouseover', () => AbilityShowTooltip(wAbility))
+		wAbility.SetAttributeInt("abilityIndex", 1)
+		wAbility.SetPanelEvent('onmouseout', () => AbilityHideTooltip(wAbility))
 
-	wAbility.SetPanelEvent('onmouseover', () => AbilityShowTooltip(wAbility))
-	wAbility.SetAttributeInt("abilityIndex", 1)
-	wAbility.SetPanelEvent('onmouseout', () => AbilityHideTooltip(wAbility))
+		eAbility.SetPanelEvent('onmouseover', () => AbilityShowTooltip(eAbility))
+		eAbility.SetAttributeInt("abilityIndex", 2)
+		eAbility.SetPanelEvent('onmouseout', () => AbilityHideTooltip(eAbility))
+		
+		rAbility.SetPanelEvent('onmouseover', () => AbilityShowTooltip(rAbility))
+		rAbility.SetAttributeInt("abilityIndex", 3)
+		rAbility.SetPanelEvent('onmouseout', () => AbilityHideTooltip(rAbility))		
+	}
 
-	eAbility.SetPanelEvent('onmouseover', () => AbilityShowTooltip(eAbility))
-	eAbility.SetAttributeInt("abilityIndex", 2)
-	eAbility.SetPanelEvent('onmouseout', () => AbilityHideTooltip(eAbility))
-	
-	rAbility.SetPanelEvent('onmouseover', () => AbilityShowTooltip(rAbility))
-	rAbility.SetAttributeInt("abilityIndex", 3)
-	rAbility.SetPanelEvent('onmouseout', () => AbilityHideTooltip(rAbility))
 }
 
 (function()
