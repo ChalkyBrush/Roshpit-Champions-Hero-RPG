@@ -376,7 +376,8 @@ function GameMode:InitGameMode()
   LinkLuaModifier("modifier_master_movespeed", "modifiers/modifier_master_movespeed", LUA_MODIFIER_MOTION_NONE)
   LinkLuaModifier("modifier_ignore_ms_cap", "modifiers/modifier_ignore_ms_cap", LUA_MODIFIER_MOTION_NONE)
   LinkLuaModifier("modifier_channel_start", "modifiers/modifier_channel_start", LUA_MODIFIER_MOTION_NONE)
-  
+  -- LinkLuaModifier("modifier_animation", "libraries/modifiers/modifier_animation.lua", LUA_MODIFIER_MOTION_NONE)
+  -- LinkLuaModifier("modifier_animation_translate", "libraries/modifiers/modifier_animation_translate.lua", LUA_MODIFIER_MOTION_NONE)
 
   DebugPrint('[BAREBONES] Done loading Barebones gamemode!\n\n')
 end

@@ -1,0 +1,2 @@
+LinkLuaModifier("modifier_animation", "libraries/modifiers/modifier_animation.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_animation_translate", "libraries/modifiers/modifier_animation_translate.lua", LUA_MODIFIER_MOTION_NONE)
