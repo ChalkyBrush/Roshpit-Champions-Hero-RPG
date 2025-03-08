@@ -1152,6 +1152,7 @@
 			{
 				"ScriptFile"	"heroes/visage/supercharge.lua"
 				"Function"		"start_channel"
+				"target"		"TARGET"
 
 			}
 

@@ -2,13 +2,17 @@ require("/heroes/visage/ekkan_constants")
 
 function start_channel(event)
 	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
 	StartSoundEvent("Ekkan.SuperCharge.ChannelLP", caster)
+	ability.supercharge_target = target
 end
 
 function supercharge_start(event)
 	local caster = event.caster
-	local target = event.target
+	
 	local ability = event.ability
+	local target = ability.supercharge_target
 	Timers:CreateTimer(1, function()
 		StopSoundEvent("Ekkan.SuperCharge.ChannelLP", caster)
 	end)
