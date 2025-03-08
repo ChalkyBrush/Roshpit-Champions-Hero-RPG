@@ -121,10 +121,10 @@ function boomerang_base:UpdateCasterOutgoingBoomerangCounter()
 	if #ability.boomerangTable > 0 then
 		caster:AddNewModifier(caster, ability, self:GetCounterModifierName(), {})
 		caster:SetModifierStackCount(self:GetCounterModifierName(), caster, #ability.boomerangTable)
-		ability.weaponFX:SetModel(nil)
+		-- ability.weaponFX:SetModel(nil)
 	else
 		caster:RemoveModifierByName(self:GetCounterModifierName())
-		ability.weaponFX:SetModel(ability.weaponFXname)
+		-- ability.weaponFX:SetModel(ability.weaponFXname)
 	end
 	if #ability.boomerangTable >= self:GetMaximumConcurrentBoomerangs() then
 		ability:SetActivated(false)

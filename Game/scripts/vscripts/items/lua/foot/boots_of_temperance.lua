@@ -217,13 +217,16 @@ function modifierClass:OnAttacked(event)
 	if attacker == hero then
 		return false
 	end
-	local ability = self:GetAbility()
-	if ability:GetGemValue("amethyst") > 0 then
-		local proc = Filters:GetProc(hero, ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_BOOTS_OF_TEMPERANCE_GEM_AMETHYST))
-		if proc then
-			attacker:AddNewModifier(hero, ability, "modifier_temperance_disarm", {duration = ITEM_RPC_BOOTS_OF_TEMPERANCE_AMETHYST_DISARM_DURATION})
+	if (attacker:GetTeamNumber() ~= hero:GetTeamNumber()) then
+		local ability = self:GetAbility()
+		if ability:GetGemValue("amethyst") > 0 then
+			local proc = Filters:GetProc(hero, ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_BOOTS_OF_TEMPERANCE_GEM_AMETHYST))
+			if proc then
+				attacker:AddNewModifier(hero, ability, "modifier_temperance_disarm", {duration = ITEM_RPC_BOOTS_OF_TEMPERANCE_AMETHYST_DISARM_DURATION})
+			end
 		end
 	end
+
 end
 
 -- disarm_modifier
