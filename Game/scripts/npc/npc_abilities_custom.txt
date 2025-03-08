@@ -48762,6 +48762,7 @@
 			{
 				"ScriptFile"	"heroes/slark/bubble_possession.lua"
 				"Function"		"start_channel"
+				"target"		"TARGET"
 			}
 
 		}

@@ -8,6 +8,7 @@ CHANNEL_INTERVALS = 50
 function start_channel(event)
 	local caster = event.caster
 	local ability = event.ability
+	local target = event.target
 	ability.interval = 0
 	ability.target = event.target
 	if ability.lockedTarget then
@@ -21,6 +22,7 @@ function start_channel(event)
 	if caster:HasModifier("modifier_slipfinn_glyph_6_1") then
 		ability:ApplyDataDrivenModifier(caster, ability.target, "modifier_bubble_possess_6_1_glyph", {duration = 3.0})
 	end
+	ability.possession_target = target
 end
 
 function bubble_possession_channel_thinking(event)
@@ -62,7 +64,7 @@ end
 function bubble_possess_start(event)
 	local caster = event.caster
 	local ability = event.ability
-	local target = event.target
+	local target = ability.possession_target
 	-- StopSoundEvent("Slipfinn.Possess.Channel.LP", caster)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_possession_moving_toward_target", {duration = 10})
 	CustomAbilities:QuickParticleAtPoint("particles/roshpit/possession_begin_flight_tart.vpcf", caster:GetAbsOrigin(), 1)
