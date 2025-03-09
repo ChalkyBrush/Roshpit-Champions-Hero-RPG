@@ -59492,6 +59492,10 @@
         {
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_bane.vsndevts"
             "particle"  "particles/units/heroes/hero_bane/bane_enfeeble.vpcf"
+            "model" "models/animal_plate_pig.vmdl"
+            "model" "models/animal_plate_rabbit.vmdl"
+            "model" "models/animal_plate_rat.vmdl"
+            "model" "models/animal_plate_rooster.vmdl"
         }
         "ArmorPhysical" "0"
         "MagicalResistance" "0"
