@@ -1789,13 +1789,15 @@ end
 				Timers:CreateTimer(2, function()
 					if GameState:GetHeroByPlayerID(playerID) == -1 then
 						if player:GetAssignedHero():GetUnitName() == "npc_dota_hero_wisp" then
-							PlayerResource:ReplaceHeroWith(playerID, heroName, 0, 0)
-							Timers:CreateTimer(1, function()
-								local hero = GameState:GetHeroByPlayerID(playerID)
-								hero.actual_game_hero = true
-								-- hero = EntIndexToHScript(hero)
-								hero.muteMusic = msg.muteMusic
-							end)
+							PrecacheUnitByNameAsync(heroName, function()
+								PlayerResource:ReplaceHeroWith(playerID, heroName, 0, 0)
+								Timers:CreateTimer(1, function()
+									local hero = GameState:GetHeroByPlayerID(playerID)
+									hero.actual_game_hero = true
+									-- hero = EntIndexToHScript(hero)
+									hero.muteMusic = msg.muteMusic
+								end)
+							end, playerID)
 						end
 					end
 				end)
