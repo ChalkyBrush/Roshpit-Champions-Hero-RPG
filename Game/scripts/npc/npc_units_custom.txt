@@ -49154,7 +49154,7 @@
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "Ability1"              "arena_pit_temple_wave"
-        "Ability2"              "omniknight_repel"
+        "Ability2"              ""
         "Ability3"              "arena_pit_temple_repeller_ai"
         "Ability4"              "dungeon_creep"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
