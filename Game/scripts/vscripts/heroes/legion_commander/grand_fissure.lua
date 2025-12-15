@@ -17,7 +17,7 @@ end
 function channel_complete(event)
     local caster = event.caster
     local ability = event.ability
-    local target = event.target_points[1]
+    local target = ability:GetCursorPosition()
     local mainAOE = event.radius
     local explosionAOE = MOUNTAIN_PROTECTOR_R_EXPL_AOE
     local damage = event.damage

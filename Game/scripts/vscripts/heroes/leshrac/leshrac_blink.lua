@@ -13,7 +13,7 @@ function HideCaster(event)
 		ability:StartCooldown(BAHAMUT_IMMORTAL_WEAPON_2_BASE_E_CD)
 	end
 	caster.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "bahamut")
-	event.caster.newPosition = event.target_points[1]
+	event.caster.newPosition = ability:GetCursorPosition()
 	-- local pfx = ParticleManager:CreateParticle( "particles/units/heroes/hero_undying/undying_loadout.vpcf", PATTACH_ABSORIGIN, event.caster )
 	--     ParticleManager:SetParticleControl( pfx, 0, position )
 	local newPosition = WallPhysics:WallSearch(position, event.caster.newPosition, caster)

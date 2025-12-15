@@ -3,7 +3,7 @@ require('/heroes/legion_commander/mountain_protector_constants')
 function begin_mystic_wave(event)
 	local caster = event.caster
 	local ability = event.ability
-	local target = event.target_points[1]
+	local target = ability:GetCursorPosition()
 	local range = event.range
 	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 	EmitSoundOn("MysticAssasin.MysticWaveYell2", caster)

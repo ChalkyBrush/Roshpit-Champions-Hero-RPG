@@ -5,7 +5,7 @@ require('/heroes/legion_commander/mountain_protector_constants')
 function begin_mystic_strike(event)
     local caster = event.caster
     local ability = event.ability
-    local target = event.target_points[1]
+    local target = ability:GetCursorPosition()
 
     local particleName = "particles/roshpit/mystic_assassin/mystic_strike.vpcf"
     if caster:HasModifier("modifier_mountain_protector_immortal_weapon_3") then

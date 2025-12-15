@@ -5,7 +5,7 @@ require('heroes/slardar/arcana/flood_basin')
 function slippery_tail_start(event)
 	local caster = event.caster
 	local ability = event.ability
-	local target = event.target_points[1]
+	local target = ability:GetCursorPosition()
 	if caster:HasModifier("modifier_hydroxis_arcana2") then
 		if caster:HasModifier("modifier_flood_basin_aura_effect") then
 			if slippery_tail_arcana(caster, target, ability) then

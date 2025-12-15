@@ -4,7 +4,7 @@ function jex_fire_cosmic_q_phase(event)
 	local caster = event.caster
 	local ability = event.ability
 	StartAnimation(caster, {duration = 0.97, activity = ACT_DOTA_CAST_ABILITY_1, rate = 0.9})
-	local point = event.target_points[1]
+	local point = ability:GetCursorPosition()
 
 	ability.point = point
 	StartSoundEvent("Jex.Meteor.CastStart", caster)
@@ -24,7 +24,7 @@ function jex_fire_cosmic_q_phase_interrupt(event)
 	local caster = event.caster
 	local ability = event.ability
 	StartAnimation(caster, {duration = 1, activity = ACT_DOTA_CAST_ABILITY_1, rate = 0.4})
-	local point = event.target_points[1]
+	local point = ability:GetCursorPosition()
 	-- EndAnimation(caster)
 	ParticleManager:DestroyParticle(ability.casting_shower.pfx, false)
 	StopSoundEvent("Jex.Meteor.CastStart", caster)

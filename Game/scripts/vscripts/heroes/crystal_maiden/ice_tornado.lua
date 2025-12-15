@@ -52,7 +52,7 @@ function channel_complete(event)
 	Timers:CreateTimer(0.05, function()
 		StartAnimation(caster, {duration = 1.1, activity = ACT_DOTA_ATTACK, rate = 1.6})
 	end)
-	local startPoint = event.target_points[1]
+	local startPoint = ability:GetCursorPosition()
 	ability.velocity = 1000
 	ability.rotationDelta = 20
 	--DeepPrintTable(event.target_points)

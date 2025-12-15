@@ -24,7 +24,7 @@ function createWall(event)
 		ability.r_2_level = Runes:GetTotalRuneLevel(caster, 2, "r_2", "bahamut")
 	end
 	local soundTable = {"leshrac_lesh_deny_14", "leshrac_lesh_deny_15", "leshrac_lesh_deny_16", "leshrac_lesh_deny_12", "leshrac_lesh_deny_12", "leshrac_lesh_deny_10", "leshrac_lesh_deny_10", "leshrac_lesh_deny_06"}
-	local point = event.target_points[1]
+	local point = ability:GetCursorPosition()
 	EmitSoundOn(soundTable[RandomInt(1, #soundTable)], caster)
 	local casterOrigin = caster:GetAbsOrigin()
 	local fv = (point - casterOrigin):Normalized()

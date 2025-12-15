@@ -2,7 +2,7 @@ require("/heroes/winter_wyvern/dinath_constants")
 function drake_ring_cast(event)
 	local caster = event.caster
 	local ability = event.ability
-	local point = event.target_points[1]
+	local point = ability:GetCursorPosition()
 
 	StartAnimation(caster, {duration = 1.2, activity = ACT_DOTA_CAST_ABILITY_1, rate = 1.0})
 	EmitSoundOn("Dinath.DrakeRing.CastVO", caster)

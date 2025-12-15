@@ -3,7 +3,7 @@ require('heroes/arc_warden/abilities/onibi')
 function jex_activate_thunder_blossom(event)
 	local caster = event.caster
 	local ability = event.ability
-	local point = event.target_points[1]
+	local point = ability:GetCursorPosition()
 	if not ability.summons_table then
 		ability.summons_table = {}
 	end

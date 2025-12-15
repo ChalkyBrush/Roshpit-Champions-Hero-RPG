@@ -10,7 +10,7 @@ function begin_ultimate_jump(event)
 	caster:StartGesture(ACT_DOTA_SPAWN)
 
 	ability:ApplyDataDrivenModifier(caster, caster, "modfier_earth_aspect_jumping", {duration = 8})
-	local targetPoint = event.target_points[1]
+	local targetPoint = ability:GetCursorPosition()
 	local distance = WallPhysics:GetDistance(targetPoint * Vector(1, 1, 0), caster:GetAbsOrigin() * Vector(1, 1, 0))
 	local jumpFV = ((targetPoint - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
 	--print(jumpFV)

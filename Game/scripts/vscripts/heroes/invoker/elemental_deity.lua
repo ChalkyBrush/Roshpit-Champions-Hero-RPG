@@ -4,7 +4,7 @@ function begin_deity(event)
 	local caster = event.caster
 	local ability = event.ability
 
-	local summonPoint = event.target_points[1]
+	local summonPoint = ability:GetCursorPosition()
 	EmitSoundOn("invoker_invo_win_01", caster)
 	EmitSoundOn("invoker_invo_win_01", caster)
 	StartAnimation(caster, {duration = 0.75, activity = ACT_DOTA_CAST_TORNADO, rate = 1.0})
@@ -118,7 +118,7 @@ end
 function terra_blast_start(event)
 	local ability = event.ability
 	local caster = event.caster
-	local point = event.target_points[1]
+	local point = ability:GetCursorPosition()
 
 	local attacker = event.attacker
 	local length = math.max(WallPhysics:GetDistance(caster:GetAbsOrigin() * Vector(1, 1, 0), point * Vector(1, 1, 0)) / 190, 1) + 2

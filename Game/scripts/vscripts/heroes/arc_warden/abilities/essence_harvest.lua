@@ -161,7 +161,7 @@ end
 function start_channel(event)
 	local caster = event.caster
 	local ability = event.ability
-	local point = event.target_points[1]
+	local point = ability:GetCursorPosition()
 	local radius = event.radius
 	ability.point = point
 	ability.radius = radius

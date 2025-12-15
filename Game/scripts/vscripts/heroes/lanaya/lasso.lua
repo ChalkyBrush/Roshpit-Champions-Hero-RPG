@@ -3,7 +3,7 @@ require("/heroes/lanaya/trapper_constants")
 function trapper_lasso_start(event)
 	local caster = event.caster
 	local ability = event.ability
-	local point = event.target_points[1]
+	local point = ability:GetCursorPosition()
 	local radius = event.radius
 	if caster:HasModifier('modifier_trapper_glyph_5_1') then
 		radius = radius * TRAPPER_GLYPH_5_1_INVISIBLE_W_RADIUS_AMPLIFY
@@ -91,7 +91,7 @@ end
 function trapper_poison_whip_start(event)
 	local caster = event.caster
 	local ability = event.ability
-	local point = event.target_points[1]
+	local point = ability:GetCursorPosition()
 	local radius = event.radius
 	if caster:HasModifier('modifier_trapper_glyph_3_1') then
 		radius = radius + TRAPPER_GLYPH_3_1_ADD_RADIUS

@@ -4,8 +4,9 @@ require('heroes/juggernaut/seinaru_constants')
 
 function sunstrider_start(event)
 	local caster = event.caster
-	local target = WallPhysics:WallSearch(caster:GetAbsOrigin(), event.target_points[1], caster)
 	local ability = event.ability
+	local target = WallPhysics:WallSearch(caster:GetAbsOrigin(), ability:GetCursorPosition(), caster)
+	
 	local targets_count = event.targets_count
 	local att_to_dmg = event.att_to_dmg
 	caster:AddNoDraw()

@@ -39,7 +39,7 @@ function cast_raise_skeleton(event)
 	local armor_mult = event.armor_mult
 	local max_skeletons = event.max_skeletons
 	local skeleton_health = event.skeleton_health
-	local point = event.target_points[1]
+	local point = ability:GetCursorPosition()
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), point, nil, 105, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do
@@ -226,7 +226,7 @@ function skeleton_expire(event)
 end
 
 function mage_blast_target_point(event)
-	local point = event.target_points[1]
+	local point = ability:GetCursorPosition()
 	local caster = event.caster
 	local hero = caster.hero
 	local ability = event.ability

@@ -10,7 +10,7 @@ function jumpStart(event)
 	ability.fallVelocity = 0
 
 	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
-	local targetPoint = event.target_points[1]
+	local targetPoint = ability:GetCursorPosition()
 	if caster:HasModifier("modifier_warlord_glyph_1_1") then
 		swapSkills(event.type, caster, ability)
 	end
@@ -64,7 +64,7 @@ function fireJumpStart(event)
 	ability.fallVelocity = 0
 
 	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
-	local targetPoint = event.target_points[1]
+	local targetPoint = ability:GetCursorPosition()
 	if caster:HasModifier("modifier_warlord_glyph_1_1") then
 		swapSkills(event.type, caster, ability)
 	end

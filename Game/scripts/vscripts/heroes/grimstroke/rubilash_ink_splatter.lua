@@ -5,7 +5,7 @@ require('heroes/grimstroke/rubilash_root')
 function ink_splatter_start(event)
 	local caster = event.caster
 	local ability = event.ability
-	local point = event.target_points[1]
+	local point = ability:GetCursorPosition()
 
 	local actual_event_caster = caster
 	if event.illusion then

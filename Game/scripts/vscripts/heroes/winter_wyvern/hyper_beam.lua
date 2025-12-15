@@ -2,7 +2,7 @@ require("/heroes/winter_wyvern/dinath_constants")
 function hyperbeam_start_channel(event)
 	local caster = event.caster
 	local ability = event.ability
-	local target = event.target_points[1]
+	local target = ability:GetCursorPosition()
 	local position = caster:GetAbsOrigin() + caster:GetForwardVector() * 120
 	local hyperbeam = CreateUnitByName("npc_dummy_unit", position, false, nil, nil, caster:GetTeamNumber())
 	local flightStacks = caster:GetModifierStackCount("modifier_dinath_postflight_zheight", caster)

@@ -4,7 +4,7 @@ require('heroes/arc_warden/jex_constants')
 function jex_activate_q_nature_fire(event)
 	local caster = event.caster
 	local ability = event.ability
-	local point = event.target_points[1]
+	local point = ability:GetCursorPosition()
 
 	local tech_level = GetOnibiTotalTechLevel(caster, "nature", "fire", "Q")
 	local tree = CreateUnitByName("jex_fever_tree", point, false, caster, caster, caster:GetTeamNumber())

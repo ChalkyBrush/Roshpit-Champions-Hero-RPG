@@ -10,7 +10,7 @@ function star_blink_impact(event)
   local caster = event.caster
   local ability = event.ability
   local abilityLevel = ability:GetLevel()
-  local target = event.target_points[1]
+  local target = ability:GetCursorPosition()
   target = WallPhysics:WallSearch(caster:GetAbsOrigin(), target, caster)
   rune_e_1(caster, target, ability)
   rune_e_2(caster)

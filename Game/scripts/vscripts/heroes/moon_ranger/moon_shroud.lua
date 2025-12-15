@@ -160,9 +160,10 @@ function moon_shroud_debuff_end(event)
 end
 
 function moon_shroud_start_thinkers(event)
-  local target = event.target_points[1]
-  local caster = event.caster
   local ability = event.ability
+  local target = ability:GetCursorPosition()
+  local caster = event.caster
+  
   local ability_level = ability:GetLevel()
   local thinkerDuration = ability:GetLevelSpecialValueFor("duration", ability_level)
   if target and caster and ability and thinkerDuration then

@@ -15,7 +15,7 @@ function red_general_ability_arcana1_r_startChannel(event)
 	local forks = event.forks
 	ability.amp = amp
 
-	local point = event.target_points[1]
+	local point = ability:GetCursorPosition()
 	local direction = ((point - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
 	ability.attack_power_mult_percent = event.attack_power_mult_percent
 

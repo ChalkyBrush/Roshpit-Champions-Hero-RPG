@@ -21,7 +21,7 @@ function start_channel(event)
 	ability.rune_r_2_level = caster:GetRuneValue("r", 2)
 	caster.r_4_level = caster:GetRuneValue("r", 4)
 	local c_d_level = caster:GetRuneValue("r", 3)
-	local point = event.target_points[1]
+	local point = ability:GetCursorPosition()
 	if c_d_level > 0 then
 		ability.r_3_particle = ParticleManager:CreateParticle("particles/roshpit/sorceress/flamestrike_indicator_portrait.vpcf", PATTACH_WORLDORIGIN, caster)
 		ParticleManager:SetParticleControl(ability.r_3_particle, 0, point)
@@ -33,7 +33,7 @@ end
 function begin_pyro(event)
 	local caster = event.caster
 	local ability = event.ability
-	local target = event.target_points[1]
+	local target = ability:GetCursorPosition()
 	local fv = ((target - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
 	local casterOrigin = caster:GetAbsOrigin()
 	StartSoundEvent("hero_jakiro.macropyre", caster)

@@ -372,7 +372,7 @@ function cast_phoenix_blast(event)
 	local caster = event.caster
 	local ability = event.ability
 	local radius = 280
-	local position = event.target_points[1]
+	local position = ability:GetCursorPosition()
 	Timers:CreateTimer(0.45, function()
 		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		if #enemies > 0 then
@@ -395,7 +395,7 @@ function cast_phoenix_summon(event)
 	local caster = event.caster
 	local ability = event.ability
 	local radius = 280
-	local position = event.target_points[1]
+	local position = ability:GetCursorPosition()
 	particleName = "particles/items_fx/infernal_summon_spawn_aegis_starfall.vpcf"
 	for i = 1, 8, 1 do
 		Timers:CreateTimer(0.2 + i * 0.06, function()

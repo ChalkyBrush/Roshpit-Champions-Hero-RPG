@@ -13,7 +13,7 @@ end
 function begin_rockfall(event)
 	local ability = event.ability
 	local caster = event.caster
-	local target = event.target_points[1]
+	local target = ability:GetCursorPosition()
 	local damage = ability:GetAbilityDamage()
 	damage = damage + event.additional_str_damage * caster:GetStrength()
 	local stun_duration = event.stun_duration
@@ -78,7 +78,7 @@ end
 function volcanic_glissade(event)
 	local ability = event.ability
 	local caster = event.caster
-	local target = event.target_points[1]
+	local target = ability:GetCursorPosition()
 
 	ability.targetPoint = target
 

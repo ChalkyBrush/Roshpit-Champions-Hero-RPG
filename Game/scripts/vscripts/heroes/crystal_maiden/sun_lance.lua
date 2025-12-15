@@ -3,7 +3,7 @@ require('heroes/crystal_maiden/firestorm_q')
 function begin_fireball(event)
 	local caster = event.caster
 	local ability = event.ability
-	local target = event.target_points[1]
+	local target = ability:GetCursorPosition()
 	local fv = ((target - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
 	EmitSoundOn("Sorceress.SunLance.Cast", caster)
 

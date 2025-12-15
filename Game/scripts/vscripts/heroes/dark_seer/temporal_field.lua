@@ -9,8 +9,9 @@ end
 
 function field_start(event)
 	local caster = event.caster
-	local point = event.target_points[1]
+	
 	local ability = event.ability
+	local point = ability:GetCursorPosition()
 	EmitSoundOn("Zonik.TemporalField.DashVO", caster)
 
 	ability.point = point

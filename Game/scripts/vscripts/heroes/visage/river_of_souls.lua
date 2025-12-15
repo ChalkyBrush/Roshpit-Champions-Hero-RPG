@@ -4,7 +4,7 @@ require("/heroes/visage/ekkan_helpers")
 function river_of_souls_start(event)
 	local caster = event.caster
 	local ability = event.ability
-	local point = event.target_points[1]
+	local point = ability:GetCursorPosition()
 
 	if caster.corpseExplosionIndex == 0 then
 		point = WallPhysics:WallSearch(caster:GetAbsOrigin(), point, caster)

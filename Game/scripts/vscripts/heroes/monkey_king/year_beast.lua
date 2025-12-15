@@ -15,7 +15,7 @@ function hawk_screech(event)
 	local ability = event.ability
 	local duration = event.duration
 	EmitSoundOn("Draghor.YearBeast.Roar", caster)
-	local fv = ((event.target_points[1] - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
+	local fv = ((ability:GetCursorPosition() - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
 	local altitude = 15
 	StartAnimation(caster, {duration = 0.5, activity = ACT_DOTA_CAST_ABILITY_6, rate = 1.7})
 	local info =
@@ -248,7 +248,7 @@ function begin_bear_charge(event)
 	local caster = event.caster
 	-- caster:Stop()
 	local ability = event.ability
-	local target = event.target_points[1]
+	local target = ability:GetCursorPosition()
 	local chargeSpeed = 1000
 	local distance = WallPhysics:GetDistance2d(target, caster:GetAbsOrigin())
 	local duration = distance / chargeSpeed
@@ -428,7 +428,7 @@ end
 function jump_pre_start(event)
 	local caster = event.caster
 	local ability = event.ability
-	local distance = WallPhysics:GetDistance2d(event.target_points[1], caster:GetAbsOrigin())
+	local distance = WallPhysics:GetDistance2d(ability:GetCursorPosition(), caster:GetAbsOrigin())
 	if distance > 700 then
 		EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Draghor.YearBeast.PreLeap", caster)
 	else
@@ -456,7 +456,7 @@ end
 function yb_jump_start(event)
 	local caster = event.caster
 	local ability = event.ability
-	ability.targetPoint = event.target_points[1]
+	ability.targetPoint = ability:GetCursorPosition()
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_monkey_jump", {duration = 4})
 	local distance = WallPhysics:GetDistance2d(ability.targetPoint, caster:GetAbsOrigin())
 	ability.jumpVelocity = distance / 22

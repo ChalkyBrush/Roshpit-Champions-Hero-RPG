@@ -54,7 +54,7 @@ end
 function action_leap_cast(event)
     local caster = event.caster
     local ability = event.ability
-    local target = event.target_points[1]
+    local target = ability:GetCursorPosition()
     local casterOrigin = caster:GetAbsOrigin()
     local max_distance = Filters:GetAdjustedRange(caster, ability:GetSpecialValueFor("max_distance"))
     local targetOrigin = target

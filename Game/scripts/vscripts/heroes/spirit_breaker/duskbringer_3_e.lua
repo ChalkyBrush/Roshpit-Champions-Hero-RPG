@@ -4,7 +4,7 @@ function begin_specter_rush_two(event)
 	local caster = event.caster
 	-- caster:Stop()
 	local ability = event.ability
-	local target = event.target_points[1]
+	local target = ability:GetCursorPosition()
 	local chargeSpeed = 1000
 	local cast_distance = WallPhysics:GetDistance2d(target, caster:GetAbsOrigin())
 	local distance = math.min(cast_distance, event.max_distance)

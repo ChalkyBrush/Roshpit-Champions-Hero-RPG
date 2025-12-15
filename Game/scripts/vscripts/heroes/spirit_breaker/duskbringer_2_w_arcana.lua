@@ -4,7 +4,7 @@ require('/heroes/spirit_breaker/duskbringer_constants')
 function shadow_slam_start(event)
 	local caster = event.caster
 	local ability = event.ability
-	local point = event.target_points[1]
+	local point = ability:GetCursorPosition()
 	local newPosition = WallPhysics:WallSearch(caster:GetAbsOrigin(), point, caster)
 
 	-- caster:SetAbsOrigin(newPosition)

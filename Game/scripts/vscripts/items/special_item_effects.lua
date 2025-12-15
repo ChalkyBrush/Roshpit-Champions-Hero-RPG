@@ -4132,7 +4132,8 @@ end
 
 function doom_blink(event)
 	local caster = event.caster
-	local point = event.target_points[1]
+	local ability = event.ability
+	local point = ability:GetCursorPosition()
 
 	EmitSoundOn("RPCItem.Doomplate.Blink", caster)
 

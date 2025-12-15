@@ -8,7 +8,7 @@ function begin_lightning_dash(event)
 
 	if ability.lockPoint then
 	else
-		ability.point = event.target_points[1]
+		ability.point = ability:GetCursorPosition()
 	end
 	ability.moveDirection = (ability.point - caster:GetAbsOrigin()):Normalized()
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_bahamut_sphere_of_divinity", {duration = 7})

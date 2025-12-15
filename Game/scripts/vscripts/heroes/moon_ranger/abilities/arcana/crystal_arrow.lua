@@ -13,7 +13,7 @@ function crystal_arrow_channel_start(event)
 	ability.liftspeed = 7.5
 	ability.anim = true
 	ability.arrow_spawn = true
-	ability.target_point = event.target_points[1]
+	ability.target_point = ability:GetCursorPosition()
 	if not ability.arrow_table then
 		ability.arrow_table = {}
 	end

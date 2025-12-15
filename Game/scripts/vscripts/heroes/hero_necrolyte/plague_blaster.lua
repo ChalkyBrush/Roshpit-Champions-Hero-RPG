@@ -10,7 +10,7 @@ function cast_necrofusion(event)
     local ability = event.ability
     local damage = event.damage
 
-    local target_point = event.target_points[1]
+    local target_point = ability:GetCursorPosition()
     local origin = caster:GetAbsOrigin()
     local direction = caster:GetForwardVector()
 

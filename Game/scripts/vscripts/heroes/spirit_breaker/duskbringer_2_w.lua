@@ -4,7 +4,7 @@ require('/heroes/spirit_breaker/duskbringer_constants')
 function begin_ghost_hallow(event)
 	local caster = event.caster
 	local ability = event.ability
-	local target = event.target_points[1]
+	local target = ability:GetCursorPosition()
 	Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 	EmitSoundOnLocationWithCaster(target, "Duskbringer.GhostHallow", caster)
 	--ability:ApplyDataDrivenThinker(caster, GetGroundPosition(target, caster), "ghost_hallow", {duration = 6})

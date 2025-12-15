@@ -87,7 +87,7 @@ end
 function cloak_of_shadows_cast(event)
 	local caster = event.caster
 	local ability = event.ability
-	local point = event.target_points[1]
+	local point = ability:GetCursorPosition()
 	local radius = event.radius
 	local duration = Filters:GetAdjustedBuffDuration(caster.conjuror, event.duration, false)
 
@@ -174,7 +174,7 @@ function dark_horizon_start(event)
 	local caster = event.caster
 	local ability = event.ability
 	local radius = event.radius
-	local point = event.target_points[1]
+	local point = ability:GetCursorPosition()
 	local allies = {}
 	if caster.earthAspect then
 		table.insert(allies, caster.earthAspect)

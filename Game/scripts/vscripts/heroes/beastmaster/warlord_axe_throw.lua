@@ -22,7 +22,7 @@ function prepareAxeLaunch(event)
 	local ability = event.ability
 	local element = event.type
 	StartAnimation(caster, {duration = 0.39, activity = ACT_DOTA_ATTACK, rate = 1.8})
-	local point = event.target_points[1]
+	local point = ability:GetCursorPosition()
 	local casterOrigin = caster:GetAbsOrigin()
 	local fv = (point - casterOrigin):Normalized()
 

@@ -3,7 +3,7 @@ function rain_think(event)
 		local particleName =  "particles/units/heroes/hero_legion_commander/crawler_shaman_blizzard.vpcf"
 		EmitSoundOn("Hero_Meepo.Poof.End05", caster)
 		local position = caster:GetAbsOrigin()
-		local target = event.target_points[1]
+		local target = event.ability:GetCursorPosition()
 		local particleVector = target
 		local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
 		ParticleManager:SetParticleControl( pfx, 0, particleVector )

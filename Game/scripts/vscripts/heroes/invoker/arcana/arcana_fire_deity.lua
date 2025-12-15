@@ -86,7 +86,7 @@ function fire_ability_cast(event)
 		StartAnimation(caster, {duration = 0.8, activity = ACT_DOTA_ATTACK, rate = 1.3})
 	end)
 	local beamLength = 1000
-	local point = event.target_points[1] + Vector(0, 0, 90)
+	local point = ability:GetCursorPosition() + Vector(0, 0, 90)
 	local particle_name = "particles/econ/items/phoenix/phoenix_solar_forge/phoenix_sunray_solar_forge.vpcf"
 	local pfx = ParticleManager:CreateParticle(particle_name, PATTACH_CUSTOMORIGIN, nil)
 	-- ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_CUSTOMORIGIN, "attach_attack1", caster:GetAbsOrigin(), true)
@@ -278,7 +278,7 @@ function fire_deity_spellcast(event)
 	local caster = event.caster
 	local ability = event.ability
 	StartAnimation(caster, {duration = 1, activity = ACT_DOTA_ATTACK, rate = 1.2})
-	local point = event.target_points[1]
+	local point = ability:GetCursorPosition()
 	local fv = ((point - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
 	local start_radius = 200
 	local end_radius = 300

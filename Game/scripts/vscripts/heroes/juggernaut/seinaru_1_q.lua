@@ -3,7 +3,7 @@ require('heroes/juggernaut/seinaru_constants')
 function begin_kaze_gust(event)
 	local caster = event.caster
 	local ability = event.ability
-	local target = event.target_points[1]
+	local target = ability:GetCursorPosition()
 	local range = event.range
 	local speed = range + 200
 

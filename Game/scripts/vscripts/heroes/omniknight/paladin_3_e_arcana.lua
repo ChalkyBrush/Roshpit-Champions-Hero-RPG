@@ -3,7 +3,7 @@ require('heroes/omniknight/paladin_constants')
 function begin_crusader_comet(event)
 	local caster = event.caster
 	local ability = event.ability
-	local point = event.target_points[1]
+	local point = ability:GetCursorPosition()
 	ability.point = WallPhysics:WallSearch(caster:GetAbsOrigin(), point, caster)
 	ability.jumpVelocity = 60
 	ability.forwardMovement = 6

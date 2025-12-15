@@ -16,7 +16,7 @@ function jex_q_cosmic_cosmic_cast(event)
 		StartAnimation(caster, {duration = 0.8, activity = ACT_DOTA_ATTACK, rate = 1.3})
 	end)
 	local beamLength = 1000
-	local point = event.target_points[1] + Vector(0, 0, 90)
+	local point = ability:GetCursorPosition() + Vector(0, 0, 90)
 	local particle_name = "particles/econ/items/phoenix/phoenix_solar_forge/phoenix_sunray_solar_forge.vpcf"
 	local pfx = ParticleManager:CreateParticle(particle_name, PATTACH_CUSTOMORIGIN, nil)
 	-- ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_CUSTOMORIGIN, "attach_attack1", caster:GetAbsOrigin(), true)
@@ -87,7 +87,7 @@ function jex_q_cosmic_cosmic_cast_targetted(event)
 	ParticleManager:SetParticleControl(pfx, 1, caster:GetAbsOrigin() + Vector(0, 0, 90))
 	ParticleManager:SetParticleControl(pfx, 3, caster:GetAbsOrigin() + Vector(0, 0, 90))
 	ParticleManager:SetParticleControl(pfx, 4, caster:GetAbsOrigin() + Vector(0, 0, 90))
-	beam.target = event.target_points[1]
+	beam.target = ability:GetCursorPosition()
 	beam.pfx = pfx
 	beam.position = caster:GetAbsOrigin()
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_jex_q_cosmic_cosmic_casting2", {})

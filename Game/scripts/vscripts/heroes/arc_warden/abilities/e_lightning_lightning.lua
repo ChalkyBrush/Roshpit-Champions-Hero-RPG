@@ -3,7 +3,7 @@ require('heroes/arc_warden/abilities/onibi')
 function jex_lightning_lightning_e_start(event)
 	local caster = event.caster
 	local ability = event.ability
-	local point = event.target_points[1]
+	local point = ability:GetCursorPosition()
 
 	local tech_level = GetOnibiTotalTechLevel(caster, "lightning", "lightning", "E")
 	ability.tech_level = tech_level

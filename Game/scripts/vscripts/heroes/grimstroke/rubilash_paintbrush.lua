@@ -28,7 +28,7 @@ function start_paintbrush(event)
 	if event.illusion then
 		local illusion_ability = caster:FindAbilityByName("rubilash_self_portrait")
 		actual_event_caster = illusion_ability.illusion
-		local facing_vector = ((event.target_points[1] - actual_event_caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+		local facing_vector = ((ability:GetCursorPosition() - actual_event_caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
 		actual_event_caster:MoveToPosition(actual_event_caster:GetAbsOrigin() + facing_vector)
 	else
 		ability.caster = caster
@@ -36,7 +36,7 @@ function start_paintbrush(event)
 
 	EmitSoundOn("Rubilash.Paintbrush.Cast.Highlight", actual_event_caster)
 	EmitSoundOn("Rubilash.Paintbrush.Cast.Inky", actual_event_caster)
-    local fv = ((event.target_points[1] - actual_event_caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+    local fv = ((ability:GetCursorPosition() - actual_event_caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
     local spellOrigin = actual_event_caster:GetAbsOrigin()
     local range = event.range
     range = range + Filters:CalculateTotalCastRangeBonus(caster)

@@ -147,7 +147,7 @@ end
 function earthshock_cast(event)
 	local caster = event.caster
 	local ability = event.ability
-	local point = event.target_points[1]
+	local point = ability:GetCursorPosition()
 	local radius = event.radius
 
 	local duration = 3.0
@@ -340,7 +340,7 @@ function earth_deity_bowl(event)
 	local caster = event.caster
 	local ability = caster:FindAbilityByName("earth_deity_grand_guardian")
 	local target = ability.target
-	local point = event.target_points[1]
+	local point = ability:GetCursorPosition()
 	caster:RemoveModifierByName("modifier_deity_grand_guardian")
 	ability.point = point
 	ability.phase = 2

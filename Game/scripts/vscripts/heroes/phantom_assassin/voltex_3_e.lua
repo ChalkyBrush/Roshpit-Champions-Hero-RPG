@@ -16,7 +16,7 @@ function voltex_azure_leap_onspellstart(event)
 	caster.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "voltex")
 
 	ability:ApplyDataDrivenModifier(caster, caster, "modfier_voltex_jumping", {duration = 8})
-	local targetPoint = event.target_points[1]
+	local targetPoint = ability:GetCursorPosition()
 	local distance = WallPhysics:GetDistance(targetPoint * Vector(1, 1, 0), caster:GetAbsOrigin() * Vector(1, 1, 0))
 	local jumpFV = ((targetPoint - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
 	--print(jumpFV)
@@ -228,7 +228,7 @@ end
 function voltex_rune_e_3_heavens_charge_onspellstart(event)
 	local caster = event.caster
 	local ability = event.ability
-	local position = event.target_points[1]
+	local position = ability:GetCursorPosition()
 	local e_3_level = caster:GetRuneValue("e", 3)
 	local maxDistance = e_3_level * VOLTEX_E3_RANGE + VOLTEX_E3_BASE_RANGE
 	local startPosition = caster:GetAbsOrigin()

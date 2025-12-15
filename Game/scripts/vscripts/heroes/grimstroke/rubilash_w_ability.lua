@@ -52,11 +52,11 @@ function rubilash_ink_blot(event)
 	if event.illusion then
 		local illusion_ability = caster:FindAbilityByName("rubilash_self_portrait")
 		actual_event_caster = illusion_ability.illusion
-		local facing_vector = ((event.target_points[1] - actual_event_caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+		local facing_vector = ((ability:GetCursorPosition() - actual_event_caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
 		actual_event_caster:MoveToPosition(actual_event_caster:GetAbsOrigin() + facing_vector)
 	end
 
-	local point = event.target_points[1]
+	local point = ability:GetCursorPosition()
     local fv = ((point - actual_event_caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
     local spellOrigin = actual_event_caster:GetAbsOrigin()
     local range = WallPhysics:GetDistance2d(spellOrigin, point)

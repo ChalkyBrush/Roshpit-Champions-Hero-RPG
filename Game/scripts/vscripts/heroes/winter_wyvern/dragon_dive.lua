@@ -2,7 +2,7 @@ require("/heroes/winter_wyvern/dinath_constants")
 function dinath_dive_precast(event)
 	local caster = event.caster
 	local ability = event.ability
-	local point = event.target_points[1]
+	local point = ability:GetCursorPosition()
 	ability.target_point = point
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_dinath_dive_precast", {duration = 1})
 	ability.fv = ((ability.target_point - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
@@ -16,7 +16,7 @@ end
 function begin_dinath_dive(event)
 	local caster = event.caster
 	local ability = event.ability
-	local point = event.target_points[1]
+	local point = ability:GetCursorPosition()
 	ability.dashSpeed = 22
 	ability.dashSpeed = Filters:GetAdjustedESpeed(caster, ability.dashSpeed, false)
 	caster:RemoveModifierByName("modifier_dinath_dive_precast")

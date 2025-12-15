@@ -4,7 +4,7 @@ require('/heroes/spirit_breaker/duskbringer_constants')
 function begin_manifestation(event)
 	local caster = event.caster
 	local ability = event.ability
-	local target = event.target_points[1]
+	local target = ability:GetCursorPosition()
 	local casterOrigin = caster:GetAbsOrigin()
 	local zLock = casterOrigin.z
 	EmitSoundOn("Duskbringer.Manifestation", caster)

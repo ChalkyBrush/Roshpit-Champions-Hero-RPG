@@ -5,7 +5,7 @@ require('heroes/slark/jump')
 function shadow_warp_start(event)
 	local caster = event.caster
 	local ability = event.ability
-	local target = event.target_points[1]
+	local target = ability:GetCursorPosition()
 	local origPosition = caster:GetAbsOrigin()
 	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_slark/slark_loadout.vpcf", caster, 0.5)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_slipfinn_shadow_warping", {duration = 0.2})

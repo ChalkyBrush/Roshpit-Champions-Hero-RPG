@@ -6,8 +6,9 @@ Creates a dummy unit to apply the Blizzard thinker modifier which does the waves
 function BlizzardStart(event)
 	-- Variables
 	local caster = event.caster
-	local point = event.target_points[1]
+	
 	local ability = event.ability
+	local point = ability:GetCursorPosition()
 	if caster:HasModifier("modifier_sorceress_immortal_ice_avatar") then
 		StartSoundEvent("hero_Crystal.freezingField.wind", caster)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_blizzard_channelling", {})
@@ -90,7 +91,7 @@ function BlizzardWave(event)
 	local target = event.target
 	if event.target.active then
 		target.thinks = target.thinks + 1
-		local target_position = event.target:GetAbsOrigin() --event.target_points[1]
+		local target_position = event.target:GetAbsOrigin() --ability:GetCursorPosition()
 		local particleName = "particles/units/heroes/hero_crystalmaiden/maiden_freezing_field_explosion.vpcf"
 		local distance = 100
 

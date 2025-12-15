@@ -5,7 +5,7 @@ function earthquake_cast(event)
 	local ability = event.ability
 	local stun_duration = event.stun_duration
 	local radius = event.radius
-	local point = event.target_points[1]
+	local point = ability:GetCursorPosition()
 	local damage = event.damage
 
 	if caster:HasModifier("modifier_conjuror_glyph_5_1") then

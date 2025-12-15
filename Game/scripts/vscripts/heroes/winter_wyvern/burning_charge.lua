@@ -4,7 +4,7 @@ require('heroes/winter_wyvern/arctic_burn')
 function burning_charge_start(event)
 	local caster = event.caster
 	local ability = event.ability
-	local target = event.target_points[1]
+	local target = ability:GetCursorPosition()
 	ability.fv = ((target - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
 	ability.perpFV = WallPhysics:rotateVector(ability.fv, 2 * math.pi / 4)
 	ability.targetPoint = target

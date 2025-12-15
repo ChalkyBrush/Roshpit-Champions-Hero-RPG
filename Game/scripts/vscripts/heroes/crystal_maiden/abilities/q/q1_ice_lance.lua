@@ -7,7 +7,7 @@ function cast(event)
     Helper.initializeAbilityRunes(caster, 'sorceress', 'q')
 
     --Timers:CreateTimer(0.3, function()
-    local target = event.target_points[1]
+    local target = ability:GetCursorPosition()
     EmitSoundOn("Sorceress.IceLance", caster)
     local fv = ((target - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
     local casterOrigin = caster:GetAbsOrigin()

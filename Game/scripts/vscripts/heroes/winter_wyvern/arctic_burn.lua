@@ -4,7 +4,7 @@ function arctic_burn_finish_channel(event)
 	local ability = event.ability
 	local caster = event.caster
 	local ability = event.ability
-	local target = event.target_points[1]
+	local target = ability:GetCursorPosition()
 
 	local position = caster:GetAbsOrigin() + caster:GetForwardVector() * 120
 	local bomb = CreateUnitByName("npc_dummy_unit", position, false, nil, nil, caster:GetTeamNumber())

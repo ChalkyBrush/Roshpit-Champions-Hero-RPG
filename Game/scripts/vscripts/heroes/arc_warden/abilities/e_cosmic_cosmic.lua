@@ -11,7 +11,7 @@ end
 function jex_cosmic_port_start(event)
     local caster = event.caster
     local ability = event.ability
-    local target = event.target_points[1]
+    local target = ability:GetCursorPosition()
 
     local tech_level = GetOnibiTotalTechLevel(caster, "cosmic", "cosmic", "E")
 

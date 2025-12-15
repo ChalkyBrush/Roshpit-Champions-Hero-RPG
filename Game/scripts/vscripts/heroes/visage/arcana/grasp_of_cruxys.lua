@@ -31,7 +31,7 @@ function cast_raise_skeleton_cruxys(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
-	local point = event.target_points[1]
+	local point = ability:GetCursorPosition()
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), point, nil, 105, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do
@@ -318,7 +318,7 @@ function plaguebearer_poison_spray_cast(event)
 	local caster = event.caster
 	local hero = event.caster.hero
 	local ability = event.ability
-	local position = event.target_points[1]
+	local position = ability:GetCursorPosition()
 	EmitSoundOnLocationWithCaster(position, "Ekkan.PlagueBearer.AcidSpray", caster)
 
     local poison_thinker = CreateUnitByName("npc_dummy_unit", position, false, nil, nil, hero:GetTeamNumber())
@@ -470,7 +470,7 @@ function frost_wraith_freezing_rain_cast(event)
 	local attacker = event.attacker
 	local ability = event.ability
 	local hero = caster.hero
-	local position = event.target_points[1]
+	local position = ability:GetCursorPosition()
 
 	local particleName = "particles/units/heroes/hero_crystalmaiden/maiden_freezing_field_explosion.vpcf"
 	local pfx_table = {}
@@ -577,7 +577,7 @@ function burning_legionnaire_skeletal_mortar_cast(event)
 	local attacker = event.attacker
 	local ability = event.ability
 	local hero = caster.hero
-	local position = event.target_points[1]
+	local position = ability:GetCursorPosition()
 	EmitSoundOn("Ekkan.BurningLegionnaire.Mortar.Cast", caster)
 	caster:AddNoDraw()
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_skeletal_mortar_wait", {})

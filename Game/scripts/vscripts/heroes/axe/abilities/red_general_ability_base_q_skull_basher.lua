@@ -16,7 +16,7 @@ function red_general_ability_base_q_skull_basher(event)
 	EmitSoundOn("Hero_Axe.BerserkersCall.Item.Shoutmask", caster)
 	EmitSoundOn("Hero_Axe.BerserkersCall.Item.Shoutmask", caster)
 
-	local targetPoint = event.target_points[1]
+	local targetPoint = ability:GetCursorPosition()
 	local distance = WallPhysics:GetDistance2d(targetPoint * Vector(1, 1, 0), caster:GetAbsOrigin() * Vector(1, 1, 0))
 
 	ability.jumpFV = ((targetPoint - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()

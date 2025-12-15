@@ -2,7 +2,7 @@ function begin_lightning_dash(event)
 	local caster = event.caster
 	local ability = event.ability
 	local particleName = "particles/units/heroes/hero_stormspirit/stormspirit_ball_lightning.vpcf"
-	ability.point = event.target_points[1]
+	ability.point = ability:GetCursorPosition()
 	ability.moveDirection = (ability.point - caster:GetAbsOrigin()):Normalized()
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_lightning_dash", {duration = 3})
 	StartSoundEvent("Voltex.LightningDashStart.LP", caster)

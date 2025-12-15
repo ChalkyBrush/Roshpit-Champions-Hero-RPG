@@ -12,7 +12,7 @@ function lightbomb_precast(event)
 	end
 	local rate = 0.6 / math.max(ability:GetCastPoint(), 0.1)
 	StartAnimation(caster, {duration = 1.6, activity = ACT_DOTA_CAST_ABILITY_4, rate = rate})
-	ability.target_point = event.target_points[1]
+	ability.target_point = ability:GetCursorPosition()
 
 	local pfx = ParticleManager:CreateParticle("particles/roshpit/sephyr/lightbomb_projectile.vpcf", PATTACH_CUSTOMORIGIN, caster)
 	ability.position = caster:GetAbsOrigin() + caster:GetForwardVector() * 110 + Vector(0, 0, caster:GetModifierStackCount("modifier_z_flight", caster)) + Vector(0, 0, 100)

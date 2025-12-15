@@ -20,7 +20,7 @@ function begin_firestorm(event)
 	local caster = event.caster
 	local ability = event.ability
 	local radius = event.radius
-	local position = event.target_points[1]
+	local position = ability:GetCursorPosition()
 	ability.soundInterval = 0
 	ability.position = position
 	-- EmitSoundOnLocationWithCaster(position, "Sorceress.Firestorm.Cast", caster)

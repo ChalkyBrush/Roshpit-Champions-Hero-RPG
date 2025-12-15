@@ -9,7 +9,7 @@ end
 function blazing_magnet_cast(event)
 	local caster = event.caster
 	local ability = event.ability
-	local point = event.target_points[1]
+	local point = ability:GetCursorPosition()
 	local perpVector = WallPhysics:rotateVector(caster:GetForwardVector(), 2 * math.pi / 4)
 	local spellStartPoint = caster:GetAbsOrigin() + Vector(0, 0, 70) + perpVector * 80
 	local fv = ((point - spellStartPoint) * Vector(1, 1, 0)):Normalized()

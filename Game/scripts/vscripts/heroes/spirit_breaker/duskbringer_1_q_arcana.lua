@@ -6,7 +6,7 @@ function duskbringer_terrorize_start(event)
 	local ability = event.ability
 
 	local min_distance = 600
-	ability.target_point = WallPhysics:WallSearch(caster:GetAbsOrigin(), event.target_points[1], caster)
+	ability.target_point = WallPhysics:WallSearch(caster:GetAbsOrigin(), ability:GetCursorPosition(), caster)
 	if WallPhysics:GetDistance2d(caster:GetAbsOrigin(), ability.target_point) < min_distance then
 		local moveVector = ((ability.target_point - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
 		ability.target_point = WallPhysics:WallSearch(caster:GetAbsOrigin(), caster:GetAbsOrigin() + (moveVector * min_distance), caster)
@@ -112,7 +112,7 @@ function duskbringer_terrorize_bomb_start(event)
 	local caster = event.caster
 	local ability = event.ability
 
-	local point = event.target_points[1]
+	local point = ability:GetCursorPosition()
 	local travel_speed = 2000
 	local particleStartPoint = caster:GetAbsOrigin() + Vector(0, 0, 40) + caster:GetForwardVector() * 40
 	local pfx = CustomAbilities:QuickParticleAtPoint("particles/roshpit/duskbringer/terrorize_cast.vpcf", particleStartPoint, 4)

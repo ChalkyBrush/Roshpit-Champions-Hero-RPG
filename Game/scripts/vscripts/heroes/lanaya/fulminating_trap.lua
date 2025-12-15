@@ -3,7 +3,7 @@ require("/heroes/lanaya/trapper_constants")
 function trap_start(event)
 	local caster = event.caster
 	local ability = event.ability
-	local point = event.target_points[1]
+	local point = ability:GetCursorPosition()
 	if caster:HasModifier('modifier_trapper_immortal_weapon_3') then
 		Filters:ReduceCooldownGeneric(caster, ability, ability:GetCooldownTimeRemaining() * TRAPPER_IMMORTAL_WEAPON_3_CD_RED)
 	end
@@ -82,7 +82,7 @@ end
 function trap_start_poison(event)
 	local caster = event.caster
 	local ability = event.ability
-	local point = event.target_points[1]
+	local point = ability:GetCursorPosition()
 	if caster:HasModifier('modifier_trapper_immortal_weapon_3') then
 		Filters:ReduceCooldownGeneric(caster, ability, ability:GetCooldownTimeRemaining() * TRAPPER_IMMORTAL_WEAPON_3_CD_RED)
 	end
@@ -195,7 +195,7 @@ end
 function trap_start_net(event)
 	local caster = event.caster
 	local ability = event.ability
-	local point = event.target_points[1]
+	local point = ability:GetCursorPosition()
 	if caster:HasModifier('modifier_trapper_immortal_weapon_3') then
 		Filters:ReduceCooldownGeneric(caster, ability, ability:GetCooldownTimeRemaining() * TRAPPER_IMMORTAL_WEAPON_3_CD_RED)
 	end
@@ -352,7 +352,7 @@ end
 function trap_start_torrent(event)
 	local caster = event.caster
 	local ability = event.ability
-	local point = event.target_points[1]
+	local point = ability:GetCursorPosition()
 	if caster:HasModifier('modifier_trapper_immortal_weapon_3') then
 		Filters:ReduceCooldownGeneric(caster, ability, ability:GetCooldownTimeRemaining() * TRAPPER_IMMORTAL_WEAPON_3_CD_RED)
 	end

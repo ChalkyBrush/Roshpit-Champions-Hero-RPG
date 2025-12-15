@@ -4,7 +4,7 @@ function HideCaster(event)
   event.caster:SetMoveCapability(DOTA_UNIT_CAP_MOVE_NONE)
   local position = event.caster:GetAbsOrigin()
   local caster = event.caster
-  local target = event.target_points[1]
+  local target = event.ability:GetCursorPosition()
   local casterOrigin = caster:GetAbsOrigin()
   target = WallPhysics:WallSearch(casterOrigin, target, caster)
   -- local pfx = ParticleManager:CreateParticle( "particles/units/heroes/hero_undying/undying_loadout.vpcf", PATTACH_ABSORIGIN, event.caster )

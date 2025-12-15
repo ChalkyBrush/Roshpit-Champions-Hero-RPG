@@ -3,7 +3,7 @@ require('heroes/zuus/heavens_shield')
 function start_holy_arcana(event)
 	local caster = event.caster
 	local ability = event.ability
-	local point = event.target_points[1]
+	local point = ability:GetCursorPosition()
 	if IsValidEntity(event.target) then
 		point = event.target:GetAbsOrigin()
 	end
@@ -108,7 +108,7 @@ end
 function start_shadow_arcana(event)
 	local caster = event.caster
 	local ability = event.ability
-	local point = event.target_points[1]
+	local point = ability:GetCursorPosition()
 	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 	--ability:ApplyDataDrivenThinker(caster, GetGroundPosition(point, caster), "shadow_trap", {duration = 7})
 	CustomAbilities:QuickAttachThinker(ability, caster, GetGroundPosition(point, caster), "shadow_trap", {duration = AURIUN_ARCANA_2_Q_DURATION})

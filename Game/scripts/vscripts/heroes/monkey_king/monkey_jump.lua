@@ -1,7 +1,7 @@
 function jump_pre_start(event)
 	local caster = event.caster
-
-	local distance = WallPhysics:GetDistance2d(event.target_points[1], caster:GetAbsOrigin())
+	local ability = event.ability
+	local distance = WallPhysics:GetDistance2d(ability:GetCursorPosition(), caster:GetAbsOrigin())
 	if distance > 700 then
 		EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Draghor.JumpPre.VO.Big", caster)
 	else
@@ -16,7 +16,7 @@ end
 function monkey_jump_start(event)
 	local caster = event.caster
 	local ability = event.ability
-	ability.targetPoint = event.target_points[1]
+	ability.targetPoint = ability:GetCursorPosition()
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_monkey_jump", {duration = 4})
 	local distance = WallPhysics:GetDistance2d(ability.targetPoint, caster:GetAbsOrigin())
 	ability.jumpVelocity = distance / 20

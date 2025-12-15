@@ -3,7 +3,7 @@ require('heroes/arc_warden/abilities/onibi')
 function jex_grenade_throw_start(event)
     local caster = event.caster
     local ability = event.ability
-    local target = event.target_points[1]
+    local target = ability:GetCursorPosition()
     Filters:CastSkillArguments(BASE_ABILITY_W, caster)
     local fv = (target * Vector(1, 1, 0) - caster:GetAbsOrigin() * Vector(1, 1, 0)):Normalized()
     local bomb = CreateUnitByName("lanaya_explosive_bomb", caster:GetAbsOrigin(), false, caster, nil, caster:GetTeamNumber())

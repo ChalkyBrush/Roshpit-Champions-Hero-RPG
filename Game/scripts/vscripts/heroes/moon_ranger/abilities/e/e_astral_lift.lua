@@ -24,7 +24,7 @@ function cast(event)
         ability:StartCooldown(cd)
     end
 
-    local target = event.target_points[1]
+    local target = ability:GetCursorPosition()
     target = WallPhysics:WallSearch(caster:GetAbsOrigin(), target, caster)
 
     local delay = ASTRAL_RANGER_E_DELAY

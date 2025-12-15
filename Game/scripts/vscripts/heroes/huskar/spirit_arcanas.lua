@@ -111,7 +111,7 @@ end
 function blazing_javelin_cast(event)
 	local caster = event.caster
 	local ability = event.ability
-	local point = event.target_points[1]
+	local point = ability:GetCursorPosition()
 	Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 
 	local perpVector = WallPhysics:rotateVector(caster:GetForwardVector(), 2 * math.pi / 4)
@@ -283,7 +283,7 @@ end
 function cast_ancient_spirit_elite(event)
 	local caster = event.caster
 	local ability = event.ability
-	local target = event.target_points[1]
+	local target = ability:GetCursorPosition()
 	local cooldown = event.cooldown
 	if not ability.spiritTable then
 		ability.spiritTable = {}

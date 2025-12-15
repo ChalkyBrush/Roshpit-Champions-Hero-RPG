@@ -3,7 +3,7 @@ require("/heroes/hero_necrolyte/venomort_constants")
 function ghost_warp_start(event)
 	local caster = event.caster
 	local ability = event.ability
-	local target = event.target_points[1]
+	local target = ability:GetCursorPosition()
 	local maxDistance = event.cast_range
 	if caster:HasModifier('modifier_venomort_glyph_3_1') then
 		maxDistance = maxDistance * VENOMORT_GLYPH_3_1_E_CAST_RANGE_AMP

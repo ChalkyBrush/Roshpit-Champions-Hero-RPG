@@ -6,7 +6,7 @@ function jex_fire_fire_w_start(event)
 	if not ability.missleTable then
 		ability.missleTable = {}
 	end
-	ability.point = event.target_points[1]
+	ability.point = ability:GetCursorPosition()
 	local tech_level = GetOnibiTotalTechLevel(caster, "fire", "fire", "W")
 	local missle_count = math.max(event.flames_per_tech * tech_level, 1)
 	for i = 1, missle_count, 1 do

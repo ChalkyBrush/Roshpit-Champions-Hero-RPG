@@ -87,7 +87,7 @@ function begin_bear_charge(event)
 	local caster = event.caster
 	-- caster:Stop()
 	local ability = event.ability
-	local target = event.target_points[1]
+	local target = ability:GetCursorPosition()
 	local chargeSpeed = 1000
 	chargeSpeed = Filters:GetAdjustedESpeed(caster, chargeSpeed, false)
 	local distance = WallPhysics:GetDistance2d(target, caster:GetAbsOrigin())

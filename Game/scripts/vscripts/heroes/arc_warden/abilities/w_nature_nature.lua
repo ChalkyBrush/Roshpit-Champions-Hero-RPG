@@ -3,7 +3,7 @@ require('heroes/arc_warden/abilities/onibi')
 function jex_root_weave_start(event)
 	local caster = event.caster
 	local ability = event.ability
-	local target = event.target_points[1]
+	local target = ability:GetCursorPosition()
 	Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 	local radius = event.radius
 	local base_root_duration = event.base_root_duration

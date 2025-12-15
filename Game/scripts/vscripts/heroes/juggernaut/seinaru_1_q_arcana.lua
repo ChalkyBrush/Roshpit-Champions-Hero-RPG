@@ -11,11 +11,11 @@ function blade_dash_start(event)
 		ability.targetPoint = false
 	else
 		ability.target = false
-		ability.targetPoint = event.target_points[1]
+		ability.targetPoint = ability:GetCursorPosition()
 	end
 	if event.target_points then
 		ability.target = false
-		ability.targetPoint = event.target_points[1]
+		ability.targetPoint = ability:GetCursorPosition()
 	end
 	--print(ability.target)
 	--print(ability.targetPoint)

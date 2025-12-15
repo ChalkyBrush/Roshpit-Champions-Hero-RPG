@@ -7,7 +7,7 @@ function cipher_bolt_start(event)
 
 	if ability.lockPoint then
 	else
-		ability.point = event.target_points[1]
+		ability.point = ability:GetCursorPosition()
 		ability.point = WallPhysics:WallSearch(caster:GetAbsOrigin(), ability.point, caster)
 	end
 	local tech_level = GetOnibiTotalTechLevel(caster, "fire", "cosmic", "E")

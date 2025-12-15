@@ -4,9 +4,10 @@ local WaterElemental = require('heroes/crystal_maiden/abilities/e/e2_water_eleme
 
 function startCast(event)
     local caster = event.caster
-    local target = event.target_points[1]
-    local casterOrigin = caster:GetAbsOrigin()
     local ability = event.ability
+    local target = ability:GetCursorPosition()
+    local casterOrigin = caster:GetAbsOrigin()
+    
 
     target = WallPhysics:WallSearch(casterOrigin, target, caster)
     local newPosition = target

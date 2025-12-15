@@ -1,7 +1,7 @@
 function shadow_gate_cast(event)
 	local caster = event.caster
 	local ability = event.ability
-	local target = event.target_points[1]
+	local target = ability:GetCursorPosition()
 	local casterOrigin = caster:GetAbsOrigin()
 	target = WallPhysics:WallSearch(casterOrigin, target, caster)
 	local b_c_level = caster:GetRuneValue("e", 2)

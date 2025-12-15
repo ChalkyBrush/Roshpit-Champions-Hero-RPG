@@ -21,7 +21,7 @@ function initialize_flash_heal(event)
 		Timers:CreateTimer(0.5, function()
 			ParticleManager:DestroyParticle(pfx, false)
 		end)
-		local cursorPos = event.target_points[1]
+		local cursorPos = ability:GetCursorPosition()
 		local allies = FindUnitsInRadius(caster:GetTeamNumber(), cursorPos, nil, 140, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		local healAmount = ability:GetSpecialValueFor("heal")
 		local distance = WallPhysics:GetDistance(caster:GetAbsOrigin(), cursorPos)

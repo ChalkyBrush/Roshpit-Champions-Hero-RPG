@@ -3,7 +3,7 @@ require('heroes/arc_warden/abilities/onibi')
 function jex_activate_cinderbark(event)
 	local caster = event.caster
 	local ability = event.ability
-	local point = event.target_points[1]
+	local point = ability:GetCursorPosition()
 
 
 	point = WallPhysics:WallSearch(caster:GetAbsOrigin(), point, caster)

@@ -15,7 +15,7 @@ function water_bomb_start(event)
 		ParticleManager:DestroyParticle(pfx, false)
 	end)
 	caster.e_4_Level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "hydroxis")
-	local target = event.target_points[1]
+	local target = ability:GetCursorPosition()
 	local damage = event.damage
 	water_bomb_throw(caster, ability, target, event.damage, 1)
 	Filters:CastSkillArguments(BASE_ABILITY_W, caster)

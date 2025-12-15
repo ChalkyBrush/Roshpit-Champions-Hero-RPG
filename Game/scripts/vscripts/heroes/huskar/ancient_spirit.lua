@@ -4,7 +4,7 @@ require('/heroes/huskar/spirit_warrior_constants')
 function cast_ancient_spirit(event)
 	local caster = event.caster
 	local ability = event.ability
-	local target = event.target_points[1]
+	local target = ability:GetCursorPosition()
 	local cooldown = event.cooldown
 	if not ability.spiritTable then
 		ability.spiritTable = {}
